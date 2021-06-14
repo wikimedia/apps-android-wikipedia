@@ -39,12 +39,14 @@
   <string name="offline_load_error_retry">ลองใหม่</string>
   <string name="page_error_back_to_main">ย้อนกลับ</string>
   <string name="error_back">ย้อนกลับ</string>
+  <string name="error_next">ถัดไป</string>
   <string name="menu_clear_all_history">ล้างประวัติ</string>
   <string name="history_item_deleted">ลบ %s ออกจากประวัติแล้ว</string>
   <string name="history_items_deleted">ลบบทความ %d เรื่องออกจากประวัติแล้ว</string>
   <string name="history_item_delete_undo">เลิกทำ</string>
   <string name="notification_archive_undo">เลิกทำ</string>
   <string name="app_settings">การตั้งค่าแอป</string>
+  <string name="search_tab_tooltip">แตะไอคอนอีกครั้งเพื่อเริ่มพิมพ์คำค้นหาโดยตรง</string>
   <string name="history_list_title">ประวัติ</string>
   <string name="dialog_title_clear_history">ล้างประวัติการเข้าชม</string>
   <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมดและปิดแท็บปัจจุบัน คุณแน่ใจหรือไม่?</string>
@@ -56,8 +58,10 @@
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
   <string name="menu_page_find_in_page">ค้นหาในบทความ</string>
+  <string name="menu_page_add_to_watchlist">เพิ่มเข้ารายการเฝ้าดู</string>
   <string name="menu_page_view_talk">ดูหน้าอภิปราย</string>
   <string name="menu_page_view_edit_history">ดูประวัติการแก้ไข</string>
+  <string name="menu_page_remove_from_watchlist">เอาออกจากรายการเฝ้าดู</string>
   <string name="edit_section_find_in_page">ค้นหาในหน้า</string>
   <string name="menu_page_font_and_theme">แบบอักษรและชุดตกแต่ง</string>
   <string name="menu_page_add_to_list">เพิ่มในรายการอ่าน</string>
@@ -194,6 +198,7 @@
   <string name="page_protected_can_not_edit">ขออภัย ปัจจุบันบัญชีของคุณไม่มีสิทธิ์เพียงพอที่จะแก้ไขหน้านี้</string>
   <string name="page_protected_can_not_edit_anon">ขออภัย ปัจจุบันหน้านี้จำเป็นต้องเข้าสู่ระบบเพื่อแก้ไข</string>
   <string name="page_protected_can_not_edit_title">หน้านี้ถูกป้องกัน</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">เพิ่มเข้ารายการเฝ้าดู</string>
   <string name="settings_item_preferences">ตั้งค่า</string>
   <string name="settings_activity_title">การตั้งค่า</string>
   <string name="about_description">เกี่ยวกับแอปวิกิพีเดีย</string>
@@ -338,6 +343,9 @@
   <string name="location_permissions_enable_prompt">เปิดใช้งานสิทธิอนุญาตตำแหน่งที่ตั้งเพื่อดูสถานที่ใกล้คุณ</string>
   <string name="location_permissions_enable_action">เปิด</string>
   <string name="error_webview_updating">Android System WebView กำลังได้รับการปรับปรุงในขณะนี้ โปรดลองอีกครั้งในอีกสักครู่</string>
+  <plurals name="multi_items_selected">
+    <item quantity="other">เลือกอยู่ %d</item>
+  </plurals>
   <string name="multi_select_items_selected">เลือกอยู่ %d</string>
   <string name="error_message_generic">เกิดข้อผิดพลาด</string>
   <string name="view_link_preview_error_button_dismiss">รับทราบ</string>
@@ -378,16 +386,24 @@
   <string name="text_size_decrease">ลดขนาดข้อความ</string>
   <string name="text_size_percent_default">%s (ค่าเริ่มต้น)</string>
   <string name="text_style_title">แบบอักษร</string>
+  <string name="nav_item_saved">บันทึกแล้ว</string>
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_move_to">ย้ายลงในรายการอ่าน</string>
   <string name="reading_list_create_new">สร้างใหม่</string>
   <string name="reading_list_title_exists">รายการอ่าน \"%s\" มีอยู่แล้ว</string>
   <string name="reading_list_article_added_to_named">เพิ่ม %1$s ลงใน %2$s แล้ว</string>
+  <string name="reading_list_article_added_to_default_list">บันทึก %s แล้ว คุณต้องการเพิ่มเข้ารายการหรือไม่?</string>
   <string name="reading_list_article_moved_to_named">ย้าย %1$s ไปยัง %2$s แล้ว</string>
   <string name="reading_list_article_already_exists_message">เสร็จไปแล้ว! %1$s มี %2$s อยู่แล้ว</string>
   <string name="reading_list_articles_already_exist_message">เสร็จไปแล้ว! %s มีบทความทั้งหมดอยู่แล้ว</string>
   <string name="reading_list_added_view_button">ดูรายการ</string>
   <string name="reading_list_add_to_list_button">เพิ่มลงในรายการ</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="other">%1$d บทความ, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="other">%1$d จาก %2$d บทความสามารถใช้ได้ขณะออฟไลน์, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 บทความ, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d บทความ, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d จาก 1 บทความที่ใช้ได้ขณะออฟไลน์, %2$.2f MB</string>
@@ -412,6 +428,12 @@
   <string name="reading_list_name_hint">ชื่อรายการนี้</string>
   <string name="reading_list_description_hint">คำอธิบาย (ไม่ระบุก็ได้)</string>
   <string name="reading_list_item_deleted">ลบ %s ออกจากรายการแล้ว</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="other">เอา %d บทความออกจากรายการแล้ว</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="other">เอา %d บทความออกจาก %s แล้ว</item>
+  </plurals>
   <string name="reading_list_items_deleted">ลบ %d บทความออกจากรายการแล้ว</string>
   <string name="reading_lists_item_deleted">เอา %s ออกจากรายการแล้ว</string>
   <string name="reading_list_item_delete_undo">เลิกทำ</string>
@@ -612,6 +634,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">ยกเลิก</string>
   <string name="feed_accessibility_card_text">คุณได้มาถึงส่วนล่างสุดของฟีดแล้ว</string>
   <string name="feed_accessibility_card_load_more_button">โหลดเพิ่มเติม</string>
+  <string name="top_read_activity_title">อ่านมากที่สุดบน %s</string>
   <string name="description_edit_text_hint">คำอธิบายบทความ</string>
   <string name="description_edit_article_description_label">บทความ</string>
   <string name="description_edit_translate_article_description_label_per_language">คำอธิบายบทความ (%s)</string>
@@ -635,14 +658,18 @@
   <string name="description_edit_anon_limit">ขอบคุณที่สนใจแก้ไขคำอธิบายบทความอย่างต่อเนื่อง! หากต้องการทำการแก้ไขเพิ่มเติม โปรดเข้าสู่ระบบบัญชีวิกิพีเดียของคุณ</string>
   <string name="description_edit_license_notice">การเปลี่ยนคำอธิบายบทความถือว่าฉันยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดในการใช้งาน&lt;/a&gt;และต้องการเผยแพร่การมีส่วนร่วมของคุณภายใต้สัญญาอนุญาต&lt;a href=\"%2$s\"&gt;ครีเอทีฟคอมมอนส์ CC0&lt;/a&gt; โดยไม่สามารถยกเลิกได้</string>
   <string name="description_edit_helper_text_lowercase_warning">มักจะขึ้นต้นด้วยตัวอักษรพิมพ์เล็ก</string>
+  <string name="description_edit_voice_input_description">การป้อนข้อมูลด้วยเสียง</string>
   <string name="description_too_short">ข้อความสั้นเกินไป</string>
   <string name="description_ends_with_punctuation">ข้อความต้องไม่ลงท้ายด้วยเครื่องหมายวรรคตอน</string>
+  <string name="description_starts_with_uppercase">ขึ้นต้นด้วยตัวพิมพ์เล็ก นอกจากคำแรกจะเป็นคำนามเฉพาะ</string>
+  <string name="description_is_in_different_language">ดูเหมือนว่าข้อความจะปรากฏในภาษาที่ไม่ต้องการ ภาษาต้องเป็น %s</string>
   <string name="description_edit_success_saved">เผยแพร่คำอธิบายบทความแล้ว!</string>
   <string name="description_edit_success_saved_snackbar">เผยแพร่คำอธิบายบทความแล้ว!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">เผยแพร่คำอธิบายบทความแล้ว! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">เผยแพร่คำบรรยายภาพแล้ว!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">เผยแพร่คำบรรยายภาพแล้ว! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">เผยแพร่ป้ายกำกับภาพแล้ว!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">เพลิดเพลินกับสิ่งนั้นใช่หรือไม่? ช่วยเราเพิ่มอีก</string>
   <string name="description_edit_success_encouragement">คุณทำให้วิกิพีเดียดีขึ้นสำหรับทุกคน</string>
   <string name="description_edit_success_done">เสร็จสิ้น</string>
   <string name="description_edit_success_did_you_know">คุณรู้หรือไม่</string>
@@ -697,6 +724,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">เริ่มต้นใช้งาน</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">คำบรรยายภาพ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ภาพ</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">ไฟล์จากวิกิมีเดียคอมมอนส์</string>
   <string name="suggested_edits_image_preview_dialog_artist">ศิลปิน</string>
   <string name="suggested_edits_image_preview_dialog_tags">ป้ายกำกับ</string>
   <string name="suggested_edits_image_preview_dialog_date">วันที่</string>
@@ -762,9 +790,14 @@
   <string name="suggested_edits_contribution_type_label">ชนิดการมีส่วนร่วม</string>
   <string name="suggested_edits_contribution_image_label">ภาพ</string>
   <string name="suggested_edits_contribution_article_label">บทความ</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">เมื่อวานนี้</string>
+  <string name="suggested_edits_encourage_account_creation_title">คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
+  <string name="suggested_edits_contribution_type_image_tag">ป้ายกำกับภาพ</string>
   <string name="file_page_activity_title">หน้าไฟล์</string>
+  <string name="file_page_add_image_caption_button">เพิ่มคำบรรยายภาพ</string>
+  <string name="file_page_add_image_tags_button">เพิ่มป้ายกำกับภาพ</string>
   <string name="description_edit_revert_subtitle">ขอบคุณที่แก้ไขวิกิพีเดีย!</string>
   <string name="description_edit_revert_intro">เรารู้ว่าคุณพยายามอย่างดีที่สุด แต่ผู้ตรวจทานคนใดคนหนึ่งมีข้อสงสัย เหตุผลที่เป็นไปได้ที่การแก้ไขของคุณถูกย้อนมี:</string>
   <string name="description_edit_revert_reason1">การมีส่วนร่วมของคุณไม่สอดคล้องตาม&lt;a href=\"%1$s\"&gt;แนวปฏิบัติ&lt;/a&gt;ข้อใดข้อหนึ่ง</string>
@@ -799,10 +832,13 @@
   <string name="this_year">ปีนี้</string>
   <string name="on_this_day_dialog_next_month">เดือนถัดไป</string>
   <string name="on_this_day_dialog_previous_month">เดือนก่อนหน้า</string>
+  <string name="on_this_day_open_date_picker">เปิดตัวช่วยเลือกวันที่</string>
   <plurals name="diff_years">
     <item quantity="one">ปีที่ผ่านมา</item>
     <item quantity="other">%d ปีที่ผ่านมา</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">คุณเดินทางข้ามเวลา 🚀</string>
+  <string name="on_this_day_back_to_future">กลับสู่อนาคต</string>
   <string name="languages_list_activity_title">เพิ่มภาษา</string>
   <string name="languages_list_suggested_text">แนะนำ</string>
   <string name="languages_list_all_text">ภาษาทั้งหมด</string>
@@ -844,6 +880,8 @@
   <string name="wikitext_preview_link">แสดงตัวอย่างลิงก์</string>
   <string name="main_drawer_help">วิธีใช้</string>
   <string name="main_drawer_login">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
+  <string name="main_tooltip_text">สวัสดี %s คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
+  <string name="main_tooltip_text_v2">คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
   <string name="main_tooltip_action_button">เริ่มต้นใช้งาน</string>
   <string name="main_tooltip_watchlist_title">รายการเฝ้าดู</string>
   <string name="custom_date_picker_dialog_ok_button_text">ตกลง</string>
@@ -856,6 +894,8 @@
   <string name="talk_add_reply">ตอบกลับ</string>
   <string name="talk_no_subject">(ไม่มีหัวเรื่อง)</string>
   <string name="talk_reply_subject">หัวเรื่อง</string>
+  <string name="thank_dialog_positive_button_text">ส่งคำขอบคุณ</string>
+  <string name="thank_dialog_negative_button_text">ยกเลิก</string>
   <string name="watchlist_filter_all">ทั้งหมด</string>
   <string name="watchlist_filter_talk">คุย</string>
   <string name="watchlist_filter_pages">หน้า</string>
