@@ -5,6 +5,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.database.ReadingListPage
 
 class PageViewModel {
+
     var page: Page? = null
     var title: PageTitle? = null
     var curEntry: HistoryEntry? = null
