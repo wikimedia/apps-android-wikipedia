@@ -1,8 +1,10 @@
 package org.wikipedia.search
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 
+@Serializable
 class PrefixSearchResponse : MwQueryResponse() {
     @SerializedName("searchinfo")
     private val searchInfo: SearchInfo? = null

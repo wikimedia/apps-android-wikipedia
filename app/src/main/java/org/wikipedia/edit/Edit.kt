@@ -1,8 +1,10 @@
 package org.wikipedia.edit
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 
+@Serializable
 class Edit : MwPostResponse() {
 
     val edit: Result? = null

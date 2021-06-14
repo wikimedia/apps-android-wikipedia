@@ -1,7 +1,9 @@
 package org.wikipedia.dataclient.watch
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 
+@Serializable
 class WatchPostResponse : MwPostResponse() {
     private val batchcomplete: String? = null
 
