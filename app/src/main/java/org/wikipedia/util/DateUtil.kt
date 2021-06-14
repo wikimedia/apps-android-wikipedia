@@ -3,7 +3,6 @@ package org.wikipedia.util
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Build
 import android.text.format.DateFormat
-import android.text.format.DateUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
