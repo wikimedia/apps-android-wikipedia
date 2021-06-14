@@ -64,7 +64,7 @@ object ServiceFactory {
         if (ANALYTICS_REST_SERVICE_CACHE[destinationEventService.id] != null) {
             return ANALYTICS_REST_SERVICE_CACHE[destinationEventService.id]!!
         }
-        val intakeBaseUriOverride = Prefs.getEventPlatformIntakeUriOverride()
+        val intakeBaseUriOverride = Prefs.getEventPlatformIntakeUriOverride().orEmpty().ifEmpty { destinationEventService.baseUri }
         val r = createRetrofit(null, StringUtils.defaultString(intakeBaseUriOverride, destinationEventService.baseUri))
         val s = r.create(EventService::class.java)
         ANALYTICS_REST_SERVICE_CACHE.put(destinationEventService.id, s)
@@ -103,8 +103,7 @@ object ServiceFactory {
             .build()
     }
 
-    private class LanguageVariantHeaderInterceptor(private val wiki: WikiSite?) :
-        Interceptor {
+    private class LanguageVariantHeaderInterceptor(private val wiki: WikiSite?) : Interceptor {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain): Response {
             var request: Request = chain.request()
