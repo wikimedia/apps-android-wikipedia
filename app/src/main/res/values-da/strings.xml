@@ -214,7 +214,6 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Anvendte biblioteker</string>
   <string name="about_contributors_heading">Bidragsydere</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamside&lt;/a&gt;</string>
@@ -863,19 +862,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Annullér</string>
   <string name="edit_type_all">Alle bidrag</string>
   <string name="content_description_for_page_indicator">Side %1$d af %2$d</string>
-  <string name="image_recommendations_task_accept">Ja</string>
-  <string name="image_recommendations_task_reject">Nej</string>
-  <string name="image_recommendations_task_not_sure">Ikke sikker</string>
-  <string name="image_recommendations_task_choice_no">Hvorfor valgte du nej?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Ikke relevant</string>
-  <string name="image_recommendations_task_choice_low_quality">Lav kvalitet</string>
-  <string name="image_recommendations_task_choice_nosubject">Kender ikke til stoffet</string>
-  <string name="image_recommendations_task_choice_offensive">Stødende</string>
-  <string name="image_recommendations_task_choice_invisible">Kan ikke se billedet</string>
-  <string name="image_recommendations_task_choice_understand">Forstår ikke opgaven</string>
-  <string name="image_recommendations_task_choice_language">Kan ikke læse sproget</string>
-  <string name="image_recommendations_task_choice_other">Andet</string>
-  <string name="image_recommendations_task_choice_continue">Fortsæt</string>
   <string name="wikitext_bold">Fed</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_numbered_list">Nummereret liste</string>

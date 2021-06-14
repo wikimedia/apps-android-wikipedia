@@ -419,7 +419,6 @@
   <string name="suggested_edits_reactivation_notification_title">सुझाए गए संपादन</string>
   <string name="suggested_edits_reactivation_notification_stage_one">विकिपीडिया के संपादन के लिए धन्यवाद!  जहाँ आपने छोड़ा था, उसी स्थान से फिर शुरू करें?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">क्या विकिपीडिया में सुधार जारी रखने के लिए आपके पास एक मिनट है?  इन संपादन सुझावों को देखें।</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">शुरू करें</string>
   <string name="description_edit_revert_subtitle">विकिपीडिया में संपादन के लिए धन्यवाद!</string>
   <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन समीक्षक में से एक को चिंता है।\nआपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
@@ -446,7 +445,6 @@
     <item quantity="other">%d साल पहले</item>
   </plurals>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
-  <string name="image_recommendations_task_choice_other">अन्य</string>
   <string name="talk_title">वार्ता</string>
   <string name="talk_add_reply">जवाब दें</string>
 </resources>
