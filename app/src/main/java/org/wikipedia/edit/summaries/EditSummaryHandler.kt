@@ -20,6 +20,7 @@ import java.util.*
 class EditSummaryHandler(private val container: View,
                          private val summaryEdit: AutoCompleteTextView,
                          title: PageTitle) {
+
     init {
         container.setOnClickListener { summaryEdit.requestFocus() }
         val adapter = EditSummaryAdapter(container.context, null, true)
