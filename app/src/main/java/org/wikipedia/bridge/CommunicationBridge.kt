@@ -71,7 +71,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         isMetadataReady = false
         pendingJSMessages.clear()
         pendingEvals.clear()
-        if (communicationBridgeListener.model.shouldLoadAsMobileWeb()) {
+        if (communicationBridgeListener.model.shouldLoadAsMobileWeb) {
             communicationBridgeListener.webView.loadUrl(pageTitle.mobileUri)
         } else {
             communicationBridgeListener.webView.loadUrl(ServiceFactory.getRestBasePath(pageTitle.wikiSite) +

@@ -670,10 +670,6 @@
   <string name="suggested_edits_contribution_seen_text">যোৱা ৩০ দিনত %s বাৰ চোৱা হৈছে।</string>
   <string name="suggested_edits_contribution_date_yesterday_text">কালি</string>
   <string name="suggested_edits_encourage_account_creation_title"> আপুনি জানেনে যে ৱিকিপিডিয়াত সকলোৱে সম্পাদনা কৰিব পাৰে?</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">আৰম্ভ কৰক</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">সুন্দৰ, জাৰি ৰাখক! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">দৈনিক লক্ষ্য প্ৰাপ্ত হৈছে! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">আপুনি দৈনিক লক্ষ্যত উপনীত হৈছে</string>
   <string name="file_page_activity_title">ফাইল পৃষ্ঠা</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="description_edit_revert_intro">আমি বুজিছোঁ যে আপুনি অশেষ চেষ্টা কৰিলে, কিন্তু এজন পৰ্যবেক্ষকে এট আপত্তি দৰ্শাইছে। আপোনাৰ সম্পাদনা বাতিল কৰাৰ সম্ভাব্য কাৰণ হ\'ব পাৰে:</string>
@@ -721,10 +717,6 @@
   <string name="reverted_edit_dialog_ok_button_text">বাৰু</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">বাতিল কৰক</string>
   <string name="edit_type_all">সকলো বৰঙণি</string>
-  <string name="image_recommendations_task_accept">হয়</string>
-  <string name="image_recommendations_task_reject">নহয়</string>
-  <string name="image_recommendations_task_choice_other">অন্য</string>
-  <string name="image_recommendations_task_choice_continue">অব্যাহত ৰাখক</string>
   <string name="wikitext_bold">গাঢ়</string>
   <string name="wikitext_italic">হেলনীয়া</string>
   <string name="wikitext_link">সংযোগ</string>
