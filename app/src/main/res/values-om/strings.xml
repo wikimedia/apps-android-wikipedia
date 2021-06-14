@@ -88,10 +88,4 @@
   <string name="nav_item_saved">Olkaa\'ameera</string>
   <string name="reading_list_article_added_to_default_list">%s ol kayame. Tarreetti isa dabaluu feetaa?</string>
   <string name="reading_list_add_to_list_button">Tarreetti dabali</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Jalqabi</string>
-  <string name="image_recommendations_task_accept">Eyyee</string>
-  <string name="image_recommendations_task_reject">Lakki</string>
-  <string name="image_recommendations_task_choice_invisible">Suuraa arguu hin danda\'u</string>
-  <string name="image_recommendations_task_choice_other">Kan biraa</string>
-  <string name="image_recommendations_task_choice_continue">Itti fufi</string>
 </resources>

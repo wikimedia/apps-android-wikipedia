@@ -855,8 +855,6 @@
     <item quantity="one">Adicionou %d carácter</item>
     <item quantity="other">Adicionou %d caracteres</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Você atingiu a meta diária</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Gostaríamos de reconhecer suas contribuições para este esforço. Você gostaria que seu nome de usuário fosse exibido em nossa página de treinamento de algoritmo?</string>
   <string name="file_page_activity_title">Página do ficheiro</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar etiquetas de imagens</string>
@@ -933,11 +931,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
   <string name="edit_type_all">Todas as contribuições</string>
   <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
-  <string name="image_recommendations_task_choice_not_sure">Por que você selecionou não tenho certeza?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Escolha um ou vários motivos.</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">a imagem foi encontrada em outras versões de idioma da Wikipedia (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">a imagem foi encontrada no Wikidata, a fonte de dados abertos da Wikipedia</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">a imagem foi encontrada no Wikimedia Commons, a fonte da Wikipedia de imagens livremente utilizáveis</string>
   <string name="wikitext_bold">Negrito</string>
   <string name="wikitext_italic">Itálico</string>
   <string name="wikitext_link">Hiperligação</string>
