@@ -84,11 +84,8 @@ object ServiceFactory {
     }
 
     fun getRestBasePath(wiki: WikiSite): String {
-        var path =
-            if (Prefs.getRestbaseUriFormat().isEmpty()) wiki.url() + "/" + RestService.REST_API_PREFIX else String.format(
-                Prefs.getRestbaseUriFormat(),
-                "https",
-                wiki.authority())
+        var path = if (Prefs.getRestbaseUriFormat().isEmpty()) wiki.url() + "/" + RestService.REST_API_PREFIX
+        else String.format(Prefs.getRestbaseUriFormat(), "https", wiki.authority())
         if (!path.endsWith("/")) {
             path += "/"
         }
@@ -104,14 +101,13 @@ object ServiceFactory {
         return Retrofit.Builder()
             .client(okHttpClientBuilder.build())
             .baseUrl(baseUrl)
-            .client(client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(
-                wiki!!)).build())
+            .client(client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(wiki)).build())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(Json.asConverterFactory(contentType))
             .build()
     }
 
-    private class LanguageVariantHeaderInterceptor(private val wiki: WikiSite) :
+    private class LanguageVariantHeaderInterceptor(private val wiki: WikiSite?) :
         Interceptor {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain): Response {
@@ -120,7 +116,7 @@ object ServiceFactory {
             // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
             if (!request.url.encodedPath.contains("/page/related")) {
                 request = request.newBuilder()
-                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
+                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki!!))
                     .build()
             }
             return chain.proceed(request)

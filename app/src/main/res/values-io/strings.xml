@@ -219,7 +219,7 @@
   <string name="find_last_occurence">To esas la lasta rezulto</string>
   <string name="abusefilter_title_warn">To semblas esar mala modifiko. Ka tu fakte deziras publikigar ol?</string>
   <string name="abusefilter_title_disallow">Tu ne povas publikigar ica modifiko. Voluntez korektar ol.</string>
-  <string name="abusefilter_text_warn">Automatala verifiko konsideris ica modifiko potenciale mala. Ol kontenas un o plura de la sequanta:&lt;br /&gt;&lt;br /&gt;· Tota literi en MAYUSKULA&lt;br /&gt;· Efaco di artikli o \'spamming\'&lt;br /&gt;· Ne-aplikebla ligili ad altra artikli od imaji&lt;br /&gt;· Iterado di literi o signi</string>
+  <string name="abusefilter_text_warn">Automatala verifiko judikis ca modifiko potenciale mala. Ol kontenas un o plura de la sequanta:&lt;br /&gt;&lt;br /&gt;· Tota literi en MAYUSKULA&lt;br /&gt;· Efaco di artikli o \'spamming\'&lt;br /&gt;· Ne-aplikebla ligili ad altra artikli od imaji&lt;br /&gt;· Iterado di literi o signi</string>
   <string name="abusefilter_text_disallow">Automatala verifiko identifikis ica artiklo quale posibla vandalismo o mala agado.&lt;br /&gt;&lt;br /&gt;Wikipedio esas enciklopedio, e koncernas nur remarkinda kontenajo kun neutrala vidopunto.</string>
   <string name="page_similar_titles">Simila pagini</string>
   <string name="search_did_you_mean">Ka tu deziris dicar \"%s\"?</string>
