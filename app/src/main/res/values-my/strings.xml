@@ -830,7 +830,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="edit_type_all">ပံ့ပိုးထားမှုများ အားလုံး</string>
   <string name="content_description_for_page_indicator">စာမျက်နှာ %2$d ၏ %1$d</string>
-  <string name="image_recommendations_faq">မေးလေ့ရှိကြသည်များ</string>
   <string name="wikitext_bold">အထူ</string>
   <string name="wikitext_italic">အစောင်း</string>
   <string name="wikitext_link">လင့်</string>
