@@ -861,8 +861,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Anuluj</string>
   <string name="edit_type_all">Wszystkie edycje</string>
   <string name="content_description_for_page_indicator">Strona %1$d z %2$d</string>
-  <string name="image_recommendations_task_accept">Tak</string>
-  <string name="image_recommendations_task_reject">Nie</string>
   <string name="wikitext_bold">Pogrubienie</string>
   <string name="wikitext_italic">Kursywa</string>
   <string name="wikitext_link">Link</string>
