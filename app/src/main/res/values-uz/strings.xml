@@ -208,14 +208,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Ilovada foydalanilgan tashqi manbalar:</string>
   <string name="about_contributors_heading">Ilova mualliflari:</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Mualliflar haqida sahifa&lt;/a&gt;</string>
   <string name="about_translators_heading">Tarjimonlar</string>
   <string name="about_translators_translatewiki">Ilovaning oʻzbekchasi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; saytida koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
   <string name="about_app_license_heading">Litsenziya</string>
-  <string name="about_app_license" fuzzy="true">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
+  <string name="about_app_license">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya Fondi&lt;/a&gt;  mahsuloti</string>
   <string name="about_activity_title">Ilova haqida</string>
   <string name="edit_abandon_confirm">Sahifa oʻzgartirildi. Oʻzgartirishlaringizni saqlamasdan chiqmoqchimisiz?</string>
@@ -360,6 +359,14 @@
   <string name="page_footer_license_text">Tarkib $1 ostida mavjud, agar boshqacha ko‘rsatilmagan bo‘lsa</string>
   <string name="empty_tab_title">Yangi xatcho‘p</string>
   <string name="menu_save_all_tabs">Barcha xatcho‘plarni saqlamoq</string>
+  <string name="error_blocked_title">Sizning foydalanuvchi nomingiz yoki IP manzilingiz bloklangan.</string>
+  <string name="error_blocked_by">Bloklash &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; tomonidan amalgan oshirilgan</string>
+  <string name="error_blocked_reason">Sababi: %s</string>
+  <string name="error_blocked_start">Bloklashni boshlash: %s</string>
+  <string name="error_blocked_expiry">Bloklash muddati: %s</string>
+  <string name="error_blocked_id">Bloklashning ID kodi: %s</string>
+  <string name="error_blocked_footer">Siz &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bilan yoki &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash masalasida murojaat qilishingiz mumkin.</string>
+  <string name="error_blocked_footer_no_blocker">Siz &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash boʻyicha bogʻlanishingiz mumkin.</string>
   <string name="crash_report_activity_title">Ilova xatoligi</string>
   <string name="crash_report_relaunch_or_quit">Kechirasiz, Vikipediya ilovasida xatolik yuz berdi va u bekor qilindi.\n\nBoshlashni xohlaysizmi yoki ishdan chiqishni xohlaysizmi?</string>
   <string name="crash_report_relaunch">Boshlandi</string>
@@ -851,16 +858,6 @@
     <item quantity="one">%d ta belgi qoʻshdingiz</item>
     <item quantity="other">%d ta belgi qoʻshdingiz</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Oʻrganish surati algoritmi</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Tavsiya etilgan rasm maqolani yaxshilashi toʻgʻrisida qaror qabul qiling.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Ishga tushirish</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Zoʻr, shunday davom eting! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Kundalik maqsadga erishdingiz! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Siz maqsadga erishdingiz</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Tavsiya etilgan yangi tahrir vazifasi endi mavjud. Tasvirlarni noaniq maqolalar bilan moslashtirish algoritmini oʻrgating.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Vikipediya maqolalari butun dunyodagi minglab koʻngillilar tomonidan yoziladi va tahrir qilinadi. Afsuski, koʻplab maqolalarda rasmlar yetishmayapti.\n\nTasvirlar Sizga algoritm yordamida tavsiya etiladi. Algoritm boshqa manbalardan olingan rasmlarni yuklab oladi hamda rasmga ega boʻlmagan maqolaga mos kelishini taklif qiladi.\n\nSizning fikr-mulohazalaringiz vaqt oʻtishi bilan takliflarni yaxshilashga yordam beradi. Ushbu topshiriqning maqsadi tavsiya etilgan rasmlarni yaxshilashdan iborat bo\'lganligi sababli, Siz qilgan tavsiyalar hozircha nashr etilmaydi.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Ushbu saʼy-harakatga qoʻshgan hissangizni eʼtirof etmoqchimiz. Sizning foydalanuvchi ismingiz bizning algoritmni oʻrgatish sahifamizda koʻrsatilishini xohlaysizmi?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Ha, mening foydalanuvchi ismim algoritmni oʻrgatish sahifasida koʻrsatilishi mumkin</string>
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
@@ -937,33 +934,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Bekor qilmoq</string>
   <string name="edit_type_all">Barcha hissalar</string>
   <string name="content_description_for_page_indicator">%1$d / %2$d sahifa</string>
-  <string name="image_recommendations_task_accept">Ha</string>
-  <string name="image_recommendations_task_reject">Yoʻq</string>
-  <string name="image_recommendations_task_not_sure">Aniq emas</string>
-  <string name="image_recommendations_task_processing">Qayta ishlanmoqda…</string>
-  <string name="image_recommendations_task_instruction">Ushbu rasm bu maqolaga qoʻshilsinmi?</string>
-  <string name="image_recommendations_task_choice_no">Nega «Yoʻq»ni tanladingiz?</string>
-  <string name="image_recommendations_task_choice_not_sure">Nega ishonch hosil qilmadingiz?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Bir yoki bir necha sabablarni tanlang.</string>
-  <string name="image_recommendations_task_choice_unsure">Nima uchun bu rasmga ishonchingiz komil emas?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Tegishli emas</string>
-  <string name="image_recommendations_task_choice_low_quality">Past sifatli</string>
-  <string name="image_recommendations_task_choice_noinfo">Maʼlumot yetarli emas</string>
-  <string name="image_recommendations_task_choice_nosubject">Ushbu mavzuni bilmayman</string>
-  <string name="image_recommendations_task_choice_offensive">Haqoratli</string>
-  <string name="image_recommendations_task_choice_invisible">Rasmni koʻrish imkonsiz</string>
-  <string name="image_recommendations_task_choice_understand">Vazifani tushunmaslik</string>
-  <string name="image_recommendations_task_choice_language">Tilni oʻqiy olmaslik</string>
-  <string name="image_recommendations_task_choice_other">Boshqa</string>
-  <string name="image_recommendations_task_choice_continue">Davom etish</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Taklif sababi:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">rasm Vikipediyaning (%s) boshqa tillardagi versiyalarida topilgan</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">rasm Vikipediyaning ochiq maʼlumot manbasi boʻlgan Vikidatada topilgan</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">rasm Vikipediyaning erkin foydalaniladigan rasmlar manbai boʻlgan Vikimedia Commonsʼda topilgan</string>
-  <string name="image_recommendations_faq">FAQ</string>
-  <string name="image_recommendations_tooltip1">Mavzuni tushunish uchun ushbu maqolani koʻrib chiqing.</string>
-  <string name="image_recommendations_tooltip2">Rasmni va unga tegishli maʼlumotlarni tekshiring.</string>
-  <string name="image_recommendations_tooltip3">Rasm oʻquvchilarga ushbu mavzuni yaxshiroq tushunishga yordam beradimi yoki yoʻqligini hal qiling.</string>
   <string name="wikitext_bold">Qalin</string>
   <string name="wikitext_italic">Yotiq</string>
   <string name="wikitext_link">Havola</string>

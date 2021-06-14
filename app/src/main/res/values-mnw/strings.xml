@@ -835,7 +835,6 @@
     <item quantity="one">မၞး စုတ်လဝ် ဗီုပြင်သဏ္ဌာန် %d</item>
     <item quantity="other">မၞး စုတ်လဝ် ဗီုပြင်သဏ္ဌာန်ဂမၠိုင် %d</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_get_started">စ</string>
   <string name="file_page_activity_title">ဝှာင်မုက်လိက်</string>
   <string name="file_page_add_image_caption_button">စုတ် ပရူပရာ ဗီုရုပ်</string>
   <string name="file_page_add_image_tags_button">စုတ် ဒစင် ဗီုရုပ်</string>
@@ -909,11 +908,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">တးပဲါ</string>
   <string name="edit_type_all">အရာမကၠောန်လဝ် သီုဖအိုတ်</string>
   <string name="content_description_for_page_indicator">မုက်လိက် %1$d ပၞောဝ် %2$d</string>
-  <string name="image_recommendations_task_accept">ယွံ</string>
-  <string name="image_recommendations_task_reject">ဟအှေ်</string>
-  <string name="image_recommendations_task_not_sure">ကေတ်ဟွံဒး</string>
-  <string name="image_recommendations_task_choice_other">တၞဟ်</string>
-  <string name="image_recommendations_task_choice_continue">ဆက်အာ</string>
   <string name="wikitext_bold">ပတီု</string>
   <string name="wikitext_italic">ဓစေင်</string>
   <string name="wikitext_link">လေန်</string>
