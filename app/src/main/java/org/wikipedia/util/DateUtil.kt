@@ -142,16 +142,12 @@ object DateUtil {
 
     @JvmStatic
     @Throws(ParseException::class)
-    fun getReadingListsLastSyncDateString(dateStr: String): String {
+    fun getLastSyncDateString(dateStr: String): String {
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "d MMM yyyy HH:mm")
     }
 
     fun get24HrFormatTimeOnlyString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "kk:mm")
-    }
-
-    fun getRelativeTimeSpanString(dateStr: String): CharSequence {
-        return DateUtils.getRelativeTimeSpanString(iso8601DateParse(dateStr).time, Calendar.getInstance().time.time, DateUtils.WEEK_IN_MILLIS)
     }
 
     @JvmStatic

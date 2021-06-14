@@ -157,7 +157,7 @@ class TalkTopicsActivity : BaseActivity() {
                 .flatMap {
                     it.query()?.firstPage()?.revisions()?.getOrNull(0)?.let { revision ->
                         binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
-                            DateUtil.getRelativeTimeSpanString(revision.timeStamp()), revision.user))
+                            DateUtil.getLastSyncDateString(revision.timeStamp()), revision.user))
                     }
                     ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
                 }
