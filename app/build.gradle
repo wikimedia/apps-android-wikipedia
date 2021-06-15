@@ -221,7 +221,7 @@ dependencies {
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     implementation "com.squareup.leakcanary:plumber-android:$leakCanaryVersion"
 
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.2'
     testImplementation "org.mockito:mockito-inline:$mockitoVersion"
     testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
