@@ -23,12 +23,8 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         L.d("Message from: ${remoteMessage.from}")
 
-        remoteMessage.data.isNotEmpty().let {
-            L.d("Message data payload: " + remoteMessage.data)
-
-            if (remoteMessage.data.containsValue(MESSAGE_TYPE_CHECK_ECHO)) {
-                handleCheckEcho()
-            }
+        if (remoteMessage.data.containsValue(MESSAGE_TYPE_CHECK_ECHO)) {
+            handleCheckEcho()
         }
 
         // The message could also contain a notification payload, but that's not how we're using it.

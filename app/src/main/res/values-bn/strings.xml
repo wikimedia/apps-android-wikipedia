@@ -50,6 +50,7 @@
   <string name="offline_load_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="page_error_back_to_main">ফিরে যান</string>
   <string name="error_back">ফিরে যান</string>
+  <string name="error_next">পরবর্তী</string>
   <string name="menu_clear_all_history">ইতিহাস পরিষ্কার</string>
   <string name="history_item_deleted">ইতিহাস থেকে %s সরানো হয়েছে</string>
   <string name="history_items_deleted">ইতিহাস থেকে %dটি নিবন্ধ সরানো হয়েছে</string>
@@ -226,10 +227,11 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ব্যবহৃত গ্রন্থাগারগুলি</string>
   <string name="about_contributors_heading">অবদানকারীগণ</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;দলের পাতা&lt;/a&gt;</string>
   <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_app_license_heading">লাইসেন্স</string>
-  <string name="about_app_license">উৎস কোড &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;অ্যাপাচি ২.০ লাইসেন্সের&lt;/a&gt; অধীনে &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;জেরিট&lt;/a&gt; ও &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবে&lt;/a&gt; উপলব্ধ। অন্যথায় নির্দিষ্ট করা না থাকলে, বিষয়বস্তু &lt;a href=\"https://bn.wikipedia.org/wiki/উইকিপিডিয়া:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন-শেয়ারঅ্যালাইক লাইসেন্সের&lt;/a&gt; অধীনে উপলব্ধ।</string>
+  <string name="about_app_license" fuzzy="true">উৎস কোড &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;অ্যাপাচি ২.০ লাইসেন্সের&lt;/a&gt; অধীনে &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;জেরিট&lt;/a&gt; ও &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবে&lt;/a&gt; উপলব্ধ। অন্যথায় নির্দিষ্ট করা না থাকলে, বিষয়বস্তু &lt;a href=\"https://bn.wikipedia.org/wiki/উইকিপিডিয়া:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন-শেয়ারঅ্যালাইক লাইসেন্সের&lt;/a&gt; অধীনে উপলব্ধ।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
   <string name="about_activity_title">পরিচিতি</string>
   <string name="edit_abandon_confirm">এই পাতাটি পরিবর্তিত হয়েছে। আপনি কী নিশ্চিত যে আপনার পরিবর্তন সংরক্ষণ না করেই প্রস্থান করবেন?</string>
@@ -308,13 +310,16 @@
   <string name="captcha_image">ক্যাপচা চিত্র</string>
   <string name="gallery_fair_use_license">বৈধ ব্যবহার</string>
   <string name="gallery_uploader_unknown">আপলোডকারী অজানা</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">খারিজ করুন</string>
   <string name="menu_new_tab">নতুন ট্যাব</string>
   <string name="menu_close_all_tabs">সব ট্যাব বন্ধ করুন</string>
   <string name="close_all_tabs_confirm">আপনি কি নিশ্চিত যে আপনি সব ট্যাব বন্ধ করতে চান?</string>
   <string name="close_all_tabs_confirm_yes">হ্যাঁ</string>
   <string name="close_all_tabs_confirm_no">না</string>
   <string name="button_close_tab">ট্যাব বন্ধ করুন</string>
+  <string name="unnamed_tab_closed">ট্যাব বন্ধ করা হয়েছে।</string>
   <string name="tab_item_closed">%s বন্ধ হয়েছে।</string>
+  <string name="all_tab_items_closed">সকল ট্যাব বন্ধ করা হয়েছে।</string>
   <string name="tool_tip_bookmark_icon_title">পড়ার তালিকায় যোগ করুন</string>
   <string name="page_view_in_browser">ব্রাউজারে পাতা দেখুন</string>
   <string name="tool_tip_lang_button">আপনি অ্যাপের মধ্যে এখন একাধিক উইকিপিডিয়ার ভাষায় অনুসন্ধান করতে এবং পড়তে পারবেন।\n\n\nআরো ভাষা যোগ করতে আইকনে আলতো চাপুন।</string>
@@ -324,6 +329,7 @@
   <string name="address_copied">ঠিকানা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="text_copied">লেখা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="button_continue_to_article">নিবন্ধ পড়ুন</string>
+  <string name="button_continue_to_talk_page">আলাপ পাতা খুলুন</string>
   <string name="button_continue_to_disambiguation">অনুরূপ পাতা দেখুন</string>
   <string name="button_add_to_reading_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="page_offline_notice_cannot_load_while_offline">নিবন্ধ অফলাইনে থাকাকালীন সময়ে লোড করা যাবে না।</string>
@@ -361,6 +367,7 @@
   <string name="article_menu_bar_language_button">ভাষা</string>
   <string name="article_menu_bar_search_button">অনুসন্ধান</string>
   <string name="article_menu_bar_theme_button">থিম</string>
+  <string name="article_menu_bar_contents_button">বিষয়বস্তু</string>
   <string name="article_header_edit_hint">সম্পাদনা…</string>
   <string name="article_header_edit_description">নিবন্ধের বিবরণ সম্পাদনা করুন</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা করুন</string>
@@ -382,6 +389,7 @@
   <string name="reading_list_title_exists">পড়ার তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
   <string name="reading_list_articles_already_exist_message">সব ভাল! %s এ সমস্ত নিবন্ধ রয়েছে।</string>
   <string name="reading_list_added_view_button">তালিকা দেখুন</string>
+  <string name="reading_list_add_to_list_button">তালিকায় যোগ করুন</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">১টি নিবন্ধ, %2$.2f এমবি</item>
     <item quantity="other">%1$dটি নিবন্ধ, %2$.2f এমবি</item>
@@ -497,6 +505,8 @@
   <string name="preference_title_notification_user_talk">আলাপ পাতা</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
+  <string name="view_random_article_card_title">অজানা নিবন্ধ</string>
+  <string name="view_random_article_card_action">আরও অজানা নিবন্ধ</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d হাজার</string>
   <string name="view_next_random_article">আরেকটি অজানা নিবন্ধ লোড করুন</string>
   <string name="view_main_page_card_title">উইকিপিডিয়ায় আজ</string>

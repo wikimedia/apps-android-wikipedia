@@ -223,7 +223,7 @@
   <string name="about_translators_heading">Traducători</string>
   <string name="about_translators_translatewiki">Această aplicație a fost tradusă de către traducători voluntari la &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licență</string>
-  <string name="about_app_license">Codul sursă este disponibil la &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; și &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licența Creative Commons Atribuire și distribuire în condiții identice&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Codul sursă este disponibil la &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; și &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licența Creative Commons Atribuire și distribuire în condiții identice&lt;/a&gt;.</string>
   <string name="about_wmf">Un produs al &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundației Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Despre</string>
   <string name="edit_abandon_confirm">Pagina a fost modificată. Sigur doriți să ieșiți fără a vă salva modificările?</string>
@@ -720,7 +720,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Adaugă descrierea articolului (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Începe</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Descrierea imaginii (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrierea imaginii (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Fișier</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Fișier de la Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
@@ -827,16 +826,6 @@
   <string name="suggested_edits_contribution_current_revision_text">Editarea dvs. este în prezent activă pe Wikipedia</string>
   <string name="suggested_card_more_edits">Mai multe editări sugerate</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Ai adăugat %d caractere</string>
-  <string name="suggested_edits_image_recommendations_task_title">Antrenați algoritmul pentru imagini</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Decideți dacă o imagine sugerată va îmbunătăți un articol.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Start</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Grozav, continuați! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Ținta zilnică atinsă! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Ați atins ținta zilnică!</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">O nouă sarcină de la Editările Sugerate este acum disponibilă. Antrenați un algoritm pentru a potrivi imagini cu articole neilustrate.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Articolele Wikipedia sunt scrise de mii de voluntari din jurul lumii. Din păcate, multor articole le lipsesc imaginile.\n\nImaginile vă vor fi sugerate utilizând un algoritm. Algoritmul va extrage imagini din alte surse și va sugera o potrivire cu un articol care nu are o imagine.\n\nFeedback-ul dvs. ne va ajuta să îmbunătățim sugestiile de-a lungul timpului. Deoarece țelul acestei sarcini este să îmbunătățire imaginilor sugerate, potrivirile pe care le faceți nu vor fi publicate în acest moment.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Ne-ar plăcea să vă recunoaștem contribuțiile la acest efort. V-ar plăcea ca numele dvs. de utilizator să fie afișat pe pagina noastră de antrenare a algoritmului?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Da, numele meu de utilizator poate fi afișat pe pagina de antrenare a algoritmului</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
@@ -914,33 +903,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Anulează</string>
   <string name="edit_type_all">Toate contribuțiile</string>
   <string name="content_description_for_page_indicator">Pagina %1$d din %2$d</string>
-  <string name="image_recommendations_task_accept">Da</string>
-  <string name="image_recommendations_task_reject">Nu</string>
-  <string name="image_recommendations_task_not_sure">Nesigur(ă)</string>
-  <string name="image_recommendations_task_processing">Se procesează...</string>
-  <string name="image_recommendations_task_instruction">Ați adăuga această imagine articolului?</string>
-  <string name="image_recommendations_task_choice_no">De ce ați selectat nu?</string>
-  <string name="image_recommendations_task_choice_not_sure">De ce ați selectat nesigur(ă)?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Alegeți unul sau mai multe motive.</string>
-  <string name="image_recommendations_task_choice_unsure">De ce nu sunteți sigur(ă) în legătură cu această imagine?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Irelevantă</string>
-  <string name="image_recommendations_task_choice_low_quality">Calitate joasă</string>
-  <string name="image_recommendations_task_choice_noinfo">Insuficientă informație</string>
-  <string name="image_recommendations_task_choice_nosubject">Nu cunosc acest subiect</string>
-  <string name="image_recommendations_task_choice_offensive">Ofensivă</string>
-  <string name="image_recommendations_task_choice_invisible">Nu pot vedea imaginea</string>
-  <string name="image_recommendations_task_choice_understand">Nu înțeleg sarcina</string>
-  <string name="image_recommendations_task_choice_language">Nu pot citi limba</string>
-  <string name="image_recommendations_task_choice_other">Altceva</string>
-  <string name="image_recommendations_task_choice_continue">Continuare</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motivul sugerării:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">imaginea a fost găsită în versiuni în alte limbi ale Wikipediei (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">imaginea a fost găsită la Wikidata, sursa de date deschise a Wikipediei</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">imaginea a fost găsită la Wikimedia Commons, sursa de imagini liber-utilizabile a Wikipediei</string>
-  <string name="image_recommendations_faq">FAQ</string>
-  <string name="image_recommendations_tooltip1">Revizuiți acest articol pentru a îi înțelege subiectul.</string>
-  <string name="image_recommendations_tooltip2">Inspectați imaginea și informațiile asociate ei.</string>
-  <string name="image_recommendations_tooltip3">Decideți dacă imaginea va ajuta cititorii să înțeleagă mai bine acest subiect.</string>
   <string name="wikitext_bold">Aldin</string>
   <string name="wikitext_italic">Cursiv</string>
   <string name="wikitext_link">Legătură</string>

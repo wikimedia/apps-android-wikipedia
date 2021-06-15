@@ -219,7 +219,6 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sk</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Použité knižnice</string>
   <string name="about_contributors_heading">Prispievatelia</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stránka tímu&lt;/a&gt;</string>
@@ -375,6 +374,14 @@
   <string name="page_footer_license_text">Obsah je dostupný pod licenciou $1, pokiaľ nie je uvedené inak</string>
   <string name="empty_tab_title">Nová karta</string>
   <string name="menu_save_all_tabs">Uložiť všetky záložky</string>
+  <string name="error_blocked_title">Vaše používateľské meno alebo IP adresa boli zablokované.</string>
+  <string name="error_blocked_by">Zablokovanie vykonal/a &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Uvedený dôvod je: %s</string>
+  <string name="error_blocked_start">Začiatok blokovania: %s</string>
+  <string name="error_blocked_expiry">Koniec blokovania: %s</string>
+  <string name="error_blocked_id">ID bloku: %s</string>
+  <string name="error_blocked_footer">Môžete kontaktovať &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; alebo iného &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
+  <string name="error_blocked_footer_no_blocker">Môžete kontaktovať a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="crash_report_relaunch">Začať odznova</string>
@@ -774,7 +781,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Pridať popis článku v jazyku %s</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začíname</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulok obrázku v jazyku %s</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_image">Súbor</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Súbor z Wikimédia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umelec</string>
@@ -913,16 +919,6 @@
     <item quantity="many">Pridali ste %d znakov</item>
     <item quantity="other">Pridali ste %d znakov</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Trénovať obrázkový algoritmus</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Rozhodnúť či odporúčaný obrázok zlepší článok.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Začať</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Super, len tak ďalej!👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Denný cieľ je splnený!👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Splnili ste denný cieľ</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Nová úloha s odporúčanými úpravami je teraz dostupná. Trénujte algoritmus pre spárovanie obrázkov s článkami, ktorým obrázok chýba.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Články na Wikipédii sú písané a upravované tisíckami dobrovoľníkov po celom svete. Bohužiaľ, mnohým článkom chýbajú obrázky.\n\nObrázky Vám budú odporúčané na základe algoritmu. Obrázok bude prevzatý z iného zdroja a ponúknutý na spárovanie s článkom, ktorému obrázok chýba.\n\nVaša spätná väzba nám pomôže tento proces vylepšiť. Pretože cieľom tejto úlohy je vylepšiť algoritmus ponúkaných obrázkov, obrázky ktoré vyberiete na spárovanie nebudú tento krát zverejnené.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Radi by sme uznali Vašu zásluhu na tomto úsilí. Chceli by ste, aby bolo Vaše používateľské meno zobrazené na našej stránke tréningu algoritmu?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Áno, moje používateľské meno môže byť zobrazené na stránke tréningu algoritmu</string>
   <string name="file_page_activity_title">Stránka súboru</string>
   <string name="file_page_add_image_caption_button">Pridať obrázkové titulky</string>
   <string name="file_page_add_image_tags_button">Pridať obrázkové štítky</string>
@@ -1003,33 +999,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Zrušiť</string>
   <string name="edit_type_all">Všetky príspevky</string>
   <string name="content_description_for_page_indicator">Článok %1$d z %2$d</string>
-  <string name="image_recommendations_task_accept">Áno</string>
-  <string name="image_recommendations_task_reject">Nie</string>
-  <string name="image_recommendations_task_not_sure">Nie som si istý/á</string>
-  <string name="image_recommendations_task_processing">Spracováva sa...</string>
-  <string name="image_recommendations_task_instruction">Chceli by ste pridať k článku tento obrázok?</string>
-  <string name="image_recommendations_task_choice_no">Prečo ste vybrali nie?</string>
-  <string name="image_recommendations_task_choice_not_sure">Prečo ste vybrali nie som si istý/á?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Vyberte jeden, alebo viac dôvodov.</string>
-  <string name="image_recommendations_task_choice_unsure">Prečo si nie ste istý/á týmto obrázkom?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Nie je relevantný (súvisiaci)</string>
-  <string name="image_recommendations_task_choice_low_quality">Nízka kvalita</string>
-  <string name="image_recommendations_task_choice_noinfo">Neobsahuje dostatok informácií</string>
-  <string name="image_recommendations_task_choice_nosubject">Nepoznám tento predmet</string>
-  <string name="image_recommendations_task_choice_offensive">Urážlivý</string>
-  <string name="image_recommendations_task_choice_invisible">Nevidím obrázok</string>
-  <string name="image_recommendations_task_choice_understand">Nerozumiem úlohe</string>
-  <string name="image_recommendations_task_choice_language">Nedá sa prečítať jazyk</string>
-  <string name="image_recommendations_task_choice_other">Iné</string>
-  <string name="image_recommendations_task_choice_continue">Pokračovať</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Dôvod návrhu:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">obrázok sa nenašiel v iných jazykových verziách Wikipédie (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">obrázok sa našiel na Wikidáta, zdroj otvorených údajov Wikipédie</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">obrázok sa našiel na Wikimédia Commons, zdroji voľne použiteľných obrázkov Wikipédie</string>
-  <string name="image_recommendations_faq">Často kladené otázky</string>
-  <string name="image_recommendations_tooltip1">Preskúmať tento článok pre pochopenie jeho témy.</string>
-  <string name="image_recommendations_tooltip2">Preskúmať obrázok a s ním súvisiace informácie.</string>
-  <string name="image_recommendations_tooltip3">Rozhodnúť či obrázok čitateľom pomáha lepšie porozumieť téme.</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
   <string name="wikitext_link">Odkaz</string>

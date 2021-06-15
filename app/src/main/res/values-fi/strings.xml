@@ -234,7 +234,7 @@
   <string name="about_translators_heading">Kääntäjät</string>
   <string name="about_translators_translatewiki">Tämän sovelluksen ovat kääntäneet &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-sivuston vapaaehtoiset kääntäjät.</string>
   <string name="about_app_license_heading">Lisenssi</string>
-  <string name="about_app_license">Lähdekoodi löytyy &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritistä&lt;/a&gt; ja &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Nimeä–JaaSamoin -lisenssillä&lt;/a&gt;.</string>
+  <string name="about_app_license">Lähdekoodi löytyy &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritistä&lt;/a&gt; ja &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Nimeä–JaaSamoin -lisenssillä&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia-säätiön&lt;/a&gt; tuote</string>
   <string name="about_activity_title">Tietoja</string>
   <string name="edit_abandon_confirm">Sivua on muokattu. Haluatko varmasti poistua tallentamatta muutoksiasi?</string>
@@ -379,6 +379,10 @@
   <string name="page_footer_license_text">Sisältö on käytettävissä lisenssillä $1, ellei toisin ole mainittu.</string>
   <string name="empty_tab_title">Uusi välilehti</string>
   <string name="menu_save_all_tabs">Tallenna kaikki välilehdet</string>
+  <string name="error_blocked_title">Käyttäjänimesi tai IP-osoitteesi on estetty.</string>
+  <string name="error_blocked_reason">Annettu syy on: %s</string>
+  <string name="error_blocked_expiry">Esto päättyy: %s</string>
+  <string name="error_blocked_id">Eston tunniste: %s</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
   <string name="crash_report_relaunch">Käynnistä uudelleen</string>
@@ -748,7 +752,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Lisää artikkelin kuvaus (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aloittaminen</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kuvateksti (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Kuvan kuvaus (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Tiedosto</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Tiedosto Wikimedia Commonsista</string>
   <string name="suggested_edits_image_preview_dialog_artist">Taiteilija</string>
@@ -871,13 +874,6 @@
     <item quantity="one">Lisäsit %d merkin</item>
     <item quantity="other">Lisäsit %d merkkiä</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Opeta kuva-algoritmia</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Päätä, jos ehdotettu kuva parantaisi artikkelia.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Aloita</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Hienoa, jatka samaan tahtiin! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Päivittäinen tavoite saavutettu! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Olet saavuttanut päivän tavoitteen</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Uusi Ehdotetut muutokset -tehtävä on nyt tarjolla. Opeta algoritmi yhdistämään kuvia kuvittamattomiin artikkeleihin.</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
   <string name="file_page_add_image_tags_button">Lisää kuvamerkintöjä</string>
@@ -953,25 +949,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Peruuta</string>
   <string name="edit_type_all">Kaikki muokkaukset</string>
   <string name="content_description_for_page_indicator">Sivu %1$d/%2$d</string>
-  <string name="image_recommendations_task_accept">Kyllä</string>
-  <string name="image_recommendations_task_reject">Ei</string>
-  <string name="image_recommendations_task_not_sure">Epävarma</string>
-  <string name="image_recommendations_task_processing">Käsitellään...</string>
-  <string name="image_recommendations_task_instruction">Lisäisitkö tämän kuvan artikkeliin?</string>
-  <string name="image_recommendations_task_choice_no">Miksi valitsit ei?</string>
-  <string name="image_recommendations_task_choice_unsure">Miksi et ole varma tästä kuvasta?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Ei asiaankuuluva</string>
-  <string name="image_recommendations_task_choice_low_quality">Matala laatu</string>
-  <string name="image_recommendations_task_choice_noinfo">Ei tarpeeksi tietoa</string>
-  <string name="image_recommendations_task_choice_nosubject">En tiedä tästä aiheesta</string>
-  <string name="image_recommendations_task_choice_offensive">Loukkaava</string>
-  <string name="image_recommendations_task_choice_invisible">En näe kuvaa</string>
-  <string name="image_recommendations_task_choice_understand">En ymmärrä tehtävää</string>
-  <string name="image_recommendations_task_choice_language">En ymmärrä kieltä</string>
-  <string name="image_recommendations_task_choice_other">Muu</string>
-  <string name="image_recommendations_task_choice_continue">Jatka</string>
-  <string name="image_recommendations_faq">UKK</string>
-  <string name="image_recommendations_tooltip1">Tutki tätä artikkelia ymmärtääksesi sen aihetta.</string>
   <string name="wikitext_bold">Lihavoi</string>
   <string name="wikitext_italic">Kursivoi</string>
   <string name="wikitext_link">Linkki</string>

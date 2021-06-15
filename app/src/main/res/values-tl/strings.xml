@@ -207,14 +207,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Mga Ginamit na Library</string>
   <string name="about_contributors_heading">Mga Nag-ambag</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pahina ng team&lt;/a&gt;</string>
   <string name="about_translators_heading">Mga Nagsalin</string>
   <string name="about_translators_translatewiki">Isinalin ang app na ito ng mga boluntaryong tagapagsalin sa &lt;a href=\"https://translatewiki.net\"&gt;&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensiya</string>
-  <string name="about_app_license">Makikita ang source code sa &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; at &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sa ilalim ng &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;lisensiyang Apache 2.0&lt;/a&gt;. Maliban lamang kung sinabi, magagamit ang nilalaman sa ilalim ng &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;lisensiyang Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Makikita ang source code sa &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; at &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sa ilalim ng &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;lisensiyang Apache 2.0&lt;/a&gt;. Maliban lamang kung sinabi, magagamit ang nilalaman sa ilalim ng &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;lisensiyang Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkto ng &lt;a href=\"https://wikimediafoundation.org/\"&gt;Pundasyong Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Patungkol</string>
   <string name="edit_abandon_confirm">Binago mo ang pahinang ito. Sigurado ka bang babalewalain mo ang mga pagbababagong ginawa mo?</string>
@@ -726,7 +725,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Maglarawan (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Magsimula</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kapsyón (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Paglalarawan (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Larawan</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">File mula sa Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">May-akda</string>
@@ -849,16 +847,6 @@
     <item quantity="one">Nagdagdag ka ng %d karakter</item>
     <item quantity="other">Nagdagdag ka ng %d (na) karakter</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Sanayin ang algoritmo ng larawan</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Magdesisyon kung mapapahusay ng iminungkahing larawan ang artikulo.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Magsimula</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Magaling, tuloy lang! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Narating na ang target ngayong araw! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Narating mo na ang target</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">May bagong gawain sa mga Alok na Edit. Magsanay ng algoritmo para magpares ng larawan sa mga artikulong wala pang larawan.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Sinulat at in-edit ng libo-libong tao ang mga artikulo sa Wikipedia. Gayumpaman, marami sa mga ito ay walang larawan.\n\nMagmumungkahi ang algoritmo sa\'yo ng mga larawan. Kukuha ang algoritmo ng mga larawan mula sa ibang mapagkukuhanan at magmumungkahi ng pares para sa isang artikulong wala pang larawan.\n\nMalaki ang tulong ng mga sagot mo sa pagpapahusay sa mga mungkahi sa paglipas ng panahon  Dahil ang tunguhin ng gawaing ito ay para mapahusay ang pagmumungkahi ng mga larawan, hindi ilalathala ang mga pares na ginawa mo.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Gusto naming kilalanin ang iyong ambag sa pagsisikap na ito. Gusto mo bang maipakita ang iyong pangalan sa pahina ng pagsasanay sa algoritmo?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Sige, pwedeng ipakita ang pangalan ko sa pahina ng pagsasanay</string>
   <string name="file_page_activity_title">Pahina ng file</string>
   <string name="file_page_add_image_caption_button">Magdagdag ng kapsyón</string>
   <string name="file_page_add_image_tags_button">Magdagdag ng tag</string>
@@ -934,28 +922,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Ikansela</string>
   <string name="edit_type_all">Lahat ng ambag</string>
   <string name="content_description_for_page_indicator">Pahina %1$d ng %2$d</string>
-  <string name="image_recommendations_task_accept">Oo</string>
-  <string name="image_recommendations_task_reject">Hindi</string>
-  <string name="image_recommendations_task_not_sure">Di sigurado</string>
-  <string name="image_recommendations_task_processing">Pinoproseso...</string>
-  <string name="image_recommendations_task_instruction">Gusto mo bang ilagay ang larawang ito sa artikulo?</string>
-  <string name="image_recommendations_task_choice_no">Bakit hindi?</string>
-  <string name="image_recommendations_task_choice_unsure">Bakit di ka sigurado?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Walang kaugnayan</string>
-  <string name="image_recommendations_task_choice_low_quality">Mababang kalidad</string>
-  <string name="image_recommendations_task_choice_noinfo">Kulang ng impormasyon</string>
-  <string name="image_recommendations_task_choice_nosubject">Di alam ito</string>
-  <string name="image_recommendations_task_choice_offensive">Bastos</string>
-  <string name="image_recommendations_task_choice_invisible">Di makita ang larawan</string>
-  <string name="image_recommendations_task_choice_understand">Di maintindihan ang gawain</string>
-  <string name="image_recommendations_task_choice_language">Di mabasa ang wika</string>
-  <string name="image_recommendations_task_choice_other">Iba pa</string>
-  <string name="image_recommendations_task_choice_continue">Magpatuloy</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Dahilan ng pagmungkahi:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_faq">Madalas Itanong</string>
-  <string name="image_recommendations_tooltip1">Rebyuhin ang artikulo para maintindihan ito.</string>
-  <string name="image_recommendations_tooltip2">Tingnan ang larawan at ang kaugnay na impormasyon nito.</string>
-  <string name="image_recommendations_tooltip3">Magdesisyon kung makatutulong ang larawan sa mga mambabasa na maintindihan ang paksang ito.</string>
   <string name="wikitext_bold">Kapalin</string>
   <string name="wikitext_italic">Pahilisin</string>
   <string name="wikitext_link">I-link</string>

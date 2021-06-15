@@ -46,6 +46,7 @@
   <string name="offline_load_error_retry">重試</string>
   <string name="page_error_back_to_main">返回</string>
   <string name="error_back">返回</string>
+  <string name="error_next">下一個</string>
   <string name="menu_clear_all_history">清除歷史</string>
   <string name="history_item_deleted">%s已從歷史移除</string>
   <string name="history_items_deleted">%d個條目已從歷史移除</string>
@@ -221,14 +222,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#Train_image_algorithm</string>
   <string name="about_libraries_heading">使用的函式庫</string>
   <string name="about_contributors_heading">貢獻者</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;團隊頁面&lt;/a&gt;</string>
   <string name="about_translators_heading">翻譯人員</string>
   <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
   <string name="about_app_license_heading">授權條款</string>
-  <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;。</string>
+  <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
   <string name="edit_abandon_confirm">頁面已修改。確定要離開而不存儲您的更改嗎？</string>
@@ -322,7 +322,7 @@
   <string name="all_tab_items_closed">所有分頁已關閉</string>
   <string name="tool_tip_bookmark_icon_title">新增至閱讀清單</string>
   <string name="tool_tip_bookmark_icon_text">輕觸書籤圖標來儲存條目至閱讀清單裡。</string>
-  <string name="page_view_in_browser">以瀏覽器檢視頁面</string>
+  <string name="page_view_in_browser">在瀏覽器檢視頁面</string>
   <string name="tool_tip_toc_title">內容快速存取表格</string>
   <string name="tool_tip_toc_text">您現在可以往左滑動來開啟內容表格，並可以輕觸拖拉到此滾動按鈕來快速跳至條目的不同段落。</string>
   <string name="tool_tip_lang_button">您現在可以在應用程式裡搜尋及閱讀多個維基百科語言版本。\n\n\n輕觸圖標來添加更多語言。</string>
@@ -373,6 +373,14 @@
   <string name="page_footer_license_text">除非另有註明，否則頁面內容均以 $1 條款授權</string>
   <string name="empty_tab_title">新分頁</string>
   <string name="menu_save_all_tabs">儲存所有分頁</string>
+  <string name="error_blocked_title">您的使用者名稱或是 IP 位址已被封鎖。</string>
+  <string name="error_blocked_by">由&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;做出封鎖</string>
+  <string name="error_blocked_reason">指定原因：%s</string>
+  <string name="error_blocked_start">封鎖起始：%s</string>
+  <string name="error_blocked_expiry">封鎖期滿：%s</string>
+  <string name="error_blocked_id">封鎖 ID：%s</string>
+  <string name="error_blocked_footer">您可以向&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或是其他&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;聯絡來商量該封鎖操作。</string>
+  <string name="error_blocked_footer_no_blocker">您可以聯絡&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;來商量該封鎖操作。</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>
@@ -743,7 +751,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">新增條目描述（%s）</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入門</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>
   <string name="suggested_edits_image_preview_dialog_image">圖片</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">來自維基共享資源的檔案</string>
   <string name="suggested_edits_image_preview_dialog_artist">藝術家</string>
@@ -866,19 +873,10 @@
     <item quantity="one">您已添加 %d 個字元</item>
     <item quantity="other">您已添加 %d 個字元</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">訓練圖片演算</string>
-  <string name="suggested_edits_image_recommendations_task_detail">確認建議的圖片是否可以改善條目。</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">開始</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">了不起，繼續加油！👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">達成每日目標！👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">您已達成目標</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">現在有新的可用建議編輯。訓練一種用來把圖片與無圖例條目做匹配的演算法。</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">維基百科的條目是由來自於世界各地的數千名志工撰寫編輯，但遺憾的是，有許多條目內容裡缺少圖片。\n\n我們會使用一種會將圖片建議給您的演算法。該演算法會從其它來源提取圖片，並與還沒有圖片的條目做建議匹配。\n\n您的回饋將會隨著時間協助我們改善建議。因為此任務的目標是改善建議的圖片，所以您做出的匹配內容目前不會現在就發布出去。</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">我們想感謝您為這項成果所做出的貢獻。您願意讓我們的演算法訓練頁面上顯示出您的使用者名稱嗎？</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">是的，我的使用者名稱可以顯示在演算訓練頁面上</string>
   <string name="file_page_activity_title">檔案頁面</string>
   <string name="file_page_add_image_caption_button">新增圖片說明</string>
   <string name="file_page_add_image_tags_button">新增圖片標籤</string>
+  <string name="file_page_suggestion_reason">推薦原因</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
@@ -951,28 +949,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">取消</string>
   <string name="edit_type_all">所有貢獻</string>
   <string name="content_description_for_page_indicator">%1$d / %2$d 頁</string>
-  <string name="image_recommendations_task_accept">是</string>
-  <string name="image_recommendations_task_reject">否</string>
-  <string name="image_recommendations_task_not_sure">不確定</string>
-  <string name="image_recommendations_task_processing">處理中…</string>
-  <string name="image_recommendations_task_instruction">您要添加這個圖片到條目裡嗎？</string>
-  <string name="image_recommendations_task_choice_no">您為什麼沒有選擇呢？</string>
-  <string name="image_recommendations_task_choice_unsure">您為什麼不確定這張圖片？</string>
-  <string name="image_recommendations_task_choice_not_relevant">不相關</string>
-  <string name="image_recommendations_task_choice_low_quality">低品質</string>
-  <string name="image_recommendations_task_choice_noinfo">沒有足夠資訊</string>
-  <string name="image_recommendations_task_choice_nosubject">不知道這個主題</string>
-  <string name="image_recommendations_task_choice_offensive">令人唐突</string>
-  <string name="image_recommendations_task_choice_invisible">看不到圖片</string>
-  <string name="image_recommendations_task_choice_understand">任務不了解</string>
-  <string name="image_recommendations_task_choice_language">無法讀取語言</string>
-  <string name="image_recommendations_task_choice_other">其它</string>
-  <string name="image_recommendations_task_choice_continue">繼續</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;建議原因：&lt;/b&gt;%s</string>
-  <string name="image_recommendations_faq">常見問題</string>
-  <string name="image_recommendations_tooltip1">檢閱此條目來了解主題。</string>
-  <string name="image_recommendations_tooltip2">檢查圖片與其相關資訊。</string>
-  <string name="image_recommendations_tooltip3">確認該圖片是否有幫助到讀者能更了解主題。</string>
   <string name="wikitext_bold">粗體</string>
   <string name="wikitext_italic">斜體</string>
   <string name="wikitext_link">連結</string>

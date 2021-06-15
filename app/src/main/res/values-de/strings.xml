@@ -234,14 +234,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.de</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/de</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/de#Bild-Schlagworte</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/de#Train_image_algorithm</string>
   <string name="about_libraries_heading">Verwendete Bibliotheken</string>
   <string name="about_contributors_heading">Mitwirkende</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team-Seite&lt;/a&gt;</string>
   <string name="about_translators_heading">Übersetzer</string>
   <string name="about_translators_translatewiki">Diese App wurde von freiwilligen Übersetzern auf &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; übersetzt.</string>
   <string name="about_app_license_heading">Lizenz</string>
-  <string name="about_app_license">Der Quellcode ist bei &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; und &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; unter der &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache-2.0-Lizenz&lt;/a&gt; abrufbar. Sofern nicht anders angegeben, ist der Inhalt unter einer &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Lizenzbestimmungen_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt; verfügbar.</string>
+  <string name="about_app_license">Der Quellcode ist bei &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; und &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; unter der &lt;a href=\"href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache-2.0-Lizenz&lt;/a&gt; abrufbar. Sofern nicht anders angegeben, ist der Inhalt unter einer &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Lizenzbestimmungen_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt; verfügbar.</string>
   <string name="about_wmf">Ein Produkt der &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Über</string>
   <string name="edit_abandon_confirm">Die Seite wurde verändert. Bist du sicher, dass du sie ohne Speichern deiner Änderungen verlassen möchtest?</string>
@@ -386,6 +385,14 @@
   <string name="page_footer_license_text">Der Inhalt ist verfügbar unter $1, sofern nicht anders angegeben.</string>
   <string name="empty_tab_title">Neue Registerkarte</string>
   <string name="menu_save_all_tabs">Alle Registerkarten speichern</string>
+  <string name="error_blocked_title">Dein Benutzername oder deine IP-Adresse wurde gesperrt.</string>
+  <string name="error_blocked_by">Die Sperre erfolgte durch &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Grund: %s</string>
+  <string name="error_blocked_start">Start der Sperre: %s</string>
+  <string name="error_blocked_expiry">Ender der Sperre: %s</string>
+  <string name="error_blocked_id">Sperr-ID: %s</string>
+  <string name="error_blocked_footer">Du kannst &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; oder einen anderen &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Administratoren\"&gt;Administrator&lt;/a&gt; kontaktieren, um die Sperre zu besprechen.</string>
+  <string name="error_blocked_footer_no_blocker">Du kannst einen &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Administratoren\"&gt;Administrator&lt;/a&gt; kontaktieren, um die Sperre zu besprechen.</string>
   <string name="crash_report_activity_title">Anwendungsfehler</string>
   <string name="crash_report_relaunch_or_quit">Leider ist in der Wikipedia-App ein Fehler aufgetreten.\n\nMöchtest du die App neu starten oder beenden?</string>
   <string name="crash_report_relaunch">Neu starten</string>
@@ -756,7 +763,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschreibungen hinzufügen (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Anfangen</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildunterschrift (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeschreibung (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Bild</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Datei von Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Künstler</string>
@@ -879,16 +885,6 @@
     <item quantity="one">Du hast %d Zeichen hinzugefügt</item>
     <item quantity="other">Du hast %d Zeichen hinzugefügt</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Bildalgorithmus trainieren</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Entscheide, ob ein vorgeschlagenes Bild einen Artikel verbessern wird.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Starten</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Toll, weiter so! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Tagesziel erreicht! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Du hast das Tagesziel erreicht</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Eine neue Aufgabe „Vorgeschlagene Bearbeitungen“ ist jetzt verfügbar. Trainiere einen Algorithmus zum Zuordnen von Bildern zu nicht bebilderten Artikeln.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia-Artikel werden von Tausenden von Freiwilligen aus der ganzen Welt geschrieben und bearbeitet. Leider fehlen in vielen Artikeln Bilder, die dir mithilfe eines Algorithmus vorgeschlagen werden. Der Algorithmus zieht Bilder aus anderen Quellen und schlägt eine Übereinstimmung mit einem Artikel vor, der kein Bild hat. Da das Ziel dieser Aufgabe darin besteht, die vorgeschlagenen Bilder zu verbessern, werden die von dir gemachten Übereinstimmungen zu diesem Zeitpunkt nicht veröffentlicht.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Wir möchten dich für deine Beiträge zu dieser Arbeit würdigen. Möchtest du, dass dein Benutzername auf unserer Algorithmus-Trainingsseite angezeigt wird?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Ja, mein Benutzername darf auf der Algorithmus-Trainingsseite angezeigt werden</string>
   <string name="file_page_activity_title">Dateiseite</string>
   <string name="file_page_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="file_page_add_image_tags_button">Bilder-Tags hinzufügen</string>
@@ -965,33 +961,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Abbrechen</string>
   <string name="edit_type_all">Alle Beiträge</string>
   <string name="content_description_for_page_indicator">Schritt %1$d von %2$d</string>
-  <string name="image_recommendations_task_accept">Ja</string>
-  <string name="image_recommendations_task_reject">Nein</string>
-  <string name="image_recommendations_task_not_sure">Nicht sicher</string>
-  <string name="image_recommendations_task_processing">Verarbeite …</string>
-  <string name="image_recommendations_task_instruction">Würdest du dieses Bild in den Artikel einfügen?</string>
-  <string name="image_recommendations_task_choice_no">Warum hast du nein gewählt?</string>
-  <string name="image_recommendations_task_choice_not_sure">Warum hast du „nicht sicher“ gewählt?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Wähle einen oder mehrere Gründe.</string>
-  <string name="image_recommendations_task_choice_unsure">Warum bist du dir bei diesem Bild nicht sicher?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Nicht zutreffend</string>
-  <string name="image_recommendations_task_choice_low_quality">Niedrige Qualität</string>
-  <string name="image_recommendations_task_choice_noinfo">Nicht genügend Informationen</string>
-  <string name="image_recommendations_task_choice_nosubject">Kenne dieses Thema nicht</string>
-  <string name="image_recommendations_task_choice_offensive">Anstößig</string>
-  <string name="image_recommendations_task_choice_invisible">Kann das Bild nicht sehen</string>
-  <string name="image_recommendations_task_choice_understand">Verstehen die Aufgabe nicht</string>
-  <string name="image_recommendations_task_choice_language">Kann die Sprache nicht lesen</string>
-  <string name="image_recommendations_task_choice_other">Andere</string>
-  <string name="image_recommendations_task_choice_continue">Weiter</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Vorschlag Grund:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">Bild wurde in anderen Wikipedia-Sprachversion gefunden (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">Bild wurde auf Wikidata gefunden, der Quelle für offene Daten bei Wikipedia</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">Bild wurde auf Wikimedia Commons gefunden, der Wikipedia-Quelle für frei verwendbare Bilder</string>
-  <string name="image_recommendations_faq">FAQ</string>
-  <string name="image_recommendations_tooltip1">Lies diesen Artikel, um sein Thema zu verstehen.</string>
-  <string name="image_recommendations_tooltip2">Prüfe das Bild und die zugehörigen Informationen.</string>
-  <string name="image_recommendations_tooltip3">Entscheide, ob das Bild den Lesern helfen wird, das Thema besser zu verstehen.</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>

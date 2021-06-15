@@ -55,6 +55,7 @@
   <string name="offline_load_error_retry">إعادة المحاولة</string>
   <string name="page_error_back_to_main">ارجع إلى الخلف</string>
   <string name="error_back">رجوع</string>
+  <string name="error_next">التالي</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>
   <string name="history_item_deleted">أزيلت %s من التاريخ</string>
   <string name="history_items_deleted">أُزيلت %d مقالة من التاريخ</string>
@@ -230,14 +231,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
-  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من &lt;a href=\"https://wikimediafoundation.org/\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">حول</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
@@ -331,7 +331,7 @@
   <string name="close_all_tabs_confirm_no">لا</string>
   <string name="button_close_tab">أغلق اللسان</string>
   <string name="unnamed_tab_closed">تم إغلاق علامة التبويب</string>
-  <string name="tab_item_closed">%s تم إغلاقه.</string>
+  <string name="tab_item_closed">أُغلقت %s.</string>
   <string name="all_tab_items_closed">جميع علامات التبويب مغلقة.</string>
   <string name="tool_tip_bookmark_icon_title">الإضافة إلى قائمة القراءة</string>
   <string name="tool_tip_bookmark_icon_text">اضغط على أيقونة الإشارة المرجعية لحفظ المقالة في قائمة قراءة.</string>
@@ -430,9 +430,9 @@
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="zero">...</item>
     <item quantity="one">مقالة واحدة، %2$.2f ميغابايت</item>
-    <item quantity="two">مقالتان</item>
-    <item quantity="few">...</item>
-    <item quantity="many">...</item>
+    <item quantity="two">مقالتان، %2$.2f ميغابايت</item>
+    <item quantity="few">%1$d مقالات، %2$.2f ميغابايت</item>
+    <item quantity="many">%1$d مقالة، %2$.2f ميغابايت</item>
     <item quantity="other">%1$d مقالات، %2$.2f ميغابايت</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
@@ -451,7 +451,7 @@
   <string name="reading_list_sort_ellipsis">الترتيب حسب…</string>
   <string name="reading_list_sort_by_name">فرز حسب الاسم</string>
   <string name="reading_list_sort_by_name_desc">رتب حسب الاسم (عكسي)</string>
-  <string name="reading_list_sort_by_recent">فرز حسب الأحدث</string>
+  <string name="reading_list_sort_by_recent">فرز حسب تاريخ الإضافة (الأحدث)</string>
   <string name="reading_list_sort_by_recent_desc">فرز حسب الأقدم</string>
   <string name="reading_list_sort_by_created">فرز حسب تاريخ الإنشاء (الأحدث)</string>
   <string name="reading_list_sort_by_created_desc"> فرز حسب تاريخ الإنشاء (الأقدم)</string>
@@ -467,6 +467,7 @@
   <string name="reading_list_name_hint">اسم قائمة القراءة</string>
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
   <string name="reading_list_item_deleted">أزيلت %s من القائمة</string>
+  <string name="reading_list_item_deleted_from_list">أُزيلت %1$s من %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="zero">...</item>
     <item quantity="one">%d مقالة أزيلت من القائمة</item>
@@ -709,6 +710,7 @@
   <string name="description_too_short">النص قصير للغاية.</string>
   <string name="description_ends_with_punctuation">النص يجب أن لا ينتهي بعلامة ترقيم.</string>
   <string name="description_starts_with_uppercase">ابدأ بحرف صغير إلا إذا كانت الكلمة الأولى هي اسم علم.</string>
+  <string name="description_starts_with_lowercase">تجنّب البدء بأحرف صغيرة.</string>
   <string name="description_is_in_different_language">يظهر أن النص بلغة غير متوقّعة. اللغة يجب أن تكون %s.</string>
   <string name="description_edit_success_saved">تم نشر وصف المقالة!</string>
   <string name="description_edit_success_saved_snackbar">تم نشر وصف المقالة!</string>
@@ -770,8 +772,8 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">إضافة وصف المقالة (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">شرح الصورة (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">وصف الصورة (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">الملف</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">ملف من ويكيميديا كومنز</string>
   <string name="suggested_edits_image_preview_dialog_artist">الفنان</string>
   <string name="suggested_edits_image_preview_dialog_tags">الوسوم</string>
   <string name="suggested_edits_image_preview_dialog_date">التاريخ</string>
@@ -779,6 +781,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">الترخيص</string>
   <string name="suggested_edits_image_preview_dialog_more_info">المزيد من المعلومات</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
+  <string name="suggested_edits_article_cta_image_tags">أضف وسوم الصور</string>
   <string name="suggested_edits_article_cta_image_caption">إضافة شرح الصورة</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">إضافة شرح الصورة (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">عرض</string>
@@ -818,7 +821,7 @@
   <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
   <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
   <string name="suggested_edits_edit_streak_label_text">تسلسل التحرير</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">مشاهدات الصفحة</string>
+  <string name="suggested_edits_views_label_text">المشاهدات</string>
   <string name="suggested_edits_quality_label_text">جودة التحرير</string>
   <string name="suggested_edits_quality_perfect_text">مثالي</string>
   <string name="suggested_edits_quality_excellent_text">ممتاز</string>
@@ -847,17 +850,24 @@
   <string name="suggested_edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">التعديلات المقترحة</string>
   <string name="suggested_edits_reactivation_notification_stage_two">لديك وقت لمواصلة تحسين ويكيبيديا؟ تحقق من اقتراحات التعديل هذه.</string>
+  <string name="suggested_edits_contributions_screen_title">مساهمات %s</string>
   <string name="suggested_edits_contribution_language_label">اللغة</string>
+  <string name="suggested_edits_contribution_date_time_label">التاريخ / الوقت</string>
   <string name="suggested_edits_contribution_type_label">نوع المساهمة</string>
   <string name="suggested_edits_contribution_image_label">صورة</string>
   <string name="suggested_edits_contribution_article_label">مقالة</string>
+  <string name="suggested_edits_contribution_views">%s مشاهدة</string>
   <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
   <string name="suggested_edits_encourage_account_creation_title">هل تعلم أنه بإمكان الجميع تعديل ويكيبيديا؟</string>
   <string name="suggested_edits_encourage_account_creation_message">التعديلات المقترحة هي طريقة جديدة لتحرير ويكيبيديا على الأندرويد. تُساعدك على إجراء مساهمات صغيرة ولكنها حيوية في ويكيبيديا.\nهدفنا هو جعل التحرير أسهل وأكثر مرونة للجميع! سجّل الدخول أو انضم لويكيبيديا للبدء.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">سجل الدخول / انضم لويكيبيديا</string>
   <string name="suggested_edits_contribution_type_image_tag">وسم صورة</string>
   <string name="suggested_edits_contribution_current_revision_text">أضيف تعديلك إلى ويكيبيديا</string>
+  <string name="suggested_card_more_edits">تعديلات مقترحة أكثر</string>
   <string name="file_page_activity_title">صفحة ملف</string>
+  <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
+  <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
+  <string name="file_page_suggestion_reason">سبب الاقتراح</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
@@ -888,7 +898,7 @@
   <string name="app_shortcuts_search">بحث</string>
   <string name="on_this_day_card_title">في هذا اليوم</string>
   <string name="more_events_text">المزيد في هذا اليوم</string>
-  <string name="events_count_text">%1$s أحداث من %2$s–%3$d</string>
+  <string name="events_count_text">%1$s حدثًا من %2$s–%3$d</string>
   <string name="this_year">هذا العام</string>
   <string name="on_this_day_dialog_next_month">الشهر التالي</string>
   <string name="on_this_day_dialog_previous_month">الشهر السابق</string>
@@ -930,10 +940,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">إلغاء</string>
   <string name="edit_type_all">كل المساهمات</string>
   <string name="content_description_for_page_indicator">الصفحة %1$d من %2$d</string>
-  <string name="image_recommendations_task_accept">نعم</string>
-  <string name="image_recommendations_task_reject">لا</string>
-  <string name="image_recommendations_task_not_sure">لستُ متأكداً</string>
-  <string name="image_recommendations_task_choice_continue">استمر</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>
   <string name="wikitext_link">وصلة</string>
@@ -948,6 +954,7 @@
   <string name="main_tooltip_text_v2">هل تعلم أنه بإمكان الجميع تعديل ويكيبيديا؟</string>
   <string name="main_tooltip_action_button">ابدأ</string>
   <string name="main_tooltip_watchlist_title">قائمة المراقبة</string>
+  <string name="main_tooltip_watchlist_text">طالع المقالات والصفحات التي أضفتها سابقًا إلى قائمة مراقبتك في قائمة \"المزيد\" ضمن &lt;b&gt;قائمة المراقبة&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">حسنا</string>
   <string name="text_input_dialog_ok_button_text">حسنا</string>
   <string name="text_input_dialog_cancel_button_text">إلغاء</string>
@@ -969,6 +976,7 @@
   <string name="watchlist_details_watching_label">تُراقب</string>
   <string name="watchlist_details_watch_label">راقب</string>
   <string name="thank_label">شكر</string>
+  <string name="go_to_user_page">اذهب لصفحة المستخدم</string>
   <string name="thank_dialog_title_text">إرسال الشكر علنًا</string>
   <string name="thank_dialog_text">\"الشكر\" هي طريقةٌ سهلةٌ لإظهار التقدير لعمل أحد المحررين في ويكيبيديا. لا يمكن التراجع عن \"الشكر\" وهي معروضةٌ علنًا.</string>
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>

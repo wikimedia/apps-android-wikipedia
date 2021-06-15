@@ -158,7 +158,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     override fun onMoveItemToOther(pageId: Long) {
         val page = getPageById(pageId) ?: return
         bottomSheetPresenter.show(childFragmentManager,
-                MoveToReadingListDialog.newInstance(page.listId(), ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
+                MoveToReadingListDialog.newInstance(page.listId, ReadingListPage.toPageTitle(page), InvokeSource.READING_LIST_ACTIVITY))
     }
 
     override fun onSelectItem(pageId: Long) {
@@ -171,7 +171,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun getPageById(id: Long): ReadingListPage? {
-        return displayedLists.firstOrNull { it is ReadingListPage && it.id() == id } as ReadingListPage?
+        return displayedLists.firstOrNull { it is ReadingListPage && it.id == id } as ReadingListPage?
     }
 
     private inner class OverflowCallback : ReadingListsOverflowView.Callback {
@@ -181,15 +181,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun createNewListClick() {
-            val existingTitles = mutableListOf<String>()
-            displayedLists.forEach {
-                if (it is ReadingList) {
-                    existingTitles.add(it.title())
-                }
-            }
+            val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
             ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
                     existingTitles) { text, description ->
-                ReadingListDbHelper.instance().createList(text, description)
+                ReadingListDbHelper.createList(text, description)
                 updateLists()
             }.show()
         }
@@ -242,7 +237,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         return false
                     }
                     return (displayedLists[oldItemPosition] is ReadingList && lists[newItemPosition] is ReadingList &&
-                            (displayedLists[oldItemPosition] as ReadingList).id() == (lists[newItemPosition] as ReadingList).id())
+                            (displayedLists[oldItemPosition] as ReadingList).id == (lists[newItemPosition] as ReadingList).id)
                 }
 
                 override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
@@ -250,9 +245,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                         return false
                     }
                     return (displayedLists[oldItemPosition] is ReadingList && lists[newItemPosition] is ReadingList &&
-                            (displayedLists[oldItemPosition] as ReadingList).id() == (lists[newItemPosition] as ReadingList).id() &&
-                            (displayedLists[oldItemPosition] as ReadingList).pages().size == (lists[newItemPosition] as ReadingList).pages().size &&
-                            (displayedLists[oldItemPosition] as ReadingList).numPagesOffline() == (lists[newItemPosition] as ReadingList).numPagesOffline())
+                            (displayedLists[oldItemPosition] as ReadingList).id == (lists[newItemPosition] as ReadingList).id &&
+                            (displayedLists[oldItemPosition] as ReadingList).pages.size == (lists[newItemPosition] as ReadingList).pages.size &&
+                            (displayedLists[oldItemPosition] as ReadingList).numPagesOffline == (lists[newItemPosition] as ReadingList).numPagesOffline)
                 }
             })
             // If the number of lists has changed, just invalidate everything, as a
@@ -263,7 +258,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             // if the default list is empty, then removes it.
             if (lists.size == 1 && lists[0] is ReadingList &&
                     (lists[0] as ReadingList).isDefault &&
-                    (lists[0] as ReadingList).pages().isEmpty()) {
+                    (lists[0] as ReadingList).pages.isEmpty()) {
                 lists.removeAt(0)
             }
             displayedLists = lists
@@ -311,7 +306,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private fun setUpEmptyContainer() {
         if (displayedLists.size == 1 && displayedLists[0] is ReadingList &&
                 (displayedLists[0] as ReadingList).isDefault &&
-                (displayedLists[0] as ReadingList).pages().isNotEmpty()) {
+                (displayedLists[0] as ReadingList).pages.isNotEmpty()) {
             binding.emptyTitle.text = getString(R.string.no_user_lists_title)
             binding.emptyMessage.text = getString(R.string.no_user_lists_msg)
         } else {
@@ -336,18 +331,18 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     private inner class ReadingListPageItemHolder constructor(itemView: PageItemView<ReadingListPage>) : DefaultViewHolder<PageItemView<ReadingListPage>>(itemView) {
         fun bindItem(page: ReadingListPage) {
             view.item = page
-            view.setTitle(page.title())
+            view.setTitle(page.displayTitle)
             view.setTitleMaxLines(2)
             view.setTitleEllipsis()
-            view.setDescription(page.description())
+            view.setDescription(page.description)
             view.setDescriptionMaxLines(2)
             view.setDescriptionEllipsis()
             view.setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION.toFloat()), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION.toFloat()))
-            view.setImageUrl(page.thumbUrl())
-            view.isSelected = page.selected()
-            view.setSecondaryActionIcon(if (page.saving()) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp, !page.offline() || page.saving())
-            view.setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < CircularProgressBar.MAX_PROGRESS)
-            view.setProgress(if (page.downloadProgress() == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress())
+            view.setImageUrl(page.thumbUrl)
+            view.isSelected = page.selected
+            view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp, !page.offline || page.saving)
+            view.setCircularProgressVisibility(page.downloadProgress > 0 && page.downloadProgress < CircularProgressBar.MAX_PROGRESS)
+            view.setProgress(if (page.downloadProgress == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress)
             view.setActionHint(R.string.reading_list_article_make_offline)
             view.setSearchQuery(currentSearchQuery)
             view.setUpChipGroup(ReadingListBehaviorsUtil.getListsContainPage(page))
@@ -430,11 +425,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onSaveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages()) { updateLists(currentSearchQuery, true) }
+            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
         }
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages()) { updateLists(currentSearchQuery, true) }
+            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
         }
     }
 
@@ -445,8 +440,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 it.touch()
                 Completable.fromAction {
-                    ReadingListDbHelper.instance().updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
-                    ReadingListDbHelper.instance().updatePage(it)
+                    ReadingListDbHelper.updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
+                    ReadingListDbHelper.updatePage(it)
                 }.subscribeOn(Schedulers.io()).subscribe()
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
@@ -455,7 +450,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun onLongClick(item: ReadingListPage?): Boolean {
             item?.let {
                 bottomSheetPresenter.show(childFragmentManager,
-                        ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.getListsContainPage(it), it.id(), actionMode != null))
+                        ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.getListsContainPage(it), it.id, actionMode != null))
                 return true
             }
             return false
@@ -468,10 +463,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         override fun onActionClick(item: ReadingListPage?, view: View) {
             item?.let {
                 if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi() &&
-                        it.status() == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
-                    it.offline(false)
+                        it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
+                    it.offline = false
                 }
-                if (it.saving()) {
+                if (it.saving) {
                     Toast.makeText(context, R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show()
                 } else {
                     ReadingListBehaviorsUtil.toggleOffline(requireActivity(), it) { adapter.notifyDataSetChanged() }
@@ -490,7 +485,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     .getStringExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)
             requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)
             displayedLists.forEach {
-                if (it is ReadingList && it.title() == titleToDelete) {
+                if (it is ReadingList && it.title == titleToDelete) {
                     ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), it, false) {
                         ReadingListBehaviorsUtil.showDeleteListUndoSnackbar(requireActivity(), it) { updateLists() }
                         funnel.logDeleteList(it, displayedLists.size)

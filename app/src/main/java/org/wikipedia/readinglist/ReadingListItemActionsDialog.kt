@@ -32,10 +32,10 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         actionsView.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         actionsView.callback = ItemActionsCallback()
 
-        ReadingListDbHelper.instance().getPageById(requireArguments().getLong(ARG_READING_LIST_PAGE))?.let {
+        ReadingListDbHelper.getPageById(requireArguments().getLong(ARG_READING_LIST_PAGE))?.let {
             readingListPage = it
             val removeFromListText = if (requireArguments().getInt(ARG_READING_LIST_SIZE) == 1) getString(R.string.reading_list_remove_from_list, requireArguments().getString(ARG_READING_LIST_NAME)) else getString(R.string.reading_list_remove_from_lists)
-            actionsView.setState(it.title(), removeFromListText, it.offline(), requireArguments().getBoolean(ARG_READING_LIST_HAS_ACTION_MODE))
+            actionsView.setState(it.displayTitle, removeFromListText, it.offline, requireArguments().getBoolean(ARG_READING_LIST_HAS_ACTION_MODE))
         }
         return actionsView
     }
@@ -49,42 +49,42 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         override fun onToggleOffline() {
             dismiss()
             readingListPage?.let {
-                callback()?.onToggleItemOffline(it.id())
+                callback()?.onToggleItemOffline(it.id)
             }
         }
 
         override fun onShare() {
             dismiss()
             readingListPage?.let {
-                callback()?.onShareItem(it.id())
+                callback()?.onShareItem(it.id)
             }
         }
 
         override fun onAddToOther() {
             dismiss()
             readingListPage?.let {
-                callback()?.onAddItemToOther(it.id())
+                callback()?.onAddItemToOther(it.id)
             }
         }
 
         override fun onMoveToOther() {
             dismiss()
             readingListPage?.let {
-                callback()?.onMoveItemToOther(it.id())
+                callback()?.onMoveItemToOther(it.id)
             }
         }
 
         override fun onSelect() {
             dismiss()
             readingListPage?.let {
-                callback()?.onSelectItem(it.id())
+                callback()?.onSelectItem(it.id)
             }
         }
 
         override fun onDelete() {
             dismiss()
             readingListPage?.let {
-                callback()?.onDeleteItem(it.id())
+                callback()?.onDeleteItem(it.id)
             }
         }
     }
@@ -101,7 +101,7 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
         fun newInstance(lists: List<ReadingList>, pageID: Long, hasActionMode: Boolean): ReadingListItemActionsDialog {
             return ReadingListItemActionsDialog().apply {
-                arguments = bundleOf(ARG_READING_LIST_NAME to lists[0].title(),
+                arguments = bundleOf(ARG_READING_LIST_NAME to lists[0].title,
                         ARG_READING_LIST_SIZE to lists.size,
                         ARG_READING_LIST_PAGE to pageID,
                         ARG_READING_LIST_HAS_ACTION_MODE to hasActionMode)

@@ -25,6 +25,7 @@
 * Jgaignerot
 * Jhammock
 * KATRINE1992
+* Kimyungjog
 * Linedwell
 * Ltrlg
 * Léon973
@@ -245,14 +246,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Légendes_d\'images</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Algorithme_d’entrainement_par_image</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Page de l’équipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">À propos</string>
   <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
@@ -397,6 +397,14 @@
   <string name="page_footer_license_text">Le contenu est disponible sous $1 sauf indication contraire</string>
   <string name="empty_tab_title">Nouvel onglet</string>
   <string name="menu_save_all_tabs">Enregistrer tous les onglets</string>
+  <string name="error_blocked_title">Votre nom d\'utilisateur ou adresse IP a été bloqué.</string>
+  <string name="error_blocked_by">Le blocage a été fait par &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Le motif fourni est : %s</string>
+  <string name="error_blocked_start">Début du bloc: %s</string>
+  <string name="error_blocked_expiry">Expiration du bloc: %s</string>
+  <string name="error_blocked_id">ID du blocage : %s</string>
+  <string name="error_blocked_footer">Vous pouvez contacter &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou un autre &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
+  <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="crash_report_activity_title">Erreur de l’application</string>
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>
@@ -767,7 +775,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Ajouter une description à l’article (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Démarrer</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Légende de l’image (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Description de l’image (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Image</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Fichier provenant de Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiste</string>
@@ -890,16 +897,6 @@
     <item quantity="one">Vous avez ajouté %d caractère</item>
     <item quantity="other">Vous avez ajouté %d caractères</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Algorithme d’entrainement par image</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Décider si une image suggérée améliorera un article.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Démarrer</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Très bien, continuez ! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Objectif quotidien atteint ! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Vous avez atteint l’objectif journalier</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Une nouvelle tâche de modification suggérée est maintenant disponible. Entrainez un algorithme à faire correspondre des images avec des articles non illustrés.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Les articles de Wikipédia sont écrits et modifiés par des milliers de bénévoles dans le monde entier. Malheureusement, de nombreux articles ne sont pas illustrés.\n\nLes images vous seront suggérées en utilisant un algorithme. L’algorithme récupérera des images depuis d’autres sources et suggérera une correspondance avec un article qui n’a aucune image.\n\nVotre avis nous aidera à améliorer les suggestions au cours du temps. Puisque le but de cette tâche est d’améliorer les images suggérées, les correspondances que vous réalisez ne seront pas publiées à l’heure actuelle.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Nous aimerions reconnaître vos contributions à cet effort. Aimeriez-vous voir votre nom affiché sur notre page d’entrainement de l’algorithme ?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Oui, mon nom d’utilisateur peut être affiché sur la page d’entrainement de l’algorithme</string>
   <string name="file_page_activity_title">Page du fichier</string>
   <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
   <string name="file_page_add_image_tags_button">Ajouter des balises d’image</string>
@@ -976,33 +973,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Annuler</string>
   <string name="edit_type_all">Toutes les contributions</string>
   <string name="content_description_for_page_indicator">Page %1$d sur %2$d</string>
-  <string name="image_recommendations_task_accept">Oui</string>
-  <string name="image_recommendations_task_reject">Non</string>
-  <string name="image_recommendations_task_not_sure">Pas certain(e)</string>
-  <string name="image_recommendations_task_processing">Traitement en cours...</string>
-  <string name="image_recommendations_task_instruction">Voulez-vous ajouter cette image à l’article ?</string>
-  <string name="image_recommendations_task_choice_no">Pourquoi avez-vous sélectionné « non » ?</string>
-  <string name="image_recommendations_task_choice_not_sure">Pourquoi avez-vous sélectionné incertain ?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Choisissez une ou plusieurs raisons.</string>
-  <string name="image_recommendations_task_choice_unsure">Pourquoi n’êtes vous pas certain(e) concernant cette image ?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Inappropriée</string>
-  <string name="image_recommendations_task_choice_low_quality">De basse qualité</string>
-  <string name="image_recommendations_task_choice_noinfo">Pas assez d’informations</string>
-  <string name="image_recommendations_task_choice_nosubject">Je ne connais pas ce sujet</string>
-  <string name="image_recommendations_task_choice_offensive">Offensante</string>
-  <string name="image_recommendations_task_choice_invisible">Je ne peux pas voir l’image</string>
-  <string name="image_recommendations_task_choice_understand">Je ne comprends pas la tâche</string>
-  <string name="image_recommendations_task_choice_language">Impossible de lire la langue</string>
-  <string name="image_recommendations_task_choice_other">Autre</string>
-  <string name="image_recommendations_task_choice_continue">Continuer</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motif de la suggestion :&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">l’image a été trouvée dans des versions de Wikipédia en d’autres langues (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">l&amp;image a été trouvée sur Wikidata, la source des données ouvertes de Wikipédia</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">l’image a été trouvée sur Wikimédia Communs, la source d’images librement utilisables de Wikipédia</string>
-  <string name="image_recommendations_faq">FAQ</string>
-  <string name="image_recommendations_tooltip1">Relire cet article pour comprendre son sujet.</string>
-  <string name="image_recommendations_tooltip2">Inspecter l’image et ses informations associées.</string>
-  <string name="image_recommendations_tooltip3">Décider si l’image aidera les lecteurs à mieux comprendre ce sujet.</string>
   <string name="wikitext_bold">Gras</string>
   <string name="wikitext_italic">Italique</string>
   <string name="wikitext_link">Lien</string>

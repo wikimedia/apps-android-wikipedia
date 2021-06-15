@@ -206,7 +206,7 @@
   <string name="about_translators_heading">மொழிபெயர்ப்பாளர்கள்</string>
   <string name="about_translators_translatewiki">இந்த நிரல் &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-இல் உள்ள தன்னார்வ மொழிபெயர்ப்பாளர்களால் மொழிபெயர்க்கப்பட்டது.</string>
   <string name="about_app_license_heading">உரிமம்</string>
-  <string name="about_app_license">மூலக்குறியீடு &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; மற்றும் &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-ல் &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;-ன் கீழ் கிடைக்கும். குறிப்பிடப்படவில்லையெனில்,  &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;-ன் கீழ் கிடைக்கும்.</string>
+  <string name="about_app_license" fuzzy="true">மூலக்குறியீடு &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; மற்றும் &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-ல் &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;-ன் கீழ் கிடைக்கும். குறிப்பிடப்படவில்லையெனில்,  &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;-ன் கீழ் கிடைக்கும்.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;விக்கிமீடியா நிறுவனத்தின்&lt;/a&gt; உருவாக்கம்</string>
   <string name="about_activity_title">நிரலைப் பற்றி</string>
   <string name="edit_abandon_confirm">இந்தப் பக்கத்தில் மாற்றங்கள் உள்ளன. உறுதியாக உங்கள் மாற்றங்களை பதிப்பிடாமல் வெளியேற விரும்புகிறீர்களா?</string>
@@ -291,6 +291,7 @@
   <string name="button_continue_to_disambiguation">சம்மந்தப்பட்ட பக்கங்களை காட்டு</string>
   <string name="button_add_to_reading_list">படிக்கும் பட்டியலில் சேர்க</string>
   <string name="page_offline_notice_cannot_load_while_offline">அணை நிலையில் கட்டுரையை ஏற்றமுடியாது.</string>
+  <string name="page_offline_notice_add_to_reading_list">குறிப்பு: கட்டுரையை படிக்கும் பட்டியலில் சேர்க்கவும், நீங்கள் இணைப்பு நிலைக்கு திரும்பியதும் அது பதிவிறக்கப்படும்.</string>
   <string name="button_get_directions">வழிகளைப் பெறு</string>
   <string name="error_no_maps_app">வழிகாட்டி செயலிகள் ஏதும் இல்லை.</string>
   <string name="preference_title_show_link_previews">முன்னோட்ட இணைப்புகளை காண்பி</string>

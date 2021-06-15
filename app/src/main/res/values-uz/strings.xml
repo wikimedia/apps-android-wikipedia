@@ -32,6 +32,7 @@
   <string name="offline_load_error_retry">Qaytadan</string>
   <string name="page_error_back_to_main">Ortga</string>
   <string name="error_back">Ortga</string>
+  <string name="error_next">Keyingi</string>
   <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalamoq</string>
   <string name="history_item_deleted">%s tarixdan o‘chirildi</string>
   <string name="history_items_deleted">%d ta maqola tarixdan o‘chirildi</string>
@@ -207,7 +208,6 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Ilovada foydalanilgan tashqi manbalar:</string>
   <string name="about_contributors_heading">Ilova mualliflari:</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Mualliflar haqida sahifa&lt;/a&gt;</string>
@@ -359,6 +359,14 @@
   <string name="page_footer_license_text">Tarkib $1 ostida mavjud, agar boshqacha ko‘rsatilmagan bo‘lsa</string>
   <string name="empty_tab_title">Yangi xatcho‘p</string>
   <string name="menu_save_all_tabs">Barcha xatcho‘plarni saqlamoq</string>
+  <string name="error_blocked_title">Sizning foydalanuvchi nomingiz yoki IP manzilingiz bloklangan.</string>
+  <string name="error_blocked_by">Bloklash &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; tomonidan amalgan oshirilgan</string>
+  <string name="error_blocked_reason">Sababi: %s</string>
+  <string name="error_blocked_start">Bloklashni boshlash: %s</string>
+  <string name="error_blocked_expiry">Bloklash muddati: %s</string>
+  <string name="error_blocked_id">Bloklashning ID kodi: %s</string>
+  <string name="error_blocked_footer">Siz &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bilan yoki &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash masalasida murojaat qilishingiz mumkin.</string>
+  <string name="error_blocked_footer_no_blocker">Siz &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash boʻyicha bogʻlanishingiz mumkin.</string>
   <string name="crash_report_activity_title">Ilova xatoligi</string>
   <string name="crash_report_relaunch_or_quit">Kechirasiz, Vikipediya ilovasida xatolik yuz berdi va u bekor qilindi.\n\nBoshlashni xohlaysizmi yoki ishdan chiqishni xohlaysizmi?</string>
   <string name="crash_report_relaunch">Boshlandi</string>
@@ -428,9 +436,14 @@
   <string name="reading_list_name_hint">Roʻyxat nomi</string>
   <string name="reading_list_description_hint">Taʼrifi (ixtiyoriy)</string>
   <string name="reading_list_item_deleted">%s roʻyxatdan oʻchirildi.</string>
+  <string name="reading_list_item_deleted_from_list">%1$s %2$s dan oʻchirildi</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d ta maqola roʻyxatdan oʻchirildi</item>
     <item quantity="other">%d ta maqola roʻyxatdan oʻchirldi</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d ta maqola %s dan oʻchirildi</item>
+    <item quantity="other">%d ta maqola %s dan oʻchirildi</item>
   </plurals>
   <string name="reading_list_items_deleted">%d ta maqola roʻyxatdan oʻchirildi</string>
   <string name="reading_lists_item_deleted">%s roʻyxatdan oʻchirildi</string>
@@ -661,6 +674,7 @@
   <string name="description_too_short">Matn juda ham qisqa.</string>
   <string name="description_ends_with_punctuation">Matn tinish belgilari bilan tugamasligi kerak.</string>
   <string name="description_starts_with_uppercase">Birinchi soʻz atoqli ot boʻlmasa, kichik harf bilan boshlang.</string>
+  <string name="description_starts_with_lowercase">Kichik harflarda yozishni taqiqlash.</string>
   <string name="description_is_in_different_language">Matn kutilmagan tilda koʻrinadi. %s tilda boʻlishi kerak.</string>
   <string name="description_edit_success_saved">Maqola tavsifi saqlandi!</string>
   <string name="description_edit_success_saved_snackbar">Maqola tavsifi saqlandi!</string>
@@ -722,8 +736,8 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Maqola tavsifi (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Boshladik</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Rasm nomi (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Rasm nomi (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Rasm</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Wikimedia Commons fayli</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
   <string name="suggested_edits_image_preview_dialog_tags">Bandlar</string>
   <string name="suggested_edits_image_preview_dialog_date">Sana</string>
@@ -844,13 +858,10 @@
     <item quantity="one">%d ta belgi qoʻshdingiz</item>
     <item quantity="other">%d ta belgi qoʻshdingiz</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_get_started">Ishga tushirish</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Zoʻr, shunday davom eting! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Kundalik maqsadga erishdingiz! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Siz maqsadga erishdingiz</string>
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
+  <string name="file_page_suggestion_reason">Taklif sababi</string>
   <string name="description_edit_revert_subtitle">Vikipediyaga hissa qoʻshnagingiz uchun tashakkur!</string>
   <string name="description_edit_revert_intro">Biz sizning qo\'lingizdan kelganicha harakat qilganingizni bilamiz, ammo sharhlovchilardan biri tashvishga tushdi. Tahriringiz qaytarilgan bo\'lishi mumkin bo\'lgan sabablarga quyidagilar kiradi:</string>
   <string name="description_edit_revert_reason1">sizning hissangiz quyidagi &lt;a href=\"%1$s\"&gt;yoʻriqnoma&lt;/a&gt;ga mos emas</string>
@@ -923,17 +934,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Bekor qilmoq</string>
   <string name="edit_type_all">Barcha hissalar</string>
   <string name="content_description_for_page_indicator">%1$d / %2$d sahifa</string>
-  <string name="image_recommendations_task_accept">Ha</string>
-  <string name="image_recommendations_task_reject">Yoʻq</string>
-  <string name="image_recommendations_task_not_sure">Aniq emas</string>
-  <string name="image_recommendations_task_processing">Qayta ishlanmoqda…</string>
-  <string name="image_recommendations_task_choice_not_relevant">Tegishli emas</string>
-  <string name="image_recommendations_task_choice_low_quality">Past sifatli</string>
-  <string name="image_recommendations_task_choice_noinfo">Maʼlumot yetarli emas</string>
-  <string name="image_recommendations_task_choice_offensive">Haqoratli</string>
-  <string name="image_recommendations_task_choice_other">Boshqa</string>
-  <string name="image_recommendations_task_choice_continue">Davom etish</string>
-  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Taklif sababi:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Qalin</string>
   <string name="wikitext_italic">Yotiq</string>
   <string name="wikitext_link">Havola</string>

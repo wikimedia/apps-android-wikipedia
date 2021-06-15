@@ -227,14 +227,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Train_image_algorithm</string>
   <string name="about_libraries_heading">Použité knihovny</string>
   <string name="about_contributors_heading">Přispěvatelé</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stránka produkčního týmu&lt;/a&gt;</string>
   <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci Wikipedie</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
@@ -736,7 +735,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Přidat popis článku (v jazyce %s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulek obrázku (v jazyce %s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku (v jazyce %s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Soubor</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umělec</string>
   <string name="suggested_edits_image_preview_dialog_tags">Značky</string>
@@ -918,7 +916,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Zrušit</string>
   <string name="edit_type_all">Všechny přípěvky</string>
   <string name="content_description_for_page_indicator">Článek %1$d z %2$d</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">obrázek byl nalezen na Wikidatech, zdroji otevřených dat Wikipedie</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
   <string name="wikitext_link">Odkaz</string>

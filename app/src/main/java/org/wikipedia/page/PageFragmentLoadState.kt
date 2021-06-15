@@ -126,7 +126,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
     private fun pageLoadCheckReadingLists() {
         model.title?.let {
             disposables.clear()
-            disposables.add(Observable.fromCallable { ReadingListDbHelper.instance().findPageInAnyList(it) }
+            disposables.add(Observable.fromCallable { ReadingListDbHelper.findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { pageLoadFromNetwork { networkError -> fragment.onPageLoadError(networkError) } }
@@ -162,7 +162,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
             disposables.add(Observable.zip(ServiceFactory.getRest(title.wikiSite)
                     .getSummaryResponse(title.prefixedText, null, model.cacheControl.toString(),
-                            if (model.shouldSaveOffline()) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
+                            if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
                             title.wikiSite.languageCode(), UriUtil.encodeURL(title.prefixedText)),
                     if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText) else Observable.just(MwQueryResponse()), { first, second -> Pair(first, second) })
                     .subscribeOn(Schedulers.io())
@@ -219,7 +219,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         val page = pageSummary!!.toPage(model.title)
         model.page = page
         model.isWatched = isWatched
-        model.hasWatchlistExpiry(hasWatchlistExpiry)
+        model.hasWatchlistExpiry = hasWatchlistExpiry
         model.title = page.title
         model.title?.let { title ->
             if (!response.raw().request.url.fragment.isNullOrEmpty()) {

@@ -121,14 +121,14 @@ class ReadingListItemView : ConstraintLayout {
 
     private fun updateDetails() {
         readingList?.let {
-            binding.defaultListEmptyImage.visibility = if (it.isDefault && it.pages().size == 0 && binding.itemImage1.visibility == VISIBLE) VISIBLE else GONE
-            binding.itemTitle.text = it.title()
+            binding.defaultListEmptyImage.visibility = if (it.isDefault && it.pages.size == 0 && binding.itemImage1.visibility == VISIBLE) VISIBLE else GONE
+            binding.itemTitle.text = it.title
             if (it.isDefault) {
                 binding.itemDescription.text = context.getString(R.string.default_reading_list_description)
                 binding.itemDescription.visibility = VISIBLE
             } else {
-                binding.itemDescription.text = it.description()
-                binding.itemDescription.visibility = if (it.description().isNullOrEmpty()) GONE else VISIBLE
+                binding.itemDescription.text = it.description
+                binding.itemDescription.visibility = if (it.description.isNullOrEmpty()) GONE else VISIBLE
             }
         }
     }
@@ -144,9 +144,9 @@ class ReadingListItemView : ConstraintLayout {
             clearThumbnails()
             val thumbUrls = arrayOfNulls<String>(imageViews.size)
             var thumbUrlsIndex = 0
-            it.pages().forEach { page ->
-                if (!page.thumbUrl().isNullOrEmpty() && thumbUrlsIndex < imageViews.size) {
-                    thumbUrls[thumbUrlsIndex++] = page.thumbUrl()
+            it.pages.forEach { page ->
+                if (!page.thumbUrl.isNullOrEmpty() && thumbUrlsIndex < imageViews.size) {
+                    thumbUrls[thumbUrlsIndex++] = page.thumbUrl
                 }
             }
             thumbUrls.forEachIndexed { i, url ->
@@ -157,16 +157,16 @@ class ReadingListItemView : ConstraintLayout {
 
     private fun buildStatisticalSummaryText(readingList: ReadingList): String {
         return resources.getQuantityString(R.plurals.format_reading_list_statistical_summary,
-                readingList.pages().size, readingList.pages().size, statsTextListSize(readingList))
+                readingList.pages.size, readingList.pages.size, statsTextListSize(readingList))
     }
 
     private fun buildStatisticalDetailText(readingList: ReadingList): String {
         return resources.getQuantityString(R.plurals.format_reading_list_statistical_detail,
-                readingList.pages().size, readingList.numPagesOffline(), readingList.pages().size, statsTextListSize(readingList))
+                readingList.pages.size, readingList.numPagesOffline, readingList.pages.size, statsTextListSize(readingList))
     }
 
     private fun statsTextListSize(readingList: ReadingList): Float {
-        return readingList.sizeBytes() / 1.coerceAtLeast(resources.getInteger(R.integer.reading_list_item_size_bytes_per_unit)).toFloat()
+        return readingList.sizeBytesFromPages / 1.coerceAtLeast(resources.getInteger(R.integer.reading_list_item_size_bytes_per_unit)).toFloat()
     }
 
     private inner class OverflowMenuClickListener constructor(private val list: ReadingList?) : PopupMenu.OnMenuItemClickListener {
