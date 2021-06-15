@@ -244,12 +244,13 @@ dependencies {
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation "androidx.room:room-testing:$roomVersion"
 
-    androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker:1.4'
-    androidTestImplementation 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
-    androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker-dx:1.4'
-
-    androidTestImplementation "androidx.test:rules:1.3.0" // JUnit Rules
-    androidTestImplementation "androidx.test:runner:1.3.0" // Android JUnit Runner
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-web:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    androidTestUtil 'androidx.test:orchestrator:1.3.0'
 }
 
 private setSigningConfigKey(config, Properties props) {
