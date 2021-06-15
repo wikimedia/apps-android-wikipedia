@@ -24,7 +24,7 @@ import org.wikipedia.TestUtil
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class SearchIntentTests {
+class SearchExternalIntentTest {
 
     @Rule
     @JvmField
