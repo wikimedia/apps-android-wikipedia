@@ -75,7 +75,6 @@ class SmokeTests {
 
         TestUtil.delay(1)
 
-
         onView(allOf(withId(R.id.search_container), isDisplayed()))
                 .perform(click())
 
@@ -101,15 +100,10 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-
-
-
         onView(withId(R.id.search_results_list))
                 .perform(actionOnItemAtPosition<ViewHolder>(0, click()))
 
         TestUtil.delay(5)
-
-
 
         onView(allOf(withId(R.id.page_header_view)))
             .check(matches(isDisplayed()))
@@ -129,27 +123,19 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-
         pressBack()
-
-
 
         onWebView().forceJavascriptEnabled()
 
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
                 .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE)))
 
-
         device.setOrientationRight()
 
         TestUtil.delay(2)
 
-
-
         onView(allOf(withId(R.id.page_header_view)))
                 .check(matches(TestUtil.isNotVisible()))
-
-
 
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
                 .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE)))
@@ -159,9 +145,6 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-
-
-
         onView(withId(R.id.article_menu_font_and_theme))
                 .perform(click())
 
@@ -170,7 +153,6 @@ class SmokeTests {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
             onView(withId(R.id.theme_chooser_match_system_theme_switch))
                     .check(matches(TestUtil.isNotVisible()))
-
         } else {
             onView(withId(R.id.theme_chooser_match_system_theme_switch))
                     .perform(scrollTo(), click())
@@ -182,7 +164,6 @@ class SmokeTests {
                 .perform(scrollTo(), click())
 
         TestUtil.delay(2)
-
 
         pressBack()
 
@@ -203,13 +184,10 @@ class SmokeTests {
 
         pressBack()
 
-
-
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[data-id='0'].pcs-edit-section-link"))
                 .perform(webClick())
 
         TestUtil.delay(1)
-
 
         onView(allOf(withId(R.id.title), withText("Edit introduction"), isDisplayed()))
                 .perform(click())
@@ -263,34 +241,26 @@ class SmokeTests {
         onView(allOf(withId(android.R.id.button1), withText("Yes")))
                 .perform(scrollTo(), click())
 
-
         TestUtil.delay(1)
-
 
         onView(allOf(withId(R.id.page_toolbar_button_tabs), isDisplayed()))
                 .perform(click())
 
         TestUtil.delay(2)
-
-
 
         onView(allOf(withContentDescription("New tab"), isDisplayed()))
                 .perform(click())
 
         TestUtil.delay(5)
 
-
         onView(allOf(withId(R.id.page_toolbar_button_tabs), isDisplayed()))
                 .perform(click())
 
         TestUtil.delay(2)
 
-
         device.click(screenWidth / 2, screenHeight * 20 / 100)
 
         TestUtil.delay(2)
-
-
 
         onView(withId(R.id.page_contents_container))
                 .perform(TestUtil.swipeDownWebView())
@@ -299,10 +269,6 @@ class SmokeTests {
 
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
                 .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE)))
-
-
-
-
 
         onView(allOf(withId(R.id.page_web_view)))
                 .perform(swipeLeft())
@@ -318,8 +284,6 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-
-
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='View talk page']"))
                 .perform(webClick())
 
@@ -328,7 +292,6 @@ class SmokeTests {
         pressBack()
 
         TestUtil.delay(2)
-
     }
 
     companion object {
