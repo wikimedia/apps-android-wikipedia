@@ -607,7 +607,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
         title?.let {
             model.isWatched = watch.watched
-            model.hasWatchlistExpiry(expiry !== WatchlistExpiry.NEVER)
+            model.hasWatchlistExpiry = expiry !== WatchlistExpiry.NEVER
             if (watch.unwatched) {
                 FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
             } else if (watch.watched) {
@@ -925,7 +925,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         model.curEntry = entry
         model.page = null
         model.readingListPage = null
-        model.setForceNetwork(isRefresh)
+        model.forceNetwork = isRefresh
         webView.visibility = View.VISIBLE
         binding.pageActionsTabLayout.visibility = View.VISIBLE
         binding.pageActionsTabLayout.enableAllTabs()
@@ -947,7 +947,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return
         }
         pageActionTabsCallback.updateBookmark(model.isInReadingList)
-        val buttonsEnabled = model.page != null && !model.shouldLoadAsMobileWeb()
+        val buttonsEnabled = model.page != null && !model.shouldLoadAsMobileWeb
         setBottomBarButtonEnabled(PageActionTab.ADD_TO_READING_LIST, buttonsEnabled)
         setBottomBarButtonEnabled(PageActionTab.CHOOSE_LANGUAGE, buttonsEnabled)
         setBottomBarButtonEnabled(PageActionTab.FONT_AND_THEME, buttonsEnabled)
