@@ -58,10 +58,20 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun readingListDao(): ReadingListDao
     abstract fun readingListPageDao(): ReadingListPageDao
 
-    val readableDatabase: SupportSQLiteDatabase get() = openHelper.readableDatabase
-    val writableDatabase: SupportSQLiteDatabase get() = openHelper.writableDatabase
-
     companion object {
+        private val MIGRATION_19_20 = object : Migration(19, 20) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // introduced Offline Object table
+            }
+        }
+        private val MIGRATION_20_21 = object : Migration(20, 21) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // introduced Talk Page Seen table
+            }
+        }
+        private val MIGRATION_21_22 = object : Migration(21, 22) {
+            override fun migrate(database: SupportSQLiteDatabase) {}
+        }
         private val MIGRATION_22_23 = object : Migration(22, 23) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // convert Recent Searches table
@@ -119,7 +129,7 @@ abstract class AppDatabase : RoomDatabase() {
                         AppDatabase::class.java,
                         DATABASE_NAME
                     )
-                        .addMigrations(MIGRATION_22_23)
+                        .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23)
                         .allowMainThreadQueries() // TODO: remove after migration
                         .fallbackToDestructiveMigration()
                         .build()
