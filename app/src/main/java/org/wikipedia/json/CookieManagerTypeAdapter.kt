@@ -4,46 +4,45 @@ import com.google.gson.TypeAdapter
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
 import okhttp3.Cookie
-import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
 import java.io.IOException
-import java.util.*
 
 class CookieManagerTypeAdapter : TypeAdapter<SharedPreferenceCookieManager>() {
+
     @Throws(IOException::class)
-    override fun write(out: JsonWriter, cookies: SharedPreferenceCookieManager) {
+    override fun write(writer: JsonWriter, cookies: SharedPreferenceCookieManager) {
         val map = cookies.cookieJar
-        out.beginObject()
+        writer.beginObject()
         for (key in map.keys) {
-            out.name(key).beginArray()
-            for (cookie in map[key]!!) {
-                out.value(cookie.toString())
+            writer.name(key).beginArray()
+            map[key]?.forEach { cookie ->
+                writer.value(cookie.toString())
             }
-            out.endArray()
+            writer.endArray()
         }
-        out.endObject()
+        writer.endObject()
     }
 
     @Throws(IOException::class)
-    override fun read(`in`: JsonReader): SharedPreferenceCookieManager {
-        val map: MutableMap<String, List<Cookie>> = HashMap()
-        `in`.beginObject()
-        while (`in`.hasNext()) {
-            val key = `in`.nextName()
-            val list: MutableList<Cookie> = ArrayList()
+    override fun read(reader: JsonReader): SharedPreferenceCookieManager {
+        val map = mutableMapOf<String, List<Cookie>>()
+        reader.beginObject()
+        while (reader.hasNext()) {
+            val key = reader.nextName()
+            val list = mutableListOf<Cookie>()
             map[key] = list
-            `in`.beginArray()
-            val url = HttpUrl.parse(WikiSite.DEFAULT_SCHEME + "://" + key)
-            while (`in`.hasNext()) {
-                val str = `in`.nextString()
-                if (url != null) {
-                    list.add(parse.parse(url, str))
+            reader.beginArray()
+            val url = (WikiSite.DEFAULT_SCHEME + "://" + key).toHttpUrlOrNull()
+            while (reader.hasNext()) {
+                url?.let {
+                    Cookie.parse(it, reader.nextString())?.run { list.add(this) }
                 }
             }
-            `in`.endArray()
+            reader.endArray()
         }
-        `in`.endObject()
+        reader.endObject()
         return SharedPreferenceCookieManager(map)
     }
 }
