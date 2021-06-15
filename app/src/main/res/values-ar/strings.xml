@@ -231,7 +231,6 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
@@ -865,16 +864,6 @@
   <string name="suggested_edits_contribution_type_image_tag">وسم صورة</string>
   <string name="suggested_edits_contribution_current_revision_text">أضيف تعديلك إلى ويكيبيديا</string>
   <string name="suggested_card_more_edits">تعديلات مقترحة أكثر</string>
-  <string name="suggested_edits_image_recommendations_task_title">درّب خوارزمية الصور</string>
-  <string name="suggested_edits_image_recommendations_task_detail">قرّر ما إذا كانت الصور ستُحسن المقالة.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">ابدأ</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">رائع، استمر! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">لقد حققت الهدف اليومي! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">لقد وصلت الهدف اليومي</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">مهمة تعديلات مقترحة جديدة متاحةٌ الآن. درّب خوارزمية لمطابقة الصور مع المقالات التي ليس بها صور توضيحية.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">مقالات ويكيبيديا يكتبها ويعدلها آلاف المتطوّعين من أنحاء العالم. للأسف، العديد من المقالات تفتقر إلى الصور.\n\nستُقترح لك الصور باستخدام خورازمية. ستسحب الخوارزمية الصور من مصادر أخرى وتقترح مطابقتها مع مقالةٍ لا يحتوي على صورة.\n\nستساعدنا ملاحظاتك في تحسين الاقتراحات مع مرور الوقت. لأن الهدف من هذه المهمة هو تحسين الصور المقترحة، لن تُنشر المطابقات التي تجريها في الوقت الحالي.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">تقديرًا لجهودك، نود أن نُبرز مساهماتك في هذا العمل. هل ترغب في عرض اسم المستخدم الخاص بك على صفحة تدريب الخوارزمية الخاصة بنا؟</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">نعم، يُمكن عرض اسم المستخدم الخاص بي في صفحة تدريب الخوارزمية</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
@@ -951,33 +940,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">إلغاء</string>
   <string name="edit_type_all">كل المساهمات</string>
   <string name="content_description_for_page_indicator">الصفحة %1$d من %2$d</string>
-  <string name="image_recommendations_task_accept">نعم</string>
-  <string name="image_recommendations_task_reject">لا</string>
-  <string name="image_recommendations_task_not_sure">لستُ متأكداً</string>
-  <string name="image_recommendations_task_processing">تجري المعالجة...</string>
-  <string name="image_recommendations_task_instruction">هل ترى أن الصورة مناسبة للإضافة إلى المقالة؟</string>
-  <string name="image_recommendations_task_choice_no">لماذا اخترت \"لا\"؟</string>
-  <string name="image_recommendations_task_choice_not_sure">لماذا اخترت \"لستُ متأكدًا\"؟</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">اختر سببًا واحدًا أو عدة أسباب.</string>
-  <string name="image_recommendations_task_choice_unsure">لماذا لست متأكدًا من هذه الصورة؟</string>
-  <string name="image_recommendations_task_choice_not_relevant">غير ذات صلة</string>
-  <string name="image_recommendations_task_choice_low_quality">جودة ضعيفة</string>
-  <string name="image_recommendations_task_choice_noinfo">لا معلومات كافية</string>
-  <string name="image_recommendations_task_choice_nosubject">لا أعرف الموضوع</string>
-  <string name="image_recommendations_task_choice_offensive">مسيئة</string>
-  <string name="image_recommendations_task_choice_invisible">لا أرى الصورة</string>
-  <string name="image_recommendations_task_choice_understand">لا أفهم المهمة</string>
-  <string name="image_recommendations_task_choice_language">لا يمكنني قراءة اللغة</string>
-  <string name="image_recommendations_task_choice_other">أخرى</string>
-  <string name="image_recommendations_task_choice_continue">استمر</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;سبب الاقتراح:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">عُثر على الصورة في لغة أخرى من ويكيبيديا (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">عُثر على الصورة في ويكي بيانات، مصدر ويكيبيديا للبيانات المفتوحة</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">عُثر على الصورة في ويكيميديا كومنز، مصدر ويكيبيديا للصور المتاحة للاستخدام بحرية</string>
-  <string name="image_recommendations_faq">الأسئلة المتكررة</string>
-  <string name="image_recommendations_tooltip1">راجع هذه المقالة لفهم موضوعها.</string>
-  <string name="image_recommendations_tooltip2">افحص الصورة والمعلومات المرتبطة بها.</string>
-  <string name="image_recommendations_tooltip3">قرر ما إذا كانت الصورة ستساعد القراء على فهم هذا الموضوع بشكل أفضل.</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>
   <string name="wikitext_link">وصلة</string>

@@ -167,7 +167,6 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_contributors_heading">ಕೊಡುಗೆದಾರರು</string>
   <string name="about_translators_heading">ಅನುವಾದಕರು</string>
   <string name="about_app_license_heading">ಪರವಾನಗಿ</string>
@@ -373,8 +372,6 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ನಿನ್ನೆ</string>
   <string name="suggested_card_more_edits">ಇನ್ನಷ್ಟು ಸೂಚಿಸಲ್ಪಟ್ಟ ಸಂಪಾದನೆಗಳು</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">ಆರಂಭಿಸಿ</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">ನೀವು ಗುರಿ ತಲುಪಿದ್ದೀರಿ</string>
   <string name="description_edit_revert_subtitle">ವಿಕಿಪೀಡಿಯ ಸಂಪಾದಿಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು!</string>
   <string name="description_edit_login_cancel_button_text">ರದ್ದುಮಾಡಿ</string>
   <string name="size_gb">%.2f GB</string>
@@ -409,14 +406,6 @@
   <string name="reverted_edit_dialog_ok_button_text">ಸರಿ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">ರದ್ದುಮಾಡಿ</string>
   <string name="edit_type_all">ಎಲ್ಲಾ ಕಾಣಿಕೆಗಳು</string>
-  <string name="image_recommendations_task_accept">ಹೌದು</string>
-  <string name="image_recommendations_task_reject">ಇಲ್ಲ</string>
-  <string name="image_recommendations_task_not_sure">ಖಚಿತವಿಲ್ಲ</string>
-  <string name="image_recommendations_task_processing">ಸಂಸ್ಕರಿಸಲಾಗುತ್ತಿದೆ...</string>
-  <string name="image_recommendations_task_choice_no">ನೀವು ಇಲ್ಲವೆಂದು ಯಾಕೆ ಆಯ್ಕೆ ಮಾಡಿದಿರಿ?</string>
-  <string name="image_recommendations_task_choice_not_relevant">ಅಸಂಬದ್ಧ</string>
-  <string name="image_recommendations_task_choice_other">ಇತರೆ</string>
-  <string name="image_recommendations_task_choice_continue">ಮುಂದುವರೆಸಿ</string>
   <string name="wikitext_bold">ದಪ್ಪ</string>
   <string name="wikitext_italic">ಓರೆಯಾದ</string>
   <string name="wikitext_bulleted_list">ಬಿಂದು ಪಟ್ಟಿ</string>

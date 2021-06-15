@@ -227,7 +227,6 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
   <string name="about_contributors_heading">기여자</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;팀 페이지&lt;/a&gt;</string>
@@ -855,15 +854,6 @@
     <item quantity="other">%d자를 제거했습니다</item>
   </plurals>
   <string name="suggested_edits_added_contribution_label">글자 %d자를 추가하셨습니다</string>
-  <string name="suggested_edits_image_recommendations_task_title">이미지 알고리즘 트레이닝</string>
-  <string name="suggested_edits_image_recommendations_task_detail">제안된 이미지가 문서를 개선할지를 결정합니다.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">시작</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">잘 하셨습니다, 계속해 주십시오! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">일일 목표를 달성했습니다! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">일일 목표를 달성했습니다</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">새로운 편집 제안 작업을 사용할 수 있습니다. 삽화가 없는 문서에 이미지를 일치시키는 알고리즘을 트레이닝합니다.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">위키백과 문서는 전 세계의 자발적인 기여자 수천 명에 의해 작성되고 편집됩니다. 안타깝지만 많은 문서에 이미지가 없습니다.\n\n이미지는 알고리즘을 사용하여 제안됩니다. 이 알고리즘은 다른 출전으로부터 이미지를 가져와서 이미지가 없는 문서와 일치하는 항목을 제안합니다.\n\n여러분의 의견은 시간이 지남에 따라 우리가 제안을 개선하는 일에 도움을 줍니다. 이 작업의 목표가 이미지 제안을 개선하는 것이므로 여러분이 선택하는 일치 항목은 현 시점으로 게시되는 것은 아닙니다.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">귀하가 성과를 이루는 데 기여해 주신 것에 감사드리고자 합니다. 알고리즘 교육 페이지에 사용자 이름을 표시해도 되겠습니까?</string>
   <string name="file_page_activity_title">파일 문서</string>
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
@@ -939,31 +929,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">취소</string>
   <string name="edit_type_all">모든 기여</string>
   <string name="content_description_for_page_indicator">페이지 %2$d 중 %1$d</string>
-  <string name="image_recommendations_task_accept">예</string>
-  <string name="image_recommendations_task_reject">아니오</string>
-  <string name="image_recommendations_task_not_sure">확실치 않음</string>
-  <string name="image_recommendations_task_processing">처리 중...</string>
-  <string name="image_recommendations_task_instruction">이 이미지를 문서에 추가하시겠습니까?</string>
-  <string name="image_recommendations_task_choice_no">왜 아니오를 선택하셨습니까?</string>
-  <string name="image_recommendations_task_choice_not_sure">왜 확실치 않음을 선택하셨습니까?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">이유를 하나 또는 여러 개 선택하십시오.</string>
-  <string name="image_recommendations_task_choice_unsure">이 이미지가 왜 확실치 않으십니까?</string>
-  <string name="image_recommendations_task_choice_not_relevant">관련 없음</string>
-  <string name="image_recommendations_task_choice_low_quality">저품질</string>
-  <string name="image_recommendations_task_choice_noinfo">충분한 정보가 없음</string>
-  <string name="image_recommendations_task_choice_nosubject">이 주제를 모름</string>
-  <string name="image_recommendations_task_choice_offensive">불쾌함</string>
-  <string name="image_recommendations_task_choice_invisible">이미지를 볼 수 없음</string>
-  <string name="image_recommendations_task_choice_understand">작업을 이해하지 못함</string>
-  <string name="image_recommendations_task_choice_language">언어를 읽을 수 없습니다</string>
-  <string name="image_recommendations_task_choice_other">기타</string>
-  <string name="image_recommendations_task_choice_continue">계속</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;제안 이유:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">이미지를 위키백과의 다른 언어판에서 찾았습니다 (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">이미지를 위키백과의 개방 데이터의 원천인 위키데이터에서 찾았습니다</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">이미지를 위키백과의 자유로이 사용할 수 있는 이미지의 원천인 위키미디어 공용에서 찾았습니다</string>
-  <string name="image_recommendations_faq">FAQ</string>
-  <string name="image_recommendations_tooltip1">주제 이해를 위해 이 문서를 검토합니다.</string>
   <string name="wikitext_bold">굵게</string>
   <string name="wikitext_italic">기울임꼴</string>
   <string name="wikitext_link">링크</string>

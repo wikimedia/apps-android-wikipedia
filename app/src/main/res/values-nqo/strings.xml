@@ -694,11 +694,6 @@
   <string name="suggested_edits_contribution_type_image_tag">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ</string>
   <string name="suggested_edits_contribution_current_revision_text">ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߦߋ߫ ߕߎ߬ߡߊ߬ߣߍ߲߬ ߘߌߡߊ߲ (live) ߠߋ߬ ߘߌ߫ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬.</string>
   <string name="suggested_card_more_edits">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߜߘߍ߫ ߟߎ߫ ߢߊߦߌ߬ߘߊ߬ߣߍ߲߫</string>
-  <string name="suggested_edits_image_recommendations_task_detail">ߊ߬ ߘߐߞߕߌ߫ ߓߊ߫ ߣߌ߫ ߖߌ߬ߦߊ߬ߓߍ߫ ߢߊߦߌ߬ߘߊ߬ߣߍ߲ ߘߌ߫ ߞߎߡߘߊ ߟߊߢߊ߬.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">ߊ߬ ߘߊߡߌ߬ߣߊ߬</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">ߔߊߞߌ߫߹ ߌ ߘߐߖߵߊ߬ ߞߊ߲߬ ߘߋ߬߹  👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">ߕߋ߬ߟߋ߲ ߟߊ߬ߢߌߣߌ߲ ߓߘߊ߫ ߞߎ߲߭ߝߊ߰߹ 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">ߌ ߓߘߊ߫ ߛߋ߫ ߟߊ߬ߢߌߣߌ߲ ߘߐ߫߹</string>
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
@@ -763,16 +758,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="edit_type_all">ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬ ߓߍ߯</string>
   <string name="content_description_for_page_indicator">ߘߐߜߍ߫ %1$d %2$d ߘߐ߫</string>
-  <string name="image_recommendations_task_accept">ߊ߬ߥߐ߫</string>
-  <string name="image_recommendations_task_reject">ߍ߲߬ߍ߲߫</string>
-  <string name="image_recommendations_task_not_sure">ߒ ߡߊ߫ ߟߊ߫ ߏ߬ ߟߊ߫</string>
-  <string name="image_recommendations_task_instruction">ߌ ߘߌ߫ ߖߌ߬ߦߊ߬ߓߍ ߣߌ߲߬ ߓߌ߬ߟߊ߬ ߞߎߡߘߊ ߟߊ߫ ߓߊ߬؟</string>
-  <string name="image_recommendations_task_choice_no">ߡߎ߲߬ߠߊ߫ ߌ ߞߊ߬ ߍ߲߬ߍ߲߫ ߓߊߕߐ߬ߡߐ߲߬؟</string>
-  <string name="image_recommendations_task_choice_unsure">ߡߎ߲߬ߠߊ߫ ߌ ߡߊ߫ ߟߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߣߌ߲߬ ߠߊ߫؟</string>
-  <string name="image_recommendations_task_choice_low_quality">ߛߎ߯ߦߊ߫ ߡߊߖߌ߰ߣߍ߲</string>
-  <string name="image_recommendations_task_choice_noinfo">ߞߌ߬ߓߊ߬ߙߏ߬ߦߊ߬ ߞߟߊ߬ߟߡߊ߬ ߕߴߊ߬ ߟߊ߫</string>
-  <string name="image_recommendations_task_choice_nosubject">ߒ ߡߊ߫ ߝߋ߲ ߣߌ߲߬ ߟߐ߲߫</string>
-  <string name="image_recommendations_task_choice_invisible">ߖߌ߬ߦߊ߬ߓߍ ߕߍ߫ ߦߋ߫ ߟߊ߫</string>
   <string name="wikitext_bold">ߞߟߏߞߎ߲ߓߊ</string>
   <string name="wikitext_italic">ߛߓߍߘߋ߲߫ ߡߊߖߍ߲߬ߞߍ߬ߣߍ߲</string>
   <string name="wikitext_link">ߛߘߌ߬ߜߋ߲</string>
