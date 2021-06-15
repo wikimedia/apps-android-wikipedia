@@ -13,7 +13,7 @@ import org.wikipedia.util.L10nUtil.setConditionalTextDirection
 class EditSummaryHandler(private val container: View,
                          private val summaryEdit: AutoCompleteTextView,
                          title: PageTitle) {
-    
+
     init {
         container.setOnClickListener { summaryEdit.requestFocus() }
         setConditionalTextDirection(summaryEdit, title.wikiSite.languageCode())
