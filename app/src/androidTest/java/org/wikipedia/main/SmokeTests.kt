@@ -112,7 +112,25 @@ class SmokeTests {
 
 
         onView(allOf(withId(R.id.page_header_view)))
-                .check(matches(isDisplayed()))
+            .check(matches(isDisplayed()))
+
+        onView(allOf(withId(R.id.view_page_header_image)))
+            .perform(click())
+
+        TestUtil.delay(3)
+
+        onView(allOf(withId(R.id.pager)))
+            .perform(swipeLeft())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.pager)))
+            .perform(swipeLeft())
+
+        TestUtil.delay(2)
+
+
+        pressBack()
 
 
 
@@ -306,6 +324,10 @@ class SmokeTests {
                 .perform(webClick())
 
         TestUtil.delay(4)
+
+        pressBack()
+
+        TestUtil.delay(2)
 
     }
 
