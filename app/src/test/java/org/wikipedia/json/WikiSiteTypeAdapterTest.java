@@ -33,12 +33,6 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
         assertThat(unmarshal(WikiSite.class, json), is(expected));
     }
 
-    @Test public void testReadLegacyUriLang() {
-        String json = "{\"domain\": \"test.wikipedia.org\"}";
-        WikiSite expected = WikiSite.forLanguageCode("test");
-        assertThat(unmarshal(WikiSite.class, json), is(expected));
-    }
-
     @Test public void testReadLegacyLang() {
         String json = "{\"domain\": \"https://test.wikipedia.org\"}";
         WikiSite expected = WikiSite.forLanguageCode("test");
