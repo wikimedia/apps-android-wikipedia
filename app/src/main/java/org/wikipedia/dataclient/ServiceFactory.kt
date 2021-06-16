@@ -4,7 +4,6 @@ import androidx.collection.LruCache
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventService
 import org.wikipedia.analytics.eventplatform.StreamConfig
@@ -65,7 +64,7 @@ object ServiceFactory {
             return ANALYTICS_REST_SERVICE_CACHE[destinationEventService.id]!!
         }
         val intakeBaseUriOverride = Prefs.getEventPlatformIntakeUriOverride().orEmpty().ifEmpty { destinationEventService.baseUri }
-        val r = createRetrofit(null, StringUtils.defaultString(intakeBaseUriOverride, destinationEventService.baseUri))
+        val r = createRetrofit(null, intakeBaseUriOverride)
         val s = r.create(EventService::class.java)
         ANALYTICS_REST_SERVICE_CACHE.put(destinationEventService.id, s)
         return s
