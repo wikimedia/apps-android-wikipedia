@@ -118,6 +118,37 @@ class SmokeTests {
         // Give the page plenty of time to load fully
         TestUtil.delay(5)
 
+        // Click on a link to load a Link Preview dialog
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='3-sphere']"))
+            .perform(webClick())
+
+        TestUtil.delay(3)
+
+        // Click through the preview to load a new article
+        onView(allOf(withId(R.id.link_preview_toolbar)))
+            .perform(click())
+
+        TestUtil.delay(3)
+
+        // Click on another link
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='Sphere']"))
+            .perform(webClick())
+
+        TestUtil.delay(3)
+
+        // Open it in a new tab
+        onView(allOf(withId(R.id.link_preview_secondary_button)))
+            .perform(click())
+
+        TestUtil.delay(2)
+
+        // Ensure that there are now two tabs
+        onView(allOf(withId(R.id.tabsCountText)))
+            .check(matches(withText("2")))
+
+        // Go back to the original article
+        pressBack()
+
         // Ensure the header view (with lead image) is displayed
         onView(allOf(withId(R.id.page_header_view)))
             .check(matches(isDisplayed()))
@@ -300,7 +331,7 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // Click on the previous tab in the list
-        device.click(screenWidth / 2, screenHeight * 20 / 100)
+        device.click(screenWidth / 2, screenHeight * 50 / 100)
 
         TestUtil.delay(2)
 
