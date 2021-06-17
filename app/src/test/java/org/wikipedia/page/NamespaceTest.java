@@ -101,14 +101,4 @@ import static org.wikipedia.page.Namespace.USER_TALK;
     @Test public void testTalkOdd() {
         assertThat(TALK.talk(), is(true));
     }
-
-    @Test public void testToLegacyStringMain() {
-        //noinspection deprecation
-        assertThat(MAIN.toLegacyString(), nullValue());
-    }
-
-    @Test public void testToLegacyStringNonMain() {
-        //noinspection deprecation
-        assertThat(TALK.toLegacyString(), is("Talk"));
-    }
 }
