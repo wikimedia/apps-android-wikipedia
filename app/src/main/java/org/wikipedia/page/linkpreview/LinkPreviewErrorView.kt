@@ -28,7 +28,7 @@ class LinkPreviewErrorView : LinearLayout {
         binding.viewLinkPreviewErrorIcon.setImageDrawable(AppCompatResources.getDrawable(context, errorType.icon))
 
         if (errorType === LinkPreviewErrorType.OFFLINE) {
-            val message = (resources.getString(R.string.page_offline_notice_cannot_load_while_offline) +
+            val message = (resources.getString(R.string.page_offline_notice_cannot_load_while_offline) + " " +
                     resources.getString(R.string.page_offline_notice_add_to_reading_list)).trimIndent()
             binding.viewLinkPreviewErrorText.text = message
         } else {
