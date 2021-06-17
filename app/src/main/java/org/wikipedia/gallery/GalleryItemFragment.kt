@@ -59,8 +59,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         if (pageTitle == null) {
             pageTitle = PageTitle(mediaListItem.title, WikiSite(Service.COMMONS_URL))
         }
-        imageTitle = PageTitle(FileAliasData.valueFor(pageTitle!!.wikiSite.languageCode()),
-            StringUtil.removeNamespace(mediaListItem.title), pageTitle!!.wikiSite)
+        imageTitle = PageTitle("File: ${StringUtil.removeNamespace(mediaListItem.title)}", pageTitle!!.wikiSite)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
