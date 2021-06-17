@@ -11,7 +11,6 @@ import java.util.Locale;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import static org.wikipedia.page.Namespace.FILE;
 import static org.wikipedia.page.Namespace.MAIN;
 import static org.wikipedia.page.Namespace.MEDIA;
