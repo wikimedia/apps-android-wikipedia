@@ -27,10 +27,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
-import org.wikipedia.staticdata.FileAliasData
-import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
