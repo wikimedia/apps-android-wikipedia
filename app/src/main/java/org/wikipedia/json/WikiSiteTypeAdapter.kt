@@ -33,7 +33,7 @@ class WikiSiteTypeAdapter : TypeAdapter<WikiSite>() {
             }
         }
         reader.endObject()
-        if (domain == null) {
+        if (domain.isNullOrEmpty()) {
             throw JsonParseException("Missing domain")
         }
 
