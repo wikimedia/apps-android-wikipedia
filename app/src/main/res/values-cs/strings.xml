@@ -227,7 +227,6 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Train_image_algorithm</string>
   <string name="about_libraries_heading">Použité knihovny</string>
   <string name="about_contributors_heading">Přispěvatelé</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stránka produkčního týmu&lt;/a&gt;</string>
@@ -438,6 +437,18 @@
   <string name="reading_list_name_hint">Název seznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinný):</string>
   <string name="reading_list_item_deleted">Článek %s odebrán ze seznamu</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d článek odstraněn ze seznamu</item>
+    <item quantity="few">%d články odstraněny ze seznamu</item>
+    <item quantity="many">%d článků odstraněno ze seznamu</item>
+    <item quantity="other">%d článků odstraněno ze seznamu</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d článek odstraněn ze seznamu %s</item>
+    <item quantity="few">%d články odstraněny ze seznamu %s</item>
+    <item quantity="many">%d článků odstraněno ze seznamu %s</item>
+    <item quantity="other">%d článků odstraněno ze seznamu %s</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d článků odebráno ze seznamu</string>
   <string name="reading_lists_item_deleted">Článek %s odebrán ze seznamů</string>
   <string name="reading_list_item_delete_undo">Zpět</string>
@@ -917,7 +928,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Zrušit</string>
   <string name="edit_type_all">Všechny přípěvky</string>
   <string name="content_description_for_page_indicator">Článek %1$d z %2$d</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">obrázek byl nalezen na Wikidatech, zdroji otevřených dat Wikipedie</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
   <string name="wikitext_link">Odkaz</string>
