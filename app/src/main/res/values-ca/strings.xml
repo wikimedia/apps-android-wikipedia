@@ -223,14 +223,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ca</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca#Algorisme_formació_imatge</string>
   <string name="about_libraries_heading">Biblioteques utilitzades</string>
   <string name="about_contributors_heading">Col·laboradors</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pàgina de l\'equip&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductors</string>
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicència</string>
-  <string name="about_app_license" fuzzy="true">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut es troba disponible sota una llicència &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut es troba disponible sota una llicència &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Un projecte de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Segur que voleu sortir sense desar-ne els canvis?</string>
@@ -375,6 +374,14 @@
   <string name="page_footer_license_text">El contingut està disponible sota $1 si no s\'indica el contrari</string>
   <string name="empty_tab_title">Pestanya nova</string>
   <string name="menu_save_all_tabs">Desa totes les pestanyes</string>
+  <string name="error_blocked_title">S\'ha blocat el vostre nom d\'usuari o adreça IP.</string>
+  <string name="error_blocked_by">El blocatge ha estat fet per &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">El motiu donat: %s</string>
+  <string name="error_blocked_start">Inici del blocatge: %s</string>
+  <string name="error_blocked_expiry">Expiració del blocatge: %s</string>
+  <string name="error_blocked_id">ID del blocatge: %s</string>
+  <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador&lt;/a&gt; per a discutir el blocatge.</string>
+  <string name="error_blocked_footer_no_blocker">Podeu contactar un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
@@ -867,16 +874,6 @@
     <item quantity="one">heu afegit %d caràcter</item>
     <item quantity="other">heu afegit %d caràcters</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Algorisme  d\'entrenament per imatge</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Decidiu si la imatge suggerida milloraria un article.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Inicia</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Fantàstica, som-hi! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Heu superat l\'objectiu diari! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Heu superat l\'objectiu diari</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Hi ha disponible una nova tasca d\'edicions suggerides. Consisteix a entrenar un algorisme per a fer correspondre imatges amb articles que no en tenen.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Els articles de la Viquipèdia són escrits i editats per milers de voluntaris d\'arreu del món. Malauradament, molts dels articles no tenen imatges.\n\nSe us suggeriran imatges mitjançant un algorisme. Aquest obtindrà imatges d\'altres fonts i us suggerirà correspondències amb articles que no tinguin imatges.\n\nEls vostres comentaris ens ajudaran a millorar els suggeriments al llarg del temps. Atès que l\'objectiu d\'aquesta tasca és millorar les imatges suggerides, les correspondències que feu no es publicaran en cap moment,</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Voldríem reconèixer la vostra contribució en aquesta tasca. Voldríeu que el vostre nom d\'usuari aparegués a la pàgina d\'entrenament de l\'algorisme?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Sí, podeu mostrar el meu nom d\'usuari a la pàgina d\'entrenament de l\'algorisme</string>
   <string name="file_page_activity_title">Pàgina de fitxer</string>
   <string name="file_page_add_image_caption_button">Afegir una llegenda a la imatge</string>
   <string name="file_page_add_image_tags_button">Afegir una etiqueta a la imatge</string>
@@ -953,33 +950,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancel·la</string>
   <string name="edit_type_all">Totes les contribucions</string>
   <string name="content_description_for_page_indicator">Pàgina %1$d de %2$d</string>
-  <string name="image_recommendations_task_accept">Sí</string>
-  <string name="image_recommendations_task_reject">No</string>
-  <string name="image_recommendations_task_not_sure">No n\'estic segur</string>
-  <string name="image_recommendations_task_processing">S\'està processant…</string>
-  <string name="image_recommendations_task_instruction">Voleu afegir la imatge a l\'article?</string>
-  <string name="image_recommendations_task_choice_no">Per què heu seleccionat «no»?</string>
-  <string name="image_recommendations_task_choice_not_sure">Per què heu seleccionat «no n\'estic segur»?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Escull una o múltiples raons.</string>
-  <string name="image_recommendations_task_choice_unsure">Per què no n\'esteu segur de la imatge?</string>
-  <string name="image_recommendations_task_choice_not_relevant">No és rellevant</string>
-  <string name="image_recommendations_task_choice_low_quality">Baixa qualitat</string>
-  <string name="image_recommendations_task_choice_noinfo">Sense prou informació</string>
-  <string name="image_recommendations_task_choice_nosubject">Desconec la temàtica</string>
-  <string name="image_recommendations_task_choice_offensive">Ofensiva</string>
-  <string name="image_recommendations_task_choice_invisible">No puc veure la imatge</string>
-  <string name="image_recommendations_task_choice_understand">No entenc la tasca</string>
-  <string name="image_recommendations_task_choice_language">No es pot llegir la llengua</string>
-  <string name="image_recommendations_task_choice_other">Altre</string>
-  <string name="image_recommendations_task_choice_continue">Continua</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motiu suggerit:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">S\'ha trobat la imatge en altres versions lingüístiques de la Viquipèdia (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">s\'ha trobat la imatge a Wikidata (la font de dades obertes de la Viquipèdia)</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">s\'ha trobat la imatge a Wikimedia Commons (la font d\'imatges d\'ús lliure de la Viquipèdia)</string>
-  <string name="image_recommendations_faq">PMF</string>
-  <string name="image_recommendations_tooltip1">Reviseu l\'article per a entendre\'n el tema.</string>
-  <string name="image_recommendations_tooltip2">Inspecciona la imatge i la informació associada.</string>
-  <string name="image_recommendations_tooltip3">Decidiu si la imatge ajudarà als lectors a entendre millor el tema.</string>
   <string name="wikitext_bold">Negreta</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enllaç</string>

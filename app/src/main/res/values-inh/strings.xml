@@ -202,7 +202,6 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Пайда ийца библиотекаш</string>
   <string name="about_contributors_heading">Автораш</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Тоабан оагӀув&lt;/a&gt;</string>
@@ -829,6 +828,13 @@
   </plurals>
   <string name="suggested_edits_what_is_title">Фуд из Тоаде мегаш дар?</string>
   <string name="suggested_edits_what_is_text">Тоаде мегаш да аьнна хьагойташ долча йоазонаша Википеде чу кӀезига мукъагӀа къахьега аьттув хулийт.</string>
+  <string name="suggested_edits_learn_more">Кхы а</string>
+  <string name="suggested_edits_paused_title">Соцадаьд</string>
+  <string name="suggested_edits_disabled_title">ДӀадоадаьд</string>
+  <string name="suggested_edits_ip_blocked_title">IP блок теха да</string>
+  <string name="suggested_edits_last_edited">ТӀехьара хувцам</string>
+  <string name="suggested_edits_last_edited_never">ЦIаккха</string>
+  <string name="suggested_edits_task_new">керда</string>
   <string name="suggested_edits_contribution_language_label">Мотт</string>
   <string name="suggested_edits_contribution_date_time_label">Таьрахь/Ха</string>
   <string name="suggested_edits_contribution_type_label">Къахьегама тайпа</string>
@@ -868,12 +874,6 @@
     <item quantity="one">%d фискал тӀатехай Ӏа</item>
     <item quantity="other">%d фискал тӀатехай Ӏа</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Сурташ гойтара алгоритм</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Жоп ле хьайга, цу сурто дикагӀа хулийтаргья е яц статья.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Хе́ца</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">ТӀехдика да хьона, ишта дӀахо дӀабахийта Ӏа болх! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Ден-денна хьаде лаьрхӀа хиннар кхоачашдаьд! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">ХӀара дийнахьа де лаьрхӀар кхоачашдаьд Ӏа</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="onboarding_skip">Теркал ма де</string>
@@ -922,18 +922,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Юхадаккха</string>
   <string name="edit_type_all">Беррига къахьегам</string>
   <string name="content_description_for_page_indicator">%1$d-на юкъера %2$d-гIа гIа ба</string>
-  <string name="image_recommendations_task_accept">ХӀаъа</string>
-  <string name="image_recommendations_task_reject">A</string>
-  <string name="image_recommendations_task_not_sure">Ма дарра ала магац</string>
-  <string name="image_recommendations_task_processing">Хоржаш латт...</string>
-  <string name="image_recommendations_task_instruction">Ер сурт статья чу оттадергдарий Ӏа?</string>
-  <string name="image_recommendations_task_choice_no">«А» хӀана хержар Ӏа?</string>
-  <string name="image_recommendations_task_choice_unsure">Укх сурта раьза хӀана вац/яц хьо?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Эшам бац</string>
-  <string name="image_recommendations_faq">КТХ • FAQ</string>
-  <string name="image_recommendations_tooltip1">Ӏоешал ер статья, цун тема кхетаергйолаш.</string>
-  <string name="image_recommendations_tooltip2">ДӀахьажал суртага а цунца бувзам болча хоамага а.</string>
-  <string name="image_recommendations_tooltip3">Уйла а яь соцам бе, сурто из тема дешархошта дикагӀа кхетаяйтаргйий.</string>
   <string name="wikitext_bold">Сома йоазув</string>
   <string name="wikitext_italic">Сиха йоазув</string>
   <string name="wikitext_link">Тӏатовжам</string>

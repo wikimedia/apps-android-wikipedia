@@ -22,16 +22,13 @@ class RandomClient : FeedClient {
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
         disposables.add(
-            Observable.fromIterable(FeedContentType.getAggregatedLanguages())
+            Observable.fromIterable(FeedContentType.aggregatedLanguages)
                 .flatMap({ lang -> getRandomSummaryObservable(lang) }, { first, second -> Pair(first, second) })
                 .observeOn(AndroidSchedulers.mainThread())
                 .toList()
                 .subscribe({ pairs ->
-                    for (pair in pairs) {
-                        if (pair.first != null && pair.second != null) {
-                            FeedCoordinator.postCardsToCallback(cb, listOf(RandomCard(pair.second!!, age, WikiSite.forLanguageCode(pair.first!!))))
-                        }
-                    }
+                    val list = pairs.filter { it.second != null }.map { RandomCard(it.second!!, age, WikiSite.forLanguageCode(it.first)) }
+                    FeedCoordinator.postCardsToCallback(cb, list)
                 }) { t ->
                     L.v(t)
                     cb.error(t)

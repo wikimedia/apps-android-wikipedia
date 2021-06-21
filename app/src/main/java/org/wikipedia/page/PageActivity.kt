@@ -84,9 +84,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         try {
             setContentView(binding.root)
         } catch (e: Exception) {
-            if (!e.message.isNullOrEmpty() && e.message!!.toLowerCase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW) ||
+            if (!e.message.isNullOrEmpty() && e.message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW) ||
                 !ThrowableUtil.getInnermostThrowable(e).message.isNullOrEmpty() &&
-                ThrowableUtil.getInnermostThrowable(e).message!!.toLowerCase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW)) {
+                ThrowableUtil.getInnermostThrowable(e).message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW)) {
                 // If the system failed to inflate our activity because of the WebView (which could
                 // be one of several types of exceptions), it likely means that the system WebView
                 // is in the process of being updated. In this case, show the user a message and
@@ -226,11 +226,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
             SuggestedEditsSnackbars.show(this, action, resultCode != DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS,
                 editLanguage, requestCode != Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT) {
-                if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
-                    startActivity(FilePageActivity.newIntent(this, pageFragment.title))
-                } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                    startActivity(GalleryActivity.newIntent(this, pageFragment.title,
-                        pageFragment.title.prefixedText, pageFragment.title.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                pageFragment.title?.let {
+                    if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
+                        startActivity(FilePageActivity.newIntent(this, it))
+                    } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
+                        startActivity(GalleryActivity.newIntent(this, it, it.prefixedText, it.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                    }
                 }
             }
         } else {
@@ -296,7 +297,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onNavMenuSwipeRequest(gravity: Int) {
         if (!isCabOpen && gravity == Gravity.END) {
-            pageFragment.tocHandler?.show()
+            pageFragment.tocHandler.show()
         }
     }
 
@@ -309,8 +310,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         bottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
-    override fun onPageInitWebView(webView: ObservableWebView) {
-        toolbarHideHandler.setScrollView(webView)
+    override fun onPageInitWebView(v: ObservableWebView) {
+        toolbarHideHandler.setScrollView(v)
     }
 
     override fun onPageLoadPage(title: PageTitle, entry: HistoryEntry) {
@@ -409,7 +410,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
                 // after having donated), then bounce it out to an external browser, since we don't have
                 // the same cookie state as the browser does.
-                val language = wiki.languageCode().toLowerCase(Locale.getDefault())
+                val language = wiki.languageCode().lowercase(Locale.getDefault())
                 val isDonationRelated = language == "donate" || language == "thankyou"
                 if (isDonationRelated || title.namespace() == Namespace.SPECIAL) {
                     UriUtil.visitInExternalBrowser(this, it)
@@ -489,8 +490,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             hideLinkPreview()
             onPageCloseActionMode()
             when (position) {
-                TabPosition.CURRENT_TAB -> pageFragment.loadPage(title, entry, true, false)
-                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(title, entry, true, true)
+                TabPosition.CURRENT_TAB -> pageFragment.loadPage(title, entry, pushBackStack = true, squashBackstack = false)
+                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(title, entry, pushBackStack = true, squashBackstack = true)
                 TabPosition.NEW_TAB_BACKGROUND -> pageFragment.openInNewBackgroundTab(title, entry)
                 TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(title, entry)
                 else -> pageFragment.openFromExistingTab(title, entry)
@@ -571,7 +572,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun showOverflowMenu(anchor: View) {
         PageActionOverflowView(this).show(anchor, overflowCallback, pageFragment.currentTab,
-            pageFragment.model.shouldLoadAsMobileWeb(), pageFragment.model.isWatched, pageFragment.model.hasWatchlistExpiry()
+            pageFragment.model.shouldLoadAsMobileWeb, pageFragment.model.isWatched, pageFragment.model.hasWatchlistExpiry
         )
     }
 
@@ -602,13 +603,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
 
         override fun talkClick() {
-            startActivity(TalkTopicsActivity.newIntent(this@PageActivity,
-                pageFragment.title.pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY))
+            pageFragment.title?.run {
+                startActivity(TalkTopicsActivity.newIntent(this@PageActivity, pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY))
+            }
         }
 
         override fun editHistoryClick() {
-            UriUtil.visitInExternalBrowser(this@PageActivity,
-                Uri.parse(pageFragment.title.getWebApiUrl("action=history")))
+            pageFragment.title?.run {
+                UriUtil.visitInExternalBrowser(this@PageActivity, Uri.parse(getWebApiUrl("action=history")))
+            }
         }
     }
 
@@ -667,17 +670,19 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun maybeShowWatchlistTooltip() {
-        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn &&
-            pageFragment.historyEntry != null && pageFragment.historyEntry.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
-            binding.pageToolbarButtonShowOverflowMenu.postDelayed({
-                if (isDestroyed) {
-                    return@postDelayed
-                }
-                watchlistFunnel.logShowTooltip()
-                Prefs.setWatchlistPageOnboardingTooltipShown(true)
-                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
-                    R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
-            }, 500)
+        pageFragment.historyEntry?.let {
+
+            if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
+                binding.pageToolbarButtonShowOverflowMenu.postDelayed({
+                    if (isDestroyed) {
+                        return@postDelayed
+                    }
+                    watchlistFunnel.logShowTooltip()
+                    Prefs.setWatchlistPageOnboardingTooltipShown(true)
+                    FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
+                        R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
+                }, 500)
+            }
         }
     }
 
@@ -698,12 +703,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             if (event is ChangeTextSizeEvent) {
                 pageFragment.updateFontSize()
             } else if (event is ArticleSavedOrDeletedEvent) {
-                if (!pageFragment.isAdded || pageFragment.title == null) {
+                if (!pageFragment.isAdded) {
                     return
                 }
-                if (event.pages.any { it.apiTitle == pageFragment.title.prefixedText &&
-                            it.wiki.languageCode() == pageFragment.title.wikiSite.languageCode() }) {
-                    pageFragment.updateBookmarkAndMenuOptionsFromDao()
+                pageFragment.title?.run {
+                    if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode() == wikiSite.languageCode() }) {
+                        pageFragment.updateBookmarkAndMenuOptionsFromDao()
+                    }
                 }
             }
         }

@@ -51,13 +51,12 @@ class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
     private lateinit var addImageTagsTask: SuggestedEditsTask
-    private lateinit var imageRecommendationsTask: SuggestedEditsTask
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
 
     private val disposables = CompositeDisposable()
-    private var blockInfo: MwServiceError.BlockInfo? = null
+    private var blockMessage: String? = null
     private var isPausedOrDisabled = false
     private var totalPageviews = 0L
     private var totalContributions = 0
@@ -166,7 +165,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
-        blockInfo = null
+        blockMessage = null
         isPausedOrDisabled = false
         totalContributions = 0
         latestEditStreak = 0
@@ -177,10 +176,14 @@ class SuggestedEditsTasksFragment : Fragment() {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
+                    var blockInfo: MwServiceError.BlockInfo? = null
                     when {
                         wikidataResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = wikidataResponse.query()!!.userInfo()!!
                         commonsResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = commonsResponse.query()!!.userInfo()!!
                         homeSiteResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = homeSiteResponse.query()!!.userInfo()!!
+                    }
+                    if (blockInfo != null) {
+                        blockMessage = ThrowableUtil.getBlockMessageHtml(blockInfo)
                     }
 
                     totalContributions += wikidataResponse.query()!!.userInfo()!!.editCount
@@ -204,7 +207,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    if (blockInfo != null) {
+                    if (!blockMessage.isNullOrEmpty()) {
                         setIPBlockedStatus()
                     }
                 }
@@ -213,7 +216,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                         isPausedOrDisabled = true
                     }
 
-                    if (!isPausedOrDisabled && blockInfo == null) {
+                    if (!isPausedOrDisabled && blockMessage.isNullOrEmpty()) {
                         binding.pageViewStatsView.setTitle(it.toString())
                         totalPageviews = it
                         setFinalUIState()
@@ -311,7 +314,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setIPBlockedStatus() {
         clearContents()
-        binding.disabledStatesView.setIPBlocked(blockInfo)
+        binding.disabledStatesView.setIPBlocked(blockMessage)
         binding.disabledStatesView.visibility = VISIBLE
         UserContributionFunnel.get().logIpBlock()
         UserContributionEvent.logIpBlock()
@@ -404,21 +407,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
 
-        ImageRecsFragment.updateDailyCount()
-        imageRecommendationsTask = SuggestedEditsTask()
-        imageRecommendationsTask.title = getString(R.string.suggested_edits_image_recommendations_task_title)
-        imageRecommendationsTask.description = getString(R.string.suggested_edits_image_recommendations_task_detail)
-        imageRecommendationsTask.imageDrawable = R.drawable.ic_article_images
-        imageRecommendationsTask.primaryAction = getString(R.string.suggested_edits_image_recommendations_task_get_started)
-        imageRecommendationsTask.primaryActionIcon = R.drawable.ic_robot_24
-        imageRecommendationsTask.new = Prefs.shouldShowImageRecsOnboarding()
-        imageRecommendationsTask.dailyProgressMax = ImageRecsFragment.DAILY_COUNT_TARGET
-        imageRecommendationsTask.dailyProgress = Prefs.getImageRecsDailyCount()
-
-        if (ImageRecsFragment.isFeatureEnabled()) {
-            displayedTasks.add(imageRecommendationsTask)
-        }
-
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
         displayedTasks.add(addImageTagsTask)
@@ -439,12 +427,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                     startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
                 } else {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
-                }
-            } else if (task == imageRecommendationsTask) {
-                if (Prefs.shouldShowImageRecsOnboarding()) {
-                    startActivityForResult(ImageRecsOnboardingActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING)
-                } else {
-                    startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATION, Constants.InvokeSource.SUGGESTED_EDITS))
                 }
             }
         }
