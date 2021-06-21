@@ -69,7 +69,7 @@ class TopReadFragment : Fragment() {
 
         override fun onBindViewHolder(holder: DefaultViewHolder<ListCardItemView>, position: Int) {
             val card = item(position)
-            holder.view.setCard(card).setHistoryEntry(HistoryEntry(card.pageTitle(),
+            holder.view.setCard(card).setHistoryEntry(HistoryEntry(card.pageTitle,
                 HistoryEntry.SOURCE_FEED_MOST_READ_ACTIVITY)).setCallback(callback)
         }
     }
