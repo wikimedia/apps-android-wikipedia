@@ -128,7 +128,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     override fun onDestroyView() {
         disposables.clear()
-        binding.linkPreviewThumbnailGallery.setGalleryViewListener(null)
+        binding.linkPreviewThumbnailGallery.listener = null
         binding.linkPreviewToolbar.setOnClickListener(null)
         binding.linkPreviewOverflowButton.setOnClickListener(null)
         overlayView?.let {
@@ -209,7 +209,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                         response?.let {
                             val pageList = response.query()!!.pages()!!.filter { it.imageInfo() != null }
                             binding.linkPreviewThumbnailGallery.setGalleryList(pageList)
-                            binding.linkPreviewThumbnailGallery.setGalleryViewListener(galleryViewListener)
+                            binding.linkPreviewThumbnailGallery.listener = galleryViewListener
                         }
                     }) { caught ->
                         L.w("Failed to fetch gallery collection.", caught)
