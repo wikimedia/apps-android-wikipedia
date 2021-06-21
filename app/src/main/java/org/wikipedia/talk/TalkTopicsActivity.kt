@@ -199,7 +199,7 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkRecyclerView.visibility = View.GONE
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
-        if (t is HttpStatusException && t.code() == 404) {
+        if (t is HttpStatusException && t.code == 404) {
             updateOnEmpty()
         } else {
             binding.talkNewTopicButton.hide()
