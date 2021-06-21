@@ -18,7 +18,6 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.page.PageTitle
@@ -97,26 +96,26 @@ class FilePageFragment : Fragment() {
         binding.progressBar.visibility = View.VISIBLE
 
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()), {
-                    caption: Map<String, String>, response: MwQueryResponse ->
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText,
+                    pageTitle.wikiSite.languageCode()), { caption, response ->
                     // set image caption to pageTitle description
                     pageTitle.description = caption[pageTitle.wikiSite.languageCode()]
                     response
                 })
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    if (it.query()!!.pages()!![0].imageInfo() == null) {
+                    if (it.query()?.firstPage()?.imageInfo() == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                         ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode())
                     } else {
                         // Fetch API from commons.wikimedia.org and check whether if it is not a "shared" image.
-                        isFromCommons = !it.query()!!.pages()!![0].isImageShared
+                        isFromCommons = !(it.query()?.firstPage()?.isImageShared ?: false)
                         Observable.just(it)
                     }
                 }
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    page = it.query()!!.pages()!![0]
+                    page = it.query()!!.firstPage()!!
                     val imageInfo = page.imageInfo()!!
                     pageSummaryForEdit = PageSummaryForEdit(
                             pageTitle.prefixedText,
