@@ -139,16 +139,6 @@ enum class Namespace(private val code: Int) : EnumCode {
     GADGET_DEFINITION_TALK(2303),
     TOPIC(2600);
 
-    /** Warning: this method returns an English translation for the current namespace.  */
-    @Deprecated("")
-    fun toLegacyString(): String? {
-        var string = if (this === MAIN) null else name
-        if (string != null) {
-            string = string.toLowerCase(Locale.ENGLISH).capitalize(Locale.getDefault())
-        }
-        return string
-    }
-
     override fun code(): Int {
         return code
     }
