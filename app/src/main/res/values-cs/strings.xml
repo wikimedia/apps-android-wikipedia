@@ -437,6 +437,18 @@
   <string name="reading_list_name_hint">Název seznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinný):</string>
   <string name="reading_list_item_deleted">Článek %s odebrán ze seznamu</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d článek odstraněn ze seznamu</item>
+    <item quantity="few">%d články odstraněny ze seznamu</item>
+    <item quantity="many">%d článků odstraněno ze seznamu</item>
+    <item quantity="other">%d článků odstraněno ze seznamu</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d článek odstraněn ze seznamu %s</item>
+    <item quantity="few">%d články odstraněny ze seznamu %s</item>
+    <item quantity="many">%d článků odstraněno ze seznamu %s</item>
+    <item quantity="other">%d článků odstraněno ze seznamu %s</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d článků odebráno ze seznamu</string>
   <string name="reading_lists_item_deleted">Článek %s odebrán ze seznamů</string>
   <string name="reading_list_item_delete_undo">Zpět</string>
