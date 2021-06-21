@@ -352,4 +352,5 @@
   <string name="watchlist_expiry_dialog_six_months">6 ամիս</string>
   <string name="watchlist_filter_talk">Քննարկում</string>
   <string name="watchlist_filter_pages">Էջեր</string>
+  <string name="watchlist_page_protected">Պաշտպանված է</string>
 </resources>
