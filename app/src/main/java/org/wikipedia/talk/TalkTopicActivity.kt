@@ -362,7 +362,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
                 .retry(20) { t ->
                     (t is IllegalStateException) ||
-                            (isNewTopic() && t is HttpStatusException && t.code() == 404)
+                            (isNewTopic() && t is HttpStatusException && t.code == 404)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
