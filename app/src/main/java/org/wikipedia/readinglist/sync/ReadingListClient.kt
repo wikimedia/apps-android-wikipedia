@@ -183,15 +183,15 @@ class ReadingListClient(private val wiki: WikiSite) {
     }
 
     fun isErrorType(t: Throwable?, errorType: String): Boolean {
-        return t is HttpStatusException && t.serviceError() != null && t.serviceError().title.contains(errorType)
+        return t is HttpStatusException && t.serviceError?.title?.contains(errorType) == true
     }
 
     fun isServiceError(t: Throwable?): Boolean {
-        return t is HttpStatusException && t.code() == 400
+        return t is HttpStatusException && t.code == 400
     }
 
     fun isUnavailableError(t: Throwable?): Boolean {
-        return t is HttpStatusException && t.code() == 405
+        return t is HttpStatusException && t.code == 405
     }
 
     private fun saveLastDateHeader(response: Response<*>) {
