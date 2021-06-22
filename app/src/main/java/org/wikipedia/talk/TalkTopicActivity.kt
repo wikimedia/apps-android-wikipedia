@@ -375,6 +375,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun onSaveSuccess(newRevision: Long) {
         binding.talkProgressBar.visibility = View.GONE
+        binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
 
         if (isNewTopic()) {
