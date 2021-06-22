@@ -20,29 +20,4 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
     @Test public void testReadNull() {
         assertThat(unmarshal(WikiSite.class, null), nullValue());
     }
-
-    @Test public void testReadLegacyString() {
-        String json = "\"https://test.wikipedia.org\"";
-        WikiSite expected = WikiSite.forLanguageCode("test");
-        assertThat(unmarshal(WikiSite.class, json), is(expected));
-    }
-
-    @Test public void testReadLegacyUri() {
-        String json = "{\"domain\": \"test.wikipedia.org\", \"languageCode\": \"test\"}";
-        WikiSite expected = WikiSite.forLanguageCode("test");
-        assertThat(unmarshal(WikiSite.class, json), is(expected));
-    }
-
-    @Test public void testReadLegacyUriLang() {
-        String json = "{\"domain\": \"test.wikipedia.org\"}";
-        WikiSite expected = WikiSite.forLanguageCode("test");
-        assertThat(unmarshal(WikiSite.class, json), is(expected));
-    }
-
-    @Test public void testReadLegacyLang() {
-        String json = "{\"domain\": \"https://test.wikipedia.org\"}";
-        WikiSite expected = WikiSite.forLanguageCode("test");
-        assertThat(unmarshal(WikiSite.class, json), is(expected));
-    }
-
 }
