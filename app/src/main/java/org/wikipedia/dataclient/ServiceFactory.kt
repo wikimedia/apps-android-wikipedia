@@ -2,12 +2,11 @@ package org.wikipedia.dataclient
 
 import androidx.collection.LruCache
 import okhttp3.Interceptor
-import okhttp3.Request
 import okhttp3.Response
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventService
 import org.wikipedia.analytics.eventplatform.StreamConfig
-import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.settings.Prefs
 import retrofit2.Retrofit
@@ -89,11 +88,9 @@ object ServiceFactory {
     }
 
     private fun createRetrofit(wiki: WikiSite?, baseUrl: String): Retrofit {
-        val okHttpClientBuilder = client.newBuilder()
         return Retrofit.Builder()
-            .client(okHttpClientBuilder.build())
             .baseUrl(baseUrl)
-            .client(client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(wiki)).build())
+            .client(OkHttpConnectionFactory.client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(wiki)).build())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
             .build()
@@ -102,10 +99,10 @@ object ServiceFactory {
     private class LanguageVariantHeaderInterceptor(private val wiki: WikiSite?) : Interceptor {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain): Response {
-            var request: Request = chain.request()
+            var request = chain.request()
 
             // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
-            if (wiki != null && !request.url.encodedPath.contains("/page/related")) {
+            if (!request.url.encodedPath.contains("/page/related")) {
                 request = request.newBuilder()
                     .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
                     .build()
