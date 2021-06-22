@@ -9,6 +9,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.Group
+import androidx.core.view.postDelayed
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -64,17 +65,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private var latestEditStreak = 0
     private var revertSeverity = 0
 
-    private val sequentialTooltipRunnable = Runnable {
-        if (!isAdded) {
-            return@Runnable
-        }
-        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionsStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
-        balloon.showAlignBottom(binding.contributionsStatsView.getDescriptionView())
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
-                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
-                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
-        Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
-    }
+    private var sequentialTooltipRunnable: Runnable? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -152,7 +143,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onDestroyView() {
         binding.tasksRecyclerView.adapter = null
         disposables.clear()
-        binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
+        sequentialTooltipRunnable?.let { binding.suggestedEditsScrollView.removeCallbacks(it) }
         SuggestedEditsFunnel.get().log()
         SuggestedEditsFunnel.reset()
         _binding = null
@@ -308,8 +299,18 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun showOneTimeSequentialUserStatsTooltips() {
         binding.suggestedEditsScrollView.fullScroll(View.FOCUS_UP)
-        binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
-        binding.suggestedEditsScrollView.postDelayed(sequentialTooltipRunnable, 500)
+        sequentialTooltipRunnable?.let { binding.suggestedEditsScrollView.removeCallbacks(it) }
+        sequentialTooltipRunnable = binding.suggestedEditsScrollView.postDelayed(500) {
+            if (!isAdded) {
+                return@postDelayed
+            }
+            val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionsStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
+            balloon.showAlignBottom(binding.contributionsStatsView.getDescriptionView())
+            balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
+                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
+                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
+            Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
+        }
     }
 
     private fun setIPBlockedStatus() {

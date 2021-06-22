@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
+import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
@@ -175,12 +176,12 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun showMultiLingualOnboarding() {
         if (Prefs.isMultilingualSearchTutorialEnabled()) {
-            binding.searchLangButton.postDelayed({
+            binding.searchLangButton.postDelayed(500) {
                 if (isAdded) {
                     showTooltip(requireActivity(), binding.searchLangButton, getString(R.string.tool_tip_lang_button),
-                            aboveOrBelow = false, autoDismiss = false)
+                        aboveOrBelow = false, autoDismiss = false)
                 }
-            }, 500)
+            }
             Prefs.setMultilingualSearchTutorialEnabled(false)
         }
     }

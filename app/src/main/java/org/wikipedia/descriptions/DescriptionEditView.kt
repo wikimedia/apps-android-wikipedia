@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.core.view.postDelayed
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
 import org.wikipedia.R
@@ -299,7 +300,9 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun setHighlightText(text: String?) {
         if (text != null && originalDescription != null) {
-            postDelayed({ StringUtil.highlightEditText(binding.viewDescriptionEditText, originalDescription!!, text) }, 500)
+            postDelayed(500) {
+                StringUtil.highlightEditText(binding.viewDescriptionEditText, originalDescription!!, text)
+            }
         }
     }
 

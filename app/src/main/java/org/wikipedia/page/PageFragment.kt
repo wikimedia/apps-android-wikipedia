@@ -20,6 +20,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -714,17 +715,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             // do we have a URL fragment to scroll to?
             model.title?.let { prevTitle ->
                 if (!prevTitle.fragment.isNullOrEmpty() && scrollTriggerListener.stagedScrollY == 0) {
-                    val scrollDelay = 100
-                    webView.postDelayed({
+                    val scrollDelay = 100L
+                    webView.postDelayed(scrollDelay) {
                         if (!isAdded) {
                             return@postDelayed
                         }
                         model.title?.let {
-                            if (!it.fragment.isNullOrEmpty()) {
-                                scrollToSection(it.fragment!!)
+                            val fragment = it.fragment
+                            if (!fragment.isNullOrEmpty()) {
+                                scrollToSection(fragment)
                             }
                         }
-                    }, scrollDelay.toLong())
+                    }
                 }
             }
         }

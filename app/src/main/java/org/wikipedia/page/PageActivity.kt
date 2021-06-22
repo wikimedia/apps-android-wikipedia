@@ -13,8 +13,10 @@ import android.text.format.DateUtils
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.os.postDelayed
 import androidx.core.view.ViewCompat
 import androidx.core.view.forEach
+import androidx.core.view.postDelayed
 import androidx.preference.PreferenceManager
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -558,7 +560,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             binding.pageFragment.visibility = View.VISIBLE
         }
         if (binding.wikiArticleCardView.visibility != View.GONE) {
-            binding.wikiArticleCardView.postDelayed({ binding.wikiArticleCardView.visibility = View.GONE }, 250L)
+            binding.wikiArticleCardView.postDelayed(250L) {
+                binding.wikiArticleCardView.visibility = View.GONE
+            }
         }
     }
 
@@ -641,10 +645,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun loadNewLanguageMainPage() {
         val uiThread = Handler(Looper.getMainLooper())
-        uiThread.postDelayed({
+        uiThread.postDelayed(DateUtils.SECOND_IN_MILLIS) {
             loadMainPage(TabPosition.EXISTING_TAB)
             WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext)
-        }, DateUtils.SECOND_IN_MILLIS)
+        }
     }
 
     private fun newArticleLanguageSelected(requestCode: Int, resultCode: Int): Boolean {
@@ -673,7 +677,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         pageFragment.historyEntry?.let {
 
             if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
-                binding.pageToolbarButtonShowOverflowMenu.postDelayed({
+                binding.pageToolbarButtonShowOverflowMenu.postDelayed(500) {
                     if (isDestroyed) {
                         return@postDelayed
                     }
@@ -681,7 +685,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     Prefs.setWatchlistPageOnboardingTooltipShown(true)
                     FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
-                }, 500)
+                }
             }
         }
     }

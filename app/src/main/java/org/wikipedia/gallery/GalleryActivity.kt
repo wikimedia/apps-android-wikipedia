@@ -17,6 +17,7 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -157,13 +158,13 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             binding.transitionReceiver.visibility = View.VISIBLE
             ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src, TRANSITION_INFO!!.centerCrop,
                 largeRoundedSize = false, force = false, listener = null)
-            val transitionMillis = 500
-            binding.transitionReceiver.postDelayed({
+            val transitionMillis = 500L
+            binding.transitionReceiver.postDelayed(transitionMillis) {
                 if (isDestroyed) {
                     return@postDelayed
                 }
                 loadGalleryContent()
-            }, transitionMillis.toLong())
+            }
         } else {
             TRANSITION_INFO = null
             binding.transitionReceiver.visibility = View.GONE
@@ -393,12 +394,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
         if (delay) {
             val hideDelayMillis = 250L
-            binding.transitionReceiver.postDelayed({
+            binding.transitionReceiver.postDelayed(hideDelayMillis) {
                 if (isDestroyed) {
                     return@postDelayed
                 }
                 binding.transitionReceiver.visibility = View.GONE
-            }, hideDelayMillis)
+            }
         } else {
             binding.transitionReceiver.visibility = View.GONE
         }

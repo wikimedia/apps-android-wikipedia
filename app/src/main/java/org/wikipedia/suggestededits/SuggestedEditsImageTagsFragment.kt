@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.core.view.children
+import androidx.core.view.postDelayed
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -407,7 +408,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .alpha(1f)
                 .duration = duration
 
-        binding.publishProgressBar.postDelayed({
+        binding.publishProgressBar.postDelayed(duration * 3) {
             if (isAdded) {
                 updateLicenseTextShown()
                 binding.publishOverlayContainer.visibility = GONE
@@ -415,12 +416,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 callback().logSuccess()
                 updateTagChips()
             }
-        }, duration * 3)
+        }
     }
 
     private fun onError(caught: Throwable) {
         // TODO: expand this a bit.
-        SuggestedEditsFunnel.get()!!.failure(ADD_IMAGE_TAGS)
+        SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)

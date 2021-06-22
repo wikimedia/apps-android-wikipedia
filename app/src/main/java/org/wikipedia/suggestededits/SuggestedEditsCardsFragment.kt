@@ -10,6 +10,7 @@ import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
+import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -304,13 +305,13 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     private fun resetViewPagerItemAdapter() {
         if (!resettingViewPager) {
             resettingViewPager = true
-            val postDelay: Long = 250
-            binding.cardsViewPager.postDelayed({
+            val postDelay = 250L
+            binding.cardsViewPager.postDelayed(postDelay) {
                 if (isAdded) {
                     binding.cardsViewPager.adapter = ViewPagerAdapter(this)
                     resettingViewPager = false
                 }
-            }, postDelay)
+            }
         }
     }
 
