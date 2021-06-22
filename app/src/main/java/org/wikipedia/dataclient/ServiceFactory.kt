@@ -90,9 +90,6 @@ object ServiceFactory {
 
     private fun createRetrofit(wiki: WikiSite?, baseUrl: String): Retrofit {
         val okHttpClientBuilder = client.newBuilder()
-        if (wiki != null) {
-            okHttpClientBuilder.addInterceptor(LanguageVariantHeaderInterceptor(wiki))
-        }
         return Retrofit.Builder()
             .client(okHttpClientBuilder.build())
             .baseUrl(baseUrl)
@@ -108,9 +105,9 @@ object ServiceFactory {
             var request: Request = chain.request()
 
             // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
-            if (!request.url.encodedPath.contains("/page/related")) {
+            if (wiki != null && !request.url.encodedPath.contains("/page/related")) {
                 request = request.newBuilder()
-                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki!!))
+                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
                     .build()
             }
             return chain.proceed(request)
