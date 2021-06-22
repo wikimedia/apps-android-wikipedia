@@ -719,6 +719,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Rozpocznij</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Podpis obrazka (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Plik</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Plik z Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artysta</string>
   <string name="suggested_edits_image_preview_dialog_tags">Znaczniki</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
@@ -892,7 +893,9 @@
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
   <string name="watchlist_details_watch_label">Obserwuj</string>
   <string name="go_to_user_page">Przejdź do strony użytkownika</string>
+  <string name="thank_dialog_positive_button_text">Wyślij podziękowanie</string>
   <string name="thank_dialog_negative_button_text">Anuluj</string>
+  <string name="thank_success_message">Twoje podziękowanie zostało wysłane do %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Zmień</string>
   <string name="watchlist_expiry_dialog_one_week">1 tydzień</string>
   <string name="watchlist_expiry_dialog_one_month">1 miesiąc</string>
