@@ -362,7 +362,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
                 .retry(20) { t ->
                     (t is IllegalStateException) ||
-                            (isNewTopic() && t is HttpStatusException && t.code() == 404)
+                            (isNewTopic() && t is HttpStatusException && t.code == 404)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -375,6 +375,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun onSaveSuccess(newRevision: Long) {
         binding.talkProgressBar.visibility = View.GONE
+        binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
 
         if (isNewTopic()) {
