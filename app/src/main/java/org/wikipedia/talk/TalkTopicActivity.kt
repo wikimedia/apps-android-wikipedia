@@ -53,6 +53,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private var replyActive = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
+    private var revisionForUndo: Long = 0
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler.onUrlClick(url, null, "")
     }
@@ -370,6 +371,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    revisionForUndo = it
                     onSaveSuccess(it, showUndoSnackbar)
                 }, { t ->
                     L.e(t)
@@ -382,7 +384,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
 
-        if (showUndoSnackbar) {
+        if (showUndoSnackbar && !isNewTopic()) {
             showUndoSnackbar()
         }
 
