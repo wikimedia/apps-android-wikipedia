@@ -1149,7 +1149,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             disposables.add(ServiceFactory.get(it.wikiSite).watchToken
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
-                    val watchToken = response.query()!!.watchToken()
+                    val watchToken = response.query?.watchToken()
                     if (watchToken.isNullOrEmpty()) {
                         throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
                     }

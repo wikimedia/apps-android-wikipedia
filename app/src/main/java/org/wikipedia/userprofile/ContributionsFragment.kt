@@ -175,11 +175,11 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
-                    totalContributionCount += response.query()!!.userInfo()!!.editCount
+                    totalContributionCount += response.query?.userInfo()!!.editCount
                     val wikidataContributions = ArrayList<Contribution>()
                     val qLangMap = HashMap<String, HashSet<String>>()
-                    articleContributionsContinuation = response.continuation()["uccontinue"]
-                    for (contribution in response.query()!!.userContributions()) {
+                    articleContributionsContinuation = response.continuation!!["uccontinue"]
+                    for (contribution in response.query!!.userContributions()) {
                         var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                         var contributionDescription = contribution.comment
                         var editType: Int = EDIT_TYPE_GENERIC
@@ -231,10 +231,10 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
-                                totalContributionCount += response.query()!!.userInfo()!!.editCount
+                                totalContributionCount += response.query?.userInfo()!!.editCount
                                 val contributions = ArrayList<Contribution>()
-                                imageContributionsContinuation = response.continuation()["uccontinue"]
-                                for (contribution in response.query()!!.userContributions()) {
+                                imageContributionsContinuation = response.continuation!!["uccontinue"]
+                                for (contribution in response.query!!.userContributions()) {
                                     var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                                     var editType: Int = EDIT_TYPE_GENERIC
                                     var contributionDescription = contribution.comment
@@ -453,7 +453,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                             }
                                             Observable.just(label)
                                         }), { commonsResponse, qLabel ->
-                            val page = commonsResponse.query()!!.pages()!![0]
+                            val page = commonsResponse.query?.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
                                 contribution.imageUrl = imageInfo.thumbUrl
@@ -486,7 +486,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     .subscribe({ response ->
                         if (response is MwQueryResponse) {
                             var pageviews = 0L
-                            for (page in response.query()!!.pages()!!) {
+                            for (page in response.query?.pages()!!) {
                                 for (day in page.pageViewsMap.values) {
                                     pageviews += day ?: 0
                                 }

@@ -15,8 +15,8 @@ public class UserExtendedInfoClientTest extends MockRetrofitTest {
         final int id = 24531888;
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
-                .assertValue(result -> result.query().userInfo().id() == id
-                        && result.query().getUserResponse("USER").name().equals("USER"));
+                .assertValue(result -> result.getQuery().userInfo().id() == id
+                        && result.getQuery().getUserResponse("USER").name().equals("USER"));
     }
 
     @Test public void testRequestResponse404() throws Throwable {

@@ -165,8 +165,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    isWatched = it.query()!!.firstPage()!!.isWatched
-                    hasWatchlistExpiry = it.query()!!.firstPage()!!.hasWatchlistExpiry()
+                    isWatched = it.query?.firstPage()!!.isWatched
+                    hasWatchlistExpiry = it.query?.firstPage()!!.hasWatchlistExpiry()
                     updateWatchlistButtonUI()
                 }) { setErrorState(it!!) })
     }
@@ -177,7 +177,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    val firstPage = it.query()!!.firstPage()!!
+                    val firstPage = it.query?.firstPage()!!
                     currentRevision = firstPage.revisions()[0]
                     revisionId = currentRevision!!.revId
                     username = currentRevision!!.user
@@ -248,7 +248,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).watchToken
                 .subscribeOn(Schedulers.io())
                 .flatMap { response: MwQueryResponse ->
-                    val watchToken = response.query()!!.watchToken()
+                    val watchToken = response.query?.watchToken()
                     if (TextUtils.isEmpty(watchToken)) {
                         throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
                     }
@@ -341,7 +341,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).csrfToken
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, it.query()!!.csrfToken()!!)
+                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, it.query?.csrfToken()!!)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

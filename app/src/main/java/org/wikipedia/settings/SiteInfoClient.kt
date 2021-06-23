@@ -47,6 +47,6 @@ object SiteInfoClient {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response: MwQueryResponse ->
-                    SITE_INFO_MAP[wiki.languageCode()] = response.query()!!.siteInfo() }) { obj: Throwable -> L.d(obj) }
+                    SITE_INFO_MAP[wiki.languageCode()] = response.query?.siteInfo() }) { obj: Throwable -> L.d(obj) }
     }
 }

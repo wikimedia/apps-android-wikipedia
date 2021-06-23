@@ -139,10 +139,10 @@ class SearchResultsFragment : Fragment() {
                     if (searchTerm.length >= 2) Observable.fromCallable { ReadingListDbHelper.findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
                     if (searchTerm.length >= 2) Observable.fromCallable { findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
                     { searchResponse, readingListSearchResults, historySearchResults ->
-                        val searchResults = if (searchResponse?.query()!!.pages() != null) {
+                        val searchResults = if (searchResponse?.query?.pages() != null) {
                             // noinspection ConstantConditions
-                            SearchResults(searchResponse.query()!!.pages()!!,
-                                    WikiSite.forLanguageCode(searchLanguageCode), searchResponse.continuation(),
+                            SearchResults(searchResponse.query?.pages()!!,
+                                    WikiSite.forLanguageCode(searchLanguageCode), searchResponse.continuation,
                                     searchResponse.suggestion())
                         } else {
                             // A prefix search query with no results will return the following:
@@ -248,10 +248,10 @@ class SearchResultsFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
-                    if (response.query() != null) {
+                    if (response.query != null) {
                         // noinspection ConstantConditions
-                        return@map SearchResults(response.query()!!.pages()!!, WikiSite.forLanguageCode(searchLanguageCode),
-                                response.continuation(), null)
+                        return@map SearchResults(response.query?.pages()!!, WikiSite.forLanguageCode(searchLanguageCode),
+                                response.continuation, null)
                     }
                     SearchResults()
                 }
@@ -309,7 +309,7 @@ class SearchResultsFragment : Fragment() {
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .flatMap { response ->
-                                if (response.query()?.pages() != null) {
+                                if (response.query?.pages() != null) {
                                     return@flatMap Observable.just(response)
                                 }
                                 ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null)
@@ -317,7 +317,7 @@ class SearchResultsFragment : Fragment() {
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { response -> if (response.query()?.pages() != null) response.query()!!.pages()!!.size else 0 }
+                .map { response -> if (response.query?.pages() != null) response.query?.pages()?.size else 0 }
     }
 
     private fun updateProgressBar(enabled: Boolean) {

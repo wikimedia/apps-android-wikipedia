@@ -277,7 +277,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             .observeOn(AndroidSchedulers.mainThread())
                 }
                 .subscribe({ response ->
-                    val page = response.query()!!.pages()!![0]
+                    val page = response.query?.pages()!![0]
                     if (page.imageInfo() != null) {
                         val title = page.title()
                         val imageInfo = page.imageInfo()!!
@@ -324,7 +324,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             .observeOn(AndroidSchedulers.mainThread())
                 }
                 .subscribe({ response ->
-                    val page = response.query()!!.pages()!![0]
+                    val page = response.query?.pages()!![0]
                     if (page.imageInfo() != null) {
                         val title = page.title()
                         val imageInfo = page.imageInfo()!!

@@ -207,7 +207,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     .doAfterTerminate { binding.linkPreviewProgress.visibility = View.GONE }
                     .subscribe({ response ->
                         response?.let {
-                            val pageList = response.query()!!.pages()!!.filter { it.imageInfo() != null }
+                            val pageList = response.query?.pages()!!.filter { it.imageInfo() != null }
                             binding.linkPreviewThumbnailGallery.setGalleryList(pageList)
                             binding.linkPreviewThumbnailGallery.listener = galleryViewListener
                         }
