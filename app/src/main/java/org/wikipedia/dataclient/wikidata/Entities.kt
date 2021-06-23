@@ -26,7 +26,7 @@ class Entities : MwResponse(), PostProcessable {
             get() = field ?: emptyMap()
         val sitelinks: Map<String, SiteLink>? = null
             get() = field ?: emptyMap()
-        val isMissing: Boolean = false
+        val isMissing: Boolean? = null
             get() = "-1" == id && field != null
         val lastRevId: Long = 0
     }
