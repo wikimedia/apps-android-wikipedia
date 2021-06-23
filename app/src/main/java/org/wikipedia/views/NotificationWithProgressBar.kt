@@ -1,6 +1,5 @@
 package org.wikipedia.views
 
-import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
@@ -9,7 +8,10 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.getSystemService
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.util.MathUtil.percentage
@@ -45,17 +47,13 @@ class NotificationWithProgressBar {
     }
 
     private fun build(context: Context, builder: NotificationCompat.Builder, total: Int, progress: Int) {
-
         // Notification channel ( >= API 26 )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name: CharSequence = context.resources.getQuantityString(channelName, total)
-            val description = context.getString(channelDescription)
-            val importance = NotificationManager.IMPORTANCE_LOW
-            val mChannel = NotificationChannel(channelId, name, importance)
-            mChannel.description = description
-            mChannel.setSound(null, null)
-            getNotificationManager(context).createNotificationChannel(mChannel)
-        }
+        val channelCompat = NotificationChannelCompat.Builder(channelId, NotificationManagerCompat.IMPORTANCE_LOW)
+            .setName(context.resources.getQuantityString(channelName, total))
+            .setDescription(context.getString(channelDescription))
+            .setSound(null, null)
+            .build()
+        NotificationManagerCompat.from(context).createNotificationChannel(channelCompat)
         val builderIcon = notificationIcon
         val builderTitle = context.resources.getQuantityString(notificationTitle, total, total)
         val builderInfo = "${percentage(progress.toFloat(), total.toFloat()).toInt()}%"
@@ -95,17 +93,13 @@ class NotificationWithProgressBar {
     }
 
     fun cancelNotification(context: Context) {
-        getNotificationManager(context).cancel(notificationId)
+        context.getSystemService<NotificationManager>()!!.cancel(notificationId)
     }
 
     private fun showNotification(context: Context, builder: NotificationCompat.Builder) {
         if (!isCanceled) {
-            getNotificationManager(context).notify(notificationId, builder.build())
+            context.getSystemService<NotificationManager>()!!.notify(notificationId, builder.build())
         }
-    }
-
-    private fun getNotificationManager(context: Context): NotificationManager {
-        return context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
 
     private fun actionBuilder(context: Context,

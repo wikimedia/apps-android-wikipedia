@@ -1,6 +1,5 @@
 package org.wikipedia.notifications
 
-import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
@@ -9,11 +8,13 @@ import android.graphics.Bitmap
 import android.graphics.Paint
 import android.graphics.Rect
 import android.net.Uri
-import android.os.Build
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
+import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
 import org.wikipedia.Constants
@@ -100,18 +101,19 @@ object NotificationPresenter {
     }
 
     fun getDefaultBuilder(context: Context, id: Long, type: String?): NotificationCompat.Builder {
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            var notificationChannel = notificationManager.getNotificationChannel(CHANNEL_ID)
-            if (notificationChannel == null) {
-                val importance = NotificationManager.IMPORTANCE_HIGH
-                notificationChannel = NotificationChannel(CHANNEL_ID,
-                        context.getString(R.string.notification_echo_channel_description), importance)
-                notificationChannel.lightColor = ContextCompat.getColor(context, R.color.accent50)
-                notificationChannel.enableVibration(true)
-                notificationManager.createNotificationChannel(notificationChannel)
-            }
+        val notificationManagerCompat = NotificationManagerCompat.from(context)
+
+        // Notification channel ( >= API 26 )
+        var notificationChannelCompat = notificationManagerCompat.getNotificationChannelCompat(CHANNEL_ID)
+        if (notificationChannelCompat == null) {
+            notificationChannelCompat = NotificationChannelCompat.Builder(CHANNEL_ID, NotificationManagerCompat.IMPORTANCE_HIGH)
+                .setName(context.getString(R.string.notification_echo_channel_description))
+                .setLightColor(ContextCompat.getColor(context, R.color.accent50))
+                .setVibrationEnabled(true)
+                .build()
+            notificationManagerCompat.createNotificationChannel(notificationChannelCompat)
         }
+
         return NotificationCompat.Builder(context, CHANNEL_ID)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -129,8 +131,7 @@ object NotificationPresenter {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(longText))
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(id, builder.build())
+        context.getSystemService<NotificationManager>()!!.notify(id, builder.build())
     }
 
     private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
