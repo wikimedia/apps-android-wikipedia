@@ -80,7 +80,6 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                 return
             }
             val section = it.sections[sectionID]
-
             val intent = Intent(fragment.requireActivity(), EditSectionActivity::class.java)
             intent.putExtra(EditSectionActivity.EXTRA_SECTION_ID, section.id)
             intent.putExtra(EditSectionActivity.EXTRA_SECTION_ANCHOR, section.anchor)
