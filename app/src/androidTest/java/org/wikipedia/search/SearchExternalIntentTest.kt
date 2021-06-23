@@ -47,8 +47,10 @@ class SearchExternalIntentTest {
         TestUtil.delay(2)
 
         device.setOrientationRight()
-
         TestUtil.delay(2)
+
+        Espresso.pressBack()
+        TestUtil.delay(1)
 
         onView(allOf(withId(R.id.page_list_item_title), withText("Boletus edulis"), isDisplayed()))
                 .check(matches(withText("Boletus edulis")))

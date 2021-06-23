@@ -42,8 +42,10 @@ class SearchIntentTest {
         TestUtil.delay(2)
 
         device.setOrientationRight()
-
         TestUtil.delay(2)
+
+        Espresso.pressBack()
+        TestUtil.delay(1)
 
         onView(allOf(withId(R.id.page_list_item_title), withText("Barack Obama"), isDisplayed()))
                 .check(matches(withText("Barack Obama")))

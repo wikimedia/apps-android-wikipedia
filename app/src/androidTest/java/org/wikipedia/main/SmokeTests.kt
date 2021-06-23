@@ -98,8 +98,11 @@ class SmokeTests {
 
         // Rotate the device
         device.setOrientationRight()
-
         TestUtil.delay(2)
+
+        // Make the keyboard disappear
+        pressBack()
+        TestUtil.delay(1)
 
         // Make sure the same title appears in the new screen orientation
         onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
