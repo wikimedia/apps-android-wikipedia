@@ -551,7 +551,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(), sourceWiki.languageCode()),
                 { captions, protectionInfoRsp, imageTags ->
                     item.mediaInfo!!.captions = captions
-                    Pair(protectionInfoRsp.query()!!.isEditProtected, imageTags.size)
+                    Pair(protectionInfoRsp.query?.isEditProtected, imageTags.size)
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

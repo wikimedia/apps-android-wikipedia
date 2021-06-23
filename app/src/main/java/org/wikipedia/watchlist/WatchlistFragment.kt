@@ -133,7 +133,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
                     val items = ArrayList<MwQueryResult.WatchlistItem>()
                     resultList.forEachIndexed { index, result ->
                         val wiki = WikiSite.forLanguageCode(displayLanguages[index])
-                        for (item in (result as MwQueryResponse).query()!!.watchlist) {
+                        for (item in (result as MwQueryResponse).query!!.watchlist) {
                             item.wiki = wiki
                             items.add(item)
                         }
