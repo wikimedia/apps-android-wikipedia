@@ -19,7 +19,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
         getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.languageCode())
                 .map(response -> {
                     // noinspection ConstantConditions
-                    MwQueryPage page = response.query().pages().get(0);
+                    MwQueryPage page = response.getQuery().pages().get(0);
                     return page.imageInfo() != null && page.imageInfo().getMetadata() != null
                             ? new ImageLicense(page.imageInfo().getMetadata())
                             : new ImageLicense();
