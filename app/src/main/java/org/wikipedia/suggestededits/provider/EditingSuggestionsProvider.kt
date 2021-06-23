@@ -113,15 +113,15 @@ object EditingSuggestionsProvider {
                                 }
                                 val entity = page.entity
                                 if (entity == null ||
-                                        entity.descriptions().containsKey(targetLang) ||
-                                        sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode()) ||
-                                        !entity.sitelinks().containsKey(sourceWiki.dbName()) ||
-                                        !entity.sitelinks().containsKey(targetWiki.dbName())) {
+                                        entity.descriptions!!.containsKey(targetLang) ||
+                                        sourceLangMustExist && !entity.descriptions!!.containsKey(sourceWiki.languageCode()) ||
+                                        !entity.sitelinks!!.containsKey(sourceWiki.dbName()) ||
+                                        !entity.sitelinks!!.containsKey(targetWiki.dbName())) {
                                     continue
                                 }
-                                val sourceTitle = PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)
-                                sourceTitle.description = entity.descriptions()[sourceWiki.languageCode()]?.value()
-                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki) to sourceTitle)
+                                val sourceTitle = PageTitle(entity.sitelinks!![sourceWiki.dbName()]!!.title, sourceWiki)
+                                sourceTitle.description = entity.descriptions!![sourceWiki.languageCode()]?.value
+                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks!![targetWiki.dbName()]!!.title, targetWiki) to sourceTitle)
                             }
                             if (!articlesWithTranslatableDescriptionCache.empty()) {
                                 targetAndSourcePageTitles = articlesWithTranslatableDescriptionCache.pop()
