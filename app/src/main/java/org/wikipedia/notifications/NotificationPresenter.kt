@@ -45,7 +45,8 @@ object NotificationPresenter {
             it.secondary?.let { secondary ->
                 if (secondary.size > 0) {
                     addAction(context, builder, secondary[0], n)
-                } else if (secondary.size > 1) {
+                }
+                if (secondary.size > 1) {
                     addAction(context, builder, secondary[1], n)
                 }
             }
