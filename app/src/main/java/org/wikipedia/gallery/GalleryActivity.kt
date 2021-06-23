@@ -413,6 +413,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             ViewAnimations.ensureTranslationY(binding.toolbarContainer, -binding.toolbarContainer.height)
             ViewAnimations.ensureTranslationY(binding.infoContainer, binding.infoContainer.height)
         }
+        binding.descriptionText.setTextIsSelectable(controlsShowing)
     }
 
     fun toggleControls() {
