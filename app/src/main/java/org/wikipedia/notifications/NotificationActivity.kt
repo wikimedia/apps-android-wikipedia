@@ -167,7 +167,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    val wikiMap = response.query()!!.unreadNotificationWikis()
+                    val wikiMap = response.query?.unreadNotificationWikis()
                     dbNameMap.clear()
                     for (key in wikiMap!!.keys) {
                         if (wikiMap[key]!!.source != null) {
@@ -185,8 +185,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        onNotificationsComplete(response.query()!!.notifications()!!.list()!!, !currentContinueStr.isNullOrEmpty())
-                        currentContinueStr = response.query()!!.notifications()!!.getContinue()
+                        onNotificationsComplete(response.query?.notifications()!!.list()!!, !currentContinueStr.isNullOrEmpty())
+                        currentContinueStr = response.query?.notifications()!!.getContinue()
                     }) { t -> setErrorState(t) })
         }
 
