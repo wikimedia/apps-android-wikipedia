@@ -15,9 +15,9 @@ public class PrefixSearchClientTest extends MockRetrofitTest {
     private Observable<SearchResults> getObservable() {
         return getApiService().prefixSearch("foo", BATCH_SIZE, "foo")
                 .map(response -> {
-                    if (response != null && response.success() && response.getQuery().pages() != null) {
+                    if (response != null && response.getQuery()!=null && response.getQuery().pages() != null) {
                         // noinspection ConstantConditions
-                        return new SearchResults(response.getQuery().pages(), TESTWIKI, response.continuation(),
+                        return new SearchResults(response.getQuery().pages(), TESTWIKI, response.getContinuation(),
                                 response.suggestion());
                     }
                     return new SearchResults();
