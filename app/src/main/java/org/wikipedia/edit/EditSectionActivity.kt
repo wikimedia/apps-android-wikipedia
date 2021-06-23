@@ -468,14 +468,14 @@ class EditSectionActivity : BaseActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response: MwQueryResponse ->
-                        val firstPage = response.query()!!.firstPage()!!
+                        val firstPage = response.query?.firstPage()!!
                         val rev = firstPage.revisions()[0]
 
                         pageTitle = PageTitle(firstPage.title(), pageTitle.wikiSite)
                         sectionWikitext = rev.content()
                         currentRevision = rev.revId
 
-                        val editError = response.query()!!.firstPage()!!.getErrorForAction("edit")
+                        val editError = response.query?.firstPage()!!.getErrorForAction("edit")
                         if (editError.isEmpty()) {
                             editingAllowed = true
                         } else {
