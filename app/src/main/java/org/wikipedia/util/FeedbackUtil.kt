@@ -30,6 +30,7 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.staticdata.SpecialAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.suggestededits.SuggestionsActivity
+import org.wikipedia.talk.TalkTopicActivity
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import java.util.concurrent.TimeUnit
 
@@ -256,6 +257,9 @@ object FeedbackUtil {
             }
             is SuggestionsActivity -> {
                 activity.findViewById(R.id.suggestedEditsCardsCoordinator)
+            }
+            is TalkTopicActivity -> {
+                activity.findViewById(R.id.talkCoordinatorLayout)
             }
             else -> {
                 activity.findViewById(android.R.id.content)
