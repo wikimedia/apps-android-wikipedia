@@ -485,11 +485,10 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         if (response is MwQueryResponse) {
-                            val pageviews = response.query?.pages()?.sumOf { it.pageViewsMap.values.sum() } ?: 0
-                            contribution.pageViews = pageviews
+                            contribution.pageViews = response.query?.pages()?.sumOf { it.pageViewsMap.values.filterNotNull().sum() } ?: 0
                             view.setPageViewCountText(contribution.pageViews)
                         }
-                    }) { t: Throwable? -> L.e(t) })
+                    }) { t -> L.e(t) })
         }
     }
 
@@ -500,44 +499,25 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
         override fun getItemViewType(position: Int): Int {
             return when {
-                position == 0 -> {
-                    VIEW_TYPE_HEADER
-                }
-                displayedContributions[position - 1] is String -> {
-                    VIEW_TYPE_DATE
-                }
-                else -> {
-                    VIEW_TYPE_ITEM
-                }
+                position == 0 -> VIEW_TYPE_HEADER
+                displayedContributions[position - 1] is String -> VIEW_TYPE_DATE
+                else -> VIEW_TYPE_ITEM
             }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
             return when (viewType) {
-                VIEW_TYPE_HEADER -> {
-                    HeaderViewHolder(ContributionsHeaderView(parent.context))
-                }
-                VIEW_TYPE_DATE -> {
-                    val view = LayoutInflater.from(parent.context).inflate(R.layout.view_section_header, parent, false)
-                    DateViewHolder(view)
-                }
-                else -> {
-                    ContributionItemHolder(ContributionsItemView(parent.context))
-                }
+                VIEW_TYPE_HEADER -> HeaderViewHolder(ContributionsHeaderView(parent.context))
+                VIEW_TYPE_DATE -> DateViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_section_header, parent, false))
+                else -> ContributionItemHolder(ContributionsItemView(parent.context))
             }
         }
 
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
             when (holder) {
-                is HeaderViewHolder -> {
-                    holder.bindItem()
-                }
-                is ContributionItemHolder -> {
-                    holder.bindItem((displayedContributions[pos - 1] as Contribution))
-                }
-                else -> {
-                    (holder as DateViewHolder).bindItem((displayedContributions[pos - 1] as String))
-                }
+                is HeaderViewHolder -> holder.bindItem()
+                is ContributionItemHolder -> holder.bindItem((displayedContributions[pos - 1] as Contribution))
+                else -> (holder as DateViewHolder).bindItem((displayedContributions[pos - 1] as String))
             }
             if (displayedContributions.isNotEmpty() && pos >= displayedContributions.size - 1) {
                 // If we have scrolled to the bottom, fetch the next batch of items.
