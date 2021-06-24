@@ -6,7 +6,6 @@ import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.log.L
 
@@ -46,7 +45,6 @@ object SiteInfoClient {
         ServiceFactory.get(wiki).siteInfo
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response: MwQueryResponse ->
-                    SITE_INFO_MAP[wiki.languageCode()] = response.query?.siteInfo() }) { obj: Throwable -> L.d(obj) }
+                .subscribe({ response -> SITE_INFO_MAP[wiki.languageCode()] = response.query?.siteInfo() }) { caught -> L.d(caught) }
     }
 }

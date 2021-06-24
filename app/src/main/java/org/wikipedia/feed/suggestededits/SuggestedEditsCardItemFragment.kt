@@ -28,7 +28,6 @@ import org.wikipedia.databinding.FragmentSuggestedEditsCardItemBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.WikiSite.forLanguageCode
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
@@ -48,9 +47,6 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
-
-private const val AGE = "age"
-private const val CARD_TYPE = "cardType"
 
 class SuggestedEditsCardItemFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsCardItemBinding? = null
@@ -207,14 +203,14 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private fun addDescription() {
         disposables.add(EditingSuggestionsProvider
-                .getNextArticleWithMissingDescription(forLanguageCode(langFromCode), MAX_RETRY_LIMIT)
+                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pageSummary ->
                     sourceSummaryForEdit = PageSummaryForEdit(
                             pageSummary.apiTitle,
                             langFromCode,
-                            pageSummary.getPageTitle(forLanguageCode(langFromCode)),
+                            pageSummary.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
                             pageSummary.displayTitle,
                             pageSummary.description,
                             pageSummary.thumbnailUrl,
@@ -233,7 +229,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
             return
         }
         disposables.add(EditingSuggestionsProvider
-                .getNextArticleWithMissingDescription(forLanguageCode(langFromCode), targetLanguage!!, true, MAX_RETRY_LIMIT)
+                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), targetLanguage!!, true, MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pair ->
@@ -243,7 +239,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     sourceSummaryForEdit = PageSummaryForEdit(
                             source.apiTitle,
                             langFromCode,
-                            source.getPageTitle(forLanguageCode(langFromCode)),
+                            source.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
                             source.displayTitle,
                             source.description,
                             source.thumbnailUrl,
@@ -254,7 +250,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     targetSummaryForEdit = PageSummaryForEdit(
                             target.apiTitle,
                             targetLanguage!!,
-                            target.getPageTitle(forLanguageCode(targetLanguage!!)),
+                            target.getPageTitle(WikiSite.forLanguageCode(targetLanguage!!)),
                             target.displayTitle,
                             target.description,
                             target.thumbnailUrl,
@@ -277,29 +273,23 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             .observeOn(AndroidSchedulers.mainThread())
                 }
                 .subscribe({ response ->
-                    val page = response.query?.pages()!![0]
-                    if (page.imageInfo() != null) {
-                        val title = page.title()
-                        val imageInfo = page.imageInfo()!!
-
+                    val page = response.query?.firstPage()!!
+                    page.imageInfo()?.let {
                         sourceSummaryForEdit = PageSummaryForEdit(
-                                title,
-                                langFromCode,
-                                PageTitle(
-                                        Namespace.FILE.name,
-                                        StringUtil.removeNamespace(title),
-                                        null,
-                                        imageInfo.thumbUrl,
-                                        forLanguageCode(langFromCode)
-                                ),
-                                StringUtil.removeHTMLTags(title),
-                                imageInfo.metadata!!.imageDescription(),
-                                imageInfo.thumbUrl,
+                            page.title(), langFromCode,
+                            PageTitle(Namespace.FILE.name,
+                                StringUtil.removeNamespace(page.title()),
                                 null,
-                                null,
-                                imageInfo.timestamp,
-                                imageInfo.user,
-                                imageInfo.metadata
+                                it.thumbUrl,
+                                WikiSite.forLanguageCode(langFromCode)),
+                            StringUtil.removeHTMLTags(page.title()),
+                            it.metadata!!.imageDescription(),
+                            it.thumbUrl,
+                            null,
+                            null,
+                            it.timestamp,
+                            it.user,
+                            it.metadata
                         )
                         updateUI()
                     }
@@ -324,41 +314,38 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             .observeOn(AndroidSchedulers.mainThread())
                 }
                 .subscribe({ response ->
-                    val page = response.query?.pages()!![0]
-                    if (page.imageInfo() != null) {
-                        val title = page.title()
-                        val imageInfo = page.imageInfo()!!
-
+                    val page = response.query?.firstPage()!!
+                    page.imageInfo()?.let {
                         sourceSummaryForEdit = PageSummaryForEdit(
-                                title,
-                                langFromCode,
-                                PageTitle(
-                                        Namespace.FILE.name,
-                                        StringUtil.removeNamespace(title),
-                                        null,
-                                        imageInfo.thumbUrl,
-                                        forLanguageCode(langFromCode)
-                                ),
-                                StringUtil.removeHTMLTags(title),
-                                fileCaption,
-                                imageInfo.thumbUrl,
+                            page.title(),
+                            langFromCode,
+                            PageTitle(
+                                Namespace.FILE.name,
+                                StringUtil.removeNamespace(page.title()),
                                 null,
-                                null,
-                                imageInfo.timestamp,
-                                imageInfo.user,
-                                imageInfo.metadata
+                                it.thumbUrl,
+                                WikiSite.forLanguageCode(langFromCode)
+                            ),
+                            StringUtil.removeHTMLTags(page.title()),
+                            fileCaption,
+                            it.thumbUrl,
+                            null,
+                            null,
+                            it.timestamp,
+                            it.user,
+                            it.metadata
                         )
 
                         targetSummaryForEdit = sourceSummaryForEdit!!.copy(
-                                description = null,
-                                lang = targetLanguage!!,
-                                pageTitle = PageTitle(
-                                        Namespace.FILE.name,
-                                        StringUtil.removeNamespace(title),
-                                        null,
-                                        imageInfo.thumbUrl,
-                                        forLanguageCode(targetLanguage!!)
-                                )
+                            description = null,
+                            lang = targetLanguage!!,
+                            pageTitle = PageTitle(
+                                Namespace.FILE.name,
+                                StringUtil.removeNamespace(page.title()),
+                                null,
+                                it.thumbUrl,
+                                WikiSite.forLanguageCode(targetLanguage!!)
+                            )
                         )
                     }
                     updateUI()
@@ -446,6 +433,8 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     companion object {
+        private const val AGE = "age"
+        private const val CARD_TYPE = "cardType"
         const val MAX_RETRY_LIMIT: Long = 5
 
         @JvmStatic
