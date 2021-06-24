@@ -16,25 +16,23 @@ class Claims : MwResponse() {
 
     class Claim {
 
-        @SerializedName("mainsnak")
-        val mainSnak: MainSnak? = null
         private val type: String? = null
         private val id: String? = null
         private val rank: String? = null
+        @SerializedName("mainsnak")
+        val mainSnak: MainSnak? = null
     }
 
     class MainSnak {
 
         @SerializedName("snaktype")
         private val snakType: String? = null
-        private val property: String? = null
-        private val hash: String? = null
-
-        @SerializedName("datavalue")
-        val dataValue: DataValue? = null
-
         @SerializedName("datatype")
         private val dataType: String? = null
+        private val property: String? = null
+        private val hash: String? = null
+        @SerializedName("datavalue")
+        val dataValue: DataValue? = null
     }
 
     class DataValue {
@@ -70,19 +68,19 @@ class Claims : MwResponse() {
 
     class TimeValue {
 
-        val time: String? = null
-            get() = field.orEmpty()
         private val timezone = 0
         private val before = 0
         private val after = 0
         private val precision = 0
+        val time: String? = null
+            get() = field.orEmpty()
     }
 
     class MonolingualTextValue {
 
+        private val language: String? = null
         val text: String? = null
             get() = field.orEmpty()
-        private val language: String? = null
     }
 
     class GlobeCoordinateValue {
