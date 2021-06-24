@@ -107,7 +107,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
         resetAndFetch()
 
-        UserContributionFunnel.get()!!.logOpen()
+        UserContributionFunnel.get().logOpen()
         UserContributionEvent.logOpen()
     }
 
@@ -124,19 +124,19 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         editFilterType = editType
         when (editFilterType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                UserContributionFunnel.get()!!.logFilterDescriptions()
+                UserContributionFunnel.get().logFilterDescriptions()
                 UserContributionEvent.logFilterDescriptions()
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
-                UserContributionFunnel.get()!!.logFilterCaptions()
+                UserContributionFunnel.get().logFilterCaptions()
                 UserContributionEvent.logFilterCaptions()
             }
             EDIT_TYPE_IMAGE_TAG -> {
-                UserContributionFunnel.get()!!.logFilterTags()
+                UserContributionFunnel.get().logFilterTags()
                 UserContributionEvent.logFilterTags()
             }
             else -> {
-                UserContributionFunnel.get()!!.logFilterAll()
+                UserContributionFunnel.get().logFilterAll()
                 UserContributionEvent.logFilterAll()
             }
         }
@@ -179,7 +179,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     val wikidataContributions = ArrayList<Contribution>()
                     val qLangMap = HashMap<String, HashSet<String>>()
                     articleContributionsContinuation = response.continuation!!["uccontinue"]
-                    for (contribution in response.query!!.userContributions()) {
+                    response.query?.userContributions()?.forEach { contribution ->
                         var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                         var contributionDescription = contribution.comment
                         var editType: Int = EDIT_TYPE_GENERIC
@@ -234,7 +234,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                 totalContributionCount += response.query?.userInfo()!!.editCount
                                 val contributions = ArrayList<Contribution>()
                                 imageContributionsContinuation = response.continuation!!["uccontinue"]
-                                for (contribution in response.query!!.userContributions()) {
+                                response.query?.userContributions()?.forEach { contribution ->
                                     var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                                     var editType: Int = EDIT_TYPE_GENERIC
                                     var contributionDescription = contribution.comment
@@ -440,24 +440,24 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             } else if (contribution.editType == EDIT_TYPE_IMAGE_CAPTION || contribution.editType == EDIT_TYPE_IMAGE_TAG) {
                 disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.apiTitle, contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io()),
                         if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
-                                ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode())
-                                        .subscribeOn(Schedulers.io())
-                                        .flatMap { response ->
-                                            var label = contribution.qNumber
-                                            if (response.entities().containsKey(contribution.qNumber)) {
-                                                if (response.entities()[contribution.qNumber]!!.labels().containsKey(contribution.wikiSite.languageCode())) {
-                                                    label = response.entities()[contribution.qNumber]!!.labels()[contribution.wikiSite.languageCode()]!!.value()
-                                                } else if (response.entities()[contribution.qNumber]!!.labels().containsKey(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)) {
-                                                    label = response.entities()[contribution.qNumber]!!.labels()[AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE]!!.value()
-                                                }
+                                ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
+                                    .getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode())
+                                    .subscribeOn(Schedulers.io())
+                                    .flatMap { response ->
+                                        var label = contribution.qNumber
+                                        if (response.entities().containsKey(contribution.qNumber)) {
+                                            if (response.entities()[contribution.qNumber]!!.labels().containsKey(contribution.wikiSite.languageCode())) {
+                                                label = response.entities()[contribution.qNumber]!!.labels()[contribution.wikiSite.languageCode()]!!.value()
+                                            } else if (response.entities()[contribution.qNumber]!!.labels().containsKey(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)) {
+                                                label = response.entities()[contribution.qNumber]!!.labels()[AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE]!!.value()
                                             }
-                                            Observable.just(label)
-                                        }), { commonsResponse, qLabel ->
-                            val page = commonsResponse.query?.pages()!![0]
-                            if (page.imageInfo() != null) {
-                                val imageInfo = page.imageInfo()!!
-                                contribution.imageUrl = imageInfo.thumbUrl
-                            } else {
+                                        }
+                                        Observable.just(label)
+                                    }), { commonsResponse, qLabel ->
+
+                            commonsResponse.query?.firstPage()?.imageInfo()?.let {
+                                contribution.imageUrl = it.thumbUrl
+                            } ?: run {
                                 contribution.imageUrl = ""
                             }
                             if (contribution.editType == EDIT_TYPE_IMAGE_TAG && qLabel.isNotEmpty()) {
@@ -485,12 +485,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         if (response is MwQueryResponse) {
-                            var pageviews = 0L
-                            for (page in response.query?.pages()!!) {
-                                for (day in page.pageViewsMap.values) {
-                                    pageviews += day ?: 0
-                                }
-                            }
+                            val pageviews = response.query?.pages()?.sumOf { it.pageViewsMap.values.sum() } ?: 0
                             contribution.pageViews = pageviews
                             view.setPageViewCountText(contribution.pageViews)
                         }
@@ -570,19 +565,19 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         override fun onClick(context: Context, contribution: Contribution) {
             when (contribution.editType) {
                 EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                    UserContributionFunnel.get()!!.logViewDescription()
+                    UserContributionFunnel.get().logViewDescription()
                     UserContributionEvent.logViewDescription()
                 }
                 EDIT_TYPE_IMAGE_CAPTION -> {
-                    UserContributionFunnel.get()!!.logViewCaption()
+                    UserContributionFunnel.get().logViewCaption()
                     UserContributionEvent.logViewCaption()
                 }
                 EDIT_TYPE_IMAGE_TAG -> {
-                    UserContributionFunnel.get()!!.logViewTag()
+                    UserContributionFunnel.get().logViewTag()
                     UserContributionEvent.logViewTag()
                 }
                 else -> {
-                    UserContributionFunnel.get()!!.logViewMisc()
+                    UserContributionFunnel.get().logViewMisc()
                     UserContributionEvent.logViewMisc()
                 }
             }

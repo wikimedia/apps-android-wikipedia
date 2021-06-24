@@ -86,24 +86,23 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    if (it.query?.pages()!![0].imageInfo() == null) {
+                    if (it.query?.firstPage()?.imageInfo() == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                         ServiceFactory.get(pageSummaryForEdit.pageTitle.wikiSite).getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang)
                     } else {
                         // Fetch API from commons.wikimedia.org and check whether if it is not a "shared" image.
-                        isFromCommons = !it.query?.pages()!![0].isImageShared
+                        isFromCommons = it.query?.firstPage()?.isImageShared != true
                         Observable.just(it)
                     }
                 }
                 .flatMap { response ->
-                    page = response.query?.pages()!![0]
-                    if (page.imageInfo() != null) {
-                        val imageInfo = page.imageInfo()!!
-                        pageSummaryForEdit.timestamp = imageInfo.timestamp
-                        pageSummaryForEdit.user = imageInfo.user
-                        pageSummaryForEdit.metadata = imageInfo.metadata
-                        thumbnailWidth = imageInfo.thumbWidth
-                        thumbnailHeight = imageInfo.thumbHeight
+                    page = response.query?.firstPage()!!
+                    page.imageInfo()?.let {
+                        pageSummaryForEdit.timestamp = it.timestamp
+                        pageSummaryForEdit.user = it.user
+                        pageSummaryForEdit.metadata = it.metadata
+                        thumbnailWidth = it.thumbWidth
+                        thumbnailHeight = it.thumbHeight
                     }
                     ImageTagsProvider.getImageTagsObservable(page.pageId(), pageSummaryForEdit.lang)
                 }
