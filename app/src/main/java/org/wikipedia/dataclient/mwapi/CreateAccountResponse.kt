@@ -26,7 +26,6 @@ class CreateAccountResponse : MwResponse() {
             get() = field.orEmpty()
         val message: String? = null
             get() = field.orEmpty()
-
         val username: String? = null
             get() = field.orEmpty()
     }
