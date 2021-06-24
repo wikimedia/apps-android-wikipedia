@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.core.Completable
 
 @Dao
 interface TalkPageSeenDao {
@@ -18,5 +18,5 @@ interface TalkPageSeenDao {
     fun getAll(): List<TalkPageSeen>
 
     @Query("DELETE FROM TalkPageSeen")
-    fun deleteAll(): Single<Unit>
+    fun deleteAll(): Completable
 }

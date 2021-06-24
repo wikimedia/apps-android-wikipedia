@@ -1,7 +1,7 @@
 package org.wikipedia.history.db
 
 import androidx.room.*
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.core.Completable
 import org.wikipedia.history.HistoryEntry
 
 @Dao
@@ -16,7 +16,7 @@ interface HistoryEntryDao {
     fun findEntryBy(authority: String, lang: String, apiTitle: String): HistoryEntry?
 
     @Query("DELETE FROM HistoryEntry")
-    fun deleteAll(): Single<Unit>
+    fun deleteAll(): Completable
 
     @Query("DELETE FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
     fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)
