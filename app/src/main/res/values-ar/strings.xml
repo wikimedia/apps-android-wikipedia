@@ -237,7 +237,7 @@
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
-  <string name="about_app_license" fuzzy="true">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من &lt;a href=\"https://wikimediafoundation.org/\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">حول</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
@@ -390,6 +390,7 @@
   <string name="page_footer_license_text">المحتوى متوفر تحت رخصة $1 إلا إذا ذُكر غير ذلك</string>
   <string name="empty_tab_title">تبويب جديد</string>
   <string name="menu_save_all_tabs">حفظ كل الألسنة</string>
+  <string name="error_blocked_title">عنوان الآي بي أو اسم المستخدم الخاص بك تم منعه.</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>

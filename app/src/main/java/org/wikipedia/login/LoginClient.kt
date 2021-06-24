@@ -106,7 +106,7 @@ class LoginClient {
             .map { response ->
                 val queryResponse =
                     GsonUtil.getDefaultGson().fromJson(response, MwQueryResponse::class.java)
-                val loginToken = queryResponse.query()!!.loginToken()
+                val loginToken = queryResponse.query?.loginToken()
                 if (loginToken.isNullOrEmpty()) {
                     throw RuntimeException("Received empty login token: " + GsonUtil.getDefaultGson().toJson(response))
                 }
@@ -125,9 +125,9 @@ class LoginClient {
         return ServiceFactory.get(wiki).userInfo
             .subscribeOn(Schedulers.io())
             .map { response ->
-                val id = response.query()!!.userInfo()!!.id()
+                val id = response.query?.userInfo()!!.id()
                 loginResult.userId = id
-                loginResult.groups = response.query()!!.userInfo()!!.groups
+                loginResult.groups = response.query?.userInfo()!!.groups
                 L.v("Found user ID " + id + " for " + wiki.subdomain())
                 loginResult
             }

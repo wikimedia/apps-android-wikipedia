@@ -160,7 +160,7 @@ class LangLinksActivity : BaseActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        languageEntries = response.query()!!.langLinks()
+                        languageEntries = response.query!!.langLinks()
                         updateLanguageEntriesSupported(languageEntries)
                         sortLanguageEntriesByMru(languageEntries)
                         displayLangLinks()

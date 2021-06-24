@@ -178,25 +178,25 @@ class SuggestedEditsTasksFragment : Fragment() {
                 UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
                     var blockInfo: MwServiceError.BlockInfo? = null
                     when {
-                        wikidataResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = wikidataResponse.query()!!.userInfo()!!
-                        commonsResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = commonsResponse.query()!!.userInfo()!!
-                        homeSiteResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = homeSiteResponse.query()!!.userInfo()!!
+                        wikidataResponse.query?.userInfo()!!.isBlocked -> blockInfo = wikidataResponse.query?.userInfo()!!
+                        commonsResponse.query?.userInfo()!!.isBlocked -> blockInfo = commonsResponse.query?.userInfo()!!
+                        homeSiteResponse.query?.userInfo()!!.isBlocked -> blockInfo = homeSiteResponse.query?.userInfo()!!
                     }
                     if (blockInfo != null) {
                         blockMessage = ThrowableUtil.getBlockMessageHtml(blockInfo)
                     }
 
-                    totalContributions += wikidataResponse.query()!!.userInfo()!!.editCount
-                    totalContributions += commonsResponse.query()!!.userInfo()!!.editCount
+                    totalContributions += wikidataResponse.query?.userInfo()!!.editCount
+                    totalContributions += commonsResponse.query?.userInfo()!!.editCount
 
-                    latestEditDate = wikidataResponse.query()!!.userInfo()!!.latestContrib
-                    if (commonsResponse.query()!!.userInfo()!!.latestContrib.after(latestEditDate)) {
-                        latestEditDate = commonsResponse.query()!!.userInfo()!!.latestContrib
+                    latestEditDate = wikidataResponse.query?.userInfo()!!.latestContrib
+                    if (commonsResponse.query?.userInfo()!!.latestContrib.after(latestEditDate)) {
+                        latestEditDate = commonsResponse.query?.userInfo()!!.latestContrib
                     }
 
                     val contributions = ArrayList<UserContribution>()
-                    contributions.addAll(wikidataResponse.query()!!.userContributions())
-                    contributions.addAll(commonsResponse.query()!!.userContributions())
+                    contributions.addAll(wikidataResponse.query!!.userContributions())
+                    contributions.addAll(commonsResponse.query!!.userContributions())
                     contributions.sortWith { o2, o1 -> (o1.date().compareTo(o2.date())) }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContributionsStats.getRevertSeverity()
