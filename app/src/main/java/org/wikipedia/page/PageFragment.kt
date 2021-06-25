@@ -633,7 +633,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     .subscribe({ list ->
                         val country = GeoUtil.geoIPCountry
                         val now = Date()
-                        for (announcement in list.items()) {
+                        for (announcement in list.items) {
                             if (AnnouncementClient.shouldShow(announcement, country, now) &&
                                 announcement.placement() == Announcement.PLACEMENT_ARTICLE &&
                                 !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
