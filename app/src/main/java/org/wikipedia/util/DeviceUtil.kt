@@ -8,7 +8,6 @@ import android.os.Build
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
-import android.view.WindowManager
 import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.Toolbar
@@ -51,11 +50,6 @@ object DeviceUtil {
         val keyboard = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         // Not using getCurrentFocus as that sometimes is null, but the keyboard is still up.
         keyboard.hideSoftInputFromWindow(view.windowToken, 0)
-    }
-
-    @JvmStatic
-    fun setWindowSoftInputModeResizable(activity: Activity) {
-        activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
 
     fun setLightSystemUiVisibility(activity: Activity) {
