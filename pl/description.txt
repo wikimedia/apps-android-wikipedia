@@ -26,14 +26,14 @@ Wyślij swoją opinię na temat aplikacji! Wybierz z menu „ustawienia”, nast
 
 Kod jest w 100% otwartoźródłowy. Jeżeli masz doświadczenie z Javą i Android SDK, czekamy na Twój wkład! [ttps://github.com/wikimedia/apps-android-wikipedia]
 
-Używając tej aplikacji zgadzasz się z automatycznym przesyłaniem raportów o błędach na serwery strony trzeciej. Jeżeli chciałbyś wyłączyć tą opcję, stuknij „ustawienia”, i odznacz „wysyłaj raporty o błędach” w sekcji prywatność. Objaśnienie pozwoleń wymaganych przez aplikację: <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions</a>
+Używając tej aplikacji zgadzasz się z automatycznym przesyłaniem raportów o błędach na serwery strony trzeciej. Jeżeli chciałbyś wyłączyć tą opcję, stuknij „ustawienia”, i odznacz „wysyłaj raporty o błędach” w sekcji prywatność. Objaśnienie pozwoleń wymaganych przez aplikację: [https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions]
 
-Polityka prywatności: <a href="https://meta.wikimedia.org/wiki/Privacy_policy/pl">https://meta.wikimedia.org/wiki/Privacy_policy/pl</a>
+Polityka prywatności: [https://meta.wikimedia.org/wiki/Privacy_policy/pl]
 
-Polityka prywatności dostawcy usługi raportowania błędów: <a href="https://privacy.microsoft.com/pl-pl/privacystatement">https://privacy.microsoft.com/pl-pl/privacystatement</a>
+Polityka prywatności dostawcy usługi raportowania błędów: [https://privacy.microsoft.com/pl-pl/privacystatement]
 
-Warunki użytkowania: <a href="https://m.wikimediafoundation.org/wiki/Terms_of_Use/pl">https://m.wikimediafoundation.org/wiki/Terms_of_Use/pl</a>
+Warunki użytkowania: [https://m.wikimediafoundation.org/wiki/Terms_of_Use/pl]
 
 O Fundacji Wikimedia
 
-Fundacja Wikimedia jest organizacją non-profit wspierającą Wikipedię i inne projekty Wikimedia. Fundacja Wikimedia jest organizacją charytatywną zasilaną głównie przez dotacje. Aby dowiedzieć się więcej, odwiedź naszą stronę: <a href="https://wikimediafoundation.org/wiki/Home">https://wikimediafoundation.org/wiki/Home</a>.
+Fundacja Wikimedia jest organizacją non-profit wspierającą Wikipedię i inne projekty Wikimedia. Fundacja Wikimedia jest organizacją charytatywną zasilaną głównie przez dotacje. Aby dowiedzieć się więcej, odwiedź naszą stronę: [https://wikimediafoundation.org/wiki/Home].
