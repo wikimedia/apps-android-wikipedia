@@ -29,7 +29,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
         val indicatorHeight = 20
         binding.newsRecyclerView.addItemDecoration(
             RecyclerViewIndicatorDotDecor(
-                DimenUtil.roundedDpToPx(indicatorRadius.toFloat()),
+                DimenUtil.roundedDpToPx(indicatorRadius.toFloat()).toFloat(),
                 DimenUtil.roundedDpToPx(indicatorPadding.toFloat()),
                 DimenUtil.roundedDpToPx(indicatorHeight.toFloat()),
                 ResourceUtil.getThemedColor(context, R.attr.chart_shade5),
