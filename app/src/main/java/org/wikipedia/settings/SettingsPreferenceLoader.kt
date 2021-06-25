@@ -6,13 +6,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
-import com.microsoft.appcenter.AppCenter
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.auth.AccountUtil.userName
+import org.wikipedia.crash.CrashReportHelper
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -58,7 +58,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             true
         }
         findPreference(R.string.preference_key_auto_upload_crash_reports).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any? ->
-            AppCenter.setEnabled((newValue as Boolean?)!!)
+            CrashReportHelper.setEnabled((newValue as Boolean?)!!)
             true
         }
     }

@@ -14,9 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.microsoft.appcenter.AppCenter;
-import com.microsoft.appcenter.crashes.Crashes;
-
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.InstallReferrerListener;
 import org.wikipedia.analytics.SessionFunnel;
@@ -24,7 +21,7 @@ import org.wikipedia.analytics.eventplatform.EventPlatformClient;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
-import org.wikipedia.crash.AppCenterCrashesListener;
+import org.wikipedia.crash.CrashReportHelper;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -79,7 +76,7 @@ public class WikipediaApp extends Application {
     private Database database;
     private String userAgent;
     private WikiSite wiki;
-    private AppCenterCrashesListener crashListener;
+    private CrashReportHelper crashListener;
     private RxBus bus;
     private Theme currentTheme = Theme.getFallback();
     private List<Tab> tabList = new ArrayList<>();
@@ -387,11 +384,8 @@ public class WikipediaApp extends Application {
     private void initExceptionHandling() {
         // AppCenter exception handling interferes with the test runner, so enable it only for beta and stable releases
         if (!ReleaseUtil.isPreBetaRelease()) {
-            crashListener = new AppCenterCrashesListener();
-            Crashes.setListener(crashListener);
-            AppCenter.start(this, getString(R.string.appcenter_id), Crashes.class);
-            AppCenter.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
-            Crashes.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
+            crashListener = new CrashReportHelper();
+            CrashReportHelper.Companion.register(this, crashListener);
         }
     }
 
