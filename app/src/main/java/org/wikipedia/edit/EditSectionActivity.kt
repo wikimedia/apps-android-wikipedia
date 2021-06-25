@@ -202,11 +202,13 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun doSave(token: String) {
-        var summaryText = if (sectionAnchor.isNullOrEmpty() || sectionAnchor == pageTitle.prefixedText) "/* top */"
+        val sectionAnchor = StringUtil.addUnderscores(StringUtil.removeHTMLTags(sectionAnchor.orEmpty()))
+        var summaryText = if (sectionAnchor.isEmpty() || sectionAnchor == pageTitle.prefixedText) "/* top */"
         else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
         summaryText += editPreviewFragment.summary
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
-        summaryText = StringUtil.fromHtml(summaryText).toString()
+        summaryText = StringUtil.removeHTMLTags(summaryText)
+
         if (!isFinishing) {
             showProgressBar(true)
         }
