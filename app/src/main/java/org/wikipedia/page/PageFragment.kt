@@ -633,7 +633,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     .subscribe({ list ->
                         val country = GeoUtil.geoIPCountry
                         val now = Date()
-                        for (announcement in list.items()) {
+                        for (announcement in list.items) {
                             if (AnnouncementClient.shouldShow(announcement, country, now) &&
                                 announcement.placement() == Announcement.PLACEMENT_ARTICLE &&
                                 !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
@@ -1149,7 +1149,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             disposables.add(ServiceFactory.get(it.wikiSite).watchToken
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
-                    val watchToken = response.query()!!.watchToken()
+                    val watchToken = response.query?.watchToken()
                     if (watchToken.isNullOrEmpty()) {
                         throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
                     }

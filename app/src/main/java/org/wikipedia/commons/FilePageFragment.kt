@@ -104,18 +104,18 @@ class FilePageFragment : Fragment() {
                 })
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    if (it.query()?.firstPage()?.imageInfo() == null) {
+                    if (it.query?.firstPage()?.imageInfo() == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                         ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode())
                     } else {
                         // Fetch API from commons.wikimedia.org and check whether if it is not a "shared" image.
-                        isFromCommons = !(it.query()?.firstPage()?.isImageShared ?: false)
+                        isFromCommons = !(it.query?.firstPage()?.isImageShared ?: false)
                         Observable.just(it)
                     }
                 }
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    page = it.query()!!.firstPage()!!
+                    page = it.query?.firstPage()!!
                     val imageInfo = page.imageInfo()!!
                     pageSummaryForEdit = PageSummaryForEdit(
                             pageTitle.prefixedText,
@@ -158,7 +158,7 @@ class FilePageFragment : Fragment() {
                     )
                 }
                 .subscribe({
-                    isEditProtected = it.query()!!.isEditProtected
+                    isEditProtected = it.query?.isEditProtected ?: false
                 }, { caught ->
                     L.e(caught)
                     showError(caught)
