@@ -299,7 +299,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         } else {
             binding.emptyContainer.visibility = View.GONE
-            DeviceUtil.setWindowSoftInputModeResizable(requireActivity())
         }
     }
 

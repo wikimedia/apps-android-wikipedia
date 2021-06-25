@@ -128,8 +128,8 @@ class CreateAccountActivity : BaseActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        val token = response.query()!!.createAccountToken()
-                        val captchaId = response.query()!!.captchaId()
+                        val token = response.query?.createAccountToken()
+                        val captchaId = response.query?.captchaId()
                         if (token.isNullOrEmpty()) {
                             handleAccountCreationError(getString(R.string.create_account_generic_error))
                         } else if (!captchaId.isNullOrEmpty()) {
@@ -276,17 +276,18 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private inner class UserNameVerifyRunnable : Runnable {
-        private var userName: String? = null
+        private lateinit var userName: String
+
         fun setUserName(userName: String) {
             this.userName = userName
         }
 
         override fun run() {
-            disposables.add(ServiceFactory.get(wiki).getUserList(userName!!)
+            disposables.add(ServiceFactory.get(wiki).getUserList(userName)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        response.query()!!.getUserResponse(userName!!)?.let {
+                        response.query?.getUserResponse(userName)?.let {
                             binding.createAccountUsername.isErrorEnabled = false
                             if (it.isBlocked) {
                                 handleAccountCreationError(it.error)
