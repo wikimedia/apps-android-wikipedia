@@ -10,6 +10,7 @@
 * Ff98sha
 * GoForceX
 * Grace03
+* GuoPC
 * Huanqiu
 * Hudafu
 * Hydra
@@ -43,6 +44,7 @@
 * Xzonn
 * Yfdyh000
 * Ywang
+* Zhang8569
 * Zjzengdongyang
 * 予弦
 * 佛壁灯
@@ -258,7 +260,7 @@
   <string name="about_translators_heading">翻译者</string>
   <string name="about_translators_translatewiki">该应用由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿译者翻译。</string>
   <string name="about_app_license_heading">许可协议</string>
-  <string name="about_app_license" fuzzy="true">源代码位于&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
+  <string name="about_app_license">源代码位于&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
   <string name="about_activity_title">关于</string>
   <string name="edit_abandon_confirm">该页面已修改。您确定要退出而不保存更改吗？</string>
@@ -403,6 +405,14 @@
   <string name="page_footer_license_text">除非另有说明，否则内容基于$1授权</string>
   <string name="empty_tab_title">新建标签页</string>
   <string name="menu_save_all_tabs">保存所有标签</string>
+  <string name="error_blocked_title">你的用户名或IP地址已被屏蔽。</string>
+  <string name="error_blocked_by">该区块是由&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;建立的</string>
+  <string name="error_blocked_reason">所给予的原因为：%s</string>
+  <string name="error_blocked_start">该区块的开头：%s</string>
+  <string name="error_blocked_expiry">该区块已过期：%s</string>
+  <string name="error_blocked_id">屏蔽ID：%s</string>
+  <string name="error_blocked_footer">你可以联系&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或另一个&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;来讨论这个区块</string>
+  <string name="error_blocked_footer_no_blocker">你可以联系&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;来讨论这个区块</string>
   <string name="crash_report_activity_title">应用错误</string>
   <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
   <string name="crash_report_relaunch">重启</string>
