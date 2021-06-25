@@ -59,6 +59,6 @@ public class PageImagesClientTest extends MockRetrofitTest {
 
     private Observable<Map<PageTitle, PageImage>> getObservable(@NonNull List<PageTitle> titles) {
         return getApiService().getPageImages("foo")
-                .map(response -> PageImage.imageMapFromPages(WIKISITE_TEST, titles, response.query().pages()));
+                .map(response -> PageImage.imageMapFromPages(WIKISITE_TEST, titles, response.getQuery().pages()));
     }
 }

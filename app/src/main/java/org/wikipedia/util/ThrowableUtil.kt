@@ -50,7 +50,7 @@ object ThrowableUtil {
                     context.getString(R.string.format_error_server_message,
                             inner.localizedMessage))
         } else if (e is HttpStatusException) {
-            AppError(e.message!!, e.code().toString())
+            AppError(e.message!!, e.code.toString())
         } else if (inner is LoginFailedException || inner is CreateAccountException ||
                 inner is MwException) {
             AppError(inner.localizedMessage!!, "")
@@ -76,7 +76,7 @@ object ThrowableUtil {
 
     @JvmStatic
     fun is404(caught: Throwable): Boolean {
-        return caught is HttpStatusException && caught.code() == 404
+        return caught is HttpStatusException && caught.code == 404
     }
 
     @JvmStatic
@@ -100,7 +100,7 @@ object ThrowableUtil {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parseText(blockInfo.blockReason),
             { userInfoResponse, blockedParseResponse, reasonParseResponse ->
                 parseBlockedError(blockedParseResponse.text, blockInfo,
-                    reasonParseResponse.text, userInfoResponse.query()!!.userInfo()!!.name)
+                    reasonParseResponse.text, userInfoResponse.query?.userInfo()!!.name)
             }
         ).blockingSubscribe({ html = it }) { L.e(it) }
         return html

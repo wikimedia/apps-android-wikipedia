@@ -62,7 +62,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
         } catch (e: Exception) {
             val reasonCode = if (e.message.isNullOrEmpty()) "Unknown error" else UriUtil.encodeURL(e.message!!)
             response = if (e is HttpStatusException) {
-                WebResourceResponse(null, null, e.code(), reasonCode, null, null)
+                WebResourceResponse(null, null, e.code, reasonCode, null, null)
             } else {
                 WebResourceResponse(null, null, 500, reasonCode, null, null)
             }
