@@ -118,12 +118,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         var lastNotificationTime = ""
-                        if (response.query!!.notifications()!!.list() != null &&
-                                response.query!!.notifications()!!.list()!!.size > 0) {
-                            for (n in response.query!!.notifications()!!.list()!!) {
-                                if (n.utcIso8601 > lastNotificationTime) {
-                                    lastNotificationTime = n.utcIso8601
-                                }
+                        for (n in response.query?.notifications()?.list().orEmpty()) {
+                            if (n.utcIso8601 > lastNotificationTime) {
+                                lastNotificationTime = n.utcIso8601
                             }
                         }
                         if (lastNotificationTime <= Prefs.getRemoteNotificationsSeenTime()) {
@@ -173,11 +170,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response -> onNotificationsComplete(context, response.query!!.notifications()!!.list()!!) }) { t -> L.e(t) }
+                    .subscribe({ response -> onNotificationsComplete(context, response.query?.notifications()?.list()) }) { t -> L.e(t) }
         }
 
-        private fun onNotificationsComplete(context: Context, notifications: List<Notification>) {
-            if (notifications.isEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+        private fun onNotificationsComplete(context: Context, notifications: List<Notification>?) {
+            if (notifications.isNullOrEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
                 return
             }
             var locallyKnownModified = false

@@ -102,9 +102,9 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             val imageTitle = "File:" + page!!.pageProperties.leadImageName
             disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(imageTitle)
                 .subscribeOn(Schedulers.io())
-                .map { response -> response.query?.isEditProtected }
+                .map { response -> response.query?.isEditProtected ?: false }
                 .flatMap { isProtected ->
-                    if (isProtected!!) Observable.empty() else Observable.zip(MediaHelper.getImageCaptions(imageTitle),
+                    if (isProtected) Observable.empty() else Observable.zip(MediaHelper.getImageCaptions(imageTitle),
                         ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode), { first, second -> Pair(first, second) })
                 }
                 .flatMap { pair ->
