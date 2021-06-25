@@ -15,10 +15,10 @@ public class FullTextSearchClientTest extends MockRetrofitTest {
     private Observable<SearchResults> getObservable() {
         return getApiService().fullTextSearch("foo", BATCH_SIZE, null, null)
                 .map(response -> {
-                    if (response.success()) {
+                    if (response.getQuery() != null) {
                         // noinspection ConstantConditions
-                        return new SearchResults(response.query().pages(), TESTWIKI,
-                                response.continuation(), null);
+                        return new SearchResults(response.getQuery().pages(), TESTWIKI,
+                                response.getContinuation(), null);
                     }
                     return new SearchResults();
                 });
