@@ -208,7 +208,6 @@ class EditSectionActivity : BaseActivity() {
         summaryText += editPreviewFragment.summary
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
         summaryText = StringUtil.removeHTMLTags(summaryText)
-
         if (!isFinishing) {
             showProgressBar(true)
         }
