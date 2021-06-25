@@ -158,7 +158,7 @@ class FilePageFragment : Fragment() {
                     )
                 }
                 .subscribe({
-                    isEditProtected = it.query!!.isEditProtected
+                    isEditProtected = it.query?.isEditProtected ?: false
                 }, { caught ->
                     L.e(caught)
                     showError(caught)
