@@ -331,7 +331,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun undoSave() {
         disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
             .subscribeOn(Schedulers.io())
-            .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, currentRevision, token) }
+            .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, revisionForUndo, token) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
