@@ -22,7 +22,7 @@ object OkHttpConnectionFactory {
 
     private fun createClient(): OkHttpClient {
         return OkHttpClient.Builder()
-                .cookieJar(SharedPreferenceCookieManager.getInstance())
+                .cookieJar(SharedPreferenceCookieManager.instance)
                 .cache(NET_CACHE)
                 .readTimeout(20, TimeUnit.SECONDS)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))

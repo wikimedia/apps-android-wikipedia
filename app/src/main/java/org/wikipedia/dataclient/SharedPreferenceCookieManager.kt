@@ -1,162 +1,122 @@
-package org.wikipedia.dataclient;
+package org.wikipedia.dataclient
 
-import android.text.TextUtils;
+import okhttp3.Cookie
+import okhttp3.CookieJar
+import okhttp3.HttpUrl
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.log.L.logRemoteErrorIfProd
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.log.L;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
-
-public final class SharedPreferenceCookieManager implements CookieJar {
-    private static final String CENTRALAUTH_PREFIX = "centralauth_";
-    private static SharedPreferenceCookieManager INSTANCE;
-
+class SharedPreferenceCookieManager(
     // Map: domain -> list of cookies
-    private final Map<String, List<Cookie>> cookieJar;
-
-    @NonNull
-    public static SharedPreferenceCookieManager getInstance() {
-        if (INSTANCE == null) {
-            try {
-                INSTANCE = Prefs.getCookies();
-            } catch (Exception e) {
-                L.logRemoteErrorIfProd(e);
-            }
-        }
-        if (INSTANCE == null) {
-            INSTANCE = new SharedPreferenceCookieManager();
-        }
-        return INSTANCE;
+    val cookieJar: MutableMap<String, MutableList<Cookie>> = HashMap()
+) : CookieJar {
+    private fun persistCookies() {
+        Prefs.setCookies(this)
     }
 
-    public SharedPreferenceCookieManager(Map<String, List<Cookie>> cookieJar) {
-        this.cookieJar = cookieJar;
+    @Synchronized
+    fun clearAllCookies() {
+        cookieJar.clear()
+        persistCookies()
     }
 
-    private SharedPreferenceCookieManager() {
-        cookieJar = new HashMap<>();
+    @Synchronized
+    fun getCookieByName(name: String): String? {
+        return cookieJar.values.flatten().filter { it.name == name }.map { it.value }.firstOrNull()
     }
 
-    public Map<String, List<Cookie>> getCookieJar() {
-        return cookieJar;
-    }
-
-    private void persistCookies() {
-        Prefs.setCookies(this);
-    }
-
-    public synchronized void clearAllCookies() {
-        cookieJar.clear();
-        persistCookies();
-    }
-
-    @Nullable public synchronized String getCookieByName(@NonNull String name) {
-        for (String domainSpec: cookieJar.keySet()) {
-            for (Cookie cookie : cookieJar.get(domainSpec)) {
-                if (cookie.name().equals(name)) {
-                    return cookie.value();
-                }
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public synchronized void saveFromResponse(@NonNull HttpUrl url, @NonNull List<Cookie> cookies) {
+    @Synchronized
+    override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
         if (cookies.isEmpty()) {
-            return;
+            return
         }
-        boolean cookieJarModified = false;
-        for (Cookie cookie : cookies) {
+        var cookieJarModified = false
+        for (cookie in cookies) {
             // Default to the URI's domain if cookie's domain is not explicitly set
-            String domainSpec = TextUtils.isEmpty(cookie.domain()) ? url.uri().getAuthority() : cookie.domain();
-            if (!cookieJar.containsKey(domainSpec)) {
-                cookieJar.put(domainSpec, new ArrayList<>());
-            }
-
-            List<Cookie> cookieList = cookieJar.get(domainSpec);
-            if (cookie.expiresAt() < System.currentTimeMillis() || "deleted".equals(cookie.value())) {
-                Iterator<Cookie> i = cookieList.iterator();
+            val domainSpec = cookie.domain.ifEmpty { url.toUri().authority }
+            val cookieList = cookieJar.getOrPut(domainSpec, { ArrayList() })
+            if (cookie.expiresAt < System.currentTimeMillis() || "deleted" == cookie.value) {
+                val i = cookieList.iterator()
                 while (i.hasNext()) {
-                    if (i.next().name().equals(cookie.name())) {
-                        i.remove();
-                        cookieJarModified = true;
+                    if (i.next().name == cookie.name) {
+                        i.remove()
+                        cookieJarModified = true
                     }
                 }
             } else {
-                Iterator<Cookie> i = cookieList.iterator();
-                boolean exists = false;
+                val i = cookieList.iterator()
+                var exists = false
                 while (i.hasNext()) {
-                    Cookie c = i.next();
-                    if (c.equals(cookie)) {
+                    val c = i.next()
+                    if (c == cookie) {
                         // an identical cookie already exists, so we don't need to update it.
-                        exists = true;
-                        break;
-                    } else if (c.name().equals(cookie.name())) {
+                        exists = true
+                        break
+                    } else if (c.name == cookie.name) {
                         // it's a cookie with the same name, but different contents, so remove the
                         // current cookie, so that the new one will be added.
-                        i.remove();
+                        i.remove()
                     }
                 }
                 if (!exists) {
-                    cookieList.add(cookie);
-                    cookieJarModified = true;
+                    cookieList.add(cookie)
+                    cookieJarModified = true
                 }
             }
         }
         if (cookieJarModified) {
-            persistCookies();
+            persistCookies()
         }
     }
 
-    @Override
-    public synchronized List<Cookie> loadForRequest(@NonNull HttpUrl url) {
-        List<Cookie> cookieList = new ArrayList<>();
-        String domain = url.uri().getAuthority();
-
-        for (String domainSpec : cookieJar.keySet()) {
-            List<Cookie> cookiesForDomainSpec = cookieJar.get(domainSpec);
-
+    @Synchronized
+    override fun loadForRequest(url: HttpUrl): List<Cookie> {
+        val cookieList = ArrayList<Cookie>()
+        val domain = url.toUri().authority
+        for ((domainSpec, cookiesForDomainSpec) in cookieJar) {
             if (domain.endsWith(domainSpec)) {
-                buildCookieList(cookieList, cookiesForDomainSpec, null);
+                buildCookieList(cookieList, cookiesForDomainSpec, null)
             } else if (domainSpec.endsWith("wikipedia.org")) {
                 // For sites outside the wikipedia.org domain, transfer the centralauth cookies
                 // from wikipedia.org unconditionally.
-                buildCookieList(cookieList, cookiesForDomainSpec, CENTRALAUTH_PREFIX);
+                buildCookieList(cookieList, cookiesForDomainSpec, CENTRALAUTH_PREFIX)
             }
         }
-        return cookieList;
+        return cookieList
     }
 
-    private void buildCookieList(@NonNull List<Cookie> outList, @NonNull List<Cookie> inList, @Nullable String prefix) {
-        Iterator<Cookie> i = inList.iterator();
-        boolean cookieJarModified = false;
+    private fun buildCookieList(outList: MutableList<Cookie>, inList: MutableList<Cookie>, prefix: String?) {
+        val i = inList.iterator()
+        var cookieJarModified = false
         while (i.hasNext()) {
-            Cookie cookie = i.next();
-            if (prefix != null && !cookie.name().startsWith(prefix)) {
-                continue;
+            val cookie = i.next()
+            if (prefix != null && !cookie.name.startsWith(prefix)) {
+                continue
             }
             // But wait, is the cookie expired?
-            if (cookie.expiresAt() < System.currentTimeMillis()) {
-                i.remove();
-                cookieJarModified = true;
+            if (cookie.expiresAt < System.currentTimeMillis()) {
+                i.remove()
+                cookieJarModified = true
             } else {
-                outList.add(cookie);
+                outList.add(cookie)
             }
         }
         if (cookieJarModified) {
-            persistCookies();
+            persistCookies()
+        }
+    }
+
+    companion object {
+        private const val CENTRALAUTH_PREFIX = "centralauth_"
+
+        @JvmStatic
+        val instance: SharedPreferenceCookieManager by lazy {
+            try {
+                Prefs.getCookies() ?: SharedPreferenceCookieManager()
+            } catch (e: Exception) {
+                logRemoteErrorIfProd(e)
+                SharedPreferenceCookieManager()
+            }
         }
     }
 }
