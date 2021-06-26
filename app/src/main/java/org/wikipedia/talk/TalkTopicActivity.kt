@@ -51,6 +51,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private var topicId: Int = -1
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
+    private var showUndoSnackbar = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
     private var revisionForUndo: Long = 0
@@ -217,6 +218,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkSubjectView.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
         binding.talkSubjectView.visibility = View.VISIBLE
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+
+        maybeShowUndoSnackbar()
     }
 
     private fun updateOnError(t: Throwable) {
@@ -348,14 +351,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    waitForUpdatedRevision(it.edit!!.newRevId, true)
+                    showUndoSnackbar = true
+                    waitForUpdatedRevision(it.edit!!.newRevId)
                 }, {
                     onSaveError(it)
                 }))
     }
 
     @Suppress("SameParameterValue")
-    private fun waitForUpdatedRevision(newRevision: Long, showUndoSnackbar: Boolean = false) {
+    private fun waitForUpdatedRevision(newRevision: Long) {
         disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
                 .delay(2, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
@@ -372,21 +376,17 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     revisionForUndo = it
-                    onSaveSuccess(it, showUndoSnackbar)
+                    onSaveSuccess(it)
                 }, { t ->
                     L.e(t)
                     onSaveError(t)
                 }))
     }
 
-    private fun onSaveSuccess(newRevision: Long, showUndoSnackbar: Boolean) {
+    private fun onSaveSuccess(newRevision: Long) {
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
-
-        if (showUndoSnackbar && !isNewTopic()) {
-            showUndoSnackbar()
-        }
 
         if (isNewTopic()) {
             setResult(RESULT_EDIT_SUCCESS)
@@ -402,14 +402,18 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         FeedbackUtil.showError(this, t)
     }
 
-    private fun showUndoSnackbar() {
-        FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
-            .setAction(R.string.talk_response_undo) {
-                binding.talkReplyButton.hide()
-                binding.talkProgressBar.visibility = View.VISIBLE
-                undoSave()
-            }
-            .show()
+    private fun maybeShowUndoSnackbar() {
+        if (showUndoSnackbar && !isNewTopic()) {
+            FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
+                .setAnchorView(binding.talkReplyButton)
+                .setAction(R.string.talk_response_undo) {
+                    binding.talkReplyButton.hide()
+                    binding.talkProgressBar.visibility = View.VISIBLE
+                    undoSave()
+                }
+                .show()
+            showUndoSnackbar = false
+        }
     }
 
     private fun updateEditLicenseText() {

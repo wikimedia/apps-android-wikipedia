@@ -1,160 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/talkCoordinatorLayout"
+    android:id="@+id/talkRefreshView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/talkRefreshView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="org.wikipedia.random.BottomViewBehavior">
+        android:layout_height="wrap_content">
 
-        <FrameLayout
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/talkScrollContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize">
 
-            <androidx.core.widget.NestedScrollView
-                android:id="@+id/talkScrollContainer"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="?attr/actionBarSize">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/talkSubjectView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:lineSpacingExtra="8sp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/talkSubjectView"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/talkRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:scrollbars="vertical" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/replySubjectLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/talk_reply_subject"
+                    app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+
+                    <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/replySubjectText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:lineSpacingExtra="8sp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:textColor="?attr/primary_text_color"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:imeOptions="flagNoExtractUi|actionNext"
+                        android:inputType="textEmailSubject"
+                        android:lineSpacingExtra="6sp"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/talkRecyclerView"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/replyTextLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/talk_reply_hint"
+                    app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+
+                    <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/replyEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:scrollbars="vertical" />
+                        android:imeOptions="flagNoExtractUi|actionNone"
+                        android:inputType="textMultiLine"
+                        android:lineSpacingExtra="6sp"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/replySubjectLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:hint="@string/talk_reply_subject"
-                        app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+                <TextView
+                    android:id="@+id/licenseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:drawableStartCompat="@drawable/ic_license_cc"
+                    app:drawableTint="?attr/material_theme_de_emphasised_color"
+                    android:drawablePadding="8dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?attr/material_theme_de_emphasised_color"
+                    tools:text="Sample license text" />
 
-                        <org.wikipedia.views.PlainPasteEditText
-                            android:id="@+id/replySubjectText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="flagNoExtractUi|actionNext"
-                            android:inputType="textEmailSubject"
-                            android:lineSpacingExtra="6sp"
-                            android:textSize="16sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/replyTextLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:hint="@string/talk_reply_hint"
-                        app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+        </androidx.core.widget.NestedScrollView>
 
-                        <org.wikipedia.views.PlainPasteEditText
-                            android:id="@+id/replyEditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="flagNoExtractUi|actionNone"
-                            android:inputType="textMultiLine"
-                            android:lineSpacingExtra="6sp"
-                            android:textSize="16sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/replyToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp"
+            style="@style/ToolbarStyle">
 
-                    <TextView
-                        android:id="@+id/licenseText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        app:drawableStartCompat="@drawable/ic_license_cc"
-                        app:drawableTint="?attr/material_theme_de_emphasised_color"
-                        android:drawablePadding="8dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="?attr/material_theme_de_emphasised_color"
-                        tools:text="Sample license text" />
+            <ImageView
+                android:id="@+id/replySaveButton"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/description_edit_save"
+                android:focusable="true"
+                android:padding="16dp"
+                app:srcCompat="@drawable/ic_check_circle_black_24dp"
+                app:tint="?attr/themed_icon_color"/>
 
-                </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
 
-            </androidx.core.widget.NestedScrollView>
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/talkErrorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/replyToolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:contentInsetStart="0dp"
-                app:contentInsetEnd="0dp"
-                style="@style/ToolbarStyle">
+        <ProgressBar
+            android:id="@+id/talkProgressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="-7dp"
+            android:indeterminate="true" />
 
-                <ImageView
-                    android:id="@+id/replySaveButton"
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:contentDescription="@string/description_edit_save"
-                    android:focusable="true"
-                    android:padding="16dp"
-                    app:srcCompat="@drawable/ic_check_circle_black_24dp"
-                    app:tint="?attr/themed_icon_color"/>
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/talkReplyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            app:backgroundTint="?attr/colorAccent"
+            app:icon="@drawable/ic_reply_24"
+            app:iconTint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:text="@string/talk_add_reply" />
 
-            </androidx.appcompat.widget.Toolbar>
+    </FrameLayout>
 
-            <org.wikipedia.views.WikiErrorView
-                android:id="@+id/talkErrorView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical" />
-
-            <ProgressBar
-                android:id="@+id/talkProgressBar"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:layout_marginTop="-7dp"
-                android:indeterminate="true" />
-
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/talkReplyButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                android:layout_margin="16dp"
-                android:textColor="@android:color/white"
-                android:text="@string/talk_add_reply"
-                app:backgroundTint="?attr/colorAccent"
-                app:icon="@drawable/ic_reply_24"
-                app:iconTint="@android:color/white" />
-
-        </FrameLayout>
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
