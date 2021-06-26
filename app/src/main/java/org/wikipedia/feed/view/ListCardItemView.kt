@@ -9,6 +9,7 @@ import androidx.annotation.VisibleForTesting
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.util.Pair
+import androidx.core.view.updatePadding
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewListCardItemBinding
 import org.wikipedia.feed.model.Card
@@ -46,9 +47,8 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-        val topBottomPadding = 16
-        setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding.toFloat()),
-            0, DimenUtil.roundedDpToPx(topBottomPadding.toFloat()))
+        val topBottomPadding = DimenUtil.roundedDpToPx(16f)
+        updatePadding(top = topBottomPadding, bottom = topBottomPadding)
         DeviceUtil.setContextClickAsLongClick(this)
         background = AppCompatResources.getDrawable(getContext(),
             ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground))

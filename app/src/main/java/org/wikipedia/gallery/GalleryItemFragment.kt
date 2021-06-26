@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.MediaController
 import androidx.core.os.bundleOf
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -200,8 +201,8 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             binding.videoView.visibility = View.VISIBLE
             mediaController = MediaController(requireActivity())
             if (!DeviceUtil.isNavigationBarShowing) {
-                mediaController?.setPadding(0, 0, 0,
-                    DimenUtil.dpToPx(DimenUtil.getNavigationBarHeight(requireContext())).toInt())
+                mediaController?.updatePadding(bottom = DimenUtil.dpToPx(DimenUtil
+                    .getNavigationBarHeight(requireContext())).toInt())
             }
             updateProgressBar(true)
             binding.videoView.setMediaController(mediaController)

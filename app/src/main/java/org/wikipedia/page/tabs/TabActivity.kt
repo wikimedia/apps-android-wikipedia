@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.graphics.scale
+import androidx.core.view.updatePadding
 import de.mrapp.android.tabswitcher.Animation
 import de.mrapp.android.tabswitcher.TabSwitcher
 import de.mrapp.android.tabswitcher.TabSwitcherDecorator
@@ -61,7 +62,7 @@ class TabActivity : BaseActivity() {
                     view.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
                     view.scaleType = ImageView.ScaleType.CENTER_CROP
                     view.setImageBitmap(FIRST_TAB_BITMAP)
-                    view.setPadding(0, if (topTabLeadImageEnabled()) 0 else -DimenUtil.getToolbarHeightPx(this@TabActivity), 0, 0)
+                    view.updatePadding(top = if (topTabLeadImageEnabled()) 0 else -DimenUtil.getToolbarHeightPx(this@TabActivity))
                     return view
                 }
                 return inflater.inflate(R.layout.item_tab_contents, parent, false)

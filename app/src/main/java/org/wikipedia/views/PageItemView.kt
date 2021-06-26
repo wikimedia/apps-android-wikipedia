@@ -9,6 +9,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.updatePadding
 import androidx.core.widget.TextViewCompat
 import com.google.android.material.chip.Chip
 import org.wikipedia.R
@@ -43,7 +44,8 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        setPadding(0, roundedDpToPx(16f), 0, roundedDpToPx(16f))
+        val topBottomPadding = roundedDpToPx(16f)
+        updatePadding(top = topBottomPadding, bottom = topBottomPadding)
         background = AppCompatResources.getDrawable(context, getThemedAttributeId(context, R.attr.selectableItemBackground))
         isFocusable = true
         setOnClickListeners()

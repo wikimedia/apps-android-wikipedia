@@ -10,6 +10,7 @@ import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.updatePadding
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemReadingListBinding
@@ -44,7 +45,8 @@ class ReadingListItemView : ConstraintLayout {
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        setPadding(0, DimenUtil.roundedDpToPx(16f), 0, DimenUtil.roundedDpToPx(16f))
+        val topBottomPadding = DimenUtil.roundedDpToPx(16f)
+        updatePadding(top = topBottomPadding, bottom = topBottomPadding)
         background = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         isClickable = true
         isFocusable = true

@@ -2,6 +2,7 @@ package org.wikipedia.feed.view
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.core.view.updatePadding
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import org.wikipedia.R
@@ -46,7 +47,7 @@ class FeedView constructor(context: Context, attrs: AttributeSet? = null) : Auto
             //       though.
             recyclerLayoutManager.spanCount = columns
             val padding = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.view_list_card_margin_horizontal))
-            setPadding(padding, 0, padding, 0)
+            updatePadding(left = padding, right = padding)
 
             // Allow card children to overflow when there's only one column
             clipChildren = columns > 1
