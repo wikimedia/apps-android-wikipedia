@@ -8,8 +8,7 @@ open class MwQueryResponse : MwResponse() {
     val batchComplete = false
 
     @SerializedName("continue")
-    val continuation: Map<String, String>? = null
-        get() = field ?: emptyMap()
+    val continuation: Map<String, String> = emptyMap()
 
     var query: MwQueryResult? = null
 }
