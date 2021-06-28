@@ -4,16 +4,11 @@ import org.wikipedia.dataclient.mwapi.MwResponse
 
 class Search : MwResponse() {
 
-    private val success = 0
-    val results: List<SearchResult>? = null
-        get() = field ?: emptyList()
+    val results: List<SearchResult> = emptyList()
 
     class SearchResult {
-        val id: String? = null
-            get() = field.orEmpty()
-        val label: String? = null
-            get() = field.orEmpty()
-        val description: String? = null
-            get() = field.orEmpty()
+        val id: String = ""
+        val label: String = ""
+        val description: String = ""
     }
 }
