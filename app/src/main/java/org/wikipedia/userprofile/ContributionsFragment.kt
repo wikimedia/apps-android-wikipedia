@@ -178,7 +178,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     totalContributionCount += response.query?.userInfo()!!.editCount
                     val wikidataContributions = ArrayList<Contribution>()
                     val qLangMap = HashMap<String, HashSet<String>>()
-                    articleContributionsContinuation = response.continuation!!["uccontinue"]
+                    articleContributionsContinuation = response.continuation["uccontinue"]
                     response.query?.userContributions()?.forEach { contribution ->
                         var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                         var contributionDescription = contribution.comment
@@ -233,7 +233,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             .flatMap { response ->
                                 totalContributionCount += response.query?.userInfo()!!.editCount
                                 val contributions = ArrayList<Contribution>()
-                                imageContributionsContinuation = response.continuation!!["uccontinue"]
+                                imageContributionsContinuation = response.continuation["uccontinue"]
                                 response.query?.userContributions()?.forEach { contribution ->
                                     var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                                     var editType: Int = EDIT_TYPE_GENERIC
