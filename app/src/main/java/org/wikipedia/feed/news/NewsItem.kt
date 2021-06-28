@@ -5,22 +5,15 @@ import org.wikipedia.Constants
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
-import java.util.*
 
 class NewsItem {
 
-    val story: String? = null
-        get() = field.orEmpty()
+    val story: String = ""
     val links: List<PageSummary?> = emptyList()
 
-    fun linkCards(wiki: WikiSite?): List<NewsLinkCard> {
-        val linkCards: MutableList<NewsLinkCard> = ArrayList()
-        for (link in links) {
-            if (link == null) {
-                continue
-            }
-            linkCards.add(NewsLinkCard(link, wiki!!))
-        }
+    fun linkCards(wiki: WikiSite): List<NewsLinkCard> {
+        val linkCards = mutableListOf<NewsLinkCard>()
+        links.filterNotNull().map { NewsLinkCard(it, wiki) }
         return linkCards
     }
 
@@ -35,13 +28,9 @@ class NewsItem {
     }
 
     private fun getFirstImageUri(links: List<PageSummary?>): Uri? {
-        for (link in links) {
-            if (link == null) {
-                continue
-            }
-            val thumbnail = link.thumbnailUrl
-            if (thumbnail != null) {
-                return Uri.parse(thumbnail)
+        links.filterNotNull().map {
+            if (it.thumbnailUrl != null) {
+                return Uri.parse(it.thumbnailUrl)
             }
         }
         return null
