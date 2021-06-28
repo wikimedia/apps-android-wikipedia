@@ -142,8 +142,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
             startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING && resultCode == Activity.RESULT_OK) {
-            startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATION, Constants.InvokeSource.SUGGESTED_EDITS))
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             clearContents()
         }

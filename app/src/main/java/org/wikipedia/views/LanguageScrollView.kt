@@ -1,7 +1,6 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -10,6 +9,8 @@ import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.graphics.BlendModeColorFilterCompat
+import androidx.core.graphics.BlendModeCompat
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import org.wikipedia.R
@@ -115,14 +116,11 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
             languageCodeTextView.text = languageCode
             ViewUtil.formatLangButton(languageCodeTextView, languageCode, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         }
-        textColor?.let {
-            languageCodeTextView.setTextColor(textColor)
-        }
-        background?.let {
-            languageCodeTextView.background = background
-        }
+        textColor?.let { languageCodeTextView.setTextColor(it) }
+        background?.let { languageCodeTextView.background = it }
         backgroundColorTint?.let {
-            languageCodeTextView.background.setColorFilter(backgroundColorTint, PorterDuff.Mode.SRC_IN)
+            languageCodeTextView.background.colorFilter = BlendModeColorFilterCompat
+                .createBlendModeColorFilterCompat(it, BlendModeCompat.SRC_IN)
         }
     }
 }

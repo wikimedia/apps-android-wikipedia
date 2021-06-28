@@ -233,10 +233,7 @@ object EditingSuggestionsProvider {
             } else {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
                         .map { response ->
-                            for (page in response.query?.pages()!!) {
-                                if (page.imageInfo()!!.mimeType != "image/jpeg") {
-                                    continue
-                                }
+                            response.query?.pages()?.filter { it.imageInfo()?.mimeType == "image/jpeg" }?.forEach { page ->
                                 if (page.revisions().none { "P180" in it.getContentFromSlot("mediainfo") }) {
                                     imagesWithMissingTagsCache.push(page)
                                 }

@@ -31,7 +31,7 @@ object UserContributionsStats {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
-                    if (!it.query?.userInfo()!!.isBlocked) {
+                    if (it.query?.userInfo()?.isBlocked != true) {
                         val editorTaskCounts = it.query?.editorTaskCounts()!!
                         totalEdits = editorTaskCounts.totalEdits
                         totalDescriptionEdits = editorTaskCounts.totalDescriptionEdits

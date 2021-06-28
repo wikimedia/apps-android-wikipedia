@@ -28,7 +28,7 @@ class AnnouncementClient : FeedClient {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ list ->
-                FeedCoordinator.postCardsToCallback(cb, buildCards(list.items()))
+                FeedCoordinator.postCardsToCallback(cb, buildCards(list.items))
             }) { throwable ->
                 L.v(throwable)
                 cb.error(throwable)
