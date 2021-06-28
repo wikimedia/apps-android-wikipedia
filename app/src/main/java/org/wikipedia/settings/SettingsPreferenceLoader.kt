@@ -12,7 +12,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.auth.AccountUtil.userName
-import org.wikipedia.crash.CrashReportHelper
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -55,10 +54,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity.startActivity(Intent(activity, AboutActivity::class.java))
-            true
-        }
-        findPreference(R.string.preference_key_auto_upload_crash_reports).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any? ->
-            CrashReportHelper.setEnabled((newValue as Boolean?)!!)
             true
         }
     }
