@@ -27,8 +27,12 @@
   <string name="page_tabs_back">Tilbake</string>
   <string name="nav_item_forward">Fremover</string>
   <string name="search_hint">Søk i Wikipedia</string>
+  <string name="search_hint_voice_search">Talesøk</string>
   <string name="search_hint_search_languages">Søk etter språk</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Redigeringsforslag</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrer listene mine</string>
+  <string name="nav_item_suggested_edits">Redigeringer</string>
+  <string name="nav_item_more">Mer</string>
+  <string name="nav_item_search">Søk</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="card_offline_error_retry">Prøv igjen</string>
@@ -37,12 +41,15 @@
   <string name="offline_load_error_retry">Prøv igjen</string>
   <string name="page_error_back_to_main">Gå tilbake</string>
   <string name="error_back">Gå tilbake</string>
+  <string name="error_next">Neste</string>
   <string name="menu_clear_all_history">Tøm logg</string>
   <string name="history_item_deleted">%s ble fjernet fra historikken</string>
   <string name="history_items_deleted">%d artikler ble fjernet fra historikken</string>
   <string name="history_item_delete_undo">Angre</string>
   <string name="notification_archive_undo">Angre</string>
   <string name="app_settings">Innstillinger for appen</string>
+  <string name="search_tab_tooltip">Trykk på ikonet igjen for å begynne å skrive et søkeord.</string>
+  <string name="history_list_title">Historikk</string>
   <string name="dialog_title_clear_history">Tøm besøkslogg</string>
   <string name="dialog_message_clear_history">Dette vil slette hele besøksloggen og lukke alle åpne faner. Er du sikker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -52,13 +59,20 @@
   <string name="search_redirect_from">Omdirigert fra %s</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Søk i siden</string>
+  <string name="menu_page_find_in_page">Søk i artikkelen</string>
+  <string name="menu_page_add_to_watchlist">Legg til i overvåkningsliste</string>
+  <string name="menu_page_view_talk">Vis diskusjonsside</string>
+  <string name="menu_page_view_edit_history">Vis redigeringshistorikk</string>
+  <string name="menu_page_remove_from_watchlist">Fjern fra overvåkningsliste</string>
   <string name="edit_section_find_in_page">Finn på siden</string>
   <string name="menu_page_font_and_theme">Skrift og utseende</string>
   <string name="menu_page_add_to_list">Legg til i leseliste</string>
+  <string name="menu_page_add_to_default_list">Lagre</string>
   <string name="feed_card_add_to_list">Legg til i leseliste</string>
+  <string name="feed_card_add_to_default_list">Lagre</string>
   <string name="menu_page_share">Del lenke</string>
   <string name="menu_page_open_a_new_tab">Åpne en ny fane</string>
+  <string name="menu_page_new_tab">Ny fane</string>
   <string name="menu_page_reading_lists">Leselister</string>
   <string name="menu_page_recently_viewed">Nylig besøkt</string>
   <string name="menu_long_press_open_page">Åpne</string>
@@ -178,6 +192,7 @@
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om krasj</string>
   <string name="preference_summary_auto_upload_crash_reports">Tillat at appen automatisk sender krasjrapporter til en tredjepartstjeneste, slik at vi kan gjennomgå disse og fikse feil raskere.</string>
   <string name="editing_error_spamblacklist">Lenker til blokkerte domener (%s) ble funnet. Vennligst fjern dem og prøv igjen.</string>
+  <string name="history_filter_list_hint">Filtrer historikk</string>
   <string name="error_can_not_process_link">Kunne ikke vise denne lenken</string>
   <string name="page_protected_autoconfirmed">Denne siden er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne siden er beskyttet.</string>
@@ -185,6 +200,7 @@
   <string name="page_protected_can_not_edit">Beklager, kontoen din har ikke tilstrekkelige rettigheter til å redigere denne siden.</string>
   <string name="page_protected_can_not_edit_anon">Beklager, denne siden kan ikke redigeres uten pålogging.</string>
   <string name="page_protected_can_not_edit_title">Denne siden er beskyttet</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Legg til i overvåkningsliste</string>
   <string name="settings_item_preferences">Innstillinger</string>
   <string name="settings_activity_title">Innstillinger</string>
   <string name="about_description">Om Wikipedia-appen</string>
@@ -240,6 +256,11 @@
   <string name="page_similar_titles">Lignende sider</string>
   <string name="search_did_you_mean">Mente du «%s»?</string>
   <string name="search_recent_header">Nylige søk:</string>
+  <string name="search_results_count_zero">Ingen resultater</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 treff</item>
+    <item quantity="other">%d treff</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Tøm nylige søk</string>
   <string name="clear_recent_searches_confirm">Er du sikker på at du vil tømme søkehistorikken din?</string>
   <string name="clear_recent_searches_confirm_yes">Ja</string>
@@ -303,6 +324,7 @@
   <string name="address_copied">Adressen har blitt kopiert til utklippstavlen.</string>
   <string name="text_copied">Teksten ble kopiert til utklippstavlen.</string>
   <string name="button_continue_to_article">Les artikkelen</string>
+  <string name="button_continue_to_talk_page">Åpne diskusjonsside</string>
   <string name="button_continue_to_disambiguation">Vis liknende sider</string>
   <string name="link_preview_disambiguation_description">Dette oppslagsordet kan vise til mer enn én side:</string>
   <string name="button_add_to_reading_list">Legg til i leseliste</string>
@@ -315,13 +337,17 @@
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="preference_title_collapse_tables">Fold sammen tabeller</string>
   <string name="preference_summary_collapse_tables">Fold automatisk sammen tabeller i artikler, for eksempel infobokser, referanser og noter.</string>
-  <string name="nav_item_donate" fuzzy="true">Støtt Wikipedia</string>
+  <string name="nav_item_donate">Donér</string>
   <string name="error_voice_search_not_available">Beklager, stemmegjenkjenning er ikke tilgjengelig.</string>
   <string name="location_service_disabled">Stedstjenester er slått av.</string>
   <string name="enable_location_service">Slå på</string>
   <string name="location_permissions_enable_prompt">Gi tilgang til posisjonen din for å lese om ting i nærheten av deg.</string>
   <string name="location_permissions_enable_action">Skru på</string>
   <string name="error_webview_updating">Android System WebView oppdateres akkurat nå. Prøv igjen om et øyeblikk.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d valgt</item>
+    <item quantity="other">%d valgte</item>
+  </plurals>
   <string name="multi_select_items_selected">%d valgt</string>
   <string name="error_message_generic">Det oppsto en feil</string>
   <string name="view_link_preview_error_button_dismiss">Lukk</string>
@@ -336,10 +362,21 @@
   <string name="page_footer_license_text">Innholdet er tilgjengelig under $1 med mindre annet er angitt</string>
   <string name="empty_tab_title">Ny fane</string>
   <string name="menu_save_all_tabs">Lagre alle faner</string>
+  <string name="error_blocked_title">Brukeren eller IP-adressen din har blitt blokkert.</string>
+  <string name="error_blocked_by">Blokkeringen ble utført av &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Begrunnelsen var: %s</string>
+  <string name="error_blocked_start">Blokkeringen startet: %s</string>
+  <string name="error_blocked_expiry">Blokkeringen utløper: %s</string>
+  <string name="error_blocked_id">Blokkerings-ID: %s</string>
   <string name="crash_report_activity_title">Applikasjonsfeil</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-appen avsluttet på grunn av en feil.\n\nVil du prøve å starte den på nytt eller avslutte?</string>
   <string name="crash_report_relaunch">Start på nytt</string>
   <string name="crash_report_quit">Avslutt</string>
+  <string name="article_menu_bar_save_button">Lagre</string>
+  <string name="article_menu_bar_language_button">Språk</string>
+  <string name="article_menu_bar_search_button">Søk</string>
+  <string name="article_menu_bar_theme_button">Drakt</string>
+  <string name="article_menu_bar_contents_button">Innhold</string>
   <string name="article_header_edit_hint">Rediger…</string>
   <string name="article_header_edit_description">Rediger artikkelbeskrivelsen</string>
   <string name="article_header_edit_lead_section">Rediger innledning</string>
@@ -355,13 +392,27 @@
   <string name="text_size_increase">Øk tekststørrelse</string>
   <string name="text_size_decrease">Senk tekststørrelse</string>
   <string name="text_size_percent_default">%s (Standard)</string>
+  <string name="text_style_title">Skrifttype</string>
+  <string name="nav_item_saved">Lagret</string>
   <string name="reading_list_save_to">Lagre i leseliste</string>
+  <string name="reading_list_move_to">Flytt til leseliste</string>
   <string name="reading_list_create_new">Opprett ny</string>
   <string name="reading_list_title_exists">Leselisten «%s» finnes allerede.</string>
   <string name="reading_list_article_added_to_named">La til %1$s i %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">Lagret %s. Vil du legge den til i en liste?</string>
+  <string name="reading_list_article_moved_to_named">Flyttet %1$s til %2$s.</string>
   <string name="reading_list_article_already_exists_message">%1$s inneholder allerede %2$s.</string>
   <string name="reading_list_articles_already_exist_message">%s inneholder allerede alle artiklene.</string>
   <string name="reading_list_added_view_button">Vis liste</string>
+  <string name="reading_list_add_to_list_button">Legg til i liste</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 artikkel, %2$.2f MB</item>
+    <item quantity="other">%1$d artikler, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d av 1 artikkel tilgjengelig offline, %3$.2f MB</item>
+    <item quantity="other">%1$d av %2$d artikler tilgjengelig offline, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 artikkel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikler, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikler tilgjengelig offline, %2$.2f MB</string>
@@ -381,10 +432,20 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Fjern lokale kopier</string>
   <string name="reading_list_action_menu_save_all_for_offline">Lagre lokale kopier</string>
   <string name="reading_list_action_menu_add_to_another_list">Legg til i en annen liste</string>
+  <string name="reading_list_action_menu_move_to_another_list">Flytt til en annen liste</string>
   <string name="reading_list_name_sample">Min leseliste</string>
   <string name="reading_list_name_hint">Navn på listen</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfritt)</string>
   <string name="reading_list_item_deleted">%s ble fjernet fra listen</string>
+  <string name="reading_list_item_deleted_from_list">%1$s fjernet fra %2$s</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d artikkel fjernet fra listen</item>
+    <item quantity="other">%d artikler fjernet fra listen</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d artikkel fjernet fra %s</item>
+    <item quantity="other">%d artikler fjernet fra %s</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d artikler ble fjernet fra lista</string>
   <string name="reading_lists_item_deleted">%s fjernet fra lister</string>
   <string name="reading_list_item_delete_undo">Angre</string>
@@ -395,6 +456,8 @@
   <string name="reading_list_article_offline">Tilgjengelig offline</string>
   <string name="reading_list_article_make_offline">Gjør denne artikkelen tilgjengelig offline</string>
   <string name="reading_list_add_to_other_list">Legg til i en annen leseliste</string>
+  <string name="reading_list_move_to_other_list">Flytt til en annen leseliste</string>
+  <string name="reading_list_move_from_to_other_list">Flytt fra %s til en annen leseliste</string>
   <string name="reading_list_remove_from_list">Fjern fra %s</string>
   <string name="reading_list_remove_from_lists">Fjern fra leselister</string>
   <string name="reading_list_select_item">Velg</string>
@@ -407,10 +470,13 @@
   <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkroniser leselister</string>
   <string name="reading_lists_login_reminder_text">Leselister kan sikkerhetskopieres og synkroniseres på tvers av enheter. Logg inn med Wikipedia-kontoen din om du vil aktivere dette.</string>
+  <string name="reading_lists_login_button">Logg inn / registrer deg på Wikipedia</string>
+  <string name="reading_lists_ignore_button">Ikke nå</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>
   <string name="reading_list_article_save_in_progress">Artikkelen lastes ned og vil bli tilgjengelig offline når den er ferdig.</string>
   <string name="reading_list_articles_added_to_named">La til %1$d artikler i %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Flyttet %1$d artikler til %2$s</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du vil slette %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logg inn for å aktivere synkronisering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logg inn om du ønsker at leselistene skal lagres i brukerkontoen din.</string>
@@ -431,6 +497,7 @@
   <string name="no_user_lists_msg">Opprett lister for steder du vil reise til, favorittemner og mye mer</string>
   <string name="reading_list_saved_list_rename">%1$s (bruker opprettet)</string>
   <string name="split_reading_list_message">Det er en begrensning på %d artikler per leseliste. Eksisterende lister som overskrider denne grensa har blitt delt opp i flere lister.</string>
+  <string name="reading_list_move_article_limit_message">Kunne ikke flytte listen. Du har nådd grensen på %2$d artikler per liste for «%1$s».</string>
   <string name="reading_list_article_limit_message">Kan ikke legge til denne lista. Du har nådd grensa på %2$d artikler per liste for «%1$s».</string>
   <string name="reading_lists_limit_message">Kan ikke opprette ny liste. Du har nådd grensa på 100 leselister per konto.</string>
   <string name="reading_lists_menu_create_list">Opprett liste</string>
@@ -505,6 +572,7 @@
   <string name="notifications_view_archived_button_text">Vis arkiverte varsler</string>
   <string name="notification_preferences_title">Varselinnstillinger</string>
   <string name="notifications_mark_unread">Marker som ulest</string>
+  <string name="watchlist_title">Overvåkningsliste</string>
   <string name="preference_title_notification_poll">Se etter nye varsler</string>
   <string name="preference_summary_notification_poll">La appen bruke data for å sjekke nye varsler i bakgrunnen.</string>
   <string name="preference_category_notification_types">Varsler i appen</string>
@@ -524,17 +592,25 @@
   <string name="preference_summary_notification_user_talk">Meldinger fra diskusjonssider</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>
+  <string name="view_random_article_card_title">Tilfeldig artikkel</string>
+  <string name="view_random_article_card_action">Flere tilfeldige artikler</string>
+  <string name="view_top_read_card_title">Mest lest</string>
+  <string name="view_top_read_card_action">Flere mest leste</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Last en annen tilfeldig artikkel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
   <string name="view_main_page_card_action">Vis forsiden</string>
   <string name="view_featured_image_card_title">Dagens bilde</string>
   <string name="view_featured_image_card_download">Last ned</string>
+  <string name="view_featured_image_card_share">Del</string>
   <string name="menu_feed_card_dismiss">Skjul dette kortet</string>
   <string name="menu_feed_card_dismissed">Kortet ble skjult.</string>
   <string name="menu_feed_card_edit_card_languages">Endre språk for kortene</string>
   <string name="menu_feed_overflow_label">Flere innstillinger</string>
   <string name="feed_featured_image_share_subject">Utvalgt bilde på Wikimedia Commons</string>
   <string name="feed">Utforsk</string>
+  <string name="home">Hjem</string>
   <string name="view_static_card_icon_content_description">Kortsymbol</string>
   <string name="view_card_news_title">Aktuelt</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -570,6 +646,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_accessibility_card_text">Du har nådd bunnen av utforskersiden.</string>
   <string name="feed_accessibility_card_load_more_button">Last inn mer</string>
+  <string name="top_read_activity_title">Mest lest på %s</string>
   <string name="description_edit_text_hint">Artikkelbeskrivelse</string>
   <string name="description_edit_article_description_label">Artikkel</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikkelbeskrivelse (%s)</string>
@@ -594,12 +671,14 @@
   <string name="description_edit_anon_limit">Takk for at du fortsatt er interessert i å legge inn artikkelbeskrivelser! Logg inn med Wikipedia-kontoen din om du ønsker å gjøre flere redigeringer.</string>
   <string name="description_edit_license_notice">Ved å redigere artikkelbeskrivelsen, aksepterer jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
   <string name="description_edit_helper_text_lowercase_warning">begynner vanligvis med en liten bokstav</string>
+  <string name="description_too_short">Teksten er for kort.</string>
+  <string name="description_ends_with_punctuation">Teksten kan ikke slutte med punktum.</string>
   <string name="description_edit_success_saved">Artikkelbeskrivelsen ble publisert!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelbeskrivelse publisert!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelbeskrivelse publisert! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Bildetekst publisert!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildetekst publisert! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Bildetagg(er) publisert!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Bildeknagg(er) publisert!</string>
   <string name="description_edit_success_encouragement">Du har akkurat bidratt til å gjøre Wikipedia litt bedre for alle</string>
   <string name="description_edit_success_done">Ferdig</string>
   <string name="description_edit_success_did_you_know">Visste du at?</string>
@@ -610,6 +689,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideelt éi linje, mellom to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
+  <string name="suggested_edits_describe_articles">Beskriv artikler</string>
+  <string name="suggested_edits_caption_images">Skriv bildetekster</string>
   <string name="suggested_edits_review_description">Se over artikkelbeskrivelsen</string>
   <string name="suggested_edits_add_description_button">Legg til beskrivelse</string>
   <string name="suggested_edits_edit_description_button">Rediger beskrivelse</string>
@@ -658,17 +739,21 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filside på Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Filside på Wikipedia</string>
+  <string name="suggested_edits_article_cta_image_tags">Legg til bildeknagger</string>
   <string name="suggested_edits_article_cta_image_caption">Legg til bildetekst</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Legg til bildetekst (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Vis</string>
   <string name="suggested_edits_feed_card_add_image_caption">Legg til bildetekst</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Legg til bildetekst (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Legg til bildeknagger</string>
   <string name="suggested_edits_snackbar_survey_action_text">Delta i undersøkelsen</string>
   <string name="suggested_edits_task_action_text_add">Legg til</string>
   <string name="suggested_edits_task_action_text_translate">Oversett</string>
   <string name="suggested_edits_image_captions">Bildetekster</string>
+  <string name="suggested_edits_image_tags">Bildeknagger</string>
   <string name="suggested_edits_image_tags_publishing">Publiserer</string>
   <string name="suggested_edits_image_tags_published">Publisert</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Emneknagger gjør bilder lettere å finne.</string>
   <string name="suggested_edits_image_zoom_tooltip">Dra to fingre fra hverandre for å zoome i bildet.</string>
   <string name="suggested_edits_encouragement_message">Takk for redigeringene dine, %s. Under finner du flere måter du kan bidra med på Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, under finner du noen raske og enkle måter du kan forbedre Wikipedia på. Prøv dem gjerne ut!</string>
@@ -728,7 +813,13 @@
   <string name="suggested_edits_encourage_account_creation_title">Visste du at hvem som helst kan redigere Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Redigeringsforslag er en ny måte å redigere Wikipedia på fra Android. Den hjelper deg å å gjøre små, men viktige bidrag til Wikipedia.\nMålet vårt er å gjøre redigering enklere og mer tilgjengelig for alle! Logg inn eller registrer deg på Wikipedia for å komme i gang.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Logg inn / registrer deg på Wikipedia</string>
+  <string name="suggested_edits_contribution_type_image_tag">Bildeknagg</string>
   <string name="suggested_edits_contribution_current_revision_text">Endringen din er nå publisert på Wikipedia</string>
+  <string name="suggested_card_more_edits">Flere redigeringsforslag</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s knagg</item>
+    <item quantity="other">%1$s knagger</item>
+  </plurals>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s tegn</item>
     <item quantity="other">%1$s tegn</item>
@@ -742,6 +833,8 @@
     <item quantity="other">Du la til %d tegn</item>
   </plurals>
   <string name="file_page_activity_title">Filside</string>
+  <string name="file_page_add_image_caption_button">Legg til bildetekst</string>
+  <string name="file_page_add_image_tags_button">Legg til bildeknagger</string>
   <string name="description_edit_revert_subtitle">Takk for at du redigerer Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi forstår at du forsøkte ditt beste, men en av korrekturleserne hadde en innvending. Noen mulige årsaker til at redigeringen din ble tilbakestilt kan være:</string>
   <string name="description_edit_revert_reason1">bidraget var ikke i tråd med en av &lt;a href=\"%1$s\"&gt;retningslinjene&lt;/a&gt;.</string>
@@ -781,6 +874,8 @@
     <item quantity="one">I fjor</item>
     <item quantity="other">For %d år siden</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Du fullførte en tidsreise 🚀</string>
+  <string name="on_this_day_back_to_future">Tilbake til fremtiden</string>
   <string name="languages_list_activity_title">Legg til språk</string>
   <string name="languages_list_suggested_text">Foreslått</string>
   <string name="languages_list_all_text">Alle språk</string>
@@ -825,8 +920,54 @@
   <string name="main_tooltip_text">Hei %s, visste du at hvem som helst kan redigere Wikipedia?</string>
   <string name="main_tooltip_text_v2">Visste du at hvem som helst kan redigere Wikipedia?</string>
   <string name="main_tooltip_action_button">Kom i gang</string>
+  <string name="main_tooltip_watchlist_title">Overvåkningsliste</string>
+  <string name="main_tooltip_watchlist_text">Finn artikler og sider du tidligere har lagt til overvåkningslisten din i menyen «Mer» under &lt;b&gt;Overvåkningsliste&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Avbryt</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Avbryt</string>
+  <string name="talk_title">Diskusjon</string>
+  <string name="talk_user_title">Diskusjon: %s</string>
+  <string name="talk_new_topic">Nytt emne</string>
+  <string name="talk_page_empty">Denne diskusjonssiden er tom.</string>
+  <string name="talk_add_reply">Svar</string>
+  <string name="talk_no_subject">(Intet emne)</string>
+  <string name="talk_reply_subject">Emne</string>
+  <string name="talk_reply_hint">Skriv svar</string>
+  <string name="talk_message_hint">Skriv melding</string>
+  <string name="talk_message_empty">Meldingen kan ikke være tom.</string>
+  <string name="talk_subject_empty">Emnet kan ikke være tomt.</string>
+  <string name="menu_option_share_edit">Del redigering</string>
+  <string name="menu_option_user_profile">%s sin profil</string>
+  <string name="menu_option_user_contributions">%s sine bidrag</string>
+  <string name="watchlist_details_watching_label">Overvåker</string>
+  <string name="watchlist_details_watch_label">Overvåk</string>
+  <string name="thank_label">Takk</string>
+  <string name="go_to_user_page">Gå til brukerside</string>
+  <string name="thank_dialog_title_text">Send en offentlig takk</string>
+  <string name="thank_dialog_text">«Takk» er en enkel måte å vise takknemlighet for bidragene til en annen bruker på Wikipedia. Merk at takking er offentlig og ikke kan angres.</string>
+  <string name="thank_dialog_positive_button_text">Send takk</string>
+  <string name="thank_dialog_negative_button_text">Avbryt</string>
+  <string name="thank_success_message">Din takk ble sendt til %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Endre</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">i 1 uke</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">i 1 måned</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">i 3 måneder</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">i 6 måneder</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s og den tilhørende diskusjonssiden har blitt fjernet fra overvåkningslisten din.</string>
+  <string name="watchlist_expiry_dialog_title">Velg periode for overvåkningsliste</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+  <string name="watchlist_expiry_dialog_one_week">1 uke</string>
+  <string name="watchlist_expiry_dialog_one_month">1 måned</string>
+  <string name="watchlist_expiry_dialog_three_months">3 måneder</string>
+  <string name="watchlist_expiry_dialog_six_months">6 måneder</string>
+  <string name="watchlist_empty">Du har ingen artikler i overvåkningslisten din.</string>
+  <string name="watchlist_filter_all">Alle</string>
+  <string name="watchlist_filter_talk">Diskusjon</string>
+  <string name="watchlist_filter_pages">Sider</string>
+  <string name="watchlist_filter_other">Andre</string>
+  <string name="watchlist_page_moved">Flyttet</string>
+  <string name="watchlist_page_protected">Beskyttet</string>
+  <string name="watchlist_page_deleted">Slettet</string>
 </resources>
