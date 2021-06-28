@@ -4,29 +4,16 @@ class CreateAccountResponse : MwResponse() {
 
     private val createaccount: Result? = null
 
-    fun status(): String? {
-        return createaccount!!.status
-    }
+    val status get() = createaccount?.status
 
-    fun user(): String? {
-        return createaccount!!.username
-    }
+    val user get() = createaccount?.username
 
-    fun message(): String? {
-        return createaccount!!.message
-    }
-
-    fun hasResult(): Boolean {
-        return createaccount != null
-    }
+    val message get() = createaccount?.message
 
     class Result {
 
-        val status: String? = null
-            get() = field.orEmpty()
-        val message: String? = null
-            get() = field.orEmpty()
-        val username: String? = null
-            get() = field.orEmpty()
+        val status: String = ""
+        val message: String = ""
+        val username: String = ""
     }
 }
