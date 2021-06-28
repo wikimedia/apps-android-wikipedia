@@ -31,7 +31,7 @@ public class NewsLinkTest {
     @Test
     public void testTitleNormalization() {
         for (NewsItem newsItem : content) {
-            for (PageSummary link : newsItem.links()) {
+            for (PageSummary link : newsItem.getLinks()) {
                 assertThat(new NewsLinkCard(link, TEST).title(), not(containsString("_")));
             }
         }
