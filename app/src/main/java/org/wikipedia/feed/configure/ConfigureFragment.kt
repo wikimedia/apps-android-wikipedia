@@ -49,24 +49,24 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
             .subscribe({ result ->
                 // apply the new availability rules to our content types
                 FeedContentType.NEWS.langCodesSupported.clear()
-                if (isLimitedToDomains(result.news!!)) {
-                    addDomainNamesAsLangCodes(FeedContentType.NEWS.langCodesSupported, result.news!!)
+                if (isLimitedToDomains(result.news)) {
+                    addDomainNamesAsLangCodes(FeedContentType.NEWS.langCodesSupported, result.news)
                 }
                 FeedContentType.ON_THIS_DAY.langCodesSupported.clear()
-                if (isLimitedToDomains(result.onThisDay!!)) {
-                    addDomainNamesAsLangCodes(FeedContentType.ON_THIS_DAY.langCodesSupported, result.onThisDay!!)
+                if (isLimitedToDomains(result.onThisDay)) {
+                    addDomainNamesAsLangCodes(FeedContentType.ON_THIS_DAY.langCodesSupported, result.onThisDay)
                 }
                 FeedContentType.TOP_READ_ARTICLES.langCodesSupported.clear()
-                if (isLimitedToDomains(result.mostRead!!)) {
-                    addDomainNamesAsLangCodes(FeedContentType.TOP_READ_ARTICLES.langCodesSupported, result.mostRead!!)
+                if (isLimitedToDomains(result.mostRead)) {
+                    addDomainNamesAsLangCodes(FeedContentType.TOP_READ_ARTICLES.langCodesSupported, result.mostRead)
                 }
                 FeedContentType.FEATURED_ARTICLE.langCodesSupported.clear()
-                if (isLimitedToDomains(result.featuredArticle!!)) {
-                    addDomainNamesAsLangCodes(FeedContentType.FEATURED_ARTICLE.langCodesSupported, result.featuredArticle!!)
+                if (isLimitedToDomains(result.featuredArticle)) {
+                    addDomainNamesAsLangCodes(FeedContentType.FEATURED_ARTICLE.langCodesSupported, result.featuredArticle)
                 }
                 FeedContentType.FEATURED_IMAGE.langCodesSupported.clear()
-                if (isLimitedToDomains(result.featuredPicture!!)) {
-                    addDomainNamesAsLangCodes(FeedContentType.FEATURED_IMAGE.langCodesSupported, result.featuredPicture!!)
+                if (isLimitedToDomains(result.featuredPicture)) {
+                    addDomainNamesAsLangCodes(FeedContentType.FEATURED_IMAGE.langCodesSupported, result.featuredPicture)
                 }
                 FeedContentType.saveState()
             }) { caught -> L.e(caught) })
