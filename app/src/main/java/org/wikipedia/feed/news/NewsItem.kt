@@ -28,10 +28,8 @@ class NewsItem {
     }
 
     private fun getFirstImageUri(links: List<PageSummary?>): Uri? {
-        links.filterNotNull().map {
-            if (it.thumbnailUrl != null) {
-                return Uri.parse(it.thumbnailUrl)
-            }
+        links.filterNotNull().map { pageSummary ->
+            pageSummary.thumbnailUrl?.let { return Uri.parse(it) }
         }
         return null
     }
