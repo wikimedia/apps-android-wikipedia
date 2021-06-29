@@ -4,7 +4,7 @@ import android.net.Uri
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
+import org.wikipedia.util.ImageUrlUtil
 
 class NewsItem {
 
@@ -12,19 +12,14 @@ class NewsItem {
     val links: List<PageSummary?> = emptyList()
 
     fun linkCards(wiki: WikiSite): List<NewsLinkCard> {
-        val linkCards = mutableListOf<NewsLinkCard>()
-        links.filterNotNull().map { NewsLinkCard(it, wiki) }
-        return linkCards
+        return links.filterNotNull().map { NewsLinkCard(it, wiki) }
     }
 
     fun thumb(): Uri? {
-        val uri = getFirstImageUri(links)
-        return if (uri != null) Uri.parse(
-            getUrlForPreferredSize(
-                uri.toString(),
-                Constants.PREFERRED_CARD_THUMBNAIL_SIZE
-            )
-        ) else null
+        return getFirstImageUri(links)?.let {
+            Uri.parse(ImageUrlUtil.getUrlForPreferredSize(
+                    it.toString(), Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+        }
     }
 
     private fun getFirstImageUri(links: List<PageSummary?>): Uri? {
