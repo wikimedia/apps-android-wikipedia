@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
@@ -128,10 +127,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                 }
                 binding.eventLayout.page.root.setOnLongClickListener { view ->
                     if (ImageZoomHelper.isZooming) {
-                        // Dispatch a fake CANCEL event to the container view, so that the long-press ripple is cancelled.
-                        binding.eventLayout.page.root.dispatchTouchEvent(
-                            MotionEvent.obtain(0, 0, MotionEvent.ACTION_CANCEL, 0f, 0f, 0)
-                        )
+                        ImageZoomHelper.dispatchCancelEvent(binding.eventLayout.page.root)
                     } else {
                         val pageTitle = page.getPageTitle(card.wikiSite())
                         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD)

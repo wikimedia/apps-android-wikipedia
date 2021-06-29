@@ -3,7 +3,6 @@ package org.wikipedia.feed.featured
 import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import org.wikipedia.databinding.ViewCardFeaturedArticleBinding
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
@@ -29,10 +28,7 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
 
         binding.viewFeaturedArticleCardContentContainer.setOnLongClickListener { view ->
             if (ImageZoomHelper.isZooming) {
-                // Dispatch a fake CANCEL event to the container view, so that the long-press ripple is cancelled.
-                binding.viewFeaturedArticleCardContentContainer.dispatchTouchEvent(
-                    MotionEvent.obtain(0, 0, MotionEvent.ACTION_CANCEL, 0f, 0f, 0)
-                )
+                ImageZoomHelper.dispatchCancelEvent(binding.viewFeaturedArticleCardContentContainer)
             } else {
                 LongPressMenu(view, true, object : LongPressMenu.Callback {
                     override fun onOpenLink(entry: HistoryEntry) {
