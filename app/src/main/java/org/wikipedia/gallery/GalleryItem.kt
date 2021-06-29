@@ -16,27 +16,29 @@ open class GalleryItem : Serializable {
     @SerializedName("wb_entity_id")
     val entityId: String? = null
 
-    @SerializedName("structured")
-    var structuredData: StructuredData? = null
-
     @SerializedName("audio_type")
     val audioType: String = ""
+
+    @SerializedName("structured")
+    var structuredData: StructuredData? = null
 
     // return the base url of Wiki Commons for WikiSite() if the file_page is null.
     @SerializedName("file_page")
     var filePage: String = Service.COMMONS_URL
 
-    var type: String = ""
+    val duration = 0.0
     val isShowInGallery = false
+    var type: String = ""
     var thumbnail = ImageInfo()
     var original = ImageInfo()
     var description = TextInfo()
-    val duration = 0.0
-    var titles: Titles? = null
+
     val caption: TextInfo? = null
     val sources: List<ImageInfo>? = null
+    var titles: Titles? = null
     var artist: ArtistInfo? = null
     var license: ImageLicense? = null
+
     val thumbnailUrl
         get() = thumbnail.source
     val preferredSizedImageUrl
