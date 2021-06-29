@@ -65,7 +65,7 @@ class EditSectionActivity : BaseActivity() {
         private set
 
     private var sectionID = 0
-    private var sectionHeading: String? = null
+    private var sectionAnchor: String? = null
     private var pageProps: PageProperties? = null
     private var textToHighlight: String? = null
     private var sectionWikitext: String? = null
@@ -100,7 +100,7 @@ class EditSectionActivity : BaseActivity() {
 
         pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, 0)
-        sectionHeading = intent.getStringExtra(EXTRA_SECTION_HEADING)
+        sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         pageProps = intent.getParcelableExtra(EXTRA_PAGE_PROPS)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
         supportActionBar?.title = ""
@@ -202,11 +202,12 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun doSave(token: String) {
-        var summaryText = if (sectionHeading.isNullOrEmpty() ||
-            StringUtil.addUnderscores(sectionHeading) == pageTitle.prefixedText) "/* top */" else "/* $sectionHeading */ "
+        val sectionAnchor = StringUtil.addUnderscores(StringUtil.removeHTMLTags(sectionAnchor.orEmpty()))
+        var summaryText = if (sectionAnchor.isEmpty() || sectionAnchor == pageTitle.prefixedText) "/* top */"
+        else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
         summaryText += editPreviewFragment.summary
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
-        summaryText = StringUtil.fromHtml(summaryText).toString()
+        summaryText = StringUtil.removeHTMLTags(summaryText)
         if (!isFinishing) {
             showProgressBar(true)
         }
@@ -564,7 +565,7 @@ class EditSectionActivity : BaseActivity() {
     companion object {
         const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
-        const val EXTRA_SECTION_HEADING = "org.wikipedia.edit_section.sectionheading"
+        const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_PAGE_PROPS = "org.wikipedia.edit_section.pageprops"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
     }

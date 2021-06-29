@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Alex00728
+* Apzp79
 * Bluemersen
 * Codenstory
 * Cooltey
@@ -233,15 +234,15 @@
   <string name="about_translators_heading">번역자</string>
   <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 자원 번역자가 번역했습니다.</string>
   <string name="about_app_license_heading">라이선스</string>
-  <string name="about_app_license" fuzzy="true">소스 코드는 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;아파치 2.0 라이선스&lt;/a&gt; 하에 있으며, &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;과 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;에서 찾아볼 수 있습니다. 별도로 명시하지 않는 한 콘텐츠는 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;크리에이티브 커먼즈 저작자표시-동일조건변경허락&lt;/a&gt;에 따라 이용할 수 있습니다.</string>
+  <string name="about_app_license">소스 코드는 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;아파치 2.0 라이선스&lt;/a&gt; 하에 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;게릿&lt;/a&gt;과 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;깃허브&lt;/a&gt;에서 확인할 수 있습니다. 별도로 명시하지 않은 내용은 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;크리에이티브 커먼즈 저작자표시-동일조건변경허락 라이선스&lt;/a&gt; 하에 이용할 수 있습니다.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
   <string name="about_activity_title">정보</string>
   <string name="edit_abandon_confirm">문서가 수정되어 있습니다. 바뀐 내용을 저장하지 않고 빠져나가겠습니까?</string>
   <string name="edit_abandon_confirm_yes">예</string>
   <string name="edit_abandon_confirm_no">아니오</string>
   <string name="user_blocked_from_editing_title">차단됨</string>
-  <string name="user_logged_in_blocked_from_editing">당신의 사용자 계정은 이 위키의 편집에서 차단되어 있습니다.</string>
-  <string name="user_anon_blocked_from_editing">당신의 IP 주소는 편집에서 차단되어 있습니다.</string>
+  <string name="user_logged_in_blocked_from_editing">당신의 사용자 계정은 이 위키의 편집이 차단됐습니다.</string>
+  <string name="user_anon_blocked_from_editing">당신의 IP 주소는 편집이 차단됐습니다.</string>
   <string name="edit_how_page_improved">어떻게 문서를 개선했나요?</string>
   <string name="edit_next">다음</string>
   <string name="edit_done">게시</string>
@@ -252,7 +253,7 @@
   <string name="edit_zoom_out">축소</string>
   <string name="edit_summary_tag_typo">오타를 고침</string>
   <string name="edit_summary_tag_grammar">문법을 고침</string>
-  <string name="edit_summary_tag_links">링크를 추가</string>
+  <string name="edit_summary_tag_links">추가된 링크</string>
   <string name="edit_summary_tag_other">기타</string>
   <string name="edit_summary_tag_other_hint">문서를 개선하는 다른 방법</string>
   <string name="edit_conflict_title">편집 충돌</string>
@@ -264,7 +265,7 @@
   <string name="article_opened_in_background_tab">백그라운드 탭으로 문서가 열렸습니다.</string>
   <string name="abusefilter_title_warn">비생산적인 편집일 수도 있습니다. 그래도 게시하겠습니까?</string>
   <string name="abusefilter_title_disallow">이 편집을 게시할 수 없습니다. 뒤로 돌아가서 바꿔주세요.</string>
-  <string name="abusefilter_text_warn">자동화된 필터가 이 편집을 잠재적으로 비생산적인 것으로 식별합니다. 다음 중 하나 이상을 포함할 수 있습니다:&lt;br /&gt;&lt;br /&gt;· 모두 대문자로 입력&lt;br /&gt;· 문서가 비어 있거나 스팸을 넣음&lt;br /&gt;· 관련 없는 외부 링크나 그림&lt;br /&gt;· 글자 반복</string>
+  <string name="abusefilter_text_warn">자동화된 필터가 이 편집을 잠재적으로 비건설적이라 식별했습니다. 다음 중 하나 이상을 포함할 수 있습니다:&lt;br /&gt;&lt;br /&gt;· 모두 대문자로 입력&lt;br /&gt;· 문서가 비어 있거나 스팸을 넣음&lt;br /&gt;· 관련 없는 외부 링크나 그림&lt;br /&gt;· 글자 반복</string>
   <string name="abusefilter_text_disallow">자동화된 필터가 이 편집을 잠재적으로 비생산적이나, 잠재적으로 훼손한 것으로 식별합니다.&lt;br /&gt;&lt;br /&gt;위키백과는 백과사전이자 중립적이며, 주목할만한 내용만이 여기에 들어갑니다.</string>
   <string name="page_similar_titles">비슷한 문서</string>
   <string name="search_did_you_mean">\"%s\"을(를) 찾으셨나요?</string>
@@ -275,7 +276,7 @@
     <item quantity="other">%d개 결과</item>
   </plurals>
   <string name="button_clear_all_recent_searches">최근 검색 지우기</string>
-  <string name="clear_recent_searches_confirm">검색 기록을 지우겠습니까?</string>
+  <string name="clear_recent_searches_confirm">검색 기록을 정말 지우겠습니까?</string>
   <string name="clear_recent_searches_confirm_yes">예</string>
   <string name="clear_recent_searches_confirm_no">아니오</string>
   <string name="error_browser_not_found">웹 페이지를 열 수 없습니다 (찾은 브라우저 앱이 없습니다).</string>
@@ -358,7 +359,7 @@
   <string name="enable_location_service">활성화</string>
   <string name="location_permissions_enable_prompt">주변 장소를 보려면 위치 권한을 허용해주세요.</string>
   <string name="location_permissions_enable_action">켜기</string>
-  <string name="error_webview_updating">Android System WebView가 현재 업데이트되고 있습니다. 잠시 후 다시 시도해 주십시오.</string>
+  <string name="error_webview_updating">Android 시스템 WebView가 현재 업데이트 중 입니다. 잠시 후 다시 시도해 주십시오.</string>
   <plurals name="multi_items_selected">
     <item quantity="one">%d개 선택됨</item>
     <item quantity="other">%d개 선택됨</item>
@@ -378,6 +379,14 @@
   <string name="page_footer_license_text">별도로 명시하지 않은 경우, 내용은 $1에 따라 사용할 수 있습니다</string>
   <string name="empty_tab_title">새 탭</string>
   <string name="menu_save_all_tabs">모든 탭 저장</string>
+  <string name="error_blocked_title">사용자 이름과 IP 주소가 차단됐습니다.</string>
+  <string name="error_blocked_by">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;님이 차단했습니다.</string>
+  <string name="error_blocked_reason">사유는 이와 같습니다: %s</string>
+  <string name="error_blocked_start">차단일: %s</string>
+  <string name="error_blocked_expiry">차단 해제일: %s</string>
+  <string name="error_blocked_id">차단 ID: %s</string>
+  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;님 이나 다른 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
+  <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
   <string name="crash_report_relaunch">다시 시작</string>

@@ -45,7 +45,7 @@ class NewsItemView(context: Context) : WikiCardView(context) {
 
     fun setContents(newsItem: NewsItem) {
         this.newsItem = newsItem
-        binding.horizontalScrollListItemText.text = removeImageCaption(StringUtil.fromHtml(newsItem.story()))
+        binding.horizontalScrollListItemText.text = removeImageCaption(StringUtil.fromHtml(newsItem.story))
         RichTextUtil.removeUnderlinesFromLinksAndMakeBold(binding.horizontalScrollListItemText)
         newsItem.thumb()?.let {
             binding.horizontalScrollListItemImage.visibility = VISIBLE

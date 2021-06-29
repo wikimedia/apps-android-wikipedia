@@ -30,11 +30,9 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import kotlin.collections.ArrayList
 
 class SuggestedEditsImageTagDialog : DialogFragment() {
     interface Callback {
@@ -132,14 +130,10 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).searchEntities(searchTerm, WikipediaApp.getInstance().appOrSystemLanguageCode, WikipediaApp.getInstance().appOrSystemLanguageCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ search: Search ->
-                    val labelList = ArrayList<MwQueryPage.ImageLabel>()
-                    for (result in search.results()) {
-                        val label = MwQueryPage.ImageLabel(result.id, result.label, result.description)
-                        labelList.add(label)
-                    }
+                .subscribe({ search ->
+                    val labelList = search.results.map { MwQueryPage.ImageLabel(it.id, it.label, it.description) }
                     applyResults(labelList)
-                }) { t: Throwable? ->
+                }) { t ->
                     L.d(t)
                 })
     }

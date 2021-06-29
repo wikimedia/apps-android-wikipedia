@@ -209,7 +209,6 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
     implementation "io.reactivex.rxjava3:rxjava:3.0.4"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
-    implementation 'com.microsoft.appcenter:appcenter-crashes:3.1.0'
     implementation 'org.apache.commons:commons-lang3:3.9'
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
