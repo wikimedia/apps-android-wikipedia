@@ -19,7 +19,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.graphics.Insets
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -72,13 +72,6 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.*
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.GeoUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.ThrowableUtil
-import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
@@ -631,7 +624,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     .subscribe({ list ->
                         val country = GeoUtil.geoIPCountry
                         val now = Date()
-                        for (announcement in list.items()) {
+                        for (announcement in list.items) {
                             if (AnnouncementClient.shouldShow(announcement, country, now) &&
                                 announcement.placement() == Announcement.PLACEMENT_ARTICLE &&
                                 !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
@@ -826,8 +819,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun updateInsets(insets: WindowInsetsCompat) {
-        val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + insets.systemWindowInsetTop + REFRESH_SPINNER_ADDITIONAL_OFFSET
+    fun updateInsets(insets: Insets) {
+        val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + insets.top + REFRESH_SPINNER_ADDITIONAL_OFFSET
         binding.pageRefreshContainer.setProgressViewOffset(false, -swipeOffset, swipeOffset)
     }
 
@@ -1147,7 +1140,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             disposables.add(ServiceFactory.get(it.wikiSite).watchToken
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
-                    val watchToken = response.query()!!.watchToken()
+                    val watchToken = response.query?.watchToken()
                     if (watchToken.isNullOrEmpty()) {
                         throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
                     }

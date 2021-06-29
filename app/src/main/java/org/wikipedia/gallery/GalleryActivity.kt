@@ -413,6 +413,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             ViewAnimations.ensureTranslationY(binding.toolbarContainer, -binding.toolbarContainer.height)
             ViewAnimations.ensureTranslationY(binding.infoContainer, binding.infoContainer.height)
         }
+        binding.descriptionText.setTextIsSelectable(controlsShowing)
     }
 
     fun toggleControls() {
@@ -550,7 +551,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(), sourceWiki.languageCode()),
                 { captions, protectionInfoRsp, imageTags ->
                     item.mediaInfo!!.captions = captions
-                    Pair(protectionInfoRsp.query()!!.isEditProtected, imageTags.size)
+                    Pair(protectionInfoRsp.query?.isEditProtected, imageTags.size)
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

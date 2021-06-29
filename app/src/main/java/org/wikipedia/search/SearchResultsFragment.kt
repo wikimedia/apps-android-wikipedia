@@ -138,24 +138,13 @@ class SearchResultsFragment : Fragment() {
                     if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
                     if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.getAppDatabase().historyEntryWithImageDao().findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
                     { searchResponse, readingListSearchResults, historySearchResults ->
-                        val searchResults = if (searchResponse?.query()!!.pages() != null) {
-                            // noinspection ConstantConditions
-                            SearchResults(searchResponse.query()!!.pages()!!,
-                                    WikiSite.forLanguageCode(searchLanguageCode), searchResponse.continuation(),
-                                    searchResponse.suggestion())
-                        } else {
-                            // A prefix search query with no results will return the following:
-                            //
-                            // {
-                            //   "batchcomplete": true,
-                            //   "query": {
-                            //      "search": []
-                            //   }
-                            // }
-                            //
-                            // Just return an empty SearchResults() in this case.
-                            SearchResults()
-                        }
+
+                        val searchResults = searchResponse?.query?.pages()?.let {
+                            SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode),
+                                searchResponse.continuation,
+                                searchResponse.suggestion())
+                        } ?: SearchResults()
+
                         handleSuggestion(searchResults.suggestion)
                         val resultList = mutableListOf<SearchResult>()
                         addSearchResultsFromTabs(resultList)
@@ -164,7 +153,7 @@ class SearchResultsFragment : Fragment() {
                         resultList.addAll(searchResults.results)
                         resultList
                     })
-        }
+                }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate { updateProgressBar(false) }
@@ -186,7 +175,7 @@ class SearchResultsFragment : Fragment() {
             }
             WikipediaApp.getInstance().tabList.forEach { tab ->
                 tab.backStackPositionTitle?.let {
-                    if (it.displayText.toLowerCase(Locale.getDefault()).contains(term.toLowerCase(Locale.getDefault()))) {
+                    if (it.displayText.lowercase(Locale.getDefault()).contains(term.lowercase(Locale.getDefault()))) {
                         resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
                         return
                     }
@@ -247,10 +236,9 @@ class SearchResultsFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
-                    if (response.query() != null) {
+                    response.query?.pages()?.let {
                         // noinspection ConstantConditions
-                        return@map SearchResults(response.query()!!.pages()!!, WikiSite.forLanguageCode(searchLanguageCode),
-                                response.continuation(), null)
+                        return@map SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode), response.continuation, null)
                     }
                     SearchResults()
                 }
@@ -308,7 +296,7 @@ class SearchResultsFragment : Fragment() {
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .flatMap { response ->
-                                if (response.query()?.pages() != null) {
+                                response.query?.pages()?.let {
                                     return@flatMap Observable.just(response)
                                 }
                                 ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null)
@@ -316,7 +304,7 @@ class SearchResultsFragment : Fragment() {
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { response -> if (response.query()?.pages() != null) response.query()!!.pages()!!.size else 0 }
+                .map { response -> response.query?.pages()?.size ?: 0 }
     }
 
     private fun updateProgressBar(enabled: Boolean) {

@@ -14,9 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.microsoft.appcenter.AppCenter;
-import com.microsoft.appcenter.crashes.Crashes;
-
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.InstallReferrerListener;
 import org.wikipedia.analytics.SessionFunnel;
@@ -24,7 +21,6 @@ import org.wikipedia.analytics.eventplatform.EventPlatformClient;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
-import org.wikipedia.crash.AppCenterCrashesListener;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
@@ -40,12 +36,10 @@ import org.wikipedia.settings.RemoteConfig;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -68,7 +62,6 @@ public class WikipediaApp extends Application {
     private ActivityLifecycleHandler activityLifecycleHandler = new ActivityLifecycleHandler();
     private String userAgent;
     private WikiSite wiki;
-    private AppCenterCrashesListener crashListener;
     private RxBus bus;
     private Theme currentTheme = Theme.getFallback();
     private List<Tab> tabList = new ArrayList<>();
@@ -132,8 +125,6 @@ public class WikipediaApp extends Application {
         // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
         registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
 
-        initExceptionHandling();
-
         LeakCanaryStubKt.setupLeakCanary();
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
@@ -149,8 +140,6 @@ public class WikipediaApp extends Application {
         currentTheme = unmarshalTheme(Prefs.getCurrentThemeId());
 
         appLanguageState = new AppLanguageState(this);
-        updateCrashReportProps();
-
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
 
@@ -274,13 +263,12 @@ public class WikipediaApp extends Application {
     }
 
     public void putCrashReportProperty(String key, String value) {
-        if (!ReleaseUtil.isPreBetaRelease()) {
-            crashListener.putReportProperty(key, value);
-        }
+        // TODO: add custom properties to crash report
     }
 
     public void logCrashManually(@NonNull Throwable throwable) {
-        crashListener.logCrashManually(throwable);
+        L.e(throwable);
+        // TODO: send exception to custom crash reporting system
     }
 
     public Handler getMainThreadHandler() {
@@ -328,7 +316,6 @@ public class WikipediaApp extends Application {
 
     public synchronized void resetWikiSite() {
         wiki = null;
-        updateCrashReportProps();
     }
 
     @SuppressLint("CheckResult")
@@ -340,36 +327,12 @@ public class WikipediaApp extends Application {
         ServiceFactory.get(getWikiSite()).getCsrfToken()
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> {
-                    String csrfToken = response.query().csrfToken();
+                    String csrfToken = response.getQuery().csrfToken();
                     return WikipediaFirebaseMessagingService.Companion.unsubscribePushToken(csrfToken, Prefs.getPushNotificationToken())
                             .flatMap(res -> ServiceFactory.get(getWikiSite()).postLogout(csrfToken).subscribeOn(Schedulers.io()));
                 })
                 .doFinally(() -> SharedPreferenceCookieManager.getInstance().clearAllCookies())
                 .subscribe(response -> L.d("Logout complete."), L::e);
-    }
-
-    private void initExceptionHandling() {
-        // AppCenter exception handling interferes with the test runner, so enable it only for beta and stable releases
-        if (!ReleaseUtil.isPreBetaRelease()) {
-            crashListener = new AppCenterCrashesListener();
-            Crashes.setListener(crashListener);
-            AppCenter.start(this, getString(R.string.appcenter_id), Crashes.class);
-            AppCenter.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
-            Crashes.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
-        }
-    }
-
-    private void updateCrashReportProps() {
-        // AppCenter exception handling interferes with the test runner, so enable it only for beta and stable releases
-        if (!ReleaseUtil.isPreBetaRelease()) {
-            putCrashReportProperty("locale", Locale.getDefault().toString());
-            if (appLanguageState != null) {
-                putCrashReportProperty("app_primary_language", appLanguageState.getAppLanguageCode());
-                putCrashReportProperty("app_languages", appLanguageState.getAppLanguageCodes().toString());
-                putCrashReportProperty("app_install_id", getAppInstallID());
-                putCrashReportProperty("app_local_class_name", Prefs.getLocalClassName());
-            }
-        }
     }
 
     private void enableWebViewDebugging() {
@@ -397,9 +360,9 @@ public class WikipediaApp extends Application {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    if (AccountUtil.isLoggedIn() && response.query().userInfo() != null) {
+                    if (AccountUtil.isLoggedIn() && response.getQuery().userInfo() != null) {
                         // noinspection ConstantConditions
-                        int id = response.query().userInfo().id();
+                        int id = response.getQuery().userInfo().id();
                         AccountUtil.putUserIdForLanguage(code, id);
                         L.d("Found user ID " + id + " for " + code);
                     }

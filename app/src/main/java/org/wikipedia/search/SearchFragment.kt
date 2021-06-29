@@ -34,7 +34,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
-import org.wikipedia.util.DeviceUtil.setWindowSoftInputModeResizable
 import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
 import org.wikipedia.util.FeedbackUtil.showTooltip
 import org.wikipedia.util.ResourceUtil.getThemedColor
@@ -192,11 +191,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         _binding = null
         funnel.searchCancel(searchLanguageCode)
         super.onDestroyView()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        setWindowSoftInputModeResizable(requireActivity())
     }
 
     override fun getFunnel(): SearchFunnel {

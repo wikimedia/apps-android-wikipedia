@@ -46,7 +46,9 @@ android {
         targetSdkVersion 30
         versionCode 50363
         testApplicationId 'org.wikipedia.test'
-        testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+
         vectorDrawables.useSupportLibrary = true
 
         javaCompileOptions {
@@ -62,6 +64,10 @@ android {
         buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
 
     buildFeatures {
@@ -115,6 +121,11 @@ android {
             buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.beta.wmflabs.org"'
             buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.beta.wmflabs.org"'
             buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.beta.wmflabs.org"'
+
+            def TEST_LOGIN_USERNAME = System.getenv('TEST_LOGIN_USERNAME')
+            def TEST_LOGIN_PASSWORD = System.getenv('TEST_LOGIN_PASSWORD')
+            buildConfigField "String", "TEST_LOGIN_USERNAME", TEST_LOGIN_USERNAME != null ? "\"${TEST_LOGIN_USERNAME}\"" : '"Foo"'
+            buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
         }
         prod {
             versionName computeVersionName('r')
@@ -206,7 +217,6 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
     implementation "io.reactivex.rxjava3:rxjava:3.0.4"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
-    implementation 'com.microsoft.appcenter:appcenter-crashes:3.1.0'
     implementation 'org.apache.commons:commons-lang3:3.9'
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'

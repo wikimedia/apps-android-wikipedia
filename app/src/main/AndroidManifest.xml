@@ -95,11 +95,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".crash.CrashReportActivity"
-            android:label="@string/crash_report_activity_title"
-            android:noHistory="true"
-            android:excludeFromRecents="true" />
-        <activity
             android:name=".settings.SettingsActivity"
             android:label="@string/settings_activity_title"
             android:theme="@style/AppTheme.ActionBar"
