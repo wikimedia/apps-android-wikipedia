@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">@string/app_name_beta</string>
     <string name="channel">Google Play Beta Channel</string>
-    <string name="appcenter_id">223c136f-356e-1820-ab48-82a677fefc8c</string>
 
     <!-- TODO: remove and use the same account as prod when tokens are stored. -->
     <string name="account_name">Wikimedia (Beta)</string>

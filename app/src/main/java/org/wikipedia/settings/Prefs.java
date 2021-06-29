@@ -116,10 +116,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_crashed_before_activity_created, crashed);
     }
 
-    public static boolean isCrashReportAutoUploadEnabled() {
-        return getBoolean(R.string.preference_key_auto_upload_crash_reports, true);
-    }
-
     public static boolean isShowDeveloperSettingsEnabled() {
         return getBoolean(R.string.preference_key_show_developer_settings, ReleaseUtil.isDevRelease());
     }
