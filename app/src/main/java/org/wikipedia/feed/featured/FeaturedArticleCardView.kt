@@ -12,9 +12,8 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
-import org.wikipedia.views.ImageZoomHelper.Companion.isZooming
-import org.wikipedia.views.ImageZoomHelper.Companion.setViewZoomable
+import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.views.ImageZoomHelper
 
 @Suppress("LeakingThis")
 open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<FeaturedArticleCard>(context) {
@@ -29,7 +28,7 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
         }
 
         binding.viewFeaturedArticleCardContentContainer.setOnLongClickListener { view ->
-            if (isZooming) {
+            if (ImageZoomHelper.isZooming) {
                 // Dispatch a fake CANCEL event to the container view, so that the long-press ripple is cancelled.
                 binding.viewFeaturedArticleCardContentContainer.dispatchTouchEvent(
                     MotionEvent.obtain(0, 0, MotionEvent.ACTION_CANCEL, 0f, 0f, 0)
@@ -108,7 +107,7 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
     private fun image(uri: Uri?) {
         binding.viewWikiArticleCard.setImageUri(uri, false)
         uri?.run {
-            setViewZoomable(binding.viewWikiArticleCard.getImageView())
+            ImageZoomHelper.setViewZoomable(binding.viewWikiArticleCard.getImageView())
         }
     }
 
@@ -116,7 +115,7 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
         get() = CardFooterView.Callback {
             card?.let {
                 callback?.onSelectPage(it, HistoryEntry(PageTitle(
-                    getMainPageForLang(it.wikiSite().languageCode()), it.wikiSite()),
+                    SiteInfoClient.getMainPageForLang(it.wikiSite().languageCode()), it.wikiSite()),
                     it.historyEntry().source), false
                 )
             }
