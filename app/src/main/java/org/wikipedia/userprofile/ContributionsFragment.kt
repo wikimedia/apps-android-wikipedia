@@ -214,13 +214,13 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                             .subscribeOn(Schedulers.io())
                             .flatMap { entities ->
-                                for (entityKey in entities.entities?.keys!!) {
-                                    val entity = entities.entities!![entityKey]!!
+                                for (entityKey in entities.entities.keys) {
+                                    val entity = entities.entities[entityKey]!!
                                     for (contribution in wikidataContributions) {
                                         val dbName = WikiSite.forLanguageCode(contribution.wikiSite.languageCode()).dbName()
-                                        if (contribution.qNumber == entityKey && entity.sitelinks?.containsKey(dbName)!!) {
-                                            contribution.apiTitle = entity.sitelinks!![dbName]!!.title!!
-                                            contribution.displayTitle = entity.sitelinks!![dbName]!!.title!!
+                                        if (contribution.qNumber == entityKey && entity.sitelinks.containsKey(dbName)) {
+                                            contribution.apiTitle = entity.sitelinks[dbName]!!.title
+                                            contribution.displayTitle = entity.sitelinks[dbName]!!.title
                                         }
                                     }
                                 }
@@ -446,12 +446,13 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                 .subscribeOn(Schedulers.io())
                                 .flatMap { response ->
                                     var label = contribution.qNumber
-                                    val entities = response.entities!!
-                                    if (entities.containsKey(contribution.qNumber)) {
-                                        if (entities[contribution.qNumber]!!.labels!!.containsKey(contribution.wikiSite.languageCode())) {
-                                            label = entities[contribution.qNumber]!!.labels!![contribution.wikiSite.languageCode()]!!.value!!
-                                        } else if (entities[contribution.qNumber]!!.labels!!.containsKey(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)) {
-                                            label = entities[contribution.qNumber]!!.labels!![AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE]!!.value!!
+                                    val entities = response.entities
+                                    val qNumber = entities[contribution.qNumber]
+                                    qNumber?.let {
+                                        if (it.labels.containsKey(contribution.wikiSite.languageCode())) {
+                                            label = it.labels[contribution.wikiSite.languageCode()]!!.value
+                                        } else if (it.labels.containsKey(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)) {
+                                            label = it.labels[AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE]!!.value
                                         }
                                     }
                                         Observable.just(label)
