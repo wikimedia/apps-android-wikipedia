@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">@string/app_name_prod</string>
     <string name="channel" />
-    <string name="appcenter_id">eb167874-c1d6-5694-30a9-bcfd71d4c24d</string>
 
     <!-- URLs -->
     <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=%1$s&amp;uselang=%2$s</string>
