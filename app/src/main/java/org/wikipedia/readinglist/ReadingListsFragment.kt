@@ -461,7 +461,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun onActionClick(item: ReadingListPage?, view: View) {
             item?.let {
-                if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi() &&
+                if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi &&
                         it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
                     it.offline = false
                 }

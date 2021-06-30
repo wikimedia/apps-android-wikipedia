@@ -1034,6 +1034,7 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
+    <string name="talk_last_modified"><![CDATA[<b>Last edited %1$s</b> by %2$s]]></string>
     <string name="menu_option_share_edit">Share edit</string>
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>
