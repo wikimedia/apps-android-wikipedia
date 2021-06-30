@@ -2,48 +2,27 @@ package org.wikipedia.feed.onthisday
 
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.json.annotations.Required
-import java.util.*
 
 class OnThisDay {
 
-    private val events: List<Event>? = null
-    private val births: List<Event>? = null
-    private val deaths: List<Event>? = null
-    private val holidays: List<Event>? = null
+    private val events: List<Event> = emptyList()
+    private val births: List<Event> = emptyList()
+    private val deaths: List<Event> = emptyList()
+    private val holidays: List<Event> = emptyList()
     var selected: List<Event> = emptyList()
 
-    fun events(): List<Event> {
-        val allEvents = ArrayList<Event>()
-        events?.let { allEvents.addAll(it) }
-        births?.let { allEvents.addAll(it) }
-        deaths?.let { allEvents.addAll(it) }
-        holidays?.let { allEvents.addAll(it) }
-
-        allEvents.sortWith { e1: Event, e2: Event ->
-            e2.year.compareTo(e1.year)
-        }
-        return allEvents
+    fun allEvents(): List<Event> {
+        return (events + births + deaths + holidays).sortedByDescending { it.year }
     }
 
     class Event {
 
-        @Required
-        val text: String = ""
-
-        @Required
-        private val pages: MutableList<PageSummary>? = null
+        private val pages: List<PageSummary?>? = null
+        val text = ""
         val year = 0
 
         fun pages(): List<PageSummary>? {
-            pages?.let {
-                val iterator: MutableIterator<*> = pages.iterator()
-                while (iterator.hasNext()) {
-                    if (iterator.next() == null) {
-                        iterator.remove()
-                    }
-                }
-            }
-            return pages
+            return pages?.filterNotNull()
         }
     }
 }
