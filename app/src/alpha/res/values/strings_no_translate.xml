@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">@string/app_name_alpha</string>
     <string name="channel">Alpha Channel</string>
-    <string name="appcenter_id">8d5acf26-899e-6d2f-d162-82bf89b78784</string>
 
     <!-- The alpha build uses a different signature than beta and prod. -->
     <string name="account_name">Wikimedia (Alpha)</string>

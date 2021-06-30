@@ -73,6 +73,7 @@ class TalkTopicsActivity : BaseActivity() {
             funnel.logRefresh()
             loadTopics()
         }
+        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
         funnel = TalkFunnel(pageTitle, invokeSource)
