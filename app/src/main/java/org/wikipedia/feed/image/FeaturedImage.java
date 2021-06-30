@@ -6,6 +6,7 @@ import org.wikipedia.gallery.GalleryItem;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.json.annotations.Required;
+import org.wikipedia.util.StringUtil;
 
 public final class FeaturedImage extends GalleryItem implements PostProcessingTypeAdapter.PostProcessable {
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
@@ -18,7 +19,7 @@ public final class FeaturedImage extends GalleryItem implements PostProcessingTy
 
     @Override
     public void postProcess() {
-        setTitle(title);
+        setTitles(new Titles(title, StringUtil.addUnderscores(title), title));
         getOriginal().setSource(image.getSource());
     }
 }
