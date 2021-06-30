@@ -23,7 +23,7 @@ class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int)
             randomIndex = Random().nextInt(events.size - 1)
         }
         eventShownOnCard = events[randomIndex]
-        nextYear = if (randomIndex + 1 < events.size) events[randomIndex + 1].year() else eventShownOnCard.year()
+        nextYear = if (randomIndex + 1 < events.size) events[randomIndex + 1].year else eventShownOnCard.year
     }
 
     override fun type(): CardType {
@@ -47,11 +47,11 @@ class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int)
     }
 
     fun text(): CharSequence {
-        return eventShownOnCard.text()
+        return eventShownOnCard.text
     }
 
     fun year(): Int {
-        return eventShownOnCard.year()
+        return eventShownOnCard.year
     }
 
     fun date(): Calendar {
