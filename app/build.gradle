@@ -87,6 +87,7 @@ android {
         }
         androidTest {
             java.srcDirs += 'src/testlib/java'
+            assets.srcDirs += files("$projectDir/schemas".toString())
         }
     }
 

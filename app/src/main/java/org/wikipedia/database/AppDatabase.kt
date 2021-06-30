@@ -59,20 +59,20 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun readingListPageDao(): ReadingListPageDao
 
     companion object {
-        private val MIGRATION_19_20 = object : Migration(19, 20) {
+        val MIGRATION_19_20 = object : Migration(19, 20) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // introduced Offline Object table
             }
         }
-        private val MIGRATION_20_21 = object : Migration(20, 21) {
+        val MIGRATION_20_21 = object : Migration(20, 21) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // introduced Talk Page Seen table
             }
         }
-        private val MIGRATION_21_22 = object : Migration(21, 22) {
+        val MIGRATION_21_22 = object : Migration(21, 22) {
             override fun migrate(database: SupportSQLiteDatabase) {}
         }
-        private val MIGRATION_22_23 = object : Migration(22, 23) {
+        val MIGRATION_22_23 = object : Migration(22, 23) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // convert Recent Searches table
                 database.execSQL("CREATE TABLE IF NOT EXISTS `RecentSearch` (`text` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, PRIMARY KEY(`text`))")
