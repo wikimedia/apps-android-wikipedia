@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.view.*
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -158,7 +159,8 @@ class TalkTopicsActivity : BaseActivity() {
                 .flatMap {
                     it.query?.firstPage()?.revisions()?.getOrNull(0)?.let { revision ->
                         binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
-                            DateUtil.getLastSyncDateString(revision.timeStamp()), revision.user))
+                            DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp()).time,
+                                System.currentTimeMillis(), 0L), revision.user))
                     }
                     ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
                 }
