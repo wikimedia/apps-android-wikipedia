@@ -303,7 +303,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             binding.viewImageArtist.setTitleText(StringUtil.removeHTMLTags(sourceSummaryForEdit!!.metadata!!.artist()))
         }
 
-        binding.viewImageDate.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummaryForEdit!!.timestamp!!))
+        binding.viewImageDate.setDetailText(DateUtil.getLastSyncDateString(sourceSummaryForEdit!!.timestamp!!))
         binding.viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
         binding.viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
 
