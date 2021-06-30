@@ -70,12 +70,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
+        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         binding.talkRecyclerView.adapter = TalkReplyItemAdapter()
-
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
 
         binding.talkErrorView.backClickListener = View.OnClickListener {
             finish()
