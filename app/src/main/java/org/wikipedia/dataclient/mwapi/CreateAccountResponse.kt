@@ -4,11 +4,11 @@ class CreateAccountResponse : MwResponse() {
 
     private val createaccount: Result? = null
 
-    val status get() = createaccount?.status
+    val status get() = createaccount?.status.orEmpty()
 
-    val user get() = createaccount?.username
+    val user get() = createaccount?.username.orEmpty()
 
-    val message get() = createaccount?.message
+    val message get() = createaccount?.message.orEmpty()
 
     class Result {
 
