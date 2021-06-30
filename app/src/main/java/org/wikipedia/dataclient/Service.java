@@ -354,6 +354,9 @@ public interface Service {
 
     @NonNull Observable<MwQueryResponse> getWatchlist();
 
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user")
+    @NonNull Observable<MwQueryResponse> getLastModified(@Query("titles") @NonNull String titles);
+
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
     @NonNull Observable<MwQueryResponse> getRevisionDetails(@Query("titles") @NonNull String titles,
                                                             @Query("rvstartid") @NonNull Long revisionStartId);
