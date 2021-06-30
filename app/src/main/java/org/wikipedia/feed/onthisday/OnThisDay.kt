@@ -1,7 +1,6 @@
 package org.wikipedia.feed.onthisday
 
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.json.annotations.Required
 
 class OnThisDay {
 
