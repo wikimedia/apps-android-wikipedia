@@ -16,8 +16,8 @@ object MediaHelper {
         return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getEntitiesByTitle(fileName, COMMONS_DB_NAME)
                 .map { entities ->
                     val captions = HashMap<String, String>()
-                    for (label in entities.first!!.labels().values) {
-                        captions[label.language()] = label.value()
+                    for (label in entities.first!!.labels?.values!!) {
+                        captions[label.language!!] = label.value!!
                     }
                     captions
                 }
