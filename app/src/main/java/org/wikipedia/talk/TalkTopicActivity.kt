@@ -389,8 +389,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         editFunnel.logSaved(newRevision)
 
         if (isNewTopic()) {
-            setResult(RESULT_EDIT_SUCCESS)
-            finish()
+            Intent().let {
+                it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
+                setResult(RESULT_EDIT_SUCCESS, it)
+                finish()
+            }
         } else {
             onInitialLoad()
         }
@@ -403,10 +406,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun maybeShowUndoSnackbar() {
-        if (showUndoSnackbar && !isNewTopic()) {
+        if (showUndoSnackbar) {
             FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
                 .setAnchorView(binding.talkReplyButton)
-                .setAction(R.string.talk_response_undo) {
+                .setAction(R.string.talk_snackbar_undo) {
                     binding.talkReplyButton.hide()
                     binding.talkProgressBar.visibility = View.VISIBLE
                     undoSave()
@@ -454,6 +457,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_TOPIC = "topicId"
         const val RESULT_EDIT_SUCCESS = 1
+        const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
