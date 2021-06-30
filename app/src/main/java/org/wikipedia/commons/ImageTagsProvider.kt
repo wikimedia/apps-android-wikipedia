@@ -15,7 +15,7 @@ object ImageTagsProvider {
                 .subscribeOn(Schedulers.io())
                 .onErrorReturnItem(Claims())
                 .flatMap { claims ->
-                    val ids = claims.claims()["P180"]?.map { it.mainSnak?.dataValue?.value }
+                    val ids = claims.claims["P180"]?.map { it.mainSnak?.dataValue?.value() }
                     if (ids.isNullOrEmpty()) {
                         Observable.just(Entities())
                     } else {

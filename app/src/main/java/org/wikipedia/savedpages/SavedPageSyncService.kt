@@ -44,7 +44,7 @@ class SavedPageSyncService : JobIntentService() {
             return
         }
         val pagesToSave = AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeForcedSave.toMutableList()
-        if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi()) &&
+        if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi) &&
                 Prefs.isDownloadingReadingListArticlesEnabled()) {
             pagesToSave.addAll(AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeSaved)
         }
