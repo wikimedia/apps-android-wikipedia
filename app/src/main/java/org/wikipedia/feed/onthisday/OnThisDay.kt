@@ -28,17 +28,19 @@ class OnThisDay {
     class Event {
 
         @Required
-        val text: String? = null
+        val text: String = ""
 
         @Required
         private val pages: MutableList<PageSummary>? = null
         val year = 0
 
-        fun pages(): List<PageSummary> {
-            val iterator: MutableIterator<*> = pages?.iterator()!!
-            while (iterator.hasNext()) {
-                if (iterator.next() == null) {
-                    iterator.remove()
+        fun pages(): List<PageSummary>? {
+            pages?.let {
+                val iterator: MutableIterator<*> = pages.iterator()
+                while (iterator.hasNext()) {
+                    if (iterator.next() == null) {
+                        iterator.remove()
+                    }
                 }
             }
             return pages
