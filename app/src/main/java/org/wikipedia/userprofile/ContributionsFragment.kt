@@ -178,7 +178,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     totalContributionCount += response.query?.userInfo()!!.editCount
                     val wikidataContributions = ArrayList<Contribution>()
                     val qLangMap = HashMap<String, HashSet<String>>()
-                    articleContributionsContinuation = response.continuation!!["uccontinue"]
+                    articleContributionsContinuation = response.continuation["uccontinue"]
                     response.query?.userContributions()?.forEach { contribution ->
                         var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                         var contributionDescription = contribution.comment
@@ -214,13 +214,13 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                             .subscribeOn(Schedulers.io())
                             .flatMap { entities ->
-                                for (entityKey in entities.entities().keys) {
-                                    val entity = entities.entities()[entityKey]!!
+                                for (entityKey in entities.entities.keys) {
+                                    val entity = entities.entities[entityKey]!!
                                     for (contribution in wikidataContributions) {
                                         val dbName = WikiSite.forLanguageCode(contribution.wikiSite.languageCode()).dbName()
-                                        if (contribution.qNumber == entityKey && entity.sitelinks().containsKey(dbName)) {
-                                            contribution.apiTitle = entity.sitelinks()[dbName]!!.title
-                                            contribution.displayTitle = entity.sitelinks()[dbName]!!.title
+                                        if (contribution.qNumber == entityKey && entity.sitelinks.containsKey(dbName)) {
+                                            contribution.apiTitle = entity.sitelinks[dbName]!!.title
+                                            contribution.displayTitle = entity.sitelinks[dbName]!!.title
                                         }
                                     }
                                 }
@@ -233,7 +233,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             .flatMap { response ->
                                 totalContributionCount += response.query?.userInfo()!!.editCount
                                 val contributions = ArrayList<Contribution>()
-                                imageContributionsContinuation = response.continuation!!["uccontinue"]
+                                imageContributionsContinuation = response.continuation["uccontinue"]
                                 response.query?.userContributions()?.forEach { contribution ->
                                     var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                                     var editType: Int = EDIT_TYPE_GENERIC
@@ -438,20 +438,23 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             L.e(t)
                         }))
             } else if (contribution.editType == EDIT_TYPE_IMAGE_CAPTION || contribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.apiTitle, contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io()),
-                        if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
-                                ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
-                                    .getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode())
-                                    .subscribeOn(Schedulers.io())
-                                    .flatMap { response ->
-                                        var label = contribution.qNumber
-                                        if (response.entities().containsKey(contribution.qNumber)) {
-                                            if (response.entities()[contribution.qNumber]!!.labels().containsKey(contribution.wikiSite.languageCode())) {
-                                                label = response.entities()[contribution.qNumber]!!.labels()[contribution.wikiSite.languageCode()]!!.value()
-                                            } else if (response.entities()[contribution.qNumber]!!.labels().containsKey(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)) {
-                                                label = response.entities()[contribution.qNumber]!!.labels()[AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE]!!.value()
-                                            }
+                disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.apiTitle,
+                    contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io()),
+                    if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
+                            ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
+                                .getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode())
+                                .subscribeOn(Schedulers.io())
+                                .flatMap { response ->
+                                    var label = contribution.qNumber
+                                    val entities = response.entities
+                                    val qNumber = entities[contribution.qNumber]
+                                    qNumber?.let {
+                                        if (it.labels.containsKey(contribution.wikiSite.languageCode())) {
+                                            label = it.labels[contribution.wikiSite.languageCode()]!!.value
+                                        } else if (it.labels.containsKey(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)) {
+                                            label = it.labels[AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE]!!.value
                                         }
+                                    }
                                         Observable.just(label)
                                     }), { commonsResponse, qLabel ->
 

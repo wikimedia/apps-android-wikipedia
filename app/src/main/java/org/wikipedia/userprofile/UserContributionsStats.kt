@@ -70,18 +70,18 @@ object UserContributionsStats {
         return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                 .subscribeOn(Schedulers.io())
                 .flatMap { entities ->
-                    if (entities.entities().isEmpty()) {
+                    if (entities.entities.isEmpty()) {
                         return@flatMap Observable.just(0L)
                     }
                     val langArticleMap = HashMap<String, ArrayList<String>>()
-                    entities.entities().forEach { (entityKey, entity) ->
+                    entities.entities.forEach { (entityKey, entity) ->
                         for (qKey in qLangMap.keys) {
                             if (qKey == entityKey) {
                                 for (lang in qLangMap[qKey]!!) {
                                     val dbName = WikiSite.forLanguageCode(lang).dbName()
-                                    if (entity.sitelinks().containsKey(dbName)) {
+                                    if (entity.sitelinks.containsKey(dbName)) {
                                         langArticleMap.getOrPut(lang, { ArrayList() })
-                                                .add(entity.sitelinks()[dbName]!!.title)
+                                                .add(entity.sitelinks[dbName]?.title!!)
                                     }
                                 }
                                 break
