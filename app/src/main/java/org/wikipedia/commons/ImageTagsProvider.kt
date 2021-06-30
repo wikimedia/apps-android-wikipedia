@@ -25,9 +25,9 @@ object ImageTagsProvider {
                 .subscribeOn(Schedulers.io())
                 .map { entities ->
                     val tags = HashMap<String, MutableList<String>>()
-                    entities.entities?.flatMap { it.value.labels?.values!! }!!
+                    entities.entities.flatMap { it.value.labels.values }
                         .forEach { label ->
-                            tags.getOrPut(label.language!!, { ArrayList() }).add(label.value!!)
+                            tags.getOrPut(label.language, { ArrayList() }).add(label.value)
                         }
                     tags
                 }

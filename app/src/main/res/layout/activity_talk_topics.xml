@@ -85,17 +85,38 @@
             android:layout_marginTop="-7dp"
             android:indeterminate="true" />
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/talkNewTopicButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp"
-            app:backgroundTint="?attr/colorAccent"
-            app:icon="@drawable/ic_add_gray_white_24dp"
-            app:iconTint="@android:color/white"
-            android:textColor="@android:color/white"
-            android:text="@string/talk_new_topic" />
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/talkNewTopicButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_gravity="end"
+                app:backgroundTint="?attr/colorAccent"
+                app:icon="@drawable/ic_add_gray_white_24dp"
+                app:iconTint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:text="@string/talk_new_topic" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/talkLastModified"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/color_group_22"
+                android:textColor="?android:attr/textColorPrimary"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:drawablePadding="12dp"
+                android:textSize="14sp"
+                android:gravity="center_vertical"
+                app:drawableStartCompat="@drawable/ic_history_24"
+                app:drawableTint="?android:attr/textColorTertiary"/>
+        </LinearLayout>
 
     </FrameLayout>
 
