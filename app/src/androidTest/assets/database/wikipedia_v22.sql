@@ -244,6 +244,4 @@ INSERT INTO `history` VALUES (5,'ru.wikipedia.org','Обама,_Барак',1624
 INSERT INTO `history` VALUES (6,'he.wikipedia.org','ברק_אובמה',1624996974763,6,NULL,'he',0,'ברק אובמה');
 CREATE TABLE editsummaries ( _id integer primary key, summary string, lastUsed integer );
 INSERT INTO `editsummaries` VALUES (1,'test1',1624996932893);
-CREATE TABLE android_metadata (locale TEXT);
-INSERT INTO `android_metadata` VALUES ('en_US');
 COMMIT;

@@ -76,18 +76,18 @@ abstract class AppDatabase : RoomDatabase() {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // convert Recent Searches table
                 database.execSQL("CREATE TABLE IF NOT EXISTS `RecentSearch` (`text` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, PRIMARY KEY(`text`))")
-                database.execSQL("INSERT INTO RecentSearch (text, timestamp) SELECT text, timestamp FROM recentsearches")
+                database.execSQL("INSERT OR REPLACE INTO RecentSearch (text, timestamp) SELECT text, timestamp FROM recentsearches")
                 database.execSQL("DROP TABLE recentsearches")
 
                 // convert Talk Pages Seen table
                 database.execSQL("CREATE TABLE IF NOT EXISTS `TalkPageSeen_temp` (`sha` TEXT NOT NULL, PRIMARY KEY(`sha`))")
-                database.execSQL("INSERT INTO TalkPageSeen_temp (sha) SELECT sha FROM talkpageseen")
+                database.execSQL("INSERT OR REPLACE INTO TalkPageSeen_temp (sha) SELECT sha FROM talkpageseen")
                 database.execSQL("DROP TABLE talkpageseen")
                 database.execSQL("ALTER TABLE TalkPageSeen_temp RENAME TO TalkPageSeen")
 
                 // convert Edit Summaries table
                 database.execSQL("CREATE TABLE IF NOT EXISTS `EditSummary` (`summary` TEXT NOT NULL, `lastUsed` INTEGER NOT NULL, PRIMARY KEY(`summary`))")
-                database.execSQL("INSERT INTO EditSummary (summary, lastUsed) SELECT summary, lastUsed FROM editsummaries")
+                database.execSQL("INSERT OR REPLACE INTO EditSummary (summary, lastUsed) SELECT summary, lastUsed FROM editsummaries")
                 database.execSQL("DROP TABLE editsummaries")
 
                 // convert Offline Objects table
@@ -113,7 +113,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 // convert Page Images table
                 database.execSQL("CREATE TABLE IF NOT EXISTS `PageImage` (`lang` TEXT NOT NULL, `namespace` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `imageName` TEXT, PRIMARY KEY(`lang`, `namespace`, `apiTitle`))")
-                database.execSQL("INSERT INTO PageImage (lang, namespace, apiTitle, imageName) SELECT lang, COALESCE(namespace,''), title, imageName FROM pageimages")
+                database.execSQL("INSERT OR REPLACE INTO PageImage (lang, namespace, apiTitle, imageName) SELECT lang, COALESCE(namespace,''), title, imageName FROM pageimages")
                 database.execSQL("DROP TABLE pageimages")
             }
         }

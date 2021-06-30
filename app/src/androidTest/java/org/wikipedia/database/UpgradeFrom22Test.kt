@@ -2,6 +2,7 @@ package org.wikipedia.database
 
 import androidx.room.Room
 import androidx.room.testing.MigrationTestHelper
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.hamcrest.CoreMatchers.`is`
@@ -26,33 +27,33 @@ class UpgradeFrom22Test {
 
     @Before
     fun createDb() {
-        val context = InstrumentationRegistry.getInstrumentation().context
-
         val helper = MigrationTestHelper(InstrumentationRegistry.getInstrumentation(),
             AppDatabase::class.java.canonicalName)
 
-        val sql = FileUtil.readFile(context.assets.open("database/wikipedia_v22.sql"))
+        var d1 = helper.createDatabase(DB_NAME, 22)
+        InstrumentationRegistry.getInstrumentation().context.assets.open("database/wikipedia_v22.sql").bufferedReader().lines().forEach {
+            d1.execSQL(it)
+        }
+        d1.close()
+        L.d(">>> " + d1.isOpen)
+
+        var d2 = helper.runMigrationsAndValidate(DB_NAME, 23, true, AppDatabase.MIGRATION_22_23)
+        d2.close()
+
+        L.d(">>> " + d2.isOpen)
 
 
-        var d = helper.createDatabase("wikipedia.db", 22)
-        d.beginTransaction()
-        d.execSQL(sql)
-        d.setTransactionSuccessful()
-        d.close()
 
-        d = helper.runMigrationsAndValidate("wikipedia.db", 23, true, AppDatabase.MIGRATION_22_23)
-
-        L.d(">>> " + d.isOpen)
-
-
-
-        db = Room.databaseBuilder(context, AppDatabase::class.java, "wikipedia.db")
-            //.createFromInputStream { context.assets.open("wikipedia_v22.db") }
-            .createFromAsset("databases/wikipedia_v22.db")
-            //.createFromFile(getRawFile("wikipedia_v22.db"))
+        db = Room.databaseBuilder(ApplicationProvider.getApplicationContext(), AppDatabase::class.java, DB_NAME)
+            .addMigrations(AppDatabase.MIGRATION_22_23)
             .build()
         recentSearchDao = db.recentSearchDao()
         readingListPageDao = db.readingListPageDao()
+
+
+
+        val recentSearches = recentSearchDao.getRecentSearches().blockingGet()
+        L.d(">>> " + recentSearches.size)
 
     }
 
@@ -71,5 +72,9 @@ class UpgradeFrom22Test {
         assertThat(recentSearches[0].text, `is`("Foo"))
         assertThat(recentSearches[1].text, `is`("Bar"))
 
+    }
+
+    companion object {
+        const val DB_NAME = "wikipedia.db"
     }
 }
