@@ -158,10 +158,10 @@ class CreateAccountActivity : BaseActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    if ("PASS" == response.status()) {
-                        finishWithUserResult(response.user()!!)
+                    if ("PASS" == response.status) {
+                        finishWithUserResult(response.user)
                     } else {
-                        throw CreateAccountException(response.message()!!)
+                        throw CreateAccountException(response.message)
                     }
                 }) { caught ->
                     L.e(caught.toString())
