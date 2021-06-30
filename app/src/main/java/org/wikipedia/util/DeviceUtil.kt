@@ -8,15 +8,22 @@ import android.os.Build
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
+import android.view.Window
 import android.view.accessibility.AccessibilityManager
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 
 object DeviceUtil {
+    private inline val Window.insetsControllerCompat: WindowInsetsControllerCompat?
+        get() = WindowCompat.getInsetsController(this, decorView)
+
     /**
      * Attempt to display the Android keyboard.
      *
@@ -28,8 +35,7 @@ object DeviceUtil {
      */
     @JvmStatic
     fun showSoftKeyboard(view: View) {
-        val keyboard = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        keyboard.toggleSoftInput(0, 0)
+        ViewCompat.getWindowInsetsController(view)?.show(WindowInsetsCompat.Type.ime())
     }
 
     /**
@@ -42,40 +48,24 @@ object DeviceUtil {
      */
     @JvmStatic
     fun hideSoftKeyboard(activity: Activity) {
-        hideSoftKeyboard(activity.window.decorView)
+        activity.window.insetsControllerCompat?.hide(WindowInsetsCompat.Type.ime())
     }
 
     @JvmStatic
     fun hideSoftKeyboard(view: View) {
-        val keyboard = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        // Not using getCurrentFocus as that sometimes is null, but the keyboard is still up.
-        keyboard.hideSoftInputFromWindow(view.windowToken, 0)
+        ViewCompat.getWindowInsetsController(view)?.hide(WindowInsetsCompat.Type.ime())
     }
 
     fun setLightSystemUiVisibility(activity: Activity) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!WikipediaApp.getInstance().currentTheme.isDark) {
-                // this make the system recognizes the status bar is light and will make status bar icons become visible
-                activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            } else {
-                resetSystemUiVisibility(activity)
-            }
-        }
-    }
-
-    private fun resetSystemUiVisibility(activity: Activity) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            activity.window.decorView.systemUiVisibility = 0
-        }
+        // this make the system recognizes the status bar light and will make status bar icons become visible
+        // if the theme is not dark
+        activity.window.insetsControllerCompat?.isAppearanceLightStatusBars = !WikipediaApp.getInstance().currentTheme.isDark
     }
 
     @JvmStatic
     fun updateStatusBarTheme(activity: Activity, toolbar: Toolbar?, reset: Boolean) {
-        if (reset) {
-            resetSystemUiVisibility(activity)
-        } else {
-            setLightSystemUiVisibility(activity)
-        }
+        activity.window.insetsControllerCompat?.isAppearanceLightStatusBars = !reset ||
+                !WikipediaApp.getInstance().currentTheme.isDark
         toolbar?.navigationIcon?.colorFilter = BlendModeColorFilterCompat
                 .createBlendModeColorFilterCompat(if (reset) Color.WHITE
                 else ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color), BlendModeCompat.SRC_IN)

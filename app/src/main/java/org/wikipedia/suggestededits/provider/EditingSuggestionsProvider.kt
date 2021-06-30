@@ -29,9 +29,6 @@ object EditingSuggestionsProvider {
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
 
-    private val articlesWithMissingImagesCache = mutableListOf<String>()
-    private var articlesWithMissingImagesCacheLang: String = ""
-
     private const val MAX_RETRY_LIMIT: Long = 50
 
     fun getNextArticleWithMissingDescription(wiki: WikiSite, retryLimit: Long = MAX_RETRY_LIMIT): Observable<PageSummary> {
@@ -112,16 +109,15 @@ object EditingSuggestionsProvider {
                                     continue
                                 }
                                 val entity = page.entity
-                                if (entity == null ||
-                                        entity.descriptions!!.containsKey(targetLang) ||
-                                        sourceLangMustExist && !entity.descriptions!!.containsKey(sourceWiki.languageCode()) ||
-                                        !entity.sitelinks!!.containsKey(sourceWiki.dbName()) ||
-                                        !entity.sitelinks!!.containsKey(targetWiki.dbName())) {
+                                if (entity == null || entity.descriptions.containsKey(targetLang) ||
+                                    sourceLangMustExist && !entity.descriptions.containsKey(sourceWiki.languageCode()) ||
+                                    !entity.sitelinks.containsKey(sourceWiki.dbName()) ||
+                                    !entity.sitelinks.containsKey(targetWiki.dbName())) {
                                     continue
                                 }
-                                val sourceTitle = PageTitle(entity.sitelinks!![sourceWiki.dbName()]!!.title, sourceWiki)
-                                sourceTitle.description = entity.descriptions!![sourceWiki.languageCode()]?.value
-                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks!![targetWiki.dbName()]!!.title, targetWiki) to sourceTitle)
+                                val sourceTitle = PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki)
+                                sourceTitle.description = entity.descriptions[sourceWiki.languageCode()]?.value
+                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks[targetWiki.dbName()]!!.title, targetWiki) to sourceTitle)
                             }
                             if (!articlesWithTranslatableDescriptionCache.empty()) {
                                 targetAndSourcePageTitles = articlesWithTranslatableDescriptionCache.pop()
