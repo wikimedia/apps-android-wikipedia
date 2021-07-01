@@ -117,8 +117,8 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                 onThisDay = response
                 onThisDay?.let { onThisDayResponse ->
                     binding.eventsRecycler.visibility = View.VISIBLE
-                    binding.eventsRecycler.adapter = RecyclerAdapter(onThisDayResponse.events(), wiki)
-                    val events = onThisDayResponse.events()
+                    binding.eventsRecycler.adapter = RecyclerAdapter(onThisDayResponse.allEvents(), wiki)
+                    val events = onThisDayResponse.allEvents()
                     positionToScrollTo = events.indices.find { yearOnCardView == events[it].year } ?: 0
                     val beginningYear = events[events.size - 1].year
                     binding.dayInfo.text = getString(R.string.events_count_text, events.size.toString(),
