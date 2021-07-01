@@ -22,6 +22,7 @@
 * Ssola
 * Toniher
 * Unapersona
+* Vfc
 * Xavier Dengra
 -->
 <resources>
@@ -376,12 +377,12 @@
   <string name="menu_save_all_tabs">Desa totes les pestanyes</string>
   <string name="error_blocked_title">S\'ha blocat el vostre nom d\'usuari o adreça IP.</string>
   <string name="error_blocked_by">El blocatge ha estat fet per &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
-  <string name="error_blocked_reason">El motiu donat: %s</string>
+  <string name="error_blocked_reason">El motiu: %s</string>
   <string name="error_blocked_start">Inici del blocatge: %s</string>
   <string name="error_blocked_expiry">Expiració del blocatge: %s</string>
   <string name="error_blocked_id">ID del blocatge: %s</string>
-  <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador&lt;/a&gt; per a discutir el blocatge.</string>
-  <string name="error_blocked_footer_no_blocker">Podeu contactar un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador&lt;/a&gt; per a discutir el blocatge.</string>
+  <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador o administradora&lt;/a&gt; per a discutir el blocatge.</string>
+  <string name="error_blocked_footer_no_blocker">Podeu contactar un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt; administrador o una administradora&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>

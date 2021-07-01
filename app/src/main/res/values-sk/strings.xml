@@ -1029,6 +1029,7 @@
   <string name="talk_message_hint">Napísať správu</string>
   <string name="talk_message_empty">Správa nemôže byť prázdna.</string>
   <string name="talk_subject_empty">Predmet nemôže byť prázdny.</string>
+  <string name="talk_last_modified">&lt;b&gt;Naposledy upravil/a %1$s&lt;/b&gt; %2$s</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
   <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>
