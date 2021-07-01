@@ -8,7 +8,6 @@ class SiteMatrix : MwResponse() {
 
     val sitematrix: JsonObject? = null
 
-
     inner class SiteInfo {
 
         val code: String = ""
