@@ -1003,6 +1003,7 @@
   <string name="talk_message_hint">Composer un message</string>
   <string name="talk_message_empty">Le message ne peut pas être vide.</string>
   <string name="talk_subject_empty">Le sujet ne peut pas être vide.</string>
+  <string name="talk_last_modified">&lt;b&gt;Dernière modification le %1$s&lt;/b&gt; par %2$s</string>
   <string name="menu_option_share_edit">Partager la modification</string>
   <string name="menu_option_user_profile">Profil de %s</string>
   <string name="menu_option_user_contributions">Contributions de %s</string>
