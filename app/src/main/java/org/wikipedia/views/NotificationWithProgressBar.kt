@@ -93,12 +93,12 @@ class NotificationWithProgressBar {
     }
 
     fun cancelNotification(context: Context) {
-        context.getSystemService<NotificationManager>()!!.cancel(notificationId)
+        context.getSystemService<NotificationManager>()?.cancel(notificationId)
     }
 
     private fun showNotification(context: Context, builder: NotificationCompat.Builder) {
         if (!isCanceled) {
-            context.getSystemService<NotificationManager>()!!.notify(notificationId, builder.build())
+            context.getSystemService<NotificationManager>()?.notify(notificationId, builder.build())
         }
     }
 

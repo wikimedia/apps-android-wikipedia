@@ -131,7 +131,7 @@ object NotificationPresenter {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(longText))
-        context.getSystemService<NotificationManager>()!!.notify(id, builder.build())
+        context.getSystemService<NotificationManager>()?.notify(id, builder.build())
     }
 
     private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
