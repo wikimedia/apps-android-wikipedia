@@ -41,7 +41,7 @@ class FeaturedImageCard(private val featuredImage: FeaturedImage,
     }
 
     fun filename(): String {
-        return featuredImage.title!!
+        return featuredImage.title
     }
 
     fun description(): String {

@@ -26,7 +26,7 @@ class MediaDownloadReceiver : BroadcastReceiver() {
     var callback: Callback? = null
 
     fun download(context: Context, featuredImage: FeaturedImage) {
-        val filename = FileUtil.sanitizeFileName(featuredImage.title!!)
+        val filename = FileUtil.sanitizeFileName(featuredImage.title)
         val targetDirectory = Environment.DIRECTORY_PICTURES
         performDownloadRequest(context, featuredImage.original.source.toUri(), targetDirectory, filename, null)
     }
