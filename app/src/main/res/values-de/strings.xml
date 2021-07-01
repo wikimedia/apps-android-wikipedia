@@ -991,6 +991,7 @@
   <string name="talk_message_hint">Nachricht schreiben</string>
   <string name="talk_message_empty">Die Nachricht darf nicht leer sein.</string>
   <string name="talk_subject_empty">Der Betreff darf nicht leer sein.</string>
+  <string name="talk_last_modified">&lt;b&gt;Zuletzt bearbeitet %1$s&lt;/b&gt; von %2$s</string>
   <string name="menu_option_share_edit">Bearbeitung teilen</string>
   <string name="menu_option_user_profile">Profil von %s</string>
   <string name="menu_option_user_contributions">Beiträge von %s</string>
