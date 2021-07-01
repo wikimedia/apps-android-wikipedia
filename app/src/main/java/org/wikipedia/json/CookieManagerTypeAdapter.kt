@@ -27,7 +27,7 @@ class CookieManagerTypeAdapter : TypeAdapter<SharedPreferenceCookieManager>() {
 
     @Throws(IOException::class)
     override fun read(reader: JsonReader): SharedPreferenceCookieManager {
-        val map = mutableMapOf<String, List<Cookie>>()
+        val map = mutableMapOf<String, MutableList<Cookie>>()
         reader.beginObject()
         while (reader.hasNext()) {
             val key = reader.nextName()
