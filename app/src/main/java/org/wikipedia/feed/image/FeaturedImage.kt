@@ -14,7 +14,6 @@ class FeaturedImage : GalleryItem(), PostProcessable {
     @Required
     val image: ImageInfo? = null
 
-
     override fun postProcess() {
         titles = Titles(title!!, addUnderscores(title), title)
         original.setSource(image!!.source)
