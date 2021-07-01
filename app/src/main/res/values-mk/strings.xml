@@ -773,7 +773,7 @@
   <string name="suggested_edits_image_zoom_tooltip">Штипнете за да ја приближите сликата.</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво, %s&lt;/b&gt;. Подолу погледајте како брзо и лесно начини да помогнете на Википедија. Штом започнете, ќе забележите каква разлика правите. Среќно уредување!</string>
-  <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и добие контекст.</string>
+  <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и да добие контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Ставете караток опис на статија, давајќи им претстава на читателите за што се работи.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси досега.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
@@ -963,6 +963,7 @@
   <string name="talk_message_hint">Напиши порака</string>
   <string name="talk_message_empty">Пораката не може да стои празна.</string>
   <string name="talk_subject_empty">Насловот не може да стои празен.</string>
+  <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
   <string name="menu_option_user_profile">Профил на %s</string>
   <string name="menu_option_user_contributions">Придонеси на %s</string>
