@@ -342,7 +342,7 @@ class LangLinksActivity : BaseActivity() {
     }
 
     private fun getCanonicalName(code: String): String? {
-        var canonicalName = siteInfoList?.find { it.code() == code }?.localName()
+        var canonicalName = siteInfoList?.find { it.code == code }?.localname
         if (canonicalName.isNullOrEmpty()) {
             canonicalName = app.language().getAppLanguageCanonicalName(code)
         }
