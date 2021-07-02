@@ -31,19 +31,12 @@ object ViewUtil {
     val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(),
             WhiteBackgroundTransformation(), ROUNDED_CORNERS)
 
-    @JvmStatic
-    fun loadImageWithRoundedCorners(view: ImageView, url: String?) {
-        loadImage(view, url, true)
-    }
-
-    @JvmStatic
-    fun loadImageWithRoundedCorners(view: ImageView, url: String?, largeRoundedSize: Boolean) {
+    fun loadImageWithRoundedCorners(view: ImageView, url: String?, largeRoundedSize: Boolean = false) {
         loadImage(view, url, true, largeRoundedSize)
     }
 
-    @JvmStatic
-    @JvmOverloads
-    fun loadImage(view: ImageView, url: String?, roundedCorners: Boolean = false, largeRoundedSize: Boolean = false, force: Boolean = false,
+    fun loadImage(view: ImageView, url: String?, roundedCorners: Boolean = false,
+                  largeRoundedSize: Boolean = false, force: Boolean = false,
                   listener: RequestListener<Drawable?>? = null) {
         val placeholder = getPlaceholderDrawable(view.context)
         var builder = Glide.with(view)
@@ -66,14 +59,12 @@ object ViewUtil {
         return ColorDrawable(getThemedColor(context, R.attr.material_theme_border_color))
     }
 
-    @JvmStatic
     fun setCloseButtonInActionMode(context: Context, actionMode: ActionMode) {
         val binding = ViewActionModeCloseButtonBinding.inflate(LayoutInflater.from(context))
         actionMode.customView = binding.root
         binding.closeButton.setOnClickListener { actionMode.finish() }
     }
 
-    @JvmStatic
     fun formatLangButton(langButton: TextView, langCode: String,
                          langButtonTextSizeSmaller: Int, langButtonTextSizeLarger: Int) {
         val langCodeStandardLength = 3
@@ -88,7 +79,6 @@ object ViewUtil {
         langButton.textSize = langButtonTextSizeLarger.toFloat()
     }
 
-    @JvmStatic
     fun adjustImagePlaceholderHeight(containerWidth: Float, thumbWidth: Float, thumbHeight: Float): Int {
         return (Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat() / thumbWidth * thumbHeight * containerWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat()).toInt()
     }

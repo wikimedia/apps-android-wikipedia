@@ -17,18 +17,17 @@ import org.wikipedia.util.ThrowableUtil.isEmptyException
 import org.wikipedia.util.ThrowableUtil.isOffline
 import org.wikipedia.util.ThrowableUtil.isTimeout
 
-class WikiErrorView : LinearLayout {
-
+class WikiErrorView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : LinearLayout(context, attrs, defStyleAttr) {
     var binding = ViewWikiErrorBinding.inflate(LayoutInflater.from(context), this)
     var retryClickListener: OnClickListener? = null
     var backClickListener: OnClickListener? = null
     var nextClickListener: OnClickListener? = null
     val contentTopOffset get() = binding.viewWikiErrorArticleContentTopOffset
     val tabLayoutOffset get() = binding.viewWikiErrorArticleTabLayoutOffset
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
         val movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()

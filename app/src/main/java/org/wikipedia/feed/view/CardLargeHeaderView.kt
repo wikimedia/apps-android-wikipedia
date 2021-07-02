@@ -18,11 +18,11 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
 import org.wikipedia.views.FaceAndColorDetectImageView.OnImageLoadListener
 
-class CardLargeHeaderView : ConstraintLayout {
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-
+class CardLargeHeaderView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : ConstraintLayout(context, attrs, defStyleAttr) {
     val binding = ViewCardHeaderLargeBinding.inflate(LayoutInflater.from(context), this)
 
     init {

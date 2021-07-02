@@ -7,14 +7,14 @@ import android.widget.FrameLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewDescriptionEditSuccessBinding
 
-class DescriptionEditSuccessView : FrameLayout {
+class DescriptionEditSuccessView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : FrameLayout(context, attrs, defStyleAttr) {
     interface Callback {
         fun onDismissClick()
     }
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     private val binding = ViewDescriptionEditSuccessBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null

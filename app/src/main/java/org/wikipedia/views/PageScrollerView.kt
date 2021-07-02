@@ -6,7 +6,11 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatImageView
 
-class PageScrollerView : AppCompatImageView {
+class PageScrollerView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : AppCompatImageView(context, attrs, defStyleAttr) {
     interface Callback {
         fun onClick()
         fun onScrollStart()
@@ -19,10 +23,6 @@ class PageScrollerView : AppCompatImageView {
     private var prevY = 0f
     private var startMillis: Long = 0
     var callback: Callback? = null
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {

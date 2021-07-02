@@ -21,7 +21,11 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.*
 import java.util.*
 
-class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
+class DescriptionEditView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : LinearLayout(context, attrs, defStyleAttr), MlKitLanguageDetector.Callback {
     interface Callback {
         fun onSaveClick()
         fun onHelpClick()
@@ -29,10 +33,6 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         fun onBottomBarClick()
         fun onVoiceInputClick()
     }
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     private lateinit var pageTitle: PageTitle
     private lateinit var pageSummaryForEdit: PageSummaryForEdit

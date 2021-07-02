@@ -15,16 +15,15 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemFeedContentTypeLangSelectDialogBinding
 import org.wikipedia.views.DefaultViewHolder
 
-class ConfigureItemLanguageDialogView : FrameLayout {
-
+class ConfigureItemLanguageDialogView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : FrameLayout(context, attrs, defStyleAttr) {
     private val binding = ItemFeedContentTypeLangSelectDialogBinding.inflate(LayoutInflater.from(context), this, true)
 
     private lateinit var langList: List<String>
     private lateinit var disabledList: MutableList<String>
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     init {
         layoutParams = ViewGroup.LayoutParams(

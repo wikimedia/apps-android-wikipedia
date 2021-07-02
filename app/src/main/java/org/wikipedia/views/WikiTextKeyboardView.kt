@@ -8,7 +8,11 @@ import android.view.inputmethod.InputConnection
 import android.widget.FrameLayout
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 
-class WikiTextKeyboardView : FrameLayout {
+class WikiTextKeyboardView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : FrameLayout(context, attrs, defStyleAttr) {
     fun interface Callback {
         fun onPreviewLink(title: String)
     }
@@ -16,10 +20,6 @@ class WikiTextKeyboardView : FrameLayout {
     private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
     var editText: PlainPasteEditText? = null
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
         binding.wikitextButtonUndo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
