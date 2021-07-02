@@ -292,7 +292,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                     ShareUtil.shareImage(requireContext(), bitmap, File(thumbUrl).name,
                             ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
                 } else {
-                    FeedbackUtil.showMessage(this@MainFragment, getString(R.string.gallery_share_error, card.baseImage().title()))
+                    FeedbackUtil.showMessage(this@MainFragment, getString(R.string.gallery_share_error, card.baseImage().title))
                 }
             }
         }[requireContext()]

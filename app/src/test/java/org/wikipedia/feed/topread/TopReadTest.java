@@ -28,10 +28,10 @@ public class TopReadTest {
     @Test public void testUnmarshalManyArticles() throws Throwable {
         TopRead subject = unmarshal("most_read.json");
 
-        assertThat(subject.date(), is(date("2016-06-01Z")));
+        assertThat(subject.getDate(), is(date("2016-06-01Z")));
 
-        assertThat(subject.articles(), notNullValue());
-        assertThat(subject.articles().size(), is(40));
+        assertThat(subject.getArticles(), notNullValue());
+        assertThat(subject.getArticles().size(), is(40));
     }
 
     @NonNull private Date date(@NonNull String str) throws Throwable {

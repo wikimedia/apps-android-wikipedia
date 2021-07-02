@@ -2,14 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="288dp"
+    android:minHeight="300dp"
     android:orientation="vertical">
 
-    <org.wikipedia.views.FaceAndColorDetectImageView
-        android:id="@+id/horizontal_scroll_list_item_image"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="164dp"
-        android:transitionName="@string/transition_news_item" />
+        android:layout_height="164dp">
+
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/horizontal_scroll_list_item_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:transitionName="@string/transition_news_item" />
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/horizontal_scroll_list_item_text"

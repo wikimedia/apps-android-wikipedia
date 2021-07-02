@@ -53,8 +53,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private var topicId: Int = -1
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
+    private var showUndoSnackbar = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
+    private var revisionForUndo: Long = 0
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler.onUrlClick(url, null, "")
     }
@@ -172,6 +174,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.replyTextLayout.visibility = View.GONE
             binding.replyTextLayout.hint = getString(R.string.talk_reply_hint)
             binding.licenseText.visibility = View.GONE
+            DeviceUtil.hideSoftKeyboard(this)
             loadTopic()
         }
     }
@@ -216,6 +219,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkSubjectView.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
         binding.talkSubjectView.visibility = View.VISIBLE
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+
+        maybeShowUndoSnackbar()
     }
 
     private fun updateOnError(t: Throwable) {
@@ -324,6 +329,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }))
     }
 
+    private fun undoSave() {
+        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
+            .subscribeOn(Schedulers.io())
+            .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, revisionForUndo, token) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                waitForUpdatedRevision(it.edit!!.newRevId)
+            }, {
+                onSaveError(it)
+            }))
+    }
+
     private fun doSave(token: String, subject: String, body: String) {
         disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
                 if (isNewTopic()) "new" else topicId.toString(),
@@ -334,6 +352,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    showUndoSnackbar = true
                     waitForUpdatedRevision(it.edit!!.newRevId)
                 }, {
                     onSaveError(it)
@@ -357,6 +376,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    revisionForUndo = it
                     onSaveSuccess(it)
                 }, { t ->
                     L.e(t)
@@ -370,8 +390,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         editFunnel.logSaved(newRevision)
 
         if (isNewTopic()) {
-            setResult(RESULT_EDIT_SUCCESS)
-            finish()
+            Intent().let {
+                it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
+                setResult(RESULT_EDIT_SUCCESS, it)
+                finish()
+            }
         } else {
             onInitialLoad()
         }
@@ -381,6 +404,20 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         editFunnel.logError(t.message)
         binding.talkProgressBar.visibility = View.GONE
         FeedbackUtil.showError(this, t)
+    }
+
+    private fun maybeShowUndoSnackbar() {
+        if (showUndoSnackbar) {
+            FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
+                .setAnchorView(binding.talkReplyButton)
+                .setAction(R.string.talk_snackbar_undo) {
+                    binding.talkReplyButton.hide()
+                    binding.talkProgressBar.visibility = View.VISIBLE
+                    undoSave()
+                }
+                .show()
+            showUndoSnackbar = false
+        }
     }
 
     private fun updateEditLicenseText() {
@@ -421,6 +458,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_TOPIC = "topicId"
         const val RESULT_EDIT_SUCCESS = 1
+        const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)

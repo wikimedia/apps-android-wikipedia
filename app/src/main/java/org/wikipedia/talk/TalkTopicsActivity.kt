@@ -18,6 +18,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.TalkFunnel
+import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -68,7 +69,8 @@ class TalkTopicsActivity : BaseActivity() {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel.logNewTopicClick()
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource))
+            startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource),
+                Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY)
         }
 
         binding.talkRefreshView.setOnRefreshListener {
@@ -118,6 +120,18 @@ class TalkTopicsActivity : BaseActivity() {
                     loadTopics()
                 }
             }
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_EDIT_SUCCESS) {
+            val newRevisionId = data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
+            if (newRevisionId > 0) {
+                FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
+                    .setAnchorView(binding.talkNewTopicButton)
+                    .setAction(R.string.talk_snackbar_undo) {
+                        binding.talkNewTopicButton.hide()
+                        binding.talkProgressBar.visibility = View.VISIBLE
+                        undoSave(newRevisionId)
+                    }
+                    .show()
+            }
         }
     }
 
@@ -129,22 +143,26 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_change_language) {
-            startActivityForResult(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY),
+        when (item.itemId) {
+            R.id.menu_change_language -> {
+                startActivityForResult(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
-            return true
-        } else if (item.itemId == R.id.menu_view_in_browser) {
-            UriUtil.visitInExternalBrowser(this, Uri.parse(pageTitle.uri))
-            return true
-        } else if (item.itemId == R.id.menu_view_user_page) {
-            val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode()) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
-            startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
-            return true
+                return true
+            }
+            R.id.menu_view_in_browser -> {
+                UriUtil.visitInExternalBrowser(this, Uri.parse(pageTitle.uri))
+                return true
+            }
+            R.id.menu_view_user_page -> {
+                val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode()) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
+                startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
     }
 
-    private fun loadTopics() {
+    private fun loadTopics(newRevision: Long = 0) {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
         binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
@@ -170,12 +188,22 @@ class TalkTopicsActivity : BaseActivity() {
                     binding.talkProgressBar.visibility = View.GONE
                     binding.talkRefreshView.isRefreshing = false
                 }
+                .map { response ->
+                    if (newRevision != 0L && response.revision < newRevision) {
+                        throw IllegalStateException()
+                    }
+                    response
+                }
+                .retry(20) { t ->
+                    (t is IllegalStateException) || (t is HttpStatusException && t.code == 404)
+                }
                 .subscribe({ response ->
                     topics.clear()
                     for (topic in response.topics!!) {
                         if (topic.id == 0 && topic.html!!.trim().isEmpty()) {
                             continue
                         }
+                        L.d("loadTopics add  " + topic.html)
                         topics.add(topic)
                     }
                     updateOnSuccess()
@@ -219,6 +247,19 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkLastModified.visibility = View.GONE
         // Allow them to create a new topic anyway
         binding.talkNewTopicButton.show()
+    }
+
+    private fun undoSave(newRevisionId: Long) {
+        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
+            .subscribeOn(Schedulers.io())
+            .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, newRevisionId, token) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                loadTopics(it.edit!!.newRevId)
+            }, {
+                updateOnError(it)
+            }))
     }
 
     internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {

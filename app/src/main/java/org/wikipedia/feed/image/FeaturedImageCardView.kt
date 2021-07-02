@@ -2,7 +2,6 @@ package org.wikipedia.feed.image
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import org.wikipedia.databinding.ViewCardFeaturedImageBinding
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
@@ -25,7 +24,7 @@ class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImag
             field = value
             value?.let {
                 image(it.baseImage())
-                description(it.description().orEmpty())
+                description(it.description())
                 header(it)
                 setClickListeners()
             }
@@ -63,9 +62,30 @@ class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImag
     }
 
     private fun setClickListeners() {
-        binding.viewFeaturedImageCardContentContainer.setOnClickListener(CardClickListener())
-        binding.viewFeaturedImageCardDownloadButton.setOnClickListener(CardDownloadListener())
-        binding.viewFeaturedImageCardShareButton.setOnClickListener(CardShareListener())
+        binding.viewFeaturedImageCardContentContainer.setOnClickListener {
+            card?.let {
+                callback?.onFeaturedImageSelected(it)
+            }
+        }
+
+        binding.viewFeaturedImageCardContentContainer.setOnLongClickListener {
+            if (ImageZoomHelper.isZooming) {
+                ImageZoomHelper.dispatchCancelEvent(binding.viewFeaturedImageCardContentContainer)
+            }
+            true
+        }
+
+        binding.viewFeaturedImageCardDownloadButton.setOnClickListener {
+            card?.let {
+                callback?.onDownloadImage(it.baseImage())
+            }
+        }
+
+        binding.viewFeaturedImageCardShareButton.setOnClickListener {
+            card?.let {
+                callback?.onShareImage(it)
+            }
+        }
     }
 
     private fun header(card: FeaturedImageCard) {
@@ -73,29 +93,5 @@ class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImag
             .setLangCode(null)
             .setCard(card)
             .setCallback(callback)
-    }
-
-    private inner class CardClickListener : OnClickListener {
-        override fun onClick(v: View) {
-            card?.let {
-                callback?.onFeaturedImageSelected(it)
-            }
-        }
-    }
-
-    private inner class CardDownloadListener : OnClickListener {
-        override fun onClick(v: View) {
-            card?.let {
-                callback?.onDownloadImage(it.baseImage())
-            }
-        }
-    }
-
-    private inner class CardShareListener : OnClickListener {
-        override fun onClick(v: View) {
-            card?.let {
-                callback?.onShareImage(it)
-            }
-        }
     }
 }
