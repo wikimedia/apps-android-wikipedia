@@ -29,7 +29,7 @@ class FeaturedImageCard(private val featuredImage: FeaturedImage,
     }
 
     override fun dismissHashCode(): Int {
-        return featuredImage.title().hashCode()
+        return featuredImage.title.hashCode()
     }
 
     fun baseImage(): FeaturedImage {
@@ -41,7 +41,7 @@ class FeaturedImageCard(private val featuredImage: FeaturedImage,
     }
 
     fun filename(): String {
-        return featuredImage.title()
+        return featuredImage.title!!
     }
 
     fun description(): String {
