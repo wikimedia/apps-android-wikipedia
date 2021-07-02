@@ -25,7 +25,7 @@ public class TopReadItemCardTest {
     }
 
     @Test public void testTitleNormalization() {
-        List<TopReadItemCard> topReadItemCards = TopReadListCard.toItems(content.articles(), TEST);
+        List<TopReadItemCard> topReadItemCards = TopReadListCard.toItems(content.getArticles(), TEST);
         for (TopReadItemCard topReadItemCard : topReadItemCards) {
             assertThat(topReadItemCard.title(), not(containsString("_")));
         }

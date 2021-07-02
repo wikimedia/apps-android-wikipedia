@@ -313,5 +313,12 @@ class ImageZoomHelper(activity: Activity) {
         fun clearViewZoomable(view: View) {
             view.tag = getIntTag(view) and FLAG_ZOOMABLE.inv()
         }
+
+        fun dispatchCancelEvent(view: View) {
+            // Dispatch a fake CANCEL event to the container view, so that the long-press ripple is cancelled.
+            view.dispatchTouchEvent(
+                MotionEvent.obtain(0, 0, MotionEvent.ACTION_CANCEL, 0f, 0f, 0)
+            )
+        }
     }
 }

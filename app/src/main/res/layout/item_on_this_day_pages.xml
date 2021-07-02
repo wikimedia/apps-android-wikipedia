@@ -11,13 +11,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <org.wikipedia.views.FaceAndColorDetectImageView
-            android:id="@+id/image"
-            style="@style/ImageViewDefault"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="148dp"
-            android:scaleType="centerCrop"
-            android:transitionName="@string/transition_article_image" />
+            android:layout_height="148dp">
+
+            <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/image"
+                style="@style/ImageViewDefault"
+                android:layout_width="match_parent"
+                android:layout_height="148dp"
+                android:scaleType="centerCrop"
+                android:transitionName="@string/transition_article_image" />
+
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
