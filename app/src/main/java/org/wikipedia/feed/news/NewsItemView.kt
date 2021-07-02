@@ -13,6 +13,7 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.WikiCardView
 
 class NewsItemView(context: Context) : WikiCardView(context) {
@@ -50,6 +51,7 @@ class NewsItemView(context: Context) : WikiCardView(context) {
         newsItem.thumb()?.let {
             binding.horizontalScrollListItemImage.visibility = VISIBLE
             binding.horizontalScrollListItemImage.loadImage(it)
+            ImageZoomHelper.setViewZoomable(binding.horizontalScrollListItemImage)
         } ?: run {
             binding.horizontalScrollListItemImage.visibility = GONE
             binding.horizontalScrollListItemText.maxLines = 10

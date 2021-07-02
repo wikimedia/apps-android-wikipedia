@@ -1,13 +1,10 @@
 package org.wikipedia.feed.topread
 
-import org.wikipedia.json.annotations.Required
 import java.util.*
 
 class TopRead {
 
-    @Required
-    val date: Date? = null
+    val date: Date = Date()
 
-    @Required
-    val articles: List<TopReadArticles>? = null
+    val articles: List<TopReadArticles> = emptyList()
 }

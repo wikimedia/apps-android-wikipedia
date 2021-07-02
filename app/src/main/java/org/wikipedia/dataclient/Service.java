@@ -240,6 +240,12 @@ public interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
+    @NonNull Observable<Edit> postUndoEdit(@NonNull @Field("title") String title,
+                                           @Field("undo") long revision,
+                                           @NonNull @Field("token") String token);
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=edit")
     @SuppressWarnings("checkstyle:parameternumber")
     @NonNull Observable<Edit> postEditSubmit(@NonNull @Field("title") String title,
                                              @NonNull @Field("section") String section,

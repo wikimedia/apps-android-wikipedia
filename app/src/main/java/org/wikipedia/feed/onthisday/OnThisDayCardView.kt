@@ -26,6 +26,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
+import org.wikipedia.views.ImageZoomHelper
 
 class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(context), CardFooterView.Callback {
 
@@ -110,6 +111,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                 } else {
                     binding.eventLayout.page.image.visibility = VISIBLE
                     binding.eventLayout.page.image.loadImage(Uri.parse(page.thumbnailUrl))
+                    ImageZoomHelper.setViewZoomable(binding.eventLayout.page.image)
                 }
                 binding.eventLayout.page.description.text = page.description
                 binding.eventLayout.page.description.visibility =
@@ -124,39 +126,70 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                     )
                 }
                 binding.eventLayout.page.root.setOnLongClickListener { view ->
-                    val pageTitle = page.getPageTitle(card.wikiSite())
-                    val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD)
-                    LongPressMenu(view, true, object : LongPressMenu.Callback {
-                        override fun onOpenLink(entry: HistoryEntry) {
-                            callback?.onSelectPage(card, entry, TransitionUtil.getSharedElements(context, binding.eventLayout.page.image))
-                        }
+                    if (ImageZoomHelper.isZooming) {
+                        ImageZoomHelper.dispatchCancelEvent(binding.eventLayout.page.root)
+                    } else {
+                        val pageTitle = page.getPageTitle(card.wikiSite())
+                        val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD)
+                        LongPressMenu(view, true, object : LongPressMenu.Callback {
+                            override fun onOpenLink(entry: HistoryEntry) {
+                                callback?.onSelectPage(
+                                    card,
+                                    entry,
+                                    TransitionUtil.getSharedElements(
+                                        context,
+                                        binding.eventLayout.page.image
+                                    )
+                                )
+                            }
 
-                        override fun onOpenInNewTab(entry: HistoryEntry) {
-                            callback?.onSelectPage(card, entry, true)
-                        }
+                            override fun onOpenInNewTab(entry: HistoryEntry) {
+                                callback?.onSelectPage(card, entry, true)
+                            }
 
-                        override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                            if (addToDefault) {
-                                ReadingListBehaviorsUtil.addToDefaultList(context as AppCompatActivity, entry.title,
-                                    InvokeSource.ON_THIS_DAY_CARD_BODY) { readingListId ->
-                                        bottomSheetPresenter.show((context as AppCompatActivity).supportFragmentManager,
-                                            MoveToReadingListDialog.newInstance(readingListId, entry.title, InvokeSource.ON_THIS_DAY_CARD_BODY))
+                            override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                                if (addToDefault) {
+                                    ReadingListBehaviorsUtil.addToDefaultList(
+                                        context as AppCompatActivity, entry.title,
+                                        InvokeSource.ON_THIS_DAY_CARD_BODY
+                                    ) { readingListId ->
+                                        bottomSheetPresenter.show(
+                                            (context as AppCompatActivity).supportFragmentManager,
+                                            MoveToReadingListDialog.newInstance(
+                                                readingListId,
+                                                entry.title,
+                                                InvokeSource.ON_THIS_DAY_CARD_BODY
+                                            )
+                                        )
+                                    }
+                                } else {
+                                    bottomSheetPresenter.show(
+                                        (context as AppCompatActivity).supportFragmentManager,
+                                        AddToReadingListDialog.newInstance(
+                                            entry.title,
+                                            InvokeSource.ON_THIS_DAY_CARD_BODY
+                                        )
+                                    )
                                 }
-                            } else {
-                                bottomSheetPresenter.show((context as AppCompatActivity).supportFragmentManager,
-                                    AddToReadingListDialog.newInstance(entry.title, InvokeSource.ON_THIS_DAY_CARD_BODY)
-                                )
                             }
-                        }
 
-                        override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                            page?.let {
-                                bottomSheetPresenter.show((context as AppCompatActivity).supportFragmentManager,
-                                    MoveToReadingListDialog.newInstance(it.listId, entry.title, InvokeSource.ON_THIS_DAY_CARD_BODY)
-                                )
+                            override fun onMoveRequest(
+                                page: ReadingListPage?,
+                                entry: HistoryEntry
+                            ) {
+                                page?.let {
+                                    bottomSheetPresenter.show(
+                                        (context as AppCompatActivity).supportFragmentManager,
+                                        MoveToReadingListDialog.newInstance(
+                                            it.listId,
+                                            entry.title,
+                                            InvokeSource.ON_THIS_DAY_CARD_BODY
+                                        )
+                                    )
+                                }
                             }
-                        }
-                    }).show(entry)
+                        }).show(entry)
+                    }
                     true
                 }
             }

@@ -977,6 +977,7 @@
   <string name="talk_title">Title of menu item that leads to the talk page of the user.</string>
   <string name="talk_user_title">Title of screen that shows the talk page topics of the user. The %s symbol is replaced with the user name.</string>
   <string name="talk_new_topic">Button label for creating a new talk topic.</string>
+  <string name="talk_new_topic_submitted">Message shown when a new talk topic has been submitted.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
   <string name="talk_add_reply">Button label for adding a reply to a talk page topic.\n\nThe functionality is similar to {{msg-mw|Discussiontools-replylink}}, so the translation can be identical.</string>
   <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
@@ -985,6 +986,8 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="talk_response_submitted">Message shown when the response has been submitted.</string>
+  <string name="talk_snackbar_undo">Button label to undo the operation of submitting the response.</string>
   <string name="talk_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
   <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
