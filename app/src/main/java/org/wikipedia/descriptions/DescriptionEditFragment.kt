@@ -289,7 +289,7 @@ class DescriptionEditFragment : Fragment() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        if (response.successVal > 0) {
+                        if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
                             funnel.logSaved(response.entity?.run { lastRevId } ?: 0)
                         } else {
