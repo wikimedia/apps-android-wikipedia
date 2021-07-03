@@ -122,9 +122,12 @@ class EditSectionActivity : BaseActivity() {
         }
         binding.viewEditSectionError.retryClickListener = View.OnClickListener {
             binding.viewEditSectionError.visibility = View.GONE
+            captchaHandler.requestNewCaptcha()
             fetchSectionText()
         }
-        binding.viewEditSectionError.backClickListener = View.OnClickListener { onBackPressed() }
+        binding.viewEditSectionError.backClickListener = View.OnClickListener {
+            onBackPressed()
+        }
         L10nUtil.setConditionalTextDirection(binding.editSectionText, pageTitle.wikiSite.languageCode())
         fetchSectionText()
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionTextModified")) {
