@@ -171,7 +171,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun getPageById(id: Long): ReadingListPage? {
-        return displayedLists.firstOrNull { it is ReadingListPage && it.id == id } as ReadingListPage?
+        return displayedLists.filterIsInstance<ReadingListPage>().firstOrNull { it.id == id }
     }
 
     private inner class OverflowCallback : ReadingListsOverflowView.Callback {
@@ -236,18 +236,19 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     if (displayedLists.size <= oldItemPosition || lists.size <= newItemPosition) {
                         return false
                     }
-                    return (displayedLists[oldItemPosition] is ReadingList && lists[newItemPosition] is ReadingList &&
-                            (displayedLists[oldItemPosition] as ReadingList).id == (lists[newItemPosition] as ReadingList).id)
+                    val oldItem = displayedLists[oldItemPosition]
+                    val newItem = lists[newItemPosition]
+                    return oldItem is ReadingList && newItem is ReadingList && oldItem.id == newItem.id
                 }
 
                 override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
                     if (displayedLists.size <= oldItemPosition || lists.size <= newItemPosition) {
                         return false
                     }
-                    return (displayedLists[oldItemPosition] is ReadingList && lists[newItemPosition] is ReadingList &&
-                            (displayedLists[oldItemPosition] as ReadingList).id == (lists[newItemPosition] as ReadingList).id &&
-                            (displayedLists[oldItemPosition] as ReadingList).pages.size == (lists[newItemPosition] as ReadingList).pages.size &&
-                            (displayedLists[oldItemPosition] as ReadingList).numPagesOffline == (lists[newItemPosition] as ReadingList).numPagesOffline)
+                    val oldItem = displayedLists[oldItemPosition]
+                    val newItem = lists[newItemPosition]
+                    return oldItem is ReadingList && newItem is ReadingList && oldItem.id == newItem.id &&
+                            oldItem.pages.size == newItem.pages.size && oldItem.numPagesOffline == newItem.numPagesOffline
                 }
             })
             // If the number of lists has changed, just invalidate everything, as a
@@ -256,10 +257,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     (!currentSearchQuery.isNullOrEmpty() && !searchQuery.isNullOrEmpty() && currentSearchQuery != searchQuery))
 
             // if the default list is empty, then removes it.
-            if (lists.size == 1 && lists[0] is ReadingList &&
-                    (lists[0] as ReadingList).isDefault &&
-                    (lists[0] as ReadingList).pages.isEmpty()) {
-                lists.removeAt(0)
+            if (lists.size == 1) {
+                val list = lists[0]
+                if (list is ReadingList && list.isDefault && list.pages.isEmpty()) {
+                    lists.removeAt(0)
+                }
             }
             displayedLists = lists
             if (invalidateAll) {

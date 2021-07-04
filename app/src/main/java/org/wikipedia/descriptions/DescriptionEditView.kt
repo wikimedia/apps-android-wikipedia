@@ -169,6 +169,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun setDarkReviewScreen(enabled: Boolean) {
+        val context = context
         if (context is DescriptionEditActivity &&
                 (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_CAPTION)) {
@@ -176,9 +177,9 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             binding.viewDescriptionEditSaveButton.setColorFilter(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN)
             binding.viewDescriptionEditCancelButton.setColorFilter(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN)
             binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
-            (context as DescriptionEditActivity).updateStatusBarColor(if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color))
-            DeviceUtil.updateStatusBarTheme(context as DescriptionEditActivity, null, enabled)
-            (context as DescriptionEditActivity).updateNavigationBarColor(if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color))
+            context.updateStatusBarColor(if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color))
+            DeviceUtil.updateStatusBarTheme(context, null, enabled)
+            context.updateNavigationBarColor(if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color))
         }
     }
 

@@ -111,10 +111,11 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
 
         binding.mainNavTabLayout.setOnNavigationItemSelectedListener { item ->
-            if (currentFragment is FeedFragment && item.order == 0) {
-                (currentFragment as FeedFragment?)!!.scrollToTop()
+            val fragment = currentFragment
+            if (fragment is FeedFragment && item.order == 0) {
+                fragment.scrollToTop()
             }
-            if (currentFragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
+            if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
                 openSearchActivity(InvokeSource.NAV_MENU, null, null)
                 return@setOnNavigationItemSelectedListener true
             }
@@ -351,7 +352,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     override fun onBackPressed(): Boolean {
         val fragment = currentFragment
-        return fragment is BackPressedHandler && (fragment as BackPressedHandler).onBackPressed()
+        return fragment is BackPressedHandler && fragment.onBackPressed()
     }
 
     override fun loginLogoutClick() {
