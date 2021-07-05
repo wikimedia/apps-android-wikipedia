@@ -981,6 +981,8 @@
   <string name="talk_message_hint">Redacta un missatge</string>
   <string name="talk_message_empty">El missatge no pot ser en blanc.</string>
   <string name="talk_subject_empty">El tema no pot ser en blanc.</string>
+  <string name="talk_snackbar_undo">Desfés</string>
+  <string name="talk_last_modified">&lt;b&gt;Editat per última vegada %1$s&lt;/b&gt; per %2$s</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribucions de %s</string>

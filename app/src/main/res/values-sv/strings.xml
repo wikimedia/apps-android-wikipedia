@@ -975,6 +975,7 @@
   <string name="talk_message_hint">Skriv meddelande</string>
   <string name="talk_message_empty">Meddelandet kan inte vara tomt.</string>
   <string name="talk_subject_empty">Ämnet kan inte vara tomt.</string>
+  <string name="talk_last_modified">&lt;b&gt;Senast redigerad %1$s&lt;/b&gt; av %2$s</string>
   <string name="menu_option_share_edit">Dela redigering</string>
   <string name="menu_option_user_profile">%ss profil</string>
   <string name="menu_option_user_contributions">%ss bidrag</string>
