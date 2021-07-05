@@ -22,6 +22,7 @@
 * Gustavo.moraes
 * HenriqueCrang
 * Iohanen
+* Isabelle Belato
 * Lowvy
 * Luk3
 * Macofe
@@ -991,6 +992,7 @@
   <string name="talk_message_hint">Compor mensagem</string>
   <string name="talk_message_empty">A mensagem não pode estar vazia.</string>
   <string name="talk_subject_empty">O assunto não pode estar vazio.</string>
+  <string name="talk_snackbar_undo">Desfazer</string>
   <string name="talk_last_modified">&lt;b&gt;Última edição %1$s&lt;/b&gt; por %2$s</string>
   <string name="menu_option_share_edit">Compartilhar edição</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
