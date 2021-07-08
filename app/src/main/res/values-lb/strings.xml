@@ -378,7 +378,7 @@
   <string name="reading_lists_ignore_button">Net elo</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
-  <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s dobäigesat</string>
+  <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s derbäigesat</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir %s läsche wëllt?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Alogge fir Synchronisatioun z\'aktivéieren</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ofbriechen</string>

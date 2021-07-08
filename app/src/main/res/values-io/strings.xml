@@ -468,4 +468,6 @@
   <string name="languages_list_all_text">Omna lingui</string>
   <string name="more_language_options">pluse</string>
   <string name="text_input_dialog_cancel_button_text">Nuligar</string>
+  <string name="talk_snackbar_undo">Desfacez</string>
+  <string name="talk_last_modified">&lt;b&gt;Lasta redakto %1$s&lt;/b&gt; da %2$s</string>
 </resources>
