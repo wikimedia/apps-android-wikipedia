@@ -22,6 +22,8 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
+import androidx.webkit.WebResourceErrorCompat
+import androidx.webkit.WebViewFeature
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textview.MaterialTextView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -350,8 +352,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
             }
 
-            override fun onReceivedError(view: WebView, errorCode: Int, description: String, failingUrl: String) {
-                onPageLoadError(RuntimeException(description))
+            override fun onReceivedError(view: WebView, request: WebResourceRequest, error: WebResourceErrorCompat) {
+                if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_RESOURCE_ERROR_GET_DESCRIPTION)) {
+                    onPageLoadError(RuntimeException(error.description.toString()))
+                }
             }
 
             override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
