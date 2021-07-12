@@ -25,6 +25,7 @@
 * Ihojose
 * Izamo
 * JO777
+* Jackiezelaya
 * JanKlaaseen
 * Jduranboger
 * Joanmp17
@@ -1008,6 +1009,7 @@
   <string name="talk_title">Discusión</string>
   <string name="talk_user_title">Discusión: %s</string>
   <string name="talk_new_topic">Tema nuevo</string>
+  <string name="talk_new_topic_submitted">Tema enviado.</string>
   <string name="talk_page_empty">Esta página de discusión está vacía.</string>
   <string name="talk_add_reply">Responder</string>
   <string name="talk_no_subject">(Sin asunto)</string>
@@ -1016,6 +1018,9 @@
   <string name="talk_message_hint">Redactar mensaje</string>
   <string name="talk_message_empty">El mensaje no puede estar vacío.</string>
   <string name="talk_subject_empty">El asunto no puede estar vacío.</string>
+  <string name="talk_response_submitted">Respuesta enviada.</string>
+  <string name="talk_snackbar_undo">Deshacer</string>
+  <string name="talk_last_modified">&lt;b&gt;Último editado&lt;/b&gt; %1$s por %2$s</string>
   <string name="menu_option_share_edit">Compartir edición</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>

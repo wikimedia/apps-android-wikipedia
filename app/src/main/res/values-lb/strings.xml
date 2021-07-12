@@ -206,7 +206,7 @@
   <string name="edit_zoom_out"> Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
   <string name="edit_summary_tag_grammar">Grammaire verbessert</string>
-  <string name="edit_summary_tag_links">Dobäigesat Linken</string>
+  <string name="edit_summary_tag_links">Derbäigesat Linken</string>
   <string name="edit_summary_tag_other">Anerer</string>
   <string name="edit_summary_tag_other_hint">Aner Manéier wéi Dir d\'Säit verbessert hutt</string>
   <string name="edit_conflict_title">Ännerungskonflikt</string>
@@ -361,7 +361,7 @@
   <string name="reading_list_deleted">%s geläscht</string>
   <string name="saved_list_empty_title">Nach keng Lieslëschten!</string>
   <string name="reading_lists_empty_message">Setzt Artikelen op eng Lëscht derbäi fir se spéider ze liesen, esouguer da wann Dir offline sidd.</string>
-  <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht dobäigesat.</string>
+  <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht derbäigesat.</string>
   <string name="reading_list_article_offline">Offline disponibel</string>
   <string name="reading_list_article_make_offline">Dësen Artikel offline disponibel maachen</string>
   <string name="reading_list_add_to_other_list">Op eng aner Lieslëscht derbäisetzen</string>
@@ -378,7 +378,7 @@
   <string name="reading_lists_ignore_button">Net elo</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
-  <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s dobäigesat</string>
+  <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s derbäigesat</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir %s läsche wëllt?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Alogge fir Synchronisatioun z\'aktivéieren</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ofbriechen</string>

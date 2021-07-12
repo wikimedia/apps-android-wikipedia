@@ -989,6 +989,7 @@
   <string name="talk_title">Mesaj</string>
   <string name="talk_user_title">Mesaj: %s</string>
   <string name="talk_new_topic">Yeni konu</string>
+  <string name="talk_new_topic_submitted">Konu gönderildi.</string>
   <string name="talk_page_empty">Bu tartışma sayfası boş.</string>
   <string name="talk_add_reply">Yanıtla</string>
   <string name="talk_no_subject">(Konu yok)</string>
@@ -997,6 +998,9 @@
   <string name="talk_message_hint">Mesaj oluştur</string>
   <string name="talk_message_empty">Mesaj boş olamaz.</string>
   <string name="talk_subject_empty">Konu boş olamaz.</string>
+  <string name="talk_response_submitted">Yanıt gönderildi.</string>
+  <string name="talk_snackbar_undo">Geri al</string>
+  <string name="talk_last_modified">&lt;b&gt;Son düzenleme %1$s tarihinde&lt;/b&gt; %2$s tarafından yapıldı</string>
   <string name="menu_option_share_edit">Değişikliği paylaş</string>
   <string name="menu_option_user_profile">%s kullanıcısının bilgileri</string>
   <string name="menu_option_user_contributions">%s kullanıcısının katkıları</string>
