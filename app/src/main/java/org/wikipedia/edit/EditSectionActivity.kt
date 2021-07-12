@@ -34,6 +34,7 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwServiceError
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
@@ -224,7 +225,7 @@ class EditSectionActivity : BaseActivity() {
                 .subscribe({ result ->
                     result.edit?.run {
                         when {
-                            editSucceeded -> onEditSuccess(EditSuccessResult(newRevId))
+                            editSucceeded -> waitForUpdatedRevision(newRevId)
                             hasCaptchaResponse -> onEditSuccess(CaptchaResult(captchaId))
                             hasSpamBlacklistResponse -> onEditFailure(MwException(MwServiceError(code, spamblacklist)))
                             hasEditErrorCode -> onEditFailure(MwException(MwServiceError(code, info)))
@@ -234,6 +235,28 @@ class EditSectionActivity : BaseActivity() {
                         onEditFailure(IOException("An unknown error occurred."))
                     }
                 }) { onEditFailure(it) }
+        )
+    }
+
+    @Suppress("SameParameterValue")
+    private fun waitForUpdatedRevision(newRevision: Long) {
+        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite)
+            .getSummaryResponse(pageTitle.prefixedText, null, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(), null, null, null)
+            .delay(2, TimeUnit.SECONDS)
+            .subscribeOn(Schedulers.io())
+            .map { response ->
+                if (response.body()!!.revision < newRevision) {
+                    throw IllegalStateException()
+                }
+                response.body()!!.revision
+            }
+            .retry(10) { it is IllegalStateException }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                onEditSuccess(EditSuccessResult(it))
+            }, {
+                onEditSuccess(EditSuccessResult(newRevision))
+            })
         )
     }
 
