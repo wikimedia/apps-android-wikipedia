@@ -5,6 +5,7 @@
 * Andriykopanytsia
 * Avatar6
 * Base
+* DDPAT
 * Dars
 * Dbrant
 * Envlh
@@ -92,7 +93,7 @@
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та остаточно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та беззастережно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, то матимете більше приватності.</string>
+  <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та безповортно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою вашого пристроя. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете до системи&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="preference_title_language">Мови Вікіпедії</string>
   <string name="langlinks_filter_hint">Пошук</string>
   <string name="langlinks_empty">Ця сторінка недоступна іншими мовами.</string>
@@ -223,7 +224,7 @@
   <string name="about_contributors_heading">Співавтори</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Сторінка команди&lt;/a&gt;</string>
   <string name="about_translators_heading">Перекладачі</string>
-  <string name="about_translators_translatewiki">Цей додаток переклали добровольці на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Цей додаток був перекладений перекладачами-волонтерами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцензія</string>
   <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
@@ -487,7 +488,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Стаття входить до декількох списків</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s тепер не буде доступна автономно для всіх списків:</string>
   <string name="reading_lists_sync_reminder_title">Увімкнути синхронізацію читальних списків?</string>
-  <string name="reading_lists_sync_reminder_text">Статті, збережені у читальних списках тепер можна синхронізувати із Вашим обліковим записом у Вікіпедії. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнайтесь більше&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Статті, збережені у читальних списках тепер можна синхронізувати із Вашим обліковим записом у Вікіпедії. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнатися більше&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Читальні списки тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігання таких списків. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнатись більше&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Увімкнути синхронізацію</string>
   <string name="reading_list_login_reminder_title">Синхронізувати читальні списки</string>
@@ -706,7 +707,7 @@
   <string name="description_edit_edit_image_caption">Редагувати підпис зображення</string>
   <string name="description_edit_translate_image_caption">Перекласти підпис зображення</string>
   <string name="description_edit_cancel_hint">Скасувати</string>
-  <string name="description_edit_help_title">Інфо: описи статей</string>
+  <string name="description_edit_help_title">Інформація: Описи статей</string>
   <string name="description_edit_help_about_wikidata">Про Вікідані</string>
   <string name="description_edit_help_wikidata_guide">Посібник Вікіданих з написання описів</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
@@ -725,7 +726,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Опис статті збережено! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Підпис зображення збережено!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Підпис зображення збережено! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Теґи до зображення збережено!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Теги до зображення збережено!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">Сподобалось? Допоможіть нам додати ще.</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>
@@ -752,10 +753,10 @@
   <string name="suggested_edits_no_description">Цей файл не має опису</string>
   <string name="suggested_edits_license_notice">Додаючи описи, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Додаючи підписи зображень, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_menu_info">Інфо</string>
+  <string name="suggested_edits_menu_info">Інформація</string>
   <string name="suggested_edits_task_add_description_title">Додавання описів статей</string>
   <string name="suggested_edits_task_add_description_description">Додати інформацію до статей без описів</string>
-  <string name="suggested_edits_task_image_caption_title">Додавання підписів зображень</string>
+  <string name="suggested_edits_task_image_caption_title">Додати підписи зображень</string>
   <string name="suggested_edits_task_image_caption_description">Додати короткі підписи до зображень</string>
   <string name="suggested_edits_task_translate_caption_title">Переклад підписів для зображень</string>
   <string name="suggested_edits_task_translate_caption_description">Перекласти підписи іншими мовами</string>
@@ -783,7 +784,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Розпочати</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Підпис зображення (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Файл</string>
-  <string name="suggested_edits_image_preview_dialog_file_commons">Файл із Вікісховища</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Файл з Вікісховища</string>
   <string name="suggested_edits_image_preview_dialog_artist">Автор</string>
   <string name="suggested_edits_image_preview_dialog_tags">Теги</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
@@ -792,7 +793,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Більше інформації</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Сторінка файлу на Вікісховищі</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Сторінка файлу у Вікіпедії</string>
-  <string name="suggested_edits_article_cta_image_tags">Додайте теґи зображень</string>
+  <string name="suggested_edits_article_cta_image_tags">Додайте теги зображень</string>
   <string name="suggested_edits_article_cta_image_caption">Додати підпис зображення</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додати підпис зображення (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Перегляд</string>
@@ -818,7 +819,7 @@
   <string name="suggested_edits_image_tags_select_text">До зображень буде додано лише ті теги, які ви виберете. Теги, які ви не виберете, буде позначено як відхилені. Ви впевнені, що хочете позначити всі теги як відхилені?</string>
   <string name="suggested_edits_image_tags_add_tag">Додати тег</string>
   <string name="suggested_edits_image_zoom_tooltip">Розтягніть, щоб збільшити зображення.</string>
-  <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші правки! Нижче ви можете знайти більше шляхів зробити внесок у Вікіпедію.</string>
+  <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші редагування! Нижче ви можете знайти більше шляхів зробити внесок на Вікіпедії.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Вітаємо, %s&lt;/b&gt;, нижче ви можете знайти деякі швидкі і прості способи покращити Вікіпедію. Ви одразу побачите свій вплив, щойно почнете. Приємного редагування!</string>
   <string name="suggested_edits_image_captions_task_detail">Опишіть зображення, щоб допомогти читачам зрозуміти його значення та контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Підсумуйте вміст статті, щоб допомогти читачам зрозуміти предмет статті з першого погляду.</string>
@@ -844,10 +845,10 @@
   <string name="suggested_edits_quality_bad_text">Погано</string>
   <string name="suggested_edits_label">Пропоновані редагування</string>
   <plurals name="suggested_edits_contribution">
-    <item quantity="one">Редагування</item>
-    <item quantity="few">Редагування</item>
-    <item quantity="many">Редагування</item>
-    <item quantity="other">Редагування</item>
+    <item quantity="one">Внесок</item>
+    <item quantity="few">Внесок</item>
+    <item quantity="many">Внесків</item>
+    <item quantity="other">Внесок</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d день</item>
@@ -856,7 +857,7 @@
     <item quantity="other">%d днів</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Що таке Пропоновані редагування?</string>
-  <string name="suggested_edits_what_is_text">Пропоновані редагування — це можливість зробили невеликий, але життєво важливий внесок у Вікіпедію.</string>
+  <string name="suggested_edits_what_is_text">Пропоновані редагування дає можливість для невеликих, але життєво важливих внесків у Вікіпедію.</string>
   <string name="suggested_edits_learn_more">Дізнатися більше</string>
   <string name="suggested_edits_paused_title">Призупинено</string>
   <string name="suggested_edits_disabled_title">Вимкнено</string>
@@ -881,7 +882,7 @@
     <item quantity="many">Побачено %s разів за минулі 30 днів.</item>
     <item quantity="other">Побачено %s разів за минулі 30 днів.</item>
   </plurals>
-  <string name="suggested_edits_contribution_seen_text">Бачено %s разів за минулі 30 днів.</string>
+  <string name="suggested_edits_contribution_seen_text">Бачили %s разів за минулі 30 днів.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Ви додали %d тег</item>
     <item quantity="few">Ви додали %d теги</item>
@@ -922,7 +923,7 @@
   </plurals>
   <string name="file_page_activity_title">Сторінка файлу</string>
   <string name="file_page_add_image_caption_button">Додати підпис зображення</string>
-  <string name="file_page_add_image_tags_button">Додати теґи зображень</string>
+  <string name="file_page_add_image_tags_button">Додайте теги зображень</string>
   <string name="file_page_suggestion_reason">Причина пропозиції</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
@@ -1022,6 +1023,7 @@
   <string name="talk_title">Обговорення</string>
   <string name="talk_user_title">Обговорення: %s</string>
   <string name="talk_new_topic">Нова тема</string>
+  <string name="talk_new_topic_submitted">Тема подана.</string>
   <string name="talk_page_empty">Ця сторінка обговорення порожня.</string>
   <string name="talk_add_reply">Відповісти</string>
   <string name="talk_no_subject">(Немає теми)</string>
@@ -1030,6 +1032,9 @@
   <string name="talk_message_hint">Написати повідомлення</string>
   <string name="talk_message_empty">Повідомлення не може бути порожнім.</string>
   <string name="talk_subject_empty">Тема не може бути порожньою.</string>
+  <string name="talk_response_submitted">Відповідь надіслано.</string>
+  <string name="talk_snackbar_undo">Скасувати</string>
+  <string name="talk_last_modified">&lt;b&gt;Останнє редагування %1$s&lt;/b&gt; за %2$s</string>
   <string name="menu_option_share_edit">Поділитися редагуванням</string>
   <string name="menu_option_user_profile">Профіль %s</string>
   <string name="menu_option_user_contributions">Внесок %s</string>

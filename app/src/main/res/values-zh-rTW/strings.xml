@@ -730,7 +730,7 @@
   <string name="suggested_edits_task_image_caption_description">為圖片新增缺少的簡短說明</string>
   <string name="suggested_edits_task_translate_caption_title">翻譯圖片說明</string>
   <string name="suggested_edits_task_translate_caption_description">翻譯說明成其它語言</string>
-  <string name="suggested_edits_task_multilingual_title">更多多語言編者的任務</string>
+  <string name="suggested_edits_task_multilingual_title">更多的多語言編者任務</string>
   <string name="suggested_edits_task_multilingual_description">若您有在一種以上語言的維基百科做出讀寫，則可進行翻譯任務。</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">直到您編輯過 %d 圖片說明才會解開</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">直到您編輯 %d 個條目描述才會解開（需經驗證）</string>
@@ -979,6 +979,7 @@
   <string name="talk_message_hint">撰寫訊息</string>
   <string name="talk_message_empty">訊息不能為空。</string>
   <string name="talk_subject_empty">話題不能為空。</string>
+  <string name="talk_last_modified">由%2$s在&lt;b&gt; %1$s &lt;/b&gt;所做的最後一次編輯</string>
   <string name="menu_option_share_edit">分享編輯</string>
   <string name="menu_option_user_profile">%s基本資料</string>
   <string name="menu_option_user_contributions">%s的貢獻</string>

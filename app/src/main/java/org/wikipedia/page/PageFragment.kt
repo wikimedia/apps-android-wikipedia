@@ -214,7 +214,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             // and reload the page...
             model.title?.let { title ->
                 model.curEntry?.let { entry ->
-                    loadPage(title, entry, pushBackStack = false, squashBackstack = false)
+                    loadPage(title, entry, pushBackStack = false, squashBackstack = false, isRefresh = true)
                 }
             }
         }
@@ -884,11 +884,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         setCurrentTabAndReset(selectedTabPosition)
     }
 
-    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean) {
+    fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {
         // is the new title the same as what's already being displayed?
         if (currentTab.backStack.isNotEmpty() && currentTab.backStack[currentTab.backStackPosition].title == title) {
-            if (model.page == null) {
-                pageFragmentLoadState.loadFromBackStack()
+            if (model.page == null || isRefresh) {
+                pageFragmentLoadState.loadFromBackStack(isRefresh)
             } else if (!title.fragment.isNullOrEmpty()) {
                 scrollToSection(title.fragment!!)
             }
@@ -899,7 +899,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 app.tabList[app.tabList.size - 1].clearBackstack()
             }
         }
-        loadPage(title, entry, pushBackStack, 0)
+        loadPage(title, entry, pushBackStack, 0, isRefresh)
     }
 
     fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false) {
