@@ -54,6 +54,12 @@
                         app:drawableTint="?attr/material_theme_de_emphasised_color"
                         app:drawableStartCompat="@drawable/ic_search_themed_24dp"/>
 
+                    <org.wikipedia.views.NotificationButtonView
+                        android:id="@+id/page_toolbar_button_notifications"
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/notifications_activity_title"/>
+
                     <org.wikipedia.views.TabCountsView
                         android:id="@+id/page_toolbar_button_tabs"
                         android:layout_width="48dp"

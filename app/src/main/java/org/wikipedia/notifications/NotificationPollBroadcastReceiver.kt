@@ -19,6 +19,7 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.main.MainActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
@@ -192,6 +193,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 notificationsToDisplay.add(n)
                 locallyKnownModified = true
             }
+            if (notificationsToDisplay.isNotEmpty()) {
+                Prefs.setNotificationUnreadCount(notificationsToDisplay.size)
+                WikipediaApp.getInstance().bus.post(UnreadNotificationsEvent())
+            }
+
             if (notificationsToDisplay.size > 2) {
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {

@@ -13,10 +13,7 @@ import android.text.format.DateUtils
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.forEach
-import androidx.core.view.updatePadding
+import androidx.core.view.*
 import androidx.preference.PreferenceManager
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -39,11 +36,13 @@ import org.wikipedia.descriptions.DescriptionEditSuccessActivity
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
+import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -118,9 +117,17 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             startActivityForResult(TabActivity.newIntentFromPageActivity(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
         }
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP)
-        FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
+        FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             showOverflowMenu(it)
+        }
+
+        updateNotificationsButton(false)
+        binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
+        binding.pageToolbarButtonNotifications.setOnClickListener {
+            if (AccountUtil.isLoggedIn) {
+                startActivity(NotificationActivity.newIntent(this))
+            }
         }
 
         // Navigation setup
@@ -176,6 +183,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     override fun onResume() {
         super.onResume()
         app.resetWikiSite()
+        updateNotificationsButton(false)
         Prefs.storeTemporaryWikitext(null)
     }
 
@@ -690,7 +698,20 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     fun animateTabsButton() {
+        toolbarHideHandler.ensureDisplayed()
         binding.pageToolbarButtonTabs.updateTabCount(true)
+    }
+
+    fun updateNotificationsButton(animate: Boolean) {
+        if (Prefs.getNotificationUnreadCount() > 0) {
+            binding.pageToolbarButtonNotifications.setUnread(true)
+            if (animate) {
+                toolbarHideHandler.ensureDisplayed()
+                binding.pageToolbarButtonNotifications.runAnimation()
+            }
+        } else {
+            binding.pageToolbarButtonNotifications.setUnread(false)
+        }
     }
 
     fun clearActionBarTitle() {
@@ -703,15 +724,26 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private inner class EventBusConsumer : Consumer<Any> {
         override fun accept(event: Any?) {
-            if (event is ChangeTextSizeEvent) {
-                pageFragment.updateFontSize()
-            } else if (event is ArticleSavedOrDeletedEvent) {
-                if (!pageFragment.isAdded) {
-                    return
+            when (event) {
+                is ChangeTextSizeEvent -> {
+                    pageFragment.updateFontSize()
                 }
-                pageFragment.title?.run {
-                    if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode() == wikiSite.languageCode() }) {
-                        pageFragment.updateBookmarkAndMenuOptionsFromDao()
+                is ArticleSavedOrDeletedEvent -> {
+                    if (!pageFragment.isAdded) {
+                        return
+                    }
+                    pageFragment.title?.run {
+                        if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode() == wikiSite.languageCode() }) {
+                            pageFragment.updateBookmarkAndMenuOptionsFromDao()
+                        }
+                    }
+                }
+                is UnreadNotificationsEvent -> {
+                    binding.pageToolbarButtonNotifications.post {
+                        if (isDestroyed) {
+                            return@post
+                        }
+                        updateNotificationsButton(true)
                     }
                 }
             }

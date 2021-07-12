@@ -89,6 +89,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
 
         binding.notificationsViewArchivedButton.setOnClickListener { onViewArchivedClick() }
+        Prefs.setNotificationUnreadCount(0)
 
         beginUpdateList()
         NotificationSettingsActivity.promptEnablePollDialog(this)
