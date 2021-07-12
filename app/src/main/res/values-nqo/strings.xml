@@ -128,6 +128,7 @@
   <string name="logged_out_in_background_login">ߌ ߜߊ߲߬ߞߎ߲߫</string>
   <string name="logged_out_in_background_cancel">ߊ߬ ߘߐߛߊ߬</string>
   <string name="history_empty_title">ߦߌߟߡߊ߫ ߦߋߣߍ߲߫ ߞߎߘߊ߫ ߕߍ߫</string>
+  <string name="history_empty_message">ߌ ߟߊ߫ ߦߊ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߣߍ߲ ߠߎ߬ ߟߊߓߊ߬ߕߏ߬.</string>
   <string name="history_offline_articles_toast">ߦߌߟߡߊ ߘߏ߫ ߟߎ߫ ߦߋ߫ ߘߐ߬ߝߐ ߘߐ߫ ߞߏ߬ߣߵߊ߬ߟߎ߬ ߕߴߛߋ߫ ߦߋ߫ ߟߴߌ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌ.</string>
   <string name="search_empty_message">ߢߌߣߌ߲ߣߌ߲ ߣߌ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߞߴߌ ߟߊ߫ ߞߊ߲ ߘߐ߫ ߔߘߋߞߎ߫ ߟߊߓߌ߬ߟߊ߬ߣߍ߲ ߞߊ߲߬</string>
   <string name="search_empty_message_multilingual_upgrade">ߢߌߣߌ߲ߣߌ߲ ߞߍ߫ ߥߞߌ-ߔߘߋߞߎ ߞߊ߲߬ ߞߊ߲߫ ߜߘߍ߫ ߟߎ߫ ߘߐ߫.</string>
@@ -149,6 +150,7 @@
   <string name="create_account_generic_error">ߊ߬ ߕߍߣߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߛߌ߲ߘߌ߫ ߟߊ߫</string>
   <string name="create_account_next">ߢߍߕߊ</string>
   <string name="email_recommendation_dialog_title">ߞߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߟߊߞߊ߬ ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ߫ ߕߍ߫؟</string>
+  <string name="email_recommendation_dialog_message">ߤߊߟߌ߬ ߣߴߊ߬ ߕߘߍ߬ ߘߊ߫ ߞߏ߫ ߢߎߡߍߙߋ߲߫ ߞߏ߲ߘߏ ߦߋ߫ ߓߟߏߝߍߞߏ ߟߋ߬ ߘߌ߫߸ ߊ߬ &lt;b&gt;ߞߊ߬ߣߌ߲߬ߣߍ߲߬ ߦߋ߫ ߟߋ߬ ߞߏߟߌߞߏߟߌ߫&lt;/b&gt;߸ ߓߊߏ߬ ߡߊ߬ߞߏ ߦߋ߫ ߢߎߡߍߙߋ߲߫ ߞߏ߲ߘߏ ߟߊ߫ ߞߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߟߋ߬ ߞߎ߲߬ߠߊߞߊ߬ ߣߴߌ ߢߌ߬ߣߊ߬ ߘߴߌ ߟߊ߫ ߕߊ߬ߡߌ߲߬ߞߊ߲ ߠߊ߫.</string>
   <string name="email_recommendation_message">ߊ߬ ߞߊ߬ߣߌ߲߬ߣߍ߲߫ ߠߋ߬ ߣߌ߫ ߡߊ߬ߞߏ ߞߍ߫ ߘߊ߫ ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ ߟߊ߫ ߞߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߞߎ߲߬ߠߊߞߊ߬.</string>
   <string name="email_recommendation_dialog_create_without_email_action">ߊ߬ ߘߊߓߊ߲߫ ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ߫ ߕߊ߲ߧߊ ߘߐ߫</string>
   <string name="email_recommendation_dialog_create_with_email_action">ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ ߘߏ߫ ߟߊߘߏ߲߬</string>
@@ -320,6 +322,7 @@
   <string name="view_link_preview_error_button_dismiss">ߟߊ߬ߛߊ߬ߦߌ߬ߟߌ</string>
   <string name="error_page_does_not_exist">ߞߐߜߍ ߣߌ߲߬ ߕߴߦߋ߲߬</string>
   <string name="view_wiki_error_message_offline">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
+  <string name="view_wiki_error_message_timeout">ߊ߬ ߕߍߣߊ߬ ߛߐ߲߬ ߠߊ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫. ߌ ߟߊ߫ ߞߙߏ߬ߝߏ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߡߊߝߟߍ߫߸ ߥߟߊ߫ ߌ ߦߴߊ߬ ߡߊߝߍߣߍ߲߫ ߌߞߐߕߎ߲߯ ߞߐߟߊ߫</string>
   <string name="reference_title">ߦߟߌߡߊߛߙߋ %s</string>
   <string name="reference_list_title">ߦߟߌߡߊߛߙߋ</string>
   <string name="preference_title_prefer_offline_content">ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲߫ ߞߣߐߘߐ ߟߎ߬ ߞߊ߬ߣߌ߲߬ߒ߬ߕߋ߬ߦߊ</string>
@@ -390,6 +393,7 @@
   <string name="reading_list_name_hint">ߛߙߍߘߍ ߣߌ߲߬ ߕߐ߮</string>
   <string name="reading_list_description_hint">ߞߊ߲߬ߛߓߍߟߌ (ߢߣߊߕߊߟߞߊ)</string>
   <string name="reading_list_item_deleted">%s ߛߋ߲߬ߓߐ߫ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="reading_list_item_deleted_from_list">%1$s ߓߘߊ߫ ߢߌ߬ߣߊ߬ߓߐ߫ %2$s ߘߐ߫</string>
   <string name="reading_list_items_deleted">%d ߦߌߟߡߊ ߟߎ߬ ߓߘߊ߫ ߛߋ߲߬ߓߐ߫ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_lists_item_deleted">%s ߛߋ߲߬ߓߐ߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_item_delete_undo">ߊ߬ ߘߐߛߊ߬</string>
