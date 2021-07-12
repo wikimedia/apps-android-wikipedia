@@ -51,7 +51,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         pageLoadCheckReadingLists()
     }
 
-    fun loadFromBackStack() {
+    fun loadFromBackStack(isRefresh: Boolean = false) {
         if (currentTab.backStack.isEmpty()) {
             return
         }
@@ -60,7 +60,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         // the backstack item.
         item.title?.let { title ->
             item.historyEntry?.let { entry ->
-                fragment.loadPage(title, entry, false, item.scrollY)
+                fragment.loadPage(title, entry, false, item.scrollY, isRefresh)
                 L.d("Loaded page " + item.title!!.displayText + " from backstack")
             }
         }
@@ -162,7 +162,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
             disposables.add(Observable.zip(ServiceFactory.getRest(title.wikiSite)
                     .getSummaryResponse(title.prefixedText, null, model.cacheControl.toString(),
-                            if (model.shouldSaveOffline()) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
+                            if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
                             title.wikiSite.languageCode(), UriUtil.encodeURL(title.prefixedText)),
                     if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText) else Observable.just(MwQueryResponse()), { first, second -> Pair(first, second) })
                     .subscribeOn(Schedulers.io())
@@ -170,12 +170,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     .subscribe({ pair ->
                         val pageSummaryResponse = pair.first
                         val watchedResponse = pair.second
-                        var isWatched = false
-                        var hasWatchlistExpiry = false
-                        if (watchedResponse?.query()?.firstPage() != null) {
-                            isWatched = watchedResponse.query()!!.firstPage()!!.isWatched
-                            hasWatchlistExpiry = watchedResponse.query()!!.firstPage()!!.hasWatchlistExpiry()
-                        }
+                        val isWatched = watchedResponse?.query?.firstPage()?.isWatched ?: false
+                        val hasWatchlistExpiry = watchedResponse?.query?.firstPage()?.hasWatchlistExpiry() ?: false
                         if (pageSummaryResponse.body() == null) {
                             throw RuntimeException("Summary response was invalid.")
                         }
@@ -219,7 +215,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         val page = pageSummary!!.toPage(model.title)
         model.page = page
         model.isWatched = isWatched
-        model.hasWatchlistExpiry(hasWatchlistExpiry)
+        model.hasWatchlistExpiry = hasWatchlistExpiry
         model.title = page.title
         model.title?.let { title ->
             if (!response.raw().request.url.fragment.isNullOrEmpty()) {

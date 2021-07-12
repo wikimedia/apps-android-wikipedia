@@ -78,25 +78,25 @@
   <string name="search_redirect_from">Doorverwezen vanaf %s</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
-  <string name="menu_page_find_in_page">Op artikel zoeken</string>
+  <string name="menu_page_find_in_page">Zoek in artikel</string>
   <string name="menu_page_add_to_watchlist">Toevoegen aan volglijst</string>
   <string name="menu_page_view_talk">Overlegpagina bekijken</string>
   <string name="menu_page_view_edit_history">Bewerkingsgeschiedenis bekijken</string>
   <string name="menu_page_remove_from_watchlist">Verwijderen uit volglijst</string>
-  <string name="edit_section_find_in_page">Op pagina zoeken</string>
+  <string name="edit_section_find_in_page">Zoeken in pagina</string>
   <string name="menu_page_font_and_theme">Lettertype en thema</string>
   <string name="menu_page_add_to_list">Aan leeslijst toevoegen</string>
   <string name="menu_page_add_to_default_list">Opslaan</string>
   <string name="feed_card_add_to_list">Aan leeslijst toevoegen</string>
   <string name="feed_card_add_to_default_list">Opslaan</string>
-  <string name="menu_page_share">Koppeling delen</string>
+  <string name="menu_page_share">Link delen</string>
   <string name="menu_page_open_a_new_tab">Een nieuw tabblad openen</string>
   <string name="menu_page_new_tab">Nieuw tabblad</string>
   <string name="menu_page_reading_lists">Leeslijsten</string>
   <string name="menu_page_recently_viewed">Onlangs bekeken</string>
   <string name="menu_long_press_open_page">Openen</string>
   <string name="menu_long_press_open_in_new_tab">In nieuw tabblad openen</string>
-  <string name="menu_long_press_copy_page">Koppelingsadres kopiëren</string>
+  <string name="menu_long_press_copy_page">Linkadres kopiëren</string>
   <string name="menu_text_select_define">Definiëren</string>
   <string name="on_this_day_page_share">Delen</string>
   <string name="reading_list_page_share">Delen</string>
@@ -122,7 +122,7 @@
   <string name="dialog_message_edit_failed_retry">Opnieuw proberen</string>
   <string name="dialog_message_edit_failed_cancel">Annuleren</string>
   <string name="dialog_message_leaving_edit">Uw wijzigingen zijn nog niet gepubliceerd. Weet u zeker dat u deze pagina wilt verlaten?</string>
-  <string name="dialog_message_leaving_edit_leave">Sluiten</string>
+  <string name="dialog_message_leaving_edit_leave">Verlaten</string>
   <string name="dialog_message_leaving_edit_stay">Blijven</string>
   <string name="menu_show_toc">Inhoudsopgave</string>
   <string name="search_no_results_found">Geen resultaten gevonden</string>
@@ -236,14 +236,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
   <string name="about_contributors_heading">Bijdragers</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team pagina&lt;/a&gt;</string>
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentie</string>
-  <string name="about_app_license" fuzzy="true">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
+  <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
@@ -388,6 +387,14 @@
   <string name="page_footer_license_text">De inhoud is beschikbaar onder $1 tenzij anders aangegeven</string>
   <string name="empty_tab_title">Nieuw tabblad</string>
   <string name="menu_save_all_tabs">Alle tabbladen opslaan</string>
+  <string name="error_blocked_title">Uw gebruikersnaam of IP adres is geblokkeerd.</string>
+  <string name="error_blocked_by">De blokkering is geactiveerd door &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">De gegeven reden is: %s</string>
+  <string name="error_blocked_start">Begindatum van blokkering: %s</string>
+  <string name="error_blocked_expiry">Vervaldatum van blokkering: %s</string>
+  <string name="error_blocked_id">Blokkering ID: %s</string>
+  <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="crash_report_activity_title">Programmafout</string>
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u overnieuw beginnen of sluiten?</string>
   <string name="crash_report_relaunch">Opnieuw beginnen</string>
@@ -879,16 +886,6 @@
     <item quantity="one">U heeft %d karakter toegevoegd</item>
     <item quantity="other">U heeft %d karakters toegevoegd</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Train het afbeeldingsalgoritme</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Beslis of een voorgestelde afbeelding een artikel verbeterd.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Start</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Goed bezig, ga zo door! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Dagelijks doel bereikt! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">U heeft het dagelijks doel bereikt</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Een nieuwe Voorgestelde Bewerkingen taak is beschikbaar. Train een algoritme om artikelen zonder afbeeldingen hiervan te voorzien.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia artikelen worden geschreven en bewerkt door duizenden vrijwilligers van over de hele wereld. Helaas missen veel artikelen afbeeldingen.\n\nAfbeeldingen worden u voorgesteld met behulp van een algoritme. Het algoritme haalt afbeeldingen uit andere bronnen en suggereert een overeenkomst met een artikel dat geen afbeelding heeft.\n\nUw feedback helpt ons de suggesties in de loop van de tijd te verbeteren. Omdat het doel van deze taak is om de voorgestelde afbeeldingen te verbeteren, worden de overeenkomsten die u maakt op dit moment niet gepubliceerd.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">We willen uw bijdragen aan deze inspanning graag erkennen. Wilt u dat uw gebruikersnaam zichtbaar is op de algoritme trainings pagina?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Toestaan om mijn gebruikersnaam weer te geven op de algoritme trainings pagina</string>
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="file_page_add_image_tags_button">Afbeeldingslabel toevoegen</string>
@@ -965,33 +962,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Annuleren</string>
   <string name="edit_type_all">Alle bijdragen</string>
   <string name="content_description_for_page_indicator">Pagina %1$d van %2$d</string>
-  <string name="image_recommendations_task_accept">Ja</string>
-  <string name="image_recommendations_task_reject">Nee</string>
-  <string name="image_recommendations_task_not_sure">Niet zeker</string>
-  <string name="image_recommendations_task_processing">Verwerken...</string>
-  <string name="image_recommendations_task_instruction">Zou u deze afbeelding aan het artikel toevoegen?</string>
-  <string name="image_recommendations_task_choice_no">Waarom hebt u nee geselecteerd?</string>
-  <string name="image_recommendations_task_choice_not_sure">Waarom heeft u \"Niet zeker\" geselecteerd?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Kies één of meerdere redenen.</string>
-  <string name="image_recommendations_task_choice_unsure">Waarom bent u niet zeker over deze afbeelding?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Niet relevant</string>
-  <string name="image_recommendations_task_choice_low_quality">Lage kwaliteit</string>
-  <string name="image_recommendations_task_choice_noinfo">Niet genoeg informatie</string>
-  <string name="image_recommendations_task_choice_nosubject">Geen verstand van onderwerp</string>
-  <string name="image_recommendations_task_choice_offensive">Beledigend</string>
-  <string name="image_recommendations_task_choice_invisible">Afbeelding niet zichtbaar</string>
-  <string name="image_recommendations_task_choice_understand">Opdracht onduidelijk</string>
-  <string name="image_recommendations_task_choice_language">Onbekende taal</string>
-  <string name="image_recommendations_task_choice_other">Anders</string>
-  <string name="image_recommendations_task_choice_continue">Doorgaan</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Reden voor suggestie:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">afbeelding is gevonden in andere talen van Wikipedia (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">afbeelding gevonden op Wikidata, Wikipedia\'s bron voor vrije data</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">afbeelding gevonden op Wikimedia Commons, Wikipedia\'s bron voor gratis bruikbare afbeeldingen</string>
-  <string name="image_recommendations_faq">Vraag en Antwoord</string>
-  <string name="image_recommendations_tooltip1">Lees dit artikel om het onderwerp te begrijpen</string>
-  <string name="image_recommendations_tooltip2">Inspecteer de afbeelding en zijn bijbehorende informatie.</string>
-  <string name="image_recommendations_tooltip3">Beslis of de afbeelding de lezer helpt het onderwerp beter te begrijpen.</string>
   <string name="wikitext_bold">Vet</string>
   <string name="wikitext_italic">Cursief</string>
   <string name="wikitext_link">Koppeling</string>

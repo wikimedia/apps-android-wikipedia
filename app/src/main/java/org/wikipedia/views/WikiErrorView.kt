@@ -23,13 +23,15 @@ class WikiErrorView : LinearLayout {
     var retryClickListener: OnClickListener? = null
     var backClickListener: OnClickListener? = null
     var nextClickListener: OnClickListener? = null
-    private var movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+    val contentTopOffset get() = binding.viewWikiErrorArticleContentTopOffset
+    val tabLayoutOffset get() = binding.viewWikiErrorArticleTabLayoutOffset
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
+        val movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
         binding.viewWikiErrorText.movementMethod = movementMethod
         binding.viewWikiErrorFooterText.movementMethod = movementMethod
     }

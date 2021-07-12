@@ -14,9 +14,9 @@ import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.mostread.MostReadListCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
+import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 
@@ -30,7 +30,7 @@ class AggregatedFeedContentClient {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
-                                         outCards: MutableList<Card?>) {
+                                         outCards: MutableList<Card>) {
             for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.ON_THIS_DAY.langCodesDisabled.contains(appLangCode)) {
                     responses[appLangCode]?.onthisday?.let {
@@ -47,7 +47,7 @@ class AggregatedFeedContentClient {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
-                                         outCards: MutableList<Card?>) {
+                                         outCards: MutableList<Card>) {
             for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.NEWS.langCodesDisabled.contains(appLangCode)) {
                     responses[appLangCode]?.news?.let {
@@ -62,7 +62,7 @@ class AggregatedFeedContentClient {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
-                                         outCards: MutableList<Card?>) {
+                                         outCards: MutableList<Card>) {
             for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.FEATURED_ARTICLE.langCodesDisabled.contains(appLangCode)) {
                     responses[appLangCode]?.tfa?.let {
@@ -73,15 +73,20 @@ class AggregatedFeedContentClient {
         }
     }
 
-    class TrendingArticles(aggregatedClient: AggregatedFeedContentClient) : BaseClient(aggregatedClient) {
+    class TopReadArticles(aggregatedClient: AggregatedFeedContentClient) : BaseClient(aggregatedClient) {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
-                                         outCards: MutableList<Card?>) {
+                                         outCards: MutableList<Card>) {
             for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
-                if (responses.containsKey(appLangCode) && !FeedContentType.TRENDING_ARTICLES.langCodesDisabled.contains(appLangCode)) {
-                    responses[appLangCode]?.mostRead?.let {
-                        outCards.add(MostReadListCard(it, WikiSite.forLanguageCode(appLangCode)))
+                if (responses.containsKey(appLangCode) && !FeedContentType.TOP_READ_ARTICLES.langCodesDisabled.contains(appLangCode)) {
+                    responses[appLangCode]?.topRead?.let {
+                        outCards.add(
+                            TopReadListCard(
+                                it,
+                                WikiSite.forLanguageCode(appLangCode)
+                            )
+                        )
                     }
                 }
             }
@@ -92,7 +97,7 @@ class AggregatedFeedContentClient {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
-                                         outCards: MutableList<Card?>) {
+                                         outCards: MutableList<Card>) {
             if (responses.containsKey(wiki.languageCode())) {
                 responses[wiki.languageCode()]?.potd?.let {
                     outCards.add(FeaturedImageCard(it, age, wiki))
@@ -114,14 +119,14 @@ class AggregatedFeedContentClient {
         private lateinit var wiki: WikiSite
         private var age = 0
 
-        abstract fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>, wiki: WikiSite, age: Int, outCards: MutableList<Card?>)
+        abstract fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>, wiki: WikiSite, age: Int, outCards: MutableList<Card>)
 
         override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
             this.cb = cb
             this.age = age
             this.wiki = wiki
             if (aggregatedClient.aggregatedResponseAge == age && aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode())) {
-                val cards = mutableListOf<Card?>()
+                val cards = mutableListOf<Card>()
                 getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
                 FeedCoordinator.postCardsToCallback(cb, cards)
             } else {
@@ -134,7 +139,7 @@ class AggregatedFeedContentClient {
         private fun requestAggregated() {
             aggregatedClient.cancel()
             val date = DateUtil.getUtcRequestDateFor(age)
-            aggregatedClient.disposables.add(Observable.fromIterable(FeedContentType.getAggregatedLanguages())
+            aggregatedClient.disposables.add(Observable.fromIterable(FeedContentType.aggregatedLanguages)
                 .flatMap({ lang ->
                         ServiceFactory.getRest(WikiSite.forLanguageCode(lang))
                             .getAggregatedFeed(date.year, date.month, date.day)
@@ -143,7 +148,7 @@ class AggregatedFeedContentClient {
                 .toList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pairList ->
-                    val cards = mutableListOf<Card?>()
+                    val cards = mutableListOf<Card>()
                     for (pair in pairList) {
                         val content = pair.second ?: continue
                         aggregatedClient.aggregatedResponses[WikiSite.forLanguageCode(pair.first).languageCode()] = content

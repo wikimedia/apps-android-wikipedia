@@ -52,7 +52,7 @@ object ReadingListBehaviorsUtil {
             allReadingLists.filter { list -> list.pages.any { it.displayTitle == readingListPage.displayTitle } }
 
     fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
-        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
+        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi) {
             showMobileDataWarningDialog(activity) { _, _ ->
                 savePagesForOffline(activity, selectedPages, true)
                 callback.onCompleted()
@@ -75,7 +75,7 @@ object ReadingListBehaviorsUtil {
 
     fun removePagesFromOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (selectedPages.isNotEmpty()) {
-            ReadingListDbHelper.markPagesForOffline(selectedPages, false, false)
+            ReadingListDbHelper.markPagesForOffline(selectedPages, offline = false, forcedSave = false)
             showMultiSelectOfflineStateChangeSnackbar(activity, selectedPages, false)
             callback.onCompleted()
         }
@@ -136,7 +136,7 @@ object ReadingListBehaviorsUtil {
         existingTitles.remove(readingList.title)
 
         ReadingListTitleDialog.readingListTitleDialog(activity, readingList.title, readingList.description, existingTitles) { text, description ->
-            readingList.dbTitle = text
+            readingList.title = text
             readingList.description = description
             readingList.dirty = true
             ReadingListDbHelper.updateList(readingList, true)
@@ -228,7 +228,7 @@ object ReadingListBehaviorsUtil {
 
     fun toggleOffline(activity: Activity, page: ReadingListPage, callback: Callback) {
         resetPageProgress(page)
-        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
+        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi) {
             showMobileDataWarningDialog(activity) { _, _ ->
                 toggleOffline(activity, page, true)
                 callback.onCompleted()
@@ -313,22 +313,15 @@ object ReadingListBehaviorsUtil {
             return result
         }
 
-        val normalizedQuery = StringUtils.stripAccents(searchQuery).toLowerCase(Locale.getDefault())
+        val normalizedQuery = StringUtils.stripAccents(searchQuery).lowercase(Locale.getDefault())
         var lastListItemIndex = 0
         lists.forEach { list ->
-            if (StringUtils.stripAccents(list.title).toLowerCase(Locale.getDefault()).contains(normalizedQuery)) {
+            if (StringUtils.stripAccents(list.title).lowercase(Locale.getDefault()).contains(normalizedQuery)) {
                 result.add(lastListItemIndex++, list)
             }
             list.pages.forEach { page ->
-                if (page.displayTitle.toLowerCase(Locale.getDefault()).contains(normalizedQuery)) {
-                    var noMatch = true
-                    result.forEach checkMatch@{
-                        if (it is ReadingListPage && it.displayTitle == page.displayTitle) {
-                            noMatch = false
-                            return@checkMatch
-                        }
-                    }
-                    if (noMatch) {
+                if (page.displayTitle.lowercase(Locale.getDefault()).contains(normalizedQuery)) {
+                    if (result.none { it is ReadingListPage && it.displayTitle == page.displayTitle }) {
                         result.add(page)
                     }
                 }

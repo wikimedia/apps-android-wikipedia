@@ -13,6 +13,7 @@ import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.ImageZoomHelper
 
 class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
 
@@ -29,7 +30,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
         val indicatorHeight = 20
         binding.newsRecyclerView.addItemDecoration(
             RecyclerViewIndicatorDotDecor(
-                DimenUtil.roundedDpToPx(indicatorRadius.toFloat()),
+                DimenUtil.roundedDpToPx(indicatorRadius.toFloat()).toFloat(),
                 DimenUtil.roundedDpToPx(indicatorPadding.toFloat()),
                 DimenUtil.roundedDpToPx(indicatorHeight.toFloat()),
                 ResourceUtil.getThemedColor(context, R.attr.chart_shade5),
@@ -104,6 +105,12 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
             holder.bindItem(card.news()[position])
             holder.view.setOnClickListener {
                 callback?.onNewsItemSelected(card, holder.view)
+            }
+            holder.view.setOnLongClickListener {
+                if (ImageZoomHelper.isZooming) {
+                    ImageZoomHelper.dispatchCancelEvent(holder.view)
+                }
+                true
             }
         }
 

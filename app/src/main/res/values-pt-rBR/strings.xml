@@ -22,6 +22,7 @@
 * Gustavo.moraes
 * HenriqueCrang
 * Iohanen
+* Isabelle Belato
 * Lowvy
 * Luk3
 * Macofe
@@ -235,14 +236,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br#Train_image_algorithm</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license" fuzzy="true">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"ttps://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
@@ -387,6 +387,14 @@
   <string name="page_footer_license_text">O conteúdo está disponível sob $1, salvo indicação em contrário</string>
   <string name="empty_tab_title">Nova guia</string>
   <string name="menu_save_all_tabs">Salvar todas as guias</string>
+  <string name="error_blocked_title">Seu nome de usuário ou endereço IP foi bloqueado.</string>
+  <string name="error_blocked_by">O bloqueio foi feito por &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">O motivo dado é: %s</string>
+  <string name="error_blocked_start">Início do bloco: %s</string>
+  <string name="error_blocked_expiry">Expiração do bloqueio: %s</string>
+  <string name="error_blocked_id">ID de bloqueio: %s</string>
+  <string name="error_blocked_footer">Você pode entrar em contato &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou outro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
+  <string name="error_blocked_footer_no_blocker">Você pode entrar em contato com um &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
   <string name="crash_report_activity_title">Erro no aplicativo</string>
   <string name="crash_report_relaunch_or_quit">Desculpe-nos, o aplicativo da Wikipédia presenciou um erro e foi finalizado.\n\nGostaria de começar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
@@ -878,16 +886,6 @@
     <item quantity="one">Você adicionou %d caractere</item>
     <item quantity="other">Você adicionou %d caracteres</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Algoritmo de treinamento de imagem</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Decida se uma imagem sugerida irá melhorar um artigo.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Iniciar</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Ótimo, continue! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Objetivo diário alcançado! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Você alcançou a meta diária</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Uma nova tarefa de edições sugeridas agora está disponível. Treine um algoritmo para combinar imagens com artigos não ilustrados.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Os artigos da Wikipédia são escritos e editados por milhares de voluntários de todo o mundo. Infelizmente, muitos artigos não têm imagens.\n\nAs imagens serão sugeridas a você usando um algoritmo. O algoritmo irá extrair imagens de outras fontes e sugerir uma correspondência com um artigo que não possui uma imagem.\n\nSeu feedback nos ajudará a melhorar as sugestões ao longo do tempo. Como o objetivo desta tarefa é melhorar as imagens sugeridas, as correspondências que você fizer não serão publicadas neste momento.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Gostaríamos de agradecer suas contribuições para esse esforço. Você gostaria que seu nome de usuário fosse exibido em nossa página de treinamento de algoritmo?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Sim, meu nome de usuário pode ser exibido na página de treinamento de algoritmo</string>
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar marcações de imagem</string>
@@ -964,33 +962,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
   <string name="edit_type_all">Todas as contribuições</string>
   <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
-  <string name="image_recommendations_task_accept">Sim</string>
-  <string name="image_recommendations_task_reject">Não</string>
-  <string name="image_recommendations_task_not_sure">Talvez</string>
-  <string name="image_recommendations_task_processing">Processando...</string>
-  <string name="image_recommendations_task_instruction">Você adicionaria esta imagem ao artigo?</string>
-  <string name="image_recommendations_task_choice_no">Por que você selecionou não?</string>
-  <string name="image_recommendations_task_choice_not_sure">Por que você selecionou não tem certeza?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Escolha uma ou vários motivos.</string>
-  <string name="image_recommendations_task_choice_unsure">Por que você não tem certeza sobre esta imagem?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Não é relevante</string>
-  <string name="image_recommendations_task_choice_low_quality">Baixa qualidade</string>
-  <string name="image_recommendations_task_choice_noinfo">Não é informação suficiente</string>
-  <string name="image_recommendations_task_choice_nosubject">Não sei esse assunto</string>
-  <string name="image_recommendations_task_choice_offensive">Ofensiva</string>
-  <string name="image_recommendations_task_choice_invisible">Não consigo ver a imagem</string>
-  <string name="image_recommendations_task_choice_understand">Não entendo a tarefa</string>
-  <string name="image_recommendations_task_choice_language">Não consigo ler o idioma</string>
-  <string name="image_recommendations_task_choice_other">Outro</string>
-  <string name="image_recommendations_task_choice_continue">Continuar</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motivo da sugestão:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">imagem foi encontrada em outras versões linguísticas da Wikipedia (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">A imagem foi encontrada na WikiData, a fonte de dados abertos da Wikipédia</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">A imagem foi encontrada no Wikimedia Commons, a fonte da Wikipédia de imagens livremente utilizáveis</string>
-  <string name="image_recommendations_faq">FAQ</string>
-  <string name="image_recommendations_tooltip1">Revise este artigo para entender seu tópico.</string>
-  <string name="image_recommendations_tooltip2">Inspecione a imagem e suas informações associadas.</string>
-  <string name="image_recommendations_tooltip3">Decida se a imagem ajudará os leitores a entender melhor este tópico.</string>
   <string name="wikitext_bold">Negrito</string>
   <string name="wikitext_italic">Itálico</string>
   <string name="wikitext_link">Link</string>
@@ -1013,6 +984,7 @@
   <string name="talk_title">Discussão</string>
   <string name="talk_user_title">Discussão: %s</string>
   <string name="talk_new_topic">Novo tópico</string>
+  <string name="talk_new_topic_submitted">Tópico enviado.</string>
   <string name="talk_page_empty">Esta página de discussão está vazia.</string>
   <string name="talk_add_reply">Responder</string>
   <string name="talk_no_subject">(Sem assunto)</string>
@@ -1021,6 +993,9 @@
   <string name="talk_message_hint">Compor mensagem</string>
   <string name="talk_message_empty">A mensagem não pode estar vazia.</string>
   <string name="talk_subject_empty">O assunto não pode estar vazio.</string>
+  <string name="talk_response_submitted">Resposta enviada.</string>
+  <string name="talk_snackbar_undo">Desfazer</string>
+  <string name="talk_last_modified">&lt;b&gt;Última edição %1$s&lt;/b&gt; por %2$s</string>
   <string name="menu_option_share_edit">Compartilhar edição</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuições de %s</string>

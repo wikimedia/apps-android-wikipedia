@@ -202,14 +202,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Пайда ийца библиотекаш</string>
   <string name="about_contributors_heading">Автораш</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Тоабан оагӀув&lt;/a&gt;</string>
   <string name="about_translators_heading">Таржамхой</string>
   <string name="about_translators_translatewiki">Укх приложенена &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чу таржам даьр ГӀалгӀай Википеден админ ва (&lt;a href=\"https://instagram.com/ingush_wikipedia\"&gt;@Ingush_Wikipedia&lt;/a&gt;).</string>
   <string name="about_app_license_heading">Лицензи</string>
-  <string name="about_app_license" fuzzy="true">Юххьанцарча кóдá тӀакхача аьттув ба укхазеи → &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; укхазеи → &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; укх лицензеца: &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Нагахьа санна кхыдар белгалдаьдеце чударá тӀакхача аьттув ба &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt; яхача лицензеца.</string>
+  <string name="about_app_license">Юххьанцарча кóдá тӀакхача аьттув ба укхаза → &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;, укх лицензеца &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Нагахьа санна кхыдар белгалдаьдеце, чударá тӀакхача аьттув ба укх лицензе бокъонашца: &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонд Викимедиан продукт&lt;/a&gt;</string>
   <string name="about_activity_title">Приложенех лаьца</string>
   <string name="edit_abandon_confirm">ОагӀона тӀа хувцам баьб. Боккъонца лой хьона хувцам дӀа ца язбеш аравала?</string>
@@ -356,6 +355,14 @@
   <string name="page_footer_license_text">Чулоацамá тIакхоачилга $1 яхача лицензе бокъоношца да, нагахьа санна кхыдар белгалдаь деце.</string>
   <string name="empty_tab_title">Керда вкладка</string>
   <string name="menu_save_all_tabs">Еррига вкладкаш дӀаяхка</string>
+  <string name="error_blocked_title">Хьа цӀерá (аккаунтá) е IP-цӀайна блок техай</string>
+  <string name="error_blocked_by">Блок техар: &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Блок тохара бахьан: %s</string>
+  <string name="error_blocked_start">Блок тохар доладеннад: %s</string>
+  <string name="error_blocked_expiry">Блок тохар чакхдоал: %s</string>
+  <string name="error_blocked_id">Блок тохара идентификаци: %s</string>
+  <string name="error_blocked_footer">Хьа аьттув ба &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; яхачунца е кхыча &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;администратораца&lt;/a&gt; бувзаме а ваьнна хьона теха йолча блоках лаьца дувца.</string>
+  <string name="error_blocked_footer_no_blocker">Хьа аьттув ба &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;администратораца&lt;/a&gt; бувзаме а ваьнна хьона теха йолча блоках лаьца дувца.</string>
   <string name="crash_report_activity_title">Приложенен гӀалат</string>
   <string name="crash_report_relaunch_or_quit">Бехк ма баккхалахь, Википеден приложене чу гӀалат нийсделар, из бахьан долаш дӀакъовлаялар из.\n\nЮха хьаелла безам ба хьа из е аравала?</string>
   <string name="crash_report_relaunch">Юха хеца</string>
@@ -798,6 +805,41 @@
   <string name="suggested_edits_edit_streak_label_text">Тоадарий сери</string>
   <string name="suggested_edits_views_label_text">Хьажараш</string>
   <string name="suggested_edits_quality_label_text">Тоадара дикал</string>
+  <string name="suggested_edits_quality_perfect_text">Шийл дикагӀа йоаца</string>
+  <string name="suggested_edits_quality_excellent_text">ТӀехдика</string>
+  <string name="suggested_edits_quality_very_good_text">ЧӀоагӀа дика</string>
+  <string name="suggested_edits_quality_good_text">Дика</string>
+  <string name="suggested_edits_quality_okay_text">ЛерттӀа</string>
+  <string name="suggested_edits_quality_sufficient_text">Мегаш</string>
+  <string name="suggested_edits_quality_poor_text">Вó</string>
+  <string name="suggested_edits_quality_bad_text">Вó</string>
+  <string name="suggested_edits_label">Тоаде мегаш дар</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Къахьегам</item>
+    <item quantity="few">Къахьегам</item>
+    <item quantity="many">Къахьегам</item>
+    <item quantity="other">Къахьегам</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d ди</item>
+    <item quantity="few">%d ди</item>
+    <item quantity="many">%d ди</item>
+    <item quantity="other">%d ди</item>
+  </plurals>
+  <string name="suggested_edits_what_is_title">Фуд из Тоаде мегаш дар?</string>
+  <string name="suggested_edits_what_is_text">Тоаде мегаш да аьнна хьагойташ долча йоазонаша Википеде чу кӀезига мукъагӀа къахьега аьттув хулийт.</string>
+  <string name="suggested_edits_learn_more">Кхы а</string>
+  <string name="suggested_edits_paused_title">Соцадаьд</string>
+  <string name="suggested_edits_disabled_title">ДӀадоадаьд</string>
+  <string name="suggested_edits_ip_blocked_title">IP блок теха да</string>
+  <string name="suggested_edits_last_edited">ТӀехьара хувцам</string>
+  <string name="suggested_edits_last_edited_never">ЦIаккха</string>
+  <string name="suggested_edits_task_new">керда</string>
+  <string name="suggested_edits_cc0_notice">Iайха даь хувцамаш дIаяздарца хьо раьза хул &lt;a href=\"%1$s\" &gt;пайда эцара бехкамашта&lt;/a&gt;, цул совгIа раьза хул хьо &lt;a href=\"%2$s\"&gt;CCO яхача лицензех&lt;/a&gt; а дола юхадаккха вIаштIехьа хургдоацача кепатохарá.</string>
+  <string name="suggested_edits_reactivation_notification_title">Тоаде мегаш дар</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Баркал хьона Википеди тоаярах! Хьалха хье сецачара дӀа хӀана волалац/йолалац хьо?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Минот йий хьога, Википеди дегӀайоалаеш болх дӀахо дӀахьоргболаш? ДӀахьажал укх тоаде мегаш долча хӀамашка.</string>
+  <string name="suggested_edits_contributions_screen_title">%s яхачун къахьегам</string>
   <string name="suggested_edits_contribution_language_label">Мотт</string>
   <string name="suggested_edits_contribution_date_time_label">Таьрахь/Ха</string>
   <string name="suggested_edits_contribution_type_label">Къахьегама тайпа</string>
@@ -837,12 +879,12 @@
     <item quantity="one">%d фискал тӀатехай Ӏа</item>
     <item quantity="other">%d фискал тӀатехай Ӏа</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Сурташ гойтара алгоритм</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Жоп ле хьайга, цу сурто дикагӀа хулийтаргья е яц статья.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Хе́ца</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">ТӀехдика да хьона, ишта дӀахо дӀабахийта Ӏа болх! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Ден-денна хьаде лаьрхӀа хиннар кхоачашдаьд! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">ХӀара дийнахьа де лаьрхӀар кхоачашдаьд Ӏа</string>
+  <string name="file_page_activity_title">Файла оагӀув</string>
+  <string name="file_page_add_image_caption_button">Суртах лаьцар тӀатоха</string>
+  <string name="file_page_add_image_tags_button">Сурта фосташ тӀатоха</string>
+  <string name="file_page_suggestion_reason">Тоаде мегаш дар белгалдаккхара бахьан</string>
+  <string name="description_edit_revert_subtitle">Баркал Википеди тоаярах!</string>
+  <string name="description_edit_revert_intro">Тхона хов Википеди тоае хьо гӀерташ хьо хинналга, амма цхьан доакъашхочо гӀалат зийннад. Ӏа тоадаьр юхадаккхара бахьан хила мег:</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="onboarding_skip">Теркал ма де</string>
@@ -891,18 +933,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Юхадаккха</string>
   <string name="edit_type_all">Беррига къахьегам</string>
   <string name="content_description_for_page_indicator">%1$d-на юкъера %2$d-гIа гIа ба</string>
-  <string name="image_recommendations_task_accept">ХӀаъа</string>
-  <string name="image_recommendations_task_reject">A</string>
-  <string name="image_recommendations_task_not_sure">Ма дарра ала магац</string>
-  <string name="image_recommendations_task_processing">Хоржаш латт...</string>
-  <string name="image_recommendations_task_instruction">Ер сурт статья чу оттадергдарий Ӏа?</string>
-  <string name="image_recommendations_task_choice_no">«А» хӀана хержар Ӏа?</string>
-  <string name="image_recommendations_task_choice_unsure">Укх сурта раьза хӀана вац/яц хьо?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Эшам бац</string>
-  <string name="image_recommendations_faq">КТХ • FAQ</string>
-  <string name="image_recommendations_tooltip1">Ӏоешал ер статья, цун тема кхетаергйолаш.</string>
-  <string name="image_recommendations_tooltip2">ДӀахьажал суртага а цунца бувзам болча хоамага а.</string>
-  <string name="image_recommendations_tooltip3">Уйла а яь соцам бе, сурто из тема дешархошта дикагӀа кхетаяйтаргйий.</string>
   <string name="wikitext_bold">Сома йоазув</string>
   <string name="wikitext_italic">Сиха йоазув</string>
   <string name="wikitext_link">Тӏатовжам</string>

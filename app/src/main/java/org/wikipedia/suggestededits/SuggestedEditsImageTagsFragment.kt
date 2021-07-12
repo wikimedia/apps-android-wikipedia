@@ -369,7 +369,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             }
                             .subscribe({
                                 if (it.entity != null) {
-                                    funnel?.logSaved(it.entity!!.lastRevId, invokeSource.getName())
+                                    funnel?.logSaved(it.entity!!.lastRevId, invokeSource.name)
                                 }
                                 publishSuccess = true
                                 onSuccess()

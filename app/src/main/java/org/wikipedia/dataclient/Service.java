@@ -106,7 +106,10 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getSiteInfo();
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
-    @NonNull Observable<MwParseResponse> parseText(@NonNull @Query("page") String pageTitle);
+    @NonNull Observable<MwParseResponse> parsePage(@NonNull @Query("page") String pageTitle);
+
+    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
+    @NonNull Observable<MwParseResponse> parseText(@NonNull @Query("text") String text);
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
     @NonNull Observable<MwParseResponse> parseTextForMainPage(@NonNull @Query("page") String mainPageTitle);
@@ -237,6 +240,12 @@ public interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
+    @NonNull Observable<Edit> postUndoEdit(@NonNull @Field("title") String title,
+                                           @Field("undo") long revision,
+                                           @NonNull @Field("token") String token);
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=edit")
     @SuppressWarnings("checkstyle:parameternumber")
     @NonNull Observable<Edit> postEditSubmit(@NonNull @Field("title") String title,
                                              @NonNull @Field("section") String section,
@@ -351,6 +360,9 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
 
     @NonNull Observable<MwQueryResponse> getWatchlist();
+
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user")
+    @NonNull Observable<MwQueryResponse> getLastModified(@Query("titles") @NonNull String titles);
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
     @NonNull Observable<MwQueryResponse> getRevisionDetails(@Query("titles") @NonNull String titles,

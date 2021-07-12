@@ -5,6 +5,7 @@
 * Alaa
 * Asaifm
 * Dbrant
+* Dr. Mohammed
 * Elbasyouny
 * Esraa Ismail
 * Haytham morsy
@@ -41,7 +42,7 @@
   <string name="page_tabs_back">رجوع</string>
   <string name="nav_item_forward">إلى الأمام</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
-  <string name="search_hint_voice_search">البحث عن المدخلات الصوتية</string>
+  <string name="search_hint_voice_search">البحث الصوتي</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="filter_hint_filter_my_lists_and_articles">تصفية قوائمي</string>
   <string name="nav_item_suggested_edits">التعديلات</string>
@@ -62,7 +63,7 @@
   <string name="history_item_delete_undo">تراجع</string>
   <string name="notification_archive_undo">تراجع</string>
   <string name="app_settings">إعدادات التطبيق</string>
-  <string name="search_tab_tooltip">اضغط الأيقونة مجددًا للبدء مباشرةً في إدخال مصطلح البحث.</string>
+  <string name="search_tab_tooltip">انقر فوق الرمز مرة أخرى لبدء كتابة مصطلح البحث مباشرةً.</string>
   <string name="history_list_title">التاريخ</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
   <string name="dialog_message_clear_history">هذا سيحذف تاريخ تصفحك كاملا، وسيغلق أي تبويبات مفتوحة. هل أنت متأكد؟</string>
@@ -85,7 +86,7 @@
   <string name="feed_card_add_to_list">أضف إلى قائمة القراءة</string>
   <string name="feed_card_add_to_default_list">احفظ</string>
   <string name="menu_page_share">شارك الوصلة</string>
-  <string name="menu_page_open_a_new_tab">افتح تبويبا جديدا</string>
+  <string name="menu_page_open_a_new_tab">افتح تبويبا جديدًا</string>
   <string name="menu_page_new_tab">تبويب جديد</string>
   <string name="menu_page_reading_lists">قوائم القراءة</string>
   <string name="menu_page_recently_viewed">طالعتها مؤخرًا</string>
@@ -125,7 +126,7 @@
   <string name="search_reading_lists_no_results">لا نتائج في قوائم القراءة</string>
   <string name="search_history_no_results">لا نتائج في التاريخ</string>
   <string name="edit_section_captcha_message">للمساعدة على الحماية ضد البريد المزعج الآلي، فضلاً أدخل الكلمات التي تظهر أدناه</string>
-  <string name="edit_section_captcha_request_an_account_message">لا تستطيع رؤية الصورة؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;اطلب حسابا&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">لا تستطيع رؤية الصورة؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;اطلب حسابًا&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">كرر الكلمات من فوق</string>
   <string name="title_captcha">أدخل كلمة التحقق</string>
   <string name="edit_section_captcha_reload">انقر على كلمة التحقق لإعادة التحميل</string>
@@ -178,13 +179,13 @@
   <string name="create_account_generic_error">تعذّر إنشاء الحساب</string>
   <string name="create_account_next">التالي</string>
   <string name="email_recommendation_dialog_title">إنشاء حساب بدون عنوان بريد إلكتروني؟</string>
-  <string name="email_recommendation_dialog_message">على الرغم من أن عنوان البريد الإلكتروني اختياري، فإنه &lt;b&gt;موصى به جدا&lt;/b&gt;، بما أنه هناك حاجة لبريد إلكتروني لاسترجاع الحساب لو فقدت كلمة السر الخاصة بك.</string>
+  <string name="email_recommendation_dialog_message">على الرغم من أن عنوان البريد الإلكتروني اختياري، فإنه &lt;b&gt;موصى به جدًا&lt;/b&gt;، بما أنه هناك حاجة لبريد إلكتروني لاسترجاع الحساب لو فقدت كلمة السر الخاصة بك.</string>
   <string name="email_recommendation_message">موصى به بما أن عنوان البريد الإلكتروني ضروري من أجل استرجاع الحساب.</string>
   <string name="email_recommendation_dialog_create_without_email_action">الاستمرار بدون بريد إلكتروني</string>
   <string name="email_recommendation_dialog_create_with_email_action">إضافة عنوان بريد إلكتروني</string>
   <string name="create_account_button">أنشئ حسابًا</string>
   <string name="create_account_name_unavailable">اسم المستخدم \"%s\" غير متوفر; يُرجَى اختيار اسم مختلف.</string>
-  <string name="create_account_ip_block_message">عذرا، تم منع عنوان الآيبي الخاص بك حاليا من إنشاء حسابات جديدة.</string>
+  <string name="create_account_ip_block_message">عذرًا، تم منع عنوان الآيبي الخاص بك حاليًا من إنشاء حسابات جديدة.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">التفاصيل</string>
   <string name="preferences_general_heading">عام</string>
@@ -231,14 +232,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
-  <string name="about_app_license" fuzzy="true">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من &lt;a href=\"https://wikimediafoundation.org/\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">حول</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
@@ -391,6 +391,7 @@
   <string name="page_footer_license_text">المحتوى متوفر تحت رخصة $1 إلا إذا ذُكر غير ذلك</string>
   <string name="empty_tab_title">تبويب جديد</string>
   <string name="menu_save_all_tabs">حفظ كل الألسنة</string>
+  <string name="error_blocked_title">عنوان الآي بي أو اسم المستخدم الخاص بك تم منعه.</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
@@ -798,9 +799,9 @@
   <string name="suggested_edits_image_tags_publishing">نشر</string>
   <string name="suggested_edits_image_tags_published">تم النشر</string>
   <string name="suggested_edits_image_tags_onboarding_title">يسهل وسم الصور العثور عليها.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">لقد اقترحنا تلقائيًا بعض الأوسمة، ويمكنك أيضًا إضافة الأوسمة الخاصة بك.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">من خلال إضافة علامات الصور، ستساعد في تسهيل البحث عن الصور في كومنز، وهو مستودع صور الترخيص المجاني الذي تستخدمه ويكيبيديا للصور في مقالاتها.</string>
   <string name="suggested_edits_image_tags_onboarding_note">ستتم إضافة الأوسمة التي توافق عليها فقط إلى الصور.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">ضع وسمًا على الصور لتسهيل العثور عليها. اختر من الأوسمة المقترحة أو أضف الأوسمة الخاصة بك.</string>
+  <string name="suggested_edits_image_tags_task_detail">أضف علامات مخصصة إلى صورة ما لتسهيل العثور عليها.</string>
   <string name="suggested_edits_image_tags_choose">أضف أو اختر الأوسمة المطابقة</string>
   <string name="suggested_edits_image_tags_published_list">وسوم منشورة</string>
   <string name="suggested_edits_image_tags_search">علامات البحث</string>
@@ -809,16 +810,16 @@
   <string name="suggested_edits_image_tags_add_tag">إضافة وسم</string>
   <string name="suggested_edits_image_zoom_tooltip">ضم الاصبعين لتكبير هذه الصورة.</string>
   <string name="suggested_edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;مرحبا %s&lt;/b&gt;، يمكنك العثور أدناه على بعض الطرق السريعة والسهلة للمساعدة في تحسين ويكيبيديا. ستلاحظ الفرق الذي تحدثه بمجرد أن تبدأ. نتمنى لك تحرير سعيد!</string>
+  <string name="suggested_edits_image_captions_task_detail">صف صورة لمساعدة القراء على فهم معناها وسياقها.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">تلخيص مقال لمساعدة القراء على فهم الموضوع في لمحة.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد مساهماتك حتى الآن.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">كم يومًا متتابعًا ساهمت فيها بتعديلاتٍ، إن لم تكن قد ساهمت لفترةٍ من الوقت، فسيُعرض تاريخ آخر مساهمة لك.</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت فيها في آخر 30 يومًا.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك (التراجع عن طريق محرر آخر)، التعديلات التي تم إرجاعها: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\nتعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\nتعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">يبدو أن عنوان الآيبي (أو نطاق عناوين الآيبي) الخاص بك ممنوع حاليا من تحرير ويكيبيديا، تعرف على المزيد حول معنى ذلك من خلال زيارة الرابط أدناه.</string>
+  <string name="suggested_edits_paused_message">تم إيقاف عمليات التحرير المقترحة مؤقتًا حتى %1$s. عذرًا %2$s، تم إرجاع بعض مساهماتك الأخيرة.</string>
+  <string name="suggested_edits_disabled_message">التعديلات المقترحة معطلة. عذرًا %s، تم إرجاع عدد كبير جدًا من مساهماتك الأخيرة.</string>
+  <string name="suggested_edits_ip_blocked_message">يبدو أن عنوان الآيبي الخاص بك (أو نطاق عناوين الآيبي) محظور حاليًا من تحرير ويكيبيديا.</string>
   <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
   <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
   <string name="suggested_edits_edit_streak_label_text">تسلسل التحرير</string>
@@ -865,16 +866,6 @@
   <string name="suggested_edits_contribution_type_image_tag">وسم صورة</string>
   <string name="suggested_edits_contribution_current_revision_text">أضيف تعديلك إلى ويكيبيديا</string>
   <string name="suggested_card_more_edits">تعديلات مقترحة أكثر</string>
-  <string name="suggested_edits_image_recommendations_task_title">درّب خوارزمية الصور</string>
-  <string name="suggested_edits_image_recommendations_task_detail">قرّر ما إذا كانت الصور ستُحسن المقالة.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">ابدأ</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">رائع، استمر! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">لقد حققت الهدف اليومي! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">لقد وصلت الهدف اليومي</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">مهمة تعديلات مقترحة جديدة متاحةٌ الآن. درّب خوارزمية لمطابقة الصور مع المقالات التي ليس بها صور توضيحية.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">مقالات ويكيبيديا يكتبها ويعدلها آلاف المتطوّعين من أنحاء العالم. للأسف، العديد من المقالات تفتقر إلى الصور.\n\nستُقترح لك الصور باستخدام خورازمية. ستسحب الخوارزمية الصور من مصادر أخرى وتقترح مطابقتها مع مقالةٍ لا يحتوي على صورة.\n\nستساعدنا ملاحظاتك في تحسين الاقتراحات مع مرور الوقت. لأن الهدف من هذه المهمة هو تحسين الصور المقترحة، لن تُنشر المطابقات التي تجريها في الوقت الحالي.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">تقديرًا لجهودك، نود أن نُبرز مساهماتك في هذا العمل. هل ترغب في عرض اسم المستخدم الخاص بك على صفحة تدريب الخوارزمية الخاصة بنا؟</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">نعم، يُمكن عرض اسم المستخدم الخاص بي في صفحة تدريب الخوارزمية</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
@@ -951,33 +942,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">إلغاء</string>
   <string name="edit_type_all">كل المساهمات</string>
   <string name="content_description_for_page_indicator">الصفحة %1$d من %2$d</string>
-  <string name="image_recommendations_task_accept">نعم</string>
-  <string name="image_recommendations_task_reject">لا</string>
-  <string name="image_recommendations_task_not_sure">لستُ متأكداً</string>
-  <string name="image_recommendations_task_processing">تجري المعالجة...</string>
-  <string name="image_recommendations_task_instruction">هل ترى أن الصورة مناسبة للإضافة إلى المقالة؟</string>
-  <string name="image_recommendations_task_choice_no">لماذا اخترت \"لا\"؟</string>
-  <string name="image_recommendations_task_choice_not_sure">لماذا اخترت \"لستُ متأكدًا\"؟</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">اختر سببًا واحدًا أو عدة أسباب.</string>
-  <string name="image_recommendations_task_choice_unsure">لماذا لست متأكدًا من هذه الصورة؟</string>
-  <string name="image_recommendations_task_choice_not_relevant">غير ذات صلة</string>
-  <string name="image_recommendations_task_choice_low_quality">جودة ضعيفة</string>
-  <string name="image_recommendations_task_choice_noinfo">لا معلومات كافية</string>
-  <string name="image_recommendations_task_choice_nosubject">لا أعرف الموضوع</string>
-  <string name="image_recommendations_task_choice_offensive">مسيئة</string>
-  <string name="image_recommendations_task_choice_invisible">لا أرى الصورة</string>
-  <string name="image_recommendations_task_choice_understand">لا أفهم المهمة</string>
-  <string name="image_recommendations_task_choice_language">لا يمكنني قراءة اللغة</string>
-  <string name="image_recommendations_task_choice_other">أخرى</string>
-  <string name="image_recommendations_task_choice_continue">استمر</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;سبب الاقتراح:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">عُثر على الصورة في لغة أخرى من ويكيبيديا (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">عُثر على الصورة في ويكي بيانات، مصدر ويكيبيديا للبيانات المفتوحة</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">عُثر على الصورة في ويكيميديا كومنز، مصدر ويكيبيديا للصور المتاحة للاستخدام بحرية</string>
-  <string name="image_recommendations_faq">الأسئلة المتكررة</string>
-  <string name="image_recommendations_tooltip1">راجع هذه المقالة لفهم موضوعها.</string>
-  <string name="image_recommendations_tooltip2">افحص الصورة والمعلومات المرتبطة بها.</string>
-  <string name="image_recommendations_tooltip3">قرر ما إذا كانت الصورة ستساعد القراء على فهم هذا الموضوع بشكل أفضل.</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>
   <string name="wikitext_link">وصلة</string>
@@ -1000,6 +964,7 @@
   <string name="talk_title">نقاش</string>
   <string name="talk_user_title">نقاش: %s</string>
   <string name="talk_new_topic">موضوع جديد</string>
+  <string name="talk_new_topic_submitted">الموضوع مقدم.</string>
   <string name="talk_page_empty">صفحة النقاش هذه فارغة.</string>
   <string name="talk_add_reply">رد</string>
   <string name="talk_no_subject">(بدون موضوع)</string>
@@ -1008,6 +973,9 @@
   <string name="talk_message_hint">صياغة رسالة</string>
   <string name="talk_message_empty">لا يمكن أن تكون الرسالة فارغة.</string>
   <string name="talk_subject_empty">لا يمكن أن يكون الموضوع فارغًا.</string>
+  <string name="talk_response_submitted">تم إرسال الرد.</string>
+  <string name="talk_snackbar_undo">تراجع</string>
+  <string name="talk_last_modified">&lt;b&gt;آخر تعديل %1$s&lt;/b&gt; بواسطة %2$s</string>
   <string name="menu_option_share_edit">شارك التعديل</string>
   <string name="menu_option_user_profile">ملف %s</string>
   <string name="menu_option_user_contributions">مساهمات %s</string>

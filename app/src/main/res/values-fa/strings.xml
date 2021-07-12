@@ -384,6 +384,14 @@
   <string name="page_footer_license_text">محتوا تحت $1 در دسترس است، مگر اینکه خلافش ذکر شده‌باشد.</string>
   <string name="empty_tab_title">برگهٔ جدید</string>
   <string name="menu_save_all_tabs">ذخیرهٔ همهٔ برگه‌ها</string>
+  <string name="error_blocked_title">دسترسی حساب کاربری یا نشانی آی‌پی شما قطع شده‌است.</string>
+  <string name="error_blocked_by">این قطع دسترسی توسط &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; انجام شده‌است</string>
+  <string name="error_blocked_reason">دلیل ارائه‌شده: %s</string>
+  <string name="error_blocked_start">آغاز قطع دسترسی: %s</string>
+  <string name="error_blocked_expiry">زمان منقضی‌شدن قطع دسترسی: %s</string>
+  <string name="error_blocked_id">شناسهٔ قطع دسترسی: %s</string>
+  <string name="error_blocked_footer">برای گفتگو پیرامون قطع دسترسی می‌توانید با &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; یا یک &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:مدیران\"&gt;مدیر&lt;/a&gt; دیگر تماس بگیرید.</string>
+  <string name="error_blocked_footer_no_blocker">برای گفتگو پیرامون قطع دسترسی می‌توانید با یک &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:مدیران\"&gt;مدیر&lt;/a&gt; تماس بگیرید.</string>
   <string name="crash_report_activity_title">خطای برنامه</string>
   <string name="crash_report_relaunch_or_quit">با عرض پوزش، نرم‌افزار ویکی‌پدیا با خطا مواجه شد و بسته شد.\n\nآیا قصد شروع دوباره دارید یا می‌خواهید خارج شوید؟</string>
   <string name="crash_report_relaunch">شروع دوباره</string>
@@ -875,11 +883,6 @@
     <item quantity="one">شما %d نویسه افزودید</item>
     <item quantity="other">شما %d نویسه افزودید</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_get_started">شروع</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">عالی، ادامه دهید! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">هدف روزانه محقق شد! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">به هدف روزانه رسیدید</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">ما می‌خواهیم سهم شما از مشارکت در این کار را به رسمیت بشناسیم. مایل هستید نام کاربری شما صفحهٔ آموزش الگوریتمی ما نمایش یابد؟</string>
   <string name="file_page_activity_title">صفحه پرونده</string>
   <string name="file_page_add_image_caption_button">افزودن توضیح تصویر</string>
   <string name="file_page_add_image_tags_button">افزودن برچسب‌های تصویر</string>
@@ -956,31 +959,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">لغو</string>
   <string name="edit_type_all">همهٔ مشارکت‌ها</string>
   <string name="content_description_for_page_indicator">صفحهٔ %1$d از %2$d</string>
-  <string name="image_recommendations_task_accept">بله</string>
-  <string name="image_recommendations_task_reject">خیر</string>
-  <string name="image_recommendations_task_not_sure">مطمئن نیستم</string>
-  <string name="image_recommendations_task_processing">در حال پردازش...</string>
-  <string name="image_recommendations_task_instruction">می‌خواهید این تصویر را به این مقاله اضافه کنید؟</string>
-  <string name="image_recommendations_task_choice_no">چرا خیر را انتخاب کردید؟</string>
-  <string name="image_recommendations_task_choice_not_sure">چرا مطمئن نیستم را انتخاب کردید؟</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">یک یا چند دلیل را انتخاب کنید.</string>
-  <string name="image_recommendations_task_choice_unsure">چرا از این تصویر مطمئن نیستید؟</string>
-  <string name="image_recommendations_task_choice_not_relevant">نامرتبط</string>
-  <string name="image_recommendations_task_choice_low_quality">کیفیت پایین</string>
-  <string name="image_recommendations_task_choice_noinfo">اطلاعات کافی نیست</string>
-  <string name="image_recommendations_task_choice_nosubject">این موضوع را نمی‌شناسم</string>
-  <string name="image_recommendations_task_choice_offensive">توهین‌آمیز</string>
-  <string name="image_recommendations_task_choice_invisible">قادر به دیدن تصویر نیستم</string>
-  <string name="image_recommendations_task_choice_language">قادر به خواندن این زبان نیستم</string>
-  <string name="image_recommendations_task_choice_other">سایر</string>
-  <string name="image_recommendations_task_choice_continue">ادامه</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;دلیل پیشنهاد&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">تصویر در نسخه‌های زبانی دیگر از ویکی‌پدیا یافت شد (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">این تصویر در ویکی‌داده، منبع ویکی‌پدیا برای داده‌های آزاد یافت شد</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">این تصویر در ویکی‌انبار، منبع ویکی‌پدیا برای تصاویر قابل استفاده به‌صورت آزاد یافت شد</string>
-  <string name="image_recommendations_faq">پرسش‌های رایج</string>
-  <string name="image_recommendations_tooltip1">این مقاله را مرور کنید تا موضوع آن را درک کنید.</string>
-  <string name="image_recommendations_tooltip2">تصویر و اطلاعات مربوط به آن را بررسی کنید.</string>
   <string name="wikitext_bold">پررنگ</string>
   <string name="wikitext_italic">کج</string>
   <string name="wikitext_link">پیوند</string>

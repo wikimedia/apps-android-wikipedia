@@ -181,12 +181,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun createNewListClick() {
-            val existingTitles = mutableListOf<String>()
-            displayedLists.forEach {
-                if (it is ReadingList) {
-                    existingTitles.add(it.title)
-                }
-            }
+            val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
             ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
                     existingTitles) { text, description ->
                 ReadingListDbHelper.createList(text, description)
@@ -304,7 +299,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         } else {
             binding.emptyContainer.visibility = View.GONE
-            DeviceUtil.setWindowSoftInputModeResizable(requireActivity())
         }
     }
 
@@ -467,7 +461,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
         override fun onActionClick(item: ReadingListPage?, view: View) {
             item?.let {
-                if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi() &&
+                if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi &&
                         it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
                     it.offline = false
                 }

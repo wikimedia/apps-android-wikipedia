@@ -29,7 +29,6 @@ import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.NotificationFunnel
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.crash.CrashReportActivity
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -95,9 +94,7 @@ abstract class BaseActivity : AppCompatActivity() {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
 
-        if (this !is CrashReportActivity) {
-            Prefs.setLocalClassName(localClassName)
-        }
+        Prefs.setLocalClassName(localClassName)
     }
 
     override fun onDestroy() {
@@ -123,11 +120,7 @@ abstract class BaseActivity : AppCompatActivity() {
         EXCLUSIVE_BUS_METHODS = exclusiveBusMethods
         EXCLUSIVE_DISPOSABLE = WikipediaApp.getInstance().bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
 
-        // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
-        // less probable.
-        if (this !is CrashReportActivity) {
-            Prefs.crashedBeforeActivityCreated(false)
-        }
+        Prefs.crashedBeforeActivityCreated(false)
     }
 
     override fun applyOverrideConfiguration(configuration: Configuration) {

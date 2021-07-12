@@ -34,7 +34,6 @@
     <string name="preference_key_session_data">session_data</string>
     <string name="preference_key_session_timeout">session_timeout</string>
     <string name="preference_key_crashed_before_activity_created">crashedBeforeActivityCreated</string>
-    <string name="preference_key_auto_upload_crash_reports">always_send_crash_reports</string>
     <string name="preference_key_reading_list_sort_mode">readingListSortMode</string>
     <string name="preference_key_reading_list_page_sort_mode">readingListPageSortMode</string>
     <string name="preference_key_page_last_shown">pageLastShown</string>
@@ -125,12 +124,4 @@
     <string name="preference_key_watchlist_disabled_langs">watchlistDisabledLangs</string>
     <string name="preference_key_watchlist_page_onboarding_tooltip_shown">watchlistPageOnboardingTooltipShown</string>
     <string name="preference_key_watchlist_main_onboarding_tooltip_shown">watchlistMainOnboardingTooltipShown</string>
-    <string name="preference_key_image_recs_teacher_mode">imageRecsTeacherMode</string>
-    <string name="preference_key_image_recs_daily_progress">imageRecsDailyProgress</string>
-    <string name="preference_key_image_recs_item_sequence">imageRecsItemSequence</string>
-    <string name="preference_key_image_recs_item_sequence_success">imageRecsItemSequenceSuccess</string>
-    <string name="preference_key_image_recs_day_id">imageRecsDayId</string>
-    <string name="preference_key_image_recs_show_tooltip">imageRecsShowTooltip</string>
-    <string name="preference_key_image_recs_show_onboarding">imageRecsShowOnboarding</string>
-    <string name="preference_key_image_recs_consent">imageRecsConsent</string>
 </resources>

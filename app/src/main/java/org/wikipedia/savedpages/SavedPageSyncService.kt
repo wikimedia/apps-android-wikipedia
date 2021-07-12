@@ -46,7 +46,7 @@ class SavedPageSyncService : JobIntentService() {
             return
         }
         val pagesToSave = ReadingListDbHelper.allPagesToBeForcedSave
-        if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi()) &&
+        if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi) &&
                 Prefs.isDownloadingReadingListArticlesEnabled()) {
             pagesToSave.addAll(ReadingListDbHelper.allPagesToBeSaved)
         }
@@ -176,7 +176,7 @@ class SavedPageSyncService : JobIntentService() {
 
                         // download css and javascript assets
                         mobileHTMLRsp.body?.let {
-                            fileUrls.addAll(PageComponentsUrlParser().parse(it.string(),
+                            fileUrls.addAll(PageComponentsUrlParser.parse(it.string(),
                                     pageTitle.wikiSite).filter { url -> url.isNotEmpty() })
                         }
                         if (Prefs.isImageDownloadEnabled()) {

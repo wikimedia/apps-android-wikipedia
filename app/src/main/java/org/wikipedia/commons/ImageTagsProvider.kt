@@ -7,7 +7,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.wikidata.Claims
 import org.wikipedia.dataclient.wikidata.Entities
-import kotlin.collections.ArrayList
 
 object ImageTagsProvider {
     @JvmStatic
@@ -16,7 +15,7 @@ object ImageTagsProvider {
                 .subscribeOn(Schedulers.io())
                 .onErrorReturnItem(Claims())
                 .flatMap { claims ->
-                    val ids = claims.claims()["P180"]?.map { it.mainSnak?.dataValue?.value }
+                    val ids = claims.claims["P180"]?.map { it.mainSnak?.dataValue?.value() }
                     if (ids.isNullOrEmpty()) {
                         Observable.just(Entities())
                     } else {
@@ -26,10 +25,10 @@ object ImageTagsProvider {
                 .subscribeOn(Schedulers.io())
                 .map { entities ->
                     val tags = HashMap<String, MutableList<String>>()
-                    entities.entities().flatMap { it.value.labels().values }
-                            .forEach { label ->
-                                tags.getOrPut(label.language(), { ArrayList() }).add(label.value())
-                            }
+                    entities.entities.flatMap { it.value.labels.values }
+                        .forEach { label ->
+                            tags.getOrPut(label.language, { ArrayList() }).add(label.value)
+                        }
                     tags
                 }
     }

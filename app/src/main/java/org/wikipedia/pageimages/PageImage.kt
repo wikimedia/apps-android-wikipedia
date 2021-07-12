@@ -15,31 +15,26 @@ data class PageImage(val title: PageTitle, val imageName: String?) : Parcelable 
 
         @JvmStatic
         fun imageMapFromPages(wiki: WikiSite, titles: MutableList<PageTitle>, pages: MutableList<MwQueryPage>): Map<PageTitle, PageImage> {
-            val pageImagesMap = mutableMapOf<PageTitle, PageImage>()
             // nominal case
-            val titlesMap = mutableMapOf<String, PageTitle>()
-            titles.forEach {
-                titlesMap[it.prefixedText] = it
-            }
+            val titlesMap = titles.associateBy { it.prefixedText }
             val thumbnailSourcesMap = mutableMapOf<String, String?>()
 
             // noinspection ConstantConditions
             pages.forEach {
+                val convertedFrom = it.convertedFrom()
+                val redirectFrom = it.redirectFrom()
                 thumbnailSourcesMap[PageTitle(null, it.title(), wiki).prefixedText] = it.thumbUrl()
-                if (!it.convertedFrom().isNullOrEmpty()) {
-                    thumbnailSourcesMap[PageTitle(null, it.convertedFrom()!!, wiki).prefixedText] = it.thumbUrl()
+                if (!convertedFrom.isNullOrEmpty()) {
+                    thumbnailSourcesMap[PageTitle(null, convertedFrom, wiki).prefixedText] = it.thumbUrl()
                 }
-                if (!it.redirectFrom().isNullOrEmpty()) {
-                    thumbnailSourcesMap[PageTitle(null, it.redirectFrom()!!, wiki).prefixedText] = it.thumbUrl()
+                if (!redirectFrom.isNullOrEmpty()) {
+                    thumbnailSourcesMap[PageTitle(null, redirectFrom, wiki).prefixedText] = it.thumbUrl()
                 }
             }
 
-            titlesMap.forEach {
-                if (thumbnailSourcesMap.containsKey(it.key)) {
-                    pageImagesMap[it.value] = PageImage(it.value, thumbnailSourcesMap[it.key].orEmpty())
-                }
-            }
-            return pageImagesMap
+            return titlesMap.filterKeys { thumbnailSourcesMap.containsKey(it) }
+                .map { (key, value) -> value to PageImage(value, thumbnailSourcesMap[key].orEmpty()) }
+                .toMap()
         }
     }
 }

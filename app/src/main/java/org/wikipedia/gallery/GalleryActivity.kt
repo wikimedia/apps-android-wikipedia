@@ -186,12 +186,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     public override fun onResume() {
         super.onResume()
         registerReceiver(downloadReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.setCallback(downloadReceiverCallback)
+        downloadReceiver.callback = downloadReceiverCallback
     }
 
     public override fun onPause() {
         super.onPause()
-        downloadReceiver.setCallback(null)
+        downloadReceiver.callback = null
         unregisterReceiver(downloadReceiver)
     }
 
@@ -413,6 +413,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             ViewAnimations.ensureTranslationY(binding.toolbarContainer, -binding.toolbarContainer.height)
             ViewAnimations.ensureTranslationY(binding.infoContainer, binding.infoContainer.height)
         }
+        binding.descriptionText.setTextIsSelectable(controlsShowing)
     }
 
     fun toggleControls() {
@@ -550,7 +551,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(), sourceWiki.languageCode()),
                 { captions, protectionInfoRsp, imageTags ->
                     item.mediaInfo!!.captions = captions
-                    Pair(protectionInfoRsp.query()!!.isEditProtected, imageTags.size)
+                    Pair(protectionInfoRsp.query?.isEditProtected, imageTags.size)
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

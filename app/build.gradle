@@ -43,9 +43,11 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 50359
+        versionCode 50364
         testApplicationId 'org.wikipedia.test'
-        testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+
         vectorDrawables.useSupportLibrary = true
 
         dimension 'default'
@@ -55,6 +57,10 @@ android {
         buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
 
     buildFeatures {
@@ -108,6 +114,11 @@ android {
             buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.beta.wmflabs.org"'
             buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.beta.wmflabs.org"'
             buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.beta.wmflabs.org"'
+
+            def TEST_LOGIN_USERNAME = System.getenv('TEST_LOGIN_USERNAME')
+            def TEST_LOGIN_PASSWORD = System.getenv('TEST_LOGIN_PASSWORD')
+            buildConfigField "String", "TEST_LOGIN_USERNAME", TEST_LOGIN_USERNAME != null ? "\"${TEST_LOGIN_USERNAME}\"" : '"Foo"'
+            buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
         }
         prod {
             versionName computeVersionName('r')
@@ -132,10 +143,6 @@ android {
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
         }
-    }
-
-    packagingOptions {
-        exclude 'META-INF/services/javax.annotation.processing.Processor' // required by Butter Knife
     }
 
     testOptions {
@@ -165,7 +172,6 @@ dependencies {
     String okHttpVersion = '4.8.1'
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
-    String butterknifeVersion = '10.2.0'
     String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.5'
     String kotlinCoroutinesVersion = '1.3.9'
@@ -177,14 +183,14 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
 
     implementation "com.google.android.material:material:1.3.0"
-    implementation "androidx.core:core-ktx:1.3.2"
+    implementation "androidx.core:core-ktx:1.5.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation "androidx.fragment:fragment-ktx:1.3.3"
+    implementation "androidx.fragment:fragment-ktx:1.3.4"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "androidx.preference:preference-ktx:1.1.1"
-    implementation "androidx.recyclerview:recyclerview:1.2.0"
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
-    implementation 'com.google.android:flexbox:2.0.1'
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
 
@@ -203,8 +209,6 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
     implementation "io.reactivex.rxjava3:rxjava:3.0.4"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
-    implementation "com.jakewharton:butterknife:$butterknifeVersion"
-    implementation 'com.microsoft.appcenter:appcenter-crashes:3.1.0'
     implementation 'org.apache.commons:commons-lang3:3.9'
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
@@ -224,25 +228,24 @@ dependencies {
     devImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
     customImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
 
-    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
-
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     implementation "com.squareup.leakcanary:plumber-android:$leakCanaryVersion"
 
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.2'
     testImplementation "org.mockito:mockito-inline:$mockitoVersion"
-    testImplementation 'org.robolectric:robolectric:4.3.1'
+    testImplementation 'org.robolectric:robolectric:4.5.1'
     testImplementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     testImplementation "commons-io:commons-io:2.6"
     testImplementation 'org.hamcrest:hamcrest:2.2'
 
-    androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker:1.4'
-    androidTestImplementation 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
-    androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker-dx:1.4'
-
-    androidTestImplementation "androidx.test:rules:1.3.0" // JUnit Rules
-    androidTestImplementation "androidx.test:runner:1.3.0" // Android JUnit Runner
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-web:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    androidTestUtil 'androidx.test:orchestrator:1.3.0'
 }
 
 private setSigningConfigKey(config, Properties props) {
@@ -264,14 +267,4 @@ private static Properties loadProperties(File file) {
         System.err.println "\"${file}\" not found"
     }
     return props
-}
-
-addSyncContentProviderAuthority 'readinglists', 'reading_lists'
-
-private void addSyncContentProviderAuthority(String path, String name) {
-    android.productFlavors.all { flavor ->
-        String authority = "${android.defaultConfig.applicationId + flavor.applicationIdSuffix}.sync.${path}"
-        resValue 'string', "${name.toLowerCase()}_authority", authority
-        buildConfigField 'String', "${name.toUpperCase()}_AUTHORITY", "\"$authority\""
-    }
 }

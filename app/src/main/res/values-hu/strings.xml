@@ -225,7 +225,7 @@
   <string name="about_translators_heading">Fordítók</string>
   <string name="about_translators_translatewiki">Ezt az alkalmazást önkéntesek fordították a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_app_license_heading">Licenc</string>
-  <string name="about_app_license" fuzzy="true">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
+  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
   <string name="about_wmf">A &lt;a href=\"https://wikimediafoundation.org\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
   <string name="edit_abandon_confirm">A lap megváltozott. A módosítások mentése nélkül akarsz kilépni?</string>
@@ -855,14 +855,6 @@
     <item quantity="one">Hozzáadtál egy karaktert</item>
     <item quantity="other">Hozzáadtál %d karaktert</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Képjavasló algoritmus</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Állapítsd meg, hogy az ajánlott kép hozzáadásával színvonalasabbá válik-e a cikk.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Indítás</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Remek! Csak így tovább! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Napi cél elérve.</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Elérted a napi célt.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Elérhetővé vált egy új ajánlott szerkesztés. Taníts be egy algoritmust képeket kapcsolni az illusztrációval még nem rendelkező cikkekhez.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Igen, a nevem jelenjen meg az algoritmust betanítók listáján</string>
   <string name="file_page_activity_title">Fájllap</string>
   <string name="file_page_add_image_caption_button">Képaláírás hozzáadása</string>
   <string name="file_page_add_image_tags_button">Képcímkék hozzáadása</string>
@@ -938,32 +930,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Mégse</string>
   <string name="edit_type_all">Minden közreműködés</string>
   <string name="content_description_for_page_indicator">%1$d. lap / %2$d</string>
-  <string name="image_recommendations_task_accept">Igen</string>
-  <string name="image_recommendations_task_reject">Nem</string>
-  <string name="image_recommendations_task_not_sure">Talán</string>
-  <string name="image_recommendations_task_processing">Feldolgozás...</string>
-  <string name="image_recommendations_task_instruction">Szeretnéd hozzáadni ezt a képet a cikkhez?</string>
-  <string name="image_recommendations_task_choice_no">Miért utasítottad el?</string>
-  <string name="image_recommendations_task_choice_not_sure">Miért nem vagy benne biztos?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Válassz egy vagy több indokot.</string>
-  <string name="image_recommendations_task_choice_unsure">Miért vagy bizonytalan a képet illetően?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Nem releváns</string>
-  <string name="image_recommendations_task_choice_low_quality">Rossz minőségű</string>
-  <string name="image_recommendations_task_choice_noinfo">Nincs elég információ</string>
-  <string name="image_recommendations_task_choice_nosubject">Nem vagyok jártas ebben a témában</string>
-  <string name="image_recommendations_task_choice_offensive">Durva, sértő, visszataszító</string>
-  <string name="image_recommendations_task_choice_invisible">Nem látom a képet</string>
-  <string name="image_recommendations_task_choice_understand">Nem értem a feladatot</string>
-  <string name="image_recommendations_task_choice_language">Nem tudok azon a nyelven olvasni</string>
-  <string name="image_recommendations_task_choice_other">Egyéb</string>
-  <string name="image_recommendations_task_choice_continue">Folytatás</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">a kép benne van más nyelvű Wikipédia cikkben: (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">a kép megtalálható a Wikidatán, a Wikipédia nyílt forrású tárolóján</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">a kép megtalálható a Commons-on, ahol a Wikipédia szabadon felhasználható képei vannak</string>
-  <string name="image_recommendations_faq">GYIK</string>
-  <string name="image_recommendations_tooltip1">Nézd át a szócikket, hogy megértsd milyen témáról szól.</string>
-  <string name="image_recommendations_tooltip2">Ellenőrizd a kép járulékos információit.</string>
-  <string name="image_recommendations_tooltip3">Döntsd el, hogy a kép javítja-e a téma megértését.</string>
   <string name="wikitext_bold">Félkövér</string>
   <string name="wikitext_italic">Dőlt</string>
   <string name="wikitext_link">Hivatkozás</string>

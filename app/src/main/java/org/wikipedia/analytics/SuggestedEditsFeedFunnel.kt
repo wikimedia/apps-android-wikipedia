@@ -23,7 +23,7 @@ class SuggestedEditsFeedFunnel(private val type: DescriptionEditActivity.Action,
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
-        preprocessData(eventData, "source", source.getName())
+        preprocessData(eventData, "source", source.name)
         preprocessData(eventData, "type", if (type === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) "tags"
         else if (type === DescriptionEditActivity.Action.ADD_CAPTION || type === DescriptionEditActivity.Action.TRANSLATE_CAPTION) "captions"
         else "descriptions")

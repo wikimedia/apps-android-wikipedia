@@ -8,6 +8,7 @@ import androidx.appcompat.view.ActionMode
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
@@ -41,16 +42,10 @@ class LangLinksActivity : BaseActivity() {
     private var siteInfoList: List<SiteMatrix.SiteInfo>? = null
 
     private val entriesByAppLanguages: List<PageTitle>
-        get() {
-            val list = mutableListOf<PageTitle>()
-            for (entry in languageEntries) {
-                if (entry.wikiSite.languageCode() == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
-                        app.language().appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
-                        app.language().appLanguageCodes.contains(entry.wikiSite.languageCode())) {
-                    list.add(entry)
-                }
-            }
-            return list
+        get() = languageEntries.filter {
+            it.wikiSite.languageCode() == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
+                    app.language().appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
+                    app.language().appLanguageCodes.contains(it.wikiSite.languageCode())
         }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -165,10 +160,11 @@ class LangLinksActivity : BaseActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        languageEntries = response.query()!!.langLinks()
+                        languageEntries = response.query!!.langLinks()
                         updateLanguageEntriesSupported(languageEntries)
                         sortLanguageEntriesByMru(languageEntries)
                         displayLangLinks()
+                        updateVariantDisplayTitleIfNeeded()
                     }) { t ->
                         ViewAnimations.crossFade(binding.langlinksLoadProgress, binding.langlinksError)
                         binding.langlinksError.setError(t)
@@ -199,6 +195,21 @@ class LangLinksActivity : BaseActivity() {
             }
         }
         addVariantEntriesIfNeeded(app.language(), title, languageEntries)
+    }
+
+    private fun updateVariantDisplayTitleIfNeeded() {
+        val list = languageEntries.filter { !app.language().getDefaultLanguageCode(it.wikiSite.languageCode()).isNullOrEmpty() }
+        disposables.add(Observable.fromIterable(list)
+            .flatMap({ title ->
+                ServiceFactory.getRest(title.wikiSite).getSummary(null, title.prefixedText).subscribeOn(Schedulers.io()) },
+                { first, second -> Pair(first, second) })
+            .observeOn(AndroidSchedulers.mainThread())
+            .doAfterTerminate { binding.langlinksRecycler.adapter?.notifyDataSetChanged() }
+            .subscribe({ pair ->
+                languageEntries.find { pair.first == it }?.setDisplayText(pair.second.displayTitle)
+            }) {
+                // ignore
+            })
     }
 
     private fun sortLanguageEntriesByMru(entries: MutableList<PageTitle>) {
@@ -257,13 +268,13 @@ class LangLinksActivity : BaseActivity() {
         fun setFilterText(filterText: String) {
             isSearching = true
             languageEntries.clear()
-            val filter = filterText.toLowerCase(Locale.getDefault())
+            val filter = filterText.lowercase(Locale.getDefault())
             for (entry in originalLanguageEntries) {
                 val languageCode = entry.wikiSite.languageCode()
                 val canonicalName = app.language().getAppLanguageCanonicalName(languageCode).orEmpty()
                 val localizedName = app.language().getAppLanguageLocalizedName(languageCode).orEmpty()
-                if (canonicalName.toLowerCase(Locale.getDefault()).contains(filter) ||
-                        localizedName.toLowerCase(Locale.getDefault()).contains(filter)) {
+                if (canonicalName.lowercase(Locale.getDefault()).contains(filter) ||
+                        localizedName.lowercase(Locale.getDefault()).contains(filter)) {
                     languageEntries.add(entry)
                 }
             }

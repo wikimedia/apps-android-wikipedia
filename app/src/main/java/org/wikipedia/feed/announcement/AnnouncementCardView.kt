@@ -6,6 +6,7 @@ import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.updateLayoutParams
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewCardAnnouncementBinding
 import org.wikipedia.feed.model.Card
@@ -60,9 +61,9 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                     binding.viewAnnouncementHeaderImage.visibility = GONE
                 }
                 if (it.imageHeight() > 0) {
-                    val params = binding.viewAnnouncementHeaderImage.layoutParams as MarginLayoutParams
-                    params.height = DimenUtil.roundedDpToPx(it.imageHeight().toFloat())
-                    binding.viewAnnouncementHeaderImage.layoutParams = params
+                    binding.viewAnnouncementHeaderImage.updateLayoutParams<MarginLayoutParams> {
+                        height = DimenUtil.roundedDpToPx(it.imageHeight().toFloat())
+                    }
                 }
                 if (it.hasFooterCaption()) {
                     binding.viewAnnouncementFooterText.text = StringUtil.fromHtml(it.footerCaption())

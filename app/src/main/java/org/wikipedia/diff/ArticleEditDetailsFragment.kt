@@ -5,7 +5,6 @@ import android.content.res.ColorStateList
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.SpannableStringBuilder
-import android.text.TextUtils
 import android.text.method.ScrollingMovementMethod
 import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
@@ -31,7 +30,6 @@ import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.restbase.DiffResponse.*
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.dataclient.watch.WatchPostResponse
@@ -165,8 +163,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    isWatched = it.query()!!.firstPage()!!.isWatched
-                    hasWatchlistExpiry = it.query()!!.firstPage()!!.hasWatchlistExpiry()
+                    isWatched = it.query?.firstPage()?.isWatched ?: false
+                    hasWatchlistExpiry = it.query?.firstPage()?.hasWatchlistExpiry() ?: false
                     updateWatchlistButtonUI()
                 }) { setErrorState(it!!) })
     }
@@ -177,7 +175,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    val firstPage = it.query()!!.firstPage()!!
+                    val firstPage = it.query?.firstPage()!!
                     currentRevision = firstPage.revisions()[0]
                     revisionId = currentRevision!!.revId
                     username = currentRevision!!.user
@@ -247,13 +245,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun watchOrUnwatchTitle(expiry: WatchlistExpiry, unwatch: Boolean) {
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).watchToken
                 .subscribeOn(Schedulers.io())
-                .flatMap { response: MwQueryResponse ->
-                    val watchToken = response.query()!!.watchToken()
-                    if (TextUtils.isEmpty(watchToken)) {
+                .flatMap { response ->
+                    val watchToken = response.query?.watchToken()
+                    if (watchToken.isNullOrEmpty()) {
                         throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
                     }
-                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postWatch(if (unwatch) 1 else null, null, articlePageTitle.prefixedText,
-                            expiry.expiry, watchToken!!)
+                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode))
+                        .postWatch(if (unwatch) 1 else null, null, articlePageTitle.prefixedText, expiry.expiry, watchToken)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ watchPostResponse: WatchPostResponse ->
@@ -341,7 +339,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getToken("csrf")
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, it.query()!!.csrfToken()!!)
+                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, it.query?.csrfToken()!!)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

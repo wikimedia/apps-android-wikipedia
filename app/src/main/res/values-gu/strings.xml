@@ -2,6 +2,7 @@
 <!-- Authors:
 * Ashok modhvadia
 * Bhatakati aatma
+* CptViraj
 * Harsh4101991
 * KartikMistry
 * MuratTheTurkish
@@ -11,6 +12,7 @@
   <string name="app_name_prod">વિકિપીડિયા</string>
   <string name="app_name_beta">વિકિપીડિયા બીટા</string>
   <string name="app_name_alpha">વિકિપીડિયા આલ્ફા</string>
+  <string name="wikimedia">વિકિમીડિયા</string>
   <string name="search_hint">વિકિપીડિયામાં શોધો</string>
   <string name="error_network_error" fuzzy="true">નેટવર્ક સાથે જોડાણ સ્થાપિત કરી શકાતું નથી.</string>
   <string name="page_error_retry">ફરી પ્રયત્ન કરો</string>
@@ -65,9 +67,11 @@
   <string name="privacy_policy_description">ગોપનિયતા નીતિ</string>
   <string name="terms_of_use_description">વપરાશની શરતો</string>
   <string name="about_wikipedia_url">https://gu.wikipedia.org/wiki/વિકિપીડિયા:વિષે</string>
-  <string name="about_contributors_heading" fuzzy="true">યોગદાનકર્તાઓ</string>
-  <string name="about_translators_heading" fuzzy="true">ભાષાંતરકર્તાઓ</string>
+  <string name="about_contributors_heading">યોગદાનકર્તાઓ</string>
+  <string name="about_translators_heading">ભાષાંતરકર્તાઓ</string>
   <string name="about_activity_title">વિષે</string>
+  <string name="edit_abandon_confirm_yes">હા</string>
+  <string name="edit_abandon_confirm_no">ના</string>
   <string name="user_blocked_from_editing_title">પ્રતિબંધીત</string>
   <string name="edit_next">આગળ</string>
   <string name="edit_done" fuzzy="true">સાચવો</string>
@@ -78,13 +82,39 @@
   <string name="edit_summary_tag_other">અન્ય</string>
   <string name="find_next">આગળ શોધો</string>
   <string name="page_similar_titles">સમાન પાનાંઓ</string>
+  <string name="clear_recent_searches_confirm_yes">હા</string>
+  <string name="clear_recent_searches_confirm_no">ના</string>
+  <string name="table_other">વધુ માહિતી</string>
   <string name="table_close">બંધ કરો</string>
   <string name="dialog_close_description">બંધ કરો</string>
   <string name="preference_title_show_images">ચિત્રો દર્શાવો</string>
   <string name="read_more_section">વધુ વાંચો</string>
   <string name="gallery_menu_share">વહેંચો</string>
+  <string name="close_all_tabs_confirm_yes">હા</string>
+  <string name="close_all_tabs_confirm_no">ના</string>
   <string name="tab_item_closed">%s બંધ.</string>
+  <string name="nav_item_donate">દાન આપો</string>
+  <string name="reference_list_title">સંદર્ભો</string>
+  <string name="error_blocked_id">પ્રતિબંધ ID: %s</string>
+  <string name="article_menu_bar_language_button">ભાષા</string>
   <string name="color_theme_select">થીમ</string>
   <string name="color_theme_light">આછુ</string>
   <string name="color_theme_dark">કાળું</string>
+  <string name="reading_lists_confirm_remote_delete_yes">હા</string>
+  <string name="reading_lists_confirm_remote_delete_no">ના</string>
+  <string name="suggested_edits_image_caption_summary_title_date">તારીખ</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">૧ યોગદાન</item>
+    <item quantity="other">%d યોગદાનો</item>
+  </plurals>
+  <string name="suggested_edits_contribution_language_label">ભાષા</string>
+  <string name="suggested_edits_contribution_date_time_label">તારીખ / સમય</string>
+  <string name="suggested_edits_contribution_image_label">ચિત્ર</string>
+  <string name="suggested_edits_contribution_article_label">લેખ</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">ગઇકાલે</string>
+  <string name="this_year">આ વર્ષ</string>
+  <string name="wikipedia_languages_title">વિકિપીડિયા ભાષાઓ</string>
+  <string name="wikipedia_languages_your_languages_text">તમારી ભાષાઓ</string>
+  <string name="wikitext_template">ઢાંચો</string>
+  <string name="wikitext_reference">સંદર્ભો</string>
 </resources>

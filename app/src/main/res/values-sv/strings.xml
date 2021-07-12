@@ -218,14 +218,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sv</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv#Träna_bildalgoritm</string>
   <string name="about_libraries_heading">Bibliotek som har använts</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamsidan&lt;/a&gt;</string>
   <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license" fuzzy="true">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
+  <string name="about_app_license">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
@@ -370,6 +369,14 @@
   <string name="page_footer_license_text">Innehållet är tillgängligt under $1 om ingenting annat anges</string>
   <string name="empty_tab_title">Ny flik</string>
   <string name="menu_save_all_tabs">Spara alla flikar</string>
+  <string name="error_blocked_title">Ditt användarnamn eller din IP-adress har blockerats.</string>
+  <string name="error_blocked_by">Blockeringen gjordes av &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Den angivna anledningar var: %s</string>
+  <string name="error_blocked_start">Blockeringens början: %s</string>
+  <string name="error_blocked_expiry">Blockeringens slut: %s</string>
+  <string name="error_blocked_id">Blockerings-ID: %s</string>
+  <string name="error_blocked_footer">Du kan kontakta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en annan &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
+  <string name="error_blocked_footer_no_blocker">Du kan kontakta en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
   <string name="crash_report_activity_title">Applikationsfel</string>
   <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.\n\nVill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
@@ -862,16 +869,6 @@
     <item quantity="one">Du lade till %d tecken</item>
     <item quantity="other">Du lade till %d tecken</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Träna bildalgoritme</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Bestäm om en föreslagen bild kommer förbättra en artikel.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Starta</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Utmärkt, fortsätt så! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Dagligt mål uppnått! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Du har nått dagens målsättning</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Det finns nya föreslagna redigeringar. Träna en algoritm för att para bilder med ännu inte illustrerade artiklar.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipediaartiklar skrivs och redigeras av tusentals frivilliga över hela världen. Tyvärr saknas bilder i många artiklar.\n\nBilder föreslås för dig enligt en algoritm. Algoritmen tar bilder från andra källor och förslår en matchningar med en artikel som saknar bild.\n\nDin återkoppling hjälper oss förbättra förslagen över tid. Målet med uppgiften är att föreslå bilder, matchningarna du skickar in kommer för tillfället inte att publiceras.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Vi skulle vilja erkänna ditt bidrag i arbetet. Vill du att vi visar ditt användarnamn på vår algoritmträningssida?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Ja, mitt användarnamn kan visas på bildalgoritmens träningssida</string>
   <string name="file_page_activity_title">Filsida</string>
   <string name="file_page_add_image_caption_button">Lägg till bildtext</string>
   <string name="file_page_add_image_tags_button">Lägg till bildtaggar</string>
@@ -948,33 +945,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Avbryt</string>
   <string name="edit_type_all">Alla bidrag</string>
   <string name="content_description_for_page_indicator">Sida %1$d av %2$d</string>
-  <string name="image_recommendations_task_accept">Ja</string>
-  <string name="image_recommendations_task_reject">Nej</string>
-  <string name="image_recommendations_task_not_sure">Osäker</string>
-  <string name="image_recommendations_task_processing">Bearbetar...</string>
-  <string name="image_recommendations_task_instruction">Skulle du lägga till den här bilden i artikeln?</string>
-  <string name="image_recommendations_task_choice_no">Varför valde du nej?</string>
-  <string name="image_recommendations_task_choice_not_sure">Varför är du osäker?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Välj en av flera anledningar.</string>
-  <string name="image_recommendations_task_choice_unsure">Varför är du osäker på den här bilden?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Inte relevant</string>
-  <string name="image_recommendations_task_choice_low_quality">Lågkvalité</string>
-  <string name="image_recommendations_task_choice_noinfo">Inte tillräckligt med information</string>
-  <string name="image_recommendations_task_choice_nosubject">Känner inte till ämnet</string>
-  <string name="image_recommendations_task_choice_offensive">Stötande</string>
-  <string name="image_recommendations_task_choice_invisible">Kan inte se bilden</string>
-  <string name="image_recommendations_task_choice_understand">Förstår inte uppgiften</string>
-  <string name="image_recommendations_task_choice_language">Kan inte läsa språket</string>
-  <string name="image_recommendations_task_choice_other">Övrigt</string>
-  <string name="image_recommendations_task_choice_continue">Fortsätt</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Förslagsorsak:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">bilden hittades på andra språkversioner av Wikipedia (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">bilden hittades på Wikidata, Wikipedias källa av öppen data</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">bilden hittades på Wikimedia Commons, Wikipedias källa av fritt användbara bilder</string>
-  <string name="image_recommendations_faq">Vanliga frågor</string>
-  <string name="image_recommendations_tooltip1">Granska denna artikel för att förstå dess ämne.</string>
-  <string name="image_recommendations_tooltip2">Inspektera bilden och dess associerade information.</string>
-  <string name="image_recommendations_tooltip3">Avgör om bilden kommer hjälpa läsarna att förstå detta ämne bättre.</string>
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Länk</string>
@@ -997,6 +967,7 @@
   <string name="talk_title">Diskussion</string>
   <string name="talk_user_title">Diskussion: %s</string>
   <string name="talk_new_topic">Nytt ämne</string>
+  <string name="talk_new_topic_submitted">Ämnet skickades.</string>
   <string name="talk_page_empty">Den här diskussionssidan är tom.</string>
   <string name="talk_add_reply">Svara</string>
   <string name="talk_no_subject">(Inget ämne)</string>
@@ -1005,6 +976,9 @@
   <string name="talk_message_hint">Skriv meddelande</string>
   <string name="talk_message_empty">Meddelandet kan inte vara tomt.</string>
   <string name="talk_subject_empty">Ämnet kan inte vara tomt.</string>
+  <string name="talk_response_submitted">Svaret skickades.</string>
+  <string name="talk_snackbar_undo">Ångra</string>
+  <string name="talk_last_modified">&lt;b&gt;Senast redigerad %1$s&lt;/b&gt; av %2$s</string>
   <string name="menu_option_share_edit">Dela redigering</string>
   <string name="menu_option_user_profile">%ss profil</string>
   <string name="menu_option_user_contributions">%ss bidrag</string>

@@ -45,7 +45,7 @@
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Am Artikel sichen</string>
-  <string name="menu_page_add_to_watchlist">Op d\'Iwwerwaachungslëscht dobäisetzen</string>
+  <string name="menu_page_add_to_watchlist">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
   <string name="menu_page_view_talk">Diskussiounssäit weisen</string>
   <string name="menu_page_view_edit_history">All Versioune vun der Säit weisen</string>
   <string name="menu_page_remove_from_watchlist">Vun der Iwwerwaachungslëscht erofhuelen</string>
@@ -206,7 +206,7 @@
   <string name="edit_zoom_out"> Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
   <string name="edit_summary_tag_grammar">Grammaire verbessert</string>
-  <string name="edit_summary_tag_links">Dobäigesat Linken</string>
+  <string name="edit_summary_tag_links">Derbäigesat Linken</string>
   <string name="edit_summary_tag_other">Anerer</string>
   <string name="edit_summary_tag_other_hint">Aner Manéier wéi Dir d\'Säit verbessert hutt</string>
   <string name="edit_conflict_title">Ännerungskonflikt</string>
@@ -361,7 +361,7 @@
   <string name="reading_list_deleted">%s geläscht</string>
   <string name="saved_list_empty_title">Nach keng Lieslëschten!</string>
   <string name="reading_lists_empty_message">Setzt Artikelen op eng Lëscht derbäi fir se spéider ze liesen, esouguer da wann Dir offline sidd.</string>
-  <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht dobäigesat.</string>
+  <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht derbäigesat.</string>
   <string name="reading_list_article_offline">Offline disponibel</string>
   <string name="reading_list_article_make_offline">Dësen Artikel offline disponibel maachen</string>
   <string name="reading_list_add_to_other_list">Op eng aner Lieslëscht derbäisetzen</string>
@@ -378,7 +378,7 @@
   <string name="reading_lists_ignore_button">Net elo</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
-  <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s dobäigesat</string>
+  <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s derbäigesat</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir %s läsche wëllt?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Alogge fir Synchronisatioun z\'aktivéieren</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ofbriechen</string>
@@ -601,8 +601,6 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
   <string name="suggested_edits_encourage_account_creation_title">Wousst Dir datt jidderee Wikipedia ännere kann?</string>
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Ufank</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Dir hutt d\'Dageszil erreecht</string>
   <string name="file_page_suggestion_reason">Grond fir d\'Propos</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
@@ -662,20 +660,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Ofbriechen</string>
   <string name="edit_type_all">All Kontributiounen</string>
   <string name="content_description_for_page_indicator">Säit %1$d vu(n) %2$d</string>
-  <string name="image_recommendations_task_accept">Jo</string>
-  <string name="image_recommendations_task_reject">Neen</string>
-  <string name="image_recommendations_task_not_sure">Net sécher</string>
-  <string name="image_recommendations_task_processing">Verschaffen...</string>
-  <string name="image_recommendations_task_instruction">Géif Dir dëst Bild bei den Artikel derbäisetzen?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Sicht een oder méi Grënn eraus.</string>
-  <string name="image_recommendations_task_choice_not_relevant">Net relevant</string>
-  <string name="image_recommendations_task_choice_low_quality">Schlecht Qualitéit</string>
-  <string name="image_recommendations_task_choice_noinfo">Net genuch Informatiounen</string>
-  <string name="image_recommendations_task_choice_offensive">Offensiv</string>
-  <string name="image_recommendations_task_choice_language">Kann d\'Sprooch net liesen</string>
-  <string name="image_recommendations_task_choice_other">Anerer</string>
-  <string name="image_recommendations_task_choice_continue">Virufueren</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">Bild gouf op Wikidata fonnt, Wikipedia\'s Quell vun open data</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>

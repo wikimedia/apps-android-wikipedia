@@ -128,7 +128,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     override fun onDestroyView() {
         disposables.clear()
-        binding.linkPreviewThumbnailGallery.setGalleryViewListener(null)
+        binding.linkPreviewThumbnailGallery.listener = null
         binding.linkPreviewToolbar.setOnClickListener(null)
         binding.linkPreviewOverflowButton.setOnClickListener(null)
         overlayView?.let {
@@ -199,12 +199,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     .flatMap { mediaList ->
                         val maxImages = 10
                         val items = mediaList.getItems("image", "video").asReversed()
-                        val titleList = mutableListOf<String>()
-                        items.forEach {
-                            if (it.showInGallery() && titleList.size < maxImages) {
-                                titleList.add(it.title)
-                            }
-                        }
+                        val titleList = items.filter { it.showInGallery() }.map { it.title }.take(maxImages)
                         if (titleList.isEmpty()) Observable.empty() else ServiceFactory.get(pageTitle.wikiSite).getImageInfo(titleList.joinToString("|"), pageTitle.wikiSite.languageCode())
                     }
                     .subscribeOn(Schedulers.io())
@@ -212,9 +207,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     .doAfterTerminate { binding.linkPreviewProgress.visibility = View.GONE }
                     .subscribe({ response ->
                         response?.let {
-                            val pageList = response.query()!!.pages()!!.filter { it.imageInfo() != null }
+                            val pageList = response.query?.pages()?.filter { it.imageInfo() != null }.orEmpty()
                             binding.linkPreviewThumbnailGallery.setGalleryList(pageList)
-                            binding.linkPreviewThumbnailGallery.setGalleryViewListener(galleryViewListener)
+                            binding.linkPreviewThumbnailGallery.listener = galleryViewListener
                         }
                     }) { caught ->
                         L.w("Failed to fetch gallery collection.", caught)

@@ -45,6 +45,7 @@
   <string name="history_item_delete_undo">Nyahbuat</string>
   <string name="notification_archive_undo">Nyahbuat</string>
   <string name="app_settings">Tetapan aplikasi</string>
+  <string name="search_tab_tooltip">Ketik ikon lagi untuk terus menaip kata carian.</string>
   <string name="history_list_title">Sejarah</string>
   <string name="dialog_title_clear_history">Padamkan sejarah pelayaran</string>
   <string name="dialog_message_clear_history">Ini akan menghapuskan kesemua sejarah pelayaran anda serta menutup sebarang tab yang masih terbuka. Adakah anda pasti?</string>
@@ -68,6 +69,7 @@
   <string name="feed_card_add_to_default_list">Simpan</string>
   <string name="menu_page_share">Kongsikan pautan</string>
   <string name="menu_page_open_a_new_tab">Buka tab baru</string>
+  <string name="menu_page_new_tab">Tab baru</string>
   <string name="menu_page_reading_lists">Senarai bacaan</string>
   <string name="menu_page_recently_viewed">Baru dilihat</string>
   <string name="menu_long_press_open_page">Buka</string>
@@ -214,7 +216,7 @@
   <string name="about_translators_heading">Penterjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini diterjemah oleh para penterjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lesen</string>
-  <string name="about_app_license" fuzzy="true">Kod sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lesen Apache 2.0&lt;/a&gt;. Kecuali dinyatakan lain, kandungan tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lesen Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license">Kod sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lesen Apache 2.0&lt;/a&gt;. Kecuali dinyatakan lain, kandungan tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lesen Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Keluaran &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Perihal</string>
   <string name="edit_abandon_confirm">Laman ini telah disunting. Adakah anda pasti ingin keluar tanpa menyimpan suntingan?</string>
@@ -242,6 +244,7 @@
   <string name="find_previous">Carian sebelumnya</string>
   <string name="find_first_occurence">Ini ialah kejadian pertama</string>
   <string name="find_last_occurence">Ini ialah kejadian terakhir</string>
+  <string name="article_opened_in_background_tab">Rencana ini telah dibuka dalam tab belakang.</string>
   <string name="abusefilter_title_warn">Suntingan ini mungkin tidak membina. Adakah anda betul-betul mahu menerbitkannya?</string>
   <string name="abusefilter_title_disallow">Suntingan ini tidak boleh diterbitkan. Sila kembali dan suntingnya semula.</string>
   <string name="abusefilter_text_warn">Penapis automatik mendapati suntingan ini berkemungkinan adalah tidak membina. Mungkin ia ada antara yang berikut:&lt;br /&gt;&lt;br /&gt;. Menaip dalam huruf besar&lt;br /&gt;. Mengosongkan rencana atau menspam&lt;br /&gt;. Pautan luar atau imej-imej tidak berkaitan&lt;br /&gt;. Aksara berulang</string>
@@ -358,6 +361,13 @@
   <string name="page_footer_license_text">Kandungan tersedia di bawah $ 1 melainkan dinyatakan sebaliknya</string>
   <string name="empty_tab_title">Tab baru</string>
   <string name="menu_save_all_tabs">Simpan semua tab</string>
+  <string name="error_blocked_title">Nama pengguna atau alamat IP anda telah disekat.</string>
+  <string name="error_blocked_by">Sekatan dilakukan oleh &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Sebab yang dinyatakan: %s</string>
+  <string name="error_blocked_start">Sekatan bermula: %s</string>
+  <string name="error_blocked_expiry">Sekatan tamat: %s</string>
+  <string name="error_blocked_footer">Anda boleh menghubungi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; atau mana-mana &lt;a href=\"https://ms.wikipedia.org/wiki/Wikipedia:Penyelia\n\"&gt;penyelia&lt;/a&gt; lain untuk membincangkan sekatan anda.</string>
+  <string name="error_blocked_footer_no_blocker">Anda boleh menghubungi &lt;a href=\"https://ms.wikipedia.org/wiki/Wikipedia:Penyelia\"&gt;penyelia&lt;/a&gt; untuk membincangkan sekatan anda.</string>
   <string name="crash_report_activity_title">Ralat aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
   <string name="crash_report_relaunch">Mula balik</string>
@@ -570,6 +580,8 @@
   <string name="view_random_card_title">Rencana sembarang</string>
   <string name="view_random_article_card_title">Rencana rawak</string>
   <string name="view_random_article_card_action">Lebih rencana rawak</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d rb</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d jt</string>
   <string name="view_next_random_article">Muatkan satu lagi artikel rawak</string>
   <string name="view_main_page_card_title">Hari ini di Wikipedia</string>
   <string name="view_main_page_card_action">Lihat laman utama</string>
@@ -582,6 +594,7 @@
   <string name="menu_feed_overflow_label">Opsyen lain</string>
   <string name="feed_featured_image_share_subject">Gambar pilihan dari Wikimedia Commons</string>
   <string name="feed">Jelajah</string>
+  <string name="home">Halaman Utama</string>
   <string name="view_static_card_icon_content_description">Ikon kad</string>
   <string name="view_card_news_title">Berita terkini</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -725,10 +738,6 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Kelmarin</string>
   <string name="suggested_edits_encourage_account_creation_title">Tahukah anda bahawa semua orang boleh menyunting Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Log masuk / sertai Wikipedia</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Mula</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Terbaik, teruskan! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Matlamat harian tercapai! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Anda telah mencapai matlamat harian</string>
   <string name="file_page_activity_title">Laman fail</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu anda mencuba yang terbaik, tetapi salah satu pengulas mempunyai kebimbangan. Sebab yang mungkin suntingan anda ditukar semula termasuk:</string>
@@ -792,33 +801,44 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sunting bahasa</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Tak apalah</string>
   <string name="remove_language_dialog_cancel_button_text">Batalkan</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Batalkan</string>
   <string name="edit_type_all">Semua sumbangan</string>
-  <string name="image_recommendations_task_accept">Ya</string>
-  <string name="image_recommendations_task_reject">Tidak</string>
-  <string name="image_recommendations_task_not_sure">Tidak pasti</string>
-  <string name="image_recommendations_task_processing">Memproses...</string>
-  <string name="image_recommendations_task_choice_no">Mengapa anda pilih tidak?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Pilih satu atau pelbagai sebab.</string>
-  <string name="image_recommendations_task_choice_low_quality">Mutu rendah</string>
-  <string name="image_recommendations_task_choice_invisible">Tidak dapat lihat imej</string>
-  <string name="image_recommendations_task_choice_understand">Tidak faham tugas tersebut</string>
-  <string name="image_recommendations_task_choice_language">Tidak boleh baca bahasa</string>
-  <string name="image_recommendations_task_choice_other">Lain-lain</string>
-  <string name="image_recommendations_task_choice_continue">Teruskan</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Sebab cadangan:&lt;/b&gt; %s</string>
+  <string name="content_description_for_page_indicator">Muka surat %1$d/%2$d</string>
   <string name="wikitext_bold">Tebal</string>
   <string name="wikitext_italic">Condong</string>
   <string name="wikitext_link">Pautan</string>
+  <string name="wikitext_bulleted_list">Senarai berbutir</string>
+  <string name="wikitext_numbered_list">Senarai bernombor</string>
   <string name="wikitext_template">Templat</string>
   <string name="wikitext_reference">Rujukan</string>
   <string name="wikitext_preview_link">Pralihat pautan</string>
   <string name="main_drawer_help">Bantuan</string>
   <string name="main_drawer_login">Log masuk / gabung Wikipedia</string>
+  <string name="main_tooltip_text">%s, tahukah anda bahawa semua orang boleh menyunting Wikipedia?</string>
+  <string name="main_tooltip_text_v2">Tahukah anda bahawa semua orang boleh menyunting Wikipedia?</string>
+  <string name="main_tooltip_action_button">Mulakan</string>
+  <string name="main_tooltip_watchlist_title">Senarai pantau</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Batalkan</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Batalkan</string>
+  <string name="talk_title">Bincang</string>
   <string name="talk_user_title">Perbincangan: %s</string>
+  <string name="talk_new_topic">Topik baru</string>
+  <string name="talk_page_empty">Halaman perbincangan ini kosong.</string>
   <string name="talk_add_reply">Balas</string>
+  <string name="talk_no_subject">(Tiada subjek)</string>
+  <string name="talk_reply_subject">Subjek</string>
+  <string name="talk_reply_hint">Balas</string>
+  <string name="talk_message_hint">Tulis pesanan</string>
+  <string name="talk_message_empty">Pesanan jangan dibiarkan kosong.</string>
+  <string name="talk_subject_empty">Subjek jangan dibiarkan kosong.</string>
   <string name="menu_option_share_edit">Kongsi suntingan</string>
   <string name="menu_option_user_profile">Profil %s</string>
   <string name="menu_option_user_contributions">Sumbangan %s</string>

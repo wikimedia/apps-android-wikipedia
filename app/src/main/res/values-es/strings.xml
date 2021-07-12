@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Agent
 * Agusbou2015
 * Amaia
 * Anarhistička Maca
@@ -24,6 +25,7 @@
 * Ihojose
 * Izamo
 * JO777
+* Jackiezelaya
 * JanKlaaseen
 * Jduranboger
 * Joanmp17
@@ -82,6 +84,7 @@
   <string name="offline_load_error_retry">Reintentar</string>
   <string name="page_error_back_to_main">Volver</string>
   <string name="error_back">Volver</string>
+  <string name="error_next">Siguiente</string>
   <string name="menu_clear_all_history">Borrar el historial</string>
   <string name="history_item_deleted">\n%s eliminado del historial</string>
   <string name="history_items_deleted">%d artículos eliminados del historial</string>
@@ -263,7 +266,7 @@
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
-  <string name="about_app_license" fuzzy="true">Código fuente disponible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; bajo la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licencia Apache 2.0&lt;/a&gt;. A menos que se especifique lo contrario, el contenido está disponible bajo la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; Licencia Atribución-CompartirIgual de Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license">Código fuente disponible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; bajo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licencia Apache 2.0&lt;/a&gt;. A menos que se especifique lo contrario, el contenido está disponible bajo la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licencia Atribución-CompartirIgual de Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto de &lt;a href=\"https://wikimediafoundation.org/es/?noredirect=es_ES\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">Se ha modificado la página. ¿Quieres salir sin guardar los cambios?</string>
@@ -408,6 +411,14 @@
   <string name="page_footer_license_text">El contenido está disponible bajo la licencia $1, a menos que se indique lo contrario.</string>
   <string name="empty_tab_title">Pestaña nueva</string>
   <string name="menu_save_all_tabs">Guardar todas las pestañas</string>
+  <string name="error_blocked_title">Tu nombre de usuario o dirección de IP ha sido bloqueada.</string>
+  <string name="error_blocked_by">El bloque fue hecho por &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">La razón dada es: %s</string>
+  <string name="error_blocked_start">Inicio de bloque: %s</string>
+  <string name="error_blocked_expiry">Expiración del bloque: %s</string>
+  <string name="error_blocked_id">ID de bloqueo: %s</string>
+  <string name="error_blocked_footer">Puedes contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o otro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; para hablar sobre el bloque.</string>
+  <string name="error_blocked_footer_no_blocker">Puedes contactar un &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Bibliotecarios\"&gt;bibliotecario&lt;/a&gt; para hablar del bloqueo.</string>
   <string name="crash_report_activity_title">Error de la aplicación</string>
   <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.\n\n¿Te gustaría volver a empezar o salir?</string>
   <string name="crash_report_relaunch">Iniciar de nuevo</string>
@@ -477,9 +488,14 @@
   <string name="reading_list_name_hint">Nombre de esta lista</string>
   <string name="reading_list_description_hint">Descripción (opcional)</string>
   <string name="reading_list_item_deleted">%s eliminado de la lista</string>
+  <string name="reading_list_item_deleted_from_list">%1$s eliminado de %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d artículo eliminado de la lista</item>
     <item quantity="other">%d artículos eliminados de la lista</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d artículo eliminado de %s</item>
+    <item quantity="other">%d artículos eliminados de %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d artículos eliminados de la lista</string>
   <string name="reading_lists_item_deleted">%s eliminado de las listas</string>
@@ -711,6 +727,7 @@
   <string name="description_ends_with_punctuation">El texto no tiene que acabar con puntuación.</string>
   <string name="description_starts_with_article" fuzzy="true">No empieces con artículos como \"un\", \"una\",\"el\", \"la\", \"los\" o \"las\".</string>
   <string name="description_starts_with_uppercase">Empieza con una letra minúscula a menos que la primera palabra sea un sustantivo propio.</string>
+  <string name="description_starts_with_lowercase">Evita empezar con minúscula.</string>
   <string name="description_is_in_different_language">El texto parece ser un idioma inesperado. El idioma debería ser %s.</string>
   <string name="description_edit_success_saved">Se publicó la descripción del artículo.</string>
   <string name="description_edit_success_saved_snackbar">Se publicó la descripción del artículo.</string>
@@ -773,6 +790,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Leyenda de imagen (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Archivo</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Página del archivo en Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiquetas</string>
   <string name="suggested_edits_image_preview_dialog_date">Fecha</string>
@@ -893,13 +911,10 @@
     <item quantity="one">Añadiste %d carácter</item>
     <item quantity="other">Añadiste %d caracteres</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_get_started">Empezar</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">¡Genial, sigue así! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Has alcanzado el objetivo</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Los artículos de Wikipedia son escritos y editados por cientos de voluntarios en todo el mundo. Desafortunadamente, a muchos artículos les hacen faltan imágenes.\n\nSe te sugerirán imágenes utilizando un algoritmo. El algoritmo tomará imágenes de otras fuentes y sugerirá como coincidencia con un artículo que no tenga una imagen.\n\nTu retroalimentación nos ayudará a mejorar las sugerencias con el tiempo. Siendo que la meta de esta tarea es el mejorar las imágenes sugeridas, las combinaciones que hagas no serán publicadas aún.</string>
   <string name="file_page_activity_title">Página de archivo</string>
   <string name="file_page_add_image_caption_button">Añadir leyenda de imagen</string>
   <string name="file_page_add_image_tags_button">Añadir etiquetas de imagen</string>
+  <string name="file_page_suggestion_reason">Motivo de la sugerencia</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -972,23 +987,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
   <string name="edit_type_all">Todas las contribuciones</string>
   <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
-  <string name="image_recommendations_task_accept">Sí</string>
-  <string name="image_recommendations_task_reject">No</string>
-  <string name="image_recommendations_task_not_sure">No se</string>
-  <string name="image_recommendations_task_processing">Procesando…</string>
-  <string name="image_recommendations_task_instruction">¿Añadirías esta imagen al artículo?</string>
-  <string name="image_recommendations_task_choice_no">¿Porqué seleccionaste que no?</string>
-  <string name="image_recommendations_task_choice_unsure">¿Porqué no estás seguro sobre esta imagen?</string>
-  <string name="image_recommendations_task_choice_not_relevant">No es relevante</string>
-  <string name="image_recommendations_task_choice_low_quality">Baja calidad</string>
-  <string name="image_recommendations_task_choice_noinfo">No hay información suficiente</string>
-  <string name="image_recommendations_task_choice_nosubject">No sé sobre este asunto</string>
-  <string name="image_recommendations_task_choice_offensive">Ofensivo</string>
-  <string name="image_recommendations_task_choice_invisible">No puedo ver la imagen</string>
-  <string name="image_recommendations_task_choice_understand">No entiendo la tarea</string>
-  <string name="image_recommendations_task_choice_other">Otra</string>
-  <string name="image_recommendations_task_choice_continue">Continuar</string>
-  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Sugerencia de razón:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Negrita</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enlace</string>
@@ -1011,6 +1009,7 @@
   <string name="talk_title">Discusión</string>
   <string name="talk_user_title">Discusión: %s</string>
   <string name="talk_new_topic">Tema nuevo</string>
+  <string name="talk_new_topic_submitted">Tema enviado.</string>
   <string name="talk_page_empty">Esta página de discusión está vacía.</string>
   <string name="talk_add_reply">Responder</string>
   <string name="talk_no_subject">(Sin asunto)</string>
@@ -1019,6 +1018,9 @@
   <string name="talk_message_hint">Redactar mensaje</string>
   <string name="talk_message_empty">El mensaje no puede estar vacío.</string>
   <string name="talk_subject_empty">El asunto no puede estar vacío.</string>
+  <string name="talk_response_submitted">Respuesta enviada.</string>
+  <string name="talk_snackbar_undo">Deshacer</string>
+  <string name="talk_last_modified">&lt;b&gt;Último editado&lt;/b&gt; %1$s por %2$s</string>
   <string name="menu_option_share_edit">Compartir edición</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>

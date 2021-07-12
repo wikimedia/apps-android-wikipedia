@@ -5,9 +5,9 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.Spanned
-import android.text.TextWatcher
 import android.text.format.DateUtils
 import android.widget.EditText
+import androidx.core.widget.doAfterTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -42,13 +42,7 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
     init {
         // add a text-change listener that will trigger syntax highlighting
         // whenever text is modified.
-        textBox.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {}
-            override fun afterTextChanged(editable: Editable) {
-                postHighlightCallback()
-            }
-        })
+        textBox.doAfterTextChanged { postHighlightCallback() }
     }
 
     private val syntaxHighlightCallback: Runnable = object : Runnable {
@@ -61,10 +55,10 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
             searchTask = SyntaxHighlightSearchMatchesTask(textBox.text, searchText, selectedMatchResultPosition)
             disposables.clear()
             disposables.add(Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentTask),
-                    Observable.fromCallable(searchTask), { f: MutableList<SpanExtents>, s: List<SpanExtents>? ->
-                f.addAll(s!!)
-                f
-            })
+                    Observable.fromCallable(searchTask), { f, s ->
+                        f.addAll(s)
+                        f
+                    })
                     .subscribeOn(Schedulers.computation())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ result ->
@@ -78,15 +72,10 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
                         for (sp in prevSpans) {
                             textBox.text.removeSpan(sp)
                         }
-                        val findTextList = mutableListOf<SpanExtents>()
+                        val findTextList = result
+                                .onEach { textBox.text.setSpan(it, it.start, it.end, Spanned.SPAN_INCLUSIVE_INCLUSIVE) }
+                                .filter { it.syntaxRule.spanStyle == SyntaxRuleStyle.SEARCH_MATCHES } // and add our new spans
 
-                        // and add our new spans
-                        for (spanEx in result) {
-                            textBox.text.setSpan(spanEx, spanEx.start, spanEx.end, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-                            if (spanEx.syntaxRule.spanStyle == SyntaxRuleStyle.SEARCH_MATCHES) {
-                                findTextList.add(spanEx)
-                            }
-                        }
                         if (!searchText.isNullOrEmpty()) {
                             syntaxHighlightListener?.findTextMatches(findTextList)
                         }

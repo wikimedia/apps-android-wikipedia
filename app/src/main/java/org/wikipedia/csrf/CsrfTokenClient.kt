@@ -44,11 +44,10 @@ class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetrie
                                 .subscribeOn(Schedulers.io())
                                 .blockingSubscribe({
                                     if (type == "rollback") {
-                                        token = it.query()!!.rollbackToken().orEmpty()
+                                        token = it.query?.rollbackToken().orEmpty()
                                     } else if (type == "csrf") {
-                                        token = it.query()!!.csrfToken().orEmpty()
+                                        token = it.query?.csrfToken().orEmpty()
                                     }
-
                                     if (AccountUtil.isLoggedIn && token == ANON_TOKEN) {
                                         throw RuntimeException("App believes we're logged in, but got anonymous token.")
                                     }

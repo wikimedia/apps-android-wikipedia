@@ -17,7 +17,7 @@
   <string name="nav_item_forward">Напред</string>
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="search_hint_voice_search">Гласовно пребарување</string>
-  <string name="search_hint_search_languages">Пребарување јазик</string>
+  <string name="search_hint_search_languages">Пребарување на јазик</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирање на моите списоци</string>
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
@@ -206,14 +206,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mk?uselang=mk</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
   <string name="about_contributors_heading">Учесници</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Екипна страница&lt;/a&gt;</string>
   <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license" fuzzy="true">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Текст_на_лиценцата_Криејтив_комонс_Наведи извор-Сподели_под_исти_услови_3.0_Нелокализирана\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови Нелокализирана&lt;/a&gt;.</string>
+  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Текст_на_лиценцата_Криејтив_комонс_Наведи извор-Сподели_под_исти_услови_3.0_Нелокализирана\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови Нелокализирана&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
@@ -358,6 +357,14 @@
   <string name="page_footer_license_text">Содржината е достапна под $1, освен ако не е поинаку наведено</string>
   <string name="empty_tab_title">Ново јазиче</string>
   <string name="menu_save_all_tabs">Зачувај ги сите јазичиња</string>
+  <string name="error_blocked_title">Вашето корисничко име или IP-адреса е блокирано.</string>
+  <string name="error_blocked_by">Блокот го зададе &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Наведена причина: %s</string>
+  <string name="error_blocked_start">Почеток на блокот: %s</string>
+  <string name="error_blocked_expiry">Истек на блокот: %s</string>
+  <string name="error_blocked_id">Назнака на блокот: %s</string>
+  <string name="error_blocked_footer">Можете да се обратите кај &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или некој друг &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; ако сакате да поразговарате за блокот.</string>
+  <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
@@ -766,7 +773,7 @@
   <string name="suggested_edits_image_zoom_tooltip">Штипнете за да ја приближите сликата.</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво, %s&lt;/b&gt;. Подолу погледајте како брзо и лесно начини да помогнете на Википедија. Штом започнете, ќе забележите каква разлика правите. Среќно уредување!</string>
-  <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и добие контекст.</string>
+  <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и да добие контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Ставете караток опис на статија, давајќи им претстава на читателите за што се работи.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси досега.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
@@ -850,16 +857,6 @@
     <item quantity="one">Додадовте %d знак</item>
     <item quantity="other">Додадовте %d знаци</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Вежбајте го сликовниот алгоритам</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Решете дали предложена слика ќе подобри статија.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Почни</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Одлично, само така! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Дневната цел е постигната! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Ја постигнавте дневната цел</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Достапна е нова задача од Предложени уредувања. Извежбајте алгоритам за да наоѓа соодветни слики за неилустрирани статии.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Статиите на Википедија ги пишуваат и уредуваат илјадници доброволци ширум светот. За жал, многу статии немаат слики.\n\nСликите ќе ви ги предлага алгоритам. Алгоритамот ќе ги извлекува од други извори и ќе предлага складност со статија која нема слика.\n\nСо време вашите предлози ќе ни помогнат да ги подобриме предлозите. Бидејќи целта на оваа задача е да ги подобриме предложените слики, совпаѓањата што ќе ги посочите нема да бида објавени.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Сакме да ви оддадеме признание за вашите напори. Дали би сакале да ви се прикажува вашето корисничко име на страницата за вежбање на алгоритми?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Да, можете да ми го прикажувате корисничкото име на таа страница</string>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
@@ -936,33 +933,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Откажи</string>
   <string name="edit_type_all">Сите придонеси</string>
   <string name="content_description_for_page_indicator">Страница %1$d од %2$d</string>
-  <string name="image_recommendations_task_accept">Да</string>
-  <string name="image_recommendations_task_reject">Не</string>
-  <string name="image_recommendations_task_not_sure">Не знам</string>
-  <string name="image_recommendations_task_processing">Обработувам…</string>
-  <string name="image_recommendations_task_instruction">Дали би ја ставиле сликава во статијата?</string>
-  <string name="image_recommendations_task_choice_no">Зошто избравте да не ја ставите?</string>
-  <string name="image_recommendations_task_choice_not_sure">Зошто избравте „не знам“?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Изберете една или повеќе причини.</string>
-  <string name="image_recommendations_task_choice_unsure">Зошто не знаете дали да ја ставите?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Нерелевантна е</string>
-  <string name="image_recommendations_task_choice_low_quality">Слаб квалитет</string>
-  <string name="image_recommendations_task_choice_noinfo">Нема доволно информации</string>
-  <string name="image_recommendations_task_choice_nosubject">Не ја познавам тематиката</string>
-  <string name="image_recommendations_task_choice_offensive">Неумесна е</string>
-  <string name="image_recommendations_task_choice_invisible">Не можам да ја видам сликата</string>
-  <string name="image_recommendations_task_choice_understand">Не ја разбирам задачата</string>
-  <string name="image_recommendations_task_choice_language">Не го познавам јазикот</string>
-  <string name="image_recommendations_task_choice_other">Друго</string>
-  <string name="image_recommendations_task_choice_continue">Продолжи</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Причина за предлагање:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">сликата е најдена на други јазични изданија на Википедија (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">сликата е најдена на Википодатоците — Википедииниот извор на отворени податоци</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">Сликата е најдена на Ризницата — Википедииниот извор на слободно достапни слики</string>
-  <string name="image_recommendations_faq">ЧПП</string>
-  <string name="image_recommendations_tooltip1">Прегледајте ја статијата за да ја разберете темата</string>
-  <string name="image_recommendations_tooltip2">Прегледајте ја сликата и нејзините придружни информации.</string>
-  <string name="image_recommendations_tooltip3">Одлучете дали сликата им помага на читателите подобро да ја разберат темата.</string>
   <string name="wikitext_bold">Задебелено</string>
   <string name="wikitext_italic">Закосено</string>
   <string name="wikitext_link">Врска</string>
@@ -985,6 +955,7 @@
   <string name="talk_title">Разговор</string>
   <string name="talk_user_title">Разговор: %s</string>
   <string name="talk_new_topic">Нова тема</string>
+  <string name="talk_new_topic_submitted">Темата е поднесена.</string>
   <string name="talk_page_empty">Оваа разговорна страница е празна.</string>
   <string name="talk_add_reply">Одговор</string>
   <string name="talk_no_subject">(Без наслов)</string>
@@ -993,6 +964,9 @@
   <string name="talk_message_hint">Напиши порака</string>
   <string name="talk_message_empty">Пораката не може да стои празна.</string>
   <string name="talk_subject_empty">Насловот не може да стои празен.</string>
+  <string name="talk_response_submitted">Одговорот е поснесен.</string>
+  <string name="talk_snackbar_undo">Врати</string>
+  <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
   <string name="menu_option_user_profile">Профил на %s</string>
   <string name="menu_option_user_contributions">Придонеси на %s</string>

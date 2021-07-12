@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnLongClickListener
+import android.view.View.VISIBLE
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
@@ -130,7 +131,7 @@ object FeedbackUtil {
     @JvmStatic
     fun showAndroidAppEditingFAQ(context: Context,
                                  @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
-        SuggestedEditsFunnel.get()!!.helpOpened()
+        SuggestedEditsFunnel.get().helpOpened()
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
 
@@ -195,7 +196,7 @@ object FeedbackUtil {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         if (showDismissButton) {
-            binding.buttonView.visibility = View.VISIBLE
+            binding.buttonView.visibility = VISIBLE
         }
 
         val balloon = createBalloon(context) {

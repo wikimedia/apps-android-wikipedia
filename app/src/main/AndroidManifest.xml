@@ -95,11 +95,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".crash.CrashReportActivity"
-            android:label="@string/crash_report_activity_title"
-            android:noHistory="true"
-            android:excludeFromRecents="true" />
-        <activity
             android:name=".settings.SettingsActivity"
             android:label="@string/settings_activity_title"
             android:theme="@style/AppTheme.ActionBar"
@@ -211,7 +206,7 @@
             android:name=".onboarding.InitialOnboardingActivity"/>
 
         <activity
-            android:name=".feed.mostread.MostReadArticlesActivity"
+            android:name=".feed.topread.TopReadArticlesActivity"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity android:name=".feed.onthisday.OnThisDayActivity"
@@ -249,10 +244,6 @@
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".suggestededits.ImageRecsOnboardingActivity"
-            android:theme="@style/AppTheme.ActionBar" />
-
-        <activity
             android:name=".userprofile.ContributionsActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:label=""
@@ -284,13 +275,6 @@
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"
             android:exported="false" />
-
-        <provider
-            android:authorities="@string/reading_lists_authority"
-            android:name=".database.ReadingListsContentProvider"
-            android:exported="false"
-            android:syncable="true"
-            android:label="@string/user_option_sync_label" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -336,18 +320,8 @@
         </receiver>
 
         <service
-            android:name=".readinglist.sync.ReadingListSyncService"
-            android:exported="false">
-
-            <intent-filter>
-                <action android:name="android.content.SyncAdapter" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.content.SyncAdapter"
-                android:resource="@xml/reading_list_sync_adapter" />
-
-        </service>
+            android:name=".readinglist.sync.ReadingListSyncAdapter"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <service
             android:name=".auth.AuthenticatorService"
