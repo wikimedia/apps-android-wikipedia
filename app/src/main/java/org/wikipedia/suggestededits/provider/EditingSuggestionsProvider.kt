@@ -32,6 +32,7 @@ object EditingSuggestionsProvider {
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
 
+    private var revertCandidateLang: String = ""
     private val revertCandidateCache: Stack<MwQueryResult.RecentChange> = Stack()
     private var revertCandidateLastRevId = 0L
 
@@ -258,6 +259,12 @@ object EditingSuggestionsProvider {
     fun getNextRevertCandidate(lang: String): Observable<MwQueryResult.RecentChange> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedItem: MwQueryResult.RecentChange? = null
+            if (revertCandidateLang != lang) {
+                // evict the cache if the language has changed.
+                revertCandidateCache.clear()
+                revertCandidateLastRevId = 0L
+            }
+            revertCandidateLang = lang
             if (!revertCandidateCache.empty()) {
                 L.d(revertCandidateCache.toString())
                 cachedItem = revertCandidateCache.pop()
