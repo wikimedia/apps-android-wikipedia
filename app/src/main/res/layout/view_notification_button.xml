@@ -9,7 +9,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/ic_inbox_24"
+        app:srcCompat="@drawable/ic_notifications_black_24dp"
         app:tint="?attr/material_theme_de_emphasised_color"
         android:contentDescription="@null"/>
 
