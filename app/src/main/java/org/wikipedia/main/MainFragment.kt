@@ -365,6 +365,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                         Prefs.setReadingListsLastSyncTime(null)
                         Prefs.setReadingListSyncEnabled(false)
                         Prefs.setSuggestedEditsHighestPriorityEnabled(false)
+                        requireActivity().invalidateOptionsMenu()
                         refreshContents()
                     }.show()
         } else {

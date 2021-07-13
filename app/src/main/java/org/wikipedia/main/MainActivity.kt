@@ -13,8 +13,10 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.appshortcuts.AppShortcuts.Companion.setShortcuts
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.tabs.TabActivity
@@ -23,12 +25,14 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
     private lateinit var binding: ActivityMainBinding
 
     private var tabCountsView: TabCountsView? = null
+    private var notificationButtonView: NotificationButtonView? = null
     private var controlNavTabInFragment = false
     private var showTabCountsAnimation = false
 
@@ -91,6 +95,25 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             tabsItem.expandActionView()
             FeedbackUtil.setButtonLongPressToast(tabCountsView!!)
             showTabCountsAnimation = false
+        }
+        val notificationMenuItem = menu.findItem(R.id.menu_notifications)
+        if (AccountUtil.isLoggedIn) {
+            notificationMenuItem.isVisible = true
+            notificationButtonView = NotificationButtonView(this, null)
+            notificationButtonView!!.setUnread(Prefs.getNotificationUnreadCount() > 0)
+            notificationButtonView!!.setOnClickListener {
+                if (AccountUtil.isLoggedIn) {
+                    startActivity(NotificationActivity.newIntent(this))
+                }
+            }
+            notificationButtonView!!.contentDescription =
+                getString(R.string.notifications_activity_title)
+            notificationMenuItem.actionView = notificationButtonView
+            notificationMenuItem.expandActionView()
+            FeedbackUtil.setButtonLongPressToast(notificationButtonView!!)
+        } else {
+            notificationMenuItem.isVisible = false
+            notificationButtonView = null
         }
         return true
     }
@@ -168,6 +191,15 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     fun getToolbar(): Toolbar {
         return binding.mainToolbar
+    }
+
+    override fun onUnreadNotification() {
+        if (Prefs.getNotificationUnreadCount() > 0) {
+            notificationButtonView?.setUnread(true)
+            notificationButtonView?.runAnimation()
+        } else {
+            notificationButtonView?.setUnread(false)
+        }
     }
 
     private fun setToolbarElevationDefault() {

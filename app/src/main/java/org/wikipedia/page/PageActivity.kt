@@ -36,7 +36,6 @@ import org.wikipedia.descriptions.DescriptionEditSuccessActivity
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
-import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
@@ -123,6 +122,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
 
         updateNotificationsButton(false)
+        binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color))
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
             if (AccountUtil.isLoggedIn) {
@@ -703,14 +703,19 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     fun updateNotificationsButton(animate: Boolean) {
-        if (Prefs.getNotificationUnreadCount() > 0) {
-            binding.pageToolbarButtonNotifications.setUnread(true)
-            if (animate) {
-                toolbarHideHandler.ensureDisplayed()
-                binding.pageToolbarButtonNotifications.runAnimation()
+        if (AccountUtil.isLoggedIn) {
+            binding.pageToolbarButtonNotifications.isVisible = true
+            if (Prefs.getNotificationUnreadCount() > 0) {
+                binding.pageToolbarButtonNotifications.setUnread(true)
+                if (animate) {
+                    toolbarHideHandler.ensureDisplayed()
+                    binding.pageToolbarButtonNotifications.runAnimation()
+                }
+            } else {
+                binding.pageToolbarButtonNotifications.setUnread(false)
             }
         } else {
-            binding.pageToolbarButtonNotifications.setUnread(false)
+            binding.pageToolbarButtonNotifications.isVisible = false
         }
     }
 
@@ -720,6 +725,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     fun getToolbarMargin(): Int {
         return binding.pageToolbarContainer.height
+    }
+
+    override fun onUnreadNotification() {
+        updateNotificationsButton(true)
     }
 
     private inner class EventBusConsumer : Consumer<Any> {
@@ -736,14 +745,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                         if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode() == wikiSite.languageCode() }) {
                             pageFragment.updateBookmarkAndMenuOptionsFromDao()
                         }
-                    }
-                }
-                is UnreadNotificationsEvent -> {
-                    binding.pageToolbarButtonNotifications.post {
-                        if (isDestroyed) {
-                            return@post
-                        }
-                        updateNotificationsButton(true)
                     }
                 }
             }
