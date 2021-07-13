@@ -13,6 +13,7 @@ import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.ImageZoomHelper
 
 class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
 
@@ -104,6 +105,12 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
             holder.bindItem(card.news()[position])
             holder.view.setOnClickListener {
                 callback?.onNewsItemSelected(card, holder.view)
+            }
+            holder.view.setOnLongClickListener {
+                if (ImageZoomHelper.isZooming) {
+                    ImageZoomHelper.dispatchCancelEvent(holder.view)
+                }
+                true
             }
         }
 

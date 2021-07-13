@@ -999,6 +999,7 @@
   <string name="talk_title">讨论</string>
   <string name="talk_user_title">讨论：%s</string>
   <string name="talk_new_topic">新话题</string>
+  <string name="talk_new_topic_submitted">已提交主题。</string>
   <string name="talk_page_empty">此讨论页为空。</string>
   <string name="talk_add_reply">回复</string>
   <string name="talk_no_subject">（无主题）</string>
@@ -1007,6 +1008,8 @@
   <string name="talk_message_hint">撰写消息</string>
   <string name="talk_message_empty">消息不能为空。</string>
   <string name="talk_subject_empty">主题不能为空。</string>
+  <string name="talk_response_submitted">已提交答复。</string>
+  <string name="talk_snackbar_undo">撤销</string>
   <string name="menu_option_share_edit">分享编辑</string>
   <string name="menu_option_user_profile">%s的个人资料</string>
   <string name="menu_option_user_contributions">%s的贡献</string>

@@ -22,6 +22,7 @@
 * Gustavo.moraes
 * HenriqueCrang
 * Iohanen
+* Isabelle Belato
 * Lowvy
 * Luk3
 * Macofe
@@ -241,7 +242,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license" fuzzy="true">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"ttps://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
@@ -983,6 +984,7 @@
   <string name="talk_title">Discussão</string>
   <string name="talk_user_title">Discussão: %s</string>
   <string name="talk_new_topic">Novo tópico</string>
+  <string name="talk_new_topic_submitted">Tópico enviado.</string>
   <string name="talk_page_empty">Esta página de discussão está vazia.</string>
   <string name="talk_add_reply">Responder</string>
   <string name="talk_no_subject">(Sem assunto)</string>
@@ -991,6 +993,9 @@
   <string name="talk_message_hint">Compor mensagem</string>
   <string name="talk_message_empty">A mensagem não pode estar vazia.</string>
   <string name="talk_subject_empty">O assunto não pode estar vazio.</string>
+  <string name="talk_response_submitted">Resposta enviada.</string>
+  <string name="talk_snackbar_undo">Desfazer</string>
+  <string name="talk_last_modified">&lt;b&gt;Última edição %1$s&lt;/b&gt; por %2$s</string>
   <string name="menu_option_share_edit">Compartilhar edição</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuições de %s</string>

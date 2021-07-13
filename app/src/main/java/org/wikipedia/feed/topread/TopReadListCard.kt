@@ -10,14 +10,14 @@ import org.wikipedia.util.L10nUtil
 import java.util.concurrent.TimeUnit
 
 class TopReadListCard(private val articles: TopRead,
-                      wiki: WikiSite) : ListCard<TopReadItemCard>(toItems(articles.articles(), wiki), wiki) {
+                      wiki: WikiSite) : ListCard<TopReadItemCard>(toItems(articles.articles, wiki), wiki) {
 
     override fun title(): String {
         return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_top_read_card_title)
     }
 
     override fun subtitle(): String {
-        return DateUtil.getFeedCardDateString(articles.date())
+        return DateUtil.getFeedCardDateString(articles.date)
     }
 
     override fun type(): CardType {
@@ -29,7 +29,7 @@ class TopReadListCard(private val articles: TopRead,
     }
 
     override fun dismissHashCode(): Int {
-        return TimeUnit.MILLISECONDS.toDays(articles.date().time).toInt() + wikiSite().hashCode()
+        return TimeUnit.MILLISECONDS.toDays(articles.date.time).toInt() + wikiSite().hashCode()
     }
 
     companion object {

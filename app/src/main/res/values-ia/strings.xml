@@ -115,7 +115,7 @@
   <string name="clear_recent_searches_confirm">Es tu secur de voler rader tu historia de recerca?</string>
   <string name="error_browser_not_found">Impossibile aperir le pagina web (nulle navigator trovate).</string>
   <string name="table_infobox">Factos in breve</string>
-  <string name="table_other">Plus de informationes</string>
+  <string name="table_other">Plus information</string>
   <string name="table_close">Clauder</string>
   <string name="widget_name_featured_page">Pagina de Wikipedia in prime plano</string>
   <string name="widget_title_featured_page">Pagina in prime plano de hodie:</string>
