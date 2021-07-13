@@ -968,6 +968,7 @@
   <string name="talk_message_hint">메시지 쓰기</string>
   <string name="talk_message_empty">메시지는 빈 채로 둘 수 없습니다.</string>
   <string name="talk_subject_empty">주제는 빈 채로 둘 수 없습니다.</string>
+  <string name="talk_snackbar_undo">실행 취소</string>
   <string name="menu_option_share_edit">편집 공유</string>
   <string name="menu_option_user_profile">%s님의 정보</string>
   <string name="menu_option_user_contributions">%s님의 기여</string>

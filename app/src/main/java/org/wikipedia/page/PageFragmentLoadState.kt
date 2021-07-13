@@ -50,7 +50,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         pageLoadCheckReadingLists()
     }
 
-    fun loadFromBackStack() {
+    fun loadFromBackStack(isRefresh: Boolean = false) {
         if (currentTab.backStack.isEmpty()) {
             return
         }
@@ -59,7 +59,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         // the backstack item.
         item.title?.let { title ->
             item.historyEntry?.let { entry ->
-                fragment.loadPage(title, entry, false, item.scrollY)
+                fragment.loadPage(title, entry, false, item.scrollY, isRefresh)
                 L.d("Loaded page " + item.title!!.displayText + " from backstack")
             }
         }
