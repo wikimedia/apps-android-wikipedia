@@ -210,6 +210,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.talkReplyButton.hide()
         } else {
             binding.talkReplyButton.show()
+            binding.talkReplyButton.isEnabled = true
+            binding.talkReplyButton.alpha = 1.0f
         }
         binding.talkRefreshView.isRefreshing = false
 
@@ -409,7 +411,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
                 .setAnchorView(binding.talkReplyButton)
                 .setAction(R.string.talk_snackbar_undo) {
-                    binding.talkReplyButton.hide()
+                    binding.talkReplyButton.isEnabled = false
+                    binding.talkReplyButton.alpha = 0.5f
                     binding.talkProgressBar.visibility = View.VISIBLE
                     undoSave()
                 }
