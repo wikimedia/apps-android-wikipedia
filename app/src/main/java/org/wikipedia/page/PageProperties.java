@@ -65,9 +65,7 @@ public class PageProperties implements Parcelable {
         leadImageWidth = pageSummary.getThumbnailWidth();
         leadImageHeight = pageSummary.getThumbnailHeight();
         String lastModifiedText = pageSummary.getTimestamp();
-        if (lastModifiedText != null) {
-            lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
-        }
+        lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
         // assume formatversion=2 is used so we get real booleans from the API
 
         isMainPage = pageSummary.getType().equals(PageSummary.TYPE_MAIN_PAGE);
