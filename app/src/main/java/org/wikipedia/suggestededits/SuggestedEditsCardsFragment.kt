@@ -290,8 +290,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         }
         var name: String? = null
         SiteMatrix.getSites(siteMatrix!!).forEach {
-            if (code == it.code()) {
-                name = it.name()
+            if (code == it.code) {
+                name = it.name
                 return@forEach
             }
         }

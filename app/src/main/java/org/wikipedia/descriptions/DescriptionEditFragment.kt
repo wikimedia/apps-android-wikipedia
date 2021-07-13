@@ -29,6 +29,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -246,7 +247,7 @@ class DescriptionEditFragment : Fragment() {
                         result.edit?.run {
                             when {
                                 editSucceeded -> {
-                                    requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
+                                    waitForUpdatedRevision(newRevId)
                                     funnel.logSaved(newRevId)
                                 }
                                 hasCaptchaResponse -> {
@@ -307,6 +308,27 @@ class DescriptionEditFragment : Fragment() {
                             editFailed(caught, true)
                         }
                     })
+        }
+
+        @Suppress("SameParameterValue")
+        private fun waitForUpdatedRevision(newRevision: Long) {
+            disposables.add(ServiceFactory.getRest(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode()))
+                .getSummaryResponse(pageTitle.prefixedText, null, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(), null, null, null)
+                .delay(2, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .map { response ->
+                    if (response.body()!!.revision < newRevision) {
+                        throw IllegalStateException()
+                    }
+                    response.body()!!.revision
+                }
+                .retry(10) { it is IllegalStateException }
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate {
+                    requireView().post(successRunnable)
+                }
+                .subscribe()
+            )
         }
 
         private fun getPostObservable(editToken: String, languageCode: String): Observable<EntityPostResponse> {
