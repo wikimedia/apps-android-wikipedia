@@ -13,6 +13,7 @@ import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -394,6 +395,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             imageView.setImageResource(iconResId)
             DrawableCompat.setTint(imageBackgroundView.drawable,
                     ContextCompat.getColor(this@NotificationActivity, iconBackColor))
+            secondaryActionHintView.isVisible = false
+            tertiaryActionHintView.isVisible = false
             n.contents?.let {
                 titleView.text = StringUtil.fromHtml(it.header)
                 if (it.body.trim().isNotEmpty()) {
