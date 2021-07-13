@@ -709,6 +709,7 @@
   <string name="talk_message_hint">বার্তা দিন</string>
   <string name="talk_message_empty">বার্তাটি খালি হতে পারে না।</string>
   <string name="talk_subject_empty">বিষয় খালি হতে পারবে না।</string>
+  <string name="talk_snackbar_undo">পূর্বাবস্থায় ফেরত</string>
   <string name="thank_dialog_positive_button_text">ধন্যবাদ পাঠান</string>
   <string name="thank_dialog_negative_button_text">বাতিল</string>
   <string name="thank_success_message">আপনার \'ধন্যবাদ\' %s কে পাঠানো হয়েছে 👍</string>

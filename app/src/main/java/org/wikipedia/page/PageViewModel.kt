@@ -14,7 +14,7 @@ class PageViewModel {
     var isWatched = false
     var forceNetwork = false
     val isInReadingList get() = readingListPage != null
-    val cacheControl get() = if (isInReadingList) OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK else OkHttpConnectionFactory.CACHE_CONTROL_NONE
+    val cacheControl get() = if (forceNetwork) OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK else OkHttpConnectionFactory.CACHE_CONTROL_NONE
     val shouldLoadAsMobileWeb get() =
         title?.run { namespace() === Namespace.SPECIAL || isMainPage } ?: run { false } ||
           page?.run { pageProperties.namespace !== Namespace.MAIN && pageProperties.namespace !== Namespace.USER &&

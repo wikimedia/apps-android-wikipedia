@@ -335,6 +335,7 @@
   <string name="main_tooltip_watchlist_title">Спіс назірання</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
+  <string name="watchlist_expiry_dialog_title">Выберыце перыяд часу, на працягу якога сачыць за старонкай</string>
   <string name="watchlist_expiry_dialog_one_month">1 месяц</string>
   <string name="watchlist_expiry_dialog_three_months">3 месяца</string>
   <string name="watchlist_expiry_dialog_six_months">6 месяцаў</string>

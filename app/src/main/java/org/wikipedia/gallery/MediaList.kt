@@ -8,11 +8,9 @@ class MediaList {
 
     fun getItems(vararg types: String): MutableList<MediaListItem> {
         val list = mutableListOf<MediaListItem>()
-        items?.filter { it.showInGallery() }?.forEach { mediaListItem ->
-            types.filter { type -> mediaListItem.type.contains(type) }
-                .forEach { _ -> list.add(mediaListItem) }
+        items?.let { mediaList ->
+            list.addAll(mediaList.filter { it.showInGallery() && types.contains(it.type) })
         }
-
         return list
     }
 }
