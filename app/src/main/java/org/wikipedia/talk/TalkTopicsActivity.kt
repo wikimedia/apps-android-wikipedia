@@ -228,13 +228,10 @@ class TalkTopicsActivity : BaseActivity() {
 
         if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false) &&
             !pageTitle.fragment.isNullOrEmpty()) {
-                intent.putExtra(EXTRA_GO_TO_TOPIC, false)
-                for (topic in topics) {
-                    if (StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(topic.html)) {
-                        startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource))
-                        break
-                    }
-                }
+            intent.putExtra(EXTRA_GO_TO_TOPIC, false)
+            topics.find { StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html) }?.let {
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource))
+            }
         }
     }
 
