@@ -126,7 +126,8 @@ class TalkTopicsActivity : BaseActivity() {
                 FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
                     .setAnchorView(binding.talkNewTopicButton)
                     .setAction(R.string.talk_snackbar_undo) {
-                        binding.talkNewTopicButton.hide()
+                        binding.talkNewTopicButton.isEnabled = false
+                        binding.talkNewTopicButton.alpha = 0.5f
                         binding.talkProgressBar.visibility = View.VISIBLE
                         undoSave(newRevisionId)
                     }
@@ -219,6 +220,8 @@ class TalkTopicsActivity : BaseActivity() {
         } else {
             binding.talkErrorView.visibility = View.GONE
             binding.talkNewTopicButton.show()
+            binding.talkNewTopicButton.isEnabled = true
+            binding.talkNewTopicButton.alpha = 1.0f
             binding.talkLastModified.visibility = View.VISIBLE
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()

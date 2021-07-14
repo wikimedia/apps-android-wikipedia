@@ -22,15 +22,11 @@ class SiteMatrix : MwResponse() {
             // We have to parse the Json manually because the list of SiteInfo objects
             // contains a "count" member that prevents it from being able to deserialize
             // as a list automatically.
-            siteMatrix.sitematrix!!.keySet().forEach { key ->
-                if (key == "count") {
-                    return@forEach
-                }
-                val info = GsonUtil.getDefaultGson().fromJson(
+            siteMatrix.sitematrix?.keySet()?.filterNot { it == "count" }?.forEach { key ->
+                GsonUtil.getDefaultGson().fromJson(
                     siteMatrix.sitematrix[key], SiteInfo::class.java
-                )
-                if (info != null) {
-                    sites.add(info)
+                )?.let {
+                    sites.add(it)
                 }
             }
             return sites
