@@ -3,7 +3,6 @@ package org.wikipedia.history.db
 import java.util.*
 
 data class HistoryEntryWithImage(
-    val id: Int,
     val authority: String,
     val lang: String,
     val apiTitle: String,
