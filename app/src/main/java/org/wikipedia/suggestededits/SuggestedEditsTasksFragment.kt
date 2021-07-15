@@ -163,6 +163,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
+        disposables.clear()
         blockMessage = null
         isPausedOrDisabled = false
         totalContributions = 0

@@ -25,7 +25,7 @@ class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wi
     }
 
     fun logAction(index: Int, link: Notification.Link) {
-        log("action_rank", index + 1, "action_icon", link.icon)
+        log("action_rank", index, "action_icon", link.icon)
     }
 
     fun logClicked() {

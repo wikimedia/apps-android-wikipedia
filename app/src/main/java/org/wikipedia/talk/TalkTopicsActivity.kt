@@ -225,6 +225,14 @@ class TalkTopicsActivity : BaseActivity() {
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
+
+        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false) &&
+            !pageTitle.fragment.isNullOrEmpty()) {
+            intent.putExtra(EXTRA_GO_TO_TOPIC, false)
+            topics.find { StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html) }?.let {
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource))
+            }
+        }
     }
 
     private fun updateOnError(t: Throwable) {
@@ -303,13 +311,15 @@ class TalkTopicsActivity : BaseActivity() {
 
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
+        private const val EXTRA_GO_TO_TOPIC = "goToTopic"
         const val NEW_TOPIC_ID = -2
 
         @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                .putExtra(EXTRA_GO_TO_TOPIC, !pageTitle.fragment.isNullOrEmpty())
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
 }

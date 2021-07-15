@@ -984,6 +984,7 @@
   <string name="talk_title">Overleg</string>
   <string name="talk_user_title">Overleg: %s</string>
   <string name="talk_new_topic">Nieuw onderwerp</string>
+  <string name="talk_new_topic_submitted">Onderwerp ingediend.</string>
   <string name="talk_page_empty">Deze overlegpagina is leeg.</string>
   <string name="talk_add_reply">Reageren</string>
   <string name="talk_no_subject">(Geen onderwerp)</string>
@@ -992,6 +993,9 @@
   <string name="talk_message_hint">Bericht opstellen</string>
   <string name="talk_message_empty">Het bericht mag niet leeg zijn.</string>
   <string name="talk_subject_empty">Het onderwerp mag niet leeg zijn.</string>
+  <string name="talk_response_submitted">Reactie ingediend.</string>
+  <string name="talk_snackbar_undo">Ongedaan maken</string>
+  <string name="talk_last_modified">&lt;b&gt;Laatst bewerkt %1$s&lt;/b&gt; door %2$s</string>
   <string name="menu_option_share_edit">Bewerking delen</string>
   <string name="menu_option_user_profile">Profiel van %s</string>
   <string name="menu_option_user_contributions">Bijdragen van %s</string>
