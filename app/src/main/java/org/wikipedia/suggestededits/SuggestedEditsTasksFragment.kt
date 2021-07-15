@@ -174,7 +174,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo.subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
+                fetchLocalDescriptionsContributions(),
+                UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, localDescriptionsContributions, _ ->
                     var blockInfo: MwServiceError.BlockInfo? = null
                     when {
                         wikidataResponse.query?.userInfo()!!.isBlocked -> blockInfo = wikidataResponse.query?.userInfo()!!
@@ -187,22 +188,28 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                     totalContributions += wikidataResponse.query?.userInfo()!!.editCount
                     totalContributions += commonsResponse.query?.userInfo()!!.editCount
+                    totalContributions += localDescriptionsContributions.size
 
                     latestEditDate = wikidataResponse.query?.userInfo()!!.latestContrib
                     if (commonsResponse.query?.userInfo()!!.latestContrib.after(latestEditDate)) {
                         latestEditDate = commonsResponse.query?.userInfo()!!.latestContrib
                     }
 
+                    if (localDescriptionsContributions.isNotEmpty() && localDescriptionsContributions[0].date().after(latestEditDate)) {
+                        latestEditDate = localDescriptionsContributions[0].date()
+                    }
+
                     val contributions = ArrayList<UserContribution>()
                     contributions.addAll(wikidataResponse.query!!.userContributions())
                     contributions.addAll(commonsResponse.query!!.userContributions())
+                    contributions.addAll(localDescriptionsContributions)
                     contributions.sortWith { o2, o1 -> (o1.date().compareTo(o2.date())) }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContributionsStats.getRevertSeverity()
-                    wikidataResponse
+                    Pair(wikidataResponse, localDescriptionsContributions)
                 })
-                .flatMap { response ->
-                    UserContributionsStats.getPageViewsObservable(response)
+                .flatMap { pair ->
+                    UserContributionsStats.getPageViewsObservable(pair.first, pair.second)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
@@ -229,6 +236,17 @@ class SuggestedEditsTasksFragment : Fragment() {
     fun refreshContents() {
         requireActivity().invalidateOptionsMenu()
         fetchUserContributions()
+    }
+
+    private fun fetchLocalDescriptionsContributions(): Observable<List<UserContribution>> {
+        // TODO: support multiple local descriptions
+        return ServiceFactory.get(WikiSite.forLanguageCode("en"))
+            .getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io())
+            .subscribeOn(Schedulers.io())
+            .map { response ->
+                response.query?.userContributions()?.filter { it.comment == SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT ||
+                        it.comment == SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT }
+            }
     }
 
     private fun clearContents(shouldScrollToTop: Boolean = true) {

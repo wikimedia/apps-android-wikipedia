@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.settings.Prefs
 import java.util.*
 import kotlin.collections.ArrayList
@@ -52,7 +53,7 @@ object UserContributionsStats {
                 }
     }
 
-    fun getPageViewsObservable(response: MwQueryResponse): Observable<Long> {
+    fun getPageViewsObservable(response: MwQueryResponse, localDescriptionsContributions: List<UserContribution>? = null): Observable<Long> {
         val qLangMap = HashMap<String, HashSet<String>>()
 
         for (userContribution in response.query!!.userContributions()) {
@@ -87,6 +88,11 @@ object UserContributionsStats {
                                 break
                             }
                         }
+                    }
+
+                    // TODO: support multiple local descriptions
+                    localDescriptionsContributions?.let { list ->
+                        langArticleMap.getOrPut("en", { ArrayList() }).addAll(list.map { it.title })
                     }
 
                     val observableList = langArticleMap.map { (key, value) ->
