@@ -231,7 +231,7 @@
   <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_app_license_heading">লাইসেন্স</string>
-  <string name="about_app_license" fuzzy="true">উৎস কোড &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;অ্যাপাচি ২.০ লাইসেন্সের&lt;/a&gt; অধীনে &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;জেরিট&lt;/a&gt; ও &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবে&lt;/a&gt; উপলব্ধ। অন্যথায় নির্দিষ্ট করা না থাকলে, বিষয়বস্তু &lt;a href=\"https://bn.wikipedia.org/wiki/উইকিপিডিয়া:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন-শেয়ারঅ্যালাইক লাইসেন্সের&lt;/a&gt; অধীনে উপলব্ধ।</string>
+  <string name="about_app_license">উৎস কোড &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;অ্যাপাচি ২.০ লাইসেন্সের&lt;/a&gt; অধীনে &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;জেরিট&lt;/a&gt; ও &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবে&lt;/a&gt; উপলব্ধ। অন্যথায় নির্দিষ্ট করা না থাকলে, বিষয়বস্তু &lt;a href=\"https://bn.wikipedia.org/wiki/উইকিপিডিয়া:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন-শেয়ারঅ্যালাইক লাইসেন্সের&lt;/a&gt; অধীনে উপলব্ধ।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
   <string name="about_activity_title">পরিচিতি</string>
   <string name="edit_abandon_confirm">এই পাতাটি পরিবর্তিত হয়েছে। আপনি কী নিশ্চিত যে আপনার পরিবর্তন সংরক্ষণ না করেই প্রস্থান করবেন?</string>
@@ -446,6 +446,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">সেটিং</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">না ধন্যবাদ</string>
   <string name="default_reading_list_name">সংরক্ষিত</string>
+  <string name="no_user_lists_msg">ভ্রমণের স্থান, প্রিয় বিষয় এবং আরও অনেক কিছু নিয়ে তালিকা তৈরি করুন</string>
   <string name="reading_list_saved_list_rename">%1$s (ব্যবহারকারী তৈরি করেছেন)</string>
   <string name="reading_lists_menu_create_list">নতুন তালিকা তৈরি করুন</string>
   <string name="reading_lists_menu_sort_by">সাজান</string>
@@ -507,6 +508,8 @@
   <string name="view_random_card_title">অজানা পাতা</string>
   <string name="view_random_article_card_title">অজানা নিবন্ধ</string>
   <string name="view_random_article_card_action">আরও অজানা নিবন্ধ</string>
+  <string name="view_top_read_card_title">শীর্ষ পঠিত</string>
+  <string name="view_top_read_card_action">আরও শীর্ষ পঠিত</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d হাজার</string>
   <string name="view_next_random_article">আরেকটি অজানা নিবন্ধ লোড করুন</string>
   <string name="view_main_page_card_title">উইকিপিডিয়ায় আজ</string>
@@ -551,6 +554,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;আপনার অন্বেষণ ফিড স্বনির্ধারণ করুন&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;আপনি এখন আপনার ফিডে কি প্রদর্শন করাতে চান তা চয়ন করতে পারেন, এবং আপনার পছন্দসই বিষয়বস্তুর ধরনকে অগ্রাধিকার দিতে পারবেন।</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ঠিক আছে</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
+  <string name="top_read_activity_title">%s-এ শীর্ষ পঠিত</string>
   <string name="description_edit_text_hint">নিবন্ধের বিবরণ</string>
   <string name="description_edit_article_description_label">নিবন্ধ</string>
   <string name="description_edit_translate_article_description_label_per_language">নিবন্ধের বিবরণ (%s)</string>
