@@ -67,7 +67,7 @@ object NotificationPresenter {
                 iconResId = R.drawable.ic_user_talk
                 iconColor = R.color.green50
             }
-            Notification.CATEGORY_THANK_YOU_EDIT == s -> {
+            Notification.MILESTONE_EDIT == s -> {
                 iconResId = R.drawable.ic_edit_progressive
                 iconColor = R.color.accent50
             }
