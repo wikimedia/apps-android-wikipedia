@@ -3,10 +3,12 @@ package org.wikipedia.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -61,6 +63,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     override fun onResume() {
         super.onResume()
         invalidateOptionsMenu()
+        Log.e("NOTIFICATIONS","TURNED ON?"+ NotificationManagerCompat.from(this).areNotificationsEnabled())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
