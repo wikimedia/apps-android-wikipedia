@@ -11,27 +11,39 @@
   <string name="app_name_alpha">וויקיפעדיע אלפא</string>
   <string name="wikimedia">וויקימעדיע</string>
   <string name="nav_item_back">צוריק</string>
+  <string name="page_tabs_back">צוריק</string>
   <string name="nav_item_forward">ווײַטער</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
+  <string name="search_hint_voice_search">שטימע־זוך</string>
   <string name="search_hint_search_languages">זוכן א שפראך</string>
-  <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>
+  <string name="filter_hint_filter_my_lists_and_articles">פילטערן מיין רשימות</string>
+  <string name="nav_item_suggested_edits">רעדאקטירונגען</string>
+  <string name="nav_item_more">נאך</string>
+  <string name="nav_item_search">זוכן</string>
+  <string name="error_network_error">מען קען נישט פארבונדן מיט דער אינטערנעץ.</string>
   <string name="page_error_retry">פרובירן ווידער</string>
   <string name="page_error_back_to_main">צוריקגיין</string>
+  <string name="error_back">צוריקגיין</string>
+  <string name="error_next">נעקסטער</string>
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>
   <string name="history_item_deleted">%s אראפגענומען פון היסטאריע</string>
   <string name="history_items_deleted">%d ארטיקלען אוועקגענומען פון היסטאריע</string>
   <string name="history_item_delete_undo">צוריקשטעלן</string>
+  <string name="notification_archive_undo">אַנולירן</string>
+  <string name="history_list_title">היסטאריע</string>
   <string name="dialog_title_clear_history">אפראמען בלעטערן היסטאריע</string>
   <string name="dialog_message_clear_history">דאס וועט אויסמעקן אלע אייערע נאכקוקן היסטאריע און צומאכן אפענע טאבן. זענט איר זיכער?</string>
   <string name="dialog_message_clear_history_yes">יא</string>
   <string name="dialog_message_clear_history_no">ניין</string>
   <string name="share_via">טיילן דורך</string>
+  <string name="image_share_via">טיילן דורך</string>
   <string name="search_redirect_from">אַריבערגעפֿירט פון %s</string>
   <string name="menu_page_show_tabs">ווײַזן טאבן</string>
   <string name="menu_page_other_languages">ענדערן שפראך</string>
-  <string name="menu_page_find_in_page" fuzzy="true">טרעפן אין בלאט</string>
+  <string name="menu_page_find_in_page">געפֿינען אין אַרטיקל</string>
   <string name="menu_page_font_and_theme">פאנט און טעמע</string>
   <string name="menu_page_add_to_list">צולייגן צו ליינליסטע</string>
+  <string name="menu_page_add_to_default_list">אויפֿהיטן</string>
   <string name="menu_page_share">טיילן לינק</string>
   <string name="menu_page_open_a_new_tab">עפֿענען אין נײַעם טאב</string>
   <string name="menu_page_reading_lists">ליין־ליסטעס</string>
@@ -68,9 +80,9 @@
   <string name="login_username_hint">באַניצער נאָמען</string>
   <string name="login_password_hint">פאַסווארט</string>
   <string name="menu_login">אַרײַנלאגירן</string>
-  <string name="login_activity_title" fuzzy="true">ארײַנלאגירן צו וויקיפעדיע</string>
+  <string name="login_activity_title">ארײַנלאגירן</string>
   <string name="login_in_progress_dialog_message">לאגירט אײַך אריין…</string>
-  <string name="login_success_toast" fuzzy="true">אריינלאגירט מיט הצלחה!</string>
+  <string name="login_success_toast">אריינלאגירט!</string>
   <string name="reset_password_title">שטעלן אײַער פאַסווארט</string>
   <string name="reset_password_hint">ניי פּאסוואָרט</string>
   <string name="reset_password_button">אויפֿהיטן און אריינלאגירן</string>
@@ -164,7 +176,7 @@
   <string name="license_title">ליצענץ פאר %s</string>
   <string name="gallery_menu_share">טיילן</string>
   <string name="gallery_save_progress">אראָפלאָדנדיק טעקע…</string>
-  <string name="gallery_save_success" fuzzy="true">טעקע דערפאלגרייך געשפייכלערט.</string>
+  <string name="gallery_save_success">טעקע געשפייכלערט.</string>
   <string name="gallery_error_video_failed">קען נישט שפילן ווידעא.</string>
   <string name="err_cannot_save_file">קען נישט אויפהיטן טעקע</string>
   <string name="expand_refs">דריקט צו פארברייטערן</string>
@@ -179,7 +191,7 @@
   <string name="format_error_server_message">מעלדונג: \"%s\"</string>
   <string name="button_continue_to_article">לייענען דעם ארטיקל</string>
   <string name="button_get_directions">באקומען ריכטונגען</string>
-  <string name="nav_item_donate" fuzzy="true">שטיצן וויקיפעדיע</string>
+  <string name="nav_item_donate">ביישטייערן</string>
   <string name="enable_location_service">אַקטיווירן</string>
   <string name="view_link_preview_error_button_dismiss">צומאַכן</string>
   <string name="error_page_does_not_exist">דער בלאט עקזיסטירט נישט</string>
@@ -189,7 +201,7 @@
   <string name="crash_report_relaunch">אנהייבן פונדאסניי</string>
   <string name="crash_report_quit">פֿארלאזן</string>
   <string name="article_header_edit_hint">רעדאַקטירן...</string>
-  <string name="article_header_edit_description" fuzzy="true">רעדאקטירן טיטל־באשרײבונג</string>
+  <string name="article_header_edit_description">רעדאקטירן ארטיקל־באשרײבונג</string>
   <string name="article_header_edit_lead_section">רעדאקטירן אריינפֿיר</string>
   <string name="color_theme_select">טעמע</string>
   <string name="color_theme_light">העל</string>
@@ -211,12 +223,13 @@
   <string name="view_continue_reading_card_subtitle_today">הײנט</string>
   <string name="view_announcement_card_negative_action">ניין, א דאנק</string>
   <string name="description_edit_save">פֿאַרעפֿנטלעכן</string>
-  <string name="description_edit_add_description" fuzzy="true">צולייגן טיטל־באַשרייבונג</string>
-  <string name="description_edit_edit_description" fuzzy="true">רעדאקטירט באשרייבונג</string>
+  <string name="description_edit_add_description">צולייגן אַרטיקל־באַשרייבונג</string>
+  <string name="description_edit_edit_description">רעדאקטירן אַרטיקל־באשרייבונג</string>
   <string name="description_edit_cancel_hint">אַנולירן</string>
-  <string name="description_edit_help_title" fuzzy="true">קעפל באַשרייבונגען</string>
+  <string name="description_edit_help_title">אינפֿא: אַרטיקל־באַשרייבונגען</string>
   <string name="description_edit_help_about_wikidata">װעגן װיקידאַטן</string>
   <string name="description_edit_success_done">ערליידיקט</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">די פֿרייע ענציקלאפעדיע</string>
+  <string name="onboarding_welcome_title_v2">די פֿרייע ענציקלאפעדיע\n…אין מער ווי 300 שפראכן</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">רעדאקטירן שפראכן</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">אויף אייביג</string>
 </resources>
