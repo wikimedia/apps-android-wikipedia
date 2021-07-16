@@ -16,7 +16,7 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
         val toggleMap = HashMap<String, Boolean>()
         toggleMap[Notification.CATEGORY_SYSTEM_NO_EMAIL] = Prefs.notificationWelcomeEnabled()
         toggleMap[Notification.CATEGORY_EDIT_THANK] = Prefs.notificationThanksEnabled()
-        toggleMap[Notification.MILESTONE_EDIT] = Prefs.notificationMilestoneEnabled()
+        toggleMap[Notification.CATEGORY_MILESTONE_EDIT] = Prefs.notificationMilestoneEnabled()
         log(
                 "type_toggles", GsonMarshaller.marshal(toggleMap),
                 "background_fetch",

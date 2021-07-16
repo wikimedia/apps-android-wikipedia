@@ -199,7 +199,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     // TODO: remove these conditions when the time is right.
                     if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
                             n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                            n.category() == Notification.MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
+                            n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
                             n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
                             n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
                             n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
