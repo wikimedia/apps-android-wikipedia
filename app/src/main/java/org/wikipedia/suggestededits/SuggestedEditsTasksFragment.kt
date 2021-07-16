@@ -209,7 +209,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     Pair(wikidataResponse, localDescriptionsContributions)
                 })
                 .flatMap { pair ->
-                    UserContributionsStats.getPageViewsObservable(pair.first, pair.second)
+                    UserContributionsStats.getPageViewsObservable(pair.first, pair.second.map { it.title })
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
@@ -240,8 +240,9 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun fetchLocalDescriptionsContributions(): Observable<List<UserContribution>> {
         // TODO: support multiple local descriptions
+        // TODO: maxCount now sets to 50, but should be more than that.
         return ServiceFactory.get(WikiSite.forLanguageCode("en"))
-            .getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io())
+            .getUserContributions(AccountUtil.userName!!, 50, null).subscribeOn(Schedulers.io())
             .subscribeOn(Schedulers.io())
             .map { response ->
                 response.query?.userContributions()?.filter { it.comment == SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT ||

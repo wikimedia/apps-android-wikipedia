@@ -8,7 +8,6 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.settings.Prefs
 import java.util.*
 import kotlin.collections.ArrayList
@@ -44,16 +43,16 @@ object UserContributionsStats {
                 }
     }
 
-    fun getPageViewsObservable(): Observable<Long> {
+    fun getPageViewsObservable(localDescriptionsContributions: List<String>): Observable<Long> {
         return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
-                    getPageViewsObservable(response)
+                    getPageViewsObservable(response, localDescriptionsContributions)
                 }
     }
 
-    fun getPageViewsObservable(response: MwQueryResponse, localDescriptionsContributions: List<UserContribution>? = null): Observable<Long> {
+    fun getPageViewsObservable(response: MwQueryResponse, localDescriptionsContributions: List<String>): Observable<Long> {
         val qLangMap = HashMap<String, HashSet<String>>()
 
         for (userContribution in response.query!!.userContributions()) {
@@ -91,9 +90,7 @@ object UserContributionsStats {
                     }
 
                     // TODO: support multiple local descriptions
-                    localDescriptionsContributions?.let { list ->
-                        langArticleMap.getOrPut("en", { ArrayList() }).addAll(list.map { it.title })
-                    }
+                    langArticleMap.getOrPut("en", { ArrayList() }).addAll(localDescriptionsContributions)
 
                     val observableList = langArticleMap.map { (key, value) ->
                         val site = WikiSite.forLanguageCode(key)

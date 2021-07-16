@@ -23,6 +23,7 @@ import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
@@ -61,6 +62,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private val disposables = CompositeDisposable()
     private var articleContributionsContinuation: String? = null
     private var imageContributionsContinuation: String? = null
+    private var localArticleContributionsContinuation: String? = null
 
     private var editFilterType = EDIT_TYPE_GENERIC
     private var totalPageViews = 0L
@@ -150,25 +152,22 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         binding.errorView.visibility = GONE
         articleContributionsContinuation = null
         imageContributionsContinuation = null
+        localArticleContributionsContinuation = null
         adapter.notifyDataSetChanged()
         fetchContributions()
     }
 
     private fun fetchContributions() {
-        if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty() && imageContributionsContinuation.isNullOrEmpty()) {
+        if (allContributions.isNotEmpty() &&
+            articleContributionsContinuation.isNullOrEmpty() &&
+            imageContributionsContinuation.isNullOrEmpty() &&
+            localArticleContributionsContinuation.isNullOrEmpty()) {
             // there's nothing more to fetch!
             return
         }
 
         binding.progressBar.visibility = VISIBLE
         disposables.clear()
-
-        if (allContributions.isEmpty()) {
-            disposables.add(UserContributionsStats.getPageViewsObservable().subscribe {
-                totalPageViews = it
-                adapter.notifyDataSetChanged()
-            })
-        }
 
         var totalContributionCount = 0
         disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
@@ -279,22 +278,48 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                             WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
                                 }
                                 Observable.just(contributions)
-                            }, { wikidataContributions, commonsContributions ->
+                            },
+                if (allContributions.isNotEmpty() && localArticleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList()) else
+                    // TODO: support multiple local descriptions
+                    ServiceFactory.get(WikiSite.forLanguageCode("en"))
+                        .getUserContributions(AccountUtil.userName!!, 50, localArticleContributionsContinuation).subscribeOn(Schedulers.io())
+                        .subscribeOn(Schedulers.io())
+                        .flatMap { response ->
+                            val localContributions = ArrayList<Contribution>()
+                            localArticleContributionsContinuation = response.continuation["uccontinue"]
+                            response.query?.userContributions()?.filter { it.comment == SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT ||
+                                    it.comment == SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT }?.forEach {
+                                localContributions.add(Contribution("", it.title, it.title, "", EDIT_TYPE_ARTICLE_DESCRIPTION, null, it.date(),
+                                    WikiSite.forLanguageCode("en"), 0, it.sizediff, it.top, 0))
+                            }
+                            totalContributionCount += localContributions.size
+                            Observable.just(localContributions)
+                        }, { wikidataContributions, commonsContributions, localDescriptionContributions ->
                     val contributions = ArrayList<Contribution>()
                     contributions.addAll(wikidataContributions)
                     contributions.addAll(commonsContributions)
-                    contributions
+                    contributions.addAll(localDescriptionContributions)
+                    Pair(contributions, localDescriptionContributions.map { it.apiTitle })
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .flatMap {
+                    allContributions.addAll(it.first)
+                    this.totalContributionCount = totalContributionCount
+                    createConsolidatedList()
+                    if (allContributions.isEmpty() || totalPageViews == 0L) {
+                        UserContributionsStats.getPageViewsObservable(it.second)
+                    } else {
+                        Observable.just(totalPageViews)
+                    }
+                }
                 .doAfterTerminate {
                     binding.swipeRefreshLayout.isRefreshing = false
                     binding.progressBar.visibility = GONE
                 }
                 .subscribe({
-                    allContributions.addAll(it)
-                    this.totalContributionCount = totalContributionCount
-                    createConsolidatedList()
+                    totalPageViews = it
+                    adapter.notifyDataSetChanged()
                 }, { caught ->
                     L.e(caught)
                     showError(caught)
@@ -434,6 +459,11 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             contribution.imageUrl = summary.thumbnailUrl.toString()
                             itemView.setImageUrl(contribution.imageUrl)
                             itemView.setDescription(StringUtil.removeNamespace(contribution.displayTitle))
+                            // TODO: get proper edit description on local description
+                            if (contribution.description.isEmpty()) {
+                                contribution.description = summary.description.orEmpty()
+                                itemView.setTitle(summary.description)
+                            }
                         }, { t ->
                             L.e(t)
                         }))
