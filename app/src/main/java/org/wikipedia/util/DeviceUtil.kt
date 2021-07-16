@@ -10,7 +10,9 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.Window
 import android.view.accessibility.AccessibilityManager
+import androidx.annotation.ColorInt
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.core.view.ViewCompat
@@ -39,6 +41,13 @@ object DeviceUtil {
         // this make the system recognizes the status bar light and will make status bar icons become visible
         // if the theme is not dark
         activity.window.insetsControllerCompat?.isAppearanceLightStatusBars = !WikipediaApp.getInstance().currentTheme.isDark
+    }
+
+    fun setNavigationBarColor(window: Window, @ColorInt color: Int) {
+        val isDarkThemeOrDarkBackground = WikipediaApp.getInstance().currentTheme.isDark ||
+                color == ContextCompat.getColor(window.context, android.R.color.black)
+        window.navigationBarColor = color
+        window.insetsControllerCompat?.isAppearanceLightNavigationBars = !isDarkThemeOrDarkBackground
     }
 
     fun updateStatusBarTheme(activity: Activity, toolbar: Toolbar?, reset: Boolean) {
