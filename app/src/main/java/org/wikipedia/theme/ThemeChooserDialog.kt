@@ -25,6 +25,7 @@ import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil.getDimension
 import org.wikipedia.util.DimenUtil.getFloat
 import org.wikipedia.util.DimenUtil.roundedDpToPx
@@ -82,7 +83,9 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         })
         updateComponents()
         disableBackgroundDim()
-        setNavigationBarColor(getThemedColor(requireContext(), R.attr.paper_color))
+        requireDialog().window?.let {
+            DeviceUtil.setNavigationBarColor(it, getThemedColor(requireContext(), R.attr.paper_color))
+        }
 
         disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
         return binding.root
