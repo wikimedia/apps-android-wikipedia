@@ -973,6 +973,7 @@
   <string name="talk_title">Discussió</string>
   <string name="talk_user_title">Discussió: %s</string>
   <string name="talk_new_topic">Tema nou</string>
+  <string name="talk_new_topic_submitted">S\'ha tramès un tema.</string>
   <string name="talk_page_empty">La pàgina de discussió és en blanc.</string>
   <string name="talk_add_reply">Respon</string>
   <string name="talk_no_subject">(sense tema)</string>
@@ -981,6 +982,7 @@
   <string name="talk_message_hint">Redacta un missatge</string>
   <string name="talk_message_empty">El missatge no pot ser en blanc.</string>
   <string name="talk_subject_empty">El tema no pot ser en blanc.</string>
+  <string name="talk_response_submitted">S\'ha tramès una resposta.</string>
   <string name="talk_snackbar_undo">Desfés</string>
   <string name="talk_last_modified">&lt;b&gt;Editat per última vegada %1$s&lt;/b&gt; per %2$s</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>
