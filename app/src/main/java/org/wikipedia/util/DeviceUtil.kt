@@ -44,10 +44,12 @@ object DeviceUtil {
     }
 
     fun setNavigationBarColor(window: Window, @ColorInt color: Int) {
-        val isDarkThemeOrDarkBackground = WikipediaApp.getInstance().currentTheme.isDark ||
-                color == ContextCompat.getColor(window.context, android.R.color.black)
-        window.navigationBarColor = color
-        window.insetsControllerCompat?.isAppearanceLightNavigationBars = !isDarkThemeOrDarkBackground
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val isDarkThemeOrDarkBackground = WikipediaApp.getInstance().currentTheme.isDark ||
+                    color == ContextCompat.getColor(window.context, android.R.color.black)
+            window.navigationBarColor = color
+            window.insetsControllerCompat?.isAppearanceLightNavigationBars = !isDarkThemeOrDarkBackground
+        }
     }
 
     fun updateStatusBarTheme(activity: Activity, toolbar: Toolbar?, reset: Boolean) {
@@ -61,7 +63,7 @@ object DeviceUtil {
     fun setContextClickAsLongClick(vararg views: View) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             views.forEach {
-                it.setOnContextClickListener { obj: View -> obj.performLongClick() }
+                it.setOnContextClickListener { obj -> obj.performLongClick() }
             }
         }
     }
