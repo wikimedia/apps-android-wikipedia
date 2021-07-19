@@ -81,7 +81,7 @@
   <string name="feed_card_add_to_list">Přidat do seznamu k přečtení</string>
   <string name="feed_card_add_to_default_list">Uložit</string>
   <string name="menu_page_share">Sdílet odkaz</string>
-  <string name="menu_page_open_a_new_tab">Otevřít v nové záložce</string>
+  <string name="menu_page_open_a_new_tab">Otevřít</string>
   <string name="menu_page_new_tab">Nová záložka</string>
   <string name="menu_page_reading_lists">Seznamy k přečtení</string>
   <string name="menu_page_recently_viewed">Naposledy navštívené</string>
@@ -113,9 +113,9 @@
   <string name="dialog_message_edit_failed_retry">Zkusit znovu</string>
   <string name="dialog_message_edit_failed_cancel">Storno</string>
   <string name="dialog_message_leaving_edit">Vaše změny nebyly dosud zveřejněny. Jste si jisti, že chcete opustit tuto stránku?</string>
-  <string name="dialog_message_leaving_edit_leave">Ukončit</string>
+  <string name="dialog_message_leaving_edit_leave">Opustit</string>
   <string name="dialog_message_leaving_edit_stay">Zůstat</string>
-  <string name="menu_show_toc">Obsah</string>
+  <string name="menu_show_toc">Tabulka obsahu</string>
   <string name="search_no_results_found">Nebyly nalezeny žádné výsledky</string>
   <string name="search_reading_list_no_results">Nenalezeny žádné výsledky v seznamu „%s“</string>
   <string name="search_reading_lists_no_results">V seznamech k přečtení nebyly nalezeny žádné výsledky</string>
