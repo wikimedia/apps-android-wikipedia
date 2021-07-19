@@ -1,18 +1,8 @@
 package org.wikipedia.dataclient.restbase
 
-import org.wikipedia.json.annotations.Required
+class RbDefinition(val usagesByLang: Map<String, Array<Usage>>) {
 
-class RbDefinition(private val usagesByLang: Map<String, Array<Usage>>) {
+    class Usage(val partOfSpeech: String, val definitions: Array<Definition>)
 
-    fun getUsagesForLang(langCode: String): Array<Usage>? {
-        return usagesByLang[langCode]
-    }
-
-    class Usage(
-
-        val partOfSpeech: String,
-        val definitions: Array<Definition>
-    )
-
-    class Definition(@field:Required val definition: String, val examples: Array<String>?)
+    class Definition(val definition: String, val examples: Array<String>?)
 }
