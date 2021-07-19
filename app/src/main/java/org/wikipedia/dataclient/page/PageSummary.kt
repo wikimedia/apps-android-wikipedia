@@ -37,7 +37,6 @@ open class PageSummary {
     val revision: Long = 0
     val timestamp: String = ""
 
-
     constructor()
     constructor(displayTitle: String, prefixTitle: String, description: String?,
                 extract: String?, thumbnail: String?, lang: String) {
