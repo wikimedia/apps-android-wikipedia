@@ -233,7 +233,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             // TODO: remove this condition when the time is right.
             if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
                     n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                    n.category() == Notification.CATEGORY_THANK_YOU_EDIT && Prefs.notificationMilestoneEnabled() ||
+                    n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
                     n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
                     n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
                     n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
@@ -379,7 +379,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     iconResId = R.drawable.ic_user_talk
                     iconBackColor = R.color.green50
                 }
-                Notification.CATEGORY_THANK_YOU_EDIT == s -> {
+                Notification.CATEGORY_MILESTONE_EDIT == s -> {
                     iconResId = R.drawable.ic_edit_progressive
                     iconBackColor = R.color.accent50
                 }
