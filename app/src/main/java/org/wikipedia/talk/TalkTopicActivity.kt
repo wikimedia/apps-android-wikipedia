@@ -11,6 +11,9 @@ import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.mlkit.nl.smartreply.SmartReply
+import com.google.mlkit.nl.smartreply.SmartReplySuggestionResult
+import com.google.mlkit.nl.smartreply.TextMessage
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -33,8 +36,8 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
-import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import java.util.concurrent.TimeUnit
@@ -102,6 +105,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
             }, 500)
             binding.talkReplyButton.hide()
+            smartReply()
         }
 
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
@@ -434,6 +438,22 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 UriUtil.handleExternalLink(this, Uri.parse(url))
             }
         }
+    }
+
+    private fun smartReply() {
+        L.d("smartReply START " )
+        val smartReply = SmartReply.getClient()
+        smartReply.suggestReplies( topic?.replies?.map { TextMessage.createForRemoteUser(RichTextUtil.stripHtml(it.html.orEmpty()), System.currentTimeMillis(), it.sha.orEmpty()) }.orEmpty())
+            .addOnSuccessListener { result ->
+                if (result.status == SmartReplySuggestionResult.STATUS_NOT_SUPPORTED_LANGUAGE) {
+                    L.d("smartReply STATUS_NOT_SUPPORTED_LANGUAGE " )
+                } else if (result.status == SmartReplySuggestionResult.STATUS_SUCCESS) {
+                    L.d("smartReply STATUS_SUCCESS " + result.suggestions)
+                }
+            }
+            .addOnFailureListener {
+                L.d("smartReply STATUS_FAILED " + it)
+            }
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {

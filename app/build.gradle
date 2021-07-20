@@ -63,6 +63,11 @@ android {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
 
+    // For ML Kit Smart reply
+    aaptOptions {
+        noCompress "tflite"
+    }
+
     buildFeatures {
         viewBinding true
     }
@@ -221,6 +226,7 @@ dependencies {
     alphaImplementation "com.google.mlkit:language-id:$mlKitVersion"
     devImplementation "com.google.mlkit:language-id:$mlKitVersion"
     customImplementation "com.google.mlkit:language-id:$mlKitVersion"
+    devImplementation "com.google.mlkit:smart-reply:$mlKitVersion"
 
     // For receiving push notifications for logged-in users.
     prodImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
