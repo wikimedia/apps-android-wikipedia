@@ -5,8 +5,11 @@ import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.page.*
-import org.wikipedia.page.Namespace.Companion.of
+import org.wikipedia.page.GeoTypeAdapter
+import org.wikipedia.page.Namespace
+import org.wikipedia.page.Page
+import org.wikipedia.page.PageTitle
+import org.wikipedia.page.PageProperties
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 
 open class PageSummary {
@@ -76,7 +79,7 @@ open class PageSummary {
     }
 
     fun getNamespace(): Namespace {
-        return if (namespace == null) Namespace.MAIN else of(namespace.id)
+        return if (namespace == null) Namespace.MAIN else Namespace.of(namespace.id)
     }
 
     fun getPageTitle(wiki: WikiSite): PageTitle {
