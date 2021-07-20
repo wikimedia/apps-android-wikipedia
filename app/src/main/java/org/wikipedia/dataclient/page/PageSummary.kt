@@ -11,31 +11,45 @@ import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 
 open class PageSummary {
 
+    @SerializedName("originalimage")
+    private val originalImage: Thumbnail? = null
+
+    @SerializedName("wikibase_item")
+    val wikiBaseItem: String? = null
+
     @SerializedName("extract_html")
     val extractHtml: String? = null
 
     @SerializedName("description_source")
     val descriptionSource = ""
 
-    @SerializedName("originalimage")
-    private val originalImage: Thumbnail? = null
-
-    @SerializedName("wikibase_item")
-    private var titles: Titles? = null
-
-    private val namespace: NamespaceContainer? = null
     private var thumbnail: Thumbnail? = null
-    var lang: String = ""
+    private val namespace: NamespaceContainer? = null
+    private var titles: Titles? = null
+    var lang = ""
     var extract: String? = null
+    var description: String? = null
 
     @JsonAdapter(GeoTypeAdapter::class)
     val geo: Location? = null
-    var description: String? = null
-    val wikiBaseItem: String = ""
     val type = TYPE_STANDARD
     val pageId = 0
-    val revision: Long = 0
-    val timestamp: String = ""
+    val revision = 0L
+    val timestamp = ""
+    val thumbnailUrl: String?
+        get() = if (thumbnail == null) null else thumbnail!!.url
+    val thumbnailWidth: Int
+        get() = if (thumbnail == null) 0 else thumbnail!!.width
+    val thumbnailHeight: Int
+        get() = if (thumbnail == null) 0 else thumbnail!!.height
+    val originalImageUrl: String?
+        get() = originalImage?.url
+    val apiTitle: String
+        get() = StringUtils.defaultString(if (titles != null) titles!!.canonical else null)
+
+    // TODO: Make this return CharSequence, and automatically convert from HTML.
+    val displayTitle: String
+        get() = StringUtils.defaultString(if (titles != null) titles!!.display else null)
 
     constructor()
     constructor(displayTitle: String, prefixTitle: String, description: String?,
@@ -61,37 +75,18 @@ open class PageSummary {
         return newTitle
     }
 
-    val apiTitle: String
-        get() = StringUtils.defaultString(if (titles != null) titles!!.canonical else null)
-
-    // TODO: Make this return CharSequence, and automatically convert from HTML.
-    val displayTitle: String
-        get() = StringUtils.defaultString(if (titles != null) titles!!.display else null)
-
     fun getNamespace(): Namespace {
-        return if (namespace == null) Namespace.MAIN else of(namespace.id())
+        return if (namespace == null) Namespace.MAIN else of(namespace.id)
     }
-
-    val thumbnailUrl: String?
-        get() = if (thumbnail == null) null else thumbnail!!.url
-    val thumbnailWidth: Int
-        get() = if (thumbnail == null) 0 else thumbnail!!.width
-    val thumbnailHeight: Int
-        get() = if (thumbnail == null) 0 else thumbnail!!.height
-    val originalImageUrl: String?
-        get() = originalImage?.url
 
     fun getPageTitle(wiki: WikiSite): PageTitle {
         return PageTitle(apiTitle, wiki, thumbnailUrl, description, displayTitle, extract)
     }
 
     private class Thumbnail(val url: String?, val width: Int, val height: Int)
+
     private class NamespaceContainer {
-        private val id = 0
-        private val text: String? = null
-        fun id(): Int {
-            return id
-        }
+        val id = 0
     }
 
     private class Titles(val canonical: String?, val display: String?)
