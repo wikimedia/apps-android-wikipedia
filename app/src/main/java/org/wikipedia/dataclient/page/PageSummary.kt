@@ -5,11 +5,7 @@ import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.page.GeoTypeAdapter
-import org.wikipedia.page.Namespace
-import org.wikipedia.page.Page
-import org.wikipedia.page.PageTitle
-import org.wikipedia.page.PageProperties
+import org.wikipedia.page.*
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 
 open class PageSummary {
