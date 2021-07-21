@@ -1,13 +1,14 @@
 package org.wikipedia.analytics
 
 import android.content.Intent
+import androidx.core.app.NotificationManagerCompat
 import org.json.JSONObject
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.notifications.Notification
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 
-class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wiki: String, private val type: String?) : Funnel(app, SCHEMA_NAME, REV_ID) {
+class NotificationInteractionFunnel(app: WikipediaApp, private val id: Long, private val wiki: String, private val type: String?) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
     constructor(app: WikipediaApp, notification: Notification) : this(app, notification.id(), notification.wiki(), notification.type())
 
@@ -15,6 +16,8 @@ class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wi
         preprocessData(eventData, "notification_id", id)
         preprocessData(eventData, "notification_wiki", wiki)
         preprocessData(eventData, "notification_type", type)
+        preprocessData(eventData, "incoming_only", false)
+        preprocessData(eventData, "device_level_enabled", true)
         return super.preprocessData(eventData)
     }
 
@@ -22,6 +25,10 @@ class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wi
 
     fun logMarkRead(selectionToken: Long?) {
         log("action_rank", 0, "selection_token", selectionToken)
+    }
+
+    fun logIncoming() {
+        log("incoming_only", true, "device_level_enabled", NotificationManagerCompat.from(app).areNotificationsEnabled())
     }
 
     fun logAction(index: Int, link: Notification.Link) {
@@ -38,7 +45,7 @@ class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wi
 
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppNotificationInteraction"
-        private const val REV_ID = 18325732
+        private const val REV_ID = 21764048
         private const val ACTION_CLICKED = 10
         private const val ACTION_DISMISSED = 11
 
@@ -46,7 +53,7 @@ class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wi
             if (!intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID)) {
                 return
             }
-            val funnel = NotificationFunnel(WikipediaApp.getInstance(),
+            val funnel = NotificationInteractionFunnel(WikipediaApp.getInstance(),
                     intent.getLongExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, 0),
                     WikipediaApp.getInstance().wikiSite.dbName(),
                     intent.getStringExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE))

@@ -7,13 +7,14 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
+import android.util.Log
 import androidx.annotation.StringRes
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationFunnel
+import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
@@ -56,7 +57,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 pollNotifications(context)
             }
             ACTION_CANCEL == intent.action -> {
-                NotificationFunnel.processIntent(intent)
+                NotificationInteractionFunnel.processIntent(intent)
             }
         }
     }
@@ -190,6 +191,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     LOCALLY_KNOWN_NOTIFICATIONS.removeAt(0)
                 }
                 notificationsToDisplay.add(n)
+                Log.e("####","INCOMING")
+                //Record that there is an incoming notification to track/compare further actions on it.
+                NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                 locallyKnownModified = true
             }
             if (notificationsToDisplay.size > 2) {
