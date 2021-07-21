@@ -10,12 +10,10 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.MenuItem
 import android.view.MotionEvent
-import android.view.View
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import com.skydoves.balloon.Balloon
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -171,12 +169,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun setNavigationBarColor(@ColorInt color: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val isDarkThemeOrDarkBackground = (WikipediaApp.getInstance().currentTheme.isDark ||
-                    color == ContextCompat.getColor(this, android.R.color.black))
-            window.navigationBarColor = color
-            window.decorView.systemUiVisibility = if (isDarkThemeOrDarkBackground) window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.inv() else View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR or window.decorView.systemUiVisibility
-        }
+        DeviceUtil.setNavigationBarColor(window, color)
     }
 
     protected open fun setTheme() {
