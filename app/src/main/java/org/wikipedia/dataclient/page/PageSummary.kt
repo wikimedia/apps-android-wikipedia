@@ -35,16 +35,11 @@ open class PageSummary {
     val pageId = 0
     val revision = 0L
     val timestamp = ""
-    val thumbnailUrl: String?
-        get() = if (thumbnail == null) null else thumbnail!!.url
-    val thumbnailWidth: Int
-        get() = if (thumbnail == null) 0 else thumbnail!!.width
-    val thumbnailHeight: Int
-        get() = if (thumbnail == null) 0 else thumbnail!!.height
-    val originalImageUrl: String?
-        get() = originalImage?.url
-    val apiTitle: String
-        get() = StringUtils.defaultString(if (titles != null) titles!!.canonical else null)
+    val thumbnailUrl get() = thumbnail?.url
+    val thumbnailWidth get() = thumbnail?.width ?: 0
+    val thumbnailHeight get() = thumbnail?.height ?: 0
+    val originalImageUrl get() = originalImage?.url
+    val apiTitle get() = titles?.canonical.orEmpty()
 
     // TODO: Make this return CharSequence, and automatically convert from HTML.
     val displayTitle: String
@@ -94,8 +89,7 @@ open class PageSummary {
         return displayTitle
     }
 
-    val leadImageName: String?
-        get() = if (thumbnailUrl == null) null else getFilenameFromUploadUrl(thumbnailUrl!!)
+    val leadImageName get() = thumbnailUrl?.let { getFilenameFromUploadUrl(it) }
 
     companion object {
         const val TYPE_STANDARD = "standard"
