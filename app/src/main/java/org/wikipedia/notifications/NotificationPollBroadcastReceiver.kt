@@ -7,7 +7,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
-import android.util.Log
 import androidx.annotation.StringRes
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -191,8 +190,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     LOCALLY_KNOWN_NOTIFICATIONS.removeAt(0)
                 }
                 notificationsToDisplay.add(n)
-                Log.e("####","INCOMING")
-                //Record that there is an incoming notification to track/compare further actions on it.
+                // Record that there is an incoming notification to track/compare further actions on it.
                 NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                 locallyKnownModified = true
             }
