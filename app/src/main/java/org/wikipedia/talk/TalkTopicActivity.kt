@@ -34,7 +34,6 @@ import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.*
-import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import java.util.concurrent.TimeUnit
@@ -453,6 +452,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
         ShareUtil.shareText(this, title)
+    }
+
+    override fun onBackPressed() {
+        if (replyActive && !isNewTopic()) {
+            onInitialLoad()
+        } else {
+            super.onBackPressed()
+        }
     }
 
     companion object {
