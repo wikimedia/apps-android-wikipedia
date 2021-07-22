@@ -42,8 +42,7 @@ open class PageSummary {
     val apiTitle get() = titles?.canonical.orEmpty()
 
     // TODO: Make this return CharSequence, and automatically convert from HTML.
-    val displayTitle: String
-        get() = StringUtils.defaultString(if (titles != null) titles!!.display else null)
+    val displayTitle get() = titles?.display.orEmpty()
 
     constructor()
     constructor(displayTitle: String, prefixTitle: String, description: String?,
