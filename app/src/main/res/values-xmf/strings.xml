@@ -44,6 +44,7 @@
   <string name="share_via">გობჟინაფაშ საშუალება</string>
   <string name="image_share_via">გობჟინაფა</string>
   <string name="search_redirect_from">გინოწურაფილი რე %s-შე</string>
+  <string name="menu_page_show_tabs">აშნარაგადეფიშ ძირაფა</string>
   <string name="menu_page_other_languages">ნინაშ თირუა</string>
   <string name="menu_page_find_in_page">სტატიას გორუა</string>
   <string name="menu_page_add_to_watchlist">კონტროლიშ ერკებულშა გეძინა</string>
@@ -140,9 +141,9 @@
   <string name="login_forgot_password">დუგოჭყორდესო პაროლქ?</string>
   <string name="create_account_already_have">უკვე რეგისტრირაფილი რეთო?</string>
   <string name="create_account_activity_title">ანგარიშიშ გონწყუმა</string>
-  <string name="dialog_create_account_checking_progress">გჷნომოწება</string>
-  <string name="create_account_email_hint">Email (ვაუციო)</string>
-  <string name="create_account_password_repeat_hint">კინე გემეორით პაროლი</string>
+  <string name="dialog_create_account_checking_progress">გჷნომოწმება</string>
+  <string name="create_account_email_hint">Email (ვა რე უციო)</string>
+  <string name="create_account_password_repeat_hint">კჷნ გენშიონით მაჟირაშა პაროლი</string>
   <string name="create_account_passwords_mismatch_error">პაროლეფქ ართაინს ვამუხუჯეს</string>
   <string name="create_account_email_error">ელ-ფოსტაშ ჩილათირი მიოწურაფუ</string>
   <string name="create_account_username_error">მახვარებუშ ჯოხოს ვაშინერებული სიმბოლოეფი რე</string>

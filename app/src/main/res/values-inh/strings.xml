@@ -885,6 +885,10 @@
   <string name="file_page_suggestion_reason">Тоаде мегаш дар белгалдаккхара бахьан</string>
   <string name="description_edit_revert_subtitle">Баркал Википеди тоаярах!</string>
   <string name="description_edit_revert_intro">Тхона хов Википеди тоае хьо гӀерташ хьо хинналга, амма цхьан доакъашхочо гӀалат зийннад. Ӏа тоадаьр юхадаккхара бахьан хила мег:</string>
+  <string name="description_edit_revert_reason1">&lt;a href=\"%1$s\"&gt;Кулгалдеш йолча принцапашта&lt;/a&gt; юкъера цхьанеца вӀашкабоагӀаш бацар хьа хувцам.</string>
+  <string name="description_edit_revert_reason2">эксперимент е вандализм йолчох тара дар хьа хувцам.</string>
+  <string name="description_edit_revert_history">Хьашт дале, &lt;a href=\"%1$s\"&gt;хувцамий тархьарга&lt;/a&gt; хьажа.</string>
+  <string name="description_edit_login_cancel_button_text">ЭШАЦ</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="onboarding_skip">Теркал ма де</string>
