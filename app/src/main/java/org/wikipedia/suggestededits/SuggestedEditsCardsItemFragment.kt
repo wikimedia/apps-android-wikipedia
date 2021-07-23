@@ -287,10 +287,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.viewArticleTitle.visibility = GONE
         binding.viewArticleSubtitleContainer.visibility = VISIBLE
 
-        val descriptionText = when {
-            addedContribution.isNotEmpty() -> addedContribution
-            sourceSummaryForEdit!!.description!!.isNotEmpty() -> sourceSummaryForEdit!!.description!!
-            else -> getString(R.string.suggested_edits_no_description)
+        val descriptionText = addedContribution.ifEmpty {
+            sourceSummaryForEdit!!.description!!.ifEmpty { getString(R.string.suggested_edits_no_description) }
         }
 
         binding.viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
