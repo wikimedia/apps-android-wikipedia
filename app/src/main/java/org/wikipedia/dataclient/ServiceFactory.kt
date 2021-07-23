@@ -70,12 +70,12 @@ object ServiceFactory {
     }
 
     operator fun <T> get(wiki: WikiSite, baseUrl: String?, service: Class<T>?): T {
-        val r = createRetrofit(wiki, (if (baseUrl.isNullOrEmpty()) wiki.url() + "/" else baseUrl))
+        val r = createRetrofit(wiki, baseUrl.orEmpty().ifEmpty { wiki.url() + "/" })
         return r.create(service)
     }
 
     private fun getBasePath(wiki: WikiSite): String {
-        return if (Prefs.getMediaWikiBaseUrl().isEmpty()) wiki.url() + "/" else Prefs.getMediaWikiBaseUrl()
+        return Prefs.getMediaWikiBaseUrl().ifEmpty { wiki.url() + "/" }
     }
 
     fun getRestBasePath(wiki: WikiSite): String {

@@ -24,7 +24,6 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
@@ -297,10 +296,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private fun startCaptionTranslation(item: GalleryItemFragment) {
         val sourceTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()))
         val targetTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL,
-            StringUtils.defaultString(targetLanguageCode, app.language().appLanguageCodes[1])))
-        var currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()]
-        if (currentCaption.isNullOrEmpty()) {
-            currentCaption = RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
+            targetLanguageCode ?: app.language().appLanguageCodes[1]))
+        val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()].orEmpty().ifEmpty {
+            RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
         }
         val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode(),
                             sourceTitle, sourceTitle.displayText, currentCaption, item.mediaInfo!!.thumbUrl)
@@ -634,9 +632,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun setLicenseInfo(item: GalleryItemFragment) {
-        val license = ImageLicense(item.mediaInfo!!.metadata!!.license(),
-            item.mediaInfo!!.metadata!!.licenseShortName(),
-            item.mediaInfo!!.metadata!!.licenseUrl())
+        val metadata = item.mediaInfo!!.metadata!!
+        val license = ImageLicense(metadata.license(), metadata.licenseShortName(), metadata.licenseUrl())
 
         // determine which icon to display...
         if (license.licenseIcon == R.drawable.ic_license_by) {
@@ -653,16 +650,16 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
         // Set the icon's content description to the UsageTerms property.
         // (if UsageTerms is not present, then default to Fair Use)
-        binding.licenseIcon.contentDescription = StringUtils.defaultIfBlank(item.mediaInfo!!.metadata!!.licenseShortName(),
-            getString(R.string.gallery_fair_use_license))
+        binding.licenseIcon.contentDescription = metadata.licenseShortName().ifBlank {
+            getString(R.string.gallery_fair_use_license)
+        }
         // Give the license URL to the icon, to be received by the click handler (may be null).
-        binding.licenseIcon.tag = item.mediaInfo!!.metadata!!.licenseUrl()
+        binding.licenseIcon.tag = metadata.licenseUrl()
         DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
-        val creditStr = if (item.mediaInfo!!.metadata!!.artist().isNotEmpty()) item.mediaInfo!!.metadata!!.artist()
-        else item.mediaInfo!!.metadata!!.credit()
+        val creditStr = metadata.artist().ifEmpty { metadata.credit() }
 
         // if we couldn't find a attribution string, then default to unknown
-        binding.creditText.text = StringUtil.fromHtml(StringUtils.defaultIfBlank(creditStr, getString(R.string.gallery_uploader_unknown)))
+        binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
         binding.infoContainer.visibility = View.VISIBLE
     }
 
