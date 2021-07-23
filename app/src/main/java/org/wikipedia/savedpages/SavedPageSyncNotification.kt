@@ -29,16 +29,20 @@ class SavedPageSyncNotification : BroadcastReceiver() {
                 SavedPageSyncService.enqueue()
             }
             instance.setSyncCanceled(true)
-            notification.isPaused = false
+            instance.setSyncPaused(false)
         } else if (intent.getBooleanExtra(Constants.INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME, false)) {
             instance.setSyncCanceled(false)
             if (instance.isSyncPaused()) {
-                notification.isPaused = false
+                instance.setSyncPaused(false)
                 SavedPageSyncService.enqueue()
             } else {
-                notification.isPaused = true
+                instance.setSyncPaused(true)
             }
         }
+    }
+
+    private fun setSyncPaused(paused: Boolean) {
+        notification.isPaused = paused
     }
 
     fun setSyncCanceled(canceled: Boolean) {
