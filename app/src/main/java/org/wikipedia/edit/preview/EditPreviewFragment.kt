@@ -136,7 +136,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     }
 
     fun setCustomSummary(summary: String) {
-        otherTag.text = if (summary.isNotEmpty()) summary else getString(R.string.edit_summary_tag_other)
+        otherTag.text = summary.ifEmpty { getString(R.string.edit_summary_tag_other) }
         otherTag.isSelected = summary.isNotEmpty()
     }
 
