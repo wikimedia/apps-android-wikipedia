@@ -12,7 +12,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.databinding.FragmentFilePageBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -122,7 +121,7 @@ class FilePageFragment : Fragment() {
                             pageTitle.wikiSite.languageCode(),
                             pageTitle,
                             pageTitle.displayText,
-                            StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString(), null),
+                            StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString().ifBlank { null },
                             imageInfo.thumbUrl,
                             null,
                             null,
