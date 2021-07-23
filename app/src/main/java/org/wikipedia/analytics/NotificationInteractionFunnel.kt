@@ -16,8 +16,6 @@ class NotificationInteractionFunnel(app: WikipediaApp, private val id: Long, pri
         preprocessData(eventData, "notification_id", id)
         preprocessData(eventData, "notification_wiki", wiki)
         preprocessData(eventData, "notification_type", type)
-        preprocessData(eventData, "incoming_only", false)
-        preprocessData(eventData, "device_level_enabled", true)
         return super.preprocessData(eventData)
     }
 
