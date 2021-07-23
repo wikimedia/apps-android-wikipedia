@@ -3,7 +3,6 @@ package org.wikipedia.dataclient.page
 import android.location.Location
 import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.*
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
@@ -76,7 +75,7 @@ open class PageSummary {
         return PageTitle(apiTitle, wiki, thumbnailUrl, description, displayTitle, extract)
     }
 
-    private class Thumbnail(val url: String?, val width: Int, val height: Int)
+    private class Thumbnail(@SerializedName("source") val url: String?, val width: Int, val height: Int)
 
     private class NamespaceContainer {
         val id = 0
