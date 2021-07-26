@@ -135,7 +135,7 @@ interface ReadingListPageDao {
 
     fun findPageInAnyList(title: PageTitle): ReadingListPage? {
         return getPageByParams(
-            title.wikiSite, title.wikiSite.languageCode(), title.namespace(),
+            title.wikiSite, title.wikiSite.languageCode, title.namespace(),
             title.displayText, title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
         )
     }
@@ -234,7 +234,7 @@ interface ReadingListPageDao {
 
     fun getPageByTitle(list: ReadingList, title: PageTitle): ReadingListPage? {
         return getPageByParams(
-            title.wikiSite, title.wikiSite.languageCode(), title.namespace(),
+            title.wikiSite, title.wikiSite.languageCode, title.namespace(),
             title.displayText, title.prefixedText, list.id,
             ReadingListPage.STATUS_QUEUE_FOR_DELETE
         )
@@ -267,7 +267,7 @@ interface ReadingListPageDao {
 
     fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
         return getPagesByParams(
-            title.wikiSite, title.wikiSite.languageCode(), title.namespace(),
+            title.wikiSite, title.wikiSite.languageCode, title.namespace(),
             title.displayText, title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
         )
     }
