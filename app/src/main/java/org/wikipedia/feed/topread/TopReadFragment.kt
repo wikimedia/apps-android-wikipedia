@@ -17,8 +17,6 @@ import org.wikipedia.databinding.FragmentMostReadBinding
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -42,7 +40,7 @@ class TopReadFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMostReadBinding.inflate(inflater, container, false)
 
-        val card = GsonUnmarshaller.unmarshal(TopReadListCard::class.java, requireActivity().intent.getStringExtra(TopReadArticlesActivity.MOST_READ_CARD))
+        val card = requireActivity().intent.getParcelableExtra<TopReadListCard>(TopReadArticlesActivity.MOST_READ_CARD)!!
 
         appCompatActivity.setSupportActionBar(binding.toolbar)
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -116,9 +114,9 @@ class TopReadFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(card: TopReadItemCard): TopReadFragment {
+        fun newInstance(card: TopReadListCard): TopReadFragment {
             return TopReadFragment().apply {
-                arguments = bundleOf(TopReadArticlesActivity.MOST_READ_CARD to GsonMarshaller.marshal(card))
+                arguments = bundleOf(TopReadArticlesActivity.MOST_READ_CARD to card)
             }
         }
     }

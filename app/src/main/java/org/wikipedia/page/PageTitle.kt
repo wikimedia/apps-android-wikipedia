@@ -1,6 +1,7 @@
 package org.wikipedia.page
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -26,8 +27,9 @@ import java.util.*
  */
 @Parcelize
 class PageTitle(
-    var namespace: String?,
-    var site: WikiSite,
+    var _namespace: String?,
+    // TODO: remove this SerializedName after moving away from persisting Tabs in local prefs.
+    @SerializedName("site") var wikiSite: WikiSite,
     private var _text: String = "",
     var fragment: String? = null,
     var thumbUrl: String?,
@@ -47,7 +49,10 @@ class PageTitle(
 
     // TODO: find a better way to check if the namespace is a ISO Alpha2 Code (two digits country code)
     val prefixedText: String
-        get() = if (namespace == null) text else addUnderscores(namespace) + ":" + text
+        get() = if (namespace.isEmpty()) text else addUnderscores(namespace) + ":" + text
+
+    val namespace: String
+        get() { return _namespace.orEmpty() }
 
     val isFilePage: Boolean
         get() = namespace().file()
@@ -57,15 +62,15 @@ class PageTitle(
 
     val isMainPage: Boolean
         get() {
-            val mainPageTitle = getMainPageForLang(site.languageCode)
+            val mainPageTitle = getMainPageForLang(wikiSite.languageCode)
             return mainPageTitle == displayText
         }
 
     val uri: String
-        get() = getUriForDomain(site.authority())
+        get() = getUriForDomain(wikiSite.authority())
 
     val mobileUri: String
-        get() = getUriForDomain(site.authority().replace(".wikipedia.org", ".m.wikipedia.org"))
+        get() = getUriForDomain(wikiSite.authority().replace(".wikipedia.org", ".m.wikipedia.org"))
 
     /**
      * Notes on the `namespace` field:
@@ -131,35 +136,35 @@ class PageTitle(
         if (parts.size > 1) {
             val namespaceOrLanguage = parts[0]
             if (listOf(*Locale.getISOLanguages()).contains(namespaceOrLanguage)) {
-                namespace = null
-                site = WikiSite(wiki.authority(), namespaceOrLanguage)
+                _namespace = null
+                wikiSite = WikiSite(wiki.authority(), namespaceOrLanguage)
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else if (parts[1].isNotEmpty() && !Character.isWhitespace(parts[1][0]) && parts[1][0] != '_') {
-                site = wiki
-                namespace = namespaceOrLanguage
+                wikiSite = wiki
+                _namespace = namespaceOrLanguage
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else {
-                site = wiki
-                namespace = null
+                wikiSite = wiki
+                _namespace = null
                 this._text = text
             }
         } else {
-            site = wiki
-            namespace = null
+            wikiSite = wiki
+            _namespace = null
             this._text = text
         }
         this.thumbUrl = thumbUrl
     }
 
     fun namespace(): Namespace {
-        return fromLegacyString(site, removeUnderscores(namespace))
+        return fromLegacyString(wikiSite, removeUnderscores(namespace))
     }
 
     fun getWebApiUrl(fragment: String?): String {
         return String.format(
             "%1\$s://%2\$s/w/index.php?title=%3\$s&%4\$s",
-            site.scheme(),
-            site.authority(),
+            wikiSite.scheme(),
+            wikiSite.authority(),
             encodeURL(prefixedText),
             fragment
         )
@@ -167,11 +172,12 @@ class PageTitle(
 
     fun pageTitleForTalkPage(): PageTitle {
         val talkNamespace =
-            if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(site.languageCode)
-            else TalkAliasData.valueFor(site.languageCode)
-        val pageTitle = PageTitle(talkNamespace, text, site)
+            if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(
+                wikiSite.languageCode
+            ) else TalkAliasData.valueFor(wikiSite.languageCode)
+        val pageTitle = PageTitle(talkNamespace, text, wikiSite)
         pageTitle.displayText =
-            "$talkNamespace:" + if (!namespace.isNullOrEmpty() && displayText.startsWith(namespace!!)
+            "$talkNamespace:" + if (namespace.isNotEmpty() && displayText.startsWith(namespace)
             ) removeNamespace(displayText) else displayText
         pageTitle.fragment = fragment
         return pageTitle
@@ -184,9 +190,9 @@ class PageTitle(
     private fun getUriForDomain(domain: String): String {
         return String.format(
             "%1\$s://%2\$s/%3\$s/%4\$s%5\$s",
-            site.scheme(),
+            wikiSite.scheme(),
             domain,
-            if (domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) site.languageCode else "wiki",
+            if (domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) wikiSite.languageCode else "wiki",
             encodeURL(prefixedText),
             if (fragment != null && fragment!!.isNotEmpty()) "#" + encodeURL(fragment!!) else ""
         )

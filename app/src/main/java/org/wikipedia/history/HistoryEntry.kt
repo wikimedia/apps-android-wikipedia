@@ -36,7 +36,7 @@ class HistoryEntry(
     val title: PageTitle get() {
         if (pageTitle == null) {
             pageTitle = PageTitle(namespace, apiTitle, WikiSite(authority, lang))
-            pageTitle!!.setDisplayText(displayTitle)
+            pageTitle!!.displayText = displayTitle
         }
         return pageTitle!!
     }

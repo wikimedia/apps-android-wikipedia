@@ -21,8 +21,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -51,10 +49,8 @@ class NewsFragment : Fragment() {
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         appCompatActivity.supportActionBar?.title = ""
 
-        val item = GsonUnmarshaller.unmarshal(NewsItem::class.java,
-            requireActivity().intent.getStringExtra(NewsActivity.EXTRA_NEWS_ITEM))
-        val wiki = GsonUnmarshaller.unmarshal(WikiSite::class.java,
-            requireActivity().intent.getStringExtra(NewsActivity.EXTRA_WIKI))
+        val item = requireActivity().intent.getParcelableExtra<NewsItem>(NewsActivity.EXTRA_NEWS_ITEM)!!
+        val wiki = requireActivity().intent.getParcelableExtra<WikiSite>(NewsActivity.EXTRA_WIKI)!!
 
         L10nUtil.setConditionalLayoutDirection(binding.root, wiki.languageCode)
 
@@ -141,8 +137,8 @@ class NewsFragment : Fragment() {
     companion object {
         fun newInstance(item: NewsItem, wiki: WikiSite): NewsFragment {
             return NewsFragment().apply {
-                arguments = bundleOf(NewsActivity.EXTRA_NEWS_ITEM to GsonMarshaller.marshal(item),
-                    NewsActivity.EXTRA_WIKI to GsonMarshaller.marshal(wiki))
+                arguments = bundleOf(NewsActivity.EXTRA_NEWS_ITEM to item,
+                    NewsActivity.EXTRA_WIKI to wiki)
             }
         }
     }
