@@ -19,6 +19,7 @@
   <string name="page_tabs_back">Geri</string>
   <string name="nav_item_forward">Növbəti</string>
   <string name="search_hint">Vikipediyada axtar</string>
+  <string name="search_hint_voice_search">Səslə axtarış</string>
   <string name="search_hint_search_languages">Dili axtar</string>
   <string name="nav_item_suggested_edits">Redaktələr</string>
   <string name="nav_item_more">Daha</string>
@@ -31,12 +32,14 @@
   <string name="offline_load_error_retry">Yenidən cəhd edin</string>
   <string name="page_error_back_to_main">Geriyə</string>
   <string name="error_back">Geriyə</string>
+  <string name="error_next">Növbəti</string>
   <string name="menu_clear_all_history">Tarixçəni sil</string>
   <string name="history_item_deleted">tarixçə %s silindi</string>
   <string name="history_items_deleted">%d məqalə tarixdən silindi</string>
   <string name="history_item_delete_undo">Ləğv et</string>
   <string name="notification_archive_undo">Geri</string>
   <string name="app_settings">Tətbiqetmə parametrləri</string>
+  <string name="history_list_title">Tarixçə</string>
   <string name="dialog_title_clear_history">Baxış tarixini təmizləyin</string>
   <string name="dialog_message_clear_history">Bu, bütün axtarış tarixinizi siləcək və açıq pəncərələrinizi bağlayacaq. Siz əminsiniz?</string>
   <string name="dialog_message_clear_history_yes">Bəli</string>
@@ -46,7 +49,11 @@
   <string name="search_redirect_from">%s səhifəsindən istiqamətləndirildi</string>
   <string name="menu_page_show_tabs">Pəncərələri göstər</string>
   <string name="menu_page_other_languages">Dili dəyiş</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Səhifədə axtar</string>
+  <string name="menu_page_find_in_page">Səhifədə axtar</string>
+  <string name="menu_page_add_to_watchlist">İzləmə siyahısına əlavə et</string>
+  <string name="menu_page_view_talk">Müzakirə səhifəsini göstər</string>
+  <string name="menu_page_view_edit_history">Redaktə tarixçəsinə baxın</string>
+  <string name="menu_page_remove_from_watchlist">İzləmə siyahısından silin</string>
   <string name="edit_section_find_in_page">Səhifədə axtar</string>
   <string name="menu_page_font_and_theme">Şrift və tərtibatı dəyiş</string>
   <string name="menu_page_add_to_list">Oxuma siyahısına əlavə et</string>
@@ -70,6 +77,7 @@
   <string name="map_view_link_text">Xəritədə göstər</string>
   <string name="other_languages_indication_text">Başqa dillərdə oxuyun</string>
   <string name="language_count_link_text">%d digər dillərdə mövcuddur</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Yayımlarkən &lt;a href=\"%1$s\"&gt; İstifadə şərtləri &lt;/a&gt; ilə razılaşırsınız və &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 lizensiyası altında töhfələrinizi sərbəst buraxırsınız</string>
   <string name="edit_save_action_license_anon">Yayımlayarkən &lt;a href=\"%1$s\"&gt; İstifadə şərtləri &lt;/a&gt; ilə razılaşırsınız və &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 lizensiyası altında töhfələrinizi sərbəst buraxırsınız.Redaktələr cihazınızın IP ünvanına aid edilir. &lt;a href=\"https://#login\"&gt; Əgər daxil olmuşsunuzsa &lt;/a&gt;, daha çox gizlilik olacaq.</string>
   <string name="preference_title_language">Vikipediya dilləri</string>
@@ -171,8 +179,9 @@
   <string name="preference_title_eventlogging_opt_in">İstifadə hesabatlarını göndərin</string>
   <string name="preference_summary_eventlogging_opt_in">Vikimediaya tətbiqin daha yaxşı tətbiq edilməsi üçün necə istifadə etdiyinə dair məlumat toplamaq imkanı verin</string>
   <string name="preference_title_auto_upload_crash_reports">Çökmə hesabatları göndərin</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün HockeyApp /üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
   <string name="editing_error_spamblacklist">Bloklanmış domenlərə aid linklər (%s) aşkarlandı. Lütfən onları çıxarın və yenidən cəhd edin.</string>
+  <string name="history_filter_list_hint">Filtr tarixçəsi</string>
   <string name="error_can_not_process_link">Bu linki göstərilə bilmədi</string>
   <string name="page_protected_autoconfirmed">Bu səhifə yarı-mühafizə edilir.</string>
   <string name="page_protected_sysop">Bu səhifə tam mühafizə edilir.</string>
@@ -180,6 +189,7 @@
   <string name="page_protected_can_not_edit">Üzr istəyirik, hesabınızın hazırda bu səhifəni redaktə etmək üçün kifayət qədər hüququ yoxdur.</string>
   <string name="page_protected_can_not_edit_anon">Üzr istəyirik, bu səhifə hazırda anonim olaraq redaktə edilə bilməz.</string>
   <string name="page_protected_can_not_edit_title">Bu səhifə mühafizə edilir</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">İzləmə siyahısına əlavə et</string>
   <string name="settings_item_preferences">Tənzimləmələr</string>
   <string name="settings_activity_title">Tənzimləmələr</string>
   <string name="about_description">Vikipediya proqramı haqqında</string>
