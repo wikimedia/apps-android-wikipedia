@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.staticdata.MainPageNameData;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.emptyString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
@@ -33,7 +34,7 @@ import static org.hamcrest.Matchers.nullValue;
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
         assertThat(enwiki.titleForInternalLink("/wiki/India").getPrefixedText(), is("India"));
-        assertThat(enwiki.titleForInternalLink("/wiki/India").getNamespace(), nullValue());
+        assertThat(enwiki.titleForInternalLink("/wiki/India").getNamespace(), emptyString());
 
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getNamespace(), is("Talk"));
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getText(), is("India"));
@@ -121,14 +122,14 @@ import static org.hamcrest.Matchers.nullValue;
     /** https://bugzilla.wikimedia.org/66151 */
     @Test public void testHashChar() {
         PageTitle pageTitle = new PageTitle("#", WikiSite.forLanguageCode("en"));
-        assertThat(pageTitle.getNamespace(), nullValue());
+        assertThat(pageTitle.getNamespace(), emptyString());
         assertThat(pageTitle.getText(), is(""));
         assertThat(pageTitle.getFragment(), is(""));
     }
 
     @Test public void testColonChar() {
         PageTitle pageTitle = new PageTitle(":", WikiSite.forLanguageCode("en"));
-        assertThat(pageTitle.getNamespace(), nullValue());
+        assertThat(pageTitle.getNamespace(), emptyString());
         assertThat(pageTitle.getText(), is(":"));
         assertThat(pageTitle.getFragment(), nullValue());
     }

@@ -13,7 +13,7 @@ import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.NotificationFunnel
+import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.databinding.ViewNotificationActionsBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.GsonUtil
@@ -38,10 +38,10 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
     private var actionClickListener = View.OnClickListener {
         val link = it.tag as Notification.Link
-        val linkIndex = if (it.id == R.id.notification_action_primary) 0 else if (it.id == R.id.notification_action_secondary) 1 else 2
+        val linkIndex = if (it.id == R.id.notification_action_primary) 1 else if (it.id == R.id.notification_action_secondary) 2 else 3
         val url = link.url
         if (url.isNotEmpty()) {
-            NotificationFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
+            NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")
         }
@@ -92,11 +92,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun setUpViewForLink(containerView: View, iconView: AppCompatImageView, labelView: TextView, link: Notification.Link) {
-        if (link.tooltip.isNotEmpty()) {
-            labelView.text = StringUtil.fromHtml(link.tooltip)
-        } else {
-            labelView.text = StringUtil.fromHtml(link.label)
-        }
+        labelView.text = StringUtil.fromHtml(link.tooltip.ifEmpty { link.label })
         if ("userAvatar" == link.icon) {
             iconView.setImageResource(R.drawable.ic_user_avatar)
         } else {

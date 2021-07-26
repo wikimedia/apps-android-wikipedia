@@ -19,6 +19,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.csrf.CsrfTokenClient
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -225,6 +226,14 @@ class TalkTopicsActivity : BaseActivity() {
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
+
+        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false) &&
+            !pageTitle.fragment.isNullOrEmpty()) {
+            intent.putExtra(EXTRA_GO_TO_TOPIC, false)
+            topics.find { StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html) }?.let {
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource))
+            }
+        }
     }
 
     private fun updateOnError(t: Throwable) {
@@ -271,9 +280,9 @@ class TalkTopicsActivity : BaseActivity() {
 
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
-            val seen = TalkPageSeenDatabaseTable.isTalkTopicSeen(topic)
+            val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
             val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
-            title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+            title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
             title.visibility = View.VISIBLE
             subtitle.visibility = View.GONE
             title.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface
@@ -303,13 +312,15 @@ class TalkTopicsActivity : BaseActivity() {
 
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
+        private const val EXTRA_GO_TO_TOPIC = "goToTopic"
         const val NEW_TOPIC_ID = -2
 
         @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                .putExtra(EXTRA_GO_TO_TOPIC, !pageTitle.fragment.isNullOrEmpty())
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
 }

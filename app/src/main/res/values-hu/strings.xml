@@ -370,6 +370,12 @@
   <string name="page_footer_license_text">A tartalom további jelölés hiányában a(z) $1 feltételei szerint használható fel</string>
   <string name="empty_tab_title">Új fül</string>
   <string name="menu_save_all_tabs">Összes lap mentése</string>
+  <string name="error_blocked_title">Felhasználóneved vagy IP-címed blokkolva lett</string>
+  <string name="error_blocked_by">A blokk beállítója: &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">A megadott indoklás: %s</string>
+  <string name="error_blocked_start">A blokk kezdete: %s</string>
+  <string name="error_blocked_expiry">A blokk lejárata: %s</string>
+  <string name="error_blocked_id">Blokkolási azonosító: %s</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
@@ -673,6 +679,7 @@
   <string name="description_ends_with_punctuation">A szöveg nem végződhet írásjellel.</string>
   <string name="description_starts_with_article">Kerüld az „egy” vagy „a”/„az” névelővel kezdődő szócikkleírásokat.</string>
   <string name="description_starts_with_uppercase">Kis kezdőbetűvel kezdd a szócikkleírást, hacsak nem tulajdonnév az első szó.</string>
+  <string name="description_starts_with_lowercase">Kerüld a kisbetűvel történő mondatkezdést</string>
   <string name="description_is_in_different_language">Úgy tűnik, a szöveg nem várt nyelven látható, miközben %s nyelven kéne megjelennie.</string>
   <string name="description_edit_success_saved">Szócikkleírás közzétéve!</string>
   <string name="description_edit_success_saved_snackbar">Szócikkleírás közzétéve!</string>
@@ -960,6 +967,7 @@
   <string name="talk_message_hint">Üzenet megfogalmazása</string>
   <string name="talk_message_empty">Az üzenet nem lehet üres.</string>
   <string name="talk_subject_empty">A tárgy nem lehet üres.</string>
+  <string name="talk_snackbar_undo">Visszavonás</string>
   <string name="menu_option_share_edit">Szerkesztés megosztása</string>
   <string name="menu_option_user_profile">%s profilja</string>
   <string name="menu_option_user_contributions">%s közreműködései</string>

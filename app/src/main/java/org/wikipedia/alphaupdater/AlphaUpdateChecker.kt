@@ -1,13 +1,12 @@
 package org.wikipedia.alphaupdater
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
+import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import okhttp3.Request
 import okhttp3.Response
 import org.wikipedia.R
@@ -50,19 +49,19 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
         val pintent = PendingIntent.getActivity(context, 0, intent, 0)
 
         // Notification channel ( >= API 26 )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val mChannel = NotificationChannel(CHANNEL_ID, "Alpha updates", NotificationManager.IMPORTANCE_LOW)
-            (context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager)
-                    .createNotificationChannel(mChannel)
-        }
+        val notificationManagerCompat = NotificationManagerCompat.from(context)
+        val channelCompat = NotificationChannelCompat.Builder(CHANNEL_ID, NotificationManagerCompat.IMPORTANCE_LOW)
+            .setName("Alpha updates")
+            .build()
+        notificationManagerCompat.createNotificationChannel(channelCompat)
+
         val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
                 .setContentTitle(context.getString(R.string.alpha_update_notification_title))
                 .setContentText(context.getString(R.string.alpha_update_notification_text))
                 .setContentIntent(pintent)
                 .setAutoCancel(true)
         notificationBuilder.setSmallIcon(R.drawable.ic_w_transparent)
-        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        manager.notify(1, notificationBuilder.build())
+        notificationManagerCompat.notify(1, notificationBuilder.build())
     }
 
     companion object {

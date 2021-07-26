@@ -36,6 +36,7 @@ import org.wikipedia.analytics.*
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentPageBinding
 import org.wikipedia.databinding.GroupFindReferencesInPageBinding
 import org.wikipedia.dataclient.RestService
@@ -52,7 +53,6 @@ import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementClient
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.history.UpdateHistoryTask
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
@@ -66,7 +66,6 @@ import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -521,8 +520,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
-            HistoryEntry(it.title, Date(), it.source, timeSpentSec)
-            Completable.fromAction(UpdateHistoryTask(it))
+            Completable.fromCallable { AppDatabase.getAppDatabase().historyEntryDao().upsertWithTimeSpent(it, timeSpentSec) }
                 .subscribeOn(Schedulers.io())
                 .subscribe({}) { caught -> L.e(caught) }
         }
@@ -841,7 +839,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 disposables.add(Completable.fromAction {
                     page.thumbUrl.equals(title.thumbUrl, true)
                     if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
-                        ReadingListDbHelper.updateMetadataByTitle(page, title.description, title.thumbUrl)
+                        AppDatabase.getAppDatabase().readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
                     }
                 }.subscribeOn(Schedulers.io()).subscribe())
             }
@@ -952,7 +950,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
             disposables.add(
-                Observable.fromCallable { ReadingListDbHelper.findPageInAnyList(it) }
+                Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate {
