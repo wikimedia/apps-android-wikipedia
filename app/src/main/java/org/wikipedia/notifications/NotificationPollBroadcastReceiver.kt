@@ -190,11 +190,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     LOCALLY_KNOWN_NOTIFICATIONS.removeAt(0)
                 }
                 notificationsToDisplay.add(n)
-                // Record that there is an incoming notification to track/compare further actions on it.
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                 locallyKnownModified = true
             }
             if (notificationsToDisplay.size > 2) {
+                // Record that there is an incoming notification to track/compare further actions on it.
+                NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki(), TYPE_MULTIPLE).logIncoming()
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
                 for (n in notificationsToDisplay) {
@@ -207,6 +207,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                             n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
                             n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
                             Prefs.showAllNotifications()) {
+                        // Record that there is an incoming notification to track/compare further actions on it.
+                        NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                         NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki())) DBNAME_WIKI_NAME_MAP[n.wiki()] else n.wiki())!!)
                     }
                 }
