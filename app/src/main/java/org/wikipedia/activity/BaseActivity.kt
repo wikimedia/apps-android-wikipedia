@@ -23,7 +23,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.NotificationFunnel
+import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.events.*
@@ -69,7 +69,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         if (savedInstanceState == null) {
-            NotificationFunnel.processIntent(intent)
+            NotificationInteractionFunnel.processIntent(intent)
         }
         NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance())
 
