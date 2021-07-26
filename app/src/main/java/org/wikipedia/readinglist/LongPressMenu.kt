@@ -12,9 +12,9 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.ClipboardUtil.setPlainText
 import org.wikipedia.util.FeedbackUtil.showMessage
@@ -37,7 +37,8 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
 
     fun show(entry: HistoryEntry?) {
         entry?.let {
-            Completable.fromAction { listsContainingPage = ReadingListDbHelper.getListsFromPageOccurrences(ReadingListDbHelper.getAllPageOccurrences(it.title)) }
+            Completable.fromAction { listsContainingPage = AppDatabase.getAppDatabase().readingListDao().getListsFromPageOccurrences(
+                AppDatabase.getAppDatabase().readingListPageDao().getAllPageOccurrences(it.title)) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
