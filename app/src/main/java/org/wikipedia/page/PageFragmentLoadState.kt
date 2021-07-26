@@ -211,11 +211,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
             return
         }
         val pageSummary = response.body()
-        val page = pageSummary!!.toPage(model.title)
+        val page = pageSummary?.toPage(model.title)
         model.page = page
         model.isWatched = isWatched
         model.hasWatchlistExpiry = hasWatchlistExpiry
-        model.title = page.title
+        model.title = page?.title
         model.title?.let { title ->
             if (!response.raw().request.url.fragment.isNullOrEmpty()) {
                 title.fragment = response.raw().request.url.fragment
@@ -224,7 +224,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 app.sessionFunnel.noDescription()
             }
             if (!title.isMainPage) {
-                title.setDisplayText(page.displayTitle)
+                title.setDisplayText(page?.displayTitle)
             }
             leadImagesHandler.loadLeadImage()
             fragment.requireActivity().invalidateOptionsMenu()
@@ -242,7 +242,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
 
             // Save the thumbnail URL to the DB
-            val pageImage = PageImage(title, pageSummary.thumbnailUrl)
+            val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
             Completable.fromAction { AppDatabase.getAppDatabase().pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
             title.thumbUrl = pageImage.imageName
         }

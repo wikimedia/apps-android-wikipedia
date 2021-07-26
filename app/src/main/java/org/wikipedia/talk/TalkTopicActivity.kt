@@ -217,7 +217,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkRefreshView.isRefreshing = false
 
         val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
-        binding.talkSubjectView.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+        binding.talkSubjectView.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
         binding.talkSubjectView.visibility = View.VISIBLE
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
 

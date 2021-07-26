@@ -282,7 +282,7 @@ class TalkTopicsActivity : BaseActivity() {
             id = topic.id
             val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
             val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
-            title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+            title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
             title.visibility = View.VISIBLE
             subtitle.visibility = View.GONE
             title.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface

@@ -72,7 +72,7 @@
   <string name="search_history_no_results">ብታሪኽ ውጺኢታት ኣይተረኸቡን</string>
   <string name="title_captcha">ካፕቻ ኣእትው</string>
   <string name="nav_item_login">ናብ ዊኪፐድያ ብመንነት እተው</string>
-  <string name="login_username_hint">ሽም ተጠቃሚ</string>
+  <string name="login_username_hint">ስም ተጠቃሚ</string>
   <string name="login_password_hint">መሕለፊ ቃል</string>
   <string name="account_creation_password_hint">መሕለፊ ቃል</string>
   <string name="onboarding_card_login">ብመንነት እተው</string>
@@ -90,7 +90,7 @@
   <string name="logged_out_in_background_login">ብመንነት እተው</string>
   <string name="logged_out_in_background_cancel">ኣትርፍ</string>
   <string name="wp_stylized">&lt;big&gt;ዊ&lt;/big&gt;ኪፐድ&lt;big&gt;ያ&lt;/big&gt;</string>
-  <string name="create_account_username_hint">ሽም ተጠቃሚ</string>
+  <string name="create_account_username_hint">ስም ተጠቃሚ</string>
   <string name="login_dont_have_account">መንነት መፍለዪ የብልካን?</string>
   <string name="login_join_wikipedia">ናብ ዊኪፐድያ ተጸንበር</string>
   <string name="login_forgot_password">መሕለፊ ቃልካ ረሲዕኻዮ?</string>
@@ -125,7 +125,7 @@
   <string name="edit_abandon_confirm_no">ኣይፋል</string>
   <string name="edit_next">ዝቕጽል</string>
   <string name="edit_done">ኣሕትም</string>
-  <string name="edit_preview">ኣቐዳሚ ትርኢት</string>
+  <string name="edit_preview">ቅድመ ትርኢት</string>
   <string name="edit_undo">ምለስ</string>
   <string name="edit_redo">እንደገና ፈጽም</string>
   <string name="edit_zoom_in">ኣዕብይ</string>
@@ -427,7 +427,7 @@
   <string name="edit_type_all">ኩሎም ኣበርክቶታት</string>
   <string name="content_description_for_page_indicator">ገጽ %1$d ናይ %2$d</string>
   <string name="wikitext_bold">ዓጺቕ</string>
-  <string name="wikitext_italic">ቀናን</string>
+  <string name="wikitext_italic">ቄናን</string>
   <string name="wikitext_link">መጋጠሚ</string>
   <string name="wikitext_bulleted_list">ንጥብጣብ ዘለዎ ዝርዝር</string>
   <string name="wikitext_numbered_list">ቁጽሪ ዘለዎ ዝርዝር</string>
