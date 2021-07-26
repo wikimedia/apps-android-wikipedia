@@ -2,7 +2,6 @@ package org.wikipedia.history
 
 import android.app.AlertDialog
 import android.content.Context
-import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -21,7 +20,6 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -30,7 +28,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.database.contract.PageHistoryContract
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentHistoryBinding
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
@@ -140,7 +138,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private fun onClearHistoryClick() {
-        disposables.add(Completable.fromAction { WikipediaApp.getInstance().getDatabaseClient(HistoryEntry::class.java).deleteAll() }
+        disposables.add(AppDatabase.getAppDatabase().historyEntryDao().deleteAll()
                 .subscribeOn(Schedulers.io())
                 .doAfterTerminate { reloadHistoryItems() }
                 .subscribe())
@@ -156,14 +154,14 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
     }
 
-    private fun toggleSelectPage(indexedEntry: IndexedHistoryEntry?) {
-        if (indexedEntry == null) {
+    private fun toggleSelectPage(entry: HistoryEntry?) {
+        if (entry == null) {
             return
         }
-        if (selectedEntries.contains(indexedEntry.entry)) {
-            selectedEntries.remove(indexedEntry.entry)
+        if (selectedEntries.contains(entry)) {
+            selectedEntries.remove(entry)
         } else {
-            selectedEntries.add(indexedEntry.entry)
+            selectedEntries.add(entry)
         }
         val selectedCount = selectedEntries.size
         if (selectedCount == 0) {
@@ -191,8 +189,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         val selectedEntryList = mutableListOf<HistoryEntry>()
         for (entry in selectedEntries) {
             selectedEntryList.add(entry)
-            WikipediaApp.getInstance().getDatabaseClient(HistoryEntry::class.java).delete(entry,
-                    PageHistoryContract.PageWithImage.SELECTION)
+            AppDatabase.getAppDatabase().historyEntryDao().delete(entry)
         }
         selectedEntries.clear()
         if (selectedEntryList.isNotEmpty()) {
@@ -205,10 +202,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         val message = if (entries.size == 1) getString(R.string.history_item_deleted, entries[0].title.displayText) else getString(R.string.history_items_deleted, entries.size)
         val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
         snackbar.setAction(R.string.history_item_delete_undo) {
-            val client = WikipediaApp.getInstance().getDatabaseClient(HistoryEntry::class.java)
-            for (entry in entries) {
-                client.upsert(entry, PageHistoryContract.PageWithImage.SELECTION)
-            }
+            AppDatabase.getAppDatabase().historyEntryDao().insert(entries)
             reloadHistoryItems()
         }
         snackbar.show()
@@ -216,7 +210,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     private fun reloadHistoryItems() {
         disposables.clear()
-        disposables.add(Observable.fromCallable { HistoryDbHelper.filterHistoryItems(currentSearchQuery.orEmpty()) }
+        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().historyEntryWithImageDao().filterHistoryItems(currentSearchQuery.orEmpty()) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ items -> onLoadItemsFinished(items) }) { t ->
@@ -234,11 +228,6 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         adapter.setList(list)
         updateEmptyState(currentSearchQuery)
         requireActivity().invalidateOptionsMenu()
-    }
-
-    class IndexedHistoryEntry(cursor: Cursor) {
-        val entry: HistoryEntry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor)
-        val imageUrl: String? = PageHistoryContract.PageWithImage.IMAGE_NAME.value(cursor)
     }
 
     private class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
@@ -305,17 +294,17 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
     }
 
-    private inner class HistoryEntryItemHolder constructor(itemView: PageItemView<IndexedHistoryEntry>) : DefaultViewHolder<PageItemView<IndexedHistoryEntry>>(itemView), SwipeableItemTouchHelperCallback.Callback {
+    private inner class HistoryEntryItemHolder constructor(itemView: PageItemView<HistoryEntry>) : DefaultViewHolder<PageItemView<HistoryEntry>>(itemView), SwipeableItemTouchHelperCallback.Callback {
         private lateinit var entry: HistoryEntry
 
-        fun bindItem(indexedEntry: IndexedHistoryEntry) {
-            entry = indexedEntry.entry
-            view.item = indexedEntry
-            view.setTitle(indexedEntry.entry.title.displayText)
-            view.setDescription(indexedEntry.entry.title.description)
-            view.setImageUrl(indexedEntry.imageUrl)
-            view.isSelected = selectedEntries.contains(indexedEntry.entry)
-            PageAvailableOfflineHandler.check(indexedEntry.entry.title) { available: Boolean -> view.setViewsGreyedOut(!available) }
+        fun bindItem(entry: HistoryEntry) {
+            this.entry = entry
+            view.item = entry
+            view.setTitle(entry.title.displayText)
+            view.setDescription(entry.title.description)
+            view.setImageUrl(entry.title.thumbUrl)
+            view.isSelected = selectedEntries.contains(entry)
+            PageAvailableOfflineHandler.check(entry.title) { available: Boolean -> view.setViewsGreyedOut(!available) }
         }
 
         override fun onSwipe() {
@@ -367,7 +356,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
             when (holder) {
                 is SearchCardViewHolder -> holder.bindItem()
-                is HistoryEntryItemHolder -> holder.bindItem(historyEntries[pos] as IndexedHistoryEntry)
+                is HistoryEntryItemHolder -> holder.bindItem(historyEntries[pos] as HistoryEntry)
                 else -> (holder as HeaderViewHolder).bindItem(historyEntries[pos] as String)
             }
         }
@@ -394,26 +383,26 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
     }
 
-    private inner class ItemCallback : PageItemView.Callback<IndexedHistoryEntry?> {
-        override fun onClick(item: IndexedHistoryEntry?) {
+    private inner class ItemCallback : PageItemView.Callback<HistoryEntry?> {
+        override fun onClick(item: HistoryEntry?) {
             if (selectedEntries.isNotEmpty()) {
                 toggleSelectPage(item)
             } else if (item != null) {
-                onPageClick(HistoryEntry(item.entry.title, HistoryEntry.SOURCE_HISTORY))
+                onPageClick(HistoryEntry(item.title, HistoryEntry.SOURCE_HISTORY))
             }
         }
 
-        override fun onLongClick(item: IndexedHistoryEntry?): Boolean {
+        override fun onLongClick(item: HistoryEntry?): Boolean {
             beginMultiSelect()
             toggleSelectPage(item)
             return true
         }
 
-        override fun onThumbClick(item: IndexedHistoryEntry?) {
+        override fun onThumbClick(item: HistoryEntry?) {
             onClick(item)
         }
 
-        override fun onActionClick(item: IndexedHistoryEntry?, view: View) {}
+        override fun onActionClick(item: HistoryEntry?, view: View) {}
         override fun onListChipClick(readingList: ReadingList) {}
     }
 

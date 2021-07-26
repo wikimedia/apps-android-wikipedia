@@ -13,7 +13,7 @@ import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.NotificationFunnel
+import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.databinding.ViewNotificationActionsBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.GsonUtil
@@ -41,7 +41,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         val linkIndex = if (it.id == R.id.notification_action_primary) 1 else if (it.id == R.id.notification_action_secondary) 2 else 3
         val url = link.url
         if (url.isNotEmpty()) {
-            NotificationFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
+            NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")
         }

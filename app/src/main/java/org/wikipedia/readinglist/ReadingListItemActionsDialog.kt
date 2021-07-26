@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.ResourceUtil
 
@@ -32,7 +32,7 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         actionsView.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         actionsView.callback = ItemActionsCallback()
 
-        ReadingListDbHelper.getPageById(requireArguments().getLong(ARG_READING_LIST_PAGE))?.let {
+        AppDatabase.getAppDatabase().readingListPageDao().getPageById(requireArguments().getLong(ARG_READING_LIST_PAGE))?.let {
             readingListPage = it
             val removeFromListText = if (requireArguments().getInt(ARG_READING_LIST_SIZE) == 1) getString(R.string.reading_list_remove_from_list, requireArguments().getString(ARG_READING_LIST_NAME)) else getString(R.string.reading_list_remove_from_lists)
             actionsView.setState(it.displayTitle, removeFromListText, it.offline, requireArguments().getBoolean(ARG_READING_LIST_HAS_ACTION_MODE))
