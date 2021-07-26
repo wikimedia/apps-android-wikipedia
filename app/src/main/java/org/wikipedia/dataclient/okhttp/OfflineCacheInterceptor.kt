@@ -4,8 +4,8 @@ import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okio.*
 import org.wikipedia.WikipediaApp
-import org.wikipedia.offline.OfflineObject
-import org.wikipedia.offline.OfflineObjectDbHelper
+import org.wikipedia.database.AppDatabase
+import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -49,7 +49,7 @@ class OfflineCacheInterceptor : Interceptor {
                 throw networkException
             }
         }
-        val obj = OfflineObjectDbHelper.instance().findObject(url, lang)
+        val obj = AppDatabase.getAppDatabase().offlineObjectDao().findObject(url, lang)
         if (obj == null) {
             L.w("Offline object not present in database.")
             throw networkException
@@ -99,7 +99,7 @@ class OfflineCacheInterceptor : Interceptor {
     private fun getCacheWritingResponse(request: Request, response: Response, lang: String, title: String): Response {
         val contentType = response.header("Content-Type", "*/*")!!
         val contentLength = response.header("Content-Length", "-1")!!.toLong()
-        val cachePath = WikipediaApp.getInstance().filesDir.absolutePath + File.separator + OfflineObjectDbHelper.OFFLINE_PATH
+        val cachePath = WikipediaApp.getInstance().filesDir.absolutePath + File.separator + OFFLINE_PATH
 
         File(cachePath).mkdirs()
 
@@ -131,7 +131,7 @@ class OfflineCacheInterceptor : Interceptor {
         }
 
         return response.body?.let {
-            val obj = OfflineObject(request.url.toString(), lang, filePath, 0)
+            val obj = OfflineObject(url = request.url.toString(), lang = lang, path = filePath, status = 0)
             val cacheWritingSource = CacheWritingSource(it.source(), sink, obj, title)
             response.newBuilder()
                 .body(CacheWritingResponseBody(cacheWritingSource, contentType, contentLength))
@@ -164,7 +164,7 @@ class OfflineCacheInterceptor : Interceptor {
                     cacheSink.close()
                     if (!failed) {
                         // update the record in the database!
-                        OfflineObjectDbHelper.instance().addObject(obj.url, obj.lang, obj.path, title)
+                        AppDatabase.getAppDatabase().offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
                     }
                 }
                 return -1
@@ -187,7 +187,7 @@ class OfflineCacheInterceptor : Interceptor {
             }
             source.close()
             if (failed) {
-                OfflineObjectDbHelper.deleteFilesForObject(obj)
+                AppDatabase.getAppDatabase().offlineObjectDao().deleteFilesForObject(obj)
             }
         }
     }
@@ -228,6 +228,7 @@ class OfflineCacheInterceptor : Interceptor {
         const val TITLE_HEADER = "X-Offline-Title"
         const val SAVE_HEADER = "X-Offline-Save"
         const val SAVE_HEADER_SAVE = "save"
+        const val OFFLINE_PATH = "offline_files"
 
         @JvmStatic
         fun shouldSave(request: Request): Boolean {
