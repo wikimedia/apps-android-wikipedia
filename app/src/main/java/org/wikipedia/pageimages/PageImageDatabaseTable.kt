@@ -14,7 +14,7 @@ class PageImageDatabaseTable : DatabaseTable<PageImage>(PageImageHistoryContract
         val wiki = WikiSite(PageImageHistoryContract.Col.SITE.value(cursor), PageImageHistoryContract.Col.LANG.value(cursor))
         val title = PageTitle(PageImageHistoryContract.Col.NAMESPACE.value(cursor), PageImageHistoryContract.Col.API_TITLE.value(cursor), wiki)
         val imageName = PageImageHistoryContract.Col.IMAGE_NAME.value(cursor)
-        title.setDisplayText(PageImageHistoryContract.Col.DISPLAY_TITLE.value(cursor))
+        title.displayText = PageImageHistoryContract.Col.DISPLAY_TITLE.value(cursor)
         return PageImage(title, imageName)
     }
 

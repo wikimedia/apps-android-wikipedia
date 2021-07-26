@@ -225,7 +225,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 app.sessionFunnel.noDescription()
             }
             if (!title.isMainPage) {
-                title.setDisplayText(page.displayTitle)
+                title.displayText = page.displayTitle
             }
             leadImagesHandler.loadLeadImage()
             fragment.requireActivity().invalidateOptionsMenu()
