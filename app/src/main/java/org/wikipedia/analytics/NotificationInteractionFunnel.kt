@@ -43,7 +43,7 @@ class NotificationInteractionFunnel(app: WikipediaApp, private val id: Long, pri
 
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppNotificationInteraction"
-        private const val REV_ID = 21764048
+        private const val REV_ID = 21794376
         private const val ACTION_CLICKED = 10
         private const val ACTION_DISMISSED = 11
 
