@@ -118,7 +118,7 @@ class ContributionDetailsFragment : Fragment() {
                 binding.pageViewsDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_views, getString(R.string.suggested_edits_contribution_article_label)),
                         contribution.pageViews.toString(), R.drawable.ic_trending_up_black_24dp)
                 binding.typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_text_hint), R.drawable.ic_article_description)
-                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
+                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode))
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 binding.contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
@@ -126,7 +126,7 @@ class ContributionDetailsFragment : Fragment() {
                 else resources.getQuantityString(R.plurals.suggested_edits_added_contribution_label, contribution.sizeDiff, contribution.sizeDiff)
                 binding.pageViewsDetailView.setLabelAndDetail()
                 binding.typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_add_caption_hint), R.drawable.ic_image_caption)
-                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
+                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode))
             }
             EDIT_TYPE_IMAGE_TAG -> {
                 binding.contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)

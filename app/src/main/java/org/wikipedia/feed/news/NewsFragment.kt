@@ -56,7 +56,7 @@ class NewsFragment : Fragment() {
         val wiki = GsonUnmarshaller.unmarshal(WikiSite::class.java,
             requireActivity().intent.getStringExtra(NewsActivity.EXTRA_WIKI))
 
-        L10nUtil.setConditionalLayoutDirection(binding.root, wiki.languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.root, wiki.languageCode)
 
         binding.gradientView.background = GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP)
         val imageUri = item.thumb()

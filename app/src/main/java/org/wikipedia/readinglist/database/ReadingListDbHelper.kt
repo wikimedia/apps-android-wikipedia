@@ -468,7 +468,7 @@ object ReadingListDbHelper {
                         ReadingListPageContract.Col.NAMESPACE.name + " = ? AND " + "( " +
                         ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? OR " +
                         ReadingListPageContract.Col.API_TITLE.name + " = ? ) AND " +
-                        ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode(),
+                        ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode,
                 title.namespace().code().toString(), title.displayText, title.prefixedText,
                 ReadingListPage.STATUS_QUEUE_FOR_DELETE.toInt().toString()),
                 null, null, null).use { cursor ->
@@ -523,7 +523,7 @@ object ReadingListDbHelper {
                         ReadingListPageContract.Col.NAMESPACE.name + " = ? AND " + "( " +
                         ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? OR " +
                         ReadingListPageContract.Col.API_TITLE.name + " = ? ) AND " +
-                        ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode(),
+                        ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode,
                 title.namespace().code().toString(), title.displayText, title.prefixedText,
                 ReadingListPage.STATUS_QUEUE_FOR_DELETE.toInt().toString()),
                 null, null, null).use { cursor ->
@@ -723,7 +723,7 @@ object ReadingListDbHelper {
                         ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? OR " +
                         ReadingListPageContract.Col.API_TITLE.name + " = ? ) AND " +
                         ReadingListPageContract.Col.LISTID.name + " = ? AND " +
-                        ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode(),
+                        ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode,
                 title.namespace().code().toString(), title.displayText, title.prefixedText,
                 list.id.toString(),
                 ReadingListPage.STATUS_QUEUE_FOR_DELETE.toString()),

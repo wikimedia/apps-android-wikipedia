@@ -21,7 +21,7 @@ class PageImageDatabaseTable : DatabaseTable<PageImage>(PageImageHistoryContract
     override fun toContentValues(obj: PageImage): ContentValues {
         val contentValues = ContentValues()
         contentValues.put(PageImageHistoryContract.Col.SITE.name, obj.title.wikiSite.authority())
-        contentValues.put(PageImageHistoryContract.Col.LANG.name, obj.title.wikiSite.languageCode())
+        contentValues.put(PageImageHistoryContract.Col.LANG.name, obj.title.wikiSite.languageCode)
         contentValues.put(PageImageHistoryContract.Col.NAMESPACE.name, obj.title.namespace)
         contentValues.put(PageImageHistoryContract.Col.API_TITLE.name, obj.title.prefixedText)
         contentValues.put(PageImageHistoryContract.Col.DISPLAY_TITLE.name, obj.title.displayText)
@@ -44,7 +44,7 @@ class PageImageDatabaseTable : DatabaseTable<PageImage>(PageImageHistoryContract
     }
 
     override fun getUnfilteredPrimaryKeySelectionArgs(obj: PageImage): Array<String?> {
-        return arrayOf(obj.title.wikiSite.authority(), obj.title.wikiSite.languageCode(), obj.title.namespace, obj.title.text)
+        return arrayOf(obj.title.wikiSite.authority(), obj.title.wikiSite.languageCode, obj.title.namespace, obj.title.text)
     }
 
     override val dBVersionIntroducedAt

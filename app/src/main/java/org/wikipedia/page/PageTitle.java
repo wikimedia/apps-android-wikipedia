@@ -126,7 +126,7 @@ public class PageTitle implements Parcelable {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
         if (TextUtils.isEmpty(text)) {
             // If empty, this refers to the main page.
-            text = SiteInfoClient.getMainPageForLang(wiki.languageCode());
+            text = SiteInfoClient.getMainPageForLang(wiki.getLanguageCode());
         }
 
         // Split off any fragment (#...) from the title
@@ -229,7 +229,7 @@ public class PageTitle implements Parcelable {
     }
 
     public boolean isMainPage() {
-        String mainPageTitle = SiteInfoClient.getMainPageForLang(getWikiSite().languageCode());
+        String mainPageTitle = SiteInfoClient.getMainPageForLang(getWikiSite().getLanguageCode());
         return mainPageTitle.equals(getDisplayText());
     }
 
@@ -277,7 +277,7 @@ public class PageTitle implements Parcelable {
 
     public PageTitle pageTitleForTalkPage() {
         String talkNamespace = namespace().user() || namespace().userTalk()
-                ? UserTalkAliasData.valueFor(wiki.languageCode()) : TalkAliasData.valueFor(wiki.languageCode());
+                ? UserTalkAliasData.valueFor(wiki.getLanguageCode()) : TalkAliasData.valueFor(wiki.getLanguageCode());
         PageTitle pageTitle = new PageTitle(talkNamespace, getText(), wiki);
         pageTitle.setDisplayText(talkNamespace + ":" + (!TextUtils.isEmpty(getNamespace()) && getDisplayText().startsWith(getNamespace())
                 ? StringUtil.removeNamespace(getDisplayText()) : getDisplayText()));
@@ -325,7 +325,7 @@ public class PageTitle implements Parcelable {
                 "%1$s://%2$s/%3$s/%4$s%5$s",
                 getWikiSite().scheme(),
                 domain,
-                domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) ? getWikiSite().languageCode() : "wiki",
+                domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) ? getWikiSite().getLanguageCode() : "wiki",
                 UriUtil.encodeURL(getPrefixedText()),
                 (this.fragment != null && this.fragment.length() > 0) ? ("#" + UriUtil.encodeURL(this.fragment)) : ""
         );

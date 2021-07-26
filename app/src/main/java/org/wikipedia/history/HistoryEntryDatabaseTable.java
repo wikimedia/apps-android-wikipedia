@@ -38,7 +38,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     protected ContentValues toContentValues(HistoryEntry obj) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col.SITE.getName(), obj.getTitle().getWikiSite().authority());
-        contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().languageCode());
+        contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().getLanguageCode());
         contentValues.put(Col.API_TITLE.getName(), obj.getTitle().getText());
         contentValues.put(Col.DISPLAY_TITLE.getName(), obj.getTitle().getDisplayText());
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
@@ -77,7 +77,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull HistoryEntry obj) {
         return new String[] {
                 obj.getTitle().getWikiSite().authority(),
-                obj.getTitle().getWikiSite().languageCode(),
+                obj.getTitle().getWikiSite().getLanguageCode(),
                 obj.getTitle().getNamespace(),
                 obj.getTitle().getText()
         };

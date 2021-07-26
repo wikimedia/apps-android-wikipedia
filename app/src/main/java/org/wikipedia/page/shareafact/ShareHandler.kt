@@ -77,7 +77,7 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
     }
 
     fun shouldEnableWiktionaryDialog(): Boolean {
-        return fragment.title?.run { WiktionaryDialog.enabledLanguages.contains(wikiSite.languageCode()) } ?: false
+        return fragment.title?.run { WiktionaryDialog.enabledLanguages.contains(wikiSite.languageCode) } ?: false
     }
 
     private inner class RequestTextSelectOnMenuItemClickListener constructor(private val purpose: String) : MenuItem.OnMenuItemClickListener {

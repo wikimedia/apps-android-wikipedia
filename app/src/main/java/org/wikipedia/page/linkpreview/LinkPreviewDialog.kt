@@ -103,7 +103,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 show()
             }
         }
-        L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode)
         loadContent()
         funnel = LinkPreviewFunnel(WikipediaApp.getInstance(), historyEntry.source)
         funnel.logLinkClick()
@@ -200,7 +200,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                         val maxImages = 10
                         val items = mediaList.getItems("image", "video").asReversed()
                         val titleList = items.filter { it.showInGallery() }.map { it.title }.take(maxImages)
-                        if (titleList.isEmpty()) Observable.empty() else ServiceFactory.get(pageTitle.wikiSite).getImageInfo(titleList.joinToString("|"), pageTitle.wikiSite.languageCode())
+                        if (titleList.isEmpty()) Observable.empty() else ServiceFactory.get(pageTitle.wikiSite).getImageInfo(titleList.joinToString("|"), pageTitle.wikiSite.languageCode)
                     }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

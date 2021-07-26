@@ -183,7 +183,7 @@ class DescriptionEditFragment : Fragment() {
     private fun shouldWriteToLocalWiki(): Boolean {
         return (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-                wikiUsesLocalDescriptions(pageTitle.wikiSite.languageCode())
+                wikiUsesLocalDescriptions(pageTitle.wikiSite.languageCode)
     }
 
     private inner class EditViewCallback : DescriptionEditView.Callback {
@@ -224,7 +224,7 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun postDescriptionToArticle(editToken: String) {
-            val wikiSite = WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode())
+            val wikiSite = WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)
             disposables.add(ServiceFactory.get(wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
                     .subscribeOn(Schedulers.io())
                     .flatMap { mwQueryResponse ->
@@ -272,19 +272,19 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun postDescriptionToWikidata(editToken: String) {
-            disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode())).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
+            disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
                     .subscribeOn(Schedulers.io())
                     .flatMap { response ->
                         if (response.query?.firstPage()!!.getErrorForAction("edit").isNotEmpty()) {
                             val error = response.query?.firstPage()!!.getErrorForAction("edit")[0]
                             throw MwException(error)
                         }
-                        ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode())).siteInfo
+                        ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).siteInfo
                     }
                     .flatMap { response ->
                         val languageCode = if (response.query?.siteInfo()?.lang != null &&
                                 response.query?.siteInfo()?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query?.siteInfo()?.lang
-                        else pageTitle.wikiSite.languageCode()
+                        else pageTitle.wikiSite.languageCode
                         getPostObservable(editToken, languageCode.orEmpty())
                     }
                     .subscribeOn(Schedulers.io())
@@ -312,7 +312,7 @@ class DescriptionEditFragment : Fragment() {
 
         @Suppress("SameParameterValue")
         private fun waitForUpdatedRevision(newRevision: Long) {
-            disposables.add(ServiceFactory.getRest(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode()))
+            disposables.add(ServiceFactory.getRest(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                 .getSummaryResponse(pageTitle.prefixedText, null, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(), null, null, null)
                 .delay(2, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())

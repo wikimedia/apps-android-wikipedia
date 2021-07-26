@@ -40,7 +40,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
                 binding.referencePager.adapter = ReferencesAdapter(this)
                 TabLayoutMediator(binding.pageIndicatorView, binding.referencePager) { _, _ -> }.attach()
                 binding.referencePager.setCurrentItem(it.selectedReferenceIndex, true)
-                L10nUtil.setConditionalLayoutDirection(binding.root, it.linkHandler.wikiSite.languageCode())
+                L10nUtil.setConditionalLayoutDirection(binding.root, it.linkHandler.wikiSite.languageCode)
             } ?: return@let null
         } ?: run {
             dismiss()

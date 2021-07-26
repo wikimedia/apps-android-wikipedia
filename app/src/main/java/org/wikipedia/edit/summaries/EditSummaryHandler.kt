@@ -40,7 +40,7 @@ class EditSummaryHandler(private val container: View,
                 close(client)
             }
         }
-        setConditionalTextDirection(summaryEdit, title.wikiSite.languageCode())
+        setConditionalTextDirection(summaryEdit, title.wikiSite.languageCode)
     }
 
     fun show() {

@@ -51,11 +51,11 @@ object L10nUtil {
 
     @JvmStatic
     fun getStringForArticleLanguage(title: PageTitle, resId: Int): String {
-        return getStringsForLocale(Locale(title.wikiSite.languageCode()), intArrayOf(resId))[resId]
+        return getStringsForLocale(Locale(title.wikiSite.languageCode), intArrayOf(resId))[resId]
     }
 
     fun getStringsForArticleLanguage(title: PageTitle, resId: IntArray): SparseArray<String> {
-        return getStringsForLocale(Locale(title.wikiSite.languageCode()), resId)
+        return getStringsForLocale(Locale(title.wikiSite.languageCode), resId)
     }
 
     private fun getStringsForLocale(targetLocale: Locale,

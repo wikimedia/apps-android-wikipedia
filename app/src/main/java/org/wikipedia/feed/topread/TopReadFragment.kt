@@ -49,7 +49,7 @@ class TopReadFragment : Fragment() {
         appCompatActivity.supportActionBar?.title = ""
         binding.toolbarTitle.text = getString(R.string.top_read_activity_title, card.subtitle())
 
-        L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode)
 
         binding.mostReadRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))

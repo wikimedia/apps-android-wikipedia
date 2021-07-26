@@ -70,7 +70,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         linkHandler.wikiSite = pageTitle.wikiSite
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
 
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)

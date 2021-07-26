@@ -175,23 +175,23 @@ enum class Namespace(private val code: Int) : EnumCode {
 
         @JvmStatic
         fun fromLegacyString(wiki: WikiSite, name: String?): Namespace {
-            if (FileAliasData.valueFor(wiki.languageCode()).equals(name, true) ||
+            if (FileAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     FileAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 return FILE
             }
-            if (SpecialAliasData.valueFor(wiki.languageCode()).equals(name, true) ||
+            if (SpecialAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     SpecialAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 return SPECIAL
             }
-            if (TalkAliasData.valueFor(wiki.languageCode()).equals(name, true) ||
+            if (TalkAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     TalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 return TALK
             }
-            if (UserAliasData.valueFor(wiki.languageCode()).equals(name, true) ||
+            if (UserAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     UserAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 return USER
             }
-            return if (UserTalkAliasData.valueFor(wiki.languageCode()).equals(name, true) ||
+            return if (UserTalkAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 USER_TALK
             } else MAIN

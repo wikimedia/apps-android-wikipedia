@@ -65,9 +65,9 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
         when {
             uri.path?.run { matches(("^${UriUtil.WIKI_REGEX}.*").toRegex()) } == true && supportedAuthority -> {
                 var site = WikiSite(uri)
-                if (site.subdomain() == wikiSite.subdomain() && site.languageCode() != wikiSite.languageCode()) {
+                if (site.subdomain() == wikiSite.subdomain() && site.languageCode != wikiSite.languageCode) {
                     // override the languageCode from the parent WikiSite, in case it's a variant.
-                    site = WikiSite(uri.authority!!, wikiSite.languageCode())
+                    site = WikiSite(uri.authority!!, wikiSite.languageCode)
                 }
                 val newTitle = if (titleString.isNullOrEmpty()) site.titleForInternalLink(uri.path) else PageTitle.withSeparateFragment(titleString, uri.fragment, site)
                 if (newTitle.isFilePage) {

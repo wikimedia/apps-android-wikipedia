@@ -13,6 +13,6 @@ abstract class DefaultFeedCardView<T : Card?>(context: Context?) : LinearLayout(
 
     protected fun setLayoutDirectionByWikiSite(wiki: WikiSite, rootView: View) {
         rootView.layoutDirection =
-            if (isLangRTL(wiki.languageCode())) LAYOUT_DIRECTION_RTL else LAYOUT_DIRECTION_LTR
+            if (isLangRTL(wiki.languageCode)) LAYOUT_DIRECTION_RTL else LAYOUT_DIRECTION_LTR
     }
 }

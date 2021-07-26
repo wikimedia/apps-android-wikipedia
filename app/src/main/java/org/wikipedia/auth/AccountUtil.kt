@@ -28,7 +28,7 @@ object AccountUtil {
             return
         }
         setPassword(result.password!!)
-        putUserIdForLanguage(result.site.languageCode(), result.userId)
+        putUserIdForLanguage(result.site.languageCode, result.userId)
         groups = result.groups
     }
 

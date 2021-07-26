@@ -23,7 +23,7 @@ class UpdateHistoryTask(private val entry: HistoryEntry) : Action {
                 .replace(":langCol".toRegex(), PageHistoryContract.Page.LANG.qualifiedName())
                 .replace(":apiTitleCol".toRegex(), PageHistoryContract.Page.API_TITLE.qualifiedName())
         val selectionArgs = arrayOf(entry.title.wikiSite.authority(),
-                entry.title.wikiSite.languageCode(), entry.title.text)
+                entry.title.wikiSite.languageCode, entry.title.text)
         val cursor = client.select(selection, selectionArgs, null)
         if (cursor.moveToFirst()) {
             timeSpent = PageHistoryContract.Col.TIME_SPENT.value(cursor)

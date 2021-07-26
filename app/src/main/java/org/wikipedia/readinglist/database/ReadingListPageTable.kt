@@ -71,7 +71,7 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
         val contentValues = ContentValues()
         contentValues.put(ReadingListPageContract.Col.LISTID.name, obj.listId)
         contentValues.put(ReadingListPageContract.Col.SITE.name, obj.wiki.authority())
-        contentValues.put(ReadingListPageContract.Col.LANG.name, obj.wiki.languageCode())
+        contentValues.put(ReadingListPageContract.Col.LANG.name, obj.wiki.languageCode)
         contentValues.put(ReadingListPageContract.Col.NAMESPACE.name, obj.namespace.code())
         contentValues.put(ReadingListPageContract.Col.DISPLAY_TITLE.name, obj.displayTitle)
         contentValues.put(ReadingListPageContract.Col.API_TITLE.name, obj.apiTitle)
