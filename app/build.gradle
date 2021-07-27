@@ -27,6 +27,8 @@ android {
     compileSdkVersion 30
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
+
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
     }
@@ -186,6 +188,8 @@ dependencies {
     String mlKitVersion = '17.0.0'
     String roomVersion = "2.3.0"
     String espressoVersion = '3.4.0'
+
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
