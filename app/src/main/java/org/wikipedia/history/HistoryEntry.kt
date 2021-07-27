@@ -24,7 +24,7 @@ class HistoryEntry(
     var timeSpentSec: Int = 0,
 ) : Parcelable {
     constructor(title: PageTitle, source: Int, timestamp: Date = Date(), timeSpentSec: Int = 0) : this(title.wikiSite.authority(),
-        title.wikiSite.languageCode, title.text, title.displayText, namespace = title.namespace,
+        title.wikiSite.languageCode, title.text, title.displayText, namespace = title.namespace.orEmpty(),
         timestamp = timestamp, source = source, timeSpentSec = timeSpentSec) {
         pageTitle = title
     }
@@ -36,7 +36,7 @@ class HistoryEntry(
     val title: PageTitle get() {
         if (pageTitle == null) {
             pageTitle = PageTitle(namespace, apiTitle, WikiSite(authority, lang))
-            pageTitle!!.setDisplayText(displayTitle)
+            pageTitle!!.displayText = displayTitle
         }
         return pageTitle!!
     }

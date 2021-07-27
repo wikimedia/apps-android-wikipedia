@@ -1,6 +1,7 @@
 package org.wikipedia.page
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -27,7 +28,8 @@ import java.util.*
 @Parcelize
 class PageTitle(
     var namespace: String?,
-    var site: WikiSite,
+    // TODO: remove this SerializedName when Tab list is no longer serialized to shared prefs.
+    @SerializedName("site") var wikiSite: WikiSite,
     private var _text: String = "",
     var fragment: String? = null,
     var thumbUrl: String?,
@@ -57,15 +59,15 @@ class PageTitle(
 
     val isMainPage: Boolean
         get() {
-            val mainPageTitle = getMainPageForLang(site.languageCode)
+            val mainPageTitle = getMainPageForLang(wikiSite.languageCode)
             return mainPageTitle == displayText
         }
 
     val uri: String
-        get() = getUriForDomain(site.authority())
+        get() = getUriForDomain(wikiSite.authority())
 
     val mobileUri: String
-        get() = getUriForDomain(site.authority().replace(".wikipedia.org", ".m.wikipedia.org"))
+        get() = getUriForDomain(wikiSite.authority().replace(".wikipedia.org", ".m.wikipedia.org"))
 
     /**
      * Notes on the `namespace` field:
@@ -132,19 +134,19 @@ class PageTitle(
             val namespaceOrLanguage = parts[0]
             if (listOf(*Locale.getISOLanguages()).contains(namespaceOrLanguage)) {
                 namespace = null
-                site = WikiSite(wiki.authority(), namespaceOrLanguage)
+                wikiSite = WikiSite(wiki.authority(), namespaceOrLanguage)
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else if (parts[1].isNotEmpty() && !Character.isWhitespace(parts[1][0]) && parts[1][0] != '_') {
-                site = wiki
+                wikiSite = wiki
                 namespace = namespaceOrLanguage
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else {
-                site = wiki
+                wikiSite = wiki
                 namespace = null
                 this._text = text
             }
         } else {
-            site = wiki
+            wikiSite = wiki
             namespace = null
             this._text = text
         }
@@ -152,14 +154,14 @@ class PageTitle(
     }
 
     fun namespace(): Namespace {
-        return fromLegacyString(site, removeUnderscores(namespace))
+        return fromLegacyString(wikiSite, removeUnderscores(namespace))
     }
 
     fun getWebApiUrl(fragment: String?): String {
         return String.format(
             "%1\$s://%2\$s/w/index.php?title=%3\$s&%4\$s",
-            site.scheme(),
-            site.authority(),
+            wikiSite.scheme(),
+            wikiSite.authority(),
             encodeURL(prefixedText),
             fragment
         )
@@ -167,9 +169,9 @@ class PageTitle(
 
     fun pageTitleForTalkPage(): PageTitle {
         val talkNamespace =
-            if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(site.languageCode)
-            else TalkAliasData.valueFor(site.languageCode)
-        val pageTitle = PageTitle(talkNamespace, text, site)
+            if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(wikiSite.languageCode)
+            else TalkAliasData.valueFor(wikiSite.languageCode)
+        val pageTitle = PageTitle(talkNamespace, text, wikiSite)
         pageTitle.displayText =
             "$talkNamespace:" + if (!namespace.isNullOrEmpty() && displayText.startsWith(namespace!!)
             ) removeNamespace(displayText) else displayText
@@ -184,9 +186,9 @@ class PageTitle(
     private fun getUriForDomain(domain: String): String {
         return String.format(
             "%1\$s://%2\$s/%3\$s/%4\$s%5\$s",
-            site.scheme(),
+            wikiSite.scheme(),
             domain,
-            if (domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) site.languageCode else "wiki",
+            if (domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) wikiSite.languageCode else "wiki",
             encodeURL(prefixedText),
             if (fragment != null && fragment!!.isNotEmpty()) "#" + encodeURL(fragment!!) else ""
         )
