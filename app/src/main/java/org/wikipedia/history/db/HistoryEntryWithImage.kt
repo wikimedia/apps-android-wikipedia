@@ -1,6 +1,6 @@
 package org.wikipedia.history.db
 
-import java.util.*
+import java.time.Instant
 
 data class HistoryEntryWithImage(
     val authority: String,
@@ -8,7 +8,7 @@ data class HistoryEntryWithImage(
     val apiTitle: String,
     val displayTitle: String,
     val namespace: String,
-    val timestamp: Date,
+    val timestamp: Instant,
     val source: Int,
     val timeSpentSec: Int,
     val imageName: String?

@@ -1,11 +1,13 @@
 package org.wikipedia.history.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Query
+import androidx.room.RewriteQueriesToDropUnusedColumns
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
-import java.text.DateFormat
+import java.time.ZoneId
 import java.util.*
 
 @Dao
@@ -46,22 +48,19 @@ interface HistoryEntryWithImageDao {
 
         val entries = findEntriesBySearchTerm("%$normalizedQuery%")
 
+        val zoneId = ZoneId.systemDefault()
         for (i in entries.indices) {
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
             // Always do it if this is the first item.
-            // Check the previous item, see if the times differ enough
-            // If they do, display the section header.
-            // Always do it if this is the first item.
-            val curTime: String = getDateString(entries[i].timestamp)
-            val prevTime: String
+            val curDate = entries[i].timestamp.atZone(zoneId).toLocalDate()
             if (i > 0) {
-                prevTime = getDateString(entries[i - 1].timestamp)
-                if (curTime != prevTime) {
-                    list.add(curTime)
+                val prevDate = entries[i - 1].timestamp.atZone(zoneId).toLocalDate()
+                if (curDate != prevDate) {
+                    list.add(curDate)
                 }
             } else {
-                list.add(curTime)
+                list.add(curDate)
             }
             list.add(toHistoryEntry(entries[i]))
         }
@@ -80,9 +79,5 @@ interface HistoryEntryWithImageDao {
             entryWithImage.source, entryWithImage.timeSpentSec)
         entry.title.thumbUrl = entryWithImage.imageName
         return entry
-    }
-
-    private fun getDateString(date: Date): String {
-        return DateFormat.getDateInstance().format(date)
     }
 }
