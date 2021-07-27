@@ -27,7 +27,7 @@ import java.util.*
  */
 @Parcelize
 class PageTitle(
-    var namespace: String?,
+    var _namespace: String?,
     // TODO: remove this SerializedName when Tab list is no longer serialized to shared prefs.
     @SerializedName("site") var wikiSite: WikiSite,
     private var _text: String = "",
@@ -49,7 +49,10 @@ class PageTitle(
 
     // TODO: find a better way to check if the namespace is a ISO Alpha2 Code (two digits country code)
     val prefixedText: String
-        get() = if (namespace == null) text else addUnderscores(namespace) + ":" + text
+        get() = if (namespace.isEmpty()) text else addUnderscores(namespace) + ":" + text
+
+    val namespace: String
+        get() { return _namespace.orEmpty() }
 
     val isFilePage: Boolean
         get() = namespace().file()
@@ -133,21 +136,21 @@ class PageTitle(
         if (parts.size > 1) {
             val namespaceOrLanguage = parts[0]
             if (listOf(*Locale.getISOLanguages()).contains(namespaceOrLanguage)) {
-                namespace = null
+                _namespace = null
                 wikiSite = WikiSite(wiki.authority(), namespaceOrLanguage)
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else if (parts[1].isNotEmpty() && !Character.isWhitespace(parts[1][0]) && parts[1][0] != '_') {
                 wikiSite = wiki
-                namespace = namespaceOrLanguage
+                _namespace = namespaceOrLanguage
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else {
                 wikiSite = wiki
-                namespace = null
+                _namespace = null
                 this._text = text
             }
         } else {
             wikiSite = wiki
-            namespace = null
+            _namespace = null
             this._text = text
         }
         this.thumbUrl = thumbUrl
@@ -169,11 +172,12 @@ class PageTitle(
 
     fun pageTitleForTalkPage(): PageTitle {
         val talkNamespace =
-            if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(wikiSite.languageCode)
-            else TalkAliasData.valueFor(wikiSite.languageCode)
+            if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(
+                wikiSite.languageCode
+            ) else TalkAliasData.valueFor(wikiSite.languageCode)
         val pageTitle = PageTitle(talkNamespace, text, wikiSite)
         pageTitle.displayText =
-            "$talkNamespace:" + if (!namespace.isNullOrEmpty() && displayText.startsWith(namespace!!)
+            "$talkNamespace:" + if (namespace.isNotEmpty() && displayText.startsWith(namespace)
             ) removeNamespace(displayText) else displayText
         pageTitle.fragment = fragment
         return pageTitle
