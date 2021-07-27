@@ -28,7 +28,7 @@ import java.util.*
 @Parcelize
 class PageTitle(
     var _namespace: String?,
-    // TODO: remove this SerializedName after moving away from persisting Tabs in local prefs.
+    // TODO: remove this SerializedName when Tab list is no longer serialized to shared prefs.
     @SerializedName("site") var wikiSite: WikiSite,
     private var _text: String = "",
     var fragment: String? = null,
@@ -116,11 +116,11 @@ class PageTitle(
     constructor(title: String?, wiki: WikiSite, thumbUrl: String? = null) :
             this(null, wiki, title.orEmpty(), null, thumbUrl, null, null, null) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
-        var text = title ?: getMainPageForLang(wiki.languageCode)
+        var text = if (title.isNullOrEmpty()) getMainPageForLang(wiki.languageCode) else title
 
         // Split off any fragment (#...) from the title
         var parts = text.split("#".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-        text = parts[0]
+        text = if (parts.isNotEmpty()) parts[0] else ""
         fragment = if (parts.size > 1) {
             addUnderscores(decodeURL(parts[1]))
         } else {
@@ -194,7 +194,7 @@ class PageTitle(
             domain,
             if (domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) wikiSite.languageCode else "wiki",
             encodeURL(prefixedText),
-            if (fragment != null && fragment!!.isNotEmpty()) "#" + encodeURL(fragment!!) else ""
+            if (!fragment.isNullOrEmpty()) "#" + encodeURL(fragment!!) else ""
         )
     }
 
