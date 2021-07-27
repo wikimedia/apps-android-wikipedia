@@ -70,7 +70,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
         if (newLinkText.contains("alpha ")) {
             val strings = newLinkText.split(" ")
             var alphaReference = StringUtil.getBase26String(strings[strings.size - 1].replace("]", "").toInt())
-            alphaReference = if (isLowercase) alphaReference.toLowerCase(Locale.getDefault()) else alphaReference
+            alphaReference = if (isLowercase) alphaReference.lowercase(Locale.getDefault()) else alphaReference
             newLinkText = alphaReference
         }
         return newLinkText.replace("[\\[\\]]".toRegex(), "") + "."
