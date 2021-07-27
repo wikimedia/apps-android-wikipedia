@@ -105,7 +105,7 @@ class DescriptionEditFragment : Fragment() {
             targetSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, it)
         }
         val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
-        funnel = DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type, invokeSource)
+        funnel = DescriptionEditFunnel(WikipediaApp.instance, pageTitle, type, invokeSource)
         funnel.logStart()
     }
 

@@ -88,7 +88,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         val pageTitle = (requireActivity() as EditSectionActivity).pageTitle
         model.title = pageTitle
         model.curEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK)
-        funnel = WikipediaApp.getInstance().funnelManager.getEditFunnel(pageTitle)
+        funnel = WikipediaApp.instance.funnelManager.getEditFunnel(pageTitle)
         linkHandler = EditLinkHandler(requireContext())
         initWebView()
 

@@ -43,7 +43,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
     }
 
     override fun getLangCode(): String {
-        return WikipediaApp.getInstance().language().appLanguageCode
+        return WikipediaApp.instance.appLanguageState.appLanguageCode
     }
 
     override fun getSinglePage(): MwQueryPage? {

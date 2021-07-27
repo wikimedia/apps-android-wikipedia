@@ -264,13 +264,13 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
             val notification = item.notification!!
-            val wiki = dbNameMap.getOrElse(notification.wiki()) { WikipediaApp.getInstance().wikiSite }
+            val wiki = dbNameMap.getOrElse(notification.wiki()) { WikipediaApp.instance.wikiSite }
             notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
             if (markUnread && !displayArchived) {
                 notificationList.add(notification)
             } else {
                 notificationList.remove(notification)
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
+                NotificationInteractionFunnel(WikipediaApp.instance, notification).logMarkRead(selectionKey)
                 NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }

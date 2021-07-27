@@ -119,7 +119,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
 
     private fun getListData(dataType: String?): List<String> {
         return if (dataType == context.getString(R.string.language_data)) {
-            val language = WikipediaApp.getInstance().language()
+            val language = WikipediaApp.instance.appLanguageState
             language.appLanguageCodes.map { language.getAppLanguageLocalizedName(it) }
                 .mapNotNull { localizedName ->
                     localizedName?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }

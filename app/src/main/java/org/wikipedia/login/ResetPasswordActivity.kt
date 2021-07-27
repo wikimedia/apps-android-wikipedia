@@ -93,7 +93,7 @@ class ResetPasswordActivity : BaseActivity() {
         if (loginClient == null) {
             loginClient = LoginClient()
         }
-        loginClient?.login(WikipediaApp.getInstance().wikiSite, userName, password,
+        loginClient?.login(WikipediaApp.instance.wikiSite, userName, password,
                 retypedPassword, twoFactorCode, firstStepToken, loginCallback)
     }
 

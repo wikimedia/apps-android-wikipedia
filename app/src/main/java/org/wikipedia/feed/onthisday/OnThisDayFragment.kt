@@ -92,7 +92,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     private fun updateContents(age: Int) {
         val today = DateUtil.getDefaultDateFor(age)
         requestEvents(today[Calendar.MONTH], today[Calendar.DATE])
-        funnel = OnThisDayFunnel(WikipediaApp.getInstance(), wiki, invokeSource)
+        funnel = OnThisDayFunnel(WikipediaApp.instance, wiki, invokeSource)
     }
 
     private fun requestEvents(month: Int, date: Int) {

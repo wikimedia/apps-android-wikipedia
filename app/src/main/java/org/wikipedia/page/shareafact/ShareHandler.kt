@@ -22,7 +22,7 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
 
     private fun createFunnel() {
         fragment.page?.let {
-            funnel = ShareAFactFunnel(WikipediaApp.getInstance(), it.title, it.pageProperties.pageId,
+            funnel = ShareAFactFunnel(WikipediaApp.instance, it.title, it.pageProperties.pageId,
                     it.pageProperties.revisionId)
         }
     }

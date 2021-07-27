@@ -55,8 +55,8 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private var age = 0
     private var cardActionType: Action? = null
-    private var app = WikipediaApp.getInstance()
-    private var appLanguages = app.language().appLanguageCodes
+    private var app = WikipediaApp.instance
+    private var appLanguages = app.appLanguageState.appLanguageCodes
     private var langFromCode: String = appLanguages[0]
     private var targetLanguage: String? = null
     private val disposables = CompositeDisposable()
@@ -388,7 +388,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun showTranslateDescriptionUI() {
         showAddDescriptionUI()
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
-                app.language().getAppLanguageCanonicalName(targetLanguage))
+                app.appLanguageState.getAppLanguageCanonicalName(targetLanguage))
         binding.viewArticleSubtitle.visibility = VISIBLE
         binding.viewArticleSubtitle.text = sourceSummaryForEdit?.description
     }
@@ -404,7 +404,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun showTranslateImageCaptionUI() {
         showAddImageCaptionUI()
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
-                app.language().getAppLanguageCanonicalName(targetLanguage))
+                app.appLanguageState.getAppLanguageCanonicalName(targetLanguage))
         binding.viewArticleSubtitle.visibility = VISIBLE
         binding.viewArticleSubtitle.text = sourceSummaryForEdit?.description
     }

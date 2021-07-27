@@ -22,7 +22,7 @@ class ThemeFittingRoomFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentThemeFittingRoomBinding.inflate(inflater, container, false)
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         binding.themeTestImage.loadImage(R.drawable.w_nav_mark)
         updateTextSize()
         updateFontFamily()
@@ -37,7 +37,7 @@ class ThemeFittingRoomFragment : Fragment() {
 
     private fun updateTextSize() {
         val titleMultiplier = 1.6f
-        val fontSize = WikipediaApp.getInstance().getFontSize(requireActivity().window)
+        val fontSize = WikipediaApp.instance.getFontSize(requireActivity().window)
         binding.themeTestText.textSize = fontSize
         binding.themeTestTitle.textSize = fontSize * titleMultiplier
     }
@@ -52,7 +52,7 @@ class ThemeFittingRoomFragment : Fragment() {
         override fun accept(event: Any?) {
             if (event is ChangeTextSizeEvent) {
                 updateTextSize()
-                binding.themeTestText.post { WikipediaApp.getInstance().bus.post(WebViewInvalidateEvent()) }
+                binding.themeTestText.post { WikipediaApp.instance.bus.post(WebViewInvalidateEvent()) }
             }
         }
     }

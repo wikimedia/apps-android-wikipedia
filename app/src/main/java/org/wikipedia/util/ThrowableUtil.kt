@@ -95,9 +95,9 @@ object ThrowableUtil {
     @WorkerThread
     fun getBlockMessageHtml(blockInfo: MwServiceError.BlockInfo): String {
         var html = ""
-        Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo,
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parsePage("MediaWiki:Blockedtext"),
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parseText(blockInfo.blockReason),
+        Observable.zip(ServiceFactory.get(WikipediaApp.instance.wikiSite).userInfo,
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).parsePage("MediaWiki:Blockedtext"),
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).parseText(blockInfo.blockReason),
             { userInfoResponse, blockedParseResponse, reasonParseResponse ->
                 parseBlockedError(blockedParseResponse.text, blockInfo,
                     reasonParseResponse.text, userInfoResponse.query?.userInfo()!!.name)
@@ -108,13 +108,13 @@ object ThrowableUtil {
 
     @JvmStatic
     fun parseBlockedError(template: String, info: MwServiceError.BlockInfo, reason: String, userName: String): String {
-        return template.replace("$1", "<a href=\"${StringUtil.userPageTitleFromName(info.blockedBy, WikipediaApp.getInstance().wikiSite).mobileUri}\">${info.blockedBy}</a>")
+        return template.replace("$1", "<a href=\"${StringUtil.userPageTitleFromName(info.blockedBy, WikipediaApp.instance.wikiSite).mobileUri}\">${info.blockedBy}</a>")
             .replace("$2", reason)
             .replace("$3", "") // IP address of user (TODO: somehow get from API?)
             .replace("$4", "") // unknown parameter (unused?)
             .replace("$5", info.blockId.toString())
             .replace("$6", parseBlockedDate(info.blockExpiry))
-            .replace("$7", "<a href=\"${StringUtil.userPageTitleFromName(userName, WikipediaApp.getInstance().wikiSite).mobileUri}\">$userName</a>")
+            .replace("$7", "<a href=\"${StringUtil.userPageTitleFromName(userName, WikipediaApp.instance.wikiSite).mobileUri}\">$userName</a>")
             .replace("$8", parseBlockedDate(info.blockTimeStamp))
     }
 

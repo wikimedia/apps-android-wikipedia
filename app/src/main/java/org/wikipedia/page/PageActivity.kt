@@ -67,7 +67,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private lateinit var binding: ActivityPageBinding
     private lateinit var toolbarHideHandler: ViewHideHandler
     private lateinit var pageFragment: PageFragment
-    private var app = WikipediaApp.getInstance()
+    private var app = WikipediaApp.instance
     private var hasTransitionAnimation = false
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
@@ -221,7 +221,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT) && (resultCode == RESULT_OK ||
                     resultCode == DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS)) {
             pageFragment.refreshPage()
-            val editLanguage = pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.language().appLanguageCode }
+            val editLanguage = pageFragment.leadImageEditLang.orEmpty().ifEmpty { app.appLanguageState.appLanguageCode }
             val action = if (data != null && data.hasExtra(Constants.INTENT_EXTRA_ACTION))
                 data.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action?
             else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT) DescriptionEditActivity.Action.ADD_IMAGE_TAGS

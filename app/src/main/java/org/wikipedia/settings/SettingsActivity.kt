@@ -12,7 +12,7 @@ class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
     private lateinit var initialLanguageList: String
     private lateinit var initialFeedCardsEnabled: List<Boolean>
     private lateinit var initialFeedCardsOrder: List<Int>
-    private val app = WikipediaApp.getInstance()
+    private val app = WikipediaApp.instance
 
     public override fun createFragment(): SettingsFragment {
         return SettingsFragment.newInstance()
@@ -20,14 +20,14 @@ class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initialLanguageList = listToJsonArrayString(app.language().appLanguageCodes)
+        initialLanguageList = listToJsonArrayString(app.appLanguageState.appLanguageCodes)
         initialFeedCardsEnabled = Prefs.getFeedCardsEnabled()
         initialFeedCardsOrder = Prefs.getFeedCardsOrder()
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        val finalLanguageList = listToJsonArrayString(app.language().appLanguageCodes)
+        val finalLanguageList = listToJsonArrayString(app.appLanguageState.appLanguageCodes)
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE &&
                 finalLanguageList != initialLanguageList) {
             setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED)

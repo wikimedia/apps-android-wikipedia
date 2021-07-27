@@ -25,7 +25,7 @@ class DailyEventTask(context: Context) : RecurringTask() {
     }
 
     private fun logDailyEventReport() {
-        DailyStatsFunnel(WikipediaApp.getInstance()).log(WikipediaApp.getInstance())
+        DailyStatsFunnel(WikipediaApp.instance).log(WikipediaApp.instance)
     }
 
     private fun isDailyEventDue(lastRun: Date): Boolean {

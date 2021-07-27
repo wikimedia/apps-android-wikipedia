@@ -21,7 +21,7 @@ public class LangLinksActivityTest{
         PageTitle title = new PageTitle(null, "洋基體育場 (1923年)", WikiSite.forLanguageCode("zh-hant"));
         List<PageTitle> list = getBaseLanguageEntries();
 
-        LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
+        LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().getAppLanguageState(), title, list);
         assertThat(list, is(getExpectedZhHantResults()));
     }
 
@@ -30,7 +30,7 @@ public class LangLinksActivityTest{
         PageTitle title = new PageTitle(null, "洋基体育场 (1923年)", WikiSite.forLanguageCode("zh-hans"));
         List<PageTitle> list = getBaseLanguageEntries();
 
-        LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
+        LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().getAppLanguageState(), title, list);
         assertThat(list, is(getExpectedZhHansResults()));
     }
 
@@ -39,7 +39,7 @@ public class LangLinksActivityTest{
         PageTitle title = new PageTitle(null, "Yankee Stadium (1923)", WikiSite.forLanguageCode("da"));
         List<PageTitle> list = getBaseLanguageEntriesWithZhVariants();
 
-        LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
+        LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().getAppLanguageState(), title, list);
         assertThat(list, is(getExpectedGeneralResults()));
     }
 
@@ -70,7 +70,7 @@ public class LangLinksActivityTest{
     private List<PageTitle> getExpectedZhHantResults() {
         List<PageTitle> result = getBaseLanguageEntries();
         // this order follows the order in languages_list.xml
-        List<String> variants = WikipediaApp.getInstance().language().getLanguageVariants("zh");
+        List<String> variants = WikipediaApp.getInstance().getAppLanguageState().getLanguageVariants("zh");
         if (variants != null) {
             for (String languageCode : variants) {
                 if (!languageCode.equals("zh-hant")) {
@@ -84,7 +84,7 @@ public class LangLinksActivityTest{
     private List<PageTitle> getExpectedZhHansResults() {
         List<PageTitle> result = getBaseLanguageEntries();
         // this order follows the order in languages_list.xml
-        List<String> variants = WikipediaApp.getInstance().language().getLanguageVariants("zh");
+        List<String> variants = WikipediaApp.getInstance().getAppLanguageState().getLanguageVariants("zh");
         if (variants != null) {
             for (String languageCode : variants) {
                 if (!languageCode.equals("zh-hans")) {

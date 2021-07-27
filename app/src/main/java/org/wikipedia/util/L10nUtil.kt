@@ -17,7 +17,7 @@ object L10nUtil {
         get() = TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL
 
     private val currentConfiguration: Configuration
-        get() = Configuration(WikipediaApp.getInstance().resources.configuration)
+        get() = Configuration(WikipediaApp.instance.resources.configuration)
 
     @JvmStatic
     fun isLangRTL(lang: String): Boolean {
@@ -55,7 +55,7 @@ object L10nUtil {
         if (systemLocale.language == targetLocale.language) {
             val localizedStrings = SparseArray<String>()
             strings.forEach {
-                localizedStrings.put(it, WikipediaApp.getInstance().getString(it))
+                localizedStrings.put(it, WikipediaApp.instance.getString(it))
             }
             return localizedStrings
         }
@@ -63,13 +63,13 @@ object L10nUtil {
         val localizedStrings = getTargetStrings(strings, config)
         config.setLocale(systemLocale)
         // reset to current configuration
-        WikipediaApp.getInstance().createConfigurationContext(config)
+        WikipediaApp.instance.createConfigurationContext(config)
         return localizedStrings
     }
 
     private fun getTargetStrings(@StringRes strings: IntArray, altConfig: Configuration): SparseArray<String> {
         val localizedStrings = SparseArray<String>()
-        val targetResources = WikipediaApp.getInstance().createConfigurationContext(altConfig).resources
+        val targetResources = WikipediaApp.instance.createConfigurationContext(altConfig).resources
         strings.forEach {
             localizedStrings.put(it, targetResources.getString(it))
         }
@@ -107,7 +107,7 @@ object L10nUtil {
         if (desiredLocale.language == CHINESE_LANGUAGE_CODE) {
             // create a new Locale object to manage only "zh" language code based on its app language
             // code. e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
-            config.setLocale(getDesiredLocale(Locale(WikipediaApp.getInstance().language().appLanguageCode)))
+            config.setLocale(getDesiredLocale(Locale(WikipediaApp.instance.appLanguageState.appLanguageCode)))
         } else {
             config.setLocale(getDesiredLocale(desiredLocale))
         }

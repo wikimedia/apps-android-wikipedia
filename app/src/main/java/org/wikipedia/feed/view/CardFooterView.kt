@@ -29,7 +29,7 @@ class CardFooterView constructor(context: Context, attrs: AttributeSet? = null) 
     fun setFooterActionText(actionText: String, langCode: String?) {
         val actionTextWithSpace = "$actionText  "
         val spannableStringBuilder = SpannableStringBuilder(actionTextWithSpace)
-        val isRTL = L10nUtil.isLangRTL(langCode ?: WikipediaApp.getInstance().language().systemLanguageCode)
+        val isRTL = L10nUtil.isLangRTL(langCode ?: WikipediaApp.instance.appLanguageState.systemLanguageCode)
         val arrowImageSpan = ImageSpan(context, if (isRTL) R.drawable.ic_baseline_arrow_left_alt_themed_24px else R.drawable.ic_baseline_arrow_right_alt_themed_24px)
         spannableStringBuilder.setSpan(arrowImageSpan, actionTextWithSpace.length - 1, actionTextWithSpace.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.footerActionButton.text = spannableStringBuilder

@@ -76,8 +76,8 @@ abstract class AppDatabase : RoomDatabase() {
         }
         val MIGRATION_22_23 = object : Migration(22, 23) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                val defaultLang = WikipediaApp.getInstance().appOrSystemLanguageCode
-                val defaultAuthority = WikipediaApp.getInstance().wikiSite.authority()
+                val defaultLang = WikipediaApp.instance.appOrSystemLanguageCode
+                val defaultAuthority = WikipediaApp.instance.wikiSite.authority()
                 val defaultTitle = MainPageNameData.valueFor(defaultLang)
 
                 // convert Recent Searches table
@@ -149,7 +149,7 @@ abstract class AppDatabase : RoomDatabase() {
             if (instance == null) {
                 synchronized(AppDatabase::class) {
                     instance = Room.databaseBuilder(
-                        WikipediaApp.getInstance(),
+                        WikipediaApp.instance,
                         AppDatabase::class.java,
                         DATABASE_NAME
                     )

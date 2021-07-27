@@ -115,7 +115,7 @@ object DateUtil {
         //       difficult for translators to write correct format specifiers without being able to
         //       test them. We should investigate localization support in date libraries such as
         //       Joda-Time and how TWN solves this classic problem.
-        val dateFormat = DateFormat.getMediumDateFormat(WikipediaApp.getInstance())
+        val dateFormat = DateFormat.getMediumDateFormat(WikipediaApp.instance)
         dateFormat.timeZone = TimeZone.getTimeZone("UTC")
         return dateFormat.format(date)
     }
@@ -166,7 +166,7 @@ object DateUtil {
                 else -> RelativeDateTimeFormatter.getInstance().format(diffInYears.toDouble(), RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS)
             }
         } else {
-            val context = WikipediaApp.getInstance().applicationContext
+            val context = WikipediaApp.instance.applicationContext
             if (diffInYears == 0) context.getString(R.string.this_year) else context.resources.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
         }
     }

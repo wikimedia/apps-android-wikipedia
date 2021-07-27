@@ -4,7 +4,7 @@ import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 
 class AppLanguageSearchingFunnel(private val settingsSessionToken: String) :
-        TimedFunnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+        TimedFunnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
     fun logLanguageAdded(languageAdded: Boolean, languageCode: String?, searchString: String?) {
         log(

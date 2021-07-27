@@ -6,7 +6,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.settings.Prefs
 
-class ReadingListsFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID) {
+class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
 
     fun logAddClick(source: InvokeSource) {
         log("action", "addclick", "addsource", source.ordinal)

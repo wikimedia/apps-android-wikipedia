@@ -8,7 +8,7 @@ import org.wikipedia.page.PageTitle
 import java.util.*
 
 class TalkFunnel constructor(private val title: PageTitle, private val invokeSource: Constants.InvokeSource) :
-        TimedFunnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+        TimedFunnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "source", invokeSource.name)

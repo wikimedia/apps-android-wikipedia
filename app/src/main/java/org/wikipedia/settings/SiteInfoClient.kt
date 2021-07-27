@@ -25,7 +25,7 @@ object SiteInfoClient {
     @JvmStatic
     val maxPagesPerReadingList: Int
         get() {
-            val info = getSiteInfoForLang(WikipediaApp.getInstance().wikiSite.languageCode())
+            val info = getSiteInfoForLang(WikipediaApp.instance.wikiSite.languageCode())
             return if (info?.readingListsConfig != null && info.readingListsConfig.maxEntriesPerList > 0) {
                 info.readingListsConfig.maxEntriesPerList
             } else Constants.MAX_READING_LIST_ARTICLE_LIMIT

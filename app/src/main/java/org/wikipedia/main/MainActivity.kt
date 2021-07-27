@@ -72,14 +72,14 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         fragment.requestUpdateToolbarElevation()
         val tabsItem = menu.findItem(R.id.menu_tabs)
-        if (WikipediaApp.getInstance().tabCount < 1 || fragment.currentFragment is SuggestedEditsTasksFragment) {
+        if (WikipediaApp.instance.tabCount < 1 || fragment.currentFragment is SuggestedEditsTasksFragment) {
             tabsItem.isVisible = false
             tabCountsView = null
         } else {
             tabsItem.isVisible = true
             tabCountsView = TabCountsView(this, null)
             tabCountsView!!.setOnClickListener {
-                if (WikipediaApp.getInstance().tabCount == 1) {
+                if (WikipediaApp.instance.tabCount == 1) {
                     startActivity(PageActivity.newIntent(this@MainActivity))
                 } else {
                     startActivityForResult(TabActivity.newIntent(this@MainActivity), Constants.ACTIVITY_REQUEST_BROWSE_TABS)

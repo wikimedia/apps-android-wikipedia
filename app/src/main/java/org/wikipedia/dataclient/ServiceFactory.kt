@@ -86,7 +86,7 @@ object ServiceFactory {
             // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
             if (!request.url.encodedPath.contains("/page/related")) {
                 request = request.newBuilder()
-                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
+                    .header("Accept-Language", WikipediaApp.instance.getAcceptLanguage(wiki))
                     .build()
             }
             return chain.proceed(request)

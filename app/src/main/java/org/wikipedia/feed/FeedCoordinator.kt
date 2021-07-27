@@ -27,7 +27,7 @@ class FeedCoordinator internal constructor(context: Context) : FeedCoordinatorBa
     }
 
     override fun buildScript(age: Int) {
-        val online = WikipediaApp.getInstance().isOnline
+        val online = WikipediaApp.instance.isOnline
         conditionallyAddPendingClient(SearchClient(), age == 0)
         conditionallyAddPendingClient(AnnouncementClient(), age == 0 && online)
         conditionallyAddPendingClient(OnboardingClient(), age == 0)

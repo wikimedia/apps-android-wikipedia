@@ -105,7 +105,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode())
         loadContent()
-        funnel = LinkPreviewFunnel(WikipediaApp.getInstance(), historyEntry.source)
+        funnel = LinkPreviewFunnel(WikipediaApp.instance, historyEntry.source)
         funnel.logLinkClick()
         return binding.root
     }

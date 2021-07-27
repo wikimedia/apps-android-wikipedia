@@ -3,7 +3,7 @@ package org.wikipedia.analytics
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.StringUtil
 
-class WatchlistFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+class WatchlistFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
     private fun logAction(action: String?) {
         log("action", action)

@@ -38,7 +38,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
     }
 
     private var networkErrorCallback: ErrorCallback? = null
-    private val app = WikipediaApp.getInstance()
+    private val app = WikipediaApp.instance
     private val disposables = CompositeDisposable()
 
     fun load(pushBackStack: Boolean) {

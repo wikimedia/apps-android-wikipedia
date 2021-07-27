@@ -111,21 +111,21 @@ class TalkTopicsActivity : BaseActivity() {
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE && resultCode == RESULT_OK) {
             if (data != null && data.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                 val pos = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
-                if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
+                if (pos < WikipediaApp.instance.appLanguageState.appLanguageCodes.size) {
                     funnel.logChangeLanguage()
 
                     val newNamespace = when {
                         pageTitle.namespace() == Namespace.USER -> {
-                            UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                            UserAliasData.valueFor(WikipediaApp.instance.appLanguageState.appLanguageCodes[pos])
                         }
                         pageTitle.namespace() == Namespace.USER_TALK -> {
-                            UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                            UserTalkAliasData.valueFor(WikipediaApp.instance.appLanguageState.appLanguageCodes[pos])
                         }
                         else -> pageTitle.namespace
                     }
 
                     pageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(pageTitle.prefixedText),
-                            WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
+                            WikiSite.forLanguageCode(WikipediaApp.instance.appLanguageState.appLanguageCodes[pos]))
                     loadTopics()
                 }
             }

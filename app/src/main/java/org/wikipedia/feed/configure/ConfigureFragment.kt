@@ -39,7 +39,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
         _binding = FragmentFeedConfigureBinding.inflate(inflater, container, false)
 
         setupRecyclerView()
-        funnel = FeedConfigureFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().wikiSite,
+        funnel = FeedConfigureFunnel(WikipediaApp.instance, WikipediaApp.instance.wikiSite,
             requireActivity().intent.getIntExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, -1))
 
         disposables.add(ServiceFactory.getRest(WikiSite("wikimedia.org")).feedAvailability
@@ -141,7 +141,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
             if (supportedLanguages.isEmpty()) {
                 continue
             }
-            val atLeastOneSupported = WikipediaApp.getInstance().language().appLanguageCodes.any { supportedLanguages.contains(it) }
+            val atLeastOneSupported = WikipediaApp.instance.appLanguageState.appLanguageCodes.any { supportedLanguages.contains(it) }
             if (!atLeastOneSupported) {
                 i.remove()
             }

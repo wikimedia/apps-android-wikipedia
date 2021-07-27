@@ -38,7 +38,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
                 callback?.onUserClick(item!!)
             }
         }
-        if (WikipediaApp.getInstance().language().appLanguageCodes.size == 1) {
+        if (WikipediaApp.instance.appLanguageState.appLanguageCodes.size == 1) {
             binding.langCodeBackground.visibility = GONE
             binding.langCodeText.visibility = GONE
         } else {

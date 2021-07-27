@@ -44,8 +44,8 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
 
     internal inner class WatchlistLangViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(position: Int) {
-            val langCode = WikipediaApp.getInstance().language().appLanguageCodes[position]
-            itemView.findViewById<TextView>(R.id.languageText).text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
+            val langCode = WikipediaApp.instance.appLanguageState.appLanguageCodes[position]
+            itemView.findViewById<TextView>(R.id.languageText).text = WikipediaApp.instance.appLanguageState.getAppLanguageLocalizedName(langCode)
             itemView.findViewById<TextView>(R.id.langCodeText).text = langCode
             val checkBox = itemView.findViewById<CheckBox>(R.id.languageCheckBox)
             checkBox.tag = langCode
@@ -56,7 +56,7 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
 
     internal inner class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         override fun getItemCount(): Int {
-            return WikipediaApp.getInstance().language().appLanguageCodes.size
+            return WikipediaApp.instance.appLanguageState.appLanguageCodes.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

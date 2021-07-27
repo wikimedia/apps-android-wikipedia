@@ -10,7 +10,7 @@ import java.io.IOException
 internal class CommonHeaderRequestInterceptor : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
-        val app = WikipediaApp.getInstance()
+        val app = WikipediaApp.instance
         val builder = chain.request().newBuilder()
                 .header("User-Agent", app.userAgent)
                 .header(if (isEventLoggingEnabled()) "X-WMF-UUID" else "DNT",

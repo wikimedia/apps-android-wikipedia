@@ -66,10 +66,10 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
     }
 
     fun setLangCode(langCode: String?): CardHeaderView {
-        if (langCode.isNullOrEmpty() || WikipediaApp.getInstance().language().appLanguageCodes.size < 2) {
+        if (langCode.isNullOrEmpty() || WikipediaApp.instance.appLanguageState.appLanguageCodes.size < 2) {
             binding.viewListCardHeaderLangBackground.visibility = View.GONE
             binding.viewListCardHeaderLangCode.visibility = View.GONE
-            L10nUtil.setConditionalLayoutDirection(this, WikipediaApp.getInstance().language().systemLanguageCode)
+            L10nUtil.setConditionalLayoutDirection(this, WikipediaApp.instance.appLanguageState.systemLanguageCode)
         } else {
             binding.viewListCardHeaderLangBackground.visibility = VISIBLE
             binding.viewListCardHeaderLangCode.visibility = VISIBLE

@@ -34,7 +34,7 @@ object LanguageUtil {
             }
 
             // Query the installed keyboard languages, and add them to the list, if they don't exist.
-            val imm = WikipediaApp.getInstance().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val imm = WikipediaApp.instance.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             val ims = imm.enabledInputMethodList ?: emptyList()
             val langTagList = mutableListOf<String>()
             for (method in ims) {
@@ -110,7 +110,7 @@ object LanguageUtil {
     val firstSelectedChineseVariant: String
         get() {
             val firstSelectedChineseLangCode =
-                WikipediaApp.getInstance().language().appLanguageCodes.firstOrNull {
+                WikipediaApp.instance.appLanguageState.appLanguageCodes.firstOrNull {
                     it.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)
                 }
             return firstSelectedChineseLangCode.orEmpty()

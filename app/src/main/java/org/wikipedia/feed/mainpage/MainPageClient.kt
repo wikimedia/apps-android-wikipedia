@@ -10,7 +10,7 @@ import org.wikipedia.feed.dataclient.FeedClient
 class MainPageClient : FeedClient {
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
-        val cards = WikipediaApp.getInstance().language().appLanguageCodes
+        val cards = WikipediaApp.instance.appLanguageState.appLanguageCodes
             .filterNot { FeedContentType.MAIN_PAGE.langCodesDisabled.contains(it) }
             .map { MainPageCard(WikiSite.forLanguageCode(it)) }
         FeedCoordinator.postCardsToCallback(cb, cards)

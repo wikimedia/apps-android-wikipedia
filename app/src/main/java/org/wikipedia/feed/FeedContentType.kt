@@ -64,7 +64,7 @@ enum class FeedContentType(private val code: Int,
     },
     SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false) {
         override fun newClient(aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
-            return if (isEnabled && AccountUtil.isLoggedIn && WikipediaApp.getInstance().isOnline) SuggestedEditsFeedClient() else null
+            return if (isEnabled && AccountUtil.isLoggedIn && WikipediaApp.instance.isOnline) SuggestedEditsFeedClient() else null
         }
     },
     ACCESSIBILITY(10, 0, 0, false, false) {
@@ -92,7 +92,7 @@ enum class FeedContentType(private val code: Int,
         @JvmStatic
         val aggregatedLanguages: List<String>
             get() {
-                val appLangCodes = WikipediaApp.getInstance().language().appLanguageCodes
+                val appLangCodes = WikipediaApp.instance.appLanguageState.appLanguageCodes
                 val list = mutableListOf<String>()
                 values().filter { it.isEnabled }.forEach { type ->
                     list.addAll(appLangCodes.filter {

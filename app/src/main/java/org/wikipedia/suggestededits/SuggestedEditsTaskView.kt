@@ -25,7 +25,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
     }
 
     private fun updateTranslateActionUI() {
-        val color = ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
+        val color = ResourceUtil.getThemedColor(context, if (WikipediaApp.instance.appLanguageState.appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
             R.attr.colorAccent else R.attr.material_theme_de_emphasised_color)
         binding.secondaryButton.iconTint = ColorStateList.valueOf(color)
         binding.secondaryButton.setTextColor(color)

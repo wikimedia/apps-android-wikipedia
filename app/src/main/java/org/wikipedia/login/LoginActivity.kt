@@ -33,7 +33,7 @@ class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginSource: String
     private var firstStepToken: String? = null
-    private var funnel: LoginFunnel = LoginFunnel(WikipediaApp.getInstance())
+    private var funnel: LoginFunnel = LoginFunnel(WikipediaApp.instance)
     private val loginClient = LoginClient()
     private val loginCallback = LoginCallback()
     private var shouldLogLogin = true
@@ -114,7 +114,7 @@ class LoginActivity : BaseActivity() {
         binding.loginCreateAccountButton.setOnClickListener { startCreateAccountActivity() }
         binding.inflateLoginAndAccount.privacyPolicyLink.setOnClickListener { FeedbackUtil.showPrivacyPolicy(this) }
         binding.inflateLoginAndAccount.forgotPasswordLink.setOnClickListener {
-            val title = PageTitle("Special:PasswordReset", WikipediaApp.getInstance().wikiSite)
+            val title = PageTitle("Special:PasswordReset", WikipediaApp.instance.wikiSite)
             visitInExternalBrowser(this, Uri.parse(title.uri))
         }
     }
@@ -172,7 +172,7 @@ class LoginActivity : BaseActivity() {
         Prefs.setReadingListPagesDeletedIds(emptySet())
         Prefs.setReadingListsDeletedIds(emptySet())
         ReadingListSyncAdapter.manualSyncWithForce()
-        pollNotifications(WikipediaApp.getInstance())
+        pollNotifications(WikipediaApp.instance)
         updateSubscription()
         finish()
     }
@@ -183,10 +183,10 @@ class LoginActivity : BaseActivity() {
         val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
         if (twoFactorCode.isNotEmpty() && !firstStepToken.isNullOrEmpty()) {
-            loginClient.login(WikipediaApp.getInstance().wikiSite, username, password,
+            loginClient.login(WikipediaApp.instance.wikiSite, username, password,
                     null, twoFactorCode, firstStepToken!!, loginCallback)
         } else {
-            loginClient.request(WikipediaApp.getInstance().wikiSite, username, password, loginCallback)
+            loginClient.request(WikipediaApp.instance.wikiSite, username, password, loginCallback)
         }
     }
 

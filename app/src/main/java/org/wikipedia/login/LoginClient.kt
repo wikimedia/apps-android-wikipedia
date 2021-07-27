@@ -89,7 +89,7 @@ class LoginClient {
                 if (LoginResult.STATUS_UI == loginResult.status) {
                     if (loginResult is LoginOAuthResult) {
                         // TODO: Find a better way to boil up the warning about 2FA
-                        Toast.makeText(WikipediaApp.getInstance(),
+                        Toast.makeText(WikipediaApp.instance,
                             R.string.login_2fa_other_workflow_error_msg, Toast.LENGTH_LONG).show()
                     }
                     throw LoginFailedException(loginResult.message)

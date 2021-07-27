@@ -28,13 +28,13 @@ class NetworkConnectivityReceiver : BroadcastReceiver() {
                     .getNetworkInfoFromBroadcast(context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager, intent)
             updateOnlineState()
             if (networkInfo != null && networkInfo.isConnected) {
-                WikipediaApp.getInstance().bus.post(NetworkConnectEvent())
+                WikipediaApp.instance.bus.post(NetworkConnectEvent())
             }
         }
     }
 
     private fun updateOnlineState() {
-        val info = (WikipediaApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).activeNetworkInfo
+        val info = (WikipediaApp.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).activeNetworkInfo
         online = info != null && info.isConnected
         EventPlatformClient.setEnabled(online)
     }

@@ -45,7 +45,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         INCREASE, DECREASE, RESET
     }
 
-    private var app = WikipediaApp.getInstance()
+    private var app = WikipediaApp.instance
     private lateinit var funnel: AppearanceChangeFunnel
     private lateinit var invokeSource: InvokeSource
     private val disposables = CompositeDisposable()
@@ -87,7 +87,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             DeviceUtil.setNavigationBarColor(it, getThemedColor(requireContext(), R.attr.paper_color))
         }
 
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         return binding.root
     }
 

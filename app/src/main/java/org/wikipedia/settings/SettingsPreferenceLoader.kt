@@ -47,7 +47,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             true
         }
         findPreference(R.string.preference_key_color_theme).let {
-            it.setSummary(WikipediaApp.getInstance().currentTheme.nameId)
+            it.setSummary(WikipediaApp.instance.currentTheme.nameId)
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 activity.startActivity(ThemeFittingRoomActivity.newIntent(activity))
                 true
@@ -69,7 +69,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                         .setMessage(R.string.logout_prompt)
                         .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
                         .setPositiveButton(R.string.preference_title_logout) { _, _ ->
-                            WikipediaApp.getInstance().logOut()
+                            WikipediaApp.instance.logOut()
                             Prefs.setReadingListsLastSyncTime(null)
                             Prefs.setReadingListSyncEnabled(false)
                             Prefs.setSuggestedEditsHighestPriorityEnabled(false)
@@ -84,7 +84,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     fun updateLanguagePrefSummary() {
         // TODO: resolve RTL vs LTR with multiple languages (e.g. list contains English and Hebrew)
-        findPreference(R.string.preference_key_language).summary = WikipediaApp.getInstance().language().appLanguageLocalizedNames
+        findPreference(R.string.preference_key_language).summary = WikipediaApp.instance.appLanguageState.appLanguageLocalizedNames
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

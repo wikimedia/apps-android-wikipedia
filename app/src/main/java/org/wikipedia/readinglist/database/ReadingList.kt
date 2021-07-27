@@ -30,11 +30,11 @@ class ReadingList(
     private var accentAndCaseInvariantTitle: String? = null
 
     var title
-        get() = if (listTitle.isEmpty()) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else listTitle
+        get() = if (listTitle.isEmpty()) WikipediaApp.instance.getString(R.string.default_reading_list_name) else listTitle
         set(value) { listTitle = value }
 
     val isDefault
-        get() = title == WikipediaApp.getInstance().getString(R.string.default_reading_list_name)
+        get() = title == WikipediaApp.instance.getString(R.string.default_reading_list_name)
 
     val numPagesOffline
         get() = pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }

@@ -1,305 +1,225 @@
-package org.wikipedia;
+package org.wikipedia
 
-import android.annotation.SuppressLint;
-import android.app.Application;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
-import android.os.Build;
-import android.os.Handler;
-import android.text.TextUtils;
-import android.view.Window;
-import android.webkit.WebView;
+import android.annotation.SuppressLint
+import android.app.Application
+import android.content.IntentFilter
+import android.net.ConnectivityManager
+import android.os.Build
+import android.os.Handler
+import android.view.Window
+import android.webkit.WebView
+import androidx.appcompat.app.AppCompatDelegate
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.internal.functions.Functions
+import io.reactivex.rxjava3.plugins.RxJavaPlugins
+import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.analytics.FunnelManager
+import org.wikipedia.analytics.InstallReferrerListener.Companion.newInstance
+import org.wikipedia.analytics.SessionFunnel
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.auth.AccountUtil.isLoggedIn
+import org.wikipedia.auth.AccountUtil.putUserIdForLanguage
+import org.wikipedia.auth.AccountUtil.removeAccount
+import org.wikipedia.auth.AccountUtil.userName
+import org.wikipedia.concurrency.RxBus
+import org.wikipedia.connectivity.NetworkConnectivityReceiver
+import org.wikipedia.dataclient.ServiceFactory.get
+import org.wikipedia.dataclient.SharedPreferenceCookieManager
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.events.ChangeTextSizeEvent
+import org.wikipedia.events.ThemeFontChangeEvent
+import org.wikipedia.language.AcceptLanguageUtil
+import org.wikipedia.language.AppLanguageState
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.startPollTask
+import org.wikipedia.page.tabs.Tab
+import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.unsubscribePushToken
+import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.updateSubscription
+import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.settings.SiteInfoClient.updateFor
+import org.wikipedia.theme.Theme
+import org.wikipedia.theme.Theme.Companion.fallback
+import org.wikipedia.theme.Theme.Companion.ofMarshallingId
+import org.wikipedia.util.DimenUtil.getFloat
+import org.wikipedia.util.DimenUtil.getFontSizeFromSp
+import org.wikipedia.util.ReleaseUtil.getChannel
+import org.wikipedia.util.log.L
+import java.util.*
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDelegate;
+class WikipediaApp : Application() {
+    lateinit var appLanguageState: AppLanguageState
+    lateinit var funnelManager: FunnelManager
+        private set
+    lateinit var sessionFunnel: SessionFunnel
+        private set
+    lateinit var bus: RxBus
+        private set
 
-import org.wikipedia.analytics.FunnelManager;
-import org.wikipedia.analytics.InstallReferrerListener;
-import org.wikipedia.analytics.SessionFunnel;
-import org.wikipedia.analytics.eventplatform.EventPlatformClient;
-import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.concurrency.RxBus;
-import org.wikipedia.connectivity.NetworkConnectivityReceiver;
-import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.dataclient.SharedPreferenceCookieManager;
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.events.ChangeTextSizeEvent;
-import org.wikipedia.events.ThemeFontChangeEvent;
-import org.wikipedia.language.AcceptLanguageUtil;
-import org.wikipedia.language.AppLanguageState;
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
-import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.push.WikipediaFirebaseMessagingService;
-import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.RemoteConfig;
-import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.theme.Theme;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.log.L;
+    private var wiki: WikiSite? = null
+    private val connectivityReceiver = NetworkConnectivityReceiver()
+    private val activityLifecycleHandler = ActivityLifecycleHandler()
+    val remoteConfig = RemoteConfig()
+    val tabList: MutableList<Tab> = ArrayList()
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.internal.functions.Functions;
-import io.reactivex.rxjava3.plugins.RxJavaPlugins;
-import io.reactivex.rxjava3.schedulers.Schedulers;
-
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
-import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
-import static org.wikipedia.util.ReleaseUtil.getChannel;
-
-public class WikipediaApp extends Application {
-    private final RemoteConfig remoteConfig = new RemoteConfig();
-    private Handler mainThreadHandler;
-    private AppLanguageState appLanguageState;
-    private FunnelManager funnelManager;
-    private SessionFunnel sessionFunnel;
-    private NetworkConnectivityReceiver connectivityReceiver = new NetworkConnectivityReceiver();
-    private ActivityLifecycleHandler activityLifecycleHandler = new ActivityLifecycleHandler();
-    private String userAgent;
-    private WikiSite wiki;
-    private RxBus bus;
-    private Theme currentTheme = Theme.getFallback();
-    private List<Tab> tabList = new ArrayList<>();
-
-    private static WikipediaApp INSTANCE;
-
-    public WikipediaApp() {
-        INSTANCE = this;
+    val mainThreadHandler: Handler by lazy { Handler(mainLooper) }
+    val userAgent: String by lazy {
+        var channel = getChannel(this)
+        channel = if (channel.isEmpty()) "" else " $channel"
+        "WikipediaApp/${BuildConfig.VERSION_NAME} (Android ${Build.VERSION.RELEASE}; " +
+                "${getString(R.string.device_type)}; ${Build.MODEL} Build/${Build.ID})$channel"
     }
 
-    public static WikipediaApp getInstance() {
-        return INSTANCE;
-    }
-
-    public SessionFunnel getSessionFunnel() {
-        return sessionFunnel;
-    }
-
-    public RxBus getBus() {
-        return bus;
-    }
-
-    public FunnelManager getFunnelManager() {
-        return funnelManager;
-    }
-
-    public RemoteConfig getRemoteConfig() {
-        return remoteConfig;
-    }
-
-    /**
-     * Gets the currently-selected theme for the app.
-     * @return Theme that is currently selected, which is the actual theme ID that can
-     * be passed to setTheme() when creating an activity.
-     */
-    @NonNull
-    public Theme getCurrentTheme() {
-        return currentTheme;
-    }
-
-    @NonNull public AppLanguageState language() {
-        return appLanguageState;
-    }
-
-    @NonNull
-    public String getAppOrSystemLanguageCode() {
-        String code = appLanguageState.getAppLanguageCode();
-        if (AccountUtil.getUserIdForLanguage(code) == 0) {
-            getUserIdForLanguage(code);
+    var currentTheme = fallback
+        set(value) {
+            if (field != value) {
+                field = value
+                Prefs.setCurrentThemeId(field.marshallingId)
+                bus.post(ThemeFontChangeEvent())
+            }
         }
-        return code;
-    }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl());
-
-        // Register here rather than in AndroidManifest.xml so that we can target Android N.
-        // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
-        registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-
-        LeakCanaryStubKt.setupLeakCanary();
-
-        // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-
-        // This handler will catch exceptions thrown from Observables after they are disposed,
-        // or from Observables that are (deliberately or not) missing an onError handler.
-        // TODO: consider more comprehensive handling of these errors.
-        RxJavaPlugins.setErrorHandler(Functions.emptyConsumer());
-
-        bus = new RxBus();
-
-        currentTheme = unmarshalTheme(Prefs.getCurrentThemeId());
-
-        appLanguageState = new AppLanguageState(this);
-        funnelManager = new FunnelManager(this);
-        sessionFunnel = new SessionFunnel(this);
-
-        initTabs();
-
-        enableWebViewDebugging();
-
-        registerActivityLifecycleCallbacks(activityLifecycleHandler);
-        registerComponentCallbacks(activityLifecycleHandler);
-
-        // Kick the notification receiver, in case it hasn't yet been started by the system.
-        NotificationPollBroadcastReceiver.startPollTask(this);
-
-        InstallReferrerListener.newInstance(this);
-
-        // For good measure, explicitly call our token subscription function, in case the
-        // API failed in previous attempts.
-        WikipediaFirebaseMessagingService.Companion.updateSubscription();
-        EventPlatformClient.setUpStreamConfigs();
-    }
-
-    public int getVersionCode() {
-        // Our ABI-specific version codes are structured in increments of 10000, so just
-        // take the actual version code modulo the increment.
-        final int versionCodeMod = 10000;
-        return BuildConfig.VERSION_CODE % versionCodeMod;
-    }
-
-    public String getUserAgent() {
-        if (userAgent == null) {
-            String channel = getChannel(this);
-            channel = channel.equals("") ? channel : " ".concat(channel);
-            userAgent = String.format("WikipediaApp/%s (Android %s; %s; %s Build/%s)%s",
-                    BuildConfig.VERSION_NAME,
-                    Build.VERSION.RELEASE,
-                    getString(R.string.device_type),
-                    Build.MODEL,
-                    Build.ID,
-                    channel
-            );
-        }
-        return userAgent;
-    }
-
-    /**
-     * @return the value that should go in the Accept-Language header.
-     */
-    @NonNull
-    public String getAcceptLanguage(@Nullable WikiSite wiki) {
-        String wikiLang = wiki == null || "meta".equals(wiki.languageCode())
-                ? ""
-                : defaultString(wiki.languageCode());
-        return AcceptLanguageUtil.getAcceptLanguage(wikiLang, appLanguageState.getAppLanguageCode(),
-                appLanguageState.getSystemLanguageCode());
-    }
-
-    /**
-     * Default wiki for the app
-     * You should use PageTitle.getWikiSite() to get the article wiki
-     */
-    @NonNull public synchronized WikiSite getWikiSite() {
-        // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
-        if (wiki == null) {
-            String lang = Prefs.getMediaWikiBaseUriSupportsLangCode() ? getAppOrSystemLanguageCode() : "";
-            WikiSite newWiki = WikiSite.forLanguageCode(lang);
-            // Kick off a task to retrieve the site info for the current wiki
-            SiteInfoClient.updateFor(newWiki);
-            wiki = newWiki;
-            return newWiki;
-        }
-        return wiki;
-    }
-
+    // handle the case where we have a single tab with an empty backstack,
+    // which shouldn't count as a valid tab:
+    val tabCount: Int
+        get() = if (tabList.size > 1 || !tabList.getOrNull(0)?.backStack.isNullOrEmpty()) tabList.size else 0
+    val isOnline: Boolean
+        get() = connectivityReceiver.isOnline()
     /**
      * Get this app's unique install ID, which is a UUID that should be unique for each install
      * of the app. Useful for anonymous analytics.
      * @return Unique install ID for this app.
      */
-    public String getAppInstallID() {
-        String id = Prefs.getAppInstallId();
-        if (id == null) {
-            id = UUID.randomUUID().toString();
-            Prefs.setAppInstallId(id);
+    val appInstallID: String
+        get() = Prefs.getAppInstallId() ?: UUID.randomUUID().toString().also { Prefs.setAppInstallId(it) }
+    val appOrSystemLanguageCode: String
+        get() {
+            val code = appLanguageState.appLanguageCode
+            if (AccountUtil.getUserIdForLanguage(code) == 0) {
+                getUserIdForLanguage(code)
+            }
+            return code
         }
-        return id;
+    val versionCode: Int
+        get() {
+            // Our ABI-specific version codes are structured in increments of 10000, so just
+            // take the actual version code modulo the increment.
+            val versionCodeMod = 10000
+            return BuildConfig.VERSION_CODE % versionCodeMod
+        }
+    val isAnyActivityResumed: Boolean
+        get() = activityLifecycleHandler.isAnyActivityResumed
+    /**
+     * Default wiki for the app
+     * You should use PageTitle.getWikiSite() to get the article wiki
+     */
+    @get:Synchronized
+    val wikiSite: WikiSite
+        get() = wiki ?: run {
+            // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
+            val lang = if (Prefs.getMediaWikiBaseUriSupportsLangCode()) appOrSystemLanguageCode else ""
+            val newWiki = WikiSite.forLanguageCode(lang)
+            // Kick off a task to retrieve the site info for the current wiki
+            updateFor(newWiki)
+            wiki = newWiki
+            newWiki
+        }
+
+    init {
+        instance = this
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl())
+
+        // Register here rather than in AndroidManifest.xml so that we can target Android N.
+        // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
+        registerReceiver(
+            connectivityReceiver,
+            IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        )
+        setupLeakCanary()
+
+        // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
+
+        // This handler will catch exceptions thrown from Observables after they are disposed,
+        // or from Observables that are (deliberately or not) missing an onError handler.
+        // TODO: consider more comprehensive handling of these errors.
+        RxJavaPlugins.setErrorHandler(Functions.emptyConsumer())
+        bus = RxBus()
+        currentTheme = unmarshalTheme(Prefs.getCurrentThemeId())
+        appLanguageState = AppLanguageState(this)
+        funnelManager = FunnelManager(this)
+        sessionFunnel = SessionFunnel(this)
+        initTabs()
+        enableWebViewDebugging()
+        registerActivityLifecycleCallbacks(activityLifecycleHandler)
+        registerComponentCallbacks(activityLifecycleHandler)
+
+        // Kick the notification receiver, in case it hasn't yet been started by the system.
+        startPollTask(this)
+        newInstance(this)
+
+        // For good measure, explicitly call our token subscription function, in case the
+        // API failed in previous attempts.
+        updateSubscription()
+        EventPlatformClient.setUpStreamConfigs()
     }
 
     /**
-     * Sets the theme of the app. If the new theme is the same as the current theme, nothing happens.
-     * Otherwise, an event is sent to notify of the theme change.
+     * @return the value that should go in the Accept-Language header.
      */
-    public void setCurrentTheme(@NonNull Theme theme) {
-        if (theme != currentTheme) {
-            currentTheme = theme;
-            Prefs.setCurrentThemeId(currentTheme.getMarshallingId());
-            bus.post(new ThemeFontChangeEvent());
-        }
+    fun getAcceptLanguage(wiki: WikiSite?): String {
+        val wikiLang = if (wiki == null || "meta" == wiki.languageCode()) "" else wiki.languageCode()
+        return AcceptLanguageUtil.getAcceptLanguage(
+            wikiLang, appLanguageState.appLanguageCode,
+            appLanguageState.systemLanguageCode
+        )
     }
 
-    public boolean setFontSizeMultiplier(int multiplier) {
-        int minMultiplier = getResources().getInteger(R.integer.minTextSizeMultiplier);
-        int maxMultiplier = getResources().getInteger(R.integer.maxTextSizeMultiplier);
+    fun setFontSizeMultiplier(multiplier: Int): Boolean {
+        var multiplier = multiplier
+        val minMultiplier = resources.getInteger(R.integer.minTextSizeMultiplier)
+        val maxMultiplier = resources.getInteger(R.integer.maxTextSizeMultiplier)
         if (multiplier < minMultiplier) {
-            multiplier = minMultiplier;
+            multiplier = minMultiplier
         } else if (multiplier > maxMultiplier) {
-            multiplier = maxMultiplier;
+            multiplier = maxMultiplier
         }
-        if (multiplier != getTextSizeMultiplier()) {
-            Prefs.setTextSizeMultiplier(multiplier);
-            bus.post(new ChangeTextSizeEvent());
-            return true;
+        if (multiplier != Prefs.getTextSizeMultiplier()) {
+            Prefs.setTextSizeMultiplier(multiplier)
+            bus.post(ChangeTextSizeEvent())
+            return true
         }
-        return false;
+        return false
     }
 
-    public void setFontFamily(@NonNull String fontFamily) {
-        if (!fontFamily.equals(Prefs.getFontFamily())) {
-            Prefs.setFontFamily(fontFamily);
-            bus.post(new ThemeFontChangeEvent());
+    fun setFontFamily(fontFamily: String) {
+        if (fontFamily != Prefs.getFontFamily()) {
+            Prefs.setFontFamily(fontFamily)
+            bus.post(ThemeFontChangeEvent())
         }
     }
 
-    public void putCrashReportProperty(String key, String value) {
+    fun putCrashReportProperty(key: String?, value: String?) {
         // TODO: add custom properties to crash report
     }
 
-    public void logCrashManually(@NonNull Throwable throwable) {
-        L.e(throwable);
+    fun logCrashManually(throwable: Throwable) {
+        L.e(throwable)
         // TODO: send exception to custom crash reporting system
     }
 
-    public Handler getMainThreadHandler() {
-        if (mainThreadHandler == null) {
-            mainThreadHandler = new Handler(getMainLooper());
-        }
-        return mainThreadHandler;
-    }
-
-    public List<Tab> getTabList() {
-        return tabList;
-    }
-
-    public void commitTabState() {
+    fun commitTabState() {
         if (tabList.isEmpty()) {
-            Prefs.clearTabs();
-            initTabs();
+            Prefs.clearTabs()
+            initTabs()
         } else {
-            Prefs.setTabs(tabList);
+            Prefs.setTabs(tabList)
         }
-    }
-
-    public int getTabCount() {
-        // handle the case where we have a single tab with an empty backstack,
-        // which shouldn't count as a valid tab:
-        return tabList.size() > 1 ? tabList.size()
-                : tabList.isEmpty() ? 0 : tabList.get(0).getBackStack().isEmpty() ? 0 : tabList.size();
-    }
-
-    public boolean isOnline() {
-        return connectivityReceiver.isOnline();
     }
 
     /**
@@ -308,82 +228,84 @@ public class WikipediaApp extends Application {
      * @param window The window on which the font will be displayed.
      * @return Actual current size of the font.
      */
-    public float getFontSize(Window window) {
-        return getFontSizeFromSp(window,
-                getResources().getDimension(R.dimen.textSize)) * (1.0f + getTextSizeMultiplier()
-                * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor));
+    fun getFontSize(window: Window): Float {
+        return getFontSizeFromSp(window, resources.getDimension(R.dimen.textSize)) *
+                (1.0f + Prefs.getTextSizeMultiplier() * getFloat(R.dimen.textSizeMultiplierFactor))
     }
 
-    public synchronized void resetWikiSite() {
-        wiki = null;
+    @Synchronized
+    fun resetWikiSite() {
+        wiki = null
     }
 
     @SuppressLint("CheckResult")
-    public void logOut() {
-        L.d("Logging out");
-        AccountUtil.removeAccount();
-        Prefs.setPushNotificationTokenSubscribed(false);
-        Prefs.setPushNotificationTokenOld("");
-        ServiceFactory.get(getWikiSite()).getCsrfToken()
-                .subscribeOn(Schedulers.io())
-                .flatMap(response -> {
-                    String csrfToken = response.getQuery().csrfToken();
-                    return WikipediaFirebaseMessagingService.Companion.unsubscribePushToken(csrfToken, Prefs.getPushNotificationToken())
-                            .flatMap(res -> ServiceFactory.get(getWikiSite()).postLogout(csrfToken).subscribeOn(Schedulers.io()));
-                })
-                .doFinally(() -> SharedPreferenceCookieManager.getInstance().clearAllCookies())
-                .subscribe(response -> L.d("Logout complete."), L::e);
+    fun logOut() {
+        L.d("Logging out")
+        removeAccount()
+        Prefs.setPushNotificationTokenSubscribed(false)
+        Prefs.setPushNotificationTokenOld("")
+        get(wikiSite).csrfToken
+            .subscribeOn(Schedulers.io())
+            .flatMap { response: MwQueryResponse ->
+                val csrfToken = response.query!!.csrfToken()!!
+                unsubscribePushToken(csrfToken, Prefs.getPushNotificationToken())
+                    .flatMap { get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io()) }
+            }
+            .doFinally { SharedPreferenceCookieManager.getInstance().clearAllCookies() }
+            .subscribe({ L.d("Logout complete.") }) { L.e(it) }
     }
 
-    private void enableWebViewDebugging() {
+    private fun enableWebViewDebugging() {
         if (BuildConfig.DEBUG) {
-            WebView.setWebContentsDebuggingEnabled(true);
+            WebView.setWebContentsDebuggingEnabled(true)
         }
     }
 
-    public Theme unmarshalTheme(int themeId) {
-        Theme result = Theme.ofMarshallingId(themeId);
+    fun unmarshalTheme(themeId: Int): Theme {
+        var result = ofMarshallingId(themeId)
         if (result == null) {
-            L.d("Theme id=" + themeId + " is invalid, using fallback.");
-            result = Theme.getFallback();
+            L.d("Theme id=$themeId is invalid, using fallback.")
+            result = fallback
         }
-        return result;
+        return result
     }
 
     @SuppressLint("CheckResult")
-    private void getUserIdForLanguage(@NonNull final String code) {
-        if (!AccountUtil.isLoggedIn() || TextUtils.isEmpty(AccountUtil.getUserName())) {
-            return;
+    private fun getUserIdForLanguage(code: String) {
+        if (!isLoggedIn || userName.isNullOrEmpty()) {
+            return
         }
-        final WikiSite wikiSite = WikiSite.forLanguageCode(code);
-        ServiceFactory.get(wikiSite).getUserInfo()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> {
-                    if (AccountUtil.isLoggedIn() && response.getQuery().userInfo() != null) {
-                        // noinspection ConstantConditions
-                        int id = response.getQuery().userInfo().id();
-                        AccountUtil.putUserIdForLanguage(code, id);
-                        L.d("Found user ID " + id + " for " + code);
-                    }
-                }, caught -> L.e("Failed to get user ID for " + code, caught));
+        val wikiSite = WikiSite.forLanguageCode(code)
+        get(wikiSite).userInfo
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ response: MwQueryResponse ->
+                val userInfo = response.query!!.userInfo()
+                if (isLoggedIn && userInfo != null) {
+                    // noinspection ConstantConditions
+                    val id = userInfo.id()
+                    putUserIdForLanguage(code, id)
+                    L.d("Found user ID $id for $code")
+                }
+            }) { L.e("Failed to get user ID for $code", it) }
     }
 
-    private void initTabs() {
+    private fun initTabs() {
         if (Prefs.hasTabs()) {
-            tabList.addAll(Prefs.getTabs());
+            tabList.addAll(Prefs.getTabs())
         }
-
         if (tabList.isEmpty()) {
-            tabList.add(new Tab());
+            tabList.add(Tab())
         }
     }
 
-    public boolean haveMainActivity() {
-        return activityLifecycleHandler.haveMainActivity();
+    fun haveMainActivity(): Boolean {
+        return activityLifecycleHandler.haveMainActivity()
     }
 
-    public boolean isAnyActivityResumed() {
-        return activityLifecycleHandler.isAnyActivityResumed();
+    companion object {
+        @JvmStatic
+        lateinit var instance: WikipediaApp
+            private set
     }
 }

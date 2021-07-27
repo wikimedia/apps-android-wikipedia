@@ -160,10 +160,10 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
 
         operator fun get(invokeSource: InvokeSource): SuggestedEditsFunnel {
             if (INSTANCE == null) {
-                INSTANCE = SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource)
+                INSTANCE = SuggestedEditsFunnel(WikipediaApp.instance, invokeSource)
             } else if (INSTANCE!!.invokeSource != invokeSource) {
                 INSTANCE?.log()
-                INSTANCE = SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource)
+                INSTANCE = SuggestedEditsFunnel(WikipediaApp.instance, invokeSource)
             }
             return INSTANCE!!
         }

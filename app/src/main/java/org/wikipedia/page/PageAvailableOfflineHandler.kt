@@ -13,12 +13,12 @@ object PageAvailableOfflineHandler {
     }
 
     fun check(page: ReadingListPage, callback: Callback) {
-        callback.onFinish(WikipediaApp.getInstance().isOnline || (page.offline && !page.saving))
+        callback.onFinish(WikipediaApp.instance.isOnline || (page.offline && !page.saving))
     }
 
     @SuppressLint("CheckResult")
     fun check(pageTitle: PageTitle, callback: Callback) {
-        if (WikipediaApp.getInstance().isOnline) {
+        if (WikipediaApp.instance.isOnline) {
             callback.onFinish(true)
             return
         }

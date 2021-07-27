@@ -103,7 +103,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
     private fun updateTabLanguageLabel(customView: View, languageCode: String?, @ColorInt textColor: Int?) {
         val languageLabelTextView = customView.findViewById<TextView>(R.id.language_label)
         if (!languageCode.isNullOrEmpty()) {
-            languageLabelTextView.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(languageCode)
+            languageLabelTextView.text = WikipediaApp.instance.appLanguageState.getAppLanguageLocalizedName(languageCode)
         }
         textColor?.let {
             languageLabelTextView.setTextColor(textColor)

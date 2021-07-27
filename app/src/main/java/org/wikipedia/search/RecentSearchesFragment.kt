@@ -82,7 +82,7 @@ class RecentSearchesFragment : Fragment() {
     private fun updateSearchEmptyView(searchesEmpty: Boolean) {
         if (searchesEmpty) {
             binding.searchEmptyContainer.visibility = View.VISIBLE
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size == 1) {
+            if (WikipediaApp.instance.appLanguageState.appLanguageCodes.size == 1) {
                 binding.addLanguagesButton.visibility = View.VISIBLE
                 binding.searchEmptyMessage.text = getString(R.string.search_empty_message_multilingual_upgrade)
             } else {

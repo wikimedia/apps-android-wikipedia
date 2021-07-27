@@ -20,17 +20,17 @@ object SuggestedEditsSnackbars {
     @JvmStatic
     fun show(activity: Activity, action: Action?, sequentialSnackbar: Boolean = true, targetLanguageCode: String? = null,
              enableViewAction: Boolean = false, listener: OpenPageListener? = null) {
-        val app = WikipediaApp.getInstance()
+        val app = WikipediaApp.instance
         if (sequentialSnackbar) {
             val snackbar = FeedbackUtil.makeSnackbar(activity,
                     if ((action == Action.TRANSLATE_DESCRIPTION || action == Action.TRANSLATE_CAPTION) &&
-                            app.language().appLanguageCodes.size > 1) {
+                            app.appLanguageState.appLanguageCodes.size > 1) {
                         activity.getString(
                                 if (action == Action.TRANSLATE_DESCRIPTION) {
                                     R.string.description_edit_success_saved_in_lang_snackbar
                                 } else {
                                     R.string.description_edit_success_saved_image_caption_in_lang_snackbar
-                                }, app.language().getAppLanguageLocalizedName(targetLanguageCode))
+                                }, app.appLanguageState.getAppLanguageLocalizedName(targetLanguageCode))
                     } else {
                         activity.getString(
                                 when (action) {

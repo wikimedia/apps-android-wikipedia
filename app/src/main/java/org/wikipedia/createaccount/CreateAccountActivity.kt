@@ -42,7 +42,7 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var captchaHandler: CaptchaHandler
     private lateinit var funnel: CreateAccountFunnel
     private val disposables = CompositeDisposable()
-    private var wiki = WikipediaApp.getInstance().wikiSite
+    private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
     private val userNameVerifyRunnable = UserNameVerifyRunnable()
 
@@ -56,7 +56,7 @@ class CreateAccountActivity : BaseActivity() {
         // Don't allow user to continue when they're shown a captcha until they fill it in
         NonEmptyValidator(binding.captchaContainer.captchaSubmitButton, binding.captchaContainer.captchaText)
         setClickListeners()
-        funnel = CreateAccountFunnel(WikipediaApp.getInstance(), intent.getStringExtra(LOGIN_REQUEST_SOURCE)!!)
+        funnel = CreateAccountFunnel(WikipediaApp.instance, intent.getStringExtra(LOGIN_REQUEST_SOURCE)!!)
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
             funnel.logStart(intent.getStringExtra(LOGIN_SESSION_TOKEN))
