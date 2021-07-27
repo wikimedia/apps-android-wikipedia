@@ -23,6 +23,8 @@ android {
     compileSdkVersion 32
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
+
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
     }
@@ -179,10 +181,13 @@ dependencies {
     String espressoVersion = '3.4.0'
     String serialization_version = '1.2.1'
 
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.6'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-datetime:0.4.0"
 
     implementation "com.google.android.material:material:1.6.1"
     implementation 'androidx.appcompat:appcompat:1.4.2'
