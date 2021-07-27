@@ -14,7 +14,7 @@ import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
-import java.util.*
+import java.time.Instant
 
 @RunWith(AndroidJUnit4::class)
 class AppDatabaseTests {
@@ -37,7 +37,7 @@ class AppDatabaseTests {
 
     @Test
     fun testRecentSearch() {
-        val now = Date()
+        val now = Instant.now()
 
         recentSearchDao.insertRecentSearch(RecentSearch("Foo")).blockingSubscribe()
         recentSearchDao.insertRecentSearch(RecentSearch("Bar", now)).blockingSubscribe()
