@@ -23,7 +23,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationFunnel
+import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -270,7 +270,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 notificationList.add(notification)
             } else {
                 notificationList.remove(notification)
-                NotificationFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
+                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
             }
         }
         for (wiki in notificationsPerWiki.keys) {

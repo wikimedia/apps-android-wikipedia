@@ -1,26 +1,37 @@
 package org.wikipedia.readinglist.database
 
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import java.io.Serializable
 import java.util.*
 
-class ReadingList(title: String,
-                  var description: String?,
-                  var mtime: Long = System.currentTimeMillis(),
-                  var atime: Long = mtime,
-                  var id: Long = 0,
-                  val pages: MutableList<ReadingListPage> = mutableListOf(),
-                  var sizeBytes: Long = 0,
-                  var dirty: Boolean = true,
-                  var remoteId: Long = 0) : Serializable {
+// TODO: create default reading list upon initial DB creation.
+
+@Entity
+class ReadingList(
+    var listTitle: String,
+    var description: String?,
+    var mtime: Long = System.currentTimeMillis(),
+    var atime: Long = mtime,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
+    var sizeBytes: Long = 0,
+    var dirty: Boolean = true,
+    var remoteId: Long = 0
+) : Serializable {
+
+    @Ignore
+    val pages = mutableListOf<ReadingListPage>()
 
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
 
-    var title = title
-        get() = if (field.isEmpty()) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else field
+    var title
+        get() = if (listTitle.isEmpty()) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else listTitle
+        set(value) { listTitle = value }
 
     val isDefault
         get() = title == WikipediaApp.getInstance().getString(R.string.default_reading_list_name)
@@ -33,7 +44,7 @@ class ReadingList(title: String,
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
-            accentAndCaseInvariantTitle = StringUtils.stripAccents(title).toLowerCase(Locale.getDefault())
+            accentAndCaseInvariantTitle = StringUtils.stripAccents(title).lowercase(Locale.getDefault())
         }
         return accentAndCaseInvariantTitle!!
     }
@@ -47,9 +58,6 @@ class ReadingList(title: String,
         const val SORT_BY_NAME_DESC = 1
         const val SORT_BY_RECENT_ASC = 2
         const val SORT_BY_RECENT_DESC = 3
-
-        @JvmField
-        val DATABASE_TABLE = ReadingListTable()
 
         fun sort(list: ReadingList, sortMode: Int) {
             when (sortMode) {

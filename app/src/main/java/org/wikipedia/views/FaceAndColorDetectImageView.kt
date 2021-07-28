@@ -30,7 +30,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
 
     private fun shouldDetectFace(uri: Uri): Boolean {
         // TODO: not perfect; should ideally detect based on MIME type.
-        val path = uri.path.orEmpty().toLowerCase(Locale.ROOT)
+        val path = uri.path.orEmpty().lowercase(Locale.ROOT)
         return path.endsWith(".jpg") || path.endsWith(".jpeg")
     }
 

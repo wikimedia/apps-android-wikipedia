@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
 final File PROD_PROPS_FILE = new File(System.getProperty('user.home'), '.sign/signing.properties')
@@ -43,12 +44,18 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 50365
+        versionCode 50368
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         vectorDrawables.useSupportLibrary = true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
 
         dimension 'default'
         signingConfig signingConfigs.debug
@@ -80,6 +87,7 @@ android {
         }
         androidTest {
             java.srcDirs += 'src/testlib/java'
+            assets.srcDirs += files("$projectDir/schemas".toString())
         }
     }
 
@@ -94,14 +102,15 @@ android {
 
     buildTypes {
         debug {
-            minifyEnabled true
+            minifyEnabled false
+            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            testProguardFile 'test-proguard-rules.pro'
+            testProguardFiles 'test-proguard-rules.pro'
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            testProguardFile 'test-proguard-rules.pro'
+            testProguardFiles 'test-proguard-rules.pro'
         }
     }
 
@@ -177,6 +186,7 @@ dependencies {
     String kotlinCoroutinesVersion = '1.3.9'
     String firebaseMessagingVersion = '22.0.0'
     String mlKitVersion = '16.1.1'
+    String roomVersion = "2.3.0"
     String espressoVersion = '3.4.0'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -201,7 +211,7 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     implementation "com.github.bumptech.glide:okhttp3-integration:$glideVersion"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+    kapt("com.github.bumptech.glide:compiler:$glideVersion")
 
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
@@ -214,6 +224,12 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation "com.github.skydoves:balloon:1.3.4"
+
+    implementation("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor "androidx.room:room-compiler:$roomVersion"
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation "androidx.room:room-rxjava3:$roomVersion"
 
     // For language detection during editing
     prodImplementation "com.google.mlkit:language-id:$mlKitVersion"
@@ -239,6 +255,7 @@ dependencies {
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     testImplementation "commons-io:commons-io:2.6"
     testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation "androidx.room:room-testing:$roomVersion"
 
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
@@ -246,6 +263,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-web:$espressoVersion"
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    androidTestImplementation "android.arch.persistence.room:testing:1.1.1"
     androidTestUtil 'androidx.test:orchestrator:1.4.0'
 }
 
