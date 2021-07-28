@@ -34,6 +34,7 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwServiceError
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
@@ -65,7 +66,7 @@ class EditSectionActivity : BaseActivity() {
         private set
 
     private var sectionID = 0
-    private var sectionHeading: String? = null
+    private var sectionAnchor: String? = null
     private var pageProps: PageProperties? = null
     private var textToHighlight: String? = null
     private var sectionWikitext: String? = null
@@ -100,7 +101,7 @@ class EditSectionActivity : BaseActivity() {
 
         pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, 0)
-        sectionHeading = intent.getStringExtra(EXTRA_SECTION_HEADING)
+        sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         pageProps = intent.getParcelableExtra(EXTRA_PAGE_PROPS)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
         supportActionBar?.title = ""
@@ -122,9 +123,12 @@ class EditSectionActivity : BaseActivity() {
         }
         binding.viewEditSectionError.retryClickListener = View.OnClickListener {
             binding.viewEditSectionError.visibility = View.GONE
+            captchaHandler.requestNewCaptcha()
             fetchSectionText()
         }
-        binding.viewEditSectionError.backClickListener = View.OnClickListener { onBackPressed() }
+        binding.viewEditSectionError.backClickListener = View.OnClickListener {
+            onBackPressed()
+        }
         L10nUtil.setConditionalTextDirection(binding.editSectionText, pageTitle.wikiSite.languageCode())
         fetchSectionText()
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionTextModified")) {
@@ -202,11 +206,12 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun doSave(token: String) {
-        var summaryText = if (sectionHeading.isNullOrEmpty() ||
-            StringUtil.addUnderscores(sectionHeading) == pageTitle.prefixedText) "/* top */" else "/* $sectionHeading */ "
+        val sectionAnchor = StringUtil.addUnderscores(StringUtil.removeHTMLTags(sectionAnchor.orEmpty()))
+        var summaryText = if (sectionAnchor.isEmpty() || sectionAnchor == pageTitle.prefixedText) "/* top */"
+        else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
         summaryText += editPreviewFragment.summary
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
-        summaryText = StringUtil.fromHtml(summaryText).toString()
+        summaryText = StringUtil.removeHTMLTags(summaryText)
         if (!isFinishing) {
             showProgressBar(true)
         }
@@ -220,7 +225,7 @@ class EditSectionActivity : BaseActivity() {
                 .subscribe({ result ->
                     result.edit?.run {
                         when {
-                            editSucceeded -> onEditSuccess(EditSuccessResult(newRevId))
+                            editSucceeded -> waitForUpdatedRevision(newRevId)
                             hasCaptchaResponse -> onEditSuccess(CaptchaResult(captchaId))
                             hasSpamBlacklistResponse -> onEditFailure(MwException(MwServiceError(code, spamblacklist)))
                             hasEditErrorCode -> onEditFailure(MwException(MwServiceError(code, info)))
@@ -230,6 +235,28 @@ class EditSectionActivity : BaseActivity() {
                         onEditFailure(IOException("An unknown error occurred."))
                     }
                 }) { onEditFailure(it) }
+        )
+    }
+
+    @Suppress("SameParameterValue")
+    private fun waitForUpdatedRevision(newRevision: Long) {
+        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite)
+            .getSummaryResponse(pageTitle.prefixedText, null, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(), null, null, null)
+            .delay(2, TimeUnit.SECONDS)
+            .subscribeOn(Schedulers.io())
+            .map { response ->
+                if (response.body()!!.revision < newRevision) {
+                    throw IllegalStateException()
+                }
+                response.body()!!.revision
+            }
+            .retry(10) { it is IllegalStateException }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                onEditSuccess(EditSuccessResult(it))
+            }, {
+                onEditSuccess(EditSuccessResult(newRevision))
+            })
         )
     }
 
@@ -468,14 +495,14 @@ class EditSectionActivity : BaseActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response: MwQueryResponse ->
-                        val firstPage = response.query()!!.firstPage()!!
+                        val firstPage = response.query?.firstPage()!!
                         val rev = firstPage.revisions()[0]
 
                         pageTitle = PageTitle(firstPage.title(), pageTitle.wikiSite)
                         sectionWikitext = rev.content()
                         currentRevision = rev.revId
 
-                        val editError = response.query()!!.firstPage()!!.getErrorForAction("edit")
+                        val editError = response.query?.firstPage()!!.getErrorForAction("edit")
                         if (editError.isEmpty()) {
                             editingAllowed = true
                         } else {
@@ -564,7 +591,7 @@ class EditSectionActivity : BaseActivity() {
     companion object {
         const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
-        const val EXTRA_SECTION_HEADING = "org.wikipedia.edit_section.sectionheading"
+        const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_PAGE_PROPS = "org.wikipedia.edit_section.pageprops"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
     }

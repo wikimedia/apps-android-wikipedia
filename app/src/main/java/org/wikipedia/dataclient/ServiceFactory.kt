@@ -7,16 +7,13 @@ import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Request
 import okhttp3.Response
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventService
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
-import org.wikipedia.json.GsonUtil
 import org.wikipedia.settings.Prefs
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 object ServiceFactory {
@@ -67,20 +64,20 @@ object ServiceFactory {
         if (ANALYTICS_REST_SERVICE_CACHE[destinationEventService.id] != null) {
             return ANALYTICS_REST_SERVICE_CACHE[destinationEventService.id]!!
         }
-        val intakeBaseUriOverride = Prefs.getEventPlatformIntakeUriOverride()
-        val r = createRetrofit(null, StringUtils.defaultString(intakeBaseUriOverride, destinationEventService.baseUri))
+        val intakeBaseUriOverride = Prefs.getEventPlatformIntakeUriOverride().orEmpty().ifEmpty { destinationEventService.baseUri }
+        val r = createRetrofit(null, intakeBaseUriOverride)
         val s = r.create(EventService::class.java)
         ANALYTICS_REST_SERVICE_CACHE.put(destinationEventService.id, s)
         return s
     }
 
     operator fun <T> get(wiki: WikiSite, baseUrl: String?, service: Class<T>?): T {
-        val r = createRetrofit(wiki, (if (baseUrl.isNullOrEmpty()) wiki.url() + "/" else baseUrl))
+        val r = createRetrofit(wiki, baseUrl.orEmpty().ifEmpty { wiki.url() + "/" })
         return r.create(service)
     }
 
     private fun getBasePath(wiki: WikiSite): String {
-        return if (Prefs.getMediaWikiBaseUrl().isEmpty()) wiki.url() + "/" else Prefs.getMediaWikiBaseUrl()
+        return Prefs.getMediaWikiBaseUrl().ifEmpty { wiki.url() + "/" }
     }
 
     fun getRestBasePath(wiki: WikiSite): String {
@@ -116,7 +113,7 @@ object ServiceFactory {
             // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
             if (!request.url.encodedPath.contains("/page/related")) {
                 request = request.newBuilder()
-                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki!!))
+                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
                     .build()
             }
             return chain.proceed(request)

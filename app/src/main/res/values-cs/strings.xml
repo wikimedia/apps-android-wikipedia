@@ -81,7 +81,7 @@
   <string name="feed_card_add_to_list">Přidat do seznamu k přečtení</string>
   <string name="feed_card_add_to_default_list">Uložit</string>
   <string name="menu_page_share">Sdílet odkaz</string>
-  <string name="menu_page_open_a_new_tab">Otevřít v nové záložce</string>
+  <string name="menu_page_open_a_new_tab">Otevřít</string>
   <string name="menu_page_new_tab">Nová záložka</string>
   <string name="menu_page_reading_lists">Seznamy k přečtení</string>
   <string name="menu_page_recently_viewed">Naposledy navštívené</string>
@@ -113,9 +113,9 @@
   <string name="dialog_message_edit_failed_retry">Zkusit znovu</string>
   <string name="dialog_message_edit_failed_cancel">Storno</string>
   <string name="dialog_message_leaving_edit">Vaše změny nebyly dosud zveřejněny. Jste si jisti, že chcete opustit tuto stránku?</string>
-  <string name="dialog_message_leaving_edit_leave">Ukončit</string>
+  <string name="dialog_message_leaving_edit_leave">Opustit</string>
   <string name="dialog_message_leaving_edit_stay">Zůstat</string>
-  <string name="menu_show_toc">Obsah</string>
+  <string name="menu_show_toc">Tabulka obsahu</string>
   <string name="search_no_results_found">Nebyly nalezeny žádné výsledky</string>
   <string name="search_reading_list_no_results">Nenalezeny žádné výsledky v seznamu „%s“</string>
   <string name="search_reading_lists_no_results">V seznamech k přečtení nebyly nalezeny žádné výsledky</string>
@@ -233,7 +233,7 @@
   <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license" fuzzy="true">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
+  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci Wikipedie</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
@@ -361,6 +361,12 @@
   <string name="location_permissions_enable_prompt">Zapněte oprávnění umístění pro zobrazení míst blízko vás.</string>
   <string name="location_permissions_enable_action">Zapnout</string>
   <string name="error_webview_updating">Android System WebView se právě aktualizuje. Zkuste to prosím za chvíli.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d článek vybrán</item>
+    <item quantity="few">%d články vybrány</item>
+    <item quantity="many">%d článku vybráno</item>
+    <item quantity="other">%d článků vybráno</item>
+  </plurals>
   <string name="multi_select_items_selected">%d vybráno</string>
   <string name="error_message_generic">Došlo k chybě</string>
   <string name="view_link_preview_error_button_dismiss">Skrýt</string>
@@ -437,6 +443,18 @@
   <string name="reading_list_name_hint">Název seznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinný):</string>
   <string name="reading_list_item_deleted">Článek %s odebrán ze seznamu</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d článek odstraněn ze seznamu</item>
+    <item quantity="few">%d články odstraněny ze seznamu</item>
+    <item quantity="many">%d článků odstraněno ze seznamu</item>
+    <item quantity="other">%d článků odstraněno ze seznamu</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d článek odstraněn ze seznamu %s</item>
+    <item quantity="few">%d články odstraněny ze seznamu %s</item>
+    <item quantity="many">%d článků odstraněno ze seznamu %s</item>
+    <item quantity="other">%d článků odstraněno ze seznamu %s</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d článků odebráno ze seznamu</string>
   <string name="reading_lists_item_deleted">Článek %s odebrán ze seznamů</string>
   <string name="reading_list_item_delete_undo">Zpět</string>

@@ -95,11 +95,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".crash.CrashReportActivity"
-            android:label="@string/crash_report_activity_title"
-            android:noHistory="true"
-            android:excludeFromRecents="true" />
-        <activity
             android:name=".settings.SettingsActivity"
             android:label="@string/settings_activity_title"
             android:theme="@style/AppTheme.ActionBar"
@@ -211,8 +206,7 @@
             android:name=".onboarding.InitialOnboardingActivity"/>
 
         <activity
-            android:name=".feed.topread.TopReadArticlesActivity"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:name=".feed.topread.TopReadArticlesActivity"/>
 
         <activity android:name=".feed.onthisday.OnThisDayActivity"
             android:configChanges="orientation|screenSize"/>
@@ -275,11 +269,6 @@
             android:name=".diff.ArticleEditDetailsActivity"
             android:label=""
             android:theme="@style/AppTheme.ActionBar"  />
-
-        <provider
-            android:authorities="${applicationId}"
-            android:name=".database.AppContentProvider"
-            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

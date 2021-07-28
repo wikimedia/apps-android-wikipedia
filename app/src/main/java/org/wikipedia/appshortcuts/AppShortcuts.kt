@@ -1,13 +1,11 @@
 package org.wikipedia.appshortcuts
 
-import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
-import android.content.pm.ShortcutInfo
-import android.content.pm.ShortcutManager
-import android.graphics.drawable.Icon
 import android.net.Uri
-import android.os.Build
+import androidx.core.content.pm.ShortcutInfoCompat
+import androidx.core.content.pm.ShortcutManagerCompat
+import androidx.core.graphics.drawable.IconCompat
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -27,20 +25,17 @@ class AppShortcuts {
 
         @JvmStatic
         fun setShortcuts(app: Context) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-                CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
-                    app.getSystemService(ShortcutManager::class.java)
-                            .dynamicShortcuts = listOf(searchShortcut(app), continueReadingShortcut(app), randomShortcut(app))
-                }
+            CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
+                ShortcutManagerCompat.setDynamicShortcuts(app,
+                    listOf(searchShortcut(app), continueReadingShortcut(app), randomShortcut(app)))
             }
         }
 
-        @TargetApi(Build.VERSION_CODES.N_MR1)
-        private fun searchShortcut(app: Context): ShortcutInfo {
-            return ShortcutInfo.Builder(app, APP_SHORTCUT_ID_SEARCH)
+        private fun searchShortcut(app: Context): ShortcutInfoCompat {
+            return ShortcutInfoCompat.Builder(app, APP_SHORTCUT_ID_SEARCH)
                     .setShortLabel(app.getString(R.string.app_shortcuts_search))
                     .setLongLabel(app.getString(R.string.app_shortcuts_search))
-                    .setIcon(Icon.createWithResource(app, R.drawable.appshortcut_ic_search))
+                    .setIcon(IconCompat.createWithResource(app, R.drawable.appshortcut_ic_search))
                     .setIntent(
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -49,12 +44,11 @@ class AppShortcuts {
                     .build()
         }
 
-        @TargetApi(Build.VERSION_CODES.N_MR1)
-        private fun randomShortcut(app: Context): ShortcutInfo {
-            return ShortcutInfo.Builder(app, APP_SHORTCUT_ID_RANDOM)
+        private fun randomShortcut(app: Context): ShortcutInfoCompat {
+            return ShortcutInfoCompat.Builder(app, APP_SHORTCUT_ID_RANDOM)
                     .setShortLabel(app.getString(R.string.app_shortcuts_random))
                     .setLongLabel(app.getString(R.string.app_shortcuts_random))
-                    .setIcon(Icon.createWithResource(app, R.drawable.appshortcut_ic_random))
+                    .setIcon(IconCompat.createWithResource(app, R.drawable.appshortcut_ic_random))
                     .setIntent(
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -63,12 +57,11 @@ class AppShortcuts {
                     .build()
         }
 
-        @TargetApi(Build.VERSION_CODES.N_MR1)
-        private fun continueReadingShortcut(app: Context): ShortcutInfo {
-            return ShortcutInfo.Builder(app, APP_SHORTCUT_ID_CONTINUE_READING)
+        private fun continueReadingShortcut(app: Context): ShortcutInfoCompat {
+            return ShortcutInfoCompat.Builder(app, APP_SHORTCUT_ID_CONTINUE_READING)
                     .setShortLabel(app.getString(R.string.app_shortcuts_continue_reading))
                     .setLongLabel(app.getString(R.string.app_shortcuts_continue_reading))
-                    .setIcon(Icon.createWithResource(app, R.drawable.appshortcut_ic_continue_reading))
+                    .setIcon(IconCompat.createWithResource(app, R.drawable.appshortcut_ic_continue_reading))
                     .setIntent(
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

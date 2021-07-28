@@ -75,7 +75,7 @@ class NewsFragment : Fragment() {
             binding.toolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
 
-        binding.storyTextView.text = RichTextUtil.stripHtml(item.story())
+        binding.storyTextView.text = RichTextUtil.stripHtml(item.story)
         binding.linksRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.linksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(),
             R.attr.list_separator_drawable))

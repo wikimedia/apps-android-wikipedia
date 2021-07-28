@@ -13,7 +13,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationFunnel
+import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
@@ -56,7 +56,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 pollNotifications(context)
             }
             ACTION_CANCEL == intent.action -> {
-                NotificationFunnel.processIntent(intent)
+                NotificationInteractionFunnel.processIntent(intent)
             }
         }
     }
@@ -118,12 +118,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         var lastNotificationTime = ""
-                        if (response.query()!!.notifications()!!.list() != null &&
-                                response.query()!!.notifications()!!.list()!!.size > 0) {
-                            for (n in response.query()!!.notifications()!!.list()!!) {
-                                if (n.utcIso8601 > lastNotificationTime) {
-                                    lastNotificationTime = n.utcIso8601
-                                }
+                        for (n in response.query?.notifications()?.list().orEmpty()) {
+                            if (n.utcIso8601 > lastNotificationTime) {
+                                lastNotificationTime = n.utcIso8601
                             }
                         }
                         if (lastNotificationTime <= Prefs.getRemoteNotificationsSeenTime()) {
@@ -156,7 +153,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        val wikiMap = response.query()!!.unreadNotificationWikis()
+                        val wikiMap = response.query!!.unreadNotificationWikis()
                         val wikis = mutableListOf<String>()
                         wikis.addAll(wikiMap!!.keys)
                         for (dbName in wikiMap.keys) {
@@ -173,11 +170,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response -> onNotificationsComplete(context, response.query()!!.notifications()!!.list()!!) }) { t -> L.e(t) }
+                    .subscribe({ response -> onNotificationsComplete(context, response.query?.notifications()?.list()) }) { t -> L.e(t) }
         }
 
-        private fun onNotificationsComplete(context: Context, notifications: List<Notification>) {
-            if (notifications.isEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+        private fun onNotificationsComplete(context: Context, notifications: List<Notification>?) {
+            if (notifications.isNullOrEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
                 return
             }
             var locallyKnownModified = false
@@ -196,18 +193,22 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 locallyKnownModified = true
             }
             if (notificationsToDisplay.size > 2) {
+                // Record that there is an incoming notification to track/compare further actions on it.
+                NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki(), TYPE_MULTIPLE).logIncoming()
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
                 for (n in notificationsToDisplay) {
                     // TODO: remove these conditions when the time is right.
                     if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
                             n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                            n.category() == Notification.CATEGORY_THANK_YOU_EDIT && Prefs.notificationMilestoneEnabled() ||
+                            n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
                             n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
                             n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
                             n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
                             n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
                             Prefs.showAllNotifications()) {
+                        // Record that there is an incoming notification to track/compare further actions on it.
+                        NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                         NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki())) DBNAME_WIKI_NAME_MAP[n.wiki()] else n.wiki())!!)
                     }
                 }

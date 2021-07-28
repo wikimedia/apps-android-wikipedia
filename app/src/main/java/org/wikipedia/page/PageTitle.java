@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.settings.SiteInfoClient;
@@ -65,7 +66,7 @@ public class PageTitle implements Parcelable {
     // TODO: remove. This legacy code is the localized namespace name (File, Special, Talk, etc) but
     //       isn't consistent across titles. e.g., articles with colons, such as RTÉ News: Six One,
     //       are broken.
-    @Nullable private final String namespace;
+    @NonNull private final String namespace;
     @NonNull private String text;
     @Nullable private String fragment;
     @Nullable private String thumbUrl;
@@ -95,7 +96,7 @@ public class PageTitle implements Parcelable {
         }
     }
 
-    public PageTitle(@Nullable final String namespace, @NonNull String text, @Nullable String fragment, @Nullable String thumbUrl, @NonNull WikiSite wiki) {
+    public PageTitle(@NonNull final String namespace, @NonNull String text, @Nullable String fragment, @Nullable String thumbUrl, @NonNull WikiSite wiki) {
         this.namespace = namespace;
         this.text = text;
         this.fragment = fragment;
@@ -115,7 +116,7 @@ public class PageTitle implements Parcelable {
     }
 
     public PageTitle(@Nullable String namespace, @NonNull String text, @NonNull WikiSite wiki) {
-        this(namespace, text, null, null, wiki);
+        this(namespace == null ? "" : namespace, text, null, null, wiki);
     }
 
     public PageTitle(@Nullable String text, @NonNull WikiSite wiki) {
@@ -129,14 +130,8 @@ public class PageTitle implements Parcelable {
             text = SiteInfoClient.getMainPageForLang(wiki.languageCode());
         }
 
-        // Remove any URL parameters (?...) from the title
-        String[] parts = text.split("\\?", -1);
-        if (parts.length > 1 && parts[1].contains("=")) {
-            text = parts[0];
-        }
-
         // Split off any fragment (#...) from the title
-        parts = text.split("#", -1);
+        String[] parts = text.split("#", -1);
         text = parts[0];
         if (parts.length > 1) {
             this.fragment = StringUtil.addUnderscores(decodeURL(parts[1]));
@@ -144,11 +139,17 @@ public class PageTitle implements Parcelable {
             this.fragment = null;
         }
 
+        // Remove any URL parameters (?...) from the title
+        parts = text.split("\\?", -1);
+        if (parts.length > 1 && parts[1].contains("=")) {
+            text = parts[0];
+        }
+
         parts = text.split(":", -1);
         if (parts.length > 1) {
             String namespaceOrLanguage = parts[0];
             if (Arrays.asList(Locale.getISOLanguages()).contains(namespaceOrLanguage)) {
-                this.namespace = null;
+                this.namespace = "";
                 this.wiki = new WikiSite(wiki.authority(), namespaceOrLanguage);
                 this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
             } else if (parts[1].length() > 0 && !Character.isWhitespace(parts[1].charAt(0)) && parts[1].charAt(0) != '_') {
@@ -157,21 +158,21 @@ public class PageTitle implements Parcelable {
                 this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
             } else {
                 this.wiki = wiki;
-                this.namespace = null;
+                this.namespace = "";
                 this.text = text;
             }
         } else {
             this.wiki = wiki;
-            this.namespace = null;
+            this.namespace = "";
             this.text = text;
         }
 
         this.thumbUrl = thumbUrl;
     }
 
-    @Nullable
+    @NonNull
     public String getNamespace() {
-        return namespace;
+        return StringUtils.defaultString(namespace);
     }
 
     @NonNull public Namespace namespace() {
@@ -252,9 +253,8 @@ public class PageTitle implements Parcelable {
     }
 
     public String getPrefixedText() {
-
         // TODO: find a better way to check if the namespace is a ISO Alpha2 Code (two digits country code)
-        return namespace == null ? getText() : StringUtil.addUnderscores(namespace) + ":" + getText();
+        return TextUtils.isEmpty(namespace) ? getText() : StringUtil.addUnderscores(namespace) + ":" + getText();
     }
 
     /**
@@ -281,6 +281,7 @@ public class PageTitle implements Parcelable {
         PageTitle pageTitle = new PageTitle(talkNamespace, getText(), wiki);
         pageTitle.setDisplayText(talkNamespace + ":" + (!TextUtils.isEmpty(getNamespace()) && getDisplayText().startsWith(getNamespace())
                 ? StringUtil.removeNamespace(getDisplayText()) : getDisplayText()));
+        pageTitle.setFragment(fragment);
         return pageTitle;
     }
 
@@ -311,6 +312,7 @@ public class PageTitle implements Parcelable {
         return result;
     }
 
+    @NotNull
     @Override public String toString() {
         return getPrefixedText();
     }

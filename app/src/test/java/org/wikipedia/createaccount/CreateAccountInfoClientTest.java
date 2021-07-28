@@ -15,8 +15,8 @@ public class CreateAccountInfoClientTest extends MockRetrofitTest {
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
-                    String token = response.query().createAccountToken();
-                    String captchaId = response.query().captchaId();
+                    String token = response.getQuery().createAccountToken();
+                    String captchaId = response.getQuery().captchaId();
 
                     return token.equals("5d78e6a823be0901eeae9f6486f752da59123760+\\")
                             && captchaId.equals("272460457");

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="libraries_list"><a href="https://appcenter.ms/">App Center SDK</a>
-        <!-- https://raw.githubusercontent.com/microsoft/appcenter-sdk-android/develop/license.txt -->
-        (<a href="content:///android_asset/licenses/AppCenterSDK">license</a>),
-
-        <a href="https://github.com/skydoves/Balloon">Balloon</a>
+    <string name="libraries_list"><a href="https://github.com/skydoves/Balloon">Balloon</a>
         <!-- https://github.com/skydoves/Balloon/blob/main/LICENSE -->
         (<a href="content:///android_asset/licenses/Balloon">license</a>),
 
@@ -24,16 +20,8 @@
         <!-- https://raw.githubusercontent.com/square/okhttp/master/LICENSE.txt -->
         (<a href="content:///android_asset/licenses/OkHttp">license</a>),
 
-        <a href="https://square.github.io/otto/">Otto</a>
-        <!-- https://raw.githubusercontent.com/square/otto/master/LICENSE.txt -->
-        (<a href="content:///android_asset/licenses/Otto">license</a>),
-
         <a href="https://square.github.io/retrofit/">Retrofit</a>
         <!-- https://raw.githubusercontent.com/square/retrofit/master/LICENSE.txt -->
-        (<a href="content:///android_asset/licenses/Retrofit">license</a>),
-
-        <a href="https://github.com/KeepSafe/TapTargetView">TapTargetView</a>
-        <!-- https://github.com/KeepSafe/TapTargetView/blob/master/LICENSE -->
-        (<a href="content:///android_asset/licenses/TapTargetView">license</a>)
+        (<a href="content:///android_asset/licenses/Retrofit">license</a>)
     </string>
 </resources>

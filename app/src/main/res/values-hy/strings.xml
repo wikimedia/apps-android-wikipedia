@@ -344,6 +344,7 @@
   <string name="talk_reply_subject">Թեմա</string>
   <string name="talk_reply_hint">Պատասխան գրել</string>
   <string name="talk_message_hint">Հաղորդագրություն գրել</string>
+  <string name="talk_snackbar_undo">Հետ շրջել</string>
   <string name="watchlist_details_watch_label">Հսկել</string>
   <string name="thank_dialog_positive_button_text">Շնորհակալություն հայտնել</string>
   <string name="watchlist_expiry_dialog_one_week">1 շաբաթ</string>
@@ -352,4 +353,5 @@
   <string name="watchlist_expiry_dialog_six_months">6 ամիս</string>
   <string name="watchlist_filter_talk">Քննարկում</string>
   <string name="watchlist_filter_pages">Էջեր</string>
+  <string name="watchlist_page_protected">Պաշտպանված է</string>
 </resources>

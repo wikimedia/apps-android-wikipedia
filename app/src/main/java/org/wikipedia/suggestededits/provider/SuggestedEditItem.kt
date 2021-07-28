@@ -19,6 +19,5 @@ class SuggestedEditItem {
         return title.orEmpty()
     }
 
-    val captions: Map<String, String>
-        get() = if (structuredData != null && structuredData.captions != null) structuredData.captions as Map<String, String> else emptyMap()
+    val captions get() = structuredData?.captions ?: emptyMap()
 }

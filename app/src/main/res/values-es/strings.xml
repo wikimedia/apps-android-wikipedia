@@ -25,6 +25,7 @@
 * Ihojose
 * Izamo
 * JO777
+* Jackiezelaya
 * JanKlaaseen
 * Jduranboger
 * Joanmp17
@@ -83,6 +84,7 @@
   <string name="offline_load_error_retry">Reintentar</string>
   <string name="page_error_back_to_main">Volver</string>
   <string name="error_back">Volver</string>
+  <string name="error_next">Siguiente</string>
   <string name="menu_clear_all_history">Borrar el historial</string>
   <string name="history_item_deleted">\n%s eliminado del historial</string>
   <string name="history_items_deleted">%d artículos eliminados del historial</string>
@@ -416,6 +418,7 @@
   <string name="error_blocked_expiry">Expiración del bloque: %s</string>
   <string name="error_blocked_id">ID de bloqueo: %s</string>
   <string name="error_blocked_footer">Puedes contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o otro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; para hablar sobre el bloque.</string>
+  <string name="error_blocked_footer_no_blocker">Puedes contactar un &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Bibliotecarios\"&gt;bibliotecario&lt;/a&gt; para hablar del bloqueo.</string>
   <string name="crash_report_activity_title">Error de la aplicación</string>
   <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.\n\n¿Te gustaría volver a empezar o salir?</string>
   <string name="crash_report_relaunch">Iniciar de nuevo</string>
@@ -485,9 +488,14 @@
   <string name="reading_list_name_hint">Nombre de esta lista</string>
   <string name="reading_list_description_hint">Descripción (opcional)</string>
   <string name="reading_list_item_deleted">%s eliminado de la lista</string>
+  <string name="reading_list_item_deleted_from_list">%1$s eliminado de %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d artículo eliminado de la lista</item>
     <item quantity="other">%d artículos eliminados de la lista</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d artículo eliminado de %s</item>
+    <item quantity="other">%d artículos eliminados de %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d artículos eliminados de la lista</string>
   <string name="reading_lists_item_deleted">%s eliminado de las listas</string>
@@ -719,6 +727,7 @@
   <string name="description_ends_with_punctuation">El texto no tiene que acabar con puntuación.</string>
   <string name="description_starts_with_article" fuzzy="true">No empieces con artículos como \"un\", \"una\",\"el\", \"la\", \"los\" o \"las\".</string>
   <string name="description_starts_with_uppercase">Empieza con una letra minúscula a menos que la primera palabra sea un sustantivo propio.</string>
+  <string name="description_starts_with_lowercase">Evita empezar con minúscula.</string>
   <string name="description_is_in_different_language">El texto parece ser un idioma inesperado. El idioma debería ser %s.</string>
   <string name="description_edit_success_saved">Se publicó la descripción del artículo.</string>
   <string name="description_edit_success_saved_snackbar">Se publicó la descripción del artículo.</string>
@@ -781,6 +790,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Leyenda de imagen (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Archivo</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Página del archivo en Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiquetas</string>
   <string name="suggested_edits_image_preview_dialog_date">Fecha</string>
@@ -904,6 +914,7 @@
   <string name="file_page_activity_title">Página de archivo</string>
   <string name="file_page_add_image_caption_button">Añadir leyenda de imagen</string>
   <string name="file_page_add_image_tags_button">Añadir etiquetas de imagen</string>
+  <string name="file_page_suggestion_reason">Motivo de la sugerencia</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -998,6 +1009,7 @@
   <string name="talk_title">Discusión</string>
   <string name="talk_user_title">Discusión: %s</string>
   <string name="talk_new_topic">Tema nuevo</string>
+  <string name="talk_new_topic_submitted">Tema enviado.</string>
   <string name="talk_page_empty">Esta página de discusión está vacía.</string>
   <string name="talk_add_reply">Responder</string>
   <string name="talk_no_subject">(Sin asunto)</string>
@@ -1006,6 +1018,9 @@
   <string name="talk_message_hint">Redactar mensaje</string>
   <string name="talk_message_empty">El mensaje no puede estar vacío.</string>
   <string name="talk_subject_empty">El asunto no puede estar vacío.</string>
+  <string name="talk_response_submitted">Respuesta enviada.</string>
+  <string name="talk_snackbar_undo">Deshacer</string>
+  <string name="talk_last_modified">&lt;b&gt;Último editado&lt;/b&gt; %1$s por %2$s</string>
   <string name="menu_option_share_edit">Compartir edición</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>

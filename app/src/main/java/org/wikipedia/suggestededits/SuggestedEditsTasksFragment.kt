@@ -142,8 +142,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
             startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING && resultCode == Activity.RESULT_OK) {
-            startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATION, Constants.InvokeSource.SUGGESTED_EDITS))
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             clearContents()
         }
@@ -165,6 +163,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
+        disposables.clear()
         blockMessage = null
         isPausedOrDisabled = false
         totalContributions = 0
@@ -178,25 +177,25 @@ class SuggestedEditsTasksFragment : Fragment() {
                 UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
                     var blockInfo: MwServiceError.BlockInfo? = null
                     when {
-                        wikidataResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = wikidataResponse.query()!!.userInfo()!!
-                        commonsResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = commonsResponse.query()!!.userInfo()!!
-                        homeSiteResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = homeSiteResponse.query()!!.userInfo()!!
+                        wikidataResponse.query?.userInfo()!!.isBlocked -> blockInfo = wikidataResponse.query?.userInfo()!!
+                        commonsResponse.query?.userInfo()!!.isBlocked -> blockInfo = commonsResponse.query?.userInfo()!!
+                        homeSiteResponse.query?.userInfo()!!.isBlocked -> blockInfo = homeSiteResponse.query?.userInfo()!!
                     }
                     if (blockInfo != null) {
                         blockMessage = ThrowableUtil.getBlockMessageHtml(blockInfo)
                     }
 
-                    totalContributions += wikidataResponse.query()!!.userInfo()!!.editCount
-                    totalContributions += commonsResponse.query()!!.userInfo()!!.editCount
+                    totalContributions += wikidataResponse.query?.userInfo()!!.editCount
+                    totalContributions += commonsResponse.query?.userInfo()!!.editCount
 
-                    latestEditDate = wikidataResponse.query()!!.userInfo()!!.latestContrib
-                    if (commonsResponse.query()!!.userInfo()!!.latestContrib.after(latestEditDate)) {
-                        latestEditDate = commonsResponse.query()!!.userInfo()!!.latestContrib
+                    latestEditDate = wikidataResponse.query?.userInfo()!!.latestContrib
+                    if (commonsResponse.query?.userInfo()!!.latestContrib.after(latestEditDate)) {
+                        latestEditDate = commonsResponse.query?.userInfo()!!.latestContrib
                     }
 
                     val contributions = ArrayList<UserContribution>()
-                    contributions.addAll(wikidataResponse.query()!!.userContributions())
-                    contributions.addAll(commonsResponse.query()!!.userContributions())
+                    contributions.addAll(wikidataResponse.query!!.userContributions())
+                    contributions.addAll(commonsResponse.query!!.userContributions())
                     contributions.sortWith { o2, o1 -> (o1.date().compareTo(o2.date())) }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContributionsStats.getRevertSeverity()

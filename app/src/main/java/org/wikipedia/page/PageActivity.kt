@@ -14,7 +14,9 @@ import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.forEach
+import androidx.core.view.updatePadding
 import androidx.preference.PreferenceManager
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -125,8 +127,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.navigationDrawer.setScrimColor(Color.TRANSPARENT)
         binding.containerWithNavTrigger.callback = this
         ViewCompat.setOnApplyWindowInsetsListener(binding.navigationDrawer) { _, insets ->
-            binding.pageToolbarContainer.setPadding(0, insets.systemWindowInsetTop, 0, 0)
-            pageFragment.updateInsets(insets)
+            val systemWindowInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            binding.pageToolbarContainer.updatePadding(top = systemWindowInsets.top)
+            pageFragment.updateInsets(systemWindowInsets)
             insets
         }
 

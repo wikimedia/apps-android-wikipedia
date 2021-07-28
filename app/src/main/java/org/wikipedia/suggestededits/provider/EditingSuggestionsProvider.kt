@@ -29,9 +29,6 @@ object EditingSuggestionsProvider {
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
 
-    private val articlesWithMissingImagesCache = mutableListOf<String>()
-    private var articlesWithMissingImagesCacheLang: String = ""
-
     private const val MAX_RETRY_LIMIT: Long = 50
 
     fun getNextArticleWithMissingDescription(wiki: WikiSite, retryLimit: Long = MAX_RETRY_LIMIT): Observable<PageSummary> {
@@ -57,7 +54,7 @@ object EditingSuggestionsProvider {
                         .map { pages ->
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
-                            pages.query()!!.pages()!!.forEach {
+                            pages.query?.pages()?.forEach {
                                 if (it.description().isNullOrEmpty()) {
                                     articlesWithMissingDescriptionCache.push(it.title())
                                 }
@@ -102,7 +99,7 @@ object EditingSuggestionsProvider {
                         }, { pages, response -> Pair(pages, response) })
                         .map { pair ->
                             val pages = pair.first
-                            val mwPages = pair.second.query()!!.pages()!!
+                            val mwPages = pair.second.query?.pages()!!
                             var targetAndSourcePageTitles: Pair<PageTitle, PageTitle>? = null
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
                             articlesWithTranslatableDescriptionCacheToLang = targetLang
@@ -112,16 +109,15 @@ object EditingSuggestionsProvider {
                                     continue
                                 }
                                 val entity = page.entity
-                                if (entity == null ||
-                                        entity.descriptions().containsKey(targetLang) ||
-                                        sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode()) ||
-                                        !entity.sitelinks().containsKey(sourceWiki.dbName()) ||
-                                        !entity.sitelinks().containsKey(targetWiki.dbName())) {
+                                if (entity == null || entity.descriptions.containsKey(targetLang) ||
+                                    sourceLangMustExist && !entity.descriptions.containsKey(sourceWiki.languageCode()) ||
+                                    !entity.sitelinks.containsKey(sourceWiki.dbName()) ||
+                                    !entity.sitelinks.containsKey(targetWiki.dbName())) {
                                     continue
                                 }
-                                val sourceTitle = PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)
-                                sourceTitle.description = entity.descriptions()[sourceWiki.languageCode()]?.value()
-                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki) to sourceTitle)
+                                val sourceTitle = PageTitle(entity.sitelinks[sourceWiki.dbName()]!!.title, sourceWiki)
+                                sourceTitle.description = entity.descriptions[sourceWiki.languageCode()]?.value
+                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks[targetWiki.dbName()]!!.title, targetWiki) to sourceTitle)
                             }
                             if (!articlesWithTranslatableDescriptionCache.empty()) {
                                 targetAndSourcePageTitles = articlesWithTranslatableDescriptionCache.pop()
@@ -233,10 +229,7 @@ object EditingSuggestionsProvider {
             } else {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
                         .map { response ->
-                            for (page in response.query()!!.pages()!!) {
-                                if (page.imageInfo()!!.mimeType != "image/jpeg") {
-                                    continue
-                                }
+                            response.query?.pages()?.filter { it.imageInfo()?.mimeType == "image/jpeg" }?.forEach { page ->
                                 if (page.revisions().none { "P180" in it.getContentFromSlot("mediainfo") }) {
                                     imagesWithMissingTagsCache.push(page)
                                 }

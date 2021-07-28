@@ -126,7 +126,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
                         .subscribe({ response ->
-                            val page = response.query()!!.pages()!![0]
+                            val page = response.query?.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
                                 val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
@@ -167,7 +167,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
                         .subscribe({ response ->
-                            val page = response.query()!!.pages()!![0]
+                            val page = response.query?.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
                                 val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
@@ -287,10 +287,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.viewArticleTitle.visibility = GONE
         binding.viewArticleSubtitleContainer.visibility = VISIBLE
 
-        val descriptionText = when {
-            addedContribution.isNotEmpty() -> addedContribution
-            sourceSummaryForEdit!!.description!!.isNotEmpty() -> sourceSummaryForEdit!!.description!!
-            else -> getString(R.string.suggested_edits_no_description)
+        val descriptionText = addedContribution.ifEmpty {
+            sourceSummaryForEdit!!.description!!.ifEmpty { getString(R.string.suggested_edits_no_description) }
         }
 
         binding.viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
@@ -303,7 +301,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             binding.viewImageArtist.setTitleText(StringUtil.removeHTMLTags(sourceSummaryForEdit!!.metadata!!.artist()))
         }
 
-        binding.viewImageDate.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummaryForEdit!!.timestamp!!))
+        binding.viewImageDate.setDetailText(DateUtil.getLastSyncDateString(sourceSummaryForEdit!!.timestamp!!))
         binding.viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
         binding.viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
 

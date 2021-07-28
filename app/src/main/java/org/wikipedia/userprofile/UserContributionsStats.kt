@@ -31,8 +31,8 @@ object UserContributionsStats {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
-                    if (!it.query()!!.userInfo()!!.isBlocked) {
-                        val editorTaskCounts = it.query()!!.editorTaskCounts()!!
+                    if (it.query?.userInfo()?.isBlocked != true) {
+                        val editorTaskCounts = it.query?.editorTaskCounts()!!
                         totalEdits = editorTaskCounts.totalEdits
                         totalDescriptionEdits = editorTaskCounts.totalDescriptionEdits
                         totalImageCaptionEdits = editorTaskCounts.totalImageCaptionEdits
@@ -55,7 +55,7 @@ object UserContributionsStats {
     fun getPageViewsObservable(response: MwQueryResponse): Observable<Long> {
         val qLangMap = HashMap<String, HashSet<String>>()
 
-        for (userContribution in response.query()!!.userContributions()) {
+        for (userContribution in response.query!!.userContributions()) {
             val descLang = userContribution.comment.split(" ")
                     .filter { "wbsetdescription" in it }
                     .flatMap { it.split("|") }
@@ -70,18 +70,18 @@ object UserContributionsStats {
         return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                 .subscribeOn(Schedulers.io())
                 .flatMap { entities ->
-                    if (entities.entities().isEmpty()) {
+                    if (entities.entities.isEmpty()) {
                         return@flatMap Observable.just(0L)
                     }
                     val langArticleMap = HashMap<String, ArrayList<String>>()
-                    entities.entities().forEach { (entityKey, entity) ->
+                    entities.entities.forEach { (entityKey, entity) ->
                         for (qKey in qLangMap.keys) {
                             if (qKey == entityKey) {
                                 for (lang in qLangMap[qKey]!!) {
                                     val dbName = WikiSite.forLanguageCode(lang).dbName()
-                                    if (entity.sitelinks().containsKey(dbName)) {
+                                    if (entity.sitelinks.containsKey(dbName)) {
                                         langArticleMap.getOrPut(lang, { ArrayList() })
-                                                .add(entity.sitelinks()[dbName]!!.title)
+                                                .add(entity.sitelinks[dbName]?.title!!)
                                     }
                                 }
                                 break
@@ -98,7 +98,7 @@ object UserContributionsStats {
 
                     Observable.zip(observableList) { resultList ->
                         resultList.filterIsInstance<MwQueryResponse>()
-                                .mapNotNull { it.query() }
+                                .mapNotNull { it.query }
                                 .flatMap { it.pages()!! }
                                 .flatMap { it.pageViewsMap.values }
                                 .sumOf { it ?: 0 }

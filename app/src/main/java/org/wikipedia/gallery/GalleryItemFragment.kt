@@ -27,7 +27,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
@@ -57,9 +56,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         if (pageTitle == null) {
             pageTitle = PageTitle(mediaListItem.title, WikiSite(Service.COMMONS_URL))
         }
-        imageTitle = PageTitle(Namespace.FILE.toLegacyString(), StringUtil.removeNamespace(mediaListItem.title),
-            pageTitle!!.wikiSite
-        )
+        imageTitle = PageTitle("File: ${StringUtil.removeNamespace(mediaListItem.title)}", pageTitle!!.wikiSite)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -169,7 +166,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
                 (requireActivity() as GalleryActivity).layOutGalleryDescription()
             }
             .subscribe({ response ->
-                mediaPage = response.query()!!.firstPage()
+                mediaPage = response.query?.firstPage()
                 if (FileUtil.isVideo(mediaListItem.type)) {
                     loadVideo()
                 } else {

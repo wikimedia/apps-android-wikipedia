@@ -11,7 +11,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
-import org.wikipedia.database.contract.PageImageHistoryContract
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
@@ -19,8 +19,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.Tab
-import org.wikipedia.pageimages.PageImage
-import org.wikipedia.readinglist.database.ReadingListDbHelper
+import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -51,7 +50,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         pageLoadCheckReadingLists()
     }
 
-    fun loadFromBackStack() {
+    fun loadFromBackStack(isRefresh: Boolean = false) {
         if (currentTab.backStack.isEmpty()) {
             return
         }
@@ -60,7 +59,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         // the backstack item.
         item.title?.let { title ->
             item.historyEntry?.let { entry ->
-                fragment.loadPage(title, entry, false, item.scrollY)
+                fragment.loadPage(title, entry, false, item.scrollY, isRefresh)
                 L.d("Loaded page " + item.title!!.displayText + " from backstack")
             }
         }
@@ -126,7 +125,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
     private fun pageLoadCheckReadingLists() {
         model.title?.let {
             disposables.clear()
-            disposables.add(Observable.fromCallable { ReadingListDbHelper.findPageInAnyList(it) }
+            disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { pageLoadFromNetwork { networkError -> fragment.onPageLoadError(networkError) } }
@@ -170,12 +169,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     .subscribe({ pair ->
                         val pageSummaryResponse = pair.first
                         val watchedResponse = pair.second
-                        var isWatched = false
-                        var hasWatchlistExpiry = false
-                        if (watchedResponse?.query()?.firstPage() != null) {
-                            isWatched = watchedResponse.query()!!.firstPage()!!.isWatched
-                            hasWatchlistExpiry = watchedResponse.query()!!.firstPage()!!.hasWatchlistExpiry()
-                        }
+                        val isWatched = watchedResponse?.query?.firstPage()?.isWatched ?: false
+                        val hasWatchlistExpiry = watchedResponse?.query?.firstPage()?.hasWatchlistExpiry() ?: false
                         if (pageSummaryResponse.body() == null) {
                             throw RuntimeException("Summary response was invalid.")
                         }
@@ -216,11 +211,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
             return
         }
         val pageSummary = response.body()
-        val page = pageSummary!!.toPage(model.title)
+        val page = pageSummary?.toPage(model.title)
         model.page = page
         model.isWatched = isWatched
         model.hasWatchlistExpiry = hasWatchlistExpiry
-        model.title = page.title
+        model.title = page?.title
         model.title?.let { title ->
             if (!response.raw().request.url.fragment.isNullOrEmpty()) {
                 title.fragment = response.raw().request.url.fragment
@@ -229,7 +224,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 app.sessionFunnel.noDescription()
             }
             if (!title.isMainPage) {
-                title.setDisplayText(page.displayTitle)
+                title.setDisplayText(page?.displayTitle)
             }
             leadImagesHandler.loadLeadImage()
             fragment.requireActivity().invalidateOptionsMenu()
@@ -237,7 +232,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             // Update our history entry, in case the Title was changed (i.e. normalized)
             val curEntry = model.curEntry
             curEntry?.let {
-                model.curEntry = HistoryEntry(title, it.timestamp, it.source)
+                model.curEntry = HistoryEntry(title, it.source, timestamp = it.timestamp)
                 model.curEntry!!.referrer = it.referrer
             }
 
@@ -247,8 +242,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
 
             // Save the thumbnail URL to the DB
-            val pageImage = PageImage(title, pageSummary.thumbnailUrl)
-            Completable.fromAction { app.getDatabaseClient(PageImage::class.java).upsert(pageImage, PageImageHistoryContract.Image.SELECTION) }.subscribeOn(Schedulers.io()).subscribe()
+            val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
+            Completable.fromAction { AppDatabase.getAppDatabase().pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
             title.thumbUrl = pageImage.imageName
         }
     }

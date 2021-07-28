@@ -43,7 +43,11 @@ class TopReadFragment : Fragment() {
         _binding = FragmentMostReadBinding.inflate(inflater, container, false)
 
         val card = GsonUnmarshaller.unmarshal(TopReadListCard::class.java, requireActivity().intent.getStringExtra(TopReadArticlesActivity.MOST_READ_CARD))
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
+
+        appCompatActivity.setSupportActionBar(binding.toolbar)
+        appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        appCompatActivity.supportActionBar?.title = ""
+        binding.toolbarTitle.text = getString(R.string.top_read_activity_title, card.subtitle())
 
         L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode())
 
@@ -60,6 +64,8 @@ class TopReadFragment : Fragment() {
         super.onDestroyView()
     }
 
+    private val appCompatActivity get() = requireActivity() as AppCompatActivity
+
     private class RecyclerAdapter constructor(items: List<TopReadItemCard>, private val callback: Callback) :
         DefaultRecyclerAdapter<TopReadItemCard, ListCardItemView>(items) {
 
@@ -69,7 +75,7 @@ class TopReadFragment : Fragment() {
 
         override fun onBindViewHolder(holder: DefaultViewHolder<ListCardItemView>, position: Int) {
             val card = item(position)
-            holder.view.setCard(card).setHistoryEntry(HistoryEntry(card.pageTitle(),
+            holder.view.setCard(card).setHistoryEntry(HistoryEntry(card.pageTitle,
                 HistoryEntry.SOURCE_FEED_MOST_READ_ACTIVITY)).setCallback(callback)
         }
     }

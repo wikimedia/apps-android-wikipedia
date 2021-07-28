@@ -11,44 +11,29 @@ import org.wikipedia.databinding.GroupCaptchaBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
-import org.wikipedia.util.FeedbackUtil.showAndroidAppRequestAnAccount
-import org.wikipedia.util.FeedbackUtil.showError
-import org.wikipedia.util.StringUtil.fromHtml
-import org.wikipedia.views.ViewAnimations.crossFade
-import org.wikipedia.views.ViewUtil.loadImage
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.views.ViewAnimations
+import org.wikipedia.views.ViewUtil
 
 class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
                      captchaView: View, private val primaryView: View,
                      private val prevTitle: String, submitButtonText: String?) {
-    private val binding: GroupCaptchaBinding = GroupCaptchaBinding.bind(captchaView)
+    private val binding = GroupCaptchaBinding.bind(captchaView)
     private val disposables = CompositeDisposable()
     private var captchaResult: CaptchaResult? = null
     var token: String? = null
-    val isActive: Boolean
-        get() = captchaResult != null
+    val isActive get() = captchaResult != null
 
     init {
         if (submitButtonText != null) {
             binding.captchaSubmitButton.text = submitButtonText
             binding.captchaSubmitButton.visibility = View.VISIBLE
         }
-        binding.requestAccountText.text = fromHtml(activity.getString(R.string.edit_section_captcha_request_an_account_message))
-        binding.requestAccountText.movementMethod = LinkMovementMethodExt { _: String? -> showAndroidAppRequestAnAccount(activity) }
-        binding.captchaImage.setOnClickListener {
-            binding.captchaImageProgress.visibility = View.VISIBLE
-            disposables.add(ServiceFactory.get(wiki).newCaptcha
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate { binding.captchaImageProgress.visibility = View.GONE }
-                    .subscribe({ response: Captcha ->
-                        captchaResult = CaptchaResult(response.captchaId())
-                        handleCaptcha(true)
-                    }) { caught: Throwable? ->
-                        cancelCaptcha()
-                        showError(activity, caught)
-                    })
-        }
+        binding.requestAccountText.text = StringUtil.fromHtml(activity.getString(R.string.edit_section_captcha_request_an_account_message))
+        binding.requestAccountText.movementMethod = LinkMovementMethodExt { _ -> FeedbackUtil.showAndroidAppRequestAnAccount(activity) }
+        binding.captchaImage.setOnClickListener { requestNewCaptcha() }
     }
 
     fun captchaId(): String? {
@@ -69,22 +54,37 @@ class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
         handleCaptcha(false)
     }
 
+    fun requestNewCaptcha() {
+        binding.captchaImageProgress.visibility = View.VISIBLE
+        disposables.add(ServiceFactory.get(wiki).newCaptcha
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doAfterTerminate { binding.captchaImageProgress.visibility = View.GONE }
+            .subscribe({ response ->
+                captchaResult = CaptchaResult(response.captchaId())
+                handleCaptcha(true)
+            }) { caught ->
+                cancelCaptcha()
+                FeedbackUtil.showError(activity, caught)
+            })
+    }
+
     private fun handleCaptcha(isReload: Boolean) {
         if (captchaResult == null) {
             return
         }
-        hideSoftKeyboard(activity)
+        DeviceUtil.hideSoftKeyboard(activity)
         if (!isReload) {
-            crossFade(primaryView, binding.root)
+            ViewAnimations.crossFade(primaryView, binding.root)
         }
         // In case there was a captcha attempt before
         binding.captchaText.editText?.setText("")
-        loadImage(binding.captchaImage, captchaResult!!.getCaptchaUrl(wiki), roundedCorners = false, largeRoundedSize = false, force = true, listener = null)
+        ViewUtil.loadImage(binding.captchaImage, captchaResult!!.getCaptchaUrl(wiki), roundedCorners = false, largeRoundedSize = false, force = true, listener = null)
     }
 
     fun hideCaptcha() {
         (activity as AppCompatActivity).supportActionBar!!.title = prevTitle
-        crossFade(binding.root, primaryView)
+        ViewAnimations.crossFade(binding.root, primaryView)
     }
 
     fun cancelCaptcha() {

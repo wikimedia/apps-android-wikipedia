@@ -1026,6 +1026,7 @@
     <string name="talk_title">Talk</string>
     <string name="talk_user_title">Talk: %s</string>
     <string name="talk_new_topic">New topic</string>
+    <string name="talk_new_topic_submitted">Topic submitted.</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_add_reply">Reply</string>
     <string name="talk_no_subject">(No subject)</string>
@@ -1034,6 +1035,9 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
+    <string name="talk_response_submitted">Response submitted.</string>
+    <string name="talk_snackbar_undo">Undo</string>
+    <string name="talk_last_modified"><![CDATA[<b>Last edited %1$s</b> by %2$s]]></string>
     <string name="menu_option_share_edit">Share edit</string>
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>

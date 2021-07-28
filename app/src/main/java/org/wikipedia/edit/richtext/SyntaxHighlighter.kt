@@ -5,9 +5,9 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.Spanned
-import android.text.TextWatcher
 import android.text.format.DateUtils
 import android.widget.EditText
+import androidx.core.widget.doAfterTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -42,13 +42,7 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
     init {
         // add a text-change listener that will trigger syntax highlighting
         // whenever text is modified.
-        textBox.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {}
-            override fun afterTextChanged(editable: Editable) {
-                postHighlightCallback()
-            }
-        })
+        textBox.doAfterTextChanged { postHighlightCallback() }
     }
 
     private val syntaxHighlightCallback: Runnable = object : Runnable {
@@ -210,8 +204,8 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
     }
 
     private inner class SyntaxHighlightSearchMatchesTask constructor(text: Editable, searchText: String?, private val selectedMatchResultPosition: Int) : Callable<List<SpanExtents>> {
-        private val searchText = searchText.orEmpty().toLowerCase(Locale.getDefault())
-        private val text = text.toString().toLowerCase(Locale.getDefault())
+        private val searchText = searchText.orEmpty().lowercase(Locale.getDefault())
+        private val text = text.toString().lowercase(Locale.getDefault())
 
         override fun call(): List<SpanExtents> {
             val spansToSet = mutableListOf<SpanExtents>()

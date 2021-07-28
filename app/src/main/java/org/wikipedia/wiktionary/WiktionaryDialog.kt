@@ -96,7 +96,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun layOutDefinitionsByUsage() {
-        currentDefinition?.getUsagesForLang("en").let { usageList ->
+        currentDefinition?.usagesByLang?.get("en")?.let { usageList ->
             if (usageList.isNullOrEmpty()) {
                 displayNoDefinitionsFound()
                 return

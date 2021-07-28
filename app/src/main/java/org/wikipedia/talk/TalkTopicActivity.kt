@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -23,6 +23,7 @@ import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -33,8 +34,8 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.util.*
-import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import java.util.concurrent.TimeUnit
@@ -45,13 +46,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var talkFunnel: TalkFunnel
     private lateinit var editFunnel: EditFunnel
     private lateinit var linkHandler: TalkLinkHandler
+    private lateinit var textWatcher: TextWatcher
+
     private val disposables = CompositeDisposable()
     private var topicId: Int = -1
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
-    private val textWatcher = ReplyTextWatcher()
+    private var showUndoSnackbar = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
+    private var revisionForUndo: Long = 0
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler.onUrlClick(url, null, "")
     }
@@ -69,12 +73,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
+        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         binding.talkRecyclerView.adapter = TalkReplyItemAdapter()
-
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
 
         binding.talkErrorView.backClickListener = View.OnClickListener {
             finish()
@@ -102,7 +105,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.talkReplyButton.hide()
         }
 
-        binding.replySubjectText.addTextChangedListener(textWatcher)
+        textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
+            binding.replySubjectLayout.error = null
+            binding.replyTextLayout.error = null
+        }
         binding.replyEditText.addTextChangedListener(textWatcher)
         binding.replySaveButton.setOnClickListener {
             onSaveClicked()
@@ -167,6 +173,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.replyTextLayout.visibility = View.GONE
             binding.replyTextLayout.hint = getString(R.string.talk_reply_hint)
             binding.licenseText.visibility = View.GONE
+            DeviceUtil.hideSoftKeyboard(this)
             loadTopic()
         }
     }
@@ -184,7 +191,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
                     val talkTopic = response.topics?.find { t -> t.id == topicId }!!
-                    TalkPageSeenDatabaseTable.setTalkTopicSeen(talkTopic)
+                    AppDatabase.getAppDatabase().talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
                     currentRevision = response.revision
                     talkTopic
                 }
@@ -204,13 +211,17 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.talkReplyButton.hide()
         } else {
             binding.talkReplyButton.show()
+            binding.talkReplyButton.isEnabled = true
+            binding.talkReplyButton.alpha = 1.0f
         }
         binding.talkRefreshView.isRefreshing = false
 
         val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
-        binding.talkSubjectView.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+        binding.talkSubjectView.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
         binding.talkSubjectView.visibility = View.VISIBLE
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+
+        maybeShowUndoSnackbar()
     }
 
     private fun updateOnError(t: Throwable) {
@@ -281,20 +292,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
-    @Suppress("RedundantInnerClassModifier")
-    internal inner class ReplyTextWatcher : TextWatcher {
-        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        }
-
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            binding.replySubjectLayout.error = null
-            binding.replyTextLayout.error = null
-        }
-
-        override fun afterTextChanged(p0: Editable?) {
-        }
-    }
-
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
         var body = binding.replyEditText.text.toString().trim()
@@ -333,6 +330,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }))
     }
 
+    private fun undoSave() {
+        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
+            .subscribeOn(Schedulers.io())
+            .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, revisionForUndo, token) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                waitForUpdatedRevision(it.edit!!.newRevId)
+            }, {
+                onSaveError(it)
+            }))
+    }
+
     private fun doSave(token: String, subject: String, body: String) {
         disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
                 if (isNewTopic()) "new" else topicId.toString(),
@@ -343,6 +353,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    showUndoSnackbar = true
                     waitForUpdatedRevision(it.edit!!.newRevId)
                 }, {
                     onSaveError(it)
@@ -362,10 +373,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
                 .retry(20) { t ->
                     (t is IllegalStateException) ||
-                            (isNewTopic() && t is HttpStatusException && t.code() == 404)
+                            (isNewTopic() && t is HttpStatusException && t.code == 404)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    revisionForUndo = it
                     onSaveSuccess(it)
                 }, { t ->
                     L.e(t)
@@ -375,11 +387,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun onSaveSuccess(newRevision: Long) {
         binding.talkProgressBar.visibility = View.GONE
+        binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
 
         if (isNewTopic()) {
-            setResult(RESULT_EDIT_SUCCESS)
-            finish()
+            Intent().let {
+                it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
+                setResult(RESULT_EDIT_SUCCESS, it)
+                finish()
+            }
         } else {
             onInitialLoad()
         }
@@ -389,6 +405,21 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         editFunnel.logError(t.message)
         binding.talkProgressBar.visibility = View.GONE
         FeedbackUtil.showError(this, t)
+    }
+
+    private fun maybeShowUndoSnackbar() {
+        if (showUndoSnackbar) {
+            FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
+                .setAnchorView(binding.talkReplyButton)
+                .setAction(R.string.talk_snackbar_undo) {
+                    binding.talkReplyButton.isEnabled = false
+                    binding.talkReplyButton.alpha = 0.5f
+                    binding.talkProgressBar.visibility = View.VISIBLE
+                    undoSave()
+                }
+                .show()
+            showUndoSnackbar = false
+        }
     }
 
     private fun updateEditLicenseText() {
@@ -425,10 +456,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         ShareUtil.shareText(this, title)
     }
 
+    override fun onBackPressed() {
+        if (replyActive && !isNewTopic()) {
+            onInitialLoad()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_TOPIC = "topicId"
         const val RESULT_EDIT_SUCCESS = 1
+        const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)

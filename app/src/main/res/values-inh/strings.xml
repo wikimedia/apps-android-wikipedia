@@ -835,6 +835,11 @@
   <string name="suggested_edits_last_edited">ТӀехьара хувцам</string>
   <string name="suggested_edits_last_edited_never">ЦIаккха</string>
   <string name="suggested_edits_task_new">керда</string>
+  <string name="suggested_edits_cc0_notice">Iайха даь хувцамаш дIаяздарца хьо раьза хул &lt;a href=\"%1$s\" &gt;пайда эцара бехкамашта&lt;/a&gt;, цул совгIа раьза хул хьо &lt;a href=\"%2$s\"&gt;CCO яхача лицензех&lt;/a&gt; а дола юхадаккха вIаштIехьа хургдоацача кепатохарá.</string>
+  <string name="suggested_edits_reactivation_notification_title">Тоаде мегаш дар</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Баркал хьона Википеди тоаярах! Хьалха хье сецачара дӀа хӀана волалац/йолалац хьо?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Минот йий хьога, Википеди дегӀайоалаеш болх дӀахо дӀахьоргболаш? ДӀахьажал укх тоаде мегаш долча хӀамашка.</string>
+  <string name="suggested_edits_contributions_screen_title">%s яхачун къахьегам</string>
   <string name="suggested_edits_contribution_language_label">Мотт</string>
   <string name="suggested_edits_contribution_date_time_label">Таьрахь/Ха</string>
   <string name="suggested_edits_contribution_type_label">Къахьегама тайпа</string>
@@ -874,6 +879,16 @@
     <item quantity="one">%d фискал тӀатехай Ӏа</item>
     <item quantity="other">%d фискал тӀатехай Ӏа</item>
   </plurals>
+  <string name="file_page_activity_title">Файла оагӀув</string>
+  <string name="file_page_add_image_caption_button">Суртах лаьцар тӀатоха</string>
+  <string name="file_page_add_image_tags_button">Сурта фосташ тӀатоха</string>
+  <string name="file_page_suggestion_reason">Тоаде мегаш дар белгалдаккхара бахьан</string>
+  <string name="description_edit_revert_subtitle">Баркал Википеди тоаярах!</string>
+  <string name="description_edit_revert_intro">Тхона хов Википеди тоае хьо гӀерташ хьо хинналга, амма цхьан доакъашхочо гӀалат зийннад. Ӏа тоадаьр юхадаккхара бахьан хила мег:</string>
+  <string name="description_edit_revert_reason1">&lt;a href=\"%1$s\"&gt;Кулгалдеш йолча принцапашта&lt;/a&gt; юкъера цхьанеца вӀашкабоагӀаш бацар хьа хувцам.</string>
+  <string name="description_edit_revert_reason2">эксперимент е вандализм йолчох тара дар хьа хувцам.</string>
+  <string name="description_edit_revert_history">Хьашт дале, &lt;a href=\"%1$s\"&gt;хувцамий тархьарга&lt;/a&gt; хьажа.</string>
+  <string name="description_edit_login_cancel_button_text">ЭШАЦ</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="onboarding_skip">Теркал ма де</string>
