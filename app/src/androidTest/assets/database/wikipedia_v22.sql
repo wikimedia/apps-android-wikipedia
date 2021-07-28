@@ -226,7 +226,7 @@ INSERT INTO `offlineobject` VALUES (286,'https://upload.wikimedia.org/wikipedia/
 INSERT INTO `offlineobject` VALUES (311,'https://upload.wikimedia.org/wikipedia/commons/2/23/Icons-mini-file_acrobat.gif','en','/data/user/0/org.wikipedia.dev/files/offline_files/556bfa46c097c91ea2ea2f720a8be394','|4|',0);
 CREATE TABLE localreadinglistpage ( _id integer primary key autoincrement, listId integer, site text not null, lang text, namespace integer not null, title text not null, mtime integer not null, atime integer not null, thumbnailUrl text, description text, revId integer, offline integer, status integer, sizeBytes integer, remoteId integer not null , apiTitle string);
 INSERT INTO `localreadinglistpage` VALUES (1,1,'en.wikipedia.org','en',0,'Donald Trump',1624996843593,1624996843593,'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/253px-Donald_Trump_official_portrait.jpg','45th president of the United States',0,1,1,15096687,42,'Donald_Trump');
-INSERT INTO `localreadinglistpage` VALUES (3,2,'en.wikipedia.org','en',0,'Joe Biden',1624996865365,1624996865365,'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Joe_Biden_presidential_portrait.jpg/256px-Joe_Biden_presidential_portrait.jpg','46th president of the United States',0,1,1,6479128,43,'Joe_Biden');
+INSERT INTO `localreadinglistpage` VALUES (3,2,'en.wikipedia.org','en',0,'Joe Biden',1624996865365,1624996865365,null,null,0,1,1,6479128,43,null);
 INSERT INTO `localreadinglistpage` VALUES (4,1,'en.wikipedia.org','en',0,'Barack Obama',1624996881107,1624996881107,'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg','44th president of the United States',0,1,1,5695183,44,'Barack_Obama');
 INSERT INTO `localreadinglistpage` VALUES (5,2,'en.wikipedia.org','en',0,'Barack Obama',1624996887497,1624996887497,'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg','44th president of the United States',0,1,1,3355918,45,'Barack_Obama');
 INSERT INTO `localreadinglistpage` VALUES (7,2,'ru.wikipedia.org','ru',0,'Обама, Барак',1624996966979,1624996966979,'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg','американский политик, 44-й президент США (2009–2017)',0,1,1,2977845,46,'Обама,_Барак');
@@ -236,7 +236,7 @@ INSERT INTO `localreadinglist` VALUES (1,'Saved',1624995934302,1624995934302,'De
 INSERT INTO `localreadinglist` VALUES (2,'People',1624996865342,1624996865342,'',0,1,101);
 INSERT INTO `localreadinglist` VALUES (3,'More people',1624997002935,1624997002935,'Example list description',0,1,102);
 CREATE TABLE history ( _id integer primary key, site string, title string, timestamp integer, source integer , namespace string, lang text, timeSpent integer, displayTitle string);
-INSERT INTO `history` VALUES (1,'en.wikipedia.org','Barack_Obama',1624996954234,1,NULL,'en',0,'Barack Obama');
+INSERT INTO `history` VALUES (1,'en.wikipedia.org','Barack_Obama',1624996954234,1,NULL,'en',0,null);
 INSERT INTO `history` VALUES (2,'en.wikipedia.org','Trump',1624996822055,1,NULL,'en',0,'Trump');
 INSERT INTO `history` VALUES (3,'en.wikipedia.org','Joe_Biden',1624996827168,1,NULL,'en',0,'Joe Biden');
 INSERT INTO `history` VALUES (4,'en.wikipedia.org','Dmitry_Brant/sandbox',1624996919378,1,'User','en',0,'User:Dmitry Brant/sandbox');
