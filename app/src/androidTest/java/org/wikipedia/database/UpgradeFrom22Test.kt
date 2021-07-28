@@ -6,6 +6,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.hamcrest.CoreMatchers.equalTo
+import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
 import org.junit.Before
@@ -78,6 +79,13 @@ class UpgradeFrom22Test {
         assertThat(readingLists[0].pages[1].description, equalTo("44th president of the United States"))
         assertThat(readingLists[0].pages[1].sizeBytes, equalTo(5695183))
         assertThat(readingLists[0].pages[1].remoteId, equalTo(44))
+
+        assertThat(readingLists[1].pages[0].apiTitle, equalTo("Joe Biden"))
+        assertThat(readingLists[1].pages[0].displayTitle, equalTo("Joe Biden"))
+        assertThat(readingLists[1].pages[0].thumbUrl, nullValue())
+        assertThat(readingLists[1].pages[0].lang, equalTo("en"))
+        assertThat(readingLists[1].pages[0].description, nullValue())
+        assertThat(readingLists[1].pages[0].remoteId, equalTo(43))
 
         assertThat(readingLists[1].title, equalTo("People"))
         assertThat(readingLists[1].description, equalTo(""))

@@ -271,7 +271,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     private fun validateText() {
         isTextValid = true
-        val text = binding.viewDescriptionEditText.text.toString().toLowerCase(Locale.getDefault()).trim()
+        val text = binding.viewDescriptionEditText.text.toString().lowercase(Locale.getDefault()).trim()
         if (text.isEmpty()) {
             isTextValid = false
             clearError()
