@@ -237,7 +237,7 @@ INSERT INTO `localreadinglist` VALUES (2,'People',1624996865342,1624996865342,''
 INSERT INTO `localreadinglist` VALUES (3,'More people',1624997002935,1624997002935,'Example list description',0,1,102);
 CREATE TABLE history ( _id integer primary key, site string, title string, timestamp integer, source integer , namespace string, lang text, timeSpent integer, displayTitle string);
 INSERT INTO `history` VALUES (1,'en.wikipedia.org','Barack_Obama',1624996954234,1,NULL,'en',0,null);
-INSERT INTO `history` VALUES (2,NULL,NULL,1624996822055,1,NULL,NULL,0,NULL);
+INSERT INTO `history` VALUES (2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 INSERT INTO `history` VALUES (3,'en.wikipedia.org','Joe_Biden',1624996827168,1,NULL,NULL,0,'Joe Biden');
 INSERT INTO `history` VALUES (4,'en.wikipedia.org','Dmitry_Brant/sandbox',1624996919378,1,'User','en',0,'User:Dmitry Brant/sandbox');
 INSERT INTO `history` VALUES (5,'ru.wikipedia.org','Обама,_Барак',1624996960719,6,NULL,'ru',0,'Обама, Барак');
