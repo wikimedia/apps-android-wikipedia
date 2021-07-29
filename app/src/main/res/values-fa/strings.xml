@@ -786,7 +786,7 @@
   <string name="suggested_edits_image_tags">برچسب‌های تصویر</string>
   <string name="suggested_edits_image_tags_publishing">در حال انتشار</string>
   <string name="suggested_edits_image_tags_published">منتشر شد</string>
-  <string name="suggested_edits_image_tags_onboarding_title">برچسب‌گذاری تصویرها، یافتن‌شان را آسان‌تر می‌کند.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">برچسب‌گذاری تصویرها یافتن‌شان را آسان‌تر می‌کند.</string>
   <string name="suggested_edits_image_tags_onboarding_text">شما با افزودن برچسب‌ها به ساده‌تر شدن جستجو برای نگاره‌ها در ویکی‌انبار کمک خواهید کرد. ویکی‌انبار مخزنی از نگاره‌های آزاد است که ویکی‌پدیا از آن‌ها به‌عنوان تصاویر آزاد در مقاله‌هایش استفاده می‌کند.</string>
   <string name="suggested_edits_image_tags_onboarding_note">تنها برچسب‌هایی که انتخاب کنید به تصاویر افزوده خواهد شد.</string>
   <string name="suggested_edits_image_tags_task_detail">برچسب‌های سفارشی را به تصویرها بیفزایید تا یافتن‌شان آسان‌تر شود.</string>
@@ -946,7 +946,7 @@
   <string name="more_language_options">بیشتر</string>
   <string name="add_wikipedia_languages_text">افزودن زبان‌های ویکی‌پدیا</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">آیا می‌خواهید چینی از بخش زبان‌های نرم‌افزار حذف شود؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">اکنون هر دو زبان ساده و سنتی چینی در نرم‌افزار شما فعال شده‌است. تنظیمات زبان نرم‌افزار به‌روز شود؟</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">اکنون هر دو زبان ساده و سنتی چینی در نرم‌افزار شما فعال شده‌است. تنظیمات زبان نرم‌افزار روزآمد شود؟</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ویرایش زبان‌ها</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نه ممنون</string>
   <string name="remove_language_dialog_cancel_button_text">لغو</string>
