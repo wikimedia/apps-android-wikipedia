@@ -1,7 +1,6 @@
 package org.wikipedia.util
 
 import android.app.Activity
-import android.content.Context
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
@@ -13,6 +12,7 @@ import android.view.accessibility.AccessibilityManager
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.core.view.ViewCompat
@@ -70,7 +70,7 @@ object DeviceUtil {
 
     val isOnWiFi: Boolean
         get() {
-            val info = (WikipediaApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
+            val info = WikipediaApp.getInstance().getSystemService<ConnectivityManager>()!!
                     .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
             return info != null && info.isConnected
         }
@@ -81,7 +81,7 @@ object DeviceUtil {
 
     val isAccessibilityEnabled: Boolean
         get() {
-            val am = WikipediaApp.getInstance().getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
+            val am = WikipediaApp.getInstance().getSystemService<AccessibilityManager>()!!
             // TODO: add more logic if other accessibility tools have different settings.
             return am.isEnabled && am.isTouchExplorationEnabled
         }

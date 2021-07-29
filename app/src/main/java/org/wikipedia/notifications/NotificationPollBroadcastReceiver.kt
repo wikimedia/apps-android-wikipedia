@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
 import androidx.annotation.StringRes
+import androidx.core.content.getSystemService
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -76,7 +77,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
         @JvmStatic
         fun startPollTask(context: Context) {
-            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val alarmManager = context.getSystemService<AlarmManager>()!!
             try {
                 alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                         SystemClock.elapsedRealtime(),
@@ -92,8 +93,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         fun stopPollTask(context: Context) {
-            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            alarmManager.cancel(getAlarmPendingIntent(context))
+            context.getSystemService<AlarmManager>()!!.cancel(getAlarmPendingIntent(context))
         }
 
         private fun getAlarmPendingIntent(context: Context): PendingIntent {
