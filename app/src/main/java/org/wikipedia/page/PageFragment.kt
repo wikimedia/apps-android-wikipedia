@@ -145,7 +145,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
     private val foregroundTabPosition get() = app.tabList.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
-    val currentTab get() = app.tabList[app.tabList.size - 1]!!
+    val currentTab get() = app.tabList.last()
     val title get() = model.title
     val page get() = model.page
     val historyEntry get() = model.curEntry
@@ -442,7 +442,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             pageFragmentLoadState.setTab(tab)
         }
         if (app.tabCount > 0) {
-            app.tabList[app.tabList.size - 1].squashBackstack()
+            app.tabList.last().squashBackstack()
             pageFragmentLoadState.loadFromBackStack()
         }
     }
@@ -894,7 +894,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         if (squashBackstack) {
             if (app.tabCount > 0) {
-                app.tabList[app.tabList.size - 1].clearBackstack()
+                app.tabList.last().clearBackstack()
             }
         }
         loadPage(title, entry, pushBackStack, 0, isRefresh)

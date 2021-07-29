@@ -18,8 +18,7 @@ object PermissionUtil {
     @JvmStatic
     fun isPermitted(grantResults: IntArray): Boolean {
         // If request is cancelled, the result arrays are empty.
-        return (grantResults.isNotEmpty() &&
-                grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        return grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED
     }
 
     @TargetApi(Build.VERSION_CODES.M)

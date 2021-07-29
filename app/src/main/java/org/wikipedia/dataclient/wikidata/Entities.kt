@@ -8,7 +8,7 @@ class Entities : MwResponse(), PostProcessable {
 
     val entities: Map<String, Entity> = emptyMap()
     val first: Entity?
-        get() = if (entities.isEmpty()) null else entities.values.iterator().next()
+        get() = entities.values.firstOrNull()
 
     override fun postProcess() {
         if (first?.isMissing == true) {

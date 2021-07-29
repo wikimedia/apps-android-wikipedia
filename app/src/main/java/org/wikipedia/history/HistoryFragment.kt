@@ -376,7 +376,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
 
         fun hideHeader() {
-            if (historyEntries.isNotEmpty() && historyEntries[0] is SearchBar) {
+            if (historyEntries.firstOrNull() is SearchBar) {
                 historyEntries.removeAt(0)
                 notifyDataSetChanged()
             }

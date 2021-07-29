@@ -43,7 +43,7 @@ open class GalleryItem : Serializable {
 
     // The getSources has different levels of source,
     // should have an option that allows user to chose which quality to play
-    val originalVideoSource get() = sources?.getOrNull(sources.size - 1)
+    val originalVideoSource get() = sources?.lastOrNull()
 
     var structuredCaptions
         get() = structuredData?.captions ?: emptyMap()

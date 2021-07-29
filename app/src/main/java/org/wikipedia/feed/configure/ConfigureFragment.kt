@@ -248,7 +248,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
 
     companion object {
         private fun isLimitedToDomains(domainNames: List<String>): Boolean {
-            return domainNames.isNotEmpty() && !domainNames[0].contains("*")
+            return !domainNames.getOrElse(0) { "*" }.contains("*")
         }
 
         private fun addDomainNamesAsLangCodes(outList: MutableList<String>, domainNames: List<String>) {

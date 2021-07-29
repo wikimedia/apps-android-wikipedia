@@ -142,11 +142,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
     // Call to kick off the request chain or to retry a failed request.  To move to the next pending
     // client, call requestNextCard.
     private fun requestCard(wiki: WikiSite) {
-        if (pendingClients.isEmpty()) {
-            removeProgressCard()
-            return
-        }
-        pendingClients[0].request(context, wiki, age, callback)
+        pendingClients.firstOrNull()?.request(context, wiki, age, callback) ?: removeProgressCard()
     }
 
     private fun requestNextCard(wiki: WikiSite) {
@@ -171,7 +167,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
         }
     }
 
-    private val lastCard get() = if (cards.size > 1) cards[cards.size - 1] else null
+    private val lastCard get() = if (cards.size > 1) cards.last() else null
 
     private fun requestProgressCard() {
         if (lastCard !is ProgressCard) {

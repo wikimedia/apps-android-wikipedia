@@ -147,7 +147,7 @@ class PlainPasteEditText : TextInputEditText {
     private fun onFinished(findingNext: Boolean, listener: FindListener) {
         listener.onFinished(findInPageCurrentTextPosition,
                 findInPageTextPositionList.size,
-                if (findInPageTextPositionList.isEmpty()) 0 else findInPageTextPositionList[findInPageCurrentTextPosition],
+                findInPageTextPositionList.getOrElse(findInPageCurrentTextPosition) { 0 },
                 findingNext)
     }
 }

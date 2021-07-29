@@ -10,7 +10,7 @@ class Tab {
         get() = if (field < 0) backStack.size - 1 else field
 
     val backStackPositionTitle: PageTitle?
-        get() = if (backStack.isEmpty()) null else backStack[backStackPosition].title
+        get() = backStack.getOrNull(backStackPosition)?.title
 
     fun setBackStackPositionTitle(title: PageTitle) {
         backStackPositionTitle?.run {
@@ -56,7 +56,7 @@ class Tab {
         if (backStack.isEmpty()) {
             return
         }
-        val item = backStack[backStack.size - 1]
+        val item = backStack.last()
         backStack.clear()
         backStack.add(item)
         backStackPosition = 0
