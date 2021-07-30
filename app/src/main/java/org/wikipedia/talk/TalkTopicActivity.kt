@@ -53,7 +53,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
     private var undone = false
-    private var body = ""
+    private var undoneText = ""
     private var showUndoSnackbar = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
@@ -136,7 +136,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }, 500)
         binding.talkReplyButton.hide()
         if (undone) {
-            binding.replyEditText.setText(body)
+            binding.replyEditText.setText(undoneText)
             binding.replyEditText.setSelection(binding.replyEditText.text.toString().length)
         }
     }
@@ -304,7 +304,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
-        body = binding.replyEditText.text.toString().trim()
+        var body = binding.replyEditText.text.toString().trim()
+        undoneText = binding.replyEditText.text.toString().trim()
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
