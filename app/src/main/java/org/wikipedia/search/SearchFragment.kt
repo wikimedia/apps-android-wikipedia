@@ -11,7 +11,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -20,7 +19,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.analytics.SearchFunnel
-import org.wikipedia.database.contract.SearchHistoryContract
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -30,6 +29,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil.AddToDefaultListCallback
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil.addToDefaultList
+import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -340,12 +340,12 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun addRecentSearch(title: String?) {
         if (isValidQuery(title)) {
-            disposables.add(Completable.fromAction {
-                app.getDatabaseClient(RecentSearch::class.java).upsert(RecentSearch(title), SearchHistoryContract.Query.SELECTION)
-            }
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ recentSearchesFragment.updateList() }) { obj: Throwable -> obj.printStackTrace() })
+            disposables.add(AppDatabase.getAppDatabase().recentSearchDao().insertRecentSearch(RecentSearch(text = title!!))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    recentSearchesFragment.updateList()
+                }) { obj: Throwable -> obj.printStackTrace() })
         }
     }
 

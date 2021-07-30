@@ -1,9 +1,10 @@
 package org.wikipedia.dataclient
 
-import androidx.collection.LruCache
+import androidx.collection.lruCache
 import okhttp3.Interceptor
 import okhttp3.Response
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.DestinationEventService
 import org.wikipedia.analytics.eventplatform.EventService
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
@@ -12,70 +13,51 @@ import org.wikipedia.settings.Prefs
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.io.IOException
 
 object ServiceFactory {
-
     private const val SERVICE_CACHE_SIZE = 8
-    private val SERVICE_CACHE = LruCache<Long, Service?>(SERVICE_CACHE_SIZE)
-    private val REST_SERVICE_CACHE = LruCache<Long, RestService?>(SERVICE_CACHE_SIZE)
-    private val CORE_REST_SERVICE_CACHE = LruCache<Long, CoreRestService?>(SERVICE_CACHE_SIZE)
-    private val ANALYTICS_REST_SERVICE_CACHE = LruCache<String, EventService?>(SERVICE_CACHE_SIZE)
+    private val SERVICE_CACHE = lruCache<WikiSite, Service>(SERVICE_CACHE_SIZE, create = {
+        // This method is called in the get() method if a value does not already exist.
+        createRetrofit(it, getBasePath(it)).create<Service>()
+    })
+    private val REST_SERVICE_CACHE = lruCache<WikiSite, RestService>(SERVICE_CACHE_SIZE, create = {
+        createRetrofit(it, getRestBasePath(it)).create<RestService>()
+    })
+    private val CORE_REST_SERVICE_CACHE = lruCache<WikiSite, CoreRestService>(SERVICE_CACHE_SIZE, create = {
+        createRetrofit(it, it.url() + "/" + CoreRestService.CORE_REST_API_PREFIX).create<CoreRestService>()
+    })
+    private val ANALYTICS_REST_SERVICE_CACHE = lruCache<DestinationEventService, EventService>(SERVICE_CACHE_SIZE, create = {
+        val intakeBaseUriOverride = Prefs.getEventPlatformIntakeUriOverride().ifEmpty { it.baseUri }
+        createRetrofit(null, intakeBaseUriOverride).create<EventService>()
+    })
 
     @JvmStatic
     fun get(wiki: WikiSite): Service {
-        val hashCode = wiki.hashCode().toLong()
-        if (SERVICE_CACHE[hashCode] != null) {
-            return SERVICE_CACHE[hashCode]!!
-        }
-        val r = createRetrofit(wiki, getBasePath(wiki))
-        val s = r.create(Service::class.java)
-        SERVICE_CACHE.put(hashCode, s)
-        return s
+        return SERVICE_CACHE[wiki]!!
     }
 
     fun getRest(wiki: WikiSite): RestService {
-        val hashCode = wiki.hashCode().toLong()
-        if (REST_SERVICE_CACHE[hashCode] != null) {
-            return REST_SERVICE_CACHE[hashCode]!!
-        }
-        val r = createRetrofit(wiki, getRestBasePath(wiki))
-        val s = r.create(RestService::class.java)
-        REST_SERVICE_CACHE.put(hashCode, s)
-        return s
+        return REST_SERVICE_CACHE[wiki]!!
     }
 
     fun getCoreRest(wiki: WikiSite): CoreRestService {
-        val hashCode = wiki.hashCode().toLong()
-        if (CORE_REST_SERVICE_CACHE[hashCode] != null) {
-            return CORE_REST_SERVICE_CACHE[hashCode]!!
-        }
-        val r = createRetrofit(wiki, wiki.url() + "/" + CoreRestService.CORE_REST_API_PREFIX)
-        val s = r.create(CoreRestService::class.java)
-        CORE_REST_SERVICE_CACHE.put(hashCode, s)
-        return s
+        return CORE_REST_SERVICE_CACHE[wiki]!!
     }
 
     @JvmStatic
     fun getAnalyticsRest(streamConfig: StreamConfig): EventService {
-        val destinationEventService = streamConfig.destinationEventService
-        if (ANALYTICS_REST_SERVICE_CACHE[destinationEventService.id] != null) {
-            return ANALYTICS_REST_SERVICE_CACHE[destinationEventService.id]!!
-        }
-        val intakeBaseUriOverride = Prefs.getEventPlatformIntakeUriOverride().orEmpty().ifEmpty { destinationEventService.baseUri }
-        val r = createRetrofit(null, intakeBaseUriOverride)
-        val s = r.create(EventService::class.java)
-        ANALYTICS_REST_SERVICE_CACHE.put(destinationEventService.id, s)
-        return s
+        return ANALYTICS_REST_SERVICE_CACHE[streamConfig.destinationEventService]!!
     }
 
     operator fun <T> get(wiki: WikiSite, baseUrl: String?, service: Class<T>?): T {
-        val r = createRetrofit(wiki, (if (baseUrl.isNullOrEmpty()) wiki.url() + "/" else baseUrl))
+        val r = createRetrofit(wiki, baseUrl.orEmpty().ifEmpty { wiki.url() + "/" })
         return r.create(service)
     }
 
     private fun getBasePath(wiki: WikiSite): String {
-        return if (Prefs.getMediaWikiBaseUrl().isEmpty()) wiki.url() + "/" else Prefs.getMediaWikiBaseUrl()
+        return Prefs.getMediaWikiBaseUrl().ifEmpty { wiki.url() + "/" }
     }
 
     fun getRestBasePath(wiki: WikiSite): String {

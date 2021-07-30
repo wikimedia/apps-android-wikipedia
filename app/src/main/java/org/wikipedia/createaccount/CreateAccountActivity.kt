@@ -146,10 +146,7 @@ class CreateAccountActivity : BaseActivity() {
 
     private fun doCreateAccount(token: String) {
         showProgressBar(true)
-        var email: String? = null
-        if (getText(binding.createAccountEmail).isNotEmpty()) {
-            email = getText(binding.createAccountEmail)
-        }
+        val email = getText(binding.createAccountEmail).ifEmpty { null }
         val password = getText(binding.createAccountPasswordInput)
         val repeat = getText(binding.createAccountPasswordRepeat)
         disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(binding.createAccountUsername), password, repeat, token, Service.WIKIPEDIA_URL,

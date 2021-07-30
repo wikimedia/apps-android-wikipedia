@@ -19,11 +19,14 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.csrf.CsrfTokenClient
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
@@ -47,6 +50,7 @@ class TalkTopicsActivity : BaseActivity() {
     private val disposables = CompositeDisposable()
     private val topics = ArrayList<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+    private var revisionForLastEdit: MwQueryPage.Revision? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,7 +87,13 @@ class TalkTopicsActivity : BaseActivity() {
         funnel.logOpenTalk()
 
         binding.talkNewTopicButton.visibility = View.GONE
+
         binding.talkLastModified.visibility = View.GONE
+        binding.talkLastModified.setOnClickListener {
+            revisionForLastEdit?.let {
+                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle.displayText, it.revId, pageTitle.wikiSite.languageCode()))
+            }
+        }
     }
 
     public override fun onDestroy() {
@@ -177,6 +187,7 @@ class TalkTopicsActivity : BaseActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap {
                     it.query?.firstPage()?.revisions()?.getOrNull(0)?.let { revision ->
+                        revisionForLastEdit = revision
                         binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
                             DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp()).time,
                                 System.currentTimeMillis(), 0L), revision.user))
@@ -279,9 +290,9 @@ class TalkTopicsActivity : BaseActivity() {
 
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
-            val seen = TalkPageSeenDatabaseTable.isTalkTopicSeen(topic)
+            val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
             val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
-            title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+            title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
             title.visibility = View.VISIBLE
             subtitle.visibility = View.GONE
             title.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface

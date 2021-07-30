@@ -5,13 +5,13 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.FeedContentType
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.log.L
 
@@ -41,7 +41,7 @@ class RandomClient : FeedClient {
             .subscribeOn(Schedulers.io())
             .onErrorResumeNext { throwable ->
                 Observable.fromCallable {
-                    val page = ReadingListDbHelper.randomPage ?: throw throwable as Exception
+                    val page = AppDatabase.getAppDatabase().readingListPageDao().getRandomPage() ?: throw throwable as Exception
                     ReadingListPage.toPageSummary(page)
                 }
             }
