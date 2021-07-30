@@ -1,9 +1,8 @@
 package org.wikipedia.dataclient
 
-import androidx.collection.LruCache
+import androidx.collection.lruCache
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
-import androidx.collection.lruCache
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
@@ -15,20 +14,26 @@ import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.settings.Prefs
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
+import retrofit2.create
 import java.io.IOException
 
 object ServiceFactory {
+
     private const val SERVICE_CACHE_SIZE = 8
+
     private val SERVICE_CACHE = lruCache<WikiSite, Service>(SERVICE_CACHE_SIZE, create = {
         // This method is called in the get() method if a value does not already exist.
         createRetrofit(it, getBasePath(it)).create<Service>()
     })
+
     private val REST_SERVICE_CACHE = lruCache<WikiSite, RestService>(SERVICE_CACHE_SIZE, create = {
         createRetrofit(it, getRestBasePath(it)).create<RestService>()
     })
+
     private val CORE_REST_SERVICE_CACHE = lruCache<WikiSite, CoreRestService>(SERVICE_CACHE_SIZE, create = {
         createRetrofit(it, it.url() + "/" + CoreRestService.CORE_REST_API_PREFIX).create<CoreRestService>()
     })
+
     private val ANALYTICS_REST_SERVICE_CACHE = lruCache<DestinationEventService, EventService>(SERVICE_CACHE_SIZE, create = {
         val intakeBaseUriOverride = Prefs.getEventPlatformIntakeUriOverride().ifEmpty { it.baseUri }
         createRetrofit(null, intakeBaseUriOverride).create<EventService>()
