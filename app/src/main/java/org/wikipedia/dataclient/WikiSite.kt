@@ -154,6 +154,12 @@ class WikiSite(
         return subdomain().replace("-".toRegex(), "_") + "wiki"
     }
 
+    override fun hashCode(): Int {
+        var result = uri.hashCode()
+        result = 31 * result + languageCode.hashCode()
+        return result
+    }
+
     companion object {
         const val DEFAULT_SCHEME = "https"
         private var DEFAULT_BASE_URL: String? = null
