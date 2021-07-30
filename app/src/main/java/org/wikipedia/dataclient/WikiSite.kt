@@ -6,10 +6,9 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.WikipediaApp
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.language.LanguageUtil.firstSelectedChineseVariant
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.UriUtil.getLanguageVariantFromUri
-import org.wikipedia.util.UriUtil.removeInternalLinkPrefix
+import org.wikipedia.util.UriUtil
 
 /**
  * The base URL and Wikipedia language code for a MediaWiki site. Examples:
@@ -36,10 +35,7 @@ import org.wikipedia.util.UriUtil.removeInternalLinkPrefix
  *
  */
 @Parcelize
-class WikiSite(
-    @SerializedName("domain") var uri: Uri,
-    var languageCode: String = ""
-) : Parcelable {
+class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String = "") : Parcelable {
 
     constructor(uri: Uri) : this(uri, "") {
         val tempUri = ensureScheme(uri)
@@ -53,7 +49,7 @@ class WikiSite(
 
         // Unconditionally transform any mobile authority to canonical.
         authority = authority.replace(".m.", ".")
-        val langVariant = getLanguageVariantFromUri(tempUri)
+        val langVariant = UriUtil.getLanguageVariantFromUri(tempUri)
         languageCode = if (langVariant.isNotEmpty()) {
             langVariant
         } else {
@@ -62,7 +58,7 @@ class WikiSite(
 
         // This prevents showing mixed Chinese variants article when the URL is /zh/ or /wiki/ in zh.wikipedia.org
         if (languageCode == AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) {
-            languageCode = firstSelectedChineseVariant
+            languageCode = LanguageUtil.firstSelectedChineseVariant
         }
 
         // Use default subdomain in authority to prevent error when requesting endpoints. e.g. zh-tw.wikipedia.org
@@ -133,7 +129,7 @@ class WikiSite(
      */
     fun titleForInternalLink(internalLink: String?): PageTitle {
         // Strip the /wiki/ from the href
-        return PageTitle(removeInternalLinkPrefix(internalLink!!), this)
+        return PageTitle(UriUtil.removeInternalLinkPrefix(internalLink!!), this)
     }
 
     // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
@@ -154,10 +150,20 @@ class WikiSite(
         return subdomain().replace("-".toRegex(), "_") + "wiki"
     }
 
+    // Necessary for building HashMaps based on WikiSites.
     override fun hashCode(): Int {
         var result = uri.hashCode()
         result = 31 * result + languageCode.hashCode()
         return result
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+        other as WikiSite
+        if (uri != other.uri) return false
+        if (languageCode != other.languageCode) return false
+        return true
     }
 
     companion object {

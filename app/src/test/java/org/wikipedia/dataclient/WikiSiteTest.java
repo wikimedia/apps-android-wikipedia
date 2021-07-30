@@ -10,6 +10,7 @@ import org.wikipedia.test.TestParcelUtil;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 @RunWith(RobolectricTestRunner.class) public class WikiSiteTest {
     @Test public void testSupportedAuthority() {
@@ -229,6 +230,13 @@ import static org.hamcrest.Matchers.is;
         assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("wiki")));
         assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("/wiki/wiki")));
         assertThat(new PageTitle("wiki/wiki", wiki), is(wiki.titleForInternalLink("/wiki/wiki/wiki")));
+    }
+
+    @Test public void testEquals() {
+        assertThat(WikiSite.forLanguageCode("en"), is(WikiSite.forLanguageCode("en")));
+
+        assertThat(WikiSite.forLanguageCode("ta"), not(WikiSite.forLanguageCode("en")));
+        assertThat(WikiSite.forLanguageCode("ta").equals("ta.wikipedia.org"), is(false));
     }
 
     @Test public void testNormalization() {

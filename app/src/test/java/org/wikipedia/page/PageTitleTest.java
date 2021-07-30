@@ -60,7 +60,8 @@ import static org.hamcrest.Matchers.nullValue;
 
     @Test public void testWikiSite() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
-        assertThat(new PageTitle(null, "Test", enwiki).getWikiSite().getLanguageCode(), is("en"));
+        assertThat(new PageTitle(null, "Test", enwiki).getWikiSite(), is(enwiki));
+        assertThat(WikiSite.forLanguageCode("en"), is(enwiki));
     }
 
     @Test public void testParsing() {
