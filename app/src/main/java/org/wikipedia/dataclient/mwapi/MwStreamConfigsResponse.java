@@ -8,6 +8,9 @@ import org.wikipedia.analytics.eventplatform.StreamConfig;
 import java.util.Collections;
 import java.util.Map;
 
+import kotlinx.serialization.Serializable;
+
+@Serializable
 public class MwStreamConfigsResponse extends MwResponse {
 
     @Nullable private Map<String, StreamConfig> streams;

@@ -14,6 +14,8 @@ import org.wikipedia.util.ThrowableUtil;
 import java.util.Date;
 import java.util.List;
 
+import kotlinx.serialization.Serializable;
+
 /**
  * Gson POJO for a MediaWiki API error.
  */

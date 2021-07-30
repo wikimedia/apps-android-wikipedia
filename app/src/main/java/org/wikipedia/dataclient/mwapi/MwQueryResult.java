@@ -20,6 +20,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import kotlinx.serialization.Serializable;
+
 @SuppressWarnings("unused")
 public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable {
     @Nullable private List<MwQueryPage> pages;

@@ -1,8 +1,11 @@
 package org.wikipedia.dataclient.mwapi
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 
-open class MwQueryResponse : MwResponse() {
+@Serializable
+open class MwQueryResponse : @Contextual MwResponse() {
 
     @SerializedName("batchcomplete")
     val batchComplete = false
@@ -10,5 +13,5 @@ open class MwQueryResponse : MwResponse() {
     @SerializedName("continue")
     val continuation: Map<String, String> = emptyMap()
 
-    var query: MwQueryResult? = null
+    @Contextual var query: MwQueryResult? = null
 }
