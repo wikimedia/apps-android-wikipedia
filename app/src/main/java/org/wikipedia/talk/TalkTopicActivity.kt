@@ -52,6 +52,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private var topicId: Int = -1
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
+    private var undone = false
+    private var body = ""
     private var showUndoSnackbar = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
@@ -88,21 +90,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         binding.talkReplyButton.setOnClickListener {
             talkFunnel.logReplyClick()
-            replyActive = true
-            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-            binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-            binding.replySaveButton.visibility = View.VISIBLE
-            binding.replyTextLayout.visibility = View.VISIBLE
-            binding.licenseText.visibility = View.VISIBLE
-            DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
             editFunnel.logStart()
-            binding.talkScrollContainer.postDelayed({
-                if (!isDestroyed) {
-                    binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-                    binding.replyTextLayout.requestFocus()
-                }
-            }, 500)
-            binding.talkReplyButton.hide()
+            replyClicked()
         }
 
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
@@ -129,6 +118,27 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         updateEditLicenseText()
 
         onInitialLoad()
+    }
+
+    private fun replyClicked() {
+        replyActive = true
+        binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+        binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
+        binding.replySaveButton.visibility = View.VISIBLE
+        binding.replyTextLayout.visibility = View.VISIBLE
+        binding.licenseText.visibility = View.VISIBLE
+        DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
+        binding.talkScrollContainer.postDelayed({
+            if (!isDestroyed) {
+                binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
+                binding.replyTextLayout.requestFocus()
+            }
+        }, 500)
+        binding.talkReplyButton.hide()
+        if (undone) {
+            binding.replyEditText.setText(body)
+            binding.replyEditText.setSelection(binding.replyEditText.text.toString().length)
+        }
     }
 
     public override fun onDestroy() {
@@ -294,7 +304,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
-        var body = binding.replyEditText.text.toString().trim()
+        body = binding.replyEditText.text.toString().trim()
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
@@ -408,10 +418,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun maybeShowUndoSnackbar() {
+        if (undone) {
+            replyClicked()
+            undone = false
+            return
+        }
         if (showUndoSnackbar) {
             FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
                 .setAnchorView(binding.talkReplyButton)
                 .setAction(R.string.talk_snackbar_undo) {
+                    undone = true
                     binding.talkReplyButton.isEnabled = false
                     binding.talkReplyButton.alpha = 0.5f
                     binding.talkProgressBar.visibility = View.VISIBLE
