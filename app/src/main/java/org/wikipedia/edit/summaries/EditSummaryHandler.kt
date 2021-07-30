@@ -5,7 +5,7 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.database.AppDatabase.Companion.getAppDatabase
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil.setConditionalTextDirection
@@ -18,7 +18,7 @@ class EditSummaryHandler(private val container: View,
         container.setOnClickListener { summaryEdit.requestFocus() }
         setConditionalTextDirection(summaryEdit, title.wikiSite.languageCode())
 
-        getAppDatabase().editSummaryDao().getEditSummaries()
+        AppDatabase.instance.editSummaryDao().getEditSummaries()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { summaries ->
@@ -38,7 +38,7 @@ class EditSummaryHandler(private val container: View,
     }
 
     fun persistSummary() {
-        getAppDatabase().editSummaryDao().insertEditSummary(EditSummary(summary = summaryEdit.text.toString()))
+        AppDatabase.instance.editSummaryDao().insertEditSummary(EditSummary(summary = summaryEdit.text.toString()))
             .subscribeOn(Schedulers.io())
             .subscribe()
     }

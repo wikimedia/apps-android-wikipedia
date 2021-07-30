@@ -57,9 +57,9 @@ class ReadingListSyncAdapter : JobIntentService() {
                 // reset the remote ID on all lists, since they will need to be recreated next time.
                 L.d("Resetting all lists to un-synced.")
                 syncEverything = true
-                AppDatabase.getAppDatabase().readingListDao().markAllListsUnsynced()
-                AppDatabase.getAppDatabase().readingListPageDao().markAllPagesUnsynced()
-                allLocalLists = AppDatabase.getAppDatabase().readingListDao().getAllLists().toMutableList()
+                AppDatabase.instance.readingListDao().markAllListsUnsynced()
+                AppDatabase.instance.readingListPageDao().markAllPagesUnsynced()
+                allLocalLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
             }
             if (Prefs.isReadingListsRemoteDeletePending()) {
                 // Are we scheduled for a teardown? If so, delete everything and bail.
@@ -83,11 +83,11 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
             if (syncEverything) {
                 if (allLocalLists == null) {
-                    allLocalLists = AppDatabase.getAppDatabase().readingListDao().getAllLists().toMutableList()
+                    allLocalLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
                 }
             } else {
                 if (allLocalLists == null) {
-                    allLocalLists = AppDatabase.getAppDatabase().readingListDao().getAllListsWithUnsyncedPages().toMutableList()
+                    allLocalLists = AppDatabase.instance.readingListDao().getAllListsWithUnsyncedPages().toMutableList()
                 }
                 L.d("Fetching changes from server, since $lastSyncTime")
                 val allChanges = client.getChangesSince(lastSyncTime)
@@ -112,7 +112,7 @@ class ReadingListSyncAdapter : JobIntentService() {
                 }
             }
             if (syncEverything) {
-                allLocalLists = AppDatabase.getAppDatabase().readingListDao().getAllLists().toMutableList()
+                allLocalLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
                 L.d("Fetching all lists from server...")
                 remoteListsModified = client.allLists as MutableList<RemoteReadingList>
             }
@@ -150,13 +150,13 @@ class ReadingListSyncAdapter : JobIntentService() {
                 }
                 if (remoteList.isDefault && localList != null && !localList.isDefault) {
                     L.logRemoteError(RuntimeException("Unexpected: remote default list corresponds to local non-default list."))
-                    localList = AppDatabase.getAppDatabase().readingListDao().defaultList
+                    localList = AppDatabase.instance.readingListDao().defaultList
                 }
                 if (remoteList.isDeleted) {
                     if (localList != null && !localList.isDefault) {
                         L.d("Deleting local list " + localList.title)
-                        AppDatabase.getAppDatabase().readingListDao().deleteList(localList, false)
-                        AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(localList, localList.pages, false)
+                        AppDatabase.instance.readingListDao().deleteList(localList, false)
+                        AppDatabase.instance.readingListPageDao().markPagesForDeletion(localList, localList.pages, false)
                         allLocalLists.remove(localList)
                         shouldSendSyncEvent = true
                     }
@@ -167,9 +167,9 @@ class ReadingListSyncAdapter : JobIntentService() {
                     L.d("Creating local list " + remoteList.name())
                     localList = if (remoteList.isDefault) {
                         L.logRemoteError(RuntimeException("Unexpected: local default list no longer matches remote."))
-                        AppDatabase.getAppDatabase().readingListDao().defaultList
+                        AppDatabase.instance.readingListDao().defaultList
                     } else {
-                        AppDatabase.getAppDatabase().readingListDao().createList(remoteList.name(), remoteList.description())
+                        AppDatabase.instance.readingListDao().createList(remoteList.name(), remoteList.description())
                     }
                     localList.remoteId = remoteList.id
                     allLocalLists.add(localList)
@@ -187,7 +187,7 @@ class ReadingListSyncAdapter : JobIntentService() {
                 if (upsertNeeded) {
                     L.d("Updating info for local list " + localList.title)
                     localList.dirty = false
-                    AppDatabase.getAppDatabase().readingListDao().updateList(localList, false)
+                    AppDatabase.instance.readingListDao().updateList(localList, false)
                     shouldSendSyncEvent = true
                 }
                 if (syncEverything) {
@@ -278,7 +278,7 @@ class ReadingListSyncAdapter : JobIntentService() {
                 }
                 if (upsertNeeded) {
                     localList.dirty = false
-                    AppDatabase.getAppDatabase().readingListDao().updateList(localList, false)
+                    AppDatabase.instance.readingListDao().updateList(localList, false)
                 }
             }
             for (localList in allLocalLists) {
@@ -293,14 +293,14 @@ class ReadingListSyncAdapter : JobIntentService() {
                     if (localPages.size == 1) {
                         L.d("Creating new remote page " + localPages[0].displayTitle)
                         localPages[0].remoteId = client.addPageToList(getCsrfToken(wiki, csrfToken), localList.remoteId, newEntries[0])
-                        AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(localPages[0])
+                        AppDatabase.instance.readingListPageDao().updateReadingListPage(localPages[0])
                     } else {
                         L.d("Creating " + newEntries.size + " new remote pages")
                         val ids = client.addPagesToList(getCsrfToken(wiki, csrfToken), localList.remoteId, newEntries)
                         for (i in ids.indices) {
                             localPages[i].remoteId = ids[i]
                         }
-                        AppDatabase.getAppDatabase().readingListPageDao().updatePages(localPages)
+                        AppDatabase.instance.readingListPageDao().updatePages(localPages)
                     }
                 } catch (t: Throwable) {
                     // TODO: optimization opportunity -- if the server can return the ID
@@ -346,7 +346,7 @@ class ReadingListSyncAdapter : JobIntentService() {
                             }
                         }
                     }
-                    AppDatabase.getAppDatabase().readingListPageDao().updatePages(localPages)
+                    AppDatabase.instance.readingListPageDao().updatePages(localPages)
                 }
             }
         } catch (t: Throwable) {
@@ -426,7 +426,7 @@ class ReadingListSyncAdapter : JobIntentService() {
         if (localPage == null) {
             localPage = ReadingListPage(pageTitleFromRemoteEntry(remotePage))
             localPage.listId = listForPage.id
-            if (AppDatabase.getAppDatabase().readingListPageDao().pageExistsInList(listForPage, remoteTitle)) {
+            if (AppDatabase.instance.readingListPageDao().pageExistsInList(listForPage, remoteTitle)) {
                 updateOnly = true
             }
         }
@@ -437,23 +437,23 @@ class ReadingListSyncAdapter : JobIntentService() {
         }
         if (updateOnly) {
             L.d("Updating local page " + localPage.displayTitle)
-            AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(localPage)
+            AppDatabase.instance.readingListPageDao().updateReadingListPage(localPage)
         } else {
             L.d("Creating local page " + localPage.displayTitle)
-            AppDatabase.getAppDatabase().readingListPageDao().addPagesToList(listForPage, listOf(localPage), false)
+            AppDatabase.instance.readingListPageDao().addPagesToList(listForPage, listOf(localPage), false)
         }
     }
 
     private fun deletePageByTitle(listForPage: ReadingList, title: PageTitle) {
         var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it) == title }
         if (localPage == null) {
-            localPage = AppDatabase.getAppDatabase().readingListPageDao().getPageByTitle(listForPage, title)
+            localPage = AppDatabase.instance.readingListPageDao().getPageByTitle(listForPage, title)
             if (localPage == null) {
                 return
             }
         }
         L.d("Deleting local page " + localPage.displayTitle)
-        AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(listForPage, listOf(localPage), false)
+        AppDatabase.instance.readingListPageDao().markPagesForDeletion(listForPage, listOf(localPage), false)
     }
 
     private fun pageTitleFromRemoteEntry(remoteEntry: RemoteReadingListEntry): PageTitle {

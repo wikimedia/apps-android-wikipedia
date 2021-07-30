@@ -39,7 +39,7 @@ class RecentSearchesFragment : Fragment() {
             AlertDialog.Builder(requireContext())
                     .setMessage(getString(R.string.clear_recent_searches_confirm))
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
-                        disposables.add(AppDatabase.getAppDatabase().recentSearchDao().deleteAll()
+                        disposables.add(AppDatabase.instance.recentSearchDao().deleteAll()
                                 .subscribeOn(Schedulers.io())
                                 .subscribe({ updateList() }, { L.e(it) })
                         )
@@ -93,7 +93,7 @@ class RecentSearchesFragment : Fragment() {
     }
 
     fun updateList() {
-        disposables.add(AppDatabase.getAppDatabase().recentSearchDao().getRecentSearches()
+        disposables.add(AppDatabase.instance.recentSearchDao().getRecentSearches()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ searches ->

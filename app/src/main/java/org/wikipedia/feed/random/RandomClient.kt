@@ -41,7 +41,7 @@ class RandomClient : FeedClient {
             .subscribeOn(Schedulers.io())
             .onErrorResumeNext { throwable ->
                 Observable.fromCallable {
-                    val page = AppDatabase.getAppDatabase().readingListPageDao().getRandomPage() ?: throw throwable as Exception
+                    val page = AppDatabase.instance.readingListPageDao().getRandomPage() ?: throw throwable as Exception
                     ReadingListPage.toPageSummary(page)
                 }
             }

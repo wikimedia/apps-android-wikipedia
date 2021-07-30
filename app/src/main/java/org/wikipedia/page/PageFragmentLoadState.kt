@@ -125,7 +125,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
     private fun pageLoadCheckReadingLists() {
         model.title?.let {
             disposables.clear()
-            disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
+            disposables.add(Observable.fromCallable { AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { pageLoadFromNetwork { networkError -> fragment.onPageLoadError(networkError) } }
@@ -243,7 +243,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
             // Save the thumbnail URL to the DB
             val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
-            Completable.fromAction { AppDatabase.getAppDatabase().pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
+            Completable.fromAction { AppDatabase.instance.pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
             title.thumbUrl = pageImage.imageName
         }
     }

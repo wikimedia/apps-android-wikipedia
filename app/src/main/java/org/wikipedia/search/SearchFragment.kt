@@ -340,7 +340,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun addRecentSearch(title: String?) {
         if (isValidQuery(title)) {
-            disposables.add(AppDatabase.getAppDatabase().recentSearchDao().insertRecentSearch(RecentSearch(text = title!!))
+            disposables.add(AppDatabase.instance.recentSearchDao().insertRecentSearch(RecentSearch(text = title!!))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

@@ -59,7 +59,7 @@ interface OfflineObjectDao {
         }
 
         // try to find the associated title in a reading list, and add its id to the usedBy list.
-        val page = AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(
+        val page = AppDatabase.instance.readingListPageDao().findPageInAnyList(
             PageTitle(pageTitle, WikiSite.forLanguageCode(lang))
         )
         if (page != null && !obj.usedBy.contains(page.id)) {

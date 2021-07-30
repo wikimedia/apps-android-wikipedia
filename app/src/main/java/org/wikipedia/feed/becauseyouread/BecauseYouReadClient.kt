@@ -24,7 +24,7 @@ class BecauseYouReadClient : FeedClient {
         cancel()
         disposables.add(
             Observable.fromCallable {
-                AppDatabase.getAppDatabase().historyEntryWithImageDao().findEntryForReadMore(age,
+                AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age,
                     context.resources.getInteger(R.integer.article_engagement_threshold_sec))
             }
                 .subscribeOn(Schedulers.io())

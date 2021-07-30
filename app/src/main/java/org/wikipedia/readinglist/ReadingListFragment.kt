@@ -239,7 +239,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     }
 
     private fun updateReadingListData() {
-        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListDao().getListById(readingListId, true) }
+        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getListById(readingListId, true) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ list ->
@@ -364,7 +364,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         readingList?.let {
             val pages = selectedPages
             if (pages.isNotEmpty()) {
-                AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(it, pages)
+                AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, pages)
                 it.pages.removeAll(pages)
                 funnel.logDeleteItem(it, 0)
                 ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, pages) { updateReadingListData() }
@@ -646,8 +646,8 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
                 Completable.fromAction {
-                    AppDatabase.getAppDatabase().readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
-                    AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(item)
+                    AppDatabase.instance.readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
+                    AppDatabase.instance.readingListPageDao().updateReadingListPage(item)
                 }.subscribeOn(Schedulers.io()).subscribe()
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }

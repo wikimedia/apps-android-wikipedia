@@ -210,7 +210,7 @@ class RandomFragment : Fragment() {
             return
         }
 
-        val d = Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(title) != null }
+        val d = Observable.fromCallable { AppDatabase.instance.readingListPageDao().findPageInAnyList(title) != null }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ exists: Boolean ->

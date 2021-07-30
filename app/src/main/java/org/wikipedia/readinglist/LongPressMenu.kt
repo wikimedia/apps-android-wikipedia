@@ -37,8 +37,8 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
 
     fun show(entry: HistoryEntry?) {
         entry?.let {
-            Completable.fromAction { listsContainingPage = AppDatabase.getAppDatabase().readingListDao().getListsFromPageOccurrences(
-                AppDatabase.getAppDatabase().readingListPageDao().getAllPageOccurrences(it.title)) }
+            Completable.fromAction { listsContainingPage = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
+                AppDatabase.instance.readingListPageDao().getAllPageOccurrences(it.title)) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {

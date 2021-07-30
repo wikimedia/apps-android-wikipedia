@@ -290,7 +290,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
-            val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
+            val seen = AppDatabase.instance.talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
             val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
             title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
             title.visibility = View.VISIBLE

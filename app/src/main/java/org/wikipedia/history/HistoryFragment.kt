@@ -138,7 +138,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private fun onClearHistoryClick() {
-        disposables.add(AppDatabase.getAppDatabase().historyEntryDao().deleteAll()
+        disposables.add(AppDatabase.instance.historyEntryDao().deleteAll()
                 .subscribeOn(Schedulers.io())
                 .doAfterTerminate { reloadHistoryItems() }
                 .subscribe())
@@ -189,7 +189,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         val selectedEntryList = mutableListOf<HistoryEntry>()
         for (entry in selectedEntries) {
             selectedEntryList.add(entry)
-            AppDatabase.getAppDatabase().historyEntryDao().delete(entry)
+            AppDatabase.instance.historyEntryDao().delete(entry)
         }
         selectedEntries.clear()
         if (selectedEntryList.isNotEmpty()) {
@@ -202,7 +202,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         val message = if (entries.size == 1) getString(R.string.history_item_deleted, entries[0].title.displayText) else getString(R.string.history_items_deleted, entries.size)
         val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
         snackbar.setAction(R.string.history_item_delete_undo) {
-            AppDatabase.getAppDatabase().historyEntryDao().insert(entries)
+            AppDatabase.instance.historyEntryDao().insert(entries)
             reloadHistoryItems()
         }
         snackbar.show()
@@ -210,7 +210,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     private fun reloadHistoryItems() {
         disposables.clear()
-        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().historyEntryWithImageDao().filterHistoryItems(currentSearchQuery.orEmpty()) }
+        disposables.add(Observable.fromCallable { AppDatabase.instance.historyEntryWithImageDao().filterHistoryItems(currentSearchQuery.orEmpty()) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ items -> onLoadItemsFinished(items) }) { t ->
