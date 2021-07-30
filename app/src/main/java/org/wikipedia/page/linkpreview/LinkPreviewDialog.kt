@@ -206,14 +206,14 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { binding.linkPreviewProgress.visibility = View.GONE }
                     .subscribe({ response ->
-                        response?.let {
-                            val pageList = response.query?.pages()?.filter { it.imageInfo() != null }.orEmpty()
-                            binding.linkPreviewThumbnailGallery.setGalleryList(pageList)
-                            binding.linkPreviewThumbnailGallery.listener = galleryViewListener
-                        }
+                        val pageList = response.query?.pages()?.filter { it.imageInfo() != null }.orEmpty()
+                        binding.linkPreviewThumbnailGallery.setGalleryList(pageList)
+                        binding.linkPreviewThumbnailGallery.listener = galleryViewListener
                     }) { caught ->
                         L.w("Failed to fetch gallery collection.", caught)
                     })
+        } else {
+            binding.linkPreviewProgress.visibility = View.GONE
         }
     }
 
