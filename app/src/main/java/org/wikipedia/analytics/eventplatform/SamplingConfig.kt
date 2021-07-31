@@ -14,9 +14,8 @@ import androidx.annotation.VisibleForTesting
         PAGEVIEW, SESSION, DEVICE
     }
 
-    var rate = 1.0
-        private set
     private var identifier: Identifier? = null
+    var rate = 1.0
 
     // This constructor is needed for correct Gson deserialization. Do not remove!
     constructor() {}
