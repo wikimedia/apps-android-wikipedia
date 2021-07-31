@@ -1,5 +1,22 @@
 package org.wikipedia.analytics.eventplatform;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
+import static org.hamcrest.Matchers.lessThanOrEqualTo;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.times;
+import static org.wikipedia.analytics.eventplatform.DestinationEventService.LOGGING;
+import static org.wikipedia.analytics.eventplatform.EventPlatformClient.STREAM_CONFIGS;
+import static org.wikipedia.analytics.eventplatform.EventPlatformClient.addEventMetadata;
+import static org.wikipedia.analytics.eventplatform.EventPlatformClient.setStreamConfig;
+import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
+import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.PAGEVIEW;
+import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SESSION;
+
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -17,23 +34,6 @@ import org.wikipedia.test.TestFileUtil;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.lessThanOrEqualTo;
-import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.times;
-import static org.wikipedia.analytics.eventplatform.DestinationEventService.LOGGING;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClient.STREAM_CONFIGS;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClient.addEventMetadata;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClient.setStreamConfig;
-import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
-import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.PAGEVIEW;
-import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SESSION;
 
 @SuppressWarnings("checkstyle:magicnumber")
 @RunWith(RobolectricTestRunner.class)
