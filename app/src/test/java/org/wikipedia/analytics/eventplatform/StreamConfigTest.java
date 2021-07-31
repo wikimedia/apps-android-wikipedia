@@ -1,5 +1,10 @@
 package org.wikipedia.analytics.eventplatform;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.wikipedia.analytics.eventplatform.DestinationEventService.ANALYTICS;
+import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
+
 import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -8,11 +13,6 @@ import org.wikipedia.test.TestFileUtil;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.wikipedia.analytics.eventplatform.DestinationEventService.ANALYTICS;
-import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
 
 @SuppressWarnings("checkstyle:magicnumber")
 public class StreamConfigTest {
@@ -30,7 +30,7 @@ public class StreamConfigTest {
 
         assertThat(streamConfig.getStreamName(), is("test.event"));
         assertThat(streamConfig.getSchemaTitle(), is("test/event"));
-        assertThat(streamConfig.areCanaryEventsEnabled(), is(true));
+        assertThat(streamConfig.getCanaryEventsEnabled(), is(true));
         assertThat(streamConfig.getDestinationEventService(), is(ANALYTICS));
         assertThat(streamConfig.getTopicPrefixes(), is(Arrays.asList("eqiad.", "codfw.")));
         assertThat(streamConfig.getTopics(), is(Arrays.asList("eqiad.test.event", "codfw.test.event")));

@@ -36,11 +36,6 @@ android {
         jvmTarget = JAVA_VERSION
     }
 
-    dexOptions {
-        preDexLibraries = true
-        jumboMode = true
-    }
-
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 21
@@ -104,7 +99,6 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFiles 'test-proguard-rules.pro'
         }
@@ -167,6 +161,10 @@ android {
             enableSplit false
         }
     }
+}
+
+configurations {
+    compileClasspath.extendsFrom(implementation)
 }
 
 apply from: '../gradle/src/test.gradle'
