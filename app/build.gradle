@@ -21,7 +21,7 @@ def computeVersionName(label) {
     return "2.7.${android.defaultConfig.versionCode}-${label}-${date}"
 }
 
-final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
+final JavaVersion JAVA_VERSION = JavaVersion.VERSION_11
 
 android {
     compileSdkVersion 30
