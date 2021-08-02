@@ -190,8 +190,13 @@ class SuggestedEditsTasksFragment : Fragment() {
                     totalContributions += homeSiteResponse.query?.userInfo()!!.editCount
 
                     latestEditDate = wikidataResponse.query?.userInfo()!!.latestContrib
+
                     if (commonsResponse.query?.userInfo()!!.latestContrib.after(latestEditDate)) {
                         latestEditDate = commonsResponse.query?.userInfo()!!.latestContrib
+                    }
+
+                    if (homeSiteResponse.query?.userInfo()!!.latestContrib.after(latestEditDate)) {
+                        latestEditDate = homeSiteResponse.query?.userInfo()!!.latestContrib
                     }
 
                     val contributions = ArrayList<UserContribution>()
