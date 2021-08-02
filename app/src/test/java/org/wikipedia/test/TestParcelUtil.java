@@ -5,21 +5,12 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public final class TestParcelUtil {
-    public static void test(WikiSite wiki) throws Throwable {
-        Parcel parcel = parcel(wiki);
-        parcel.setDataPosition(0);
-        WikiSite wiki2 = (WikiSite) unparcel(parcel, WikiSite.class);
-        assertThat(wiki.getUri(), is(wiki2.getUri()));
-        assertThat(wiki.getLanguageCode(), is(wiki2.getLanguageCode()));
-    }
-
     public static void test(PageTitle title) throws Throwable {
         Parcel parcel = parcel(title);
         parcel.setDataPosition(0);

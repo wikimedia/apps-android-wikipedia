@@ -14,9 +14,7 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 @RunWith(RobolectricTestRunner.class) public class WikiSiteTypeAdapterTest {
     @Test public void testWriteRead() {
         WikiSite wiki = WikiSite.forLanguageCode("test");
-        WikiSite wiki2 = unmarshal(WikiSite.class, marshal(wiki));
-        assertThat(wiki2.getUri(), is(wiki.getUri()));
-        assertThat(wiki2.getLanguageCode(), is(wiki.getLanguageCode()));
+        assertThat(unmarshal(WikiSite.class, marshal(wiki)), is(wiki));
     }
 
     @Test public void testReadNull() {
