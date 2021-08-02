@@ -983,6 +983,7 @@
   <string name="talk_title">Discussione</string>
   <string name="talk_user_title">Discussione: %s</string>
   <string name="talk_new_topic">Nuovo argomento</string>
+  <string name="talk_new_topic_submitted">Argomento pubblicato.</string>
   <string name="talk_page_empty">Questa pagina di discussione è vuota.</string>
   <string name="talk_add_reply">Rispondi</string>
   <string name="talk_no_subject">(Nessun oggetto)</string>
@@ -991,6 +992,7 @@
   <string name="talk_message_hint">Scrivi un messaggio</string>
   <string name="talk_message_empty">Il messaggio non può essere vuoto.</string>
   <string name="talk_subject_empty">L\'oggetto non può essere vuoto.</string>
+  <string name="talk_response_submitted">Risposta pubblicata.</string>
   <string name="talk_snackbar_undo">Annulla</string>
   <string name="menu_option_share_edit">Condividi modifica</string>
   <string name="menu_option_user_profile">Profilo di %s</string>
