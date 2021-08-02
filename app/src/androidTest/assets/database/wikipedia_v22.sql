@@ -1,5 +1,8 @@
 BEGIN TRANSACTION;
 CREATE TABLE talkpageseen ( _id integer primary key, sha string );
+INSERT INTO `talkpageseen` VALUES (1,'734789782107987098123442');
+INSERT INTO `talkpageseen` VALUES (2,'109872340987209837412344');
+INSERT INTO `talkpageseen` VALUES (3,'109872340987209837412344');
 CREATE TABLE recentsearches ( _id integer primary key, text string, timestamp integer );
 INSERT INTO `recentsearches` VALUES (1,'obama',1624996954261);
 INSERT INTO `recentsearches` VALUES (2,'trump',1624996822088);

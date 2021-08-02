@@ -86,8 +86,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 // convert Talk Pages Seen table
                 database.execSQL("CREATE TABLE IF NOT EXISTS `TalkPageSeen_temp` (`sha` TEXT NOT NULL, PRIMARY KEY(`sha`))")
-                database.execSQL("INSERT OR REPLACE INTO TalkPageSeen_temp (sha) SELECT sha FROM talkpageseen")
-                database.execSQL("DROP TABLE talkpageseen")
+                database.query("SELECT * FROM sqlite_master WHERE type='table' AND name='talkpageseen'").use {
+                    if (it.count > 0) {
+                        database.execSQL("INSERT OR REPLACE INTO TalkPageSeen_temp (sha) SELECT sha FROM talkpageseen")
+                        database.execSQL("DROP TABLE talkpageseen")
+                    }
+                }
                 database.execSQL("ALTER TABLE TalkPageSeen_temp RENAME TO TalkPageSeen")
 
                 // convert Edit Summaries table
@@ -97,8 +101,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 // convert Offline Objects table
                 database.execSQL("CREATE TABLE IF NOT EXISTS `OfflineObject_temp` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `url` TEXT NOT NULL, `lang` TEXT NOT NULL, `path` TEXT NOT NULL, `status` INTEGER NOT NULL, `usedByStr` TEXT NOT NULL)")
-                database.execSQL("INSERT INTO OfflineObject_temp (id, url, lang, path, status, usedByStr) SELECT _id, url, lang, path, status, usedby FROM offlineobject")
-                database.execSQL("DROP TABLE offlineobject")
+                database.query("SELECT * FROM sqlite_master WHERE type='table' AND name='offlineobject'").use {
+                    if (it.count > 0) {
+                        database.execSQL("INSERT INTO OfflineObject_temp (id, url, lang, path, status, usedByStr) SELECT _id, url, lang, path, status, usedby FROM offlineobject")
+                        database.execSQL("DROP TABLE offlineobject")
+                    }
+                }
                 database.execSQL("ALTER TABLE OfflineObject_temp RENAME TO OfflineObject")
 
                 // convert Reading List table
