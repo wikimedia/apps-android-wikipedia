@@ -187,6 +187,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                     totalContributions += wikidataResponse.query?.userInfo()!!.editCount
                     totalContributions += commonsResponse.query?.userInfo()!!.editCount
+                    totalContributions += homeSiteResponse.query?.userInfo()!!.editCount
 
                     latestEditDate = wikidataResponse.query?.userInfo()!!.latestContrib
                     if (commonsResponse.query?.userInfo()!!.latestContrib.after(latestEditDate)) {
