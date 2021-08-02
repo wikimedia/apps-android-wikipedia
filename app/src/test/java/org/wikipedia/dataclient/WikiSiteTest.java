@@ -225,6 +225,7 @@ import static org.hamcrest.Matchers.not;
 
     @Test public void testTitleForInternalLink() {
         WikiSite wiki = WikiSite.forLanguageCode("en");
+        assertThat(new PageTitle("Main Page", wiki), is(wiki.titleForInternalLink(null)));
         assertThat(new PageTitle("Main Page", wiki), is(wiki.titleForInternalLink("")));
         assertThat(new PageTitle("Main Page", wiki), is(wiki.titleForInternalLink("/wiki/")));
         assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("wiki")));

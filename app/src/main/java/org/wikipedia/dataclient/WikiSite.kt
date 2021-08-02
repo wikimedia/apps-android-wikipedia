@@ -41,7 +41,7 @@ class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String 
         val tempUri = ensureScheme(uri)
         var authority = tempUri.authority.orEmpty()
         if (("wikipedia.org" == authority || "www.wikipedia.org" == authority) &&
-            tempUri.path != null && tempUri.path!!.startsWith("/wiki")
+            tempUri.path?.startsWith("/wiki") == true
         ) {
             // Special case for Wikipedia only: assume English subdomain when none given.
             authority = "en.wikipedia.org"
@@ -81,7 +81,7 @@ class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String 
     }
 
     fun scheme(): String {
-        return if (uri.scheme.isNullOrEmpty()) DEFAULT_SCHEME else uri.scheme!!
+        return uri.scheme.orEmpty().ifEmpty { DEFAULT_SCHEME }
     }
 
     /**
@@ -129,7 +129,7 @@ class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String 
      */
     fun titleForInternalLink(internalLink: String?): PageTitle {
         // Strip the /wiki/ from the href
-        return PageTitle(UriUtil.removeInternalLinkPrefix(internalLink!!), this)
+        return PageTitle(UriUtil.removeInternalLinkPrefix(internalLink.orEmpty()), this)
     }
 
     // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
@@ -177,7 +177,7 @@ class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String 
 
         @JvmStatic
         fun setDefaultBaseUrl(url: String) {
-            DEFAULT_BASE_URL = if (url.isEmpty()) Service.WIKIPEDIA_URL else url
+            DEFAULT_BASE_URL = url.ifEmpty { Service.WIKIPEDIA_URL }
         }
 
         @JvmStatic
