@@ -27,10 +27,10 @@ import java.util.*
  */
 @Parcelize
 class PageTitle(
-    var _namespace: String?,
+    private var _namespace: String?,
     // TODO: remove this SerializedName when Tab list is no longer serialized to shared prefs.
     @SerializedName("site") var wikiSite: WikiSite,
-    private var _text: String = "",
+      private var _text: String = "",
     var fragment: String? = null,
     var thumbUrl: String?,
     var description: String? = null,
@@ -116,7 +116,7 @@ class PageTitle(
     constructor(title: String?, wiki: WikiSite, thumbUrl: String? = null) :
             this(null, wiki, title.orEmpty(), null, thumbUrl, null, null, null) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
-        var text = if (title.isNullOrEmpty()) getMainPageForLang(wiki.languageCode) else title
+        var text = title.orEmpty().ifEmpty { getMainPageForLang(wiki.languageCode) }
 
         // Split off any fragment (#...) from the title
         var parts = text.split("#".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
@@ -199,15 +199,6 @@ class PageTitle(
     }
 
     companion object {
-        /**
-         * Creates a new PageTitle object.
-         * Use this if you want to pass in a fragment portion separately from the title.
-         *
-         * @param prefixedText title of the page with optional namespace prefix
-         * @param fragment optional fragment portion
-         * @param wiki the wiki site the page belongs to
-         * @return a new PageTitle object matching the given input parameters
-         */
         fun withSeparateFragment(prefixedText: String, fragment: String?, wiki: WikiSite): PageTitle {
             return if (fragment.isNullOrEmpty()) {
                 PageTitle(prefixedText, wiki, null)
