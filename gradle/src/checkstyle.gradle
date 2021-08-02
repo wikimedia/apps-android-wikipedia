@@ -18,5 +18,5 @@ task checkstyle(type: Checkstyle) {
     exclude '**/com/facebook/samples/**/*.java'
     exclude '**/okhttp3/**/*.java'
 
-    classpath = configurations.compile
+    classpath = configurations.compileClasspath
 }
