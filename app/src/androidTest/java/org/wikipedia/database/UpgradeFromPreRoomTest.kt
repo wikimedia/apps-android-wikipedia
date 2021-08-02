@@ -22,7 +22,7 @@ import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.talk.db.TalkPageSeenDao
 
 @RunWith(Parameterized::class)
-class UpgradeFrom22Test(private val fromVersion: Int) {
+class UpgradeFromPreRoomTest(private val fromVersion: Int) {
     private lateinit var db: AppDatabase
     private lateinit var recentSearchDao: RecentSearchDao
     private lateinit var readingListDao: ReadingListDao
