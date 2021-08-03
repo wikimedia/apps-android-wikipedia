@@ -28,94 +28,101 @@
                 tools:src="@drawable/illustration_onboarding_explore" />
         </FrameLayout>
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingTop="24dp">
-
-                <org.wikipedia.views.AppTextView
-                    android:id="@+id/primaryTextView"
-                    style="@style/MaterialLargePrimaryTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    tools:text="Lorem ipsum" />
-
-                <org.wikipedia.views.AppTextView
-                    android:id="@+id/secondaryTextView"
-                    style="@style/TextViewCentered"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:lineSpacingMultiplier="1.22"
-                    android:textColor="?attr/material_theme_secondary_color"
-                    android:textColorLink="?attr/colorAccent"
-                    android:textSize="16sp"
-                    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-
-                <include
-                    android:id="@+id/languageListContainer"
-                    layout="@layout/view_onboarding_language_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"/>
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/switchContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginTop="8dp"
-                    android:orientation="vertical">
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="24dp">
 
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="0.5dp"
-                        android:background="?attr/chart_shade5" />
+                    <org.wikipedia.views.AppTextView
+                        android:id="@+id/primaryTextView"
+                        style="@style/MaterialLargePrimaryTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        tools:text="Lorem ipsum" />
 
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:id="@+id/switchView"
+                    <org.wikipedia.views.AppTextView
+                        android:id="@+id/secondaryTextView"
+                        style="@style/TextViewCentered"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:lineSpacingMultiplier="1.22"
+                        android:textColor="?attr/material_theme_secondary_color"
+                        android:textColorLink="?attr/colorAccent"
+                        android:textSize="16sp"
+                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+
+                    <include
+                        android:id="@+id/languageListContainer"
+                        layout="@layout/view_onboarding_language_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+
+                    <LinearLayout
+                        android:id="@+id/switchContainer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
                         android:layout_marginTop="8dp"
-                        android:textColor="?attr/material_theme_primary_color"
-                        app:theme="@style/OnboardingSwitch"
-                        android:focusable="true"
-                        tools:text="Lorem ipsum" />
+                        android:orientation="vertical">
 
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="0.5dp"
-                        android:background="?attr/chart_shade5" />
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="0.5dp"
+                            android:background="?attr/chart_shade5" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switchView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginTop="8dp"
+                            android:textColor="?attr/material_theme_primary_color"
+                            app:theme="@style/OnboardingSwitch"
+                            android:focusable="true"
+                            tools:text="Lorem ipsum" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="0.5dp"
+                            android:background="?attr/chart_shade5" />
+                    </LinearLayout>
                 </LinearLayout>
+
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/tertiaryTextView"
+                    style="@style/TextViewCentered"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/description_edit_tutorial_promise"
+                    android:textColor="?attr/material_theme_secondary_color"
+                    android:textSize="12sp" />
             </LinearLayout>
 
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/tertiaryTextView"
-                style="@style/TextViewCentered"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/description_edit_tutorial_promise"
-                android:textColor="?attr/material_theme_secondary_color"
-                android:textSize="12sp" />
-        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
     </LinearLayout>
 
     <!-- Bottom control offset -->

@@ -967,7 +967,7 @@
   <string name="talk_title">Diskussion</string>
   <string name="talk_user_title">Diskussion: %s</string>
   <string name="talk_new_topic">Nytt ämne</string>
-  <string name="talk_new_topic_submitted">Ämnet skickades.</string>
+  <string name="talk_new_topic_submitted" fuzzy="true">Ämnet skickades.</string>
   <string name="talk_page_empty">Den här diskussionssidan är tom.</string>
   <string name="talk_add_reply">Svara</string>
   <string name="talk_no_subject">(Inget ämne)</string>
@@ -976,7 +976,7 @@
   <string name="talk_message_hint">Skriv meddelande</string>
   <string name="talk_message_empty">Meddelandet kan inte vara tomt.</string>
   <string name="talk_subject_empty">Ämnet kan inte vara tomt.</string>
-  <string name="talk_response_submitted">Svaret skickades.</string>
+  <string name="talk_response_submitted" fuzzy="true">Svaret skickades.</string>
   <string name="talk_snackbar_undo">Ångra</string>
   <string name="talk_last_modified">&lt;b&gt;Senast redigerad %1$s&lt;/b&gt; av %2$s</string>
   <string name="menu_option_share_edit">Dela redigering</string>

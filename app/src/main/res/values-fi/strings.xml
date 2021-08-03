@@ -975,7 +975,7 @@
   <string name="talk_title">Keskustelu</string>
   <string name="talk_user_title">Keskustelu käyttäjästä: %s</string>
   <string name="talk_new_topic">Uusi aihe</string>
-  <string name="talk_new_topic_submitted">Aihe lähetetty.</string>
+  <string name="talk_new_topic_submitted">Aihe julkaistu.</string>
   <string name="talk_page_empty">Tämä keskustelusivu on tyhjä.</string>
   <string name="talk_add_reply">Vastaa</string>
   <string name="talk_no_subject">(Ei aihetta)</string>
@@ -984,7 +984,7 @@
   <string name="talk_message_hint">Kirjoita viesti</string>
   <string name="talk_message_empty">Viesti ei voi olla tyhjä.</string>
   <string name="talk_subject_empty">Kirjoita viestille aihe.</string>
-  <string name="talk_response_submitted">Vastaus lähetetty.</string>
+  <string name="talk_response_submitted" fuzzy="true">Vastaus lähetetty.</string>
   <string name="talk_snackbar_undo">Kumoa</string>
   <string name="talk_last_modified">&lt;b&gt;Sivua muokkasi viimeksi %1$s&lt;/b&gt; %2$s</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
