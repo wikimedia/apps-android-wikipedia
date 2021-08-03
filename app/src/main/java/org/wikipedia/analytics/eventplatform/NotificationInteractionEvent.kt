@@ -7,8 +7,17 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.notifications.Notification
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 
-class NotificationInteractionEvent(private val notification_id: Int, private val notification_wiki: String, private val notification_type: String, private val action_rank: Int, private val action_icon: String,
-                                   private val selection_token: String, private val incoming_only: Boolean, private val device_level_enabled: Boolean) : Event(SCHEMA_NAME, STREAM_NAME) {
+@Suppress("unused")
+class NotificationInteractionEvent(
+    private val notification_id: Int,
+    private val notification_wiki: String,
+    private val notification_type: String,
+    private val action_rank: Int,
+    private val action_icon: String,
+    private val selection_token: String,
+    private val incoming_only: Boolean,
+    private val device_level_enabled: Boolean
+) : Event(SCHEMA_NAME, STREAM_NAME) {
 
     companion object {
         private const val SCHEMA_NAME = "/analytics/mobile_apps/android_notification_interaction/1.0.0"
