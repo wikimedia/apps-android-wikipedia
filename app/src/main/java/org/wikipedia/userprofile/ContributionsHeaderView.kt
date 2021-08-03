@@ -35,27 +35,17 @@ class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet?
     }
 
     fun updateFilterViewUI(editType: Int, totalContributions: Int) {
-        val view: SuggestedEditsTypeItemView
-        val count: Int
-        when (editType) {
-            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                view = binding.articleDescriptionView
-                count = UserContributionsStats.totalDescriptionEdits
-            }
-            EDIT_TYPE_IMAGE_CAPTION -> {
-                view = binding.imageCaptionsView
-                count = UserContributionsStats.totalImageCaptionEdits
-            }
-            EDIT_TYPE_IMAGE_TAG -> {
-                view = binding.imageTagsView
-                count = UserContributionsStats.totalImageTagEdits
-            }
-            else -> {
-                view = binding.allTypesView
-                count = totalContributions
-            }
+        val view = when (editType) {
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> binding.articleDescriptionView
+            EDIT_TYPE_IMAGE_CAPTION -> binding.imageCaptionsView
+            EDIT_TYPE_IMAGE_TAG -> binding.imageTagsView
+            else -> binding.allTypesView
         }
-        binding.contributionsCountText.text = context.getString(R.string.suggested_edits_contribution_type_title, count, resources.getQuantityString(R.plurals.suggested_edits_contribution, count))
+        binding.contributionsCountText.text = context.getString(
+            R.string.suggested_edits_contribution_type_title,
+            totalContributions,
+            resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions)
+        )
         filterViews.forEach {
             if (it == view) {
                 it.setEnabledStateUI()
