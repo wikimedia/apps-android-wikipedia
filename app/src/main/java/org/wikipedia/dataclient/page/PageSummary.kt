@@ -43,6 +43,8 @@ open class PageSummary(
 
     val leadImageName get() = thumbnailUrl?.let { getFilenameFromUploadUrl(it) }
 
+    val ns: Namespace get() = if (namespace == null) Namespace.MAIN else Namespace.of(namespace.id)
+
     constructor(displayTitle: String, prefixTitle: String, description: String?,
                 extract: String?, thumbnail: String?, lang: String) : this() {
         titles = Titles(prefixTitle, displayTitle)
@@ -64,10 +66,6 @@ open class PageSummary(
         }
         newTitle.description = description
         return newTitle
-    }
-
-    fun getNs(): Namespace {
-        return if (namespace == null) Namespace.MAIN else Namespace.of(namespace.id)
     }
 
     fun getPageTitle(wiki: WikiSite): PageTitle {

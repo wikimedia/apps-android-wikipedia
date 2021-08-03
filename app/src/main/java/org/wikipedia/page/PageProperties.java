@@ -123,10 +123,6 @@ public class PageProperties implements Parcelable {
         return geo;
     }
 
-    public String getEditProtectionStatus() {
-        return editProtectionStatus;
-    }
-
     public boolean canEdit() {
         return canEdit;
     }
