@@ -24,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -38,6 +39,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil.getFeedCardDateString
 import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -271,6 +273,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             } else {
                 notificationList.remove(notification)
                 NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
+                NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }
         for (wiki in notificationsPerWiki.keys) {
@@ -435,7 +438,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     wikiCodeBackgroundView.visibility = View.VISIBLE
                     wikiCodeView.visibility = View.VISIBLE
                     wikiCodeImageView.visibility = View.GONE
-                    wikiCodeView.text = n.wiki().replace("wiki", "")
+                    val langCode = n.wiki().replace("wiki", "")
+                    wikiCodeView.text = langCode
+                    L10nUtil.setConditionalLayoutDirection(itemView, langCode)
                 }
             }
             if (container.selected) {

@@ -1007,7 +1007,7 @@
   <string name="wikitext_template">Šablóna</string>
   <string name="wikitext_reference">Referencia</string>
   <string name="wikitext_preview_link">Náhľad odkazu</string>
-  <string name="main_drawer_help">Pomoc</string>
+  <string name="main_drawer_help">Pomocník</string>
   <string name="main_drawer_login">Prihlásiť/zaregistrovať sa na Wikipédiu</string>
   <string name="main_tooltip_text">Ahoj %s, vedeli ste, že Wikipédiu môže upravovať hocikto?</string>
   <string name="main_tooltip_text_v2">Vedeli ste, že Wikipédiu môže upravovať hocikto?</string>
@@ -1021,7 +1021,7 @@
   <string name="talk_title">Diskusia</string>
   <string name="talk_user_title">Diskusia: %s</string>
   <string name="talk_new_topic">Nová téma</string>
-  <string name="talk_new_topic_submitted">Téma odoslaná.</string>
+  <string name="talk_new_topic_submitted" fuzzy="true">Téma odoslaná.</string>
   <string name="talk_page_empty">Táto diskusná stránka je prázdna.</string>
   <string name="talk_add_reply">Odpovedať</string>
   <string name="talk_no_subject">(Bez predmetu)</string>
@@ -1030,7 +1030,7 @@
   <string name="talk_message_hint">Napísať správu</string>
   <string name="talk_message_empty">Správa nemôže byť prázdna.</string>
   <string name="talk_subject_empty">Predmet nemôže byť prázdny.</string>
-  <string name="talk_response_submitted">Odpoveď odoslaná.</string>
+  <string name="talk_response_submitted" fuzzy="true">Odpoveď odoslaná.</string>
   <string name="talk_snackbar_undo">Vrátiť</string>
   <string name="talk_last_modified">&lt;b&gt;Naposledy upravil/a %1$s&lt;/b&gt; %2$s</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>

@@ -270,9 +270,9 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_mediawiki_base_uri_supports_lang_code, true);
     }
 
-    @Nullable
+    @NonNull
     public static String getEventPlatformIntakeUriOverride() {
-        return getString(R.string.preference_key_event_platform_intake_base_uri, null);
+        return getString(R.string.preference_key_event_platform_intake_base_uri, "");
     }
 
     public static long getLastRunTime(@NonNull String task) {
