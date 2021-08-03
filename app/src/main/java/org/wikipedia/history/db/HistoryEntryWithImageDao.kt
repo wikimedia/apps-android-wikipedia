@@ -1,6 +1,8 @@
 package org.wikipedia.history.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Query
+import androidx.room.RewriteQueriesToDropUnusedColumns
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.search.SearchResult
@@ -32,9 +34,8 @@ interface HistoryEntryWithImageDao {
 
         val entries = findEntriesBySearchTerm("%$normalizedQuery%")
 
-        return if (entries.isEmpty()) SearchResults() else SearchResults(
-            mutableListOf(SearchResult(toHistoryEntry(entries[0]).title, SearchResult.SearchResultType.HISTORY))
-        )
+        return if (entries.isEmpty()) SearchResults()
+        else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.READING_LIST) }.toMutableList())
     }
 
     fun filterHistoryItems(searchQuery: String): List<Any> {

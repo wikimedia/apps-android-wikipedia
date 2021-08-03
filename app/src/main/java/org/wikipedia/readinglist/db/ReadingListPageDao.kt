@@ -61,7 +61,7 @@ interface ReadingListPageDao {
     fun getRandomPage(): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
-    fun findPageBySearchTerm(term: String): ReadingListPage?
+    fun findPageBySearchTerm(term: String): List<ReadingListPage>
 
     @Query("DELETE FROM ReadingListPage WHERE status = :status")
     fun deletePagesByStatus(status: Long)
@@ -149,14 +149,11 @@ interface ReadingListPageDao {
             .replace("%", "\\%").replace("_", "\\_")
 
         val page = findPageBySearchTerm("%$normalizedQuery%")
-        return if (page == null) SearchResults() else SearchResults(
-            mutableListOf(
-                SearchResult(
-                    PageTitle(page.apiTitle, page.wiki, page.thumbUrl, page.description, page.displayTitle),
-                    SearchResult.SearchResultType.READING_LIST
-                )
-            )
-        )
+
+        return if (page.isEmpty()) SearchResults()
+        else SearchResults(page.take(2).map {
+            SearchResult(PageTitle(it.apiTitle, it.wiki, it.thumbUrl, it.description, it.displayTitle), SearchResult.SearchResultType.HISTORY)
+        }.toMutableList())
     }
 
     fun pageExistsInList(list: ReadingList, title: PageTitle): Boolean {
