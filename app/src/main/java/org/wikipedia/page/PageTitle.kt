@@ -36,7 +36,7 @@ class PageTitle(
 ) : Parcelable {
 
     var text: String
-        get() { return StringUtil.addUnderscores(_text) }
+        get() = StringUtil.addUnderscores(_text)
         set(value) { _text = value }
 
     var displayText: String
@@ -48,7 +48,7 @@ class PageTitle(
         get() = if (namespace.isEmpty()) text else StringUtil.addUnderscores(namespace) + ":" + text
 
     val namespace: String
-        get() { return _namespace.orEmpty() }
+        get() = _namespace.orEmpty()
 
     val isFilePage: Boolean
         get() = namespace().file()
@@ -116,7 +116,7 @@ class PageTitle(
 
         // Split off any fragment (#...) from the title
         var parts = text.split("#".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-        text = if (parts.isNotEmpty()) parts[0] else ""
+        text = parts[0].ifEmpty { "" }
         fragment = if (parts.size > 1) {
             StringUtil.addUnderscores(UriUtil.decodeURL(parts[1]))
         } else {
