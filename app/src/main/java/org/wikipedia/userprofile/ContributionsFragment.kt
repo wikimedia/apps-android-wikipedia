@@ -170,120 +170,13 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             })
         }
 
-        var totalContributionCount = 0
-        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
-        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 50, articleContributionsContinuation)
-                .subscribeOn(Schedulers.io())
-                .flatMap { response ->
-                    totalContributionCount += response.query?.userInfo()!!.editCount
-                    val wikidataContributions = ArrayList<Contribution>()
-                    val qLangMap = HashMap<String, HashSet<String>>()
-                    articleContributionsContinuation = response.continuation["uccontinue"]
-                    response.query?.userContributions()?.forEach { contribution ->
-                        var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
-                        var contributionDescription = contribution.comment
-                        var editType: Int = EDIT_TYPE_GENERIC
-                        var qNumber = ""
-
-                        val matches = commentRegex.findAll(contribution.comment)
-                        if (matches.any()) {
-                            val metaComment = deCommentString(matches.first().value)
-                            if (metaComment.contains("wbsetdescription")) {
-                                val descArr = metaComment.split("|")
-                                if (descArr.size > 1) {
-                                    contributionLanguage = descArr[1]
-                                }
-                                editType = EDIT_TYPE_ARTICLE_DESCRIPTION
-                                contributionDescription = extractDescriptionFromComment(contribution.comment, matches.first().value)
-                            }
-                        }
-
-                        if (contribution.title.matches(qNumberRegex)) {
-                            qNumber = contribution.title
-                        }
-
-                        if (qNumber.isNotEmpty() && !qLangMap.containsKey(qNumber)) {
-                            qLangMap[qNumber] = HashSet()
-                        }
-
-                        wikidataContributions.add(Contribution(qNumber, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
-                                WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, 0))
-
-                        qLangMap[qNumber]?.add(contributionLanguage)
-                    }
-                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
-                            .subscribeOn(Schedulers.io())
-                            .flatMap { entities ->
-                                for (entityKey in entities.entities.keys) {
-                                    val entity = entities.entities[entityKey]!!
-                                    for (contribution in wikidataContributions) {
-                                        val dbName = WikiSite.forLanguageCode(contribution.wikiSite.languageCode()).dbName()
-                                        if (contribution.qNumber == entityKey && entity.sitelinks.containsKey(dbName)) {
-                                            contribution.apiTitle = entity.sitelinks[dbName]!!.title
-                                            contribution.displayTitle = entity.sitelinks[dbName]!!.title
-                                        }
-                                    }
-                                }
-                                Observable.just(wikidataContributions)
-                            }
-                },
-                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList()) else
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 200, imageContributionsContinuation)
-                            .subscribeOn(Schedulers.io())
-                            .flatMap { response ->
-                                totalContributionCount += response.query?.userInfo()!!.editCount
-                                val contributions = ArrayList<Contribution>()
-                                imageContributionsContinuation = response.continuation["uccontinue"]
-                                response.query?.userContributions()?.forEach { contribution ->
-                                    var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
-                                    var editType: Int = EDIT_TYPE_GENERIC
-                                    var contributionDescription = contribution.comment
-                                    var qNumber = ""
-                                    var tagCount = 0
-
-                                    val matches = commentRegex.findAll(contribution.comment)
-                                    if (matches.any()) {
-                                        val metaComment = deCommentString(matches.first().value)
-
-                                        when {
-                                            metaComment.contains("wbsetlabel") -> {
-                                                val descArr = metaComment.split("|")
-                                                if (descArr.size > 1) {
-                                                    contributionLanguage = descArr[1]
-                                                }
-                                                editType = EDIT_TYPE_IMAGE_CAPTION
-                                                contributionDescription = extractDescriptionFromComment(contribution.comment, matches.first().value)
-                                            }
-                                            metaComment.contains("wbsetclaim") -> {
-                                                contributionDescription = ""
-                                                qNumber = qNumberRegex.find(contribution.comment)?.value
-                                                        ?: ""
-                                                editType = EDIT_TYPE_IMAGE_TAG
-                                                tagCount = 1
-                                            }
-                                            metaComment.contains("wbeditentity") -> {
-                                                if (matches.count() > 1 && matches.elementAt(1).value.contains(DEPICTS_META_STR)) {
-                                                    val metaContentStr = deCommentString(matches.elementAt(1).value)
-                                                    val map = extractTagsFromComment(metaContentStr)
-                                                    if (map.isNotEmpty()) {
-                                                        tagCount = map.size
-                                                        contributionDescription = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(map.values) else map.values.joinToString(",")
-                                                    }
-                                                }
-                                                editType = EDIT_TYPE_IMAGE_TAG
-                                            }
-                                        }
-                                    }
-
-                                    contributions.add(Contribution(qNumber, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
-                                            WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
-                                }
-                                Observable.just(contributions)
-                            }, { wikidataContributions, commonsContributions ->
+        disposables.add(Observable.zip(homeSiteObservable(), wikiDataObservable(), wikiCommonsObservable(), {
+                homeSiteContributions, wikidataContributions, commonsContributions ->
+                    val totalContributionCount = homeSiteContributions.second + wikidataContributions.second + commonsContributions.second
                     val contributions = ArrayList<Contribution>()
-                    contributions.addAll(wikidataContributions)
-                    contributions.addAll(commonsContributions)
-                    contributions
+                    contributions.addAll(wikidataContributions.first)
+                    contributions.addAll(commonsContributions.first)
+                    Pair(contributions, totalContributionCount)
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -292,13 +185,135 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     binding.progressBar.visibility = GONE
                 }
                 .subscribe({
-                    allContributions.addAll(it)
-                    this.totalContributionCount = totalContributionCount
+                    allContributions.addAll(it.first)
+                    totalContributionCount = it.second
                     createConsolidatedList()
                 }, { caught ->
                     L.e(caught)
                     showError(caught)
                 }))
+    }
+
+    private fun homeSiteObservable(): Observable<Pair<List<Contribution>, Int>> {
+        return if (allContributions.isNotEmpty()) Observable.just(Pair(Collections.emptyList(), -1))
+        else ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo
+            .subscribeOn(Schedulers.io())
+            .flatMap { response ->
+                Observable.just(Pair(emptyList(), response.query?.userInfo()!!.editCount))
+            }
+    }
+
+    private fun wikiDataObservable(): Observable<Pair<List<Contribution>, Int>> {
+        return if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Pair(Collections.emptyList(), -1))
+        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 50, articleContributionsContinuation)
+            .subscribeOn(Schedulers.io())
+            .flatMap { response ->
+                val wikidataContributions = ArrayList<Contribution>()
+                val qLangMap = HashMap<String, HashSet<String>>()
+                articleContributionsContinuation = response.continuation["uccontinue"]
+                response.query?.userContributions()?.forEach { contribution ->
+                    var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
+                    var contributionDescription = contribution.comment
+                    var editType: Int = EDIT_TYPE_GENERIC
+                    var qNumber = ""
+
+                    val matches = commentRegex.findAll(contribution.comment)
+                    if (matches.any()) {
+                        val metaComment = deCommentString(matches.first().value)
+                        if (metaComment.contains("wbsetdescription")) {
+                            val descArr = metaComment.split("|")
+                            if (descArr.size > 1) {
+                                contributionLanguage = descArr[1]
+                            }
+                            editType = EDIT_TYPE_ARTICLE_DESCRIPTION
+                            contributionDescription = extractDescriptionFromComment(contribution.comment, matches.first().value)
+                        }
+                    }
+
+                    if (contribution.title.matches(qNumberRegex)) {
+                        qNumber = contribution.title
+                    }
+
+                    if (qNumber.isNotEmpty() && !qLangMap.containsKey(qNumber)) {
+                        qLangMap[qNumber] = HashSet()
+                    }
+
+                    wikidataContributions.add(Contribution(qNumber, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
+                        WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, 0))
+
+                    qLangMap[qNumber]?.add(contributionLanguage)
+                }
+                ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
+                    .subscribeOn(Schedulers.io())
+                    .flatMap { entities ->
+                        for (entityKey in entities.entities.keys) {
+                            val entity = entities.entities[entityKey]!!
+                            for (contribution in wikidataContributions) {
+                                val dbName = WikiSite.forLanguageCode(contribution.wikiSite.languageCode()).dbName()
+                                if (contribution.qNumber == entityKey && entity.sitelinks.containsKey(dbName)) {
+                                    contribution.apiTitle = entity.sitelinks[dbName]!!.title
+                                    contribution.displayTitle = entity.sitelinks[dbName]!!.title
+                                }
+                            }
+                        }
+                        Observable.just(Pair(wikidataContributions, response.query?.userInfo()!!.editCount))
+                    }
+            }
+    }
+
+    private fun wikiCommonsObservable(): Observable<Pair<List<Contribution>, Int>> {
+        return if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Pair(Collections.emptyList(), -1)) else
+            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 200, imageContributionsContinuation)
+                .subscribeOn(Schedulers.io())
+                .flatMap { response ->
+                    val contributions = ArrayList<Contribution>()
+                    imageContributionsContinuation = response.continuation["uccontinue"]
+                    response.query?.userContributions()?.forEach { contribution ->
+                        var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
+                        var editType: Int = EDIT_TYPE_GENERIC
+                        var contributionDescription = contribution.comment
+                        var qNumber = ""
+                        var tagCount = 0
+
+                        val matches = commentRegex.findAll(contribution.comment)
+                        if (matches.any()) {
+                            val metaComment = deCommentString(matches.first().value)
+
+                            when {
+                                metaComment.contains("wbsetlabel") -> {
+                                    val descArr = metaComment.split("|")
+                                    if (descArr.size > 1) {
+                                        contributionLanguage = descArr[1]
+                                    }
+                                    editType = EDIT_TYPE_IMAGE_CAPTION
+                                    contributionDescription = extractDescriptionFromComment(contribution.comment, matches.first().value)
+                                }
+                                metaComment.contains("wbsetclaim") -> {
+                                    contributionDescription = ""
+                                    qNumber = qNumberRegex.find(contribution.comment)?.value
+                                        ?: ""
+                                    editType = EDIT_TYPE_IMAGE_TAG
+                                    tagCount = 1
+                                }
+                                metaComment.contains("wbeditentity") -> {
+                                    if (matches.count() > 1 && matches.elementAt(1).value.contains(DEPICTS_META_STR)) {
+                                        val metaContentStr = deCommentString(matches.elementAt(1).value)
+                                        val map = extractTagsFromComment(metaContentStr)
+                                        if (map.isNotEmpty()) {
+                                            tagCount = map.size
+                                            contributionDescription = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(map.values) else map.values.joinToString(",")
+                                        }
+                                    }
+                                    editType = EDIT_TYPE_IMAGE_TAG
+                                }
+                            }
+                        }
+
+                        contributions.add(Contribution(qNumber, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
+                            WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
+                    }
+                    Observable.just(Pair(contributions, response.query?.userInfo()!!.editCount))
+                }
     }
 
     private fun createConsolidatedList() {
