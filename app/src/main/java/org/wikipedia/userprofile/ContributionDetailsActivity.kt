@@ -3,7 +3,6 @@ package org.wikipedia.userprofile
 import android.content.Context
 import android.content.Intent
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.json.GsonMarshaller
 
 class ContributionDetailsActivity : SingleFragmentActivity<ContributionDetailsFragment>() {
     override fun createFragment(): ContributionDetailsFragment {
@@ -19,7 +18,7 @@ class ContributionDetailsActivity : SingleFragmentActivity<ContributionDetailsFr
 
         fun newIntent(context: Context, contribution: Contribution): Intent {
             return Intent(context, ContributionDetailsActivity::class.java)
-                    .putExtra(EXTRA_SOURCE_CONTRIBUTION, GsonMarshaller.marshal(contribution))
+                    .putExtra(EXTRA_SOURCE_CONTRIBUTION, contribution)
         }
     }
 }

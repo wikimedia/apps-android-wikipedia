@@ -8,8 +8,6 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.news.NewsFragment.Companion.newInstance
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.util.ResourceUtil
 
 class NewsActivity : SingleFragmentActivity<NewsFragment>() {
@@ -20,8 +18,8 @@ class NewsActivity : SingleFragmentActivity<NewsFragment>() {
     }
 
     public override fun createFragment(): NewsFragment {
-        return newInstance(GsonUnmarshaller.unmarshal(NewsItem::class.java, intent.getStringExtra(EXTRA_NEWS_ITEM)),
-            GsonUnmarshaller.unmarshal(WikiSite::class.java, intent.getStringExtra(EXTRA_WIKI)))
+        return newInstance(intent.getParcelableExtra(EXTRA_NEWS_ITEM)!!,
+            intent.getParcelableExtra(EXTRA_WIKI)!!)
     }
 
     fun updateNavigationBarColor() {
@@ -33,8 +31,8 @@ class NewsActivity : SingleFragmentActivity<NewsFragment>() {
         const val EXTRA_WIKI = "wiki"
         fun newIntent(context: Context, item: NewsItem, wiki: WikiSite): Intent {
             return Intent(context, NewsActivity::class.java)
-                .putExtra(EXTRA_NEWS_ITEM, GsonMarshaller.marshal(item))
-                .putExtra(EXTRA_WIKI, GsonMarshaller.marshal(wiki))
+                .putExtra(EXTRA_NEWS_ITEM, item)
+                .putExtra(EXTRA_WIKI, wiki)
         }
     }
 }
