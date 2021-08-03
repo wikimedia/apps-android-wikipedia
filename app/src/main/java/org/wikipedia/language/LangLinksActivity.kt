@@ -206,7 +206,7 @@ class LangLinksActivity : BaseActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .doAfterTerminate { binding.langlinksRecycler.adapter?.notifyDataSetChanged() }
             .subscribe({ pair ->
-                languageEntries.find { pair.first == it }?.setDisplayText(pair.second.displayTitle)
+                languageEntries.find { pair.first == it }?.displayText = pair.second.displayTitle
             }) {
                 // ignore
             })

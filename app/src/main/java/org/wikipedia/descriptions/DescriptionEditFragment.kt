@@ -31,7 +31,6 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -98,11 +97,11 @@ class DescriptionEditFragment : Fragment() {
         highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
         action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        requireArguments().getString(ARG_SOURCE_SUMMARY)?.let {
-            sourceSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, it)
+        requireArguments().getParcelable<PageSummaryForEdit>(ARG_SOURCE_SUMMARY)?.let {
+            sourceSummary = it
         }
-        requireArguments().getString(ARG_TARGET_SUMMARY)?.let {
-            targetSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, it)
+        requireArguments().getParcelable<PageSummaryForEdit>(ARG_TARGET_SUMMARY)?.let {
+            targetSummary = it
         }
         val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
         funnel = DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type, invokeSource)
@@ -420,8 +419,8 @@ class DescriptionEditFragment : Fragment() {
 
         fun newInstance(title: PageTitle,
                         highlightText: String?,
-                        sourceSummary: String?,
-                        targetSummary: String?,
+                        sourceSummary: PageSummaryForEdit?,
+                        targetSummary: PageSummaryForEdit?,
                         action: DescriptionEditActivity.Action,
                         source: InvokeSource): DescriptionEditFragment {
             return DescriptionEditFragment().apply {

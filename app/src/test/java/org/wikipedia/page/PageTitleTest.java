@@ -33,7 +33,7 @@ import static org.hamcrest.Matchers.nullValue;
 
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getNamespace(), is("Talk"));
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getText(), is("India"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), is(""));
+        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), nullValue());
 
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getNamespace(), is("Talk"));
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getText(), is("India"));
@@ -90,7 +90,7 @@ import static org.hamcrest.Matchers.nullValue;
 
     @Test public void testMainPage() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
-        assertThat(new PageTitle("", enwiki), is(new PageTitle(MainPageNameData.valueFor("en"), enwiki)));
+        assertThat(new PageTitle("", enwiki).getPrefixedText(), is(new PageTitle(MainPageNameData.valueFor("en"), enwiki).getPrefixedText()));
     }
 
     @Test public void testIsMainPageNoTitleNoProps() {
@@ -114,7 +114,7 @@ import static org.hamcrest.Matchers.nullValue;
         PageTitle pageTitle = new PageTitle("#", WikiSite.forLanguageCode("en"));
         assertThat(pageTitle.getNamespace(), emptyString());
         assertThat(pageTitle.getText(), is(""));
-        assertThat(pageTitle.getFragment(), is(""));
+        assertThat(pageTitle.getFragment(), nullValue());
     }
 
     @Test public void testColonChar() {

@@ -225,12 +225,12 @@ import static org.hamcrest.Matchers.not;
 
     @Test public void testTitleForInternalLink() {
         WikiSite wiki = WikiSite.forLanguageCode("en");
-        assertThat(new PageTitle("Main Page", wiki), is(wiki.titleForInternalLink(null)));
-        assertThat(new PageTitle("Main Page", wiki), is(wiki.titleForInternalLink("")));
-        assertThat(new PageTitle("Main Page", wiki), is(wiki.titleForInternalLink("/wiki/")));
-        assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("wiki")));
-        assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("/wiki/wiki")));
-        assertThat(new PageTitle("wiki/wiki", wiki), is(wiki.titleForInternalLink("/wiki/wiki/wiki")));
+        assertThat(new PageTitle("Main Page", wiki).getPrefixedText(), is(wiki.titleForInternalLink(null).getPrefixedText()));
+        assertThat(new PageTitle("Main Page", wiki).getPrefixedText(), is(wiki.titleForInternalLink("").getPrefixedText()));
+        assertThat(new PageTitle("Main Page", wiki).getPrefixedText(), is(wiki.titleForInternalLink("/wiki/").getPrefixedText()));
+        assertThat(new PageTitle("wiki", wiki).getPrefixedText(), is(wiki.titleForInternalLink("wiki").getPrefixedText()));
+        assertThat(new PageTitle("wiki", wiki).getPrefixedText(), is(wiki.titleForInternalLink("/wiki/wiki").getPrefixedText()));
+        assertThat(new PageTitle("wiki/wiki", wiki).getPrefixedText(), is(wiki.titleForInternalLink("/wiki/wiki/wiki").getPrefixedText()));
     }
 
     @Test public void testEquals() {
