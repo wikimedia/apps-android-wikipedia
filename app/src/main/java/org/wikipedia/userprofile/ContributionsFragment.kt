@@ -607,7 +607,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 else -> {
                     UserContributionFunnel.get().logViewMisc()
                     UserContributionEvent.logViewMisc()
-                    context.startActivity(ArticleEditDetailsActivity.newIntent(context, contribution.apiTitle, contribution.revId, contribution.wikiSite.languageCode()))
+                    context.startActivity(ArticleEditDetailsActivity.newIntent(context, contribution.apiTitle, contribution.revId, contribution.wikiSite.languageCode))
                 }
             }
         }
