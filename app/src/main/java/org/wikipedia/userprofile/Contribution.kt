@@ -8,6 +8,7 @@ import java.util.*
 @Parcelize
 class Contribution(
     val qNumber: String,
+    val revId: Long,
     var apiTitle: String,
     var displayTitle: String,
     var description: String,
