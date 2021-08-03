@@ -366,7 +366,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         // Start with a calendar that is fixed at the beginning of today's date
         val baseCal = GregorianCalendar(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
         val dayMillis = TimeUnit.DAYS.toMillis(1)
-        var streak = 1
+        var streak = 0
         for (c in contributions) {
             if (c.date().time >= baseCal.timeInMillis) {
                 // this contribution was on the same day.
@@ -376,7 +376,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 break
             }
             streak++
-            calendar.timeInMillis = calendar.timeInMillis - dayMillis
+            baseCal.timeInMillis = baseCal.timeInMillis - dayMillis
         }
         return streak
     }
