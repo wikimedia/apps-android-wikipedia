@@ -60,8 +60,8 @@ open class PageSummary(
 
     private fun adjustPageTitle(title: PageTitle): PageTitle {
         var newTitle = title
-        if (titles != null && titles!!.canonical != null) {
-            newTitle = PageTitle(titles!!.canonical, title.wikiSite, title.thumbUrl)
+        if (titles?.canonical != null) {
+            newTitle = PageTitle(titles?.canonical, title.wikiSite, title.thumbUrl)
             newTitle.fragment = title.fragment
         }
         newTitle.description = description
