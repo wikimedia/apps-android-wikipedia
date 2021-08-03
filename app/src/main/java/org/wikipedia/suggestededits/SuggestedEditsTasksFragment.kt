@@ -171,7 +171,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         revertSeverity = 0
         binding.progressBar.visibility = VISIBLE
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo.subscribeOn(Schedulers.io()),
+        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
@@ -202,6 +202,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     val contributions = ArrayList<UserContribution>()
                     contributions.addAll(wikidataResponse.query!!.userContributions())
                     contributions.addAll(commonsResponse.query!!.userContributions())
+                    contributions.addAll(homeSiteResponse.query!!.userContributions())
                     contributions.sortWith { o2, o1 -> (o1.date().compareTo(o2.date())) }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContributionsStats.getRevertSeverity()
