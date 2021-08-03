@@ -84,12 +84,6 @@ class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String 
         return uri.scheme.orEmpty().ifEmpty { DEFAULT_SCHEME }
     }
 
-    /**
-     * @return The complete wiki authority including language subdomain but not including scheme,
-     * authentication, port, nor trailing slash.
-     *
-     * @see [URL syntax](https://en.wikipedia.org/wiki/Uniform_Resource_Locator.Syntax)
-     */
     fun authority(): String {
         return uri.authority.orEmpty()
     }
@@ -98,46 +92,25 @@ class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String 
         return languageCodeToSubdomain(languageCode)
     }
 
-    /**
-     * @return A path without an authority for the segment including a leading "/".
-     */
     fun path(segment: String): String {
         return "/w/$segment"
     }
 
-    /**
-     * @return The canonical URL. e.g., https://en.wikipedia.org.
-     */
     fun url(): String {
         return uri.toString()
     }
 
-    /**
-     * @return The canonical URL for segment. e.g., https://en.wikipedia.org/w/foo.
-     */
     fun url(segment: String): String {
         return url() + path(segment)
     }
 
     // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
-    /**
-     * Create a PageTitle object from an internal link string.
-     *
-     * @param internalLink Internal link target text (eg. /wiki/Target).
-     * Should be URL decoded before passing in
-     * @return A [PageTitle] object representing the internalLink passed in.
-     */
     fun titleForInternalLink(internalLink: String?): PageTitle {
         // Strip the /wiki/ from the href
         return PageTitle(UriUtil.removeInternalLinkPrefix(internalLink.orEmpty()), this)
     }
 
     // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
-    /**
-     * Create a PageTitle object from a Uri, taking into account any fragment (section title) in the link.
-     * @param uri Uri object to be turned into a PageTitle.
-     * @return [PageTitle] object that corresponds to the given Uri.
-     */
     fun titleForUri(uri: Uri): PageTitle {
         var path = uri.path
         if (!uri.fragment.isNullOrEmpty()) {
