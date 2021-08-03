@@ -24,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -270,6 +271,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             } else {
                 notificationList.remove(notification)
                 NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
+                NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }
         for (wiki in notificationsPerWiki.keys) {
