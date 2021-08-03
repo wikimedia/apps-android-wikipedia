@@ -5,15 +5,11 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.page.Namespace.Companion.fromLegacyString
-import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
+import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.util.StringUtil.addUnderscores
-import org.wikipedia.util.StringUtil.removeNamespace
-import org.wikipedia.util.StringUtil.removeUnderscores
-import org.wikipedia.util.UriUtil.decodeURL
-import org.wikipedia.util.UriUtil.encodeURL
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import java.util.*
 
 /**
@@ -30,7 +26,7 @@ class PageTitle(
     private var _namespace: String?,
     // TODO: remove this SerializedName when Tab list is no longer serialized to shared prefs.
     @SerializedName("site") var wikiSite: WikiSite,
-      private var _text: String = "",
+    private var _text: String = "",
     var fragment: String? = null,
     var thumbUrl: String?,
     var description: String? = null,
@@ -40,16 +36,16 @@ class PageTitle(
 ) : Parcelable {
 
     var text: String
-        get() { return addUnderscores(_text) }
+        get() { return StringUtil.addUnderscores(_text) }
         set(value) { _text = value }
 
     var displayText: String
-        get() { return if (_displayText.isNullOrEmpty()) removeUnderscores(prefixedText) else _displayText!! }
+        get() = _displayText.orEmpty().ifEmpty { StringUtil.removeUnderscores(prefixedText) }
         set(value) { this._displayText = value }
 
     // TODO: find a better way to check if the namespace is a ISO Alpha2 Code (two digits country code)
     val prefixedText: String
-        get() = if (namespace.isEmpty()) text else addUnderscores(namespace) + ":" + text
+        get() = if (namespace.isEmpty()) text else StringUtil.addUnderscores(namespace) + ":" + text
 
     val namespace: String
         get() { return _namespace.orEmpty() }
@@ -62,7 +58,7 @@ class PageTitle(
 
     val isMainPage: Boolean
         get() {
-            val mainPageTitle = getMainPageForLang(wikiSite.languageCode)
+            val mainPageTitle = SiteInfoClient.getMainPageForLang(wikiSite.languageCode)
             return mainPageTitle == displayText
         }
 
@@ -116,13 +112,13 @@ class PageTitle(
     constructor(title: String?, wiki: WikiSite, thumbUrl: String? = null) :
             this(null, wiki, title.orEmpty(), null, thumbUrl, null, null, null) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
-        var text = title.orEmpty().ifEmpty { getMainPageForLang(wiki.languageCode) }
+        var text = title.orEmpty().ifEmpty { SiteInfoClient.getMainPageForLang(wiki.languageCode) }
 
         // Split off any fragment (#...) from the title
         var parts = text.split("#".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
         text = if (parts.isNotEmpty()) parts[0] else ""
         fragment = if (parts.size > 1) {
-            addUnderscores(decodeURL(parts[1]))
+            StringUtil.addUnderscores(UriUtil.decodeURL(parts[1]))
         } else {
             null
         }
@@ -135,7 +131,7 @@ class PageTitle(
         parts = text.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
         if (parts.size > 1) {
             val namespaceOrLanguage = parts[0]
-            if (listOf(*Locale.getISOLanguages()).contains(namespaceOrLanguage)) {
+            if (Locale.getISOLanguages().contains(namespaceOrLanguage)) {
                 _namespace = null
                 wikiSite = WikiSite(wiki.authority(), namespaceOrLanguage)
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
@@ -157,7 +153,7 @@ class PageTitle(
     }
 
     fun namespace(): Namespace {
-        return fromLegacyString(wikiSite, removeUnderscores(namespace))
+        return Namespace.fromLegacyString(wikiSite, StringUtil.removeUnderscores(namespace))
     }
 
     fun getWebApiUrl(fragment: String?): String {
@@ -165,20 +161,16 @@ class PageTitle(
             "%1\$s://%2\$s/w/index.php?title=%3\$s&%4\$s",
             wikiSite.scheme(),
             wikiSite.authority(),
-            encodeURL(prefixedText),
+            UriUtil.encodeURL(prefixedText),
             fragment
         )
     }
 
     fun pageTitleForTalkPage(): PageTitle {
-        val talkNamespace =
-            if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(
-                wikiSite.languageCode
-            ) else TalkAliasData.valueFor(wikiSite.languageCode)
+        val talkNamespace = if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(wikiSite.languageCode) else TalkAliasData.valueFor(wikiSite.languageCode)
         val pageTitle = PageTitle(talkNamespace, text, wikiSite)
-        pageTitle.displayText =
-            "$talkNamespace:" + if (namespace.isNotEmpty() && displayText.startsWith(namespace)
-            ) removeNamespace(displayText) else displayText
+        pageTitle.displayText = "$talkNamespace:" +
+                if (namespace.isNotEmpty() && displayText.startsWith(namespace)) StringUtil.removeNamespace(displayText) else displayText
         pageTitle.fragment = fragment
         return pageTitle
     }
@@ -193,8 +185,8 @@ class PageTitle(
             wikiSite.scheme(),
             domain,
             if (domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) wikiSite.languageCode else "wiki",
-            encodeURL(prefixedText),
-            if (!fragment.isNullOrEmpty()) "#" + encodeURL(fragment!!) else ""
+            UriUtil.encodeURL(prefixedText),
+            if (!fragment.isNullOrEmpty()) "#" + UriUtil.encodeURL(fragment!!) else ""
         )
     }
 
