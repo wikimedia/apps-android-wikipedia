@@ -305,7 +305,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
         var body = binding.replyEditText.text.toString().trim()
-        undoneText = binding.replyEditText.text.toString().trim()
+        undoneText = body
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
