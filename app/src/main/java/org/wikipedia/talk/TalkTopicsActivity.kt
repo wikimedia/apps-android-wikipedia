@@ -141,7 +141,7 @@ class TalkTopicsActivity : BaseActivity() {
                         binding.talkNewTopicButton.isEnabled = false
                         binding.talkNewTopicButton.alpha = 0.5f
                         binding.talkProgressBar.visibility = View.VISIBLE
-                        undoSave(newRevisionId,topic,undoneSubject,undoneText)
+                        undoSave(newRevisionId, topic, undoneSubject, undoneText)
                     }
                     .show()
             }
