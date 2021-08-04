@@ -3,8 +3,10 @@ package org.wikipedia.userprofile
 import org.wikipedia.dataclient.WikiSite
 import java.util.*
 
-class Contribution internal constructor(val qNumber: String, var apiTitle: String, var displayTitle: String, var description: String, val editType: Int, var imageUrl: String?,
-                                        val date: Date, val wikiSite: WikiSite, var pageViews: Long, var sizeDiff: Int, var top: Boolean, var tagCount: Int) {
+class Contribution internal constructor(val qNumber: String, val revId: Long, var apiTitle: String, var displayTitle: String,
+                                        var description: String, val editType: Int, var imageUrl: String?,
+                                        val date: Date, val wikiSite: WikiSite, var pageViews: Long,
+                                        var sizeDiff: Int, var top: Boolean, var tagCount: Int) {
 
     companion object {
         const val EDIT_TYPE_GENERIC = 0
