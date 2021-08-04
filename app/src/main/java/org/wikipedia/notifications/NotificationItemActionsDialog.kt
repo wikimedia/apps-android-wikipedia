@@ -14,6 +14,10 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Companion.ACTION_LINK_CLICKED
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Companion.ACTION_PRIMARY
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Companion.ACTION_SECONDARY
 import org.wikipedia.databinding.ViewNotificationActionsBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.GsonUtil
@@ -38,10 +42,11 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
     private var actionClickListener = View.OnClickListener {
         val link = it.tag as Notification.Link
-        val linkIndex = if (it.id == R.id.notification_action_primary) 1 else if (it.id == R.id.notification_action_secondary) 2 else 3
+        val linkIndex = if (it.id == R.id.notification_action_primary) ACTION_PRIMARY else if (it.id == R.id.notification_action_secondary) ACTION_SECONDARY else ACTION_LINK_CLICKED
         val url = link.url
         if (url.isNotEmpty()) {
             NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
+            NotificationInteractionEvent.logAction(notification, linkIndex, link)
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")
         }
