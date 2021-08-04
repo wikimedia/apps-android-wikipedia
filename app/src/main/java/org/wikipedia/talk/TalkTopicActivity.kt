@@ -53,7 +53,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
     private var undone = false
-    private var undoneText = ""
+    private var undoneBody = ""
+    private var undoneSubject = ""
     private var showUndoSnackbar = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
@@ -70,6 +71,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
+        if (intent.hasExtra(EXTRA_SUBJECT)) undoneSubject = intent.getStringExtra(EXTRA_SUBJECT) ?: ""
+        if (intent.hasExtra(EXTRA_BODY)) undoneBody = intent.getStringExtra(EXTRA_BODY) ?: ""
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = pageTitle.wikiSite
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
@@ -136,7 +139,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }, 500)
         binding.talkReplyButton.hide()
         if (undone) {
-            binding.replyEditText.setText(undoneText)
+            binding.replyEditText.setText(undoneBody)
             binding.replyEditText.setSelection(binding.replyEditText.text.toString().length)
         }
     }
@@ -171,6 +174,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.replySaveButton.visibility = View.VISIBLE
             binding.replySubjectLayout.visibility = View.VISIBLE
             binding.replyTextLayout.hint = getString(R.string.talk_message_hint)
+            binding.replySubjectText.setText(undoneSubject)
+            binding.replyEditText.setText(undoneBody)
             binding.replyTextLayout.visibility = View.VISIBLE
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
@@ -305,7 +310,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
         var body = binding.replyEditText.text.toString().trim()
-        undoneText = body
+        undoneBody = body
+        undoneSubject = subject
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
@@ -404,6 +410,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         if (isNewTopic()) {
             Intent().let {
                 it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
+                it.putExtra(EXTRA_TOPIC, topicId)
+                it.putExtra(EXTRA_SUBJECT, undoneSubject)
+                it.putExtra(EXTRA_BODY, undoneBody)
                 setResult(RESULT_EDIT_SUCCESS, it)
                 finish()
             }
@@ -483,14 +492,18 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
-        private const val EXTRA_TOPIC = "topicId"
+        const val EXTRA_TOPIC = "topicId"
+        const val EXTRA_SUBJECT = "subject"
+        const val EXTRA_BODY = "body"
         const val RESULT_EDIT_SUCCESS = 1
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
-        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource, undoneSubject:String?,undoneBody:String?): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC, topicId)
+                    .putExtra(EXTRA_SUBJECT, undoneSubject?:"")
+                    .putExtra(EXTRA_BODY, undoneBody?:"")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

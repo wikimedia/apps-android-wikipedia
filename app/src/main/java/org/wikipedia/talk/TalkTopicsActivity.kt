@@ -72,7 +72,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel.logNewTopicClick()
-            startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource),
+            startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource, null, null),
                 Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY)
         }
 
@@ -131,6 +131,9 @@ class TalkTopicsActivity : BaseActivity() {
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_EDIT_SUCCESS) {
             val newRevisionId = data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
+            val topic = data?.getIntExtra(TalkTopicActivity.EXTRA_TOPIC, 0) ?: -1
+            val undoneSubject = data?.getStringExtra(TalkTopicActivity.EXTRA_SUBJECT) ?: ""
+            val undoneText = data?.getStringExtra(TalkTopicActivity.EXTRA_BODY) ?: ""
             if (newRevisionId > 0) {
                 FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
                     .setAnchorView(binding.talkNewTopicButton)
@@ -138,7 +141,7 @@ class TalkTopicsActivity : BaseActivity() {
                         binding.talkNewTopicButton.isEnabled = false
                         binding.talkNewTopicButton.alpha = 0.5f
                         binding.talkProgressBar.visibility = View.VISIBLE
-                        undoSave(newRevisionId)
+                        undoSave(newRevisionId,topic,undoneSubject,undoneText)
                     }
                     .show()
             }
@@ -241,7 +244,7 @@ class TalkTopicsActivity : BaseActivity() {
             !pageTitle.fragment.isNullOrEmpty()) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
             topics.find { StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html) }?.let {
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource))
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource, null, null))
             }
         }
     }
@@ -270,14 +273,14 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkNewTopicButton.show()
     }
 
-    private fun undoSave(newRevisionId: Long) {
+    private fun undoSave(newRevisionId: Long, topicId: Int, undoneSubject: String, undoneBody: String) {
         disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
             .subscribeOn(Schedulers.io())
             .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, newRevisionId, token) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                loadTopics(it.edit!!.newRevId)
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
             }, {
                 updateOnError(it)
             }))
@@ -302,7 +305,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         override fun onClick(v: View?) {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id, invokeSource))
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id, invokeSource, null, null))
         }
     }
 
