@@ -44,26 +44,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/main_drawer_history_container"
-        style="@style/SideDrawerMenuItem">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_history_24"
-            app:tint="?attr/material_theme_secondary_color" />
-
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1"
-            android:text="@string/history_list_title" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/main_drawer_notifications_container"
         style="@style/SideDrawerMenuItem">
 

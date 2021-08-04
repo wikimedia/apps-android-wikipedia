@@ -1,7 +1,6 @@
 package org.wikipedia.main
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.app.DownloadManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -354,22 +353,27 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         return fragment is BackPressedHandler && (fragment as BackPressedHandler).onBackPressed()
     }
 
-    override fun loginLogoutClick() {
-        if (isLoggedIn) {
-            AlertDialog.Builder(requireContext())
-                    .setMessage(R.string.logout_prompt)
-                    .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
-                    .setPositiveButton(R.string.preference_title_logout) { _, _ ->
-                        WikipediaApp.getInstance().logOut()
-                        FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete)
-                        Prefs.setReadingListsLastSyncTime(null)
-                        Prefs.setReadingListSyncEnabled(false)
-                        Prefs.setSuggestedEditsHighestPriorityEnabled(false)
-                        refreshContents()
-                    }.show()
-        } else {
-            onLoginRequested()
-        }
+    override fun usernameClick() {
+        // TODO: goto user page
+    }
+
+    override fun loginClick() {
+        onLoginRequested()
+//        if (isLoggedIn) {
+//            AlertDialog.Builder(requireContext())
+//                    .setMessage(R.string.logout_prompt)
+//                    .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
+//                    .setPositiveButton(R.string.preference_title_logout) { _, _ ->
+//                        WikipediaApp.getInstance().logOut()
+//                        FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete)
+//                        Prefs.setReadingListsLastSyncTime(null)
+//                        Prefs.setReadingListSyncEnabled(false)
+//                        Prefs.setSuggestedEditsHighestPriorityEnabled(false)
+//                        refreshContents()
+//                    }.show()
+//        } else {
+//            onLoginRequested()
+//        }
     }
 
     override fun notificationsClick() {
@@ -385,12 +389,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                         PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode), it,
                                 WikiSite.forLanguageCode(WikipediaApp.getInstance().appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
             }
-        }
-    }
-
-    override fun historyClick() {
-        if (currentFragment !is HistoryFragment) {
-            goToTab(NavTab.SEARCH)
         }
     }
 

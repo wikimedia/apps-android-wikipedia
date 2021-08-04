@@ -1074,4 +1074,6 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+
+    <string name="preferences_account_heading">Account</string>
 </resources>
