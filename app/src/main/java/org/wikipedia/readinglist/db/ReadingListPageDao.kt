@@ -152,7 +152,7 @@ interface ReadingListPageDao {
 
         return if (page.isEmpty()) SearchResults()
         else SearchResults(page.take(2).map {
-            SearchResult(PageTitle(it.apiTitle, it.wiki, it.thumbUrl, it.description, it.displayTitle), SearchResult.SearchResultType.HISTORY)
+            SearchResult(PageTitle(it.apiTitle, it.wiki, it.thumbUrl, it.description, it.displayTitle), SearchResult.SearchResultType.READING_LIST)
         }.toMutableList())
     }
 
