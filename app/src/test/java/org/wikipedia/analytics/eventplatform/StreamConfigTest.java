@@ -1,11 +1,11 @@
 package org.wikipedia.analytics.eventplatform;
 
+import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.wikipedia.analytics.eventplatform.DestinationEventService.ANALYTICS;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
 
-import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.TestFileUtil;

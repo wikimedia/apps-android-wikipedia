@@ -21,7 +21,6 @@ class StreamConfig {
     val topicPrefixes: List<String> = emptyList()
     val topics: List<String> = emptyList()
 
-
     @SerializedName("sampling")
     val samplingConfig: SamplingConfig?
 
@@ -32,5 +31,4 @@ class StreamConfig {
         this.samplingConfig = samplingConfig
         this.destinationEventService = destinationEventService
     }
-
 }
