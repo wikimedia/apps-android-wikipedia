@@ -171,7 +171,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         revertSeverity = 0
         binding.progressBar.visibility = VISIBLE
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo.subscribeOn(Schedulers.io()),
+        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
@@ -187,15 +187,22 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                     totalContributions += wikidataResponse.query?.userInfo()!!.editCount
                     totalContributions += commonsResponse.query?.userInfo()!!.editCount
+                    totalContributions += homeSiteResponse.query?.userInfo()!!.editCount
 
                     latestEditDate = wikidataResponse.query?.userInfo()!!.latestContrib
+
                     if (commonsResponse.query?.userInfo()!!.latestContrib.after(latestEditDate)) {
                         latestEditDate = commonsResponse.query?.userInfo()!!.latestContrib
+                    }
+
+                    if (homeSiteResponse.query?.userInfo()!!.latestContrib.after(latestEditDate)) {
+                        latestEditDate = homeSiteResponse.query?.userInfo()!!.latestContrib
                     }
 
                     val contributions = ArrayList<UserContribution>()
                     contributions.addAll(wikidataResponse.query!!.userContributions())
                     contributions.addAll(commonsResponse.query!!.userContributions())
+                    contributions.addAll(homeSiteResponse.query!!.userContributions())
                     contributions.sortWith { o2, o1 -> (o1.date().compareTo(o2.date())) }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContributionsStats.getRevertSeverity()
@@ -359,7 +366,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         // Start with a calendar that is fixed at the beginning of today's date
         val baseCal = GregorianCalendar(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
         val dayMillis = TimeUnit.DAYS.toMillis(1)
-        var streak = 1
+        var streak = 0
         for (c in contributions) {
             if (c.date().time >= baseCal.timeInMillis) {
                 // this contribution was on the same day.
@@ -369,7 +376,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 break
             }
             streak++
-            calendar.timeInMillis = calendar.timeInMillis - dayMillis
+            baseCal.timeInMillis = baseCal.timeInMillis - dayMillis
         }
         return streak
     }
