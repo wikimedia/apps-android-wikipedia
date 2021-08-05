@@ -27,7 +27,7 @@ class PostProcessingTypeAdapter : TypeAdapterFactory {
             override fun read(`in`: JsonReader): T {
                 val obj = delegate.read(`in`)
                 if (obj is PostProcessable) {
-                    (obj as PostProcessable).postProcess()
+                    obj.postProcess()
                 }
                 return obj
             }
