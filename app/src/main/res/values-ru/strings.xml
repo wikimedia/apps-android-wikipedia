@@ -1064,7 +1064,7 @@
   <string name="talk_title">Обсуждение</string>
   <string name="talk_user_title">Обсуждение: %s</string>
   <string name="talk_new_topic">Новая тема</string>
-  <string name="talk_new_topic_submitted" fuzzy="true">Тема отправлена.</string>
+  <string name="talk_new_topic_submitted">Тема опубликована.</string>
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_add_reply">Ответить</string>
   <string name="talk_no_subject">(Без темы)</string>
@@ -1073,8 +1073,9 @@
   <string name="talk_message_hint">Написать сообщение</string>
   <string name="talk_message_empty">Сообщение не может быть пустым.</string>
   <string name="talk_subject_empty">Тема не может быть пустой.</string>
-  <string name="talk_response_submitted" fuzzy="true">Ответ отправлен.</string>
+  <string name="talk_response_submitted">Ответ опубликован.</string>
   <string name="talk_snackbar_undo">Отменить</string>
+  <string name="talk_last_modified">&lt;b&gt;Последняя правка сделана %1$s&lt;/b&gt; участником %2$s</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
   <string name="menu_option_user_profile">Профиль %s</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>
