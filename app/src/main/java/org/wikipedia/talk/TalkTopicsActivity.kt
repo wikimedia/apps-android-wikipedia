@@ -72,7 +72,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel.logNewTopicClick()
-            startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource, null, null),
+            startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource),
                 Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY)
         }
 
@@ -244,7 +244,7 @@ class TalkTopicsActivity : BaseActivity() {
             !pageTitle.fragment.isNullOrEmpty()) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
             topics.find { StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html) }?.let {
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource, null, null))
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource))
             }
         }
     }
@@ -305,7 +305,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         override fun onClick(v: View?) {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id, invokeSource, null, null))
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id, invokeSource))
         }
     }
 

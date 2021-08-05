@@ -498,7 +498,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val RESULT_EDIT_SUCCESS = 1
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
-        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource, undoneSubject: String?, undoneBody: String?): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource, undoneSubject: String? = null, undoneBody: String? = null): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC, topicId)
