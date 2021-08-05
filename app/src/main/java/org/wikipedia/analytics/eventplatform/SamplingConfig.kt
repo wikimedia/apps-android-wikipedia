@@ -1,6 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
 import androidx.annotation.VisibleForTesting
+import kotlinx.serialization.Serializable
 
 /**
  * Represents the sampling config component of a stream configuration.
@@ -8,7 +9,8 @@ import androidx.annotation.VisibleForTesting
  * The boxed Double type is used instead of the double primitive because its value may be null,
  * which denotes that the stream should always be *included*.
  */
- class SamplingConfig {
+@Serializable
+class SamplingConfig {
 
     enum class Identifier {
         PAGEVIEW, SESSION, DEVICE

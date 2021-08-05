@@ -2,7 +2,9 @@ package org.wikipedia.analytics.eventplatform
 
 import androidx.annotation.VisibleForTesting
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
+@Serializable
 class StreamConfig {
 
     @SerializedName("stream")

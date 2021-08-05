@@ -5,7 +5,7 @@ import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
 @Serializable
-open class MwQueryResponse : @Contextual MwResponse() {
+open class MwQueryResponse : MwResponse() {
 
     @SerializedName("batchcomplete")
     val batchComplete = false
