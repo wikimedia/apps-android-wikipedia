@@ -50,7 +50,7 @@ class AnnouncementClient : FeedClient {
             val now = Date()
             for (announcement in announcements) {
                 if (shouldShow(announcement, country, now)) {
-                    when (announcement.type()) {
+                    when (announcement.type) {
                         Announcement.SURVEY -> cards.add(SurveyCard(announcement))
                         Announcement.FUNDRAISING -> if (announcement.placement() == Announcement.PLACEMENT_FEED) {
                             cards.add(FundraisingCard(announcement))
@@ -64,8 +64,8 @@ class AnnouncementClient : FeedClient {
 
         @JvmStatic
         fun shouldShow(announcement: Announcement?, country: String?, date: Date): Boolean {
-            return (announcement != null && (announcement.platforms().contains(PLATFORM_CODE) ||
-                    announcement.platforms().contains(PLATFORM_CODE_NEW)) &&
+            return (announcement != null && (announcement.platforms.contains(PLATFORM_CODE) ||
+                    announcement.platforms.contains(PLATFORM_CODE_NEW)) &&
                     matchesCountryCode(announcement, country) && matchesDate(announcement, date) &&
                     matchesVersionCodes(announcement.minVersion(), announcement.maxVersion()) && matchesConditions(announcement))
         }
