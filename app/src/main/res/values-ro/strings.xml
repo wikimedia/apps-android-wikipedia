@@ -263,7 +263,7 @@
   <plurals name="search_results_count">
     <item quantity="one">1 rezultat</item>
     <item quantity="few">%d rezultate</item>
-    <item quantity="other">…</item>
+    <item quantity="other">%d rezultate</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Șterge căutările recente</string>
   <string name="clear_recent_searches_confirm">Sunteți sigur(ă) că doriți să ștergeți istoricul căutărilor?</string>
@@ -353,7 +353,7 @@
   <plurals name="multi_items_selected">
     <item quantity="one">%d selectat</item>
     <item quantity="few">%d selectaţi</item>
-    <item quantity="other">…</item>
+    <item quantity="other">%d selectaţi</item>
   </plurals>
   <string name="multi_select_items_selected">%d selectat</string>
   <string name="error_message_generic">O eroare a apărut</string>
@@ -418,12 +418,12 @@
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 articol, %2$.2f MB</item>
     <item quantity="few">%1$d articole, %2$.2f MB</item>
-    <item quantity="other">…</item>
+    <item quantity="other">%1$d articole, %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">%1$d  1 articol disponibil offline, %3$.2f MB}}</item>
-    <item quantity="few">%1$d de %2$d articole disponibile offline, %3$.2f MB}}</item>
-    <item quantity="other">…}}</item>
+    <item quantity="one">%1$d  1 articol disponibil offline, %3$.2f MB</item>
+    <item quantity="few">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
+    <item quantity="other">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 articol, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articole, %2$.2f MB</string>
@@ -451,14 +451,14 @@
   <string name="reading_list_item_deleted">%s a fost eliminat din listă</string>
   <string name="reading_list_item_deleted_from_list">%1$s eliminat din %2$s</string>
   <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d articol eliminat din listă}}</item>
-    <item quantity="few">%d articole eliminate din listă}}</item>
-    <item quantity="other">…}}</item>
+    <item quantity="one">%d articol eliminat din listă</item>
+    <item quantity="few">%d articole eliminate din listă</item>
+    <item quantity="other">%d articole eliminate din listă</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%d articol eliminat din %s</item>
     <item quantity="few">%d articole eliminate din %s</item>
-    <item quantity="other">…</item>
+    <item quantity="other">%d articole eliminate din %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d articole eliminate din listă</string>
   <string name="reading_lists_item_deleted">%s eliminat din liste</string>
@@ -855,7 +855,7 @@
   <plurals name="suggested_edits_contribution_seen_times">
     <item quantity="one">Văzut o dată în ultimele 30 de zile.</item>
     <item quantity="few">Văzut de %s ori în ultimele 30 de zile.</item>
-    <item quantity="other">…</item>
+    <item quantity="other">Văzut de %s ori în ultimele 30 de zile.</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">Văzut %s ori în ultimele 30 de zile.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
@@ -874,22 +874,22 @@
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etichetă</item>
     <item quantity="few">%1$s etichete</item>
-    <item quantity="other">…</item>
+    <item quantity="other">%1$s etichete</item>
   </plurals>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s caracter</item>
     <item quantity="few">%1$s caractere</item>
-    <item quantity="other">…</item>
+    <item quantity="other">%1$s caractere</item>
   </plurals>
   <plurals name="suggested_edits_removed_contribution_label">
     <item quantity="one">Ați eliminat %d caracter</item>
     <item quantity="few">Ați eliminat %d caractere</item>
-    <item quantity="other">…</item>
+    <item quantity="other">Ați eliminat %d caractere</item>
   </plurals>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Aţi adăugat %d caracter</item>
     <item quantity="few">Aţi adăugat %d caractere</item>
-    <item quantity="other">…</item>
+    <item quantity="other">Aţi adăugat %d caractere</item>
   </plurals>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
