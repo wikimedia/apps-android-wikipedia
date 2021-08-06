@@ -24,7 +24,7 @@ class StreamConfig {
     @SerializedName("sampling")
     val samplingConfig: SamplingConfig?
 
-    fun getDestinationService(): DestinationEventService {
+    fun getDestinationEventService(): DestinationEventService {
         return destinationEventService ?: DestinationEventService.ANALYTICS
     }
 
