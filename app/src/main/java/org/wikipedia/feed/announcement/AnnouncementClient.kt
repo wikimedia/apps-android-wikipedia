@@ -52,7 +52,7 @@ class AnnouncementClient : FeedClient {
                 if (shouldShow(announcement, country, now)) {
                     when (announcement.type) {
                         Announcement.SURVEY -> cards.add(SurveyCard(announcement))
-                        Announcement.FUNDRAISING -> if (announcement.placement() == Announcement.PLACEMENT_FEED) {
+                        Announcement.FUNDRAISING -> if (announcement.placement == Announcement.PLACEMENT_FEED) {
                             cards.add(FundraisingCard(announcement))
                         }
                         else -> cards.add(AnnouncementCard(announcement))
@@ -67,7 +67,7 @@ class AnnouncementClient : FeedClient {
             return (announcement != null && (announcement.platforms.contains(PLATFORM_CODE) ||
                     announcement.platforms.contains(PLATFORM_CODE_NEW)) &&
                     matchesCountryCode(announcement, country) && matchesDate(announcement, date) &&
-                    matchesVersionCodes(announcement.minVersion(), announcement.maxVersion()) && matchesConditions(announcement))
+                    matchesVersionCodes(announcement.minVersion, announcement.maxVersion) && matchesConditions(announcement))
         }
 
         private fun matchesCountryCode(announcement: Announcement, country: String?): Boolean {
@@ -78,25 +78,25 @@ class AnnouncementClient : FeedClient {
             }
             return if (countryCode.isNullOrEmpty()) {
                 false
-            } else announcement.countries().contains(countryCode)
+            } else announcement.countries.contains(countryCode)
         }
 
         private fun matchesDate(announcement: Announcement, date: Date): Boolean {
             if (Prefs.ignoreDateForAnnouncements()) {
                 return true
             }
-            return if (announcement.startTime() != null && announcement.startTime()!!.after(date)) {
+            return if (announcement.startTime() != null && announcement.startTime().after(date)) {
                 false
-            } else announcement.endTime() == null || !announcement.endTime()!!.before(date)
+            } else announcement.endTime() == null || !announcement.endTime().before(date)
         }
 
         private fun matchesConditions(announcement: Announcement): Boolean {
-            if (announcement.beta() != null && announcement.beta() != ReleaseUtil.isPreProdRelease) {
+            if (announcement.beta != null && announcement.beta != ReleaseUtil.isPreProdRelease) {
                 return false
             }
-            return if (announcement.loggedIn() != null && announcement.loggedIn() != AccountUtil.isLoggedIn) {
+            return if (announcement.loggedIn != null && announcement.loggedIn != AccountUtil.isLoggedIn) {
                 false
-            } else announcement.readingListSyncEnabled() == null || announcement.readingListSyncEnabled() == Prefs.isReadingListSyncEnabled()
+            } else announcement.readingListSyncEnabled == null || announcement.readingListSyncEnabled == Prefs.isReadingListSyncEnabled()
         }
 
         private fun matchesVersionCodes(minVersion: String?, maxVersion: String?): Boolean {
