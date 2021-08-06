@@ -24,12 +24,12 @@ import org.wikipedia.util.UriUtil.visitInExternalBrowser
 
 class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
-        fun loginLogoutClick()
+        fun usernameClick()
+        fun loginClick()
         fun notificationsClick()
         fun talkClick()
         fun settingsClick()
         fun watchlistClick()
-        fun historyClick()
     }
 
     private var _binding: ViewMainDrawerBinding? = null
@@ -38,13 +38,13 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
 
-        binding.mainDrawerLoginButton.setOnClickListener {
-            callback()?.loginLogoutClick()
+        binding.mainDrawerAccountName.setOnClickListener {
+            callback()?.usernameClick()
             dismiss()
         }
 
-        binding.mainDrawerHistoryContainer.setOnClickListener {
-            callback()?.historyClick()
+        binding.mainDrawerLoginButton.setOnClickListener {
+            callback()?.loginClick()
             dismiss()
         }
 
@@ -99,9 +99,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, ColorStateList.valueOf(getThemedColor(requireContext(), R.attr.material_theme_secondary_color)))
             binding.mainDrawerAccountName.text = userName
             binding.mainDrawerAccountName.visibility = View.VISIBLE
-            binding.mainDrawerLoginButton.text = getString(R.string.preference_title_logout)
-            binding.mainDrawerLoginButton.textAlignment = View.TEXT_ALIGNMENT_VIEW_END
-            binding.mainDrawerLoginButton.setTextColor(getThemedColor(requireContext(), R.attr.colorError))
+            binding.mainDrawerLoginButton.visibility = View.GONE
             binding.mainDrawerNotificationsContainer.visibility = View.VISIBLE
             binding.mainDrawerTalkContainer.visibility = View.VISIBLE
             binding.mainDrawerWatchlistContainer.visibility = View.VISIBLE
