@@ -14,7 +14,7 @@ class StreamConfig {
     var canaryEventsEnabled = false
 
     @SerializedName("destination_event_service")
-    var destinationEventService = DestinationEventService.ANALYTICS
+    private var destinationEventService: DestinationEventService?
 
     @SerializedName("schema_title")
     val schemaTitle: String = ""
@@ -26,9 +26,12 @@ class StreamConfig {
     @SerializedName("sampling")
     val samplingConfig: SamplingConfig?
 
+    fun getDestinationEventService(): DestinationEventService {
+        return destinationEventService ?: DestinationEventService.ANALYTICS
+    }
+
     @VisibleForTesting
-    constructor(streamName: String, samplingConfig: SamplingConfig?,
-                destinationEventService: DestinationEventService) {
+    constructor(streamName: String, samplingConfig: SamplingConfig?, destinationEventService: DestinationEventService?) {
         this.streamName = streamName
         this.samplingConfig = samplingConfig
         this.destinationEventService = destinationEventService
