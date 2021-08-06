@@ -4,7 +4,6 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -46,6 +45,7 @@ import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import java.util.*
 
@@ -187,9 +187,9 @@ class SuggestedEditsCardItemFragment : Fragment() {
         binding.seFeedCardProgressBar.visibility = GONE
         binding.seCardErrorView.visibility = GONE
         binding.callToActionButton.visibility = VISIBLE
-        if (sourceSummaryForEdit != null) {
-            val langCode = targetSummaryForEdit?.lang ?: sourceSummaryForEdit!!.lang
-            binding.cardView.layoutDirection = TextUtils.getLayoutDirectionFromLocale(Locale(langCode))
+        sourceSummaryForEdit?.let {
+            val langCode = targetSummaryForEdit?.lang ?: it.lang
+            L10nUtil.setConditionalLayoutDirection(binding.cardView, langCode)
         }
 
         when (cardActionType) {
