@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -19,6 +20,7 @@ import org.wikipedia.databinding.FragmentSearchRecentBinding
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
 import org.wikipedia.util.log.L
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
 
 class RecentSearchesFragment : Fragment() {
     interface Callback {
@@ -49,6 +51,10 @@ class RecentSearchesFragment : Fragment() {
         }
         binding.addLanguagesButton.setOnClickListener { onAddLangButtonClick() }
         binding.recentSearchesRecycler.layoutManager = LinearLayoutManager(requireActivity())
+        val touchCallback = SwipeableItemTouchHelperCallback(requireContext())
+        touchCallback.swipeableEnabled = true
+        val itemTouchHelper = ItemTouchHelper(touchCallback)
+        itemTouchHelper.attachToRecyclerView(binding.recentSearchesRecycler)
         setButtonLongPressToast(binding.recentSearchesDeleteButton)
         return binding.root
     }
@@ -88,7 +94,7 @@ class RecentSearchesFragment : Fragment() {
         }
     }
 
-    fun onAddLangButtonClick() {
+    private fun onAddLangButtonClick() {
         callback?.onAddLanguageClicked()
     }
 
@@ -108,14 +114,22 @@ class RecentSearchesFragment : Fragment() {
             }, { L.e(it) }))
     }
 
-    private inner class RecentSearchItemViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    private inner class RecentSearchItemViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
+        private lateinit var recentSearch: RecentSearch
+
         fun bindItem(position: Int) {
+            recentSearch = recentSearchList[position]
             itemView.setOnClickListener(this)
-            (itemView as TextView).text = recentSearchList[position].text
+            (itemView as TextView).text = recentSearch.text
         }
 
         override fun onClick(v: View) {
             callback?.switchToSearch((v as TextView).text.toString())
+        }
+
+        override fun onSwipe() {
+            AppDatabase.getAppDatabase().recentSearchDao().delete(recentSearch)
+            updateList()
         }
     }
 
