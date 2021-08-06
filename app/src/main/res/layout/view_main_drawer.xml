@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="?attr/color_group_60"
+        android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -31,14 +32,17 @@
             android:layout_marginStart="24dp"
             android:layout_weight="1" />
 
-        <Button
+        <TextView
             android:id="@+id/main_drawer_login_button"
-            style="@style/TransparentButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            android:layout_marginStart="8dp"
-            android:layout_gravity="center_vertical"
+            android:layout_marginStart="24dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:textColor="?attr/colorPrimary"
             android:text="@string/main_drawer_login" />
 
     </LinearLayout>
