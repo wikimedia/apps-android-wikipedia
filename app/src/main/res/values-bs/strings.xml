@@ -237,8 +237,8 @@
   <string name="table_infobox">Kratke činjenice</string>
   <string name="table_other">Više informacija</string>
   <string name="table_close">Zatvori</string>
-  <string name="widget_name_featured_page">Odabrana stranica s Wikipedije</string>
-  <string name="widget_title_featured_page">Današnja odabrana stranica:</string>
+  <string name="widget_name_featured_page">Istaknuta stranica s Wikipedije</string>
+  <string name="widget_title_featured_page">Današnja istaknuta stranica:</string>
   <string name="widget_name_search">Pretraga Wikipedije</string>
   <string name="wiktionary_no_definitions_found">Nema definicija.</string>
   <string name="alpha_update_notification_title">Dostupno je novo alpha ažuriranje</string>
@@ -462,7 +462,7 @@
   <string name="menu_feed_card_dismissed">Kartica je skrivena.</string>
   <string name="menu_feed_card_edit_card_languages">Uredi jezike kartice</string>
   <string name="menu_feed_overflow_label">Više opcija</string>
-  <string name="feed_featured_image_share_subject">Odabrana slika s Wikimedia Commonsa</string>
+  <string name="feed_featured_image_share_subject">Istaknuta slika s Wikimedia Commonsa</string>
   <string name="feed">Istraži</string>
   <string name="view_static_card_icon_content_description">Ikona kartice</string>
   <string name="view_card_news_title">Vijesti</string>
@@ -474,7 +474,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">Pročitano %s</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
   <string name="view_offline_card_text">Sadržaj se ne može učitati dok ste van mreže.</string>
-  <string name="view_featured_article_card_title">Odabrani članak</string>
+  <string name="view_featured_article_card_title">Istaknuti članak</string>
   <string name="view_static_card_save_button_label">Sačuvaj</string>
   <string name="feed_configure_activity_title">Prilagodi stranicu</string>
   <string name="feed_configure_menu_reset">Vrati predodređeni izgled</string>
@@ -484,9 +484,9 @@
   <string name="feed_item_type_news">Članci o aktualnim događajima</string>
   <string name="feed_item_type_on_this_day">Historijski događaji na ovaj dan</string>
   <string name="feed_item_type_because_you_read">Prijedlozi zasnovani na članku koji ste nedavno pročitali</string>
-  <string name="feed_item_type_featured_article">Odabrani članak na Wikipediji</string>
+  <string name="feed_item_type_featured_article">Istaknuti članak na Wikipediji</string>
   <string name="feed_item_type_trending">Najposjećeniji članci dana</string>
-  <string name="feed_item_type_featured_image">Odabrana slika dana s Wikimedia Commonsa</string>
+  <string name="feed_item_type_featured_image">Istaknuta slika dana s Wikimedia Commonsa</string>
   <string name="feed_item_type_main_page">Početna stranica Wikipedije s dnevnim istaknutim sadržajem</string>
   <string name="feed_item_type_randomizer">Daje nasumične stranice za čitanje</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
