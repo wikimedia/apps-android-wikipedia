@@ -628,7 +628,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">سەرچاوە</string>
   <string name="suggested_edits_image_caption_summary_title_license">مۆڵەت</string>
   <string name="suggested_edits_image_caption_summary_title_date">ڕێکەوت</string>
-  <string name="suggested_edits_feed_card_title">دەستکاری پێشنیارکراوەکان</string>
+  <string name="suggested_edits_feed_card_title">دەستکارییە پێشنیارکراوەکان</string>
   <string name="suggested_edits_feed_card_add_description_button">زیادکردنی وەسفی وتار</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">زیادکردنی وەسفی وتار (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">دەست پێ بکە</string>
@@ -665,7 +665,7 @@
   <string name="suggested_edits_quality_good_text">باش</string>
   <string name="suggested_edits_quality_okay_text">باشە</string>
   <string name="suggested_edits_quality_bad_text">خراپ</string>
-  <string name="suggested_edits_label">دەستکاری پێشنیارکراوەکان</string>
+  <string name="suggested_edits_label">دەستکارییە پێشنیارکراوەکان</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">ھاوبەشیکردن</item>
     <item quantity="other">ھاوبەشیکردنەکان</item>
