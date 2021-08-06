@@ -58,7 +58,7 @@ public class EventPlatformClientTest {
 
     @Test
     public void testGetStream() {
-        setStreamConfig(new StreamConfig("test", null, DestinationEventService.ANALYTICS));
+        setStreamConfig(new StreamConfig("test", null, null));
         assertThat(STREAM_CONFIGS.get("test"), is(notNullValue()));
         assertThat(STREAM_CONFIGS.get("key.does.not.exist"), is(nullValue()));
     }
@@ -118,19 +118,19 @@ public class EventPlatformClientTest {
 
     @Test
     public void testAlwaysInSampleIfStreamConfiguredButNoSamplingConfig() {
-        setStreamConfig(new StreamConfig("configured", null, DestinationEventService.ANALYTICS));
+        setStreamConfig(new StreamConfig("configured", null, null));
         assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "configured")), is(true));
     }
 
     @Test
     public void testAlwaysInSample() {
-        setStreamConfig(new StreamConfig("alwaysInSample", new SamplingConfig(1.0, null), DestinationEventService.ANALYTICS));
+        setStreamConfig(new StreamConfig("alwaysInSample", new SamplingConfig(1.0, null), null));
         assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "alwaysInSample")), is(true));
     }
 
     @Test
     public void testNeverInSample() {
-        setStreamConfig(new StreamConfig("neverInSample", new SamplingConfig(0.0, null), DestinationEventService.ANALYTICS));
+        setStreamConfig(new StreamConfig("neverInSample", new SamplingConfig(0.0, null), null));
         assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "neverInSample")), is(false));
     }
 
@@ -164,7 +164,7 @@ public class EventPlatformClientTest {
 
     @Test
     public void testGetEventServiceDefaultDestination() {
-        StreamConfig streamConfig = new StreamConfig("test", null, DestinationEventService.ANALYTICS);
+        StreamConfig streamConfig = new StreamConfig("test", null, null);
         assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
     }
 
