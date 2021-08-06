@@ -191,6 +191,7 @@
   <string name="create_account_ip_block_help_url">URL for a page that describes the possible reasons for an IP block, and possible solutions for it.</string>
   <string name="create_account_ip_block_details">Button label that shows details that describe an IP address block.</string>
   <string name="preferences_general_heading">Preferences general heading.\n{{Identical|General}}</string>
+  <string name="preferences_account_heading">Preferences account heading.\n{{Identical|Account}}</string>
   <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.\n* {{msg-mw|Accountcreatedtext|message}}</string>

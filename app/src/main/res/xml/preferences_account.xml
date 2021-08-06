@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/preferences_account_heading">
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:key="@string/preference_key_logout"
+            android:title="@string/preference_title_logout" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
