@@ -1,20 +1,18 @@
 package org.wikipedia.feed.announcement
 
+import androidx.annotation.NonNull
+import androidx.annotation.Nullable
 import com.google.gson.annotations.SerializedName
 import org.wikipedia.json.annotations.Required
 import org.wikipedia.util.DateUtil
 import java.util.*
 
-class Announcement(id: String,
-                   @Required var text: String,
-                   @SerializedName("image_url") var imageUrl: String,
-                   action: Action,
-                   negativeText: String) {
+class Announcement {
 
-    private var action: Action? = action
+    private var action: Action? = null
 
     @SerializedName("negative_text")
-    var negativeText: String? = negativeText
+    var negativeText: String? = null
 
     @Required
     var id: String = ""
@@ -29,7 +27,14 @@ class Announcement(id: String,
     private val border: Boolean? = null
 
     @Required
+    var text: String? = null
+
+    @Required
     val type: String = ""
+
+    @SerializedName("image_url")
+    @Nullable
+    var imageUrl: String? = null
 
     @SerializedName("caption_HTML")
     val footerCaption: String = ""
@@ -53,6 +58,20 @@ class Announcement(id: String,
     val platforms = emptyList<String>()
     val countries = emptyList<String>()
     val placement: String = PLACEMENT_FEED
+
+    constructor() {}
+
+    constructor(@NonNull id: String?,
+                @NonNull text: String?,
+                @NonNull imageUrl: String?,
+                @NonNull action: Action?,
+                @NonNull negativeText: String?) {
+        this.id = id!!
+        this.text = text!!
+        this.imageUrl = imageUrl!!
+        this.action = action
+        this.negativeText = negativeText
+    }
 
     fun startTime(): Date {
         return DateUtil.iso8601DateParse(startTime!!)
@@ -79,7 +98,7 @@ class Announcement(id: String,
     }
 
     fun hasImageUrl(): Boolean {
-        return imageUrl.isNotEmpty()
+        return !imageUrl.isNullOrEmpty()
     }
 
     fun hasBorder(): Boolean {
