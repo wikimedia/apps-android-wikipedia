@@ -142,12 +142,12 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                 IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
         downloadReceiver.callback = downloadReceiverCallback
         // reset the last-page-viewed timer
-        Prefs.pageLastShown(0)
+        Prefs.pageLastShown = 0
         maybeShowWatchlistTooltip()
     }
 
     override fun onDestroyView() {
-        Prefs.setSuggestedEditsHighestPriorityEnabled(false)
+        Prefs.isSuggestedEditsHighestPriorityEnabled = false
         binding.mainViewPager.adapter = null
         binding.mainViewPager.unregisterOnPageChangeCallback(pageChangeCallback)
         _binding = null
@@ -165,7 +165,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN &&
                 resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             refreshContents()
-            if (!Prefs.shouldShowSuggestedEditsTooltip()) {
+            if (!Prefs.shouldShowSuggestedEditsTooltip) {
                 FeedbackUtil.showMessage(this, R.string.login_success_toast)
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
@@ -362,9 +362,9 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                     .setPositiveButton(R.string.preference_title_logout) { _, _ ->
                         WikipediaApp.getInstance().logOut()
                         FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete)
-                        Prefs.setReadingListsLastSyncTime(null)
-                        Prefs.setReadingListSyncEnabled(false)
-                        Prefs.setSuggestedEditsHighestPriorityEnabled(false)
+                        Prefs.readingListsLastSyncTime = ""
+                        Prefs.isReadingListSyncEnabled = false
+                        Prefs.isSuggestedEditsHighestPriorityEnabled = false
                         refreshContents()
                     }.show()
         } else {
@@ -434,7 +434,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     @Suppress("SameParameterValue")
     private fun lastPageViewedWithin(days: Int): Boolean {
-        return TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown()) < days
+        return TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown) < days
     }
 
     private fun download(image: FeaturedImage) {
@@ -482,25 +482,25 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     private fun maybeShowEditsTooltip() {
-        if (currentFragment !is SuggestedEditsTasksFragment && Prefs.shouldShowSuggestedEditsTooltip() &&
-                Prefs.getExploreFeedVisitCount() >= SHOW_EDITS_SNACKBAR_COUNT) {
+        if (currentFragment !is SuggestedEditsTasksFragment && Prefs.shouldShowSuggestedEditsTooltip &&
+                Prefs.exploreFeedVisitCount >= SHOW_EDITS_SNACKBAR_COUNT) {
             enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()), if (isLoggedIn) getString(R.string.main_tooltip_text, userName) else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false)
                         .setOnBalloonDismissListener {
-                            Prefs.setShouldShowSuggestedEditsTooltip(false)
+                            Prefs.shouldShowSuggestedEditsTooltip = false
                         }
             }
         }
     }
 
     private fun maybeShowWatchlistTooltip() {
-        if (Prefs.isWatchlistPageOnboardingTooltipShown() &&
-                !Prefs.isWatchlistMainOnboardingTooltipShown() && isLoggedIn) {
+        if (Prefs.isWatchlistPageOnboardingTooltipShown &&
+                !Prefs.isWatchlistMainOnboardingTooltipShown && isLoggedIn) {
             enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer, R.layout.view_watchlist_main_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
                         .setOnBalloonDismissListener {
                             WatchlistFunnel().logShowTooltipMore()
-                            Prefs.setWatchlistMainOnboardingTooltipShown(true)
+                            Prefs.isWatchlistMainOnboardingTooltipShown = true
                         }
             }
         }

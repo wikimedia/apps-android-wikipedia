@@ -58,7 +58,7 @@ class LoginActivity : BaseActivity() {
 
         loginSource = intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty()
         if (loginSource.isNotEmpty() && loginSource == LoginFunnel.SOURCE_SUGGESTED_EDITS) {
-            Prefs.setSuggestedEditsHighestPriorityEnabled(true)
+            Prefs.isSuggestedEditsHighestPriorityEnabled = true
         }
 
         // always go to account creation before logging in
@@ -168,9 +168,9 @@ class LoginActivity : BaseActivity() {
         // Set reading list syncing to enabled (without the explicit setup instruction),
         // so that the sync adapter can run at least once and check whether syncing is enabled
         // on the server side.
-        Prefs.setReadingListSyncEnabled(true)
-        Prefs.setReadingListPagesDeletedIds(emptySet())
-        Prefs.setReadingListsDeletedIds(emptySet())
+        Prefs.isReadingListSyncEnabled = true
+        Prefs.readingListPagesDeletedIds = mutableSetOf()
+        Prefs.readingListsDeletedIds = mutableSetOf()
         ReadingListSyncAdapter.manualSyncWithForce()
         pollNotifications(WikipediaApp.getInstance())
         updateSubscription()

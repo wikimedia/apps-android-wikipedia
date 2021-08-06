@@ -8,7 +8,7 @@ import org.wikipedia.settings.Prefs
 class InitialOnboardingActivity : SingleFragmentActivity<InitialOnboardingFragment>(), OnboardingFragment.Callback {
     override fun onComplete() {
         setResult(RESULT_OK)
-        Prefs.setInitialOnboardingEnabled(false)
+        Prefs.isInitialOnboardingEnabled = false
         finish()
     }
 

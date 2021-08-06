@@ -58,12 +58,12 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
             PopupWindowCompat.showAsDropDown(it, anchorView, 0, 0, Gravity.END)
         }
 
-        Prefs.getReadingListsLastSyncTime().let {
+        Prefs.readingListsLastSyncTime.let {
             binding.readingListsOverflowLastSync.visibility = if (it.isNullOrEmpty()) GONE else VISIBLE
             if (!it.isNullOrEmpty()) {
                 try {
                     binding.readingListsOverflowLastSync.text = context.getString(R.string.reading_list_menu_last_sync,
-                            getLastSyncDateString(Prefs.getReadingListsLastSyncTime()))
+                            getLastSyncDateString(Prefs.readingListsLastSyncTime))
                 } catch (e: ParseException) {
                     // ignore
                 }

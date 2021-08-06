@@ -45,8 +45,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         setConditionalLayoutDirection(binding.viewArticleContainer, parent().langFromCode)
 
         binding.viewArticleImage.setOnClickListener {
-            if (Prefs.shouldShowImageZoomTooltip()) {
-                Prefs.setShouldShowImageZoomTooltip(false)
+            if (Prefs.shouldShowImageZoomTooltip) {
+                Prefs.shouldShowImageZoomTooltip = false
                 FeedbackUtil.showMessage(requireActivity(), R.string.suggested_edits_image_zoom_tooltip)
             }
         }

@@ -34,8 +34,8 @@ object DateUtil {
 
     @JvmStatic
     @Synchronized
-    fun dbDateFormat(date: Date?): String {
-        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date!!)
+    fun dbDateFormat(date: Date): String {
+        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date)
     }
 
     @JvmStatic

@@ -42,7 +42,7 @@ class OnboardingClient : FeedClient {
                 context.getString(R.string.onboarding_got_it)
             )
         )
-        if (card.shouldShow() && Prefs.getExploreFeedVisitCount() <= SHOW_CUSTOMIZE_ONBOARDING_CARD_COUNT) {
+        if (card.shouldShow() && Prefs.exploreFeedVisitCount <= SHOW_CUSTOMIZE_ONBOARDING_CARD_COUNT) {
             cards.add(card)
         }
         return cards

@@ -27,7 +27,7 @@ class NotificationSettingsActivity : SingleFragmentActivity<NotificationSettings
         }
 
         fun promptEnablePollDialog(activity: Activity) {
-            if (!Prefs.notificationPollReminderEnabled() || Prefs.notificationPollEnabled()) {
+            if (!Prefs.isNotificationPollReminderEnabled || Prefs.isNotificationPollEnabled) {
                 return
             }
             val view = activity.layoutInflater.inflate(R.layout.dialog_with_checkbox, null)
@@ -38,9 +38,13 @@ class NotificationSettingsActivity : SingleFragmentActivity<NotificationSettings
                     .setCancelable(false)
                     .setTitle(R.string.notifications_poll_enable_title)
                     .setView(view)
-                    .setPositiveButton(R.string.notifications_poll_enable_positive) { _, _ -> Prefs.setNotificationPollEnabled(true) }
+                    .setPositiveButton(R.string.notifications_poll_enable_positive) { _, _ ->
+                        Prefs.isNotificationPollEnabled = true
+                    }
                     .setNegativeButton(R.string.notifications_poll_enable_negative, null)
-                    .setOnDismissListener { Prefs.setNotificationPollReminderEnabled(!checkbox.isChecked) }
+                    .setOnDismissListener {
+                        Prefs.isNotificationPollReminderEnabled = !checkbox.isChecked
+                    }
                     .show()
         }
     }

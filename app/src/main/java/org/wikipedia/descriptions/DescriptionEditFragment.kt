@@ -73,14 +73,14 @@ class DescriptionEditFragment : Fragment() {
         if (invokeSource == InvokeSource.SUGGESTED_EDITS) {
             SuggestedEditsSurvey.onEditSuccess()
         }
-        Prefs.setLastDescriptionEditTime(Date().time)
-        Prefs.setSuggestedEditsReactivationPassStageOne(false)
+        Prefs.lastDescriptionEditTime = Date().time
+        Prefs.isSuggestedEditsReactivationPassStageOne = false
         SuggestedEditsFunnel.get().success(action)
         binding.fragmentDescriptionEditView.setSaveState(false)
-        if (Prefs.shouldShowDescriptionEditSuccessPrompt() && invokeSource == InvokeSource.PAGE_ACTIVITY) {
+        if (Prefs.shouldShowDescriptionEditSuccessPrompt && invokeSource == InvokeSource.PAGE_ACTIVITY) {
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS)
-            Prefs.shouldShowDescriptionEditSuccessPrompt(false)
+            Prefs.shouldShowDescriptionEditSuccessPrompt = false
         } else {
             val intent = Intent()
             intent.putExtra(SuggestionsActivity.EXTRA_SOURCE_ADDED_CONTRIBUTION, binding.fragmentDescriptionEditView.description)

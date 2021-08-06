@@ -96,7 +96,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
                     if (!showDefaultList && displayedLists.isNotEmpty()) {
                         displayedLists.removeAt(0)
                     }
-                    ReadingList.sort(displayedLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
+                    ReadingList.sort(displayedLists, Prefs.readingListSortMode)
                     adapter.notifyDataSetChanged()
                     if (displayedLists.isEmpty()) {
                         showCreateListDialog()

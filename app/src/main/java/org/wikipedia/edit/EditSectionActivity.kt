@@ -119,7 +119,7 @@ class EditSectionActivity : BaseActivity() {
             funnel.logStart()
         }
         if (savedInstanceState != null && savedInstanceState.containsKey("hasTemporaryWikitextStored")) {
-            sectionWikitext = Prefs.getTemporaryWikitext()
+            sectionWikitext = Prefs.temporaryWikitext
         }
         binding.viewEditSectionError.retryClickListener = View.OnClickListener {
             binding.viewEditSectionError.visibility = View.GONE
@@ -376,12 +376,12 @@ class EditSectionActivity : BaseActivity() {
                 true
             }
             R.id.menu_edit_zoom_in -> {
-                Prefs.setEditingTextSizeExtra(Prefs.getEditingTextSizeExtra() + 1)
+                Prefs.editingTextSizeExtra = Prefs.editingTextSizeExtra + 1
                 updateTextSize()
                 true
             }
             R.id.menu_edit_zoom_out -> {
-                Prefs.setEditingTextSizeExtra(Prefs.getEditingTextSizeExtra() - 1)
+                Prefs.editingTextSizeExtra = Prefs.editingTextSizeExtra - 1
                 updateTextSize()
                 true
             }
@@ -467,11 +467,11 @@ class EditSectionActivity : BaseActivity() {
         super.onSaveInstanceState(outState)
         outState.putBoolean("hasTemporaryWikitextStored", true)
         outState.putBoolean("sectionTextModified", sectionTextModified)
-        Prefs.storeTemporaryWikitext(sectionWikitext)
+        Prefs.temporaryWikitext = sectionWikitext
     }
 
     private fun updateTextSize() {
-        val extra = Prefs.getEditingTextSizeExtra()
+        val extra = Prefs.editingTextSizeExtra
         binding.editSectionText.textSize = WikipediaApp.getInstance().getFontSize(window) + extra.toFloat()
     }
 

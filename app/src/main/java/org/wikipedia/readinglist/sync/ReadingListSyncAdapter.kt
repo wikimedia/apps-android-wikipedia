@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist.sync
 
-import android.content.*
+import android.content.ContentResolver
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.core.app.JobIntentService
@@ -29,7 +30,7 @@ class ReadingListSyncAdapter : JobIntentService() {
     override fun onHandleWork(intent: Intent) {
         val extras = intent.extras!!
         if (isDisabledByRemoteConfig || !AccountUtil.isLoggedIn ||
-                !(Prefs.isReadingListSyncEnabled() || Prefs.isReadingListsRemoteDeletePending())) {
+                !(Prefs.isReadingListSyncEnabled || Prefs.isReadingListsRemoteDeletePending)) {
             L.d("Skipping sync of reading lists.")
             if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
                 SavedPageSyncService.sendSyncEvent()
@@ -38,13 +39,13 @@ class ReadingListSyncAdapter : JobIntentService() {
         }
         L.d("Begin sync of reading lists...")
         val csrfToken = mutableListOf<String>()
-        val listIdsDeleted = Prefs.getReadingListsDeletedIds()
-        val pageIdsDeleted = Prefs.getReadingListPagesDeletedIds()
+        val listIdsDeleted = Prefs.readingListsDeletedIds
+        val pageIdsDeleted = Prefs.readingListPagesDeletedIds
         var allLocalLists: MutableList<ReadingList>? = null
         val wiki = WikipediaApp.getInstance().wikiSite
         val client = ReadingListClient(wiki)
         val readingListSyncNotification = ReadingListSyncNotification.instance
-        var lastSyncTime = Prefs.getReadingListsLastSyncTime()
+        var lastSyncTime = Prefs.readingListsLastSyncTime
         var shouldSendSyncEvent = extras.containsKey(SYNC_EXTRAS_REFRESHING)
         var shouldRetry = false
         var shouldRetryWithForce = false
@@ -52,8 +53,8 @@ class ReadingListSyncAdapter : JobIntentService() {
             IN_PROGRESS = true
             var syncEverything = false
             if (extras.containsKey(SYNC_EXTRAS_FORCE_FULL_SYNC) ||
-                    Prefs.isReadingListsRemoteDeletePending() ||
-                    Prefs.isReadingListsRemoteSetupPending()) {
+                    Prefs.isReadingListsRemoteDeletePending ||
+                    Prefs.isReadingListsRemoteSetupPending) {
                 // reset the remote ID on all lists, since they will need to be recreated next time.
                 L.d("Resetting all lists to un-synced.")
                 syncEverything = true
@@ -61,16 +62,16 @@ class ReadingListSyncAdapter : JobIntentService() {
                 AppDatabase.getAppDatabase().readingListPageDao().markAllPagesUnsynced()
                 allLocalLists = AppDatabase.getAppDatabase().readingListDao().getAllLists().toMutableList()
             }
-            if (Prefs.isReadingListsRemoteDeletePending()) {
+            if (Prefs.isReadingListsRemoteDeletePending) {
                 // Are we scheduled for a teardown? If so, delete everything and bail.
                 L.d("Tearing down remote lists...")
                 client.tearDown(getCsrfToken(wiki, csrfToken))
-                Prefs.setReadingListsRemoteDeletePending(false)
+                Prefs.isReadingListsRemoteDeletePending = false
                 return
-            } else if (Prefs.isReadingListsRemoteSetupPending()) {
+            } else if (Prefs.isReadingListsRemoteSetupPending) {
                 // ...Or are we scheduled for setup?
                 client.setup(getCsrfToken(wiki, csrfToken))
-                Prefs.setReadingListsRemoteSetupPending(false)
+                Prefs.isReadingListsRemoteSetupPending = false
             }
 
             // -----------------------------------------------
@@ -352,7 +353,7 @@ class ReadingListSyncAdapter : JobIntentService() {
         } catch (t: Throwable) {
             var errorMsg = t
             if (client.isErrorType(t, "not-set-up")) {
-                Prefs.setReadingListSyncEnabled(false)
+                Prefs.isReadingListSyncEnabled = false
                 if (lastSyncTime.isNullOrEmpty()) {
                     // This means that it's our first time attempting to sync, and we see that
                     // syncing isn't enabled on the server. So, let's prompt the user to enable it:
@@ -375,9 +376,9 @@ class ReadingListSyncAdapter : JobIntentService() {
             L.w(errorMsg)
         } finally {
             lastSyncTime = getLastDateFromHeader(lastSyncTime, client)
-            Prefs.setReadingListsLastSyncTime(lastSyncTime)
-            Prefs.setReadingListsDeletedIds(listIdsDeleted)
-            Prefs.setReadingListPagesDeletedIds(pageIdsDeleted)
+            Prefs.readingListsLastSyncTime = lastSyncTime
+            Prefs.readingListsDeletedIds = listIdsDeleted
+            Prefs.readingListPagesDeletedIds = pageIdsDeleted
             readingListSyncNotification.cancelNotification(applicationContext)
             if (shouldSendSyncEvent) {
                 SavedPageSyncService.sendSyncEvent(extras.containsKey(SYNC_EXTRAS_REFRESHING))
@@ -478,9 +479,9 @@ class ReadingListSyncAdapter : JobIntentService() {
         }
 
         fun setSyncEnabledWithSetup() {
-            Prefs.setReadingListSyncEnabled(true)
-            Prefs.setReadingListsRemoteSetupPending(true)
-            Prefs.setReadingListsRemoteDeletePending(false)
+            Prefs.isReadingListSyncEnabled = true
+            Prefs.isReadingListsRemoteSetupPending = true
+            Prefs.isReadingListsRemoteDeletePending = false
             manualSync()
         }
 
@@ -515,7 +516,7 @@ class ReadingListSyncAdapter : JobIntentService() {
         }
 
         fun manualSyncWithRefresh() {
-            Prefs.setSuggestedEditsHighestPriorityEnabled(false)
+            Prefs.isSuggestedEditsHighestPriorityEnabled = false
             val extras = Bundle()
             extras.putBoolean(SYNC_EXTRAS_REFRESHING, true)
             manualSync(extras)

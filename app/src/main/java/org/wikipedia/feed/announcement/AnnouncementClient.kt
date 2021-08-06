@@ -72,7 +72,7 @@ class AnnouncementClient : FeedClient {
 
         private fun matchesCountryCode(announcement: Announcement, country: String?): Boolean {
             var countryCode = country
-            val announcementsCountryOverride = Prefs.getAnnouncementsCountryOverride()
+            val announcementsCountryOverride = Prefs.announcementsCountryOverride
             if (!announcementsCountryOverride.isNullOrEmpty()) {
                 countryCode = announcementsCountryOverride
             }
@@ -96,7 +96,7 @@ class AnnouncementClient : FeedClient {
             }
             return if (announcement.loggedIn() != null && announcement.loggedIn() != AccountUtil.isLoggedIn) {
                 false
-            } else announcement.readingListSyncEnabled() == null || announcement.readingListSyncEnabled() == Prefs.isReadingListSyncEnabled()
+            } else announcement.readingListSyncEnabled() == null || announcement.readingListSyncEnabled() == Prefs.isReadingListSyncEnabled
         }
 
         private fun matchesVersionCodes(minVersion: String?, maxVersion: String?): Boolean {

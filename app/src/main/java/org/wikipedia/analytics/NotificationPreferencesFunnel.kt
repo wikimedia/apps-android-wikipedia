@@ -20,7 +20,7 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
         log(
                 "type_toggles", GsonMarshaller.marshal(toggleMap),
                 "background_fetch",
-                if (Prefs.notificationPollEnabled()) app.resources.getInteger(R.integer.notification_poll_interval_minutes).toString()
+                if (Prefs.isNotificationPollEnabled) app.resources.getInteger(R.integer.notification_poll_interval_minutes).toString()
                 else "disabled"
         )
     }

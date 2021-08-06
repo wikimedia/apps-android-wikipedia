@@ -91,8 +91,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.tagsLicenseText.movementMethod = LinkMovementMethod.getInstance()
 
         binding.imageView.setOnClickListener {
-            if (Prefs.shouldShowImageZoomTooltip()) {
-                Prefs.setShouldShowImageZoomTooltip(false)
+            if (Prefs.shouldShowImageZoomTooltip) {
+                Prefs.shouldShowImageZoomTooltip = false
                 FeedbackUtil.showToastOverView(binding.imageView, getString(R.string.suggested_edits_image_zoom_tooltip), Toast.LENGTH_LONG)
             }
         }

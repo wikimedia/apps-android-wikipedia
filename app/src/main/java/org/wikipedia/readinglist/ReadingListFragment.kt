@@ -122,7 +122,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         super.onPrepareOptionsMenu(menu)
         val sortByNameItem = menu.findItem(R.id.menu_sort_by_name)
         val sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent)
-        val sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
+        val sortMode = Prefs.readingListPageSortMode
         sortByNameItem.setTitle(if (sortMode == ReadingList.SORT_BY_NAME_ASC) R.string.reading_list_sort_by_name_desc else R.string.reading_list_sort_by_name)
         sortByRecentItem.setTitle(if (sortMode == ReadingList.SORT_BY_RECENT_DESC) R.string.reading_list_sort_by_recent_desc else R.string.reading_list_sort_by_recent)
         val searchItem = menu.findItem(R.id.menu_search_lists)
@@ -225,7 +225,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             binding.readingListEmptyText.visibility = if (it.pages.isEmpty()) View.VISIBLE else View.GONE
             headerView.setReadingList(it, ReadingListItemView.Description.DETAIL)
             binding.readingListHeader.setReadingList(it)
-            ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC))
+            ReadingList.sort(readingList, Prefs.readingListPageSortMode)
             setSearchQuery()
             if (!toolbarExpanded) {
                 binding.readingListToolbarContainer.title = it.title
@@ -293,13 +293,13 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     }
 
     private fun setSortMode(sortModeAsc: Int, sortModeDesc: Int) {
-        var sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC)
+        var sortMode = Prefs.readingListPageSortMode
         sortMode = if (sortMode != sortModeAsc) {
             sortModeAsc
         } else {
             sortModeDesc
         }
-        Prefs.setReadingListPageSortMode(sortMode)
+        Prefs.readingListPageSortMode = sortMode
         requireActivity().invalidateOptionsMenu()
         update()
     }
@@ -669,7 +669,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
         override fun onActionClick(item: ReadingListPage?, view: View) {
             item?.let {
-                if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi && it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
+                if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi && it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
                     it.offline = false
                 }
                 if (it.saving) {

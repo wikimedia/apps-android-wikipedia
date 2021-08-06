@@ -73,7 +73,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
                 .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
                 .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
-        Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
+        Prefs.shouldShowOneTimeSequentialUserStatsTooltip = false
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -286,7 +286,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.userNameView.text = AccountUtil.userName
             binding.contributionsStatsView.setTitle(totalContributions.toString())
             binding.contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
-            if (Prefs.shouldShowOneTimeSequentialUserStatsTooltip()) {
+            if (Prefs.shouldShowOneTimeSequentialUserStatsTooltip) {
                 showOneTimeSequentialUserStatsTooltips()
             }
         }

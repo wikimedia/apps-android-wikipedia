@@ -77,9 +77,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
         // Conditionally execute all recurring tasks
         RecurringTasksExecutor(WikipediaApp.getInstance()).run()
-        if (Prefs.isReadingListsFirstTimeSync() && AccountUtil.isLoggedIn) {
-            Prefs.setReadingListsFirstTimeSync(false)
-            Prefs.setReadingListSyncEnabled(true)
+        if (Prefs.isReadingListsFirstTimeSync && AccountUtil.isLoggedIn) {
+            Prefs.isReadingListsFirstTimeSync = false
+            Prefs.isReadingListSyncEnabled = true
             ReadingListSyncAdapter.manualSyncWithForce()
         }
 
@@ -91,7 +91,7 @@ abstract class BaseActivity : AppCompatActivity() {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
 
-        Prefs.setLocalClassName(localClassName)
+        Prefs.localClassName = localClassName
     }
 
     override fun onDestroy() {
@@ -117,7 +117,7 @@ abstract class BaseActivity : AppCompatActivity() {
         EXCLUSIVE_BUS_METHODS = exclusiveBusMethods
         EXCLUSIVE_DISPOSABLE = WikipediaApp.getInstance().bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
 
-        Prefs.crashedBeforeActivityCreated(false)
+        Prefs.isCrashedBeforeActivityCreated = false
     }
 
     override fun applyOverrideConfiguration(configuration: Configuration) {
@@ -233,8 +233,8 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun maybeShowLoggedOutInBackgroundDialog() {
-        if (Prefs.wasLoggedOutInBackground()) {
-            Prefs.setLoggedOutInBackground(false)
+        if (Prefs.isLoggedOutInBackground) {
+            Prefs.isLoggedOutInBackground = false
             AlertDialog.Builder(this)
                     .setCancelable(false)
                     .setTitle(R.string.logged_out_in_background_title)
@@ -289,7 +289,7 @@ abstract class BaseActivity : AppCompatActivity() {
             } else if (event is LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog()
             } else if (event is ReadingListSyncEvent) {
-                if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+                if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled) {
                     FeedbackUtil.makeSnackbar(this@BaseActivity,
                             getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show()
                 }
