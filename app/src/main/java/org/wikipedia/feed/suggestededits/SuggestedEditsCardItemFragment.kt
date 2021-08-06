@@ -4,6 +4,7 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -45,8 +46,8 @@ import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
+import java.util.*
 
 class SuggestedEditsCardItemFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsCardItemBinding? = null
@@ -187,9 +188,8 @@ class SuggestedEditsCardItemFragment : Fragment() {
         binding.seCardErrorView.visibility = GONE
         binding.callToActionButton.visibility = VISIBLE
         if (sourceSummaryForEdit != null) {
-            binding.cardView.layoutDirection = if (L10nUtil.isLangRTL(if (targetSummaryForEdit != null)
-                        targetSummaryForEdit!!.lang else sourceSummaryForEdit!!.lang))
-                View.LAYOUT_DIRECTION_RTL else View.LAYOUT_DIRECTION_LTR
+            val langCode = targetSummaryForEdit?.lang ?: sourceSummaryForEdit!!.lang
+            binding.cardView.layoutDirection = TextUtils.getLayoutDirectionFromLocale(Locale(langCode))
         }
 
         when (cardActionType) {
