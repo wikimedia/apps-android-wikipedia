@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import androidx.core.util.Pair
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -78,7 +77,7 @@ class RandomFragment : Fragment() {
 
         binding.randomItemPager.offscreenPageLimit = 2
         binding.randomItemPager.adapter = RandomItemAdapter(this)
-        binding.randomItemPager.setPageTransformer(PagerTransformer(resources.configuration.layoutDirection == ViewCompat.LAYOUT_DIRECTION_RTL))
+        binding.randomItemPager.setPageTransformer(PagerTransformer(resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL))
         binding.randomItemPager.registerOnPageChangeCallback(viewPagerListener)
 
         binding.randomNextButton.setOnClickListener { onNextClick() }
