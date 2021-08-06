@@ -13,8 +13,7 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.auth.AccountUtil.isLoggedIn
-import org.wikipedia.auth.AccountUtil.userName
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.DimenUtil.getDimension
@@ -38,13 +37,12 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
 
-        binding.mainDrawerAccountName.setOnClickListener {
-            callback()?.usernameClick()
-            dismiss()
-        }
-
-        binding.mainDrawerLoginButton.setOnClickListener {
-            callback()?.loginClick()
+        binding.mainDrawerAccountContainer.setOnClickListener {
+            if (AccountUtil.isLoggedIn) {
+                callback()?.usernameClick()
+            } else {
+                callback()?.loginClick()
+            }
             dismiss()
         }
 
@@ -94,10 +92,10 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateState() {
-        if (isLoggedIn) {
+        if (AccountUtil.isLoggedIn) {
             binding.mainDrawerAccountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24))
             ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, ColorStateList.valueOf(getThemedColor(requireContext(), R.attr.material_theme_secondary_color)))
-            binding.mainDrawerAccountName.text = userName
+            binding.mainDrawerAccountName.text = AccountUtil.userName
             binding.mainDrawerAccountName.visibility = View.VISIBLE
             binding.mainDrawerLoginButton.visibility = View.GONE
             binding.mainDrawerNotificationsContainer.visibility = View.VISIBLE
