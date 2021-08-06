@@ -12,7 +12,6 @@ import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -396,8 +395,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 }
             }
             imageView.setImageResource(iconResId)
-            DrawableCompat.setTint(imageBackgroundView.drawable,
-                    ContextCompat.getColor(this@NotificationActivity, iconBackColor))
+            imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, iconBackColor))
             secondaryActionHintView.isVisible = false
             tertiaryActionHintView.isVisible = false
             n.contents?.let {
