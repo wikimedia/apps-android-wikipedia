@@ -1,6 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
 import androidx.annotation.VisibleForTesting
+import com.google.gson.annotations.SerializedName
 
 /**
  * Represents the sampling config component of a stream configuration.
@@ -11,7 +12,12 @@ import androidx.annotation.VisibleForTesting
  class SamplingConfig {
 
     enum class Identifier {
-        PAGEVIEW, SESSION, DEVICE
+        @SerializedName("pageview")
+        PAGEVIEW,
+        @SerializedName("session")
+        SESSION,
+        @SerializedName("device")
+        DEVICE
     }
 
     private var identifier: Identifier? = null
