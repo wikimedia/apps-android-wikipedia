@@ -47,6 +47,7 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
+import java.util.*
 
 class SuggestedEditsCardItemFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsCardItemBinding? = null
@@ -186,10 +187,9 @@ class SuggestedEditsCardItemFragment : Fragment() {
         binding.seFeedCardProgressBar.visibility = GONE
         binding.seCardErrorView.visibility = GONE
         binding.callToActionButton.visibility = VISIBLE
-        if (sourceSummaryForEdit != null) {
-            binding.cardView.layoutDirection = if (L10nUtil.isLangRTL(if (targetSummaryForEdit != null)
-                        targetSummaryForEdit!!.lang else sourceSummaryForEdit!!.lang))
-                View.LAYOUT_DIRECTION_RTL else View.LAYOUT_DIRECTION_LTR
+        sourceSummaryForEdit?.let {
+            val langCode = targetSummaryForEdit?.lang ?: it.lang
+            L10nUtil.setConditionalLayoutDirection(binding.cardView, langCode)
         }
 
         when (cardActionType) {

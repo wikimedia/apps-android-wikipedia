@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.collection.LruCache
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -415,7 +416,7 @@ class SearchResultsFragment : Fragment() {
             languageCodeText.visibility = if (resultsCountList.size == 1) View.GONE else View.VISIBLE
             languageCodeText.text = langCode
             languageCodeText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            languageCodeText.backgroundTintList = if (resultsCount == 0) secondaryColorStateList else accentColorStateList
+            ViewCompat.setBackgroundTintList(languageCodeText, if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             formatLangButton(languageCodeText, langCode,
                     SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             view.isEnabled = resultsCount > 0
