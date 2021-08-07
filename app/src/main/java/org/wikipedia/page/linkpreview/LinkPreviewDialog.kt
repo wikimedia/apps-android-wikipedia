@@ -199,7 +199,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     .flatMap { mediaList ->
                         val maxImages = 10
                         val items = mediaList.getItems("image", "video").asReversed()
-                        val titleList = items.filter { it.showInGallery() }.map { it.title }.take(maxImages)
+                        val titleList = items.filter { it.isShowInGallery }.map { it.title }.take(maxImages)
                         if (titleList.isEmpty()) Observable.empty() else ServiceFactory.get(pageTitle.wikiSite).getImageInfo(titleList.joinToString("|"), pageTitle.wikiSite.languageCode())
                     }
                     .subscribeOn(Schedulers.io())

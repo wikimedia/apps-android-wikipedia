@@ -1,109 +1,57 @@
-package org.wikipedia.gallery;
+package org.wikipedia.gallery
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import org.wikipedia.dataclient.Service
+import org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl
+import java.util.regex.Pattern
+import kotlin.math.abs
 
-import com.google.gson.annotations.SerializedName;
-
-import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.util.UriUtil;
-
-import java.io.Serializable;
-import java.util.Collections;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static org.wikipedia.dataclient.Service.URL_FRAGMENT_FROM_COMMONS;
-
-@SuppressWarnings("unused")
-public class MediaListItem implements Serializable {
-    @Nullable private String title;
-    @SerializedName("section_id") private int sectionId;
-    @Nullable private String type;
-    @Nullable private TextInfo caption;
-    private boolean showInGallery;
-    @Nullable @SerializedName("srcset") private List<ImageSrcSet> srcSets;
-
-    public MediaListItem() {
-    }
-
-    public MediaListItem(@NonNull String title) {
-        this.title = title;
-    }
-
-    @NonNull
-    public String getType() {
-        return StringUtils.defaultString(type);
-    }
-
-    @Nullable
-    public TextInfo getCaption() {
-        return caption;
-    }
-
-    public boolean showInGallery() {
-        return showInGallery;
-    }
-
-    @NonNull
-    public String getTitle() {
-        return StringUtils.defaultString(title);
-    }
-
-    @NonNull
-    public List<ImageSrcSet> getSrcSets() {
-        return srcSets != null ? srcSets : Collections.emptyList();
-    }
-
-    @NonNull
-    public String getImageUrl(int preferredSize) {
-        Pattern pattern = Pattern.compile("/(\\d+)px-");
-        String imageUrl = getSrcSets().get(0).getSrc();
-        int lastSizeDistance = Integer.MAX_VALUE;
-        for (ImageSrcSet srcSet : getSrcSets()) {
-            Matcher matcher = pattern.matcher(srcSet.getSrc());
+@JsonClass(generateAdapter = true)
+class MediaListItem(
+    val title: String = "",
+    @Json(name = "section_id") val sectionId: Int = 0,
+    val type: String = "",
+    val caption: TextInfo? = null,
+    @Json(name = "showInGallery") val isShowInGallery: Boolean = false,
+    @Json(name = "srcset") val srcSets: List<ImageSrcSet> = emptyList()
+) {
+    fun getImageUrl(preferredSize: Int): String {
+        val pattern = Pattern.compile("/(\\d+)px-")
+        var imageUrl = srcSets[0].src
+        var lastSizeDistance = Int.MAX_VALUE
+        for (srcSet in srcSets) {
+            val matcher = pattern.matcher(srcSet.src)
             if (matcher.find() && matcher.group(1) != null) {
-                int currentSizeDistance = Math.abs(Integer.parseInt(matcher.group(1)) - preferredSize);
+                val currentSizeDistance = abs(matcher.group(1).toInt() - preferredSize)
                 if (currentSizeDistance < lastSizeDistance) {
-                    imageUrl = srcSet.getSrc();
-                    lastSizeDistance = currentSizeDistance;
+                    imageUrl = srcSet.src
+                    lastSizeDistance = currentSizeDistance
                 }
             }
         }
-        return UriUtil.resolveProtocolRelativeUrl(imageUrl);
+        return resolveProtocolRelativeUrl(imageUrl)
     }
 
-    @NonNull
-    public String getImageUrl(float deviceScale) {
-        String imageUrl = getSrcSets().get(0).getSrc();
-        float lastScale = 1.0f;
-        for (ImageSrcSet srcSet : getSrcSets()) {
-            float scale = srcSet.getScale();
+    fun getImageUrl(deviceScale: Float): String {
+        var imageUrl = srcSets[0].src
+        var lastScale = 1.0f
+        for (srcSet in srcSets) {
+            val scale = srcSet.scale
             if (deviceScale >= scale && lastScale < scale) {
-                lastScale = scale;
-                imageUrl = srcSet.getSrc();
+                lastScale = scale
+                imageUrl = srcSet.src
             }
         }
-
-        return UriUtil.resolveProtocolRelativeUrl(imageUrl);
+        return resolveProtocolRelativeUrl(imageUrl)
     }
 
-    public boolean isInCommons() {
-        return !getSrcSets().isEmpty() && getSrcSets().get(0).src.contains(URL_FRAGMENT_FROM_COMMONS);
-    }
+    val isInCommons: Boolean
+        get() = srcSets.isNotEmpty() && srcSets[0].src.contains(Service.URL_FRAGMENT_FROM_COMMONS)
+}
 
-    public class ImageSrcSet implements Serializable {
-        @Nullable private String src;
-        @Nullable private String scale;
-
-        @NonNull
-        public String getSrc() {
-            return StringUtils.defaultString(src);
-        }
-
-        public float getScale() {
-            return scale == null ? 0 : Float.parseFloat(scale.replace("x", ""));
-        }
-    }
+@JsonClass(generateAdapter = true)
+class ImageSrcSet(val src: String = "", @Json(name = "scale") internal val scaleStr: String = "") {
+    val scale: Float
+        get() = scaleStr.replace("x", "").toFloat()
 }

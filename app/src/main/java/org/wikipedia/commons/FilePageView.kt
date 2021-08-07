@@ -91,10 +91,10 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             addDetail(context.getString(R.string.suggested_edits_image_tags), getImageTags(imageTags, getProperLanguageCode(summaryForEdit, imageFromCommons)))
         }
 
-        addDetail(context.getString(R.string.suggested_edits_image_caption_summary_title_author), summaryForEdit.metadata!!.artist())
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summaryForEdit.metadata!!.dateTime())
-        addDetail(context.getString(R.string.suggested_edits_image_caption_summary_title_source), summaryForEdit.metadata!!.credit())
-        addDetail(true, context.getString(R.string.suggested_edits_image_preview_dialog_licensing), summaryForEdit.metadata!!.licenseShortName(), summaryForEdit.metadata!!.licenseUrl())
+        addDetail(context.getString(R.string.suggested_edits_image_caption_summary_title_author), summaryForEdit.metadata!!.artist)
+        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summaryForEdit.metadata!!.dateTime)
+        addDetail(context.getString(R.string.suggested_edits_image_caption_summary_title_source), summaryForEdit.metadata!!.credit)
+        addDetail(true, context.getString(R.string.suggested_edits_image_preview_dialog_licensing), summaryForEdit.metadata!!.licenseShortName, summaryForEdit.metadata!!.licenseUrl)
         if (imageFromCommons) {
             addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), context.getString(R.string.suggested_edits_image_file_page_commons_link, summaryForEdit.title))
         } else {

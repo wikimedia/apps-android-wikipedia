@@ -121,7 +121,7 @@ class FilePageFragment : Fragment() {
                             pageTitle.wikiSite.languageCode(),
                             pageTitle,
                             pageTitle.displayText,
-                            StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString().ifBlank { null },
+                            StringUtil.fromHtml(imageInfo.metadata!!.imageDescription).toString().ifBlank { null },
                             imageInfo.thumbUrl,
                             null,
                             null,

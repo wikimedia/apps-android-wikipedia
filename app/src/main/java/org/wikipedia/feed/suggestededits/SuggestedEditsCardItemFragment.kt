@@ -283,7 +283,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                                 it.thumbUrl,
                                 WikiSite.forLanguageCode(langFromCode)),
                             StringUtil.removeHTMLTags(page.title()),
-                            it.metadata!!.imageDescription(),
+                            it.metadata!!.imageDescription,
                             it.thumbUrl,
                             null,
                             null,

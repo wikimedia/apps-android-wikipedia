@@ -157,7 +157,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             else -> {
                 captionSourcePageTitle?.run {
                     title?.let {
-                        callToActionSourceSummary = PageSummaryForEdit(prefixedText, it.wikiSite.languageCode(), this, displayText, StringUtil.fromHtml(imagePage?.imageInfo()?.metadata?.imageDescription().orEmpty()).toString(), imagePage?.imageInfo()?.thumbUrl)
+                        callToActionSourceSummary = PageSummaryForEdit(prefixedText, it.wikiSite.languageCode(), this, displayText, StringUtil.fromHtml(imagePage?.imageInfo()?.metadata?.imageDescription.orEmpty()).toString(), imagePage?.imageInfo()?.thumbUrl)
                         pageHeaderView.setUpCallToAction(parentFragment.getString(R.string.suggested_edits_article_cta_image_caption))
                     }
                 }

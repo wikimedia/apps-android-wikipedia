@@ -1,16 +1,14 @@
 package org.wikipedia.gallery
 
-class MediaList {
+import com.squareup.moshi.JsonClass
 
-    private val revision: String? = null
-    private val tid: String? = null
-    private val items: List<MediaListItem>? = null
-
+@JsonClass(generateAdapter = true)
+class MediaList(
+    internal val revision: String = "",
+    internal val tid: String = "",
+    internal val items: List<MediaListItem> = emptyList()
+) {
     fun getItems(vararg types: String): MutableList<MediaListItem> {
-        val list = mutableListOf<MediaListItem>()
-        items?.let { mediaList ->
-            list.addAll(mediaList.filter { it.showInGallery() && types.contains(it.type) })
-        }
-        return list
+        return items.filter { it.isShowInGallery && types.contains(it.type) }.toMutableList()
     }
 }

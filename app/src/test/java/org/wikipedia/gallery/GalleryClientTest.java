@@ -1,10 +1,9 @@
 package org.wikipedia.gallery;
 
-import com.google.gson.stream.MalformedJsonException;
-
 import org.junit.Test;
 import org.wikipedia.test.MockRetrofitTest;
 
+import java.io.IOException;
 import java.util.List;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -32,7 +31,7 @@ public class GalleryClientTest extends MockRetrofitTest {
                     return result.size() == 1
                             && result.get(0).getType().equals("image")
                             && result.get(0).getTitle().equals("File:BarackObamaportrait.jpg")
-                            && result.get(0).showInGallery();
+                            && result.get(0).isShowInGallery();
                 });
     }
 
@@ -46,7 +45,7 @@ public class GalleryClientTest extends MockRetrofitTest {
                     List<MediaListItem> result = gallery.getItems("video");
                     return result.get(0).getType().equals("video")
                             && result.get(0).getTitle().equals("File:20090124_WeeklyAddress.ogv")
-                            && result.get(0).showInGallery();
+                            && result.get(0).isShowInGallery();
                 });
     }
 
@@ -59,7 +58,7 @@ public class GalleryClientTest extends MockRetrofitTest {
     @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
         getObservable().test().await()
-                .assertError(MalformedJsonException.class);
+                .assertError(IOException.class);
     }
 
     private Observable<MediaList> getObservable() {

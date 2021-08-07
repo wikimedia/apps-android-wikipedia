@@ -271,7 +271,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()]
         title.description = currentCaption
         val summary = PageSummaryForEdit(title.prefixedText, sourceWiki.languageCode(), title,
-            title.displayText, RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription()), item.mediaInfo!!.thumbUrl)
+            title.displayText, RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription), item.mediaInfo!!.thumbUrl)
         startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null,
             DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
     }
@@ -298,7 +298,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         val targetTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL,
             targetLanguageCode ?: app.language().appLanguageCodes[1]))
         val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()].orEmpty().ifEmpty {
-            RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
+            RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription)
         }
         val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode(),
                             sourceTitle, sourceTitle.displayText, currentCaption, item.mediaInfo!!.thumbUrl)
@@ -620,7 +620,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
         val descriptionStr = item.mediaInfo?.captions!!.getOrElse(sourceWiki.languageCode()) {
-            StringUtil.fromHtml(item.mediaInfo!!.metadata!!.imageDescription())
+            StringUtil.fromHtml(item.mediaInfo!!.metadata!!.imageDescription)
         }
 
         if (descriptionStr != null && descriptionStr.isNotEmpty()) {
@@ -633,7 +633,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     private fun setLicenseInfo(item: GalleryItemFragment) {
         val metadata = item.mediaInfo!!.metadata!!
-        val license = ImageLicense(metadata.license(), metadata.licenseShortName(), metadata.licenseUrl())
+        val license = ImageLicense(metadata.license, metadata.licenseShortName, metadata.licenseUrl)
 
         // determine which icon to display...
         if (license.licenseIcon == R.drawable.ic_license_by) {
@@ -650,13 +650,13 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
         // Set the icon's content description to the UsageTerms property.
         // (if UsageTerms is not present, then default to Fair Use)
-        binding.licenseIcon.contentDescription = metadata.licenseShortName().ifBlank {
+        binding.licenseIcon.contentDescription = metadata.licenseShortName.ifBlank {
             getString(R.string.gallery_fair_use_license)
         }
         // Give the license URL to the icon, to be received by the click handler (may be null).
-        binding.licenseIcon.tag = metadata.licenseUrl()
+        binding.licenseIcon.tag = metadata.licenseUrl
         DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
-        val creditStr = metadata.artist().ifEmpty { metadata.credit() }
+        val creditStr = metadata.artist.ifEmpty { metadata.credit }
 
         // if we couldn't find a attribution string, then default to unknown
         binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })

@@ -1,9 +1,9 @@
 package org.wikipedia.captcha;
 
-import com.google.gson.stream.MalformedJsonException;
-
 import org.junit.Test;
 import org.wikipedia.test.MockRetrofitTest;
+
+import java.io.IOException;
 
 import io.reactivex.rxjava3.core.Observable;
 
@@ -31,7 +31,7 @@ public class CaptchaClientTest extends MockRetrofitTest {
     @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
         getObservable().test().await()
-                .assertError(MalformedJsonException.class);
+                .assertError(IOException.class);
     }
 
     private Observable<CaptchaResult> getObservable() {

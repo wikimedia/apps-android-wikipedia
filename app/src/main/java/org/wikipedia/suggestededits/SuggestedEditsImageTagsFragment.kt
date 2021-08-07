@@ -168,7 +168,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         binding.imageCaption.visibility = VISIBLE
                     } else {
                         if (page!!.imageInfo() != null && page!!.imageInfo()!!.metadata != null) {
-                            binding.imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription()).toString().trim()
+                            binding.imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription).toString().trim()
                             binding.imageCaption.visibility = VISIBLE
                         } else {
                             binding.imageCaption.visibility = GONE

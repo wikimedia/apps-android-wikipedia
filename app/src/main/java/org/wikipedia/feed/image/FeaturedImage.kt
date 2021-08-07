@@ -1,18 +1,12 @@
 package org.wikipedia.feed.image
 
+import com.squareup.moshi.JsonClass
 import org.wikipedia.gallery.GalleryItem
 import org.wikipedia.gallery.ImageInfo
-import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 import org.wikipedia.util.StringUtil
 
-class FeaturedImage : GalleryItem(), PostProcessable {
-
-    val title = ""
-
-    val image = ImageInfo()
-
-    override fun postProcess() {
-        titles = Titles(title, StringUtil.addUnderscores(title), title)
-        original.setSource(image.source)
-    }
-}
+@JsonClass(generateAdapter = true)
+class FeaturedImage(val title: String = "", val image: ImageInfo = ImageInfo()) : GalleryItem(
+    titles = Titles(title, StringUtil.addUnderscores(title), title),
+    original = ImageInfo().also { it.source = image.source }
+)

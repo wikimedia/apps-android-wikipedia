@@ -142,7 +142,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                                 WikiSite.forLanguageCode(parent().langFromCode)
                                         ),
                                         StringUtil.removeHTMLTags(title),
-                                        imageInfo.metadata!!.imageDescription(),
+                                        imageInfo.metadata!!.imageDescription,
                                         imageInfo.thumbUrl,
                                         null,
                                         null,
@@ -298,12 +298,12 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             binding.viewImageArtist.setTitleText(getString(R.string.suggested_edits_image_caption_summary_title_author))
             binding.viewImageArtist.setDetailText(sourceSummaryForEdit!!.user)
         } else {
-            binding.viewImageArtist.setTitleText(StringUtil.removeHTMLTags(sourceSummaryForEdit!!.metadata!!.artist()))
+            binding.viewImageArtist.setTitleText(StringUtil.removeHTMLTags(sourceSummaryForEdit!!.metadata!!.artist))
         }
 
         binding.viewImageDate.setDetailText(DateUtil.getLastSyncDateString(sourceSummaryForEdit!!.timestamp!!))
-        binding.viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
-        binding.viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
+        binding.viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit)
+        binding.viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName)
 
         binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
         binding.viewArticleExtract.visibility = GONE

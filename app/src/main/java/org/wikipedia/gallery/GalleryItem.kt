@@ -1,49 +1,48 @@
 package org.wikipedia.gallery
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE
 import org.wikipedia.dataclient.Service
 import org.wikipedia.util.ImageUrlUtil
-import java.io.Serializable
 import java.util.*
 
-open class GalleryItem : Serializable {
+@JsonClass(generateAdapter = true)
+open class GalleryItem(
+    @Json(name = "section_id")
+    val sectionId: Int = 0,
 
-    @SerializedName("section_id")
-    val sectionId = 0
+    @Json(name = "wb_entity_id")
+    val entityId: String = "",
 
-    @SerializedName("wb_entity_id")
-    val entityId: String = ""
+    @Json(name = "audio_type")
+    val audioType: String = "",
 
-    @SerializedName("audio_type")
-    val audioType: String = ""
-
-    @SerializedName("structured")
-    var structuredData: StructuredData? = null
+    @Json(name = "structured")
+    var structuredData: StructuredData? = null,
 
     // return the base url of Wiki Commons for WikiSite() if the file_page is null.
-    @SerializedName("file_page")
-    var filePage: String = Service.COMMONS_URL
+    @Json(name = "file_page")
+    var filePage: String = Service.COMMONS_URL,
 
-    val duration = 0.0
-    val isShowInGallery = false
-    var type: String = ""
-    var thumbnail = ImageInfo()
-    var original = ImageInfo()
-    var description = TextInfo()
-
-    val caption: TextInfo? = null
-    val sources: List<ImageInfo>? = null
-    var titles: Titles? = null
-    var artist: ArtistInfo? = null
-    var license: ImageLicense? = null
-
+    val duration: Double = 0.0,
+    val isShowInGallery: Boolean = false,
+    var type: String = "",
+    var thumbnail: ImageInfo = ImageInfo(),
+    var original: ImageInfo = ImageInfo(),
+    var description: TextInfo = TextInfo(),
+    val caption: TextInfo? = null,
+    val sources: List<ImageInfo>? = null,
+    var titles: Titles? = null,
+    var artist: ArtistInfo? = null,
+    var license: ImageLicense? = null,
+) {
     val thumbnailUrl get() = thumbnail.source
     val preferredSizedImageUrl get() = ImageUrlUtil.getUrlForPreferredSize(thumbnailUrl, PREFERRED_GALLERY_IMAGE_SIZE)
 
     // The getSources has different levels of source,
     // should have an option that allows user to chose which quality to play
-    val originalVideoSource get() = sources?.getOrNull(sources.size - 1)
+    val originalVideoSource get() = sources?.lastOrNull()
 
     var structuredCaptions
         get() = structuredData?.captions ?: emptyMap()
@@ -54,9 +53,9 @@ open class GalleryItem : Serializable {
             structuredData?.captions = HashMap(captions)
         }
 
-    class Titles constructor(val display: String = "",
-                             val canonical: String = "",
-                             val normalized: String = "") : Serializable
+    @JsonClass(generateAdapter = true)
+    class Titles(val display: String = "", val canonical: String = "", val normalized: String = "")
 
-    class StructuredData(var captions: HashMap<String, String>? = null) : Serializable
+    @JsonClass(generateAdapter = true)
+    class StructuredData(var captions: HashMap<String, String>? = null)
 }
