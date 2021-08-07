@@ -20,8 +20,8 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
                 .map(response -> {
                     // noinspection ConstantConditions
                     MwQueryPage page = response.getQuery().getPages().get(0);
-                    return page.imageInfo() != null && page.imageInfo().getMetadata() != null
-                            ? new ImageLicense(page.imageInfo().getMetadata())
+                    return page.getFirstImageInfo() != null && page.getFirstImageInfo().getMetadata() != null
+                            ? new ImageLicense(page.getFirstImageInfo().getMetadata())
                             : new ImageLicense();
                 })
                 .test().await()

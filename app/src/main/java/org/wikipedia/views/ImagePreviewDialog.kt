@@ -86,7 +86,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    if (it.query?.firstPage?.imageInfo() == null) {
+                    if (it.query?.firstPage?.firstImageInfo == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                         ServiceFactory.get(pageSummaryForEdit.pageTitle.wikiSite).getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang)
                     } else {
@@ -97,14 +97,14 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                 }
                 .flatMap { response ->
                     page = response.query?.firstPage!!
-                    page.imageInfo()?.let {
+                    page.firstImageInfo?.let {
                         pageSummaryForEdit.timestamp = it.timestamp
                         pageSummaryForEdit.user = it.user
                         pageSummaryForEdit.metadata = it.metadata
                         thumbnailWidth = it.thumbWidth
                         thumbnailHeight = it.thumbHeight
                     }
-                    ImageTagsProvider.getImageTagsObservable(page.pageId(), pageSummaryForEdit.lang)
+                    ImageTagsProvider.getImageTagsObservable(page.pageId, pageSummaryForEdit.lang)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {

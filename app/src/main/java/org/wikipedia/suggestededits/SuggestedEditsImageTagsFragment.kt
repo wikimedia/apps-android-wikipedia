@@ -151,15 +151,15 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
-        funnel = EditFunnel(WikipediaApp.getInstance(), PageTitle(page!!.title(), WikiSite(Service.COMMONS_URL)))
+        funnel = EditFunnel(WikipediaApp.getInstance(), PageTitle(page!!.title, WikiSite(Service.COMMONS_URL)))
 
         binding.tagsLicenseText.visibility = GONE
         binding.tagsHintText.visibility = VISIBLE
         ImageZoomHelper.setViewZoomable(binding.imageView)
 
-        ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+        ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.firstImageInfo!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
-        disposables.add(MediaHelper.getImageCaptions(page!!.title())
+        disposables.add(MediaHelper.getImageCaptions(page!!.title)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { captions ->
@@ -167,8 +167,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         binding.imageCaption.text = captions[callback().getLangCode()]
                         binding.imageCaption.visibility = VISIBLE
                     } else {
-                        if (page!!.imageInfo() != null && page!!.imageInfo()!!.metadata != null) {
-                            binding.imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription).toString().trim()
+                        if (page!!.firstImageInfo != null && page!!.firstImageInfo!!.metadata != null) {
+                            binding.imageCaption.text = StringUtil.fromHtml(page!!.firstImageInfo!!.metadata!!.imageDescription).toString().trim()
                             binding.imageCaption.visibility = VISIBLE
                         } else {
                             binding.imageCaption.visibility = GONE
@@ -336,7 +336,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ token ->
-                    val mId = "M" + page!!.pageId()
+                    val mId = "M" + page!!.pageId
                     var claimStr = "{\"claims\":["
                     var commentStr = "/* add-depicts: "
                     var first = true

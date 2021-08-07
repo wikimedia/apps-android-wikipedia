@@ -103,7 +103,7 @@ class FilePageFragment : Fragment() {
                 })
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    if (it.query?.firstPage?.imageInfo() == null) {
+                    if (it.query?.firstPage?.firstImageInfo == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                         ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode())
                     } else {
@@ -115,7 +115,7 @@ class FilePageFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     page = it.query?.firstPage!!
-                    val imageInfo = page.imageInfo()!!
+                    val imageInfo = page.firstImageInfo!!
                     pageSummaryForEdit = PageSummaryForEdit(
                             pageTitle.prefixedText,
                             pageTitle.wikiSite.languageCode(),
@@ -131,7 +131,7 @@ class FilePageFragment : Fragment() {
                     )
                     thumbnailHeight = imageInfo.thumbHeight
                     thumbnailWidth = imageInfo.thumbWidth
-                    ImageTagsProvider.getImageTagsObservable(page.pageId(), pageSummaryForEdit.lang)
+                    ImageTagsProvider.getImageTagsObservable(page.pageId, pageSummaryForEdit.lang)
                 }
                 .flatMap {
                     imageTags = it

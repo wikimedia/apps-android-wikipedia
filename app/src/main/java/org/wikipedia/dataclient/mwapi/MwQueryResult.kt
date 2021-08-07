@@ -46,12 +46,12 @@ class MwQueryResult(
 
     // noinspection ConstantConditions
     val langLinks: List<PageTitle>
-        get() = firstPage?.langLinks()?.map {
-            PageTitle(it.title(), WikiSite.forLanguageCode(it.lang()))
+        get() = firstPage?.langLinks?.map {
+            PageTitle(it.title, WikiSite.forLanguageCode(it.lang))
         } ?: emptyList()
 
     val isEditProtected: Boolean
-        get() = firstPage?.protection()?.any { it.type == "edit" && userInfo.groups.contains(it.level) } ?: false
+        get() = firstPage?.protection?.any { it.type == "edit" && userInfo.groups.contains(it.level) } ?: false
 
     init {
         resolveConvertedTitles()
@@ -60,7 +60,7 @@ class MwQueryResult(
 
     fun getUserResponse(userName: String): ListUserResponse? {
         return users.firstOrNull { user ->
-            user.name() == userName.replaceFirstChar {
+            user.name == userName.replaceFirstChar {
                 if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
             }
         }
@@ -71,8 +71,8 @@ class MwQueryResult(
             for (redirect in redirects) {
                 // TODO: Looks like result pages and redirects can also be matched on the "index"
                 // property.  Confirm in the API docs and consider updating.
-                if (page.title() == redirect.to) {
-                    page.redirectFrom(redirect.from)
+                if (page.title == redirect.to) {
+                    page.redirectFrom = redirect.from
                     if (redirect.toFragment != null) {
                         page.appendTitleFragment(redirect.toFragment)
                     }
@@ -84,9 +84,9 @@ class MwQueryResult(
     private fun resolveConvertedTitles() {
         for (convertedTitle in converted) {
             for (page in pages) {
-                if (page.title() == convertedTitle.to) {
-                    page.convertedFrom(convertedTitle.from)
-                    page.convertedTo(convertedTitle.to)
+                if (page.title == convertedTitle.to) {
+                    page.convertedFrom = convertedTitle.from
+                    page.convertedTo = convertedTitle.to
                 }
             }
         }

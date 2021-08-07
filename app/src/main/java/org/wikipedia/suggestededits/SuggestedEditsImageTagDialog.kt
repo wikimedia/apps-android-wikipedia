@@ -130,7 +130,8 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ search ->
-                    val labelList = search.results.map { MwQueryPage.ImageLabel(it.id, it.label, it.description) }
+                    val labelList = search.results.map { MwQueryPage.ImageLabel(it.id, label = it.label,
+                        description = it.description) }
                     applyResults(labelList)
                 }) { t ->
                     L.d(t)

@@ -114,7 +114,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     imageEditType = null // Need to clear value from precious call
                     if (!pair.first.containsKey(it.wikiSite.languageCode())) {
                         imageEditType = ImageEditType.ADD_CAPTION
-                        return@flatMap ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage!!.pageId(), it.wikiSite.languageCode())
+                        return@flatMap ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage!!.pageId, it.wikiSite.languageCode())
                     }
                     if (WikipediaApp.getInstance().language().appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                         for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
@@ -125,7 +125,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                             }
                         }
                     }
-                    ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage!!.pageId(), it.wikiSite.languageCode())
+                    ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage!!.pageId, it.wikiSite.languageCode())
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { imageTagsResult ->
@@ -157,7 +157,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             else -> {
                 captionSourcePageTitle?.run {
                     title?.let {
-                        callToActionSourceSummary = PageSummaryForEdit(prefixedText, it.wikiSite.languageCode(), this, displayText, StringUtil.fromHtml(imagePage?.imageInfo()?.metadata?.imageDescription.orEmpty()).toString(), imagePage?.imageInfo()?.thumbUrl)
+                        callToActionSourceSummary = PageSummaryForEdit(prefixedText, it.wikiSite.languageCode(), this, displayText, StringUtil.fromHtml(imagePage?.firstImageInfo?.metadata?.imageDescription.orEmpty()).toString(), imagePage?.firstImageInfo?.thumbUrl)
                         pageHeaderView.setUpCallToAction(parentFragment.getString(R.string.suggested_edits_article_cta_image_caption))
                     }
                 }

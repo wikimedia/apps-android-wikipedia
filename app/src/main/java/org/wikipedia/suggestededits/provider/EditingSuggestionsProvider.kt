@@ -55,8 +55,8 @@ object EditingSuggestionsProvider {
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
                             pages.query?.pages?.forEach {
-                                if (it.description().isNullOrEmpty()) {
-                                    articlesWithMissingDescriptionCache.push(it.title())
+                                if (it.description.isNullOrEmpty()) {
+                                    articlesWithMissingDescriptionCache.push(it.title)
                                 }
                             }
                             if (!articlesWithMissingDescriptionCache.empty()) {
@@ -104,8 +104,8 @@ object EditingSuggestionsProvider {
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
                             articlesWithTranslatableDescriptionCacheToLang = targetLang
                             for (page in pages) {
-                                val mwPage = mwPages.find { it.title() == page.title() }
-                                if (mwPage != null && !mwPage.description().isNullOrEmpty()) {
+                                val mwPage = mwPages.find { it.title == page.title() }
+                                if (mwPage != null && !mwPage.description.isNullOrEmpty()) {
                                     continue
                                 }
                                 val entity = page.entity
@@ -229,8 +229,8 @@ object EditingSuggestionsProvider {
             } else {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
                         .map { response ->
-                            response.query?.pages?.filter { it.imageInfo()?.mimeType == "image/jpeg" }?.forEach { page ->
-                                if (page.revisions().none { "P180" in it.getContentFromSlot("mediainfo") }) {
+                            response.query?.pages?.filter { it.firstImageInfo?.mimeType == "image/jpeg" }?.forEach { page ->
+                                if (page.revisions.none { "P180" in it.getContentFromSlot("mediainfo") }) {
                                     imagesWithMissingTagsCache.push(page)
                                 }
                             }

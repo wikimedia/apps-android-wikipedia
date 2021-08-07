@@ -18,16 +18,16 @@ public class SearchResultsRedirectProcessingTest {
 
     @Test public void testRedirectHandling() {
         assertThat(result.getPages().size(), is(2));
-        assertThat(result.getPages().get(0).title(), is("Narthecium#Foo"));
-        assertThat(result.getPages().get(0).redirectFrom(), is("Abama"));
-        assertThat(result.getPages().get(1).title(), is("Amitriptyline"));
-        assertThat(result.getPages().get(1).redirectFrom(), is("Abamax"));
+        assertThat(result.getPages().get(0).getTitle(), is("Narthecium#Foo"));
+        assertThat(result.getPages().get(0).getRedirectFrom(), is("Abama"));
+        assertThat(result.getPages().get(1).getTitle(), is("Amitriptyline"));
+        assertThat(result.getPages().get(1).getRedirectFrom(), is("Abamax"));
     }
 
     @Test public void testConvertTitleHandling() {
         assertThat(result.getPages().size(), is(2));
-        assertThat(result.getPages().get(0).title(), is("Narthecium#Foo"));
-        assertThat(result.getPages().get(0).convertedFrom(), is("NotNarthecium"));
+        assertThat(result.getPages().get(0).getTitle(), is("Narthecium#Foo"));
+        assertThat(result.getPages().get(0).getConvertedFrom(), is("NotNarthecium"));
     }
 
     private String queryJson = "{\n"

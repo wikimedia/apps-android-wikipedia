@@ -189,10 +189,10 @@ class TalkTopicsActivity : BaseActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap {
-                    it.query?.firstPage?.revisions()?.getOrNull(0)?.let { revision ->
+                    it.query?.firstPage?.revisions?.getOrNull(0)?.let { revision ->
                         revisionForLastEdit = revision
                         binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
-                            DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp()).time,
+                            DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
                                 System.currentTimeMillis(), 0L), revision.user))
                     }
                     ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)

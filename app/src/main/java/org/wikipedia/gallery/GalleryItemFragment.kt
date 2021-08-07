@@ -47,7 +47,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     private var pageTitle: PageTitle? = null
     var imageTitle: PageTitle? = null
     var mediaPage: MwQueryPage? = null
-    val mediaInfo get() = mediaPage?.imageInfo()
+    val mediaInfo get() = mediaPage?.firstImageInfo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
