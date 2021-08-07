@@ -1,40 +1,32 @@
 package org.wikipedia.dataclient.wikidata
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.mwapi.MwResponse
-import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 
-class Entities : MwResponse(), PostProcessable {
-
-    val entities: Map<String, Entity> = emptyMap()
+@JsonClass(generateAdapter = true)
+class Entities(val entities: Map<String, Entity> = emptyMap()) : MwResponse() {
     val first: Entity?
-        get() = if (entities.isEmpty()) null else entities.values.iterator().next()
+        get() = entities.values.firstOrNull()
 
-    override fun postProcess() {
+    init {
         if (first?.isMissing == true) {
             throw RuntimeException("The requested entity was not found.")
         }
     }
 
-    class Entity {
-
-        private val id: String = ""
-        val labels: Map<String, Label> = emptyMap()
-        val descriptions: Map<String, Label> = emptyMap()
-        val sitelinks: Map<String, SiteLink> = emptyMap()
-        @SerializedName("missing")
+    @JsonClass(generateAdapter = true)
+    class Entity(internal val id: String = "", val labels: Map<String, Label> = emptyMap(),
+                 val descriptions: Map<String, Label> = emptyMap(), val sitelinks: Map<String, SiteLink> = emptyMap(),
+                 val lastRevId: Long = 0) {
+        @Json(name = "missing")
         val isMissing: Boolean? = null
             get() = "-1" == id && field != null
-        val lastRevId: Long = 0
     }
 
-    class Label {
-        val language: String = ""
-        val value: String = ""
-    }
+    @JsonClass(generateAdapter = true)
+    class Label(val language: String = "", val value: String = "")
 
-    class SiteLink {
-        val site: String = ""
-        val title: String = ""
-    }
+    @JsonClass(generateAdapter = true)
+    class SiteLink(val site: String = "", val title: String = "")
 }

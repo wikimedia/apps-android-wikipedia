@@ -1,19 +1,8 @@
-package org.wikipedia.dataclient.mwapi;
+package org.wikipedia.dataclient.mwapi
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import org.wikipedia.analytics.eventplatform.StreamConfig
 
-import org.wikipedia.analytics.eventplatform.StreamConfig;
-
-import java.util.Collections;
-import java.util.Map;
-
-public class MwStreamConfigsResponse extends MwResponse {
-
-    @Nullable private Map<String, StreamConfig> streams;
-
-    @NonNull public Map<String, StreamConfig> getStreamConfigs() {
-        return streams != null ? streams : Collections.emptyMap();
-    }
-
-}
+@JsonClass(generateAdapter = true)
+class MwStreamConfigsResponse(@Json(name = "streams") val streamConfigs: Map<String, StreamConfig>) : MwResponse()

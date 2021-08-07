@@ -228,12 +228,12 @@ class DescriptionEditFragment : Fragment() {
             disposables.add(ServiceFactory.get(wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
                     .subscribeOn(Schedulers.io())
                     .flatMap { mwQueryResponse ->
-                        if (mwQueryResponse.query?.firstPage()!!.getErrorForAction("edit").isNotEmpty()) {
-                            val error = mwQueryResponse.query?.firstPage()!!.getErrorForAction("edit")[0]
+                        if (mwQueryResponse.query?.firstPage!!.getErrorForAction("edit").isNotEmpty()) {
+                            val error = mwQueryResponse.query?.firstPage!!.getErrorForAction("edit")[0]
                             throw MwException(error)
                         }
-                        var text = mwQueryResponse.query?.firstPage()!!.revisions()[0].content()
-                        val baseRevId = mwQueryResponse.query?.firstPage()!!.revisions()[0].revId
+                        var text = mwQueryResponse.query?.firstPage!!.revisions()[0].content()
+                        val baseRevId = mwQueryResponse.query?.firstPage!!.revisions()[0].revId
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description.orEmpty())
 
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
@@ -256,10 +256,10 @@ class DescriptionEditFragment : Fragment() {
                                     funnel.logCaptchaShown()
                                 }
                                 hasEditErrorCode -> {
-                                    editFailed(MwException(MwServiceError(code, spamblacklist)), false)
+                                    editFailed(MwException(MwServiceError(code.orEmpty(), text = spamblacklist.orEmpty())), false)
                                 }
                                 hasSpamBlacklistResponse -> {
-                                    editFailed(MwException(MwServiceError(code, info)), false)
+                                    editFailed(MwException(MwServiceError(code.orEmpty(), text = info.orEmpty())), false)
                                 }
                                 else -> {
                                     editFailed(IOException("Received unrecognized edit response"), true)
@@ -275,15 +275,15 @@ class DescriptionEditFragment : Fragment() {
             disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode())).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
                     .subscribeOn(Schedulers.io())
                     .flatMap { response ->
-                        if (response.query?.firstPage()!!.getErrorForAction("edit").isNotEmpty()) {
-                            val error = response.query?.firstPage()!!.getErrorForAction("edit")[0]
+                        if (response.query?.firstPage!!.getErrorForAction("edit").isNotEmpty()) {
+                            val error = response.query?.firstPage!!.getErrorForAction("edit")[0]
                             throw MwException(error)
                         }
                         ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode())).siteInfo
                     }
                     .flatMap { response ->
-                        val languageCode = if (response.query?.siteInfo()?.lang != null &&
-                                response.query?.siteInfo()?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query?.siteInfo()?.lang
+                        val languageCode = if (response.query?.generalSiteInfo?.lang != null &&
+                                response.query?.generalSiteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query?.generalSiteInfo?.lang
                         else pageTitle.wikiSite.languageCode()
                         getPostObservable(editToken, languageCode.orEmpty())
                     }
@@ -299,7 +299,7 @@ class DescriptionEditFragment : Fragment() {
                     }) { caught ->
                         if (caught is MwException) {
                             val error = caught.error
-                            if (error.badLoginState() || error.badToken()) {
+                            if (error.isBadLoginState || error.isBadToken) {
                                 getEditTokenThenSave()
                             } else {
                                 editFailed(caught, true)

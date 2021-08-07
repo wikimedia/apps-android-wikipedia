@@ -227,8 +227,8 @@ class EditSectionActivity : BaseActivity() {
                         when {
                             editSucceeded -> waitForUpdatedRevision(newRevId)
                             hasCaptchaResponse -> onEditSuccess(CaptchaResult(captchaId))
-                            hasSpamBlacklistResponse -> onEditFailure(MwException(MwServiceError(code, spamblacklist)))
-                            hasEditErrorCode -> onEditFailure(MwException(MwServiceError(code, info)))
+                            hasSpamBlacklistResponse -> onEditFailure(MwException(MwServiceError(code.orEmpty(), text = spamblacklist.orEmpty())))
+                            hasEditErrorCode -> onEditFailure(MwException(MwServiceError(code.orEmpty(), text = info.orEmpty())))
                             else -> onEditFailure(IOException("Received unrecognized edit response"))
                         }
                     } ?: run {
@@ -330,7 +330,7 @@ class EditSectionActivity : BaseActivity() {
             disposables.add(ServiceFactory.get(pageTitle.wikiSite).parsePage("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.message))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, response.text))) }) { showError(it) })
+                    .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, text = response.text))) }) { showError(it) })
         } else if ("editconflict" == code) {
             AlertDialog.Builder(this@EditSectionActivity)
                     .setTitle(R.string.edit_conflict_title)
@@ -495,14 +495,14 @@ class EditSectionActivity : BaseActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response: MwQueryResponse ->
-                        val firstPage = response.query?.firstPage()!!
+                        val firstPage = response.query?.firstPage!!
                         val rev = firstPage.revisions()[0]
 
                         pageTitle = PageTitle(firstPage.title(), pageTitle.wikiSite)
                         sectionWikitext = rev.content()
                         currentRevision = rev.revId
 
-                        val editError = response.query?.firstPage()!!.getErrorForAction("edit")
+                        val editError = response.query?.firstPage!!.getErrorForAction("edit")
                         if (editError.isEmpty()) {
                             editingAllowed = true
                         } else {

@@ -1,19 +1,14 @@
 package org.wikipedia.dataclient.mwapi
 
-class CreateAccountResponse : MwResponse() {
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-    private val createaccount: Result? = null
+@JsonClass(generateAdapter = true)
+class CreateAccountResponse(@Json(name = "createaccount") internal val createAccount: Result? = null) : MwResponse() {
+    val status get() = createAccount?.status.orEmpty()
+    val user get() = createAccount?.username.orEmpty()
+    val message get() = createAccount?.message.orEmpty()
 
-    val status get() = createaccount?.status.orEmpty()
-
-    val user get() = createaccount?.username.orEmpty()
-
-    val message get() = createaccount?.message.orEmpty()
-
-    class Result {
-
-        val status: String = ""
-        val message: String = ""
-        val username: String = ""
-    }
+    @JsonClass(generateAdapter = true)
+    class Result(val status: String = "", val message: String = "", val username: String = "")
 }

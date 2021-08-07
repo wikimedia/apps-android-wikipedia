@@ -1,137 +1,57 @@
-package org.wikipedia.dataclient.mwapi;
+package org.wikipedia.dataclient.mwapi
 
-import android.text.TextUtils;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.dataclient.ServiceError;
-import org.wikipedia.json.PostProcessingTypeAdapter;
-import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.ThrowableUtil;
-
-import java.util.Date;
-import java.util.List;
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import org.wikipedia.dataclient.ServiceError
+import org.wikipedia.util.ThrowableUtil.getBlockMessageHtml
+import java.util.*
 
 /**
- * Gson POJO for a MediaWiki API error.
+ * Moshi POJO for a MediaWiki API error.
  */
-@SuppressWarnings("unused")
-public class MwServiceError implements ServiceError, PostProcessingTypeAdapter.PostProcessable {
-    @Nullable private String code;
-    @Nullable private String text;
-    @Nullable private String html;
-    @Nullable private Data data;
+@JsonClass(generateAdapter = true)
+class MwServiceError(
+    @Json(name = "code") override val title: String = "",
+    @Json(name = "html") internal val text: String = "",
+    override var details: String = "",
+    internal val data: Data? = null
+) : ServiceError {
+    val isBadToken: Boolean
+        get() = "badtoken" == title
+    val isBadLoginState: Boolean
+        get() = "assertuserfailed" == title
 
-    public MwServiceError() {
-    }
-
-    public MwServiceError(@Nullable String code, @Nullable String html) {
-        this.code = code;
-        this.html = html;
-    }
-
-    @Override @NonNull public String getTitle() {
-        return StringUtils.defaultString(code);
-    }
-
-    @SuppressWarnings("checkstyle:magicnumber")
-    @Override @NonNull public String getDetails() {
-        return StringUtils.defaultString(html);
-    }
-
-    public boolean badToken() {
-        return "badtoken".equals(code);
-    }
-
-    public boolean badLoginState() {
-        return "assertuserfailed".equals(code);
-    }
-
-    public boolean hasMessageName(@NonNull String messageName) {
-        if (data != null && data.messages() != null) {
-            for (Message msg : data.messages()) {
-                if (messageName.equals(msg.name)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    @Nullable public String getMessageHtml(@NonNull String messageName) {
-        if (data != null && data.messages() != null) {
-            for (Message msg : data.messages()) {
-                if (messageName.equals(msg.name)) {
-                    return msg.html();
-                }
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public void postProcess() {
+    init {
         // Special case: if it's a Blocked error, parse the blockinfo structure ourselves.
-        if (("blocked".equals(code) || "autoblocked".equals(code)) && data != null && data.blockinfo != null) {
-            html = ThrowableUtil.getBlockMessageHtml(data.blockinfo);
+        if (("blocked" == title || "autoblocked" == title) && data?.blockInfo != null) {
+            details = getBlockMessageHtml(data.blockInfo)
         }
     }
 
-    private static final class Data {
-        @Nullable private List<Message> messages;
-        @Nullable private BlockInfo blockinfo;
-
-        @Nullable private List<Message> messages() {
-            return messages;
-        }
+    fun hasMessageName(messageName: String): Boolean {
+        return data?.messages?.any { it.name == messageName } ?: false
     }
 
-    private static final class Message {
-        @Nullable private String name;
-        @Nullable private String html;
-
-        @NonNull private String html() {
-            return StringUtils.defaultString(html);
-        }
+    fun getMessageHtml(messageName: String): String? {
+        return data?.messages?.filter { it.name == messageName }?.map { it.html }?.firstOrNull()
     }
 
-    public static class BlockInfo {
-        private int blockid;
-        private int blockedbyid;
-        @Nullable private String blockreason;
-        @Nullable private String blockedby;
-        @Nullable private String blockedtimestamp;
-        @Nullable private String blockexpiry;
+    @JsonClass(generateAdapter = true)
+    class Data(val messages: List<Message> = emptyList(), @Json(name = "blockinfo") val blockInfo: BlockInfo? = null)
 
-        public int getBlockId() {
-            return blockid;
-        }
+    @JsonClass(generateAdapter = true)
+    class Message(val name: String = "", val html: String = "")
 
-        @NonNull public String getBlockedBy() {
-            return StringUtils.defaultString(blockedby);
-        }
-
-        @NonNull public String getBlockReason() {
-            return StringUtils.defaultString(blockreason);
-        }
-
-        @NonNull public String getBlockTimeStamp() {
-            return StringUtils.defaultString(blockedtimestamp);
-        }
-
-        @NonNull public String getBlockExpiry() {
-            return StringUtils.defaultString(blockexpiry);
-        }
-
-        public boolean isBlocked() {
-            if (TextUtils.isEmpty(blockexpiry)) {
-                return false;
-            }
-            Date now = new Date();
-            Date expiry = DateUtil.iso8601DateParse(blockexpiry);
-            return expiry.after(now);
-        }
+    @JsonClass(generateAdapter = true)
+    open class BlockInfo(
+        @Json(name = "blockid") val blockId: Int = 0,
+        @Json(name = "blockedbyid") val blockedById: Int = 0,
+        @Json(name = "blockreason") val blockReason: String = "",
+        @Json(name = "blockedby") val blockedBy: String = "",
+        @Json(name = "blockedtimestamp") val blockedTimeStamp: Date = Date(0),
+        @Json(name = "blockexpiry") val blockExpiry: Date = Date(0)
+    ) {
+        val isBlocked: Boolean
+            get() = blockExpiry.after(Date())
     }
 }

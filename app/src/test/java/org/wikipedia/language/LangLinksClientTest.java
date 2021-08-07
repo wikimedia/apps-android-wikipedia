@@ -16,7 +16,7 @@ public class LangLinksClientTest extends MockRetrofitTest {
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
                 .assertValue(result ->
-                        result.getQuery().langLinks().get(0).getDisplayText().equals("Sciëntologie"));
+                        result.getQuery().getLangLinks().get(0).getDisplayText().equals("Sciëntologie"));
     }
 
     @Test
@@ -24,7 +24,7 @@ public class LangLinksClientTest extends MockRetrofitTest {
         enqueueFromFile("lang_links_empty.json");
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
-                .assertValue(result -> result.getQuery().langLinks().isEmpty());
+                .assertValue(result -> result.getQuery().getLangLinks().isEmpty());
     }
 
     @Test

@@ -86,17 +86,17 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    if (it.query?.firstPage()?.imageInfo() == null) {
+                    if (it.query?.firstPage?.imageInfo() == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                         ServiceFactory.get(pageSummaryForEdit.pageTitle.wikiSite).getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang)
                     } else {
                         // Fetch API from commons.wikimedia.org and check whether if it is not a "shared" image.
-                        isFromCommons = it.query?.firstPage()?.isImageShared != true
+                        isFromCommons = it.query?.firstPage?.isImageShared != true
                         Observable.just(it)
                     }
                 }
                 .flatMap { response ->
-                    page = response.query?.firstPage()!!
+                    page = response.query?.firstPage!!
                     page.imageInfo()?.let {
                         pageSummaryForEdit.timestamp = it.timestamp
                         pageSummaryForEdit.user = it.user

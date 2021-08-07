@@ -166,7 +166,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
                 (requireActivity() as GalleryActivity).layOutGalleryDescription()
             }
             .subscribe({ response ->
-                mediaPage = response.query?.firstPage()
+                mediaPage = response.query?.firstPage
                 if (FileUtil.isVideo(mediaListItem.type)) {
                     loadVideo()
                 } else {

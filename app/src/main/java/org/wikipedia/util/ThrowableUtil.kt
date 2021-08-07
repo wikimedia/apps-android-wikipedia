@@ -100,7 +100,7 @@ object ThrowableUtil {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parseText(blockInfo.blockReason),
             { userInfoResponse, blockedParseResponse, reasonParseResponse ->
                 parseBlockedError(blockedParseResponse.text, blockInfo,
-                    reasonParseResponse.text, userInfoResponse.query?.userInfo()!!.name)
+                    reasonParseResponse.text, userInfoResponse.query?.userInfo!!.name)
             }
         ).blockingSubscribe({ html = it }) { L.e(it) }
         return html
@@ -113,16 +113,9 @@ object ThrowableUtil {
             .replace("$3", "") // IP address of user (TODO: somehow get from API?)
             .replace("$4", "") // unknown parameter (unused?)
             .replace("$5", info.blockId.toString())
-            .replace("$6", parseBlockedDate(info.blockExpiry))
+            .replace("$6", info.blockExpiry.toString())
             .replace("$7", "<a href=\"${StringUtil.userPageTitleFromName(userName, WikipediaApp.getInstance().wikiSite).mobileUri}\">$userName</a>")
-            .replace("$8", parseBlockedDate(info.blockTimeStamp))
-    }
-
-    private fun parseBlockedDate(dateStr: String): String {
-        try {
-            return DateUtil.iso8601DateParse(dateStr).toString()
-        } catch (e: Exception) {}
-        return dateStr
+            .replace("$8", info.blockedTimeStamp.toString())
     }
 
     class EmptyException : Exception()

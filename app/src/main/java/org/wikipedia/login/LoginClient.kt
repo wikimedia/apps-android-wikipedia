@@ -1,7 +1,8 @@
 package org.wikipedia.login
 
 import android.widget.Toast
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -106,7 +107,7 @@ class LoginClient {
             .map { response ->
                 val queryResponse =
                     GsonUtil.getDefaultGson().fromJson(response, MwQueryResponse::class.java)
-                val loginToken = queryResponse.query?.loginToken()
+                val loginToken = queryResponse.query?.loginToken
                 if (loginToken.isNullOrEmpty()) {
                     throw RuntimeException("Received empty login token: " + GsonUtil.getDefaultGson().toJson(response))
                 }
@@ -125,9 +126,9 @@ class LoginClient {
         return ServiceFactory.get(wiki).userInfo
             .subscribeOn(Schedulers.io())
             .map { response ->
-                val id = response.query?.userInfo()!!.id()
+                val id = response.query?.userInfo!!.id
                 loginResult.userId = id
-                loginResult.groups = response.query?.userInfo()!!.groups
+                loginResult.groups = response.query?.userInfo!!.groups
                 L.v("Found user ID " + id + " for " + wiki.subdomain())
                 loginResult
             }
@@ -137,46 +138,37 @@ class LoginClient {
         disposables.clear()
     }
 
-    class LoginResponse : MwResponse() {
-
-        @SerializedName("clientlogin")
-        private val clientLogin: ClientLogin? = null
-
+    @JsonClass(generateAdapter = true)
+    class LoginResponse(@Json(name = "clientlogin") internal val clientLogin: ClientLogin? = null) : MwResponse() {
         fun toLoginResult(site: WikiSite, password: String): LoginResult? {
             return clientLogin?.toLoginResult(site, password)
         }
 
-        private class ClientLogin {
-
-            private val status: String? = null
-            private val requests: List<Request>? = null
-            private val message: String? = null
-            @SerializedName("username")
-            private val userName: String? = null
-
+        @JsonClass(generateAdapter = true)
+        class ClientLogin(internal val status: String = "",
+                          internal val requests: List<Request> = emptyList(),
+                          internal val message: String? = null,
+                          @Json(name = "username") internal val userName: String = "") {
             fun toLoginResult(site: WikiSite, password: String): LoginResult {
                 var userMessage = message
                 if (LoginResult.STATUS_UI == status) {
-                    if (requests != null) {
-                        for (req in requests) {
-                            if (req.id.orEmpty().endsWith("TOTPAuthenticationRequest")) {
-                                return LoginOAuthResult(site, status, userName, password, message)
-                            } else if (req.id.orEmpty().endsWith("PasswordAuthenticationRequest")) {
-                                return LoginResetPasswordResult(site, status, userName, password, message)
-                            }
+                    for (req in requests) {
+                        if (req.id.endsWith("TOTPAuthenticationRequest")) {
+                            return LoginOAuthResult(site, status, userName, password, message)
+                        } else if (req.id.endsWith("PasswordAuthenticationRequest")) {
+                            return LoginResetPasswordResult(site, status, userName, password, message)
                         }
                     }
                 } else if (LoginResult.STATUS_PASS != status && LoginResult.STATUS_FAIL != status) {
                     // TODO: String resource -- Looks like needed for others in this class too
                     userMessage = "An unknown error occurred."
                 }
-                return LoginResult(site, status!!, userName, password, userMessage)
+                return LoginResult(site, status, userName, password, userMessage)
             }
         }
 
-        private class Request {
-            val id: String? = null
-        }
+        @JsonClass(generateAdapter = true)
+        class Request(val id: String = "")
     }
 
     class LoginFailedException(message: String?) : Throwable(message)

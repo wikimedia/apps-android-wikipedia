@@ -1,90 +1,73 @@
 package org.wikipedia.dataclient.wikidata
 
 import android.location.Location
-import com.google.gson.JsonElement
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.mwapi.MwResponse
-import org.wikipedia.json.GsonUtil
 
-class Claims : MwResponse() {
+@JsonClass(generateAdapter = true)
+class Claims(val claims: Map<String, List<Claim>> = emptyMap()) : MwResponse() {
+    @JsonClass(generateAdapter = true)
+    class Claim(internal val type: String? = null, internal val id: String? = null,
+                internal val rank: String? = null, @Json(name = "mainsnak") val mainSnak: MainSnak? = null)
 
-    val claims: Map<String, List<Claim>> = emptyMap()
-
-    class Claim {
-
-        private val type: String? = null
-        private val id: String? = null
-        private val rank: String? = null
-
-        @SerializedName("mainsnak")
-        val mainSnak: MainSnak? = null
-    }
-
-    class MainSnak {
-
-        @SerializedName("snaktype")
-        private val snakType: String? = null
-
-        @SerializedName("datatype")
-        private val dataType: String? = null
-        private val property: String? = null
-        private val hash: String? = null
-
-        @SerializedName("datavalue")
-        val dataValue: DataValue? = null
-    }
-
-    class DataValue {
-
-        private val value: JsonElement? = null
-        private val type: String? = null
-
-        fun value(): String {
-            if (value != null) {
-                if ("string" == type && value.isJsonPrimitive) {
-                    return value.asString
-                } else if ("wikibase-entityid" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson().fromJson(value, EntityIdValue::class.java).id
-                } else if ("time" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson().fromJson(value, TimeValue::class.java).time
-                } else if ("monolingualtext" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson()
-                        .fromJson(value, MonolingualTextValue::class.java).text
-                } else if ("globecoordinate" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson()
-                        .fromJson(value, GlobeCoordinateValue::class.java).location.toString()
-                }
+    @JsonClass(generateAdapter = true)
+    class MainSnak(
+        @Json(name = "snaktype") internal val snakType: String? = null,
+        @Json(name = "datatype") internal val dataType: String? = null,
+        internal val property: String? = null,
+        internal val hash: String? = null,
+        @Json(name = "datavalue") val dataValue: DataValue? = null
+    ) {
+        val dataValueAsString: String
+            get() = when (dataValue) {
+                is StringValue -> dataValue.value
+                is EntityIdValue -> dataValue.value.id
+                is TimeValue -> dataValue.value.time
+                is MonolingualTextValue -> dataValue.value.text
+                is GlobeCoordinateValue -> dataValue.value.location.toString()
+                else -> ""
             }
-            return ""
+    }
+
+    sealed class DataValue(type: Type) {
+        enum class Type(val value: String) {
+            STRING("string"),
+            WIKIBASE_ENTITY_ID("wikibase-entityid"),
+            TIME("time"),
+            MONOLINGUAL_TEXT("monolingualtext"),
+            GLOBE_COORDINATE("globecoordinate")
         }
     }
 
-    class EntityIdValue {
+    @JsonClass(generateAdapter = true)
+    class StringValue(val value: String = ""): DataValue(Type.STRING)
 
-        val id: String = ""
-    }
+    @JsonClass(generateAdapter = true)
+    class EntityIdValue(val value: EntityId): DataValue(Type.WIKIBASE_ENTITY_ID)
 
-    class TimeValue {
+    @JsonClass(generateAdapter = true)
+    class EntityId(val id: String = "")
 
-        private val timezone = 0
-        private val before = 0
-        private val after = 0
-        private val precision = 0
-        val time: String = ""
-    }
+    @JsonClass(generateAdapter = true)
+    class TimeValue(val value: Time): DataValue(Type.TIME)
 
-    class MonolingualTextValue {
+    @JsonClass(generateAdapter = true)
+    class Time(internal val timezone: Int = 0, internal val before: Int = 0, internal val after: Int = 0,
+               internal val precision: Int = 0, val time: String = "")
 
-        private val language: String? = null
-        val text: String = ""
-    }
+    @JsonClass(generateAdapter = true)
+    class MonolingualTextValue(val value: MonolingualText): DataValue(Type.MONOLINGUAL_TEXT)
 
-    class GlobeCoordinateValue {
+    @JsonClass(generateAdapter = true)
+    class MonolingualText(internal val language: String? = null, val text: String = "")
 
-        private val latitude = 0.0
-        private val longitude = 0.0
-        private val altitude = 0.0
-        private val precision = 0.0
+    @JsonClass(generateAdapter = true)
+    class GlobeCoordinateValue(val value: GlobeCoordinate): DataValue(Type.GLOBE_COORDINATE)
+
+    @JsonClass(generateAdapter = true)
+    class GlobeCoordinate(internal val latitude: Double = 0.0, internal val longitude: Double = 0.0,
+                          internal val altitude: Double = 0.0, internal val precision: Double = 0.0) {
         val location: Location
             get() {
                 val loc = Location("")

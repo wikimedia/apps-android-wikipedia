@@ -15,8 +15,8 @@ object SiteInfoClient {
     @JvmStatic
     fun getMainPageForLang(lang: String): String {
         getSiteInfoForLang(lang)?.let {
-            if (!it.mainpage.isNullOrEmpty()) {
-                return it.mainpage
+            if (!it.mainPage.isNullOrEmpty()) {
+                return it.mainPage
             }
         }
         return MainPageNameData.valueFor(lang)
@@ -45,6 +45,6 @@ object SiteInfoClient {
         ServiceFactory.get(wiki).siteInfo
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response -> SITE_INFO_MAP[wiki.languageCode()] = response.query?.siteInfo() }) { caught -> L.d(caught) }
+                .subscribe({ response -> SITE_INFO_MAP[wiki.languageCode()] = response.query?.generalSiteInfo }) { caught -> L.d(caught) }
     }
 }

@@ -1,26 +1,19 @@
 package org.wikipedia.search
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 
-class PrefixSearchResponse : MwQueryResponse() {
-    @SerializedName("searchinfo")
-    private val searchInfo: SearchInfo? = null
-    private val search: Search? = null
+@JsonClass(generateAdapter = true)
+class PrefixSearchResponse(@Json(name = "searchinfo") internal val searchInfo: SearchInfo? = null,
+                           internal val search: Search? = null) : MwQueryResponse() {
+    val suggestion: String?
+        get() = searchInfo?.suggestion
 
-    fun suggestion(): String? {
-        return searchInfo?.suggestion
-    }
+    @JsonClass(generateAdapter = true)
+    class SearchInfo(@Json(name = "suggestionsnippet") internal val snippet: String? = null,
+                              val suggestion: String? = null)
 
-    internal class SearchInfo {
-        @SerializedName("suggestionsnippet")
-        private val snippet: String? = null
-        val suggestion: String? = null
-    }
-
-    internal class Search {
-        @SerializedName("ns")
-        private val namespace = 0
-        private val title: String? = null
-    }
+    @JsonClass(generateAdapter = true)
+    class Search(@Json(name = "ns") internal val namespace: Int = 0, internal val title: String? = null)
 }

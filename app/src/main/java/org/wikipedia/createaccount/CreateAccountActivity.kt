@@ -129,8 +129,8 @@ class CreateAccountActivity : BaseActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        val token = response.query?.createAccountToken()
-                        val captchaId = response.query?.captchaId()
+                        val token = response.query?.createAccountToken
+                        val captchaId = response.query?.captchaId
                         if (token.isNullOrEmpty()) {
                             handleAccountCreationError(getString(R.string.create_account_generic_error))
                         } else if (!captchaId.isNullOrEmpty()) {

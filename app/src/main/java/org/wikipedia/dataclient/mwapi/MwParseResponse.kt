@@ -1,12 +1,12 @@
 package org.wikipedia.dataclient.mwapi
 
-class MwParseResponse : MwResponse() {
+import com.squareup.moshi.JsonClass
 
-    private val parse: Parse? = null
+@JsonClass(generateAdapter = true)
+class MwParseResponse(internal val parse: Parse? = null) : MwResponse() {
     val text: String
         get() = parse?.text.orEmpty()
 
-    private class Parse {
-        val text: String? = null
-    }
+    @JsonClass(generateAdapter = true)
+    class Parse(val text: String = "")
 }

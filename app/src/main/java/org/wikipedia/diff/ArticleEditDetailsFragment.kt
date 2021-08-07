@@ -163,8 +163,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    isWatched = it.query?.firstPage()?.isWatched ?: false
-                    hasWatchlistExpiry = it.query?.firstPage()?.hasWatchlistExpiry() ?: false
+                    isWatched = it.query?.firstPage?.isWatched ?: false
+                    hasWatchlistExpiry = it.query?.firstPage?.hasWatchlistExpiry() ?: false
                     updateWatchlistButtonUI()
                 }) { setErrorState(it!!) })
     }
@@ -175,7 +175,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    val firstPage = it.query?.firstPage()!!
+                    val firstPage = it.query?.firstPage!!
                     currentRevision = firstPage.revisions()[0]
                     revisionId = currentRevision!!.revId
                     username = currentRevision!!.user
@@ -246,7 +246,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).watchToken
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
-                    val watchToken = response.query?.watchToken()
+                    val watchToken = response.query?.watchToken
                     if (watchToken.isNullOrEmpty()) {
                         throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
                     }
@@ -255,7 +255,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ watchPostResponse: WatchPostResponse ->
-                    val firstWatch = watchPostResponse.getFirst()
+                    val firstWatch = watchPostResponse.first
                     if (firstWatch != null) {
                         // Reset to make the "Change" button visible.
                         if (watchlistExpiryChanged && unwatch) {
@@ -339,7 +339,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).csrfToken
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, it.query?.csrfToken()!!)
+                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, it.query?.csrfToken!!)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

@@ -1,14 +1,11 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-open class MwQueryResponse : MwResponse() {
-
-    @SerializedName("batchcomplete")
-    val batchComplete = false
-
-    @SerializedName("continue")
-    val continuation: Map<String, String> = emptyMap()
-
+@JsonClass(generateAdapter = true)
+open class MwQueryResponse(
+    @Json(name = "batchcomplete") val batchComplete: Boolean = false,
+    @Json(name = "continue") val continuation: Map<String, String> = emptyMap(),
     var query: MwQueryResult? = null
-}
+) : MwResponse()

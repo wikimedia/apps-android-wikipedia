@@ -1,34 +1,27 @@
-package org.wikipedia.dataclient.restbase;
+package org.wikipedia.dataclient.restbase
 
-import androidx.annotation.NonNull;
-
-import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.dataclient.ServiceError;
-import org.wikipedia.json.GsonUnmarshaller;
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import org.wikipedia.dataclient.ServiceError
+import kotlin.Throws
+import org.wikipedia.json.MoshiUtil
+import java.io.IOException
 
 /**
- * Gson POJO for a RESTBase API error.
+ * Moshi POJO for a RESTBase API error.
  */
-public class RbServiceError implements ServiceError {
-    @SuppressWarnings("unused") private String type;
-    @SuppressWarnings("unused") private String title;
-    @SuppressWarnings("unused") private String detail;
-    @SuppressWarnings("unused") private String method;
-    @SuppressWarnings("unused") private String uri;
-
-    public static RbServiceError create(@NonNull String rspBody) {
-        return GsonUnmarshaller.unmarshal(RbServiceError.class, rspBody);
-    }
-
-    @Override
-    @NonNull
-    public String getTitle() {
-        return StringUtils.defaultString(title);
-    }
-
-    @Override
-    @NonNull
-    public String getDetails() {
-        return StringUtils.defaultString(detail);
+@JsonClass(generateAdapter = true)
+class RbServiceError(
+    internal val type: String = "",
+    override val title: String = "",
+    @Json(name = "detail") override val details: String = "",
+    internal val method: String = "",
+    internal val uri: String = ""
+) : ServiceError {
+    companion object {
+        @Throws(IOException::class)
+        fun create(rspBody: String): RbServiceError? {
+            return MoshiUtil.getDefaultMoshi().adapter(RbServiceError::class.java).fromJson(rspBody)
+        }
     }
 }

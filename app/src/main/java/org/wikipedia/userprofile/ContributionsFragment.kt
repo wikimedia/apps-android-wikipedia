@@ -204,11 +204,11 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 } else {
                     continuations[WikipediaApp.getInstance().wikiSite] = cont
                 }
-                response.query?.userContributions()?.forEach {
+                response.query?.userContributions?.forEach {
                     contributions.add(Contribution("", it.revid, it.title, it.title, it.title, EDIT_TYPE_GENERIC, null, it.date(),
                         WikipediaApp.getInstance().wikiSite, 0, it.sizediff, it.top, 0))
                 }
-                Observable.just(Pair(contributions, response.query?.userInfo()!!.editCount))
+                Observable.just(Pair(contributions, response.query?.userInfo!!.editCount))
             }
     }
 
@@ -225,7 +225,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 } else {
                     continuations[WikiSite(Service.WIKIDATA_URL)] = cont
                 }
-                response.query?.userContributions()?.forEach { contribution ->
+                response.query?.userContributions?.forEach { contribution ->
                     var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                     var contributionDescription = contribution.comment
                     var editType: Int = EDIT_TYPE_GENERIC
@@ -270,7 +270,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                 }
                             }
                         }
-                        Observable.just(Pair(wikidataContributions, response.query?.userInfo()!!.editCount))
+                        Observable.just(Pair(wikidataContributions, response.query?.userInfo!!.editCount))
                     }
             }
     }
@@ -287,7 +287,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     } else {
                         continuations[WikiSite(Service.COMMONS_URL)] = cont
                     }
-                    response.query?.userContributions()?.forEach { contribution ->
+                    response.query?.userContributions?.forEach { contribution ->
                         var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                         var editType: Int = EDIT_TYPE_GENERIC
                         var contributionDescription = contribution.comment
@@ -331,7 +331,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                         contributions.add(Contribution(qNumber, contribution.revid, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
                             WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
                     }
-                    Observable.just(Pair(contributions, response.query?.userInfo()!!.editCount))
+                    Observable.just(Pair(contributions, response.query?.userInfo!!.editCount))
                 }
     }
 
@@ -500,7 +500,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                         Observable.just(label)
                                     }), { commonsResponse, qLabel ->
 
-                            commonsResponse.query?.firstPage()?.imageInfo()?.let {
+                            commonsResponse.query?.firstPage?.imageInfo()?.let {
                                 contribution.imageUrl = it.thumbUrl
                             } ?: run {
                                 contribution.imageUrl = ""
@@ -530,7 +530,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         if (response is MwQueryResponse) {
-                            contribution.pageViews = response.query?.pages()?.sumOf { it.pageViewsMap.values.filterNotNull().sum() } ?: 0
+                            contribution.pageViews = response.query?.pages?.sumOf { it.pageViewsMap.values.filterNotNull().sum() } ?: 0
                             view.setPageViewCountText(contribution.pageViews)
                         }
                     }) { t -> L.e(t) })

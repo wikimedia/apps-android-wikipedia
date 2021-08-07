@@ -1,28 +1,20 @@
-package org.wikipedia.dataclient.mwapi;
+package org.wikipedia.dataclient.mwapi
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.squareup.moshi.Json
 
-import com.google.gson.annotations.SerializedName;
-
-import org.wikipedia.json.PostProcessingTypeAdapter;
-
-import java.util.List;
-
-public abstract class MwResponse implements PostProcessingTypeAdapter.PostProcessable {
-    @SuppressWarnings({"unused"}) @Nullable private List<MwServiceError> errors;
-    @SuppressWarnings("unused,NullableProblems") @SerializedName("servedby") @NonNull private String servedBy;
-
-    @Override
-    public void postProcess() {
-        if (errors != null && !errors.isEmpty()) {
-            for (MwServiceError error : errors) {
+abstract class MwResponse(
+    internal val errors: List<MwServiceError> = emptyList(),
+    @Json(name = "servedby") internal val servedBy: String? = null
+) {
+    init {
+        if (errors.isNotEmpty()) {
+            for (error in errors) {
                 // prioritize "blocked" errors over others.
-                if (error.getTitle().contains("blocked")) {
-                    throw new MwException(error);
+                if (error.title.contains("blocked")) {
+                    throw MwException(error)
                 }
             }
-            throw new MwException(errors.get(0));
+            throw MwException(errors[0])
         }
     }
 }

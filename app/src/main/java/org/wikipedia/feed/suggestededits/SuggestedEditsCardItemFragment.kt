@@ -273,7 +273,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             .observeOn(AndroidSchedulers.mainThread())
                 }
                 .subscribe({ response ->
-                    val page = response.query?.firstPage()!!
+                    val page = response.query?.firstPage!!
                     page.imageInfo()?.let {
                         sourceSummaryForEdit = PageSummaryForEdit(
                             page.title(), langFromCode,
@@ -314,7 +314,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             .observeOn(AndroidSchedulers.mainThread())
                 }
                 .subscribe({ response ->
-                    val page = response.query?.firstPage()!!
+                    val page = response.query?.firstPage!!
                     page.imageInfo()?.let {
                         sourceSummaryForEdit = PageSummaryForEdit(
                             page.title(),

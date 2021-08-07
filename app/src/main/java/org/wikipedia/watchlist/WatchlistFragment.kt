@@ -157,7 +157,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
         totalItems.clear()
         totalItems.addAll(watchlistItems)
-        totalItems.sortByDescending { it.date }
+        totalItems.sortByDescending { it.timestamp }
         onUpdateList(totalItems)
     }
 
@@ -179,10 +179,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
                     (filterMode == FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
                     (filterMode == FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
 
-                calendar.time = item.date
+                calendar.time = item.timestamp
                 if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
                     curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                    items.add(item.date)
+                    items.add(item.timestamp)
                 }
 
                 items.add(item)
@@ -303,7 +303,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             return
         }
         startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), item.title,
-                item.revid, item.wiki.languageCode()))
+                item.revId, item.wiki.languageCode()))
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem) {

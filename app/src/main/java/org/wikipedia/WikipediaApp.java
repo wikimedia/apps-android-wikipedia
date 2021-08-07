@@ -327,7 +327,7 @@ public class WikipediaApp extends Application {
         ServiceFactory.get(getWikiSite()).getCsrfToken()
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> {
-                    String csrfToken = response.getQuery().csrfToken();
+                    String csrfToken = response.getQuery().getCsrfToken();
                     return WikipediaFirebaseMessagingService.Companion.unsubscribePushToken(csrfToken, Prefs.getPushNotificationToken())
                             .flatMap(res -> ServiceFactory.get(getWikiSite()).postLogout(csrfToken).subscribeOn(Schedulers.io()));
                 })
@@ -360,9 +360,9 @@ public class WikipediaApp extends Application {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    if (AccountUtil.isLoggedIn() && response.getQuery().userInfo() != null) {
+                    if (AccountUtil.isLoggedIn() && response.getQuery().getUserInfo() != null) {
                         // noinspection ConstantConditions
-                        int id = response.getQuery().userInfo().id();
+                        int id = response.getQuery().getUserInfo().getId();
                         AccountUtil.putUserIdForLanguage(code, id);
                         L.d("Found user ID " + id + " for " + code);
                     }

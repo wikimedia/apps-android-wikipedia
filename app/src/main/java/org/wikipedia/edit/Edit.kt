@@ -1,23 +1,21 @@
 package org.wikipedia.edit
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 
-class Edit : MwPostResponse() {
-
-    val edit: Result? = null
-
-    class Result {
-        private val captcha: Captcha? = null
-        @SerializedName("result")
-        val status: String? = null
-        @SerializedName("newrevid")
-        val newRevId: Long = 0
-        val code: String? = null
-        val info: String? = null
-        val warning: String? = null
+@JsonClass(generateAdapter = true)
+class Edit(val edit: Result? = null) : MwPostResponse() {
+    @JsonClass(generateAdapter = true)
+    class Result(
+        internal val captcha: Captcha? = null,
+        @Json(name = "result") val status: String? = null,
+        @Json(name = "newrevid") val newRevId: Long = 0,
+        val code: String? = null,
+        val info: String? = null,
+        val warning: String? = null,
         val spamblacklist: String? = null
-
+    ) {
         val editSucceeded get() = "Success" == status
         val captchaId get() = captcha?.id.orEmpty()
         val hasEditErrorCode get() = code != null
@@ -25,7 +23,6 @@ class Edit : MwPostResponse() {
         val hasSpamBlacklistResponse get() = spamblacklist != null
     }
 
-    private class Captcha {
-        val id: String? = null
-    }
+    @JsonClass(generateAdapter = true)
+    class Captcha(val id: String? = null)
 }

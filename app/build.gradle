@@ -232,6 +232,7 @@ dependencies {
     implementation "androidx.room:room-rxjava3:$roomVersion"
 
     implementation "com.squareup.moshi:moshi:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-adapters:$moshiVersion"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
 
     // For language detection during editing

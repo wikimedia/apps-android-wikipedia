@@ -54,7 +54,7 @@ object EditingSuggestionsProvider {
                         .map { pages ->
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
-                            pages.query?.pages()?.forEach {
+                            pages.query?.pages?.forEach {
                                 if (it.description().isNullOrEmpty()) {
                                     articlesWithMissingDescriptionCache.push(it.title())
                                 }
@@ -99,7 +99,7 @@ object EditingSuggestionsProvider {
                         }, { pages, response -> Pair(pages, response) })
                         .map { pair ->
                             val pages = pair.first
-                            val mwPages = pair.second.query?.pages()!!
+                            val mwPages = pair.second.query?.pages!!
                             var targetAndSourcePageTitles: Pair<PageTitle, PageTitle>? = null
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
                             articlesWithTranslatableDescriptionCacheToLang = targetLang
@@ -229,7 +229,7 @@ object EditingSuggestionsProvider {
             } else {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
                         .map { response ->
-                            response.query?.pages()?.filter { it.imageInfo()?.mimeType == "image/jpeg" }?.forEach { page ->
+                            response.query?.pages?.filter { it.imageInfo()?.mimeType == "image/jpeg" }?.forEach { page ->
                                 if (page.revisions().none { "P180" in it.getContentFromSlot("mediainfo") }) {
                                     imagesWithMissingTagsCache.push(page)
                                 }
