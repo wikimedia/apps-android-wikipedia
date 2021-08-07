@@ -213,7 +213,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
                 .subscribe({ response ->
                     topics.clear()
-                    for (topic in response.topics!!) {
+                    for (topic in response.topics) {
                         if (topic.id == 0 && topic.html!!.trim().isEmpty()) {
                             continue
                         }
@@ -293,7 +293,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
-            val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
+            val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.indicatorSha) != null
             val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
             title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
             title.visibility = View.VISIBLE

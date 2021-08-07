@@ -31,6 +31,11 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.restbase.DiffResponse.*
+import org.wikipedia.dataclient.restbase.DiffResponse.Companion.DIFF_TYPE_LINE_ADDED
+import org.wikipedia.dataclient.restbase.DiffResponse.Companion.DIFF_TYPE_LINE_REMOVED
+import org.wikipedia.dataclient.restbase.DiffResponse.Companion.DIFF_TYPE_PARAGRAPH_MOVED_FROM
+import org.wikipedia.dataclient.restbase.DiffResponse.Companion.DIFF_TYPE_PARAGRAPH_MOVED_TO
+import org.wikipedia.dataclient.restbase.DiffResponse.Companion.HIGHLIGHT_TYPE_ADD
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.history.HistoryEntry

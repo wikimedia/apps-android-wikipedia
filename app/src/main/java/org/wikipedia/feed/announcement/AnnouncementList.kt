@@ -1,9 +1,7 @@
 package org.wikipedia.feed.announcement
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-class AnnouncementList {
-
-    @SerializedName("announce")
-    val items: List<Announcement> = emptyList()
-}
+@JsonClass(generateAdapter = true)
+class AnnouncementList(@Json(name = "announce") val items: List<Announcement> = emptyList())

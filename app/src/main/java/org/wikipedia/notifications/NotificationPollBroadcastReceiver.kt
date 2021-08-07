@@ -118,12 +118,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        var lastNotificationTime = ""
-                        for (n in response.query?.notifications?.list.orEmpty()) {
-                            if (n.utcIso8601 > lastNotificationTime) {
-                                lastNotificationTime = n.utcIso8601
-                            }
-                        }
+                        val lastNotificationTime = response.query?.notifications?.list?.map { it.timestampValue }
+                            ?.maxOrNull() ?: Date(0)
                         if (lastNotificationTime <= Prefs.getRemoteNotificationsSeenTime()) {
                             // we're in sync!
                             return@subscribe
@@ -183,10 +179,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             val notificationsToDisplay = mutableListOf<Notification>()
             for (n in notifications) {
                 knownNotifications.add(n)
-                if (LOCALLY_KNOWN_NOTIFICATIONS.contains(n.key())) {
+                if (LOCALLY_KNOWN_NOTIFICATIONS.contains(n.key)) {
                     continue
                 }
-                LOCALLY_KNOWN_NOTIFICATIONS.add(n.key())
+                LOCALLY_KNOWN_NOTIFICATIONS.add(n.key)
                 if (LOCALLY_KNOWN_NOTIFICATIONS.size > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
                     LOCALLY_KNOWN_NOTIFICATIONS.removeAt(0)
                 }
@@ -195,24 +191,24 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
             if (notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki(), TYPE_MULTIPLE).logIncoming()
+                NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki, TYPE_MULTIPLE).logIncoming()
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
                 for (n in notificationsToDisplay) {
                     // TODO: remove these conditions when the time is right.
-                    if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
-                            n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                            n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
-                            n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
-                            n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
-                            n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
-                            n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
+                    if (n.category.startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
+                            n.category == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
+                            n.category == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
+                            n.category == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
+                            n.category == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
+                            n.category == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
+                            n.category.startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
                             Prefs.showAllNotifications()) {
                         // Record that there is an incoming notification to track/compare further actions on it.
                         NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                         NotificationInteractionEvent.logIncoming(n, null)
-                        NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki())) DBNAME_WIKI_NAME_MAP[n.wiki()] else n.wiki())!!)
+                        NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki)) DBNAME_WIKI_NAME_MAP[n.wiki] else n.wiki)!!)
                     }
                 }
             }
@@ -227,7 +223,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun markItemsAsRead(items: List<Notification>) {
             val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
             for (item in items) {
-                val wiki = DBNAME_WIKI_SITE_MAP.getOrElse(item.wiki()) { WikipediaApp.getInstance().wikiSite }
+                val wiki = DBNAME_WIKI_SITE_MAP.getOrElse(item.wiki) { WikipediaApp.getInstance().wikiSite }
                 notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(item)
             }
             for (wiki in notificationsPerWiki.keys) {

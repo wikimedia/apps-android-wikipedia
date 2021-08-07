@@ -1,11 +1,13 @@
 package org.wikipedia.feed.announcement;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
+
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.util.DateUtil;
@@ -13,8 +15,6 @@ import org.wikipedia.util.DateUtil;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-
-import static org.apache.commons.lang3.StringUtils.defaultString;
 
 @SuppressWarnings("unused")
 public class Announcement {
@@ -25,24 +25,24 @@ public class Announcement {
 
     @SuppressWarnings("NullableProblems") @Required @NonNull private String id;
     @SuppressWarnings("NullableProblems") @Required @NonNull private String type;
-    @SuppressWarnings("NullableProblems") @SerializedName("start_time") @Required @NonNull private String startTime;
-    @SuppressWarnings("NullableProblems") @SerializedName("end_time") @Required @NonNull private String endTime;
+    @SuppressWarnings("NullableProblems") @Json(name = "start_time") @Required @NonNull private String startTime;
+    @SuppressWarnings("NullableProblems") @Json(name = "end_time") @Required @NonNull private String endTime;
     @NonNull private List<String> platforms = Collections.emptyList();
     @NonNull private List<String> countries = Collections.emptyList();
-    @SerializedName("caption_HTML") @Nullable private String footerCaption;
-    @SerializedName("image_url") @Nullable private String imageUrl;
-    @SerializedName("image_height") @Nullable private String imageHeight;
-    @SerializedName("logged_in") @Nullable private Boolean loggedIn;
-    @SerializedName("reading_list_sync_enabled") @Nullable private Boolean readingListSyncEnabled;
+    @Json(name = "caption_HTML") @Nullable private String footerCaption;
+    @Json(name = "image_url") @Nullable private String imageUrl;
+    @Json(name = "image_height") @Nullable private String imageHeight;
+    @Json(name = "logged_in") @Nullable private Boolean loggedIn;
+    @Json(name = "reading_list_sync_enabled") @Nullable private Boolean readingListSyncEnabled;
     @Nullable private Boolean beta;
     @Nullable private Boolean border;
     @Nullable private String placement;
-    @SerializedName("min_version") @Nullable private String minVersion;
-    @SerializedName("max_version") @Nullable private String maxVersion;
+    @Json(name = "min_version") @Nullable private String minVersion;
+    @Json(name = "max_version") @Nullable private String maxVersion;
 
     @SuppressWarnings("NullableProblems") @Required @NonNull private String text;
     @Nullable private Action action;
-    @SerializedName("negative_text") @Nullable private String negativeText;
+    @Json(name = "negative_text") @Nullable private String negativeText;
 
     public Announcement() { }
 

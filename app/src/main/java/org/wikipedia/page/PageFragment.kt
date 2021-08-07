@@ -24,6 +24,8 @@ import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textview.MaterialTextView
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Types
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
@@ -54,6 +56,7 @@ import org.wikipedia.feed.announcement.AnnouncementClient
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.media.AvPlayer
@@ -386,10 +389,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@evaluate
             }
             model.page?.let { page ->
-                GsonUtil.getDefaultGson().fromJson(value, Array<Section>::class.java)?.let {
+                val type = Types.newParameterizedType(List::class.java, Section::class.java)
+                val sectionsAdapter: JsonAdapter<List<Section>> = MoshiUtil.getDefaultMoshi().adapter(type)
+                sectionsAdapter.fromJson(value)?.let {
                     sections = it.toMutableList()
                     sections?.let { sections ->
-                        sections.add(0, Section(0, 0, model.title?.displayText, model.title?.displayText, ""))
+                        val text = model.title?.displayText.orEmpty()
+                        sections.add(0, Section(0, 0, text, text, ""))
                         page.sections = sections
                     }
                 }

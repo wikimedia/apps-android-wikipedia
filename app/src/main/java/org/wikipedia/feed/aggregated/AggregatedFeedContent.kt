@@ -1,16 +1,18 @@
 package org.wikipedia.feed.aggregated
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.feed.topread.TopRead
 
-class AggregatedFeedContent {
-    val tfa: PageSummary? = null
-    val news: List<NewsItem>? = null
-    @SerializedName("mostread") val topRead: TopRead? = null
-    @SerializedName("image") val potd: FeaturedImage? = null
-    val onthisday: List<OnThisDay.Event>? = null
-}
+@JsonClass(generateAdapter = true)
+class AggregatedFeedContent(
+    val tfa: PageSummary? = null,
+    val news: List<NewsItem> = emptyList(),
+    @Json(name = "mostread") val topRead: TopRead? = null,
+    @Json(name = "image") val potd: FeaturedImage? = null,
+    @Json(name = "onthisday") val onThisDay: List<OnThisDay.Event> = emptyList()
+)

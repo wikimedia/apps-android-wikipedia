@@ -1,41 +1,16 @@
-package org.wikipedia.feed.topread;
+package org.wikipedia.feed.topread
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import org.wikipedia.dataclient.page.PageSummary
+import java.util.*
 
-import com.google.gson.annotations.SerializedName;
-
-import org.wikipedia.dataclient.page.PageSummary;
-
-import java.util.Date;
-import java.util.List;
-
-@SuppressWarnings("unused")
-public final class TopReadArticles extends PageSummary {
-    private int views;
-    private int rank;
-    @SerializedName("view_history") private List<ViewHistory> viewHistory;
-
-    public int getViews() {
-        return views;
-    }
-
-    @Nullable
-    public List<ViewHistory> getViewHistory() {
-        return viewHistory;
-    }
-
-    public class ViewHistory {
-        private Date date;
-        private float views;
-
-        @NonNull
-        public Date getDate() {
-            return date;
-        }
-
-        public float getViews() {
-            return views;
-        }
-    }
+@JsonClass(generateAdapter = true)
+class TopReadArticles(
+    val views: Int = 0,
+    internal val rank: Int = 0,
+    @Json(name = "view_history") val viewHistory: List<ViewHistory> = emptyList()
+) : PageSummary() {
+    @JsonClass(generateAdapter = true)
+    class ViewHistory(val date: Date, val views: Float)
 }

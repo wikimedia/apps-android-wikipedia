@@ -4,6 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.Service
 import org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl
+import java.io.Serializable
 import java.util.regex.Pattern
 import kotlin.math.abs
 
@@ -15,7 +16,7 @@ class MediaListItem(
     val caption: TextInfo? = null,
     @Json(name = "showInGallery") val isShowInGallery: Boolean = false,
     @Json(name = "srcset") val srcSets: List<ImageSrcSet> = emptyList()
-) {
+) : Serializable {
     fun getImageUrl(preferredSize: Int): String {
         val pattern = Pattern.compile("/(\\d+)px-")
         var imageUrl = srcSets[0].src
@@ -51,7 +52,7 @@ class MediaListItem(
 }
 
 @JsonClass(generateAdapter = true)
-class ImageSrcSet(val src: String = "", @Json(name = "scale") internal val scaleStr: String = "") {
+class ImageSrcSet(val src: String = "", @Json(name = "scale") internal val scaleStr: String = "") : Serializable {
     val scale: Float
         get() = scaleStr.replace("x", "").toFloat()
 }

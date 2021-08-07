@@ -5,6 +5,7 @@ import com.squareup.moshi.JsonClass
 import org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE
 import org.wikipedia.dataclient.Service
 import org.wikipedia.util.ImageUrlUtil
+import java.io.Serializable
 import java.util.*
 
 @JsonClass(generateAdapter = true)
@@ -36,7 +37,7 @@ open class GalleryItem(
     var titles: Titles? = null,
     var artist: ArtistInfo? = null,
     var license: ImageLicense? = null,
-) {
+) : Serializable {
     val thumbnailUrl get() = thumbnail.source
     val preferredSizedImageUrl get() = ImageUrlUtil.getUrlForPreferredSize(thumbnailUrl, PREFERRED_GALLERY_IMAGE_SIZE)
 
@@ -54,8 +55,8 @@ open class GalleryItem(
         }
 
     @JsonClass(generateAdapter = true)
-    class Titles(val display: String = "", val canonical: String = "", val normalized: String = "")
+    class Titles(val display: String = "", val canonical: String = "", val normalized: String = "") : Serializable
 
     @JsonClass(generateAdapter = true)
-    class StructuredData(var captions: HashMap<String, String>? = null)
+    class StructuredData(var captions: Map<String, String> = emptyMap()) : Serializable
 }

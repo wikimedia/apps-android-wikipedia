@@ -99,9 +99,9 @@ object UserContributionsStats {
                     Observable.zip(observableList) { resultList ->
                         resultList.filterIsInstance<MwQueryResponse>()
                                 .mapNotNull { it.query }
-                                .flatMap { it.pages!! }
+                                .flatMap { it.pages }
                                 .flatMap { it.pageViewsMap.values }
-                                .sumOf { it ?: 0 }
+                                .sumOf { it }
                     }
                 }
     }

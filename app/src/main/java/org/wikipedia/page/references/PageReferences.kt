@@ -1,13 +1,12 @@
 package org.wikipedia.page.references
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-data class PageReferences(val selectedIndex: Int = 0,
-                          val tid: String?,
-                          val referencesGroup: List<Reference>? = emptyList()) {
-
-    data class Reference(val id: String?,
-                         val href: String?,
-                         val text: String = "",
-                         @SerializedName("html") val content: String = "")
+@JsonClass(generateAdapter = true)
+data class PageReferences(val selectedIndex: Int = 0, val tid: String? = null,
+                          val referencesGroup: List<Reference> = emptyList()) {
+    @JsonClass(generateAdapter = true)
+    data class Reference(val id: String? = null, val href: String? = null, val text: String = "",
+                         @Json(name = "html") val content: String = "")
 }

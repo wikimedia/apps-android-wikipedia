@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import org.wikipedia.R
+import java.io.Serializable
 import java.util.*
 
 @JsonClass(generateAdapter = true)
@@ -11,7 +12,7 @@ class ImageLicense(
     @Json(name = "type") val licenseName: String = "",
     @Json(name = "code") val licenseShortName: String = "",
     @Json(name = "url") val licenseUrl: String = ""
-) {
+) : Serializable {
     constructor(metadata: ExtMetadata) : this(metadata.license, metadata.licenseShortName, metadata.licenseUrl)
 
     // Using the private modifier results in a compile error.

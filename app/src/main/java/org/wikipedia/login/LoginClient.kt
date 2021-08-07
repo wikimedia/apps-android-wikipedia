@@ -105,9 +105,7 @@ class LoginClient {
         return ServiceFactory.get(wiki).loginToken
             .subscribeOn(Schedulers.io())
             .map { response ->
-                val queryResponse =
-                    GsonUtil.getDefaultGson().fromJson(response, MwQueryResponse::class.java)
-                val loginToken = queryResponse.query?.loginToken
+                val loginToken = response.query?.loginToken
                 if (loginToken.isNullOrEmpty()) {
                     throw RuntimeException("Received empty login token: " + GsonUtil.getDefaultGson().toJson(response))
                 }

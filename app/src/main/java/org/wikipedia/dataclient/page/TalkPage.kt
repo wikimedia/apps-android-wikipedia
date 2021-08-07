@@ -1,36 +1,19 @@
 package org.wikipedia.dataclient.page
 
-class TalkPage {
-    val revision: Long = 0
-    val topics: List<Topic>? = null
-        get() = field ?: emptyList()
+import com.squareup.moshi.JsonClass
 
-    class Topic {
-        val id = 0
-        val depth = 0
-        val html: String? = null
-            get() = field.orEmpty()
-        val shas: TopicShas? = null
-        val replies: List<TopicReply>? = null
-            get() = field ?: emptyList()
-
-        fun getIndicatorSha(): String {
-            return shas?.indicator.orEmpty()
-        }
+@JsonClass(generateAdapter = true)
+class TalkPage(val revision: Long = 0, val topics: List<Topic> = emptyList()) {
+    @JsonClass(generateAdapter = true)
+    class Topic(val id: Int = 0, val depth: Int = 0, val html: String = "", val shas: TopicShas = TopicShas(),
+                val replies: List<TopicReply> = emptyList()) {
+        val indicatorSha: String
+            get() = shas.indicator
     }
 
-    class TopicShas {
-        val html: String? = null
-            get() = field.orEmpty()
-        val indicator: String? = null
-            get() = field.orEmpty()
-    }
+    @JsonClass(generateAdapter = true)
+    class TopicShas(val html: String = "", val indicator: String = "")
 
-    class TopicReply {
-        val depth = 0
-        val sha: String? = null
-            get() = field.orEmpty()
-        val html: String? = null
-            get() = field.orEmpty()
-    }
+    @JsonClass(generateAdapter = true)
+    class TopicReply(val depth: Int = 0, val sha: String = "", val html: String = "")
 }

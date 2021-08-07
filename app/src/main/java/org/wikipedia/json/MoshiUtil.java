@@ -1,5 +1,8 @@
 package org.wikipedia.json;
 
+import android.location.Location;
+import android.net.Uri;
+
 import androidx.annotation.NonNull;
 
 import com.squareup.moshi.Moshi;
@@ -7,6 +10,7 @@ import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory;
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter;
 
 import org.wikipedia.dataclient.wikidata.Claims;
+import org.wikipedia.page.GeoJsonAdapter;
 
 import java.util.Date;
 
@@ -20,7 +24,9 @@ public class MoshiUtil {
             .withSubtype(Claims.EntityIdValue.class, Claims.DataValue.Type.WIKIBASE_ENTITY_ID.getValue());
 
     private static final Moshi DEFAULT_MOSHI_BUILDER = new Moshi.Builder()
-            .add(Date.class, new Rfc3339DateJsonAdapter())
+            .add(Date.class, new Rfc3339DateJsonAdapter().nullSafe())
+            .add(Location.class, new GeoJsonAdapter().nullSafe())
+            .add(Uri.class, new UriJsonAdapter().nullSafe())
             .add(DATA_VALUE_ADAPTER_FACTORY)
             .build();
 

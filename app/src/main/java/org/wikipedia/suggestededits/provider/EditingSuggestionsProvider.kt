@@ -47,8 +47,7 @@ object EditingSuggestionsProvider {
             } else {
                 ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode()))
                         .flatMap { pages ->
-                            val titleList = ArrayList<String>()
-                            pages.forEach { titleList.add(it.title()) }
+                            val titleList = pages.map { it.title }
                             ServiceFactory.get(wiki).getDescription(titleList.joinToString("|")).subscribeOn(Schedulers.io())
                         }
                         .map { pages ->
@@ -94,7 +93,7 @@ object EditingSuggestionsProvider {
                             if (pages.isEmpty()) {
                                 throw ListEmptyException()
                             }
-                            val titleList = pages.map { it.title() }
+                            val titleList = pages.map { it.title }
                             ServiceFactory.get(WikiSite.forLanguageCode(targetLang)).getDescription(titleList.joinToString("|"))
                         }, { pages, response -> Pair(pages, response) })
                         .map { pair ->
@@ -104,7 +103,7 @@ object EditingSuggestionsProvider {
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
                             articlesWithTranslatableDescriptionCacheToLang = targetLang
                             for (page in pages) {
-                                val mwPage = mwPages.find { it.title == page.title() }
+                                val mwPage = mwPages.find { it.title == page.title }
                                 if (mwPage != null && !mwPage.description.isNullOrEmpty()) {
                                     continue
                                 }
@@ -162,7 +161,7 @@ object EditingSuggestionsProvider {
                 ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
                         .map { pages ->
                             imagesWithMissingCaptionsCacheLang = lang
-                            pages.forEach { imagesWithMissingCaptionsCache.push(it.title()) }
+                            pages.forEach { imagesWithMissingCaptionsCache.push(it.title) }
                             var item: String? = null
                             if (!imagesWithMissingCaptionsCache.empty()) {
                                 item = imagesWithMissingCaptionsCache.pop()
@@ -202,7 +201,7 @@ object EditingSuggestionsProvider {
                                 if (!page.captions.containsKey(sourceLang) || page.captions.containsKey(targetLang)) {
                                     continue
                                 }
-                                imagesWithTranslatableCaptionCache.push((page.captions[sourceLang] ?: error("")) to page.title())
+                                imagesWithTranslatableCaptionCache.push((page.captions[sourceLang] ?: error("")) to page.title)
                             }
                             if (!imagesWithTranslatableCaptionCache.empty()) {
                                 item = imagesWithTranslatableCaptionCache.pop()

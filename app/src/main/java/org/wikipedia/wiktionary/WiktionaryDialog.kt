@@ -121,7 +121,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         val definitionWithCount = "$count. ${currentDefinition.definition}"
         definitionBinding.wiktionaryDefinition.text = StringUtil.fromHtml(definitionWithCount)
         definitionBinding.wiktionaryDefinition.movementMethod = linkMovementMethod
-        currentDefinition.examples?.forEach {
+        currentDefinition.examples.forEach {
             definitionBinding.wiktionaryExamples.addView(layoutExamples(it))
         }
         return definitionBinding.root

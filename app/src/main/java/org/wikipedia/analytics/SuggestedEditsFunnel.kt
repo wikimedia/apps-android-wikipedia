@@ -4,12 +4,13 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonNull
 import com.google.gson.JsonSerializationContext
 import com.google.gson.JsonSerializer
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.*
 import org.json.JSONObject
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.MoshiUtil
 import java.lang.reflect.Type
 
 class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val invokeSource: InvokeSource) :
@@ -93,9 +94,8 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
 
     fun log() {
         log(
-                "edit_tasks", GsonUtil.getDefaultGson().newBuilder()
-                .registerTypeAdapter(SuggestedEditStats::class.java, SuggestedEditsStatsTypeAdapter())
-                .create().toJson(statsCollection),
+                "edit_tasks", MoshiUtil.getDefaultMoshi().adapter(SuggestedEditStatsCollection::class.java)
+                .toJson(statsCollection),
                 "help_opened", helpOpenedCount,
                 "scorecard_opened", contributionsOpenedCount,
                 "source", invokeSource.name
@@ -108,41 +108,44 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
         }
     }
 
-    private class SuggestedEditStatsCollection {
-        @SerializedName("a-d")
-        val addDescriptionStats = SuggestedEditStats()
+    @JsonClass(generateAdapter = true)
+    internal class SuggestedEditStatsCollection(
+        @Json(name = "a-d")
+        val addDescriptionStats: SuggestedEditStats = SuggestedEditStats(),
 
-        @SerializedName("t-d")
-        val translateDescriptionStats = SuggestedEditStats()
+        @Json(name = "t-d")
+        val translateDescriptionStats: SuggestedEditStats = SuggestedEditStats(),
 
-        @SerializedName("a-c")
-        val addCaptionStats = SuggestedEditStats()
+        @Json(name = "a-c")
+        val addCaptionStats: SuggestedEditStats = SuggestedEditStats(),
 
-        @SerializedName("t-c")
-        val translateCaptionStats = SuggestedEditStats()
+        @Json(name = "t-c")
+        val translateCaptionStats: SuggestedEditStats = SuggestedEditStats(),
 
-        @SerializedName("i-t")
-        val imageTagStats = SuggestedEditStats()
-    }
+        @Json(name = "i-t")
+        val imageTagStats: SuggestedEditStats = SuggestedEditStats()
+    )
 
-    private class SuggestedEditStats {
-        @SerializedName("imp")
-        var impressions = 0
+    @JsonClass(generateAdapter = true)
+    internal class SuggestedEditStats(
+        @Json(name = "imp")
+        var impressions: Int = 0,
 
-        @SerializedName("clk")
-        var clicks = 0
+        @Json(name = "clk")
+        var clicks: Int = 0,
 
-        @SerializedName("sg")
-        var suggestionsClicked = 0
+        @Json(name = "sg")
+        var suggestionsClicked: Int = 0,
 
-        @SerializedName("cxl")
-        var cancels = 0
+        @Json(name = "cxl")
+        var cancels: Int = 0,
 
-        @SerializedName("suc")
-        var successes = 0
+        @Json(name = "suc")
+        var successes: Int = 0,
 
-        @SerializedName("fl")
-        var failures = 0
+        @Json(name = "fl")
+        var failures: Int = 0,
+    ) {
         val isEmpty = impressions == 0 && clicks == 0 && suggestionsClicked == 0 && cancels == 0 &&
                 successes == 0 && failures == 0
     }

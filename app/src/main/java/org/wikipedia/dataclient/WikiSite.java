@@ -7,7 +7,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
@@ -57,7 +57,7 @@ public class WikiSite implements Parcelable {
     };
 
     // todo: remove @SerializedName. this is now in the TypeAdapter and a "uri" case may be added
-    @SerializedName("domain") @NonNull private final Uri uri;
+    @Json(name = "domain") @NonNull private final Uri uri;
     @NonNull private String languageCode;
 
     public static boolean supportedAuthority(@NonNull String authority) {

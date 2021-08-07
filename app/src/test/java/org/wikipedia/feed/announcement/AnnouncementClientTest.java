@@ -1,22 +1,21 @@
 package org.wikipedia.feed.announcement;
 
-import com.google.gson.stream.MalformedJsonException;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.json.MoshiUnmarshaller;
 import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import io.reactivex.rxjava3.core.Observable;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 
 public class AnnouncementClientTest extends MockRetrofitTest {
     private static final int ANNOUNCEMENT_IOS = 0;
@@ -37,7 +36,7 @@ public class AnnouncementClientTest extends MockRetrofitTest {
     public void setUp() throws Throwable {
         super.setUp();
         String json = TestFileUtil.readRawFile(ANNOUNCEMENT_JSON_FILE);
-        announcementList = GsonUnmarshaller.unmarshal(AnnouncementList.class, json);
+        announcementList = MoshiUnmarshaller.unmarshal(AnnouncementList.class, json);
     }
 
     @Test
@@ -53,7 +52,7 @@ public class AnnouncementClientTest extends MockRetrofitTest {
     @Test public void testRequestMalformed() throws Throwable {
         enqueueMalformed();
         getObservable().test().await()
-                .assertError(MalformedJsonException.class);
+                .assertError(IOException.class);
     }
 
     @Test public void testRequestNotFound() throws Throwable {

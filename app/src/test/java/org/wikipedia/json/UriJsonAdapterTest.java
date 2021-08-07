@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.is;
 import static org.wikipedia.json.GsonMarshaller.marshal;
 import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
-@RunWith(ParameterizedRobolectricTestRunner.class) public class UriTypeAdapterTest {
+@RunWith(ParameterizedRobolectricTestRunner.class) public class UriJsonAdapterTest {
     @Parameters(name = "{0}") public static Iterable<Object[]> data() {
         return Arrays.asList(new Object[][] {{DeferredParam.NULL}, {DeferredParam.STRING},
                 {DeferredParam.OPAQUE}, {DeferredParam.HIERARCHICAL}});
@@ -26,7 +26,7 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
     @Nullable private final Uri uri;
 
-    public UriTypeAdapterTest(@NonNull DeferredParam param) {
+    public UriJsonAdapterTest(@NonNull DeferredParam param) {
         this.uri = param.val();
     }
 

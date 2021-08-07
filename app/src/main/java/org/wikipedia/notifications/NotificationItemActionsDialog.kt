@@ -43,7 +43,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     private var actionClickListener = View.OnClickListener {
         val link = it.tag as Notification.Link
         val linkIndex = if (it.id == R.id.notification_action_primary) ACTION_PRIMARY else if (it.id == R.id.notification_action_secondary) ACTION_SECONDARY else ACTION_LINK_CLICKED
-        val url = link.url
+        val url = link.decodedUrl
         if (url.isNotEmpty()) {
             NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
             NotificationInteractionEvent.logAction(notification, linkIndex, link)

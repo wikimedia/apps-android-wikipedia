@@ -1,12 +1,11 @@
 package org.wikipedia.dataclient.restbase
 
+import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.page.PageSummary
 
-class RbRelatedPages {
-
-    val pages: List<PageSummary>? = null
-
+@JsonClass(generateAdapter = true)
+class RbRelatedPages(val pages: List<PageSummary> = emptyList()) {
     fun getPages(limit: Int): MutableList<PageSummary> {
-        return pages.orEmpty().take(limit).toMutableList()
+        return pages.take(limit).toMutableList()
     }
 }

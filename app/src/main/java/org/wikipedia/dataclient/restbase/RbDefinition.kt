@@ -1,8 +1,12 @@
 package org.wikipedia.dataclient.restbase
 
-class RbDefinition(val usagesByLang: Map<String, Array<Usage>>) {
+import com.squareup.moshi.JsonClass
 
-    class Usage(val partOfSpeech: String, val definitions: Array<Definition>)
+@JsonClass(generateAdapter = true)
+class RbDefinition(val usagesByLang: Map<String, Array<Usage>> = emptyMap()) {
+    @JsonClass(generateAdapter = true)
+    class Usage(val partOfSpeech: String = "", val definitions: Array<Definition> = emptyArray())
 
-    class Definition(val definition: String, val examples: Array<String>?)
+    @JsonClass(generateAdapter = true)
+    class Definition(val definition: String = "", val examples: Array<String> = emptyArray())
 }

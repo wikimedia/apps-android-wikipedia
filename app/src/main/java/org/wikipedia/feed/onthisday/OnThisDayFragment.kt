@@ -117,8 +117,8 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                 onThisDay = response
                 onThisDay?.let { onThisDayResponse ->
                     binding.eventsRecycler.visibility = View.VISIBLE
-                    binding.eventsRecycler.adapter = RecyclerAdapter(onThisDayResponse.allEvents(), wiki)
-                    val events = onThisDayResponse.allEvents()
+                    binding.eventsRecycler.adapter = RecyclerAdapter(onThisDayResponse.allEvents, wiki)
+                    val events = onThisDayResponse.allEvents
                     positionToScrollTo = events.indices.find { yearOnCardView == events[it].year } ?: 0
                     val beginningYear = events[events.size - 1].year
                     binding.dayInfo.text = getString(R.string.events_count_text, events.size.toString(),
@@ -258,17 +258,12 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         }
 
         private fun setPagesViewPager(event: OnThisDay.Event) {
-            event.pages()?.let {
-                val viewPagerAdapter = ViewPagerAdapter(childFragmentManager, it, wiki)
-                pagesViewPager.adapter = viewPagerAdapter
-                pagesViewPager.offscreenPageLimit = 2
-                TabLayoutMediator(pagesIndicator, pagesViewPager) { _, _ -> }.attach()
-                pagesViewPager.visibility = View.VISIBLE
-                pagesIndicator.visibility = if (it.size == 1) View.GONE else View.VISIBLE
-            } ?: run {
-                pagesViewPager.visibility = View.GONE
-                pagesIndicator.visibility = View.GONE
-            }
+            val viewPagerAdapter = ViewPagerAdapter(childFragmentManager, event.pages, wiki)
+            pagesViewPager.adapter = viewPagerAdapter
+            pagesViewPager.offscreenPageLimit = 2
+            TabLayoutMediator(pagesIndicator, pagesViewPager) { _, _ -> }.attach()
+            pagesViewPager.visibility = View.VISIBLE
+            pagesIndicator.visibility = if (event.pages.size == 1) View.GONE else View.VISIBLE
         }
 
         fun animateRadioButton() {

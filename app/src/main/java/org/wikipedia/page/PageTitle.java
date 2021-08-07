@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
@@ -70,7 +71,7 @@ public class PageTitle implements Parcelable {
     @NonNull private String text;
     @Nullable private String fragment;
     @Nullable private String thumbUrl;
-    @SerializedName("site") @NonNull private final WikiSite wiki;
+    @Json(name = "site") @NonNull private final WikiSite wiki;
     @Nullable private String description;
     // TODO: remove after the restbase endpoint supports ZH variants.
     @Nullable private String displayText;

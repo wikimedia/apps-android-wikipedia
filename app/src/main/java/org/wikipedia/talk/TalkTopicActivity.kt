@@ -205,8 +205,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
-                    val talkTopic = response.topics?.find { t -> t.id == topicId }!!
-                    AppDatabase.getAppDatabase().talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
+                    val talkTopic = response.topics.find { t -> t.id == topicId }!!
+                    AppDatabase.getAppDatabase().talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.indicatorSha))
                     currentRevision = response.revision
                     talkTopic
                 }

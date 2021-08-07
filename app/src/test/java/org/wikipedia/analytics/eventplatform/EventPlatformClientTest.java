@@ -27,6 +27,7 @@ import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.times;
+import static org.wikipedia.analytics.eventplatform.DestinationEventService.ANALYTICS;
 import static org.wikipedia.analytics.eventplatform.DestinationEventService.LOGGING;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClient.STREAM_CONFIGS;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClient.addEventMetadata;
@@ -58,7 +59,7 @@ public class EventPlatformClientTest {
 
     @Test
     public void testGetStream() {
-        setStreamConfig(new StreamConfig("test", null, null));
+        setStreamConfig(new StreamConfig("test", null, ANALYTICS));
         assertThat(STREAM_CONFIGS.get("test"), is(notNullValue()));
         assertThat(STREAM_CONFIGS.get("key.does.not.exist"), is(nullValue()));
     }
@@ -118,19 +119,19 @@ public class EventPlatformClientTest {
 
     @Test
     public void testAlwaysInSampleIfStreamConfiguredButNoSamplingConfig() {
-        setStreamConfig(new StreamConfig("configured", null, null));
+        setStreamConfig(new StreamConfig("configured", null, ANALYTICS));
         assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "configured")), is(true));
     }
 
     @Test
     public void testAlwaysInSample() {
-        setStreamConfig(new StreamConfig("alwaysInSample", new SamplingConfig(1.0, null), null));
+        setStreamConfig(new StreamConfig("alwaysInSample", new SamplingConfig(1.0), ANALYTICS));
         assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "alwaysInSample")), is(true));
     }
 
     @Test
     public void testNeverInSample() {
-        setStreamConfig(new StreamConfig("neverInSample", new SamplingConfig(0.0, null), null));
+        setStreamConfig(new StreamConfig("neverInSample", new SamplingConfig(0.0), ANALYTICS));
         assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "neverInSample")), is(false));
     }
 
@@ -164,7 +165,7 @@ public class EventPlatformClientTest {
 
     @Test
     public void testGetEventServiceDefaultDestination() {
-        StreamConfig streamConfig = new StreamConfig("test", null, null);
+        StreamConfig streamConfig = new StreamConfig("test", null, ANALYTICS);
         assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
     }
 

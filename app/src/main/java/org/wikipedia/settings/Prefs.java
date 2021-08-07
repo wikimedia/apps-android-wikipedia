@@ -62,9 +62,9 @@ public final class Prefs {
         return getKey(R.string.preference_key_app_channel);
     }
 
-    @Nullable
+    @NonNull
     public static String getAppInstallId() {
-        return getString(R.string.preference_key_reading_app_install_id, null);
+        return getString(R.string.preference_key_reading_app_install_id, "");
     }
 
     public static void setAppInstallId(@Nullable String id) {
@@ -662,12 +662,17 @@ public final class Prefs {
         setString(R.string.preference_key_locally_known_notifications, GsonMarshaller.marshal(list));
     }
 
-    public static String getRemoteNotificationsSeenTime() {
-        return getString(R.string.preference_key_remote_notifications_seen_time, "");
+    @NonNull
+    public static Date getRemoteNotificationsSeenTime() {
+        if (!contains(R.string.preference_key_remote_notifications_seen_time)) {
+            return new Date(0);
+        } else {
+            return DateUtil.iso8601DateParse(getString(R.string.preference_key_remote_notifications_seen_time, ""));
+        }
     }
 
-    public static void setRemoteNotificationsSeenTime(@Nullable String seenTime) {
-        setString(R.string.preference_key_remote_notifications_seen_time, seenTime);
+    public static void setRemoteNotificationsSeenTime(@NonNull Date seenTime) {
+        setString(R.string.preference_key_remote_notifications_seen_time, DateUtil.iso8601DateFormat(seenTime));
     }
 
     public static boolean shouldShowHistoryOfflineArticlesToast() {

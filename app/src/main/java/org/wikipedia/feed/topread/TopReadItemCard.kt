@@ -25,6 +25,6 @@ class TopReadItemCard internal constructor(private val page: TopReadArticles,
     }
 
     val pageViews get() = page.views
-    val viewHistory get() = page.viewHistory ?: emptyList()
+    val viewHistory get() = page.viewHistory
     val pageTitle get() = page.getPageTitle(wiki)
 }

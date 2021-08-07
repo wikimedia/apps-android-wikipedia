@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist.sync
 
-import android.content.*
+import android.content.ContentResolver
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.core.app.JobIntentService
@@ -23,6 +24,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.text.ParseException
+import java.util.*
 
 class ReadingListSyncAdapter : JobIntentService() {
 
@@ -260,7 +262,9 @@ class ReadingListSyncAdapter : JobIntentService() {
             // Determine whether any remote lists need to be created or updated
             for ((localItemsSynced, localList) in allLocalLists.withIndex()) {
                 readingListSyncNotification.setNotificationProgress(applicationContext, localItemsTotal, localItemsSynced)
-                val remoteList = RemoteReadingList(localList.title, localList.description)
+                val currentDate = DateUtil.iso8601DateFormat(Date())
+                val remoteList = RemoteReadingList(0, name = localList.title, description = localList.description,
+                    created = currentDate, updated = currentDate)
                 var upsertNeeded = false
                 if (localList.remoteId > 0) {
                     if (!localList.isDefault && localList.dirty) {
@@ -462,7 +466,9 @@ class ReadingListSyncAdapter : JobIntentService() {
 
     private fun remoteEntryFromLocalPage(localPage: ReadingListPage): RemoteReadingListEntry {
         val title = ReadingListPage.toPageTitle(localPage)
-        return RemoteReadingListEntry(title.wikiSite.scheme() + "://" + title.wikiSite.authority(), title.prefixedText)
+        val currentDate = DateUtil.iso8601DateFormat(Date())
+        return RemoteReadingListEntry(project = title.wikiSite.scheme() + "://" + title.wikiSite.authority(),
+            title = title.prefixedText, created = currentDate, updated = currentDate)
     }
 
     companion object {

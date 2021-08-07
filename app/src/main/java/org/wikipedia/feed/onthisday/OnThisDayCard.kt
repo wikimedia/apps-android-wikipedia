@@ -59,6 +59,6 @@ class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int)
     }
 
     fun pages(): List<PageSummary>? {
-        return eventShownOnCard.pages()
+        return eventShownOnCard.pages
     }
 }

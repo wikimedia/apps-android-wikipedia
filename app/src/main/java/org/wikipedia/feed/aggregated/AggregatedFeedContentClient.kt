@@ -33,7 +33,7 @@ class AggregatedFeedContentClient {
                                          outCards: MutableList<Card>) {
             for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.ON_THIS_DAY.langCodesDisabled.contains(appLangCode)) {
-                    responses[appLangCode]?.onthisday?.let {
+                    responses[appLangCode]?.onThisDay?.let {
                         if (it.isNotEmpty()) {
                             outCards.add(OnThisDayCard(it, WikiSite.forLanguageCode(appLangCode), age))
                         }

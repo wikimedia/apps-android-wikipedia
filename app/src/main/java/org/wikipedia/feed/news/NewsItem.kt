@@ -1,18 +1,16 @@
 package org.wikipedia.feed.news
 
 import android.net.Uri
+import com.squareup.moshi.JsonClass
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.util.ImageUrlUtil
 
-class NewsItem {
-
-    val story: String = ""
-    val links: List<PageSummary?> = emptyList()
-
+@JsonClass(generateAdapter = true)
+class NewsItem(val story: String = "", val links: List<PageSummary> = emptyList()) {
     fun linkCards(wiki: WikiSite): List<NewsLinkCard> {
-        return links.filterNotNull().map { NewsLinkCard(it, wiki) }
+        return links.map { NewsLinkCard(it, wiki) }
     }
 
     fun thumb(): Uri? {

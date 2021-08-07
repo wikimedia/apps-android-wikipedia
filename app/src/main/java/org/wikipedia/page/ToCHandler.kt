@@ -201,7 +201,7 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
             val section = getItem(position)
             val sectionHeading = newConvertView!!.findViewById<TextView>(R.id.page_toc_item_text)
             val sectionBullet = newConvertView.findViewById<View>(R.id.page_toc_item_bullet)
-            sectionHeading.text = StringUtil.fromHtml(section.heading)
+            sectionHeading.text = StringUtil.fromHtml(section.title)
             var textSize = TOC_SUBSECTION_TEXT_SIZE
             when {
                 section.isLead -> {

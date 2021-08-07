@@ -1,11 +1,9 @@
 package org.wikipedia.page
 
-class Page(var title: PageTitle,
-           var sections: List<Section>,
-           var pageProperties: PageProperties) {
+import com.squareup.moshi.JsonClass
 
-    constructor(title: PageTitle, pageProperties: PageProperties) : this(title, emptyList(), pageProperties)
-
+@JsonClass(generateAdapter = true)
+class Page(var title: PageTitle, var sections: List<Section> = emptyList(), var pageProperties: PageProperties) {
     val displayTitle = pageProperties.displayTitle.orEmpty()
     val isMainPage = pageProperties.isMainPage
     val isArticle = !isMainPage && title.namespace() === Namespace.MAIN

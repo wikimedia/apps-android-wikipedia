@@ -16,7 +16,6 @@ public final class GsonUtil {
 
     private static final GsonBuilder DEFAULT_GSON_BUILDER = new GsonBuilder()
             .setDateFormat(DATE_FORMAT)
-            .registerTypeHierarchyAdapter(Uri.class, new UriTypeAdapter().nullSafe())
             .registerTypeHierarchyAdapter(Namespace.class, new NamespaceTypeAdapter().nullSafe())
             .registerTypeAdapter(WikiSite.class, new WikiSiteTypeAdapter().nullSafe())
             .registerTypeAdapter(SharedPreferenceCookieManager.class, new CookieManagerTypeAdapter().nullSafe())
