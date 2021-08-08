@@ -1,11 +1,11 @@
 package org.wikipedia.suggestededits
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
@@ -31,13 +31,13 @@ class SuggestedEditsTypeItemView constructor(context: Context, attrs: AttributeS
 
     fun setEnabledStateUI() {
         binding.editTypeTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
-        ImageViewCompat.setImageTintList(binding.editTypeImage, ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.themed_icon_color))))
+        ImageViewCompat.setImageTintList(binding.editTypeImage, AppCompatResources.getColorStateList(context, ResourceUtil.getThemedAttributeId(context, R.attr.themed_icon_color)))
         this.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_accent90_fill)
     }
 
     fun setDisabledStateUI() {
         binding.editTypeTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
-        ImageViewCompat.setImageTintList(binding.editTypeImage, ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.chart_shade4))))
+        ImageViewCompat.setImageTintList(binding.editTypeImage, AppCompatResources.getColorStateList(context, ResourceUtil.getThemedAttributeId(context, R.attr.chart_shade4)))
         this.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_corner_base90_fill)
     }
 
