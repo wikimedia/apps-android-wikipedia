@@ -1,13 +1,12 @@
 package org.wikipedia.notifications;
 
-import com.google.gson.stream.MalformedJsonException;
-
 import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
+import java.io.IOException;
 import java.util.List;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -34,7 +33,7 @@ public class NotificationClientTest extends MockRetrofitTest {
     @Test public void testRequestMalformed() throws Throwable {
         enqueueMalformed();
         getObservable().test().await()
-                .assertError(MalformedJsonException.class);
+                .assertError(IOException.class);
     }
 
     @Test public void testNotificationReverted() throws Throwable {

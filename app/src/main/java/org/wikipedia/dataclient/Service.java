@@ -3,8 +3,6 @@ package org.wikipedia.dataclient;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.JsonElement;
-
 import org.wikipedia.captcha.Captcha;
 import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
 import org.wikipedia.dataclient.mwapi.MwParseResponse;

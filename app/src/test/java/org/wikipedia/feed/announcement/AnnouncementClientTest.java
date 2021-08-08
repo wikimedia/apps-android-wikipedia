@@ -1,9 +1,5 @@
 package org.wikipedia.feed.announcement;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.json.MoshiUnmarshaller;
@@ -16,6 +12,10 @@ import java.util.Date;
 import java.util.Locale;
 
 import io.reactivex.rxjava3.core.Observable;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 
 public class AnnouncementClientTest extends MockRetrofitTest {
     private static final int ANNOUNCEMENT_IOS = 0;

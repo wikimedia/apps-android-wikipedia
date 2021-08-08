@@ -1,10 +1,10 @@
 package org.wikipedia.search;
 
-import com.google.gson.stream.MalformedJsonException;
-
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.test.MockRetrofitTest;
+
+import java.io.IOException;
 
 import io.reactivex.rxjava3.core.Observable;
 
@@ -62,6 +62,6 @@ public class FullTextSearchClientTest extends MockRetrofitTest {
     @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
         getObservable().test().await()
-                .assertError(MalformedJsonException.class);
+                .assertError(IOException.class);
     }
 }

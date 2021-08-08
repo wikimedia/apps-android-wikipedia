@@ -5,8 +5,6 @@ import android.util.ArrayMap;
 
 import androidx.annotation.NonNull;
 
-import com.google.gson.stream.MalformedJsonException;
-
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
@@ -14,6 +12,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.pageimages.db.PageImage;
 import org.wikipedia.test.MockRetrofitTest;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -59,7 +58,7 @@ public class PageImagesClientTest extends MockRetrofitTest {
     @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
         getObservable(Collections.emptyList()).test().await()
-                .assertError(MalformedJsonException.class);
+                .assertError(IOException.class);
     }
 
     private Observable<Map<PageTitle, PageImage>> getObservable(@NonNull List<PageTitle> titles) {

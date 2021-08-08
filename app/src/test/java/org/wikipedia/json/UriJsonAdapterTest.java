@@ -5,18 +5,19 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.squareup.moshi.JsonAdapter;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.ParameterizedRobolectricTestRunner;
 import org.robolectric.ParameterizedRobolectricTestRunner.Parameters;
 import org.wikipedia.dataclient.Service;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.wikipedia.json.GsonMarshaller.marshal;
-import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
 @RunWith(ParameterizedRobolectricTestRunner.class) public class UriJsonAdapterTest {
     @Parameters(name = "{0}") public static Iterable<Object[]> data() {
@@ -30,8 +31,9 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
         this.uri = param.val();
     }
 
-    @Test public void testWriteRead() {
-        Uri result = unmarshal(Uri.class, marshal(uri));
+    @Test public void testWriteRead() throws IOException {
+        final JsonAdapter<Uri> adapter = MoshiUtil.getDefaultMoshi().adapter(Uri.class);
+        Uri result = adapter.fromJson(adapter.toJson(uri));
         assertThat(result, is(uri));
     }
 

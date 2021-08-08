@@ -2,8 +2,6 @@ package org.wikipedia.descriptions;
 
 import androidx.annotation.NonNull;
 
-import com.google.gson.stream.MalformedJsonException;
-
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
@@ -14,6 +12,8 @@ import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockRetrofitTest;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.regex.Pattern;
 
@@ -82,7 +82,7 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
     @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
         request().test().await()
-                .assertError(MalformedJsonException.class);
+                .assertError(IOException.class);
     }
 
     @Test public void testIsEditAllowedSuccess() {
@@ -111,8 +111,17 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
                                                      @NonNull String expectedCode,
                                                      @NonNull String expectedMessage) {
         observer.assertError(caught -> {
+            final MwException mwException;
             if (caught instanceof MwException) {
-                MwServiceError error = ((MwException) caught).getError();
+                mwException = (MwException) caught;
+            } else if (caught instanceof InvocationTargetException) {
+                // The constructor is invoked via reflection if the default values are not set.
+                mwException = (MwException) ((InvocationTargetException) caught).getCause();
+            } else {
+                mwException = null;
+            }
+            if (mwException != null) {
+                MwServiceError error = mwException.getError();
                 return error.hasMessageName(expectedCode) && error.getMessageHtml(expectedCode).equals(expectedMessage);
             } else {
                 return false;

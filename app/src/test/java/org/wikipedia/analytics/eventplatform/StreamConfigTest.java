@@ -1,8 +1,10 @@
 package org.wikipedia.analytics.eventplatform;
 
+import com.squareup.moshi.JsonAdapter;
+
 import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
-import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.test.TestFileUtil;
 
 import java.io.IOException;
@@ -22,7 +24,9 @@ public class StreamConfigTest {
     @Test
     public void testStreamConfigResponseDeserialization() throws IOException {
         String json = TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE);
-        MwStreamConfigsResponse response = GsonUnmarshaller.unmarshal(MwStreamConfigsResponse.class, json);
+        final JsonAdapter<MwStreamConfigsResponse> adapter = MoshiUtil.getDefaultMoshi()
+                .adapter(MwStreamConfigsResponse.class);
+        MwStreamConfigsResponse response = adapter.fromJson(json);
         Map<String, StreamConfig> streamConfigs = response.getStreamConfigs();
 
         assertThat(streamConfigs.containsKey("test.event"), is(true));

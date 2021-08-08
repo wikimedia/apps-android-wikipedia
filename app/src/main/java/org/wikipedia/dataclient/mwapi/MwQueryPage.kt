@@ -67,20 +67,20 @@ class MwQueryPage(
 
     @JsonClass(generateAdapter = true)
     class Revision(
-        @Json(name = "revid") val revId: Long,
-        @Json(name = "parentid") val parentRevId: Long,
-        val minor: Boolean,
-        @Json(name = "anon") val isAnon: Boolean,
-        val user: String,
-        @Json(name = "contentformat") val contentFormat: String,
-        @Json(name = "contentmodel") val contentModel: String,
-        @Json(name = "timestamp") val timeStamp: String,
-        val content: String,
-        val comment: String,
-        val slots: Map<String, RevisionSlot>
+        @Json(name = "revid") val revId: Long = 0,
+        @Json(name = "parentid") val parentRevId: Long = 0,
+        val minor: Boolean = false,
+        @Json(name = "anon") val isAnon: Boolean = false,
+        val user: String = "",
+        @Json(name = "contentformat") val contentFormat: String = "",
+        @Json(name = "contentmodel") val contentModel: String = "",
+        @Json(name = "timestamp") val timeStamp: String = "",
+        val content: String = "",
+        val comment: String = "",
+        val slots: Map<String, RevisionSlot> = emptyMap()
     ) {
         fun getContentFromSlot(slot: String): String {
-            return if (slots.containsKey(slot)) slots[slot]!!.content else ""
+            return slots[slot]?.content.orEmpty()
         }
     }
 

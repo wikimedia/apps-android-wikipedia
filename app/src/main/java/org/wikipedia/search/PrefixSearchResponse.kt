@@ -3,10 +3,14 @@ package org.wikipedia.search
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.mwapi.MwServiceError
 
 @JsonClass(generateAdapter = true)
-class PrefixSearchResponse(@Json(name = "searchinfo") internal val searchInfo: SearchInfo? = null,
-                           internal val search: Search? = null) : MwQueryResponse() {
+class PrefixSearchResponse(
+    errors: List<MwServiceError> = emptyList(),
+    @Json(name = "searchinfo") internal val searchInfo: SearchInfo? = null,
+    internal val search: Search? = null
+) : MwQueryResponse(errors) {
     val suggestion: String?
         get() = searchInfo?.suggestion
 

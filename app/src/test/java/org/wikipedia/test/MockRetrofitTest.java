@@ -10,10 +10,15 @@ import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter;
 import org.junit.Before;
 import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.Service;
+import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.wikidata.Claims;
+import org.wikipedia.json.CookieManagerJsonAdapter;
+import org.wikipedia.json.NamespaceJsonAdapter;
 import org.wikipedia.json.UriJsonAdapter;
+import org.wikipedia.json.WikiSiteJsonAdapter;
 import org.wikipedia.page.GeoJsonAdapter;
+import org.wikipedia.page.Namespace;
 
 import java.util.Date;
 
@@ -64,6 +69,9 @@ public abstract class MockRetrofitTest extends MockWebServerTest {
                 .add(Date.class, new Rfc3339DateJsonAdapter().nullSafe())
                 .add(Location.class, new GeoJsonAdapter().nullSafe())
                 .add(Uri.class, new UriJsonAdapter().nullSafe())
+                .add(Namespace.class, new NamespaceJsonAdapter().nullSafe())
+                .add(WikiSite.class, new WikiSiteJsonAdapter().nullSafe())
+                .add(SharedPreferenceCookieManager.class, new CookieManagerJsonAdapter().nullSafe())
                 .add(DATA_VALUE_ADAPTER_FACTORY)
                 .build();
     }

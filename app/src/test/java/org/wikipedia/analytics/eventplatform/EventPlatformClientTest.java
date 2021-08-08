@@ -1,5 +1,8 @@
 package org.wikipedia.analytics.eventplatform;
 
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Types;
+
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -9,12 +12,12 @@ import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
-import org.wikipedia.json.GsonMarshaller;
-import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.test.TestFileUtil;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -68,7 +71,8 @@ public class EventPlatformClientTest {
     public void testEventSerialization() {
         Event event = new Event("test", "test");
         addEventMetadata(event);
-        String serialized = GsonMarshaller.marshal(event);
+        final JsonAdapter<Event> adapter = MoshiUtil.getDefaultMoshi().adapter(Event.class);
+        String serialized = adapter.toJson(event);
         assertThat(serialized.contains("dt"), is(true));
         assertThat(serialized.contains("app_session_id"), is(true));
         assertThat(serialized.contains("app_install_id"), is(true));
@@ -171,11 +175,16 @@ public class EventPlatformClientTest {
 
     @Test
     public void testStreamConfigMapSerializationDeserialization() throws IOException {
-        Map<String, StreamConfig> originalStreamConfigs = GsonUnmarshaller.unmarshal(MwStreamConfigsResponse.class,
-                TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE)).getStreamConfigs();
+        final JsonAdapter<MwStreamConfigsResponse> responseAdapter = MoshiUtil.getDefaultMoshi()
+                .adapter(MwStreamConfigsResponse.class);
+        final Map<String, StreamConfig> originalStreamConfigs = responseAdapter.fromJson(TestFileUtil
+                .readRawFile(STREAM_CONFIGS_RESPONSE)).getStreamConfigs();
 
         Prefs.setStreamConfigs(originalStreamConfigs);
-        Map<String, StreamConfig> restoredStreamConfigs = Prefs.getStreamConfigs();
-        assertThat(GsonMarshaller.marshal(restoredStreamConfigs), is(GsonMarshaller.marshal(originalStreamConfigs)));
+        final Map<String, StreamConfig> restoredStreamConfigs = Prefs.getStreamConfigs();
+        final Type type = Types.newParameterizedType(Map.class, String.class, StreamConfig.class);
+        final JsonAdapter<Map<String, StreamConfig>> mapJsonAdapter = MoshiUtil.getDefaultMoshi().adapter(type);
+
+        assertThat(mapJsonAdapter.toJson(restoredStreamConfigs), is(mapJsonAdapter.toJson(originalStreamConfigs)));
     }
 }

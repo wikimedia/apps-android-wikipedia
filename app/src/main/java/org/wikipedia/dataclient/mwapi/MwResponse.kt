@@ -3,7 +3,7 @@ package org.wikipedia.dataclient.mwapi
 import com.squareup.moshi.Json
 
 abstract class MwResponse(
-    internal val errors: List<MwServiceError> = emptyList(),
+    val errors: List<MwServiceError> = emptyList(),
     @Json(name = "servedby") internal val servedBy: String? = null
 ) {
     init {

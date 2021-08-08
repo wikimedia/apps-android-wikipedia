@@ -1,7 +1,5 @@
 package org.wikipedia.feed.announcement;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
-
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -15,6 +13,8 @@ import org.wikipedia.util.DateUtil;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 @SuppressWarnings("unused")
 public class Announcement {

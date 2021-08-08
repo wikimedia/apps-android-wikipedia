@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.annotations.SerializedName;
 import com.squareup.moshi.Json;
 
 import org.apache.commons.lang3.StringUtils;
@@ -22,8 +21,6 @@ import org.wikipedia.util.UriUtil;
 
 import java.util.Arrays;
 import java.util.Locale;
-
-import static org.wikipedia.util.UriUtil.decodeURL;
 
 /**
  * Represents certain vital information about a page, including the title, namespace,
@@ -135,7 +132,7 @@ public class PageTitle implements Parcelable {
         String[] parts = text.split("#", -1);
         text = parts[0];
         if (parts.length > 1) {
-            this.fragment = StringUtil.addUnderscores(decodeURL(parts[1]));
+            this.fragment = StringUtil.addUnderscores(UriUtil.decodeURL(parts[1]));
         } else {
             this.fragment = null;
         }

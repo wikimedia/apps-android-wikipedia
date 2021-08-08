@@ -1,11 +1,11 @@
 package org.wikipedia.edit.wikitext;
 
-import com.google.gson.stream.MalformedJsonException;
-
 import org.junit.Test;
-import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.test.MockRetrofitTest;
+
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 import io.reactivex.rxjava3.core.Observable;
 
@@ -21,14 +21,15 @@ public class WikitextClientTest extends MockRetrofitTest {
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
+        // The constructor is invoked via reflection if the default values are not set.
         getObservable().test().await()
-                .assertError(MwException.class);
+                .assertError(InvocationTargetException.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
         getObservable().test().await()
-                .assertError(MalformedJsonException.class);
+                .assertError(IOException.class);
     }
 
     private Observable<MwQueryResponse> getObservable() {

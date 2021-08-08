@@ -1,11 +1,10 @@
 package org.wikipedia.analytics.eventplatform;
 
-import static org.wikipedia.BuildConfig.EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI;
-import static org.wikipedia.BuildConfig.EVENTGATE_LOGGING_EXTERNAL_BASE_URI;
-
 import androidx.annotation.NonNull;
 
 import com.squareup.moshi.Json;
+
+import org.wikipedia.BuildConfig;
 
 /**
  * Possible event destination endpoints which can be specified in stream configurations.
@@ -19,12 +18,12 @@ public enum DestinationEventService {
 
     @Json(name = "eventgate-analytics-external") ANALYTICS (
             "eventgate-analytics-external",
-            EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI
+            BuildConfig.EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI
     ),
 
     @Json(name = "eventgate-logging-external") LOGGING (
             "eventgate-logging-external",
-            EVENTGATE_LOGGING_EXTERNAL_BASE_URI
+            BuildConfig.EVENTGATE_LOGGING_EXTERNAL_BASE_URI
     );
 
     @NonNull private final String id;

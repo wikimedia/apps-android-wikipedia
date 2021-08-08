@@ -1,10 +1,10 @@
 package org.wikipedia.language;
 
-import com.google.gson.stream.MalformedJsonException;
-
 import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.test.MockRetrofitTest;
+
+import java.io.IOException;
 
 import io.reactivex.rxjava3.core.Observable;
 
@@ -38,7 +38,7 @@ public class LangLinksClientTest extends MockRetrofitTest {
     public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
         getObservable().test().await()
-                .assertError(MalformedJsonException.class);
+                .assertError(IOException.class);
     }
 
     private Observable<MwQueryResponse> getObservable() {

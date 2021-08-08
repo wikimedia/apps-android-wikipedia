@@ -3,7 +3,9 @@ package org.wikipedia.search;
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwQueryResult;
-import org.wikipedia.json.GsonUtil;
+import org.wikipedia.json.MoshiUtil;
+
+import java.io.IOException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -12,8 +14,8 @@ public class SearchResultsRedirectProcessingTest {
 
     private MwQueryResult result;
 
-    @Before public void setUp() {
-        result = GsonUtil.getDefaultGson().fromJson(queryJson, MwQueryResult.class);
+    @Before public void setUp() throws IOException {
+        result = MoshiUtil.getDefaultMoshi().adapter(MwQueryResult.class).fromJson(queryJson);
     }
 
     @Test public void testRedirectHandling() {

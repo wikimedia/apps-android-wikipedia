@@ -3,9 +3,10 @@ package org.wikipedia.edit
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.mwapi.MwPostResponse
+import org.wikipedia.dataclient.mwapi.MwServiceError
 
 @JsonClass(generateAdapter = true)
-class Edit(val edit: Result? = null) : MwPostResponse() {
+class Edit(errors: List<MwServiceError> = emptyList(), val edit: Result? = null) : MwPostResponse(errors) {
     @JsonClass(generateAdapter = true)
     class Result(
         internal val captcha: Captcha? = null,

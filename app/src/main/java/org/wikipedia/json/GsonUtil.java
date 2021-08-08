@@ -5,10 +5,6 @@ import androidx.annotation.VisibleForTesting;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import org.wikipedia.dataclient.SharedPreferenceCookieManager;
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.Namespace;
-
 public final class GsonUtil {
     private static final String DATE_FORMAT = "MMM dd, yyyy HH:mm:ss";
 

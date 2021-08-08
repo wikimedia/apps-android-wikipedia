@@ -17,7 +17,7 @@ import org.wikipedia.page.Namespace;
 
 import java.util.Date;
 
-public class MoshiUtil {
+public final class MoshiUtil {
     private static final PolymorphicJsonAdapterFactory<Claims.DataValue> DATA_VALUE_ADAPTER_FACTORY
             = PolymorphicJsonAdapterFactory.of(Claims.DataValue.class, "type")
             .withSubtype(Claims.StringValue.class, Claims.DataValue.Type.STRING.getValue())
@@ -40,4 +40,6 @@ public class MoshiUtil {
     public static Moshi getDefaultMoshi() {
         return DEFAULT_MOSHI_BUILDER;
     }
+
+    private MoshiUtil() { }
 }

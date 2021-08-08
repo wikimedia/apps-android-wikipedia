@@ -3,13 +3,15 @@ package org.wikipedia.page.linkpreview;
 import android.text.SpannableStringBuilder;
 import android.text.style.SuperscriptSpan;
 
+import com.squareup.moshi.JsonAdapter;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.test.TestFileUtil;
 import org.wikipedia.util.StringUtil;
 
@@ -25,7 +27,8 @@ public class LinkPreviewContentsTest {
 
     @Before public void setUp() throws Throwable {
         String json = TestFileUtil.readRawFile("rb_page_summary_valid.json");
-        rbPageSummary = GsonUnmarshaller.unmarshal(PageSummary.class, json);
+        final JsonAdapter<PageSummary> adapter = MoshiUtil.getDefaultMoshi().adapter(PageSummary.class);
+        rbPageSummary = adapter.fromJson(json);
     }
 
     @Test public void testExtractHasSuperscripts() {

@@ -1,12 +1,12 @@
 package org.wikipedia.gallery;
 
-import com.google.gson.stream.MalformedJsonException;
-
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockRetrofitTest;
+
+import java.io.IOException;
 
 public class ImageLicenseFetchClientTest extends MockRetrofitTest {
     private static final WikiSite WIKISITE_TEST = WikiSite.forLanguageCode("test");
@@ -52,6 +52,6 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
         getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.languageCode())
                 .map(response -> new ImageLicense())
                 .test().await()
-                .assertError(MalformedJsonException.class);
+                .assertError(IOException.class);
     }
 }

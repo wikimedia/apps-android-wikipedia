@@ -1,12 +1,15 @@
 package org.wikipedia.dataclient;
 
+import com.squareup.moshi.JsonAdapter;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
-import org.wikipedia.json.GsonMarshaller;
-import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.TestParcelUtil;
+
+import java.io.IOException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -209,14 +212,16 @@ import static org.hamcrest.Matchers.not;
         assertThat(subject.languageCode(), is("lang"));
     }
 
-    @Test public void testUnmarshal() {
+    @Test public void testUnmarshal() throws IOException {
         WikiSite wiki = WikiSite.forLanguageCode("test");
-        assertThat(GsonUnmarshaller.unmarshal(WikiSite.class, GsonMarshaller.marshal(wiki)), is(wiki));
+        final JsonAdapter<WikiSite> adapter = MoshiUtil.getDefaultMoshi().adapter(WikiSite.class);
+        assertThat(adapter.fromJson(adapter.toJson(wiki)), is(wiki));
     }
 
-    @Test public void testUnmarshalScheme() {
+    @Test public void testUnmarshalScheme() throws IOException {
         WikiSite wiki = new WikiSite("wikipedia.org", "");
-        assertThat(GsonUnmarshaller.unmarshal(WikiSite.class, GsonMarshaller.marshal(wiki)), is(wiki));
+        final JsonAdapter<WikiSite> adapter = MoshiUtil.getDefaultMoshi().adapter(WikiSite.class);
+        assertThat(adapter.fromJson(adapter.toJson(wiki)), is(wiki));
     }
 
     @Test public void testTitleForInternalLink() {

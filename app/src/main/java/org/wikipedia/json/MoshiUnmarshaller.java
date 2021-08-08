@@ -8,7 +8,7 @@ import com.squareup.moshi.Moshi;
 
 import java.io.IOException;
 
-public class MoshiUnmarshaller {
+public final class MoshiUnmarshaller {
     /** @return Unmarshalled object. */
     public static <T> T unmarshal(Class<T> clazz, @Nullable String json) throws IOException {
         return unmarshal(MoshiUtil.getDefaultMoshi(), clazz, json);
