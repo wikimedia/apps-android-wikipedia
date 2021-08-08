@@ -10,7 +10,7 @@ import com.squareup.moshi.JsonClass
  * which denotes that the stream should always be *included*.
  */
 @JsonClass(generateAdapter = true)
-class SamplingConfig @JvmOverloads constructor(val rate: Double = 0.0, val identifier: Identifier = Identifier.SESSION) {
+class SamplingConfig @JvmOverloads constructor(val rate: Double = 1.0, val identifier: Identifier = Identifier.SESSION) {
     enum class Identifier {
         @Json(name = "pageview") PAGEVIEW,
         @Json(name = "session") SESSION,

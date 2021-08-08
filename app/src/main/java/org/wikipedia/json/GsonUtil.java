@@ -1,7 +1,5 @@
 package org.wikipedia.json;
 
-import android.net.Uri;
-
 import androidx.annotation.VisibleForTesting;
 
 import com.google.gson.Gson;
@@ -16,9 +14,6 @@ public final class GsonUtil {
 
     private static final GsonBuilder DEFAULT_GSON_BUILDER = new GsonBuilder()
             .setDateFormat(DATE_FORMAT)
-            .registerTypeHierarchyAdapter(Namespace.class, new NamespaceTypeAdapter().nullSafe())
-            .registerTypeAdapter(WikiSite.class, new WikiSiteTypeAdapter().nullSafe())
-            .registerTypeAdapter(SharedPreferenceCookieManager.class, new CookieManagerTypeAdapter().nullSafe())
             .registerTypeAdapterFactory(new RequiredFieldsCheckOnReadTypeAdapterFactory());
 
     private static final Gson DEFAULT_GSON = DEFAULT_GSON_BUILDER.create();

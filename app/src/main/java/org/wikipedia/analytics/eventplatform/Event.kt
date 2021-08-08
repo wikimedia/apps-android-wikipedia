@@ -19,5 +19,6 @@ open class Event(
     val stream: String
         get() = meta.stream
 
+    @JsonClass(generateAdapter = true)
     class Meta(val stream: String)
 }
