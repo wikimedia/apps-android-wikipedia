@@ -1,5 +1,10 @@
 package org.wikipedia.descriptions;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import androidx.annotation.NonNull;
 
 import org.junit.Test;
@@ -11,19 +16,15 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockRetrofitTest;
+import org.wikipedia.util.ThrowableUtil;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.observers.TestObserver;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class DescriptionEditClientTest extends MockRetrofitTest {
     private static final String MOCK_EDIT_TOKEN = "+\\";
@@ -111,18 +112,11 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
                                                      @NonNull String expectedCode,
                                                      @NonNull String expectedMessage) {
         observer.assertError(caught -> {
-            final MwException mwException;
-            if (caught instanceof MwException) {
-                mwException = (MwException) caught;
-            } else if (caught instanceof InvocationTargetException) {
-                // The constructor is invoked via reflection if the default values are not set.
-                mwException = (MwException) ((InvocationTargetException) caught).getCause();
-            } else {
-                mwException = null;
-            }
+            final MwException mwException = ThrowableUtil.getMwException(caught);
             if (mwException != null) {
                 MwServiceError error = mwException.getError();
-                return error.hasMessageName(expectedCode) && error.getMessageHtml(expectedCode).equals(expectedMessage);
+                return error.hasMessageName(expectedCode) &&
+                        Objects.equals(error.getMessageHtml(expectedCode), expectedMessage);
             } else {
                 return false;
             }

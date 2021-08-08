@@ -19,11 +19,11 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.main.MainActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.log.L
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -127,7 +127,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         Prefs.setRemoteNotificationsSeenTime(lastNotificationTime)
                         retrieveNotifications(context)
                     }) { t ->
-                        if (t is MwException && t.error.title == "login-required") {
+                        val mwException = ThrowableUtil.getMwException(t)
+                        if (mwException != null && mwException.error.title == "login-required") {
                             assertLoggedIn()
                         }
                         L.e(t)

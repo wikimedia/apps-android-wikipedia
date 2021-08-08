@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.log.L
 
 class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
@@ -103,7 +104,8 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                                 Prefs.setPushNotificationTokenOld("")
                             }, {
                                 L.e(it)
-                                if (it is MwException && it.error.title == "echo-push-token-not-found") {
+                                val mwException = ThrowableUtil.getMwException(it)
+                                if (mwException != null && mwException.error.title == "echo-push-token-not-found") {
                                     // token was not found in the database, so consider it gone.
                                     Prefs.setPushNotificationTokenOld("")
                                 }

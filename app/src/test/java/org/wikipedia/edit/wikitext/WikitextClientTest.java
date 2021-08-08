@@ -21,7 +21,8 @@ public class WikitextClientTest extends MockRetrofitTest {
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
-        // The constructor is invoked via reflection if the default values are not set.
+        // Moshi invokes the class constructor via reflection if the default values are not set, so
+        // the MwException thrown is contained within an InvocationTargetException.
         getObservable().test().await()
                 .assertError(InvocationTargetException.class);
     }

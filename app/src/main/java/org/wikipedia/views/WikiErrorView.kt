@@ -12,6 +12,7 @@ import org.wikipedia.databinding.ViewWikiErrorBinding
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.ThrowableUtil.is404
 import org.wikipedia.util.ThrowableUtil.isEmptyException
 import org.wikipedia.util.ThrowableUtil.isOffline
@@ -40,11 +41,9 @@ class WikiErrorView : LinearLayout {
         val resources = context.resources
         val errorType = getErrorType(caught)
         binding.viewWikiErrorIcon.setImageDrawable(AppCompatResources.getDrawable(context, errorType.icon))
-        if (caught is MwException) {
-            binding.viewWikiErrorText.text = StringUtil.fromHtml(caught.message)
-        } else {
-            binding.viewWikiErrorText.text = resources.getString(errorType.text)
-        }
+        binding.viewWikiErrorText.text = ThrowableUtil.getMwException(caught)?.let {
+            StringUtil.fromHtml(it.message)
+        } ?: resources.getString(errorType.text)
         binding.viewWikiErrorButton.text = resources.getString(errorType.buttonText)
         binding.viewWikiErrorButton.setOnClickListener(errorType.buttonClickListener(this))
         when {

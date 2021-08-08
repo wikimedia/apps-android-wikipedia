@@ -297,11 +297,7 @@ class EditSectionActivity : BaseActivity() {
 
     private fun onEditFailure(caught: Throwable) {
         showProgressBar(false)
-        if (caught is MwException) {
-            handleEditingException(caught)
-        } else {
-            showRetryDialog(caught)
-        }
+        ThrowableUtil.getMwException(caught)?.let { handleEditingException(it) } ?: showRetryDialog(caught)
         L.e(caught)
     }
 

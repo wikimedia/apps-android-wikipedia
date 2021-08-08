@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.util.log.L
+import java.lang.reflect.InvocationTargetException
 import java.net.SocketException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -20,6 +21,21 @@ import java.util.concurrent.TimeoutException
 import javax.net.ssl.SSLException
 
 object ThrowableUtil {
+    @JvmStatic
+    fun getMwException(e: Throwable?): MwException? {
+        return when (e) {
+            is MwException -> e
+            // Moshi invokes the constructors of Kotlin classes annotated with @JsonClass via reflection
+            // if the default values are not set, so if a MwException is thrown, it is contained in
+            // an InvocationTargetException.
+            is InvocationTargetException -> {
+                val cause = e.cause
+                if (cause is MwException) cause else null
+            }
+            else -> null
+        }
+    }
+
     // TODO: replace with Apache Commons Lang ExceptionUtils.
     fun getInnermostThrowable(e: Throwable): Throwable {
         var t = e

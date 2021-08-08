@@ -40,6 +40,7 @@ import org.wikipedia.suggestededits.SuggestedEditsSurvey
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
 import java.util.*
@@ -297,8 +298,9 @@ class DescriptionEditFragment : Fragment() {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
                         }
                     }) { caught ->
-                        if (caught is MwException) {
-                            val error = caught.error
+                        val mwException = ThrowableUtil.getMwException(caught)
+                        if (mwException != null) {
+                            val error = mwException.error
                             if (error.isBadLoginState || error.isBadToken) {
                                 getEditTokenThenSave()
                             } else {
