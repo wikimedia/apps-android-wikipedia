@@ -3,7 +3,6 @@ package org.wikipedia.dataclient.restbase
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.ServiceError
-import kotlin.Throws
 import org.wikipedia.json.MoshiUtil
 import java.io.IOException
 

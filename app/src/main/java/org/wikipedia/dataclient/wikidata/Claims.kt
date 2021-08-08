@@ -8,8 +8,10 @@ import org.wikipedia.dataclient.mwapi.MwResponse
 @JsonClass(generateAdapter = true)
 class Claims(val claims: Map<String, List<Claim>> = emptyMap()) : MwResponse() {
     @JsonClass(generateAdapter = true)
-    class Claim(internal val type: String? = null, internal val id: String? = null,
-                internal val rank: String? = null, @Json(name = "mainsnak") val mainSnak: MainSnak? = null)
+    class Claim(
+        internal val type: String? = null, internal val id: String? = null,
+        internal val rank: String? = null, @Json(name = "mainsnak") val mainSnak: MainSnak? = null
+    )
 
     @JsonClass(generateAdapter = true)
     class MainSnak(
@@ -41,33 +43,37 @@ class Claims(val claims: Map<String, List<Claim>> = emptyMap()) : MwResponse() {
     }
 
     @JsonClass(generateAdapter = true)
-    class StringValue(val value: String = ""): DataValue(Type.STRING)
+    class StringValue(val value: String = "") : DataValue(Type.STRING)
 
     @JsonClass(generateAdapter = true)
-    class EntityIdValue(val value: EntityId): DataValue(Type.WIKIBASE_ENTITY_ID)
+    class EntityIdValue(val value: EntityId) : DataValue(Type.WIKIBASE_ENTITY_ID)
 
     @JsonClass(generateAdapter = true)
     class EntityId(val id: String = "")
 
     @JsonClass(generateAdapter = true)
-    class TimeValue(val value: Time): DataValue(Type.TIME)
+    class TimeValue(val value: Time) : DataValue(Type.TIME)
 
     @JsonClass(generateAdapter = true)
-    class Time(internal val timezone: Int = 0, internal val before: Int = 0, internal val after: Int = 0,
-               internal val precision: Int = 0, val time: String = "")
+    class Time(
+        internal val timezone: Int = 0, internal val before: Int = 0, internal val after: Int = 0,
+        internal val precision: Int = 0, val time: String = ""
+    )
 
     @JsonClass(generateAdapter = true)
-    class MonolingualTextValue(val value: MonolingualText): DataValue(Type.MONOLINGUAL_TEXT)
+    class MonolingualTextValue(val value: MonolingualText) : DataValue(Type.MONOLINGUAL_TEXT)
 
     @JsonClass(generateAdapter = true)
     class MonolingualText(internal val language: String? = null, val text: String = "")
 
     @JsonClass(generateAdapter = true)
-    class GlobeCoordinateValue(val value: GlobeCoordinate): DataValue(Type.GLOBE_COORDINATE)
+    class GlobeCoordinateValue(val value: GlobeCoordinate) : DataValue(Type.GLOBE_COORDINATE)
 
     @JsonClass(generateAdapter = true)
-    class GlobeCoordinate(internal val latitude: Double = 0.0, internal val longitude: Double = 0.0,
-                          internal val altitude: Double = 0.0, internal val precision: Double = 0.0) {
+    class GlobeCoordinate(
+        internal val latitude: Double = 0.0, internal val longitude: Double = 0.0,
+        internal val altitude: Double = 0.0, internal val precision: Double = 0.0
+    ) {
         val location: Location
             get() {
                 val loc = Location("")

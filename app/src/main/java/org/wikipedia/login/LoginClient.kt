@@ -12,7 +12,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwResponse
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.util.log.L

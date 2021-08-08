@@ -70,7 +70,7 @@ class Notification(
 
     @JsonClass(generateAdapter = true)
     class SeenTime(val alert: String? = null, val message: String? = null)
-    
+
     companion object {
         const val CATEGORY_SYSTEM = "system"
         const val CATEGORY_SYSTEM_NO_EMAIL = "system-noemail" // default welcome

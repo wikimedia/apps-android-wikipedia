@@ -10,7 +10,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import java.util.*
 import java.util.concurrent.Semaphore
-import kotlin.collections.ArrayList
 
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)

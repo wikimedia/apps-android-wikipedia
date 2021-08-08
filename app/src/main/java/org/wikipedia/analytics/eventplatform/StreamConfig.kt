@@ -23,6 +23,6 @@ class StreamConfig(
      * @param destinationEventService destination
      */
     @VisibleForTesting
-    internal constructor(streamName: String, samplingConfig: SamplingConfig?, destinationEventService: DestinationEventService) 
-            : this(streamName, schemaTitle = "", destinationEventService = destinationEventService, samplingConfig = samplingConfig)
+    internal constructor(streamName: String, samplingConfig: SamplingConfig?, destinationEventService: DestinationEventService) :
+            this(streamName, schemaTitle = "", destinationEventService = destinationEventService, samplingConfig = samplingConfig)
 }
