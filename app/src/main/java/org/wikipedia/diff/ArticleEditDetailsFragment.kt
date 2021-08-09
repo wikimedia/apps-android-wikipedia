@@ -30,6 +30,7 @@ import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.restbase.DiffResponse.*
 import org.wikipedia.dataclient.restbase.DiffResponse.Companion.DIFF_TYPE_LINE_ADDED
 import org.wikipedia.dataclient.restbase.DiffResponse.Companion.DIFF_TYPE_LINE_REMOVED
@@ -39,7 +40,7 @@ import org.wikipedia.dataclient.restbase.DiffResponse.Companion.HIGHLIGHT_TYPE_A
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
@@ -253,7 +254,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .flatMap { response ->
                     val watchToken = response.query?.watchToken
                     if (watchToken.isNullOrEmpty()) {
-                        throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
+                        val adapter = MoshiUtil.getDefaultMoshi().adapter(MwQueryResponse::class.java)
+                        throw RuntimeException("Received empty watch token: ${adapter.toJson(response)}")
                     }
                     ServiceFactory.get(WikiSite.forLanguageCode(languageCode))
                         .postWatch(if (unwatch) 1 else null, null, articlePageTitle.prefixedText, expiry.expiry, watchToken)

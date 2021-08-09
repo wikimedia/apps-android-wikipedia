@@ -279,7 +279,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             binding.viewArticleImagePlaceholder.visibility = GONE
         } else {
             binding.viewArticleImagePlaceholder.visibility = VISIBLE
-            binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
+            binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.preferredSizeThumbnailUrl))
         }
     }
 
@@ -305,7 +305,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit)
         binding.viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName)
 
-        binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
+        binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.preferredSizeThumbnailUrl))
         binding.viewArticleExtract.visibility = GONE
     }
 

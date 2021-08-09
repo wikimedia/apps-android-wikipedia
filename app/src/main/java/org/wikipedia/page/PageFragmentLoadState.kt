@@ -45,7 +45,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem()
-            currentTab.pushBackStackItem(PageBackStackItem(model.title, model.curEntry))
+            currentTab.pushBackStackItem(PageBackStackItem(model.title!!, model.curEntry!!))
         }
         pageLoadCheckReadingLists()
     }
@@ -57,12 +57,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
         val item = currentTab.backStack[currentTab.backStackPosition]
         // display the page based on the backstack item, stage the scrollY position based on
         // the backstack item.
-        item.title?.let { title ->
-            item.historyEntry?.let { entry ->
-                fragment.loadPage(title, entry, false, item.scrollY, isRefresh)
-                L.d("Loaded page " + item.title!!.displayText + " from backstack")
-            }
-        }
+        fragment.loadPage(item.title, item.historyEntry, false, item.scrollY, isRefresh)
+        L.d("Loaded page " + item.title.displayText + " from backstack")
     }
 
     fun updateCurrentBackStackItem() {
@@ -71,11 +67,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
         }
         val item = currentTab.backStack[currentTab.backStackPosition]
         item.scrollY = webView.scrollY
-        item.title?.apply {
-            model.title?.let {
-                this.description = it.description
-                this.thumbUrl = it.thumbUrl
-            }
+        model.title?.let {
+            item.title.description = it.description
+            item.title.thumbUrl = it.thumbUrl
         }
     }
 

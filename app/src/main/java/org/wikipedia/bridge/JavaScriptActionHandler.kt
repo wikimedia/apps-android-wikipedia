@@ -1,6 +1,7 @@
 package org.wikipedia.bridge
 
 import android.content.Context
+import com.squareup.moshi.JsonClass
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -170,6 +171,7 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
+    @JsonClass(generateAdapter = true)
     data class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
                             val src: String = "", val centerCrop: Boolean = false)
 }

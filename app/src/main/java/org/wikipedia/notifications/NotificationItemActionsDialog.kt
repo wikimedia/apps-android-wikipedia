@@ -20,7 +20,7 @@ import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Compan
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Companion.ACTION_SECONDARY
 import org.wikipedia.databinding.ViewNotificationActionsBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageTitle
@@ -55,7 +55,8 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewNotificationActionsBinding.inflate(inflater, container, false)
 
-        notification = GsonUtil.getDefaultGson().fromJson(requireArguments().getString(ARG_NOTIFICATION), Notification::class.java)
+        val adapter = MoshiUtil.getDefaultMoshi().adapter(Notification::class.java)
+        notification = adapter.fromJson(requireArguments().getString(ARG_NOTIFICATION, "null"))!!
         linkHandler = NotificationLinkHandler(requireContext())
         notification.contents?.let {
             binding.notificationItemText.text = StringUtil.fromHtml(it.header).toString()
@@ -64,7 +65,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
                 binding.notificationActionPrimary.visibility = View.VISIBLE
             }
             it.links?.secondary?.let { secondary ->
-                if (secondary.size > 0) {
+                if (secondary.isNotEmpty()) {
                     setUpViewForLink(binding.notificationActionSecondary, binding.notificationActionSecondaryIcon, binding.notificationActionSecondaryText, secondary[0])
                     binding.notificationActionSecondary.visibility = View.VISIBLE
                     if (secondary.size > 1) {
@@ -141,8 +142,9 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         private const val ARG_NOTIFICATION = "notification"
 
         fun newInstance(notification: Notification): NotificationItemActionsDialog {
+            val adapter = MoshiUtil.getDefaultMoshi().adapter(Notification::class.java)
             return NotificationItemActionsDialog().apply {
-                arguments = bundleOf(ARG_NOTIFICATION to GsonUtil.getDefaultGson().toJson(notification))
+                arguments = bundleOf(ARG_NOTIFICATION to adapter.toJson(notification))
             }
         }
     }

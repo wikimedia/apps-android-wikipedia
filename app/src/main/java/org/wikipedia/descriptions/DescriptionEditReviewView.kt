@@ -51,7 +51,7 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
             binding.articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             binding.articleImage.visibility = VISIBLE
-            binding.articleImage.loadImage(Uri.parse(summaryForEdit.getPreferredSizeThumbnailUrl()))
+            binding.articleImage.loadImage(Uri.parse(summaryForEdit.preferredSizeThumbnailUrl))
             binding.articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
@@ -64,7 +64,7 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
             binding.galleryImage.visibility = GONE
         } else {
             binding.galleryImage.visibility = VISIBLE
-            ViewUtil.loadImage(binding.galleryImage, summaryForEdit.getPreferredSizeThumbnailUrl())
+            ViewUtil.loadImage(binding.galleryImage, summaryForEdit.preferredSizeThumbnailUrl)
         }
         binding.licenseView.darkLicenseView()
     }

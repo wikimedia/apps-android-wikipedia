@@ -373,7 +373,7 @@ public final class EventPlatformClient {
     }
 
     public static void setUpStreamConfigs() {
-        STREAM_CONFIGS = Prefs.getStreamConfigs();
+        STREAM_CONFIGS = new HashMap<>(Prefs.getStreamConfigs());
         refreshStreamConfigs();
     }
 

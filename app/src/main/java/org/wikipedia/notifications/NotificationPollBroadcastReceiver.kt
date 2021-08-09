@@ -53,7 +53,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 if (WikipediaFirebaseMessagingService.isUsingPush()) {
                     return
                 }
-                LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications()
+                LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications().toMutableList()
                 pollNotifications(context)
             }
             ACTION_CANCEL == intent.action -> {
@@ -73,7 +73,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
         private val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>()
         private val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
-        private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications()
+        private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications().toMutableList()
 
         @JvmStatic
         fun startPollTask(context: Context) {

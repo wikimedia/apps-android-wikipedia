@@ -16,7 +16,7 @@ import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentContributionDiffDetailBinding
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
@@ -45,7 +45,8 @@ class ContributionDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.backButton.setOnClickListener { requireActivity().onBackPressed() }
-        contribution = GsonUnmarshaller.unmarshal(Contribution::class.java, requireActivity().intent.getStringExtra(EXTRA_SOURCE_CONTRIBUTION))
+        val adapter = MoshiUtil.getDefaultMoshi().adapter(Contribution::class.java)
+        contribution = adapter.fromJson(requireActivity().intent.getStringExtra(EXTRA_SOURCE_CONTRIBUTION) ?: "null")!!
         setUpContributionDetails()
     }
 

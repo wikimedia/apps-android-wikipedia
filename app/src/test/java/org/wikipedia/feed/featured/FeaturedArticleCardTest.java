@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.test.TestFileUtil;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -19,8 +19,8 @@ public class FeaturedArticleCardTest {
     private PageSummary content;
 
     @Before public void setUp() throws Throwable {
-        String json = TestFileUtil.readRawFile("featured_2016_11_07.json");
-        content = GsonUnmarshaller.unmarshal(PageSummary.class, json);
+        final String json = TestFileUtil.readRawFile("featured_2016_11_07.json");
+        content = MoshiUtil.getDefaultMoshi().adapter(PageSummary.class).fromJson(json);
     }
 
     @Test public void testTitleNormalization() {

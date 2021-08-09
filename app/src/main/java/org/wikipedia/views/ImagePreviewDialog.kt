@@ -21,8 +21,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DimenUtil
@@ -41,8 +40,10 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogImagePreviewBinding.inflate(inflater, container, false)
-        pageSummaryForEdit = GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, requireArguments().getString(ARG_SUMMARY))
-        action = requireArguments().getSerializable(ARG_ACTION) as Action
+        val arguments = requireArguments()
+        val adapter = MoshiUtil.getDefaultMoshi().adapter(PageSummaryForEdit::class.java)
+        pageSummaryForEdit = adapter.fromJson(arguments.getString(ARG_SUMMARY, "null"))!!
+        action = arguments.getSerializable(ARG_ACTION) as Action
         setConditionalLayoutDirection(binding.root, pageSummaryForEdit.lang)
         return binding.root
     }
@@ -134,10 +135,10 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         private const val ARG_ACTION = "action"
 
         fun newInstance(pageSummaryForEdit: PageSummaryForEdit, action: Action): ImagePreviewDialog {
-            val dialog = ImagePreviewDialog()
-            dialog.arguments = bundleOf(ARG_SUMMARY to GsonMarshaller.marshal(pageSummaryForEdit),
-                    ARG_ACTION to action)
-            return dialog
+            val adapter = MoshiUtil.getDefaultMoshi().adapter(PageSummaryForEdit::class.java)
+            return ImagePreviewDialog().apply {
+                arguments = bundleOf(ARG_SUMMARY to adapter.toJson(pageSummaryForEdit), ARG_ACTION to action)
+            }
         }
     }
 }

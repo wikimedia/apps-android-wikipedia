@@ -21,8 +21,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -30,9 +29,6 @@ import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.*
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.TabUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
@@ -51,10 +47,12 @@ class NewsFragment : Fragment() {
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         appCompatActivity.supportActionBar?.title = ""
 
-        val item = GsonUnmarshaller.unmarshal(NewsItem::class.java,
-            requireActivity().intent.getStringExtra(NewsActivity.EXTRA_NEWS_ITEM))
-        val wiki = GsonUnmarshaller.unmarshal(WikiSite::class.java,
-            requireActivity().intent.getStringExtra(NewsActivity.EXTRA_WIKI))
+        val newsAdapter = MoshiUtil.getDefaultMoshi().adapter(NewsItem::class.java)
+        val wikiAdapter = MoshiUtil.getDefaultMoshi().adapter(WikiSite::class.java)
+        val item = newsAdapter.fromJson(requireActivity().intent
+            .getStringExtra(NewsActivity.EXTRA_NEWS_ITEM) ?: "null")!!
+        val wiki = wikiAdapter.fromJson(requireActivity().intent
+            .getStringExtra(NewsActivity.EXTRA_WIKI) ?: "null")!!
 
         L10nUtil.setConditionalLayoutDirection(binding.root, wiki.languageCode())
 
@@ -140,9 +138,13 @@ class NewsFragment : Fragment() {
 
     companion object {
         fun newInstance(item: NewsItem, wiki: WikiSite): NewsFragment {
+            val newsAdapter = MoshiUtil.getDefaultMoshi().adapter(NewsItem::class.java)
+            val wikiAdapter = MoshiUtil.getDefaultMoshi().adapter(WikiSite::class.java)
             return NewsFragment().apply {
-                arguments = bundleOf(NewsActivity.EXTRA_NEWS_ITEM to GsonMarshaller.marshal(item),
-                    NewsActivity.EXTRA_WIKI to GsonMarshaller.marshal(wiki))
+                arguments = bundleOf(
+                    NewsActivity.EXTRA_NEWS_ITEM to newsAdapter.toJson(item),
+                    NewsActivity.EXTRA_WIKI to wikiAdapter.toJson(wiki)
+                )
             }
         }
     }

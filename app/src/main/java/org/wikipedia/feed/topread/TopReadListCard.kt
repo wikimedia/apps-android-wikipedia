@@ -1,6 +1,7 @@
 package org.wikipedia.feed.topread
 
 import androidx.annotation.VisibleForTesting
+import com.squareup.moshi.JsonClass
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
@@ -9,9 +10,9 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 import java.util.concurrent.TimeUnit
 
-class TopReadListCard(private val articles: TopRead,
+@JsonClass(generateAdapter = true)
+class TopReadListCard(internal val articles: TopRead,
                       wiki: WikiSite) : ListCard<TopReadItemCard>(toItems(articles.articles, wiki), wiki) {
-
     override fun title(): String {
         return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_top_read_card_title)
     }

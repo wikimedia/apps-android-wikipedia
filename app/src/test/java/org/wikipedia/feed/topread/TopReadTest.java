@@ -5,12 +5,13 @@ import androidx.annotation.NonNull;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
-import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.test.TestFileUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.TimeZone;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,8 +22,9 @@ import static org.hamcrest.Matchers.notNullValue;
 @SuppressWarnings("checkstyle:magicnumber")
 public class TopReadTest {
     @NonNull public static TopRead unmarshal(@NonNull String filename) throws Throwable {
-        String json = TestFileUtil.readRawFile(filename);
-        return GsonUnmarshaller.unmarshal(TopRead.class, json);
+        final String json = TestFileUtil.readRawFile(filename);
+        return Objects.requireNonNull(MoshiUtil.getDefaultMoshi().adapter(TopRead.class)
+                .fromJson(json));
     }
 
     @Test public void testUnmarshalManyArticles() throws Throwable {

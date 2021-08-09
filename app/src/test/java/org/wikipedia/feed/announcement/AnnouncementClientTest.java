@@ -2,7 +2,7 @@ package org.wikipedia.feed.announcement;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.wikipedia.json.MoshiUnmarshaller;
+import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
@@ -35,8 +35,8 @@ public class AnnouncementClientTest extends MockRetrofitTest {
     @Override
     public void setUp() throws Throwable {
         super.setUp();
-        String json = TestFileUtil.readRawFile(ANNOUNCEMENT_JSON_FILE);
-        announcementList = MoshiUnmarshaller.unmarshal(AnnouncementList.class, json);
+        final String json = TestFileUtil.readRawFile(ANNOUNCEMENT_JSON_FILE);
+        announcementList = MoshiUtil.getDefaultMoshi().adapter(AnnouncementList.class).fromJson(json);
     }
 
     @Test

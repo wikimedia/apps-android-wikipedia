@@ -3,7 +3,8 @@ package org.wikipedia.settings;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.reflect.TypeToken;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Types;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
@@ -11,19 +12,17 @@ import org.wikipedia.analytics.SessionData;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.analytics.eventplatform.StreamConfig;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
-import org.wikipedia.json.GsonMarshaller;
-import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.json.SessionUnmarshaller;
-import org.wikipedia.json.TabUnmarshaller;
+import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.log.L;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -97,15 +96,18 @@ public final class Prefs {
     }
 
     public static void setCookies(@NonNull SharedPreferenceCookieManager cookies) {
-        setString(R.string.preference_key_cookie_map, GsonMarshaller.marshal(cookies));
+        final JsonAdapter<SharedPreferenceCookieManager> adapter = MoshiUtil.getDefaultMoshi()
+                .adapter(SharedPreferenceCookieManager.class);
+        setString(R.string.preference_key_cookie_map, adapter.toJson(cookies));
     }
 
-    @Nullable public static SharedPreferenceCookieManager getCookies() {
+    @Nullable public static SharedPreferenceCookieManager getCookies() throws IOException {
         if (!contains(R.string.preference_key_cookie_map)) {
             return null;
         }
-        return GsonUnmarshaller.unmarshal(SharedPreferenceCookieManager.class,
-                getString(R.string.preference_key_cookie_map, null));
+        final JsonAdapter<SharedPreferenceCookieManager> adapter = MoshiUtil.getDefaultMoshi()
+                .adapter(SharedPreferenceCookieManager.class).nullSafe();
+        return adapter.fromJson(getString(R.string.preference_key_cookie_map, "null"));
     }
 
     public static boolean crashedBeforeActivityCreated() {
@@ -152,14 +154,26 @@ public final class Prefs {
     }
 
     public static void setTabs(@NonNull List<Tab> tabs) {
-        setString(R.string.preference_key_tabs, GsonMarshaller.marshal(tabs));
+        final Type type = Types.newParameterizedType(List.class, Tab.class);
+        final JsonAdapter<List<Tab>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        setString(R.string.preference_key_tabs, adapter.toJson(tabs));
     }
 
     @NonNull
     public static List<Tab> getTabs() {
-        return hasTabs()
-                ? TabUnmarshaller.unmarshal(getString(R.string.preference_key_tabs, null))
-                : Collections.emptyList();
+        if (hasTabs()) {
+            try {
+                final Type type = Types.newParameterizedType(List.class, Tab.class);
+                final JsonAdapter<List<Tab>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+                final List<Tab> tabs = adapter.fromJson(getString(R.string.preference_key_tabs, "null"));
+                return tabs != null ? tabs : Collections.emptyList();
+            } catch (IOException e) {
+                L.e(e);
+                return Collections.emptyList();
+            }
+        } else {
+            return Collections.emptyList();
+        }
     }
 
     public static boolean hasTabs() {
@@ -171,18 +185,24 @@ public final class Prefs {
     }
 
     @NonNull public static Set<String> getHiddenCards() {
-        Set<String> emptySet = new LinkedHashSet<>();
         if (!hasHiddenCards()) {
-            return emptySet;
+            return Collections.emptySet();
         }
-        //noinspection unchecked
-        Set<String> cards = GsonUnmarshaller.unmarshal(emptySet.getClass(),
-                getString(R.string.preference_key_feed_hidden_cards, null));
-        return cards != null ? cards : emptySet;
+        final Type type = Types.newParameterizedType(Set.class, String.class);
+        final JsonAdapter<Set<String>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        try {
+            final Set<String> cards = adapter.fromJson(getString(R.string.preference_key_feed_hidden_cards,
+                    "null"));
+            return cards != null ? new LinkedHashSet<>(cards) : Collections.emptySet();
+        } catch (IOException e) {
+            return Collections.emptySet();
+        }
     }
 
     public static void setHiddenCards(@NonNull Set<String> cards) {
-        setString(R.string.preference_key_feed_hidden_cards, GsonMarshaller.marshal(cards));
+        final Type type = Types.newParameterizedType(Set.class, String.class);
+        final JsonAdapter<Set<String>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        setString(R.string.preference_key_feed_hidden_cards, adapter.toJson(cards));
     }
 
     public static boolean hasHiddenCards() {
@@ -190,14 +210,25 @@ public final class Prefs {
     }
 
     public static void setSessionData(@NonNull SessionData data) {
-        setString(R.string.preference_key_session_data, GsonMarshaller.marshal(data));
+        final JsonAdapter<SessionData> adapter = MoshiUtil.getDefaultMoshi().adapter(SessionData.class);
+        setString(R.string.preference_key_session_data, adapter.toJson(data));
     }
 
     @NonNull
     public static SessionData getSessionData() {
-        return hasSessionData()
-                ? SessionUnmarshaller.unmarshal(getString(R.string.preference_key_session_data, null))
-                : new SessionData();
+        if (hasSessionData()) {
+            try {
+                final JsonAdapter<SessionData> adapter = MoshiUtil.getDefaultMoshi().adapter(SessionData.class);
+                final SessionData sessionData = adapter.fromJson(
+                        getString(R.string.preference_key_session_data, "null"));
+                return sessionData != null ? sessionData : new SessionData();
+            } catch (IOException e) {
+                L.e(e);
+                return new SessionData();
+            }
+        } else {
+            return new SessionData();
+        }
     }
 
     public static boolean hasSessionData() {
@@ -487,56 +518,92 @@ public final class Prefs {
         if (!contains(R.string.preference_key_feed_cards_enabled)) {
             return Collections.emptyList();
         }
-        //noinspection unchecked
-        List<Boolean> enabledList = GsonUnmarshaller.unmarshal(new TypeToken<ArrayList<Boolean>>(){},
-                getString(R.string.preference_key_feed_cards_enabled, null));
-        return enabledList != null ? enabledList : Collections.emptyList();
+        final Type type = Types.newParameterizedType(List.class, Boolean.class);
+        final JsonAdapter<List<Boolean>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        try {
+            final List<Boolean> enabledList = adapter.fromJson(
+                    getString(R.string.preference_key_feed_cards_enabled, "null"));
+            return enabledList != null ? enabledList : Collections.emptyList();
+        } catch (IOException e) {
+            L.e(e);
+            return Collections.emptyList();
+        }
     }
 
     public static void setFeedCardsEnabled(@NonNull List<Boolean> enabledList) {
-        setString(R.string.preference_key_feed_cards_enabled, GsonMarshaller.marshal(enabledList));
+        final Type type = Types.newParameterizedType(List.class, Boolean.class);
+        final JsonAdapter<List<Boolean>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        setString(R.string.preference_key_feed_cards_enabled, adapter.toJson(enabledList));
     }
 
     @NonNull public static List<Integer> getFeedCardsOrder() {
         if (!contains(R.string.preference_key_feed_cards_order)) {
             return Collections.emptyList();
         }
-        //noinspection unchecked
-        List<Integer> orderList = GsonUnmarshaller.unmarshal(new TypeToken<ArrayList<Integer>>(){},
-                getString(R.string.preference_key_feed_cards_order, null));
-        return orderList != null ? orderList : Collections.emptyList();
+        final Type type = Types.newParameterizedType(List.class, Integer.class);
+        final JsonAdapter<List<Integer>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        try {
+            final List<Integer> orderList = adapter
+                    .fromJson(getString(R.string.preference_key_feed_cards_order, "null"));
+            return orderList != null ? orderList : Collections.emptyList();
+        } catch (IOException e) {
+            L.e(e);
+            return Collections.emptyList();
+        }
     }
 
     public static void setFeedCardsOrder(@NonNull List<Integer> orderList) {
-        setString(R.string.preference_key_feed_cards_order, GsonMarshaller.marshal(orderList));
+        final Type type = Types.newParameterizedType(List.class, Integer.class);
+        final JsonAdapter<List<Integer>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        setString(R.string.preference_key_feed_cards_order, adapter.toJson(orderList));
     }
 
     @NonNull public static Map<Integer, List<String>> getFeedCardsLangSupported() {
         if (!contains(R.string.preference_key_feed_cards_lang_supported)) {
             return Collections.emptyMap();
         }
-        //noinspection unchecked
-        Map<Integer, List<String>> map = GsonUnmarshaller.unmarshal(new TypeToken<Map<Integer, List<String>>>(){},
-                getString(R.string.preference_key_feed_cards_lang_supported, null));
-        return map != null ? map : Collections.emptyMap();
+        final Type listType = Types.newParameterizedType(List.class, String.class);
+        final Type mapType = Types.newParameterizedType(Map.class, Integer.class, listType);
+        final JsonAdapter<Map<Integer, List<String>>> adapter = MoshiUtil.getDefaultMoshi().adapter(mapType);
+        try {
+            final Map<Integer, List<String>> map = adapter.fromJson(
+                    getString(R.string.preference_key_feed_cards_lang_supported, "null"));
+            return map != null ? map : Collections.emptyMap();
+        } catch (IOException e) {
+            L.e(e);
+            return Collections.emptyMap();
+        }
     }
 
     public static void setFeedCardsLangSupported(@NonNull Map<Integer, List<String>> langSupportedMap) {
-        setString(R.string.preference_key_feed_cards_lang_supported, GsonMarshaller.marshal(langSupportedMap));
+        final Type listType = Types.newParameterizedType(List.class, String.class);
+        final Type mapType = Types.newParameterizedType(Map.class, Integer.class, listType);
+        final JsonAdapter<Map<Integer, List<String>>> adapter = MoshiUtil.getDefaultMoshi().adapter(mapType);
+        setString(R.string.preference_key_feed_cards_lang_supported, adapter.toJson(langSupportedMap));
     }
 
     @NonNull public static Map<Integer, List<String>> getFeedCardsLangDisabled() {
         if (!contains(R.string.preference_key_feed_cards_lang_disabled)) {
             return Collections.emptyMap();
         }
-        //noinspection unchecked
-        Map<Integer, List<String>> map = GsonUnmarshaller.unmarshal(new TypeToken<Map<Integer, List<String>>>(){},
-                getString(R.string.preference_key_feed_cards_lang_disabled, null));
-        return map != null ? map : Collections.emptyMap();
+        final Type listType = Types.newParameterizedType(List.class, String.class);
+        final Type mapType = Types.newParameterizedType(Map.class, Integer.class, listType);
+        final JsonAdapter<Map<Integer, List<String>>> adapter = MoshiUtil.getDefaultMoshi().adapter(mapType);
+        try {
+            final Map<Integer, List<String>> map = adapter.fromJson(
+                    getString(R.string.preference_key_feed_cards_lang_disabled, "null"));
+            return map != null ? map : Collections.emptyMap();
+        } catch (IOException e) {
+            L.e(e);
+            return Collections.emptyMap();
+        }
     }
 
     public static void setFeedCardsLangDisabled(@NonNull Map<Integer, List<String>> langDisabledMap) {
-        setString(R.string.preference_key_feed_cards_lang_disabled, GsonMarshaller.marshal(langDisabledMap));
+        final Type listType = Types.newParameterizedType(List.class, String.class);
+        final Type mapType = Types.newParameterizedType(Map.class, Integer.class, listType);
+        final JsonAdapter<Map<Integer, List<String>>> adapter = MoshiUtil.getDefaultMoshi().adapter(mapType);
+        setString(R.string.preference_key_feed_cards_lang_disabled, adapter.toJson(langDisabledMap));
     }
 
     public static void resetFeedCustomizations() {
@@ -555,53 +622,61 @@ public final class Prefs {
     }
 
     @NonNull public static Set<Long> getReadingListsDeletedIds() {
-        Set<Long> set = new HashSet<>();
         if (!contains(R.string.preference_key_reading_lists_deleted_ids)) {
-            return set;
+            return Collections.emptySet();
         }
-        //noinspection unchecked
-        Set<Long> tempSet = GsonUnmarshaller.unmarshal(new TypeToken<Set<Long>>(){},
-                getString(R.string.preference_key_reading_lists_deleted_ids, null));
-        if (tempSet != null) {
-            set.addAll(tempSet);
+        final Type type = Types.newParameterizedType(Set.class, Long.class);
+        final JsonAdapter<Set<Long>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        try {
+            final Set<Long> tempSet = adapter.fromJson(
+                    getString(R.string.preference_key_reading_lists_deleted_ids, "null"));
+            return tempSet != null ? tempSet : Collections.emptySet();
+        } catch (IOException e) {
+            L.e(e);
+            return Collections.emptySet();
         }
-        return set;
     }
 
     public static void addReadingListsDeletedIds(@NonNull Set<Long> set) {
         final int maxStoredIds = 256;
-        Set<Long> currentSet = getReadingListsDeletedIds();
+        final Set<Long> currentSet = new HashSet<>(getReadingListsDeletedIds());
         currentSet.addAll(set);
         setReadingListsDeletedIds(currentSet.size() < maxStoredIds ? currentSet : set);
     }
 
     public static void setReadingListsDeletedIds(@NonNull Set<Long> set) {
-        setString(R.string.preference_key_reading_lists_deleted_ids, GsonMarshaller.marshal(set));
+        final Type type = Types.newParameterizedType(Set.class, Long.class);
+        final JsonAdapter<Set<Long>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        setString(R.string.preference_key_reading_lists_deleted_ids, adapter.toJson(set));
     }
 
     @NonNull public static Set<String> getReadingListPagesDeletedIds() {
-        Set<String> set = new HashSet<>();
         if (!contains(R.string.preference_key_reading_lists_deleted_ids)) {
-            return set;
+            return Collections.emptySet();
         }
-        //noinspection unchecked
-        Set<String> tempSet = GsonUnmarshaller.unmarshal(new TypeToken<Set<String>>(){},
-                getString(R.string.preference_key_reading_list_pages_deleted_ids, null));
-        if (tempSet != null) {
-            set.addAll(tempSet);
+        final Type type = Types.newParameterizedType(Set.class, String.class);
+        final JsonAdapter<Set<String>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        try {
+            final Set<String> tempSet = adapter.fromJson(
+                    getString(R.string.preference_key_reading_list_pages_deleted_ids, "null"));
+            return tempSet != null ? tempSet : Collections.emptySet();
+        } catch (IOException e) {
+            L.e(e);
+            return Collections.emptySet();
         }
-        return set;
     }
 
     public static void addReadingListPagesDeletedIds(@NonNull Set<String> set) {
         final int maxStoredIds = 256;
-        Set<String> currentSet = getReadingListPagesDeletedIds();
+        final Set<String> currentSet = new HashSet<>(getReadingListPagesDeletedIds());
         currentSet.addAll(set);
         setReadingListPagesDeletedIds(currentSet.size() < maxStoredIds ? currentSet : set);
     }
 
     public static void setReadingListPagesDeletedIds(@NonNull Set<String> set) {
-        setString(R.string.preference_key_reading_list_pages_deleted_ids, GsonMarshaller.marshal(set));
+        final Type type = Types.newParameterizedType(Set.class, String.class);
+        final JsonAdapter<Set<String>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        setString(R.string.preference_key_reading_list_pages_deleted_ids, adapter.toJson(set));
     }
 
     public static boolean shouldShowReadingListSyncEnablePrompt() {
@@ -645,21 +720,25 @@ public final class Prefs {
     }
 
     @NonNull public static List<Long> getLocallyKnownNotifications() {
-        List<Long> list = new ArrayList<>();
         if (!contains(R.string.preference_key_locally_known_notifications)) {
-            return list;
+            return Collections.emptyList();
         }
-        //noinspection unchecked
-        List<Long> tempList = GsonUnmarshaller.unmarshal(new TypeToken<ArrayList<Long>>(){},
-                getString(R.string.preference_key_locally_known_notifications, null));
-        if (tempList != null) {
-            list.addAll(tempList);
+        final Type type = Types.newParameterizedType(List.class, Long.class);
+        final JsonAdapter<List<Long>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        try {
+            final List<Long> enabledList = adapter.fromJson(
+                    getString(R.string.preference_key_locally_known_notifications, "null"));
+            return enabledList != null ? enabledList : Collections.emptyList();
+        } catch (IOException e) {
+            L.e(e);
+            return Collections.emptyList();
         }
-        return list;
     }
 
     public static void setLocallyKnownNotifications(@NonNull List<Long> list) {
-        setString(R.string.preference_key_locally_known_notifications, GsonMarshaller.marshal(list));
+        final Type type = Types.newParameterizedType(List.class, Long.class);
+        final JsonAdapter<List<Long>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        setString(R.string.preference_key_locally_known_notifications, adapter.toJson(list));
     }
 
     @NonNull
@@ -740,20 +819,27 @@ public final class Prefs {
     }
 
     @NonNull public static Set<String> getAnnouncementShownDialogs() {
-        Set<String> emptySet = new LinkedHashSet<>();
         if (!hasAnnouncementShownDialogs()) {
-            return emptySet;
+            return Collections.emptySet();
         }
-        //noinspection unchecked
-        Set<String> announcement = GsonUnmarshaller.unmarshal(emptySet.getClass(),
-                getString(R.string.preference_key_announcement_shown_dialogs, null));
-        return announcement != null ? announcement : emptySet;
+        final Type type = Types.newParameterizedType(Set.class, String.class);
+        final JsonAdapter<Set<String>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        try {
+            final Set<String> cards = adapter.fromJson(
+                    getString(R.string.preference_key_announcement_shown_dialogs, "null"));
+            return cards != null ? cards : Collections.emptySet();
+        } catch (IOException e) {
+            return Collections.emptySet();
+        }
     }
 
     public static void setAnnouncementShownDialogs(@NonNull Set<String> newAnnouncementIds) {
-        Set<String> announcementIds = getAnnouncementShownDialogs();
+        final Set<String> announcementIds = new LinkedHashSet<>(getAnnouncementShownDialogs());
+        final Type type = Types.newParameterizedType(Set.class, String.class);
+        final JsonAdapter<Set<String>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+
         announcementIds.addAll(newAnnouncementIds);
-        setString(R.string.preference_key_announcement_shown_dialogs, GsonMarshaller.marshal(announcementIds));
+        setString(R.string.preference_key_announcement_shown_dialogs, adapter.toJson(announcementIds));
     }
 
     public static boolean hasAnnouncementShownDialogs() {
@@ -765,20 +851,27 @@ public final class Prefs {
     }
 
     @NonNull public static Set<String> getWatchlistDisabledLanguages() {
-        Set<String> emptySet = new LinkedHashSet<>();
         if (!contains(R.string.preference_key_watchlist_disabled_langs)) {
-            return emptySet;
+            return Collections.emptySet();
         }
-        //noinspection unchecked
-        Set<String> codes = GsonUnmarshaller.unmarshal(emptySet.getClass(),
-                getString(R.string.preference_key_watchlist_disabled_langs, null));
-        return codes != null ? codes : emptySet;
+        final Type type = Types.newParameterizedType(Set.class, String.class);
+        final JsonAdapter<Set<String>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        try {
+            final Set<String> cards = adapter.fromJson(
+                    getString(R.string.preference_key_watchlist_disabled_langs, null));
+            return cards != null ? cards : Collections.emptySet();
+        } catch (IOException e) {
+            return Collections.emptySet();
+        }
     }
 
     public static void setWatchlistDisabledLanguages(@NonNull Set<String> langCodes) {
-        Set<String> codes = getAnnouncementShownDialogs();
+        final Set<String> codes = new LinkedHashSet<>(getAnnouncementShownDialogs());
+        final Type type = Types.newParameterizedType(Set.class, String.class);
+        final JsonAdapter<Set<String>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+
         codes.addAll(langCodes);
-        setString(R.string.preference_key_watchlist_disabled_langs, GsonMarshaller.marshal(langCodes));
+        setString(R.string.preference_key_watchlist_disabled_langs, adapter.toJson(codes));
     }
 
     public static boolean shouldMatchSystemTheme() {
@@ -938,13 +1031,22 @@ public final class Prefs {
     }
 
     public static Map<String, StreamConfig> getStreamConfigs() {
-        TypeToken<HashMap<String, StreamConfig>> streamConfigMapType = new TypeToken<HashMap<String, StreamConfig>>() {};
-        String streamConfigJson = getString(R.string.preference_key_event_platform_stored_stream_configs, "{}");
-        return (HashMap<String, StreamConfig>) GsonUnmarshaller.unmarshal(streamConfigMapType, streamConfigJson);
+        final Type type = Types.newParameterizedType(Map.class, String.class, StreamConfig.class);
+        final JsonAdapter<Map<String, StreamConfig>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        try {
+            final Map<String, StreamConfig> map = adapter.fromJson(
+                    getString(R.string.preference_key_event_platform_stored_stream_configs, "null"));
+            return map != null ? map : Collections.emptyMap();
+        } catch (IOException e) {
+            L.e(e);
+            return Collections.emptyMap();
+        }
     }
 
     public static void setStreamConfigs(@NonNull Map<String, StreamConfig> streamConfigs) {
-        setString(R.string.preference_key_event_platform_stored_stream_configs, GsonMarshaller.marshal(streamConfigs));
+        final Type type = Types.newParameterizedType(Map.class, String.class, StreamConfig.class);
+        final JsonAdapter<Map<String, StreamConfig>> adapter = MoshiUtil.getDefaultMoshi().adapter(type);
+        setString(R.string.preference_key_event_platform_stored_stream_configs, adapter.toJson(streamConfigs));
     }
 
     public static void setLocalClassName(@Nullable String className) {

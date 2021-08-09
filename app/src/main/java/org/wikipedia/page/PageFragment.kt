@@ -44,6 +44,7 @@ import org.wikipedia.databinding.GroupFindReferencesInPageBinding
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.dataclient.page.Protection
@@ -411,7 +412,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@evaluate
             }
             model.page?.let { page ->
-                GsonUtil.getDefaultGson().fromJson(value, Protection::class.java)?.let {
+                val adapter = MoshiUtil.getDefaultMoshi().adapter(Protection::class.java)
+                adapter.fromJson(value)?.let {
                     page.pageProperties.setProtection(it)
                     bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit()))
                 }
@@ -564,7 +566,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     return@evaluate
                 }
                 var options: ActivityOptionsCompat? = null
-                GsonUtil.getDefaultGson().fromJson(s, JavaScriptActionHandler.ImageHitInfo::class.java)?.let {
+                val adapter = MoshiUtil.getDefaultMoshi().adapter(JavaScriptActionHandler.ImageHitInfo::class.java)
+                adapter.fromJson(s)?.let {
                     val params = CoordinatorLayout.LayoutParams(
                         DimenUtil.roundedDpToPx(it.width),
                         DimenUtil.roundedDpToPx(it.height)
@@ -729,7 +732,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (!isAdded) {
                 return@addListener
             }
-            GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences::class.java)?.let {
+            val adapter = MoshiUtil.getDefaultMoshi().adapter(PageReferences::class.java)
+            adapter.fromJson(messagePayload?.toString() ?: "null")?.let {
                 references = it
                 if (!it.referencesGroup.isNullOrEmpty()) {
                     showBottomSheet(ReferenceDialog())
@@ -1148,7 +1152,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 .flatMap { response ->
                     val watchToken = response.query?.watchToken
                     if (watchToken.isNullOrEmpty()) {
-                        throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
+                        val adapter = MoshiUtil.getDefaultMoshi().adapter(MwQueryResponse::class.java)
+                        throw RuntimeException("Received empty watch token: ${adapter.toJson(response)}")
                     }
                     ServiceFactory.get(it.wikiSite).postWatch(if (unwatch) 1 else null, null, it.prefixedText, expiry.expiry, watchToken)
                 }

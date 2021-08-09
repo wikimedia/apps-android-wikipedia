@@ -5,11 +5,10 @@ import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.os.Build
 import androidx.core.os.bundleOf
-import com.google.gson.reflect.TypeToken
+import com.squareup.moshi.Types
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.login.LoginResult
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
@@ -27,7 +26,7 @@ object AccountUtil {
             d("account creation failure")
             return
         }
-        setPassword(result.password!!)
+        setPassword(result.password)
         putUserIdForLanguage(result.site.languageCode(), result.userId)
         groups = result.groups
     }
@@ -70,13 +69,17 @@ object AccountUtil {
         get() {
             val account = account() ?: return emptySet()
             val setStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_groups))
-            return if (setStr.isNullOrEmpty()) emptySet() else GsonUnmarshaller.unmarshal(object : TypeToken<Set<String>>() {}, setStr)
+            val type = Types.newParameterizedType(Set::class.java, String::class.java)
+            val adapter = MoshiUtil.getDefaultMoshi().adapter<Set<String>>(type).nullSafe()
+            return adapter.fromJson(setStr) ?: emptySet()
         }
         set(groups) {
             val account = account() ?: return
+            val type = Types.newParameterizedType(Set::class.java, String::class.java)
+            val adapter = MoshiUtil.getDefaultMoshi().adapter<Set<String>>(type).nullSafe()
             accountManager().setUserData(account,
                     WikipediaApp.getInstance().getString(R.string.preference_key_login_groups),
-                    GsonMarshaller.marshal(groups))
+                    adapter.toJson(groups))
         }
 
     @JvmStatic
@@ -140,13 +143,17 @@ object AccountUtil {
         get() {
             val account = account() ?: return emptyMap()
             val mapStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map))
-            return if (mapStr.isNullOrEmpty()) emptyMap() else GsonUnmarshaller.unmarshal(object : TypeToken<Map<String, Int>>() {}, mapStr)
+            val type = Types.newParameterizedType(Map::class.java, String::class.java, Int::class.java)
+            val adapter = MoshiUtil.getDefaultMoshi().adapter<Map<String, Int>>(type).nullSafe()
+            return adapter.fromJson(mapStr) ?: emptyMap()
         }
         private set(ids) {
             val account = account() ?: return
+            val type = Types.newParameterizedType(Map::class.java, String::class.java, Int::class.java)
+            val adapter = MoshiUtil.getDefaultMoshi().adapter<Map<String, Int>>(type).nullSafe()
             accountManager().setUserData(account,
                     WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map),
-                    GsonMarshaller.marshal(ids))
+                    adapter.toJson(ids))
         }
 
     private fun accountManager(): AccountManager {

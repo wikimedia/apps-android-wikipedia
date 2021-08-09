@@ -1,13 +1,15 @@
 package org.wikipedia.feed.topread
 
 import android.net.Uri
+import androidx.core.net.toUri
+import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
 
-class TopReadItemCard internal constructor(private val page: TopReadArticles,
-                                           private val wiki: WikiSite) : Card() {
-
+@JsonClass(generateAdapter = true)
+class TopReadItemCard internal constructor(internal val page: TopReadArticles,
+                                           internal val wiki: WikiSite) : Card() {
     override fun title(): String {
         return page.displayTitle
     }
@@ -17,7 +19,7 @@ class TopReadItemCard internal constructor(private val page: TopReadArticles,
     }
 
     override fun image(): Uri? {
-        return if (page.thumbnailUrl.isNullOrEmpty()) null else Uri.parse(page.thumbnailUrl)
+        return page.thumbnailUrl?.ifEmpty { null }?.toUri()
     }
 
     override fun type(): CardType {

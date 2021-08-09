@@ -1,16 +1,16 @@
 package org.wikipedia.page.tabs
 
+import com.squareup.moshi.JsonClass
 import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageTitle
 
-class Tab {
-    val backStack = mutableListOf<PageBackStackItem>()
-
-    var backStackPosition: Int = -1
+@JsonClass(generateAdapter = true)
+class Tab(val backStack: MutableList<PageBackStackItem> = mutableListOf(), backStackPosition: Int = -1) {
+    var backStackPosition: Int = backStackPosition
         get() = if (field < 0) backStack.size - 1 else field
 
     val backStackPositionTitle: PageTitle?
-        get() = if (backStack.isEmpty()) null else backStack[backStackPosition].title
+        get() = backStack.getOrNull(backStackPosition)?.title
 
     fun setBackStackPositionTitle(title: PageTitle) {
         backStackPositionTitle?.run {

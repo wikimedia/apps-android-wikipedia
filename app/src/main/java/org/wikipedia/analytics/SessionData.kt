@@ -1,29 +1,26 @@
 package org.wikipedia.analytics
 
+import com.squareup.moshi.JsonClass
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.MathUtil
 
-class SessionData {
-
+@JsonClass(generateAdapter = true)
+class SessionData(
+    var startTime: Long = System.currentTimeMillis(),
+    var lastTouchTime: Long = System.currentTimeMillis(),
+    var pagesFromSearch: Int = 0,
+    var pagesFromRandom: Int = 0,
+    var pagesFromLangLink: Int = 0,
+    var pagesFromInternal: Int = 0,
+    var pagesFromExternal: Int = 0,
+    var pagesFromHistory: Int = 0,
+    var pagesFromReadingList: Int = 0,
+    var pagesFromBack: Int = 0,
+    var pagesWithNoDescription: Int = 0,
+    var pagesFromSuggestedEdits: Int = 0
+) {
+    @Transient
     private val leadLatency = MathUtil.Averaged<Long>()
-    var startTime: Long
-    var lastTouchTime: Long
-    var pagesFromSearch = 0
-    var pagesFromRandom = 0
-    var pagesFromLangLink = 0
-    var pagesFromInternal = 0
-    var pagesFromExternal = 0
-    var pagesFromHistory = 0
-    var pagesFromReadingList = 0
-    var pagesFromBack = 0
-    var pagesWithNoDescription = 0
-    var pagesFromSuggestedEdits = 0
-
-    init {
-        val now = System.currentTimeMillis()
-        startTime = now
-        lastTouchTime = now
-    }
 
     fun addPageViewed(entry: HistoryEntry) {
         when (entry.source) {

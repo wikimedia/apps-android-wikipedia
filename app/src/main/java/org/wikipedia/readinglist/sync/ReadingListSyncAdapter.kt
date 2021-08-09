@@ -40,8 +40,8 @@ class ReadingListSyncAdapter : JobIntentService() {
         }
         L.d("Begin sync of reading lists...")
         val csrfToken = mutableListOf<String>()
-        val listIdsDeleted = Prefs.getReadingListsDeletedIds()
-        val pageIdsDeleted = Prefs.getReadingListPagesDeletedIds()
+        val listIdsDeleted = Prefs.getReadingListsDeletedIds().toMutableSet()
+        val pageIdsDeleted = Prefs.getReadingListPagesDeletedIds().toMutableSet()
         var allLocalLists: MutableList<ReadingList>? = null
         val wiki = WikipediaApp.getInstance().wikiSite
         val client = ReadingListClient(wiki)

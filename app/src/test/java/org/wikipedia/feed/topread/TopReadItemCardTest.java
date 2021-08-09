@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.test.TestFileUtil;
 
 import java.util.List;
@@ -20,8 +20,8 @@ public class TopReadItemCardTest {
     private TopRead content;
 
     @Before public void setUp() throws Throwable {
-        String json = TestFileUtil.readRawFile("mostread_2016_11_07.json");
-        content = GsonUnmarshaller.unmarshal(TopRead.class, json);
+        final String json = TestFileUtil.readRawFile("mostread_2016_11_07.json");
+        content = MoshiUtil.getDefaultMoshi().adapter(TopRead.class).fromJson(json);
     }
 
     @Test public void testTitleNormalization() {

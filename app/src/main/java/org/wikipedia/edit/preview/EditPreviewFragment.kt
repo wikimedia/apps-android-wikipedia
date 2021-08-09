@@ -24,7 +24,7 @@ import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.edit.summaries.EditSummaryTag
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.page.*
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
@@ -183,9 +183,9 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         bridge.addListener("media") { _, _ -> }
 
         bridge.addListener("reference") { _, messagePayload ->
-            references =
-                GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences::class.java)
-            if (references.referencesGroup!!.isNotEmpty()) {
+            val adapter = MoshiUtil.getDefaultMoshi().adapter(PageReferences::class.java)
+            references = adapter.fromJson(messagePayload!!.toString())!!
+            if (references.referencesGroup.isNotEmpty()) {
                 bottomSheetPresenter.show(childFragmentManager, ReferenceDialog())
             }
         }

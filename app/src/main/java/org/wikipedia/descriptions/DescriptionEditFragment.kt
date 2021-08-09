@@ -31,7 +31,7 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -95,16 +95,17 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().getParcelable(ARG_TITLE)!!
-        highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
-        action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
-        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        requireArguments().getString(ARG_SOURCE_SUMMARY)?.let {
-            sourceSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, it)
-        }
-        requireArguments().getString(ARG_TARGET_SUMMARY)?.let {
-            targetSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, it)
-        }
+        val arguments = requireArguments()
+
+        pageTitle = arguments.getParcelable(ARG_TITLE)!!
+        highlightText = arguments.getString(ARG_HIGHLIGHT_TEXT)
+        action = arguments.getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
+        invokeSource = arguments.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+
+        val adapter = MoshiUtil.getDefaultMoshi().adapter(PageSummaryForEdit::class.java).nullSafe()
+        sourceSummary = adapter.fromJson(arguments.getString(ARG_SOURCE_SUMMARY, "null"))
+        targetSummary = adapter.fromJson(arguments.getString(ARG_TARGET_SUMMARY, "null"))
+
         val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
         funnel = DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type, invokeSource)
         funnel.logStart()

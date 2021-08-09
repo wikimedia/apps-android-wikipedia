@@ -4,6 +4,7 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
@@ -12,6 +13,7 @@ import java.util.*
 
 @Parcelize
 @Entity
+@JsonClass(generateAdapter = true)
 class HistoryEntry(
     val authority: String = "",
     val lang: String,
@@ -31,7 +33,7 @@ class HistoryEntry(
 
     @IgnoredOnParcel
     @Ignore
-    private var pageTitle: PageTitle? = null
+    internal var pageTitle: PageTitle? = null
 
     val title: PageTitle get() {
         if (pageTitle == null) {

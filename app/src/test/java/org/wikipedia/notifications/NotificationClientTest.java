@@ -2,7 +2,7 @@ package org.wikipedia.notifications;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
@@ -37,8 +37,8 @@ public class NotificationClientTest extends MockRetrofitTest {
     }
 
     @Test public void testNotificationReverted() throws Throwable {
-        String json = TestFileUtil.readRawFile("notification_revert.json");
-        Notification n = GsonUnmarshaller.unmarshal(Notification.class, json);
+        final String json = TestFileUtil.readRawFile("notification_revert.json");
+        Notification n = MoshiUtil.getDefaultMoshi().adapter(Notification.class).fromJson(json);
         assertThat(n.getType(), is(Notification.CATEGORY_REVERTED));
         assertThat(n.getWiki(), is("wikidatawiki"));
         assertThat(n.getAgent().getName(), is("User1"));

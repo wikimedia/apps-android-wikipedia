@@ -1,24 +1,28 @@
 package org.wikipedia.analytics
 
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Types
 import org.json.JSONObject
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.json.GsonMarshaller
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.notifications.Notification
 import org.wikipedia.settings.Prefs
-import java.util.*
 
 class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
     fun done() {
-        val toggleMap = HashMap<String, Boolean>()
-        toggleMap[Notification.CATEGORY_SYSTEM_NO_EMAIL] = Prefs.notificationWelcomeEnabled()
-        toggleMap[Notification.CATEGORY_EDIT_THANK] = Prefs.notificationThanksEnabled()
-        toggleMap[Notification.CATEGORY_MILESTONE_EDIT] = Prefs.notificationMilestoneEnabled()
+        val toggleMap = mapOf(
+            Notification.CATEGORY_SYSTEM_NO_EMAIL to Prefs.notificationWelcomeEnabled(),
+            Notification.CATEGORY_EDIT_THANK to Prefs.notificationThanksEnabled(),
+            Notification.CATEGORY_MILESTONE_EDIT to Prefs.notificationMilestoneEnabled()
+        )
+        val type = Types.newParameterizedType(Map::class.java, String::class.java, Boolean::class.java)
+        val adapter: JsonAdapter<Map<String, Boolean>> = MoshiUtil.getDefaultMoshi().adapter(type)
         log(
-                "type_toggles", GsonMarshaller.marshal(toggleMap),
+                "type_toggles", adapter.toJson(toggleMap),
                 "background_fetch",
                 if (Prefs.notificationPollEnabled()) app.resources.getInteger(R.integer.notification_poll_interval_minutes).toString()
                 else "disabled"
