@@ -231,10 +231,10 @@
   <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
   <string name="terms_of_use_description">شرایط استفاده</string>
   <string name="about_wikipedia_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it/Lettura_e_dati_offline</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:درخواست_ایجاد_حساب_کاربری</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -246,7 +246,7 @@
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده‌است.</string>
   <string name="about_app_license_heading">مجوز</string>
-  <string name="about_app_license" fuzzy="true">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
+  <string name="about_app_license">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
   <string name="about_wmf">محصولی از &lt;a href=\"https://wikimediafoundation.org/\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>
   <string name="edit_abandon_confirm">صفحه ویرایش شده است. آیا مطمئنید که می‌خواهید بدون ذخیره تغییرات خارج شوید؟</string>
@@ -274,6 +274,7 @@
   <string name="find_previous">یافتن قبلی</string>
   <string name="find_first_occurence">این نخستین مورد است</string>
   <string name="find_last_occurence">این آخرین مورد است</string>
+  <string name="article_opened_in_background_tab">مقاله در یک زبانهٔ پس‌زمینه گشوده شده‌است.</string>
   <string name="abusefilter_title_warn">این ویرایش ممکن است غیرسازنده باشد. آیا مطمئنید می‌خواهید منتشرش کنید؟</string>
   <string name="abusefilter_title_disallow">شما نمی‌توانید این ویرایش را منتشر کنید. لطفاً بازگردید و تغییرش دهید.</string>
   <string name="abusefilter_text_warn">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده شناسایی کرده‌است. این ویرایش ممکن است شامل یک یا چند مورد از موارد زیر باشد:&lt;br /&gt;&lt;br /&gt;· همه را با حروف بزرگ نوشتن&lt;br /&gt;· خالی‌گذاشتن مقاله‌ها یا هرز نگاره&lt;br /&gt;· پیوندهای بیرونی یا تصاویر نامرتبط&lt;br /&gt;· تکرار نویسه‌ها</string>
@@ -981,6 +982,7 @@
   <string name="talk_title">بحث</string>
   <string name="talk_user_title">بحث: %s</string>
   <string name="talk_new_topic">مبحث جدید</string>
+  <string name="talk_new_topic_submitted">ریسه ارسال شد.</string>
   <string name="talk_page_empty">این صفحهٔ بحث خالی است.</string>
   <string name="talk_add_reply">پاسخ</string>
   <string name="talk_no_subject">(بدون عنوان)</string>
@@ -989,6 +991,9 @@
   <string name="talk_message_hint">نوشتن پیام</string>
   <string name="talk_message_empty">پیغام نمی‌تواند خالی باشد.</string>
   <string name="talk_subject_empty">عنوان نمی‌تواند خالی باشد.</string>
+  <string name="talk_response_submitted">پاسخ ارسال شد.</string>
+  <string name="talk_snackbar_undo">واگردانی</string>
+  <string name="talk_last_modified">&lt;b&gt;آخرین ویرایش در %1$s&lt;/b&gt; توسط %2$s</string>
   <string name="menu_option_share_edit">اشتراک‌گذاری ویرایش</string>
   <string name="menu_option_user_profile">رخ‌نمای %s</string>
   <string name="menu_option_user_contributions">مشارکت‌های %s</string>
