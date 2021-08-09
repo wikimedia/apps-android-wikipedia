@@ -1,171 +1,50 @@
-package org.wikipedia.feed.announcement;
+package org.wikipedia.feed.announcement
 
-import android.text.TextUtils;
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import org.wikipedia.json.annotations.Required
+import java.util.*
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+@JsonClass(generateAdapter = true)
+class Announcement(
+    @Required val id: String = "",
+    @Required val type: String = "",
+    @Required @Json(name = "start_time") val startTime: Date? = null,
+    @Required @Json(name = "end_time") val endTime: Date? = null,
+    val platforms: List<String> = emptyList(),
+    val countries: List<String> = emptyList(),
+    @Json(name = "caption_HTML") val footerCaption: String = "",
+    @Json(name = "image_url") val imageUrl: String = "",
+    @Json(name = "image_height") val imageHeight: String = "",
+    @Json(name = "logged_in") val isLoggedIn: Boolean? = null,
+    @Json(name = "reading_list_sync_enabled") val isReadingListSyncEnabled: Boolean? = null,
+    @Json(name = "beta") val isBeta: Boolean? = null,
+    @Json(name = "border") val hasBorder: Boolean = false,
+    val placement: String = PLACEMENT_FEED,
+    @Json(name = "min_version") val minVersion: String = "",
+    @Json(name = "max_version") val maxVersion: String = "",
+    @Required val text: String = "",
+    internal val action: Action? = null,
+    @Json(name = "negative_text") val negativeText: String = ""
+) {
+    val actionTitle: String
+        get() = action?.title ?: ""
+    val actionUrl: String
+        get() = action?.url ?: ""
+    val hasAction: Boolean
+        get() = action != null
+    val hasFooterCaption: Boolean
+        get() = footerCaption.isNotEmpty()
+    val hasImageUrl: Boolean
+        get() = imageUrl.isNotEmpty()
 
-import com.squareup.moshi.Json;
+    @JsonClass(generateAdapter = true)
+    class Action(@Required val title: String, @Required val url: String)
 
-import org.wikipedia.json.annotations.Required;
-import org.wikipedia.util.DateUtil;
-
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
-import static org.apache.commons.lang3.StringUtils.defaultString;
-
-@SuppressWarnings("unused")
-public class Announcement {
-    public static final String SURVEY = "survey";
-    public static final String FUNDRAISING = "fundraising";
-    public static final String PLACEMENT_FEED = "feed";
-    public static final String PLACEMENT_ARTICLE = "article";
-
-    @SuppressWarnings("NullableProblems") @Required @NonNull private String id;
-    @SuppressWarnings("NullableProblems") @Required @NonNull private String type;
-    @SuppressWarnings("NullableProblems") @Json(name = "start_time") @Required @NonNull private String startTime;
-    @SuppressWarnings("NullableProblems") @Json(name = "end_time") @Required @NonNull private String endTime;
-    @NonNull private List<String> platforms = Collections.emptyList();
-    @NonNull private List<String> countries = Collections.emptyList();
-    @Json(name = "caption_HTML") @Nullable private String footerCaption;
-    @Json(name = "image_url") @Nullable private String imageUrl;
-    @Json(name = "image_height") @Nullable private String imageHeight;
-    @Json(name = "logged_in") @Nullable private Boolean loggedIn;
-    @Json(name = "reading_list_sync_enabled") @Nullable private Boolean readingListSyncEnabled;
-    @Nullable private Boolean beta;
-    @Nullable private Boolean border;
-    @Nullable private String placement;
-    @Json(name = "min_version") @Nullable private String minVersion;
-    @Json(name = "max_version") @Nullable private String maxVersion;
-
-    @SuppressWarnings("NullableProblems") @Required @NonNull private String text;
-    @Nullable private Action action;
-    @Json(name = "negative_text") @Nullable private String negativeText;
-
-    public Announcement() { }
-
-    public Announcement(@NonNull String id, @NonNull String text, @NonNull String imageUrl,
-                        @NonNull Action action, @NonNull String negativeText) {
-        this.id = id;
-        this.text = text;
-        this.imageUrl = imageUrl;
-        this.action = action;
-        this.negativeText = negativeText;
-    }
-
-    @NonNull
-    public String id() {
-        return id;
-    }
-
-    @NonNull
-    public String type() {
-        return type;
-    }
-
-    @Nullable
-    public Date startTime() {
-        return DateUtil.iso8601DateParse(startTime);
-    }
-
-    @Nullable Date endTime() {
-        return DateUtil.iso8601DateParse(endTime);
-    }
-
-    @NonNull List<String> platforms() {
-        return platforms;
-    }
-
-    @NonNull List<String> countries() {
-        return countries;
-    }
-
-    @NonNull String text() {
-        return text;
-    }
-
-    boolean hasAction() {
-        return action != null;
-    }
-
-    @NonNull String actionTitle() {
-        return action != null ? action.title() : "";
-    }
-
-    @NonNull String actionUrl() {
-        return action != null ? action.url() : "";
-    }
-
-    boolean hasFooterCaption() {
-        return !TextUtils.isEmpty(footerCaption);
-    }
-
-    @NonNull String footerCaption() {
-        return defaultString(footerCaption);
-    }
-
-    boolean hasImageUrl() {
-        return !TextUtils.isEmpty(imageUrl);
-    }
-
-    @NonNull String imageUrl() {
-        return defaultString(imageUrl);
-    }
-
-    @NonNull String imageHeight() {
-        return defaultString(imageHeight);
-    }
-
-    @Nullable String negativeText() {
-        return negativeText;
-    }
-
-    @Nullable Boolean loggedIn() {
-        return loggedIn;
-    }
-
-    @Nullable Boolean readingListSyncEnabled() {
-        return readingListSyncEnabled;
-    }
-
-    @Nullable Boolean beta() {
-        return beta;
-    }
-
-    @NonNull
-    public String placement() {
-        return defaultString(placement, PLACEMENT_FEED);
-    }
-
-    boolean hasBorder() {
-        return border != null && border;
-    }
-
-    @Nullable String minVersion() {
-        return minVersion;
-    }
-
-    @Nullable String maxVersion() {
-        return maxVersion;
-    }
-
-    public static class Action {
-        @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
-        @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String url;
-
-        public Action(@NonNull String title, @NonNull String url) {
-            this.title = title;
-            this.url = url;
-        }
-
-        @NonNull String title() {
-            return title;
-        }
-
-        @NonNull String url() {
-            return url;
-        }
+    companion object {
+        const val SURVEY = "survey"
+        const val FUNDRAISING = "fundraising"
+        const val PLACEMENT_FEED = "feed"
+        const val PLACEMENT_ARTICLE = "article"
     }
 }

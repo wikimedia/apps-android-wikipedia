@@ -6,18 +6,18 @@ import org.wikipedia.feed.model.CardType
 
 open class AnnouncementCard(private val announcement: Announcement) : Card() {
 
-    val isArticlePlacement get() = Announcement.PLACEMENT_ARTICLE == announcement.placement()
+    val isArticlePlacement get() = Announcement.PLACEMENT_ARTICLE == announcement.placement
 
     override fun title(): String {
-        return announcement.type()
+        return announcement.type
     }
 
     override fun extract(): String? {
-        return announcement.text()
+        return announcement.text
     }
 
     override fun image(): Uri {
-        return Uri.parse(announcement.imageUrl())
+        return Uri.parse(announcement.imageUrl)
     }
 
     override fun type(): CardType {
@@ -25,46 +25,46 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     }
 
     override fun dismissHashCode(): Int {
-        return announcement.id().hashCode()
+        return announcement.id.hashCode()
     }
 
     fun imageHeight(): Int {
         return try {
-            announcement.imageHeight().toInt()
+            announcement.imageHeight.toInt()
         } catch (e: NumberFormatException) {
             0
         }
     }
 
     fun hasAction(): Boolean {
-        return announcement.hasAction()
+        return announcement.hasAction
     }
 
     fun actionTitle(): String {
-        return announcement.actionTitle()
+        return announcement.actionTitle
     }
 
     fun actionUri(): Uri {
-        return Uri.parse(announcement.actionUrl())
+        return Uri.parse(announcement.actionUrl)
     }
 
-    fun negativeText(): String? {
-        return announcement.negativeText()
+    fun negativeText(): String {
+        return announcement.negativeText
     }
 
     fun hasFooterCaption(): Boolean {
-        return announcement.hasFooterCaption()
+        return announcement.hasFooterCaption
     }
 
     fun footerCaption(): String {
-        return announcement.footerCaption()
+        return announcement.footerCaption
     }
 
     fun hasImage(): Boolean {
-        return announcement.hasImageUrl()
+        return announcement.hasImageUrl
     }
 
     fun hasBorder(): Boolean {
-        return announcement.hasBorder()
+        return announcement.hasBorder
     }
 }

@@ -56,7 +56,6 @@ import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementClient
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonUtil
 import org.wikipedia.json.MoshiUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
@@ -635,8 +634,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         val now = Date()
                         for (announcement in list.items) {
                             if (AnnouncementClient.shouldShow(announcement, country, now) &&
-                                announcement.placement() == Announcement.PLACEMENT_ARTICLE &&
-                                !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
+                                announcement.placement == Announcement.PLACEMENT_ARTICLE &&
+                                !Prefs.getAnnouncementShownDialogs().contains(announcement.id)) {
                                 val dialog = AnnouncementDialog(requireActivity(), announcement)
                                 dialog.setCancelable(false)
                                 dialog.show()

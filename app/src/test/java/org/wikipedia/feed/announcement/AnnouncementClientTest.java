@@ -63,9 +63,9 @@ public class AnnouncementClientTest extends MockRetrofitTest {
 
     @Test public void testFundraisingParams() {
         Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_FUNDRAISING_ANDROID);
-        assertThat(announcement.hasAction(), is(true));
-        assertThat(announcement.hasFooterCaption(), is(true));
-        assertThat(announcement.hasImageUrl(), is(true));
+        assertThat(announcement.getHasAction(), is(true));
+        assertThat(announcement.getHasFooterCaption(), is(true));
+        assertThat(announcement.getHasImageUrl(), is(true));
     }
 
     @Test public void testShouldShowByCountry() throws Throwable {

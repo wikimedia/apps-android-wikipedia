@@ -50,9 +50,9 @@ class AnnouncementClient : FeedClient {
             val now = Date()
             for (announcement in announcements) {
                 if (shouldShow(announcement, country, now)) {
-                    when (announcement.type()) {
+                    when (announcement.type) {
                         Announcement.SURVEY -> cards.add(SurveyCard(announcement))
-                        Announcement.FUNDRAISING -> if (announcement.placement() == Announcement.PLACEMENT_FEED) {
+                        Announcement.FUNDRAISING -> if (announcement.placement == Announcement.PLACEMENT_FEED) {
                             cards.add(FundraisingCard(announcement))
                         }
                         else -> cards.add(AnnouncementCard(announcement))
@@ -64,10 +64,10 @@ class AnnouncementClient : FeedClient {
 
         @JvmStatic
         fun shouldShow(announcement: Announcement?, country: String?, date: Date): Boolean {
-            return (announcement != null && (announcement.platforms().contains(PLATFORM_CODE) ||
-                    announcement.platforms().contains(PLATFORM_CODE_NEW)) &&
+            return (announcement != null && (announcement.platforms.contains(PLATFORM_CODE) ||
+                    announcement.platforms.contains(PLATFORM_CODE_NEW)) &&
                     matchesCountryCode(announcement, country) && matchesDate(announcement, date) &&
-                    matchesVersionCodes(announcement.minVersion(), announcement.maxVersion()) && matchesConditions(announcement))
+                    matchesVersionCodes(announcement.minVersion, announcement.maxVersion) && matchesConditions(announcement))
         }
 
         private fun matchesCountryCode(announcement: Announcement, country: String?): Boolean {
@@ -78,35 +78,35 @@ class AnnouncementClient : FeedClient {
             }
             return if (countryCode.isNullOrEmpty()) {
                 false
-            } else announcement.countries().contains(countryCode)
+            } else announcement.countries.contains(countryCode)
         }
 
         private fun matchesDate(announcement: Announcement, date: Date): Boolean {
             if (Prefs.ignoreDateForAnnouncements()) {
                 return true
             }
-            return if (announcement.startTime() != null && announcement.startTime()!!.after(date)) {
+            return if (announcement.startTime != null && announcement.startTime.after(date)) {
                 false
-            } else announcement.endTime() == null || !announcement.endTime()!!.before(date)
+            } else announcement.endTime == null || !announcement.endTime.before(date)
         }
 
         private fun matchesConditions(announcement: Announcement): Boolean {
-            if (announcement.beta() != null && announcement.beta() != ReleaseUtil.isPreProdRelease) {
+            if (announcement.isBeta != null && announcement.isBeta != ReleaseUtil.isPreProdRelease) {
                 return false
             }
-            return if (announcement.loggedIn() != null && announcement.loggedIn() != AccountUtil.isLoggedIn) {
+            return if (announcement.isLoggedIn != null && announcement.isLoggedIn != AccountUtil.isLoggedIn) {
                 false
-            } else announcement.readingListSyncEnabled() == null || announcement.readingListSyncEnabled() == Prefs.isReadingListSyncEnabled()
+            } else announcement.isReadingListSyncEnabled == null || announcement.isReadingListSyncEnabled == Prefs.isReadingListSyncEnabled()
         }
 
-        private fun matchesVersionCodes(minVersion: String?, maxVersion: String?): Boolean {
+        private fun matchesVersionCodes(minVersion: String, maxVersion: String): Boolean {
             val versionCode = if (Prefs.announcementsVersionCode() > 0) Prefs.announcementsVersionCode()
             else WikipediaApp.getInstance().versionCode
             try {
-                if (!minVersion.isNullOrEmpty() && minVersion.toInt() > versionCode) {
+                if (minVersion.isNotEmpty() && minVersion.toInt() > versionCode) {
                     return false
                 }
-                if (!maxVersion.isNullOrEmpty() && maxVersion.toInt() < versionCode) {
+                if (maxVersion.isNotEmpty() && maxVersion.toInt() < versionCode) {
                     return false
                 }
             } catch (e: NumberFormatException) {
