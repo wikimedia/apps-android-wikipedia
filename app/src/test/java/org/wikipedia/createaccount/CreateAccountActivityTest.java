@@ -26,7 +26,7 @@ import static org.wikipedia.createaccount.CreateAccountActivity.validateInput;
 
     @Test public void testValidateInputInvalidPassword() {
         assertThat(validateInput("user", "foo", "password", ""),
-                is(ValidateResult.INVALID_PASSWORD));
+                is(ValidateResult.PASSWORD_TOO_SHORT));
     }
 
     @Test public void testValidateInputPasswordMismatch() {
