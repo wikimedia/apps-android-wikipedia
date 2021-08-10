@@ -175,7 +175,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-    private fun loadTopics(newRevision: Long = 0) {
+    private fun loadTopics() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
         binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
@@ -201,15 +201,6 @@ class TalkTopicsActivity : BaseActivity() {
                 .doAfterTerminate {
                     binding.talkProgressBar.visibility = View.GONE
                     binding.talkRefreshView.isRefreshing = false
-                }
-                .map { response ->
-                    if (newRevision != 0L && response.revision < newRevision) {
-                        throw IllegalStateException()
-                    }
-                    response
-                }
-                .retry(20) { t ->
-                    (t is IllegalStateException) || (t is HttpStatusException && t.code == 404)
                 }
                 .subscribe({ response ->
                     topics.clear()

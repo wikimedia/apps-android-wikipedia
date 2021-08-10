@@ -17,6 +17,8 @@
   <string name="search_hint">Meklēt Vikipēdijā</string>
   <string name="search_hint_search_languages">Meklēt valodu</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Ieteiktie labojumi</string>
+  <string name="nav_item_more">Vairāk</string>
+  <string name="nav_item_search">Meklēšana</string>
   <string name="error_network_error">Nevar izveidot savienojumu ar Internetu.</string>
   <string name="page_error_retry">Mēģināt vēlreiz</string>
   <string name="card_offline_error_retry">Mēģināt vēlreiz</string>
@@ -24,10 +26,13 @@
   <string name="article_load_error_retry">Mēģināt vēlreiz</string>
   <string name="offline_load_error_retry">Mēģināt vēlreiz</string>
   <string name="page_error_back_to_main">Atpakaļ</string>
+  <string name="error_back">Atpakaļ</string>
+  <string name="error_next">Tālāk</string>
   <string name="menu_clear_all_history">Notīrīt vēsturi</string>
   <string name="history_item_delete_undo">Atsaukt</string>
   <string name="notification_archive_undo">Atsaukt</string>
   <string name="app_settings">Lietotnes iestatījumi</string>
+  <string name="history_list_title">Vēsture</string>
   <string name="dialog_title_clear_history">Dzēst pārlūkošanas vēsturi</string>
   <string name="dialog_message_clear_history" fuzzy="true">Vai tiešām vēlaties notīrīt visu vēsturi?</string>
   <string name="dialog_message_clear_history_yes">Jā</string>
@@ -40,9 +45,12 @@
   <string name="edit_section_find_in_page">Atrast lapā</string>
   <string name="menu_page_font_and_theme">Fonts un apdare</string>
   <string name="menu_page_add_to_list">Pievienot lasīšanas sarakstam</string>
+  <string name="menu_page_add_to_default_list">Saglabāt</string>
   <string name="feed_card_add_to_list">Pievienot lasīšanas sarakstam</string>
+  <string name="feed_card_add_to_default_list">Saglabāt</string>
   <string name="menu_page_share">Dalīties ar saiti</string>
   <string name="menu_page_open_a_new_tab">Atvērt jaunā cilnē</string>
+  <string name="menu_page_new_tab">Jauna cilne</string>
   <string name="menu_page_reading_lists">Lasīšanas saraksti</string>
   <string name="menu_long_press_open_page">Atvērt</string>
   <string name="menu_long_press_open_in_new_tab">Atvērt jaunā cilnē</string>
@@ -108,6 +116,7 @@
   <string name="create_account_button">Izveidot kontu</string>
   <string name="create_account_ip_block_details">Papildinformācija</string>
   <string name="preferences_general_heading">Vispārīgi</string>
+  <string name="preferences_account_heading">Konts</string>
   <string name="wikipedia_app_faq">Vikipēdijas lietotnes BUJ</string>
   <string name="send_feedback">Sūtīt atsauksmes par lietotni</string>
   <string name="create_account_account_created_toast">Konts izveidots!</string>

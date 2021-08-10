@@ -163,6 +163,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Подробно</string>
   <string name="preferences_general_heading">Општи</string>
+  <string name="preferences_account_heading">Сметка</string>
   <string name="wikipedia_app_faq">ЧПП за прилогот „Википедија“</string>
   <string name="send_feedback">Испрати мислење за прилогот</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
