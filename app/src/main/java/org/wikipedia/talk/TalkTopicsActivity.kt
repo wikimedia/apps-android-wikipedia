@@ -131,6 +131,9 @@ class TalkTopicsActivity : BaseActivity() {
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_EDIT_SUCCESS) {
             val newRevisionId = data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
+            val topic = data?.getIntExtra(TalkTopicActivity.EXTRA_TOPIC, 0) ?: -1
+            val undoneSubject = data?.getStringExtra(TalkTopicActivity.EXTRA_SUBJECT) ?: ""
+            val undoneText = data?.getStringExtra(TalkTopicActivity.EXTRA_BODY) ?: ""
             if (newRevisionId > 0) {
                 FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
                     .setAnchorView(binding.talkNewTopicButton)
@@ -138,7 +141,7 @@ class TalkTopicsActivity : BaseActivity() {
                         binding.talkNewTopicButton.isEnabled = false
                         binding.talkNewTopicButton.alpha = 0.5f
                         binding.talkProgressBar.visibility = View.VISIBLE
-                        undoSave(newRevisionId)
+                        undoSave(newRevisionId, topic, undoneSubject, undoneText)
                     }
                     .show()
             }
@@ -172,7 +175,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-    private fun loadTopics(newRevision: Long = 0) {
+    private fun loadTopics() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
         binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
@@ -198,15 +201,6 @@ class TalkTopicsActivity : BaseActivity() {
                 .doAfterTerminate {
                     binding.talkProgressBar.visibility = View.GONE
                     binding.talkRefreshView.isRefreshing = false
-                }
-                .map { response ->
-                    if (newRevision != 0L && response.revision < newRevision) {
-                        throw IllegalStateException()
-                    }
-                    response
-                }
-                .retry(20) { t ->
-                    (t is IllegalStateException) || (t is HttpStatusException && t.code == 404)
                 }
                 .subscribe({ response ->
                     topics.clear()
@@ -270,14 +264,14 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkNewTopicButton.show()
     }
 
-    private fun undoSave(newRevisionId: Long) {
+    private fun undoSave(newRevisionId: Long, topicId: Int, undoneSubject: String, undoneBody: String) {
         disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
             .subscribeOn(Schedulers.io())
             .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, newRevisionId, token) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                loadTopics(it.edit!!.newRevId)
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
             }, {
                 updateOnError(it)
             }))
