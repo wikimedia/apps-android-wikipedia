@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.collection.LruCache
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -148,8 +149,10 @@ class SearchResultsFragment : Fragment() {
                         handleSuggestion(searchResults.suggestion)
                         val resultList = mutableListOf<SearchResult>()
                         addSearchResultsFromTabs(resultList)
-                        resultList.addAll(readingListSearchResults!!.results)
-                        resultList.addAll(historySearchResults.results)
+                        resultList.addAll(readingListSearchResults.results.filterNot { res ->
+                            resultList.map { it.pageTitle.prefixedText }.contains(res.pageTitle.prefixedText) }.take(1))
+                        resultList.addAll(historySearchResults.results.filterNot { res ->
+                            resultList.map { it.pageTitle.prefixedText }.contains(res.pageTitle.prefixedText) }.take(1))
                         resultList.addAll(searchResults.results)
                         resultList
                     })
@@ -413,7 +416,7 @@ class SearchResultsFragment : Fragment() {
             languageCodeText.visibility = if (resultsCountList.size == 1) View.GONE else View.VISIBLE
             languageCodeText.text = langCode
             languageCodeText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            languageCodeText.backgroundTintList = if (resultsCount == 0) secondaryColorStateList else accentColorStateList
+            ViewCompat.setBackgroundTintList(languageCodeText, if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             formatLangButton(languageCodeText, langCode,
                     SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             view.isEnabled = resultsCount > 0
