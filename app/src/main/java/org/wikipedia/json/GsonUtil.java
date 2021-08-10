@@ -9,8 +9,7 @@ public final class GsonUtil {
     private static final String DATE_FORMAT = "MMM dd, yyyy HH:mm:ss";
 
     private static final GsonBuilder DEFAULT_GSON_BUILDER = new GsonBuilder()
-            .setDateFormat(DATE_FORMAT)
-            .registerTypeAdapterFactory(new RequiredFieldsCheckOnReadTypeAdapterFactory());
+            .setDateFormat(DATE_FORMAT);
 
     private static final Gson DEFAULT_GSON = DEFAULT_GSON_BUILDER.create();
 

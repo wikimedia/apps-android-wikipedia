@@ -34,6 +34,7 @@ public final class MoshiUtil {
             .add(WikiSite.class, new WikiSiteJsonAdapter().nullSafe())
             .add(SharedPreferenceCookieManager.class, new CookieManagerJsonAdapter().nullSafe())
             .add(DATA_VALUE_ADAPTER_FACTORY)
+            .addLast(new RequiredFieldsCheckOnReadJsonAdapterFactory())
             .build();
 
     @NonNull

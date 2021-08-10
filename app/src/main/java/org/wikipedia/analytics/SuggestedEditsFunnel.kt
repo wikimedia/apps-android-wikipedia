@@ -1,17 +1,11 @@
 package org.wikipedia.analytics
 
-import com.google.gson.JsonElement
-import com.google.gson.JsonNull
-import com.google.gson.JsonSerializationContext
-import com.google.gson.JsonSerializer
 import com.squareup.moshi.*
 import org.json.JSONObject
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.json.GsonUtil
 import org.wikipedia.json.MoshiUtil
-import java.lang.reflect.Type
 
 class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val invokeSource: InvokeSource) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
@@ -100,12 +94,6 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
                 "scorecard_opened", contributionsOpenedCount,
                 "source", invokeSource.name
         )
-    }
-
-    private class SuggestedEditsStatsTypeAdapter : JsonSerializer<SuggestedEditStats> {
-        override fun serialize(src: SuggestedEditStats, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-            return if (src.isEmpty) JsonNull.INSTANCE else GsonUtil.getDefaultGson().toJsonTree(src, typeOfSrc)
-        }
     }
 
     @JsonClass(generateAdapter = true)

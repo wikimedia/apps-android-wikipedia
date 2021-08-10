@@ -4,18 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.JsonReader;
+import com.squareup.moshi.JsonWriter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
 
 import org.wikipedia.json.annotations.Required;
 
 import java.io.IOException;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.Set;
 
@@ -29,17 +30,21 @@ import java.util.Set;
  * TODO: Handle null values in lists during deserialization, perhaps with a new @RequiredElements
  * annotation and another corresponding TypeAdapter(Factory).
  */
-class RequiredFieldsCheckOnReadTypeAdapterFactory implements TypeAdapterFactory {
-    @Nullable @Override public final <T> TypeAdapter<T> create(@NonNull Gson gson, @NonNull TypeToken<T> typeToken) {
-        Class<?> rawType = typeToken.getRawType();
+class RequiredFieldsCheckOnReadJsonAdapterFactory implements JsonAdapter.Factory {
+    @Nullable
+    @Override
+    public JsonAdapter<?> create(@NonNull Type type, @NonNull Set<? extends Annotation> annotations,
+                                 @NonNull Moshi moshi) {
+        Class<?> rawType = Types.getRawType(type);
         Set<Field> requiredFields = collectRequiredFields(rawType);
-
         if (requiredFields.isEmpty()) {
             return null;
         }
-
-        setFieldsAccessible(requiredFields, true);
-        return new Adapter<>(gson.getDelegateAdapter(this, typeToken), requiredFields);
+        for (Field field : requiredFields) {
+            field.setAccessible(true);
+        }
+        final JsonAdapter<?> adapter = moshi.nextAdapter(this, rawType, annotations);
+        return new Adapter<>(adapter, requiredFields);
     }
 
     @NonNull private Set<Field> collectRequiredFields(@NonNull Class<?> clazz) {
@@ -53,32 +58,32 @@ class RequiredFieldsCheckOnReadTypeAdapterFactory implements TypeAdapterFactory 
         return Collections.unmodifiableSet(required);
     }
 
-    private void setFieldsAccessible(Iterable<Field> fields, boolean accessible) {
-        for (Field field : fields) {
-            field.setAccessible(accessible);
-        }
-    }
-
-    private static final class Adapter<T> extends TypeAdapter<T> {
-        @NonNull private final TypeAdapter<T> delegate;
+    private static final class Adapter<T> extends JsonAdapter<T> {
+        @NonNull private final JsonAdapter<T> delegate;
         @NonNull private final Set<Field> requiredFields;
 
-        private Adapter(@NonNull TypeAdapter<T> delegate, @NonNull final Set<Field> requiredFields) {
+        private Adapter(@NonNull JsonAdapter<T> delegate, @NonNull final Set<Field> requiredFields) {
             this.delegate = delegate;
             this.requiredFields = requiredFields;
         }
 
-        @Override public void write(JsonWriter out, T value) throws IOException {
-            delegate.write(out, value);
+        @Override
+        public void toJson(@NonNull JsonWriter writer, @Nullable T value) throws IOException {
+            delegate.toJson(writer, value);
         }
 
-        @Override @Nullable public T read(JsonReader in) throws IOException {
-            T deserialized = delegate.read(in);
-            return allRequiredFieldsPresent(deserialized, requiredFields) ? deserialized : null;
+        @Nullable
+        @Override
+        public T fromJson(@NonNull JsonReader reader) throws IOException {
+            final T deserialized = delegate.fromJson(reader);
+            if (deserialized != null) {
+                return allRequiredFieldsPresent(deserialized, requiredFields) ? deserialized : null;
+            } else {
+                return null;
+            }
         }
 
-        private boolean allRequiredFieldsPresent(@NonNull T deserialized,
-                                                 @NonNull Set<Field> required) {
+        private boolean allRequiredFieldsPresent(@NonNull T deserialized, @NonNull Set<Field> required) {
             for (Field field : required) {
                 try {
                     if (field.get(deserialized) == null) {
