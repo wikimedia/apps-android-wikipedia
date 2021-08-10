@@ -172,6 +172,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
+  <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Send feedback</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
