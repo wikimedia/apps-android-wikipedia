@@ -1,7 +1,7 @@
 package org.wikipedia.json
 
-import com.google.gson.JsonParseException
 import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter
 import org.wikipedia.dataclient.WikiSite
@@ -11,6 +11,7 @@ class WikiSiteJsonAdapter : JsonAdapter<WikiSite>() {
     companion object {
         private const val DOMAIN = "domain"
         private const val LANGUAGE_CODE = "languageCode"
+        private val NAMES = JsonReader.Options.of(DOMAIN, LANGUAGE_CODE)
     }
 
     @Throws(IOException::class)
@@ -19,16 +20,18 @@ class WikiSiteJsonAdapter : JsonAdapter<WikiSite>() {
         var languageCode: String? = null
         reader.beginObject()
         while (reader.hasNext()) {
-            val field = reader.nextName()
-            val value = reader.nextString()
-            when (field) {
-                DOMAIN -> domain = value
-                LANGUAGE_CODE -> languageCode = value
+            when (reader.selectName(NAMES)) {
+                0 -> domain = reader.nextString()
+                1 -> languageCode = reader.nextString()
+                else -> {
+                    reader.skipName()
+                    reader.skipValue()
+                }
             }
         }
         reader.endObject()
         if (domain.isNullOrEmpty()) {
-            throw JsonParseException("Missing domain")
+            throw JsonDataException("Missing domain")
         }
 
         return languageCode?.let { WikiSite(domain, it) } ?: WikiSite(domain)
