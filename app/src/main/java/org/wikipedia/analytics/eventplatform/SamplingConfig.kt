@@ -9,22 +9,19 @@ import com.google.gson.annotations.SerializedName
  * The boxed Double type is used instead of the double primitive because its value may be null,
  * which denotes that the stream should always be *included*.
  */
- class SamplingConfig {
+class SamplingConfig {
 
     enum class Identifier {
-        @SerializedName("pageview")
-        PAGEVIEW,
-        @SerializedName("session")
-        SESSION,
-        @SerializedName("device")
-        DEVICE
+        @SerializedName("pageview") PAGEVIEW,
+        @SerializedName("session") SESSION,
+        @SerializedName("device") DEVICE
     }
 
     private var identifier: Identifier? = null
     var rate = 1.0
 
     // This constructor is needed for correct Gson deserialization. Do not remove!
-    constructor() {}
+    constructor()
 
     @VisibleForTesting
     constructor(rate: Double, identifier: Identifier?) {
