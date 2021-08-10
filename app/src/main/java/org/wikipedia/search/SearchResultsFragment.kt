@@ -149,8 +149,10 @@ class SearchResultsFragment : Fragment() {
                         handleSuggestion(searchResults.suggestion)
                         val resultList = mutableListOf<SearchResult>()
                         addSearchResultsFromTabs(resultList)
-                        resultList.addAll(readingListSearchResults!!.results)
-                        resultList.addAll(historySearchResults.results)
+                        resultList.addAll(readingListSearchResults.results.filterNot { res ->
+                            resultList.map { it.pageTitle.prefixedText }.contains(res.pageTitle.prefixedText) }.take(1))
+                        resultList.addAll(historySearchResults.results.filterNot { res ->
+                            resultList.map { it.pageTitle.prefixedText }.contains(res.pageTitle.prefixedText) }.take(1))
                         resultList.addAll(searchResults.results)
                         resultList
                     })
