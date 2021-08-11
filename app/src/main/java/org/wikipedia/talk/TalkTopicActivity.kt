@@ -130,10 +130,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.replySaveButton.visibility = View.VISIBLE
         binding.replyTextLayout.visibility = View.VISIBLE
         binding.licenseText.visibility = View.VISIBLE
-        DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
         binding.talkScrollContainer.postDelayed({
             if (!isDestroyed) {
                 binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
+                DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
                 binding.replyTextLayout.requestFocus()
             }
         }, 500)
