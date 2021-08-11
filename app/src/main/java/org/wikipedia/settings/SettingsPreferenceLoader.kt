@@ -2,7 +2,6 @@ package org.wikipedia.settings
 
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Typeface
 import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -17,7 +16,6 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
-import org.wikipedia.util.ResourceUtil
 
 /** UI code for app settings used by PreferenceFragment.  */
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -60,25 +58,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
         if (AccountUtil.isLoggedIn) {
             loadPreferences(R.xml.preferences_account)
-            (findPreference(R.string.preference_key_logout) as PreferenceMultiLine).apply {
-                titleAllCaps = true
-                titleColor = ResourceUtil.getThemedColor(activity, R.attr.colorError)
-                titleTypeFace = Typeface.DEFAULT_BOLD
-                onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                    AlertDialog.Builder(activity)
-                        .setMessage(R.string.logout_prompt)
-                        .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
-                        .setPositiveButton(R.string.preference_title_logout) { _, _ ->
-                            WikipediaApp.getInstance().logOut()
-                            Prefs.setReadingListsLastSyncTime(null)
-                            Prefs.setReadingListSyncEnabled(false)
-                            Prefs.setSuggestedEditsHighestPriorityEnabled(false)
-                            activity.setResult(SettingsActivity.ACTIVITY_RESULT_LOG_OUT)
-                            activity.finish()
-                        }.show()
-                    true
-                }
-            }
+            (findPreference(R.string.preference_key_logout) as PreferenceLogout).activity = activity
         }
     }
 
