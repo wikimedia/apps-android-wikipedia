@@ -31,6 +31,7 @@ class CookieManagerJsonAdapter : JsonAdapter<SharedPreferenceCookieManager>() {
         return SharedPreferenceCookieManager(map)
     }
 
+    @Throws(IOException::class)
     override fun toJson(writer: JsonWriter, value: SharedPreferenceCookieManager?) {
         val map = value?.cookieJar ?: emptyMap()
         writer.beginObject()
