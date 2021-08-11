@@ -20,13 +20,13 @@
   <string name="menu_clear_all_history">Rader historia</string>
   <string name="dialog_title_clear_history">Rader historia de navigation</string>
   <string name="dialog_message_clear_history">Isto delera tote le historia de tu navigator e claudera omne schedas aperte. Es tu secur?</string>
-  <string name="share_via">Divider via</string>
+  <string name="share_via">Condivider via</string>
   <string name="menu_page_show_tabs">Monstrar schedas</string>
   <string name="menu_page_other_languages">Cambiar de lingua</string>
   <string name="menu_page_find_in_page">Cercar in articulo</string>
   <string name="menu_page_font_and_theme">Typo de litteras e thema</string>
   <string name="menu_page_add_to_list">Adder al lista de lectura</string>
-  <string name="menu_page_share">Divider ligamine</string>
+  <string name="menu_page_share">Condivider ligamine</string>
   <string name="menu_page_open_a_new_tab">Aperir un nove scheda</string>
   <string name="menu_page_reading_lists">Listas de lectura</string>
   <string name="menu_page_recently_viewed">Recentemente visitate</string>
@@ -124,8 +124,8 @@
   <string name="read_more_section">Leger plus</string>
   <string name="menu_gallery_visit_image_page">Visitar le pagina del file</string>
   <string name="gallery_error_draw_failed">Non poteva monstrar le imagine.</string>
-  <string name="gallery_menu_share">Divider</string>
-  <string name="gallery_share_error">Non poteva divider imagine: %s</string>
+  <string name="gallery_menu_share">Condivider</string>
+  <string name="gallery_share_error">Non poteva condivider imagine: %s</string>
   <string name="gallery_save_success">File salveguardate.</string>
   <string name="gallery_add_image_caption_button">Adder legenda al imagine</string>
   <string name="err_cannot_save_file">Impossibile salveguardar le file</string>
