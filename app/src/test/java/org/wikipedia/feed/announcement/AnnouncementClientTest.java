@@ -1,5 +1,9 @@
 package org.wikipedia.feed.announcement;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Before;
@@ -13,10 +17,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import io.reactivex.rxjava3.core.Observable;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 
 public class AnnouncementClientTest extends MockRetrofitTest {
     private static final int ANNOUNCEMENT_IOS = 0;
@@ -92,8 +92,8 @@ public class AnnouncementClientTest extends MockRetrofitTest {
     }
 
     @Test public void testShouldShowForInvalidDates() {
-        assertThat(announcementList.getItems().get(ANNOUNCEMENT_INVALID_DATES), is(nullValue()));
-        assertThat(announcementList.getItems().get(ANNOUNCEMENT_NO_DATES), is(nullValue()));
+        assertThat(announcementList.getItems().get(ANNOUNCEMENT_INVALID_DATES), is(notNullValue()));
+        assertThat(announcementList.getItems().get(ANNOUNCEMENT_NO_DATES), is(notNullValue()));
     }
 
     @Test public void testShouldShowForInvalidCountries() throws Throwable {
