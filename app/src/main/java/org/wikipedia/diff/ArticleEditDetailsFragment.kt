@@ -13,6 +13,7 @@ import android.view.*
 import android.view.View.*
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
@@ -232,9 +233,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun setEnableDisableTint(view: AppCompatImageView, isDisabled: Boolean) {
-        ImageViewCompat.setImageTintList(view, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
-                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
+        ImageViewCompat.setImageTintList(view, AppCompatResources.getColorStateList(requireContext(),
+            ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
+                R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color)))
     }
 
     private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
