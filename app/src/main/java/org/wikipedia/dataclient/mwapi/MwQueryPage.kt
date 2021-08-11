@@ -34,7 +34,7 @@ class MwQueryPage(
     var convertedFrom: String? = null,
     var convertedTo: String? = null,
     @Json(name = "varianttitles") val variantTitles: Map<String, String> = emptyMap(),
-    @Json(name = "pageviews") val pageViewsMap: Map<String, Long> = emptyMap(),
+    @Json(name = "pageviews") val pageViewsMap: Map<String, Long?> = emptyMap(),
     @Json(name = "imagelabels") val imageLabels: List<ImageLabel> = emptyList(),
     @Json(name = "watchlistexpiry") val watchlistExpiry: String? = null,
     val actions: Map<String, List<MwServiceError>> = emptyMap(),

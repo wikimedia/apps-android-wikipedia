@@ -8,18 +8,18 @@ import java.util.*
 
 @JsonClass(generateAdapter = true)
 class EditorTaskCounts(
-    internal val counts: Counts? = null,
-    @Json(name = "revert_counts") internal val revertCounts: Counts? = null,
-    @Json(name = "edit_streak") internal val editStreak: EditStreak? = null
+    internal val counts: Any? = null,
+    @Json(name = "revert_counts") internal val revertCounts: Any? = null,
+    @Json(name = "edit_streak") internal val editStreak: Any? = null
 ) {
     internal val descriptionEditsPerLanguage: Map<String, Int>
-        get() = counts?.appDescriptionEdits ?: emptyMap()
+        get() = (counts as? Counts)?.appDescriptionEdits ?: emptyMap()
 
     internal val captionEditsPerLanguage: Map<String, Int>
-        get() = counts?.appCaptionEdits ?: emptyMap()
+        get() = (counts as? Counts)?.appCaptionEdits ?: emptyMap()
 
     val totalDepictsEdits: Int
-        get() = counts?.appDepictsEdits?.get("*") ?: 0
+        get() = (counts as? Counts)?.appDepictsEdits?.get("*") ?: 0
 
     val totalEdits: Int
         get() = if (Prefs.shouldOverrideSuggestedEditCounts()) {
@@ -35,13 +35,13 @@ class EditorTaskCounts(
         get() = captionEditsPerLanguage.values.sum()
 
     internal val descriptionRevertsPerLanguage: Map<String, Int>
-        get() = revertCounts?.appDescriptionEdits ?: emptyMap()
+        get() = (revertCounts as? Counts)?.appDescriptionEdits ?: emptyMap()
 
     internal val captionRevertsPerLanguage: Map<String, Int>
-        get() = revertCounts?.appCaptionEdits ?: emptyMap()
+        get() = (revertCounts as? Counts)?.appCaptionEdits ?: emptyMap()
 
     internal val totalDepictsReverts: Int
-        get() = revertCounts?.appDepictsEdits?.get("*") ?: 0
+        get() = (revertCounts as? Counts)?.appDepictsEdits?.get("*") ?: 0
 
     val totalReverts: Int
         get() = if (Prefs.shouldOverrideSuggestedEditCounts()) {
@@ -51,10 +51,10 @@ class EditorTaskCounts(
         }
 
     val editStreakLength: Int
-        get() = editStreak?.length ?: 0
+        get() = (editStreak as? EditStreak)?.length ?: 0
 
     val lastEditDate: Date
-        get() = editStreak?.let { dbDateParse(it.lastEditTime) } ?: Date(0)
+        get() = (editStreak as? EditStreak)?.let { dbDateParse(it.lastEditTime) } ?: Date(0)
 
     @JsonClass(generateAdapter = true)
     class Counts(

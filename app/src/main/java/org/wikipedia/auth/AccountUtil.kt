@@ -68,7 +68,8 @@ object AccountUtil {
     var groups: Set<String>
         get() {
             val account = account() ?: return emptySet()
-            val setStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_groups))
+            val setStr = accountManager().getUserData(account, WikipediaApp.getInstance()
+                .getString(R.string.preference_key_login_groups)) ?: "null"
             val type = Types.newParameterizedType(Set::class.java, String::class.java)
             val adapter = MoshiUtil.getDefaultMoshi().adapter<Set<String>>(type).nullSafe()
             return adapter.fromJson(setStr) ?: emptySet()
@@ -142,14 +143,15 @@ object AccountUtil {
     private var userIds: Map<String, Int>
         get() {
             val account = account() ?: return emptyMap()
-            val mapStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map))
-            val type = Types.newParameterizedType(Map::class.java, String::class.java, Int::class.java)
+            val mapStr = accountManager().getUserData(account, WikipediaApp.getInstance()
+                .getString(R.string.preference_key_login_user_id_map)) ?: "null"
+            val type = Types.newParameterizedType(Map::class.java, String::class.java, Int::class.javaObjectType)
             val adapter = MoshiUtil.getDefaultMoshi().adapter<Map<String, Int>>(type).nullSafe()
             return adapter.fromJson(mapStr) ?: emptyMap()
         }
         private set(ids) {
             val account = account() ?: return
-            val type = Types.newParameterizedType(Map::class.java, String::class.java, Int::class.java)
+            val type = Types.newParameterizedType(Map::class.java, String::class.java, Int::class.javaObjectType)
             val adapter = MoshiUtil.getDefaultMoshi().adapter<Map<String, Int>>(type).nullSafe()
             accountManager().setUserData(account,
                     WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map),

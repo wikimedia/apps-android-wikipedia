@@ -732,7 +732,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@addListener
             }
             val adapter = MoshiUtil.getDefaultMoshi().adapter(PageReferences::class.java)
-            adapter.fromJson(messagePayload?.toString() ?: "null")?.let {
+            adapter.fromJson(messagePayload.toString())?.let {
                 references = it
                 if (!it.referencesGroup.isNullOrEmpty()) {
                     showBottomSheet(ReferenceDialog())
