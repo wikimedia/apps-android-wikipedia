@@ -17,6 +17,7 @@ import io.reactivex.rxjava3.core.Observable;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+
 public class AnnouncementClientTest extends MockRetrofitTest {
     private static final int ANNOUNCEMENT_IOS = 0;
     private static final int ANNOUNCEMENT_SURVEY_ANDROID = 1;
