@@ -52,7 +52,11 @@ class Announcement {
 
     constructor()
 
-    constructor( id: String?, text: String?, imageUrl: String?, action: Action?, negativeText: String?) {
+    constructor(id: String?,
+                text: String?,
+                imageUrl: String?,
+                action: Action?,
+                negativeText: String?) {
         this.id = id.orEmpty()
         this.text = text.orEmpty()
         this.imageUrl = imageUrl.orEmpty()
