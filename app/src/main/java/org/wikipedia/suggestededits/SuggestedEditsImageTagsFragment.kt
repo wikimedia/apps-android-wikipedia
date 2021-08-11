@@ -369,7 +369,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             }
                             .subscribe({
                                 if (it.entity != null) {
-                                    funnel?.logSaved(it.entity!!.lastRevId, invokeSource.name)
+                                    funnel?.logSaved(it.entity.lastRevId, invokeSource.name)
                                 }
                                 publishSuccess = true
                                 onSuccess()
@@ -383,7 +383,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onSuccess() {
-        SuggestedEditsFunnel.get()!!.success(ADD_IMAGE_TAGS)
+        SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
 
         val duration = 500L
         binding.publishProgressBar.alpha = 1f
@@ -420,7 +420,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onError(caught: Throwable) {
         // TODO: expand this a bit.
-        SuggestedEditsFunnel.get()!!.failure(ADD_IMAGE_TAGS)
+        SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
