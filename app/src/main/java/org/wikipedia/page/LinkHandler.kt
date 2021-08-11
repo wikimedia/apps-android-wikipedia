@@ -24,9 +24,8 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
         }
     }
 
-    override fun onUrlClick(url: String, title: String?, linkText: String) {
+    override fun onUrlClick(url: String, titleString: String?, linkText: String) {
         var href = url
-        var titleString = title
         if (href.startsWith("//")) {
             // for URLs without an explicit scheme, add our default scheme explicitly.
             href = wikiSite.scheme() + ":" + href
@@ -58,8 +57,9 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
 
         // TODO: remove this after the endpoint supporting language variants
         val convertedText = UriUtil.getTitleFromUrl(href)
-        if (convertedText != titleString) {
-            titleString = convertedText
+        var titleStr = titleString
+        if (convertedText != titleStr) {
+            titleStr = convertedText
         }
         L.d("Link clicked was $uri")
         val supportedAuthority = uri.authority?.run { WikiSite.supportedAuthority(this) } == true
@@ -70,7 +70,7 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
                     // override the languageCode from the parent WikiSite, in case it's a variant.
                     site = WikiSite(uri.authority!!, wikiSite.languageCode())
                 }
-                val newTitle = if (titleString.isNullOrEmpty()) site.titleForInternalLink(uri.path) else PageTitle.withSeparateFragment(titleString, uri.fragment, site)
+                val newTitle = if (titleStr.isNullOrEmpty()) site.titleForInternalLink(uri.path) else PageTitle.withSeparateFragment(titleStr, uri.fragment, site)
                 if (newTitle.isFilePage) {
                     onMediaLinkClicked(newTitle)
                 } else {
