@@ -14,6 +14,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwResponse
+import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.json.MoshiUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
@@ -138,7 +139,11 @@ class LoginClient {
     }
 
     @JsonClass(generateAdapter = true)
-    class LoginResponse(@Json(name = "clientlogin") internal val clientLogin: ClientLogin? = null) : MwResponse() {
+    class LoginResponse(
+        errors: List<MwServiceError> = emptyList(),
+        @Json(name = "servedby") servedBy: String = "",
+        @Json(name = "clientlogin") internal val clientLogin: ClientLogin? = null
+    ) : MwResponse(errors, servedBy) {
         fun toLoginResult(site: WikiSite, password: String): LoginResult? {
             return clientLogin?.toLoginResult(site, password)
         }

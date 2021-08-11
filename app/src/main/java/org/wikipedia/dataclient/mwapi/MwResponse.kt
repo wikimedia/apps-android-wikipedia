@@ -1,11 +1,6 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.squareup.moshi.Json
-
-abstract class MwResponse(
-    val errors: List<MwServiceError> = emptyList(),
-    @Json(name = "servedby") internal val servedBy: String? = null
-) {
+abstract class MwResponse(val errors: List<MwServiceError>, val servedBy: String) {
     init {
         if (errors.isNotEmpty()) {
             for (error in errors) {

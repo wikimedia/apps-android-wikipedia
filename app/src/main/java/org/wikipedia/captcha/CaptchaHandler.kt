@@ -61,7 +61,7 @@ class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
             .observeOn(AndroidSchedulers.mainThread())
             .doAfterTerminate { binding.captchaImageProgress.visibility = View.GONE }
             .subscribe({ response ->
-                captchaResult = CaptchaResult(response.captchaId())
+                captchaResult = CaptchaResult(response.captchaId)
                 handleCaptcha(true)
             }) { caught ->
                 cancelCaptcha()

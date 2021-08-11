@@ -80,7 +80,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                 .flatMap { response ->
                     if (response is MwParseResponse) {
                         L.d("Downloaded page " + mainPageTitle.displayText)
-                        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, findFeaturedArticleTitle(response.text))
+                        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, findFeaturedArticleTitle(response.parse.text))
                     } else {
                         Observable.just(response as PageSummary)
                     }

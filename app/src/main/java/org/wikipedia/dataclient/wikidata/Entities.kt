@@ -3,9 +3,14 @@ package org.wikipedia.dataclient.wikidata
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.mwapi.MwResponse
+import org.wikipedia.dataclient.mwapi.MwServiceError
 
 @JsonClass(generateAdapter = true)
-class Entities(val entities: Map<String, Entity> = emptyMap()) : MwResponse() {
+class Entities(
+    errors: List<MwServiceError> = emptyList(),
+    @Json(name = "servedby") servedBy: String = "",
+    val entities: Map<String, Entity> = emptyMap()
+) : MwResponse(errors, servedBy) {
     val first: Entity?
         get() = entities.values.firstOrNull()
 

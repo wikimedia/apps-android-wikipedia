@@ -326,7 +326,7 @@ class EditSectionActivity : BaseActivity() {
             disposables.add(ServiceFactory.get(pageTitle.wikiSite).parsePage("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.message))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, text = response.text))) }) { showError(it) })
+                    .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, text = response.parse.text))) }) { showError(it) })
         } else if ("editconflict" == code) {
             AlertDialog.Builder(this@EditSectionActivity)
                     .setTitle(R.string.edit_conflict_title)

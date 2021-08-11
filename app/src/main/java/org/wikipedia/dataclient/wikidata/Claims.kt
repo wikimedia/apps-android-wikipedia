@@ -4,9 +4,14 @@ import android.location.Location
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.mwapi.MwResponse
+import org.wikipedia.dataclient.mwapi.MwServiceError
 
 @JsonClass(generateAdapter = true)
-class Claims(val claims: Map<String, List<Claim>> = emptyMap()) : MwResponse() {
+class Claims(
+    errors: List<MwServiceError> = emptyList(),
+    @Json(name = "servedby") servedBy: String = "",
+    val claims: Map<String, List<Claim>> = emptyMap()
+) : MwResponse(errors, servedBy) {
     @JsonClass(generateAdapter = true)
     class Claim(
         internal val type: String? = null, internal val id: String? = null,

@@ -6,7 +6,8 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 open class MwQueryResponse(
     errors: List<MwServiceError> = emptyList(),
+    @Json(name = "servedby") servedBy: String = "",
     @Json(name = "batchcomplete") val batchComplete: Boolean = false,
     @Json(name = "continue") val continuation: Map<String, String> = emptyMap(),
     var query: MwQueryResult? = null
-) : MwResponse(errors)
+) : MwResponse(errors, servedBy)

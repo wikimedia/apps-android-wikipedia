@@ -6,7 +6,11 @@ import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwServiceError
 
 @JsonClass(generateAdapter = true)
-class Edit(errors: List<MwServiceError> = emptyList(), val edit: Result? = null) : MwPostResponse(errors) {
+class Edit(
+    errors: List<MwServiceError> = emptyList(),
+    @Json(name = "servedby") servedBy: String = "",
+    val edit: Result? = null
+) : MwPostResponse(errors, servedBy) {
     @JsonClass(generateAdapter = true)
     class Result(
         internal val captcha: Captcha? = null,

@@ -5,4 +5,8 @@ import com.squareup.moshi.JsonClass
 import org.wikipedia.analytics.eventplatform.StreamConfig
 
 @JsonClass(generateAdapter = true)
-class MwStreamConfigsResponse(@Json(name = "streams") val streamConfigs: Map<String, StreamConfig>) : MwResponse()
+class MwStreamConfigsResponse(
+    errors: List<MwServiceError> = emptyList(),
+    @Json(name = "servedby") servedBy: String = "",
+    @Json(name = "streams") val streamConfigs: Map<String, StreamConfig> = emptyMap()
+) : MwResponse(errors, servedBy)

@@ -36,6 +36,6 @@ public class CaptchaClientTest extends MockRetrofitTest {
 
     private Observable<CaptchaResult> getObservable() {
         return getApiService().getNewCaptcha()
-                        .map(response -> new CaptchaResult(response.captchaId()));
+                        .map(response -> new CaptchaResult(response.getCaptchaId()));
     }
 }

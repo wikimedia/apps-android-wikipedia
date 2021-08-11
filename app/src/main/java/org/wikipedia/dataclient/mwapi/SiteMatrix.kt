@@ -1,9 +1,14 @@
 package org.wikipedia.dataclient.mwapi
 
+import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-class SiteMatrix(errors: List<MwServiceError> = emptyList(), val sitematrix: Map<String, Any> = emptyMap()) : MwResponse(errors) {
+class SiteMatrix(
+    errors: List<MwServiceError> = emptyList(),
+    @Json(name = "servedby") servedBy: String = "",
+    val sitematrix: Map<String, Any> = emptyMap()
+) : MwResponse(errors, servedBy) {
     @JsonClass(generateAdapter = true)
     class SiteInfo(val code: String = "", val name: String = "", val localname: String = "")
 

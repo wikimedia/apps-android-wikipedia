@@ -8,9 +8,10 @@ import org.wikipedia.dataclient.mwapi.MwServiceError
 @JsonClass(generateAdapter = true)
 class PrefixSearchResponse(
     errors: List<MwServiceError> = emptyList(),
+    @Json(name = "servedby") servedBy: String = "",
     @Json(name = "searchinfo") internal val searchInfo: SearchInfo? = null,
     internal val search: Search? = null
-) : MwQueryResponse(errors) {
+) : MwQueryResponse(errors, servedBy) {
     val suggestion: String?
         get() = searchInfo?.suggestion
 
