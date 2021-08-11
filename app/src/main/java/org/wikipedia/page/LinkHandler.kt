@@ -2,7 +2,7 @@ package org.wikipedia.page
 
 import android.content.Context
 import android.net.Uri
-import com.google.gson.JsonObject
+import org.json.JSONObject
 import org.wikipedia.bridge.CommunicationBridge.JSEventListener
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.LinkMovementMethodExt.UrlHandlerWithText
@@ -17,9 +17,10 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
     abstract var wikiSite: WikiSite
 
     // message from JS bridge:
-    override fun onMessage(messageType: String, messagePayload: JsonObject?) {
+    override fun onMessage(messageType: String, messagePayload: JSONObject?) {
         messagePayload?.let {
-            onUrlClick(UriUtil.decodeURL(it["href"].asString), it["title"]?.asString, it["text"]?.asString.orEmpty())
+            onUrlClick(UriUtil.decodeURL(it.getString("href")), it.optString("title"),
+                it.optString("text"))
         }
     }
 

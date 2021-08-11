@@ -1,29 +1,21 @@
-package org.wikipedia.json;
+package org.wikipedia.json
 
-import android.net.Uri;
+import android.net.Uri
+import androidx.core.net.toUri
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.JsonReader
+import com.squareup.moshi.JsonWriter
+import java.io.IOException
+import kotlin.Throws
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.squareup.moshi.JsonAdapter;
-import com.squareup.moshi.JsonReader;
-import com.squareup.moshi.JsonWriter;
-
-import java.io.IOException;
-
-public class UriJsonAdapter extends JsonAdapter<Uri> {
-    @Nullable
-    @Override
-    public Uri fromJson(JsonReader reader) throws IOException {
-        return Uri.parse(reader.nextString());
+class UriJsonAdapter : JsonAdapter<Uri>() {
+    @Throws(IOException::class)
+    override fun fromJson(reader: JsonReader): Uri {
+        return reader.nextString().toUri()
     }
 
-    @Override
-    public void toJson(@NonNull JsonWriter writer, @Nullable Uri value) throws IOException {
-        if (value == null) {
-            writer.nullValue();
-        } else {
-            writer.value(value.toString());
-        }
+    @Throws(IOException::class)
+    override fun toJson(writer: JsonWriter, value: Uri?) {
+        writer.value(value?.toString())
     }
 }

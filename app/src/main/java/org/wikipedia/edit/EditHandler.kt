@@ -5,7 +5,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
-import com.google.gson.JsonObject
+import org.json.JSONObject
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.bridge.CommunicationBridge
@@ -24,14 +24,14 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
         bridge.addListener(TYPE_ADD_TITLE_DESCRIPTION, this)
     }
 
-    override fun onMessage(messageType: String, messagePayload: JsonObject?) {
+    override fun onMessage(messageType: String, messagePayload: JSONObject?) {
         if (!fragment.isAdded) {
             return
         }
 
         currentPage?.let {
             if (messageType == TYPE_EDIT_SECTION) {
-                val sectionId = messagePayload?.run { this[PAYLOAD_SECTION_ID].asInt } ?: 0
+                val sectionId = messagePayload?.optInt(PAYLOAD_SECTION_ID) ?: 0
                 if (sectionId == 0 && DescriptionEditUtil.isEditAllowed(it)) {
                     val tempView = View(fragment.requireContext())
                     tempView.x = fragment.webView.touchStartX

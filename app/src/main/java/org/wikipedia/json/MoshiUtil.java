@@ -9,6 +9,7 @@ import com.squareup.moshi.Moshi;
 import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory;
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter;
 
+import org.json.JSONObject;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.wikidata.Claims;
@@ -33,6 +34,7 @@ public final class MoshiUtil {
             .add(Namespace.class, new NamespaceJsonAdapter().nullSafe())
             .add(WikiSite.class, new WikiSiteJsonAdapter().nullSafe())
             .add(SharedPreferenceCookieManager.class, new CookieManagerJsonAdapter().nullSafe())
+            .add(JSONObject.class, new JSONObjectAdapter().nullSafe())
             .add(DATA_VALUE_ADAPTER_FACTORY)
             .addLast(new RequiredFieldsCheckOnReadJsonAdapterFactory())
             .build();

@@ -5,11 +5,12 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.webkit.*
-import com.google.gson.JsonObject
+import com.squareup.moshi.JsonClass
+import org.json.JSONObject
 import org.wikipedia.bridge.JavaScriptActionHandler.setUp
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.MoshiUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.util.UriUtil
@@ -31,7 +32,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
     private val pendingEvals = HashMap<String, ValueCallback<String>>()
 
     fun interface JSEventListener {
-        fun onMessage(messageType: String, messagePayload: JsonObject?)
+        fun onMessage(messageType: String, messagePayload: JSONObject?)
     }
 
     interface CommunicationBridgeListener {
@@ -132,7 +133,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         try {
             val listeners: List<JSEventListener> = eventListeners[message.action]!!
             for (listener in listeners) {
-                listener.onMessage(message.action!!, message.data)
+                listener.onMessage(message.action, message.data)
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -158,10 +159,10 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         @JavascriptInterface
         @Synchronized
         fun onReceiveMessage(message: String?) {
-            if (incomingMessageHandler != null) {
-                val msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS,
-                        GsonUtil.getDefaultGson().fromJson(message, BridgeMessage::class.java))
-                incomingMessageHandler!!.sendMessage(msg)
+            incomingMessageHandler?.let {
+                val adapter = MoshiUtil.getDefaultMoshi().adapter(BridgeMessage::class.java)
+                it.sendMessage(Message.obtain(it, MESSAGE_HANDLE_MESSAGE_FROM_JS,
+                    adapter.fromJson(message ?: "null")))
             }
         }
 
@@ -173,11 +174,8 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
                     communicationBridgeListener.toolbarMargin)
     }
 
-    private class BridgeMessage {
-        val action: String? = null
-            get() = field.orEmpty()
-        val data: JsonObject? = null
-    }
+    @JsonClass(generateAdapter = true)
+    internal class BridgeMessage(val action: String = "", val data: JSONObject? = null)
 
     companion object {
         private const val MESSAGE_HANDLE_MESSAGE_FROM_JS = 1

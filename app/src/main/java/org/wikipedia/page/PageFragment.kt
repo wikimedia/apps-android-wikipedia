@@ -741,17 +741,21 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("back_link") { _, messagePayload ->
             messagePayload?.let { payload ->
-                val backLinks = payload.getAsJsonArray("backLinks")
-                if (backLinks != null && backLinks.size() > 0) {
-                    val backLinksList = backLinks.map { it.asJsonObject["id"].asString }
-                    showFindReferenceInPage(payload["referenceId"].asString.orEmpty(), backLinksList, payload["referenceText"].asString.orEmpty())
+                val backLinks = payload.optJSONArray("backLinks")
+                if (backLinks != null && backLinks.length() > 0) {
+                    val backLinksList = mutableListOf<String?>()
+                    for (i in 0 until backLinks.length()) {
+                        backLinksList.add(backLinks.optJSONObject(i)?.toString())
+                    }
+                    showFindReferenceInPage(payload.optString("referenceId"), backLinksList,
+                        payload.optString("referenceText"))
                 }
             }
         }
         bridge.addListener("scroll_to_anchor") { _, messagePayload ->
             messagePayload?.let { payload ->
-                payload.getAsJsonObject("rect")?.let {
-                    val diffY = if (it.has("y")) DimenUtil.roundedDpToPx(it["y"].asFloat) else DimenUtil.roundedDpToPx(it["top"].asFloat)
+                payload.optJSONObject("rect")?.let {
+                    val diffY = if (it.has("y")) DimenUtil.roundedDpToPx(it.getDouble("y").toFloat()) else DimenUtil.roundedDpToPx(it.getDouble("top").toFloat())
                     val offsetFraction = 3
                     webView.scrollY = webView.scrollY + diffY - webView.height / offsetFraction
                 }
@@ -759,12 +763,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("image") { _, messagePayload ->
             messagePayload?.let { payload ->
-                linkHandler.onUrlClick(UriUtil.decodeURL(payload["href"].asString), payload["title"]?.asString, "")
+                linkHandler.onUrlClick(UriUtil.decodeURL(payload.getString("href")), payload.optString("title"), "")
             }
         }
         bridge.addListener("media") { _, messagePayload ->
             messagePayload?.let { payload ->
-                linkHandler.onUrlClick(UriUtil.decodeURL(payload["href"].asString), payload["title"]?.asString, "")
+                linkHandler.onUrlClick(UriUtil.decodeURL(payload.getString("href")), payload.optString("title"), "")
             }
         }
         bridge.addListener("pronunciation") { _, messagePayload ->
@@ -777,7 +781,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
                 if (!avPlayer!!.isPlaying && payload.has("url")) {
                     updateProgressBar(true)
-                    avPlayer!!.play(UriUtil.resolveProtocolRelativeUrl(payload["url"].asString), avCallback!!)
+                    avPlayer!!.play(UriUtil.resolveProtocolRelativeUrl(payload.getString("url")), avCallback!!)
                 } else {
                     updateProgressBar(false)
                     avPlayer!!.stop()
@@ -786,7 +790,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("footer_item") { _, messagePayload ->
             messagePayload?.let { payload ->
-                when (payload["itemType"].asString) {
+                when (payload.getString("itemType")) {
                     "talkPage" -> model.title?.run { startTalkTopicActivity(this) }
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {

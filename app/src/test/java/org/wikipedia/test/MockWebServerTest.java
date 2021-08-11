@@ -7,13 +7,10 @@ import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
-import org.wikipedia.json.GsonUtil;
 
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
 import okhttp3.mockwebserver.MockResponse;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 @RunWith(RobolectricTestRunner.class)
 public abstract class MockWebServerTest {
@@ -54,19 +51,5 @@ public abstract class MockWebServerTest {
 
     @NonNull protected OkHttpClient okHttpClient() {
         return okHttpClient;
-    }
-
-    @NonNull protected <T> T service(Class<T> clazz) {
-        return service(clazz, server().getUrl());
-    }
-
-    @NonNull protected <T> T service(Class<T> clazz, @NonNull String url) {
-        return new Retrofit.Builder()
-                .baseUrl(url)
-                .callbackExecutor(new ImmediateExecutor())
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
-                .build()
-                .create(clazz);
     }
 }
