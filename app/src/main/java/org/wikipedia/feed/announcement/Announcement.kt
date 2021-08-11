@@ -1,9 +1,6 @@
 package org.wikipedia.feed.announcement
 
-import androidx.annotation.NonNull
-import androidx.annotation.Nullable
 import com.google.gson.annotations.SerializedName
-import org.wikipedia.json.annotations.Required
 import org.wikipedia.util.DateUtil
 import java.util.*
 
@@ -14,26 +11,20 @@ class Announcement {
     @SerializedName("negative_text")
     var negativeText: String? = null
 
-    @Required
     var id: String = ""
 
     @SerializedName("start_time")
-    @Required
     private val startTime: String? = null
 
     @SerializedName("end_time")
-    @Required
     private val endTime: String? = null
     private val border: Boolean? = null
 
-    @Required
     var text: String? = null
 
-    @Required
     val type: String = ""
 
     @SerializedName("image_url")
-    @Nullable
     var imageUrl: String? = null
 
     @SerializedName("caption_HTML")
@@ -61,11 +52,7 @@ class Announcement {
 
     constructor()
 
-    constructor(@NonNull id: String?,
-                @NonNull text: String?,
-                @NonNull imageUrl: String?,
-                @NonNull action: Action?,
-                @NonNull negativeText: String?) {
+    constructor( id: String?, text: String?, imageUrl: String?, action: Action?, negativeText: String?) {
         this.id = id.orEmpty()
         this.text = text.orEmpty()
         this.imageUrl = imageUrl.orEmpty()
