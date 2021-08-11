@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
 
-import com.google.gson.JsonParseException;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.JsonReader;
 import com.squareup.moshi.JsonWriter;
@@ -83,14 +82,14 @@ class RequiredFieldsCheckOnReadJsonAdapterFactory implements JsonAdapter.Factory
             }
         }
 
-        private boolean allRequiredFieldsPresent(@NonNull T deserialized, @NonNull Set<Field> required) {
+        private boolean allRequiredFieldsPresent(@NonNull T deserialized, @NonNull Set<Field> required) throws IOException {
             for (Field field : required) {
                 try {
                     if (field.get(deserialized) == null) {
                         return false;
                     }
                 } catch (IllegalArgumentException | IllegalAccessException e) {
-                    throw new JsonParseException(e);
+                    throw new IOException(e);
                 }
             }
             return true;

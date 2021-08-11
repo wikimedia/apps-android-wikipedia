@@ -6,7 +6,9 @@ import android.widget.TextView
 import androidx.annotation.IntRange
 import androidx.core.text.parseAsHtml
 import androidx.core.text.toSpanned
-import com.google.gson.Gson
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
 import okio.ByteString.Companion.encodeUtf8
 import org.json.JSONArray
 import org.wikipedia.dataclient.WikiSite
@@ -192,12 +194,17 @@ object StringUtil {
 
     @JvmStatic
     fun stringToListMapToJSONString(map: Map<String, List<Int>>): String {
-        return Gson().toJson(map)
+        val listType = Types.newParameterizedType(List::class.java, Int::class.javaObjectType)
+        val mapType = Types.newParameterizedType(Map::class.java, String::class.java, listType)
+        val adapter: JsonAdapter<Map<String, List<Int>>> = Moshi.Builder().build().adapter(mapType)
+        return adapter.toJson(map)
     }
 
     @JvmStatic
     fun listToJSONString(list: List<Int>): String {
-        return Gson().toJson(list)
+        val type = Types.newParameterizedType(List::class.java, Int::class.javaObjectType)
+        val adapter: JsonAdapter<List<Int>> = Moshi.Builder().build().adapter(type)
+        return adapter.toJson(list)
     }
 
     fun userPageTitleFromName(userName: String, wiki: WikiSite): PageTitle {

@@ -5,7 +5,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 
 import org.junit.Test;
@@ -212,6 +212,6 @@ public class RequiredFieldsCheckOnReadJsonAdapterFactoryTest {
     }
 
     private static class SerializedNameModel {
-        @SuppressWarnings("NullableProblems") @SerializedName("foo") @Required @NonNull private String bar;
+        @SuppressWarnings("NullableProblems") @Json(name = "foo") @Required @NonNull private String bar;
     }
 }

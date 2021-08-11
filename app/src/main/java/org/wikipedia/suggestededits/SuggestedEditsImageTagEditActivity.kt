@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
-import com.google.gson.Gson
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -29,7 +28,8 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
         binding = ActivitySuggestedEditsFeedCardImageTagsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        page = Gson().fromJson(intent.getStringExtra(ARG_PAGE), MwQueryPage::class.java)
+        val adapter = MoshiUtil.getDefaultMoshi().adapter(MwQueryPage::class.java)
+        page = adapter.fromJson(intent.getStringExtra(ARG_PAGE) ?: "null")
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(R.string.suggested_edits_tag_images)
         setImageZoomHelper()

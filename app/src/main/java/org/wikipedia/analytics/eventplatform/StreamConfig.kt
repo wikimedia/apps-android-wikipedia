@@ -17,7 +17,8 @@ class StreamConfig(
     /**
      * Constructor for testing.
      *
-     * In practice, field values will be set by Gson during deserialization using reflection.
+     * In practice, field values will be set by Moshi using the default constructor during
+     * deserialization.
      *
      * @param streamName stream name
      * @param destinationEventService destination
