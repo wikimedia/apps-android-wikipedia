@@ -12,8 +12,8 @@ import java.util.*
 @JsonClass(generateAdapter = true)
 class MwServiceError(
     @Json(name = "code") override val title: String = "",
-    @Json(name = "html") internal val text: String = "",
-    override var details: String = "",
+    internal val text: String = "",
+    @Json(name = "html") override var details: String = "",
     internal val data: Data? = null
 ) : ServiceError {
     val isBadToken: Boolean
