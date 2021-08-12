@@ -12,7 +12,6 @@ import android.text.TextWatcher
 import android.view.*
 import android.widget.TextView
 import androidx.core.os.bundleOf
-import androidx.core.view.ViewCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -75,7 +74,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         val model = ShapeAppearanceModel.builder().setAllCornerSizes(DimenUtil.dpToPx(6f)).build()
         val materialShapeDrawable = MaterialShapeDrawable(model)
         materialShapeDrawable.fillColor = ColorStateList.valueOf(surfaceColor)
-        materialShapeDrawable.elevation = ViewCompat.getElevation(dialog.window!!.decorView)
+        materialShapeDrawable.elevation = dialog.window!!.decorView.elevation
 
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
             val inset = DimenUtil.roundedDpToPx(16f)

@@ -328,8 +328,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun initLangButton() {
-        binding.searchLangButton.text = app.language().appLanguageCode.toUpperCase(Locale.ENGLISH)
-        formatLangButton(binding.searchLangButton, app.language().appLanguageCode.toUpperCase(Locale.ENGLISH),
+        binding.searchLangButton.text = app.language().appLanguageCode.uppercase(Locale.ENGLISH)
+        formatLangButton(binding.searchLangButton, app.language().appLanguageCode.uppercase(Locale.ENGLISH),
                 LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
         setButtonLongPressToast(binding.searchLangButtonContainer)
     }

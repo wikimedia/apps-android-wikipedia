@@ -17,6 +17,7 @@
 * Kassem7899
 * Maroen1990
 * Meno25
+* Michel Bakni
 * Mido
 * Mojackjutaily
 * Mr. Ibrahem
@@ -189,6 +190,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">التفاصيل</string>
   <string name="preferences_general_heading">عام</string>
+  <string name="preferences_account_heading">الحساب</string>
   <string name="wikipedia_app_faq">الأسئلة المتكررة عن تطبيق ويكيبيديا</string>
   <string name="send_feedback">إرسال الملاحظات على التطبيق</string>
   <string name="create_account_account_created_toast">تم إنشاء الحساب!</string>
@@ -783,6 +785,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">الترخيص</string>
   <string name="suggested_edits_image_preview_dialog_more_info">المزيد من المعلومات</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">صفحة ملف في ويكيبيديا</string>
   <string name="suggested_edits_article_cta_image_tags">أضف وسوم الصور</string>
   <string name="suggested_edits_article_cta_image_caption">إضافة شرح الصورة</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">إضافة شرح الصورة (%s)</string>
@@ -846,6 +849,8 @@
   <string name="suggested_edits_what_is_text">تقدم التعديلات المقترحة فرصًا للمساهمات الصغيرة والحيوية في ويكيبيديا.</string>
   <string name="suggested_edits_learn_more">معرفة المزيد</string>
   <string name="suggested_edits_paused_title">إيقاف مؤقت</string>
+  <string name="suggested_edits_disabled_title">مُعطَّل</string>
+  <string name="suggested_edits_ip_blocked_title">عنوان بروتوكول إنترنت محجوب</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>
   <string name="suggested_edits_last_edited_never">أبدا</string>
   <string name="suggested_edits_task_new">جديد</string>
@@ -859,6 +864,7 @@
   <string name="suggested_edits_contribution_image_label">صورة</string>
   <string name="suggested_edits_contribution_article_label">مقالة</string>
   <string name="suggested_edits_contribution_views">%s مشاهدة</string>
+  <string name="suggested_edits_contribution_seen_text">شوهدت %s مرة في آخر 30 يوماً</string>
   <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
   <string name="suggested_edits_encourage_account_creation_title">هل تعلم أنه بإمكان الجميع تعديل ويكيبيديا؟</string>
   <string name="suggested_edits_encourage_account_creation_message">التعديلات المقترحة هي طريقة جديدة لتحرير ويكيبيديا على الأندرويد. تُساعدك على إجراء مساهمات صغيرة ولكنها حيوية في ويكيبيديا.\nهدفنا هو جعل التحرير أسهل وأكثر مرونة للجميع! سجّل الدخول أو انضم لويكيبيديا للبدء.</string>
@@ -964,7 +970,7 @@
   <string name="talk_title">نقاش</string>
   <string name="talk_user_title">نقاش: %s</string>
   <string name="talk_new_topic">موضوع جديد</string>
-  <string name="talk_new_topic_submitted" fuzzy="true">الموضوع مقدم.</string>
+  <string name="talk_new_topic_submitted">أُضيف الموضوع</string>
   <string name="talk_page_empty">صفحة النقاش هذه فارغة.</string>
   <string name="talk_add_reply">رد</string>
   <string name="talk_no_subject">(بدون موضوع)</string>
@@ -973,7 +979,7 @@
   <string name="talk_message_hint">صياغة رسالة</string>
   <string name="talk_message_empty">لا يمكن أن تكون الرسالة فارغة.</string>
   <string name="talk_subject_empty">لا يمكن أن يكون الموضوع فارغًا.</string>
-  <string name="talk_response_submitted" fuzzy="true">تم إرسال الرد.</string>
+  <string name="talk_response_submitted">نُشِر الرد.</string>
   <string name="talk_snackbar_undo">تراجع</string>
   <string name="talk_last_modified">&lt;b&gt;آخر تعديل %1$s&lt;/b&gt; بواسطة %2$s</string>
   <string name="menu_option_share_edit">شارك التعديل</string>
