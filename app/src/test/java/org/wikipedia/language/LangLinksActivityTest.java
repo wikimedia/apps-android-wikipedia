@@ -22,7 +22,7 @@ public class LangLinksActivityTest{
         List<PageTitle> list = getBaseLanguageEntries();
 
         LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
-        assertThat(list, is(getExpectedZhHantResults()));
+        compareLists(list, getExpectedZhHantResults());
     }
 
     @Test public void testAddChineseEntriesForSimplifiedChinese() {
@@ -31,7 +31,7 @@ public class LangLinksActivityTest{
         List<PageTitle> list = getBaseLanguageEntries();
 
         LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
-        assertThat(list, is(getExpectedZhHansResults()));
+        compareLists(list, getExpectedZhHansResults());
     }
 
     @Test public void testSkipAddChineseEntries() {
@@ -40,7 +40,7 @@ public class LangLinksActivityTest{
         List<PageTitle> list = getBaseLanguageEntriesWithZhVariants();
 
         LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
-        assertThat(list, is(getExpectedGeneralResults()));
+        compareLists(list, getExpectedGeneralResults());
     }
 
     private List<PageTitle> getBaseLanguageEntries() {
@@ -93,5 +93,12 @@ public class LangLinksActivityTest{
             }
         }
         return result;
+    }
+
+    private void compareLists(List<PageTitle> list1, List<PageTitle> list2) {
+        for (int i = 0; i < list1.size(); i++) {
+            assertThat(list1.get(i).getUri(), is(list2.get(i).getUri()));
+            assertThat(list1.get(i).getDisplayText(), is(list2.get(i).getDisplayText()));
+        }
     }
 }

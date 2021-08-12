@@ -42,7 +42,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
 
     override fun onFooterClicked() {
         card?.let {
-            funnel.cardClicked(CardType.ON_THIS_DAY, it.wikiSite().languageCode())
+            funnel.cardClicked(CardType.ON_THIS_DAY, it.wikiSite().languageCode)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation((context as Activity),
                 binding.cardHeader.titleView, context.getString(R.string.transition_on_this_day))
             context.startActivity(OnThisDayActivity.newIntent(context, age, -1,
@@ -72,7 +72,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
     private fun header(card: OnThisDayCard) {
         binding.cardHeader
             .setTitle(card.title())
-            .setLangCode(card.wikiSite().languageCode())
+            .setLangCode(card.wikiSite().languageCode)
             .setCard(card)
             .setCallback(callback)
         binding.eventLayout.text.text = card.text()
@@ -83,7 +83,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
         binding.eventLayout.pagesIndicator.visibility = GONE
         binding.cardFooterView.setFooterActionText(
             card.footerActionText(),
-            card.wikiSite().languageCode()
+            card.wikiSite().languageCode
         )
         binding.cardFooterView.callback = this
     }
@@ -91,7 +91,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
     private fun onCardClicked(view: View) {
         card?.let {
             val isYearClicked = view.id == R.id.year
-            funnel.cardClicked(CardType.ON_THIS_DAY, it.wikiSite().languageCode())
+            funnel.cardClicked(CardType.ON_THIS_DAY, it.wikiSite().languageCode)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation((context as Activity),
                 binding.cardHeader.titleView, context.getString(R.string.transition_on_this_day))
             context.startActivity(OnThisDayActivity.newIntent(context, age, if (isYearClicked) it.year() else -1, it.wikiSite(),

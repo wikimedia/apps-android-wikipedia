@@ -122,8 +122,8 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
 
     private Observable<EntityPostResponse> request() {
         final PageTitle pageTitle = new PageTitle("foo", WikiSite.forLanguageCode("en"));
-        return getApiService().postDescriptionEdit(pageTitle.getWikiSite().languageCode(),
-                pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
+        return getApiService().postDescriptionEdit(pageTitle.getWikiSite().getLanguageCode(),
+                pageTitle.getWikiSite().getLanguageCode(), pageTitle.getWikiSite().dbName(),
                 pageTitle.getPrefixedText(), "some new description", "summary", MOCK_EDIT_TOKEN, null);
     }
 }
