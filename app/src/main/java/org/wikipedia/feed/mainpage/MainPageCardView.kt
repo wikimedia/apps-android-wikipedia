@@ -26,19 +26,19 @@ class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard>(con
         set(value) {
             field = value
             value?.let {
-                binding.cardHeader.setTitle(getStringForArticleLanguage(it.wikiSite().languageCode(), R.string.view_main_page_card_title))
-                    .setLangCode(it.wikiSite().languageCode())
+                binding.cardHeader.setTitle(getStringForArticleLanguage(it.wikiSite().languageCode, R.string.view_main_page_card_title))
+                    .setLangCode(it.wikiSite().languageCode)
                     .setCard(it)
                     .setCallback(callback)
                 binding.cardFooter.callback = CardFooterView.Callback { goToMainPage() }
-                binding.cardFooter.setFooterActionText(getStringForArticleLanguage(it.wikiSite().languageCode(),
-                    R.string.view_main_page_card_action), it.wikiSite().languageCode())
+                binding.cardFooter.setFooterActionText(getStringForArticleLanguage(it.wikiSite().languageCode,
+                    R.string.view_main_page_card_action), it.wikiSite().languageCode)
             }
         }
 
     private fun goToMainPage() {
         card?.let {
-            callback?.onSelectPage(it, HistoryEntry(PageTitle(getMainPageForLang(it.wikiSite().languageCode()), it.wikiSite()),
+            callback?.onSelectPage(it, HistoryEntry(PageTitle(getMainPageForLang(it.wikiSite().languageCode), it.wikiSite()),
                 HistoryEntry.SOURCE_FEED_MAIN_PAGE), false)
         }
     }

@@ -144,7 +144,7 @@
   <string name="create_account_passwords_mismatch_error">De wachtwurden ferskille</string>
   <string name="create_account_email_error">Unjildich e-mailadres</string>
   <string name="create_account_username_error">Unjildige tekens yn \'e meidochnamme</string>
-  <string name="create_account_password_error">It wachtwurd is ûnjildich</string>
+  <string name="create_account_password_error" fuzzy="true">It wachtwurd is ûnjildich</string>
   <string name="create_account_generic_error">Koe it akkount net oanmeitsje</string>
   <string name="create_account_next">Fierder</string>
   <string name="email_recommendation_dialog_title">Akkount oanmeitsje sûnder e-mailadres?</string>

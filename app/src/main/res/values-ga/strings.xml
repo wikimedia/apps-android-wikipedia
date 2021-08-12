@@ -138,7 +138,7 @@
   <string name="create_account_passwords_mismatch_error">Ní mar a chéile na pasfhocail</string>
   <string name="create_account_email_error">Seoladh ríomhphoist neamhbhailí</string>
   <string name="create_account_username_error">Carachtair neamhbhailí san ainm úsáideora</string>
-  <string name="create_account_password_error">Tá an pasfhocal neamhbhailí</string>
+  <string name="create_account_password_error" fuzzy="true">Tá an pasfhocal neamhbhailí</string>
   <string name="create_account_generic_error">Níorbh fhéidir cuntas a chruthú</string>
   <string name="create_account_next">Ar aghaidh</string>
   <string name="email_recommendation_dialog_title">Cruthaigh cuntas gan seoladh ríomhphoist?</string>

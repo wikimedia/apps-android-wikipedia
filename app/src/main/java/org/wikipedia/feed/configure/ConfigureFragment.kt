@@ -252,7 +252,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
         }
 
         private fun addDomainNamesAsLangCodes(outList: MutableList<String>, domainNames: List<String>) {
-            outList.addAll(domainNames.map { WikiSite(it).languageCode() })
+            outList.addAll(domainNames.map { WikiSite(it).languageCode })
         }
 
         fun newInstance(): ConfigureFragment {

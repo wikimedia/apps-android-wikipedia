@@ -169,7 +169,7 @@
   <string name="create_account_passwords_mismatch_error">পাসওয়ার্ড মিলেনি</string>
   <string name="create_account_email_error">ভুল ইমেইল ঠিকানা</string>
   <string name="create_account_username_error">ব্যবহারকারী নামে অবৈধ অক্ষর রয়েছে</string>
-  <string name="create_account_password_error">পাসওয়ার্ড ভুল</string>
+  <string name="create_account_password_error" fuzzy="true">পাসওয়ার্ড ভুল</string>
   <string name="create_account_generic_error">অ্যাকাউন্ট তৈরী করা যাচ্ছে না</string>
   <string name="create_account_next">পরবর্তী</string>
   <string name="email_recommendation_dialog_title">কোন ইমেল ঠিকানা ছাড়াই অ্যাকাউন্ট তৈরি করবেন?</string>

@@ -162,7 +162,7 @@
   <string name="create_account_passwords_mismatch_error">Mật khẩu không khớp</string>
   <string name="create_account_email_error">Địa chỉ thư điện tử không hợp lệ</string>
   <string name="create_account_username_error">Ký tự không hợp lệ trong tên người dùng</string>
-  <string name="create_account_password_error">Mật khẩu không hợp lệ</string>
+  <string name="create_account_password_error">Mật khẩu phải có ít nhất 8 ký tự</string>
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
   <string name="create_account_next">Tiếp</string>
   <string name="email_recommendation_dialog_title">Mở tài khoản mà không cung cấp địa chỉ thư điện tử?</string>
