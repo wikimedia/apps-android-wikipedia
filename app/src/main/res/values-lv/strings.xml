@@ -107,7 +107,7 @@
   <string name="create_account_passwords_mismatch_error">Paroles nesakrīt</string>
   <string name="create_account_email_error">Nederīga e-pasta adrese</string>
   <string name="create_account_username_error">Nederīgas rakstzīmes lietotājvārdā</string>
-  <string name="create_account_password_error">Parole ir nederīga</string>
+  <string name="create_account_password_error" fuzzy="true">Parole ir nederīga</string>
   <string name="create_account_generic_error">Neizdevās izveidot kontu</string>
   <string name="create_account_next">Tālāk</string>
   <string name="email_recommendation_dialog_title">Izveidot kontu bez e-pasta adreses?</string>

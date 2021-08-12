@@ -149,7 +149,7 @@
   <string name="create_account_passwords_mismatch_error">Gesli se ne ujemata</string>
   <string name="create_account_email_error">Neveljaven e-poštni naslov</string>
   <string name="create_account_username_error">Neveljaven znak v uporabniškem imenu</string>
-  <string name="create_account_password_error">Geslo ni veljavno</string>
+  <string name="create_account_password_error" fuzzy="true">Geslo ni veljavno</string>
   <string name="create_account_generic_error">Računa ni bilo mogoče ustvariti</string>
   <string name="create_account_next">Naprej</string>
   <string name="email_recommendation_dialog_title">Ustvarim račun brez e-poštnega naslova?</string>

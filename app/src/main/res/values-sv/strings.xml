@@ -161,7 +161,7 @@
   <string name="create_account_passwords_mismatch_error">Lösenorden matchar inte</string>
   <string name="create_account_email_error">Ogiltig e-postadress</string>
   <string name="create_account_username_error">Ogiltiga tecken i användarnamnet</string>
-  <string name="create_account_password_error">Lösenordet är ogiltigt</string>
+  <string name="create_account_password_error" fuzzy="true">Lösenordet är ogiltigt</string>
   <string name="create_account_generic_error">Kan inte skapa konto</string>
   <string name="create_account_next">Nästa</string>
   <string name="email_recommendation_dialog_title">Skapa konto utan en e-postadress?</string>

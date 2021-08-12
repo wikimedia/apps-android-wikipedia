@@ -152,7 +152,7 @@
   <string name="create_account_passwords_mismatch_error">Hindi tugma ang dalawang password</string>
   <string name="create_account_email_error">Di-totoong adres pang-email</string>
   <string name="create_account_username_error">May nakitang bawal na karakter sa pangalan</string>
-  <string name="create_account_password_error">Bawal ang password na binigay</string>
+  <string name="create_account_password_error" fuzzy="true">Bawal ang password na binigay</string>
   <string name="create_account_generic_error">Di magawa ang account</string>
   <string name="create_account_next">Sunod</string>
   <string name="email_recommendation_dialog_title">Gumawa ng account nang walang adres pang-email?</string>
