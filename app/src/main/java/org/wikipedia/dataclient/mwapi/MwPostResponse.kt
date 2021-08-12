@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 open class MwPostResponse : MwResponse() {
-    @Contextual val  pageInfo: MwQueryPage? = null
+    @Contextual val pageInfo: MwQueryPage? = null
     val options: String? = null
     val success = 0
 }

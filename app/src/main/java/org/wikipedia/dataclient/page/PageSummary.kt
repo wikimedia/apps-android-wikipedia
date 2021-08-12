@@ -5,13 +5,15 @@ import android.os.Parcelable
 import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.*
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 import java.util.*
 
 @Parcelize
-@Serializable
+@kotlinx.serialization.Serializable
 open class PageSummary(
     val namespace: NamespaceContainer? = null,
     var titles: Titles? = null,
@@ -23,7 +25,7 @@ open class PageSummary(
     @SerializedName("wikibase_item") val wikiBaseItem: String? = null,
     @SerializedName("extract_html") val extractHtml: String? = null,
     @SerializedName("description_source") val descriptionSource: String = "",
-    @JsonAdapter(GeoTypeAdapter::class) val geo: Location? = null,
+    @JsonAdapter(GeoTypeAdapter::class) val geo: @Contextual Location? = null,
     val type: String = TYPE_STANDARD,
     val pageId: Int = 0,
     val revision: Long = 0L,
@@ -78,20 +80,20 @@ open class PageSummary(
     }
 
     @Parcelize
-    @Serializable
+    @kotlinx.serialization.Serializable
     data class NamespaceContainer(val id: Int = 0, val text: String = "") : Parcelable
 
     @Parcelize
-    @Serializable
+    @kotlinx.serialization.Serializable
     class Titles(val canonical: String?, val display: String?) : Parcelable
 
     @Parcelize
-    @Serializable
+    @kotlinx.serialization.Serializable
     class Thumbnail(val source: String?, val width: Int, val height: Int) : Parcelable
 
     @Parcelize
     @Serializable
-    class ViewHistory(val date: Date?, val views: Float) : Parcelable
+    class ViewHistory(val date: @Contextual Date?, val views: Float) : Parcelable
 
     companion object {
         const val TYPE_STANDARD = "standard"
