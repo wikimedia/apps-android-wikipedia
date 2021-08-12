@@ -1,9 +1,11 @@
 package org.wikipedia.feed.announcement
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 import org.wikipedia.util.DateUtil
 import java.util.*
 
+@Serializable
 class Announcement {
 
     private var action: Action? = null
@@ -96,6 +98,7 @@ class Announcement {
         return border == true
     }
 
+    @Serializable
     class Action(val title: String, val url: String)
 
     companion object {
