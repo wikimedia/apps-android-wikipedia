@@ -109,7 +109,7 @@
   <string name="create_account_passwords_mismatch_error">ពាក្យ​សម្ងាត់​មិន​ត្រូវ​គ្នា</string>
   <string name="create_account_email_error">អាសយដ្ឋាន​អ៊ីមែល​មិន​ត្រឹម​ត្រូវ</string>
   <string name="create_account_username_error">មានតួអក្សរហាមប្រើក្នុងអត្តនាម</string>
-  <string name="create_account_password_error">ពាក្យសម្ងាត់គ្មានសុពលភាព</string>
+  <string name="create_account_password_error" fuzzy="true">ពាក្យសម្ងាត់គ្មានសុពលភាព</string>
   <string name="create_account_generic_error">មិនអាចបង្កើតគណនីបានទេ</string>
   <string name="create_account_next">បន្ទាប់</string>
   <string name="email_recommendation_dialog_title">បង្កើតគណនីដោយមិនប្រើអាសយដ្ឋានអ៊ីមែលឬ?</string>

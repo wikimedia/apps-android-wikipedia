@@ -136,7 +136,7 @@
   <string name="create_account_passwords_mismatch_error">Slaptažodžiai nesutampa</string>
   <string name="create_account_email_error">Neteisingas el. pašto adresas</string>
   <string name="create_account_username_error">Negalimi simboliai naudotojo varde</string>
-  <string name="create_account_password_error">Neteisingas slaptažodis</string>
+  <string name="create_account_password_error" fuzzy="true">Neteisingas slaptažodis</string>
   <string name="create_account_generic_error">Nepavyko sukurti paskyros</string>
   <string name="create_account_next">Kitas</string>
   <string name="email_recommendation_dialog_title">Sukurti paskyrą be el. pašto adreso?</string>

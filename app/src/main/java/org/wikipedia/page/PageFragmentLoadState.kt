@@ -168,7 +168,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             disposables.add(Observable.zip(ServiceFactory.getRest(title.wikiSite)
                     .getSummaryResponse(title.prefixedText, null, model.cacheControl.toString(),
                             if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
-                            title.wikiSite.languageCode(), UriUtil.encodeURL(title.prefixedText)),
+                            title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText)),
                     if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText) else Observable.just(MwQueryResponse()), { first, second -> Pair(first, second) })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -226,7 +226,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             return
         }
         val pageSummary = response.body()
-        val page = pageSummary?.toPage(model.title)
+        val page = pageSummary?.toPage(model.title!!)
         model.page = page
         model.isWatched = isWatched
         model.hasWatchlistExpiry = hasWatchlistExpiry
@@ -239,7 +239,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 app.sessionFunnel.noDescription()
             }
             if (!title.isMainPage) {
-                title.setDisplayText(page?.displayTitle)
+                title.displayText = page?.displayTitle.orEmpty()
             }
             leadImagesHandler.loadLeadImage()
             fragment.requireActivity().invalidateOptionsMenu()

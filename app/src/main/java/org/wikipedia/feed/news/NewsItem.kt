@@ -1,15 +1,18 @@
 package org.wikipedia.feed.news
 
 import android.net.Uri
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.util.ImageUrlUtil
 
-class NewsItem {
-
-    val story: String = ""
+@Parcelize
+class NewsItem(
+    val story: String = "",
     val links: List<PageSummary?> = emptyList()
+) : Parcelable {
 
     fun linkCards(wiki: WikiSite): List<NewsLinkCard> {
         return links.filterNotNull().map { NewsLinkCard(it, wiki) }

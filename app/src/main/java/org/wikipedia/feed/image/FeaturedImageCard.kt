@@ -13,7 +13,7 @@ class FeaturedImageCard(private val featuredImage: FeaturedImage,
                         wiki: WikiSite) : WikiSiteCard(wiki) {
 
     override fun title(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_featured_image_card_title)
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.view_featured_image_card_title)
     }
 
     override fun subtitle(): String {

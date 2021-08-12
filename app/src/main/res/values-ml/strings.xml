@@ -127,7 +127,7 @@
   <string name="create_account_passwords_mismatch_error">രഹസ്യവാക്കുകൾ ഒത്തുപോകുന്നില്ല</string>
   <string name="create_account_email_error">അസാധുവായ ഇമെയിൽ വിലാസം.</string>
   <string name="create_account_username_error">ഉപയോക്തൃനാമത്തിൽ അനുവദനീയമല്ലാത്ത അക്ഷരങ്ങൾ</string>
-  <string name="create_account_password_error">രഹസ്യവാക്ക് അസാധുവാണ്</string>
+  <string name="create_account_password_error" fuzzy="true">രഹസ്യവാക്ക് അസാധുവാണ്</string>
   <string name="create_account_generic_error">അംഗത്വം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല</string>
   <string name="create_account_next">അടുത്തത്</string>
   <string name="email_recommendation_dialog_title">ഇമെയിൽ വിലാസമില്ലാതെ അക്കൗണ്ട് ഉണ്ടാക്കണമോ?</string>

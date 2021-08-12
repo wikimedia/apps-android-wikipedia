@@ -189,7 +189,7 @@
   <string name="create_account_passwords_mismatch_error">Les mots de passe ne correspondent pas</string>
   <string name="create_account_email_error">Adresse de courriel non valide</string>
   <string name="create_account_username_error">Caractères non valides dans le nom d’utilisateur</string>
-  <string name="create_account_password_error">Le mot de passe n’est pas valide</string>
+  <string name="create_account_password_error" fuzzy="true">Le mot de passe n’est pas valide</string>
   <string name="create_account_generic_error">Impossible de créer le compte</string>
   <string name="create_account_next">Suivant</string>
   <string name="email_recommendation_dialog_title">Créer un compte sans adresse courriel ?</string>
