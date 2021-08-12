@@ -42,7 +42,7 @@ class MwServiceError : ServiceError, PostProcessable {
 
     override fun postProcess() {
         // Special case: if it's a Blocked error, parse the blockinfo structure ourselves.
-        if (("blocked" == code || "autoblocked" == code) && data?.blockinfo!=null) {
+        if (("blocked" == code || "autoblocked" == code) && data?.blockinfo != null) {
             html = ThrowableUtil.getBlockMessageHtml(data.blockinfo)
         }
     }
