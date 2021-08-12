@@ -3,9 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/preferences_account_heading">
-        <org.wikipedia.settings.PreferenceLogout
-            android:key="@string/preference_key_logout"
-            android:title="@string/preference_title_logout" />
+        <org.wikipedia.settings.LogoutPreference
+            android:key="@string/preference_key_logout" />
     </PreferenceCategory>
 
 </PreferenceScreen>

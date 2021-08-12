@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="8dp">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="?attr/chart_shade4" />
+        android:background="?attr/color_group_60" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,6 +49,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="?attr/chart_shade4" />
+        android:background="?attr/color_group_60" />
 
 </LinearLayout>

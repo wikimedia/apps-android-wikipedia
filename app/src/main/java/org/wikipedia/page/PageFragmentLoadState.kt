@@ -130,7 +130,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { pageLoadFromNetwork { networkError ->
                         run {
-                            if(!fallbackToMobileWeb(it)) {
+                            if (!fallbackToMobileWeb(it)) {
                                 fragment.onPageLoadError(networkError)
                             }
                         }

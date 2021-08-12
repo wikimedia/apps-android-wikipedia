@@ -58,7 +58,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
         if (AccountUtil.isLoggedIn) {
             loadPreferences(R.xml.preferences_account)
-            (findPreference(R.string.preference_key_logout) as PreferenceLogout).activity = activity
+            (findPreference(R.string.preference_key_logout) as LogoutPreference).activity = activity
         }
     }
 

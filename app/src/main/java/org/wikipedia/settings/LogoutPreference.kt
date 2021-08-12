@@ -13,7 +13,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 
 @Suppress("unused")
-class PreferenceLogout : Preference {
+class LogoutPreference : Preference {
     constructor(ctx: Context, attrs: AttributeSet?, defStyle: Int) : super(ctx, attrs, defStyle)
     constructor(ctx: Context, attrs: AttributeSet?) : super(ctx, attrs)
     constructor(ctx: Context) : super(ctx)
@@ -21,7 +21,7 @@ class PreferenceLogout : Preference {
     var activity: Activity? = null
 
     init {
-        widgetLayoutResource = R.layout.view_preference_logout
+        layoutResource = R.layout.view_preference_logout
     }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
