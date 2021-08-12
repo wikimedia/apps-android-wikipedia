@@ -34,9 +34,8 @@ interface HistoryEntryWithImageDao {
 
         val entries = findEntriesBySearchTerm("%$normalizedQuery%")
 
-        return if (entries.isEmpty()) SearchResults() else SearchResults(
-            mutableListOf(SearchResult(toHistoryEntry(entries[0]).title, SearchResult.SearchResultType.HISTORY))
-        )
+        return if (entries.isEmpty()) SearchResults()
+        else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.HISTORY) }.toMutableList())
     }
 
     fun filterHistoryItems(searchQuery: String): List<Any> {

@@ -40,6 +40,7 @@ class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
     companion object {
         const val ACTIVITY_RESULT_LANGUAGE_CHANGED = 1
         const val ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED = 2
+        const val ACTIVITY_RESULT_LOG_OUT = 3
         @JvmStatic
         fun newIntent(ctx: Context): Intent {
             return Intent(ctx, SettingsActivity::class.java)
