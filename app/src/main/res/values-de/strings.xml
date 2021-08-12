@@ -177,7 +177,7 @@
   <string name="create_account_passwords_mismatch_error">Die Passwörter stimmen nicht überein.</string>
   <string name="create_account_email_error">Ungültige E-Mail-Adresse</string>
   <string name="create_account_username_error">Ungültige Zeichen im Benutzernamen</string>
-  <string name="create_account_password_error">Das Passwort ist ungültig</string>
+  <string name="create_account_password_error">Das Passwort muss mindestens 8 Zeichen lang sein.</string>
   <string name="create_account_generic_error">Benutzerkonto konnte nicht erstellt werden</string>
   <string name="create_account_next">Nächste</string>
   <string name="email_recommendation_dialog_title">Benutzerkonto ohne E-Mail-Adresse erstellen?</string>
@@ -191,6 +191,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Einzelheiten</string>
   <string name="preferences_general_heading">Allgemein</string>
+  <string name="preferences_account_heading">Benutzerkonto</string>
   <string name="wikipedia_app_faq">FAQ zur Wikipedia-App</string>
   <string name="send_feedback">App-Rückmeldung senden</string>
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>

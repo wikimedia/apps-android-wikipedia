@@ -136,7 +136,7 @@
   <string name="create_account_passwords_mismatch_error">Lykilorðin samsvara ekki</string>
   <string name="create_account_email_error">Ógilt netfang</string>
   <string name="create_account_username_error">Ógildir stafir í notandanafni</string>
-  <string name="create_account_password_error">Ógilt lykilorð</string>
+  <string name="create_account_password_error" fuzzy="true">Ógilt lykilorð</string>
   <string name="create_account_generic_error">Gat ekki búið til notandaaðgang</string>
   <string name="create_account_next">Næsta</string>
   <string name="email_recommendation_dialog_title">Stofna aðgang án tölvupóstfangs?</string>

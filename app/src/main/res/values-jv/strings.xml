@@ -137,7 +137,7 @@
   <string name="create_account_passwords_mismatch_error">Tembung sandi ora mathuk</string>
   <string name="create_account_email_error">Alamat layang-èl ora trep</string>
   <string name="create_account_username_error">Karakter ing jeneng naraguna ora trep</string>
-  <string name="create_account_password_error">Tembung sandi ora trep</string>
+  <string name="create_account_password_error" fuzzy="true">Tembung sandi ora trep</string>
   <string name="create_account_generic_error">Ora bisa gawé akun</string>
   <string name="create_account_next">Sabanjuré</string>
   <string name="email_recommendation_dialog_title">Gawé akun tanpa alamat layang-èl?</string>

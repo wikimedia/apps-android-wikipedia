@@ -133,7 +133,7 @@
   <string name="create_account_passwords_mismatch_error">Lö faoma nonokusi</string>
   <string name="create_account_email_error">Alamat email lö atulö</string>
   <string name="create_account_username_error">So hurufo sitebai ba döi zangoguna</string>
-  <string name="create_account_password_error">Onokusi lö atulö</string>
+  <string name="create_account_password_error" fuzzy="true">Onokusi lö atulö</string>
   <string name="create_account_generic_error">So zi fasala ba wamazökhi akun</string>
   <string name="create_account_next">Föna</string>
   <string name="email_recommendation_dialog_title">Mufazökhi akun si lö alamat email?</string>
