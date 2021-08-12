@@ -1,11 +1,13 @@
 package org.wikipedia.feed.news
 
 import android.net.Uri
+import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.util.ImageUrlUtil
 
+@Serializable
 class NewsItem {
 
     val story: String = ""

@@ -3,10 +3,13 @@ package org.wikipedia.dataclient.page
 import android.location.Location
 import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.*
 import org.wikipedia.util.UriUtil
 
+@Serializable
 open class PageSummary {
 
     private var thumbnail: Thumbnail? = null
@@ -32,7 +35,7 @@ open class PageSummary {
     var description: String? = null
 
     @JsonAdapter(GeoTypeAdapter::class)
-    val geo: Location? = null
+    val geo: @Contextual Location? = null
     val type = TYPE_STANDARD
     val pageId = 0
     val revision = 0L
@@ -79,10 +82,13 @@ open class PageSummary {
         return displayTitle
     }
 
+    @Serializable
     private class Thumbnail(@SerializedName("source") val url: String?, val width: Int, val height: Int)
 
+    @Serializable
     private class NamespaceContainer(val id: Int = 0)
 
+    @Serializable
     private class Titles(val canonical: String?, val display: String?)
 
     companion object {
