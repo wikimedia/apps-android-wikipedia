@@ -61,9 +61,9 @@ public final class Prefs {
         return getKey(R.string.preference_key_app_channel);
     }
 
-    @NonNull
+    @Nullable
     public static String getAppInstallId() {
-        return getString(R.string.preference_key_reading_app_install_id, "");
+        return getString(R.string.preference_key_reading_app_install_id, null);
     }
 
     public static void setAppInstallId(@Nullable String id) {

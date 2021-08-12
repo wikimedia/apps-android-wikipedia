@@ -12,7 +12,7 @@ open class Event(
     internal val meta: Meta = Meta(""),
     internal val dt: String = iso8601DateFormat(Date()),
     @Json(name = "app_session_id") var sessionId: String = "",
-    @Json(name = "app_install_id") var appInstallId: String = ""
+    @Json(name = "app_install_id") var appInstallId: String? = null
 ) {
     constructor(schema: String, stream: String) : this(schema, Meta(stream))
 
