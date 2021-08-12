@@ -706,13 +706,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (AccountUtil.isLoggedIn) {
             binding.pageToolbarButtonNotifications.isVisible = true
             if (Prefs.getNotificationUnreadCount() > 0) {
-                binding.pageToolbarButtonNotifications.setUnread(true)
+                binding.pageToolbarButtonNotifications.setUnreadCount(Prefs.getNotificationUnreadCount())
                 if (animate) {
                     toolbarHideHandler.ensureDisplayed()
                     binding.pageToolbarButtonNotifications.runAnimation()
                 }
             } else {
-                binding.pageToolbarButtonNotifications.setUnread(false)
+                binding.pageToolbarButtonNotifications.setUnreadCount(0)
             }
         } else {
             binding.pageToolbarButtonNotifications.isVisible = false

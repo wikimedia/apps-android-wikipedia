@@ -100,7 +100,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (AccountUtil.isLoggedIn) {
             notificationMenuItem.isVisible = true
             notificationButtonView = NotificationButtonView(this, null)
-            notificationButtonView!!.setUnread(Prefs.getNotificationUnreadCount() > 0)
+            notificationButtonView!!.setUnreadCount(Prefs.getNotificationUnreadCount())
             notificationButtonView!!.setOnClickListener {
                 if (AccountUtil.isLoggedIn) {
                     startActivity(NotificationActivity.newIntent(this))
@@ -195,10 +195,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onUnreadNotification() {
         if (Prefs.getNotificationUnreadCount() > 0) {
-            notificationButtonView?.setUnread(true)
+            notificationButtonView?.setUnreadCount(Prefs.getNotificationUnreadCount())
             notificationButtonView?.runAnimation()
         } else {
-            notificationButtonView?.setUnread(false)
+            notificationButtonView?.setUnreadCount(0)
         }
     }
 
