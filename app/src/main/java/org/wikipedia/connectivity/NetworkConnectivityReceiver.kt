@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
+import androidx.core.content.getSystemService
 import androidx.core.net.ConnectivityManagerCompat
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
@@ -24,8 +25,7 @@ class NetworkConnectivityReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         if (ConnectivityManager.CONNECTIVITY_ACTION == intent.action) {
-            val networkInfo = ConnectivityManagerCompat
-                    .getNetworkInfoFromBroadcast(context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager, intent)
+            val networkInfo = ConnectivityManagerCompat.getNetworkInfoFromBroadcast(context.getSystemService()!!, intent)
             updateOnlineState()
             if (networkInfo != null && networkInfo.isConnected) {
                 WikipediaApp.getInstance().bus.post(NetworkConnectEvent())
@@ -34,7 +34,7 @@ class NetworkConnectivityReceiver : BroadcastReceiver() {
     }
 
     private fun updateOnlineState() {
-        val info = (WikipediaApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).activeNetworkInfo
+        val info = WikipediaApp.getInstance().getSystemService<ConnectivityManager>()!!.activeNetworkInfo
         online = info != null && info.isConnected
         EventPlatformClient.setEnabled(online)
     }

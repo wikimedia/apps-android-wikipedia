@@ -9,6 +9,7 @@ import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
 import androidx.annotation.MenuRes
+import androidx.core.content.getSystemService
 import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.edit.richtext.SpanExtents
 import org.wikipedia.edit.richtext.SyntaxHighlighter
@@ -73,7 +74,7 @@ class PlainPasteEditText : TextInputEditText {
         // Do not allow pasting of formatted text!
         // We do this by intercepting the clipboard and temporarily replacing its
         // contents with plain text.
-        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clipboard = context.getSystemService<ClipboardManager>()!!
         if (clipboard.hasPrimaryClip() && clipboard.primaryClip != null) {
             clipboard.primaryClip?.let {
                 val lastClipText = it.getItemAt(it.itemCount - 1).coerceToText(context).toString()
