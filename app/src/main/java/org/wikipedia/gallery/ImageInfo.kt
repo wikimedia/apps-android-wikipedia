@@ -1,9 +1,10 @@
 package org.wikipedia.gallery
 
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
+import kotlinx.serialization.Serializable
 
-class ImageInfo : Serializable {
+@Serializable
+class ImageInfo {
 
     var source = ""
     var captions = emptyMap<String, String>()
@@ -53,6 +54,7 @@ class ImageInfo : Serializable {
         } else derivatives[derivatives.size - 1]
 
     // TODO: make this smarter.
+    @Serializable
     class Derivative {
         val src = ""
         private val type: String? = null
