@@ -1,7 +1,9 @@
 package org.wikipedia.analytics.eventplatform
 
-class UserContributionEvent(private val action: String) : Event(SCHEMA_NAME, STREAM_NAME) {
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
+class UserContributionEvent(internal val action: String) : Event(SCHEMA_NAME, STREAM_NAME) {
     companion object {
         private const val SCHEMA_NAME = "/analytics/mobile_apps/android_user_contribution_screen/2.0.0"
         private const val STREAM_NAME = "android.user_contribution_screen"

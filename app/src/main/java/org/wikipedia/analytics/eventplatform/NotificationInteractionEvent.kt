@@ -2,23 +2,24 @@ package org.wikipedia.analytics.eventplatform
 
 import android.content.Intent
 import androidx.core.app.NotificationManagerCompat
+import com.squareup.moshi.JsonClass
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.notifications.Notification
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 
 @Suppress("unused")
+@JsonClass(generateAdapter = true)
 class NotificationInteractionEvent(
-    private val notification_id: Int,
-    private val notification_wiki: String,
-    private val notification_type: String,
-    private val action_rank: Int,
-    private val action_icon: String,
-    private val selection_token: String,
-    private val incoming_only: Boolean,
-    private val device_level_enabled: Boolean
+    internal val notification_id: Int,
+    internal val notification_wiki: String,
+    internal val notification_type: String,
+    internal val action_rank: Int,
+    internal val action_icon: String,
+    internal val selection_token: String,
+    internal val incoming_only: Boolean,
+    internal val device_level_enabled: Boolean
 ) : Event(SCHEMA_NAME, STREAM_NAME) {
-
     companion object {
         private const val SCHEMA_NAME = "/analytics/mobile_apps/android_notification_interaction/1.0.0"
         private const val STREAM_NAME = "android.notification_interaction"
