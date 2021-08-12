@@ -421,7 +421,7 @@
     <item quantity="other">%1$d articole, %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">%1$d  1 articol disponibil offline, %3$.2f MB</item>
+    <item quantity="one">%1$d articol disponibil offline, %3$.2f MB</item>
     <item quantity="few">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
   </plurals>

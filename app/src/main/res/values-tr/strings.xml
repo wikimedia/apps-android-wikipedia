@@ -16,6 +16,7 @@
 * HakanIST
 * Hedda
 * Incelemeelemani
+* Jelican9
 * Joseph
 * Katpatuka
 * KorkmazO
@@ -115,7 +116,7 @@
   <string name="other_languages_indication_text">Başka dilde oku</string>
   <string name="language_count_link_text">%d farklı dilde mevcut</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Yayımlarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul etmiş olursunuz.</string>
+  <string name="edit_save_action_license_logged_in">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul etmiş olursunuz.</string>
   <string name="edit_save_action_license_anon">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
   <string name="preference_title_language">Vikipedi dilleri</string>
   <string name="langlinks_filter_hint">Ara</string>

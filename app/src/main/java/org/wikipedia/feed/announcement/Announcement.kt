@@ -1,9 +1,6 @@
 package org.wikipedia.feed.announcement
 
-import androidx.annotation.NonNull
-import androidx.annotation.Nullable
 import com.google.gson.annotations.SerializedName
-import org.wikipedia.json.annotations.Required
 import org.wikipedia.util.DateUtil
 import java.util.*
 
@@ -14,26 +11,20 @@ class Announcement {
     @SerializedName("negative_text")
     var negativeText: String? = null
 
-    @Required
     var id: String = ""
 
     @SerializedName("start_time")
-    @Required
     private val startTime: String? = null
 
     @SerializedName("end_time")
-    @Required
     private val endTime: String? = null
     private val border: Boolean? = null
 
-    @Required
     var text: String? = null
 
-    @Required
     val type: String = ""
 
     @SerializedName("image_url")
-    @Nullable
     var imageUrl: String? = null
 
     @SerializedName("caption_HTML")
@@ -59,16 +50,16 @@ class Announcement {
     val countries = emptyList<String>()
     val placement: String = PLACEMENT_FEED
 
-    constructor() {}
+    constructor()
 
-    constructor(@NonNull id: String?,
-                @NonNull text: String?,
-                @NonNull imageUrl: String?,
-                @NonNull action: Action?,
-                @NonNull negativeText: String?) {
-        this.id = id!!
-        this.text = text!!
-        this.imageUrl = imageUrl!!
+    constructor(id: String?,
+                text: String?,
+                imageUrl: String?,
+                action: Action?,
+                negativeText: String?) {
+        this.id = id.orEmpty()
+        this.text = text.orEmpty()
+        this.imageUrl = imageUrl.orEmpty()
         this.action = action
         this.negativeText = negativeText
     }
@@ -86,11 +77,11 @@ class Announcement {
     }
 
     fun actionTitle(): String {
-        return if (action != null) action!!.title else ""
+        return action?.title ?: ""
     }
 
     fun actionUrl(): String {
-        return if (action != null) action!!.url else ""
+        return action?.url ?: ""
     }
 
     fun hasFooterCaption(): Boolean {
@@ -102,10 +93,10 @@ class Announcement {
     }
 
     fun hasBorder(): Boolean {
-        return border != null && border
+        return border == true
     }
 
-    class Action(@field:Required val title: String, @field:Required val url: String)
+    class Action(val title: String, val url: String)
 
     companion object {
         const val SURVEY = "survey"
