@@ -147,7 +147,7 @@
   <string name="create_account_passwords_mismatch_error">პაროლები არ დაემთხვა</string>
   <string name="create_account_email_error">ელ-ფოსტის არასწორი მისამართი</string>
   <string name="create_account_username_error">მომხმარებლის სახელში დაუშვებელი სიმბოლოებია</string>
-  <string name="create_account_password_error">პაროლი არასწორია</string>
+  <string name="create_account_password_error" fuzzy="true">პაროლი არასწორია</string>
   <string name="create_account_generic_error">ანგარიშის შექმნა ვერ მოხერხდა</string>
   <string name="create_account_next">შემდეგი</string>
   <string name="email_recommendation_dialog_title">გსურთ შექმნათ ანგარიში ელ-ფოსტის გარეშე?</string>

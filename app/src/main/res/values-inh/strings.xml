@@ -147,7 +147,7 @@
   <string name="create_account_passwords_mismatch_error">Паролеш вIашкайоагӀаш яц</string>
   <string name="create_account_email_error">Могадаьдоаца электронни поштан цIай</string>
   <string name="create_account_username_error">Доакъашхочун цӀера юкъе мегаргдоаца хьаракаш да</string>
-  <string name="create_account_password_error">Ишта пароль мегаш яц</string>
+  <string name="create_account_password_error" fuzzy="true">Ишта пароль мегаш яц</string>
   <string name="create_account_generic_error">ВӀаштехьа дац дагара йоазув (аккаунт) хьакхолла</string>
   <string name="create_account_next">ДӀахо</string>
   <string name="email_recommendation_dialog_title">Электронни пошт а йоацаш хьакхоллий Ӏа дагара йоазув?</string>

@@ -167,7 +167,7 @@
   <string name="create_account_passwords_mismatch_error">Les contrasenyes no coincideixen</string>
   <string name="create_account_email_error">Correu electrònic no vàlid</string>
   <string name="create_account_username_error">Caràcters no vàlids en el nom d\'usuari</string>
-  <string name="create_account_password_error">La contrasenya no és vàlida</string>
+  <string name="create_account_password_error" fuzzy="true">La contrasenya no és vàlida</string>
   <string name="create_account_generic_error">No s\'ha pogut crear el compte</string>
   <string name="create_account_next">Següent</string>
   <string name="email_recommendation_dialog_title">Voleu crear un compte sense adreça electrònica?</string>

@@ -141,7 +141,7 @@
   <string name="create_account_passwords_mismatch_error">पासवर्डहरू मिलेनन्</string>
   <string name="create_account_email_error">अमान्य विडाँक ठेगाना</string>
   <string name="create_account_username_error">प्रयोगकर्ताको नाममा अमान्य वर्णहरू छन्</string>
-  <string name="create_account_password_error">पासवर्ड मान्य छैन।</string>
+  <string name="create_account_password_error" fuzzy="true">पासवर्ड मान्य छैन।</string>
   <string name="create_account_generic_error">खाता सृजना गर्न सकिएन</string>
   <string name="create_account_next">अर्को</string>
   <string name="email_recommendation_dialog_title">विडाँक ठेगाना विना नै खाता सृजना गर्ने हो?</string>
