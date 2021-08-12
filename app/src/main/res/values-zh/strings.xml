@@ -197,7 +197,7 @@
   <string name="create_account_passwords_mismatch_error">密码不匹配</string>
   <string name="create_account_email_error">电子邮件地址无效</string>
   <string name="create_account_username_error">用户名中包含无效字符</string>
-  <string name="create_account_password_error">密码无效</string>
+  <string name="create_account_password_error">密码长度必须至少为8个字符</string>
   <string name="create_account_generic_error">无法建立帐户</string>
   <string name="create_account_next">下一步</string>
   <string name="email_recommendation_dialog_title">创建没有电子邮件地址的帐户？</string>

@@ -24,7 +24,7 @@ class ExtMetadata(
     @SerializedName("Copyrighted") private val copyrighted: Values? = null,
     @SerializedName("Restrictions") private val restrictions: Values? = null,
     @SerializedName("License") private val license: Values? = null,
-                 ) : Parcelable {
+) : Parcelable {
 
     fun licenseShortName(): String {
         return licenseShortName?.value.orEmpty()
@@ -71,5 +71,5 @@ class ExtMetadata(
         val value: String? = null,
         val source: String? = null,
         val hidden: String? = null
-                ) : Parcelable
+    ) : Parcelable
 }

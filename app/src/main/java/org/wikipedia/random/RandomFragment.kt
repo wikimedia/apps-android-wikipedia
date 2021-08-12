@@ -173,16 +173,8 @@ class RandomFragment : Fragment() {
     fun onAddPageToList(title: PageTitle, addToDefault: Boolean) {
         if (addToDefault) {
             addToDefaultList(requireActivity(), title, InvokeSource.RANDOM_ACTIVITY,
-                    object : AddToDefaultListCallback {
-                        override fun onMoveClicked(readingListId: Long) {
-                            onMovePageToList(readingListId, title)
-                        }
-                    },
-                    object : ReadingListBehaviorsUtil.Callback {
-                        override fun onCompleted() {
-                            updateSaveShareButton(title)
-                        }
-                    }
+                AddToDefaultListCallback { readingListId -> onMovePageToList(readingListId, title) },
+                ReadingListBehaviorsUtil.Callback { updateSaveShareButton(title) }
             )
         } else {
             bottomSheetPresenter.show(childFragmentManager,
@@ -283,7 +275,7 @@ class RandomFragment : Fragment() {
                     return
                 }
                 for (page in event.pages) {
-                    if (page.apiTitle == topTitle?.prefixedText && page.wiki.languageCode() == topTitle?.wikiSite?.languageCode()) {
+                    if (page.apiTitle == topTitle?.prefixedText && page.wiki.languageCode == topTitle?.wikiSite?.languageCode) {
                         updateSaveShareButton(topTitle)
                     }
                 }

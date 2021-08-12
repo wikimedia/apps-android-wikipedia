@@ -1,13 +1,10 @@
 package org.wikipedia.feed.topread
 
-import kotlinx.serialization.Contextual
-import kotlinx.serialization.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+import org.wikipedia.dataclient.page.PageSummary
 import java.util.*
 
-@Serializable
-class TopRead {
-
-    val date: @Contextual Date = Date()
-
-    val articles: List<TopReadArticles> = emptyList()
-}
+@Parcelize
+class TopRead(val date: Date = Date(), val articles: List<PageSummary> = emptyList()) :
+    Parcelable

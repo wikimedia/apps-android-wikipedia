@@ -11,11 +11,11 @@ import org.wikipedia.util.L10nUtil
 class RandomCard(page: PageSummary, age: Int, wiki: WikiSite) : FeaturedArticleCard(page, age, wiki) {
 
     override fun title(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_random_article_card_title)
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.view_random_article_card_title)
     }
 
     override fun footerActionText(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_random_article_card_action)
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.view_random_article_card_action)
     }
 
     override fun type(): CardType {

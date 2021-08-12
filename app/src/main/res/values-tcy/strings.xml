@@ -127,7 +127,7 @@
   <string name="create_account_passwords_mismatch_error">ಪ್ರವೇಶೋ ಪದ ಜೋಡಿ ಆಪುಜಿ</string>
   <string name="create_account_email_error">ಇಮೇಲ್ ಸರಿ ಇಜ್ಜಿ</string>
   <string name="create_account_username_error">ಸದಸ್ಯೆರೆ ಪುದರ್‌ಡ್ ಅಮಾನ್ಯ ಅಕ್ಷರ ಉಂಡು.</string>
-  <string name="create_account_password_error">ಪ್ರವೇಶಪದ ಸರಿ ಇಜ್ಜಿ</string>
+  <string name="create_account_password_error" fuzzy="true">ಪ್ರವೇಶಪದ ಸರಿ ಇಜ್ಜಿ</string>
   <string name="create_account_generic_error">ಕಾತೆ ನಿರ್ಮಾಣೊ ಮಲ್ಪೆರೆ ಆವೊಂದಿದ್ದಿ</string>
   <string name="create_account_next">ನನತಾ</string>
   <string name="email_recommendation_dialog_title">ಪೊಸ ಖಾತೆ ಬುಕ್ಕೊ ಮಿಂಚಂಚೆ ವಿಲಾಸೊ ಇಜ್ಜಿ.</string>

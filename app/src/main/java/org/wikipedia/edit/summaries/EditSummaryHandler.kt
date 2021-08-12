@@ -16,7 +16,7 @@ class EditSummaryHandler(private val container: View,
 
     init {
         container.setOnClickListener { summaryEdit.requestFocus() }
-        setConditionalTextDirection(summaryEdit, title.wikiSite.languageCode())
+        setConditionalTextDirection(summaryEdit, title.wikiSite.languageCode)
 
         getAppDatabase().editSummaryDao().getEditSummaries()
             .subscribeOn(Schedulers.io())

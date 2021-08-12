@@ -98,7 +98,7 @@
   <string name="create_account_passwords_mismatch_error">భద్రతపదాలు సరిపోలుట లేదు</string>
   <string name="create_account_email_error">చెల్లని ఈమెయిలు చిరునామా</string>
   <string name="create_account_username_error">వాడుకరి పేరులో చెల్లని అక్షరాలు</string>
-  <string name="create_account_password_error">ఆ సంకేతపదం చెల్లదు</string>
+  <string name="create_account_password_error" fuzzy="true">ఆ సంకేతపదం చెల్లదు</string>
   <string name="create_account_generic_error">ఖాతాను సృష్టించలేకపోయాం</string>
   <string name="create_account_next">తదుపరి</string>
   <string name="email_recommendation_dialog_title">ఈమెయిలు చిరునామా లేకుండా ఖాతా సృష్టించాలా?</string>

@@ -141,7 +141,7 @@
   <string name="create_account_passwords_mismatch_error">I parolle ciav i corisponden nò.</string>
   <string name="create_account_email_error">Adress de posta eletronica minga valid</string>
   <string name="create_account_username_error">Carater minga in del nom de l\'utent</string>
-  <string name="create_account_password_error">La parola ciav a l\'è minga valida.</string>
+  <string name="create_account_password_error" fuzzy="true">La parola ciav a l\'è minga valida.</string>
   <string name="create_account_generic_error">A se poeul nò creà el cunt</string>
   <string name="create_account_next">Prossim</string>
   <string name="email_recommendation_dialog_title">Creà un cunt senza on adress de posta eletronica?</string>
