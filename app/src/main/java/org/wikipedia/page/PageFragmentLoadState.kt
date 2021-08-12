@@ -128,13 +128,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate { pageLoadFromNetwork { networkError ->
-                        run {
-                            if (!fallbackToMobileWeb(it)) {
-                                fragment.onPageLoadError(networkError)
-                            }
-                        }
-                    } }
+                    .doAfterTerminate { pageLoadFromNetwork { networkError -> fragment.onPageLoadError(networkError) } }
                     .subscribe({ page -> model.readingListPage = page }
                     ) { model.readingListPage = null }
             )
@@ -194,15 +188,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     }
             )
         }
-    }
-
-    private fun fallbackToMobileWeb(title: PageTitle?): Boolean {
-        if (title?.namespace() === Namespace.USER) {
-            bridge.resetHtml(title, true)
-            fragment.requireActivity().invalidateOptionsMenu()
-            return true
-        }
-        return false
     }
 
     private fun showPageOfflineMessage(dateHeader: String?) {
