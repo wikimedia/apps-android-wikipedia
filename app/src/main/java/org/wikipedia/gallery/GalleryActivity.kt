@@ -267,10 +267,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     private fun startCaptionEdit(item: GalleryItemFragment) {
         val title = PageTitle(item.imageTitle!!.prefixedText,
-            WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()))
-        val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()]
+            WikiSite(Service.COMMONS_URL, sourceWiki.languageCode))
+        val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode]
         title.description = currentCaption
-        val summary = PageSummaryForEdit(title.prefixedText, sourceWiki.languageCode(), title,
+        val summary = PageSummaryForEdit(title.prefixedText, sourceWiki.languageCode, title,
             title.displayText, RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription()), item.mediaInfo!!.thumbUrl)
         startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null,
             DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
@@ -294,15 +294,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun startCaptionTranslation(item: GalleryItemFragment) {
-        val sourceTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()))
+        val sourceTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL, sourceWiki.languageCode))
         val targetTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL,
             targetLanguageCode ?: app.language().appLanguageCodes[1]))
-        val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()].orEmpty().ifEmpty {
+        val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode].orEmpty().ifEmpty {
             RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
         }
-        val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode(),
+        val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode,
                             sourceTitle, sourceTitle.displayText, currentCaption, item.mediaInfo!!.thumbUrl)
-        val targetSummary = PageSummaryForEdit(targetTitle.prefixedText, targetTitle.wikiSite.languageCode(),
+        val targetSummary = PageSummaryForEdit(targetTitle.prefixedText, targetTitle.wikiSite.languageCode,
             targetTitle, targetTitle.displayText, null, item.mediaInfo!!.thumbUrl)
         startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary,
             targetSummary, if (sourceSummary.lang == targetSummary.lang) DescriptionEditActivity.Action.ADD_CAPTION
@@ -545,8 +545,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         imageCaptionDisposable =
             Observable.zip<Map<String, String>, MwQueryResponse, Map<String, List<String>>, Pair<Boolean, Int>>(
                 MediaHelper.getImageCaptions(item.imageTitle!!.prefixedText),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.imageTitle!!.prefixedText),
-                ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(), sourceWiki.languageCode()),
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.imageTitle!!.prefixedText!!),
+                ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(), sourceWiki.languageCode),
                 { captions, protectionInfoRsp, imageTags ->
                     item.mediaInfo!!.captions = captions
                     Pair(protectionInfoRsp.query?.isEditProtected, imageTags.size)
@@ -588,9 +588,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     private fun decideImageEditType(item: GalleryItemFragment, tagsCount: Int) {
         imageEditType = null
-        if (!item.mediaInfo!!.captions.containsKey(sourceWiki.languageCode())) {
+        if (!item.mediaInfo!!.captions.containsKey(sourceWiki.languageCode)) {
             imageEditType = ImageEditType.ADD_CAPTION
-            targetLanguageCode = sourceWiki.languageCode()
+            targetLanguageCode = sourceWiki.languageCode
             binding.ctaButtonText.text = getString(R.string.gallery_add_image_caption_button)
             return
         }
@@ -619,7 +619,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private fun displayApplicableDescription(item: GalleryItemFragment) {
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
-        val descriptionStr = item.mediaInfo?.captions!!.getOrElse(sourceWiki.languageCode()) {
+        val descriptionStr = item.mediaInfo?.captions!!.getOrElse(sourceWiki.languageCode) {
             StringUtil.fromHtml(item.mediaInfo!!.metadata!!.imageDescription())
         }
 

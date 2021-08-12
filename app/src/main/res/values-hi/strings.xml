@@ -128,7 +128,7 @@
   <string name="create_account_passwords_mismatch_error">पासवर्ड्स मैच नहीं हो रहे</string>
   <string name="create_account_email_error">अवैध ईमेल पता</string>
   <string name="create_account_username_error">सदस्यनाम में अमान्य अक्षर</string>
-  <string name="create_account_password_error">ये पासवर्ड अमान्य है</string>
+  <string name="create_account_password_error" fuzzy="true">ये पासवर्ड अमान्य है</string>
   <string name="create_account_generic_error">खाता नहीं बन सका</string>
   <string name="create_account_next">अगला</string>
   <string name="create_account_button">खाता बनायें</string>

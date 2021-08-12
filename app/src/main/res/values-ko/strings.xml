@@ -173,7 +173,7 @@
   <string name="create_account_passwords_mismatch_error">비밀번호가 일치하지 않습니다</string>
   <string name="create_account_email_error">이메일 주소가 잘못되었습니다</string>
   <string name="create_account_username_error">사용자 이름에 유효하지 않은 문자가 있습니다</string>
-  <string name="create_account_password_error">비밀번호가 유효하지 않습니다</string>
+  <string name="create_account_password_error">비밀번호의 최소 길이는 8자입니다</string>
   <string name="create_account_generic_error">계정을 만들 수 없습니다</string>
   <string name="create_account_next">다음</string>
   <string name="email_recommendation_dialog_title">이메일 주소 없이 계정을 만드시겠습니까?</string>

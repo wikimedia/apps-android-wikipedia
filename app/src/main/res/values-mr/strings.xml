@@ -99,7 +99,7 @@
   <string name="create_account_passwords_mismatch_error">परवलीचे शब्द जुळत नाही</string>
   <string name="create_account_email_error">अवैध विपत्रपत्ता</string>
   <string name="create_account_username_error">सदस्यनावामध्ये अवैध अक्षरे</string>
-  <string name="create_account_password_error">तुमचा परवलीचा शब्द अवैध आहे</string>
+  <string name="create_account_password_error" fuzzy="true">तुमचा परवलीचा शब्द अवैध आहे</string>
   <string name="create_account_generic_error">खाते तयार करु शकत नाही</string>
   <string name="create_account_next">पुढे</string>
   <string name="create_account_button">खाते बनवा</string>

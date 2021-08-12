@@ -204,7 +204,7 @@
   <string name="create_account_passwords_mismatch_error">Las contraseñas no coinciden</string>
   <string name="create_account_email_error">Dirección de correo electrónico no válida.</string>
   <string name="create_account_username_error">Caracteres no válidos en el nombre de usuario</string>
-  <string name="create_account_password_error">La contraseña no es válida</string>
+  <string name="create_account_password_error" fuzzy="true">La contraseña no es válida</string>
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="email_recommendation_dialog_title">¿Crear una cuenta sin dirección de correo electrónico?</string>

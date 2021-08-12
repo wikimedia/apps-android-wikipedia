@@ -149,7 +149,7 @@
   <string name="create_account_passwords_mismatch_error">Лозинките не се совпаѓаат</string>
   <string name="create_account_email_error">Неважечка е-пошта</string>
   <string name="create_account_username_error">Неважечки знаци или корисничко име</string>
-  <string name="create_account_password_error">Лозинката е неважечка</string>
+  <string name="create_account_password_error" fuzzy="true">Лозинката е неважечка</string>
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
   <string name="create_account_next">Следно</string>
   <string name="email_recommendation_dialog_title">Да ја создадам сметката без е-пошта?</string>

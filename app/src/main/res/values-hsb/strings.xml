@@ -140,7 +140,7 @@
   <string name="create_account_passwords_mismatch_error">Hesle so njekryjetej</string>
   <string name="create_account_email_error">Njepłaćiwa e-mejlowa adresa</string>
   <string name="create_account_username_error">Njepłaćiwe znamješka we wužiwarskim mjenje</string>
-  <string name="create_account_password_error">Hesło je njepłaćiwe</string>
+  <string name="create_account_password_error" fuzzy="true">Hesło je njepłaćiwe</string>
   <string name="create_account_generic_error">Wužiwarske konto njeda so załožić</string>
   <string name="create_account_next">Přichodne</string>
   <string name="email_recommendation_dialog_title">Wutworić wužiwarske konto bjez mejloweje adresy?</string>
