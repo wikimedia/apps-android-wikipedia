@@ -2,13 +2,13 @@ package org.wikipedia.watchlist
 
 import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.graphics.drawable.toDrawable
 import androidx.core.widget.PopupWindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,7 +37,7 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
         this.callback = callback
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
-        popupWindowHost!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        popupWindowHost!!.setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
         PopupWindowCompat.setOverlapAnchor(popupWindowHost!!, true)
         PopupWindowCompat.showAsDropDown(popupWindowHost!!, anchorView, 0, 0, Gravity.END)
     }

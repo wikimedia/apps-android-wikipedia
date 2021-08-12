@@ -2,13 +2,13 @@ package org.wikipedia.views
 
 import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import androidx.core.graphics.drawable.toDrawable
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewReadingListsOverflowBinding
@@ -53,7 +53,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
         PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true).let {
             popupWindowHost = it
-            it.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            it.setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
             PopupWindowCompat.setOverlapAnchor(it, true)
             PopupWindowCompat.showAsDropDown(it, anchorView, 0, 0, Gravity.END)
         }

@@ -1,7 +1,6 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.text.TextUtils
@@ -9,6 +8,7 @@ import android.view.ActionMode
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.graphics.drawable.toDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -63,7 +63,7 @@ object ViewUtil {
     }
 
     fun getPlaceholderDrawable(context: Context): Drawable {
-        return ColorDrawable(getThemedColor(context, R.attr.material_theme_border_color))
+        return getThemedColor(context, R.attr.material_theme_border_color).toDrawable()
     }
 
     @JvmStatic
