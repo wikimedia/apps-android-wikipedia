@@ -23,15 +23,15 @@ import java.util.*
  */
 @Parcelize
 class PageTitle(
-    private var _namespace: String?,
+    @SerializedName("namespace") private var _namespace: String?,
     // TODO: remove this SerializedName when Tab list is no longer serialized to shared prefs.
     @SerializedName("site") var wikiSite: WikiSite,
-    private var _text: String = "",
+    @SerializedName("text") private var _text: String = "",
     var fragment: String? = null,
     var thumbUrl: String?,
     var description: String? = null,
     // TODO: remove after the restbase endpoint supports ZH variants.
-    private var _displayText: String? = null,
+    @SerializedName("displayText") private var _displayText: String? = null,
     var extract: String? = null
 ) : Parcelable {
 
