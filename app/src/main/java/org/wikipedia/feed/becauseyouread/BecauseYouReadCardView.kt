@@ -20,12 +20,12 @@ class BecauseYouReadCardView(context: Context) : ListCardView<BecauseYouReadCard
 
     private fun header(card: BecauseYouReadCard) {
         headerView.setTitle(card.title())
-            .setLangCode(card.wikiSite().languageCode())
+            .setLangCode(card.wikiSite().languageCode)
             .setCard(card)
             .setCallback(callback)
 
         largeHeaderView.setTitle(card.pageTitle())
-            .setLanguageCode(card.wikiSite().languageCode())
+            .setLanguageCode(card.wikiSite().languageCode)
             .setImage(card.image())
             .setSubtitle(card.extract())
 

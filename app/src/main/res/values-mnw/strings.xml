@@ -147,7 +147,7 @@
   <string name="create_account_passwords_mismatch_error">မလိက်ပၞုက် ဟွံကိတ်</string>
   <string name="create_account_email_error">အဳမေလ် ဟွံလုပ်အဝေါင်</string>
   <string name="create_account_username_error">မအက္ခရ်လိက် ပ္ဍဲ ယၟုမသုင်စောဲ ဟွံလုပ်အဝေါင်</string>
-  <string name="create_account_password_error">မလိက်ပၞုက် ဟွံလုပ်အဝေါင်</string>
+  <string name="create_account_password_error" fuzzy="true">မလိက်ပၞုက် ဟွံလုပ်အဝေါင်</string>
   <string name="create_account_generic_error">ခၞံဗဒှ် အကံက် ဟွံဂွံ</string>
   <string name="create_account_next">ဂတ</string>
   <string name="email_recommendation_dialog_title">ခၞံဗဒှ် အကံက် သီုမဟွံမွဲ ကဵုအဳမေလ်ဟာ?</string>

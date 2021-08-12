@@ -173,7 +173,7 @@
   <string name="create_account_passwords_mismatch_error">Salasanat eivät täsmää</string>
   <string name="create_account_email_error">Virheellinen sähköpostiosoite</string>
   <string name="create_account_username_error">Käyttäjänimi sisältää kelpaamattomia merkkejä</string>
-  <string name="create_account_password_error">Salasana on virheellinen</string>
+  <string name="create_account_password_error" fuzzy="true">Salasana on virheellinen</string>
   <string name="create_account_generic_error">Käyttäjätunnusta ei voitu luoda</string>
   <string name="create_account_next">Seuraava</string>
   <string name="email_recommendation_dialog_title">Luo käyttäjätunnus ilman sähköpostiosoitetta?</string>

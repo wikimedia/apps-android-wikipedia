@@ -9,7 +9,7 @@ object DescriptionEditUtil {
 
     @JvmStatic
     fun isEditAllowed(page: Page): Boolean {
-        return if (page.title.wikiSite.languageCode() == "en") {
+        return if (page.title.wikiSite.languageCode == "en") {
             // For English Wikipedia, allow editing the description for all articles, since the
             // edit will go directly into the article instead of Wikidata.
             true

@@ -12,6 +12,6 @@ abstract class DefaultFeedCardView<T : Card?>(context: Context?) : LinearLayout(
     override var callback: FeedAdapter.Callback? = null
 
     protected fun setLayoutDirectionByWikiSite(wiki: WikiSite, rootView: View) {
-        L10nUtil.setConditionalLayoutDirection(rootView, wiki.languageCode())
+        L10nUtil.setConditionalLayoutDirection(rootView, wiki.languageCode)
     }
 }

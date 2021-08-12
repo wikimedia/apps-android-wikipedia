@@ -16,7 +16,6 @@ import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentContributionDiffDetailBinding
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
@@ -45,7 +44,7 @@ class ContributionDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.backButton.setOnClickListener { requireActivity().onBackPressed() }
-        contribution = GsonUnmarshaller.unmarshal(Contribution::class.java, requireActivity().intent.getStringExtra(EXTRA_SOURCE_CONTRIBUTION))
+        contribution = requireActivity().intent.getParcelableExtra(EXTRA_SOURCE_CONTRIBUTION)!!
         setUpContributionDetails()
     }
 
@@ -118,7 +117,7 @@ class ContributionDetailsFragment : Fragment() {
                 binding.pageViewsDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_views, getString(R.string.suggested_edits_contribution_article_label)),
                         contribution.pageViews.toString(), R.drawable.ic_trending_up_black_24dp)
                 binding.typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_text_hint), R.drawable.ic_article_description)
-                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
+                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode))
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 binding.contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
@@ -126,7 +125,7 @@ class ContributionDetailsFragment : Fragment() {
                 else resources.getQuantityString(R.plurals.suggested_edits_added_contribution_label, contribution.sizeDiff, contribution.sizeDiff)
                 binding.pageViewsDetailView.setLabelAndDetail()
                 binding.typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_add_caption_hint), R.drawable.ic_image_caption)
-                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
+                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode))
             }
             EDIT_TYPE_IMAGE_TAG -> {
                 binding.contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)

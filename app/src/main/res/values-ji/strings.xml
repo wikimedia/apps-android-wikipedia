@@ -103,7 +103,7 @@
   <string name="create_account_passwords_mismatch_error">פאסווערטער שטימען נישט</string>
   <string name="create_account_email_error">אומגילטיקער ע־פאסט אדרעס</string>
   <string name="create_account_username_error">אומגילטיקע כאראקטערן אין באניצער־נאמען</string>
-  <string name="create_account_password_error">דאס פאסווארט איז אומגילטיק</string>
+  <string name="create_account_password_error" fuzzy="true">דאס פאסווארט איז אומגילטיק</string>
   <string name="create_account_generic_error">מען קען נישט באשאפֿן קאנטע</string>
   <string name="create_account_next">נעקסט</string>
   <string name="create_account_button">שאַפֿן אַ קאנטע</string>

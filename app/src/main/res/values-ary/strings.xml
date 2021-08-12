@@ -134,7 +134,7 @@
   <string name="create_account_passwords_mismatch_error">لموضباصات ماشي بحال بحال</string>
   <string name="create_account_email_error">ايميل غالط</string>
   <string name="create_account_username_error">حروف ماصحاحش فسميت لمستخدم</string>
-  <string name="create_account_password_error">لموضباص ماصالحش</string>
+  <string name="create_account_password_error" fuzzy="true">لموضباص ماصالحش</string>
   <string name="create_account_generic_error">مايمكنش دير كونط</string>
   <string name="create_account_next">لماجي</string>
   <string name="email_recommendation_dialog_title">دير كونط بلا ايميل</string>
