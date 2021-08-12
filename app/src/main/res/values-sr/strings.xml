@@ -159,7 +159,7 @@
   <string name="create_account_passwords_mismatch_error">Лозинке се не поклапају</string>
   <string name="create_account_email_error">Неважећа имејл-адреса</string>
   <string name="create_account_username_error">Неважећи знакови у корисничком имену</string>
-  <string name="create_account_password_error">Лозинка није важећа</string>
+  <string name="create_account_password_error" fuzzy="true">Лозинка није важећа</string>
   <string name="create_account_generic_error">Није могуће отворити налог</string>
   <string name="create_account_next">Следеће</string>
   <string name="email_recommendation_dialog_title">Отворити налог без имејл-адресе?</string>

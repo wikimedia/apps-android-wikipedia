@@ -175,7 +175,7 @@
   <string name="create_account_passwords_mismatch_error">Kata sandi tidak cocok</string>
   <string name="create_account_email_error">Alamat surel tidak sah</string>
   <string name="create_account_username_error">Karakter tidak sah dalam nama pengguna</string>
-  <string name="create_account_password_error">Kata sandi tidak sah</string>
+  <string name="create_account_password_error" fuzzy="true">Kata sandi tidak sah</string>
   <string name="create_account_generic_error">Tidak dapat membuat akun</string>
   <string name="create_account_next">Selanjutnya</string>
   <string name="email_recommendation_dialog_title">Buat akun tanpa alamat surel?</string>

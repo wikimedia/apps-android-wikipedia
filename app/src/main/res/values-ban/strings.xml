@@ -145,7 +145,7 @@
   <string name="create_account_passwords_mismatch_error">Kruna sandi nénten pateh</string>
   <string name="create_account_email_error">Alamat rerepél nénten patut</string>
   <string name="create_account_username_error">Karakter nénten ring wastan sang anganggé</string>
-  <string name="create_account_password_error">Kruna sandi nénten patut</string>
+  <string name="create_account_password_error" fuzzy="true">Kruna sandi nénten patut</string>
   <string name="create_account_generic_error">Nénten prasida ngardi akun</string>
   <string name="create_account_next">Selanturné</string>
   <string name="email_recommendation_dialog_title">Kardi akun tanpa alamat rerepél?</string>

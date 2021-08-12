@@ -115,7 +115,7 @@
   <string name="create_account_passwords_mismatch_error">پاس ورڈ ہکو سنویں کائنی</string>
   <string name="create_account_email_error">ای۔میل پتہ درست کائنی</string>
   <string name="create_account_username_error">ورتݨ آلے ناں وچ غلط اکھر</string>
-  <string name="create_account_password_error">پاس ورڈ ٹھیک کائنی</string>
+  <string name="create_account_password_error" fuzzy="true">پاس ورڈ ٹھیک کائنی</string>
   <string name="create_account_generic_error">کھاتہ نی کھُل سڳیا</string>
   <string name="create_account_next">اڳوں تے ونڄو</string>
   <string name="email_recommendation_dialog_create_with_email_action">ہک ای میل پتہ شامل کرو</string>

@@ -35,7 +35,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
                 DimenUtil.roundedDpToPx(indicatorHeight.toFloat()),
                 ResourceUtil.getThemedColor(context, R.attr.chart_shade5),
                 ResourceUtil.getThemedColor(context, R.attr.colorAccent),
-                L10nUtil.isLangRTL(card.wikiSite().languageCode())
+                L10nUtil.isLangRTL(card.wikiSite().languageCode)
             )
         )
     }
@@ -79,7 +79,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
 
     private fun header(card: NewsCard) {
         binding.headerView.setTitle(card.title())
-            .setLangCode(card.wikiSite().languageCode())
+            .setLangCode(card.wikiSite().languageCode)
             .setCard(card)
     }
 

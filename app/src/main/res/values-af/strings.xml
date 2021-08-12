@@ -104,7 +104,7 @@
   <string name="create_account_passwords_mismatch_error">Wagwoorde stem nie ooreen nie</string>
   <string name="create_account_email_error">Ongeldige e-posadres</string>
   <string name="create_account_username_error">Ongeldige karakters in gebruikersnaam</string>
-  <string name="create_account_password_error">Die wagwoord is ongeldig</string>
+  <string name="create_account_password_error" fuzzy="true">Die wagwoord is ongeldig</string>
   <string name="create_account_generic_error">Kon nie gebruiker skep nie</string>
   <string name="create_account_next">Volgende</string>
   <string name="email_recommendation_dialog_title">Skep \'n rekening met geen e-posadres?</string>
