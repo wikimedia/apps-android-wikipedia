@@ -165,7 +165,7 @@
   <string name="create_account_passwords_mismatch_error">הסיסמאות אינן תואמות</string>
   <string name="create_account_email_error">כתובת דוא\"ל שגויה</string>
   <string name="create_account_username_error">תווים בלתי־תקינים בשם המשתמש</string>
-  <string name="create_account_password_error">הסיסמה אינה תקינה</string>
+  <string name="create_account_password_error">הסיסמה צריכה להיות באורך 8 תווים לפחות</string>
   <string name="create_account_generic_error">לא היה ניתן ליצור חשבון</string>
   <string name="create_account_next">הבא</string>
   <string name="email_recommendation_dialog_title">ליצור חשבון ללא כתובת דואר אלקטרוני?</string>
@@ -179,6 +179,7 @@
   <string name="create_account_ip_block_help_url">https://he.wikipedia.org/wiki/WP:BLOCK</string>
   <string name="create_account_ip_block_details">פרטים</string>
   <string name="preferences_general_heading">כללי</string>
+  <string name="preferences_account_heading">חשבון</string>
   <string name="wikipedia_app_faq">שו\"ת יישום ויקיפדיה</string>
   <string name="send_feedback">לשלוח משוב על היישום</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
@@ -637,7 +638,7 @@
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_article_card_title">ערך אקראי</string>
   <string name="view_random_article_card_action">ערכים אקראיים נוספים</string>
-  <string name="view_top_read_card_title">ערכים מובילים</string>
+  <string name="view_top_read_card_title">הנקראים ביותר</string>
   <string name="view_top_read_card_action">ערכים מובילים נוספים</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d אלפים</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d מיליון</string>

@@ -1,7 +1,6 @@
 package org.wikipedia.main
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.app.DownloadManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -26,8 +25,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.WatchlistFunnel
-import org.wikipedia.auth.AccountUtil.isLoggedIn
-import org.wikipedia.auth.AccountUtil.userName
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
@@ -63,6 +61,7 @@ import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
+import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
@@ -182,10 +181,15 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY && resultCode == SearchFragment.RESULT_LANG_CHANGED ||
                 (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS &&
-                        (resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED || resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED))) {
+                        (resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED ||
+                                resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED ||
+                                resultCode == SettingsActivity.ACTIVITY_RESULT_LOG_OUT))) {
             refreshContents()
             if (resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
                 updateFeedHiddenCards()
+            }
+            if (resultCode == SettingsActivity.ACTIVITY_RESULT_LOG_OUT) {
+                FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete)
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
@@ -354,44 +358,28 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         return fragment is BackPressedHandler && (fragment as BackPressedHandler).onBackPressed()
     }
 
-    override fun loginLogoutClick() {
-        if (isLoggedIn) {
-            AlertDialog.Builder(requireContext())
-                    .setMessage(R.string.logout_prompt)
-                    .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
-                    .setPositiveButton(R.string.preference_title_logout) { _, _ ->
-                        WikipediaApp.getInstance().logOut()
-                        FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete)
-                        Prefs.setReadingListsLastSyncTime(null)
-                        Prefs.setReadingListSyncEnabled(false)
-                        Prefs.setSuggestedEditsHighestPriorityEnabled(false)
-                        requireActivity().invalidateOptionsMenu()
-                        refreshContents()
-                    }.show()
-        } else {
-            onLoginRequested()
-        }
+    override fun usernameClick() {
+        val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.getInstance().wikiSite), HistoryEntry.SOURCE_MAIN_PAGE)
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
+    }
+
+    override fun loginClick() {
+        onLoginRequested()
     }
 
     override fun notificationsClick() {
-        if (isLoggedIn) {
+        if (AccountUtil.isLoggedIn) {
             startActivity(NotificationActivity.newIntent(requireActivity()))
         }
     }
 
     override fun talkClick() {
-        if (isLoggedIn) {
-            userName?.let {
+        if (AccountUtil.isLoggedIn) {
+            AccountUtil.userName?.let {
                 startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                         PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode), it,
                                 WikiSite.forLanguageCode(WikipediaApp.getInstance().appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
             }
-        }
-    }
-
-    override fun historyClick() {
-        if (currentFragment !is HistoryFragment) {
-            goToTab(NavTab.SEARCH)
         }
     }
 
@@ -400,7 +388,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun watchlistClick() {
-        if (isLoggedIn) {
+        if (AccountUtil.isLoggedIn) {
             WatchlistFunnel().logViewWatchlist()
             startActivity(WatchlistActivity.newIntent(requireActivity()))
         }
@@ -486,17 +474,18 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (currentFragment !is SuggestedEditsTasksFragment && Prefs.shouldShowSuggestedEditsTooltip() &&
                 Prefs.getExploreFeedVisitCount() >= SHOW_EDITS_SNACKBAR_COUNT) {
             enqueueTooltip {
-                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()), if (isLoggedIn) getString(R.string.main_tooltip_text, userName) else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false)
-                        .setOnBalloonDismissListener {
+                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()),
+                    if (AccountUtil.isLoggedIn) getString(R.string.main_tooltip_text, AccountUtil.userName)
+                    else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
                             Prefs.setShouldShowSuggestedEditsTooltip(false)
-                        }
+                    }
             }
         }
     }
 
     private fun maybeShowWatchlistTooltip() {
         if (Prefs.isWatchlistPageOnboardingTooltipShown() &&
-                !Prefs.isWatchlistMainOnboardingTooltipShown() && isLoggedIn) {
+                !Prefs.isWatchlistMainOnboardingTooltipShown() && AccountUtil.isLoggedIn) {
             enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer, R.layout.view_watchlist_main_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
                         .setOnBalloonDismissListener {

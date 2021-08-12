@@ -131,7 +131,7 @@
   <string name="create_account_passwords_mismatch_error">ၶေႃႈလပ်ႉ ဢမ်ႇမႅၼ်ႈၵၼ်</string>
   <string name="create_account_email_error">ႁဵင်းလိၵ်ႈဢီးမေးလ် ၼႆႉၸႂ်ႉဢမ်ႇလႆႈ</string>
   <string name="create_account_username_error">တူဝ်လိၵ်ႈတႃႇ ၸိုဝ်ႈၽူႈၸႂ်ႉတိုဝ်းၼႆႉ ၸႂ်ႉဢမ်ႇလႆႈ</string>
-  <string name="create_account_password_error">ၶေႃႈလပ်ႉ ၸႂ်ႉဢမ်ႇလႆႈ</string>
+  <string name="create_account_password_error" fuzzy="true">ၶေႃႈလပ်ႉ ၸႂ်ႉဢမ်ႇလႆႈ</string>
   <string name="create_account_generic_error">ဢမ်ႇၸၢင်ႈၵေႃႇသၢင်ႈ ဢၶွင်ႉ</string>
   <string name="create_account_next">ထႅင်ႈ</string>
   <string name="email_recommendation_dialog_title">ဢမ်ႇမီးႁဵင်းလိၵ်ႈဢီးမေးလ်သေ တေၵေႃႇသၢင်ႈဢၶွင်ႉၼႄႇ?</string>

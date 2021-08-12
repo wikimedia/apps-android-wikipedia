@@ -139,7 +139,7 @@
   <string name="create_account_passwords_mismatch_error">Аһарыктарыҥ сөп түбэспэтилэр</string>
   <string name="create_account_email_error">Э-почтаҥ алҕастаах</string>
   <string name="create_account_username_error">Бэлиэ-аакка туһаныллыбат бэлиэлэр туран хаалбыттар</string>
-  <string name="create_account_password_error">Табыллыбат аhaрык</string>
+  <string name="create_account_password_error" fuzzy="true">Табыллыбат аhaрык</string>
   <string name="create_account_generic_error">Бэлиэтэнэр сатаммат</string>
   <string name="create_account_next">Аныгыскы</string>
   <string name="email_recommendation_dialog_title">Электрон аадырыһа суох бэлиэтэнэҕин дуо?</string>

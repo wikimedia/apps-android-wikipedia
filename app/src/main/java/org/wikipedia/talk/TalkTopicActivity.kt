@@ -52,6 +52,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private var topicId: Int = -1
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
+    private var undone = false
+    private var undoneBody = ""
+    private var undoneSubject = ""
     private var showUndoSnackbar = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
@@ -68,6 +71,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
+        if (intent.hasExtra(EXTRA_SUBJECT)) undoneSubject = intent.getStringExtra(EXTRA_SUBJECT) ?: ""
+        if (intent.hasExtra(EXTRA_BODY)) undoneBody = intent.getStringExtra(EXTRA_BODY) ?: ""
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = pageTitle.wikiSite
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
@@ -88,21 +93,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         binding.talkReplyButton.setOnClickListener {
             talkFunnel.logReplyClick()
-            replyActive = true
-            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-            binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-            binding.replySaveButton.visibility = View.VISIBLE
-            binding.replyTextLayout.visibility = View.VISIBLE
-            binding.licenseText.visibility = View.VISIBLE
-            DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
             editFunnel.logStart()
-            binding.talkScrollContainer.postDelayed({
-                if (!isDestroyed) {
-                    binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-                    binding.replyTextLayout.requestFocus()
-                }
-            }, 500)
-            binding.talkReplyButton.hide()
+            replyClicked()
         }
 
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
@@ -129,6 +121,27 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         updateEditLicenseText()
 
         onInitialLoad()
+    }
+
+    private fun replyClicked() {
+        replyActive = true
+        binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+        binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
+        binding.replySaveButton.visibility = View.VISIBLE
+        binding.replyTextLayout.visibility = View.VISIBLE
+        binding.licenseText.visibility = View.VISIBLE
+        binding.talkScrollContainer.postDelayed({
+            if (!isDestroyed) {
+                binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
+                DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
+                binding.replyTextLayout.requestFocus()
+            }
+        }, 500)
+        binding.talkReplyButton.hide()
+        if (undone) {
+            binding.replyEditText.setText(undoneBody)
+            binding.replyEditText.setSelection(binding.replyEditText.text.toString().length)
+        }
     }
 
     public override fun onDestroy() {
@@ -161,6 +174,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.replySaveButton.visibility = View.VISIBLE
             binding.replySubjectLayout.visibility = View.VISIBLE
             binding.replyTextLayout.hint = getString(R.string.talk_message_hint)
+            binding.replySubjectText.setText(undoneSubject)
+            binding.replyEditText.setText(undoneBody)
             binding.replyTextLayout.visibility = View.VISIBLE
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
@@ -295,6 +310,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
         var body = binding.replyEditText.text.toString().trim()
+        undoneBody = body
+        undoneSubject = subject
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
@@ -393,6 +410,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         if (isNewTopic()) {
             Intent().let {
                 it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
+                it.putExtra(EXTRA_TOPIC, topicId)
+                it.putExtra(EXTRA_SUBJECT, undoneSubject)
+                it.putExtra(EXTRA_BODY, undoneBody)
                 setResult(RESULT_EDIT_SUCCESS, it)
                 finish()
             }
@@ -408,10 +428,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun maybeShowUndoSnackbar() {
+        if (undone) {
+            replyClicked()
+            undone = false
+            return
+        }
         if (showUndoSnackbar) {
             FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
                 .setAnchorView(binding.talkReplyButton)
                 .setAction(R.string.talk_snackbar_undo) {
+                    undone = true
                     binding.talkReplyButton.isEnabled = false
                     binding.talkReplyButton.alpha = 0.5f
                     binding.talkProgressBar.visibility = View.VISIBLE
@@ -466,14 +492,18 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
-        private const val EXTRA_TOPIC = "topicId"
+        const val EXTRA_TOPIC = "topicId"
+        const val EXTRA_SUBJECT = "subject"
+        const val EXTRA_BODY = "body"
         const val RESULT_EDIT_SUCCESS = 1
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
-        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource, undoneSubject: String? = null, undoneBody: String? = null): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC, topicId)
+                    .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
+                    .putExtra(EXTRA_BODY, undoneBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

@@ -82,6 +82,7 @@
     <string name="preference_key_show_reading_lists_sync_prompt">showReadingListsSyncPrompt</string>
     <string name="preference_key_reading_lists_first_time_sync">readingListsFirstTimeSync</string>
     <string name="preference_key_about_wikipedia_app">aboutWikipediaApp</string>
+    <string name="preference_key_logout">logOut</string>
     <string name="preference_key_show_remove_chinese_variant_prompt">showRemoveChineseVariantPrompt</string>
     <string name="preference_key_download_only_over_wifi">downloadOnlyOverWiFi</string>
     <string name="preference_key_download_reading_list_articles">downloadReadingListArticles</string>

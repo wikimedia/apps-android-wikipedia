@@ -16,6 +16,7 @@
 * HakanIST
 * Hedda
 * Incelemeelemani
+* Jelican9
 * Joseph
 * Katpatuka
 * KorkmazO
@@ -115,7 +116,7 @@
   <string name="other_languages_indication_text">Başka dilde oku</string>
   <string name="language_count_link_text">%d farklı dilde mevcut</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Yayımlarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul etmiş olursunuz.</string>
+  <string name="edit_save_action_license_logged_in">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul etmiş olursunuz.</string>
   <string name="edit_save_action_license_anon">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
   <string name="preference_title_language">Vikipedi dilleri</string>
   <string name="langlinks_filter_hint">Ara</string>
@@ -186,7 +187,7 @@
   <string name="create_account_passwords_mismatch_error">Parolalar eşleşmiyor</string>
   <string name="create_account_email_error">Geçersiz e-posta adresi</string>
   <string name="create_account_username_error">Kullanıcı adında geçersiz karakterler</string>
-  <string name="create_account_password_error">Parola geçersiz</string>
+  <string name="create_account_password_error">Parola en az 8 karakter olmalıdır</string>
   <string name="create_account_generic_error">Hesap oluşturulamadı</string>
   <string name="create_account_next">İleri</string>
   <string name="email_recommendation_dialog_title">E-posta adresi olmadan hesap oluşturulsun mu?</string>
@@ -200,6 +201,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Ayrıntılar</string>
   <string name="preferences_general_heading">Genel</string>
+  <string name="preferences_account_heading">Hesap</string>
   <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
   <string name="create_account_account_created_toast">Hesap oluşturuldu!</string>

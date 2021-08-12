@@ -131,7 +131,7 @@
   <string name="create_account_passwords_mismatch_error">Lozinke se ne poklapaju</string>
   <string name="create_account_email_error">Nevažeća imejl-adresa</string>
   <string name="create_account_username_error">Nevažeći znakovi u korisničkom imenu</string>
-  <string name="create_account_password_error">Lozinka nije važeća</string>
+  <string name="create_account_password_error" fuzzy="true">Lozinka nije važeća</string>
   <string name="create_account_generic_error">Nije moguće otvoriti nalog</string>
   <string name="create_account_next">Sledeće</string>
   <string name="email_recommendation_dialog_title">Otvoriti nalog bez imejl-adrese?</string>

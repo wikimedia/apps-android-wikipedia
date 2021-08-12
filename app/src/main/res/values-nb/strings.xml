@@ -160,7 +160,7 @@
   <string name="create_account_passwords_mismatch_error">Passordene stemmer ikke overens</string>
   <string name="create_account_email_error">Ugyldig epostadresse</string>
   <string name="create_account_username_error">Ugyldige tegn i brukernavnet</string>
-  <string name="create_account_password_error">Passordet er ugyldig</string>
+  <string name="create_account_password_error" fuzzy="true">Passordet er ugyldig</string>
   <string name="create_account_generic_error">Kunne ikke opprette konto</string>
   <string name="create_account_next">Neste</string>
   <string name="email_recommendation_dialog_title">Opprett konto uten e-postadresse?</string>

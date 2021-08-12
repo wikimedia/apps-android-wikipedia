@@ -128,7 +128,7 @@
   <string name="create_account_passwords_mismatch_error">Ar gerioù-tremen ne glotont ket an eil gant egile</string>
   <string name="create_account_email_error">Chomlec\'h postel direizh.</string>
   <string name="create_account_username_error">Arouezennoù n\'int ket mat en anv an implijer</string>
-  <string name="create_account_password_error">Direizh eo ar ger-tremen</string>
+  <string name="create_account_password_error" fuzzy="true">Direizh eo ar ger-tremen</string>
   <string name="create_account_generic_error">N\'haller ket krouiñ ar gont</string>
   <string name="create_account_next">War-lerc\'h</string>
   <string name="email_recommendation_dialog_title">Krouiñ ur gont hep chomlec\'h postel ?</string>

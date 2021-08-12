@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
+import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewTabsCountBinding
@@ -46,7 +47,7 @@ class TabCountsView constructor(context: Context, attrs: AttributeSet? = null) :
 
     fun setColor(@ColorInt color: Int) {
         binding.tabsCountText.setTextColor(color)
-        binding.tabsCountText.backgroundTintList = ColorStateList.valueOf(color)
+        ViewCompat.setBackgroundTintList(binding.tabsCountText, ColorStateList.valueOf(color))
     }
 
     companion object {
