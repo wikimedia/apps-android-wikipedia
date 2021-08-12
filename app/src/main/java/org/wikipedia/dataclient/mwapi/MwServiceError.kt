@@ -3,8 +3,8 @@ package org.wikipedia.dataclient.mwapi
 import com.google.gson.annotations.SerializedName
 import org.wikipedia.dataclient.ServiceError
 import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
-import org.wikipedia.util.DateUtil.iso8601DateParse
-import org.wikipedia.util.ThrowableUtil.getBlockMessageHtml
+import org.wikipedia.util.DateUtil
+import org.wikipedia.util.ThrowableUtil
 import java.util.*
 
 class MwServiceError : ServiceError, PostProcessable {
@@ -33,31 +33,17 @@ class MwServiceError : ServiceError, PostProcessable {
     }
 
     fun hasMessageName(messageName: String): Boolean {
-        data?.messages?.let {
-            it.forEach { msg ->
-                if (messageName == msg.name) {
-                    return true
-                }
-            }
-        }
-        return false
+        return data?.messages?.find { it.name == messageName } != null
     }
 
     fun getMessageHtml(messageName: String): String? {
-        data?.messages?.let {
-            it.forEach { msg ->
-                if (messageName == msg.name) {
-                    return msg.html
-                }
-            }
-        }
-        return null
+        return data?.messages?.first { it.name == messageName }?.html
     }
 
     override fun postProcess() {
         // Special case: if it's a Blocked error, parse the blockinfo structure ourselves.
-        if (("blocked" == code || "autoblocked" == code) && data != null && data.blockinfo != null) {
-            html = getBlockMessageHtml(data.blockinfo)
+        if (("blocked" == code || "autoblocked" == code) && data?.blockinfo!=null) {
+            html = ThrowableUtil.getBlockMessageHtml(data.blockinfo)
         }
     }
 
@@ -92,7 +78,7 @@ class MwServiceError : ServiceError, PostProcessable {
                     return false
                 }
                 val now = Date()
-                val expiry = iso8601DateParse(blockExpiry)
+                val expiry = DateUtil.iso8601DateParse(blockExpiry)
                 return expiry.after(now)
             }
     }
