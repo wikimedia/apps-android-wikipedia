@@ -34,8 +34,8 @@ class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImag
         }
 
     private fun updateLabelsToWikiLang() {
-        binding.viewFeaturedImageCardDownloadButton.text =L10nUtil.getStringForArticleLanguage("en", R.string.view_featured_image_card_download)
-        binding.viewFeaturedImageCardShareButton.text =L10nUtil.getStringForArticleLanguage("en", R.string.view_featured_image_card_share)
+        binding.viewFeaturedImageCardDownloadButton.text = L10nUtil.getStringForArticleLanguage("en", R.string.view_featured_image_card_download)
+        binding.viewFeaturedImageCardShareButton.text = L10nUtil.getStringForArticleLanguage("en", R.string.view_featured_image_card_share)
     }
 
     override var callback: FeedAdapter.Callback? = null
