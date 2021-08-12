@@ -151,7 +151,7 @@
   <string name="create_account_passwords_mismatch_error">গুপ্তশব্দ মিলা নাই</string>
   <string name="create_account_email_error">অগ্ৰহণযোগ্য ইমেইল ঠিকনা</string>
   <string name="create_account_username_error">সদস্যনামত অবৈধ চিহ্ন আছে</string>
-  <string name="create_account_password_error">গুপ্তশব্দটো ভুল</string>
+  <string name="create_account_password_error" fuzzy="true">গুপ্তশব্দটো ভুল</string>
   <string name="create_account_generic_error">একাউণ্ট সৃষ্টি কৰিব পৰা নগ\'ল</string>
   <string name="create_account_next">পৰৱৰ্তী</string>
   <string name="email_recommendation_dialog_title">ইমেইল ঠিকনা অবিহনেই একাউণ্ট সৃষ্টি কৰিব?</string>

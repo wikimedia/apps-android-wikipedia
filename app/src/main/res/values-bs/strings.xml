@@ -145,7 +145,7 @@
   <string name="create_account_passwords_mismatch_error">Lozinke se ne slažu</string>
   <string name="create_account_email_error">Neispravna adresa e-pošte</string>
   <string name="create_account_username_error">Neispravni znakovi u korisničkom imenu</string>
-  <string name="create_account_password_error">Lozinka nije ispravna</string>
+  <string name="create_account_password_error" fuzzy="true">Lozinka nije ispravna</string>
   <string name="create_account_generic_error">Nije moguće napraviti korisnički račun</string>
   <string name="create_account_next">Sljedeće</string>
   <string name="email_recommendation_dialog_title">Da napravim račun bez adrese e-pošte?</string>
