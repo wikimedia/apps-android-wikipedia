@@ -33,7 +33,7 @@ data class ReadingListPage(
 
     constructor(title: PageTitle) :
             this(title.wikiSite, title.namespace(), title.displayText, title.prefixedText,
-                title.description, title.thumbUrl, lang = title.wikiSite.languageCode()) {
+                title.description, title.thumbUrl, lang = title.wikiSite.languageCode) {
         val now = System.currentTimeMillis()
         mtime = now
         atime = now

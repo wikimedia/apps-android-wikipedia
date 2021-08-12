@@ -153,7 +153,7 @@
   <string name="create_account_passwords_mismatch_error">دونوں پاس ورڈ یکساں نہیں ہیں</string>
   <string name="create_account_email_error">ای۔میل پتہ درست نہیں</string>
   <string name="create_account_username_error">صارف نام میں نادرست حروف</string>
-  <string name="create_account_password_error">پاس ورڈ درست نہیں</string>
+  <string name="create_account_password_error" fuzzy="true">پاس ورڈ درست نہیں</string>
   <string name="create_account_generic_error">کھاتا نہیں بن سکا۔</string>
   <string name="create_account_next">آگے جائیں</string>
   <string name="email_recommendation_dialog_title">برقی پتے کے بغیر کے کھاتہ بنائیں؟</string>

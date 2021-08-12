@@ -171,7 +171,7 @@
   <string name="create_account_passwords_mismatch_error">Hesla se neshodují</string>
   <string name="create_account_email_error">Neplatná e-mailová adresa</string>
   <string name="create_account_username_error">V uživatelském jménu jsou nepovolené znaky</string>
-  <string name="create_account_password_error">Heslo není platné</string>
+  <string name="create_account_password_error">Heslo musí mít alespoň 8 znaků</string>
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="create_account_next">Další</string>
   <string name="email_recommendation_dialog_title">Chcete vytvořit účet bez e-mailové adresy?</string>

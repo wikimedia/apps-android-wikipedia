@@ -5,11 +5,21 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import org.wikipedia.page.PageTitle;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public final class TestParcelUtil {
-    /** @param parcelable Must implement hashCode and equals */
+    public static void test(PageTitle title) throws Throwable {
+        Parcel parcel = parcel(title);
+        parcel.setDataPosition(0);
+        PageTitle title2 = (PageTitle) unparcel(parcel, PageTitle.class);
+        assertThat(title.getText(), is(title2.getText()));
+        assertThat(title.namespace(), is(title2.namespace()));
+        assertThat(title.getUri(), is(title2.getUri()));
+    }
+
     public static void test(Parcelable parcelable) throws Throwable {
         Parcel parcel = parcel(parcelable);
 

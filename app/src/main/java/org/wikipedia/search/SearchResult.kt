@@ -13,7 +13,7 @@ data class SearchResult(val pageTitle: PageTitle,
     }
 
     constructor(page: MwQueryPage, wiki: WikiSite) : this(PageTitle(page.title(),
-            wiki, page.thumbUrl(), page.description(), page.displayTitle(wiki.languageCode())),
+            wiki, page.thumbUrl(), page.description(), page.displayTitle(wiki.languageCode)),
             page.redirectFrom(), SearchResultType.SEARCH)
 
     constructor(pageTitle: PageTitle, searchResultType: SearchResultType) :

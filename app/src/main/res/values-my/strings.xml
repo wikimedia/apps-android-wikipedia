@@ -152,7 +152,7 @@
   <string name="create_account_passwords_mismatch_error">စကားဝှက်များ ကိုက်ညီမှုမရှိပါ</string>
   <string name="create_account_email_error">တရားမဝင်သော အီးမေးလ်လိပ်စာ</string>
   <string name="create_account_username_error">အသုံးပြုသူအမည်၌ တရားမဝင်သော အက္ခရာများ</string>
-  <string name="create_account_password_error">စကားဝှက်သည် မရေရာပါ</string>
+  <string name="create_account_password_error" fuzzy="true">စကားဝှက်သည် မရေရာပါ</string>
   <string name="create_account_generic_error">အကောင့်ဖန်တီးမရနိုင်ပါ</string>
   <string name="create_account_next">ရှေ့</string>
   <string name="email_recommendation_dialog_title">အီးမေးလိပ်စာမပါဘဲ အကောင့်ဖန်တီးမှာလား?</string>

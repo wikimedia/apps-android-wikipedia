@@ -129,7 +129,7 @@ class EditSectionActivity : BaseActivity() {
         binding.viewEditSectionError.backClickListener = View.OnClickListener {
             onBackPressed()
         }
-        L10nUtil.setConditionalTextDirection(binding.editSectionText, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalTextDirection(binding.editSectionText, pageTitle.wikiSite.languageCode)
         fetchSectionText()
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionTextModified")) {
             sectionTextModified = savedInstanceState.getBoolean("sectionTextModified")

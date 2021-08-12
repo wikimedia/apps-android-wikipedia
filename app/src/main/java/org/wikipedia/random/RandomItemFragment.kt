@@ -76,7 +76,7 @@ class RandomItemFragment : Fragment() {
             getRandomPage()
         }
 
-        L10nUtil.setConditionalLayoutDirection(view, wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(view, wikiSite.languageCode)
         return view
     }
 

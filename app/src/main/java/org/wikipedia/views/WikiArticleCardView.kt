@@ -56,6 +56,6 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
         setTitle(title.displayText)
         setDescription(title.description)
         binding.articleDivider.visibility = View.GONE
-        L10nUtil.setConditionalLayoutDirection(this, title.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(this, title.wikiSite.languageCode)
     }
 }

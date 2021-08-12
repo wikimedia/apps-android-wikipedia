@@ -92,7 +92,7 @@
   <string name="create_account_passwords_mismatch_error">Wachwäörd kómme neet euverèns</string>
   <string name="create_account_email_error">Óngeljig e-mailadres</string>
   <string name="create_account_username_error">Óngeljige teikes in gebroekersnaam</string>
-  <string name="create_account_password_error">\'t Wachwaord is óngeljig</string>
+  <string name="create_account_password_error" fuzzy="true">\'t Wachwaord is óngeljig</string>
   <string name="create_account_generic_error">Kós gebroeker neet aanmake</string>
   <string name="create_account_next">Volgende</string>
   <string name="create_account_button">Maak \'ne gebroeker aan</string>
