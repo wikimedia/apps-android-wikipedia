@@ -1,10 +1,8 @@
 package org.wikipedia.dataclient.restbase
 
-import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.ServiceError
 import org.wikipedia.json.GsonUnmarshaller
 
-@Serializable
 class RbServiceError : ServiceError {
 
     private val type: String? = null
