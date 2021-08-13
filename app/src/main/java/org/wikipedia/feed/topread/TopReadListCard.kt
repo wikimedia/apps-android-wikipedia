@@ -1,8 +1,8 @@
 package org.wikipedia.feed.topread
 
 import android.os.Parcelable
-import com.squareup.moshi.JsonClass
 import androidx.annotation.VisibleForTesting
+import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
