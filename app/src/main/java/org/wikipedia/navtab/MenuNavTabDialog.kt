@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.BuildConfig
@@ -16,6 +17,7 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil.getDimension
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.ResourceUtil.getThemedColor
@@ -71,6 +73,14 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
                     Uri.parse(getString(R.string.donate_url,
                             BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().systemLanguageCode)))
             dismiss()
+        }
+
+        if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+            binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+            binding.unreadDotView.isVisible = true
+        } else {
+            binding.unreadDotView.isVisible = false
+            binding.unreadDotView.setUnreadCount(0)
         }
 
         return binding.root

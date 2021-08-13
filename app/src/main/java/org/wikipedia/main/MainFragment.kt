@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -414,6 +415,16 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             fragment.onGoOnline()
         } else if (fragment is HistoryFragment) {
             fragment.refresh()
+        }
+    }
+
+    fun updateNotificationDot() {
+        if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+            binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+            binding.unreadDotView.isVisible = true
+        } else {
+            binding.unreadDotView.isVisible = false
+            binding.unreadDotView.setUnreadCount(0)
         }
     }
 

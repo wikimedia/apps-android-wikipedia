@@ -14,29 +14,14 @@
         app:tint="?attr/toolbar_icon_color"
         android:contentDescription="@null"/>
 
-    <ImageView
+    <org.wikipedia.views.NotificationDotView
         android:id="@+id/unreadDot"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
-        app:srcCompat="@drawable/shape_circle"
-        app:tint="?attr/colorError"
-        android:visibility="gone"
-        tools:visibility="visible"
-        android:contentDescription="@null"/>
-
-    <TextView
-        android:id="@+id/unreadCountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="7.5dp"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
-        android:textSize="10sp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@android:color/white"
-        tools:text="6"/>
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
 </merge>

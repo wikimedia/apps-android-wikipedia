@@ -13,7 +13,6 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ViewNotificationButtonBinding
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
-import kotlin.math.min
 
 class NotificationButtonView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
     private val binding = ViewNotificationButtonBinding.inflate(LayoutInflater.from(context), this)
@@ -25,9 +24,8 @@ class NotificationButtonView constructor(context: Context, attrs: AttributeSet? 
     }
 
     fun setUnreadCount(count: Int) {
+        binding.unreadDot.setUnreadCount(count)
         binding.unreadDot.isVisible = count > 0
-        binding.unreadCountText.text = min(count, 99).toString()
-        binding.unreadCountText.isVisible = count > 0
     }
 
     fun runAnimation() {

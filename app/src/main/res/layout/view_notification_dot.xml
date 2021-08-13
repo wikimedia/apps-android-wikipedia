@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.FrameLayout"
+    tools:layout_width="14dp"
+    tools:layout_height="14dp">
+
+    <ImageView
+        android:id="@+id/unreadDot"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/shape_circle"
+        app:tint="?attr/colorError"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/unreadCountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@android:color/white"
+        tools:text="42"/>
+
+</merge>

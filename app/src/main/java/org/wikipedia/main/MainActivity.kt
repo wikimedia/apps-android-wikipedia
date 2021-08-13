@@ -30,9 +30,9 @@ import org.wikipedia.views.TabCountsView
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var notificationButtonView: NotificationButtonView
 
     private var tabCountsView: TabCountsView? = null
-    private var notificationButtonView: NotificationButtonView? = null
     private var controlNavTabInFragment = false
     private var showTabCountsAnimation = false
 
@@ -43,6 +43,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        notificationButtonView = NotificationButtonView(this, null)
 
         setShortcuts(this)
         setImageZoomHelper()
@@ -99,22 +100,20 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         val notificationMenuItem = menu.findItem(R.id.menu_notifications)
         if (AccountUtil.isLoggedIn) {
             notificationMenuItem.isVisible = true
-            notificationButtonView = NotificationButtonView(this, null)
-            notificationButtonView!!.setUnreadCount(Prefs.getNotificationUnreadCount())
-            notificationButtonView!!.setOnClickListener {
+            notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
+            notificationButtonView.setOnClickListener {
                 if (AccountUtil.isLoggedIn) {
                     startActivity(NotificationActivity.newIntent(this))
                 }
             }
-            notificationButtonView!!.contentDescription =
-                getString(R.string.notifications_activity_title)
+            notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView!!)
+            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
         } else {
             notificationMenuItem.isVisible = false
-            notificationButtonView = null
         }
+        updateNotificationDot()
         return true
     }
 
@@ -194,11 +193,18 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     override fun onUnreadNotification() {
-        if (Prefs.getNotificationUnreadCount() > 0) {
-            notificationButtonView?.setUnreadCount(Prefs.getNotificationUnreadCount())
-            notificationButtonView?.runAnimation()
+        updateNotificationDot()
+        if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+            notificationButtonView.runAnimation()
+        }
+    }
+
+    private fun updateNotificationDot() {
+        fragment.updateNotificationDot()
+        if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+            notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
         } else {
-            notificationButtonView?.setUnreadCount(0)
+            notificationButtonView.setUnreadCount(0)
         }
     }
 
