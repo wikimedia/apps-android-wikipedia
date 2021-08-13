@@ -28,7 +28,7 @@ public final class MoshiUtil {
             .withSubtype(Claims.EntityIdValue.class, Claims.DataValue.Type.WIKIBASE_ENTITY_ID.getValue());
 
     private static final Moshi DEFAULT_MOSHI_BUILDER = new Moshi.Builder()
-            .add(Date.class, new Rfc3339DateJsonAdapter().nullSafe())
+            .add(Date.class, new Rfc3339DateJsonAdapter())
             .add(Location.class, new GeoJsonAdapter().nullSafe())
             .add(Uri.class, new UriJsonAdapter().nullSafe())
             .add(Namespace.class, new NamespaceJsonAdapter().nullSafe())
