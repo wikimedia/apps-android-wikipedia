@@ -60,25 +60,54 @@
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/replyTextLayout"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:hint="@string/talk_reply_hint"
-                    app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+                    android:layout_height="wrap_content">
 
-                    <org.wikipedia.views.PlainPasteEditText
-                        android:id="@+id/replyEditText"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/replyTextLayoutHint"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:imeOptions="flagNoExtractUi|actionNone"
-                        android:inputType="textMultiLine"
-                        android:lineSpacingExtra="6sp"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:enabled="false">
+
+                        <org.wikipedia.views.PlainPasteEditText
+                            android:id="@+id/replyEditTextHint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="6sp"
+                            android:textSize="16sp"
+                            android:textColor="?android:attr/textColorHint" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/replyTextLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:boxBackgroundColor="@android:color/transparent"
+                        android:hint="@string/talk_reply_hint"
+                        app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+
+                        <org.wikipedia.views.PlainPasteEditText
+                            android:id="@+id/replyEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="flagNoExtractUi|actionNone"
+                            android:inputType="textMultiLine"
+                            android:lineSpacingExtra="6sp"
+                            android:background="@android:color/transparent"
+                            android:textSize="16sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
 
                 <TextView
                     android:id="@+id/licenseText"

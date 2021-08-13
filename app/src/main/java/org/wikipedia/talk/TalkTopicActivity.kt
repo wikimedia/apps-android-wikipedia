@@ -1,10 +1,12 @@
 package org.wikipedia.talk
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -39,6 +41,7 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import java.util.concurrent.TimeUnit
+import kotlin.math.abs
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityTalkTopicBinding
@@ -62,6 +65,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler.onUrlClick(url, null, "")
     }
+    private var x1 = 0f
+    private var x2 = 0f
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,6 +105,18 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
             binding.replySubjectLayout.error = null
             binding.replyTextLayout.error = null
+            // Canned messages
+            val text = binding.replyEditText.text.toString()
+            if (text.isNotBlank() && text.isNotEmpty()) {
+                val found = CANNED_MESSAGES_LIST.find { it.startsWith(text) }
+                if (!found.isNullOrEmpty()) {
+                    binding.replyEditTextHint.setText(found)
+                } else {
+                    binding.replyEditTextHint.setText("")
+                }
+            } else {
+                binding.replyEditTextHint.setText("")
+            }
         }
         binding.replyEditText.addTextChangedListener(textWatcher)
         binding.replySaveButton.setOnClickListener {
@@ -119,7 +136,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         editFunnel = EditFunnel(WikipediaApp.getInstance(), pageTitle)
         updateEditLicenseText()
-
+        enableSwipeToCompleteGesture()
         onInitialLoad()
     }
 
@@ -128,6 +145,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
         binding.replySaveButton.visibility = View.VISIBLE
+        binding.replyTextLayoutHint.visibility = View.VISIBLE
         binding.replyTextLayout.visibility = View.VISIBLE
         binding.licenseText.visibility = View.VISIBLE
         binding.talkScrollContainer.postDelayed({
@@ -177,6 +195,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.replySubjectText.setText(undoneSubject)
             binding.replyEditText.setText(undoneBody)
             binding.replyTextLayout.visibility = View.VISIBLE
+            binding.replyTextLayoutHint.visibility = View.GONE
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
             editFunnel.logStart()
@@ -187,6 +206,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.replySubjectLayout.visibility = View.GONE
             binding.replyTextLayout.visibility = View.GONE
             binding.replyTextLayout.hint = getString(R.string.talk_reply_hint)
+            binding.replyTextLayoutHint.visibility = View.GONE
             binding.licenseText.visibility = View.GONE
             DeviceUtil.hideSoftKeyboard(this)
             loadTopic()
@@ -463,6 +483,25 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
+    private fun enableSwipeToCompleteGesture() {
+        binding.replyEditText.setOnTouchListener { _, motionEvent ->
+            when (motionEvent.action) {
+                MotionEvent.ACTION_DOWN -> x1 = motionEvent.x
+                MotionEvent.ACTION_UP -> {
+                    x2 = motionEvent.x
+                    val deltaX = x2 - x1
+                    if (abs(deltaX) > 150) {
+                        if (!binding.replyEditTextHint.text.isNullOrEmpty()) {
+                            binding.replyEditText.text = binding.replyEditTextHint.text
+                        }
+                    }
+                }
+            }
+            super.onTouchEvent(motionEvent)
+        }
+    }
+
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
             PageActivity.newIntentForCurrentTab(this, entry, title, false))
@@ -492,6 +531,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
+        // TODO: move these messages to values/strings.xml
+        private val CANNED_MESSAGES_LIST = listOf("Excellent. I am glad that all worked out.",
+            "Got it! Thanks for the update.", "Let me know if you have any questions.", "Looks fine to me.")
         const val EXTRA_TOPIC = "topicId"
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
