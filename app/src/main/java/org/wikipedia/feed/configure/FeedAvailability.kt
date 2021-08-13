@@ -1,7 +1,9 @@
 package org.wikipedia.feed.configure
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
+@Serializable
 class FeedAvailability {
 
     @SerializedName("todays_featured_article")

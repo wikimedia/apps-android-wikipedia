@@ -3,8 +3,10 @@ package org.wikipedia.gallery
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 @Parcelize
+@Serializable
 class ExtMetadata(
     @SerializedName("DateTime") private val dateTime: Values? = null,
     @SerializedName("ObjectName") private val objectName: Values? = null,
@@ -67,6 +69,7 @@ class ExtMetadata(
     }
 
     @Parcelize
+    @Serializable
     class Values(
         val value: String? = null,
         val source: String? = null,

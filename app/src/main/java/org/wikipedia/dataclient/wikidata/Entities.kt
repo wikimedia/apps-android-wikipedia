@@ -1,9 +1,11 @@
 package org.wikipedia.dataclient.wikidata
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwResponse
 import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 
+@Serializable
 class Entities : MwResponse(), PostProcessable {
 
     val entities: Map<String, Entity> = emptyMap()
@@ -16,6 +18,7 @@ class Entities : MwResponse(), PostProcessable {
         }
     }
 
+    @Serializable
     class Entity {
 
         private val id: String = ""
@@ -28,11 +31,13 @@ class Entities : MwResponse(), PostProcessable {
         val lastRevId: Long = 0
     }
 
+    @Serializable
     class Label {
         val language: String = ""
         val value: String = ""
     }
 
+    @Serializable
     class SiteLink {
         val site: String = ""
         val title: String = ""

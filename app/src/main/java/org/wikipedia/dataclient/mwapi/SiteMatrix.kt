@@ -1,12 +1,15 @@
 package org.wikipedia.dataclient.mwapi
 
 import com.google.gson.JsonObject
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import org.wikipedia.json.GsonUtil
 import java.util.*
 
+@Serializable
 class SiteMatrix : MwResponse() {
 
-    val sitematrix: JsonObject? = null
+    val sitematrix: @Contextual JsonObject? = null
 
     inner class SiteInfo {
 

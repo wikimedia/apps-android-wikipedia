@@ -6,6 +6,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -137,6 +139,7 @@ class LoginClient {
         disposables.clear()
     }
 
+    @Serializable
     class LoginResponse : MwResponse() {
 
         @SerializedName("clientlogin")
@@ -146,6 +149,7 @@ class LoginClient {
             return clientLogin?.toLoginResult(site, password)
         }
 
+        @Serializable
         private class ClientLogin {
 
             private val status: String? = null
@@ -174,6 +178,7 @@ class LoginClient {
             }
         }
 
+        @Serializable
         private class Request {
             val id: String? = null
         }

@@ -13,7 +13,7 @@ import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 import java.util.*
 
 @Parcelize
-@kotlinx.serialization.Serializable
+@Serializable
 open class PageSummary(
     val namespace: NamespaceContainer? = null,
     var titles: Titles? = null,

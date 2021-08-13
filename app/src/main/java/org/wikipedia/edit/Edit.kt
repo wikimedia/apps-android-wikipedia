@@ -1,12 +1,15 @@
 package org.wikipedia.edit
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 
+@Serializable
 class Edit : MwPostResponse() {
 
     val edit: Result? = null
 
+    @Serializable
     class Result {
         private val captcha: Captcha? = null
         @SerializedName("result")
@@ -25,6 +28,7 @@ class Edit : MwPostResponse() {
         val hasSpamBlacklistResponse get() = spamblacklist != null
     }
 
+    @Serializable
     private class Captcha {
         val id: String? = null
     }
