@@ -201,7 +201,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     override fun onDownload(item: GalleryItemFragment) {
         item.imageTitle?.let {
-            funnel.logGallerySave(pageTitle, it.displayText)
+            funnel.logGallerySave(pageTitle, it.displayTextValue)
         }
         if (item.imageTitle != null && item.mediaInfo != null) {
             downloadReceiver.download(this, item.imageTitle!!, item.mediaInfo!!)
@@ -213,7 +213,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     override fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle) {
         item.imageTitle?.let {
-            funnel.logGalleryShare(pageTitle, it.displayText)
+            funnel.logGalleryShare(pageTitle, it.displayTextValue)
         }
         if (bitmap != null && item.mediaInfo != null) {
             ShareUtil.shareImage(this, bitmap,
@@ -271,7 +271,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode]
         title.description = currentCaption
         val summary = PageSummaryForEdit(title.prefixedText, sourceWiki.languageCode, title,
-            title.displayText, RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription()), item.mediaInfo!!.thumbUrl)
+            title.displayTextValue, RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription), item.mediaInfo!!.thumbUrl)
         startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null,
             DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
     }
@@ -301,9 +301,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription)
         }
         val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode,
-                            sourceTitle, sourceTitle.displayText, currentCaption, item.mediaInfo!!.thumbUrl)
+                            sourceTitle, sourceTitle.displayTextValue, currentCaption, item.mediaInfo!!.thumbUrl)
         val targetSummary = PageSummaryForEdit(targetTitle.prefixedText, targetTitle.wikiSite.languageCode,
-            targetTitle, targetTitle.displayText, null, item.mediaInfo!!.thumbUrl)
+            targetTitle, targetTitle.displayTextValue, null, item.mediaInfo!!.thumbUrl)
         startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary,
             targetSummary, if (sourceSummary.lang == targetSummary.lang) DescriptionEditActivity.Action.ADD_CAPTION
             else DescriptionEditActivity.Action.TRANSLATE_CAPTION, InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
@@ -340,9 +340,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             currentItem?.imageTitle?.let {
                 if (currentPosition != -1) {
                     if (position < currentPosition) {
-                        funnel.logGallerySwipeLeft(pageTitle, it.displayText)
+                        funnel.logGallerySwipeLeft(pageTitle, it.displayTextValue)
                     } else if (position > currentPosition) {
-                        funnel.logGallerySwipeRight(pageTitle, it.displayText)
+                        funnel.logGallerySwipeRight(pageTitle, it.displayTextValue)
                     }
                 }
             }
@@ -369,7 +369,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         // log the "gallery close" event only upon explicit closing of the activity
         // (back button, or home-as-up button in the toolbar)
         currentItem?.imageTitle?.let {
-            funnel.logGalleryClose(pageTitle, it.displayText)
+            funnel.logGalleryClose(pageTitle, it.displayTextValue)
         }
         if (TRANSITION_INFO != null) {
             showTransitionReceiver()

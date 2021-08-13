@@ -145,7 +145,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
                 .subscribe({ addedTitlesList ->
                     val message: String
                     if (addedTitlesList.isEmpty()) {
-                        message = if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title, titles[0].displayText) else getString(R.string.reading_list_articles_already_exist_message, readingList.title)
+                        message = if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title, titles[0].displayTextValue) else getString(R.string.reading_list_articles_already_exist_message, readingList.title)
                     } else {
                         message = if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title)
                         ReadingListsFunnel().logAddToList(readingList, readingLists.size, invokeSource)

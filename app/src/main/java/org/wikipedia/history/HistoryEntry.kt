@@ -26,7 +26,7 @@ class HistoryEntry(
     var timeSpentSec: Int = 0,
 ) : Parcelable {
     constructor(title: PageTitle, source: Int, timestamp: Date = Date(), timeSpentSec: Int = 0) : this(title.wikiSite.authority(),
-        title.wikiSite.languageCode, title.text, title.displayText, namespace = title.namespace,
+        title.wikiSite.languageCode, title.textValue, title.displayTextValue, namespace = title.namespace,
         timestamp = timestamp, source = source, timeSpentSec = timeSpentSec) {
         pageTitle = title
     }

@@ -188,7 +188,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     showPreview(LinkPreviewContents(summary, pageTitle.wikiSite))
                 }) { caught ->
                     L.e(caught)
-                    binding.linkPreviewTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+                    binding.linkPreviewTitle.text = StringUtil.fromHtml(pageTitle.displayTextValue)
                     showError(caught)
                 })
     }
@@ -263,7 +263,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun goToExternalMapsApp() {
         location?.let {
             dismiss()
-            GeoUtil.sendGeoIntent(requireActivity(), it, pageTitle.displayText)
+            GeoUtil.sendGeoIntent(requireActivity(), it, pageTitle.displayTextValue)
         }
     }
 

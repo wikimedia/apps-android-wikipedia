@@ -7,7 +7,7 @@ import org.wikipedia.page.PageTitle
 class ShareAFactFunnel(app: WikipediaApp, pageTitle: PageTitle, private val pageId: Int, private val revisionId: Long) :
         Funnel(app, SCHEMA_NAME, REV_ID, pageTitle.wikiSite) {
 
-    private val pageTitle = pageTitle.displayText
+    private val pageTitle = pageTitle.displayTextValue
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "tutorial_feature_enabled", true)

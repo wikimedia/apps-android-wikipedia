@@ -114,7 +114,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     imageEditType = null // Need to clear value from precious call
                     if (!pair.first.containsKey(it.wikiSite.languageCode)) {
                         imageEditType = ImageEditType.ADD_CAPTION
-                        return@flatMap ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage!!.pageId(), it.wikiSite.languageCode)
+                        return@flatMap ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage!!.pageId, it.wikiSite.languageCode)
                     }
                     if (WikipediaApp.getInstance().language().appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                         for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
@@ -147,17 +147,17 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             ImageEditType.ADD_CAPTION_TRANSLATION -> {
                 callToActionIsTranslation = true
                 captionSourcePageTitle?.run {
-                    callToActionSourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, leadImageUrl)
+                    callToActionSourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayTextValue, description, leadImageUrl)
                 }
                 captionTargetPageTitle?.run {
-                    callToActionTargetSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, null, leadImageUrl)
+                    callToActionTargetSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayTextValue, null, leadImageUrl)
                     pageHeaderView.setUpCallToAction(parentFragment.getString(R.string.suggested_edits_article_cta_image_caption_in_language, WikipediaApp.getInstance().language().getAppLanguageLocalizedName(wikiSite.languageCode)))
                 }
             }
             else -> {
                 captionSourcePageTitle?.run {
                     title?.let {
-                        callToActionSourceSummary = PageSummaryForEdit(prefixedText, it.wikiSite.languageCode, this, displayText, StringUtil.fromHtml(imagePage?.imageInfo()?.metadata?.imageDescription().orEmpty()).toString(), imagePage?.imageInfo()?.thumbUrl)
+                        callToActionSourceSummary = PageSummaryForEdit(prefixedText, it.wikiSite.languageCode, this, displayTextValue, StringUtil.fromHtml(imagePage?.firstImageInfo?.metadata?.imageDescription.orEmpty()).toString(), imagePage?.firstImageInfo?.thumbUrl)
                         pageHeaderView.setUpCallToAction(parentFragment.getString(R.string.suggested_edits_article_cta_image_caption))
                     }
                 }

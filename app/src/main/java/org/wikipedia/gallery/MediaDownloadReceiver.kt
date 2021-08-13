@@ -32,7 +32,7 @@ class MediaDownloadReceiver : BroadcastReceiver() {
     }
 
     fun download(context: Context, imageTitle: PageTitle, mediaInfo: ImageInfo) {
-        val saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(imageTitle.displayText))
+        val saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(imageTitle.displayTextValue))
         var fileUrl = mediaInfo.originalUrl
         val targetDirectoryType: String
         if (FileUtil.isVideo(mediaInfo.mimeType) && mediaInfo.bestDerivative != null) {

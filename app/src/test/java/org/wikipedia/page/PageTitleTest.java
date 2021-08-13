@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.nullValue;
         assertThat(new PageTitle(null, "Test  title",  enwiki).getPrefixedText(), is("Test__title"));
         assertThat(new PageTitle(null, "Test title",  enwiki).getPrefixedText(), is("Test_title"));
         assertThat(new PageTitle("Talk", "Test title",  enwiki).getPrefixedText(), is("Talk:Test_title"));
-        assertThat(new PageTitle(null, "Test title",  enwiki).getText(), is("Test_title"));
+        assertThat(new PageTitle(null, "Test title",  enwiki).getTextValue(), is("Test_title"));
     }
 
     @Test public void testFromInternalLink() {
@@ -28,15 +28,15 @@ import static org.hamcrest.Matchers.nullValue;
         assertThat(enwiki.titleForInternalLink("/wiki/India").getNamespace(), emptyString());
 
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getNamespace(), is("Talk"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getText(), is("India"));
+        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getTextValue(), is("India"));
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getFragment(), nullValue());
 
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getNamespace(), is("Talk"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getText(), is("India"));
+        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getTextValue(), is("India"));
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), nullValue());
 
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getNamespace(), is("Talk"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getText(), is("India"));
+        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getTextValue(), is("India"));
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getFragment(), is("History"));
     }
 
@@ -67,11 +67,11 @@ import static org.hamcrest.Matchers.nullValue;
     @Test public void testParsing() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
-        assertThat(new PageTitle("Hello", enwiki).getDisplayText(), is("Hello"));
-        assertThat(new PageTitle("Talk:Hello", enwiki).getDisplayText(), is("Talk:Hello"));
-        assertThat(new PageTitle("Talk:Hello", enwiki).getText(), is("Hello"));
+        assertThat(new PageTitle("Hello", enwiki).getDisplayTextValue(), is("Hello"));
+        assertThat(new PageTitle("Talk:Hello", enwiki).getDisplayTextValue(), is("Talk:Hello"));
+        assertThat(new PageTitle("Talk:Hello", enwiki).getTextValue(), is("Hello"));
         assertThat(new PageTitle("Talk:Hello", enwiki).getNamespace(), is("Talk"));
-        assertThat(new PageTitle("Wikipedia_talk:Hello world", enwiki).getDisplayText(), is("Wikipedia talk:Hello world"));
+        assertThat(new PageTitle("Wikipedia_talk:Hello world", enwiki).getDisplayTextValue(), is("Wikipedia talk:Hello world"));
     }
 
     @Test public void testSpecial() {
@@ -113,14 +113,14 @@ import static org.hamcrest.Matchers.nullValue;
     @Test public void testHashChar() {
         PageTitle pageTitle = new PageTitle("#", WikiSite.forLanguageCode("en"));
         assertThat(pageTitle.getNamespace(), emptyString());
-        assertThat(pageTitle.getText(), is(""));
+        assertThat(pageTitle.getTextValue(), is(""));
         assertThat(pageTitle.getFragment(), nullValue());
     }
 
     @Test public void testColonChar() {
         PageTitle pageTitle = new PageTitle(":", WikiSite.forLanguageCode("en"));
         assertThat(pageTitle.getNamespace(), emptyString());
-        assertThat(pageTitle.getText(), is(":"));
+        assertThat(pageTitle.getTextValue(), is(":"));
         assertThat(pageTitle.getFragment(), nullValue());
     }
 }

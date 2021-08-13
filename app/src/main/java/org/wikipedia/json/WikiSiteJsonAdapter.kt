@@ -43,7 +43,7 @@ class WikiSiteJsonAdapter : JsonAdapter<WikiSite>() {
         writer.name(DOMAIN)
         writer.value(value?.url())
         writer.name(LANGUAGE_CODE)
-        writer.value(value?.languageCode())
+        writer.value(value?.languageCode)
         writer.endObject()
     }
 }

@@ -151,7 +151,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun setUpInitialUI() {
         binding.diffText.movementMethod = ScrollingMovementMethod()
-        binding.articleTitleView.text = articlePageTitle.displayText
+        binding.articleTitleView.text = articlePageTitle.displayTextValue
         updateDiffCharCountView(diffSize)
     }
 
@@ -308,11 +308,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         isWatched = watch.watched
         hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
         if (watch.unwatched) {
-            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articlePageTitle.displayText))
+            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articlePageTitle.displayTextValue))
         } else if (watch.watched) {
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                            articlePageTitle.displayText,
+                            articlePageTitle.displayTextValue,
                             getString(expiry.stringId)),
                     FeedbackUtil.LENGTH_DEFAULT)
             if (!watchlistExpiryChanged) {

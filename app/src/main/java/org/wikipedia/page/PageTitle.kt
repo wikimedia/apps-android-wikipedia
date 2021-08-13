@@ -1,7 +1,8 @@
 package org.wikipedia.page
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -21,34 +22,29 @@ import java.util.*
  * description can be altered after construction. Therefore do NOT rely on all the fields
  * of a PageTitle to remain constant for the lifetime of the object.
  */
+@JsonClass(generateAdapter = true)
 @Parcelize
 class PageTitle(
-    @SerializedName("namespace") private var _namespace: String?,
-    // TODO: remove this SerializedName when Tab list is no longer serialized to shared prefs.
-    @SerializedName("site") var wikiSite: WikiSite,
-    @SerializedName("text") private var _text: String = "",
+    var namespace: String = "",
+    // TODO: remove this Json when Tab list is no longer serialized to shared prefs.
+    @Json(name = "site") var wikiSite: WikiSite,
+    var text: String = "",
     var fragment: String? = null,
     var thumbUrl: String?,
     var description: String? = null,
     // TODO: remove after the restbase endpoint supports ZH variants.
-    @SerializedName("displayText") private var _displayText: String? = null,
+    var displayText: String = "",
     var extract: String? = null
 ) : Parcelable {
+    val textValue: String
+        get() = StringUtil.addUnderscores(text)
 
-    var text: String
-        get() = StringUtil.addUnderscores(_text)
-        set(value) { _text = value }
-
-    var displayText: String
-        get() = _displayText.orEmpty().ifEmpty { StringUtil.removeUnderscores(prefixedText) }
-        set(value) { this._displayText = value }
+    val displayTextValue: String
+        get() = displayText.ifEmpty { StringUtil.removeUnderscores(prefixedText) }
 
     // TODO: find a better way to check if the namespace is a ISO Alpha2 Code (two digits country code)
     val prefixedText: String
-        get() = if (namespace.isEmpty()) text else StringUtil.addUnderscores(namespace) + ":" + text
-
-    val namespace: String
-        get() = _namespace.orEmpty()
+        get() = if (namespace.isEmpty()) textValue else StringUtil.addUnderscores(namespace) + ":" + textValue
 
     val isFilePage: Boolean
         get() = namespace().file()
@@ -59,7 +55,7 @@ class PageTitle(
     val isMainPage: Boolean
         get() {
             val mainPageTitle = SiteInfoClient.getMainPageForLang(wikiSite.languageCode)
-            return mainPageTitle == displayText
+            return mainPageTitle == displayTextValue
         }
 
     val uri: String
@@ -86,11 +82,11 @@ class PageTitle(
      */
 
     constructor(namespace: String?, text: String, fragment: String?, thumbUrl: String?, wiki: WikiSite) :
-            this(namespace, wiki, text, fragment, thumbUrl, null, null, null)
+            this(namespace.orEmpty(), wiki, text, fragment, thumbUrl, null, "", null)
 
-    constructor(text: String?, wiki: WikiSite, thumbUrl: String?, description: String?, displayText: String?) :
+    constructor(text: String?, wiki: WikiSite, thumbUrl: String?, description: String?, displayText: String) :
             this(text, wiki, thumbUrl) {
-        this._displayText = displayText
+        this.displayText = displayText
         this.description = description
     }
 
@@ -101,7 +97,7 @@ class PageTitle(
         description: String?,
         displayText: String?,
         extract: String?
-    ) : this(text, wiki, thumbUrl, description, displayText) {
+    ) : this(text, wiki, thumbUrl, description, displayText.orEmpty()) {
         this.extract = extract
     }
 
@@ -110,7 +106,7 @@ class PageTitle(
 
     @JvmOverloads
     constructor(title: String?, wiki: WikiSite, thumbUrl: String? = null) :
-            this(null, wiki, title.orEmpty(), null, thumbUrl, null, null, null) {
+            this("", wiki, title.orEmpty(), null, thumbUrl, null, "", null) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
         var text = title.orEmpty().ifEmpty { SiteInfoClient.getMainPageForLang(wiki.languageCode) }
 
@@ -132,22 +128,22 @@ class PageTitle(
         if (parts.size > 1) {
             val namespaceOrLanguage = parts[0]
             if (Locale.getISOLanguages().contains(namespaceOrLanguage)) {
-                _namespace = null
+                namespace = ""
                 wikiSite = WikiSite(wiki.authority(), namespaceOrLanguage)
-                this._text = parts.copyOfRange(1, parts.size).joinToString(":")
+                this.text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else if (parts[1].isNotEmpty() && !Character.isWhitespace(parts[1][0]) && parts[1][0] != '_') {
                 wikiSite = wiki
-                _namespace = namespaceOrLanguage
-                this._text = parts.copyOfRange(1, parts.size).joinToString(":")
+                namespace = namespaceOrLanguage
+                this.text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else {
                 wikiSite = wiki
-                _namespace = null
-                this._text = text
+                namespace = ""
+                this.text = text
             }
         } else {
             wikiSite = wiki
-            _namespace = null
-            this._text = text
+            namespace = ""
+            this.text = text
         }
         this.thumbUrl = thumbUrl
     }
@@ -168,9 +164,9 @@ class PageTitle(
 
     fun pageTitleForTalkPage(): PageTitle {
         val talkNamespace = if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(wikiSite.languageCode) else TalkAliasData.valueFor(wikiSite.languageCode)
-        val pageTitle = PageTitle(talkNamespace, text, wikiSite)
+        val pageTitle = PageTitle(talkNamespace, textValue, wikiSite)
         pageTitle.displayText = "$talkNamespace:" +
-                if (namespace.isNotEmpty() && displayText.startsWith(namespace)) StringUtil.removeNamespace(displayText) else displayText
+                if (namespace.isNotEmpty() && displayTextValue.startsWith(namespace)) StringUtil.removeNamespace(displayTextValue) else displayTextValue
         pageTitle.fragment = fragment
         return pageTitle
     }

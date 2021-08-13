@@ -112,7 +112,7 @@ interface ReadingListPageDao {
                 continue
             }
             addPageToList(list, title)
-            addedTitles.add(title.displayText)
+            addedTitles.add(title.displayTextValue)
         }
         if (addedTitles.isNotEmpty()) {
             SavedPageSyncService.enqueue()
@@ -136,7 +136,7 @@ interface ReadingListPageDao {
     fun findPageInAnyList(title: PageTitle): ReadingListPage? {
         return getPageByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
-            title.displayText, title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
+            title.displayTextValue, title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
         )
     }
 
@@ -205,7 +205,7 @@ interface ReadingListPageDao {
         val movedTitles = mutableListOf<String>()
         for (title in titles) {
             movePageToList(sourceList, destList, title)
-            movedTitles.add(title.displayText)
+            movedTitles.add(title.displayTextValue)
         }
         if (movedTitles.isNotEmpty()) {
             SavedPageSyncService.enqueue()
@@ -232,7 +232,7 @@ interface ReadingListPageDao {
     fun getPageByTitle(list: ReadingList, title: PageTitle): ReadingListPage? {
         return getPageByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
-            title.displayText, title.prefixedText, list.id,
+            title.displayTextValue, title.prefixedText, list.id,
             ReadingListPage.STATUS_QUEUE_FOR_DELETE
         )
     }
@@ -265,7 +265,7 @@ interface ReadingListPageDao {
     fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
         return getPagesByParams(
             title.wikiSite, title.wikiSite.languageCode, title.namespace(),
-            title.displayText, title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
+            title.displayTextValue, title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
         )
     }
 

@@ -11,10 +11,7 @@ import org.wikipedia.util.ImageUrlUtil
 
 @JsonClass(generateAdapter = true)
 @Parcelize
-class NewsItem(
-    val story: String = "",
-    val links: List<PageSummary?> = emptyList()
-) : Parcelable {
+class NewsItem(val story: String = "", val links: List<PageSummary> = emptyList()) : Parcelable {
     fun linkCards(wiki: WikiSite): List<NewsLinkCard> {
         return links.map { NewsLinkCard(it, wiki) }
     }

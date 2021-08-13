@@ -294,7 +294,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         }
     }
 
-    private val shareSubject get() = pageTitle?.displayText
+    private val shareSubject get() = pageTitle?.displayTextValue
 
     private fun saveImage() {
         mediaInfo?.let { callback()?.onDownload(this) }

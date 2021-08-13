@@ -79,7 +79,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
                     if (response is MwParseResponse) {
-                        L.d("Downloaded page " + mainPageTitle.displayText)
+                        L.d("Downloaded page " + mainPageTitle.displayTextValue)
                         ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, findFeaturedArticleTitle(response.parse.text))
                     } else {
                         Observable.just(response as PageSummary)
@@ -90,7 +90,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     val pageTitle = response.getPageTitle(app.wikiSite)
                     cb.onFeaturedArticleReceived(pageTitle, widgetText)
                 }) { throwable: Throwable ->
-                    cb.onFeaturedArticleReceived(mainPageTitle, mainPageTitle.displayText)
+                    cb.onFeaturedArticleReceived(mainPageTitle, mainPageTitle.displayTextValue)
                     L.e(throwable)
                 }
     }
@@ -111,7 +111,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
             val title = WikipediaApp.getInstance().wikiSite
                     .titleForInternalLink(UriUtil.decodeURL(span.url))
             if (!title.isFilePage && !title.isSpecial) {
-                titleText = title.displayText
+                titleText = title.displayTextValue
                 break
             }
         }

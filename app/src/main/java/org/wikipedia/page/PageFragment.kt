@@ -394,7 +394,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 sectionsAdapter.fromJson(value)?.let {
                     sections = it.toMutableList()
                     sections?.let { sections ->
-                        val text = model.title?.displayText.orEmpty()
+                        val text = model.title?.displayTextValue.orEmpty()
                         sections.add(0, Section(0, 0, text, text, ""))
                         page.sections = sections
                     }
@@ -608,10 +608,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             model.isWatched = watch.watched
             model.hasWatchlistExpiry = expiry !== WatchlistExpiry.NEVER
             if (watch.unwatched) {
-                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
+                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayTextValue))
             } else if (watch.watched) {
                 val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                    it.displayText, getString(expiry.stringId)), FeedbackUtil.LENGTH_DEFAULT)
+                    it.displayTextValue, getString(expiry.stringId)), FeedbackUtil.LENGTH_DEFAULT)
                 if (!watchlistExpiryChanged) {
                     snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                         watchlistExpiryChanged = true
@@ -1108,7 +1108,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL)
         } else {
             title?.run {
-                val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, thumbUrl)
+                val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayTextValue, description, thumbUrl)
                 requireActivity().startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), this, text, sourceSummary, null,
                         DescriptionEditActivity.Action.ADD_DESCRIPTION, InvokeSource.PAGE_ACTIVITY), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
             }

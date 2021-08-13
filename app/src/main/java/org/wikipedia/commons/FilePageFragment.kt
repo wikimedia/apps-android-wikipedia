@@ -120,7 +120,7 @@ class FilePageFragment : Fragment() {
                             pageTitle.prefixedText,
                             pageTitle.wikiSite.languageCode,
                             pageTitle,
-                            pageTitle.displayText,
+                            pageTitle.displayTextValue,
                             StringUtil.fromHtml(imageInfo.metadata!!.imageDescription).toString().ifBlank { null },
                             imageInfo.thumbUrl,
                             null,

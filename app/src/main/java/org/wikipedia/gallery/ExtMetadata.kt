@@ -26,7 +26,7 @@ class ExtMetadata(
     @Json(name = "Copyrighted") internal val copyrighted: Values? = null,
     @Json(name = "Restrictions") internal val restrictions: Values? = null,
     @Json(name = "License") internal val licenseValues: Values? = null
-) {
+) : Parcelable {
     val licenseShortName: String
         get() = licenseShortNameValues?.value ?: ""
     val licenseUrl: String
@@ -50,5 +50,5 @@ class ExtMetadata(
 
     @JsonClass(generateAdapter = true)
     @Parcelize
-    class Values(val value: String = "", val source: String = "", internal val hidden: String = "")
+    class Values(val value: String = "", val source: String = "", internal val hidden: String = "") : Parcelable
 }

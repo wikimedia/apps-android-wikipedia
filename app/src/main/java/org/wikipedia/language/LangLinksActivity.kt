@@ -184,7 +184,7 @@ class LangLinksActivity : BaseActivity() {
                 // Replace legacy name of тарашкевіца language with the correct name.
                 // TODO: Can probably be removed when T111853 is resolved.
                 it.remove()
-                it.add(PageTitle(link.text, WikiSite.forLanguageCode(AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE)))
+                it.add(PageTitle(link.textValue, WikiSite.forLanguageCode(AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE)))
             } else if (languageVariants != null) {
                 // remove the language code and replace it with its variants
                 it.remove()
@@ -300,7 +300,7 @@ class LangLinksActivity : BaseActivity() {
     private open inner class DefaultViewHolder constructor(private val languageEntries: List<PageTitle>, itemView: View) : RecyclerView.ViewHolder(itemView) {
         open fun bindItem(position: Int) {
             // TODO: Optimize this
-            itemView.findViewById<TextView>(R.id.section_header_text).text = languageEntries[position].displayText
+            itemView.findViewById<TextView>(R.id.section_header_text).text = languageEntries[position].displayTextValue
         }
     }
 
@@ -316,7 +316,7 @@ class LangLinksActivity : BaseActivity() {
             val languageCode = item.wikiSite.languageCode
             val localizedLanguageName = app.language().getAppLanguageLocalizedName(languageCode)
             localizedLanguageNameTextView.text = localizedLanguageName?.capitalize(Locale.getDefault()) ?: languageCode
-            articleTitleTextView.text = item.displayText
+            articleTitleTextView.text = item.displayTextValue
             if (binding.langlinksLoadProgress.visibility != View.VISIBLE) {
                 val canonicalName = getCanonicalName(languageCode)
                 if (canonicalName.isNullOrEmpty() || languageCode == app.language().systemLanguageCode) {
@@ -365,7 +365,7 @@ class LangLinksActivity : BaseActivity() {
                 if (languageVariants != null) {
                     for (languageCode in languageVariants) {
                         if (!title.wikiSite.languageCode.contains(languageCode)) {
-                            val pageTitle = PageTitle(if (title.isMainPage) SiteInfoClient.getMainPageForLang(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
+                            val pageTitle = PageTitle(if (title.isMainPage) SiteInfoClient.getMainPageForLang(languageCode) else title.displayTextValue, WikiSite.forLanguageCode(languageCode))
                             pageTitle.text = StringUtil.removeNamespace(title.prefixedText)
                             languageEntries.add(pageTitle)
                         }

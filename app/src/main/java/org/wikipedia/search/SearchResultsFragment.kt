@@ -178,7 +178,7 @@ class SearchResultsFragment : Fragment() {
             }
             WikipediaApp.getInstance().tabList.forEach { tab ->
                 tab.backStackPositionTitle?.let {
-                    if (it.displayText.lowercase(Locale.getDefault()).contains(term.lowercase(Locale.getDefault()))) {
+                    if (it.displayTextValue.lowercase(Locale.getDefault()).contains(term.lowercase(Locale.getDefault()))) {
                         resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
                         return
                     }
@@ -456,7 +456,7 @@ class SearchResultsFragment : Fragment() {
             }
 
             // highlight search term within the text
-            boldenKeywordText(pageTitleText, pageTitle.displayText, currentSearchTerm)
+            boldenKeywordText(pageTitleText, pageTitle.displayTextValue, currentSearchTerm)
             searchResultItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
             loadImageWithRoundedCorners(searchResultItemImage, pageTitle.thumbUrl)
 

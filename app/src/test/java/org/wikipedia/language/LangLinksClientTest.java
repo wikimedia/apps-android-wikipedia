@@ -16,7 +16,7 @@ public class LangLinksClientTest extends MockRetrofitTest {
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
                 .assertValue(result ->
-                        result.getQuery().getLangLinks().get(0).getDisplayText().equals("Sciëntologie"));
+                        result.getQuery().getLangLinks().get(0).getDisplayTextValue().equals("Sciëntologie"));
     }
 
     @Test

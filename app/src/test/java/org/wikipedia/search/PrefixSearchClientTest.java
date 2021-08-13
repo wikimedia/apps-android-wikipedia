@@ -28,7 +28,7 @@ public class PrefixSearchClientTest extends MockRetrofitTest {
         enqueueFromFile("prefix_search_results.json");
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
-                .assertValue(result -> result.getResults().get(0).getPageTitle().getDisplayText().equals("Narthecium"));
+                .assertValue(result -> result.getResults().get(0).getPageTitle().getDisplayTextValue().equals("Narthecium"));
     }
 
     @Test public void testRequestSuccessNoResults() throws Throwable {

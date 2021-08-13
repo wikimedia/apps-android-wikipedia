@@ -98,7 +98,7 @@ public class LangLinksActivityTest{
     private void compareLists(List<PageTitle> list1, List<PageTitle> list2) {
         for (int i = 0; i < list1.size(); i++) {
             assertThat(list1.get(i).getUri(), is(list2.get(i).getUri()));
-            assertThat(list1.get(i).getDisplayText(), is(list2.get(i).getDisplayText()));
+            assertThat(list1.get(i).getDisplayTextValue(), is(list2.get(i).getDisplayTextValue()));
         }
     }
 }

@@ -2,7 +2,7 @@ package org.wikipedia.dataclient
 
 import android.net.Uri
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.WikipediaApp
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -35,8 +35,7 @@ import org.wikipedia.util.UriUtil
  *
  */
 @Parcelize
-class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String = "") : Parcelable {
-
+data class WikiSite(@Json(name = "domain") var uri: Uri, var languageCode: String = "") : Parcelable {
     constructor(uri: Uri) : this(uri, "") {
         val tempUri = ensureScheme(uri)
         var authority = tempUri.authority.orEmpty()
@@ -121,22 +120,6 @@ class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String 
 
     fun dbName(): String {
         return subdomain().replace("-".toRegex(), "_") + "wiki"
-    }
-
-    // Necessary for building HashMaps based on WikiSites.
-    override fun hashCode(): Int {
-        var result = uri.hashCode()
-        result = 31 * result + languageCode.hashCode()
-        return result
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-        other as WikiSite
-        if (uri != other.uri) return false
-        if (languageCode != other.languageCode) return false
-        return true
     }
 
     companion object {

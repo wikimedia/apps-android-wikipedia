@@ -99,7 +99,7 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
 
     fun setHistoryEntry(entry: HistoryEntry): ListCardItemView {
         historyEntry = entry
-        setTitle(StringUtil.fromHtml(entry.title.displayText))
+        setTitle(StringUtil.fromHtml(entry.title.displayTextValue))
         setSubtitle(entry.title.description)
         setImage(entry.title.thumbUrl)
         check(entry.title) { available -> setViewsGreyedOut(!available) }

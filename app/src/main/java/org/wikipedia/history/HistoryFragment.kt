@@ -199,7 +199,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private fun showDeleteItemsUndoSnackbar(entries: List<HistoryEntry>) {
-        val message = if (entries.size == 1) getString(R.string.history_item_deleted, entries[0].title.displayText) else getString(R.string.history_items_deleted, entries.size)
+        val message = if (entries.size == 1) getString(R.string.history_item_deleted, entries[0].title.displayTextValue) else getString(R.string.history_items_deleted, entries.size)
         val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
         snackbar.setAction(R.string.history_item_delete_undo) {
             AppDatabase.getAppDatabase().historyEntryDao().insert(entries)
@@ -300,7 +300,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         fun bindItem(entry: HistoryEntry) {
             this.entry = entry
             view.item = entry
-            view.setTitle(entry.title.displayText)
+            view.setTitle(entry.title.displayTextValue)
             view.setDescription(entry.title.description)
             view.setImageUrl(entry.title.thumbUrl)
             view.isSelected = selectedEntries.contains(entry)

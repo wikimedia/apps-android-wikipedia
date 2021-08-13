@@ -2,20 +2,21 @@ package org.wikipedia.dataclient.page
 
 import android.location.Location
 import android.os.Parcelable
-import com.google.gson.annotations.JsonAdapter
-import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.page.*
+import org.wikipedia.page.Namespace
+import org.wikipedia.page.Page
+import org.wikipedia.page.PageProperties
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 import java.util.*
 
 @JsonClass(generateAdapter = true)
 @Parcelize
-open class PageSummary(
-    val namespace: NamespaceContainer? = null,
+class PageSummary(
+    val namespace: NamespaceContainer = NamespaceContainer(),
     var titles: Titles? = null,
     var lang: String = "",
     var thumbnail: Thumbnail? = null,
@@ -31,8 +32,8 @@ open class PageSummary(
     val revision: Long = 0L,
     val timestamp: String = "",
     val views: Long = 0,
-    private val rank: Long = 0,
-    @Json(name = "view_history") val viewHistory: List<ViewHistory>? = null
+    internal val rank: Long = 0,
+    @Json(name = "view_history") val viewHistory: List<ViewHistory> = emptyList()
 ) : Parcelable {
     val thumbnailUrl get() = thumbnail?.source
     val thumbnailWidth get() = thumbnail?.width ?: 0
@@ -43,7 +44,7 @@ open class PageSummary(
     // TODO: Make this return CharSequence, and automatically convert from HTML.
     val displayTitle get() = titles?.display.orEmpty()
     val leadImageName get() = thumbnailUrl?.let { getFilenameFromUploadUrl(it) }
-    val ns: Namespace get() = if (namespace == null) Namespace.MAIN else Namespace.of(namespace.id)
+    val ns: Namespace get() = Namespace.of(namespace.id)
 
     constructor(displayTitle: String, prefixTitle: String, description: String?,
                 extract: String?, thumbnail: String?, lang: String) : this() {
@@ -55,7 +56,7 @@ open class PageSummary(
     }
 
     fun toPage(title: PageTitle): Page {
-        return Page(adjustPageTitle(title), PageProperties(this))
+        return Page(adjustPageTitle(title), pageProperties = PageProperties(this))
     }
 
     private fun adjustPageTitle(title: PageTitle): PageTitle {

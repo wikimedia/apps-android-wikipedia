@@ -98,7 +98,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                         }
                         showMessage((anchorView.context as AppCompatActivity),
                                 anchorView.context.getString(R.string.reading_list_item_deleted_from_list,
-                                        it.title.displayText, readingListNames))
+                                        it.title.displayTextValue, readingListNames))
                     }
                 }
             }

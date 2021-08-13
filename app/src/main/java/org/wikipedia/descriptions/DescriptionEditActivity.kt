@@ -33,7 +33,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
         val title = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
-        SuggestedEditsFunnel.get().click(title.displayText, action)
+        SuggestedEditsFunnel.get().click(title.displayTextValue, action)
         return DescriptionEditFragment.newInstance(title,
                 intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 intent.getParcelableExtra(EXTRA_SOURCE_SUMMARY),

@@ -76,7 +76,7 @@ class TabActivity : BaseActivity() {
                 val titleText = view.findViewById<TextView>(R.id.tab_article_title)
                 val descriptionText = view.findViewById<TextView>(R.id.tab_article_description)
                 val title = app.tabList[tabIndex].backStackPositionTitle
-                titleText.text = StringUtil.fromHtml(title!!.displayText)
+                titleText.text = StringUtil.fromHtml(title!!.displayTextValue)
                 if (title.description.isNullOrEmpty()) {
                     descriptionText.visibility = View.GONE
                 } else {
@@ -103,7 +103,7 @@ class TabActivity : BaseActivity() {
             if (app.tabList[tabIndex].backStack.isEmpty()) {
                 continue
             }
-            val tab = de.mrapp.android.tabswitcher.Tab(StringUtil.fromHtml(app.tabList[tabIndex].backStackPositionTitle?.displayText))
+            val tab = de.mrapp.android.tabswitcher.Tab(StringUtil.fromHtml(app.tabList[tabIndex].backStackPositionTitle?.displayTextValue))
             tab.setIcon(R.drawable.ic_image_black_24dp)
             tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
             tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
@@ -206,7 +206,7 @@ class TabActivity : BaseActivity() {
 
     private fun showUndoSnackbar(tab: de.mrapp.android.tabswitcher.Tab, index: Int, appTab: Tab, appTabIndex: Int) {
         appTab.backStackPositionTitle?.let {
-            FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, it.displayText), FeedbackUtil.LENGTH_DEFAULT).run {
+            FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, it.displayTextValue), FeedbackUtil.LENGTH_DEFAULT).run {
                 setAction(R.string.reading_list_item_delete_undo) {
                     app.tabList.add(appTabIndex, appTab)
                     binding.tabSwitcher.addTab(tab, index)

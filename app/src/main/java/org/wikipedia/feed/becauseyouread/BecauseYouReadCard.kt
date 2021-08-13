@@ -27,7 +27,7 @@ class BecauseYouReadCard(val pageTitle: PageTitle,
     }
 
     fun pageTitle(): String {
-        return pageTitle.displayText
+        return pageTitle.displayTextValue
     }
 
     override fun dismissHashCode(): Int {

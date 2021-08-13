@@ -53,7 +53,7 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
 
     fun prepareForTransition(title: PageTitle) {
         setImageUri(if (title.thumbUrl.isNullOrEmpty()) null else Uri.parse(title.thumbUrl))
-        setTitle(title.displayText)
+        setTitle(title.displayTextValue)
         setDescription(title.description)
         binding.articleDivider.visibility = View.GONE
         L10nUtil.setConditionalLayoutDirection(this, title.wikiSite.languageCode)

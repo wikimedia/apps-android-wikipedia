@@ -32,7 +32,7 @@ data class ReadingListPage(
 ) : Serializable {
 
     constructor(title: PageTitle) :
-            this(title.wikiSite, title.namespace(), title.displayText, title.prefixedText,
+            this(title.wikiSite, title.namespace(), title.displayTextValue, title.prefixedText,
                 title.description, title.thumbUrl, lang = title.wikiSite.languageCode) {
         val now = System.currentTimeMillis()
         mtime = now

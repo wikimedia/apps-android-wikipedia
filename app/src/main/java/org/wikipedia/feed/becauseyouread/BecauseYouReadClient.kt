@@ -49,7 +49,7 @@ class BecauseYouReadClient : FeedClient {
             .observeOn(AndroidSchedulers.mainThread())
             .flatMap { relatedPages ->
                 val list = relatedPages.getPages(Constants.SUGGESTION_REQUEST_ITEMS)
-                list.add(0, PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
+                list.add(0, PageSummary(entry.title.displayTextValue, entry.title.prefixedText, entry.title.description,
                         entry.title.extract, entry.title.thumbUrl, entry.title.wikiSite.languageCode))
                 Observable.fromIterable(list)
             }

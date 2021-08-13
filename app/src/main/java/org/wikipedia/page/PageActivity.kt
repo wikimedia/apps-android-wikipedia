@@ -355,7 +355,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageLoadError(title: PageTitle) {
-        supportActionBar?.title = title.displayText
+        supportActionBar?.title = title.displayTextValue
         removeTransitionAnimState()
     }
 

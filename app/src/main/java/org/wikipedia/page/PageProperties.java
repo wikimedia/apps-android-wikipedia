@@ -84,7 +84,7 @@ public class PageProperties implements Parcelable {
         pageId = 0;
         namespace = title.namespace();
         revisionId = 0;
-        displayTitleText = title.getDisplayText();
+        displayTitleText = title.getDisplayTextValue();
         geo = null;
         editProtectionStatus = "";
         leadImageUrl = null;

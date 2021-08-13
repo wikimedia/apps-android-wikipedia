@@ -48,12 +48,12 @@ object ShareUtil {
 
     @JvmStatic
     fun shareText(context: Context, title: PageTitle) {
-        shareText(context, StringUtil.fromHtml(title.displayText).toString(),
+        shareText(context, StringUtil.fromHtml(title.displayTextValue).toString(),
                 UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link))
     }
 
     fun shareText(context: Context, title: PageTitle, newId: Long, oldId: Long) {
-        shareText(context, StringUtil.fromHtml(title.displayText).toString(),
+        shareText(context, StringUtil.fromHtml(title.displayTextValue).toString(),
                 title.getWebApiUrl("diff=$newId&oldid=$oldId&variant=${title.wikiSite.languageCode}"))
     }
 

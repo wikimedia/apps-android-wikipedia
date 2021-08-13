@@ -28,7 +28,7 @@ public class FullTextSearchClientTest extends MockRetrofitTest {
         enqueueFromFile("full_text_search_results.json");
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
-                .assertValue(result -> result.getResults().get(0).getPageTitle().getDisplayText().equals("IND Queens Boulevard Line"));
+                .assertValue(result -> result.getResults().get(0).getPageTitle().getDisplayTextValue().equals("IND Queens Boulevard Line"));
 
     }
 

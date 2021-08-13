@@ -58,7 +58,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         // display the page based on the backstack item, stage the scrollY position based on
         // the backstack item.
         fragment.loadPage(item.title, item.historyEntry, false, item.scrollY, isRefresh)
-        L.d("Loaded page " + item.title.displayText + " from backstack")
+        L.d("Loaded page " + item.title.displayTextValue + " from backstack")
     }
 
     fun updateCurrentBackStackItem() {

@@ -16,7 +16,7 @@ class GalleryFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: Int)
     private fun logGalleryAction(action: String, currentPageTitle: PageTitle?, currentMediaTitle: String) {
         log(
                 "action", action,
-                "pageTitle", currentPageTitle?.displayText ?: "FeedFeaturedImage",
+                "pageTitle", currentPageTitle?.displayTextValue ?: "FeedFeaturedImage",
                 "imageTitle", currentMediaTitle
         )
     }

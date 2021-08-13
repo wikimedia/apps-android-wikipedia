@@ -15,7 +15,7 @@ public final class TestParcelUtil {
         Parcel parcel = parcel(title);
         parcel.setDataPosition(0);
         PageTitle title2 = (PageTitle) unparcel(parcel, PageTitle.class);
-        assertThat(title.getText(), is(title2.getText()));
+        assertThat(title.getTextValue(), is(title2.getTextValue()));
         assertThat(title.namespace(), is(title2.namespace()));
         assertThat(title.getUri(), is(title2.getUri()));
     }

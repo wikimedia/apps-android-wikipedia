@@ -12,7 +12,7 @@ class BecauseYouReadItemCard(private val title: PageTitle) : Card() {
     }
 
     override fun title(): String {
-        return title.displayText
+        return title.displayTextValue
     }
 
     override fun subtitle(): String? {
