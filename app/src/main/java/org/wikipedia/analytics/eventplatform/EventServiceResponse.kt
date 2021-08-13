@@ -14,6 +14,6 @@ import com.google.gson.annotations.SerializedName
  */
 class EventServiceResponse {
 
-    @SerializedName("invalid")  val invalidEvents: List<Any> = emptyList()
+    @SerializedName("invalid") val invalidEvents: List<Any> = emptyList()
     @SerializedName("error") val errorEvents = emptyList<Any>()
 }
