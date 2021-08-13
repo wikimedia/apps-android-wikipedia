@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.view.LayoutInflater
@@ -359,8 +360,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun usernameClick() {
-        val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.getInstance().wikiSite), HistoryEntry.SOURCE_MAIN_PAGE)
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
+        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.getInstance().wikiSite)
+        UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
     }
 
     override fun loginClick() {
