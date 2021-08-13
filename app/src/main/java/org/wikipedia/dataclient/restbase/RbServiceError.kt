@@ -2,7 +2,7 @@ package org.wikipedia.dataclient.restbase
 
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.ServiceError
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.GsonUtil
 
 @Serializable
 class RbServiceError : ServiceError {
@@ -16,7 +16,7 @@ class RbServiceError : ServiceError {
 
     companion object {
         fun create(rspBody: String): RbServiceError {
-            return GsonUnmarshaller.unmarshal(RbServiceError::class.java, rspBody)
+            return GsonUtil.getDefaultGson().fromJson(rspBody, RbServiceError::class.java)
         }
     }
 }
