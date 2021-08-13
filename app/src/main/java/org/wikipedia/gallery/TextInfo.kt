@@ -1,5 +1,6 @@
 package org.wikipedia.gallery
 
-import java.io.Serializable
+import kotlinx.serialization.Serializable
 
-open class TextInfo(val lang: String = "", val text: String = "", val html: String = "") : Serializable
+@Serializable
+open class TextInfo(val lang: String = "", val text: String = "", val html: String = "")

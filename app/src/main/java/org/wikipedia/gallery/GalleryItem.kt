@@ -56,9 +56,7 @@ open class GalleryItem {
         }
 
     @Serializable
-    class Titles constructor(val display: String = "",
-                                                                    val canonical: String = "",
-                                                                    val normalized: String = "")
+    class Titles constructor(val display: String = "", val canonical: String = "", val normalized: String = "")
 
     @Serializable
     class StructuredData(var captions: HashMap<String, String>? = null)
