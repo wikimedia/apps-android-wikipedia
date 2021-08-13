@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient.mwapi
 
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
 @Serializable
