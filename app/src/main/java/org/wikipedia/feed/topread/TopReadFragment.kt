@@ -17,7 +17,6 @@ import org.wikipedia.databinding.FragmentMostReadBinding
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.MoshiUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -41,16 +40,14 @@ class TopReadFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMostReadBinding.inflate(inflater, container, false)
 
-        val adapter = MoshiUtil.getDefaultMoshi().adapter(TopReadListCard::class.java)
-        val card = adapter.fromJson(requireActivity().intent
-            .getStringExtra(TopReadArticlesActivity.MOST_READ_CARD) ?: "null")!!
+        val card = requireActivity().intent.getParcelableExtra<TopReadListCard>(TopReadArticlesActivity.MOST_READ_CARD)!!
 
         appCompatActivity.setSupportActionBar(binding.toolbar)
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         appCompatActivity.supportActionBar?.title = ""
         binding.toolbarTitle.text = getString(R.string.top_read_activity_title, card.subtitle())
 
-        L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode)
 
         binding.mostReadRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
@@ -117,10 +114,9 @@ class TopReadFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(card: TopReadItemCard): TopReadFragment {
-            val adapter = MoshiUtil.getDefaultMoshi().adapter(TopReadItemCard::class.java)
+        fun newInstance(card: TopReadListCard): TopReadFragment {
             return TopReadFragment().apply {
-                arguments = bundleOf(TopReadArticlesActivity.MOST_READ_CARD to adapter.toJson(card))
+                arguments = bundleOf(TopReadArticlesActivity.MOST_READ_CARD to card)
             }
         }
     }

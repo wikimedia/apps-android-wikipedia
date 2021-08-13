@@ -189,9 +189,9 @@ public class WikipediaApp extends Application {
      */
     @NonNull
     public String getAcceptLanguage(@Nullable WikiSite wiki) {
-        String wikiLang = wiki == null || "meta".equals(wiki.languageCode())
+        String wikiLang = wiki == null || "meta".equals(wiki.getLanguageCode())
                 ? ""
-                : defaultString(wiki.languageCode());
+                : defaultString(wiki.getLanguageCode());
         return AcceptLanguageUtil.getAcceptLanguage(wikiLang, appLanguageState.getAppLanguageCode(),
                 appLanguageState.getSystemLanguageCode());
     }

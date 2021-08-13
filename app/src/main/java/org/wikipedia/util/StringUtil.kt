@@ -208,6 +208,6 @@ object StringUtil {
     }
 
     fun userPageTitleFromName(userName: String, wiki: WikiSite): PageTitle {
-        return PageTitle(UserAliasData.valueFor(wiki.languageCode()), userName, wiki)
+        return PageTitle(UserAliasData.valueFor(wiki.languageCode), userName, wiki)
     }
 }

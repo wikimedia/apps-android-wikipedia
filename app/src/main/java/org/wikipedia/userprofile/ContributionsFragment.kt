@@ -266,7 +266,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                         for (entityKey in entities.entities.keys) {
                             val entity = entities.entities[entityKey]!!
                             for (contribution in wikidataContributions) {
-                                val dbName = WikiSite.forLanguageCode(contribution.wikiSite.languageCode()).dbName()
+                                val dbName = WikiSite.forLanguageCode(contribution.wikiSite.languageCode).dbName()
                                 if (contribution.qNumber == entityKey && entity.sitelinks.containsKey(dbName)) {
                                     contribution.apiTitle = entity.sitelinks[dbName]!!.title
                                     contribution.displayTitle = entity.sitelinks[dbName]!!.title
@@ -486,18 +486,18 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                         }))
             } else if (contribution.editType == EDIT_TYPE_IMAGE_CAPTION || contribution.editType == EDIT_TYPE_IMAGE_TAG) {
                 disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.apiTitle,
-                    contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io()),
+                    contribution.wikiSite.languageCode).subscribeOn(Schedulers.io()),
                     if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
                             ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
-                                .getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode())
+                                .getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode)
                                 .subscribeOn(Schedulers.io())
                                 .flatMap { response ->
                                     var label = contribution.qNumber
                                     val entities = response.entities
                                     val qNumber = entities[contribution.qNumber]
                                     qNumber?.let {
-                                        if (it.labels.containsKey(contribution.wikiSite.languageCode())) {
-                                            label = it.labels[contribution.wikiSite.languageCode()]!!.value
+                                        if (it.labels.containsKey(contribution.wikiSite.languageCode)) {
+                                            label = it.labels[contribution.wikiSite.languageCode]!!.value
                                         } else if (it.labels.containsKey(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)) {
                                             label = it.labels[AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE]!!.value
                                         }
@@ -612,7 +612,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 else -> {
                     UserContributionFunnel.get().logViewMisc()
                     UserContributionEvent.logViewMisc()
-                    context.startActivity(ArticleEditDetailsActivity.newIntent(context, contribution.apiTitle, contribution.revId, contribution.wikiSite.languageCode()))
+                    context.startActivity(ArticleEditDetailsActivity.newIntent(context, contribution.apiTitle, contribution.revId, contribution.wikiSite.languageCode))
                 }
             }
         }

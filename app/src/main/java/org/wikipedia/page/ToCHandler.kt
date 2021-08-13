@@ -87,9 +87,9 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
     fun setupToC(page: Page?, wiki: WikiSite) {
         page?.let {
             adapter.setPage(it)
-            rtl = L10nUtil.isLangRTL(wiki.languageCode())
+            rtl = L10nUtil.isLangRTL(wiki.languageCode)
             tocList.rtl = rtl
-            L10nUtil.setConditionalLayoutDirection(containerView, wiki.languageCode())
+            L10nUtil.setConditionalLayoutDirection(containerView, wiki.languageCode)
             containerView.updateLayoutParams<DrawerLayout.LayoutParams> {
                 gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
             }

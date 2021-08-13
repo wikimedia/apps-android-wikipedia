@@ -1,9 +1,12 @@
 package org.wikipedia.feed.topread
 
-import androidx.annotation.VisibleForTesting
+import android.os.Parcelable
 import com.squareup.moshi.JsonClass
+import androidx.annotation.VisibleForTesting
+import kotlinx.parcelize.Parcelize
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.ListCard
 import org.wikipedia.util.DateUtil
@@ -11,10 +14,12 @@ import org.wikipedia.util.L10nUtil
 import java.util.concurrent.TimeUnit
 
 @JsonClass(generateAdapter = true)
-class TopReadListCard(internal val articles: TopRead,
-                      wiki: WikiSite) : ListCard<TopReadItemCard>(toItems(articles.articles, wiki), wiki) {
+@Parcelize
+class TopReadListCard(internal val articles: TopRead, val site: WikiSite) :
+    ListCard<TopReadItemCard>(toItems(articles.articles, site), site), Parcelable {
+
     override fun title(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_top_read_card_title)
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.view_top_read_card_title)
     }
 
     override fun subtitle(): String {
@@ -26,7 +31,7 @@ class TopReadListCard(internal val articles: TopRead,
     }
 
     fun footerActionText(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_top_read_card_action)
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.view_top_read_card_action)
     }
 
     override fun dismissHashCode(): Int {
@@ -36,7 +41,7 @@ class TopReadListCard(internal val articles: TopRead,
     companion object {
         @JvmStatic
         @VisibleForTesting
-        fun toItems(articles: List<TopReadArticles>, wiki: WikiSite): List<TopReadItemCard> {
+        fun toItems(articles: List<PageSummary>, wiki: WikiSite): List<TopReadItemCard> {
             return articles.map { TopReadItemCard(it, wiki) }
         }
     }

@@ -31,7 +31,7 @@ class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int)
     }
 
     override fun title(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.on_this_day_card_title)
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.on_this_day_card_title)
     }
 
     override fun subtitle(): String {
@@ -43,7 +43,7 @@ class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int)
     }
 
     fun footerActionText(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.more_events_text)
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.more_events_text)
     }
 
     fun text(): CharSequence {

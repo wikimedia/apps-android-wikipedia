@@ -4,12 +4,14 @@ import android.net.Uri
 import androidx.core.net.toUri
 import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
 
 @JsonClass(generateAdapter = true)
-class TopReadItemCard internal constructor(internal val page: TopReadArticles,
-                                           internal val wiki: WikiSite) : Card() {
+class TopReadItemCard internal constructor(private val page: PageSummary,
+                                           private val wiki: WikiSite) : Card() {
+
     override fun title(): String {
         return page.displayTitle
     }

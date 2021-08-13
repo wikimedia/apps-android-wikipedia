@@ -47,14 +47,10 @@ class NewsFragment : Fragment() {
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         appCompatActivity.supportActionBar?.title = ""
 
-        val newsAdapter = MoshiUtil.getDefaultMoshi().adapter(NewsItem::class.java)
-        val wikiAdapter = MoshiUtil.getDefaultMoshi().adapter(WikiSite::class.java)
-        val item = newsAdapter.fromJson(requireActivity().intent
-            .getStringExtra(NewsActivity.EXTRA_NEWS_ITEM) ?: "null")!!
-        val wiki = wikiAdapter.fromJson(requireActivity().intent
-            .getStringExtra(NewsActivity.EXTRA_WIKI) ?: "null")!!
+        val item = requireActivity().intent.getParcelableExtra<NewsItem>(NewsActivity.EXTRA_NEWS_ITEM)!!
+        val wiki = requireActivity().intent.getParcelableExtra<WikiSite>(NewsActivity.EXTRA_WIKI)!!
 
-        L10nUtil.setConditionalLayoutDirection(binding.root, wiki.languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.root, wiki.languageCode)
 
         binding.gradientView.background = GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP)
         val imageUri = item.thumb()
@@ -138,13 +134,9 @@ class NewsFragment : Fragment() {
 
     companion object {
         fun newInstance(item: NewsItem, wiki: WikiSite): NewsFragment {
-            val newsAdapter = MoshiUtil.getDefaultMoshi().adapter(NewsItem::class.java)
-            val wikiAdapter = MoshiUtil.getDefaultMoshi().adapter(WikiSite::class.java)
             return NewsFragment().apply {
-                arguments = bundleOf(
-                    NewsActivity.EXTRA_NEWS_ITEM to newsAdapter.toJson(item),
-                    NewsActivity.EXTRA_WIKI to wikiAdapter.toJson(wiki)
-                )
+                arguments = bundleOf(NewsActivity.EXTRA_NEWS_ITEM to item,
+                    NewsActivity.EXTRA_WIKI to wiki)
             }
         }
     }

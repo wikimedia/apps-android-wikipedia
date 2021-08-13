@@ -1,10 +1,13 @@
 package org.wikipedia.gallery
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
-data class ExtMetadata(
+@Parcelize
+class ExtMetadata(
     @Json(name = "DateTime") internal val dateTimeValues: Values? = null,
     @Json(name = "ObjectName") internal val objectNameValues: Values? = null,
     @Json(name = "CommonsMetadataExtension") internal val commonsMetadataExtension: Values? = null,
@@ -46,5 +49,6 @@ data class ExtMetadata(
         get() = creditValues?.value ?: ""
 
     @JsonClass(generateAdapter = true)
-    data class Values(val value: String = "", val source: String = "", internal val hidden: String = "")
+    @Parcelize
+    class Values(val value: String = "", val source: String = "", internal val hidden: String = "")
 }

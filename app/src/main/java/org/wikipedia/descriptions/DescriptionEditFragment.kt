@@ -31,7 +31,6 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
-import org.wikipedia.json.MoshiUtil
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -95,17 +94,16 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val arguments = requireArguments()
-
-        pageTitle = arguments.getParcelable(ARG_TITLE)!!
-        highlightText = arguments.getString(ARG_HIGHLIGHT_TEXT)
-        action = arguments.getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
-        invokeSource = arguments.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-
-        val adapter = MoshiUtil.getDefaultMoshi().adapter(PageSummaryForEdit::class.java).nullSafe()
-        sourceSummary = adapter.fromJson(arguments.getString(ARG_SOURCE_SUMMARY, "null"))
-        targetSummary = adapter.fromJson(arguments.getString(ARG_TARGET_SUMMARY, "null"))
-
+        pageTitle = requireArguments().getParcelable(ARG_TITLE)!!
+        highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
+        action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
+        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+        requireArguments().getParcelable<PageSummaryForEdit>(ARG_SOURCE_SUMMARY)?.let {
+            sourceSummary = it
+        }
+        requireArguments().getParcelable<PageSummaryForEdit>(ARG_TARGET_SUMMARY)?.let {
+            targetSummary = it
+        }
         val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
         funnel = DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type, invokeSource)
         funnel.logStart()
@@ -185,7 +183,7 @@ class DescriptionEditFragment : Fragment() {
     private fun shouldWriteToLocalWiki(): Boolean {
         return (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-                wikiUsesLocalDescriptions(pageTitle.wikiSite.languageCode())
+                wikiUsesLocalDescriptions(pageTitle.wikiSite.languageCode)
     }
 
     private inner class EditViewCallback : DescriptionEditView.Callback {
@@ -226,7 +224,7 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun postDescriptionToArticle(editToken: String) {
-            val wikiSite = WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode())
+            val wikiSite = WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)
             disposables.add(ServiceFactory.get(wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
                     .subscribeOn(Schedulers.io())
                     .flatMap { mwQueryResponse ->
@@ -274,14 +272,14 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun postDescriptionToWikidata(editToken: String) {
-            disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode())).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
+            disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).getWikiTextForSectionWithInfo(pageTitle.prefixedText, 0)
                     .subscribeOn(Schedulers.io())
                     .flatMap { response ->
                         if (response.query?.firstPage!!.getErrorForAction("edit").isNotEmpty()) {
                             val error = response.query?.firstPage!!.getErrorForAction("edit")[0]
                             throw MwException(error)
                         }
-                        ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode())).siteInfo
+                        ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).siteInfo
                     }
                     .flatMap { response ->
                         val languageCode = if (response.query?.generalSiteInfo?.lang != null &&
@@ -315,7 +313,7 @@ class DescriptionEditFragment : Fragment() {
 
         @Suppress("SameParameterValue")
         private fun waitForUpdatedRevision(newRevision: Long) {
-            disposables.add(ServiceFactory.getRest(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode()))
+            disposables.add(ServiceFactory.getRest(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                 .getSummaryResponse(pageTitle.prefixedText, null, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(), null, null, null)
                 .delay(2, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
@@ -423,8 +421,8 @@ class DescriptionEditFragment : Fragment() {
 
         fun newInstance(title: PageTitle,
                         highlightText: String?,
-                        sourceSummary: String?,
-                        targetSummary: String?,
+                        sourceSummary: PageSummaryForEdit?,
+                        targetSummary: PageSummaryForEdit?,
                         action: DescriptionEditActivity.Action,
                         source: InvokeSource): DescriptionEditFragment {
             return DescriptionEditFragment().apply {

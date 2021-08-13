@@ -16,7 +16,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("image_license.json");
-        getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.languageCode())
+        getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.getLanguageCode())
                 .map(response -> {
                     // noinspection ConstantConditions
                     MwQueryPage page = response.getQuery().getPages().get(0);
@@ -33,7 +33,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
-        getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.languageCode())
+        getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.getLanguageCode())
                 .map(response -> new ImageLicense())
                 .test().await()
                 .assertError(Exception.class);
@@ -41,7 +41,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
 
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
-        getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.languageCode())
+        getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.getLanguageCode())
                 .map(response -> new ImageLicense())
                 .test().await()
                 .assertError(Exception.class);
@@ -49,7 +49,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
 
     @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
-        getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.languageCode())
+        getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.getLanguageCode())
                 .map(response -> new ImageLicense())
                 .test().await()
                 .assertError(IOException.class);
