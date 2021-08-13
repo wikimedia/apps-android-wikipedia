@@ -195,8 +195,9 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             if (loading || mediaInfo?.bestDerivative == null) {
                 return
             }
+            val bestDerivative = mediaInfo!!.bestDerivative!!.src
             loading = true
-            L.d("Loading video from url: " + mediaInfo!!.bestDerivative!!.src)
+            L.d("Loading video from url: $bestDerivative")
             binding.videoView.visibility = View.VISIBLE
             mediaController = MediaController(requireActivity())
             if (!DeviceUtil.isNavigationBarShowing) {
@@ -225,7 +226,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
                 loading = false
                 true
             }
-            binding.videoView.setVideoURI(Uri.parse(mediaInfo!!.bestDerivative!!.src))
+            binding.videoView.setVideoURI(Uri.parse(bestDerivative))
         }
     }
 
