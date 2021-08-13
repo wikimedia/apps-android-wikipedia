@@ -46,11 +46,7 @@ class ImageInfo : Serializable {
     val width = 0
     val height = 0
 
-    // TODO: make this smarter.
-    val bestDerivative: Derivative?
-        get() = if (derivatives.isEmpty()) {
-            null
-        } else derivatives[derivatives.size - 1]
+    val bestDerivative get() = derivatives.lastOrNull()
 
     // TODO: make this smarter.
     class Derivative {
