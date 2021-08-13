@@ -2,7 +2,6 @@ package org.wikipedia.dataclient.restbase
 
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.ServiceError
-import org.wikipedia.dataclient.restbase.RbServiceError
 import org.wikipedia.json.GsonUnmarshaller
 
 class RbServiceError : ServiceError {
