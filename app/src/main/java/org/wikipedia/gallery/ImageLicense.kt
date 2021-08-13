@@ -2,18 +2,17 @@ package org.wikipedia.gallery
 
 import androidx.annotation.DrawableRes
 import com.google.gson.annotations.SerializedName
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import java.io.Serializable
 import java.util.*
 
 class ImageLicense : Serializable {
 
-    @SerializedName("type") val licenseName: String
+    @SerializedName("type") var licenseName: String = ""
 
-    @SerializedName("code") val licenseShortName: String
+    @SerializedName("code") var licenseShortName: String = ""
 
-    @SerializedName("url") val licenseUrl: String
+    @SerializedName("url") var licenseUrl: String = ""
 
     constructor(metadata: ExtMetadata) {
         licenseName = metadata.license()
@@ -29,17 +28,12 @@ class ImageLicense : Serializable {
     }
 
     private val isLicenseCC: Boolean
-        get() = (StringUtils.defaultString(licenseName).lowercase(Locale.ENGLISH).startsWith(CREATIVE_COMMONS_PREFIX) || StringUtils.defaultString(licenseShortName).toLowerCase(Locale.ENGLISH).startsWith(CREATIVE_COMMONS_PREFIX))
+        get() = (licenseName.lowercase(Locale.ENGLISH).startsWith(CREATIVE_COMMONS_PREFIX) || licenseShortName.lowercase(Locale.ENGLISH).startsWith(CREATIVE_COMMONS_PREFIX))
     private val isLicensePD: Boolean
-        get() = (StringUtils.defaultString(licenseName).lowercase(Locale.ENGLISH).startsWith(PUBLIC_DOMAIN_PREFIX) || StringUtils.defaultString(licenseShortName).toLowerCase(Locale.ENGLISH).startsWith(PUBLIC_DOMAIN_PREFIX))
+        get() = (licenseName.lowercase(Locale.ENGLISH).startsWith(PUBLIC_DOMAIN_PREFIX) || licenseShortName.lowercase(Locale.ENGLISH).startsWith(PUBLIC_DOMAIN_PREFIX))
     private val isLicenseCCBySa: Boolean
-        get() = (StringUtils.defaultString(licenseName).lowercase(Locale.ENGLISH).replace("-", "").startsWith(CC_BY_SA) || StringUtils.defaultString(licenseShortName).toLowerCase(Locale.ENGLISH).replace("-", "").startsWith(CC_BY_SA))
+        get() = (licenseName.lowercase(Locale.ENGLISH).replace("-", "").startsWith(CC_BY_SA) || licenseShortName.lowercase(Locale.ENGLISH).replace("-", "").startsWith(CC_BY_SA))
 
-    /**
-     * Return an icon (drawable resource id) that corresponds to the type of license
-     * under which the specified Gallery item is provided.
-     * @return Resource ID of the icon to display.
-     */
     @get:DrawableRes
     val licenseIcon: Int
         get() {
