@@ -68,7 +68,7 @@ object L10nUtil {
         return localizedStrings
     }
 
-    // To be used only for plural strings and strings requiring arguements
+    // To be used only for plural strings and strings requiring arguments
     fun getResourcesForWikiLang(languageCode: String): Resources? {
         val config = currentConfiguration
         val targetLocale = Locale(languageCode)

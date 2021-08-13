@@ -1,5 +1,7 @@
 package org.wikipedia.util
 
+import android.icu.text.RelativeDateTimeFormatter
+import android.os.Build
 import android.text.format.DateFormat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -157,7 +159,16 @@ object DateUtil {
     fun getYearDifferenceString(year: Int, languageCode: String): String {
         val diffInYears = Calendar.getInstance()[Calendar.YEAR] - year
         val targetResource = L10nUtil.getResourcesForWikiLang(languageCode) ?: WikipediaApp.getInstance().resources
-        return if (diffInYears == 0) L10nUtil.getStringForArticleLanguage(languageCode, R.string.this_year)
-        else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            when (diffInYears) {
+                0 -> RelativeDateTimeFormatter.getInstance(targetResource.configuration.locales[0]).format(RelativeDateTimeFormatter.Direction.THIS, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
+                1 -> RelativeDateTimeFormatter.getInstance(targetResource.configuration.locales[0]).format(RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
+                -1 -> RelativeDateTimeFormatter.getInstance(targetResource.configuration.locales[0]).format(RelativeDateTimeFormatter.Direction.NEXT, RelativeDateTimeFormatter.AbsoluteUnit.YEAR)
+                else -> RelativeDateTimeFormatter.getInstance(targetResource.configuration.locales[0]).format(diffInYears.toDouble(), RelativeDateTimeFormatter.Direction.LAST, RelativeDateTimeFormatter.RelativeUnit.YEARS)
+            }
+        } else {
+            return if (diffInYears == 0) L10nUtil.getStringForArticleLanguage(languageCode, R.string.this_year)
+            else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
+        }
     }
 }
