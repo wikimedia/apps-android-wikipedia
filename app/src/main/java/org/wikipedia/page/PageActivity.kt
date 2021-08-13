@@ -421,7 +421,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
                 // after having donated), then bounce it out to an external browser, since we don't have
                 // the same cookie state as the browser does.
-                val language = wiki.languageCode().lowercase(Locale.getDefault())
+                val language = wiki.languageCode.lowercase(Locale.getDefault())
                 val isDonationRelated = language == "donate" || language == "thankyou"
                 if (isDonationRelated || title.namespace() == Namespace.SPECIAL) {
                     UriUtil.visitInExternalBrowser(this, it)
@@ -742,7 +742,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                         return
                     }
                     pageFragment.title?.run {
-                        if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode() == wikiSite.languageCode() }) {
+                        if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode == wikiSite.languageCode }) {
                             pageFragment.updateBookmarkAndMenuOptionsFromDao()
                         }
                     }

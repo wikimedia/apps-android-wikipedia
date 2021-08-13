@@ -13,7 +13,7 @@ class NewsCard(private val news: List<NewsItem>,
                wiki: WikiSite) : WikiSiteCard(wiki) {
 
     override fun title(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_card_news_title)
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.view_card_news_title)
     }
 
     override fun type(): CardType {

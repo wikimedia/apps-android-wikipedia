@@ -33,12 +33,12 @@ import static org.hamcrest.Matchers.not;
 
     @Test public void testForLanguageCodeLanguage() {
         WikiSite subject = WikiSite.forLanguageCode("test");
-        assertThat(subject.languageCode(), is("test"));
+        assertThat(subject.getLanguageCode(), is("test"));
     }
 
     @Test public void testForLanguageCodeNoLanguage() {
         WikiSite subject = WikiSite.forLanguageCode("");
-        assertThat(subject.languageCode(), is(""));
+        assertThat(subject.getLanguageCode(), is(""));
     }
 
     @Test public void testForLanguageCodeNoLanguageAuthority() {
@@ -49,7 +49,7 @@ import static org.hamcrest.Matchers.not;
     @Test public void testForLanguageCodeLanguageAuthority() {
         WikiSite subject = WikiSite.forLanguageCode("zh-hans");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
-        assertThat(subject.languageCode(), is("zh-hans"));
+        assertThat(subject.getLanguageCode(), is("zh-hans"));
     }
 
     @Test public void testCtorScheme() {
@@ -69,29 +69,29 @@ import static org.hamcrest.Matchers.not;
 
     @Test public void testCtorAuthorityLanguage() {
         WikiSite subject = new WikiSite("test.wikipedia.org");
-        assertThat(subject.languageCode(), is("test"));
+        assertThat(subject.getLanguageCode(), is("test"));
     }
 
     @Test public void testCtorAuthorityNoLanguage() {
         WikiSite subject = new WikiSite("wikipedia.org");
-        assertThat(subject.languageCode(), is(""));
+        assertThat(subject.getLanguageCode(), is(""));
     }
 
     @Test public void testCtordesktopAuthorityLanguage() {
         WikiSite subject = new WikiSite("test.m.wikipedia.org");
-        assertThat(subject.languageCode(), is("test"));
+        assertThat(subject.getLanguageCode(), is("test"));
     }
 
     @Test public void testCtordesktopAuthorityNoLanguage() {
         WikiSite subject = new WikiSite("m.wikipedia.org");
-        assertThat(subject.languageCode(), is(""));
+        assertThat(subject.getLanguageCode(), is(""));
     }
 
     @Test public void testCtorUriLangVariant() {
         WikiSite subject = new WikiSite("zh.wikipedia.org/zh-hant/Foo");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
         assertThat(subject.subdomain(), is("zh"));
-        assertThat(subject.languageCode(), is("zh-hant"));
+        assertThat(subject.getLanguageCode(), is("zh-hant"));
         assertThat(subject.scheme(), is("https"));
         assertThat(subject.dbName(), is("zhwiki"));
         assertThat(subject.url(), is("https://zh.wikipedia.org"));
@@ -101,7 +101,7 @@ import static org.hamcrest.Matchers.not;
         WikiSite subject = new WikiSite("zh-tw.wikipedia.org/wiki/Foo");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
         assertThat(subject.subdomain(), is("zh"));
-        assertThat(subject.languageCode(), is("zh-tw"));
+        assertThat(subject.getLanguageCode(), is("zh-tw"));
         assertThat(subject.scheme(), is("https"));
         assertThat(subject.dbName(), is("zhwiki"));
         assertThat(subject.url(), is("https://zh.wikipedia.org"));
@@ -111,7 +111,7 @@ import static org.hamcrest.Matchers.not;
         WikiSite subject = new WikiSite("zh.m.wikipedia.org/zh-hant/Foo");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
         assertThat(subject.subdomain(), is("zh"));
-        assertThat(subject.languageCode(), is("zh-hant"));
+        assertThat(subject.getLanguageCode(), is("zh-hant"));
         assertThat(subject.scheme(), is("https"));
         assertThat(subject.url(), is("https://zh.wikipedia.org"));
     }
@@ -120,7 +120,7 @@ import static org.hamcrest.Matchers.not;
         WikiSite subject = new WikiSite("http://zh.wikipedia.org/wiki/Foo");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
         assertThat(subject.subdomain(), is("zh"));
-        assertThat(subject.languageCode(), is("zh-hant"));
+        assertThat(subject.getLanguageCode(), is("zh-hant"));
         assertThat(subject.scheme(), is("http"));
         assertThat(subject.url(), is("http://zh.wikipedia.org"));
     }
@@ -129,7 +129,7 @@ import static org.hamcrest.Matchers.not;
         WikiSite subject = new WikiSite("http://zh.wikipedia.org/wiki/Foo");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
         assertThat(subject.subdomain(), is("zh"));
-        assertThat(subject.languageCode(), is("zh-hant"));
+        assertThat(subject.getLanguageCode(), is("zh-hant"));
         assertThat(subject.scheme(), is("http"));
         assertThat(subject.url(), is("http://zh.wikipedia.org"));
     }
@@ -206,26 +206,31 @@ import static org.hamcrest.Matchers.not;
 
     @Test public void testLanguageCode() {
         WikiSite subject = WikiSite.forLanguageCode("lang");
-        assertThat(subject.languageCode(), is("lang"));
+        assertThat(subject.getLanguageCode(), is("lang"));
     }
 
     @Test public void testUnmarshal() {
         WikiSite wiki = WikiSite.forLanguageCode("test");
-        assertThat(GsonUnmarshaller.unmarshal(WikiSite.class, GsonMarshaller.marshal(wiki)), is(wiki));
+        WikiSite wiki2 = GsonUnmarshaller.unmarshal(WikiSite.class, GsonMarshaller.marshal(wiki));
+        assertThat(wiki2.getLanguageCode(), is(wiki.getLanguageCode()));
+        assertThat(wiki2.getUri(), is(wiki.getUri()));
     }
 
     @Test public void testUnmarshalScheme() {
         WikiSite wiki = new WikiSite("wikipedia.org", "");
-        assertThat(GsonUnmarshaller.unmarshal(WikiSite.class, GsonMarshaller.marshal(wiki)), is(wiki));
+        WikiSite wiki2 = GsonUnmarshaller.unmarshal(WikiSite.class, GsonMarshaller.marshal(wiki));
+        assertThat(wiki2.getLanguageCode(), is(wiki.getLanguageCode()));
+        assertThat(wiki2.getUri(), is(wiki.getUri()));
     }
 
     @Test public void testTitleForInternalLink() {
         WikiSite wiki = WikiSite.forLanguageCode("en");
-        assertThat(new PageTitle("Main Page", wiki), is(wiki.titleForInternalLink("")));
-        assertThat(new PageTitle("Main Page", wiki), is(wiki.titleForInternalLink("/wiki/")));
-        assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("wiki")));
-        assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("/wiki/wiki")));
-        assertThat(new PageTitle("wiki/wiki", wiki), is(wiki.titleForInternalLink("/wiki/wiki/wiki")));
+        assertThat(new PageTitle("Main Page", wiki).getPrefixedText(), is(wiki.titleForInternalLink(null).getPrefixedText()));
+        assertThat(new PageTitle("Main Page", wiki).getPrefixedText(), is(wiki.titleForInternalLink("").getPrefixedText()));
+        assertThat(new PageTitle("Main Page", wiki).getPrefixedText(), is(wiki.titleForInternalLink("/wiki/").getPrefixedText()));
+        assertThat(new PageTitle("wiki", wiki).getPrefixedText(), is(wiki.titleForInternalLink("wiki").getPrefixedText()));
+        assertThat(new PageTitle("wiki", wiki).getPrefixedText(), is(wiki.titleForInternalLink("/wiki/wiki").getPrefixedText()));
+        assertThat(new PageTitle("wiki/wiki", wiki).getPrefixedText(), is(wiki.titleForInternalLink("/wiki/wiki/wiki").getPrefixedText()));
     }
 
     @Test public void testEquals() {

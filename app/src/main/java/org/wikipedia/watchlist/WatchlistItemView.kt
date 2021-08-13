@@ -50,7 +50,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
     fun setItem(item: MwQueryResult.WatchlistItem) {
         this.item = item
         binding.titleText.text = item.title
-        binding.langCodeText.text = item.wiki.languageCode()
+        binding.langCodeText.text = item.wiki.languageCode
         binding.summaryText.text = StringUtil.fromHtml(item.parsedComment)
         binding.timeText.text = DateUtil.getTimeString(item.date)
         binding.userNameText.text = item.user
@@ -82,7 +82,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             binding.containerView.alpha = 1.0f
             binding.containerView.isClickable = true
         }
-        L10nUtil.setConditionalLayoutDirection(this, item.wiki.languageCode())
+        L10nUtil.setConditionalLayoutDirection(this, item.wiki.languageCode)
     }
 
     private fun setButtonTextAndIconColor(text: String, @AttrRes backgroundTint: Int, @DrawableRes iconResourceDrawable: Int? = null) {

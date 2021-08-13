@@ -48,7 +48,7 @@ class LongPressHandler(view: View, private val historySource: Int, private val c
                     var wikiSite = WikiSite(uri)
                     // the following logic keeps the correct language code if the domain has multiple variants (e.g. zh).
                     (callback as WebViewMenuCallback).wikiSite?.run {
-                        if (wikiSite.dbName() == dbName() && wikiSite.languageCode() != languageCode()) {
+                        if (wikiSite.dbName() == dbName() && wikiSite.languageCode != languageCode) {
                             wikiSite = this
                         }
                     }

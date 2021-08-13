@@ -99,7 +99,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
             if (model.isInReadingList) {
                 builder.header(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
             }
-            builder.header(OfflineCacheInterceptor.LANG_HEADER, title.wikiSite.languageCode())
+            builder.header(OfflineCacheInterceptor.LANG_HEADER, title.wikiSite.languageCode)
             builder.header(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(title.prefixedText))
             model.curEntry?.referrer?.let { referrer ->
                 if (referrer.isNotEmpty()) {
