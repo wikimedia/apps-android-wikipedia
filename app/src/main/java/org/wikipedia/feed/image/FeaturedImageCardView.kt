@@ -2,12 +2,10 @@ package org.wikipedia.feed.image
 
 import android.content.Context
 import android.view.LayoutInflater
-import org.wikipedia.R
 import org.wikipedia.databinding.ViewCardFeaturedImageBinding
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
 
@@ -28,15 +26,9 @@ class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImag
                 image(it.baseImage())
                 description(it.description())
                 header(it)
-                updateLabelsToWikiLang()
                 setClickListeners()
             }
         }
-
-    private fun updateLabelsToWikiLang() {
-        binding.viewFeaturedImageCardDownloadButton.text = L10nUtil.getStringForArticleLanguage("en", R.string.view_featured_image_card_download)
-        binding.viewFeaturedImageCardShareButton.text = L10nUtil.getStringForArticleLanguage("en", R.string.view_featured_image_card_share)
-    }
 
     override var callback: FeedAdapter.Callback? = null
         set(value) {
