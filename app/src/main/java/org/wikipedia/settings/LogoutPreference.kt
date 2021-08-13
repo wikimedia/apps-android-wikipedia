@@ -26,6 +26,7 @@ class LogoutPreference : Preference {
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
+        holder.itemView.isClickable = false
         holder.itemView.findViewById<TextView>(R.id.accountName).text = AccountUtil.userName
         holder.itemView.findViewById<Button>(R.id.logoutButton).setOnClickListener {
             activity?.let {
