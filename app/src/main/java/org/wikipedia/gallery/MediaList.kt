@@ -12,7 +12,7 @@ class MediaList {
     fun getItems(vararg types: String): MutableList<MediaListItem> {
         val list = mutableListOf<MediaListItem>()
         items?.let { mediaList ->
-            list.addAll(mediaList.filter { it.showInGallery() && types.contains(it.type) })
+            list.addAll(mediaList.filter { it.showInGallery && types.contains(it.type) })
         }
         return list
     }
