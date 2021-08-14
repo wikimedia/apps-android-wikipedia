@@ -18,5 +18,5 @@ import kotlinx.serialization.Serializable
 class EventServiceResponse {
 
     @SerializedName("invalid") val invalidEvents: List<@Contextual Any> = emptyList()
-    @SerializedName("error") val errorEvents = emptyList<@Contextual Any>()
+    @SerializedName("error") val errorEvents: List<@Contextual Any> = emptyList()
 }

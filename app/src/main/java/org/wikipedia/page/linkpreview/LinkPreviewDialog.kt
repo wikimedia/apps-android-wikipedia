@@ -206,7 +206,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { binding.linkPreviewProgress.visibility = View.GONE }
                     .subscribe({ response ->
-                        val pageList = response.query?.pages()?.filter { it.imageInfo() != null }.orEmpty()
+                        val pageList = response.query?.pages?.filter { it.imageInfo() != null }.orEmpty()
                         binding.linkPreviewThumbnailGallery.setGalleryList(pageList)
                         binding.linkPreviewThumbnailGallery.listener = galleryViewListener
                     }) { caught ->

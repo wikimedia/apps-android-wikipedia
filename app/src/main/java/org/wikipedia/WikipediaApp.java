@@ -360,9 +360,9 @@ public class WikipediaApp extends Application {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    if (AccountUtil.isLoggedIn() && response.getQuery().userInfo() != null) {
+                    if (AccountUtil.isLoggedIn() && response.getQuery().getUserInfo() != null) {
                         // noinspection ConstantConditions
-                        int id = response.getQuery().userInfo().id();
+                        int id = response.getQuery().getUserInfo().id();
                         AccountUtil.putUserIdForLanguage(code, id);
                         L.d("Found user ID " + id + " for " + code);
                     }
