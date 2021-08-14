@@ -176,7 +176,7 @@
   <string name="create_account_passwords_mismatch_error">كلمتا السر لا تتطابقان</string>
   <string name="create_account_email_error">عنوان البريد الإلكتروني غير صحيح</string>
   <string name="create_account_username_error">أحرف غير صالحة في اسم المستخدم</string>
-  <string name="create_account_password_error">كلمة المرور غير صالحة</string>
+  <string name="create_account_password_error" fuzzy="true">كلمة المرور غير صالحة</string>
   <string name="create_account_generic_error">تعذّر إنشاء الحساب</string>
   <string name="create_account_next">التالي</string>
   <string name="email_recommendation_dialog_title">إنشاء حساب بدون عنوان بريد إلكتروني؟</string>

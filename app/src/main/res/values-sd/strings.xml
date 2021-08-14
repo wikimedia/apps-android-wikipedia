@@ -142,7 +142,7 @@
   <string name="create_account_passwords_mismatch_error">ڳجھالفظ نٿا ملن</string>
   <string name="create_account_email_error">ناقابلِڪار برقٽپال پتو</string>
   <string name="create_account_username_error">واپرائيندڙ-نانءَ ۾ ناقابلڪار نشانيون</string>
-  <string name="create_account_password_error">ڳجھولفظ ناقابلِڪار آھي</string>
+  <string name="create_account_password_error" fuzzy="true">ڳجھولفظ ناقابلِڪار آھي</string>
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
   <string name="email_recommendation_dialog_title">بغير برقٽپال جي کاتو کوليون؟</string>

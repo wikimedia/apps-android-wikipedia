@@ -98,8 +98,8 @@ class AggregatedFeedContentClient {
                                          wiki: WikiSite,
                                          age: Int,
                                          outCards: MutableList<Card>) {
-            if (responses.containsKey(wiki.languageCode())) {
-                responses[wiki.languageCode()]?.potd?.let {
+            if (responses.containsKey(wiki.languageCode)) {
+                responses[wiki.languageCode]?.potd?.let {
                     outCards.add(FeaturedImageCard(it, age, wiki))
                 }
             }
@@ -125,7 +125,7 @@ class AggregatedFeedContentClient {
             this.cb = cb
             this.age = age
             this.wiki = wiki
-            if (aggregatedClient.aggregatedResponseAge == age && aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode())) {
+            if (aggregatedClient.aggregatedResponseAge == age && aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {
                 val cards = mutableListOf<Card>()
                 getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
                 FeedCoordinator.postCardsToCallback(cb, cards)
@@ -151,10 +151,10 @@ class AggregatedFeedContentClient {
                     val cards = mutableListOf<Card>()
                     for (pair in pairList) {
                         val content = pair.second ?: continue
-                        aggregatedClient.aggregatedResponses[WikiSite.forLanguageCode(pair.first).languageCode()] = content
+                        aggregatedClient.aggregatedResponses[WikiSite.forLanguageCode(pair.first).languageCode] = content
                         aggregatedClient.aggregatedResponseAge = age
                     }
-                    if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode())) {
+                    if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {
                         getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
                     }
                     FeedCoordinator.postCardsToCallback(cb, cards)

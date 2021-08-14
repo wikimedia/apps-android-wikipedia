@@ -148,7 +148,7 @@
   <string name="history_empty_message">Відстежувати те, що ви вже читали тут.</string>
   <string name="history_offline_articles_toast">Деякі статті в історії можуть бути недоступними в режимі офлайн.</string>
   <string name="search_empty_message">Шукайте і читайте вільну енциклопедію вашою мовою</string>
-  <string name="search_empty_message_multilingual_upgrade">Шукати у Вікіпедії на других мовах</string>
+  <string name="search_empty_message_multilingual_upgrade">Шукати у Вікіпедії іншими мовами</string>
   <string name="delete_selected_items">Вилучити вибрані елементи</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЕДІ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ім\'я користувача</string>
@@ -163,7 +163,7 @@
   <string name="create_account_passwords_mismatch_error">Паролі не збігаються</string>
   <string name="create_account_email_error">Неправильна адреса електронної пошти</string>
   <string name="create_account_username_error">Недійсні символи в імені користувача.</string>
-  <string name="create_account_password_error">Невірний пароль</string>
+  <string name="create_account_password_error">Пароль мусить мати не менше 8 символів</string>
   <string name="create_account_generic_error">Неможливо створити обліковий запис</string>
   <string name="create_account_next">Далі</string>
   <string name="email_recommendation_dialog_title">Створити обліковий запис без електронної адреси?</string>
@@ -177,6 +177,7 @@
   <string name="create_account_ip_block_help_url">https://uk.wikipedia.org/wiki/Вікіпедія:Правила_блокувань</string>
   <string name="create_account_ip_block_details">Деталі</string>
   <string name="preferences_general_heading">Загальні</string>
+  <string name="preferences_account_heading">Обліковий запис</string>
   <string name="wikipedia_app_faq">Часті питання по додатку</string>
   <string name="send_feedback">Надіслати відгук про програму</string>
   <string name="create_account_account_created_toast">Створено обліковий запис!</string>
@@ -228,7 +229,7 @@
   <string name="about_app_license_heading">Ліцензія</string>
   <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
-  <string name="about_activity_title">Про программу</string>
+  <string name="about_activity_title">Про програму</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
   <string name="edit_abandon_confirm_yes">Так</string>
   <string name="edit_abandon_confirm_no">Ні</string>
@@ -277,9 +278,9 @@
   <string name="table_infobox">Швидкі факти</string>
   <string name="table_other">Більше інформації</string>
   <string name="table_close">Закрити</string>
-  <string name="widget_name_featured_page">Вікіпедія - вибрані сторінки</string>
+  <string name="widget_name_featured_page">Вибрана сторінка Вікіпедії</string>
   <string name="widget_title_featured_page">Сьогоднішня вибрана сторінка:</string>
-  <string name="widget_name_search">Пошук в Вікіпедії</string>
+  <string name="widget_name_search">Пошук у Вікіпедії</string>
   <string name="wiktionary_no_definitions_found">Визначень не знайдено.</string>
   <string name="alpha_update_notification_title">Доступне оновлення альфа-версії</string>
   <string name="alpha_update_notification_text">Натисніть, щоб завантажити</string>
@@ -307,7 +308,7 @@
   <string name="expand_refs">Торкніться, щоб розкрити</string>
   <string name="cc_logo">Ліцензія Creative Commons</string>
   <string name="captcha_image">Зображення captcha</string>
-  <string name="gallery_fair_use_license">Добросовісне використання</string>
+  <string name="gallery_fair_use_license">Добропорядне використання</string>
   <string name="gallery_uploader_unknown">Є невідомим той, хто завантажив</string>
   <string name="gallery_not_available_offline_snackbar">Режим галереї є недоступним в офлайні.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Відхилити</string>
@@ -365,7 +366,7 @@
   <string name="view_link_preview_error_button_dismiss">Відхилити</string>
   <string name="error_page_does_not_exist">Ця сторінка не існує</string>
   <string name="view_wiki_error_message_offline">Не вдається підключитися до інтернету.</string>
-  <string name="view_wiki_error_message_timeout">Немає зв\'язку із Вікіпедією. Будь ласка перевірте ваше мережеве підключення чи спробуйте пізніше</string>
+  <string name="view_wiki_error_message_timeout">Немає зв\'язку із Вікіпедією. Будь ласка, перевірте ваше мережеве підключення чи спробуйте пізніше</string>
   <string name="reference_title">Виноски %s</string>
   <string name="reference_list_title">Посилання</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затінювання зображень</string>
@@ -435,7 +436,7 @@
   <string name="format_reading_list_statistical_summary_singular">1 стаття, %1$.2f Mб</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статті, %2$.2f Mб</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d з 1 статтей доступні автономно, %2$.2f Mб</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d із %2$d статтей доступні автономно, %3$.2f Mб</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d із %2$d статей доступні автономно, %3$.2f Mб</string>
   <string name="reading_list_sort">Сортувати</string>
   <string name="reading_list_sort_ellipsis">Сортувати за…</string>
   <string name="reading_list_sort_by_name">Сортувати за назвою</string>

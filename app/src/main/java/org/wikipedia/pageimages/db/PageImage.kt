@@ -14,6 +14,6 @@ data class PageImage(
     val imageName: String?
     ) : Parcelable {
 
-    constructor(title: PageTitle, imageName: String?) : this(title.wikiSite.languageCode(),
+    constructor(title: PageTitle, imageName: String?) : this(title.wikiSite.languageCode,
         title.namespace, title.text, imageName)
 }
