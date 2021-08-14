@@ -85,7 +85,7 @@
   <string name="dialog_create_account_checking_progress">Тергев</string>
   <string name="create_account_password_repeat_hint">Чечилни такрар бермек</string>
   <string name="create_account_passwords_mismatch_error">Чечиллер гелишмей</string>
-  <string name="create_account_password_error">Терс чечил</string>
+  <string name="create_account_password_error" fuzzy="true">Терс чечил</string>
   <string name="create_account_generic_error">Гьисап бет ясалмай</string>
   <string name="create_account_next">Сонггъу</string>
   <string name="create_account_button">Гьисап бет ачмакъ</string>

@@ -13,6 +13,6 @@ class FeaturedImage : GalleryItem(), PostProcessable {
 
     override fun postProcess() {
         titles = Titles(title, StringUtil.addUnderscores(title), title)
-        original.setSource(image.source)
+        original.source = image.source
     }
 }

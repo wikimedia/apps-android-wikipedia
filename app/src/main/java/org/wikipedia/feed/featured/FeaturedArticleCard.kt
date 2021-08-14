@@ -14,7 +14,7 @@ open class FeaturedArticleCard(private val page: PageSummary,
                                private val age: Int, wiki: WikiSite) : WikiSiteCard(wiki) {
 
     override fun title(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_featured_article_card_title)
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.view_featured_article_card_title)
     }
 
     override fun subtitle(): String {
@@ -42,7 +42,7 @@ open class FeaturedArticleCard(private val page: PageSummary,
     }
 
     open fun footerActionText(): String {
-        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_main_page_card_title)
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode, R.string.view_main_page_card_title)
     }
 
     fun articleTitle(): String {

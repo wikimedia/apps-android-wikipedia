@@ -54,7 +54,7 @@ object ShareUtil {
 
     fun shareText(context: Context, title: PageTitle, newId: Long, oldId: Long) {
         shareText(context, StringUtil.fromHtml(title.displayText).toString(),
-                title.getWebApiUrl("diff=$newId&oldid=$oldId&variant=${title.wikiSite.languageCode()}"))
+                title.getWebApiUrl("diff=$newId&oldid=$oldId&variant=${title.wikiSite.languageCode}"))
     }
 
     @JvmStatic

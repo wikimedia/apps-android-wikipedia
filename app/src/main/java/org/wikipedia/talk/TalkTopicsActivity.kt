@@ -91,7 +91,7 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkLastModified.visibility = View.GONE
         binding.talkLastModified.setOnClickListener {
             revisionForLastEdit?.let {
-                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle.displayText, it.revId, pageTitle.wikiSite.languageCode()))
+                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle.displayText, it.revId, pageTitle.wikiSite.languageCode))
             }
         }
     }
@@ -167,7 +167,7 @@ class TalkTopicsActivity : BaseActivity() {
                 return true
             }
             R.id.menu_view_user_page -> {
-                val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode()) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
+                val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
                 return true
             }
@@ -177,7 +177,7 @@ class TalkTopicsActivity : BaseActivity() {
 
     private fun loadTopics() {
         invalidateOptionsMenu()
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
         binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
 
         disposables.clear()

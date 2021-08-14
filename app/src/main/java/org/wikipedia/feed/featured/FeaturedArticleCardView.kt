@@ -90,14 +90,14 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
 
     private fun header(card: FeaturedArticleCard) {
         binding.viewFeaturedArticleCardHeader.setTitle(card.title())
-            .setLangCode(card.wikiSite().languageCode())
+            .setLangCode(card.wikiSite().languageCode)
             .setCard(card)
             .setCallback(callback)
     }
 
     private fun footer(card: FeaturedArticleCard) {
         binding.viewFeaturedArticleCardFooter.callback = footerCallback
-        binding.viewFeaturedArticleCardFooter.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode())
+        binding.viewFeaturedArticleCardFooter.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode)
     }
 
     private fun image(uri: Uri?) {
@@ -111,7 +111,7 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
         get() = CardFooterView.Callback {
             card?.let {
                 callback?.onSelectPage(it, HistoryEntry(PageTitle(
-                    SiteInfoClient.getMainPageForLang(it.wikiSite().languageCode()), it.wikiSite()),
+                    SiteInfoClient.getMainPageForLang(it.wikiSite().languageCode), it.wikiSite()),
                     it.historyEntry().source), false
                 )
             }

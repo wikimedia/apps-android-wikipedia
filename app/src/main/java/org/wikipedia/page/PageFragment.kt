@@ -1095,7 +1095,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL)
         } else {
             title?.run {
-                val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode(), this, displayText, description, thumbUrl)
+                val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, thumbUrl)
                 requireActivity().startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), this, text, sourceSummary, null,
                         DescriptionEditActivity.Action.ADD_DESCRIPTION, InvokeSource.PAGE_ACTIVITY), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
             }

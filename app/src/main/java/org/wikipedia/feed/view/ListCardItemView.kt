@@ -11,8 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.util.Pair
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewListCardItemBinding
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.topread.TopReadArticles.ViewHistory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageAvailableOfflineHandler.check
 import org.wikipedia.readinglist.LongPressMenu
@@ -131,12 +131,12 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
         binding.viewListCardNumber.setNumber(number)
     }
 
-    fun setPageViews(pageViews: Int) {
+    fun setPageViews(pageViews: Long) {
         binding.viewListCardItemPageviews.visibility = VISIBLE
         binding.viewListCardItemPageviews.text = getPageViewText(pageViews)
     }
 
-    fun setGraphView(viewHistories: List<ViewHistory>) {
+    fun setGraphView(viewHistories: List<PageSummary.ViewHistory>) {
         val dataSet = mutableListOf<Float>()
         var i = viewHistories.size
         while (DEFAULT_VIEW_HISTORY_ITEMS > i++) {
@@ -147,7 +147,7 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
         binding.viewListCardItemGraph.setData(dataSet)
     }
 
-    private fun getPageViewText(pageViews: Int): String {
+    private fun getPageViewText(pageViews: Long): String {
         return when {
             pageViews < 1000 -> pageViews.toString()
             pageViews < 1000000 -> {
