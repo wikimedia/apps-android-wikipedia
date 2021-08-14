@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -17,6 +18,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.AppLanguageSearchingFunnel
 import org.wikipedia.databinding.ActivityLanguagesListBinding
+import org.wikipedia.databinding.ItemLanguageListEntryBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.history.SearchActionModeCallback
@@ -153,8 +155,8 @@ class LanguagesListActivity : BaseActivity() {
                 val view = inflater.inflate(R.layout.view_section_header, parent, false)
                 DefaultViewHolder(languageCodes, view)
             } else {
-                val view = inflater.inflate(R.layout.item_language_list_entry, parent, false)
-                LanguagesListItemHolder(languageCodes, view)
+                val itemBinding = ItemLanguageListEntryBinding.inflate(inflater, parent, false)
+                LanguagesListItemHolder(languageCodes, itemBinding)
             }
         }
 
@@ -227,16 +229,18 @@ class LanguagesListActivity : BaseActivity() {
         }
     }
 
-    private inner class LanguagesListItemHolder constructor(private val languageCodes: List<String>, itemView: View) : DefaultViewHolder(languageCodes, itemView) {
-        private val localizedNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
-        private val canonicalNameTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
-
+    private inner class LanguagesListItemHolder constructor(
+        private val languageCodes: List<String>,
+        private val itemBinding: ItemLanguageListEntryBinding
+    ) : DefaultViewHolder(languageCodes, itemBinding.root) {
         override fun bindItem(position: Int) {
             val languageCode = languageCodes[position]
-            localizedNameTextView.text = app.language().getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
+            itemBinding.localizedLanguageName.text = app.language().getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
             val canonicalName = getCanonicalName(languageCode)
-            if (binding.languagesListLoadProgress.visibility != View.VISIBLE) {
-                canonicalNameTextView.text = if (canonicalName.isNullOrEmpty()) app.language().getAppLanguageCanonicalName(languageCode) else canonicalName
+            if (!binding.languagesListLoadProgress.isVisible) {
+                itemBinding.languageSubtitle.text = canonicalName.orEmpty().ifEmpty {
+                    app.language().getAppLanguageCanonicalName(languageCode)
+                }
             }
         }
     }
