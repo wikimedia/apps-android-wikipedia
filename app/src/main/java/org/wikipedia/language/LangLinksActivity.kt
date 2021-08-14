@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -15,6 +17,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityLanglinksBinding
+import org.wikipedia.databinding.ItemLanglinksListEntryBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
@@ -252,8 +255,8 @@ class LangLinksActivity : BaseActivity() {
                 val view = inflater.inflate(R.layout.view_section_header, parent, false)
                 DefaultViewHolder(languageEntries, view)
             } else {
-                val view = inflater.inflate(R.layout.item_langlinks_list_entry, parent, false)
-                LangLinksItemViewHolder(languageEntries, view)
+                val itemBinding = ItemLanglinksListEntryBinding.inflate(inflater, parent, false)
+                LangLinksItemViewHolder(languageEntries, itemBinding)
             }
         }
 
@@ -304,10 +307,10 @@ class LangLinksActivity : BaseActivity() {
         }
     }
 
-    private inner class LangLinksItemViewHolder constructor(private val languageEntries: List<PageTitle>, itemView: View) : DefaultViewHolder(languageEntries, itemView), View.OnClickListener {
-        private val localizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
-        private val nonLocalizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.non_localized_language_name)
-        private val articleTitleTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
+    private inner class LangLinksItemViewHolder constructor(
+        private val languageEntries: List<PageTitle>,
+        private val itemBinding: ItemLanglinksListEntryBinding
+    ) : DefaultViewHolder(languageEntries, itemBinding.root), View.OnClickListener {
         private var pos = 0
 
         override fun bindItem(position: Int) {
@@ -315,16 +318,14 @@ class LangLinksActivity : BaseActivity() {
             val item = languageEntries[position]
             val languageCode = item.wikiSite.languageCode
             val localizedLanguageName = app.language().getAppLanguageLocalizedName(languageCode)
-            localizedLanguageNameTextView.text = localizedLanguageName?.capitalize(Locale.getDefault()) ?: languageCode
-            articleTitleTextView.text = item.displayText
+            itemBinding.localizedLanguageName.text = localizedLanguageName?.capitalize(Locale.getDefault()) ?: languageCode
+            itemBinding.languageSubtitle.text = item.displayText
             if (binding.langlinksLoadProgress.visibility != View.VISIBLE) {
                 val canonicalName = getCanonicalName(languageCode)
-                if (canonicalName.isNullOrEmpty() || languageCode == app.language().systemLanguageCode) {
-                    nonLocalizedLanguageNameTextView.visibility = View.GONE
-                } else {
+                itemBinding.nonLocalizedLanguageName.isGone = canonicalName.isNullOrEmpty() || languageCode == app.language().systemLanguageCode
+                if (itemBinding.nonLocalizedLanguageName.isVisible) {
                     // TODO: Fix an issue when app language is zh-hant, the subtitle in zh-hans will display in English
-                    nonLocalizedLanguageNameTextView.text = canonicalName
-                    nonLocalizedLanguageNameTextView.visibility = View.VISIBLE
+                    itemBinding.nonLocalizedLanguageName.text = canonicalName
                 }
             }
             itemView.setOnClickListener(this)
