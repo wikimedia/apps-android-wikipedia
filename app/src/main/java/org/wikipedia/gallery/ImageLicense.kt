@@ -2,12 +2,10 @@ package org.wikipedia.gallery
 
 import androidx.annotation.DrawableRes
 import com.google.gson.annotations.SerializedName
-import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import java.io.Serializable
 import java.util.*
 
-@Serializable
 class ImageLicense @JvmOverloads constructor(@SerializedName("type") var licenseName: String = "",
                                              @SerializedName("code") var licenseShortName: String = "",
                                              @SerializedName("url") var licenseUrl: String = "") : Serializable {
