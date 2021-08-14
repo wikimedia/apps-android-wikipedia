@@ -119,7 +119,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         var lastNotificationTime = ""
-                        for (n in response.query?.notifications()?.list().orEmpty()) {
+                        for (n in response.query?.notifications()?.list.orEmpty()) {
                             if (n.utcIso8601 > lastNotificationTime) {
                                 lastNotificationTime = n.utcIso8601
                             }
@@ -171,7 +171,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response -> onNotificationsComplete(context, response.query?.notifications()?.list()) }) { t -> L.e(t) }
+                    .subscribe({ response -> onNotificationsComplete(context, response.query?.notifications()?.list) }) { t -> L.e(t) }
         }
 
         private fun onNotificationsComplete(context: Context, notifications: List<Notification>?) {

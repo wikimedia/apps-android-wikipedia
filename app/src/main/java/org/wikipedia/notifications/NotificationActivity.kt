@@ -187,8 +187,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        onNotificationsComplete(response.query?.notifications()!!.list()!!, !currentContinueStr.isNullOrEmpty())
-                        currentContinueStr = response.query?.notifications()!!.getContinue()
+                        onNotificationsComplete(response.query?.notifications()!!.list!!, !currentContinueStr.isNullOrEmpty())
+                        currentContinueStr = response.query?.notifications()!!.`continue`
                     }) { t -> setErrorState(t) })
         }
 
