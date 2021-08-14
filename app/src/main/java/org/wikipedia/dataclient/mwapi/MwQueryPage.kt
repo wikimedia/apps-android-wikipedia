@@ -2,6 +2,7 @@ package org.wikipedia.dataclient.mwapi
 
 import android.text.TextUtils
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
@@ -11,6 +12,7 @@ import org.wikipedia.page.Namespace.Companion.of
 /**
  * A class representing a standard page object as returned by the MediaWiki API.
  */
+@Serializable
 class MwQueryPage {
     private val pageid = 0
     private val ns = 0
@@ -159,6 +161,7 @@ class MwQueryPage {
         return if (actions != null && actions.containsKey(actionName)) actions[actionName]!! else emptyList()
     }
 
+    @Serializable
     class Revision {
         val revId: Long = 0
         val parentRevId: Long = 0
@@ -192,6 +195,7 @@ class MwQueryPage {
         }
     }
 
+    @Serializable
     class RevisionSlot {
         private val contentmodel: String? = null
         private val contentformat: String? = null
@@ -199,18 +203,21 @@ class MwQueryPage {
             get() = StringUtils.defaultString(field)
     }
 
+    @Serializable
     class LangLink {
 
         val lang: String = ""
         val title: String = ""
     }
 
+    @Serializable
     class Coordinates {
 
         val lat: Double? = null
         val lon: Double? = null
     }
 
+    @Serializable
     internal class Thumbnail {
 
         val source: String? = null
@@ -218,6 +225,7 @@ class MwQueryPage {
         private val height = 0
     }
 
+    @Serializable
     class PageProps {
 
         @SerializedName("wikibase_item")
@@ -230,6 +238,7 @@ class MwQueryPage {
         }
     }
 
+    @Serializable
     class Category {
 
         val ns = 0
@@ -237,6 +246,7 @@ class MwQueryPage {
         val hidden = false
     }
 
+    @Serializable
     class ImageLabel {
 
         @SerializedName("wikidata_id")
@@ -260,6 +270,7 @@ class MwQueryPage {
             get() = confidence?.google ?: 0f
     }
 
+    @Serializable
     class Confidence {
 
         val google = 0f
