@@ -128,7 +128,7 @@ class RecentSearchesFragment : Fragment() {
         }
 
         override fun onSwipe() {
-            AppDatabase.getAppDatabase().recentSearchDao().delete(recentSearch)
+            AppDatabase.instance.recentSearchDao().delete(recentSearch)
             updateList()
         }
     }
