@@ -10,7 +10,6 @@ import android.view.View.OnLongClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -25,6 +24,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
+import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -342,18 +342,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     }
 
     @Suppress("LeakingThis")
-    private open inner class NotificationItemHolder constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener, OnLongClickListener {
-        private val titleView = view.findViewById<TextView>(R.id.notification_item_title)
-        private val descriptionView = view.findViewById<TextView>(R.id.notification_item_description)
-        private val secondaryActionHintView = view.findViewById<TextView>(R.id.notification_item_secondary_action_hint)
-        private val tertiaryActionHintView = view.findViewById<TextView>(R.id.notification_item_tertiary_action_hint)
-        private val wikiCodeView = view.findViewById<TextView>(R.id.notification_wiki_code)
-        private val wikiCodeImageView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_image)
-        private val wikiCodeBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_background)
-        private val imageContainerView = view.findViewById<View>(R.id.notification_item_image_container)
-        private val imageBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_item_image_background)
-        private val imageSelectedView = view.findViewById<View>(R.id.notification_item_selected_image)
-        private val imageView = view.findViewById<AppCompatImageView>(R.id.notification_item_image)
+    private open inner class NotificationItemHolder constructor(
+        private val itemBinding: ItemNotificationBinding
+    ) : RecyclerView.ViewHolder(itemBinding.root), View.OnClickListener, OnLongClickListener {
         lateinit var container: NotificationListItemContainer
 
         init {
@@ -394,25 +385,24 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     iconBackColor = R.color.base0
                 }
             }
-            imageView.setImageResource(iconResId)
-            imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, iconBackColor))
-            secondaryActionHintView.isVisible = false
-            tertiaryActionHintView.isVisible = false
+            itemBinding.notificationItemImage.setImageResource(iconResId)
+            itemBinding.notificationItemImageBackground.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, iconBackColor))
+            itemBinding.notificationItemSecondaryActionHint.isVisible = false
+            itemBinding.notificationItemTertiaryActionHint.isVisible = false
             n.contents?.let {
-                titleView.text = StringUtil.fromHtml(it.header)
-                if (it.body.trim().isNotEmpty()) {
-                    descriptionView.text = StringUtil.fromHtml(it.body)
-                    descriptionView.visibility = View.VISIBLE
-                } else {
-                    descriptionView.visibility = View.GONE
+                itemBinding.notificationItemTitle.text = StringUtil.fromHtml(it.header)
+                val body = it.body
+                itemBinding.notificationItemDescription.isVisible = body.isNotBlank()
+                if (body.isNotBlank()) {
+                    itemBinding.notificationItemDescription.text = StringUtil.fromHtml(body)
                 }
                 it.links?.secondary?.let { secondary ->
-                    if (secondary.size > 0) {
-                        secondaryActionHintView.text = secondary[0].label
-                        secondaryActionHintView.visibility = View.VISIBLE
+                    if (secondary.isNotEmpty()) {
+                        itemBinding.notificationItemSecondaryActionHint.text = secondary[0].label
+                        itemBinding.notificationItemSecondaryActionHint.visibility = View.VISIBLE
                         if (secondary.size > 1) {
-                            tertiaryActionHintView.text = secondary[1].label
-                            tertiaryActionHintView.visibility = View.VISIBLE
+                            itemBinding.notificationItemTertiaryActionHint.text = secondary[1].label
+                            itemBinding.notificationItemTertiaryActionHint.visibility = View.VISIBLE
                         }
                     }
                 }
@@ -420,33 +410,33 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             val wikiCode = n.wiki()
             when {
                 wikiCode.contains("wikidata") -> {
-                    wikiCodeView.visibility = View.GONE
-                    wikiCodeBackgroundView.visibility = View.GONE
-                    wikiCodeImageView.visibility = View.VISIBLE
-                    wikiCodeImageView.setImageResource(R.drawable.ic_wikidata_logo)
+                    itemBinding.notificationWikiCode.visibility = View.GONE
+                    itemBinding.notificationWikiCodeBackground.visibility = View.GONE
+                    itemBinding.notificationWikiCodeImage.visibility = View.VISIBLE
+                    itemBinding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
                 }
                 wikiCode.contains("commons") -> {
-                    wikiCodeView.visibility = View.GONE
-                    wikiCodeBackgroundView.visibility = View.GONE
-                    wikiCodeImageView.visibility = View.VISIBLE
-                    wikiCodeImageView.setImageResource(R.drawable.ic_commons_logo)
+                    itemBinding.notificationWikiCode.visibility = View.GONE
+                    itemBinding.notificationWikiCodeBackground.visibility = View.GONE
+                    itemBinding.notificationWikiCodeImage.visibility = View.VISIBLE
+                    itemBinding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
                 }
                 else -> {
-                    wikiCodeBackgroundView.visibility = View.VISIBLE
-                    wikiCodeView.visibility = View.VISIBLE
-                    wikiCodeImageView.visibility = View.GONE
+                    itemBinding.notificationWikiCodeBackground.visibility = View.VISIBLE
+                    itemBinding.notificationWikiCode.visibility = View.VISIBLE
+                    itemBinding.notificationWikiCodeImage.visibility = View.GONE
                     val langCode = n.wiki().replace("wiki", "")
-                    wikiCodeView.text = langCode
+                    itemBinding.notificationWikiCode.text = langCode
                     L10nUtil.setConditionalLayoutDirection(itemView, langCode)
                 }
             }
             if (container.selected) {
-                imageSelectedView.visibility = View.VISIBLE
-                imageContainerView.visibility = View.INVISIBLE
+                itemBinding.notificationItemSelectedImage.visibility = View.VISIBLE
+                itemBinding.notificationItemImageContainer.visibility = View.INVISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
             } else {
-                imageSelectedView.visibility = View.INVISIBLE
-                imageContainerView.visibility = View.VISIBLE
+                itemBinding.notificationItemSelectedImage.visibility = View.INVISIBLE
+                itemBinding.notificationItemImageContainer.visibility = View.VISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.paper_color))
             }
         }
@@ -467,7 +457,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
     }
 
-    private inner class NotificationItemHolderSwipeable constructor(v: View) : NotificationItemHolder(v), SwipeableItemTouchHelperCallback.Callback {
+    private inner class NotificationItemHolderSwipeable constructor(
+        itemBinding: ItemNotificationBinding
+    ) : NotificationItemHolder(itemBinding), SwipeableItemTouchHelperCallback.Callback {
         override fun onSwipe() {
             deleteItems(listOf(container), false)
         }
@@ -493,10 +485,11 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             if (type == NotificationListItemContainer.ITEM_DATE_HEADER) {
                 return NotificationDateHolder(layoutInflater.inflate(R.layout.item_notification_date, parent, false))
             }
+            val itemBinding = ItemNotificationBinding.inflate(layoutInflater, parent, false)
             return if (displayArchived) {
-                NotificationItemHolder(layoutInflater.inflate(R.layout.item_notification, parent, false))
+                NotificationItemHolder(itemBinding)
             } else {
-                NotificationItemHolderSwipeable(layoutInflater.inflate(R.layout.item_notification, parent, false))
+                NotificationItemHolderSwipeable(itemBinding)
             }
         }
 
