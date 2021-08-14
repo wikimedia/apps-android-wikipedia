@@ -6,26 +6,11 @@ import org.wikipedia.R
 import java.io.Serializable
 import java.util.*
 
-class ImageLicense : Serializable {
+class ImageLicense @JvmOverloads constructor(@SerializedName("type") var licenseName: String = "",
+                                             @SerializedName("code") var licenseShortName: String = "",
+                                             @SerializedName("url") var licenseUrl: String = "") : Serializable {
 
-    @SerializedName("type") var licenseName: String = ""
-
-    @SerializedName("code") var licenseShortName: String = ""
-
-    @SerializedName("url") var licenseUrl: String = ""
-
-    constructor(metadata: ExtMetadata) {
-        licenseName = metadata.license()
-        licenseShortName = metadata.licenseShortName()
-        licenseUrl = metadata.licenseUrl()
-    }
-
-    @JvmOverloads
-    constructor(license: String = "", licenseShortName: String = "", licenseUrl: String = "") {
-        licenseName = license
-        this.licenseShortName = licenseShortName
-        this.licenseUrl = licenseUrl
-    }
+    constructor(metadata: ExtMetadata) : this(metadata.license(), metadata.licenseShortName(), metadata.licenseUrl())
 
     private val isLicenseCC: Boolean
         get() = (licenseName.lowercase(Locale.ENGLISH).startsWith(CREATIVE_COMMONS_PREFIX) || licenseShortName.lowercase(Locale.ENGLISH).startsWith(CREATIVE_COMMONS_PREFIX))
@@ -47,10 +32,6 @@ class ImageLicense : Serializable {
                 R.drawable.ic_license_cc
             } else R.drawable.ic_license_cite
         }
-
-    fun hasLicenseInfo(): Boolean {
-        return !(licenseName.isEmpty() && licenseShortName.isEmpty() && licenseUrl.isEmpty())
-    }
 
     companion object {
         private const val CREATIVE_COMMONS_PREFIX = "cc"
