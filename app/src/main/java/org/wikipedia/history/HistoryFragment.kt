@@ -7,12 +7,12 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.isGone
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
@@ -30,6 +30,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentHistoryBinding
+import org.wikipedia.databinding.ViewHistoryHeaderWithSearchBinding
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.page.PageAvailableOfflineHandler
@@ -238,23 +239,24 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
     }
 
-    private inner class SearchCardViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
-        private val historyFilterButton: ImageView
-        private val clearHistoryButton: ImageView
+    private inner class SearchCardViewHolder constructor(
+        private val itemBinding: ViewHistoryHeaderWithSearchBinding
+    ) : DefaultViewHolder<View>(itemBinding.root) {
+        private val searchCardBinding = itemBinding.searchCard
 
         fun bindItem() {
-            clearHistoryButton.visibility = if (adapter.isEmpty) View.GONE else View.VISIBLE
-            historyFilterButton.visibility = if (adapter.isEmpty) View.GONE else View.VISIBLE
+            itemBinding.historyDelete.isGone = adapter.isEmpty
+            itemBinding.historyFilter.isGone = adapter.isEmpty
         }
 
-        private fun adjustSearchCardView(searchCardView: WikiCardView) {
-            searchCardView.post {
+        private fun adjustSearchCardView() {
+            searchCardBinding.root.post {
                 if (!isAdded) {
                     return@post
                 }
-                searchCardView.updateLayoutParams<LinearLayout.LayoutParams> {
+                searchCardBinding.root.updateLayoutParams<LinearLayout.LayoutParams> {
                     val horizontalMargin = if (DimenUtil.isLandscape(requireContext())) {
-                        searchCardView.width / 6 + DimenUtil.roundedDpToPx(30f)
+                        searchCardBinding.root.width / 6 + DimenUtil.roundedDpToPx(30f)
                     } else {
                         DimenUtil.roundedDpToPx(16f)
                     }
@@ -262,24 +264,24 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                         top = DimenUtil.roundedDpToPx(3f))
                 }
             }
-            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
+            searchCardBinding.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
         }
 
         init {
-            val searchCardView = itemView.findViewById<WikiCardView>(R.id.search_card)
-            val voiceSearchButton = itemView.findViewById<View>(R.id.voice_search_button)
-            historyFilterButton = itemView.findViewById(R.id.history_filter)
-            clearHistoryButton = itemView.findViewById(R.id.history_delete)
-            searchCardView.setOnClickListener { (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it) }
-            voiceSearchButton.setOnClickListener { (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested() }
-            historyFilterButton.setOnClickListener {
+            searchCardBinding.root.setOnClickListener {
+                (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it)
+            }
+            searchCardBinding.voiceSearchButton.setOnClickListener {
+                (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested()
+            }
+            itemBinding.historyFilter.setOnClickListener {
                 if (actionMode == null) {
                     actionMode = (requireActivity() as AppCompatActivity)
                             .startSupportActionMode(searchActionModeCallback)
                 }
             }
-            clearHistoryButton.setOnClickListener {
-                if (selectedEntries.size == 0) {
+            itemBinding.historyDelete.setOnClickListener {
+                if (selectedEntries.isEmpty()) {
                     AlertDialog.Builder(requireContext())
                             .setTitle(R.string.dialog_title_clear_history)
                             .setMessage(R.string.dialog_message_clear_history)
@@ -289,8 +291,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                     deleteSelectedPages()
                 }
             }
-            FeedbackUtil.setButtonLongPressToast(historyFilterButton, clearHistoryButton)
-            adjustSearchCardView(searchCardView)
+            FeedbackUtil.setButtonLongPressToast(itemBinding.historyFilter, itemBinding.historyDelete)
+            adjustSearchCardView()
         }
     }
 
@@ -340,10 +342,11 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
+            val layoutInflater = LayoutInflater.from(requireContext())
             return when (viewType) {
                 Companion.VIEW_TYPE_SEARCH_CARD -> {
-                    val view = LayoutInflater.from(requireContext()).inflate(R.layout.view_history_header_with_search, parent, false)
-                    SearchCardViewHolder(view)
+                    val itemBinding = ViewHistoryHeaderWithSearchBinding.inflate(layoutInflater, parent, false)
+                    SearchCardViewHolder(itemBinding)
                 }
                 Companion.VIEW_TYPE_HEADER -> {
                     val view = LayoutInflater.from(requireContext()).inflate(R.layout.view_section_header, parent, false)
