@@ -5,15 +5,12 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemFeedContentTypeLangSelectDialogBinding
-import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.databinding.ItemFeedContentTypeLangSelectItemBinding
 
 class ConfigureItemLanguageDialogView : FrameLayout {
 
@@ -40,18 +37,16 @@ class ConfigureItemLanguageDialogView : FrameLayout {
         binding.languageList.adapter = LanguageItemAdapter()
     }
 
-    private inner class LanguageItemHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView), OnClickListener {
+    private inner class LanguageItemHolder constructor(private val itemBinding: ItemFeedContentTypeLangSelectItemBinding) :
+        RecyclerView.ViewHolder(itemBinding.root), OnClickListener {
         private lateinit var langCode: String
-        private val container = itemView.findViewById<View>(R.id.feed_content_type_lang_container)
-        private val checkbox = itemView.findViewById<CheckBox>(R.id.feed_content_type_lang_checkbox)
-        private val langNameView = itemView.findViewById<TextView>(R.id.feed_content_type_lang_name)
 
         fun bindItem(langCode: String) {
             this.langCode = langCode
-            container.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-            langNameView.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
-            container.setOnClickListener(this)
-            checkbox.setOnClickListener(this)
+            itemBinding.feedContentTypeLangContainer.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+            itemBinding.feedContentTypeLangName.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
+            itemBinding.feedContentTypeLangContainer.setOnClickListener(this)
+            itemBinding.feedContentTypeLangCheckbox.setOnClickListener(this)
             updateState()
         }
 
@@ -65,7 +60,7 @@ class ConfigureItemLanguageDialogView : FrameLayout {
         }
 
         private fun updateState() {
-            checkbox.isChecked = !disabledList.contains(langCode)
+            itemBinding.feedContentTypeLangCheckbox.isChecked = !disabledList.contains(langCode)
         }
     }
 
@@ -75,8 +70,9 @@ class ConfigureItemLanguageDialogView : FrameLayout {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): LanguageItemHolder {
-            val view = inflate(context, R.layout.item_feed_content_type_lang_select_item, null)
-            return LanguageItemHolder(view)
+            val binding = ItemFeedContentTypeLangSelectItemBinding.inflate(LayoutInflater.from(context),
+                null, false)
+            return LanguageItemHolder(binding)
         }
 
         override fun onBindViewHolder(holder: LanguageItemHolder, pos: Int) {
