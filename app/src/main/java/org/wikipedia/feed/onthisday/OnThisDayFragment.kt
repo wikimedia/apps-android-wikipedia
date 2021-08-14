@@ -24,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.OnThisDayFunnel
 import org.wikipedia.databinding.FragmentOnThisDayBinding
+import org.wikipedia.databinding.ItemOnThisDayPagesBinding
 import org.wikipedia.databinding.ViewEventsLayoutBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -282,8 +283,8 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                                           private val pages: List<PageSummary>, private val wiki: WikiSite) : RecyclerView.Adapter<OnThisDayPagesViewHolder>() {
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): OnThisDayPagesViewHolder {
-            val itemView = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_on_this_day_pages, viewGroup, false)
-            return OnThisDayPagesViewHolder((viewGroup.context as Activity), fragmentManager, itemView, wiki)
+            val itemBinding = ItemOnThisDayPagesBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+            return OnThisDayPagesViewHolder(viewGroup.context as Activity, fragmentManager, itemBinding, wiki)
         }
 
         override fun onBindViewHolder(onThisDayPagesViewHolder: OnThisDayPagesViewHolder, i: Int) {
