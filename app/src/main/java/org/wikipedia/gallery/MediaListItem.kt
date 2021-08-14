@@ -1,13 +1,15 @@
 package org.wikipedia.gallery
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.Service
 import org.wikipedia.util.UriUtil
-import java.io.Serializable
 import java.util.regex.Pattern
 import kotlin.math.abs
 
-class MediaListItem : Serializable {
+@Serializable
+class MediaListItem {
 
     var title: String = ""
 
@@ -18,7 +20,7 @@ class MediaListItem : Serializable {
     val showInGallery = false
 
     @SerializedName("srcset")
-    val srcSets: List<ImageSrcSet> = emptyList()
+    val srcSets: List<@Contextual ImageSrcSet> = emptyList()
 
     constructor()
     constructor(title: String) {
@@ -58,7 +60,7 @@ class MediaListItem : Serializable {
     val isInCommons: Boolean
         get() = srcSets.isNotEmpty() && srcSets[0].src.contains(Service.URL_FRAGMENT_FROM_COMMONS)
 
-    inner class ImageSrcSet : Serializable {
+    inner class ImageSrcSet {
 
         val src: String = ""
         private val scale: String? = null
