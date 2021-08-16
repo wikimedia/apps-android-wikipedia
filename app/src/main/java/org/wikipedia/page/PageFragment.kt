@@ -957,6 +957,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         pageActionTabsCallback.updateBookmark(model.readingListPage != null)
                         requireActivity().invalidateOptionsMenu()
                     }
+                    .retry(5)
                     .subscribe({ page -> model.readingListPage = page }
                     ) { model.readingListPage = null })
         }
