@@ -251,7 +251,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             showTabCountsAnimation = false
         }
         val notificationMenuItem = menu.findItem(R.id.menu_notifications)
-        if (AccountUtil.isLoggedIn) {
+        if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
             notificationMenuItem.isVisible = true
             notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
             notificationButtonView.setOnClickListener {
@@ -477,22 +477,9 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     // TODO: remove when ABC test is complete.
     private fun setupNotificationsTest() {
         binding.unreadDotView.isVisible = false
-        if (AccountUtil.isLoggedIn) {
-            when (notificationsABCTestFunnel.aBTestGroup) {
-                0 -> {
-                    notificationButtonView.setIcon(R.drawable.ic_inbox_24)
-                    notificationButtonView.isVisible = true
-                }
-                1 -> {
-                    notificationButtonView.setIcon(R.drawable.ic_notifications_black_24dp)
-                    notificationButtonView.isVisible = true
-                }
-                else -> {
-                    notificationButtonView.isVisible = false
-                }
-            }
-        } else {
-            notificationButtonView.isVisible = false
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0 -> notificationButtonView.setIcon(R.drawable.ic_inbox_24)
+            1 -> notificationButtonView.setIcon(R.drawable.ic_notifications_black_24dp)
         }
     }
 
@@ -518,8 +505,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                         notificationsABCTestFunnel.logShow()
                         binding.unreadDotView.runAnimation()
                     }
-                }
-                else {
+                } else {
                     binding.unreadDotView.isVisible = false
                     binding.unreadDotView.setUnreadCount(0)
                 }

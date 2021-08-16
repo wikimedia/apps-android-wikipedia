@@ -9,7 +9,7 @@ class NotificationsABCTestFunnel :
     val aBTestGroup: Int get() = abTestImpl.aBTestGroup
 
     fun logShow() {
-        val item = when(aBTestGroup) {
+        val item = when (aBTestGroup) {
             0 -> "inbox"
             1 -> "bell"
             else -> "more"

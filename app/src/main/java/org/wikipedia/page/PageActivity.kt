@@ -125,7 +125,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             overflowCallback.notificationsClick()
         }
         setupNotificationsTest()
-        updateNotificationsButton(false)
 
         // Navigation setup
         binding.navigationDrawer.setScrimColor(Color.TRANSPARENT)
