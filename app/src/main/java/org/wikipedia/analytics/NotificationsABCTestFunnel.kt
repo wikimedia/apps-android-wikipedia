@@ -1,11 +1,6 @@
 package org.wikipedia.analytics
 
-import androidx.core.view.isVisible
 import org.wikipedia.WikipediaApp
-import org.wikipedia.auth.AccountUtil
-import org.wikipedia.main.MainActivity
-import org.wikipedia.page.PageActivity
-import org.wikipedia.settings.Prefs
 
 class NotificationsABCTestFunnel :
     Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
@@ -35,32 +30,6 @@ class NotificationsABCTestFunnel :
             "action", "select",
             "menuItem", item
         )
-    }
-
-    fun adaptPageActivity(activity: PageActivity) {
-        when (aBTestGroup) {
-            0 -> {
-                activity.binding.pageToolbarButtonNotifications.isVisible = false
-            }
-            1 -> {
-                activity.binding.pageToolbarButtonNotifications.isVisible = false
-            }
-            else -> {
-                activity.binding.pageToolbarButtonNotifications.isVisible = false
-            }
-        }
-    }
-
-    fun adaptMainActivity(activity: MainActivity) {
-
-    }
-
-    fun adaptMainMenu() {
-
-    }
-
-    fun adaptPageMenu() {
-
     }
 
     companion object {
