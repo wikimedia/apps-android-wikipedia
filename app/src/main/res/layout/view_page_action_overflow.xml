@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/overflow_card_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -71,6 +72,30 @@
             android:text="@string/feed"
             app:drawableStartCompat="@drawable/ic_globe"
             app:drawableTint="?attr/material_theme_secondary_color" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/overflow_notifications"
+                style="@style/OverflowMenuItem"
+                android:drawablePadding="16dp"
+                android:text="@string/notifications_activity_title"
+                app:drawableStartCompat="@drawable/ic_notifications_black_24dp"
+                app:drawableTint="?attr/material_theme_secondary_color" />
+
+            <org.wikipedia.views.NotificationDotView
+                android:id="@+id/unreadDotView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="28dp"
+                android:visibility="visible"
+                tools:visibility="visible"/>
+
+        </FrameLayout>
 
     </LinearLayout>
 

@@ -702,20 +702,25 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonTabs.updateTabCount(true)
     }
 
-    fun updateNotificationsButton(animate: Boolean) {
+    private fun updateNotificationsButton(animate: Boolean) {
         if (AccountUtil.isLoggedIn) {
             binding.pageToolbarButtonNotifications.isVisible = true
+            binding.unreadDotView.isVisible = true
             if (Prefs.getNotificationUnreadCount() > 0) {
                 binding.pageToolbarButtonNotifications.setUnreadCount(Prefs.getNotificationUnreadCount())
+                binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
                 if (animate) {
                     toolbarHideHandler.ensureDisplayed()
                     binding.pageToolbarButtonNotifications.runAnimation()
+                    binding.unreadDotView.runAnimation()
                 }
             } else {
                 binding.pageToolbarButtonNotifications.setUnreadCount(0)
+                binding.unreadDotView.setUnreadCount(0)
             }
         } else {
             binding.pageToolbarButtonNotifications.isVisible = false
+            binding.unreadDotView.isVisible = false
         }
     }
 

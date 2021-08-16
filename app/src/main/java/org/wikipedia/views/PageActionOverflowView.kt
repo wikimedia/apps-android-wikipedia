@@ -10,11 +10,13 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.annotation.DrawableRes
+import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.settings.Prefs
 
 class PageActionOverflowView(context: Context) : FrameLayout(context) {
 
@@ -52,6 +54,14 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowWatchlist.setText(if (isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
         binding.overflowWatchlist.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(isWatched, hasWatchlistExpiry), 0, 0, 0)
         binding.overflowWatchlist.visibility = if (!isMobileWeb && AccountUtil.isLoggedIn) VISIBLE else GONE
+
+        if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+            binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+            binding.unreadDotView.isVisible = true
+        } else {
+            binding.unreadDotView.isVisible = false
+            binding.unreadDotView.setUnreadCount(0)
+        }
     }
 
     @DrawableRes
