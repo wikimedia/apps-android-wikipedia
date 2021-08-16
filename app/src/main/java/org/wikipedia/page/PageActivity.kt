@@ -741,7 +741,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             }
             else -> {
                 if (AccountUtil.isLoggedIn) {
-                    binding.unreadDotView.isVisible = true
                     if (Prefs.getNotificationUnreadCount() > 0) {
                         binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
                         if (animate) {
@@ -749,8 +748,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                             toolbarHideHandler.ensureDisplayed()
                             binding.unreadDotView.runAnimation()
                         }
+                        binding.unreadDotView.isVisible = true
                     } else {
                         binding.unreadDotView.setUnreadCount(0)
+                        binding.unreadDotView.isVisible = false
                     }
                 } else {
                     binding.unreadDotView.isVisible = false
