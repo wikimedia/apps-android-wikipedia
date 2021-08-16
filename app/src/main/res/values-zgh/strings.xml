@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Amara-Amaziɣ
+* Brahim-essaidi
 * Hakim1bal
 * ⵕⴰⵊⵉ
 -->
@@ -48,9 +49,9 @@
   <string name="on_this_day_page_share">ⴱⴹⵓ</string>
   <string name="reading_list_page_share">ⴱⴹⵓ</string>
   <string name="menu_text_select_edit_here">ⵙⵏⴼⵍ ⴷⴰ</string>
-  <string name="talk_page_link_text">ⵥⵕ ⵜⴰⵙⵏⴰ ⵏ ⵓⵎⵙⴰⵡⴰⵍ</string>
-  <string name="edit_history_link_text">ⵥⵕ ⴰⵏⵙⴼⵍ ⵏ ⵓⵎⵣⵔⵓⵢ</string>
-  <string name="map_view_link_text">ⵥⵕ ⴳ ⵜⴽⴰⵕⴹⴰ</string>
+  <string name="talk_page_link_text">ⵙⴽⵏ ⵜⴰⵙⵏⴰ ⵏ ⵓⵎⵙⴰⵡⴰⵍ</string>
+  <string name="edit_history_link_text">ⵙⴽⵏ ⴰⵎⵣⵔⵓⵢ ⵏ ⵓⵙⵏⴼⵍ</string>
+  <string name="map_view_link_text">ⵙⴽⵏ ⴳ ⵜⴽⴰⵕⴹⴰ</string>
   <string name="other_languages_indication_text">ⵖⵔ ⵙ ⵛⴰ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵢⴰⴹⵏ</string>
   <string name="language_count_link_text">ⵉⵍⵍⴰ ⵙ %d ⵜⵓⵜⵍⴰⵢⵉⵏ ⵢⴰⴹⵏ</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>

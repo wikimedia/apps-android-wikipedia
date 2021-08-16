@@ -264,7 +264,7 @@
     <item quantity="one">This article will no longer be available offline.</item>
     <item quantity="other">These articles will no longer be available offline.</item>
   </plurals>
-  <string name="user_option_sync_label">ಪ್ರಾಶಸ್ತ್ಯೊಲು</string>
+  <string name="user_option_sync_label">ಪ್ರಾಸಸ್ತ್ಯೊಲು</string>
   <string name="notification_reverted_title">ಸೇರ್ಸಾಯಿನೆನ್ ಪಿರದಿಂಜಾನ್ಡ್</string>
   <string name="notification_echo_channel_description">ವಿಕಿಪೀಡಿಯ ಸೂಚನೆಲು.</string>
   <string name="notifications_activity_title">ಸೂಚನೆಲು</string>
