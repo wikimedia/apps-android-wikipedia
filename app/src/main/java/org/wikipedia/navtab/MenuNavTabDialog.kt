@@ -14,6 +14,7 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -75,12 +76,16 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             dismiss()
         }
 
-        if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
-            binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
-            binding.unreadDotView.isVisible = true
+        if (NotificationsABCTestFunnel().aBTestGroup > 1) {
+            if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+                binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                binding.unreadDotView.isVisible = true
+            } else {
+                binding.unreadDotView.isVisible = false
+                binding.unreadDotView.setUnreadCount(0)
+            }
         } else {
             binding.unreadDotView.isVisible = false
-            binding.unreadDotView.setUnreadCount(0)
         }
 
         return binding.root

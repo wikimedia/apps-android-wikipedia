@@ -74,11 +74,11 @@
             app:drawableTint="?attr/material_theme_secondary_color" />
 
         <FrameLayout
+            android:id="@+id/overflow_notifications"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/overflow_notifications"
                 style="@style/OverflowMenuItem"
                 android:drawablePadding="16dp"
                 android:text="@string/notifications_activity_title"

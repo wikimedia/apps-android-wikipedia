@@ -23,6 +23,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.dataclient.Service
@@ -91,7 +92,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
 
         binding.notificationsViewArchivedButton.setOnClickListener { onViewArchivedClick() }
+
         Prefs.setNotificationUnreadCount(0)
+        NotificationsABCTestFunnel().logSelect()
 
         beginUpdateList()
         NotificationSettingsActivity.promptEnablePollDialog(this)

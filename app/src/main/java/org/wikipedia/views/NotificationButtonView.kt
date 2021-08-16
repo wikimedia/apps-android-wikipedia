@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewNotificationButtonBinding
@@ -30,6 +31,10 @@ class NotificationButtonView constructor(context: Context, attrs: AttributeSet? 
 
     fun runAnimation() {
         startAnimation(AnimationUtils.loadAnimation(context, R.anim.tab_list_zoom_enter))
+    }
+
+    fun setIcon(@DrawableRes icon: Int) {
+        binding.iconImage.setImageResource(icon)
     }
 
     fun setColor(@ColorInt color: Int) {

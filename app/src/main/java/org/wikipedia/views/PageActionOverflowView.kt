@@ -13,6 +13,7 @@ import androidx.annotation.DrawableRes
 import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
+import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
 import org.wikipedia.page.tabs.Tab
@@ -28,6 +29,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         fun shareClick()
         fun newTabClick()
         fun feedClick()
+        fun notificationsClick()
     }
 
     private var binding = ViewPageActionOverflowBinding.inflate(LayoutInflater.from(context), this, true)
@@ -55,12 +57,18 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowWatchlist.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(isWatched, hasWatchlistExpiry), 0, 0, 0)
         binding.overflowWatchlist.visibility = if (!isMobileWeb && AccountUtil.isLoggedIn) VISIBLE else GONE
 
-        if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
-            binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
-            binding.unreadDotView.isVisible = true
+        // TODO: remove when ABC test is complete.
+        if (NotificationsABCTestFunnel().aBTestGroup > 1) {
+            binding.overflowNotifications.isVisible = true
+            if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+                binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                binding.unreadDotView.isVisible = true
+            } else {
+                binding.unreadDotView.isVisible = false
+                binding.unreadDotView.setUnreadCount(0)
+            }
         } else {
-            binding.unreadDotView.isVisible = false
-            binding.unreadDotView.setUnreadCount(0)
+            binding.overflowNotifications.isVisible = false
         }
     }
 
@@ -110,6 +118,10 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowNewTab.setOnClickListener {
             dismissPopupWindowHost()
             callback?.newTabClick()
+        }
+        binding.overflowNotifications.setOnClickListener {
+            dismissPopupWindowHost()
+            callback?.notificationsClick()
         }
     }
 }
