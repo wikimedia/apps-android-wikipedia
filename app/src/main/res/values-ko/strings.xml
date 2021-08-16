@@ -187,6 +187,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">자세한 사항</string>
   <string name="preferences_general_heading">일반</string>
+  <string name="preferences_account_heading">계정</string>
   <string name="wikipedia_app_faq">위키백과 앱 FAQ</string>
   <string name="send_feedback">앱 피드백 보내기</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
@@ -960,7 +961,7 @@
   <string name="talk_title">토론</string>
   <string name="talk_user_title">토론: %s</string>
   <string name="talk_new_topic">새 주제</string>
-  <string name="talk_new_topic_submitted" fuzzy="true">주제가 제출되었습니다.</string>
+  <string name="talk_new_topic_submitted">주제가 게시되었습니다.</string>
   <string name="talk_page_empty">이 토론 문서는 비어있습니다.</string>
   <string name="talk_add_reply">답변</string>
   <string name="talk_no_subject">(주제 없음)</string>
@@ -969,7 +970,7 @@
   <string name="talk_message_hint">메시지 쓰기</string>
   <string name="talk_message_empty">메시지는 빈 채로 둘 수 없습니다.</string>
   <string name="talk_subject_empty">주제는 빈 채로 둘 수 없습니다.</string>
-  <string name="talk_response_submitted" fuzzy="true">응답이 제출되었습니다.</string>
+  <string name="talk_response_submitted">응답이 게시되었습니다.</string>
   <string name="talk_snackbar_undo">실행 취소</string>
   <string name="talk_last_modified">%2$s님이 &lt;b&gt;%1$s에 마지막으로 편집함&lt;/b&gt;</string>
   <string name="menu_option_share_edit">편집 공유</string>

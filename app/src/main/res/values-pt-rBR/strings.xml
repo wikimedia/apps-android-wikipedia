@@ -179,7 +179,7 @@
   <string name="create_account_passwords_mismatch_error">As senhas não coincidem</string>
   <string name="create_account_email_error">Endereço de e-mail inválido</string>
   <string name="create_account_username_error">Caracteres inválidos no nome de usuário</string>
-  <string name="create_account_password_error" fuzzy="true">A senha é inválida</string>
+  <string name="create_account_password_error">A senha deve ter pelo menos 8 caracteres</string>
   <string name="create_account_generic_error">Não foi possível criar a conta</string>
   <string name="create_account_next">Próximo</string>
   <string name="email_recommendation_dialog_title">Criar conta sem endereço de e-mail?</string>
