@@ -76,18 +76,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             dismiss()
         }
 
-        if (NotificationsABCTestFunnel().aBTestGroup > 1) {
-            if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
-                binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
-                binding.unreadDotView.isVisible = true
-            } else {
-                binding.unreadDotView.isVisible = false
-                binding.unreadDotView.setUnreadCount(0)
-            }
-        } else {
-            binding.unreadDotView.isVisible = false
-        }
-
         return binding.root
     }
 
@@ -113,9 +101,22 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerAccountName.text = AccountUtil.userName
             binding.mainDrawerAccountName.visibility = View.VISIBLE
             binding.mainDrawerLoginButton.visibility = View.GONE
-            binding.mainDrawerNotificationsContainer.visibility = View.VISIBLE
             binding.mainDrawerTalkContainer.visibility = View.VISIBLE
             binding.mainDrawerWatchlistContainer.visibility = View.VISIBLE
+
+            if (NotificationsABCTestFunnel().aBTestGroup > 1) {
+                binding.mainDrawerNotificationsContainer.isVisible = true
+                if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+                    binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                    binding.unreadDotView.isVisible = true
+                } else {
+                    binding.unreadDotView.isVisible = false
+                    binding.unreadDotView.setUnreadCount(0)
+                }
+            } else {
+                binding.mainDrawerNotificationsContainer.isVisible = false
+                binding.unreadDotView.isVisible = false
+            }
         } else {
             binding.mainDrawerAccountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_login_24px))
             ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, ColorStateList.valueOf(getThemedColor(requireContext(), R.attr.colorAccent)))
