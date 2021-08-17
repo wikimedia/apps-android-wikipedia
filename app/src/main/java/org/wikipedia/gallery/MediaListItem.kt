@@ -3,7 +3,7 @@ package org.wikipedia.gallery
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import org.wikipedia.dataclient.Service
-import org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl
+import org.wikipedia.util.UriUtil
 import java.io.Serializable
 import java.util.regex.Pattern
 import kotlin.math.abs
@@ -21,7 +21,7 @@ class MediaListItem(
         val pattern = Pattern.compile("/(\\d+)px-")
         var imageUrl = srcSets[0].src
         var lastSizeDistance = Int.MAX_VALUE
-        for (srcSet in srcSets) {
+        srcSets.forEach { srcSet ->
             val matcher = pattern.matcher(srcSet.src)
             if (matcher.find() && matcher.group(1) != null) {
                 val currentSizeDistance = abs(matcher.group(1).toInt() - preferredSize)
@@ -31,28 +31,27 @@ class MediaListItem(
                 }
             }
         }
-        return resolveProtocolRelativeUrl(imageUrl)
+        return UriUtil.resolveProtocolRelativeUrl(imageUrl)
     }
 
     fun getImageUrl(deviceScale: Float): String {
         var imageUrl = srcSets[0].src
         var lastScale = 1.0f
-        for (srcSet in srcSets) {
+        srcSets.forEach { srcSet ->
             val scale = srcSet.scale
             if (deviceScale >= scale && lastScale < scale) {
                 lastScale = scale
                 imageUrl = srcSet.src
             }
         }
-        return resolveProtocolRelativeUrl(imageUrl)
+        return UriUtil.resolveProtocolRelativeUrl(imageUrl)
     }
 
     val isInCommons: Boolean
         get() = srcSets.isNotEmpty() && srcSets[0].src.contains(Service.URL_FRAGMENT_FROM_COMMONS)
-}
 
-@JsonClass(generateAdapter = true)
-class ImageSrcSet(val src: String = "", @Json(name = "scale") internal val scaleStr: String = "") : Serializable {
-    val scale: Float
-        get() = scaleStr.replace("x", "").toFloat()
+    @JsonClass(generateAdapter = true)
+    inner class ImageSrcSet(val src: String = "", @Json(name = "scale") internal val scaleStr: String = "") : Serializable {
+        val scale: Float
+            get() = scaleStr.replace("x", "").toFloat()
 }

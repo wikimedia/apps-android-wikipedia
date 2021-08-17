@@ -9,6 +9,6 @@ class MediaList(
     internal val items: List<MediaListItem> = emptyList()
 ) {
     fun getItems(vararg types: String): MutableList<MediaListItem> {
-        return items.filter { it.isShowInGallery && types.contains(it.type) }.toMutableList()
+        return items.filter { it.showInGallery && types.contains(it.type) }.toMutableList()
     }
 }
