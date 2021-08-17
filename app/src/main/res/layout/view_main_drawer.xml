@@ -45,6 +45,16 @@
             android:textColor="?attr/colorPrimary"
             android:text="@string/main_drawer_login" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_drawer_login_open_external_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="16dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_open_in_new_black_24px"
+            app:tint="?attr/material_theme_secondary_color" />
+
     </LinearLayout>
 
     <LinearLayout
