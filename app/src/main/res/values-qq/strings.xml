@@ -598,6 +598,7 @@
   <string name="notifications_view_archived_button_text">Button label for navigating to the list of archived notifications.</string>
   <string name="notification_preferences_title">Title of activity where the notification preferences are managed.</string>
   <string name="notifications_mark_unread">Menu label for marking the selected notifications as unread.</string>
+  <string name="notifications_mark_all_as_read">Menu label for marking all notifications as read.</string>
   <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>
   <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.\n\n{{doc-important|\"Poll\" is a verb here. This is about the polling of notifications, not about notifications of polls.}}</string>
   <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
