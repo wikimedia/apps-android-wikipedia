@@ -14,7 +14,7 @@ class MediaListItem(
     @Json(name = "section_id") val sectionId: Int = 0,
     val type: String = "",
     val caption: TextInfo? = null,
-    @Json(name = "showInGallery") val isShowInGallery: Boolean = false,
+    val showInGallery: Boolean = false,
     @Json(name = "srcset") val srcSets: List<ImageSrcSet> = emptyList()
 ) : Serializable {
     fun getImageUrl(preferredSize: Int): String {
@@ -51,7 +51,8 @@ class MediaListItem(
         get() = srcSets.isNotEmpty() && srcSets[0].src.contains(Service.URL_FRAGMENT_FROM_COMMONS)
 
     @JsonClass(generateAdapter = true)
-    inner class ImageSrcSet(val src: String = "", @Json(name = "scale") internal val scaleStr: String = "") : Serializable {
+    class ImageSrcSet(val src: String = "", @Json(name = "scale") internal val scaleStr: String = "") : Serializable {
         val scale: Float
             get() = scaleStr.replace("x", "").toFloat()
+    }
 }
