@@ -78,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
+                android:layout_marginBottom="12dp"
                 android:visibility="visible"
                 tools:visibility="visible"/>
 
