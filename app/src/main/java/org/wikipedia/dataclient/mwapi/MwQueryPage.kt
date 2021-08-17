@@ -44,8 +44,8 @@ class MwQueryPage(
         get() = of(ns)
     val thumbUrl: String?
         get() = thumbnail?.source
-    val firstImageInfo: ImageInfo
-        get() = imageInfo[0]
+    val firstImageInfo: ImageInfo?
+        get() = imageInfo.firstOrNull() ?: videoInfo.firstOrNull()
     val isImageShared: Boolean
         get() = "shared" == imageRepository
 
