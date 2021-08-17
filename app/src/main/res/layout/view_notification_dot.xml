@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:parentTag="android.widget.FrameLayout"
-    tools:layout_width="18dp"
-    tools:layout_height="18dp">
+    tools:layout_width="20dp"
+    tools:layout_height="20dp">
 
     <ImageView
         android:id="@+id/unreadDot"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/shape_circle"
         app:tint="?attr/color_group_44"
@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="12sp"
-        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
         android:textColor="@android:color/white"
-        tools:text="2"/>
+        tools:text="42"/>
 
 </merge>
