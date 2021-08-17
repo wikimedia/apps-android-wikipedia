@@ -3,56 +3,22 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <org.wikipedia.settings.SwitchPreferenceMultiLine
-        android:key="@string/preference_key_notification_poll_enable"
-        android:defaultValue="true"
-        android:title="@string/preference_title_notification_poll"
-        android:summary="@string/preference_summary_notification_poll" />
+    <PreferenceCategory
+        android:title="@string/preference_category_push_notifications">
+
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:widgetLayout="@layout/preference_multiline_with_system_action"
+            android:title="@string/preference_title_customize_push_notifications" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/preference_category_notification_types">
+        android:title="@string/preference_category_display_settings">
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_system_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_system"
-            android:summary="@string/preference_summary_notification_system" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_milestone_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_milestone"
-            android:summary="@string/preference_summary_notification_milestone" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_thanks_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_thanks"
-            android:summary="@string/preference_summary_notification_thanks" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_revert_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_revert"
-            android:summary="@string/preference_summary_notification_revert" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_user_talk_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_user_talk"
-            android:summary="@string/preference_summary_notification_user_talk" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_login_fail_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_login_fail"
-            android:summary="@string/preference_summary_notification_login_fail" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_mention_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_mention"
-            android:summary="@string/preference_summary_notification_mention" />
+            android:key="@string/preference_key_notification_hide_read_notifications"
+            android:defaultValue="false"
+            android:title="@string/preference_title_hide_read_notifications" />
 
     </PreferenceCategory>
 

@@ -617,6 +617,10 @@
   <string name="preference_summary_notification_mention">Short summary explaining what Mention notifications are.</string>
   <string name="preference_title_notification_user_talk">Label for settings switch that enables or disables User talk notifications.</string>
   <string name="preference_summary_notification_user_talk">Short summary explaining what User talk notifications are.</string>
+  <string name="preference_category_push_notifications">Label for the push notifications settings category.</string>
+  <string name="preference_title_customize_push_notifications">Label that leads user to the system notifications settings page.</string>
+  <string name="preference_category_display_settings">>Label for the notification display settings category.</string>
+  <string name="preference_title_hide_read_notifications">Label for settings switch that shows or hides the read notifications.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
