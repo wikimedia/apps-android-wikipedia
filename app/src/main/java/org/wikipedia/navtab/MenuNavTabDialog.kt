@@ -101,6 +101,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerAccountName.text = AccountUtil.userName
             binding.mainDrawerAccountName.visibility = View.VISIBLE
             binding.mainDrawerLoginButton.visibility = View.GONE
+            binding.mainDrawerLoginOpenExternalIcon.visibility = View.VISIBLE
             binding.mainDrawerTalkContainer.visibility = View.VISIBLE
             binding.mainDrawerWatchlistContainer.visibility = View.VISIBLE
 
@@ -124,6 +125,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerLoginButton.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
             binding.mainDrawerLoginButton.text = getString(R.string.main_drawer_login)
             binding.mainDrawerLoginButton.setTextColor(getThemedColor(requireContext(), R.attr.colorAccent))
+            binding.mainDrawerLoginOpenExternalIcon.visibility = View.GONE
             binding.mainDrawerNotificationsContainer.visibility = View.GONE
             binding.mainDrawerTalkContainer.visibility = View.GONE
             binding.mainDrawerWatchlistContainer.visibility = View.GONE
