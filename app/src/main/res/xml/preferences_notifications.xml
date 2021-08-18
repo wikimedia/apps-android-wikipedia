@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         android:title="@string/preference_category_push_notifications">
@@ -9,7 +9,9 @@
         <org.wikipedia.settings.PreferenceMultiLine
             android:key="@string/preference_key_notification_customize_push"
             android:widgetLayout="@layout/preference_multiline_with_system_action"
-            android:title="@string/preference_title_customize_push_notifications" />
+            android:title="@string/preference_title_customize_push_notifications"
+            app:allowDividerAbove="true"
+            app:allowDividerBelow="true"/>
 
     </PreferenceCategory>
 
@@ -19,7 +21,13 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_notification_hide_read"
             android:defaultValue="false"
-            android:title="@string/preference_title_hide_read_notifications" />
+            android:title="@string/preference_title_hide_read_notifications"
+            app:allowDividerAbove="true" />
+
+        <!-- TODO: replace/remove this empty placeholder if the bottom divider can show correctly -->
+        <Preference
+            app:allowDividerAbove="true"
+            android:enabled="false"/>
 
     </PreferenceCategory>
 
