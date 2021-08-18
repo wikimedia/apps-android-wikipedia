@@ -29,6 +29,7 @@ class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImag
                 setClickListeners()
             }
         }
+
     override var callback: FeedAdapter.Callback? = null
         set(value) {
             field = value
