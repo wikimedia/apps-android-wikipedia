@@ -6,5 +6,6 @@ import org.wikipedia.R
 internal class NotificationSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     override fun loadPreferences() {
         loadPreferences(R.xml.preferences_notifications)
+        (findPreference(R.string.preference_key_notification_customize_push) as PreferenceMultiLine)
     }
 }

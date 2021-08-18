@@ -7,6 +7,7 @@
         android:title="@string/preference_category_push_notifications">
 
         <org.wikipedia.settings.PreferenceMultiLine
+            android:key="@string/preference_key_notification_customize_push"
             android:widgetLayout="@layout/preference_multiline_with_system_action"
             android:title="@string/preference_title_customize_push_notifications" />
 
@@ -16,7 +17,7 @@
         android:title="@string/preference_category_display_settings">
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_hide_read_notifications"
+            android:key="@string/preference_key_notification_hide_read"
             android:defaultValue="false"
             android:title="@string/preference_title_hide_read_notifications" />
 
