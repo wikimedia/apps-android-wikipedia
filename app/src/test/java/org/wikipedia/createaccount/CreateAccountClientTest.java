@@ -19,15 +19,15 @@ public class CreateAccountClientTest extends MockRetrofitTest {
         enqueueFromFile("create_account_success.json");
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
-                .assertValue(result -> result.status().equals("PASS")
-                        && result.user().equals("Farb0nucci"));
+                .assertValue(result -> result.getStatus().equals("PASS")
+                        && result.getUser().equals("Farb0nucci"));
     }
 
     @Test public void testRequestFailure() throws Throwable {
         enqueueFromFile("create_account_failure.json");
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
-                .assertValue(result -> result.status().equals("FAIL"));
+                .assertValue(result -> result.getStatus().equals("FAIL"));
     }
 
     @Test public void testRequestResponse404() throws Throwable {

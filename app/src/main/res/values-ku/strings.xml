@@ -147,7 +147,7 @@
   <string name="create_account_passwords_mismatch_error">Şîfre li hev nayên</string>
   <string name="create_account_email_error">Navnîşana enameyê ya derbasdar</string>
   <string name="create_account_username_error">Karakterên nenas ya di navê bikarhêneriyê de</string>
-  <string name="create_account_password_error">Şîfre nederbasdar e</string>
+  <string name="create_account_password_error" fuzzy="true">Şîfre nederbasdar e</string>
   <string name="create_account_generic_error">Hesab nikarîbû were çêkirin</string>
   <string name="create_account_next">Pêşve</string>
   <string name="email_recommendation_dialog_title">Bêyî adrêsa emaîlê dixwazî hesabekî çêbikî?</string>

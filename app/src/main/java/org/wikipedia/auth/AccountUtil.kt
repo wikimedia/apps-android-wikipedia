@@ -27,8 +27,8 @@ object AccountUtil {
             d("account creation failure")
             return
         }
-        setPassword(result.password!!)
-        putUserIdForLanguage(result.site.languageCode(), result.userId)
+        setPassword(result.password)
+        putUserIdForLanguage(result.site.languageCode, result.userId)
         groups = result.groups
     }
 

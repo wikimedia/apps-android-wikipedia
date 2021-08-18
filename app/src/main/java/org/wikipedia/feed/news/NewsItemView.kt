@@ -13,6 +13,7 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.WikiCardView
 
 class NewsItemView(context: Context) : WikiCardView(context) {
@@ -45,11 +46,12 @@ class NewsItemView(context: Context) : WikiCardView(context) {
 
     fun setContents(newsItem: NewsItem) {
         this.newsItem = newsItem
-        binding.horizontalScrollListItemText.text = removeImageCaption(StringUtil.fromHtml(newsItem.story()))
+        binding.horizontalScrollListItemText.text = removeImageCaption(StringUtil.fromHtml(newsItem.story))
         RichTextUtil.removeUnderlinesFromLinksAndMakeBold(binding.horizontalScrollListItemText)
         newsItem.thumb()?.let {
             binding.horizontalScrollListItemImage.visibility = VISIBLE
             binding.horizontalScrollListItemImage.loadImage(it)
+            ImageZoomHelper.setViewZoomable(binding.horizontalScrollListItemImage)
         } ?: run {
             binding.horizontalScrollListItemImage.visibility = GONE
             binding.horizontalScrollListItemText.maxLines = 10

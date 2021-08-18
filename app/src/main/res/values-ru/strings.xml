@@ -43,6 +43,7 @@
 * Ping08
 * Pplex.vhs
 * Redredsonia
+* Rivka Silinsky
 * Rubin16
 * SimondR
 * Smigles
@@ -50,6 +51,7 @@
 * Staspotanin2
 * Stjn
 * Teretalexev
+* Thothsum
 * ToJack
 * VitalKanev
 * Vlad5250
@@ -204,7 +206,7 @@
   <string name="create_account_passwords_mismatch_error">Пароли не совпадают</string>
   <string name="create_account_email_error">Недопустимый адрес электронной почты</string>
   <string name="create_account_username_error">Недопустимые символы в имени участника</string>
-  <string name="create_account_password_error">Некорректный пароль</string>
+  <string name="create_account_password_error">Пароль должен состоять не менее чем из 8 символов.</string>
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
   <string name="create_account_next">Далее</string>
   <string name="email_recommendation_dialog_title">Создать учётную запись без электронной почты?</string>
@@ -218,6 +220,7 @@
   <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Википедия:Блокировки</string>
   <string name="create_account_ip_block_details">Подробности</string>
   <string name="preferences_general_heading">Общие</string>
+  <string name="preferences_account_heading">Учётная запись</string>
   <string name="wikipedia_app_faq">Частые вопросы о приложении «Википедия»</string>
   <string name="send_feedback">Обратная связь</string>
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
@@ -261,7 +264,6 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru#Тренировка_алгоритма_изображений</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
   <string name="about_contributors_heading">Авторы</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница команды&lt;/a&gt;</string>
@@ -417,6 +419,14 @@
   <string name="page_footer_license_text">Если не указано иное, содержание доступно в соответствии с $1.</string>
   <string name="empty_tab_title">Новая вкладка</string>
   <string name="menu_save_all_tabs">Сохранить все вкладки</string>
+  <string name="error_blocked_title">Ваше имя пользователя или IP адрес заблокировано</string>
+  <string name="error_blocked_by">Блокировка была сделана участником &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">причина дона: %s</string>
+  <string name="error_blocked_start">\nНачало блока:%s</string>
+  <string name="error_blocked_expiry">Истечение срока действия блока: %s</string>
+  <string name="error_blocked_id">Идентификация блока: %s</string>
+  <string name="error_blocked_footer">Вы можете связаться с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или другим &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
+  <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="crash_report_activity_title">Ошибка приложения</string>
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
@@ -816,7 +826,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавление описания статей (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Описание изображения (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание изображения (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Файл</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Файл с Викисклада</string>
   <string name="suggested_edits_image_preview_dialog_artist">Автор</string>
@@ -955,16 +964,6 @@
     <item quantity="many">Вы добавили символов: %d</item>
     <item quantity="other">Вы добавили символов: %d</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Обучение алгоритма изображений</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Решите, улучшит ли предлагаемое изображение статью.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Начать</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Великолепно, продолжайте в том же духе! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Ежедневная цель достигнута! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Вы достигли ежедневной цели</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Доступна новая задача. Обучите алгоритм сопоставления изображений с неиллюстрированными статьями.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Статьи в Википедии пишут и редактируют тысячи добровольцев со всего мира. К сожалению, во многих статьях отсутствуют изображения.\n\nИзображения будут предлагаться вам с использованием алгоритма. Алгоритм извлечет изображения из других источников и предложит совпадение со статьей, в которой нет изображения.\n\nВаш отзыв поможет нам со временем улучшить предложения. Поскольку цель этой задачи - улучшить предлагаемые изображения, найденные вами совпадения не будут опубликованы в это время.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Мы хотели бы отметить ваш вклад. Хотели бы вы, чтобы ваше имя пользователя отображалось на нашей странице обучения алгоритма?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Да, мое имя пользователя может отображаться на странице обучения алгоритма</string>
   <string name="file_page_activity_title">Страница файла</string>
   <string name="file_page_add_image_caption_button">Добавить описание изображения</string>
   <string name="file_page_add_image_tags_button">Добавить теги изображения</string>
@@ -1045,34 +1044,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Отмена</string>
   <string name="edit_type_all">Все вклады</string>
   <string name="content_description_for_page_indicator">Шаг %1$d из %2$d</string>
-  <string name="image_recommendations_task_accept">Да</string>
-  <string name="image_recommendations_task_reject">Нет</string>
-  <string name="image_recommendations_task_not_sure">Затрудняюсь ответить</string>
-  <string name="image_recommendations_task_processing">Обработка…</string>
-  <string name="image_recommendations_task_daily_amount">%1$d/%2$d</string>
-  <string name="image_recommendations_task_instruction">Вы бы добавили это изображение к статье?</string>
-  <string name="image_recommendations_task_choice_no">Почему вы выбрали \"нет\"?</string>
-  <string name="image_recommendations_task_choice_not_sure">Почему вы выбрали \"затрудняюсь ответить\"?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Выберите одну или несколько причин.</string>
-  <string name="image_recommendations_task_choice_unsure">Почему вы не уверены в этом изображении?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Не уместно</string>
-  <string name="image_recommendations_task_choice_low_quality">Низкое качество</string>
-  <string name="image_recommendations_task_choice_noinfo">Не хватает информации</string>
-  <string name="image_recommendations_task_choice_nosubject">Не знаю эту тему</string>
-  <string name="image_recommendations_task_choice_offensive">Оскорбительное</string>
-  <string name="image_recommendations_task_choice_invisible">Не вижу изображения</string>
-  <string name="image_recommendations_task_choice_understand">Не понимаю задачу</string>
-  <string name="image_recommendations_task_choice_language">Не могу прочитать язык</string>
-  <string name="image_recommendations_task_choice_other">Другое</string>
-  <string name="image_recommendations_task_choice_continue">Продолжить</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Причина рекомендации:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">изображение было найдено в других языковых версиях Википедии (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">изображение было найдено в Викиданных, источнике открытых данных Википедии</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">изображение было найдено на Wikimedia Commons, источнике свободно используемых изображений Википедии</string>
-  <string name="image_recommendations_faq">ЧаВо</string>
-  <string name="image_recommendations_tooltip1">Прочтите эту статью, чтобы понять ее тему.</string>
-  <string name="image_recommendations_tooltip2">Рассмотрите изображение и связанную с ним информацию.</string>
-  <string name="image_recommendations_tooltip3">Решите, поможет ли изображение читателям лучше понять эту тему.</string>
   <string name="wikitext_bold">Полужирный</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_link">Ссылка</string>
@@ -1095,6 +1066,7 @@
   <string name="talk_title">Обсуждение</string>
   <string name="talk_user_title">Обсуждение: %s</string>
   <string name="talk_new_topic">Новая тема</string>
+  <string name="talk_new_topic_submitted">Тема опубликована.</string>
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_add_reply">Ответить</string>
   <string name="talk_no_subject">(Без темы)</string>
@@ -1103,6 +1075,9 @@
   <string name="talk_message_hint">Написать сообщение</string>
   <string name="talk_message_empty">Сообщение не может быть пустым.</string>
   <string name="talk_subject_empty">Тема не может быть пустой.</string>
+  <string name="talk_response_submitted">Ответ опубликован.</string>
+  <string name="talk_snackbar_undo">Отменить</string>
+  <string name="talk_last_modified">&lt;b&gt;Последняя правка сделана %1$s&lt;/b&gt; участником %2$s</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
   <string name="menu_option_user_profile">Профиль %s</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>

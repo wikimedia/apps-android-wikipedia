@@ -1,20 +1,19 @@
 package org.wikipedia.readinglist.sync
 
-import android.accounts.Account
 import android.content.*
 import android.os.Bundle
 import android.text.TextUtils
-import org.wikipedia.BuildConfig
+import androidx.core.app.JobIntentService
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ReadingListsEnableDialogEvent
 import org.wikipedia.events.ReadingListsEnabledStatusEvent
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
@@ -25,12 +24,10 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.text.ParseException
 
-class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
-    constructor(context: Context, autoInitialize: Boolean) : super(context, autoInitialize)
-    constructor(context: Context, autoInitialize: Boolean, allowParallelSyncs: Boolean) : super(context, autoInitialize, allowParallelSyncs)
+class ReadingListSyncAdapter : JobIntentService() {
 
-    override fun onPerformSync(account: Account, extras: Bundle, authority: String,
-                               provider: ContentProviderClient, syncResult: SyncResult) {
+    override fun onHandleWork(intent: Intent) {
+        val extras = intent.extras!!
         if (isDisabledByRemoteConfig || !AccountUtil.isLoggedIn ||
                 !(Prefs.isReadingListSyncEnabled() || Prefs.isReadingListsRemoteDeletePending())) {
             L.d("Skipping sync of reading lists.")
@@ -60,8 +57,9 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                 // reset the remote ID on all lists, since they will need to be recreated next time.
                 L.d("Resetting all lists to un-synced.")
                 syncEverything = true
-                ReadingListDbHelper.markEverythingUnsynced()
-                allLocalLists = ReadingListDbHelper.allLists
+                AppDatabase.getAppDatabase().readingListDao().markAllListsUnsynced()
+                AppDatabase.getAppDatabase().readingListPageDao().markAllPagesUnsynced()
+                allLocalLists = AppDatabase.getAppDatabase().readingListDao().getAllLists().toMutableList()
             }
             if (Prefs.isReadingListsRemoteDeletePending()) {
                 // Are we scheduled for a teardown? If so, delete everything and bail.
@@ -85,11 +83,11 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
             }
             if (syncEverything) {
                 if (allLocalLists == null) {
-                    allLocalLists = ReadingListDbHelper.allLists
+                    allLocalLists = AppDatabase.getAppDatabase().readingListDao().getAllLists().toMutableList()
                 }
             } else {
                 if (allLocalLists == null) {
-                    allLocalLists = ReadingListDbHelper.allListsWithUnsyncedPages
+                    allLocalLists = AppDatabase.getAppDatabase().readingListDao().getAllListsWithUnsyncedPages().toMutableList()
                 }
                 L.d("Fetching changes from server, since $lastSyncTime")
                 val allChanges = client.getChangesSince(lastSyncTime)
@@ -114,7 +112,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                 }
             }
             if (syncEverything) {
-                allLocalLists = ReadingListDbHelper.allLists
+                allLocalLists = AppDatabase.getAppDatabase().readingListDao().getAllLists().toMutableList()
                 L.d("Fetching all lists from server...")
                 remoteListsModified = client.allLists as MutableList<RemoteReadingList>
             }
@@ -127,7 +125,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
 
             // First, update our list hierarchy to match the remote hierarchy.
             for ((remoteItemsSynced, remoteList) in remoteListsModified.withIndex()) {
-                readingListSyncNotification.setNotificationProgress(context, remoteItemsTotal, remoteItemsSynced)
+                readingListSyncNotification.setNotificationProgress(applicationContext, remoteItemsTotal, remoteItemsSynced)
                 // Find the remote list in our local lists...
                 var localList: ReadingList? = null
                 var upsertNeeded = false
@@ -152,13 +150,13 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                 }
                 if (remoteList.isDefault && localList != null && !localList.isDefault) {
                     L.logRemoteError(RuntimeException("Unexpected: remote default list corresponds to local non-default list."))
-                    localList = ReadingListDbHelper.defaultList
+                    localList = AppDatabase.getAppDatabase().readingListDao().defaultList
                 }
                 if (remoteList.isDeleted) {
                     if (localList != null && !localList.isDefault) {
                         L.d("Deleting local list " + localList.title)
-                        ReadingListDbHelper.deleteList(localList, false)
-                        ReadingListDbHelper.markPagesForDeletion(localList, localList.pages, false)
+                        AppDatabase.getAppDatabase().readingListDao().deleteList(localList, false)
+                        AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(localList, localList.pages, false)
                         allLocalLists.remove(localList)
                         shouldSendSyncEvent = true
                     }
@@ -169,16 +167,16 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                     L.d("Creating local list " + remoteList.name())
                     localList = if (remoteList.isDefault) {
                         L.logRemoteError(RuntimeException("Unexpected: local default list no longer matches remote."))
-                        ReadingListDbHelper.defaultList
+                        AppDatabase.getAppDatabase().readingListDao().defaultList
                     } else {
-                        ReadingListDbHelper.createList(remoteList.name(), remoteList.description())
+                        AppDatabase.getAppDatabase().readingListDao().createList(remoteList.name(), remoteList.description())
                     }
                     localList.remoteId = remoteList.id
                     allLocalLists.add(localList)
                     upsertNeeded = true
                 } else {
                     if (!localList.isDefault && !StringUtil.normalizedEquals(localList.title, remoteList.name())) {
-                        localList.dbTitle = remoteList.name()
+                        localList.title = remoteList.name()
                         upsertNeeded = true
                     }
                     if (!localList.isDefault && !StringUtil.normalizedEquals(localList.description, remoteList.description())) {
@@ -189,7 +187,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                 if (upsertNeeded) {
                     L.d("Updating info for local list " + localList.title)
                     localList.dirty = false
-                    ReadingListDbHelper.updateList(localList, false)
+                    AppDatabase.getAppDatabase().readingListDao().updateList(localList, false)
                     shouldSendSyncEvent = true
                 }
                 if (syncEverything) {
@@ -261,7 +259,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
 
             // Determine whether any remote lists need to be created or updated
             for ((localItemsSynced, localList) in allLocalLists.withIndex()) {
-                readingListSyncNotification.setNotificationProgress(context, localItemsTotal, localItemsSynced)
+                readingListSyncNotification.setNotificationProgress(applicationContext, localItemsTotal, localItemsSynced)
                 val remoteList = RemoteReadingList(localList.title, localList.description)
                 var upsertNeeded = false
                 if (localList.remoteId > 0) {
@@ -280,18 +278,12 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                 }
                 if (upsertNeeded) {
                     localList.dirty = false
-                    ReadingListDbHelper.updateList(localList, false)
+                    AppDatabase.getAppDatabase().readingListDao().updateList(localList, false)
                 }
             }
             for (localList in allLocalLists) {
-                val localPages = mutableListOf<ReadingListPage>()
-                val newEntries = mutableListOf<RemoteReadingListEntry>()
-                localList.pages.forEach {
-                    if (it.remoteId < 1) {
-                        localPages.add(it)
-                        newEntries.add(remoteEntryFromLocalPage(it))
-                    }
-                }
+                val localPages = localList.pages.filter { it.remoteId < 1 }
+                val newEntries = localPages.map { remoteEntryFromLocalPage(it) }
                 // Note: newEntries.size() is guaranteed to be equal to localPages.size()
                 if (newEntries.isEmpty()) {
                     continue
@@ -301,14 +293,14 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                     if (localPages.size == 1) {
                         L.d("Creating new remote page " + localPages[0].displayTitle)
                         localPages[0].remoteId = client.addPageToList(getCsrfToken(wiki, csrfToken), localList.remoteId, newEntries[0])
-                        ReadingListDbHelper.updatePage(localPages[0])
+                        AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(localPages[0])
                     } else {
                         L.d("Creating " + newEntries.size + " new remote pages")
                         val ids = client.addPagesToList(getCsrfToken(wiki, csrfToken), localList.remoteId, newEntries)
                         for (i in ids.indices) {
                             localPages[i].remoteId = ids[i]
                         }
-                        ReadingListDbHelper.updatePages(localPages)
+                        AppDatabase.getAppDatabase().readingListPageDao().updatePages(localPages)
                     }
                 } catch (t: Throwable) {
                     // TODO: optimization opportunity -- if the server can return the ID
@@ -354,7 +346,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                             }
                         }
                     }
-                    ReadingListDbHelper.updatePages(localPages)
+                    AppDatabase.getAppDatabase().readingListPageDao().updatePages(localPages)
                 }
             }
         } catch (t: Throwable) {
@@ -386,7 +378,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
             Prefs.setReadingListsLastSyncTime(lastSyncTime)
             Prefs.setReadingListsDeletedIds(listIdsDeleted)
             Prefs.setReadingListPagesDeletedIds(pageIdsDeleted)
-            readingListSyncNotification.cancelNotification(context)
+            readingListSyncNotification.cancelNotification(applicationContext)
             if (shouldSendSyncEvent) {
                 SavedPageSyncService.sendSyncEvent(extras.containsKey(SYNC_EXTRAS_REFRESHING))
             }
@@ -434,7 +426,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
         if (localPage == null) {
             localPage = ReadingListPage(pageTitleFromRemoteEntry(remotePage))
             localPage.listId = listForPage.id
-            if (ReadingListDbHelper.pageExistsInList(listForPage, remoteTitle)) {
+            if (AppDatabase.getAppDatabase().readingListPageDao().pageExistsInList(listForPage, remoteTitle)) {
                 updateOnly = true
             }
         }
@@ -445,23 +437,23 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
         }
         if (updateOnly) {
             L.d("Updating local page " + localPage.displayTitle)
-            ReadingListDbHelper.updatePage(localPage)
+            AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(localPage)
         } else {
             L.d("Creating local page " + localPage.displayTitle)
-            ReadingListDbHelper.addPagesToList(listForPage, listOf(localPage), false)
+            AppDatabase.getAppDatabase().readingListPageDao().addPagesToList(listForPage, listOf(localPage), false)
         }
     }
 
     private fun deletePageByTitle(listForPage: ReadingList, title: PageTitle) {
         var localPage = listForPage.pages.find { ReadingListPage.toPageTitle(it) == title }
         if (localPage == null) {
-            localPage = ReadingListDbHelper.getPageByTitle(listForPage, title)
+            localPage = AppDatabase.getAppDatabase().readingListPageDao().getPageByTitle(listForPage, title)
             if (localPage == null) {
                 return
             }
         }
         L.d("Deleting local page " + localPage.displayTitle)
-        ReadingListDbHelper.markPagesForDeletion(listForPage, listOf(localPage), false)
+        AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(listForPage, listOf(localPage), false)
     }
 
     private fun pageTitleFromRemoteEntry(remoteEntry: RemoteReadingListEntry): PageTitle {
@@ -474,10 +466,13 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
     }
 
     companion object {
+        // Unique job ID for this service (do not duplicate).
+        private const val JOB_ID = 1001
         private const val SYNC_EXTRAS_FORCE_FULL_SYNC = "forceFullSync"
         private const val SYNC_EXTRAS_REFRESHING = "refreshing"
         private const val SYNC_EXTRAS_RETRYING = "retrying"
         private var IN_PROGRESS = false
+
         fun inProgress(): Boolean {
             return IN_PROGRESS
         }
@@ -505,12 +500,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
             if (list.remoteId <= 0) {
                 return
             }
-            val ids = mutableSetOf<String>()
-            pages.forEach {
-                if (it.remoteId > 0) {
-                    ids.add(list.remoteId.toString() + ":" + it.remoteId)
-                }
-            }
+            val ids = pages.map { it.remoteId }.filter { it > 0 }.map { "${list.remoteId}:$it" }.toSet()
             if (ids.isNotEmpty()) {
                 Prefs.addReadingListPagesDeletedIds(ids)
                 manualSync()
@@ -537,6 +527,9 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
         }
 
         private fun manualSync(extras: Bundle) {
+            if (inProgress()) {
+                return
+            }
             if (AccountUtil.account() == null || !WikipediaApp.getInstance().isOnline) {
                 if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
                     SavedPageSyncService.sendSyncEvent()
@@ -545,7 +538,10 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
             }
             extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true)
             extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true)
-            ContentResolver.requestSync(AccountUtil.account(), BuildConfig.READING_LISTS_AUTHORITY, extras)
+
+            enqueueWork(WikipediaApp.getInstance(), ReadingListSyncAdapter::class.java,
+                JOB_ID, Intent(WikipediaApp.getInstance(), ReadingListSyncAdapter::class.java)
+                    .putExtras(extras))
         }
     }
 }

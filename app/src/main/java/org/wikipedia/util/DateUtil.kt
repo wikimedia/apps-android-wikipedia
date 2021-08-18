@@ -17,31 +17,31 @@ object DateUtil {
     @JvmStatic
     @Synchronized
     fun iso8601DateFormat(date: Date): String {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true)!!.format(date)
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date)
     }
 
     @JvmStatic
     @Synchronized
     fun iso8601DateParse(date: String): Date {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true)!!.parse(date)!!
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).parse(date)!!
     }
 
     @JvmStatic
     @Synchronized
     fun iso8601LocalDateFormat(date: Date): String {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false)!!.format(date)
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false).format(date)
     }
 
     @JvmStatic
     @Synchronized
     fun dbDateFormat(date: Date?): String {
-        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true)!!.format(date!!)
+        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date!!)
     }
 
     @JvmStatic
     @Synchronized
     fun dbDateParse(date: String): Date {
-        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true)!!.parse(date)!!
+        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).parse(date)!!
     }
 
     @JvmStatic
@@ -91,23 +91,22 @@ object DateUtil {
     }
 
     fun getDateAndTimeWithPipe(date: Date): String {
-        return getCachedDateFormat("MMM d, yyyy | HH:mm", Locale.getDefault(), false)!!.format(date)
+        return getCachedDateFormat("MMM d, yyyy | HH:mm", Locale.getDefault(), false).format(date)
     }
 
     @Synchronized
     private fun getDateStringWithSkeletonPattern(date: Date, pattern: String): String {
-        return getCachedDateFormat(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false)!!.format(date)
+        return getCachedDateFormat(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date)
     }
 
-    private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean): SimpleDateFormat? {
-        if (!DATE_FORMATS.containsKey(pattern)) {
+    private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean): SimpleDateFormat {
+        return DATE_FORMATS.getOrPut(pattern) {
             val df = SimpleDateFormat(pattern, locale)
             if (utc) {
                 df.timeZone = TimeZone.getTimeZone("UTC")
             }
-            DATE_FORMATS[pattern] = df
+            df
         }
-        return DATE_FORMATS[pattern]
     }
 
     @JvmStatic
@@ -137,12 +136,12 @@ object DateUtil {
     @JvmStatic
     @Throws(ParseException::class)
     fun getHttpLastModifiedDate(dateStr: String): Date {
-        return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true)!!.parse(dateStr)!!
+        return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr)!!
     }
 
     @JvmStatic
     @Throws(ParseException::class)
-    fun getReadingListsLastSyncDateString(dateStr: String): String {
+    fun getLastSyncDateString(dateStr: String): String {
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "d MMM yyyy HH:mm")
     }
 

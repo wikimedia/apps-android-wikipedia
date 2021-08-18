@@ -2,7 +2,6 @@ package org.wikipedia.page
 
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.model.CodeEnum
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.staticdata.*
@@ -139,16 +138,6 @@ enum class Namespace(private val code: Int) : EnumCode {
     GADGET_DEFINITION_TALK(2303),
     TOPIC(2600);
 
-    /** Warning: this method returns an English translation for the current namespace.  */
-    @Deprecated("")
-    fun toLegacyString(): String? {
-        var string = if (this === MAIN) null else name
-        if (string != null) {
-            string = string.toLowerCase(Locale.ENGLISH).capitalize(Locale.getDefault())
-        }
-        return string
-    }
-
     override fun code(): Int {
         return code
     }
@@ -178,30 +167,28 @@ enum class Namespace(private val code: Int) : EnumCode {
     }
 
     companion object {
-        @JvmStatic
-        val CODE_ENUM: CodeEnum<Namespace> = CodeEnum { code -> of(code) }
         private const val TALK_MASK = 0x1
         private val MAP = EnumCodeMap(Namespace::class.java)
 
         @JvmStatic
         fun fromLegacyString(wiki: WikiSite, name: String?): Namespace {
-            if (FileAliasData.valueFor(wiki.languageCode()).equals(name, true) ||
+            if (FileAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     FileAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 return FILE
             }
-            if (SpecialAliasData.valueFor(wiki.languageCode()).equals(name, true) ||
+            if (SpecialAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     SpecialAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 return SPECIAL
             }
-            if (TalkAliasData.valueFor(wiki.languageCode()).equals(name, true) ||
+            if (TalkAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     TalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 return TALK
             }
-            if (UserAliasData.valueFor(wiki.languageCode()).equals(name, true) ||
+            if (UserAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     UserAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 return USER
             }
-            return if (UserTalkAliasData.valueFor(wiki.languageCode()).equals(name, true) ||
+            return if (UserTalkAliasData.valueFor(wiki.languageCode).equals(name, true) ||
                     UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name, true)) {
                 USER_TALK
             } else MAIN

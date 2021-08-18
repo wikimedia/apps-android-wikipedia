@@ -3,7 +3,7 @@ package org.wikipedia.page
 import android.annotation.SuppressLint
 import kotlinx.coroutines.*
 import org.wikipedia.WikipediaApp
-import org.wikipedia.readinglist.database.ReadingListDbHelper
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.log.L
 
@@ -28,7 +28,7 @@ object PageAvailableOfflineHandler {
                 L.w(exception)
             }
         }) {
-            val readingListPage = withContext(Dispatchers.IO) { ReadingListDbHelper.findPageInAnyList(pageTitle) }
+            val readingListPage = withContext(Dispatchers.IO) { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(pageTitle) }
             callback.onFinish(readingListPage != null && readingListPage.offline && !readingListPage.saving)
         }
     }

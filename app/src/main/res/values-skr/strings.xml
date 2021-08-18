@@ -115,7 +115,7 @@
   <string name="create_account_passwords_mismatch_error">پاس ورڈ ہکو سنویں کائنی</string>
   <string name="create_account_email_error">ای۔میل پتہ درست کائنی</string>
   <string name="create_account_username_error">ورتݨ آلے ناں وچ غلط اکھر</string>
-  <string name="create_account_password_error">پاس ورڈ ٹھیک کائنی</string>
+  <string name="create_account_password_error" fuzzy="true">پاس ورڈ ٹھیک کائنی</string>
   <string name="create_account_generic_error">کھاتہ نی کھُل سڳیا</string>
   <string name="create_account_next">اڳوں تے ونڄو</string>
   <string name="email_recommendation_dialog_create_with_email_action">ہک ای میل پتہ شامل کرو</string>
@@ -299,7 +299,6 @@
   <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
   <string name="suggested_edits_contribution_image_label" fuzzy="true">فائل</string>
   <string name="suggested_edits_contribution_article_label">مضمون</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">شروع</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
@@ -330,9 +329,6 @@
   <string name="edit_conflict_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="reverted_edit_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">منسوخ</string>
-  <string name="image_recommendations_task_accept">جیا</string>
-  <string name="image_recommendations_task_reject">کو</string>
-  <string name="image_recommendations_task_processing">عمل تھیندا پئے...</string>
   <string name="wikitext_bold">موٹا</string>
   <string name="wikitext_italic">ترچھا</string>
   <string name="wikitext_link">ربط</string>

@@ -145,7 +145,7 @@
   <string name="create_account_passwords_mismatch_error">La pasvortoj ne kongruas</string>
   <string name="create_account_email_error">Nevalida retpoŝta adreso</string>
   <string name="create_account_username_error">Nevalidaj signoj en uzantnomo</string>
-  <string name="create_account_password_error">La pasvorto estas nevalida</string>
+  <string name="create_account_password_error" fuzzy="true">La pasvorto estas nevalida</string>
   <string name="create_account_generic_error">Ne eblis krei konton</string>
   <string name="create_account_next">Sekva</string>
   <string name="email_recommendation_dialog_title">Krei konton sen retpoŝtadreso?</string>
@@ -201,7 +201,7 @@
   <string name="about_translators_heading">Tradukantoj</string>
   <string name="about_translators_translatewiki">Ĉi tiu aplikaĵo estis tradukita de volontulaj tradukantoj ĉe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Permesilo</string>
-  <string name="about_app_license">Fontkodo havebla je &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; kaj &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; laŭ la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;permesilo Apache 2.0&lt;/a&gt;. Krom se alie specifita, enhavo estas havebla laŭ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;la permesilo Creative Commons Atribuite-Samkondiĉe&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Fontkodo havebla je &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; kaj &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; laŭ la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;permesilo Apache 2.0&lt;/a&gt;. Krom se alie specifita, enhavo estas havebla laŭ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;la permesilo Creative Commons Atribuite-Samkondiĉe&lt;/a&gt;.</string>
   <string name="about_wmf">Produkto de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondaĵo Vikimedio&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ĉi tiu paĝo estis modifita. Ĉu vi certas ke vi volas eliri sen konservi viajn modifojn?</string>
@@ -617,7 +617,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Aldoni priskribon al artikolo (je %s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Komenci</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titolo de bildo (je %s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Priskribo de bildo (je %s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Kreito de arto</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotisto</string>

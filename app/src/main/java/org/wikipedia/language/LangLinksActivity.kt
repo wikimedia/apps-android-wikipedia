@@ -8,6 +8,7 @@ import androidx.appcompat.view.ActionMode
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
@@ -41,16 +42,10 @@ class LangLinksActivity : BaseActivity() {
     private var siteInfoList: List<SiteMatrix.SiteInfo>? = null
 
     private val entriesByAppLanguages: List<PageTitle>
-        get() {
-            val list = mutableListOf<PageTitle>()
-            for (entry in languageEntries) {
-                if (entry.wikiSite.languageCode() == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
-                        app.language().appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
-                        app.language().appLanguageCodes.contains(entry.wikiSite.languageCode())) {
-                    list.add(entry)
-                }
-            }
-            return list
+        get() = languageEntries.filter {
+            it.wikiSite.languageCode == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
+                    app.language().appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
+                    app.language().appLanguageCodes.contains(it.wikiSite.languageCode)
         }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -165,10 +160,11 @@ class LangLinksActivity : BaseActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        languageEntries = response.query()!!.langLinks()
+                        languageEntries = response.query!!.langLinks()
                         updateLanguageEntriesSupported(languageEntries)
                         sortLanguageEntriesByMru(languageEntries)
                         displayLangLinks()
+                        updateVariantDisplayTitleIfNeeded()
                     }) { t ->
                         ViewAnimations.crossFade(binding.langlinksLoadProgress, binding.langlinksError)
                         binding.langlinksError.setError(t)
@@ -182,7 +178,7 @@ class LangLinksActivity : BaseActivity() {
         val it = languageEntries.listIterator()
         while (it.hasNext()) {
             val link = it.next()
-            val languageCode = link.wikiSite.languageCode()
+            val languageCode = link.wikiSite.languageCode
             val languageVariants = app.language().getLanguageVariants(languageCode)
             if (AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE == languageCode) {
                 // Replace legacy name of тарашкевіца language with the correct name.
@@ -201,11 +197,26 @@ class LangLinksActivity : BaseActivity() {
         addVariantEntriesIfNeeded(app.language(), title, languageEntries)
     }
 
+    private fun updateVariantDisplayTitleIfNeeded() {
+        val list = languageEntries.filter { !app.language().getDefaultLanguageCode(it.wikiSite.languageCode).isNullOrEmpty() }
+        disposables.add(Observable.fromIterable(list)
+            .flatMap({ title ->
+                ServiceFactory.getRest(title.wikiSite).getSummary(null, title.prefixedText).subscribeOn(Schedulers.io()) },
+                { first, second -> Pair(first, second) })
+            .observeOn(AndroidSchedulers.mainThread())
+            .doAfterTerminate { binding.langlinksRecycler.adapter?.notifyDataSetChanged() }
+            .subscribe({ pair ->
+                languageEntries.find { pair.first == it }?.displayText = pair.second.displayTitle
+            }) {
+                // ignore
+            })
+    }
+
     private fun sortLanguageEntriesByMru(entries: MutableList<PageTitle>) {
         var addIndex = 0
         for (language in app.language().mruLanguageCodes) {
             for (i in entries.indices) {
-                if (entries[i].wikiSite.languageCode() == language) {
+                if (entries[i].wikiSite.languageCode == language) {
                     val entry = entries.removeAt(i)
                     entries.add(addIndex++, entry)
                     break
@@ -257,13 +268,13 @@ class LangLinksActivity : BaseActivity() {
         fun setFilterText(filterText: String) {
             isSearching = true
             languageEntries.clear()
-            val filter = filterText.toLowerCase(Locale.getDefault())
+            val filter = filterText.lowercase(Locale.getDefault())
             for (entry in originalLanguageEntries) {
-                val languageCode = entry.wikiSite.languageCode()
+                val languageCode = entry.wikiSite.languageCode
                 val canonicalName = app.language().getAppLanguageCanonicalName(languageCode).orEmpty()
                 val localizedName = app.language().getAppLanguageLocalizedName(languageCode).orEmpty()
-                if (canonicalName.toLowerCase(Locale.getDefault()).contains(filter) ||
-                        localizedName.toLowerCase(Locale.getDefault()).contains(filter)) {
+                if (canonicalName.lowercase(Locale.getDefault()).contains(filter) ||
+                        localizedName.lowercase(Locale.getDefault()).contains(filter)) {
                     languageEntries.add(entry)
                 }
             }
@@ -302,7 +313,7 @@ class LangLinksActivity : BaseActivity() {
         override fun bindItem(position: Int) {
             pos = position
             val item = languageEntries[position]
-            val languageCode = item.wikiSite.languageCode()
+            val languageCode = item.wikiSite.languageCode
             val localizedLanguageName = app.language().getAppLanguageLocalizedName(languageCode)
             localizedLanguageNameTextView.text = localizedLanguageName?.capitalize(Locale.getDefault()) ?: languageCode
             articleTitleTextView.text = item.displayText
@@ -321,7 +332,7 @@ class LangLinksActivity : BaseActivity() {
 
         override fun onClick(v: View) {
             val langLink = languageEntries[pos]
-            app.language().addMruLanguageCode(langLink.wikiSite.languageCode())
+            app.language().addMruLanguageCode(langLink.wikiSite.languageCode)
             val historyEntry = HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK)
             val intent = PageActivity.newIntentForCurrentTab(this@LangLinksActivity, historyEntry, langLink, false)
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent)
@@ -331,7 +342,7 @@ class LangLinksActivity : BaseActivity() {
     }
 
     private fun getCanonicalName(code: String): String? {
-        var canonicalName = siteInfoList?.find { it.code() == code }?.localName()
+        var canonicalName = siteInfoList?.find { it.code == code }?.localname
         if (canonicalName.isNullOrEmpty()) {
             canonicalName = app.language().getAppLanguageCanonicalName(code)
         }
@@ -348,12 +359,12 @@ class LangLinksActivity : BaseActivity() {
 
         @JvmStatic
         fun addVariantEntriesIfNeeded(language: AppLanguageState, title: PageTitle, languageEntries: MutableList<PageTitle>) {
-            val parentLanguageCode = language.getDefaultLanguageCode(title.wikiSite.languageCode())
+            val parentLanguageCode = language.getDefaultLanguageCode(title.wikiSite.languageCode)
             if (parentLanguageCode != null) {
                 val languageVariants = language.getLanguageVariants(parentLanguageCode)
                 if (languageVariants != null) {
                     for (languageCode in languageVariants) {
-                        if (!title.wikiSite.languageCode().contains(languageCode)) {
+                        if (!title.wikiSite.languageCode.contains(languageCode)) {
                             val pageTitle = PageTitle(if (title.isMainPage) SiteInfoClient.getMainPageForLang(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
                             pageTitle.text = StringUtil.removeNamespace(title.prefixedText)
                             languageEntries.add(pageTitle)

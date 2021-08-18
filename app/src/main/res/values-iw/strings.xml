@@ -165,7 +165,7 @@
   <string name="create_account_passwords_mismatch_error">הסיסמאות אינן תואמות</string>
   <string name="create_account_email_error">כתובת דוא\"ל שגויה</string>
   <string name="create_account_username_error">תווים בלתי־תקינים בשם המשתמש</string>
-  <string name="create_account_password_error">הסיסמה אינה תקינה</string>
+  <string name="create_account_password_error">הסיסמה צריכה להיות באורך 8 תווים לפחות</string>
   <string name="create_account_generic_error">לא היה ניתן ליצור חשבון</string>
   <string name="create_account_next">הבא</string>
   <string name="email_recommendation_dialog_title">ליצור חשבון ללא כתובת דואר אלקטרוני?</string>
@@ -179,6 +179,7 @@
   <string name="create_account_ip_block_help_url">https://he.wikipedia.org/wiki/WP:BLOCK</string>
   <string name="create_account_ip_block_details">פרטים</string>
   <string name="preferences_general_heading">כללי</string>
+  <string name="preferences_account_heading">חשבון</string>
   <string name="wikipedia_app_faq">שו\"ת יישום ויקיפדיה</string>
   <string name="send_feedback">לשלוח משוב על היישום</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
@@ -222,14 +223,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he#אלגוריתם_לתמונות_אימון</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
-  <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
+  <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
   <string name="edit_abandon_confirm">הדף שוּנה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
@@ -378,6 +378,14 @@
   <string name="page_footer_license_text">התוכן זמין לפי תנאי $1 אלא אם צוין אחרת</string>
   <string name="empty_tab_title">לשונית חדשה</string>
   <string name="menu_save_all_tabs">שמירת כל הלשוניות</string>
+  <string name="error_blocked_title">שם המשתמש שלך או כתובת ה־IP שלך נחסמו.</string>
+  <string name="error_blocked_by">החסימה נעשתה על־ידי &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">הסיבה שניתהב היא: %s</string>
+  <string name="error_blocked_start">תחילת החסימה: %s</string>
+  <string name="error_blocked_expiry">פקיעת החסימה: %s</string>
+  <string name="error_blocked_id">מזהה החסימה: %s</string>
+  <string name="error_blocked_footer">באפשרותך ליצור קשר עם &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; או עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt;</string>
+  <string name="error_blocked_footer_no_blocker">באפשרותך ליצור קשר עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt; כדי לדון בחסימה.</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
@@ -630,7 +638,7 @@
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_article_card_title">ערך אקראי</string>
   <string name="view_random_article_card_action">ערכים אקראיים נוספים</string>
-  <string name="view_top_read_card_title">ערכים מובילים</string>
+  <string name="view_top_read_card_title">הנקראים ביותר</string>
   <string name="view_top_read_card_action">ערכים מובילים נוספים</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d אלפים</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d מיליון</string>
@@ -777,7 +785,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">הוספת תיאור ערך (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">כיתוב התמונה (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">תיאור התמונה (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">קובץ</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">קובץ מוויקישיתוף</string>
   <string name="suggested_edits_image_preview_dialog_artist">יוצר</string>
@@ -916,16 +923,6 @@
     <item quantity="many">הוספת %d תווים</item>
     <item quantity="other">הוספת %d תווים</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">אימון אלגוריתם התמונות</string>
-  <string name="suggested_edits_image_recommendations_task_detail">תחליטו אם התמונה המוצעת תשפר ערך.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">התחלה</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">טוב מאוד, תמשיך! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">היעד היומי הושג! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">השגתם את היעד היומי</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">זמינה עכשיו משימה חדשה של עריכות מוצעות. אמנו אלגוריתם להתאמת תמונות עם ערכים לא מאוירים.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">ערכי ויקיפדיה נכתבים ונערכים על־ידי אלפי מתנדבים מסביב לעולם. למרבה הצער, בערכים רבים חסרות תמונות.\n\nתמונות יוצעו לך באמצעות אלגוריתם. האלגוריתם לשאב תמונות ממקורות אחרים ויציע התאמה לערך שאין בו תמונה.\n\nהמשוב שלך יעזור לנו לשפר את ההצעות לאורך זמן. מכיוון שהמטרה של המשימה הזאת היא לשפר את התמונות המוצעות, ההתאמות שתעשה לא תפורסמנה לעת־עתה.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">אנחנו רוצים להכיר בתרומתך למאמץ הזה. האם ברצונך להציג את שם המשתמש שלך בדף אימון האלגוריתם שלנו?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">כן, שם המשתמש שלי יכול להיות מוצג בדף אימון האלגוריתם</string>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
@@ -1006,33 +1003,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">ביטול</string>
   <string name="edit_type_all">כל התרומות</string>
   <string name="content_description_for_page_indicator">דף %1$d מתוך %2$d</string>
-  <string name="image_recommendations_task_accept">כן</string>
-  <string name="image_recommendations_task_reject">לא</string>
-  <string name="image_recommendations_task_not_sure">לא בטוח</string>
-  <string name="image_recommendations_task_processing">עיבוד...</string>
-  <string name="image_recommendations_task_instruction">האם להוסיף את התמונה הזאת לערך?</string>
-  <string name="image_recommendations_task_choice_no">למה בחרת לא?</string>
-  <string name="image_recommendations_task_choice_not_sure">למה בחרת \"לא בטוח\"?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">אפשר לבחור סיבה אחת או יותר.</string>
-  <string name="image_recommendations_task_choice_unsure">מה לא בטוח בקשר לתמונה הזאת?</string>
-  <string name="image_recommendations_task_choice_not_relevant">לא רלוונטית</string>
-  <string name="image_recommendations_task_choice_low_quality">איכות נמוכה</string>
-  <string name="image_recommendations_task_choice_noinfo">אין מספיק מידע</string>
-  <string name="image_recommendations_task_choice_nosubject">הנושא לא מוכר לי</string>
-  <string name="image_recommendations_task_choice_offensive">פוגענית</string>
-  <string name="image_recommendations_task_choice_invisible">לא יכולתי לראות את התמונה</string>
-  <string name="image_recommendations_task_choice_understand">לא הבנתי את המשימה</string>
-  <string name="image_recommendations_task_choice_language">לא הצלחתי לקרוא בשפה הזאת</string>
-  <string name="image_recommendations_task_choice_other">משהו אחר</string>
-  <string name="image_recommendations_task_choice_continue">למהשיך</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;סיבת ההצעה:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">התמונה נמצאה בגרסאות של ויקיפדיה בשפות אחרות (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">התמונה נמצאה בוויקינתונים, המקור של ויקיפדיה לנתונים פתוחים</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">התמונה נמצאה בוויקישיתוף, המקור של ויקיפדיה לתמונות חופשיות לשימוש חוזר</string>
-  <string name="image_recommendations_faq">שו\"ת</string>
-  <string name="image_recommendations_tooltip1">לקרוא את הערך הזה כדי להבין את הנושא שלו.</string>
-  <string name="image_recommendations_tooltip2">להסתכל על התמונה ועל המידע שקשור אליה.</string>
-  <string name="image_recommendations_tooltip3">להחליט אם התמונה תעזור לקוראים להבין את הנושא טוב יותר.</string>
   <string name="wikitext_bold">בולט</string>
   <string name="wikitext_italic">נטוי</string>
   <string name="wikitext_link">קישור</string>
@@ -1055,6 +1025,7 @@
   <string name="talk_title">שיחה</string>
   <string name="talk_user_title">שיחה: %s</string>
   <string name="talk_new_topic">נושא חדש</string>
+  <string name="talk_new_topic_submitted">הנושא פורסם.</string>
   <string name="talk_page_empty">דף השיחה הזה ריק.</string>
   <string name="talk_add_reply">להגיב</string>
   <string name="talk_no_subject">(ללא כותרת)</string>
@@ -1063,6 +1034,9 @@
   <string name="talk_message_hint">כתיבת הודעה</string>
   <string name="talk_message_empty">ההודעה אינה יכולה להיות ריקה.</string>
   <string name="talk_subject_empty">הכותרת אינה יכולה להיות ריקה.</string>
+  <string name="talk_response_submitted">התגובה פורסמה.</string>
+  <string name="talk_snackbar_undo">ביטול</string>
+  <string name="talk_last_modified">&lt;b&gt;נערך לאחרונה ב־%1$s&lt;/b&gt; על־ידי %2$s</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
   <string name="menu_option_user_profile">הפרופיל של %s</string>
   <string name="menu_option_user_contributions">התרומות של %s</string>

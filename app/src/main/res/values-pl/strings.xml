@@ -175,7 +175,7 @@
   <string name="create_account_passwords_mismatch_error">Hasła nie są identyczne</string>
   <string name="create_account_email_error">Nieprawidłowy adres e-mail</string>
   <string name="create_account_username_error">Nieprawidłowe znaki w nazwie użytkownika</string>
-  <string name="create_account_password_error">Hasło jest nieprawidłowe</string>
+  <string name="create_account_password_error" fuzzy="true">Hasło jest nieprawidłowe</string>
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_next">Dalej</string>
   <string name="email_recommendation_dialog_title">Założyć konto bez adresu e-mail?</string>
@@ -237,7 +237,7 @@
   <string name="about_translators_heading">Tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
-  <string name="about_app_license">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; na licencji &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Dopóki inaczej nie określono, zawartość jest dostępna na licencji &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; na licencji &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Dopóki inaczej nie określono, zawartość jest dostępna na licencji &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
@@ -718,8 +718,8 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opisy artykułów (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Rozpocznij</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Podpis obrazka (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Podpis obrazka (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Plik</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Plik z Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artysta</string>
   <string name="suggested_edits_image_preview_dialog_tags">Znaczniki</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
@@ -862,8 +862,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Anuluj</string>
   <string name="edit_type_all">Wszystkie edycje</string>
   <string name="content_description_for_page_indicator">Strona %1$d z %2$d</string>
-  <string name="image_recommendations_task_accept">Tak</string>
-  <string name="image_recommendations_task_reject">Nie</string>
   <string name="wikitext_bold">Pogrubienie</string>
   <string name="wikitext_italic">Kursywa</string>
   <string name="wikitext_link">Link</string>
@@ -895,7 +893,9 @@
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
   <string name="watchlist_details_watch_label">Obserwuj</string>
   <string name="go_to_user_page">Przejdź do strony użytkownika</string>
+  <string name="thank_dialog_positive_button_text">Wyślij podziękowanie</string>
   <string name="thank_dialog_negative_button_text">Anuluj</string>
+  <string name="thank_success_message">Twoje podziękowanie zostało wysłane do %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Zmień</string>
   <string name="watchlist_expiry_dialog_one_week">1 tydzień</string>
   <string name="watchlist_expiry_dialog_one_month">1 miesiąc</string>

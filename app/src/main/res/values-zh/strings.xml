@@ -10,6 +10,7 @@
 * Ff98sha
 * GoForceX
 * Grace03
+* GuoPC
 * Huanqiu
 * Hudafu
 * Hydra
@@ -43,6 +44,7 @@
 * Xzonn
 * Yfdyh000
 * Ywang
+* Zhang8569
 * Zjzengdongyang
 * 予弦
 * 佛壁灯
@@ -195,7 +197,7 @@
   <string name="create_account_passwords_mismatch_error">密码不匹配</string>
   <string name="create_account_email_error">电子邮件地址无效</string>
   <string name="create_account_username_error">用户名中包含无效字符</string>
-  <string name="create_account_password_error">密码无效</string>
+  <string name="create_account_password_error">密码长度必须至少为8个字符</string>
   <string name="create_account_generic_error">无法建立帐户</string>
   <string name="create_account_next">下一步</string>
   <string name="email_recommendation_dialog_title">创建没有电子邮件地址的帐户？</string>
@@ -252,14 +254,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE</string>
-  <string name="suggested_edits_image_recs_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#Train_image_algorithm</string>
   <string name="about_libraries_heading">使用的库</string>
   <string name="about_contributors_heading">贡献者</string>
   <string name="about_contributors">&lt;a href=“https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android”&gt;团队页面&lt;/a&gt;</string>
   <string name="about_translators_heading">翻译者</string>
   <string name="about_translators_translatewiki">该应用由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿译者翻译。</string>
   <string name="about_app_license_heading">许可协议</string>
-  <string name="about_app_license">源代码位于&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
+  <string name="about_app_license">源代码位于&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
   <string name="about_activity_title">关于</string>
   <string name="edit_abandon_confirm">该页面已修改。您确定要退出而不保存更改吗？</string>
@@ -404,6 +405,14 @@
   <string name="page_footer_license_text">除非另有说明，否则内容基于$1授权</string>
   <string name="empty_tab_title">新建标签页</string>
   <string name="menu_save_all_tabs">保存所有标签</string>
+  <string name="error_blocked_title">你的用户名或IP地址已被屏蔽。</string>
+  <string name="error_blocked_by">该区块是由&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;建立的</string>
+  <string name="error_blocked_reason">所给予的原因为：%s</string>
+  <string name="error_blocked_start">该区块的开头：%s</string>
+  <string name="error_blocked_expiry">该区块已过期：%s</string>
+  <string name="error_blocked_id">屏蔽ID：%s</string>
+  <string name="error_blocked_footer">你可以联系&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或另一个&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;来讨论这个区块</string>
+  <string name="error_blocked_footer_no_blocker">你可以联系&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;来讨论这个区块</string>
   <string name="crash_report_activity_title">应用错误</string>
   <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
   <string name="crash_report_relaunch">重启</string>
@@ -772,7 +781,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">添加条目描述（%s）</string>
   <string name="suggested_edits_tasks_onboarding_get_started">开始吧</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">图像说明（%s）</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">图像描述（%s）</string>
   <string name="suggested_edits_image_preview_dialog_image">图像</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">来自维基共享资源的文件</string>
   <string name="suggested_edits_image_preview_dialog_artist">艺术家</string>
@@ -893,16 +901,6 @@
     <item quantity="one">您添加了%d个字符</item>
     <item quantity="other">您添加了%d个字符</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">训练图像算法</string>
-  <string name="suggested_edits_image_recommendations_task_detail">决定建议的图像能否改善条目。</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">开始</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">好，继续！👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">每日目标已达成！👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">你已达到每日目标</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">现在可以用一种新的“编辑建议”任务。 训练一种算法，以将图像与无插图的条目进行匹配。</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">维基百科的条目由来自世界各地的数千名志愿者撰写和编辑。不幸的是，组多条目还缺少图像。\n\n图像会通过一种算法建议给您。该算法将从其他来源提取图像，并建议与没有图像的条目匹配。\n\n您的反馈将帮助我们随着时间的推移改进建议。因为此任务的目的是改善建议的图像，所以您进行的匹配目前不会发布。</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">我们想感谢您为这项工作所做的贡献。您想在我们的算法训练页上显示您的用户名吗？</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">是的，我的用户名可以显示在算法训练页上</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="file_page_add_image_caption_button">添加图像说明</string>
   <string name="file_page_add_image_tags_button">添加图像标签</string>
@@ -979,33 +977,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">取消</string>
   <string name="edit_type_all">所有贡献</string>
   <string name="content_description_for_page_indicator">第%1$d页，共%2$d页</string>
-  <string name="image_recommendations_task_accept">是</string>
-  <string name="image_recommendations_task_reject">否</string>
-  <string name="image_recommendations_task_not_sure">不确定</string>
-  <string name="image_recommendations_task_processing">处理中...</string>
-  <string name="image_recommendations_task_instruction">您会将此图像添加到条目中吗？</string>
-  <string name="image_recommendations_task_choice_no">为什么选择“否”？</string>
-  <string name="image_recommendations_task_choice_not_sure">为什么你选择不确定?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">选择一个或者更多原因</string>
-  <string name="image_recommendations_task_choice_unsure">为什么对这张图像不确定？</string>
-  <string name="image_recommendations_task_choice_not_relevant">不相关</string>
-  <string name="image_recommendations_task_choice_low_quality">低质量</string>
-  <string name="image_recommendations_task_choice_noinfo">信息不足</string>
-  <string name="image_recommendations_task_choice_nosubject">不了解这个主题</string>
-  <string name="image_recommendations_task_choice_offensive">冒犯性</string>
-  <string name="image_recommendations_task_choice_invisible">看不到图</string>
-  <string name="image_recommendations_task_choice_understand">不理解这个任务</string>
-  <string name="image_recommendations_task_choice_language">不会这个语言</string>
-  <string name="image_recommendations_task_choice_other">其他</string>
-  <string name="image_recommendations_task_choice_continue">继续</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;建议理由：&lt;/b&gt;%s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">图像可以在其他语言的维基百科上查找到（%s）</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">图像是在维基数据（维基百科的开放数据源）上找到的</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">图像是在维基共享资源（维基百科中自由版权图片的来源）上找到的</string>
-  <string name="image_recommendations_faq">常见问题</string>
-  <string name="image_recommendations_tooltip1">查看本条目以了解其主题。</string>
-  <string name="image_recommendations_tooltip2">检查图像及其相关信息。</string>
-  <string name="image_recommendations_tooltip3">确定图像是否可以帮助读者更好地理解该主题。</string>
   <string name="wikitext_bold">粗体</string>
   <string name="wikitext_italic">斜体</string>
   <string name="wikitext_link">链接</string>
@@ -1028,6 +999,7 @@
   <string name="talk_title">讨论</string>
   <string name="talk_user_title">讨论：%s</string>
   <string name="talk_new_topic">新话题</string>
+  <string name="talk_new_topic_submitted">主题已发布。</string>
   <string name="talk_page_empty">此讨论页为空。</string>
   <string name="talk_add_reply">回复</string>
   <string name="talk_no_subject">（无主题）</string>
@@ -1036,6 +1008,9 @@
   <string name="talk_message_hint">撰写消息</string>
   <string name="talk_message_empty">消息不能为空。</string>
   <string name="talk_subject_empty">主题不能为空。</string>
+  <string name="talk_response_submitted">回复已发布。</string>
+  <string name="talk_snackbar_undo">撤销</string>
+  <string name="talk_last_modified">由%2$s在&lt;b&gt;%1$s&lt;/b&gt;做出的最后一次编辑</string>
   <string name="menu_option_share_edit">分享编辑</string>
   <string name="menu_option_user_profile">%s的个人资料</string>
   <string name="menu_option_user_contributions">%s的贡献</string>

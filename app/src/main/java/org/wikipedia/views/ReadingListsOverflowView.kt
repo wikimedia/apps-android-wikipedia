@@ -13,7 +13,7 @@ import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewReadingListsOverflowBinding
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil.getReadingListsLastSyncDateString
+import org.wikipedia.util.DateUtil.getLastSyncDateString
 import java.text.ParseException
 
 class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
@@ -63,7 +63,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
             if (!it.isNullOrEmpty()) {
                 try {
                     binding.readingListsOverflowLastSync.text = context.getString(R.string.reading_list_menu_last_sync,
-                            getReadingListsLastSyncDateString(Prefs.getReadingListsLastSyncTime()))
+                            getLastSyncDateString(Prefs.getReadingListsLastSyncTime()))
                 } catch (e: ParseException) {
                     // ignore
                 }

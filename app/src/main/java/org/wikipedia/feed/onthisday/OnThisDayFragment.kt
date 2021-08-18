@@ -117,12 +117,12 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                 onThisDay = response
                 onThisDay?.let { onThisDayResponse ->
                     binding.eventsRecycler.visibility = View.VISIBLE
-                    binding.eventsRecycler.adapter = RecyclerAdapter(onThisDayResponse.events(), wiki)
-                    val events = onThisDayResponse.events()
-                    positionToScrollTo = events.indices.find { yearOnCardView == events[it].year() } ?: 0
-                    val beginningYear = events[events.size - 1].year()
+                    binding.eventsRecycler.adapter = RecyclerAdapter(onThisDayResponse.allEvents(), wiki)
+                    val events = onThisDayResponse.allEvents()
+                    positionToScrollTo = events.indices.find { yearOnCardView == events[it].year } ?: 0
+                    val beginningYear = events[events.size - 1].year
                     binding.dayInfo.text = getString(R.string.events_count_text, events.size.toString(),
-                        DateUtil.yearToStringWithEra(beginningYear), events[0].year())
+                        DateUtil.yearToStringWithEra(beginningYear), events[0].year)
                 }
             }) { throwable ->
                 L.e(throwable)
@@ -250,10 +250,10 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         }
 
         fun setFields(event: OnThisDay.Event) {
-            descTextView.text = event.text()
-            descTextView.visibility = if (event.text().isEmpty()) View.GONE else View.VISIBLE
-            yearTextView.text = DateUtil.yearToStringWithEra(event.year())
-            yearsInfoTextView.text = DateUtil.getYearDifferenceString(event.year())
+            descTextView.text = event.text
+            descTextView.visibility = if (event.text.isEmpty()) View.GONE else View.VISIBLE
+            yearTextView.text = DateUtil.yearToStringWithEra(event.year)
+            yearsInfoTextView.text = DateUtil.getYearDifferenceString(event.year)
             setPagesViewPager(event)
         }
 

@@ -21,8 +21,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DimenUtil
@@ -41,7 +39,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogImagePreviewBinding.inflate(inflater, container, false)
-        pageSummaryForEdit = GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, requireArguments().getString(ARG_SUMMARY))
+        pageSummaryForEdit = requireArguments().getParcelable(ARG_SUMMARY)!!
         action = requireArguments().getSerializable(ARG_ACTION) as Action
         setConditionalLayoutDirection(binding.root, pageSummaryForEdit.lang)
         return binding.root
@@ -86,24 +84,23 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    if (it.query()!!.pages()!![0].imageInfo() == null) {
+                    if (it.query?.firstPage()?.imageInfo() == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                         ServiceFactory.get(pageSummaryForEdit.pageTitle.wikiSite).getImageInfo(pageSummaryForEdit.title, pageSummaryForEdit.lang)
                     } else {
                         // Fetch API from commons.wikimedia.org and check whether if it is not a "shared" image.
-                        isFromCommons = !it.query()!!.pages()!![0].isImageShared
+                        isFromCommons = it.query?.firstPage()?.isImageShared != true
                         Observable.just(it)
                     }
                 }
                 .flatMap { response ->
-                    page = response.query()!!.pages()!![0]
-                    if (page.imageInfo() != null) {
-                        val imageInfo = page.imageInfo()!!
-                        pageSummaryForEdit.timestamp = imageInfo.timestamp
-                        pageSummaryForEdit.user = imageInfo.user
-                        pageSummaryForEdit.metadata = imageInfo.metadata
-                        thumbnailWidth = imageInfo.thumbWidth
-                        thumbnailHeight = imageInfo.thumbHeight
+                    page = response.query?.firstPage()!!
+                    page.imageInfo()?.let {
+                        pageSummaryForEdit.timestamp = it.timestamp
+                        pageSummaryForEdit.user = it.user
+                        pageSummaryForEdit.metadata = it.metadata
+                        thumbnailWidth = it.thumbWidth
+                        thumbnailHeight = it.thumbHeight
                     }
                     ImageTagsProvider.getImageTagsObservable(page.pageId(), pageSummaryForEdit.lang)
                 }
@@ -136,7 +133,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
         fun newInstance(pageSummaryForEdit: PageSummaryForEdit, action: Action): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
-            dialog.arguments = bundleOf(ARG_SUMMARY to GsonMarshaller.marshal(pageSummaryForEdit),
+            dialog.arguments = bundleOf(ARG_SUMMARY to pageSummaryForEdit,
                     ARG_ACTION to action)
             return dialog
         }

@@ -136,7 +136,7 @@
   <string name="create_account_passwords_mismatch_error">Lykilorðin samsvara ekki</string>
   <string name="create_account_email_error">Ógilt netfang</string>
   <string name="create_account_username_error">Ógildir stafir í notandanafni</string>
-  <string name="create_account_password_error">Ógilt lykilorð</string>
+  <string name="create_account_password_error" fuzzy="true">Ógilt lykilorð</string>
   <string name="create_account_generic_error">Gat ekki búið til notandaaðgang</string>
   <string name="create_account_next">Næsta</string>
   <string name="email_recommendation_dialog_title">Stofna aðgang án tölvupóstfangs?</string>
@@ -196,7 +196,7 @@
   <string name="about_translators_heading">þýðendur</string>
   <string name="about_translators_translatewiki">Þetta forrit/app var þýtt af sjálfboðaliðum á &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Notkunarleyfi</string>
-  <string name="about_app_license">Grunnkóðinn er tiltækur á &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; með &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 notkunarleyfinu&lt;/a&gt;. Ef ekkert annað er tekið fram, er allt efnið tiltækt með &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike notkunarleyfi&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Grunnkóðinn er tiltækur á &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; með &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 notkunarleyfinu&lt;/a&gt;. Ef ekkert annað er tekið fram, er allt efnið tiltækt með &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike notkunarleyfi&lt;/a&gt;.</string>
   <string name="about_wmf">Í boði &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Um hugbúnaðinn</string>
   <string name="edit_abandon_confirm">Síðunni hefur verið breytt. Ertu viss um að þú viljir hætta án þess að vista breytingarnar þínar ?</string>
@@ -643,7 +643,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Bæta við lýsingu á grein (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Komast í gang</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Myndatexti (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Lýsing á mynd (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Listamaður</string>
   <string name="suggested_edits_image_preview_dialog_date">Dagsetning</string>
   <string name="suggested_edits_image_preview_dialog_source">Heimild/Ljósmyndari</string>

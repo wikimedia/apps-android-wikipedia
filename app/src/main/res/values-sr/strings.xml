@@ -26,12 +26,14 @@
   <string name="nav_item_back">Назад</string>
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Напред</string>
-  <string name="search_hint">Претражите Википедију</string>
+  <string name="search_hint">Претражи Википедију</string>
   <string name="search_hint_voice_search">Претрага гласом</string>
-  <string name="search_hint_search_languages">Претражите језике</string>
+  <string name="search_hint_search_languages">Претражи језике</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Филтрирај моје листе</string>
   <string name="nav_item_suggested_edits">Измене</string>
   <string name="nav_item_more">Више</string>
-  <string name="error_network_error">Није могуће повезати се с интернетом.</string>
+  <string name="nav_item_search">Претрага</string>
+  <string name="error_network_error">Не могу се повезати на интернет.</string>
   <string name="page_error_retry">Покушај поново</string>
   <string name="card_offline_error_retry">Покушај поново</string>
   <string name="storage_access_error_retry">Покушај поново</string>
@@ -45,17 +47,23 @@
   <string name="history_item_delete_undo">Опозови</string>
   <string name="notification_archive_undo">Опозови</string>
   <string name="app_settings">Подешавања апликације</string>
+  <string name="search_tab_tooltip">Поново додирните икону за директно претраживање.</string>
+  <string name="history_list_title">Историја</string>
   <string name="dialog_title_clear_history">Брисање историје прегледања</string>
-  <string name="dialog_message_clear_history">Овим ћете избрисати сву историју прегледања и затворити све тренутно отворене картице. Јесте ли сигурни?</string>
-  <string name="dialog_message_clear_history_yes">Да</string>
-  <string name="dialog_message_clear_history_no">Не</string>
+  <string name="dialog_message_clear_history">Желите ли заиста да избришете сву историју прегледања и затворите све отворене картице?</string>
+  <string name="dialog_message_clear_history_yes">Избриши</string>
+  <string name="dialog_message_clear_history_no">Откажи</string>
   <string name="share_via">Делите помоћу…</string>
-  <string name="image_share_via">Делите помоћу</string>
+  <string name="image_share_via">Дели помоћу</string>
   <string name="search_redirect_from">Преусмерено са %s</string>
   <string name="menu_page_show_tabs">Прикажи картице</string>
   <string name="menu_page_other_languages">Промени језик</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Пронађи на страници</string>
-  <string name="edit_section_find_in_page">Пронађи на страници</string>
+  <string name="menu_page_find_in_page">Нађи у чланку</string>
+  <string name="menu_page_add_to_watchlist">Додај на списак надгледања</string>
+  <string name="menu_page_view_talk">Страница за разговор</string>
+  <string name="menu_page_view_edit_history">Историја измена</string>
+  <string name="menu_page_remove_from_watchlist">Уклони са списка надгледања</string>
+  <string name="edit_section_find_in_page">Нађи на страници</string>
   <string name="menu_page_font_and_theme">Фонт и тема</string>
   <string name="menu_page_add_to_list">Додај на листу за читање</string>
   <string name="menu_page_add_to_default_list">Сачувај</string>
@@ -63,6 +71,7 @@
   <string name="feed_card_add_to_default_list">Сачувај</string>
   <string name="menu_page_share">Дели линк</string>
   <string name="menu_page_open_a_new_tab">Отвори нову картицу</string>
+  <string name="menu_page_new_tab">Нова картица</string>
   <string name="menu_page_reading_lists">Листе за читање</string>
   <string name="menu_page_recently_viewed">Недавно прегледано</string>
   <string name="menu_long_press_open_page">Отвори</string>
@@ -72,27 +81,27 @@
   <string name="on_this_day_page_share">Дели</string>
   <string name="reading_list_page_share">Дели</string>
   <string name="menu_text_select_edit_here">Уреди овде</string>
-  <string name="last_updated_text">Последње ажурирање: %s</string>
-  <string name="talk_page_link_text">Прикажи страницу за разговор</string>
-  <string name="edit_history_link_text">Прикажи историју измена</string>
+  <string name="last_updated_text">Последња измена: %s</string>
+  <string name="talk_page_link_text">Страница за разговор</string>
+  <string name="edit_history_link_text">Историја измена</string>
   <string name="map_view_link_text">Прикажи на мапи</string>
   <string name="other_languages_indication_text">Прочитај на другом језику</string>
   <string name="language_count_link_text">Доступан на другим језицима (%d)</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Објављивањем измена, прихватате &lt;a href=\"%1$s\"&gt;услове коришћења&lt;/a&gt; и неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Објављивањем измена, прихватате &lt;a href=\"%1$s\"&gt;услове коришћења&lt;/a&gt; и неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
+  <string name="edit_save_action_license_logged_in">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове употребе&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове употребе&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
   <string name="preference_title_language">Језици Википедије</string>
-  <string name="langlinks_filter_hint">Претражите</string>
-  <string name="langlinks_empty">Ова страница није доступна на другим језицима.</string>
-  <string name="langlinks_no_match">Језици нису пронађени</string>
+  <string name="langlinks_filter_hint">Претражи</string>
+  <string name="langlinks_empty">Страница није доступна на другим језицима.</string>
+  <string name="langlinks_no_match">Није пронађен ниједан језик</string>
   <string name="langlinks_activity_title">Други језици</string>
   <string name="langlinks_your_wikipedia_languages">Ваши језици Википедије</string>
-  <string name="menu_save_changes">Објави промене</string>
+  <string name="menu_save_changes">Објави измену</string>
   <string name="edit_saved_successfully">Измена је објављена.</string>
-  <string name="dialog_message_edit_failed">Уређивање није успело.</string>
+  <string name="dialog_message_edit_failed">Не могу сачувати измену.</string>
   <string name="dialog_message_edit_failed_retry">Покушај поново</string>
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
-  <string name="dialog_message_leaving_edit">Ваше промене још увек нису објављене. Желите ли заиста да напустите ову страницу?</string>
+  <string name="dialog_message_leaving_edit">Измена још није објављена. Желите ли заиста да напустите ову страницу?</string>
   <string name="dialog_message_leaving_edit_leave">Напусти</string>
   <string name="dialog_message_leaving_edit_stay">Остани</string>
   <string name="menu_show_toc">Садржај</string>
@@ -150,7 +159,7 @@
   <string name="create_account_passwords_mismatch_error">Лозинке се не поклапају</string>
   <string name="create_account_email_error">Неважећа имејл-адреса</string>
   <string name="create_account_username_error">Неважећи знакови у корисничком имену</string>
-  <string name="create_account_password_error">Лозинка није важећа</string>
+  <string name="create_account_password_error" fuzzy="true">Лозинка није важећа</string>
   <string name="create_account_generic_error">Није могуће отворити налог</string>
   <string name="create_account_next">Следеће</string>
   <string name="email_recommendation_dialog_title">Отворити налог без имејл-адресе?</string>
@@ -210,7 +219,7 @@
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Ову апликацију су превели добровољци сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;, осим ако није другачије наведено.</string>
+  <string name="about_app_license" fuzzy="true">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;, осим ако није другачије наведено.</string>
   <string name="about_wmf">Производ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Задужбине Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
   <string name="edit_abandon_confirm">Страница је измењена. Желите ли заиста да изађете без чувања промене?</string>
@@ -670,7 +679,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додај опис чланка (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Почнимо</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Натпис слике (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис слике (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Датотека</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ознаке</string>

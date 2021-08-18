@@ -99,7 +99,7 @@
   <string name="create_account_passwords_mismatch_error">Hata kunci inda cocok</string>
   <string name="create_account_email_error">Alamat surel inda sah</string>
   <string name="create_account_username_error">Karakter inda sah i gorar pamake</string>
-  <string name="create_account_password_error">Hata kunci inda sah</string>
+  <string name="create_account_password_error" fuzzy="true">Hata kunci inda sah</string>
   <string name="create_account_generic_error">Inda bisa mambaen akun</string>
   <string name="create_account_next">Satorusna!</string>
   <string name="create_account_button">Baen akun baru</string>
@@ -147,7 +147,7 @@
   <string name="about_translators_heading">Panerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi on madung itarjamahkon ni panerjemah sukarela i &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
-  <string name="about_app_license">Kode sumber tarsadio i &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dot &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; i toru &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tarsadio i toru &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-MarbagiSerupa Creative Commons&lt;/a&gt; kacuali inyatoon lain.</string>
+  <string name="about_app_license" fuzzy="true">Kode sumber tarsadio i &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dot &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; i toru &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tarsadio i toru &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-MarbagiSerupa Creative Commons&lt;/a&gt; kacuali inyatoon lain.</string>
   <string name="tool_tip_lang_button">Amu sonnari bisa manjalaki dot mambaca i bahat saro i aplikasi.\n\n\n\nPisat ikon anso manamba lobi bahat saro.</string>
   <string name="feed_configure_menu_select_all">Patidaon sude</string>
   <string name="feed_configure_menu_deselect_all">Pajopi sude</string>

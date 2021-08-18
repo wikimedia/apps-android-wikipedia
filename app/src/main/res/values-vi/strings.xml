@@ -162,7 +162,7 @@
   <string name="create_account_passwords_mismatch_error">Mật khẩu không khớp</string>
   <string name="create_account_email_error">Địa chỉ thư điện tử không hợp lệ</string>
   <string name="create_account_username_error">Ký tự không hợp lệ trong tên người dùng</string>
-  <string name="create_account_password_error">Mật khẩu không hợp lệ</string>
+  <string name="create_account_password_error">Mật khẩu phải có ít nhất 8 ký tự</string>
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
   <string name="create_account_next">Tiếp</string>
   <string name="email_recommendation_dialog_title">Mở tài khoản mà không cung cấp địa chỉ thư điện tử?</string>
@@ -225,7 +225,7 @@
   <string name="about_translators_heading">Biên dịch viên</string>
   <string name="about_translators_translatewiki">Ứng dụng này được biên dịch bởi những người tình nguyện tại &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Giấy phép</string>
-  <string name="about_app_license">Mã nguồn có sẵn tại &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; và &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; theo &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Giấy phép Apache 2.0&lt;/a&gt;. Trừ khi được chỉ rõ, toàn bộ nội dung được phát hành theo &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Nguyên_văn_Giấy_phép_Creative_Commons_Ghi_công–Chia_sẻ_tương_tự_phiên_bản_3.0_Chưa_chuyển_đổi\"&gt;Giấy phép Creative Commons Ghi công–Chia sẻ tương tự&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Mã nguồn có sẵn tại &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; và &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; theo &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Giấy phép Apache 2.0&lt;/a&gt;. Trừ khi được chỉ rõ, toàn bộ nội dung được phát hành theo &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Nguyên_văn_Giấy_phép_Creative_Commons_Ghi_công–Chia_sẻ_tương_tự_phiên_bản_3.0_Chưa_chuyển_đổi\"&gt;Giấy phép Creative Commons Ghi công–Chia sẻ tương tự&lt;/a&gt;.</string>
   <string name="about_wmf">Một sản phẩm của &lt;a href=\"https://wikimediafoundation.org\"&gt;Quỹ Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Giới thiệu</string>
   <string name="edit_abandon_confirm">Trang đã được sửa đổi. Bạn có chắc chắn muốn thoát mà không lưu các thay đổi của bạn?</string>
@@ -734,7 +734,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Thêm mô tả bài viết (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Bắt đầu</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Chú thích hình ảnh (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Chú thích hình ảnh (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Tập tin</string>
   <string name="suggested_edits_image_preview_dialog_artist">Họa sĩ</string>
   <string name="suggested_edits_image_preview_dialog_tags">Thẻ</string>
@@ -953,6 +952,7 @@
   <string name="talk_title">Thảo luận</string>
   <string name="talk_user_title">Thảo luận: %s</string>
   <string name="talk_new_topic">Đề tài mới</string>
+  <string name="talk_new_topic_submitted">Đã đăng chủ đề.</string>
   <string name="talk_page_empty">Trang thảo luận này hiện đang trống.</string>
   <string name="talk_add_reply">Trả lời</string>
   <string name="talk_no_subject">(Không tiêu đề)</string>
@@ -961,6 +961,7 @@
   <string name="talk_message_hint">Nhập tin nhắn</string>
   <string name="talk_message_empty">Tin nhắn này không trống</string>
   <string name="talk_subject_empty">Không thể để trống tiêu đề.</string>
+  <string name="talk_response_submitted">Đã đăng phản hồi.</string>
   <string name="menu_option_share_edit">Chia sẻ sửa đổi</string>
   <string name="menu_option_user_profile">%s\'s trang cá nhân</string>
   <string name="menu_option_user_contributions">%s\'s đóng góp</string>

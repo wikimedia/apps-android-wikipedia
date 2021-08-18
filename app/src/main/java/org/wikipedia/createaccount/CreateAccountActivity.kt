@@ -4,12 +4,12 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -35,7 +35,7 @@ import java.util.regex.Pattern
 
 class CreateAccountActivity : BaseActivity() {
     enum class ValidateResult {
-        SUCCESS, INVALID_USERNAME, INVALID_PASSWORD, PASSWORD_MISMATCH, NO_EMAIL, INVALID_EMAIL
+        SUCCESS, INVALID_USERNAME, PASSWORD_TOO_SHORT, PASSWORD_MISMATCH, NO_EMAIL, INVALID_EMAIL
     }
 
     private lateinit var binding: ActivityCreateAccountBinding
@@ -43,8 +43,9 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var funnel: CreateAccountFunnel
     private val disposables = CompositeDisposable()
     private var wiki = WikipediaApp.getInstance().wikiSite
-    private val userNameTextWatcher = UserNameTextWatcher()
+    private var userNameTextWatcher: TextWatcher? = null
     private val userNameVerifyRunnable = UserNameVerifyRunnable()
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
@@ -67,6 +68,7 @@ class CreateAccountActivity : BaseActivity() {
     private fun setClickListeners() {
         binding.viewCreateAccountError.backClickListener = View.OnClickListener {
             binding.viewCreateAccountError.visibility = View.GONE
+            captchaHandler.requestNewCaptcha()
         }
         binding.viewCreateAccountError.retryClickListener = View.OnClickListener { binding.viewCreateAccountError.visibility = View.GONE }
         binding.createAccountSubmitButton.setOnClickListener {
@@ -96,7 +98,15 @@ class CreateAccountActivity : BaseActivity() {
             }
             false
         }
-        binding.createAccountUsername.editText?.addTextChangedListener(userNameTextWatcher)
+        userNameTextWatcher = binding.createAccountUsername.editText?.doOnTextChanged { text, _, _, _ ->
+            binding.createAccountUsername.removeCallbacks(userNameVerifyRunnable)
+            binding.createAccountUsername.isErrorEnabled = false
+            if (text.isNullOrEmpty()) {
+                return@doOnTextChanged
+            }
+            userNameVerifyRunnable.setUserName(text.toString())
+            binding.createAccountUsername.postDelayed(userNameVerifyRunnable, TimeUnit.SECONDS.toMillis(1))
+        }
     }
 
     fun handleAccountCreationError(message: String) {
@@ -119,8 +129,8 @@ class CreateAccountActivity : BaseActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        val token = response.query()!!.createAccountToken()
-                        val captchaId = response.query()!!.captchaId()
+                        val token = response.query?.createAccountToken()
+                        val captchaId = response.query?.captchaId()
                         if (token.isNullOrEmpty()) {
                             handleAccountCreationError(getString(R.string.create_account_generic_error))
                         } else if (!captchaId.isNullOrEmpty()) {
@@ -136,10 +146,7 @@ class CreateAccountActivity : BaseActivity() {
 
     private fun doCreateAccount(token: String) {
         showProgressBar(true)
-        var email: String? = null
-        if (getText(binding.createAccountEmail).isNotEmpty()) {
-            email = getText(binding.createAccountEmail)
-        }
+        val email = getText(binding.createAccountEmail).ifEmpty { null }
         val password = getText(binding.createAccountPasswordInput)
         val repeat = getText(binding.createAccountPasswordRepeat)
         disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(binding.createAccountUsername), password, repeat, token, Service.WIKIPEDIA_URL,
@@ -149,10 +156,10 @@ class CreateAccountActivity : BaseActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    if ("PASS" == response.status()) {
-                        finishWithUserResult(response.user()!!)
+                    if ("PASS" == response.status) {
+                        finishWithUserResult(response.user)
                     } else {
-                        throw CreateAccountException(response.message()!!)
+                        throw CreateAccountException(response.message)
                     }
                 }) { caught ->
                     L.e(caught.toString())
@@ -179,7 +186,7 @@ class CreateAccountActivity : BaseActivity() {
     public override fun onDestroy() {
         disposables.clear()
         captchaHandler.dispose()
-        binding.createAccountUsername.editText?.removeTextChangedListener(userNameTextWatcher)
+        userNameTextWatcher?.let { binding.createAccountUsername.editText?.removeTextChangedListener(it) }
         super.onDestroy()
     }
 
@@ -200,7 +207,7 @@ class CreateAccountActivity : BaseActivity() {
                 binding.createAccountUsername.error = getString(R.string.create_account_username_error)
                 return
             }
-            ValidateResult.INVALID_PASSWORD -> {
+            ValidateResult.PASSWORD_TOO_SHORT -> {
                 binding.createAccountPasswordInput.requestFocus()
                 binding.createAccountPasswordInput.error = getString(R.string.create_account_password_error)
                 return
@@ -266,33 +273,19 @@ class CreateAccountActivity : BaseActivity() {
         binding.viewCreateAccountError.visibility = View.VISIBLE
     }
 
-    private inner class UserNameTextWatcher : TextWatcher {
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-        override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
-            binding.createAccountUsername.removeCallbacks(userNameVerifyRunnable)
-            binding.createAccountUsername.isErrorEnabled = false
-            if (text.toString().isEmpty()) {
-                return
-            }
-            userNameVerifyRunnable.setUserName(text.toString())
-            binding.createAccountUsername.postDelayed(userNameVerifyRunnable, TimeUnit.SECONDS.toMillis(1))
-        }
-
-        override fun afterTextChanged(s: Editable) {}
-    }
-
     private inner class UserNameVerifyRunnable : Runnable {
-        private var userName: String? = null
+        private lateinit var userName: String
+
         fun setUserName(userName: String) {
             this.userName = userName
         }
 
         override fun run() {
-            disposables.add(ServiceFactory.get(wiki).getUserList(userName!!)
+            disposables.add(ServiceFactory.get(wiki).getUserList(userName)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        response.query()!!.getUserResponse(userName!!)?.let {
+                        response.query?.getUserResponse(userName)?.let {
                             binding.createAccountUsername.isErrorEnabled = false
                             if (it.isBlocked) {
                                 handleAccountCreationError(it.error)
@@ -305,7 +298,7 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     companion object {
-        private const val PASSWORD_MIN_LENGTH = 6
+        private const val PASSWORD_MIN_LENGTH = 8
         const val RESULT_ACCOUNT_CREATED = 1
         const val RESULT_ACCOUNT_NOT_CREATED = 2
         const val RESULT_ACCOUNT_LOGIN = 3
@@ -325,7 +318,7 @@ class CreateAccountActivity : BaseActivity() {
             if (!USERNAME_PATTERN.matcher(username).matches()) {
                 return ValidateResult.INVALID_USERNAME
             } else if (password.length < PASSWORD_MIN_LENGTH) {
-                return ValidateResult.INVALID_PASSWORD
+                return ValidateResult.PASSWORD_TOO_SHORT
             } else if (passwordRepeat.toString() != password.toString()) {
                 return ValidateResult.PASSWORD_MISMATCH
             } else if (email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {

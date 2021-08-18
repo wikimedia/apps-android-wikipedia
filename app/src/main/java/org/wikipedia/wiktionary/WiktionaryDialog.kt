@@ -58,7 +58,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                               savedInstanceState: Bundle?): View {
         _binding = DialogWiktionaryBinding.inflate(inflater, container, false)
         binding.wiktionaryDefinitionDialogTitle.text = sanitizeForDialogTitle(selectedText)
-        L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode)
         loadDefinitions()
         funnel = WiktionaryDialogFunnel(WikipediaApp.getInstance(), selectedText)
         return binding.root
@@ -96,7 +96,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun layOutDefinitionsByUsage() {
-        currentDefinition?.getUsagesForLang("en").let { usageList ->
+        currentDefinition?.usagesByLang?.get("en")?.let { usageList ->
             if (usageList.isNullOrEmpty()) {
                 displayNoDefinitionsFound()
                 return

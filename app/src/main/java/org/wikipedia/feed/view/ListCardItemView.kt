@@ -11,17 +11,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.util.Pair
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewListCardItemBinding
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.mostread.MostReadArticles.ViewHistory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageAvailableOfflineHandler.check
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.TransitionUtil
+import org.wikipedia.util.*
 import org.wikipedia.views.ViewUtil
 import kotlin.math.roundToInt
 
@@ -135,12 +131,12 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
         binding.viewListCardNumber.setNumber(number)
     }
 
-    fun setPageViews(pageViews: Int) {
+    fun setPageViews(pageViews: Long) {
         binding.viewListCardItemPageviews.visibility = VISIBLE
         binding.viewListCardItemPageviews.text = getPageViewText(pageViews)
     }
 
-    fun setGraphView(viewHistories: List<ViewHistory>) {
+    fun setGraphView(viewHistories: List<PageSummary.ViewHistory>) {
         val dataSet = mutableListOf<Float>()
         var i = viewHistories.size
         while (DEFAULT_VIEW_HISTORY_ITEMS > i++) {
@@ -151,7 +147,7 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
         binding.viewListCardItemGraph.setData(dataSet)
     }
 
-    private fun getPageViewText(pageViews: Int): String {
+    private fun getPageViewText(pageViews: Long): String {
         return when {
             pageViews < 1000 -> pageViews.toString()
             pageViews < 1000000 -> {

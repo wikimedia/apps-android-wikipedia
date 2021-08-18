@@ -104,7 +104,7 @@
   <string name="create_account_passwords_mismatch_error">Wagwoorde stem nie ooreen nie</string>
   <string name="create_account_email_error">Ongeldige e-posadres</string>
   <string name="create_account_username_error">Ongeldige karakters in gebruikersnaam</string>
-  <string name="create_account_password_error">Die wagwoord is ongeldig</string>
+  <string name="create_account_password_error" fuzzy="true">Die wagwoord is ongeldig</string>
   <string name="create_account_generic_error">Kon nie gebruiker skep nie</string>
   <string name="create_account_next">Volgende</string>
   <string name="email_recommendation_dialog_title">Skep \'n rekening met geen e-posadres?</string>
@@ -147,7 +147,7 @@
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Hierdie toep is vertaal deur vrywillge vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensie</string>
-  <string name="about_app_license">Bronkode beskikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder die &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-lisensie&lt;/a&gt;. Inhoud is beskikbaar onder ’n &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike-lisensie&lt;/a&gt; tensy anders aangedui.</string>
+  <string name="about_app_license" fuzzy="true">Bronkode beskikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder die &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-lisensie&lt;/a&gt;. Inhoud is beskikbaar onder ’n &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike-lisensie&lt;/a&gt; tensy anders aangedui.</string>
   <string name="about_wmf">’n Produk van die &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia-stigting&lt;/a&gt;</string>
   <string name="about_activity_title">Aangaande</string>
   <string name="edit_abandon_confirm">Hierdie bladsy is gewysig. Is u seker u wil afsluit sonder om u wysigings te stoor?</string>

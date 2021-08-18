@@ -99,7 +99,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
         summaryTags.clear()
         for (i in summaryTagStrings) {
-            val tag = EditSummaryTag(activity)
+            val tag = EditSummaryTag(requireActivity())
             tag.text = strings[i]
             tag.tag = i
             tag.setOnClickListener { view ->
@@ -110,7 +110,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
             summaryTags.add(tag)
         }
 
-        otherTag = EditSummaryTag(activity)
+        otherTag = EditSummaryTag(requireActivity())
         otherTag.text = L10nUtil.getStringForArticleLanguage(pageTitle, R.string.edit_summary_tag_other)
         binding.editSummaryTagsContainer.addView(otherTag)
         otherTag.setOnClickListener {
@@ -136,7 +136,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     }
 
     fun setCustomSummary(summary: String) {
-        otherTag.text = if (summary.isNotEmpty()) summary else getString(R.string.edit_summary_tag_other)
+        otherTag.text = summary.ifEmpty { getString(R.string.edit_summary_tag_other) }
         otherTag.isSelected = summary.isNotEmpty()
     }
 
@@ -160,13 +160,10 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
     private fun initWebView() {
         binding.editPreviewWebview.webViewClient = object : OkHttpWebViewClient() {
-            override fun getModel(): PageViewModel {
-                return this@EditPreviewFragment.model
-            }
 
-            override fun getLinkHandler(): LinkHandler {
-                return this@EditPreviewFragment.linkHandler
-            }
+            override val model get() = this@EditPreviewFragment.model
+
+            override val linkHandler get() = this@EditPreviewFragment.linkHandler
 
             override fun onPageFinished(view: WebView, url: String) {
                 super.onPageFinished(view, url)

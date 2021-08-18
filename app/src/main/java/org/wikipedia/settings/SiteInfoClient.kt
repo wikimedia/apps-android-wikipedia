@@ -6,7 +6,6 @@ import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.log.L
 
@@ -26,7 +25,7 @@ object SiteInfoClient {
     @JvmStatic
     val maxPagesPerReadingList: Int
         get() {
-            val info = getSiteInfoForLang(WikipediaApp.getInstance().wikiSite.languageCode())
+            val info = getSiteInfoForLang(WikipediaApp.getInstance().wikiSite.languageCode)
             return if (info?.readingListsConfig != null && info.readingListsConfig.maxEntriesPerList > 0) {
                 info.readingListsConfig.maxEntriesPerList
             } else Constants.MAX_READING_LIST_ARTICLE_LIMIT
@@ -40,13 +39,12 @@ object SiteInfoClient {
 
     @JvmStatic
     fun updateFor(wiki: WikiSite) {
-        if (SITE_INFO_MAP.containsKey(wiki.languageCode())) {
+        if (SITE_INFO_MAP.containsKey(wiki.languageCode)) {
             return
         }
         ServiceFactory.get(wiki).siteInfo
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response: MwQueryResponse ->
-                    SITE_INFO_MAP[wiki.languageCode()] = response.query()!!.siteInfo() }) { obj: Throwable -> L.d(obj) }
+                .subscribe({ response -> SITE_INFO_MAP[wiki.languageCode] = response.query?.siteInfo() }) { caught -> L.d(caught) }
     }
 }

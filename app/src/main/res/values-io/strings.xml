@@ -143,7 +143,7 @@
   <string name="create_account_passwords_mismatch_error">La pasovorti neegalesas</string>
   <string name="create_account_email_error">IP-adreso ne esas valida</string>
   <string name="create_account_username_error">Existas nevalida signi en la uzantonomo</string>
-  <string name="create_account_password_error">La pasovorto esas nevalida</string>
+  <string name="create_account_password_error">La pasovorto mustas havar adminime 8 literi/signi</string>
   <string name="create_account_generic_error">Ne povis krear konto</string>
   <string name="create_account_next">Sequanta</string>
   <string name="email_recommendation_dialog_title">Krear konto sen adreso di e-posto?</string>
@@ -153,7 +153,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">Adjuntar adreso di e-posto</string>
   <string name="create_account_button">Krear konto</string>
   <string name="create_account_name_unavailable">La nomo dil uzero \"%s\" ne esas disponebla. Voluntez selektar altra diferanta nomo.</string>
-  <string name="create_account_ip_block_message">Pardonez, vua IP-adreso esas nune blokusita por krear nova konti.</string>
+  <string name="create_account_ip_block_message">Pardonez, vua IP-adreso esas nun blokusita, e ne povas krear nova konti.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
   <string name="preferences_general_heading">generale</string>
@@ -189,7 +189,7 @@
   <string name="about_translators_heading">Tradukeri</string>
   <string name="about_translators_translatewiki">Ica \'app\' tradukesis da voluntara tradukeri en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenco</string>
-  <string name="about_app_license">Fonto-kodexo disponebla en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Fonto-kodexo disponebla en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Produkturo del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ca pagino modifikesis. Ka tu fakte deziras ekirar sen salvar tua modifikuri?</string>
@@ -219,7 +219,7 @@
   <string name="find_last_occurence">To esas la lasta rezulto</string>
   <string name="abusefilter_title_warn">To semblas esar mala modifiko. Ka tu fakte deziras publikigar ol?</string>
   <string name="abusefilter_title_disallow">Tu ne povas publikigar ica modifiko. Voluntez korektar ol.</string>
-  <string name="abusefilter_text_warn">Automatala verifiko konsideris ica modifiko potenciale mala. Ol kontenas un o plura de la sequanta:&lt;br /&gt;&lt;br /&gt;· Tota literi en MAYUSKULA&lt;br /&gt;· Efaco di artikli o \'spamming\'&lt;br /&gt;· Ne-aplikebla ligili ad altra artikli od imaji&lt;br /&gt;· Iterado di literi o signi</string>
+  <string name="abusefilter_text_warn">Automatala verifiko judikis ca modifiko potenciale mala. Ol kontenas un o plura de la sequanta:&lt;br /&gt;&lt;br /&gt;· Tota literi en MAYUSKULA&lt;br /&gt;· Efaco di artikli o \'spamming\'&lt;br /&gt;· Ne-aplikebla ligili ad altra artikli od imaji&lt;br /&gt;· Iterado di literi o signi</string>
   <string name="abusefilter_text_disallow">Automatala verifiko identifikis ica artiklo quale posibla vandalismo o mala agado.&lt;br /&gt;&lt;br /&gt;Wikipedio esas enciklopedio, e koncernas nur remarkinda kontenajo kun neutrala vidopunto.</string>
   <string name="page_similar_titles">Simila pagini</string>
   <string name="search_did_you_mean">Ka tu deziris dicar \"%s\"?</string>
@@ -312,6 +312,7 @@
   <string name="error_page_does_not_exist">Ica pagino ne existas</string>
   <string name="view_wiki_error_message_offline">Ne povas konektar a la interreto</string>
   <string name="reference_title">Refero %s</string>
+  <string name="error_blocked_footer_no_blocker">Vu povas kontaktar ul &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administranto&lt;/a&gt; por diskutar pri la blokuso.</string>
   <string name="crash_report_relaunch">Rikomencar</string>
   <string name="crash_report_quit">Ekirar</string>
   <string name="article_header_edit_hint">Redaktar</string>
@@ -435,6 +436,7 @@
   <string name="description_edit_add_image_caption">Adjuntez informo pri l\'imajo</string>
   <string name="description_edit_cancel_hint">Nihiligar</string>
   <string name="description_edit_help_about_wikidata">Pri Wikidonaji</string>
+  <string name="description_edit_success_done">Facita</string>
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
   <string name="suggested_edits_edit_translation_button">Modifikar tradukuro</string>
@@ -466,4 +468,6 @@
   <string name="languages_list_all_text">Omna lingui</string>
   <string name="more_language_options">pluse</string>
   <string name="text_input_dialog_cancel_button_text">Nuligar</string>
+  <string name="talk_snackbar_undo">Desfacez</string>
+  <string name="talk_last_modified">&lt;b&gt;Lasta redakto %1$s&lt;/b&gt; da %2$s</string>
 </resources>

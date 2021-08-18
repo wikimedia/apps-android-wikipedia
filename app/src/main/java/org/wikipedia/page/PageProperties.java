@@ -54,7 +54,7 @@ public class PageProperties implements Parcelable {
      */
     public PageProperties(@NonNull PageSummary pageSummary) {
         pageId = pageSummary.getPageId();
-        namespace = pageSummary.getNamespace();
+        namespace = pageSummary.getNs();
         revisionId = pageSummary.getRevision();
         displayTitleText = defaultString(pageSummary.getDisplayTitle());
         geo = pageSummary.getGeo();
@@ -65,7 +65,7 @@ public class PageProperties implements Parcelable {
         leadImageWidth = pageSummary.getThumbnailWidth();
         leadImageHeight = pageSummary.getThumbnailHeight();
         String lastModifiedText = pageSummary.getTimestamp();
-        if (lastModifiedText != null) {
+        if (!lastModifiedText.isEmpty()) {
             lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
         }
         // assume formatversion=2 is used so we get real booleans from the API
@@ -121,10 +121,6 @@ public class PageProperties implements Parcelable {
     @Nullable
     public Location getGeo() {
         return geo;
-    }
-
-    public String getEditProtectionStatus() {
-        return editProtectionStatus;
     }
 
     public boolean canEdit() {

@@ -127,7 +127,7 @@
   <string name="create_account_passwords_mismatch_error">രഹസ്യവാക്കുകൾ ഒത്തുപോകുന്നില്ല</string>
   <string name="create_account_email_error">അസാധുവായ ഇമെയിൽ വിലാസം.</string>
   <string name="create_account_username_error">ഉപയോക്തൃനാമത്തിൽ അനുവദനീയമല്ലാത്ത അക്ഷരങ്ങൾ</string>
-  <string name="create_account_password_error">രഹസ്യവാക്ക് അസാധുവാണ്</string>
+  <string name="create_account_password_error" fuzzy="true">രഹസ്യവാക്ക് അസാധുവാണ്</string>
   <string name="create_account_generic_error">അംഗത്വം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല</string>
   <string name="create_account_next">അടുത്തത്</string>
   <string name="email_recommendation_dialog_title">ഇമെയിൽ വിലാസമില്ലാതെ അക്കൗണ്ട് ഉണ്ടാക്കണമോ?</string>
@@ -427,7 +427,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ലേഖനത്തിന് വിവരണം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">തുടക്കം കുറിക്കുക</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ചിത്രത്തിന്റെ തലവാചകം (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">ചിത്രത്തിന്റെ വിവരണം (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">കലാകാരൻ</string>
   <string name="suggested_edits_image_preview_dialog_date">തീയതി</string>
   <string name="suggested_edits_image_preview_dialog_more_info">കൂടുതൽ വിവരങ്ങൾ</string>

@@ -180,7 +180,7 @@
   <string name="create_account_passwords_mismatch_error">Le password non corrispondono</string>
   <string name="create_account_email_error">Indirizzo email non valido</string>
   <string name="create_account_username_error">Caratteri non validi nel nome utente</string>
-  <string name="create_account_password_error">La password non è valida</string>
+  <string name="create_account_password_error">La password deve avere almeno 8 caratteri</string>
   <string name="create_account_generic_error">Impossibile creare l\'utenza</string>
   <string name="create_account_next">Successivo</string>
   <string name="email_recommendation_dialog_title">Creare un\'utenza senza indirizzo di posta elettronica?</string>
@@ -243,7 +243,7 @@
   <string name="about_translators_heading">Traduttori</string>
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Testo_della_Creative_Commons_Attribuzione-Condividi_allo_stesso_modo_3.0_Unported\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
+  <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Testo_della_Creative_Commons_Attribuzione-Condividi_allo_stesso_modo_3.0_Unported\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodotto della &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>
   <string name="edit_abandon_confirm">La pagina è stata modificata. Sei sicuro di voler uscire senza salvare le modifiche?</string>
@@ -388,6 +388,11 @@
   <string name="page_footer_license_text">Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato</string>
   <string name="empty_tab_title">Nuova scheda</string>
   <string name="menu_save_all_tabs">Salva tutte le schede</string>
+  <string name="error_blocked_title">Il tuo nome di utente o indirizzo IP è stato bloccato.</string>
+  <string name="error_blocked_start">Inizio del blocco: %s</string>
+  <string name="error_blocked_expiry">Scadenza del blocco: %s</string>
+  <string name="error_blocked_id">ID blocco: %s</string>
+  <string name="error_blocked_footer">Puoi contattare &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altro &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Amministratori\"&gt;amministratore&lt;/a&gt; per discutere del blocco.</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
@@ -758,7 +763,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Aggiungi descrizione della voce (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Didascalia immagine (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrizione immagine (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">File</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">File da Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
@@ -881,16 +885,6 @@
     <item quantity="one">Hai aggiunto %d carattere</item>
     <item quantity="other">Hai aggiunto %d caratteri</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Addestra l\'algoritmo dell\'immagine</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Decidi se un\'immagine suggerita migliorerà una voce.</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Inizia</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Ottimo, continua così! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Obiettivo quotidiano raggiunto! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Hai raggiunto l\'obbiettivo giornaliero</string>
-  <string name="suggested_edits_image_recommendations_onboarding_tooltip">È ora disponibile una nuova attività per le modifiche suggerite. Addestra un algoritmo per abbinare immagini con voci non illustrate.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Le voci di Wikipedia sono scritte e modificate da migliaia di volontari di tutto il mondo.  Sfortunatamente, in molte voce mancano le immagini.\n\nLe immagini ti verranno suggerite utilizzando un algoritmo. L\'algoritmo estrarrà immagini da altre fonti e suggerirà una corrispondenza con una voce che non ha un\'immagine.\n\nIl tuo commento (feedback) ci aiuterà a migliorare i suggerimenti nel tempo. Poiché l\'obiettivo di questa attività è migliorare le immagini suggerite, le corrispondenze effettuate non verranno pubblicate in questo momento.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Vorremmo riconoscere i vostri contributi a questo sforzo. Desideri che il tuo nome utente venga visualizzato sulla nostra pagina di formazione sull\'algoritmo?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Sì, il mio nome utente può essere visualizzato nella pagina di formazione dell\'algoritmo</string>
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>
@@ -967,33 +961,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Annulla</string>
   <string name="edit_type_all">Tutti i contributi</string>
   <string name="content_description_for_page_indicator">Pagina %1$d di %2$d</string>
-  <string name="image_recommendations_task_accept">Sì</string>
-  <string name="image_recommendations_task_reject">No</string>
-  <string name="image_recommendations_task_not_sure">Non sono sicuro</string>
-  <string name="image_recommendations_task_processing">Elaborazione in corso…</string>
-  <string name="image_recommendations_task_instruction">Aggiungeresti questa immagine alla voce?</string>
-  <string name="image_recommendations_task_choice_no">Perché hai selezionato no?</string>
-  <string name="image_recommendations_task_choice_not_sure">Perché hai selezionato Non sei sicuro?</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Scegli uno o più motivi.</string>
-  <string name="image_recommendations_task_choice_unsure">Perché non sei sicuro di questa immagine?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Non rilevante</string>
-  <string name="image_recommendations_task_choice_low_quality">Bassa qualità</string>
-  <string name="image_recommendations_task_choice_noinfo">Informazioni insufficienti</string>
-  <string name="image_recommendations_task_choice_nosubject">Non conosco questo argomento</string>
-  <string name="image_recommendations_task_choice_offensive">Offensivo</string>
-  <string name="image_recommendations_task_choice_invisible">Non riesco a vedere l\'immagine</string>
-  <string name="image_recommendations_task_choice_understand">Non capisco l\'attività</string>
-  <string name="image_recommendations_task_choice_language">Impossibile leggere la lingua</string>
-  <string name="image_recommendations_task_choice_other">Altro</string>
-  <string name="image_recommendations_task_choice_continue">Continua</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motivo del suggerimento:&lt;/b&gt; %s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">l\'immagine è stata trovata in altre versioni linguistiche di Wikipedia (%s)</string>
-  <string name="image_recommendations_task_suggestion_reason_wikidata">l\'immagine è stata trovata su Wikidata, la fonte di dati aperti di Wikipedia</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">l\'immagine è stata trovata su Wikimedia Commons, la fonte di Wikipedia di immagini utilizzabili liberamente</string>
-  <string name="image_recommendations_faq">Domande frequenti</string>
-  <string name="image_recommendations_tooltip1">Rivedi questa voce per comprenderne l\'argomento.</string>
-  <string name="image_recommendations_tooltip2">Ispeziona l\'immagine e le informazioni associate.</string>
-  <string name="image_recommendations_tooltip3">Decidi se l\'immagine aiuterà i lettori a comprendere meglio questo argomento.</string>
   <string name="wikitext_bold">Grassetto</string>
   <string name="wikitext_italic">Corsivo</string>
   <string name="wikitext_link">Collegamento</string>
@@ -1016,6 +983,7 @@
   <string name="talk_title">Discussione</string>
   <string name="talk_user_title">Discussione: %s</string>
   <string name="talk_new_topic">Nuovo argomento</string>
+  <string name="talk_new_topic_submitted">Argomento pubblicato.</string>
   <string name="talk_page_empty">Questa pagina di discussione è vuota.</string>
   <string name="talk_add_reply">Rispondi</string>
   <string name="talk_no_subject">(Nessun oggetto)</string>
@@ -1024,6 +992,8 @@
   <string name="talk_message_hint">Scrivi un messaggio</string>
   <string name="talk_message_empty">Il messaggio non può essere vuoto.</string>
   <string name="talk_subject_empty">L\'oggetto non può essere vuoto.</string>
+  <string name="talk_response_submitted">Risposta pubblicata.</string>
+  <string name="talk_snackbar_undo">Annulla</string>
   <string name="menu_option_share_edit">Condividi modifica</string>
   <string name="menu_option_user_profile">Profilo di %s</string>
   <string name="menu_option_user_contributions">Contributi di %s</string>

@@ -18,7 +18,6 @@ import org.wikipedia.dataclient.wikidata.Entities;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.dataclient.wikidata.Search;
 import org.wikipedia.edit.Edit;
-import org.wikipedia.edit.preview.EditPreview;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.search.PrefixSearchResponse;
 
@@ -40,7 +39,7 @@ public interface Service {
     String COMMONS_URL = "https://commons.wikimedia.org/";
     String URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/";
 
-    String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&";
+    String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&";
 
     int PREFERRED_THUMB_SIZE = 320;
 
@@ -107,7 +106,10 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getSiteInfo();
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
-    @NonNull Observable<MwParseResponse> parseText(@NonNull @Query("page") String pageTitle);
+    @NonNull Observable<MwParseResponse> parsePage(@NonNull @Query("page") String pageTitle);
+
+    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
+    @NonNull Observable<MwParseResponse> parseText(@NonNull @Query("text") String text);
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
     @NonNull Observable<MwParseResponse> parseTextForMainPage(@NonNull @Query("page") String mainPageTitle);
@@ -240,9 +242,10 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getWikiTextForSectionWithInfo(@NonNull @Query("titles") String title, @Query("rvsection") int section);
 
     @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=parse&prop=text&sectionpreview=&pst=&mobileformat=")
-    @NonNull Observable<EditPreview> postEditPreview(@NonNull @Field("title") String title,
-                                                     @NonNull @Field("text") String text);
+    @POST(MW_API_PREFIX + "action=edit")
+    @NonNull Observable<Edit> postUndoEdit(@NonNull @Field("title") String title,
+                                           @Field("undo") long revision,
+                                           @NonNull @Field("token") String token);
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
@@ -353,6 +356,9 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
 
     @NonNull Observable<MwQueryResponse> getWatchlist();
+
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
+    @NonNull Observable<MwQueryResponse> getLastModified(@Query("titles") @NonNull String titles);
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
     @NonNull Observable<MwQueryResponse> getRevisionDetails(@Query("titles") @NonNull String titles,

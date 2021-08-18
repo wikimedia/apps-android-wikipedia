@@ -3,7 +3,6 @@ package org.wikipedia.feed.featured
 import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import org.wikipedia.databinding.ViewCardFeaturedArticleBinding
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
@@ -12,9 +11,8 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
-import org.wikipedia.views.ImageZoomHelper.Companion.isZooming
-import org.wikipedia.views.ImageZoomHelper.Companion.setViewZoomable
+import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.views.ImageZoomHelper
 
 @Suppress("LeakingThis")
 open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<FeaturedArticleCard>(context) {
@@ -29,11 +27,8 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
         }
 
         binding.viewFeaturedArticleCardContentContainer.setOnLongClickListener { view ->
-            if (isZooming) {
-                // Dispatch a fake CANCEL event to the container view, so that the long-press ripple is cancelled.
-                binding.viewFeaturedArticleCardContentContainer.dispatchTouchEvent(
-                    MotionEvent.obtain(0, 0, MotionEvent.ACTION_CANCEL, 0f, 0f, 0)
-                )
+            if (ImageZoomHelper.isZooming) {
+                ImageZoomHelper.dispatchCancelEvent(binding.viewFeaturedArticleCardContentContainer)
             } else {
                 LongPressMenu(view, true, object : LongPressMenu.Callback {
                     override fun onOpenLink(entry: HistoryEntry) {
@@ -95,20 +90,20 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
 
     private fun header(card: FeaturedArticleCard) {
         binding.viewFeaturedArticleCardHeader.setTitle(card.title())
-            .setLangCode(card.wikiSite().languageCode())
+            .setLangCode(card.wikiSite().languageCode)
             .setCard(card)
             .setCallback(callback)
     }
 
     private fun footer(card: FeaturedArticleCard) {
         binding.viewFeaturedArticleCardFooter.callback = footerCallback
-        binding.viewFeaturedArticleCardFooter.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode())
+        binding.viewFeaturedArticleCardFooter.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode)
     }
 
     private fun image(uri: Uri?) {
         binding.viewWikiArticleCard.setImageUri(uri, false)
         uri?.run {
-            setViewZoomable(binding.viewWikiArticleCard.getImageView())
+            ImageZoomHelper.setViewZoomable(binding.viewWikiArticleCard.getImageView())
         }
     }
 
@@ -116,7 +111,7 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
         get() = CardFooterView.Callback {
             card?.let {
                 callback?.onSelectPage(it, HistoryEntry(PageTitle(
-                    getMainPageForLang(it.wikiSite().languageCode()), it.wikiSite()),
+                    SiteInfoClient.getMainPageForLang(it.wikiSite().languageCode), it.wikiSite()),
                     it.historyEntry().source), false
                 )
             }

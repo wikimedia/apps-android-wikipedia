@@ -30,6 +30,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ReadingListsFunnel
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.history.HistoryEntry
@@ -40,7 +41,6 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.page.PageAvailableOfflineHandler.check
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
@@ -239,7 +239,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     }
 
     private fun updateReadingListData() {
-        disposables.add(Observable.fromCallable { ReadingListDbHelper.getListById(readingListId, true) }
+        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListDao().getListById(readingListId, true) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ list ->
@@ -336,16 +336,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         }
     }
 
-    private val selectedPageCount: Int
-        get() {
-            var selectedCount = 0
-            displayedLists.forEach {
-                if (it is ReadingListPage && it.selected) {
-                    selectedCount++
-                }
-            }
-            return selectedCount
-        }
+    private val selectedPageCount get() = displayedLists.count { it is ReadingListPage && it.selected }
 
     private fun unselectAllPages() {
         readingList?.let {
@@ -362,23 +353,18 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
      */
     private val selectedPages: List<ReadingListPage>
         get() {
-            val result = mutableListOf<ReadingListPage>()
-            readingList?.let {
-                displayedLists.forEach { list ->
-                    if (list is ReadingListPage && list.selected) {
-                        result.add(list)
-                        list.selected = false
-                    }
-                }
-            }
-            return result
+            return readingList?.let {
+                displayedLists.filterIsInstance<ReadingListPage>()
+                    .filter { it.selected }
+                    .onEach { it.selected = false }
+            } ?: emptyList()
         }
 
     private fun deleteSelectedPages() {
         readingList?.let {
             val pages = selectedPages
             if (pages.isNotEmpty()) {
-                ReadingListDbHelper.markPagesForDeletion(it, pages)
+                AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(it, pages)
                 it.pages.removeAll(pages)
                 funnel.logDeleteItem(it, 0)
                 ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, pages) { updateReadingListData() }
@@ -660,8 +646,8 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
                 Completable.fromAction {
-                    ReadingListDbHelper.updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
-                    ReadingListDbHelper.updatePage(item)
+                    AppDatabase.getAppDatabase().readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
+                    AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(item)
                 }.subscribeOn(Schedulers.io()).subscribe()
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
@@ -683,7 +669,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
         override fun onActionClick(item: ReadingListPage?, view: View) {
             item?.let {
-                if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi() && it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
+                if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi && it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
                     it.offline = false
                 }
                 if (it.saving) {

@@ -2,6 +2,7 @@
 <!-- Authors:
 * Anass Sedrati
 * Ayoubbouamri
+* Ideophagous
 * Tifratin
 -->
 <resources>
@@ -47,9 +48,9 @@
   <string name="menu_page_find_in_page">قلّب فلمقال</string>
   <string name="edit_section_find_in_page">قلّب فالصفحة</string>
   <string name="menu_page_font_and_theme">لخط والشكل</string>
-  <string name="menu_page_add_to_list">زيد ل ليسطا ديال لقراية</string>
+  <string name="menu_page_add_to_list">زيد ل ليستة ديال لقراية</string>
   <string name="menu_page_add_to_default_list">سجّل</string>
-  <string name="feed_card_add_to_list">زيد ل ليسطا ديال لقراية</string>
+  <string name="feed_card_add_to_list">زيد ل ليستة ديال لقراية</string>
   <string name="feed_card_add_to_default_list">سجّل</string>
   <string name="menu_page_share">پارطاجي الرابط</string>
   <string name="menu_page_open_a_new_tab">حل تبويب جديد</string>
@@ -133,7 +134,7 @@
   <string name="create_account_passwords_mismatch_error">لموضباصات ماشي بحال بحال</string>
   <string name="create_account_email_error">ايميل غالط</string>
   <string name="create_account_username_error">حروف ماصحاحش فسميت لمستخدم</string>
-  <string name="create_account_password_error">لموضباص ماصالحش</string>
+  <string name="create_account_password_error" fuzzy="true">لموضباص ماصالحش</string>
   <string name="create_account_generic_error">مايمكنش دير كونط</string>
   <string name="create_account_next">لماجي</string>
   <string name="email_recommendation_dialog_title">دير كونط بلا ايميل</string>
@@ -228,11 +229,11 @@
   <string name="unnamed_tab_closed">التبويب تسد</string>
   <string name="tab_item_closed">%s تسد.</string>
   <string name="all_tab_items_closed">ڭاع التبويبات تسدات.</string>
-  <string name="tool_tip_bookmark_icon_title">زيد ل ليسطا ديال لقراية</string>
+  <string name="tool_tip_bookmark_icon_title">زيد ل ليستة ديال لقراية</string>
   <string name="format_error_server_message">ميساج: \"%s\"</string>
   <string name="button_continue_to_article">قرا لمقال</string>
   <string name="button_continue_to_talk_page">حل صفحة لهضرة</string>
-  <string name="button_add_to_reading_list">زيد ل ليسطا ديال لقراية</string>
+  <string name="button_add_to_reading_list">زيد ل ليستة ديال لقراية</string>
   <string name="button_get_directions">خود لإتجاهات</string>
   <string name="nav_item_donate">تبرع</string>
   <string name="enable_location_service">مكّن</string>

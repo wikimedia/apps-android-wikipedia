@@ -149,7 +149,7 @@
   <string name="create_account_passwords_mismatch_error">Os contrasinais non coinciden</string>
   <string name="create_account_email_error">O enderezo de correo electrónico non é válido</string>
   <string name="create_account_username_error">Caracteres non válidos no nome de usuario</string>
-  <string name="create_account_password_error">O contrasinal non é válido</string>
+  <string name="create_account_password_error" fuzzy="true">O contrasinal non é válido</string>
   <string name="create_account_generic_error">Non se puido crear a conta</string>
   <string name="create_account_next">Seguinte</string>
   <string name="email_recommendation_dialog_title">Crear unha conta sen enderezo de correo electrónico?</string>
@@ -208,7 +208,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicación foi traducida polos tradutores voluntarios de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license">Código fonte dispoñible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baixo a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licenza Apache 2.0&lt;/a&gt;. Agás que se especifique o contrario, o contido está dispoñible baixo a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licenza Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Código fonte dispoñible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baixo a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licenza Apache 2.0&lt;/a&gt;. Agás que se especifique o contrario, o contido está dispoñible baixo a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licenza Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Un produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">A páxina foi modificada. Quere saír sen gardar os cambios?</string>
@@ -678,7 +678,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Engadir descrición de imaxe (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Comezar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Lenda de imaxe (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrición da imaxe (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Imaxe</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiquetas</string>

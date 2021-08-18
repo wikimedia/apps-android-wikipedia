@@ -19,7 +19,7 @@
   <string name="menu_page_share" fuzzy="true">Екха</string>
   <string name="menu_long_press_open_page" fuzzy="true">Хьажорг схьаелла</string>
   <string name="menu_text_select_define">Къастам</string>
-  <string name="last_updated_text">ТӀаьххьара карлаяккхар: %s</string>
+  <string name="last_updated_text">ТӀаьххьара карлайаккхар: %s</string>
   <string name="preference_title_language" fuzzy="true">Мотт</string>
   <string name="langlinks_filter_hint">Лахар</string>
   <string name="langlinks_no_match" fuzzy="true">Хьан дехарца меттанаш цакарий</string>
@@ -61,7 +61,7 @@
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Къайлаха_политика</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="about_translators_heading">гочдархой</string>
-  <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чура шен лаамернигаш.</string>
+  <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чуьра шен лаамернигаш.</string>
   <string name="edit_next">Кхин дӀа</string>
   <string name="edit_done" fuzzy="true">Ӏалашдан</string>
   <string name="edit_preview">Хьалххе хьажар</string>
@@ -77,6 +77,8 @@
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
   <string name="license_title" fuzzy="true">Лицензин йоза %s библиотекина</string>
   <string name="gallery_error_video_failed">Видео йолаялита цаелира.</string>
+  <string name="error_blocked_start">Блокан йуьхь:%s</string>
+  <string name="error_blocked_id">Блокан ID: %s</string>
   <string name="crash_report_relaunch">Йуха доладан</string>
   <string name="crash_report_quit">АрагӀо</string>
   <string name="color_theme_select">Кечяр</string>

@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +22,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationFunnel
+import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -37,6 +38,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil.getFeedCardDateString
 import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -167,7 +169,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    val wikiMap = response.query()!!.unreadNotificationWikis()
+                    val wikiMap = response.query?.unreadNotificationWikis()
                     dbNameMap.clear()
                     for (key in wikiMap!!.keys) {
                         if (wikiMap[key]!!.source != null) {
@@ -185,8 +187,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        onNotificationsComplete(response.query()!!.notifications()!!.list()!!, !currentContinueStr.isNullOrEmpty())
-                        currentContinueStr = response.query()!!.notifications()!!.getContinue()
+                        onNotificationsComplete(response.query?.notifications()!!.list()!!, !currentContinueStr.isNullOrEmpty())
+                        currentContinueStr = response.query?.notifications()!!.getContinue()
                     }) { t -> setErrorState(t) })
         }
 
@@ -232,7 +234,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             // TODO: remove this condition when the time is right.
             if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
                     n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                    n.category() == Notification.CATEGORY_THANK_YOU_EDIT && Prefs.notificationMilestoneEnabled() ||
+                    n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
                     n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
                     n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
                     n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
@@ -261,16 +263,15 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
-            val wiki = if (dbNameMap.containsKey(item.notification!!.wiki())) dbNameMap[item.notification!!.wiki()]!! else WikipediaApp.getInstance().wikiSite
-            if (!notificationsPerWiki.containsKey(wiki)) {
-                notificationsPerWiki[wiki] = ArrayList()
-            }
-            notificationsPerWiki[wiki]!!.add(item.notification!!)
+            val notification = item.notification!!
+            val wiki = dbNameMap.getOrElse(notification.wiki()) { WikipediaApp.getInstance().wikiSite }
+            notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
             if (markUnread && !displayArchived) {
-                notificationList.add(item.notification!!)
+                notificationList.add(notification)
             } else {
-                notificationList.remove(item.notification)
-                NotificationFunnel(WikipediaApp.getInstance(), item.notification!!).logMarkRead(selectionKey)
+                notificationList.remove(notification)
+                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
+                NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }
         for (wiki in notificationsPerWiki.keys) {
@@ -316,23 +317,14 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private val selectedItemCount get() = notificationContainerList.count { it.selected }
 
+    private val selectedItems get() = notificationContainerList.filter { it.selected }
+
     private fun unselectAllItems() {
         for (item in notificationContainerList) {
             item.selected = false
         }
         binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
     }
-
-    private val selectedItems: List<NotificationListItemContainer>
-        get() {
-            val result: MutableList<NotificationListItemContainer> = ArrayList()
-            for (item in notificationContainerList) {
-                if (item.selected) {
-                    result.add(item)
-                }
-            }
-            return result
-        }
 
     override fun onArchive(notification: Notification) {
         bottomSheetPresenter.dismiss(supportFragmentManager)
@@ -351,18 +343,24 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     @Suppress("LeakingThis")
     private open inner class NotificationItemHolder constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener, OnLongClickListener {
+        private val titleView = view.findViewById<TextView>(R.id.notification_item_title)
+        private val descriptionView = view.findViewById<TextView>(R.id.notification_item_description)
+        private val secondaryActionHintView = view.findViewById<TextView>(R.id.notification_item_secondary_action_hint)
+        private val tertiaryActionHintView = view.findViewById<TextView>(R.id.notification_item_tertiary_action_hint)
+        private val wikiCodeView = view.findViewById<TextView>(R.id.notification_wiki_code)
+        private val wikiCodeImageView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_image)
+        private val wikiCodeBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_background)
+        private val imageContainerView = view.findViewById<View>(R.id.notification_item_image_container)
+        private val imageBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_item_image_background)
+        private val imageSelectedView = view.findViewById<View>(R.id.notification_item_selected_image)
+        private val imageView = view.findViewById<AppCompatImageView>(R.id.notification_item_image)
         lateinit var container: NotificationListItemContainer
-        private val titleView: TextView
-        private val descriptionView: TextView
-        private val wikiCodeView: TextView
-        private val secondaryActionHintView: TextView
-        private val tertiaryActionHintView: TextView
-        private val wikiCodeBackgroundView: AppCompatImageView
-        private val wikiCodeImageView: AppCompatImageView
-        private val imageContainerView: View
-        private val imageSelectedView: View
-        private val imageView: AppCompatImageView
-        private val imageBackgroundView: AppCompatImageView
+
+        init {
+            itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
+            setContextClickAsLongClick(itemView)
+        }
 
         fun bindItem(container: NotificationListItemContainer) {
             this.container = container
@@ -383,7 +381,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     iconResId = R.drawable.ic_user_talk
                     iconBackColor = R.color.green50
                 }
-                Notification.CATEGORY_THANK_YOU_EDIT == s -> {
+                Notification.CATEGORY_MILESTONE_EDIT == s -> {
                     iconResId = R.drawable.ic_edit_progressive
                     iconBackColor = R.color.accent50
                 }
@@ -397,8 +395,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 }
             }
             imageView.setImageResource(iconResId)
-            DrawableCompat.setTint(imageBackgroundView.drawable,
-                    ContextCompat.getColor(this@NotificationActivity, iconBackColor))
+            imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, iconBackColor))
+            secondaryActionHintView.isVisible = false
+            tertiaryActionHintView.isVisible = false
             n.contents?.let {
                 titleView.text = StringUtil.fromHtml(it.header)
                 if (it.body.trim().isNotEmpty()) {
@@ -436,7 +435,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     wikiCodeBackgroundView.visibility = View.VISIBLE
                     wikiCodeView.visibility = View.VISIBLE
                     wikiCodeImageView.visibility = View.GONE
-                    wikiCodeView.text = n.wiki().replace("wiki", "")
+                    val langCode = n.wiki().replace("wiki", "")
+                    wikiCodeView.text = langCode
+                    L10nUtil.setConditionalLayoutDirection(itemView, langCode)
                 }
             }
             if (container.selected) {
@@ -463,23 +464,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             beginMultiSelect()
             toggleSelectItem(container)
             return true
-        }
-
-        init {
-            itemView.setOnClickListener(this)
-            itemView.setOnLongClickListener(this)
-            titleView = view.findViewById(R.id.notification_item_title)
-            descriptionView = view.findViewById(R.id.notification_item_description)
-            secondaryActionHintView = view.findViewById(R.id.notification_item_secondary_action_hint)
-            tertiaryActionHintView = view.findViewById(R.id.notification_item_tertiary_action_hint)
-            wikiCodeView = view.findViewById(R.id.notification_wiki_code)
-            wikiCodeImageView = view.findViewById(R.id.notification_wiki_code_image)
-            wikiCodeBackgroundView = view.findViewById(R.id.notification_wiki_code_background)
-            imageContainerView = view.findViewById(R.id.notification_item_image_container)
-            imageBackgroundView = view.findViewById(R.id.notification_item_image_background)
-            imageSelectedView = view.findViewById(R.id.notification_item_selected_image)
-            imageView = view.findViewById(R.id.notification_item_image)
-            setContextClickAsLongClick(itemView)
         }
     }
 

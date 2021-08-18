@@ -31,6 +31,7 @@
   <string name="offline_load_error_retry">Ɛreḍ tikkelt-nniḍen</string>
   <string name="page_error_back_to_main">Uɣal ar deffir</string>
   <string name="error_back">Uɣal ɣer deffir</string>
+  <string name="error_next">Ɣer zdat</string>
   <string name="menu_clear_all_history">Sfeḍ amazray</string>
   <string name="history_item_deleted">%s yettwakkes seg umazray</string>
   <string name="history_items_deleted">%d n imagraden ttwakksen seg umazray</string>
@@ -50,6 +51,8 @@
   <string name="menu_page_other_languages">Fren tutlayt</string>
   <string name="menu_page_find_in_page">Af-d deg umagrad</string>
   <string name="menu_page_add_to_watchlist">Rnu ɣer umuɣ n uḍfar</string>
+  <string name="menu_page_view_talk">Wali asebter n usqerdec</string>
+  <string name="menu_page_view_edit_history">Wali azray n ubeddel</string>
   <string name="menu_page_remove_from_watchlist">Kkes seg umuɣ n uḍfar</string>
   <string name="edit_section_find_in_page">Nadi deg usebter</string>
   <string name="menu_page_font_and_theme">Tasefsit d usentel</string>
@@ -147,7 +150,7 @@
   <string name="create_account_passwords_mismatch_error">Awal uffiren ur menṭaḍen ara</string>
   <string name="create_account_email_error">Yir tansa imayl</string>
   <string name="create_account_username_error">Yir isekkilen deg isem n useqdac</string>
-  <string name="create_account_password_error">Yir awal uffir</string>
+  <string name="create_account_password_error" fuzzy="true">Yir awal uffir</string>
   <string name="create_account_generic_error">Ur izmir ara ad yernu amiḍan</string>
   <string name="create_account_next">Ar zdat</string>
   <string name="email_recommendation_dialog_title">Asnulfu n umiḍan war tansa imayl?</string>
@@ -161,6 +164,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Ttfaṣil</string>
   <string name="preferences_general_heading">Amatu</string>
+  <string name="preferences_account_heading">Amiḍan</string>
   <string name="wikipedia_app_faq">Isteqsiyen FAQ n isnasen Wikipedia</string>
   <string name="send_feedback">Azen-d tikti ɣef usnas</string>
   <string name="create_account_account_created_toast">Amiḍan yettwarna!</string>
@@ -207,7 +211,7 @@
   <string name="about_translators_heading">Imsuqal</string>
   <string name="about_translators_translatewiki">Asnas-agi suqlen-t imsuqal iwiziwen n &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Turagt</string>
-  <string name="about_app_license">Tangalt aɣbalu yella di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; akked &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; daw n  &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;turagt Apache 2.0&lt;/a&gt;. Ala ma yettwammel akken-nniḍen, agbur yella daw n &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;turagt Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Tangalt aɣbalu yella di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; akked &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; daw n  &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;turagt Apache 2.0&lt;/a&gt;. Ala ma yettwammel akken-nniḍen, agbur yella daw n &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;turagt Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Afaris n &lt;a href=\"https://wikimediafoundation.org/\"&gt;tesbeddit Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Ɣef</string>
   <string name="edit_abandon_confirm">Asebter-agi yettusnifel. Tebɣid ad teffɣeḍ war ma teskelseḍ asnifel-ik?</string>
@@ -557,7 +561,9 @@
   <string name="description_edit_help_wikidata_guide">Amnir n Wikidata  n tira n yeglamen</string>
   <string name="description_edit_anon_limit">Tanemmirt imi turiḍ aglam amaynut ! Akken ad tesnifleḍ ugar, qqen ɣer umiḍan-ik Wikipedia.</string>
   <string name="description_edit_license_notice">Ma beddleɣ aglam n uzwel, ad qebleɣ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec&lt;/a&gt; udiɣ ad rreɣ i lebda attekki-iw ddaw turagt &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Aglam yeffeɣ-d!</string>
+  <string name="description_edit_success_saved">Aglam n umagrad yeffeɣ-d!</string>
+  <string name="description_edit_success_saved_snackbar">Aglam n umagrad yeffeɣ-d!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Aglam n umagrad yeffeɣ-d! (%s)</string>
   <string name="description_edit_success_encouragement">Hatan akken kan i terriḍ Wikipedia yelha i yal yiwen</string>
   <string name="description_edit_success_done">Immed</string>
   <string name="description_edit_success_did_you_know">Tezriḍ?</string>

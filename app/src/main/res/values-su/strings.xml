@@ -129,7 +129,7 @@
   <string name="create_account_passwords_mismatch_error">Kecap sandi teu akur</string>
   <string name="create_account_email_error">Alamat surélék teu sah</string>
   <string name="create_account_username_error">Karakter dina sandiasma teu sah</string>
-  <string name="create_account_password_error">Kecap sandi teu sah</string>
+  <string name="create_account_password_error" fuzzy="true">Kecap sandi teu sah</string>
   <string name="create_account_generic_error">Teu bisa nyieun akun</string>
   <string name="create_account_next">Saterusna</string>
   <string name="email_recommendation_dialog_title">Jieun akun tanpa alamat surélék?</string>
@@ -181,7 +181,7 @@
   <string name="about_translators_heading">Panarjamah</string>
   <string name="about_translators_translatewiki">Ieu aplikasi ditarjamahkeun ku rélawan dina &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisénsi</string>
-  <string name="about_app_license">Kodeu sumber nyangkaruk di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gérrit&lt;/a&gt; jeung &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di handapeun &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisénsi Apache 2.0&lt;/a&gt;. Eusi nyangkaruk na handapeun &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisénsi Atribusi-BabagiSarupa Creative Commons&lt;/a&gt; iwal mun dikedalkeun lian.</string>
+  <string name="about_app_license" fuzzy="true">Kodeu sumber nyangkaruk di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gérrit&lt;/a&gt; jeung &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di handapeun &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisénsi Apache 2.0&lt;/a&gt;. Eusi nyangkaruk na handapeun &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisénsi Atribusi-BabagiSarupa Creative Commons&lt;/a&gt; iwal mun dikedalkeun lian.</string>
   <string name="about_wmf" fuzzy="true">Hiji prodak ti &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimédia&lt;/a&gt;</string>
   <string name="about_activity_title">Ngeunaan</string>
   <string name="edit_abandon_confirm">Ieu kaca geus dirobah. Anjeun rék kaluar tanpa nyimpen parobahan?</string>

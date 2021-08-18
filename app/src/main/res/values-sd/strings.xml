@@ -142,7 +142,7 @@
   <string name="create_account_passwords_mismatch_error">ڳجھالفظ نٿا ملن</string>
   <string name="create_account_email_error">ناقابلِڪار برقٽپال پتو</string>
   <string name="create_account_username_error">واپرائيندڙ-نانءَ ۾ ناقابلڪار نشانيون</string>
-  <string name="create_account_password_error">ڳجھولفظ ناقابلِڪار آھي</string>
+  <string name="create_account_password_error" fuzzy="true">ڳجھولفظ ناقابلِڪار آھي</string>
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
   <string name="email_recommendation_dialog_title">بغير برقٽپال جي کاتو کوليون؟</string>
@@ -192,7 +192,7 @@
   <string name="about_translators_heading">ترجميڪارَ</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_app_license_heading">اجازتنامو</string>
-  <string name="about_app_license">سورس ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ھيٺ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; موجود آھي. نہ تہ ٻي صورت واضع ڪيل آھي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز انتساب-ھڪجھڙي-ونڊ&lt;/a&gt; ھيٺ موجود آھي.</string>
+  <string name="about_app_license" fuzzy="true">سورس ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ھيٺ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; موجود آھي. نہ تہ ٻي صورت واضع ڪيل آھي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز انتساب-ھڪجھڙي-ونڊ&lt;/a&gt; ھيٺ موجود آھي.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;وڪيميڊيا فائونڊيشن&lt;/a&gt; جي مصنوع</string>
   <string name="about_activity_title">بابت</string>
   <string name="edit_abandon_confirm">هيءُ صفحو بدلائجي چڪو آهي. توهان کي پڪ آهي تہ توهان تبديليون سانڍڻ کان سواءِ ڇڏي وڃڻ چاهيو ٿا؟</string>
@@ -657,7 +657,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">مضمون جي تشريح وجھو (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع ڪريو</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">عڪس جو عنوان (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">عڪس جي تشريح (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">عڪس</string>
   <string name="suggested_edits_image_preview_dialog_artist">فنڪار</string>
   <string name="suggested_edits_image_preview_dialog_tags">ٽيگَ</string>

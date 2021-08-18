@@ -49,7 +49,9 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
     }
 
     fun showWiktionaryDefinition(text: String) {
-        fragment.showBottomSheet(WiktionaryDialog.newInstance(fragment.title, text))
+        fragment.title?.let {
+            fragment.showBottomSheet(WiktionaryDialog.newInstance(it, text))
+        }
     }
 
     fun onTextSelected(mode: ActionMode) {
@@ -75,7 +77,7 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
     }
 
     fun shouldEnableWiktionaryDialog(): Boolean {
-        return WiktionaryDialog.enabledLanguages.contains(fragment.title.wikiSite.languageCode())
+        return fragment.title?.run { WiktionaryDialog.enabledLanguages.contains(wikiSite.languageCode) } ?: false
     }
 
     private inner class RequestTextSelectOnMenuItemClickListener constructor(private val purpose: String) : MenuItem.OnMenuItemClickListener {
@@ -92,7 +94,7 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
                     messagePayload = JSONObject(value)
                     val text = messagePayload.optString(PAYLOAD_TEXT_KEY, "")
                     when (purpose) {
-                        PAYLOAD_PURPOSE_DEFINE -> showWiktionaryDefinition(text.toLowerCase(Locale.getDefault()))
+                        PAYLOAD_PURPOSE_DEFINE -> showWiktionaryDefinition(text.lowercase(Locale.getDefault()))
                         PAYLOAD_PURPOSE_EDIT_HERE -> onEditHerePayload(messagePayload.optInt("section", 0), text, messagePayload.optBoolean("isTitleDescription", false))
                         else -> L.d("Unknown purpose=$purpose")
                     }

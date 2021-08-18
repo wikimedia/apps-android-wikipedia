@@ -40,7 +40,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
                 binding.referencePager.adapter = ReferencesAdapter(this)
                 TabLayoutMediator(binding.pageIndicatorView, binding.referencePager) { _, _ -> }.attach()
                 binding.referencePager.setCurrentItem(it.selectedReferenceIndex, true)
-                L10nUtil.setConditionalLayoutDirection(binding.root, it.linkHandler.wikiSite.languageCode())
+                L10nUtil.setConditionalLayoutDirection(binding.root, it.linkHandler.wikiSite.languageCode)
             } ?: return@let null
         } ?: run {
             dismiss()
@@ -70,7 +70,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
         if (newLinkText.contains("alpha ")) {
             val strings = newLinkText.split(" ")
             var alphaReference = StringUtil.getBase26String(strings[strings.size - 1].replace("]", "").toInt())
-            alphaReference = if (isLowercase) alphaReference.toLowerCase(Locale.getDefault()) else alphaReference
+            alphaReference = if (isLowercase) alphaReference.lowercase(Locale.getDefault()) else alphaReference
             newLinkText = alphaReference
         }
         return newLinkText.replace("[\\[\\]]".toRegex(), "") + "."

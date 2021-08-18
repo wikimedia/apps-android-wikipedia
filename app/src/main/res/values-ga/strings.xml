@@ -138,7 +138,7 @@
   <string name="create_account_passwords_mismatch_error">Ní mar a chéile na pasfhocail</string>
   <string name="create_account_email_error">Seoladh ríomhphoist neamhbhailí</string>
   <string name="create_account_username_error">Carachtair neamhbhailí san ainm úsáideora</string>
-  <string name="create_account_password_error">Tá an pasfhocal neamhbhailí</string>
+  <string name="create_account_password_error" fuzzy="true">Tá an pasfhocal neamhbhailí</string>
   <string name="create_account_generic_error">Níorbh fhéidir cuntas a chruthú</string>
   <string name="create_account_next">Ar aghaidh</string>
   <string name="email_recommendation_dialog_title">Cruthaigh cuntas gan seoladh ríomhphoist?</string>
@@ -191,7 +191,7 @@
   <string name="about_translators_heading">Aistritheoirí</string>
   <string name="about_translators_translatewiki">Tá an aip seo arna aistriú ag na haistritheoirí deonacha de chuid &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ceadúnas</string>
-  <string name="about_app_license">Cód foinseach ar fáil ar &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; agus &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; faoin &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;gCeadúnas Apache 2.0&lt;/a&gt;. Mura luaitear a mhalairt, tá an t-inneachar ar fáil faoi &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Cheadúnas Sannta-ComhroinnteComhionnaine Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Cód foinseach ar fáil ar &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; agus &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; faoin &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;gCeadúnas Apache 2.0&lt;/a&gt;. Mura luaitear a mhalairt, tá an t-inneachar ar fáil faoi &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Cheadúnas Sannta-ComhroinnteComhionnaine Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Táirge de chuid na &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondúireachta Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Maidir leis</string>
   <string name="edit_abandon_confirm">Mionathraíodh an leathanach. An bhfuil tú cinnte gur mhaith leat scor gan do chuid athruithe a shábháil?</string>
@@ -299,7 +299,7 @@
   <string name="preference_summary_show_link_previews">Taispeáin réamhamharc gasta ar ailt nuair a thapáiltear ar naisc.</string>
   <string name="preference_title_collapse_tables">Fill táblaí</string>
   <string name="preference_summary_collapse_tables">Fill táblaí go huathoibríoch in ailt, de shaghas bhoscaí eolais, tagairtí, agus nótaí.</string>
-  <string name="nav_item_donate">Bronn airgead</string>
+  <string name="nav_item_donate">Tabhair airgead</string>
   <string name="error_voice_search_not_available">Tá brón orainn, níl aithint gutha ar fáil.</string>
   <string name="location_service_disabled">Díchumasaítear seirbhísí suímh.</string>
   <string name="enable_location_service">Cumasaigh</string>
@@ -342,6 +342,7 @@
   <string name="text_size_decrease">Laghdaigh méid an téacs</string>
   <string name="text_size_percent_default">%s (Réamhshocrú)</string>
   <string name="text_style_title">Cló</string>
+  <string name="nav_item_saved">Sábháilte</string>
   <string name="reading_list_save_to">Sábháil ar liosta léitheoireachta</string>
   <string name="reading_list_move_to">Bog chuig liosta léitheoireachta</string>
   <string name="reading_list_create_new">Cruthaigh nua</string>
@@ -569,14 +570,18 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag</string>
   <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
+  <string name="suggested_edits_caption_images">Fotheidealaigh íomhánna</string>
   <string name="suggested_edits_review_description" fuzzy="true">Athbhreithnigh sainchuntas teidil</string>
   <string name="suggested_edits_add_description_button">Cuir sainchuntas leis</string>
+  <string name="suggested_edits_add_caption_button">Cuir fotheideal leis</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Cuir sainchuntais theideal leis</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Fotheidil íomhánna</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Cuir fotheidil le híomhánna</string>
   <string name="suggested_edits_task_multilingual_title">Tuilleadh tascanna d\'eagarthóirí ilteangacha</string>
   <string name="suggested_edits_task_multilingual_negative">Ní domsa é</string>
   <string name="suggested_edits_task_multilingual_positive">Cuir teangacha leis</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Íomhá</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Údar</string>
   <string name="suggested_edits_image_caption_summary_title_license">Ceadúnas</string>
   <string name="suggested_edits_image_caption_summary_title_date">Dáta</string>
   <plurals name="suggested_edits_contribution_count" fuzzy="true">
@@ -588,6 +593,7 @@
   <string name="suggested_edits_image_preview_dialog_source">Foinse/Grianghrafadóir</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Ceadúnú</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Tuilleadh Eolais</string>
+  <string name="suggested_edits_task_action_text_add">Cuir leis</string>
   <string name="suggested_edits_task_action_text_translate">Aistrigh</string>
   <string name="suggested_edits_quality_perfect_text">Foirfe</string>
   <string name="suggested_edits_quality_excellent_text">Thar barr</string>
@@ -606,9 +612,6 @@
   <string name="suggested_edits_contribution_article_label">Alt</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Inné</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Logáil isteach / cláraigh le Vicipéid</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">Togha, lean ar aghaidh! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">Bhain tú sprioc an lae amach!👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Bhain tú an sprioc amach</string>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
   <string name="description_edit_revert_intro">Tá súil againn go rinne tó do dhícheall, ach bhí imní ar cheann de na léirmheastóirí. Is féidir gurb iad seo a leanas i measc na bhfáthanna a filleadh d\'athrú ar an mbunleagan:</string>
   <string name="description_edit_revert_reason1">níor chloígh do chuid ábhair le ceann de na &lt;a href=\"%1$s\"&gt;treoirlínte&lt;/a&gt;.</string>

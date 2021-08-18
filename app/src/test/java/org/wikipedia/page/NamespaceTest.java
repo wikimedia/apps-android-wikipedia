@@ -11,7 +11,6 @@ import java.util.Locale;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import static org.wikipedia.page.Namespace.FILE;
 import static org.wikipedia.page.Namespace.MAIN;
 import static org.wikipedia.page.Namespace.MEDIA;
@@ -100,15 +99,5 @@ import static org.wikipedia.page.Namespace.USER_TALK;
 
     @Test public void testTalkOdd() {
         assertThat(TALK.talk(), is(true));
-    }
-
-    @Test public void testToLegacyStringMain() {
-        //noinspection deprecation
-        assertThat(MAIN.toLegacyString(), nullValue());
-    }
-
-    @Test public void testToLegacyStringNonMain() {
-        //noinspection deprecation
-        assertThat(TALK.toLegacyString(), is("Talk"));
     }
 }

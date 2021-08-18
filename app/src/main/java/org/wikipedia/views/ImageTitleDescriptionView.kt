@@ -2,7 +2,6 @@ package org.wikipedia.views
 
 import android.app.Activity
 import android.content.Context
-import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -70,13 +69,13 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         binding.circularProgressBar.progressColor = ContextCompat.getColor(context, iconTint)
         binding.circularProgressBar.visibility = View.VISIBLE
 
-        ImageViewCompat.setImageTintList(binding.circularProgressBarOverlay, ColorStateList.valueOf(ContextCompat.getColor(context, backgroundTint)))
+        ImageViewCompat.setImageTintList(binding.circularProgressBarOverlay, AppCompatResources.getColorStateList(context, backgroundTint))
         binding.circularProgressBarOverlay.visibility = View.VISIBLE
 
         binding.title.text = context.getString(textRes)
 
         binding.image.setImageResource(iconRes)
-        ImageViewCompat.setImageTintList(binding.image, ColorStateList.valueOf(ContextCompat.getColor(context, iconTint)))
+        ImageViewCompat.setImageTintList(binding.image, AppCompatResources.getColorStateList(context, iconTint))
 
         val params = binding.image.layoutParams
         params.width = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.suggested_edits_icon_size) * 3 / 4)

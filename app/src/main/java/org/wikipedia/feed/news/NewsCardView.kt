@@ -13,11 +13,12 @@ import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.ImageZoomHelper
 
 class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
 
     interface Callback {
-        fun onNewsItemSelected(card: NewsCard, view: NewsItemView?)
+        fun onNewsItemSelected(card: NewsCard, view: NewsItemView)
     }
 
     private val binding = ViewCardNewsBinding.inflate(LayoutInflater.from(context), this, true)
@@ -29,12 +30,12 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
         val indicatorHeight = 20
         binding.newsRecyclerView.addItemDecoration(
             RecyclerViewIndicatorDotDecor(
-                DimenUtil.roundedDpToPx(indicatorRadius.toFloat()),
+                DimenUtil.roundedDpToPx(indicatorRadius.toFloat()).toFloat(),
                 DimenUtil.roundedDpToPx(indicatorPadding.toFloat()),
                 DimenUtil.roundedDpToPx(indicatorHeight.toFloat()),
                 ResourceUtil.getThemedColor(context, R.attr.chart_shade5),
                 ResourceUtil.getThemedColor(context, R.attr.colorAccent),
-                L10nUtil.isLangRTL(card.wikiSite().languageCode())
+                L10nUtil.isLangRTL(card.wikiSite().languageCode)
             )
         )
     }
@@ -78,7 +79,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
 
     private fun header(card: NewsCard) {
         binding.headerView.setTitle(card.title())
-            .setLangCode(card.wikiSite().languageCode())
+            .setLangCode(card.wikiSite().languageCode)
             .setCard(card)
     }
 
@@ -104,6 +105,12 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
             holder.bindItem(card.news()[position])
             holder.view.setOnClickListener {
                 callback?.onNewsItemSelected(card, holder.view)
+            }
+            holder.view.setOnLongClickListener {
+                if (ImageZoomHelper.isZooming) {
+                    ImageZoomHelper.dispatchCancelEvent(holder.view)
+                }
+                true
             }
         }
 

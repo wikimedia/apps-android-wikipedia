@@ -158,7 +158,7 @@
   <string name="create_account_passwords_mismatch_error">Adgangskoderne er ikke ens</string>
   <string name="create_account_email_error">Ugyldig e-mailadresse</string>
   <string name="create_account_username_error">Ugyldige tegn i brugernavn</string>
-  <string name="create_account_password_error">Adgangskoden er ugyldig</string>
+  <string name="create_account_password_error" fuzzy="true">Adgangskoden er ugyldig</string>
   <string name="create_account_generic_error">Kunne ikke oprette konto</string>
   <string name="create_account_next">Næste</string>
   <string name="email_recommendation_dialog_title">Opret konto uden email adresse?</string>
@@ -172,6 +172,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
+  <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Send feedback</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
@@ -214,14 +215,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Anvendte biblioteker</string>
   <string name="about_contributors_heading">Bidragsydere</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamside&lt;/a&gt;</string>
   <string name="about_translators_heading">Oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license">Kildekode tilgængelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-licensen&lt;/a&gt;. Med mindre andet er angivet er indhold tilgængeligt under &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Kreditering-DelPåSammeVilkår-licensen&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kildekode tilgængelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-licensen&lt;/a&gt;. Med mindre andet er angivet er indhold tilgængeligt under &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Kreditering-DelPåSammeVilkår-licensen&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Den side er blevet ændret. Er du sikker på at du vil afslutte uden at gemme dine ændringer?</string>
@@ -729,7 +729,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Tilføj artikelbeskrivelse (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Billedtekst (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Billedebeskrivelse (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Fil</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Fil fra Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Kunstner</string>
@@ -864,19 +863,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Annullér</string>
   <string name="edit_type_all">Alle bidrag</string>
   <string name="content_description_for_page_indicator">Side %1$d af %2$d</string>
-  <string name="image_recommendations_task_accept">Ja</string>
-  <string name="image_recommendations_task_reject">Nej</string>
-  <string name="image_recommendations_task_not_sure">Ikke sikker</string>
-  <string name="image_recommendations_task_choice_no">Hvorfor valgte du nej?</string>
-  <string name="image_recommendations_task_choice_not_relevant">Ikke relevant</string>
-  <string name="image_recommendations_task_choice_low_quality">Lav kvalitet</string>
-  <string name="image_recommendations_task_choice_nosubject">Kender ikke til stoffet</string>
-  <string name="image_recommendations_task_choice_offensive">Stødende</string>
-  <string name="image_recommendations_task_choice_invisible">Kan ikke se billedet</string>
-  <string name="image_recommendations_task_choice_understand">Forstår ikke opgaven</string>
-  <string name="image_recommendations_task_choice_language">Kan ikke læse sproget</string>
-  <string name="image_recommendations_task_choice_other">Andet</string>
-  <string name="image_recommendations_task_choice_continue">Fortsæt</string>
   <string name="wikitext_bold">Fed</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_numbered_list">Nummereret liste</string>

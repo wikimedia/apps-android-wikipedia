@@ -7,19 +7,11 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.staticdata.MainPageNameData;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.emptyString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
 @RunWith(RobolectricTestRunner.class) public class PageTitleTest {
-    @Test public void testEquals() {
-        assertThat(new PageTitle(null, "India", WikiSite.forLanguageCode("en")).equals(new PageTitle(null, "India", WikiSite.forLanguageCode("en"))), is(true));
-        assertThat(new PageTitle("Talk", "India",  WikiSite.forLanguageCode("en")).equals(new PageTitle("Talk", "India", WikiSite.forLanguageCode("en"))), is(true));
-
-        assertThat(new PageTitle(null, "India",  WikiSite.forLanguageCode("ta")).equals(new PageTitle(null, "India", WikiSite.forLanguageCode("en"))), is(false));
-        assertThat(new PageTitle("Talk", "India",  WikiSite.forLanguageCode("ta")).equals(new PageTitle("Talk", "India", WikiSite.forLanguageCode("en"))), is(false));
-        assertThat(new PageTitle("Talk", "India",  WikiSite.forLanguageCode("ta")).equals("Something else"), is(false));
-    }
-
     @Test public void testPrefixedText() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
@@ -33,7 +25,7 @@ import static org.hamcrest.Matchers.nullValue;
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
         assertThat(enwiki.titleForInternalLink("/wiki/India").getPrefixedText(), is("India"));
-        assertThat(enwiki.titleForInternalLink("/wiki/India").getNamespace(), nullValue());
+        assertThat(enwiki.titleForInternalLink("/wiki/India").getNamespace(), emptyString());
 
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getNamespace(), is("Talk"));
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getText(), is("India"));
@@ -41,7 +33,7 @@ import static org.hamcrest.Matchers.nullValue;
 
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getNamespace(), is("Talk"));
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getText(), is("India"));
-        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), is(""));
+        assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#").getFragment(), nullValue());
 
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getNamespace(), is("Talk"));
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getText(), is("India"));
@@ -68,7 +60,6 @@ import static org.hamcrest.Matchers.nullValue;
 
     @Test public void testWikiSite() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
-
         assertThat(new PageTitle(null, "Test", enwiki).getWikiSite(), is(enwiki));
         assertThat(WikiSite.forLanguageCode("en"), is(enwiki));
     }
@@ -99,7 +90,7 @@ import static org.hamcrest.Matchers.nullValue;
 
     @Test public void testMainPage() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
-        assertThat(new PageTitle("", enwiki), is(new PageTitle(MainPageNameData.valueFor("en"), enwiki)));
+        assertThat(new PageTitle("", enwiki).getPrefixedText(), is(new PageTitle(MainPageNameData.valueFor("en"), enwiki).getPrefixedText()));
     }
 
     @Test public void testIsMainPageNoTitleNoProps() {
@@ -121,14 +112,14 @@ import static org.hamcrest.Matchers.nullValue;
     /** https://bugzilla.wikimedia.org/66151 */
     @Test public void testHashChar() {
         PageTitle pageTitle = new PageTitle("#", WikiSite.forLanguageCode("en"));
-        assertThat(pageTitle.getNamespace(), nullValue());
+        assertThat(pageTitle.getNamespace(), emptyString());
         assertThat(pageTitle.getText(), is(""));
-        assertThat(pageTitle.getFragment(), is(""));
+        assertThat(pageTitle.getFragment(), nullValue());
     }
 
     @Test public void testColonChar() {
         PageTitle pageTitle = new PageTitle(":", WikiSite.forLanguageCode("en"));
-        assertThat(pageTitle.getNamespace(), nullValue());
+        assertThat(pageTitle.getNamespace(), emptyString());
         assertThat(pageTitle.getText(), is(":"));
         assertThat(pageTitle.getFragment(), nullValue());
     }

@@ -1,6 +1,7 @@
 package org.wikipedia.util
 
 import android.content.res.Configuration
+import android.text.TextUtils
 import android.util.SparseArray
 import android.view.View
 import androidx.annotation.StringRes
@@ -11,22 +12,16 @@ import org.wikipedia.page.PageTitle
 import java.util.*
 
 object L10nUtil {
-
-    private val RTL_LANGS = arrayOf(
-            "ar", "arc", "arz", "azb", "bcc", "bqi", "ckb", "dv", "fa", "glk", "he",
-            "khw", "ks", "lrc", "mzn", "nqo", "pnb", "ps", "sd", "ug", "ur", "yi"
-    )
-
     @JvmStatic
     val isDeviceRTL: Boolean
-        get() = isCharRTL(Locale.getDefault().displayName[0])
+        get() = TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL
 
     private val currentConfiguration: Configuration
         get() = Configuration(WikipediaApp.getInstance().resources.configuration)
 
     @JvmStatic
     fun isLangRTL(lang: String): Boolean {
-        return RTL_LANGS.binarySearch(lang) >= 0
+        return TextUtils.getLayoutDirectionFromLocale(Locale(lang)) == View.LAYOUT_DIRECTION_RTL
     }
 
     @JvmStatic
@@ -36,12 +31,7 @@ object L10nUtil {
 
     @JvmStatic
     fun setConditionalLayoutDirection(view: View, lang: String) {
-        view.layoutDirection = if (isLangRTL(lang)) View.LAYOUT_DIRECTION_RTL else View.LAYOUT_DIRECTION_LTR
-    }
-
-    private fun isCharRTL(c: Char): Boolean {
-        val dir = Character.getDirectionality(c).toInt()
-        return dir == Character.DIRECTIONALITY_RIGHT_TO_LEFT.toInt() || dir == Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC.toInt()
+        view.layoutDirection = TextUtils.getLayoutDirectionFromLocale(Locale(lang))
     }
 
     @JvmStatic
@@ -51,11 +41,11 @@ object L10nUtil {
 
     @JvmStatic
     fun getStringForArticleLanguage(title: PageTitle, resId: Int): String {
-        return getStringsForLocale(Locale(title.wikiSite.languageCode()), intArrayOf(resId))[resId]
+        return getStringsForLocale(Locale(title.wikiSite.languageCode), intArrayOf(resId))[resId]
     }
 
     fun getStringsForArticleLanguage(title: PageTitle, resId: IntArray): SparseArray<String> {
-        return getStringsForLocale(Locale(title.wikiSite.languageCode()), resId)
+        return getStringsForLocale(Locale(title.wikiSite.languageCode), resId)
     }
 
     private fun getStringsForLocale(targetLocale: Locale,

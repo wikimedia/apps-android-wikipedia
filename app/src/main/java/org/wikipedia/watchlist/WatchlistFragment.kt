@@ -133,7 +133,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
                     val items = ArrayList<MwQueryResult.WatchlistItem>()
                     resultList.forEachIndexed { index, result ->
                         val wiki = WikiSite.forLanguageCode(displayLanguages[index])
-                        for (item in (result as MwQueryResponse).query()!!.watchlist) {
+                        (result as MwQueryResponse).query?.watchlist?.forEach { item ->
                             item.wiki = wiki
                             items.add(item)
                         }
@@ -303,7 +303,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             return
         }
         startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), item.title,
-                item.revid, item.wiki.languageCode()))
+                item.revid, item.wiki.languageCode))
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem) {

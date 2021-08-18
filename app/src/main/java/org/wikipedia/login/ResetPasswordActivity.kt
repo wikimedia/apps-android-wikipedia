@@ -66,7 +66,7 @@ class ResetPasswordActivity : BaseActivity() {
     private fun validateThenLogin() {
         clearErrors()
         when (validateInput(userName, getText(binding.resetPasswordInput), getText(binding.resetPasswordRepeat), "")) {
-            ValidateResult.INVALID_PASSWORD -> {
+            ValidateResult.PASSWORD_TOO_SHORT -> {
                 binding.resetPasswordInput.requestFocus()
                 binding.resetPasswordInput.error = getString(R.string.create_account_password_error)
                 return
@@ -114,9 +114,9 @@ class ResetPasswordActivity : BaseActivity() {
             }
         }
 
-        override fun twoFactorPrompt(caught: Throwable, token: String) {
+        override fun twoFactorPrompt(caught: Throwable, token: String?) {
             showProgressBar(false)
-            firstStepToken = token
+            firstStepToken = token.orEmpty()
             binding.login2faText.visibility = View.VISIBLE
             binding.login2faText.requestFocus()
             FeedbackUtil.showError(this@ResetPasswordActivity, caught)

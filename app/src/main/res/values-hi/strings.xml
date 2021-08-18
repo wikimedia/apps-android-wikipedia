@@ -128,7 +128,7 @@
   <string name="create_account_passwords_mismatch_error">पासवर्ड्स मैच नहीं हो रहे</string>
   <string name="create_account_email_error">अवैध ईमेल पता</string>
   <string name="create_account_username_error">सदस्यनाम में अमान्य अक्षर</string>
-  <string name="create_account_password_error">ये पासवर्ड अमान्य है</string>
+  <string name="create_account_password_error" fuzzy="true">ये पासवर्ड अमान्य है</string>
   <string name="create_account_generic_error">खाता नहीं बन सका</string>
   <string name="create_account_next">अगला</string>
   <string name="create_account_button">खाता बनायें</string>
@@ -176,7 +176,7 @@
   <string name="about_translators_heading">अनुवादक</string>
   <string name="about_translators_translatewiki">इस एप को स्वयंसेवक अनुवादकों के द्वारा &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; पर अनुवादित किया गया है।</string>
   <string name="about_app_license_heading">लाइसेंस</string>
-  <string name="about_app_license">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;अपाचे 2.0 लाइसेंस के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया हो सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;क्रिएटिव्स कॉमन्स अट्ट्रिब्यूशन-शेयरअलाइक लाइसेंस के तहत है&lt;/a&gt;।</string>
+  <string name="about_app_license" fuzzy="true">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;अपाचे 2.0 लाइसेंस के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया हो सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;क्रिएटिव्स कॉमन्स अट्ट्रिब्यूशन-शेयरअलाइक लाइसेंस के तहत है&lt;/a&gt;।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमीडिया संस्थान&lt;/a&gt; का एक उत्पाद</string>
   <string name="about_activity_title">बारे में</string>
   <string name="edit_abandon_confirm">पृष्ठ को संशोधित किया गया है। क्या आप अपने परिवर्तन को सहेजने के बिना निकास करना चाहते है?</string>
@@ -419,7 +419,6 @@
   <string name="suggested_edits_reactivation_notification_title">सुझाए गए संपादन</string>
   <string name="suggested_edits_reactivation_notification_stage_one">विकिपीडिया के संपादन के लिए धन्यवाद!  जहाँ आपने छोड़ा था, उसी स्थान से फिर शुरू करें?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">क्या विकिपीडिया में सुधार जारी रखने के लिए आपके पास एक मिनट है?  इन संपादन सुझावों को देखें।</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">शुरू करें</string>
   <string name="description_edit_revert_subtitle">विकिपीडिया में संपादन के लिए धन्यवाद!</string>
   <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन समीक्षक में से एक को चिंता है।\nआपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
@@ -446,7 +445,6 @@
     <item quantity="other">%d साल पहले</item>
   </plurals>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
-  <string name="image_recommendations_task_choice_other">अन्य</string>
   <string name="talk_title">वार्ता</string>
   <string name="talk_add_reply">जवाब दें</string>
 </resources>

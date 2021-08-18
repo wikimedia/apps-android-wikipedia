@@ -7,6 +7,7 @@
 * Bonfire12
 * Buntschann
 * Dbrant
+* Fumi37s
 * GAMEZONE628
 * Hzy980512
 * Kanon und wikipedia
@@ -14,6 +15,7 @@
 * Kokoko-H
 * LaMagiaaa
 * Los688
+* MathXplore
 * Mirinano
 * Omotecho
 * Otokoume
@@ -30,6 +32,7 @@
 * Takot
 * Thibaut120094
 * Tmv
+* UsagiNeko
 * Waki285
 * Wat
 * Wicklo
@@ -182,7 +185,7 @@
   <string name="create_account_passwords_mismatch_error">パスワードが一致しません</string>
   <string name="create_account_email_error">無効なメールアドレスです</string>
   <string name="create_account_username_error">利用者名に無効な文字が使用されています</string>
-  <string name="create_account_password_error">パスワードが無効です</string>
+  <string name="create_account_password_error" fuzzy="true">パスワードが無効です</string>
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
   <string name="create_account_next">次へ</string>
   <string name="email_recommendation_dialog_title">メールアドレスなしでアカウントを作成しますか?</string>
@@ -239,14 +242,13 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#Train_image_algorithm</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;チームページ&lt;/a&gt;</string>
   <string name="about_translators_heading">翻訳者</string>
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_app_license_heading">ライセンス</string>
-  <string name="about_app_license">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 ライセンス&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;クリエイティブ・コモンズ表示 - 継承ライセンス&lt;/a&gt;の下で提供されます。</string>
+  <string name="about_app_license">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;の下で提供されます。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ウィキメディア財団&lt;/a&gt;のプロダクト</string>
   <string name="about_activity_title">このアプリについて</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
@@ -390,6 +392,7 @@
   <string name="page_footer_license_text">コンテンツは、特に記載されていない限り、$1のもとで利用可能です。</string>
   <string name="empty_tab_title">新しいタブ</string>
   <string name="menu_save_all_tabs">すべてのタブを保存</string>
+  <string name="error_blocked_title">あなたのユーザー名またはIPアドレスはブロックされています。</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
@@ -756,7 +759,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">記事の説明を追加 (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">始める</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">画像キャプション (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">画像の説明 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ファイル</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">ウィキメディア・コモンズからのファイル</string>
   <string name="suggested_edits_image_preview_dialog_artist">作者</string>
@@ -879,12 +881,6 @@
     <item quantity="one">%d文字追加しました</item>
     <item quantity="other">%d文字追加しました</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">画像処理アルゴリズムの学習</string>
-  <string name="suggested_edits_image_recommendations_task_detail">提案された画像が記事の改善につながるかどうかを判断します。</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">始める</string>
-  <string name="suggested_edits_image_recommendations_task_goal_progress">その調子です! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_complete">毎日の目標を達成しました！👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">あなたは毎日の目標を達成しました</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>
@@ -960,16 +956,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">キャンセル</string>
   <string name="edit_type_all">すべての投稿記録</string>
   <string name="content_description_for_page_indicator">全%2$dページの%1$dページ目</string>
-  <string name="image_recommendations_task_accept">はい</string>
-  <string name="image_recommendations_task_reject">いいえ</string>
-  <string name="image_recommendations_task_not_sure">不確実</string>
-  <string name="image_recommendations_task_processing">処理中...</string>
-  <string name="image_recommendations_task_choice_low_quality">低クオリティ</string>
-  <string name="image_recommendations_task_choice_noinfo">情報が不足しています</string>
-  <string name="image_recommendations_task_choice_offensive">攻撃的</string>
-  <string name="image_recommendations_task_choice_invisible">画像が見れません</string>
-  <string name="image_recommendations_task_choice_other">その他</string>
-  <string name="image_recommendations_task_choice_continue">続行</string>
   <string name="wikitext_bold">太字</string>
   <string name="wikitext_italic">斜体</string>
   <string name="wikitext_link">リンク</string>
@@ -992,6 +978,7 @@
   <string name="talk_title">トーク</string>
   <string name="talk_user_title">トーク: %s</string>
   <string name="talk_new_topic">新しい話題</string>
+  <string name="talk_new_topic_submitted">トピックが投稿されました。</string>
   <string name="talk_page_empty">トークページは空です。</string>
   <string name="talk_add_reply">返信</string>
   <string name="talk_no_subject">(件名なし)</string>
@@ -1000,6 +987,8 @@
   <string name="talk_message_hint">メッセージを組み立てる</string>
   <string name="talk_message_empty">メッセージを空にすることはできません。</string>
   <string name="talk_subject_empty">件名を空にすることはできません。</string>
+  <string name="talk_response_submitted">返信が送信されました。</string>
+  <string name="talk_snackbar_undo">取り消す</string>
   <string name="menu_option_share_edit">編集をシェア</string>
   <string name="menu_option_user_profile">%s のプロフィール</string>
   <string name="menu_option_user_contributions">%s の投稿記録</string>

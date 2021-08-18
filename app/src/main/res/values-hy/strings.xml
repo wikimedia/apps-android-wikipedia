@@ -122,7 +122,7 @@
   <string name="create_account_password_repeat_hint">Կրկնել գաղտնաբառը</string>
   <string name="create_account_passwords_mismatch_error">Գաղտնաբառերը չեն համընկնում</string>
   <string name="create_account_email_error">Սխալ էլփոստի հասցե</string>
-  <string name="create_account_password_error">Սխալ գաղտնաբառ</string>
+  <string name="create_account_password_error" fuzzy="true">Սխալ գաղտնաբառ</string>
   <string name="create_account_next">Հաջորդ</string>
   <string name="email_recommendation_dialog_create_with_email_action">Նշեք էլ. փոստի հասցե</string>
   <string name="create_account_button">Ստեղծել մասնակցային հաշիվ</string>
@@ -294,7 +294,6 @@
   <string name="suggested_edits_contribution_image_label" fuzzy="true">Նիշք</string>
   <string name="suggested_edits_contribution_article_label">Հոդված</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Երեկ</string>
-  <string name="suggested_edits_image_recommendations_task_get_started">Սկսել</string>
   <string name="file_page_activity_title">Նիշքի էջը</string>
   <string name="description_edit_login_cancel_button_text">Չեղարկել</string>
   <string name="onboarding_skip">Բաց թողնել</string>
@@ -325,12 +324,6 @@
   <string name="edit_conflict_dialog_ok_button_text">Լավ</string>
   <string name="reverted_edit_dialog_ok_button_text">Լավ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Չեղարկել</string>
-  <string name="image_recommendations_task_accept">Այո</string>
-  <string name="image_recommendations_task_reject">Ոչ</string>
-  <string name="image_recommendations_task_not_sure">Վստահ չեմ</string>
-  <string name="image_recommendations_task_processing">Վերամշակում ...</string>
-  <string name="image_recommendations_task_choice_continue">Շարունակել</string>
-  <string name="image_recommendations_faq">ՀՏՀ</string>
   <string name="wikitext_bold">Թավատառ</string>
   <string name="wikitext_italic">Շեղատառ</string>
   <string name="wikitext_link">Հղում</string>
@@ -351,6 +344,7 @@
   <string name="talk_reply_subject">Թեմա</string>
   <string name="talk_reply_hint">Պատասխան գրել</string>
   <string name="talk_message_hint">Հաղորդագրություն գրել</string>
+  <string name="talk_snackbar_undo">Հետ շրջել</string>
   <string name="watchlist_details_watch_label">Հսկել</string>
   <string name="thank_dialog_positive_button_text">Շնորհակալություն հայտնել</string>
   <string name="watchlist_expiry_dialog_one_week">1 շաբաթ</string>
@@ -359,4 +353,5 @@
   <string name="watchlist_expiry_dialog_six_months">6 ամիս</string>
   <string name="watchlist_filter_talk">Քննարկում</string>
   <string name="watchlist_filter_pages">Էջեր</string>
+  <string name="watchlist_page_protected">Պաշտպանված է</string>
 </resources>
