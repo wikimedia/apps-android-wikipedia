@@ -2,6 +2,7 @@ package org.wikipedia.dataclient.restbase
 
 import com.google.gson.annotations.SerializedName
 
+@Suppress("unused")
 class DiffResponse {
 
     private val from: DiffRevision? = null
