@@ -152,7 +152,7 @@
     <string name="create_account_passwords_mismatch_error">Passwords don\'t match</string>
     <string name="create_account_email_error">Invalid email address</string>
     <string name="create_account_username_error">Invalid characters in username</string>
-    <string name="create_account_password_error">The password is invalid</string>
+    <string name="create_account_password_error">The password must be at least 8 characters</string>
     <string name="create_account_generic_error">Could not create account</string>
     <string name="create_account_next">Next</string>
     <string name="email_recommendation_dialog_title">Create account with no email address?</string>
@@ -166,6 +166,7 @@
     <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
     <string name="create_account_ip_block_details">Details</string>
     <string name="preferences_general_heading">General</string>
+    <string name="preferences_account_heading">Account</string>
     <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
     <string name="send_feedback">Send app feedback</string>
     <string name="create_account_account_created_toast">Account created!</string>
@@ -1028,7 +1029,7 @@
     <string name="talk_title">Talk</string>
     <string name="talk_user_title">Talk: %s</string>
     <string name="talk_new_topic">New topic</string>
-    <string name="talk_new_topic_submitted">Topic submitted.</string>
+    <string name="talk_new_topic_submitted">Topic posted.</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_add_reply">Reply</string>
     <string name="talk_no_subject">(No subject)</string>
@@ -1037,7 +1038,7 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
-    <string name="talk_response_submitted">Response submitted.</string>
+    <string name="talk_response_submitted">Reply posted.</string>
     <string name="talk_snackbar_undo">Undo</string>
     <string name="talk_last_modified"><![CDATA[<b>Last edited %1$s</b> by %2$s]]></string>
     <string name="menu_option_share_edit">Share edit</string>

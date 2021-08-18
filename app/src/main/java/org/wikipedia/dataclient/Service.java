@@ -361,7 +361,7 @@ public interface Service {
 
     @NonNull Observable<MwQueryResponse> getWatchlist();
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
     @NonNull Observable<MwQueryResponse> getLastModified(@Query("titles") @NonNull String titles);
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")

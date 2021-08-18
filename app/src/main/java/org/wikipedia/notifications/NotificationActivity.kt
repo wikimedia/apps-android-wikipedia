@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +22,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationFunnel
+import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -37,6 +38,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil.getFeedCardDateString
 import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -232,7 +234,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             // TODO: remove this condition when the time is right.
             if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
                     n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                    n.category() == Notification.CATEGORY_THANK_YOU_EDIT && Prefs.notificationMilestoneEnabled() ||
+                    n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
                     n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
                     n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
                     n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
@@ -268,7 +270,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 notificationList.add(notification)
             } else {
                 notificationList.remove(notification)
-                NotificationFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
+                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
+                NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }
         for (wiki in notificationsPerWiki.keys) {
@@ -378,7 +381,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     iconResId = R.drawable.ic_user_talk
                     iconBackColor = R.color.green50
                 }
-                Notification.CATEGORY_THANK_YOU_EDIT == s -> {
+                Notification.CATEGORY_MILESTONE_EDIT == s -> {
                     iconResId = R.drawable.ic_edit_progressive
                     iconBackColor = R.color.accent50
                 }
@@ -392,8 +395,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 }
             }
             imageView.setImageResource(iconResId)
-            DrawableCompat.setTint(imageBackgroundView.drawable,
-                    ContextCompat.getColor(this@NotificationActivity, iconBackColor))
+            imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, iconBackColor))
+            secondaryActionHintView.isVisible = false
+            tertiaryActionHintView.isVisible = false
             n.contents?.let {
                 titleView.text = StringUtil.fromHtml(it.header)
                 if (it.body.trim().isNotEmpty()) {
@@ -431,7 +435,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     wikiCodeBackgroundView.visibility = View.VISIBLE
                     wikiCodeView.visibility = View.VISIBLE
                     wikiCodeImageView.visibility = View.GONE
-                    wikiCodeView.text = n.wiki().replace("wiki", "")
+                    val langCode = n.wiki().replace("wiki", "")
+                    wikiCodeView.text = langCode
+                    L10nUtil.setConditionalLayoutDirection(itemView, langCode)
                 }
             }
             if (container.selected) {

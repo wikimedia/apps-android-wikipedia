@@ -160,7 +160,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
 
         val sb = SpannableStringBuilder()
 
-        for (d in diff!!.diffs) {
+        for (d in diff!!.diff) {
             when (d.type) {
                 DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT -> {
                     sb.append(d.text)

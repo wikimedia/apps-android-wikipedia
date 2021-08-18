@@ -2,6 +2,7 @@
 <!-- Authors:
 * BHARATHESHA ALASANDEMAJALU
 * Bharathesha Alasandemajalu
+* Chidananda Kampa
 * Kiranpoojary
 * Lokesha kunchadka
 * Ravi Mundkur
@@ -11,10 +12,15 @@
   <string name="app_name_prod">ವಿಕಿಪೀಡಿಯ</string>
   <string name="app_name_beta">ವಿಕಿಪೀಡಿಯ ಬೀಟಾ</string>
   <string name="app_name_alpha">ವಿಕಿಪೀಡಿಯ ಆಲ್ಫಾ</string>
-  <string name="wikimedia">ವಿಕಿಪೀಡಿಯ</string>
+  <string name="wikimedia">ವಿಕಿಮೀಡಿಯಾ</string>
+  <string name="nav_item_back">ಪಿರ</string>
   <string name="page_tabs_back">ಪಿರ</string>
+  <string name="nav_item_forward">ದುಂಬು</string>
   <string name="search_hint">ವಿಕಿಪೀಡಿಯಟ್ ನಾಡ್ಲೇ</string>
   <string name="search_hint_search_languages">ಬಾಸೆಲೆನ್ ನಡ್ಲೆ</string>
+  <string name="nav_item_suggested_edits">ಸಂಪೊಲಿಪುಲೆ</string>
+  <string name="nav_item_more">ನನಾತ್</string>
+  <string name="nav_item_search">ನಾಡ್‍ಲೆ</string>
   <string name="error_network_error">ನೆಟ್ವರ್ಕ್ ಸರಿಕಟ್ಟ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
   <string name="page_error_retry">ನನೊರ ಪ್ರಯತ್ನ ಮಲ್ಪುಲೆ</string>
   <string name="card_offline_error_retry">ಪಿರ ಯತ್ನ ಮಲ್ಪುಲೆ</string>
@@ -38,7 +44,7 @@
   <string name="search_redirect_from">%s ರ್ದ್ ಪಿರ ನಿರ್ದೇಸನೊ</string>
   <string name="menu_page_show_tabs">ಟ್ಯಾಬ್ ನು ತೊಜಾಲೆ</string>
   <string name="menu_page_other_languages">ಬಾಸೆನ್ ಬದಲ್ ಮಾನ್ಪಿ</string>
-  <string name="menu_page_find_in_page" fuzzy="true">ಪುಟೊಟು ನಾಡ್ಲೆ</string>
+  <string name="menu_page_find_in_page">ಲೇಕನೊಟು ನಾಡ್ಲೆ</string>
   <string name="edit_section_find_in_page">ಪುಟೊಟು ಪತ್ತೆ ಮಲ್ಪುಲೆ</string>
   <string name="menu_page_font_and_theme">ಅಕ್ಷರದ ನಮೂನೆ ಬುಕ್ಕಾ ಬಣ್ಣೊ</string>
   <string name="menu_page_add_to_list">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರ್ಪಾಲೆ</string>
@@ -121,7 +127,7 @@
   <string name="create_account_passwords_mismatch_error">ಪ್ರವೇಶೋ ಪದ ಜೋಡಿ ಆಪುಜಿ</string>
   <string name="create_account_email_error">ಇಮೇಲ್ ಸರಿ ಇಜ್ಜಿ</string>
   <string name="create_account_username_error">ಸದಸ್ಯೆರೆ ಪುದರ್‌ಡ್ ಅಮಾನ್ಯ ಅಕ್ಷರ ಉಂಡು.</string>
-  <string name="create_account_password_error">ಪ್ರವೇಶಪದ ಸರಿ ಇಜ್ಜಿ</string>
+  <string name="create_account_password_error" fuzzy="true">ಪ್ರವೇಶಪದ ಸರಿ ಇಜ್ಜಿ</string>
   <string name="create_account_generic_error">ಕಾತೆ ನಿರ್ಮಾಣೊ ಮಲ್ಪೆರೆ ಆವೊಂದಿದ್ದಿ</string>
   <string name="create_account_next">ನನತಾ</string>
   <string name="email_recommendation_dialog_title">ಪೊಸ ಖಾತೆ ಬುಕ್ಕೊ ಮಿಂಚಂಚೆ ವಿಲಾಸೊ ಇಜ್ಜಿ.</string>
@@ -224,7 +230,7 @@
   <string name="view_wiki_error_message_offline">ನೆಟ್ವರ್ಕ್ ಸರಿಕಟ್ಟ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
   <string name="reference_title">ಉಲ್ಲೆಕೊ %s</string>
   <string name="crash_report_quit">ಬುಡ್ಲೆ</string>
-  <string name="article_header_edit_hint">ಸೇರ್ಸಲೇ...</string>
+  <string name="article_header_edit_hint">ಸಂಪೊಲಿಪುಲೆ...</string>
   <string name="article_header_edit_description" fuzzy="true">ತರೆ ಬರವುದಾ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
   <string name="color_theme_select">ಬಣ್ಣೊತಾ ಪಟ್ಟಿ</string>
   <string name="color_theme_light">ಎಲಮೆ ಬಣ್ಣೊ</string>
@@ -258,7 +264,7 @@
     <item quantity="one">This article will no longer be available offline.</item>
     <item quantity="other">These articles will no longer be available offline.</item>
   </plurals>
-  <string name="user_option_sync_label">ಪ್ರಾಶಸ್ತ್ಯೊಲು</string>
+  <string name="user_option_sync_label">ಪ್ರಾಸಸ್ತ್ಯೊಲು</string>
   <string name="notification_reverted_title">ಸೇರ್ಸಾಯಿನೆನ್ ಪಿರದಿಂಜಾನ್ಡ್</string>
   <string name="notification_echo_channel_description">ವಿಕಿಪೀಡಿಯ ಸೂಚನೆಲು.</string>
   <string name="notifications_activity_title">ಸೂಚನೆಲು</string>

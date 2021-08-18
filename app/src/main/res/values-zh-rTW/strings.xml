@@ -5,6 +5,7 @@
 * Dbrant
 * Eric850130
 * Go1002opn
+* Impartial just
 * Kly
 * LEEJACK
 * LNDDYL
@@ -165,7 +166,7 @@
   <string name="create_account_passwords_mismatch_error">密碼不符合</string>
   <string name="create_account_email_error">無效的電子郵件地址</string>
   <string name="create_account_username_error">使用者名稱含有無效字元</string>
-  <string name="create_account_password_error">密碼無效</string>
+  <string name="create_account_password_error">密碼長度至少要 8 個字元</string>
   <string name="create_account_generic_error">無法建立帳號</string>
   <string name="create_account_next">下一步</string>
   <string name="email_recommendation_dialog_title">不帶電子郵件地址來建立帳號？</string>
@@ -179,6 +180,7 @@
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">詳細資料</string>
   <string name="preferences_general_heading">一般</string>
+  <string name="preferences_account_heading">帳戶</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
   <string name="send_feedback">傳送應用程式意見回饋</string>
   <string name="create_account_account_created_toast">已建立帳號！</string>
@@ -971,6 +973,7 @@
   <string name="talk_title">對話</string>
   <string name="talk_user_title">對話：%s</string>
   <string name="talk_new_topic">新話題</string>
+  <string name="talk_new_topic_submitted">主題已發布。</string>
   <string name="talk_page_empty">此討論頁為空。</string>
   <string name="talk_add_reply">回覆</string>
   <string name="talk_no_subject">（無話題）</string>
@@ -979,6 +982,8 @@
   <string name="talk_message_hint">撰寫訊息</string>
   <string name="talk_message_empty">訊息不能為空。</string>
   <string name="talk_subject_empty">話題不能為空。</string>
+  <string name="talk_response_submitted">回覆已發布。</string>
+  <string name="talk_snackbar_undo">還原</string>
   <string name="talk_last_modified">由%2$s在&lt;b&gt; %1$s &lt;/b&gt;所做的最後一次編輯</string>
   <string name="menu_option_share_edit">分享編輯</string>
   <string name="menu_option_user_profile">%s基本資料</string>

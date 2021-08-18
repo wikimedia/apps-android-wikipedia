@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import android.widget.*
-import androidx.core.content.ContextCompat
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
 import org.wikipedia.R
@@ -110,7 +110,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     private fun setHintText() {
         binding.viewDescriptionEditTextLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle)
-        binding.viewDescriptionEditTextLayout.hint = getHintText(pageTitle.wikiSite.languageCode())
+        binding.viewDescriptionEditTextLayout.hint = getHintText(pageTitle.wikiSite.languageCode)
     }
 
     private fun getHeaderTextRes(inReview: Boolean): Int {
@@ -192,7 +192,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 !sourceSummary.pageTitle.description.isNullOrEmpty()) {
             binding.viewDescriptionEditPageSummaryContainer.visibility = GONE
         }
-        L10nUtil.setConditionalLayoutDirection(this, if (isTranslationEdit) sourceSummary.lang else pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(this, if (isTranslationEdit) sourceSummary.lang else pageTitle.wikiSite.languageCode)
 
         binding.viewDescriptionEditReadArticleBarContainer.setSummary(pageSummaryForEdit)
         binding.viewDescriptionEditReadArticleBarContainer.setOnClickListener { performReadArticleClick() }
@@ -240,7 +240,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     private fun setWarning(text: CharSequence?) {
         binding.viewDescriptionEditTextLayout.setErrorIconDrawable(R.drawable.ic_warning_24)
-        val colorStateList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.yellow30))
+        val colorStateList = AppCompatResources.getColorStateList(context, R.color.yellow30)
         binding.viewDescriptionEditTextLayout.setErrorIconTintList(colorStateList)
         binding.viewDescriptionEditTextLayout.setErrorTextColor(colorStateList)
         binding.viewDescriptionEditTextLayout.boxStrokeErrorColor = colorStateList
@@ -271,7 +271,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     private fun validateText() {
         isTextValid = true
-        val text = binding.viewDescriptionEditText.text.toString().toLowerCase(Locale.getDefault()).trim()
+        val text = binding.viewDescriptionEditText.text.toString().lowercase(Locale.getDefault()).trim()
         if (text.isEmpty()) {
             isTextValid = false
             clearError()
@@ -283,10 +283,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             isTextValid = false
             setError(context.getString(R.string.description_ends_with_punctuation))
         } else if ((action == DescriptionEditActivity.Action.ADD_DESCRIPTION || action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-                LanguageUtil.startsWithArticle(text, pageTitle.wikiSite.languageCode())) {
+                LanguageUtil.startsWithArticle(text, pageTitle.wikiSite.languageCode)) {
             setWarning(context.getString(R.string.description_starts_with_article))
         } else if ((action == DescriptionEditActivity.Action.ADD_DESCRIPTION || action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-                pageTitle.wikiSite.languageCode() == "en" && Character.isLowerCase(binding.viewDescriptionEditText.text.toString()[0])) {
+                pageTitle.wikiSite.languageCode == "en" && Character.isLowerCase(binding.viewDescriptionEditText.text.toString()[0])) {
             setWarning(context.getString(R.string.description_starts_with_lowercase))
         } else if (isLanguageWrong) {
             setWarning(context.getString(R.string.description_is_in_different_language,

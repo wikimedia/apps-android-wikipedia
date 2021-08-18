@@ -146,7 +146,7 @@
   <string name="create_account_passwords_mismatch_error">ߕߊ߬ߡߌ߲߬ߞߊ߲ ߡߊ߫ ߕߊ߬ߡߌ߲߬.</string>
   <string name="create_account_email_error">ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߍ߲߬ߣߍ߲߬ ߕߍ߫</string>
   <string name="create_account_username_error">ߛߓߍߘߋ߲ ߓߍ߲߬ߓߊߟߌ ߟߎ߬ ߦߋ߫ ߕߐ߯ ߟߊߓߊ߯ߙߕߊ ߘߐ߫</string>
-  <string name="create_account_password_error">ߕߊ߬ߡߌ߲߬ߞߊ߲ ߓߍ߲߬ߣߍ߲߫ ߕߍ߫</string>
+  <string name="create_account_password_error" fuzzy="true">ߕߊ߬ߡߌ߲߬ߞߊ߲ ߓߍ߲߬ߣߍ߲߫ ߕߍ߫</string>
   <string name="create_account_generic_error">ߊ߬ ߕߍߣߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߛߌ߲ߘߌ߫ ߟߊ߫</string>
   <string name="create_account_next">ߢߍߕߊ</string>
   <string name="email_recommendation_dialog_title">ߞߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߟߊߞߊ߬ ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ߫ ߕߍ߫؟</string>

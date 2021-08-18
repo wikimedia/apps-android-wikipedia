@@ -130,7 +130,7 @@
   <string name="create_account_passwords_mismatch_error">ਪਛਾਣ-ਸ਼ਬਦ ਮਿਲ ਨਹੀਂ ਰਹੇ</string>
   <string name="create_account_email_error">ਗ਼ਲਤ ਈਮੇਲ ਪਤਾ</string>
   <string name="create_account_username_error">ਵਰਤੋਂਕਾਰ-ਨਾਂ ਵਿੱਚ ਨਜਾਇਜ਼ ਚਿੰਨ੍ਹ ਹਨ</string>
-  <string name="create_account_password_error">ਪਾਸਵਰਡ ਨਜਾਇਜ਼ ਹੈ</string>
+  <string name="create_account_password_error" fuzzy="true">ਪਾਸਵਰਡ ਨਜਾਇਜ਼ ਹੈ</string>
   <string name="create_account_generic_error">ਖਾਤਾ ਨਹੀਂ ਬਣ ਸਕਿਆ</string>
   <string name="create_account_next">ਅਗਲਾ</string>
   <string name="create_account_button">ਖਾਤਾ ਬਣਾਉ</string>

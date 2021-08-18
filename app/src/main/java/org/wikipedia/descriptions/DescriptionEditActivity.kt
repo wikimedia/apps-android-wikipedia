@@ -9,8 +9,6 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -38,8 +36,8 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         SuggestedEditsFunnel.get().click(title.displayText, action)
         return DescriptionEditFragment.newInstance(title,
                 intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
-                intent.getStringExtra(EXTRA_SOURCE_SUMMARY),
-                intent.getStringExtra(EXTRA_TARGET_SUMMARY),
+                intent.getParcelableExtra(EXTRA_SOURCE_SUMMARY),
+                intent.getParcelableExtra(EXTRA_TARGET_SUMMARY),
                 action,
                 invokeSource)
     }
@@ -61,9 +59,9 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
 
     override fun onBottomBarContainerClicked(action: Action) {
         val summary: PageSummaryForEdit = if (action == Action.TRANSLATE_DESCRIPTION) {
-            GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, intent.getStringExtra(EXTRA_TARGET_SUMMARY))
+            intent.getParcelableExtra(EXTRA_TARGET_SUMMARY)!!
         } else {
-            GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, intent.getStringExtra(EXTRA_SOURCE_SUMMARY))
+            intent.getParcelableExtra(EXTRA_SOURCE_SUMMARY)!!
         }
         if (action == Action.ADD_CAPTION || action == Action.TRANSLATE_CAPTION) {
             bottomSheetPresenter.show(supportFragmentManager,
@@ -120,8 +118,8 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
             return Intent(context, DescriptionEditActivity::class.java)
                     .putExtra(EXTRA_TITLE, title)
                     .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
-                    .putExtra(EXTRA_SOURCE_SUMMARY, if (sourceSummary == null) null else GsonMarshaller.marshal(sourceSummary))
-                    .putExtra(EXTRA_TARGET_SUMMARY, if (targetSummary == null) null else GsonMarshaller.marshal(targetSummary))
+                    .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary)
+                    .putExtra(EXTRA_TARGET_SUMMARY, targetSummary)
                     .putExtra(Constants.INTENT_EXTRA_ACTION, action)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }

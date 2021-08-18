@@ -2,22 +2,19 @@ package org.wikipedia.activity
 
 import android.Manifest
 import android.content.*
-import android.content.pm.ShortcutManager
 import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.text.TextUtils
 import android.view.MenuItem
 import android.view.MotionEvent
-import android.view.View
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import androidx.core.content.pm.ShortcutManagerCompat
 import com.skydoves.balloon.Balloon
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
@@ -26,7 +23,8 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.NotificationFunnel
+import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.events.*
@@ -62,19 +60,18 @@ abstract class BaseActivity : AppCompatActivity() {
         setTheme()
         removeSplashBackground()
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1 &&
-                AppShortcuts.ACTION_APP_SHORTCUT == intent.action) {
+        if (AppShortcuts.ACTION_APP_SHORTCUT == intent.action) {
             intent.putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS)
             val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
-            if (!TextUtils.isEmpty(shortcutId)) {
-                applicationContext.getSystemService(ShortcutManager::class.java)
-                        .reportShortcutUsed(shortcutId)
+            if (!shortcutId.isNullOrEmpty()) {
+                ShortcutManagerCompat.reportShortcutUsed(applicationContext, shortcutId)
             }
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         if (savedInstanceState == null) {
-            NotificationFunnel.processIntent(intent)
+            NotificationInteractionFunnel.processIntent(intent)
+            NotificationInteractionEvent.processIntent(intent)
         }
         NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance())
 
@@ -174,12 +171,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun setNavigationBarColor(@ColorInt color: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val isDarkThemeOrDarkBackground = (WikipediaApp.getInstance().currentTheme.isDark ||
-                    color == ContextCompat.getColor(this, android.R.color.black))
-            window.navigationBarColor = color
-            window.decorView.systemUiVisibility = if (isDarkThemeOrDarkBackground) window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.inv() else View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR or window.decorView.systemUiVisibility
-        }
+        DeviceUtil.setNavigationBarColor(window, color)
     }
 
     protected open fun setTheme() {

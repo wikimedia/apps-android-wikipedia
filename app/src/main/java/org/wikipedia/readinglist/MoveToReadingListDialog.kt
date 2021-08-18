@@ -15,9 +15,9 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.ReadingListsFunnel
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.util.log.L
 import java.util.*
 
@@ -28,7 +28,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
         val parentView = super.onCreateView(inflater, container, savedInstanceState)
         parentView.findViewById<TextView>(R.id.dialog_title).setText(R.string.reading_list_move_to)
         val sourceReadingListId = requireArguments().getLong(SOURCE_READING_LIST_ID)
-        sourceReadingList = ReadingListDbHelper.getListById(sourceReadingListId, false)
+        sourceReadingList = AppDatabase.getAppDatabase().readingListDao().getListById(sourceReadingListId, false)
         if (sourceReadingList == null) {
             dismiss()
         }
@@ -42,7 +42,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
     }
 
     override fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
-        disposables.add(Observable.fromCallable { ReadingListDbHelper.movePagesToListAndDeleteSourcePages(sourceReadingList!!, readingList, titles) }
+        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().movePagesToListAndDeleteSourcePages(sourceReadingList!!, readingList, titles) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ movedTitlesList ->

@@ -90,6 +90,7 @@
         app:layout_constraintEnd_toStartOf="@id/notification_item_tertiary_action_hint"
         app:layout_constraintStart_toStartOf="@id/notification_item_title"
         app:layout_constraintTop_toBottomOf="@id/notification_item_description"
+        tools:visibility="visible"
         tools:text="Lorem ipsum" />
 
     <TextView
@@ -104,6 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/notification_item_secondary_action_hint"
         app:layout_constraintTop_toTopOf="@id/notification_item_secondary_action_hint"
+        tools:visibility="visible"
         tools:text="Lorem ipsum" />
 
     <androidx.appcompat.widget.AppCompatImageView

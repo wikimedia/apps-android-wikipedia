@@ -184,13 +184,13 @@ class LanguagesListActivity : BaseActivity() {
         fun setFilterText(filterText: String?) {
             isSearching = true
             languageCodes.clear()
-            val filter = StringUtils.stripAccents(filterText).toLowerCase(Locale.getDefault())
+            val filter = StringUtils.stripAccents(filterText).lowercase(Locale.getDefault())
             for (code in originalLanguageCodes) {
                 val localizedName = StringUtils.stripAccents(app.language().getAppLanguageLocalizedName(code).orEmpty())
                 val canonicalName = StringUtils.stripAccents(getCanonicalName(code).orEmpty())
                 if (code.contains(filter) ||
-                        localizedName.toLowerCase(Locale.getDefault()).contains(filter) ||
-                        canonicalName.toLowerCase(Locale.getDefault()).contains(filter)) {
+                        localizedName.lowercase(Locale.getDefault()).contains(filter) ||
+                        canonicalName.lowercase(Locale.getDefault()).contains(filter)) {
                     languageCodes.add(code)
                 }
             }
@@ -213,7 +213,7 @@ class LanguagesListActivity : BaseActivity() {
     }
 
     private fun getCanonicalName(code: String): String? {
-        var canonicalName = siteInfoList?.find { it.code() == code }?.localName()
+        var canonicalName = siteInfoList?.find { it.code == code }?.localname
         if (canonicalName.isNullOrEmpty()) {
             canonicalName = app.language().getAppLanguageCanonicalName(code)
         }

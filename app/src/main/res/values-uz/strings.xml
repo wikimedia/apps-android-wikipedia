@@ -151,7 +151,7 @@
   <string name="create_account_passwords_mismatch_error">Maxfiy so‘zlar mos kelmadi</string>
   <string name="create_account_email_error">Noto‘g‘ri elektron pochta manzili</string>
   <string name="create_account_username_error">Foydalanuvchi nomidagi belgilar noto‘g‘ri</string>
-  <string name="create_account_password_error">Parol shikastlangan</string>
+  <string name="create_account_password_error" fuzzy="true">Parol shikastlangan</string>
   <string name="create_account_generic_error">Akkaunt tuzib bo‘lmadi</string>
   <string name="create_account_next">Keyingi</string>
   <string name="email_recommendation_dialog_title">Elektron pochtasiz akkaunt tuzmoqchimisiz?</string>
@@ -956,6 +956,7 @@
   <string name="talk_title">Munozara</string>
   <string name="talk_user_title">Munozara: %s</string>
   <string name="talk_new_topic">Yangi mavzu</string>
+  <string name="talk_new_topic_submitted">Mavzu tasdiqlandi.</string>
   <string name="talk_page_empty">Bu munozara sahifasi boʻsh.</string>
   <string name="talk_add_reply">Javob bermoq</string>
   <string name="talk_no_subject">(mavzu yoʻq)</string>
@@ -964,6 +965,9 @@
   <string name="talk_message_hint">Xabar qoldirmoq</string>
   <string name="talk_message_empty">Xabar boʻsh qolmasin.</string>
   <string name="talk_subject_empty">Mavzu boʻsh qolishi kerak emas.</string>
+  <string name="talk_response_submitted">Soʻrov tasdiqlandi.</string>
+  <string name="talk_snackbar_undo">Bekor qilish</string>
+  <string name="talk_last_modified">&lt;b&gt;Soʻnggi oʻzgarish %1$s da&lt;/b&gt; %2$s tomonidan bajarilgan.</string>
   <string name="menu_option_share_edit">Tahrirlashni ulashmoq</string>
   <string name="menu_option_user_profile">%sʼning profili</string>
   <string name="menu_option_user_contributions">%sning hissalari</string>

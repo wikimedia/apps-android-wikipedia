@@ -167,7 +167,7 @@
   <string name="create_account_passwords_mismatch_error">Les contrasenyes no coincideixen</string>
   <string name="create_account_email_error">Correu electrònic no vàlid</string>
   <string name="create_account_username_error">Caràcters no vàlids en el nom d\'usuari</string>
-  <string name="create_account_password_error">La contrasenya no és vàlida</string>
+  <string name="create_account_password_error">La contrasenya ha de tenir com a mínim 8 caràcters</string>
   <string name="create_account_generic_error">No s\'ha pogut crear el compte</string>
   <string name="create_account_next">Següent</string>
   <string name="email_recommendation_dialog_title">Voleu crear un compte sense adreça electrònica?</string>
@@ -181,6 +181,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalls</string>
   <string name="preferences_general_heading">General</string>
+  <string name="preferences_account_heading">Compte</string>
   <string name="wikipedia_app_faq">PMF de l\'aplicació de la Viquipèdia</string>
   <string name="send_feedback">Envieu els vostres comentaris sobre l\'aplicació</string>
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
@@ -973,6 +974,7 @@
   <string name="talk_title">Discussió</string>
   <string name="talk_user_title">Discussió: %s</string>
   <string name="talk_new_topic">Tema nou</string>
+  <string name="talk_new_topic_submitted">S\'ha enviat un tema.</string>
   <string name="talk_page_empty">La pàgina de discussió és en blanc.</string>
   <string name="talk_add_reply">Respon</string>
   <string name="talk_no_subject">(sense tema)</string>
@@ -981,6 +983,7 @@
   <string name="talk_message_hint">Redacta un missatge</string>
   <string name="talk_message_empty">El missatge no pot ser en blanc.</string>
   <string name="talk_subject_empty">El tema no pot ser en blanc.</string>
+  <string name="talk_response_submitted">S\'ha enviat una resposta.</string>
   <string name="talk_snackbar_undo">Desfés</string>
   <string name="talk_last_modified">&lt;b&gt;Editat per última vegada %1$s&lt;/b&gt; per %2$s</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>

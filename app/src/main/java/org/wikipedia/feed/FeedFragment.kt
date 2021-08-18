@@ -295,7 +295,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
         override fun onNewsItemSelected(card: NewsCard, view: NewsItemView) {
             callback?.let {
                 it.onFeedNewsItemSelected(card, view)
-                funnel.cardClicked(card.type(), card.wikiSite().languageCode())
+                funnel.cardClicked(card.type(), card.wikiSite().languageCode)
             }
         }
 
@@ -397,7 +397,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     private fun getCardLanguageCode(card: Card?): String? {
-        return if (card is WikiSiteCard) card.wikiSite().languageCode() else null
+        return if (card is WikiSiteCard) card.wikiSite().languageCode else null
     }
 
     companion object {

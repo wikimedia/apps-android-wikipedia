@@ -158,7 +158,7 @@
   <string name="create_account_passwords_mismatch_error">Adgangskoderne er ikke ens</string>
   <string name="create_account_email_error">Ugyldig e-mailadresse</string>
   <string name="create_account_username_error">Ugyldige tegn i brugernavn</string>
-  <string name="create_account_password_error">Adgangskoden er ugyldig</string>
+  <string name="create_account_password_error" fuzzy="true">Adgangskoden er ugyldig</string>
   <string name="create_account_generic_error">Kunne ikke oprette konto</string>
   <string name="create_account_next">Næste</string>
   <string name="email_recommendation_dialog_title">Opret konto uden email adresse?</string>
@@ -172,6 +172,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
+  <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Send feedback</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>

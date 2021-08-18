@@ -19,11 +19,14 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.csrf.CsrfTokenClient
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
@@ -47,6 +50,7 @@ class TalkTopicsActivity : BaseActivity() {
     private val disposables = CompositeDisposable()
     private val topics = ArrayList<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+    private var revisionForLastEdit: MwQueryPage.Revision? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,7 +87,13 @@ class TalkTopicsActivity : BaseActivity() {
         funnel.logOpenTalk()
 
         binding.talkNewTopicButton.visibility = View.GONE
+
         binding.talkLastModified.visibility = View.GONE
+        binding.talkLastModified.setOnClickListener {
+            revisionForLastEdit?.let {
+                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle.displayText, it.revId, pageTitle.wikiSite.languageCode))
+            }
+        }
     }
 
     public override fun onDestroy() {
@@ -121,13 +131,17 @@ class TalkTopicsActivity : BaseActivity() {
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_EDIT_SUCCESS) {
             val newRevisionId = data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
+            val topic = data?.getIntExtra(TalkTopicActivity.EXTRA_TOPIC, 0) ?: -1
+            val undoneSubject = data?.getStringExtra(TalkTopicActivity.EXTRA_SUBJECT) ?: ""
+            val undoneText = data?.getStringExtra(TalkTopicActivity.EXTRA_BODY) ?: ""
             if (newRevisionId > 0) {
                 FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
                     .setAnchorView(binding.talkNewTopicButton)
                     .setAction(R.string.talk_snackbar_undo) {
-                        binding.talkNewTopicButton.hide()
+                        binding.talkNewTopicButton.isEnabled = false
+                        binding.talkNewTopicButton.alpha = 0.5f
                         binding.talkProgressBar.visibility = View.VISIBLE
-                        undoSave(newRevisionId)
+                        undoSave(newRevisionId, topic, undoneSubject, undoneText)
                     }
                     .show()
             }
@@ -153,7 +167,7 @@ class TalkTopicsActivity : BaseActivity() {
                 return true
             }
             R.id.menu_view_user_page -> {
-                val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode()) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
+                val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
                 return true
             }
@@ -161,9 +175,9 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-    private fun loadTopics(newRevision: Long = 0) {
+    private fun loadTopics() {
         invalidateOptionsMenu()
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
         binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
 
         disposables.clear()
@@ -176,6 +190,7 @@ class TalkTopicsActivity : BaseActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap {
                     it.query?.firstPage()?.revisions()?.getOrNull(0)?.let { revision ->
+                        revisionForLastEdit = revision
                         binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
                             DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp()).time,
                                 System.currentTimeMillis(), 0L), revision.user))
@@ -186,15 +201,6 @@ class TalkTopicsActivity : BaseActivity() {
                 .doAfterTerminate {
                     binding.talkProgressBar.visibility = View.GONE
                     binding.talkRefreshView.isRefreshing = false
-                }
-                .map { response ->
-                    if (newRevision != 0L && response.revision < newRevision) {
-                        throw IllegalStateException()
-                    }
-                    response
-                }
-                .retry(20) { t ->
-                    (t is IllegalStateException) || (t is HttpStatusException && t.code == 404)
                 }
                 .subscribe({ response ->
                     topics.clear()
@@ -218,9 +224,19 @@ class TalkTopicsActivity : BaseActivity() {
         } else {
             binding.talkErrorView.visibility = View.GONE
             binding.talkNewTopicButton.show()
+            binding.talkNewTopicButton.isEnabled = true
+            binding.talkNewTopicButton.alpha = 1.0f
             binding.talkLastModified.visibility = View.VISIBLE
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+        }
+
+        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false) &&
+            !pageTitle.fragment.isNullOrEmpty()) {
+            intent.putExtra(EXTRA_GO_TO_TOPIC, false)
+            topics.find { StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html) }?.let {
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource))
+            }
         }
     }
 
@@ -248,14 +264,14 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkNewTopicButton.show()
     }
 
-    private fun undoSave(newRevisionId: Long) {
+    private fun undoSave(newRevisionId: Long, topicId: Int, undoneSubject: String, undoneBody: String) {
         disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
             .subscribeOn(Schedulers.io())
             .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, newRevisionId, token) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                loadTopics(it.edit!!.newRevId)
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
             }, {
                 updateOnError(it)
             }))
@@ -268,9 +284,9 @@ class TalkTopicsActivity : BaseActivity() {
 
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
-            val seen = TalkPageSeenDatabaseTable.isTalkTopicSeen(topic)
+            val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
             val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
-            title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+            title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
             title.visibility = View.VISIBLE
             subtitle.visibility = View.GONE
             title.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface
@@ -300,13 +316,15 @@ class TalkTopicsActivity : BaseActivity() {
 
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
+        private const val EXTRA_GO_TO_TOPIC = "goToTopic"
         const val NEW_TOPIC_ID = -2
 
         @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                .putExtra(EXTRA_GO_TO_TOPIC, !pageTitle.fragment.isNullOrEmpty())
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
 }

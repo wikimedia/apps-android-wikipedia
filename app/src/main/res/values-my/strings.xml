@@ -38,6 +38,7 @@
   <string name="offline_load_error_retry">ပြန်လုပ်</string>
   <string name="page_error_back_to_main">နောက်သို့ ပြန်သွားရန်</string>
   <string name="error_back">နောက်သို့ ပြန်သွားရန်</string>
+  <string name="error_next">ရှေ့သို့</string>
   <string name="menu_clear_all_history">မှတ်တမ်းအားရှင်းမည်</string>
   <string name="history_item_deleted">%s ကို ရာဇဝင်မှတ်တမ်းမှ ဖယ်ရှားပြီး</string>
   <string name="history_items_deleted">ဆောင်းပါး %d ခုကို ရာဇဝင်မှတ်တမ်းမှ ဖယ်ရှားပြီး</string>
@@ -55,6 +56,9 @@
   <string name="menu_page_show_tabs">tab များကို ပြရန်</string>
   <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
   <string name="menu_page_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
+  <string name="menu_page_add_to_watchlist">စောင့်ကြည့်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="menu_page_view_talk">ဆွေးနွေးချက်စာမျက်နှာကို ကြည့်ရန်</string>
+  <string name="menu_page_view_edit_history">တည်းဖြတ်မှု ရာဇဝင် ကြည့်ရန်</string>
   <string name="menu_page_remove_from_watchlist">စောင့်ကြည့်စာရင်းမှ ဖယ်ရှားရန်</string>
   <string name="edit_section_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
   <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
@@ -152,7 +156,7 @@
   <string name="create_account_passwords_mismatch_error">စကားဝှက်များ ကိုက်ညီမှုမရှိပါ</string>
   <string name="create_account_email_error">တရားမဝင်သော အီးမေးလ်လိပ်စာ</string>
   <string name="create_account_username_error">အသုံးပြုသူအမည်၌ တရားမဝင်သော အက္ခရာများ</string>
-  <string name="create_account_password_error">စကားဝှက်သည် မရေရာပါ</string>
+  <string name="create_account_password_error">စကားဝှက်သည် အနည်းဆုံးအက္ခရာ ရှစ်လုံးရှိရမည်</string>
   <string name="create_account_generic_error">အကောင့်ဖန်တီးမရနိုင်ပါ</string>
   <string name="create_account_next">ရှေ့</string>
   <string name="email_recommendation_dialog_title">အီးမေးလိပ်စာမပါဘဲ အကောင့်ဖန်တီးမှာလား?</string>
@@ -166,6 +170,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/အကူအညီ:ကျွန်ုပ်ကို_ပိတ်ပင်ထားတယ်</string>
   <string name="create_account_ip_block_details">အသေးစိတ်</string>
   <string name="preferences_general_heading">အထွေထွေ</string>
+  <string name="preferences_account_heading">အကောင့်</string>
   <string name="wikipedia_app_faq">ဝီကီပီးဒီးယား App အမေးအဖြေကဏ္ဍ</string>
   <string name="send_feedback">app အကြံပြုချက် ပို့ရန်</string>
   <string name="create_account_account_created_toast">အကောင့်ဖန်တီးပြီးပါပြီ</string>
@@ -354,6 +359,7 @@
   <string name="page_footer_license_text">အကြောင်းအရာကို အခြားမှတ်သားခြင်းမရှိပါက $1 အောက်တွင် ရရှိနိုင်ပါသည်။</string>
   <string name="empty_tab_title">Tabအသစ်</string>
   <string name="menu_save_all_tabs">Tabအားလုံးသိမ်းပါ</string>
+  <string name="error_blocked_reason">ပေးထားသောအကြောင်းပြချက်မှာ- %s</string>
   <string name="crash_report_activity_title">အပလီကေးရှင်း အမှား</string>
   <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။\n\nပြန်စမည်လော ထွက်မည်လော?</string>
   <string name="crash_report_relaunch">ပြန်စရန်</string>
@@ -634,6 +640,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">ဖော်ပြချက်တည်းဖြတ်မှုကို ဆက်တိုက်စိတ်ဝင်စားသည့်အတွက် ကျေးဇူးတင်ပါသည်၊ ထပ်တိုးတည်းဖြတ်မှုများ လုပ်ဆောင်ရန် ကျေးဇူးပြု၍ ဝီကီပီးဒီးယားအကောင့်ထဲသို့ ဝင်ရောက်ပါ။</string>
   <string name="description_edit_license_notice">ဆောင်းပါးဖော်ပြချက်ကို ပြောင်းလဲရာတွင် &lt;a href=\"%1$s\"&gt;အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ&lt;/a&gt;ကို သဘောတူလိုက်နာပြီး မိမိ၏ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် အချောသတ်ထုတ်ပြန်ပါမည်။</string>
+  <string name="description_edit_voice_input_description">အသံ ထည့်သွင်းမှု</string>
   <string name="description_too_short">စာသားမှာ တိုတောင်းလွန်းသည်။</string>
   <string name="description_edit_success_saved">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး!</string>
   <string name="description_edit_success_saved_snackbar">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး!</string>
@@ -853,12 +860,28 @@
   <string name="talk_reply_subject">အကြောင်းအရာ</string>
   <string name="talk_message_empty">စာတို ဗလာဖြစ်၍ မရပါ။</string>
   <string name="talk_subject_empty">အကြောင်းအရာ ဗလာဖြစ်၍ မရပါ။</string>
+  <string name="watchlist_details_watching_label">စောင့်ကြည့်နေသည်</string>
   <string name="watchlist_details_watch_label">စောင့်ကြည့်ရန်</string>
   <string name="thank_label">ကျေးဇူးတင်</string>
+  <string name="thank_dialog_positive_button_text">ကျေးဇူးတင်မှု ပို့ရန်</string>
   <string name="thank_dialog_negative_button_text">မလုပ်တော့ပါ</string>
+  <string name="thank_success_message">သင်၏ \'ကျေးဇူးတင်မှု\' %s 👍 သို့ ပို့လိုက်ပါပြီ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">ပြောင်းလဲရန်</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">အပြီးအပိုင်</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">၁ ပတ်အတွက်</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">၁လအတွက်</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">၃လအတွက်</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">၆လအတွက်</string>
+  <string name="watchlist_expiry_dialog_permanent">အပြီးအပိုင်</string>
+  <string name="watchlist_expiry_dialog_one_week">၁ပတ်</string>
+  <string name="watchlist_expiry_dialog_one_month">၁လ</string>
+  <string name="watchlist_expiry_dialog_three_months">၃လ</string>
+  <string name="watchlist_expiry_dialog_six_months">၆လ</string>
   <string name="watchlist_filter_all">အားလုံး</string>
   <string name="watchlist_filter_talk">ဆွေးနွေး</string>
   <string name="watchlist_filter_pages">စာမျက်နှာများ</string>
   <string name="watchlist_filter_other">အခြား</string>
   <string name="watchlist_page_moved">ရွေ့ပြောင်းခဲ့</string>
+  <string name="watchlist_page_protected">ကာကွယ်ခဲ့သည်</string>
+  <string name="watchlist_page_deleted">ဖျက်ပြီးပြီ</string>
 </resources>

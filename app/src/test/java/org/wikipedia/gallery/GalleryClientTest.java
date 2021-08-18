@@ -32,7 +32,7 @@ public class GalleryClientTest extends MockRetrofitTest {
                     return result.size() == 1
                             && result.get(0).getType().equals("image")
                             && result.get(0).getTitle().equals("File:BarackObamaportrait.jpg")
-                            && result.get(0).showInGallery();
+                            && result.get(0).getShowInGallery();
                 });
     }
 
@@ -46,7 +46,7 @@ public class GalleryClientTest extends MockRetrofitTest {
                     List<MediaListItem> result = gallery.getItems("video");
                     return result.get(0).getType().equals("video")
                             && result.get(0).getTitle().equals("File:20090124_WeeklyAddress.ogv")
-                            && result.get(0).showInGallery();
+                            && result.get(0).getShowInGallery();
                 });
     }
 

@@ -146,7 +146,7 @@
   <string name="create_account_passwords_mismatch_error">Паролите не съвпадат</string>
   <string name="create_account_email_error">Неправилен имейл адрес</string>
   <string name="create_account_username_error">Невалидни знаци в потребителското име</string>
-  <string name="create_account_password_error">Паролата е невалидна</string>
+  <string name="create_account_password_error" fuzzy="true">Паролата е невалидна</string>
   <string name="create_account_generic_error">Не може да бъде създадена сметка</string>
   <string name="create_account_next">Следваща</string>
   <string name="email_recommendation_dialog_title">Създаване на сметка без е-поща?</string>

@@ -173,7 +173,7 @@
   <string name="create_account_passwords_mismatch_error">비밀번호가 일치하지 않습니다</string>
   <string name="create_account_email_error">이메일 주소가 잘못되었습니다</string>
   <string name="create_account_username_error">사용자 이름에 유효하지 않은 문자가 있습니다</string>
-  <string name="create_account_password_error">비밀번호가 유효하지 않습니다</string>
+  <string name="create_account_password_error">비밀번호의 최소 길이는 8자입니다</string>
   <string name="create_account_generic_error">계정을 만들 수 없습니다</string>
   <string name="create_account_next">다음</string>
   <string name="email_recommendation_dialog_title">이메일 주소 없이 계정을 만드시겠습니까?</string>
@@ -187,6 +187,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">자세한 사항</string>
   <string name="preferences_general_heading">일반</string>
+  <string name="preferences_account_heading">계정</string>
   <string name="wikipedia_app_faq">위키백과 앱 FAQ</string>
   <string name="send_feedback">앱 피드백 보내기</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
@@ -359,7 +360,7 @@
   <string name="enable_location_service">활성화</string>
   <string name="location_permissions_enable_prompt">주변 장소를 보려면 위치 권한을 허용해주세요.</string>
   <string name="location_permissions_enable_action">켜기</string>
-  <string name="error_webview_updating">Android 시스템 WebView가 현재 업데이트 중 입니다. 잠시 후 다시 시도해 주십시오.</string>
+  <string name="error_webview_updating">안드로이드 시스템 WebView가 현재 업데이트 중 입니다. 잠시 후 다시 시도해 주십시오.</string>
   <plurals name="multi_items_selected">
     <item quantity="one">%d개 선택됨</item>
     <item quantity="other">%d개 선택됨</item>
@@ -379,7 +380,7 @@
   <string name="page_footer_license_text">별도로 명시하지 않은 경우, 내용은 $1에 따라 사용할 수 있습니다</string>
   <string name="empty_tab_title">새 탭</string>
   <string name="menu_save_all_tabs">모든 탭 저장</string>
-  <string name="error_blocked_title">사용자 이름과 IP 주소가 차단됐습니다.</string>
+  <string name="error_blocked_title">사용자 이름 또는 IP 주소가 차단됐습니다.</string>
   <string name="error_blocked_by">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;님이 차단했습니다.</string>
   <string name="error_blocked_reason">사유는 이와 같습니다: %s</string>
   <string name="error_blocked_start">차단일: %s</string>
@@ -960,6 +961,7 @@
   <string name="talk_title">토론</string>
   <string name="talk_user_title">토론: %s</string>
   <string name="talk_new_topic">새 주제</string>
+  <string name="talk_new_topic_submitted">주제가 게시되었습니다.</string>
   <string name="talk_page_empty">이 토론 문서는 비어있습니다.</string>
   <string name="talk_add_reply">답변</string>
   <string name="talk_no_subject">(주제 없음)</string>
@@ -968,7 +970,9 @@
   <string name="talk_message_hint">메시지 쓰기</string>
   <string name="talk_message_empty">메시지는 빈 채로 둘 수 없습니다.</string>
   <string name="talk_subject_empty">주제는 빈 채로 둘 수 없습니다.</string>
+  <string name="talk_response_submitted">응답이 게시되었습니다.</string>
   <string name="talk_snackbar_undo">실행 취소</string>
+  <string name="talk_last_modified">%2$s님이 &lt;b&gt;%1$s에 마지막으로 편집함&lt;/b&gt;</string>
   <string name="menu_option_share_edit">편집 공유</string>
   <string name="menu_option_user_profile">%s님의 정보</string>
   <string name="menu_option_user_contributions">%s님의 기여</string>

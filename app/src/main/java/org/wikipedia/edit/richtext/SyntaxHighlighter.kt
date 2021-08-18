@@ -204,8 +204,8 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
     }
 
     private inner class SyntaxHighlightSearchMatchesTask constructor(text: Editable, searchText: String?, private val selectedMatchResultPosition: Int) : Callable<List<SpanExtents>> {
-        private val searchText = searchText.orEmpty().toLowerCase(Locale.getDefault())
-        private val text = text.toString().toLowerCase(Locale.getDefault())
+        private val searchText = searchText.orEmpty().lowercase(Locale.getDefault())
+        private val text = text.toString().lowercase(Locale.getDefault())
 
         override fun call(): List<SpanExtents> {
             val spansToSet = mutableListOf<SpanExtents>()
