@@ -110,9 +110,9 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .doAfterTerminate { binding.categoryProgress.visibility = View.GONE }
                 .subscribe({ response ->
                     unsortedTitleList.clear()
-                    for (page in response.query()!!.categoryMembers()!!) {
+                    for (page in response.query!!.categoryMembers()!!) {
                         val title = PageTitle(page.title(), categoryTitle.wikiSite)
-                        if (page.namespace() === Namespace.CATEGORY) {
+                        if (page.namespace() == Namespace.CATEGORY) {
                             unsortedSubcategoryList.add(title)
                         } else {
                             unsortedTitleList.add(title)
@@ -134,7 +134,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
         binding.categoryRecycler.visibility = View.VISIBLE
         binding.categoryError.visibility = View.GONE
-        binding.categoryRecycler.adapter!!.notifyDataSetChanged()
+        binding.categoryRecycler.adapter?.notifyDataSetChanged()
     }
 
     private fun queueForHydration(title: PageTitle) {
@@ -159,7 +159,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    for (page in response.query()!!.pages()!!) {
+                    for (page in response.query!!.pages()!!) {
                         for (title in titles) {
                             if (title!!.displayText == page.title()) {
                                 title.thumbUrl = page.thumbUrl()

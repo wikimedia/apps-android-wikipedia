@@ -46,7 +46,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
         binding.categoriesRecycler.adapter = CategoryAdapter()
 
         // titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
-        L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode)
         loadCategories()
         return binding.root
     }
@@ -62,7 +62,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
                 .doFinally { binding.dialogCategoriesProgress.visibility = View.GONE }
                 .subscribe({ response ->
                     categoryList.clear()
-                    for (cat in response.query()!!.firstPage()!!.categories()!!) {
+                    for (cat in response.query!!.firstPage()!!.categories()!!) {
                         if (!cat.hidden()) {
                             categoryList.add(cat)
                         }
