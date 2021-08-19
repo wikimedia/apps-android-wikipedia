@@ -162,7 +162,7 @@
   <string name="create_account_passwords_mismatch_error">Heslá sa nezhodujú</string>
   <string name="create_account_email_error">Neplatná e-mailová adresa</string>
   <string name="create_account_username_error">Neplatné znaky v používateľskom mene</string>
-  <string name="create_account_password_error" fuzzy="true">Heslo je neplatné</string>
+  <string name="create_account_password_error">Heslo musí mať aspoň 8 znakov</string>
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
   <string name="create_account_next">Ďalej</string>
   <string name="email_recommendation_dialog_title">Chcete vytvoriť účet bez e-mailovej adresy?</string>
@@ -176,6 +176,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Podrobnosti</string>
   <string name="preferences_general_heading">Všeobecné</string>
+  <string name="preferences_account_heading">Účet</string>
   <string name="wikipedia_app_faq">Často kladené otázky o tejto aplikácii</string>
   <string name="send_feedback">Odoslať spätnú väzbu</string>
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
