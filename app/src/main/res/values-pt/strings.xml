@@ -165,7 +165,7 @@
   <string name="create_account_passwords_mismatch_error">As palavras-passe não coincidem</string>
   <string name="create_account_email_error">Endereço de correio eletrónico inválido</string>
   <string name="create_account_username_error">Caracteres inválidos no nome de utilizador</string>
-  <string name="create_account_password_error" fuzzy="true">A palavra-passe é inválida</string>
+  <string name="create_account_password_error">A palavra-passe deve ter pelo menos 8 carateres</string>
   <string name="create_account_generic_error">Não foi possível criar conta</string>
   <string name="create_account_next">Seguinte</string>
   <string name="email_recommendation_dialog_title">Criar conta sem endereço de correio eletrónico?</string>
