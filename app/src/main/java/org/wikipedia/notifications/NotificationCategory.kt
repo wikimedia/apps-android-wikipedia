@@ -30,8 +30,8 @@ enum class NotificationCategory constructor(val id: String,
     }
 
     companion object {
-        private const val GROUP_WIKIPEDIA_NOTIFICATIONS = "wikipedia-notifications"
-        private const val GROUP_OTHER = "other"
+        private const val GROUP_WIKIPEDIA_NOTIFICATIONS = "WIKIPEDIA_NOTIFICATIONS"
+        private const val GROUP_OTHER = "OTHER"
 
         private val MAP = EnumCodeMap(NotificationCategory::class.java)
 
@@ -49,7 +49,8 @@ enum class NotificationCategory constructor(val id: String,
             // Notification channel ( >= API 26 )
             val notificationManagerCompat = NotificationManagerCompat.from(context)
 
-            notificationManagerCompat.deleteNotificationChannel(context.getString(R.string.notification_echo_channel_description))
+            // Remove old channel.
+            notificationManagerCompat.deleteNotificationChannel("MEDIAWIKI_ECHO_CHANNEL")
 
             var notificationChannelGroupWikipediaNotifications = notificationManagerCompat.getNotificationChannelGroupCompat(GROUP_WIKIPEDIA_NOTIFICATIONS)
             if (notificationChannelGroupWikipediaNotifications == null) {
