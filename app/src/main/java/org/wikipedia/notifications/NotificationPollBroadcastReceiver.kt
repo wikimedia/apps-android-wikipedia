@@ -201,13 +201,13 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             } else {
                 for (n in notificationsToDisplay) {
                     // TODO: remove these conditions when the time is right.
-                    if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
-                            n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                            n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
-                            n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
-                            n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
-                            n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
-                            n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
+                    if (n.category().startsWith(NotificationCategory.SYSTEM.id) && Prefs.notificationWelcomeEnabled() ||
+                            n.category() == NotificationCategory.EDIT_THANK.id && Prefs.notificationThanksEnabled() ||
+                            n.category() == NotificationCategory.MILESTONE_EDIT.id && Prefs.notificationMilestoneEnabled() ||
+                            n.category() == NotificationCategory.REVERTED.id && Prefs.notificationRevertEnabled() ||
+                            n.category() == NotificationCategory.EDIT_USER_TALK.id && Prefs.notificationUserTalkEnabled() ||
+                            n.category() == NotificationCategory.LOGIN_FAIL.id && Prefs.notificationLoginFailEnabled() ||
+                            n.category().startsWith(NotificationCategory.MENTION.id) && Prefs.notificationMentionEnabled() ||
                             Prefs.showAllNotifications()) {
                         // Record that there is an incoming notification to track/compare further actions on it.
                         NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()

@@ -215,13 +215,13 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         for (n in notificationList) {
 
             // TODO: remove this condition when the time is right.
-            if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
-                    n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                    n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
-                    n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
-                    n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
-                    n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
-                    n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
+            if (n.category().startsWith(NotificationCategory.SYSTEM.id) && Prefs.notificationWelcomeEnabled() ||
+                    n.category() == NotificationCategory.EDIT_THANK.id && Prefs.notificationThanksEnabled() ||
+                    n.category() == NotificationCategory.MILESTONE_EDIT.id && Prefs.notificationMilestoneEnabled() ||
+                    n.category() == NotificationCategory.REVERTED.id && Prefs.notificationRevertEnabled() ||
+                    n.category() == NotificationCategory.EDIT_USER_TALK.id && Prefs.notificationUserTalkEnabled() ||
+                    n.category() == NotificationCategory.LOGIN_FAIL.id && Prefs.notificationLoginFailEnabled() ||
+                    n.category().startsWith(NotificationCategory.MENTION.id) && Prefs.notificationMentionEnabled() ||
                     Prefs.showAllNotifications()) {
                 if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents!!.header.contains(currentSearchQuery!!)) {
                     continue
@@ -348,37 +348,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         fun bindItem(container: NotificationListItemContainer) {
             this.container = container
             val n = container.notification!!
-            var iconResId = R.drawable.ic_speech_bubbles
-            var iconBackColor = R.color.accent50
-            val s = n.category()
-            when {
-                Notification.CATEGORY_EDIT_USER_TALK == s -> {
-                    iconResId = R.drawable.ic_edit_user_talk
-                    iconBackColor = R.color.accent50
-                }
-                Notification.CATEGORY_REVERTED == s -> {
-                    iconResId = R.drawable.ic_revert
-                    iconBackColor = R.color.base20
-                }
-                Notification.CATEGORY_EDIT_THANK == s -> {
-                    iconResId = R.drawable.ic_user_talk
-                    iconBackColor = R.color.green50
-                }
-                Notification.CATEGORY_MILESTONE_EDIT == s -> {
-                    iconResId = R.drawable.ic_edit_progressive
-                    iconBackColor = R.color.accent50
-                }
-                s.startsWith(Notification.CATEGORY_MENTION) -> {
-                    iconResId = R.drawable.ic_mention
-                    iconBackColor = R.color.accent50
-                }
-                Notification.CATEGORY_LOGIN_FAIL == s -> {
-                    iconResId = R.drawable.ic_user_avatar
-                    iconBackColor = R.color.base0
-                }
-            }
-            imageView.setImageResource(iconResId)
-            imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, iconBackColor))
+            val notificationCategory = NotificationCategory.find(n.category())
+            imageView.setImageResource(notificationCategory.iconResId)
+            imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor))
             secondaryActionHintView.isVisible = false
             tertiaryActionHintView.isVisible = false
             n.contents?.let {

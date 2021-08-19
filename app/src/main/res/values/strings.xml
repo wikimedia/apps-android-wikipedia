@@ -610,11 +610,13 @@
     <string name="preference_title_notification_mention">Mention</string>
     <string name="preference_summary_notification_mention">Someone mentions you in a page</string>
     <string name="preference_title_notification_user_talk">Talk page</string>
-    <string name="preference_summary_notification_user_talk">Messages from talk pages</string>
+    <string name="preference_summary_notification_user_talk">Messages and replies from talk pages</string>
     <string name="preference_category_push_notifications">Push notifications</string>
     <string name="preference_title_customize_push_notifications">Customize push notifications</string>
     <string name="preference_category_display_settings">Display settings</string>
     <string name="preference_title_hide_read_notifications">Hide read notifications</string>
+    <string name="notifications_channel_group_wikipedia_notifications">Wikipedia notifications</string>
+    <string name="notifications_channel_group_other">Other</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
