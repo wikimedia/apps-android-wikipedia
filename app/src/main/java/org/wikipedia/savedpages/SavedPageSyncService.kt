@@ -28,7 +28,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
-import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar
 import retrofit2.Response
@@ -189,7 +188,7 @@ class SavedPageSyncService : JobIntentService() {
 
                             // download article images
                             for (item in mediaListRsp.body()!!.getItems("image")) {
-                                if (item.srcSets.isNotEmpty()) {
+                                item.srcSets.let {
                                     fileUrls.add(item.getImageUrl(DimenUtil.densityScalar))
                                 }
                             }
