@@ -549,10 +549,12 @@
   <string name="reading_list_split_dialog_ok_button_text">Positive action button text in warning pop-up dialog for splitting large reading lists.\n{{Identical|OK}}</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_reverted_title">Title for notification when an edit made by the user is reverted.</string>
+  <string name="notification_channel_title">Title of the notification channel</string>
   <string name="notification_channel_description">Description of the notification channel</string>
   <string name="notification_syncing_pause_button">Text of button on notification bar to pause the syncing process\n{{Identical|Pause}}</string>
   <string name="notification_syncing_resume_button">Text of button on notification bar to resume the syncing process</string>
   <string name="notification_syncing_cancel_button">Text of button on notification bar to cancel the syncing process\n{{Identical|Cancel}}</string>
+  <string name="notification_syncing_reading_list_channel_title">Title of the notification channel of syncing reading lists</string>
   <string name="notification_syncing_reading_list_channel_description">Description of the notification channel of syncing reading lists</string>
   <string name="notification_many_unread">Message telling the user that they have multiple unread notifications. The %d symbol is replaced with the number of notifications.</string>
   <plurals name="notification_channel_name">

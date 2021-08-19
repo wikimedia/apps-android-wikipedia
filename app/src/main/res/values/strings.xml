@@ -543,16 +543,14 @@
 
     <!-- Notifications -->
     <string name="notification_reverted_title">Reverted edit</string>
+    <string name="notification_channel_title">Downloading articles</string>
     <string name="notification_channel_description">Download progress</string>
     <string name="notification_syncing_pause_button">Pause</string>
     <string name="notification_syncing_resume_button">Resume</string>
     <string name="notification_syncing_cancel_button">Cancel</string>
+    <string name="notification_syncing_reading_list_channel_title">Syncing Reading Lists</string>
     <string name="notification_syncing_reading_list_channel_description">Syncing Reading Lists progress</string>
     <string name="notification_many_unread">You have %d unread notifications</string>
-    <plurals name="notification_channel_name">
-        <item quantity="one">Downloading article</item>
-        <item quantity="other">Downloading articles</item>
-    </plurals>
     <plurals name="notification_syncing_title">
         <item quantity="one">Downloading %1$d article&#8230;</item>
         <item quantity="other">Downloading %1$d articles&#8230;</item>
@@ -560,10 +558,6 @@
     <plurals name="notification_syncing_description">
         <item quantity="one">%1$d article left</item>
         <item quantity="other">%1$d articles left</item>
-    </plurals>
-    <plurals name="notification_syncing_reading_list_channel_name">
-        <item quantity="one">Syncing Reading List</item>
-        <item quantity="other">Syncing Reading Lists</item>
     </plurals>
     <plurals name="notification_syncing_reading_list_title">
         <item quantity="one">Syncing %1$d list&#8230;</item>
