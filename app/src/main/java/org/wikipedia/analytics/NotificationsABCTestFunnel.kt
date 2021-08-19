@@ -10,9 +10,9 @@ class NotificationsABCTestFunnel :
 
     fun logShow() {
         val item = when (aBTestGroup) {
-            0 -> "inbox"
-            1 -> "bell"
-            else -> "more"
+            0 -> TEST_GROUP_INBOX
+            1 -> TEST_GROUP_BELL
+            else -> TEST_GROUP_MORE
         }
         log(
             "action", "show",
@@ -22,9 +22,9 @@ class NotificationsABCTestFunnel :
 
     fun logSelect() {
         val item = when (aBTestGroup) {
-            0 -> "inbox"
-            1 -> "bell"
-            else -> "more"
+            0 -> TEST_GROUP_INBOX
+            1 -> TEST_GROUP_BELL
+            else -> TEST_GROUP_MORE
         }
         log(
             "action", "select",
@@ -35,5 +35,9 @@ class NotificationsABCTestFunnel :
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppNavMenu"
         private const val REV_ID = 21870873
+
+        private const val TEST_GROUP_INBOX = "inbox"
+        private const val TEST_GROUP_BELL = "bell"
+        private const val TEST_GROUP_MORE = "more"
     }
 }

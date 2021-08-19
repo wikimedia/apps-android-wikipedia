@@ -710,12 +710,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonNotifications.isVisible = false
         binding.unreadDotView.isVisible = false
         when (notificationsABCTestFunnel.aBTestGroup) {
-            0 -> {
-                binding.pageToolbarButtonNotifications.setIcon(R.drawable.ic_inbox_24)
-            }
-            1 -> {
-                binding.pageToolbarButtonNotifications.setIcon(R.drawable.ic_notifications_black_24dp)
-            }
+            0 -> binding.pageToolbarButtonNotifications.setIcon(R.drawable.ic_inbox_24)
+            1 -> binding.pageToolbarButtonNotifications.setIcon(R.drawable.ic_notifications_black_24dp)
         }
     }
 
