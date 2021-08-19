@@ -9,7 +9,6 @@ import org.wikipedia.R
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 
-
 enum class NotificationCategory constructor(val id: String,
                                             val title: Int,
                                             val description: Int,
@@ -17,12 +16,12 @@ enum class NotificationCategory constructor(val id: String,
                                             val iconColor: Int = R.color.accent50) : EnumCode {
     SYSTEM("system", R.string.preference_title_notification_system, R.string.preference_summary_notification_system, R.drawable.ic_speech_bubbles),
     SYSTEM_NO_EMAIL("system-noemail", R.string.preference_title_notification_system, R.string.preference_summary_notification_system, R.drawable.ic_speech_bubbles), // default welcome
-    MILESTONE_EDIT("thank-you-edit", R.string.preference_title_notification_milestone, R.string.preference_summary_notification_milestone, R.drawable.ic_edit_progressive),  // milestone
+    MILESTONE_EDIT("thank-you-edit", R.string.preference_title_notification_milestone, R.string.preference_summary_notification_milestone, R.drawable.ic_edit_progressive), // milestone
     EDIT_USER_TALK("edit-user-talk", R.string.preference_title_notification_user_talk, R.string.preference_summary_notification_user_talk, R.drawable.ic_edit_user_talk),
     EDIT_THANK("edit-thank", R.string.preference_title_notification_thanks, R.string.preference_summary_notification_thanks, R.drawable.ic_user_talk, R.color.green50),
     REVERTED("reverted", R.string.preference_title_notification_revert, R.string.preference_summary_notification_revert, R.drawable.ic_revert, R.color.base20),
     LOGIN_FAIL("login-fail", R.string.preference_title_notification_login_fail, R.string.preference_summary_notification_login_fail, R.drawable.ic_user_avatar, R.color.base0),
-    MENTION("mention", R.string.preference_title_notification_mention, R.string.preference_summary_notification_mention, R.drawable.ic_mention);  // combines "mention", "mention-failure" and "mention-success"
+    MENTION("mention", R.string.preference_title_notification_mention, R.string.preference_summary_notification_mention, R.drawable.ic_mention); // combines "mention", "mention-failure" and "mention-success"
 
     override fun code(): Int {
         // This enumeration is not marshalled so tying declaration order to presentation order is

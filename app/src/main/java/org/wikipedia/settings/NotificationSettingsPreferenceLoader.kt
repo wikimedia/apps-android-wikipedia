@@ -6,7 +6,6 @@ import android.provider.Settings
 import androidx.preference.PreferenceFragmentCompat
 import org.wikipedia.R
 
-
 internal class NotificationSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     override fun loadPreferences() {
         loadPreferences(R.xml.preferences_notifications)
@@ -16,7 +15,7 @@ internal class NotificationSettingsPreferenceLoader(fragment: PreferenceFragment
         }
     }
 
-    private fun openNotificationSettings() : Intent {
+    private fun openNotificationSettings(): Intent {
         return Intent().apply {
             when {
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
