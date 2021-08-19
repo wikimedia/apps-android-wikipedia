@@ -607,6 +607,8 @@
   <string name="preference_category_notification_types">Label for the settings category that contains the types of notifications that are shown in the app.</string>
   <string name="preference_title_notification_system">Label for settings switch that enables or disables System notifications.</string>
   <string name="preference_summary_notification_system">Short summary explaining what System notifications are.</string>
+  <string name="preference_title_notification_welcome">Label for settings switch that enables or disables System welcome notifications.</string>
+  <string name="preference_summary_notification_welcome">Short summary explaining what System welcome notifications are.</string>
   <string name="preference_title_notification_milestone">Label for settings switch that enables or disables Milestone notifications.</string>
   <string name="preference_summary_notification_milestone">Short summary explaining what Milestone notifications are.</string>
   <string name="preference_title_notification_thanks">Label for settings switch that enables or disables Thanks notifications.</string>

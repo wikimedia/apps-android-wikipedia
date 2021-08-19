@@ -19,7 +19,7 @@ enum class NotificationCategory constructor(val id: String,
                                             val importance: Int = NotificationManagerCompat.IMPORTANCE_HIGH,
                                             val group: String? = GROUP_WIKIPEDIA_NOTIFICATIONS) : EnumCode {
     SYSTEM("system", R.string.preference_title_notification_system, R.string.preference_summary_notification_system, R.drawable.ic_speech_bubbles),
-    SYSTEM_NO_EMAIL("system-noemail", R.string.preference_title_notification_system, R.string.preference_summary_notification_system, R.drawable.ic_speech_bubbles), // default welcome
+    SYSTEM_NO_EMAIL("system-noemail", R.string.preference_title_notification_welcome, R.string.preference_summary_notification_welcome, R.drawable.ic_speech_bubbles), // default welcome
     MILESTONE_EDIT("thank-you-edit", R.string.preference_title_notification_milestone, R.string.preference_summary_notification_milestone, R.drawable.ic_edit_progressive), // milestone
     EDIT_USER_TALK("edit-user-talk", R.string.preference_title_notification_user_talk, R.string.preference_summary_notification_user_talk, R.drawable.ic_edit_user_talk),
     EDIT_THANK("edit-thank", R.string.preference_title_notification_thanks, R.string.preference_summary_notification_thanks, R.drawable.ic_user_talk, R.color.green50),
@@ -76,7 +76,7 @@ enum class NotificationCategory constructor(val id: String,
                     notificationChannelCompat = NotificationChannelCompat.Builder(category.id, category.importance)
                         .setName(context.getString(category.title))
                         .setDescription(context.getString(category.description))
-                        .setGroup(category.group) //
+                        .setGroup(category.group) // If the group is null, it will be put into system "other" group.
                         .setLightColor(ContextCompat.getColor(context, R.color.accent50))
                         .setVibrationEnabled(true)
                         .build()

@@ -593,6 +593,8 @@
     <string name="preference_category_notification_types">In-app notification types</string>
     <string name="preference_title_notification_system">System</string>
     <string name="preference_summary_notification_system">Messages from system</string>
+    <string name="preference_title_notification_welcome">Welcome</string>
+    <string name="preference_summary_notification_welcome">Welcome messages from system</string>
     <string name="preference_title_notification_milestone">Milestone</string>
     <string name="preference_summary_notification_milestone">Certain edit counts are reached</string>
     <string name="preference_title_notification_thanks">Thanks</string>
