@@ -243,9 +243,9 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
         fun setFields(event: OnThisDay.Event) {
             itemBinding.yearLayout.text.text = event.text
-            itemBinding.yearLayout.text.isGone = event.text.isEmpty()
+            itemBinding.yearLayout.text.visibility = if (event.text.isEmpty()) View.GONE else View.VISIBLE
             itemBinding.yearLayout.year.text = DateUtil.yearToStringWithEra(event.year)
-            itemBinding.yearLayout.year.text = DateUtil.getYearDifferenceString(event.year)
+            itemBinding.yearLayout.yearsText.text = DateUtil.getYearDifferenceString(event.year, wiki.languageCode)
             setPagesViewPager(event)
         }
 
