@@ -62,7 +62,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
             value?.let {
                 age = it.age
                 setLayoutDirectionByWikiSite(it.wikiSite(), binding.rtlContainer)
-                binding.eventLayout.yearsText.text = DateUtil.getYearDifferenceString(it.year())
+                binding.eventLayout.yearsText.text = DateUtil.getYearDifferenceString(it.year(), it.wikiSite().languageCode)
                 updateOtdEventUI(it)
                 header(it)
                 footer(it)
