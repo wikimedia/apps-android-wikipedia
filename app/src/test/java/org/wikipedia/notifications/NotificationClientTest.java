@@ -1,15 +1,17 @@
 package org.wikipedia.notifications;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 
 import java.util.List;
 
