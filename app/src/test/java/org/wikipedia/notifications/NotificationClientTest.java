@@ -1,5 +1,8 @@
 package org.wikipedia.notifications;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
@@ -12,11 +15,6 @@ import java.util.List;
 
 import io.reactivex.rxjava3.core.Observable;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.wikipedia.notifications.Notification.CATEGORY_EDIT_THANK;
-import static org.wikipedia.notifications.Notification.CATEGORY_MENTION;
-
 public class NotificationClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccess() throws Throwable {
@@ -25,7 +23,7 @@ public class NotificationClientTest extends MockRetrofitTest {
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
                     List<Notification> notifications = response.getQuery().notifications().list();
-                    return notifications.get(0).category().equals(CATEGORY_EDIT_THANK)
+                    return notifications.get(0).category().equals(NotificationCategory.EDIT_THANK.getId())
                             && notifications.get(0).title().full().equals("PageTitle")
                             && notifications.get(0).agent().name().equals("User1");
                 });
@@ -40,7 +38,7 @@ public class NotificationClientTest extends MockRetrofitTest {
     @Test public void testNotificationReverted() throws Throwable {
         String json = TestFileUtil.readRawFile("notification_revert.json");
         Notification n = GsonUnmarshaller.unmarshal(Notification.class, json);
-        assertThat(n.type(), is(Notification.CATEGORY_REVERTED));
+        assertThat(n.type(), is(NotificationCategory.REVERTED.getId()));
         assertThat(n.wiki(), is("wikidatawiki"));
         assertThat(n.agent().name(), is("User1"));
         assertThat(n.isFromWikidata(), is(true));
@@ -52,9 +50,9 @@ public class NotificationClientTest extends MockRetrofitTest {
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
                     List<Notification> notifications = response.getQuery().notifications().list();
-                    return notifications.get(0).category().startsWith(CATEGORY_MENTION)
-                            && notifications.get(1).category().startsWith(CATEGORY_MENTION)
-                            && notifications.get(2).category().startsWith(CATEGORY_MENTION);
+                    return notifications.get(0).category().startsWith(NotificationCategory.MENTION.getId())
+                            && notifications.get(1).category().startsWith(NotificationCategory.MENTION.getId())
+                            && notifications.get(2).category().startsWith(NotificationCategory.MENTION.getId());
                 });
     }
 
