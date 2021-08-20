@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
+import org.wikipedia.util.log.L
 
 private const val GROUP_WIKIPEDIA_NOTIFICATIONS: String = "WIKIPEDIA_NOTIFICATIONS"
 
@@ -53,20 +54,26 @@ enum class NotificationCategory constructor(val id: String,
             // Notification channel ( >= API 26 )
             val notificationManagerCompat = NotificationManagerCompat.from(context)
 
+            var notificationChannelGroupWikipediaNotifications = notificationManagerCompat.getNotificationChannelGroupCompat(GROUP_WIKIPEDIA_NOTIFICATIONS)
+
+            if (notificationChannelGroupWikipediaNotifications == null) {
+                notificationChannelGroupWikipediaNotifications = NotificationChannelGroupCompat.Builder(GROUP_WIKIPEDIA_NOTIFICATIONS)
+                    .setName(context.getString(R.string.notifications_channel_group_wikipedia_notifications_title))
+                    .setDescription(context.getString(R.string.notifications_channel_group_wikipedia_notifications_description))
+                    .build()
+                notificationManagerCompat.createNotificationChannelGroup(notificationChannelGroupWikipediaNotifications)
+            } else {
+                // cancel the process because the following notification channels were created.
+                L.d("Create notification channels skipped.")
+                return
+            }
+
             // Remove old channels
             if (notificationManagerCompat.getNotificationChannelGroupCompat("MEDIAWIKI_ECHO_CHANNEL") != null) {
                 notificationManagerCompat.deleteNotificationChannel("MEDIAWIKI_ECHO_CHANNEL")
                 notificationManagerCompat.deleteNotificationChannel("ALPHA_UPDATE_CHECKER_CHANNEL")
                 notificationManagerCompat.deleteNotificationChannel("READING_LIST_SYNCING_CHANNEL")
                 notificationManagerCompat.deleteNotificationChannel("SYNCING_CHANNEL")
-            }
-
-            var notificationChannelGroupWikipediaNotifications = notificationManagerCompat.getNotificationChannelGroupCompat(GROUP_WIKIPEDIA_NOTIFICATIONS)
-            if (notificationChannelGroupWikipediaNotifications == null) {
-                notificationChannelGroupWikipediaNotifications = NotificationChannelGroupCompat.Builder(GROUP_WIKIPEDIA_NOTIFICATIONS)
-                    .setName(context.getString(R.string.notifications_channel_group_wikipedia_notifications))
-                    .build()
-                notificationManagerCompat.createNotificationChannelGroup(notificationChannelGroupWikipediaNotifications)
             }
 
             for (i in 0 until MAP.size()) {

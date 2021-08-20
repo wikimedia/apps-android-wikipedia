@@ -30,7 +30,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
-import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -60,7 +59,6 @@ abstract class BaseActivity : AppCompatActivity() {
         disposables.add(WikipediaApp.getInstance().bus.subscribe(NonExclusiveBusConsumer()))
         setTheme()
         removeSplashBackground()
-        NotificationCategory.createNotificationChannels(this)
 
         if (AppShortcuts.ACTION_APP_SHORTCUT == intent.action) {
             intent.putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS)
