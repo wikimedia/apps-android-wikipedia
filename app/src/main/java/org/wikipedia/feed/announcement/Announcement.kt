@@ -24,7 +24,6 @@ class Announcement(val id: String = "",
                    val placement: String = PLACEMENT_FEED,
                    val action: Action?) {
 
-
     fun startTime(): Date {
         return DateUtil.iso8601DateParse(startTime)
     }
