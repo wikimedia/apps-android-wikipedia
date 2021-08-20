@@ -20,6 +20,7 @@
         <item name="button_background_color">@color/parchment</item>
         <item name="tab_placeholder_text_color">@color/amate</item>
         <item name="color_group_22">@color/papyrus</item>
+        <item name="color_group_44">@color/red30</item>
         <item name="color_group_53">@color/amate</item>
         <item name="color_group_54">@color/amate</item>
         <item name="color_group_59">@color/masi</item>
