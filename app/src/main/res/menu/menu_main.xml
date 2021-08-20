@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
+    <item android:id="@+id/menu_notifications"
+        android:title="@string/notifications_activity_title"
+        app:showAsAction="always"/>
     <item android:id="@+id/menu_tabs"
         android:title="@string/menu_page_show_tabs"
         app:showAsAction="always"/>
