@@ -994,6 +994,7 @@
   <string name="talk_subject_empty">L\'oggetto non può essere vuoto.</string>
   <string name="talk_response_submitted">Risposta pubblicata.</string>
   <string name="talk_snackbar_undo">Annulla</string>
+  <string name="talk_last_modified">&lt;b&gt;Ultima modifica alle %1$s&lt;/b&gt; da %2$s</string>
   <string name="menu_option_share_edit">Condividi modifica</string>
   <string name="menu_option_user_profile">Profilo di %s</string>
   <string name="menu_option_user_contributions">Contributi di %s</string>
