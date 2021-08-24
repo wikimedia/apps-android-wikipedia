@@ -2,7 +2,6 @@ package org.wikipedia.analytics
 
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
-import org.wikipedia.util.log.L
 
 class AppLanguageSettingsFunnel : TimedFunnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
