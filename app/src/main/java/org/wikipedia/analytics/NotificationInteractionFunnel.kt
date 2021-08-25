@@ -15,7 +15,7 @@ class NotificationInteractionFunnel(app: WikipediaApp, private val id: Long, pri
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "notification_id", id)
         preprocessData(eventData, "notification_wiki", wiki)
-        preprocessData(eventData, "notification_type", type)
+        preprocessData(eventData, "notification_type", type.orEmpty())
         return super.preprocessData(eventData)
     }
 
