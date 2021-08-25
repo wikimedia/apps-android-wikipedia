@@ -57,6 +57,7 @@ import org.wikipedia.json.GsonUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.media.AvPlayer
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionTab
 import org.wikipedia.page.leadimages.LeadImagesHandler
@@ -626,8 +627,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         val now = Date()
                         for (announcement in list.items) {
                             if (AnnouncementClient.shouldShow(announcement, country, now) &&
-                                announcement.placement() == Announcement.PLACEMENT_ARTICLE &&
-                                !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
+                                announcement.placement == Announcement.PLACEMENT_ARTICLE &&
+                                !Prefs.getAnnouncementShownDialogs().contains(announcement.id)) {
                                 val dialog = AnnouncementDialog(requireActivity(), announcement)
                                 dialog.setCancelable(false)
                                 dialog.show()
@@ -903,6 +904,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false) {
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle()
+
+        if (AccountUtil.isLoggedIn) {
+            // explicitly check notifications for the current user
+            NotificationPollBroadcastReceiver.pollNotifications(requireActivity())
+        }
 
         // update the time spent reading of the current page, before loading the new one
         addTimeSpentReading(activeTimer.elapsedSec)

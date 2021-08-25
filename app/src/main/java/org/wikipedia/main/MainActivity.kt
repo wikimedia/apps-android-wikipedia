@@ -3,34 +3,26 @@ package org.wikipedia.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.appshortcuts.AppShortcuts.Companion.setShortcuts
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
-import org.wikipedia.page.PageActivity
-import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.views.TabCountsView
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
     private lateinit var binding: ActivityMainBinding
 
-    private var tabCountsView: TabCountsView? = null
     private var controlNavTabInFragment = false
-    private var showTabCountsAnimation = false
 
     override fun inflateAndSetContentView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -63,38 +55,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         invalidateOptionsMenu()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        super.onCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-        fragment.requestUpdateToolbarElevation()
-        val tabsItem = menu.findItem(R.id.menu_tabs)
-        if (WikipediaApp.getInstance().tabCount < 1 || fragment.currentFragment is SuggestedEditsTasksFragment) {
-            tabsItem.isVisible = false
-            tabCountsView = null
-        } else {
-            tabsItem.isVisible = true
-            tabCountsView = TabCountsView(this, null)
-            tabCountsView!!.setOnClickListener {
-                if (WikipediaApp.getInstance().tabCount == 1) {
-                    startActivity(PageActivity.newIntent(this@MainActivity))
-                } else {
-                    startActivityForResult(TabActivity.newIntent(this@MainActivity), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
-                }
-            }
-            tabCountsView!!.updateTabCount(showTabCountsAnimation)
-            tabCountsView!!.contentDescription = getString(R.string.menu_page_show_tabs)
-            tabsItem.actionView = tabCountsView
-            tabsItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(tabCountsView!!)
-            showTabCountsAnimation = false
-        }
-        return true
-    }
-
     override fun createFragment(): MainFragment {
         return MainFragment.newInstance()
     }
@@ -114,11 +74,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             controlNavTabInFragment = true
         }
         fragment.requestUpdateToolbarElevation()
-    }
-
-    override fun updateTabCountsView() {
-        showTabCountsAnimation = true
-        invalidateOptionsMenu()
     }
 
     override fun onSupportActionModeStarted(mode: ActionMode) {
@@ -168,6 +123,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     fun getToolbar(): Toolbar {
         return binding.mainToolbar
+    }
+
+    override fun onUnreadNotification() {
+        fragment.updateNotificationDot(true)
     }
 
     private fun setToolbarElevationDefault() {

@@ -22,7 +22,7 @@ class NotificationInteractionFunnel(app: WikipediaApp, private val id: Long, pri
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
     fun logMarkRead(selectionToken: Long?) {
-        log("action_rank", 0, "selection_token", selectionToken)
+        log("action_rank", 0, "selection_token", selectionToken.toString())
     }
 
     fun logIncoming() {
