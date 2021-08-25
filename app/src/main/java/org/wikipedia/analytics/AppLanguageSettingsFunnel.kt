@@ -8,7 +8,7 @@ class AppLanguageSettingsFunnel : TimedFunnel(WikipediaApp.getInstance(), SCHEMA
     fun logLanguageSetting(source: InvokeSource, initialLanguageList: String, finalLanguageList: String,
                            interactionsCount: Int, searched: Boolean) {
         log(
-                "source", source.name,
+                "source", source.value,
                 "initial", initialLanguageList,
                 "final", finalLanguageList,
                 "interactions", interactionsCount,
