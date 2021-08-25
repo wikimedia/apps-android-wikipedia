@@ -132,12 +132,12 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         private fun setNotificationOptions(csrfToken: String) {
             val optionList = ArrayList<String>()
 
-            optionList.add("echo-subscriptions-push-edit-user-talk=" + if (Prefs.notificationUserTalkEnabled()) "1" else "0")
-            optionList.add("echo-subscriptions-push-login-fail=" + if (Prefs.notificationLoginFailEnabled()) "1" else "0")
-            optionList.add("echo-subscriptions-push-mention=" + if (Prefs.notificationMentionEnabled()) "1" else "0")
-            optionList.add("echo-subscriptions-push-thank-you-edit=" + if (Prefs.notificationMilestoneEnabled()) "1" else "0")
-            optionList.add("echo-subscriptions-push-reverted=" + if (Prefs.notificationRevertEnabled()) "1" else "0")
-            optionList.add("echo-subscriptions-push-edit-thank=" + if (Prefs.notificationThanksEnabled()) "1" else "0")
+            optionList.add("echo-subscriptions-push-edit-user-talk=1")
+            optionList.add("echo-subscriptions-push-login-fail=1")
+            optionList.add("echo-subscriptions-push-mention=1")
+            optionList.add("echo-subscriptions-push-thank-you-edit=1")
+            optionList.add("echo-subscriptions-push-reverted=1")
+            optionList.add("echo-subscriptions-push-edit-thank=1")
             // Explicitly enable cross-wiki notifications
             optionList.add("echo-cross-wiki-notifications=1")
 

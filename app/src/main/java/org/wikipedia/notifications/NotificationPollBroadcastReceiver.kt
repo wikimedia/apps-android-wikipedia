@@ -206,20 +206,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
                 for (n in notificationsToDisplay) {
-                    // TODO: remove these conditions when the time is right.
-                    if (n.category().startsWith(NotificationCategory.SYSTEM.id) && Prefs.notificationWelcomeEnabled() ||
-                            n.category() == NotificationCategory.EDIT_THANK.id && Prefs.notificationThanksEnabled() ||
-                            n.category() == NotificationCategory.MILESTONE_EDIT.id && Prefs.notificationMilestoneEnabled() ||
-                            n.category() == NotificationCategory.REVERTED.id && Prefs.notificationRevertEnabled() ||
-                            n.category() == NotificationCategory.EDIT_USER_TALK.id && Prefs.notificationUserTalkEnabled() ||
-                            n.category() == NotificationCategory.LOGIN_FAIL.id && Prefs.notificationLoginFailEnabled() ||
-                            n.category().startsWith(NotificationCategory.MENTION.id) && Prefs.notificationMentionEnabled() ||
-                            Prefs.showAllNotifications()) {
-                        // Record that there is an incoming notification to track/compare further actions on it.
-                        NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
-                        NotificationInteractionEvent.logIncoming(n, null)
-                        NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki())) DBNAME_WIKI_NAME_MAP[n.wiki()] else n.wiki())!!)
-                    }
+                    // Record that there is an incoming notification to track/compare further actions on it.
+                    NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
+                    NotificationInteractionEvent.logIncoming(n, null)
+                    NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki())) DBNAME_WIKI_NAME_MAP[n.wiki()] else n.wiki())!!)
                 }
             }
             if (locallyKnownModified) {

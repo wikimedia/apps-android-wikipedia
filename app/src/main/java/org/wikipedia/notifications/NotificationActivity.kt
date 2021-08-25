@@ -217,25 +217,14 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         notificationContainerList.clear()
         var millis = Long.MAX_VALUE
         for (n in notificationList) {
-
-            // TODO: remove this condition when the time is right.
-            if (n.category().startsWith(NotificationCategory.SYSTEM.id) && Prefs.notificationWelcomeEnabled() ||
-                    n.category() == NotificationCategory.EDIT_THANK.id && Prefs.notificationThanksEnabled() ||
-                    n.category() == NotificationCategory.MILESTONE_EDIT.id && Prefs.notificationMilestoneEnabled() ||
-                    n.category() == NotificationCategory.REVERTED.id && Prefs.notificationRevertEnabled() ||
-                    n.category() == NotificationCategory.EDIT_USER_TALK.id && Prefs.notificationUserTalkEnabled() ||
-                    n.category() == NotificationCategory.LOGIN_FAIL.id && Prefs.notificationLoginFailEnabled() ||
-                    n.category().startsWith(NotificationCategory.MENTION.id) && Prefs.notificationMentionEnabled() ||
-                    Prefs.showAllNotifications()) {
-                if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents!!.header.contains(currentSearchQuery!!)) {
-                    continue
-                }
-                if (millis - n.timestamp.time > TimeUnit.DAYS.toMillis(1)) {
-                    notificationContainerList.add(NotificationListItemContainer(n.timestamp))
-                    millis = n.timestamp.time
-                }
-                notificationContainerList.add(NotificationListItemContainer(n))
+            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents!!.header.contains(currentSearchQuery!!)) {
+                continue
             }
+            if (millis - n.timestamp.time > TimeUnit.DAYS.toMillis(1)) {
+                notificationContainerList.add(NotificationListItemContainer(n.timestamp))
+                millis = n.timestamp.time
+            }
+            notificationContainerList.add(NotificationListItemContainer(n))
         }
         binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         if (notificationContainerList.isEmpty()) {

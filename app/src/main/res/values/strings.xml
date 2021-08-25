@@ -615,6 +615,12 @@
     <string name="preference_summary_notification_mention">Someone mentions you in a page</string>
     <string name="preference_title_notification_user_talk">Talk page</string>
     <string name="preference_summary_notification_user_talk">Messages and replies from talk pages</string>
+    <string name="preference_title_notification_email_user">Email received</string>
+    <string name="preference_summary_notification_email_user">Someone sent you an email through the wiki</string>
+    <string name="preference_title_notification_user_rights">User rights changes</string>
+    <string name="preference_summary_notification_user_rights">Received when your user rights change</string>
+    <string name="preference_title_notification_article_linked">Links to articles you created</string>
+    <string name="preference_summary_notification_article_linked">Received when a new link is made to a page you created</string>
     <string name="preference_category_push_notifications">Push notifications</string>
     <string name="preference_title_customize_push_notifications">Customize push notifications</string>
     <string name="preference_category_display_settings">Display settings</string>
