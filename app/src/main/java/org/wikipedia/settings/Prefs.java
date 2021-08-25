@@ -510,6 +510,14 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_notification_show_all, false);
     }
 
+    public static int getNotificationUnreadCount() {
+        return getInt(R.string.preference_key_notification_unread_count, 0);
+    }
+
+    public static void setNotificationUnreadCount(int count) {
+        setInt(R.string.preference_key_notification_unread_count, count);
+    }
+
     public static boolean preferOfflineContent() {
         return getBoolean(R.string.preference_key_prefer_offline_content, false);
     }
