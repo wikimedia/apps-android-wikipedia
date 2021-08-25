@@ -17,7 +17,7 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     }
 
     override fun image(): Uri {
-        return Uri.parse(announcement.imageUrl)
+        return Uri.parse(announcement.imageUrl.orEmpty())
     }
 
     override fun type(): CardType {
@@ -30,7 +30,7 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
 
     fun imageHeight(): Int {
         return try {
-            announcement.imageHeight.toInt()
+            announcement.imageHeight.orEmpty().ifEmpty { "0" }.toInt()
         } catch (e: NumberFormatException) {
             0
         }
@@ -57,7 +57,7 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     }
 
     fun footerCaption(): String {
-        return announcement.footerCaption
+        return announcement.footerCaption.orEmpty()
     }
 
     fun hasImage(): Boolean {
@@ -65,6 +65,6 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     }
 
     fun hasBorder(): Boolean {
-        return announcement.hasBorder()
+        return announcement.border == true
     }
 }
