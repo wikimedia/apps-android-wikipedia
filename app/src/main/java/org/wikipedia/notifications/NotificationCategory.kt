@@ -11,6 +11,7 @@ import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.util.log.L
 
 private const val GROUP_WIKIPEDIA_NOTIFICATIONS: String = "WIKIPEDIA_NOTIFICATIONS"
+private const val GROUP_OTHER: String = "WIKIPEDIA_NOTIFICATIONS_OTHER"
 
 @Suppress("unused")
 enum class NotificationCategory constructor(val id: String,
@@ -30,9 +31,9 @@ enum class NotificationCategory constructor(val id: String,
     EMAIL_USER("emailuser", R.string.preference_title_notification_email_user, R.string.preference_summary_notification_email_user, importance = NotificationManagerCompat.IMPORTANCE_HIGH),
     USER_RIGHTS("user-rights", R.string.preference_title_notification_user_rights, R.string.preference_summary_notification_user_rights, importance = NotificationManagerCompat.IMPORTANCE_HIGH),
     ARTICLE_LINKED("article-linked", R.string.preference_title_notification_article_linked, R.string.preference_summary_notification_article_linked),
-    ALPHA_BUILD_CHECKER("alpha-builder-checker", R.string.alpha_update_notification_title, R.string.alpha_update_notification_text, R.drawable.ic_w_transparent, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = null),
-    READING_LIST_SYNCING("reading-list-syncing", R.string.notification_syncing_reading_list_channel_title, R.string.notification_syncing_reading_list_channel_description, android.R.drawable.ic_popup_sync, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = null),
-    SYNCING("syncing", R.string.notification_channel_title, R.string.notification_channel_description, android.R.drawable.stat_sys_download, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = null);
+    ALPHA_BUILD_CHECKER("alpha-builder-checker", R.string.alpha_update_notification_title, R.string.alpha_update_notification_text, R.drawable.ic_w_transparent, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = GROUP_OTHER),
+    READING_LIST_SYNCING("reading-list-syncing", R.string.notification_syncing_reading_list_channel_title, R.string.notification_syncing_reading_list_channel_description, android.R.drawable.ic_popup_sync, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = GROUP_OTHER),
+    SYNCING("syncing", R.string.notification_channel_title, R.string.notification_channel_description, android.R.drawable.stat_sys_download, importance = NotificationManagerCompat.IMPORTANCE_LOW, group = GROUP_OTHER);
 
     override fun code(): Int {
         // This enumeration is not marshalled so tying declaration order to presentation order is
@@ -65,6 +66,12 @@ enum class NotificationCategory constructor(val id: String,
                     .setDescription(context.getString(R.string.notifications_channel_group_wikipedia_notifications_description))
                     .build()
                 notificationManagerCompat.createNotificationChannelGroup(notificationChannelGroupWikipediaNotifications)
+
+                notificationChannelGroupWikipediaNotifications = NotificationChannelGroupCompat.Builder(GROUP_OTHER)
+                    .setName(context.getString(R.string.notifications_channel_group_other_title))
+                    .setDescription(context.getString(R.string.notifications_channel_group_other_title))
+                    .build()
+                notificationManagerCompat.createNotificationChannelGroup(notificationChannelGroupWikipediaNotifications)
             } else {
                 // cancel the process because the following notification channels were created.
                 L.d("Create notification channels skipped.")
@@ -72,12 +79,10 @@ enum class NotificationCategory constructor(val id: String,
             }
 
             // Remove old channels
-            if (notificationManagerCompat.getNotificationChannelGroupCompat("MEDIAWIKI_ECHO_CHANNEL") != null) {
-                notificationManagerCompat.deleteNotificationChannel("MEDIAWIKI_ECHO_CHANNEL")
-                notificationManagerCompat.deleteNotificationChannel("ALPHA_UPDATE_CHECKER_CHANNEL")
-                notificationManagerCompat.deleteNotificationChannel("READING_LIST_SYNCING_CHANNEL")
-                notificationManagerCompat.deleteNotificationChannel("SYNCING_CHANNEL")
-            }
+            notificationManagerCompat.deleteNotificationChannel("MEDIAWIKI_ECHO_CHANNEL")
+            notificationManagerCompat.deleteNotificationChannel("ALPHA_UPDATE_CHECKER_CHANNEL")
+            notificationManagerCompat.deleteNotificationChannel("READING_LIST_SYNCING_CHANNEL")
+            notificationManagerCompat.deleteNotificationChannel("SYNCING_CHANNEL")
 
             for (i in 0 until MAP.size()) {
                 val category = MAP[i]
@@ -86,7 +91,7 @@ enum class NotificationCategory constructor(val id: String,
                     notificationChannelCompat = NotificationChannelCompat.Builder(category.id, category.importance)
                         .setName(context.getString(category.title))
                         .setDescription(context.getString(category.description))
-                        .setGroup(category.group) // If the group is null, it will be put into system "other" group.
+                        .setGroup(category.group)
                         .setLightColor(ContextCompat.getColor(context, R.color.accent50))
                         .setVibrationEnabled(true)
                         .build()
