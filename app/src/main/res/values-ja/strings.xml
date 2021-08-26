@@ -35,6 +35,7 @@
 * UsagiNeko
 * Waki285
 * Wat
+* Whym
 * Wicklo
 * WwLMvmT
 * Yusuke1109
@@ -394,6 +395,9 @@
   <string name="empty_tab_title">新しいタブ</string>
   <string name="menu_save_all_tabs">すべてのタブを保存</string>
   <string name="error_blocked_title">あなたのユーザー名またはIPアドレスはブロックされています。</string>
+  <string name="error_blocked_start">ブロックの開始日：%s</string>
+  <string name="error_blocked_expiry">ブロックの終了日：%s</string>
+  <string name="error_blocked_id">ブロックID：%s</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
