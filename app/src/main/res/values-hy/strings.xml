@@ -122,7 +122,7 @@
   <string name="create_account_password_repeat_hint">Կրկնել գաղտնաբառը</string>
   <string name="create_account_passwords_mismatch_error">Գաղտնաբառերը չեն համընկնում</string>
   <string name="create_account_email_error">Սխալ էլփոստի հասցե</string>
-  <string name="create_account_password_error">Սխալ գաղտնաբառ</string>
+  <string name="create_account_password_error" fuzzy="true">Սխալ գաղտնաբառ</string>
   <string name="create_account_next">Հաջորդ</string>
   <string name="email_recommendation_dialog_create_with_email_action">Նշեք էլ. փոստի հասցե</string>
   <string name="create_account_button">Ստեղծել մասնակցային հաշիվ</string>

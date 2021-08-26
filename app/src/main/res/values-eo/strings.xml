@@ -145,7 +145,7 @@
   <string name="create_account_passwords_mismatch_error">La pasvortoj ne kongruas</string>
   <string name="create_account_email_error">Nevalida retpoŝta adreso</string>
   <string name="create_account_username_error">Nevalidaj signoj en uzantnomo</string>
-  <string name="create_account_password_error">La pasvorto estas nevalida</string>
+  <string name="create_account_password_error" fuzzy="true">La pasvorto estas nevalida</string>
   <string name="create_account_generic_error">Ne eblis krei konton</string>
   <string name="create_account_next">Sekva</string>
   <string name="email_recommendation_dialog_title">Krei konton sen retpoŝtadreso?</string>

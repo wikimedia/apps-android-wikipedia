@@ -137,7 +137,7 @@
   <string name="create_account_passwords_mismatch_error">D\'Passwierder sinn net déi selwescht</string>
   <string name="create_account_email_error">Net-valabel E-Mail-Adress</string>
   <string name="create_account_username_error">Net valabel Zeechen am Benotzernumm</string>
-  <string name="create_account_password_error">D\'Passwuert ass net valabel</string>
+  <string name="create_account_password_error">D\'Passwuert muss mindestens 8 Zeechen hunn</string>
   <string name="create_account_generic_error">Benotzerkont konnt net opgemaach ginn</string>
   <string name="create_account_next">Weider</string>
   <string name="email_recommendation_dialog_title">Benotzerkont ouni E-Mail-Adress uleeën?</string>

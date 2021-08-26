@@ -77,7 +77,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         linkHandler.wikiSite = pageTitle.wikiSite
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
 
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -130,10 +130,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.replySaveButton.visibility = View.VISIBLE
         binding.replyTextLayout.visibility = View.VISIBLE
         binding.licenseText.visibility = View.VISIBLE
-        DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
         binding.talkScrollContainer.postDelayed({
             if (!isDestroyed) {
                 binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
+                DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
                 binding.replyTextLayout.requestFocus()
             }
         }, 500)

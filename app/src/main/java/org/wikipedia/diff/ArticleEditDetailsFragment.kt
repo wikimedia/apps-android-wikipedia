@@ -13,6 +13,7 @@ import android.view.*
 import android.view.View.*
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
@@ -30,7 +31,7 @@ import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
-import org.wikipedia.dataclient.restbase.DiffResponse.*
+import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.history.HistoryEntry
@@ -232,9 +233,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun setEnableDisableTint(view: AppCompatImageView, isDisabled: Boolean) {
-        ImageViewCompat.setImageTintList(view, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
-                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
+        ImageViewCompat.setImageTintList(view, AppCompatResources.getColorStateList(requireContext(),
+            ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
+                R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color)))
     }
 
     private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
@@ -353,7 +354,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun fetchDiffText() {
         disposables.add(ServiceFactory.getCoreRest(WikiSite.forLanguageCode(languageCode)).getDiff(olderRevisionId, revisionId)
                 .map {
-                    createSpannable(it.diffs)
+                    createSpannable(it.diff)
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -367,26 +368,26 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 })
     }
 
-    private fun createSpannable(diffs: List<DiffItem>): CharSequence {
+    private fun createSpannable(diffs: List<DiffResponse.DiffItem>): CharSequence {
         val spannableString = SpannableStringBuilder()
         diffSize = 0
         for (diff in diffs) {
             val prefixLength = spannableString.length
             spannableString.append(if (diff.text.isNotEmpty()) diff.text else "\n")
             when (diff.type) {
-                DIFF_TYPE_LINE_ADDED -> {
+                DiffResponse.DIFF_TYPE_LINE_ADDED -> {
                     diffSize += diff.text.length + 1
                     updateDiffTextDecor(spannableString, true, prefixLength, prefixLength + diff.text.length)
                 }
-                DIFF_TYPE_LINE_REMOVED -> {
+                DiffResponse.DIFF_TYPE_LINE_REMOVED -> {
                     diffSize -= diff.text.length + 1
                     updateDiffTextDecor(spannableString, false, prefixLength, prefixLength + diff.text.length)
                 }
-                DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
+                DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
                     diffSize -= diff.text.length + 1
                     updateDiffTextDecor(spannableString, false, prefixLength, prefixLength + diff.text.length)
                 }
-                DIFF_TYPE_PARAGRAPH_MOVED_TO -> {
+                DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_TO -> {
                     diffSize += diff.text.length + 1
                     updateDiffTextDecor(spannableString, true, prefixLength, prefixLength + diff.text.length)
                 }
@@ -397,7 +398,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     val highlightRangeStart = indices[highlightRange.start]
                     val highlightRangeEnd = if (highlightRange.start + highlightRange.length < indices.size) indices[highlightRange.start + highlightRange.length] else indices[indices.size - 1]
 
-                    if (highlightRange.type == HIGHLIGHT_TYPE_ADD) {
+                    if (highlightRange.type == DiffResponse.HIGHLIGHT_TYPE_ADD) {
                         diffSize += highlightRange.length
                         updateDiffTextDecor(spannableString, true, prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd)
                     } else {

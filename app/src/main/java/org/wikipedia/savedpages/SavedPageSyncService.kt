@@ -28,7 +28,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
-import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar
 import retrofit2.Response
@@ -189,7 +188,7 @@ class SavedPageSyncService : JobIntentService() {
 
                             // download article images
                             for (item in mediaListRsp.body()!!.getItems("image")) {
-                                if (item.srcSets.isNotEmpty()) {
+                                item.srcSets.let {
                                     fileUrls.add(item.getImageUrl(DimenUtil.densityScalar))
                                 }
                             }
@@ -215,14 +214,14 @@ class SavedPageSyncService : JobIntentService() {
     private fun reqPageSummary(pageTitle: PageTitle): Observable<Response<PageSummary?>> {
         return ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText,
                 null, CACHE_CONTROL_FORCE_NETWORK.toString(),
-                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode(),
+                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,
                 UriUtil.encodeURL(pageTitle.prefixedText))
     }
 
     private fun reqMediaList(pageTitle: PageTitle, revision: Long): Observable<Response<MediaList>> {
         return ServiceFactory.getRest(pageTitle.wikiSite).getMediaListResponse(pageTitle.prefixedText,
                 revision, CACHE_CONTROL_FORCE_NETWORK.toString(),
-                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode(),
+                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,
                 UriUtil.encodeURL(pageTitle.prefixedText))
     }
 
@@ -291,7 +290,7 @@ class SavedPageSyncService : JobIntentService() {
         return Request.Builder().cacheControl(CACHE_CONTROL_FORCE_NETWORK).url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
                 .addHeader("Accept-Language", app.getAcceptLanguage(pageTitle.wikiSite))
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
-                .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.wikiSite.languageCode())
+                .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.wikiSite.languageCode)
                 .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.prefixedText))
     }
 

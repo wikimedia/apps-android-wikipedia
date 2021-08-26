@@ -1,6 +1,7 @@
 package org.wikipedia.util
 
 import android.content.res.Configuration
+import android.content.res.Resources
 import android.text.TextUtils
 import android.util.SparseArray
 import android.view.View
@@ -41,11 +42,11 @@ object L10nUtil {
 
     @JvmStatic
     fun getStringForArticleLanguage(title: PageTitle, resId: Int): String {
-        return getStringsForLocale(Locale(title.wikiSite.languageCode()), intArrayOf(resId))[resId]
+        return getStringsForLocale(Locale(title.wikiSite.languageCode), intArrayOf(resId))[resId]
     }
 
     fun getStringsForArticleLanguage(title: PageTitle, resId: IntArray): SparseArray<String> {
-        return getStringsForLocale(Locale(title.wikiSite.languageCode()), resId)
+        return getStringsForLocale(Locale(title.wikiSite.languageCode), resId)
     }
 
     private fun getStringsForLocale(targetLocale: Locale,
@@ -65,6 +66,22 @@ object L10nUtil {
         // reset to current configuration
         WikipediaApp.getInstance().createConfigurationContext(config)
         return localizedStrings
+    }
+
+    // To be used only for plural strings and strings requiring arguments
+    fun getResourcesForWikiLang(languageCode: String): Resources? {
+        val config = currentConfiguration
+        val targetLocale = Locale(languageCode)
+        val systemLocale = ConfigurationCompat.getLocales(config)[0]
+        if (systemLocale.language == targetLocale.language) {
+            return null
+        }
+        setDesiredLocale(config, targetLocale)
+        val targetResources = WikipediaApp.getInstance().createConfigurationContext(config).resources
+        config.setLocale(systemLocale)
+        // reset to current configuration
+        WikipediaApp.getInstance().createConfigurationContext(config)
+        return targetResources
     }
 
     private fun getTargetStrings(@StringRes strings: IntArray, altConfig: Configuration): SparseArray<String> {

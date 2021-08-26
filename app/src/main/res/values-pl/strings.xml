@@ -175,7 +175,7 @@
   <string name="create_account_passwords_mismatch_error">Hasła nie są identyczne</string>
   <string name="create_account_email_error">Nieprawidłowy adres e-mail</string>
   <string name="create_account_username_error">Nieprawidłowe znaki w nazwie użytkownika</string>
-  <string name="create_account_password_error">Hasło jest nieprawidłowe</string>
+  <string name="create_account_password_error" fuzzy="true">Hasło jest nieprawidłowe</string>
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_next">Dalej</string>
   <string name="email_recommendation_dialog_title">Założyć konto bez adresu e-mail?</string>

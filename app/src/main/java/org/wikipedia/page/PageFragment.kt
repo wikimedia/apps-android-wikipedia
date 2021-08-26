@@ -57,6 +57,7 @@ import org.wikipedia.json.GsonUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.media.AvPlayer
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionTab
 import org.wikipedia.page.leadimages.LeadImagesHandler
@@ -626,8 +627,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         val now = Date()
                         for (announcement in list.items) {
                             if (AnnouncementClient.shouldShow(announcement, country, now) &&
-                                announcement.placement() == Announcement.PLACEMENT_ARTICLE &&
-                                !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
+                                announcement.placement == Announcement.PLACEMENT_ARTICLE &&
+                                !Prefs.getAnnouncementShownDialogs().contains(announcement.id)) {
                                 val dialog = AnnouncementDialog(requireActivity(), announcement)
                                 dialog.setCancelable(false)
                                 dialog.show()
@@ -904,6 +905,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle()
 
+        if (AccountUtil.isLoggedIn) {
+            // explicitly check notifications for the current user
+            NotificationPollBroadcastReceiver.pollNotifications(requireActivity())
+        }
+
         // update the time spent reading of the current page, before loading the new one
         addTimeSpentReading(activeTimer.elapsedSec)
         activeTimer.reset()
@@ -1095,7 +1101,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL)
         } else {
             title?.run {
-                val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode(), this, displayText, description, thumbUrl)
+                val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, thumbUrl)
                 requireActivity().startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), this, text, sourceSummary, null,
                         DescriptionEditActivity.Action.ADD_DESCRIPTION, InvokeSource.PAGE_ACTIVITY), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
             }

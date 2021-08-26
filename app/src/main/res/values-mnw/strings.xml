@@ -147,7 +147,7 @@
   <string name="create_account_passwords_mismatch_error">မလိက်ပၞုက် ဟွံကိတ်</string>
   <string name="create_account_email_error">အဳမေလ် ဟွံလုပ်အဝေါင်</string>
   <string name="create_account_username_error">မအက္ခရ်လိက် ပ္ဍဲ ယၟုမသုင်စောဲ ဟွံလုပ်အဝေါင်</string>
-  <string name="create_account_password_error">မလိက်ပၞုက် ဟွံလုပ်အဝေါင်</string>
+  <string name="create_account_password_error" fuzzy="true">မလိက်ပၞုက် ဟွံလုပ်အဝေါင်</string>
   <string name="create_account_generic_error">ခၞံဗဒှ် အကံက် ဟွံဂွံ</string>
   <string name="create_account_next">ဂတ</string>
   <string name="email_recommendation_dialog_title">ခၞံဗဒှ် အကံက် သီုမဟွံမွဲ ကဵုအဳမေလ်ဟာ?</string>
@@ -892,7 +892,7 @@
   <string name="wikipedia_languages_remove_dialog_content">သွက်အရေဝ်ဘာသာ ဝဳကဳပဳဒဳယာ သၟေဟ်တအ်ဂှ်၊ မၞး ဂွံဆဵုကေတ် မာတိကာ ပ္ဍဲဒၞာဲမဂၠာဲ ကဵု ဒၞာဲမဂၠာဲဗွဲပရှ်ဟေင်ရ၊၊</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ပတိတ် အရေဝ်ဘာသာ သီုဖအိုတ် ဟွံဂွံ</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">အောန်အိုတ် ဒးစိုတ်လဝ် အရေဝ်ဘာသာ ဝဳကဳပဳဒဳယာ မွဲ နူ ဒၞာဲမာတိကာ သွက်ဂွံဂၠာဲ ကေုာံ သွက်ဂွံဗှ်၊၊</string>
-  <string name="more_language_options">ဂလိုင်</string>
+  <string name="more_language_options">ဗွဲမဂလိုင်</string>
   <string name="add_wikipedia_languages_text">စုတ် အရေဝ်ဘာသာ ဝဳကဳပဳဒဳယာဂမၠိုင်</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">ပတိတ်ထောအ် အရေဝ်ကြုက် မူတၞဟ်ခြာ နူ အရေဝ်ဘာသာ app？</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">ပြဟ်ဟ်ဏအ် ပ္ဍဲ အရေဝ်ဘာသာ app မၞးဂှ် နွံဒၟံင် အရေဝ်ကြုက် ခေတ်တြေံကီု သီုကဵု အရေဝ်ကြုက် ခေတ်တၟိ၊၊ ကလေင်ဗဟဵုတၟိပတိုန် ဒၞာဲမဖျေဟ်ဒၞာဲ အရေဝ်ဘာသာ app ဟာ？</string>

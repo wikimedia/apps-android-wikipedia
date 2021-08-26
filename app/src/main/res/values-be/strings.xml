@@ -154,7 +154,7 @@
   <string name="create_account_passwords_mismatch_error">Паролі не супадаюць</string>
   <string name="create_account_email_error">Няслушны адрас электроннай пошты</string>
   <string name="create_account_username_error">Недапушчальныя сімвалы ў імені ўдзельніка</string>
-  <string name="create_account_password_error">Недапушчальны пароль</string>
+  <string name="create_account_password_error" fuzzy="true">Недапушчальны пароль</string>
   <string name="create_account_generic_error">Немагчыма стварыць рахунак</string>
   <string name="create_account_next">Далей</string>
   <string name="email_recommendation_dialog_title">Стварыць уліковы запіс без электроннай пошты?</string>

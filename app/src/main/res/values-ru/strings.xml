@@ -51,6 +51,7 @@
 * Staspotanin2
 * Stjn
 * Teretalexev
+* Thothsum
 * ToJack
 * VitalKanev
 * Vlad5250
@@ -205,7 +206,7 @@
   <string name="create_account_passwords_mismatch_error">Пароли не совпадают</string>
   <string name="create_account_email_error">Недопустимый адрес электронной почты</string>
   <string name="create_account_username_error">Недопустимые символы в имени участника</string>
-  <string name="create_account_password_error">Некорректный пароль</string>
+  <string name="create_account_password_error">Пароль должен состоять не менее чем из 8 символов.</string>
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
   <string name="create_account_next">Далее</string>
   <string name="email_recommendation_dialog_title">Создать учётную запись без электронной почты?</string>
@@ -219,6 +220,7 @@
   <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Википедия:Блокировки</string>
   <string name="create_account_ip_block_details">Подробности</string>
   <string name="preferences_general_heading">Общие</string>
+  <string name="preferences_account_heading">Учётная запись</string>
   <string name="wikipedia_app_faq">Частые вопросы о приложении «Википедия»</string>
   <string name="send_feedback">Обратная связь</string>
   <string name="create_account_account_created_toast">Учётная запись создана!</string>

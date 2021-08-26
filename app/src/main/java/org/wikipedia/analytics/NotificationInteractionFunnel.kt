@@ -15,14 +15,14 @@ class NotificationInteractionFunnel(app: WikipediaApp, private val id: Long, pri
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "notification_id", id)
         preprocessData(eventData, "notification_wiki", wiki)
-        preprocessData(eventData, "notification_type", type)
+        preprocessData(eventData, "notification_type", type.orEmpty())
         return super.preprocessData(eventData)
     }
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
     fun logMarkRead(selectionToken: Long?) {
-        log("action_rank", 0, "selection_token", selectionToken)
+        log("action_rank", 0, "selection_token", selectionToken.toString())
     }
 
     fun logIncoming() {

@@ -23,12 +23,12 @@ class TopReadCardView(context: Context) : ListCardView<TopReadListCard>(context)
     private fun footer(card: TopReadListCard) {
         footerView.visibility = VISIBLE
         footerView.callback = getFooterCallback(card)
-        footerView.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode())
+        footerView.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode)
     }
 
     private fun header(card: TopReadListCard) {
         headerView.setTitle(card.title())
-            .setLangCode(card.wikiSite().languageCode())
+            .setLangCode(card.wikiSite().languageCode)
             .setCard(card)
             .setCallback(callback)
     }

@@ -158,7 +158,7 @@
   <string name="create_account_passwords_mismatch_error">รหัสผ่านไม่ตรงกัน</string>
   <string name="create_account_email_error">ที่อยู่อีเมลไม่ถูกต้อง</string>
   <string name="create_account_username_error">ตัวอักษรในชื่อผู้ใช้ไม่ถูกต้อง</string>
-  <string name="create_account_password_error">รหัสผ่านไม่ถูกต้อง</string>
+  <string name="create_account_password_error" fuzzy="true">รหัสผ่านไม่ถูกต้อง</string>
   <string name="create_account_generic_error">ไม่สามารถสร้างบัญชีได้</string>
   <string name="create_account_next">ถัดไป</string>
   <string name="email_recommendation_dialog_title">สร้างบัญชีโดยไม่มีที่อยู่อีเมลหรือไม่?</string>

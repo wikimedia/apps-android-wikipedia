@@ -54,7 +54,7 @@ public class PageProperties implements Parcelable {
      */
     public PageProperties(@NonNull PageSummary pageSummary) {
         pageId = pageSummary.getPageId();
-        namespace = pageSummary.getNamespace();
+        namespace = pageSummary.getNs();
         revisionId = pageSummary.getRevision();
         displayTitleText = defaultString(pageSummary.getDisplayTitle());
         geo = pageSummary.getGeo();
@@ -121,10 +121,6 @@ public class PageProperties implements Parcelable {
     @Nullable
     public Location getGeo() {
         return geo;
-    }
-
-    public String getEditProtectionStatus() {
-        return editProtectionStatus;
     }
 
     public boolean canEdit() {

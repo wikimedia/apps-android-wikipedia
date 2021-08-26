@@ -173,7 +173,7 @@
   <string name="create_account_passwords_mismatch_error">Salasanat eivät täsmää</string>
   <string name="create_account_email_error">Virheellinen sähköpostiosoite</string>
   <string name="create_account_username_error">Käyttäjänimi sisältää kelpaamattomia merkkejä</string>
-  <string name="create_account_password_error">Salasana on virheellinen</string>
+  <string name="create_account_password_error" fuzzy="true">Salasana on virheellinen</string>
   <string name="create_account_generic_error">Käyttäjätunnusta ei voitu luoda</string>
   <string name="create_account_next">Seuraava</string>
   <string name="email_recommendation_dialog_title">Luo käyttäjätunnus ilman sähköpostiosoitetta?</string>
@@ -187,6 +187,7 @@
   <string name="create_account_ip_block_help_url">https://fi.wikipedia.org/wiki/Wikipedia:Esto</string>
   <string name="create_account_ip_block_details">Tiedot</string>
   <string name="preferences_general_heading">Yleiset</string>
+  <string name="preferences_account_heading">Käyttäjätili</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
   <string name="send_feedback">Lähetä palautetta sovelluksesta</string>
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>

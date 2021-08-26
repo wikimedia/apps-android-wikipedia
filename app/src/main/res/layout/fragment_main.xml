@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -43,15 +44,13 @@
             app:tabGravity="fill"
             app:tabIndicatorColor="@android:color/transparent" />
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/nav_more_container"
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:layout_height="match_parent"
             android:contentDescription="@string/nav_item_more"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:background="?attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/menu_icon"
@@ -59,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"
                 android:layout_marginTop="9.5dp"
+                android:layout_gravity="center_horizontal"
                 app:tint="?attr/material_theme_secondary_color"
                 app:srcCompat="@drawable/ic_menu_themed_24dp" />
 
@@ -66,11 +66,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:paddingTop="2dp"
+                android:layout_marginTop="35dp"
                 android:textAlignment="center"
                 android:text="@string/nav_item_more"
                 android:textColor="?attr/material_theme_de_emphasised_color"
                 android:textSize="10sp" />
-        </LinearLayout>
+
+            <org.wikipedia.views.NotificationDotView
+                android:id="@+id/unreadDotView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="12dp"
+                android:visibility="visible"
+                tools:visibility="visible"/>
+
+        </FrameLayout>
     </LinearLayout>
 </LinearLayout>

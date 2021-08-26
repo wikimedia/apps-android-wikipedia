@@ -160,7 +160,7 @@
   <string name="create_account_passwords_mismatch_error">Parolele nu sunt identice</string>
   <string name="create_account_email_error">Adresă de e-mail nevalidă</string>
   <string name="create_account_username_error">Caractere nevalide în numele de utilizator</string>
-  <string name="create_account_password_error">Parola nu este validă.</string>
+  <string name="create_account_password_error" fuzzy="true">Parola nu este validă.</string>
   <string name="create_account_generic_error">Nu s-a putut crea contul</string>
   <string name="create_account_next">Înainte</string>
   <string name="email_recommendation_dialog_title">Creați un cont fără o adresă de e-mail?</string>

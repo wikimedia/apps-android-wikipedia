@@ -245,14 +245,12 @@ object ReadingListBehaviorsUtil {
 
     fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, addToDefaultListCallback: AddToDefaultListCallback, callback: Callback?) {
         val defaultList = AppDatabase.getAppDatabase().readingListDao().defaultList
-        scope.launch(exceptionHandler) {
-            val addedTitles = withContext(dispatcher) { AppDatabase.getAppDatabase().readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(title)) }
-            if (addedTitles.isNotEmpty()) {
-                ReadingListsFunnel().logAddToList(defaultList, 1, invokeSource)
-                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, title.displayText), FeedbackUtil.LENGTH_DEFAULT)
-                        .setAction(R.string.reading_list_add_to_list_button) { addToDefaultListCallback.onMoveClicked(defaultList.id) }.show()
-                callback?.onCompleted()
-            }
+        val addedTitles = AppDatabase.getAppDatabase().readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(title))
+        if (addedTitles.isNotEmpty()) {
+            ReadingListsFunnel().logAddToList(defaultList, 1, invokeSource)
+            FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, title.displayText), FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.reading_list_add_to_list_button) { addToDefaultListCallback.onMoveClicked(defaultList.id) }.show()
+            callback?.onCompleted()
         }
     }
 
