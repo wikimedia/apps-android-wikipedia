@@ -147,7 +147,7 @@
   <string name="create_account_passwords_mismatch_error">პაროლეფქ ართაინს ვამუხუჯეს</string>
   <string name="create_account_email_error">ელ-ფოსტაშ ჩილათირი მიოწურაფუ</string>
   <string name="create_account_username_error">მახვარებუშ ჯოხოს ვაშინერებული სიმბოლოეფი რე</string>
-  <string name="create_account_password_error" fuzzy="true">პაროლი ჩილათირი რე</string>
+  <string name="create_account_password_error">პაროლი არძაშ უკუნტაშ 8 სიმბოლოს იკათუანდას ოკო</string>
   <string name="create_account_generic_error">ანგარიშიშ გონწყუმაქ ვემიხერხინუ</string>
   <string name="create_account_next">უკული</string>
   <string name="email_recommendation_dialog_title">გოკონანო გაწყათ ანგარიში ელ-ფოსტაშ უმუშო?</string>
@@ -161,6 +161,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">დეტალეფი</string>
   <string name="preferences_general_heading">თარი</string>
+  <string name="preferences_account_heading">ანგარიში</string>
   <string name="wikipedia_app_faq">ვიკიპედიაშ აპლიკაციაშ შდკ</string>
   <string name="send_feedback">აპლიკაციაშ ფასაფა</string>
   <string name="create_account_account_created_toast">ანგარიშიქ აკიქიმინჷǃ</string>
