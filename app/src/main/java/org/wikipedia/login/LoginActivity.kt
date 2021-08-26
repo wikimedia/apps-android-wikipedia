@@ -143,7 +143,7 @@ class LoginActivity : BaseActivity() {
             if (loginSource == LoginFunnel.SOURCE_EDIT) {
                 funnel.logStart(
                         LoginFunnel.SOURCE_EDIT,
-                        intent.getStringExtra(EDIT_SESSION_TOKEN)
+                        intent.getStringExtra(EDIT_SESSION_TOKEN).orEmpty()
                 )
             } else {
                 funnel.logStart(loginSource)
