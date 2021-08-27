@@ -58,7 +58,7 @@
   <string name="reading_list_page_share">ಪಟ್ಟುಲೆ</string>
   <string name="menu_text_select_edit_here">ಮುಲ್ಪ ಸಂಪೊಲಿಪುಲೆ</string>
   <string name="last_updated_text">ಕಡೇತಾ ಪರಿಷ್ಕರಣೆ ಮಾಂತುನಾ %s</string>
-  <string name="talk_page_link_text">ಚರ್ಚೆ ಪುಟೊನು ತೂಲೆ</string>
+  <string name="talk_page_link_text">ಪಾತೆರ ಪುಟೊನು ತೂಲೆ</string>
   <string name="edit_history_link_text">ವಿಸಯ ಸೇರಾಯಿನ ಇತಿಹಾಸೊ ತೂಲೆ</string>
   <string name="map_view_link_text">ಭೂಪಟೋಡು ಉಂಡ ತೂಲೆ</string>
   <string name="other_languages_indication_text">ನನೊಂಜಿ ಬಾಸೆಡ್ ಓದ್‌ಲೆ</string>
@@ -90,7 +90,7 @@
   <string name="title_captcha">CAPTCHAನ್ ಬರೆಲೆ</string>
   <string name="edit_section_captcha_reload">ಕುಡ ಲೋಡ್ ಮಲ್ಪೆರೆ CAPTCHA ನ್ ಒತ್ತುಲೆ</string>
   <string name="nav_item_login">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
-  <string name="login_username_hint">ಸದಸ್ಯೆರ್ನ ಪುದರ್</string>
+  <string name="login_username_hint">ಬಳಕೆದಾರೆರೆಪುದರ್</string>
   <string name="login_password_hint">ಪ್ರವೇಶ ಪದೊ</string>
   <string name="account_creation_password_hint">ಸಂಕೇತಪದ</string>
   <string name="login_2fa_hint">ರಡ್ಡ್ ಫ್ಯಾಕ್ಟರ್ ದೃಢೀಕರಣ ಕೋಡ್</string>
@@ -115,7 +115,7 @@
   <string name="search_empty_message_multilingual_upgrade">ಬೇತೆ ಬಾಸೆತ ವಿಕಿಪೀಡಿಯೊನ್ ನಾಡುಲೆ.</string>
   <string name="delete_selected_items">ಆಯ್ಕೆ ಮಲ್ತಿನೆನ್ ಮಾಜಾಲೆ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">ಸದಸ್ಯೆರ್ನ ಪುದರ್</string>
+  <string name="create_account_username_hint">ಬಳಕೆದಾರೆರೆಪುದರ್</string>
   <string name="login_dont_have_account">ಈರೆನ ಖಾತೆ ಇಜ್ಜೇ?</string>
   <string name="login_join_wikipedia">ವಿಕಿಪೀಡಿಯಗ್ ಸೇರ್ಲೆ</string>
   <string name="login_forgot_password">ಈರೆನೆ ಪ್ರವೇಸೊ ಪದೊ ಮರತ್ತ್‌ಂಡಾ?</string>
@@ -264,7 +264,7 @@
     <item quantity="one">This article will no longer be available offline.</item>
     <item quantity="other">These articles will no longer be available offline.</item>
   </plurals>
-  <string name="user_option_sync_label">ಪ್ರಾಶಸ್ತ್ಯೊಲು</string>
+  <string name="user_option_sync_label">ಪ್ರಾಸಸ್ತ್ಯೊಲು</string>
   <string name="notification_reverted_title">ಸೇರ್ಸಾಯಿನೆನ್ ಪಿರದಿಂಜಾನ್ಡ್</string>
   <string name="notification_echo_channel_description">ವಿಕಿಪೀಡಿಯ ಸೂಚನೆಲು.</string>
   <string name="notifications_activity_title">ಸೂಚನೆಲು</string>

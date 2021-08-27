@@ -10,7 +10,7 @@ class FindInPageFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageId: I
     private var numFindNext = 0
     private var numFindPrev = 0
     var pageHeight = 0
-    var findText: String? = null
+    var findText = ""
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
