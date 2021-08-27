@@ -14,6 +14,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentWatchlistBinding
@@ -23,19 +24,25 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.NotificationButtonView
 import java.util.*
 import kotlin.collections.ArrayList
 
 class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistItemView.Callback, WatchlistLanguagePopupView.Callback {
     private var _binding: FragmentWatchlistBinding? = null
+
+    private lateinit var notificationButtonView: NotificationButtonView
+    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
     private val binding get() = _binding!!
     private val disposables = CompositeDisposable()
     private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
@@ -61,6 +68,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
         binding.watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        notificationButtonView = NotificationButtonView(requireActivity())
         updateDisplayLanguages()
         fetchWatchlist(false)
 
@@ -70,6 +78,11 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setHasOptionsMenu(true)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setupNotificationsTest()
     }
 
     override fun onDestroyView() {
@@ -85,6 +98,25 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
         menu.findItem(R.id.menu_change_language).isVisible = WikipediaApp.getInstance().language().appLanguageCodes.size > 1
+
+        val notificationMenuItem = menu.findItem(R.id.menu_notifications)
+        if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
+            notificationMenuItem.isVisible = true
+            notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
+            notificationButtonView.setOnClickListener {
+                if (AccountUtil.isLoggedIn) {
+                    notificationsABCTestFunnel.logSelect()
+                    startActivity(NotificationActivity.newIntent(requireActivity()))
+                }
+            }
+            notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
+            notificationMenuItem.actionView = notificationButtonView
+            notificationMenuItem.expandActionView()
+            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+        } else {
+            notificationMenuItem.isVisible = false
+        }
+        updateNotificationDot(false)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -95,6 +127,31 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    // TODO: remove when ABC test is complete.
+    private fun setupNotificationsTest() {
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0 -> notificationButtonView.setIcon(R.drawable.ic_inbox_24)
+            1 -> notificationButtonView.setIcon(R.drawable.ic_notifications_black_24dp)
+        }
+    }
+
+    fun updateNotificationDot(animate: Boolean) {
+        // TODO: remove when ABC test is complete.
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0, 1 -> {
+                if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+                    notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                    if (animate) {
+                        notificationsABCTestFunnel.logShow()
+                        notificationButtonView.runAnimation()
+                    }
+                } else {
+                    notificationButtonView.setUnreadCount(0)
+                }
+            }
         }
     }
 

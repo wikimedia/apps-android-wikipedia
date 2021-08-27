@@ -9,6 +9,10 @@ class WatchlistActivity : SingleFragmentActivity<WatchlistFragment>() {
         return WatchlistFragment.newInstance()
     }
 
+    override fun onUnreadNotification() {
+        fragment.updateNotificationDot(true)
+    }
+
     companion object {
         fun newIntent(context: Context): Intent {
             return Intent(context, WatchlistActivity::class.java)
