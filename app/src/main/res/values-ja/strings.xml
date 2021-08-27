@@ -35,6 +35,7 @@
 * UsagiNeko
 * Waki285
 * Wat
+* Whym
 * Wicklo
 * WwLMvmT
 * Yusuke1109
@@ -185,7 +186,7 @@
   <string name="create_account_passwords_mismatch_error">パスワードが一致しません</string>
   <string name="create_account_email_error">無効なメールアドレスです</string>
   <string name="create_account_username_error">利用者名に無効な文字が使用されています</string>
-  <string name="create_account_password_error" fuzzy="true">パスワードが無効です</string>
+  <string name="create_account_password_error">パスワードは8文字以上でなければなりません。</string>
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
   <string name="create_account_next">次へ</string>
   <string name="email_recommendation_dialog_title">メールアドレスなしでアカウントを作成しますか?</string>
@@ -199,6 +200,7 @@
   <string name="create_account_ip_block_help_url">https://ja.wikipedia.org/wiki/ヘルプ:あなたが投稿ブロックされたら</string>
   <string name="create_account_ip_block_details">詳細</string>
   <string name="preferences_general_heading">全般</string>
+  <string name="preferences_account_heading">アカウント</string>
   <string name="wikipedia_app_faq">ウィキペディアアプリについての FAQ</string>
   <string name="send_feedback">フィードバックを送信</string>
   <string name="create_account_account_created_toast">アカウントを作成しました!</string>
@@ -393,6 +395,9 @@
   <string name="empty_tab_title">新しいタブ</string>
   <string name="menu_save_all_tabs">すべてのタブを保存</string>
   <string name="error_blocked_title">あなたのユーザー名またはIPアドレスはブロックされています。</string>
+  <string name="error_blocked_start">ブロックの開始日：%s</string>
+  <string name="error_blocked_expiry">ブロックの終了日：%s</string>
+  <string name="error_blocked_id">ブロックID：%s</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>

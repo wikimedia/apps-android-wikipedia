@@ -172,9 +172,9 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Usap lis wacénan sané kasinkronang saking \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Puniki pacang ngusap samian lis wacénan sané kasinkronang sadurungné saking panyimpanan doh. Usap samian lis sané kasinkronang saking akun ragané \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Padéwékan</string>
-  <string name="preference_title_eventlogging_opt_in">Kirim parihindik pawigunaan</string>
+  <string name="preference_title_eventlogging_opt_in">Kirim parikanda pawigunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Lugra Wikimedia ngapulpulang inpormasi indik cara ragané nganggén aplikasi antuk ngardi aplikasi luwih becik</string>
-  <string name="preference_title_auto_upload_crash_reports">Kirim parihindik rusak</string>
+  <string name="preference_title_auto_upload_crash_reports">Kirim parikanda rusak</string>
   <string name="history_filter_list_hint">Saring lelintihan</string>
   <string name="error_can_not_process_link">Tan prasida nyinahang pranala puniki</string>
   <string name="page_protected_autoconfirmed">Kaca puniki kasaibin atenga</string>

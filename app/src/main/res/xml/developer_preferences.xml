@@ -349,6 +349,11 @@
 
     <PreferenceCategory android:title="A/B tests">
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_notificationIcons"
+            android:title="Test group for in-app Notification icons (0, 1, or 2)" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
