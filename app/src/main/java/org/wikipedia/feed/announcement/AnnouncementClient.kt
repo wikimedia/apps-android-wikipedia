@@ -91,7 +91,7 @@ class AnnouncementClient : FeedClient {
         }
 
         private fun matchesConditions(announcement: Announcement): Boolean {
-            if (announcement.isBeta != null && announcement.isBeta != ReleaseUtil.isPreProdRelease) {
+            if (announcement.beta != null && announcement.beta != ReleaseUtil.isPreProdRelease) {
                 return false
             }
             return if (announcement.isLoggedIn != null && announcement.isLoggedIn != AccountUtil.isLoggedIn) {

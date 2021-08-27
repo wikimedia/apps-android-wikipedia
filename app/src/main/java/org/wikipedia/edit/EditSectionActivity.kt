@@ -227,8 +227,8 @@ class EditSectionActivity : BaseActivity() {
                         when {
                             editSucceeded -> waitForUpdatedRevision(newRevId)
                             hasCaptchaResponse -> onEditSuccess(CaptchaResult(captchaId))
-                            hasSpamBlacklistResponse -> onEditFailure(MwException(MwServiceError(code.orEmpty(), text = spamblacklist.orEmpty())))
-                            hasEditErrorCode -> onEditFailure(MwException(MwServiceError(code.orEmpty(), text = info.orEmpty())))
+                            hasSpamBlacklistResponse -> onEditFailure(MwException(MwServiceError(code.orEmpty(), spamblacklist.orEmpty())))
+                            hasEditErrorCode -> onEditFailure(MwException(MwServiceError(code.orEmpty(), info.orEmpty())))
                             else -> onEditFailure(IOException("Received unrecognized edit response"))
                         }
                     } ?: run {
@@ -326,7 +326,7 @@ class EditSectionActivity : BaseActivity() {
             disposables.add(ServiceFactory.get(pageTitle.wikiSite).parsePage("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.message))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, text = response.parse.text))) }) { showError(it) })
+                    .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, response.parse.text))) }) { showError(it) })
         } else if ("editconflict" == code) {
             AlertDialog.Builder(this@EditSectionActivity)
                     .setTitle(R.string.edit_conflict_title)

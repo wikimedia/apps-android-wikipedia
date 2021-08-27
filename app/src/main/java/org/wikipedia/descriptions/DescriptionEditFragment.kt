@@ -256,10 +256,10 @@ class DescriptionEditFragment : Fragment() {
                                     funnel.logCaptchaShown()
                                 }
                                 hasEditErrorCode -> {
-                                    editFailed(MwException(MwServiceError(code.orEmpty(), text = spamblacklist.orEmpty())), false)
+                                    editFailed(MwException(MwServiceError(code.orEmpty(), spamblacklist.orEmpty())), false)
                                 }
                                 hasSpamBlacklistResponse -> {
-                                    editFailed(MwException(MwServiceError(code.orEmpty(), text = info.orEmpty())), false)
+                                    editFailed(MwException(MwServiceError(code.orEmpty(), info.orEmpty())), false)
                                 }
                                 else -> {
                                     editFailed(IOException("Received unrecognized edit response"), true)
