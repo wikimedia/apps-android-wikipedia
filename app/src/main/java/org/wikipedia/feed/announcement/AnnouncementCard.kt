@@ -30,7 +30,7 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
 
     fun imageHeight(): Int {
         return try {
-            announcement.imageHeight.toInt()
+            announcement.imageHeight.ifEmpty { "0" }.toInt()
         } catch (e: NumberFormatException) {
             0
         }
@@ -65,6 +65,6 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     }
 
     fun hasBorder(): Boolean {
-        return announcement.hasBorder
+        return announcement.border
     }
 }

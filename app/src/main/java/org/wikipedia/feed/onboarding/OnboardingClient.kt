@@ -35,7 +35,7 @@ class OnboardingClient : FeedClient {
         //            cards.add(card);
         //        }
         card = CustomizeOnboardingCard(
-            Announcement("customizeOnboardingCard1",
+            Announcement(id = "customizeOnboardingCard1",
                 text = context.getString(R.string.feed_configure_onboarding_text),
                 imageUrl = "https://upload.wikimedia.org/wikipedia/commons/3/3b/Announcement_header_for_Explore_Feed_customization.png",
                 action = Announcement.Action(context.getString(R.string.feed_configure_onboarding_action), UriUtil.LOCAL_URL_CUSTOMIZE_FEED),

@@ -6,25 +6,17 @@ import org.wikipedia.dataclient.ServiceError
 import org.wikipedia.util.ThrowableUtil.getBlockMessageHtml
 import java.util.*
 
-/**
- * Moshi POJO for a MediaWiki API error.
- */
 @JsonClass(generateAdapter = true)
-class MwServiceError(
-    @Json(name = "code") override val title: String = "",
-    internal val text: String = "",
-    @Json(name = "html") override var details: String = "",
-    internal val data: Data? = null
-) : ServiceError {
+class MwServiceError(val code: String = "", var html: String = "", val data: Data? = null) : ServiceError {
     val isBadToken: Boolean
-        get() = "badtoken" == title
+        get() = "badtoken" == code
     val isBadLoginState: Boolean
-        get() = "assertuserfailed" == title
+        get() = "assertuserfailed" == code
 
     init {
         // Special case: if it's a Blocked error, parse the blockinfo structure ourselves.
-        if (("blocked" == title || "autoblocked" == title) && data?.blockInfo != null) {
-            details = getBlockMessageHtml(data.blockInfo)
+        if (("blocked" == title || "autoblocked" == title) && data?.blockinfo != null) {
+            html = getBlockMessageHtml(data.blockinfo)
         }
     }
 
@@ -36,8 +28,12 @@ class MwServiceError(
         return data?.messages?.filter { it.name == messageName }?.map { it.html }?.firstOrNull()
     }
 
+    override val title: String get() = code
+
+    override val details: String get() = html
+
     @JsonClass(generateAdapter = true)
-    class Data(val messages: List<Message> = emptyList(), @Json(name = "blockinfo") val blockInfo: BlockInfo? = null)
+    class Data(val messages: List<Message> = emptyList(), val blockinfo: BlockInfo? = null)
 
     @JsonClass(generateAdapter = true)
     class Message(val name: String = "", val html: String = "")

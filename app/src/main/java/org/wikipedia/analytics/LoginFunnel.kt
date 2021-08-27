@@ -5,7 +5,7 @@ import org.wikipedia.WikipediaApp
 class LoginFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
 
     @JvmOverloads
-    fun logStart(source: String?, editSessionToken: String? = null) {
+    fun logStart(source: String = "", editSessionToken: String = "") {
         log("action", "start", "source", source, "edit_session_token", editSessionToken)
     }
 
