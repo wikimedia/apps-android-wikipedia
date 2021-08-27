@@ -64,7 +64,7 @@ public class PageImagesClientTest extends MockRetrofitTest {
 
     private Observable<Map<PageTitle, PageImage>> getObservable(@NonNull List<PageTitle> titles) {
         return getApiService().getPageImages("foo")
-                .map(response -> imageMapFromPages(WIKISITE_TEST, titles, response.getQuery().pages()));
+                .map(response -> imageMapFromPages(WIKISITE_TEST, titles, response.getQuery().getPages()));
     }
 
     private static Map<PageTitle, PageImage> imageMapFromPages(@NonNull WikiSite wiki, @NonNull List<PageTitle> titles, @NonNull List<MwQueryPage> pages) {
