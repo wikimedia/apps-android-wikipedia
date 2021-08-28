@@ -3,11 +3,14 @@ package org.wikipedia.notifications
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UriUtil
 import java.util.*
 
+@Serializable
 class Notification {
 
     @SerializedName("*") val contents: Contents? = null
@@ -37,6 +40,7 @@ class Notification {
         return id.toString()
     }
 
+    @Serializable
     class Title {
 
         @SerializedName("namespace-key") private val namespaceKey = 0
@@ -48,12 +52,14 @@ class Notification {
             get() = namespaceKey == 0
     }
 
+    @Serializable
     class Agent {
 
         private val id = 0
         val name: String = ""
     }
 
+    @Serializable
     class Timestamp {
 
         val utciso8601: String? = null
@@ -63,6 +69,7 @@ class Notification {
         }
     }
 
+    @Serializable
     class Link {
 
         private val description: String? = null
@@ -73,10 +80,11 @@ class Notification {
         val icon: String = ""
     }
 
+    @Serializable
     class Links {
 
         private var primaryLink: Link? = null
-        val primary: JsonElement? = null
+        @Contextual val primary: JsonElement? = null
         val secondary: List<Link>? = null
 
         fun getPrimary(): Link? {
@@ -90,6 +98,7 @@ class Notification {
         }
     }
 
+    @Serializable
     class Source {
 
         val title: String = ""
@@ -98,6 +107,7 @@ class Notification {
         val base: String = ""
     }
 
+    @Serializable
     class Contents {
 
         private val icon: String? = null
@@ -109,12 +119,14 @@ class Notification {
         val links: Links? = null
     }
 
+    @Serializable
     class UnreadNotificationWikiItem {
 
         val totalCount = 0
         val source: Source? = null
     }
 
+    @Serializable
     class SeenTime {
 
         val alert: String? = null

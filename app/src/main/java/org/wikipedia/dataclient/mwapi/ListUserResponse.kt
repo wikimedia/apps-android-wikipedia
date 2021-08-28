@@ -2,7 +2,9 @@ package org.wikipedia.dataclient.mwapi
 
 import androidx.collection.ArraySet
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
+@Serializable
 class ListUserResponse {
 
     @SerializedName("name") val name: String = ""

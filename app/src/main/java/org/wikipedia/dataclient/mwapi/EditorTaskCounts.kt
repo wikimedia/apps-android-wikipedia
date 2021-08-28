@@ -3,17 +3,20 @@ package org.wikipedia.dataclient.mwapi
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import java.util.*
 
+@Serializable
 class EditorTaskCounts {
 
-    @SerializedName("revert_counts") private val revertCounts: JsonElement? = null
-    @SerializedName("edit_streak") private val editStreak: JsonElement? = null
+    @SerializedName("revert_counts") @Contextual private val revertCounts: JsonElement? = null
+    @SerializedName("edit_streak") @Contextual private val editStreak: JsonElement? = null
 
-    private val counts: JsonElement? = null
+    @Contextual private val counts: JsonElement? = null
 
     private val descriptionEditsPerLanguage: Map<String, Int>
         private get() {
@@ -135,6 +138,7 @@ class EditorTaskCounts {
             return date
         }
 
+    @Serializable
     class Counts {
 
         @SerializedName("app_description_edits") val appDescriptionEdits: Map<String, Int>? = null
@@ -142,6 +146,7 @@ class EditorTaskCounts {
         @SerializedName("app_depicts_edits") val appDepictsEdits: Map<String, Int>? = null
     }
 
+    @Serializable
     private class EditStreak {
 
         @SerializedName("last_edit_time") val lastEditTime: String? = null

@@ -57,13 +57,14 @@ class MwQueryResult : PostProcessable {
 
     fun captchaId(): String? {
         var captchaId: String? = null
-        amInfo?.requests()?.asSequence()?.filter { "CaptchaAuthenticationRequest" == it.id() }?.forEach { captchaId = it.fields()["captchaId"]!!.value() }
+        amInfo?.requests?.asSequence()?.filter { "CaptchaAuthenticationRequest" == it.id }?.forEach { captchaId = it.fields!!["captchaId"]!!.value
+        }
         return captchaId
     }
 
     fun getUserResponse(userName: String): ListUserResponse? {
         // MediaWiki user names are case sensitive, but the first letter is always capitalized.
-        return users?.find { StringUtils.capitalize(userName) == it.name() }
+        return users?.find { StringUtils.capitalize(userName) == it.name }
     }
 
     fun langLinks(): MutableList<PageTitle> {
@@ -85,7 +86,7 @@ class MwQueryResult : PostProcessable {
                 return false
             }
             for (protection in firstPage()!!.protection) {
-                if (protection.type == "edit" && !userInfo.groups.contains(protection.level)) {
+                if (protection.type == "edit" && !userInfo.groups().contains(protection.level)) {
                     return true
                 }
             }

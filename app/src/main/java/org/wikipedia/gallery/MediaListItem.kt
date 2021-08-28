@@ -12,7 +12,7 @@ class MediaListItem constructor(val title: String = "",
                                 val caption: TextInfo? = null,
                                 val showInGallery: Boolean = false,
                                 @SerializedName("section_id") private val sectionId: Int = 0,
-                                @SerializedName("srcset") val srcSets: List<@Contextual ImageSrcSet> = emptyList()) {
+                                @SerializedName("srcset") val srcSets: List<ImageSrcSet> = emptyList()) {
 
     val isInCommons get() = srcSets.firstOrNull()?.src?.contains(Service.URL_FRAGMENT_FROM_COMMONS) == true
 
@@ -29,7 +29,8 @@ class MediaListItem constructor(val title: String = "",
         return UriUtil.resolveProtocolRelativeUrl(imageUrl)
     }
 
-    inner class ImageSrcSet {
+    @Serializable
+    class ImageSrcSet {
 
         @SerializedName("scale")
         private val _scale: String? = null
