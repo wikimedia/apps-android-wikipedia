@@ -15,8 +15,8 @@ public class WikitextClientTest extends MockRetrofitTest {
         enqueueFromFile("wikitext.json");
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
-                .assertValue(response -> response.getQuery().firstPage().revisions().get(0).content().equals("\\o/\n\ntest12\n\n3")
-                        && response.getQuery().firstPage().revisions().get(0).timeStamp().equals("2018-03-18T18:10:54Z"));
+                .assertValue(response -> response.getQuery().firstPage().getRevisions().get(0).content().equals("\\o/\n\ntest12\n\n3")
+                        && response.getQuery().firstPage().getRevisions().get(0).timeStamp().equals("2018-03-18T18:10:54Z"));
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {

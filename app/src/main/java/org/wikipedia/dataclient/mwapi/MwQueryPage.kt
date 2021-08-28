@@ -1,86 +1,47 @@
 package org.wikipedia.dataclient.mwapi
 
-import android.text.TextUtils
 import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.Namespace
-import org.wikipedia.page.Namespace.Companion.of
 
-/**
- * A class representing a standard page object as returned by the MediaWiki API.
- */
 @Serializable
 class MwQueryPage {
-    private val pageid = 0
+
+    @SerializedName("descriptionsource") val descriptionSource: String? = null
+    @SerializedName("imageinfo") private val imageInfo: List<ImageInfo>? = null
+    @SerializedName("videoinfo") private val videoInfo: List<ImageInfo>? = null
+    @SerializedName("watchlistexpiry") private val watchlistExpiry: String? = null
+    @SerializedName("pageviews") val pageViewsMap: Map<String, Long> = emptyMap()
+    @SerializedName("imagelabels") val imageLabels: List<ImageLabel> = emptyList()
+    @SerializedName("pageid") val pageId = 0
+    @SerializedName("pageprops") val pageProps: PageProps? = null
+
     private val ns = 0
-    private val index = 0
-    val lastRevId: Long = 0
-    private var title: String? = null
-    private val langlinks: List<LangLink>? = null
-    private val revisions: List<Revision>? = null
     private var coordinates: List<Coordinates>? = null
-    private val categories: List<Category>? = null
-    private val protection: List<Protection>? = null
-    private val pageprops: PageProps? = null
-    private val extract: String? = null
     private val thumbnail: Thumbnail? = null
-    private val description: String? = null
-
-    @SerializedName("descriptionsource")
-    private val descriptionSource: String? = null
-
-    @SerializedName("imageinfo")
-    private val imageInfo: List<ImageInfo>? = null
-
-    @SerializedName("videoinfo")
-    private val videoInfo: List<ImageInfo>? = null
-    private val imagerepository: String? = null
-    private var redirectFrom: String? = null
-    private var convertedFrom: String? = null
-    private var convertedTo: String? = null
     private val varianttitles: Map<String, String>? = null
-
-    @SerializedName("pageviews")
-    val pageViewsMap: Map<String, Long>? = null
-        get() = field ?: emptyMap()
-
-    @SerializedName("imagelabels")
-    val imageLabels: List<ImageLabel>? = null
-        get() = field ?: emptyList()
-
-    @SerializedName("watchlistexpiry")
-    private val watchlistExpiry: String? = null
     private val actions: Map<String, List<MwServiceError>>? = null
-    val isWatched = false
-    fun title(): String {
-        return StringUtils.defaultString(title)
-    }
 
-    fun index(): Int {
-        return index
-    }
+    val index = 0
+    var title: String = ""
+    val langlinks: List<LangLink>? = null
+    val revisions: List<Revision> = emptyList()
+    val categories: List<Category>? = null
+    val protection: List<Protection> = emptyList()
+    val extract: String? = null
+    val description: String? = null
+    private val imagerepository: String? = null
+    var redirectFrom: String? = null
+    var convertedFrom: String? = null
+    var convertedTo: String? = null
+    val isWatched = false
+    val lastRevId: Long = 0
 
     fun namespace(): Namespace {
-        return of(ns)
-    }
-
-    fun langLinks(): List<LangLink>? {
-        return langlinks
-    }
-
-    fun revisions(): List<Revision> {
-        return revisions ?: emptyList()
-    }
-
-    fun categories(): List<Category>? {
-        return categories
-    }
-
-    fun protection(): List<Protection> {
-        return protection ?: emptyList()
+        return Namespace.of(ns)
     }
 
     fun coordinates(): List<Coordinates>? {
@@ -90,56 +51,12 @@ class MwQueryPage {
         return coordinates
     }
 
-    fun pageId(): Int {
-        return pageid
-    }
-
-    fun pageProps(): PageProps? {
-        return pageprops
-    }
-
-    fun extract(): String? {
-        return extract
-    }
-
     fun thumbUrl(): String? {
         return thumbnail?.source
     }
 
-    fun description(): String? {
-        return description
-    }
-
-    fun descriptionSource(): String? {
-        return descriptionSource
-    }
-
     fun imageInfo(): ImageInfo? {
         return imageInfo?.get(0) ?: videoInfo?.get(0)
-    }
-
-    fun redirectFrom(): String? {
-        return redirectFrom
-    }
-
-    fun redirectFrom(from: String?) {
-        redirectFrom = from
-    }
-
-    fun convertedFrom(): String? {
-        return convertedFrom
-    }
-
-    fun convertedFrom(from: String?) {
-        convertedFrom = from
-    }
-
-    fun convertedTo(): String? {
-        return convertedTo
-    }
-
-    fun convertedTo(to: String?) {
-        convertedTo = to
     }
 
     fun appendTitleFragment(fragment: String?) {
@@ -147,91 +64,63 @@ class MwQueryPage {
     }
 
     fun displayTitle(langCode: String): String {
-        return if (varianttitles != null) StringUtils.defaultIfEmpty(varianttitles[langCode], title())!! else title()
+        return if (!varianttitles.isNullOrEmpty()) StringUtils.defaultIfEmpty(varianttitles[langCode], title)!! else title
     }
 
     val isImageShared: Boolean
         get() = StringUtils.defaultString(imagerepository) == "shared"
 
     fun hasWatchlistExpiry(): Boolean {
-        return !TextUtils.isEmpty(watchlistExpiry)
+        return !watchlistExpiry.isNullOrEmpty()
     }
 
     fun getErrorForAction(actionName: String): List<MwServiceError> {
-        return if (actions != null && actions.containsKey(actionName)) actions[actionName]!! else emptyList()
+        return if (actions?.containsKey(actionName)!!) actions[actionName]!! else emptyList()
     }
 
     @Serializable
     class Revision {
+
+        @SerializedName("contentformat") private val contentFormat: String? = null
+        @SerializedName("contentmodel") private val contentModel: String? = null
+        @SerializedName("timestamp") val timeStamp: String = ""
+
+        private val slots: Map<String, RevisionSlot>? = null
+        private val minor = false
         val revId: Long = 0
         val parentRevId: Long = 0
-        private val minor = false
         val isAnon = false
-        val user: String? = null
-            get() = StringUtils.defaultString(field)
-
-        @SerializedName("contentformat")
-        private val contentFormat: String? = null
-
-        @SerializedName("contentmodel")
-        private val contentModel: String? = null
-
-        @SerializedName("timestamp")
-        private val timeStamp: String? = null
-        private val content: String? = null
-        val comment: String? = null
-            get() = StringUtils.defaultString(field)
-        private val slots: Map<String, RevisionSlot>? = null
-        fun content(): String {
-            return StringUtils.defaultString(content)
-        }
-
-        fun timeStamp(): String {
-            return StringUtils.defaultString(timeStamp)
-        }
+        val user: String = ""
+        val content: String = ""
+        val comment: String = ""
 
         fun getContentFromSlot(slot: String): String {
-            return if (slots != null && slots.containsKey(slot)) slots[slot]!!.content!! else ""
+            return if (slots?.containsKey(slot)!!) slots[slot]!!.content else ""
         }
     }
 
     @Serializable
-    class RevisionSlot {
-        private val contentmodel: String? = null
-        private val contentformat: String? = null
-        val content: String? = null
-            get() = StringUtils.defaultString(field)
-    }
+    class RevisionSlot(val content: String = "",
+                       private val contentformat: String? = null,
+                       private val contentmodel: String? = null)
 
     @Serializable
-    class LangLink {
-
-        val lang: String = ""
-        val title: String = ""
-    }
+    class LangLink(val lang: String = "", val title: String = "")
 
     @Serializable
-    class Coordinates {
-
-        val lat: Double? = null
-        val lon: Double? = null
-    }
+    class Coordinates(val lat: Double? = null, val lon: Double? = null)
 
     @Serializable
-    internal class Thumbnail {
-
-        val source: String? = null
-        private val width = 0
-        private val height = 0
-    }
+    internal class Thumbnail(val source: String? = null,
+                             private val width: Int = 0,
+                             private val height: Int = 0)
 
     @Serializable
     class PageProps {
 
-        @SerializedName("wikibase_item")
-        val wikiBaseItem: String = ""
-        val displayTitle: String? = null
+        @SerializedName("wikibase_item") val wikiBaseItem: String = ""
         private val disambiguation: String? = null
+        val displayTitle: String? = null
 
         fun isDisambiguation(): Boolean {
             return disambiguation.isNullOrEmpty()
@@ -239,18 +128,12 @@ class MwQueryPage {
     }
 
     @Serializable
-    class Category {
-
-        val ns = 0
-        val title: String = ""
-        val hidden = false
-    }
+    class Category(val ns: Int = 0, val title: String = "", val hidden: Boolean = false)
 
     @Serializable
     class ImageLabel {
 
-        @SerializedName("wikidata_id")
-        var wikidataId: String? = ""
+        @SerializedName("wikidata_id") var wikidataId: String? = ""
         private val confidence: Confidence? = null
         val state: String = ""
         var label: String = ""
@@ -271,8 +154,5 @@ class MwQueryPage {
     }
 
     @Serializable
-    class Confidence {
-
-        val google = 0f
-    }
+    class Confidence(val google: Float = 0f)
 }

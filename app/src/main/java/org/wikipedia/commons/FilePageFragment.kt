@@ -131,7 +131,7 @@ class FilePageFragment : Fragment() {
                     )
                     thumbnailHeight = imageInfo.thumbHeight
                     thumbnailWidth = imageInfo.thumbWidth
-                    ImageTagsProvider.getImageTagsObservable(page.pageId(), pageSummaryForEdit.lang)
+                    ImageTagsProvider.getImageTagsObservable(page.pageId, pageSummaryForEdit.lang)
                 }
                 .flatMap {
                     imageTags = it

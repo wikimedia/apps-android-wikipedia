@@ -231,8 +231,8 @@ class DescriptionEditFragment : Fragment() {
                             val error = mwQueryResponse.query?.firstPage()!!.getErrorForAction("edit")[0]
                             throw MwException(error)
                         }
-                        var text = mwQueryResponse.query?.firstPage()!!.revisions()[0].content()
-                        val baseRevId = mwQueryResponse.query?.firstPage()!!.revisions()[0].revId
+                        var text = mwQueryResponse.query?.firstPage()!!.revisions[0].content
+                        val baseRevId = mwQueryResponse.query?.firstPage()!!.revisions[0].revId
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description.orEmpty())
 
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
@@ -281,8 +281,8 @@ class DescriptionEditFragment : Fragment() {
                         ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).siteInfo
                     }
                     .flatMap { response ->
-                        val languageCode = if (response.query?.siteInfo()?.lang != null &&
-                                response.query?.siteInfo()?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query?.siteInfo()?.lang
+                        val languageCode = if (response.query?.siteInfo?.lang != null &&
+                                response.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query?.siteInfo?.lang
                         else pageTitle.wikiSite.languageCode
                         getPostObservable(editToken, languageCode.orEmpty())
                     }

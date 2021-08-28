@@ -204,7 +204,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 } else {
                     continuations[WikipediaApp.getInstance().wikiSite] = cont
                 }
-                response.query?.userContributions()?.forEach {
+                response.query?.userContributions?.forEach {
                     contributions.add(Contribution("", it.revid, it.title, it.title, it.title, EDIT_TYPE_GENERIC, null, it.date(),
                         WikipediaApp.getInstance().wikiSite, 0, it.sizediff, it.top, 0))
                 }
@@ -225,7 +225,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 } else {
                     continuations[WikiSite(Service.WIKIDATA_URL)] = cont
                 }
-                response.query?.userContributions()?.forEach { contribution ->
+                response.query?.userContributions?.forEach { contribution ->
                     var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                     var contributionDescription = contribution.comment
                     var editType: Int = EDIT_TYPE_GENERIC
@@ -287,7 +287,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     } else {
                         continuations[WikiSite(Service.COMMONS_URL)] = cont
                     }
-                    response.query?.userContributions()?.forEach { contribution ->
+                    response.query?.userContributions?.forEach { contribution ->
                         var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                         var editType: Int = EDIT_TYPE_GENERIC
                         var contributionDescription = contribution.comment
