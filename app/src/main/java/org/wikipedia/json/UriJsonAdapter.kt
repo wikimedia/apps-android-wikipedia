@@ -10,8 +10,9 @@ import kotlin.Throws
 
 class UriJsonAdapter : JsonAdapter<Uri>() {
     @Throws(IOException::class)
-    override fun fromJson(reader: JsonReader): Uri {
-        return reader.nextString().toUri()
+    override fun fromJson(reader: JsonReader): Uri? {
+        return if (reader.peek() == JsonReader.Token.NULL) reader.nextNull()
+        else reader.nextString().toUri()
     }
 
     @Throws(IOException::class)

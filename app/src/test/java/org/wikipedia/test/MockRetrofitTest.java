@@ -68,7 +68,7 @@ public abstract class MockRetrofitTest extends MockWebServerTest {
         return new Moshi.Builder()
                 .add(Date.class, new Rfc3339DateJsonAdapter().nullSafe())
                 .add(Location.class, new GeoJsonAdapter().nullSafe())
-                .add(Uri.class, new UriJsonAdapter().nullSafe())
+                .add(Uri.class, new UriJsonAdapter())
                 .add(Namespace.class, new NamespaceJsonAdapter().nullSafe())
                 .add(WikiSite.class, new WikiSiteJsonAdapter().nullSafe())
                 .add(SharedPreferenceCookieManager.class, new CookieManagerJsonAdapter().nullSafe())
