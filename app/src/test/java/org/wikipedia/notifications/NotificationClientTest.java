@@ -25,9 +25,9 @@ public class NotificationClientTest extends MockRetrofitTest {
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
                     List<Notification> notifications = response.getQuery().notifications().list();
-                    return notifications.get(0).category().equals(CATEGORY_EDIT_THANK)
-                            && notifications.get(0).title().full().equals("PageTitle")
-                            && notifications.get(0).agent().name().equals("User1");
+                    return notifications.get(0).getCategory().equals(CATEGORY_EDIT_THANK)
+                            && notifications.get(0).getTitle().getFull().equals("PageTitle")
+                            && notifications.get(0).getAgent().getName().equals("User1");
                 });
     }
 
@@ -40,9 +40,9 @@ public class NotificationClientTest extends MockRetrofitTest {
     @Test public void testNotificationReverted() throws Throwable {
         String json = TestFileUtil.readRawFile("notification_revert.json");
         Notification n = GsonUnmarshaller.unmarshal(Notification.class, json);
-        assertThat(n.type(), is(Notification.CATEGORY_REVERTED));
-        assertThat(n.wiki(), is("wikidatawiki"));
-        assertThat(n.agent().name(), is("User1"));
+        assertThat(n.getType(), is(Notification.CATEGORY_REVERTED));
+        assertThat(n.getWiki(), is("wikidatawiki"));
+        assertThat(n.getAgent().getName(), is("User1"));
         assertThat(n.isFromWikidata(), is(true));
     }
 
@@ -52,9 +52,9 @@ public class NotificationClientTest extends MockRetrofitTest {
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
                     List<Notification> notifications = response.getQuery().notifications().list();
-                    return notifications.get(0).category().startsWith(CATEGORY_MENTION)
-                            && notifications.get(1).category().startsWith(CATEGORY_MENTION)
-                            && notifications.get(2).category().startsWith(CATEGORY_MENTION);
+                    return notifications.get(0).getCategory().startsWith(CATEGORY_MENTION)
+                            && notifications.get(1).getCategory().startsWith(CATEGORY_MENTION)
+                            && notifications.get(2).getCategory().startsWith(CATEGORY_MENTION);
                 });
     }
 

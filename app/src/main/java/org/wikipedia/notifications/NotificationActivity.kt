@@ -218,7 +218,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
         }
         for (n in notifications) {
-            if (notificationList.none { it.id() == n.id() }) {
+            if (notificationList.none { it.id == n.id }) {
                 notificationList.add(n)
             }
         }
@@ -227,7 +227,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private fun postprocessAndDisplay() {
         // Sort them by descending date...
-        notificationList.sortWith { n1: Notification, n2: Notification -> n2.timestamp.compareTo(n1.timestamp) }
+        notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
 
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
@@ -236,20 +236,20 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         for (n in notificationList) {
 
             // TODO: remove this condition when the time is right.
-            if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
-                    n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                    n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
-                    n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
-                    n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
-                    n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
-                    n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
+            if (n.category.startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
+                    n.category == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
+                    n.category == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
+                    n.category == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
+                    n.category == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
+                    n.category == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
+                    n.category.startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
                     Prefs.showAllNotifications()) {
-                if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents!!.header.contains(currentSearchQuery!!)) {
+                if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
                     continue
                 }
-                if (millis - n.timestamp.time > TimeUnit.DAYS.toMillis(1)) {
-                    notificationContainerList.add(NotificationListItemContainer(n.timestamp))
-                    millis = n.timestamp.time
+                if (millis - n.getTimestamp().time > TimeUnit.DAYS.toMillis(1)) {
+                    notificationContainerList.add(NotificationListItemContainer(n.getTimestamp()))
+                    millis = n.getTimestamp().time
                 }
                 notificationContainerList.add(NotificationListItemContainer(n))
             }
@@ -268,7 +268,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
             val notification = item.notification!!
-            val wiki = dbNameMap.getOrElse(notification.wiki()) { WikipediaApp.getInstance().wikiSite }
+            val wiki = dbNameMap.getOrElse(notification.wiki) { WikipediaApp.getInstance().wikiSite }
             notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
             if (markUnread && !displayArchived) {
                 notificationList.add(notification)
@@ -371,7 +371,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             val n = container.notification!!
             var iconResId = R.drawable.ic_speech_bubbles
             var iconBackColor = R.color.accent50
-            val s = n.category()
+            val s = n.category
             when {
                 Notification.CATEGORY_EDIT_USER_TALK == s -> {
                     iconResId = R.drawable.ic_edit_user_talk
@@ -421,7 +421,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     }
                 }
             }
-            val wikiCode = n.wiki()
+            val wikiCode = n.wiki
             when {
                 wikiCode.contains("wikidata") -> {
                     wikiCodeView.visibility = View.GONE
@@ -439,7 +439,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     wikiCodeBackgroundView.visibility = View.VISIBLE
                     wikiCodeView.visibility = View.VISIBLE
                     wikiCodeImageView.visibility = View.GONE
-                    val langCode = n.wiki().replace("wiki", "")
+                    val langCode = n.wiki.replace("wiki", "")
                     wikiCodeView.text = langCode
                     L10nUtil.setConditionalLayoutDirection(itemView, langCode)
                 }
