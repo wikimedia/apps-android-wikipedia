@@ -1,11 +1,13 @@
 package org.wikipedia.dataclient.mwapi
 
 import androidx.collection.ArraySet
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.util.DateUtil
 import java.util.*
 
 @SuppressWarnings("unused")
+@Serializable
 class UserInfo : BlockInfo() {
     val id = 0
     private val groups: List<String>? = null
