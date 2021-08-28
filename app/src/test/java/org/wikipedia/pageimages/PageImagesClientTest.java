@@ -78,13 +78,13 @@ public class PageImagesClientTest extends MockRetrofitTest {
 
         // noinspection ConstantConditions
         for (MwQueryPage page : pages) {
-            thumbnailSourcesMap.put(new PageTitle(null, page.title(), wiki).getPrefixedText(), page.thumbUrl());
-            if (!TextUtils.isEmpty(page.convertedFrom())) {
-                PageTitle pageTitle = new PageTitle(null, page.convertedFrom(), wiki);
+            thumbnailSourcesMap.put(new PageTitle(null, page.getTitle(), wiki).getPrefixedText(), page.thumbUrl());
+            if (!TextUtils.isEmpty(page.getConvertedFrom())) {
+                PageTitle pageTitle = new PageTitle(null, page.getConvertedFrom(), wiki);
                 thumbnailSourcesMap.put(pageTitle.getPrefixedText(), page.thumbUrl());
             }
-            if (!TextUtils.isEmpty(page.redirectFrom())) {
-                thumbnailSourcesMap.put(new PageTitle(null, page.redirectFrom(), wiki).getPrefixedText(), page.thumbUrl());
+            if (!TextUtils.isEmpty(page.getRedirectFrom())) {
+                thumbnailSourcesMap.put(new PageTitle(null, page.getRedirectFrom(), wiki).getPrefixedText(), page.thumbUrl());
             }
         }
 

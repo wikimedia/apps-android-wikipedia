@@ -200,9 +200,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                     }
 
                     val contributions = ArrayList<UserContribution>()
-                    contributions.addAll(wikidataResponse.query!!.userContributions())
-                    contributions.addAll(commonsResponse.query!!.userContributions())
-                    contributions.addAll(homeSiteResponse.query!!.userContributions())
+                    contributions.addAll(wikidataResponse.query!!.userContributions)
+                    contributions.addAll(commonsResponse.query!!.userContributions)
+                    contributions.addAll(homeSiteResponse.query!!.userContributions)
                     contributions.sortWith { o2, o1 -> (o1.date().compareTo(o2.date())) }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContributionsStats.getRevertSeverity()

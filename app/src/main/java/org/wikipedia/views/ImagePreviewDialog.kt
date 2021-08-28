@@ -102,7 +102,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                         thumbnailWidth = it.thumbWidth
                         thumbnailHeight = it.thumbHeight
                     }
-                    ImageTagsProvider.getImageTagsObservable(page.pageId(), pageSummaryForEdit.lang)
+                    ImageTagsProvider.getImageTagsObservable(page.pageId, pageSummaryForEdit.lang)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {

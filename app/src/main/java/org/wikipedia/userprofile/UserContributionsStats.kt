@@ -32,7 +32,7 @@ object UserContributionsStats {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
                     if (it.query?.userInfo?.isBlocked != true) {
-                        val editorTaskCounts = it.query?.editorTaskCounts()!!
+                        val editorTaskCounts = it.query?.editorTaskCounts!!
                         totalEdits = editorTaskCounts.totalEdits
                         totalDescriptionEdits = editorTaskCounts.totalDescriptionEdits
                         totalImageCaptionEdits = editorTaskCounts.totalImageCaptionEdits
@@ -55,7 +55,7 @@ object UserContributionsStats {
     fun getPageViewsObservable(response: MwQueryResponse): Observable<Long> {
         val qLangMap = HashMap<String, HashSet<String>>()
 
-        for (userContribution in response.query!!.userContributions()) {
+        for (userContribution in response.query!!.userContributions) {
             val descLang = userContribution.comment.split(" ")
                     .filter { "wbsetdescription" in it }
                     .flatMap { it.split("|") }
