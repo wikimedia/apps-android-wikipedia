@@ -296,7 +296,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private fun startCaptionTranslation(item: GalleryItemFragment) {
         val sourceTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL, sourceWiki.languageCode))
         val targetTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL,
-            targetLanguageCode ?: app.language().appLanguageCodes[1]))
+            targetLanguageCode ?: app.getAppLanguageState().appLanguageCodes[1]))
         val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode].orEmpty().ifEmpty {
             RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
         }
@@ -602,13 +602,13 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
         // and if we have another language in which the caption doesn't exist, then offer
         // it to be translatable.
-        if (app.language().appLanguageCodes.size > 1) {
-            for (lang in app.language().appLanguageCodes) {
+        if (app.getAppLanguageState().appLanguageCodes.size > 1) {
+            for (lang in app.getAppLanguageState().appLanguageCodes) {
                 if (!item.mediaInfo!!.captions.containsKey(lang)) {
                     targetLanguageCode = lang
                     imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
                     binding.ctaButtonText.text = getString(R.string.gallery_add_image_caption_in_language_button,
-                        app.language().getAppLanguageLocalizedName(targetLanguageCode))
+                        app.appLanguageState.getAppLanguageLocalizedName(targetLanguageCode))
                     break
                 }
             }

@@ -49,7 +49,7 @@ class ConfigureItemLanguageDialogView : FrameLayout {
         fun bindItem(langCode: String) {
             this.langCode = langCode
             container.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-            langNameView.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
+            langNameView.text = WikipediaApp.instance.appLanguageState.getAppLanguageLocalizedName(langCode)
             container.setOnClickListener(this)
             checkbox.setOnClickListener(this)
             updateState()

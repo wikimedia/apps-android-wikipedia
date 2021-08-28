@@ -319,7 +319,7 @@ class SavedPageSyncService : JobIntentService() {
 
         private val ENQUEUE_RUNNABLE = Runnable {
             enqueueWork(WikipediaApp.getInstance(),
-                    SavedPageSyncService::class.java, JOB_ID, Intent(WikipediaApp.getInstance(), SavedPageSyncService::class.java))
+                    SavedPageSyncService::class.java, JOB_ID, Intent(WikipediaApp.instance, SavedPageSyncService::class.java))
         }
 
         @JvmStatic

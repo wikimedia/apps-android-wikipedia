@@ -356,11 +356,11 @@ class ReadingListSyncAdapter : JobIntentService() {
                 if (lastSyncTime.isNullOrEmpty()) {
                     // This means that it's our first time attempting to sync, and we see that
                     // syncing isn't enabled on the server. So, let's prompt the user to enable it:
-                    WikipediaApp.getInstance().bus.post(ReadingListsEnableDialogEvent())
+                    WikipediaApp.instance.bus.post(ReadingListsEnableDialogEvent())
                 } else {
                     // This can only mean that our reading lists have been torn down (disabled) by
                     // another client, so we need to notify the user of this development.
-                    WikipediaApp.getInstance().bus.post(ReadingListsNoLongerSyncedEvent())
+                    WikipediaApp.instance.bus.post(ReadingListsNoLongerSyncedEvent())
                 }
             }
             if (client.isErrorType(t, "notloggedin")) {

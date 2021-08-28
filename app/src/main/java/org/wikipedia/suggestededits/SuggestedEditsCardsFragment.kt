@@ -47,8 +47,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     private var resettingViewPager: Boolean = false
     private var funnel: SuggestedEditsFeedFunnel? = null
 
-    var langFromCode: String = app.language().appLanguageCode
-    var langToCode: String = app.language().appLanguageCodes.getOrElse(1) { "" }
+    var langFromCode: String = app.getAppLanguageState().appLanguageCode
+    var langToCode: String = app.getAppLanguageState().appLanguageCodes.getOrElse(1) { "" }
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
 
     private val topTitle: PageTitle?
@@ -233,8 +233,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
             FeedbackUtil.showMessage(this,
                     when (action) {
                         ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
-                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
+                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.appLanguageState.getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
+                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.appLanguageState.getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
@@ -278,7 +278,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
                 .map { siteMatrix = it; }
                 .doAfterTerminate { initLanguageSpinners() }
                 .subscribe({
-                    app.language().appLanguageCodes.forEach {
+                    app.appLanguageState.appLanguageCodes.forEach {
                         languageList.add(getLanguageLocalName(it))
                     }
                 }, { L.e(it) }))
@@ -286,7 +286,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     private fun getLanguageLocalName(code: String): String {
         if (siteMatrix == null) {
-            return app.language().getAppLanguageLocalizedName(code)!!
+            return app.getAppLanguageState().getAppLanguageLocalizedName(code)!!
         }
         var name: String? = null
         SiteMatrix.getSites(siteMatrix!!).forEach {
@@ -296,7 +296,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
             }
         }
         if (name.isNullOrEmpty()) {
-            name = app.language().getAppLanguageLocalizedName(code)
+            name = app.getAppLanguageState().getAppLanguageLocalizedName(code)
         }
         return name ?: code
     }
@@ -315,14 +315,14 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     }
 
     private fun setInitialUiState() {
-        binding.wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1 &&
+        binding.wikiLanguageDropdownContainer.visibility = if (app.getAppLanguageState().appLanguageCodes.size > 1 &&
                 (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)) VISIBLE else GONE
     }
 
     private fun swapLanguageSpinnerSelection(isFromLang: Boolean) {
         if (!swappingLanguageSpinners) {
             swappingLanguageSpinners = true
-            val preLangPosition = app.language().appLanguageCodes.indexOf(if (isFromLang) langFromCode else langToCode)
+            val preLangPosition = app.getAppLanguageState().appLanguageCodes.indexOf(if (isFromLang) langFromCode else langToCode)
             if (isFromLang) {
                 binding.wikiToLanguageSpinner.setSelection(preLangPosition)
             } else {
@@ -335,17 +335,17 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     private fun initLanguageSpinners() {
         binding.wikiFromLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
         binding.wikiToLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
-        binding.wikiToLanguageSpinner.setSelection(app.language().appLanguageCodes.indexOf(langToCode))
+        binding.wikiToLanguageSpinner.setSelection(app.getAppLanguageState().appLanguageCodes.indexOf(langToCode))
     }
 
     private inner class OnFromSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-            if (langToCode == app.language().appLanguageCodes[position]) {
+            if (langToCode == app.getAppLanguageState().appLanguageCodes[position]) {
                 swapLanguageSpinnerSelection(true)
             }
 
-            if (!swappingLanguageSpinners && langFromCode != app.language().appLanguageCodes[position]) {
-                langFromCode = app.language().appLanguageCodes[position]
+            if (!swappingLanguageSpinners && langFromCode != app.getAppLanguageState().appLanguageCodes[position]) {
+                langFromCode = app.getAppLanguageState().appLanguageCodes[position]
                 resetViewPagerItemAdapter()
                 updateBackButton(0)
             }
@@ -357,12 +357,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     private inner class OnToSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-            if (langFromCode == app.language().appLanguageCodes[position]) {
+            if (langFromCode == app.getAppLanguageState().appLanguageCodes[position]) {
                 swapLanguageSpinnerSelection(false)
             }
 
-            if (!swappingLanguageSpinners && langToCode != app.language().appLanguageCodes[position]) {
-                langToCode = app.language().appLanguageCodes[position]
+            if (!swappingLanguageSpinners && langToCode != app.getAppLanguageState().appLanguageCodes[position]) {
+                langToCode = app.getAppLanguageState().appLanguageCodes[position]
                 resetViewPagerItemAdapter()
                 updateBackButton(0)
             }

@@ -56,7 +56,7 @@ object L10nUtil {
         if (systemLocale.language == targetLocale.language) {
             val localizedStrings = SparseArray<String>()
             strings.forEach {
-                localizedStrings.put(it, WikipediaApp.getInstance().getString(it))
+                localizedStrings.put(it, WikipediaApp.instance.getString(it))
             }
             return localizedStrings
         }
@@ -124,7 +124,7 @@ object L10nUtil {
         if (desiredLocale.language == CHINESE_LANGUAGE_CODE) {
             // create a new Locale object to manage only "zh" language code based on its app language
             // code. e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
-            config.setLocale(getDesiredLocale(Locale(WikipediaApp.getInstance().language().appLanguageCode)))
+            config.setLocale(getDesiredLocale(Locale(WikipediaApp.instance.appLanguageState.appLanguageCode)))
         } else {
             config.setLocale(getDesiredLocale(desiredLocale))
         }

@@ -16,7 +16,7 @@ class FeedConfigureFunnel(app: WikipediaApp, wiki: WikiSite?, private val source
     fun done(orderedContentTypes: List<FeedContentType>) {
         val orderedList = orderedContentTypes.map { it.code() }
         val enabledMap = HashMap<String, List<Int>>()
-        for (language in app.language().appLanguageCodes) {
+        for (language in app.appLanguageState.appLanguageCodes) {
             enabledMap[language] = FeedContentType.values().map { if (it.isEnabled) 1 else 0 }
         }
         log(
@@ -24,7 +24,7 @@ class FeedConfigureFunnel(app: WikipediaApp, wiki: WikiSite?, private val source
                 "feed_views", Prefs.getExploreFeedVisitCount(),
                 "enabled_list", StringUtil.stringToListMapToJSONString(enabledMap),
                 "order_list", StringUtil.listToJSONString(orderedList),
-                "languages", StringUtil.listToJsonArrayString(app.language().appLanguageCodes)
+                "languages", StringUtil.listToJsonArrayString(app.appLanguageState.appLanguageCodes)
         )
     }
 

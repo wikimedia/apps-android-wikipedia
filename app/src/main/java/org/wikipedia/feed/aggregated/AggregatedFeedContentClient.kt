@@ -31,7 +31,7 @@ class AggregatedFeedContentClient {
                                          wiki: WikiSite,
                                          age: Int,
                                          outCards: MutableList<Card>) {
-            for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
+            for (appLangCode in WikipediaApp.instance.appLanguageState.appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.ON_THIS_DAY.langCodesDisabled.contains(appLangCode)) {
                     responses[appLangCode]?.onthisday?.let {
                         if (it.isNotEmpty()) {
@@ -48,7 +48,7 @@ class AggregatedFeedContentClient {
                                          wiki: WikiSite,
                                          age: Int,
                                          outCards: MutableList<Card>) {
-            for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
+            for (appLangCode in WikipediaApp.instance.appLanguageState.appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.NEWS.langCodesDisabled.contains(appLangCode)) {
                     responses[appLangCode]?.news?.let {
                         outCards.add(NewsCard(it, age, WikiSite.forLanguageCode(appLangCode)))
@@ -63,7 +63,7 @@ class AggregatedFeedContentClient {
                                          wiki: WikiSite,
                                          age: Int,
                                          outCards: MutableList<Card>) {
-            for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
+            for (appLangCode in WikipediaApp.instance.appLanguageState.appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.FEATURED_ARTICLE.langCodesDisabled.contains(appLangCode)) {
                     responses[appLangCode]?.tfa?.let {
                         outCards.add(FeaturedArticleCard(it, age, WikiSite.forLanguageCode(appLangCode)))
@@ -78,7 +78,7 @@ class AggregatedFeedContentClient {
                                          wiki: WikiSite,
                                          age: Int,
                                          outCards: MutableList<Card>) {
-            for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
+            for (appLangCode in WikipediaApp.instance.appLanguageState.appLanguageCodes) {
                 if (responses.containsKey(appLangCode) && !FeedContentType.TOP_READ_ARTICLES.langCodesDisabled.contains(appLangCode)) {
                     responses[appLangCode]?.topRead?.let {
                         outCards.add(

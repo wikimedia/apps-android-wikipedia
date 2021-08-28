@@ -17,10 +17,10 @@ class LanguageItemAdapter(private val context: Context,
     init {
         if (contentType.langCodesSupported.isEmpty()) {
             // all languages supported
-            langList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
+            langList.addAll(WikipediaApp.instance.appLanguageState.appLanguageCodes)
         } else {
             // take the intersection of the supported languages and the available app languages
-            langList.addAll(WikipediaApp.getInstance().language().appLanguageCodes.filter { contentType.langCodesSupported.contains(it) })
+            langList.addAll(WikipediaApp.instance.appLanguageState.appLanguageCodes.filter { contentType.langCodesSupported.contains(it) })
         }
     }
 

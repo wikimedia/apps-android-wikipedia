@@ -178,13 +178,13 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                 FeedbackUtil.showMessage(this, R.string.login_success_toast)
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
-            if (WikipediaApp.getInstance().tabCount == 0) {
+            if (WikipediaApp.instance.tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
                 return
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                val entry = HistoryEntry(PageTitle(getMainPageForLang(WikipediaApp.getInstance().appOrSystemLanguageCode),
-                        WikipediaApp.getInstance().wikiSite), HistoryEntry.SOURCE_MAIN_PAGE)
+                val entry = HistoryEntry(PageTitle(getMainPageForLang(WikipediaApp.instance.appOrSystemLanguageCode),
+                        WikipediaApp.instance.wikiSite), HistoryEntry.SOURCE_MAIN_PAGE)
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()))
@@ -237,7 +237,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             tabsItem.isVisible = true
             tabCountsView = TabCountsView(requireActivity(), null)
             tabCountsView!!.setOnClickListener {
-                if (WikipediaApp.getInstance().tabCount == 1) {
+                if (WikipediaApp.instance.tabCount == 1) {
                     startActivity(PageActivity.newIntent(requireActivity()))
                 } else {
                     startActivityForResult(TabActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
@@ -269,7 +269,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     fun handleIntent(intent: Intent) {
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER)) {
-            startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.getInstance().wikiSite, InvokeSource.APP_SHORTCUTS))
+            startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.instance.wikiSite, InvokeSource.APP_SHORTCUTS))
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
             openSearchActivity(InvokeSource.APP_SHORTCUTS, null, null)
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
@@ -282,7 +282,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
-        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.getInstance().tabCount > 0) {
+        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
             startActivity(PageActivity.newIntent(requireContext()))
         }
     }
@@ -416,7 +416,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     override fun usernameClick() {
-        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.getInstance().wikiSite)
+        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.appLanguageState.appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.getInstance().wikiSite)
         UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
     }
 
@@ -435,8 +435,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (AccountUtil.isLoggedIn) {
             AccountUtil.userName?.let {
                 startActivity(TalkTopicsActivity.newIntent(requireActivity(),
-                        PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCode), it,
-                                WikiSite.forLanguageCode(WikipediaApp.getInstance().appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
+                        PageTitle(UserTalkAliasData.valueFor(WikipediaApp.instance.appLanguageState.appLanguageCode), it,
+                                WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)), InvokeSource.NAV_MENU))
             }
         }
     }

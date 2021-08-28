@@ -52,7 +52,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     private val feedCallback = FeedCallback()
     private val feedScrollListener = FeedScrollListener()
     private val callback get() = getCallback(this, Callback::class.java)
-    private var app: WikipediaApp = WikipediaApp.getInstance()
+    private var app: WikipediaApp = WikipediaApp.instance
     private var coordinator: FeedCoordinator = FeedCoordinator(app)
     private var funnel: FeedFunnel = FeedFunnel(app)
     private var shouldElevateToolbar = false
@@ -122,8 +122,8 @@ class FeedFragment : Fragment(), BackPressedHandler {
     }
 
     private fun showRemoveChineseVariantPrompt() {
-        if (app.language().appLanguageCodes.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE) &&
-            app.language().appLanguageCodes.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE) &&
+        if (app.appLanguageState.appLanguageCodes.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE) &&
+            app.appLanguageState.appLanguageCodes.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE) &&
             Prefs.shouldShowRemoveChineseVariantPrompt()) {
             AlertDialog.Builder(requireActivity())
                 .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)

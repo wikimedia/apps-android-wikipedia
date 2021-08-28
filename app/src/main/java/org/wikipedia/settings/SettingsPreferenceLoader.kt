@@ -45,7 +45,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             true
         }
         findPreference(R.string.preference_key_color_theme).let {
-            it.setSummary(WikipediaApp.getInstance().currentTheme.nameId)
+            it.setSummary(WikipediaApp.instance.currentTheme.nameId)
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 activity.startActivity(ThemeFittingRoomActivity.newIntent(activity))
                 true
@@ -64,7 +64,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     fun updateLanguagePrefSummary() {
         // TODO: resolve RTL vs LTR with multiple languages (e.g. list contains English and Hebrew)
-        findPreference(R.string.preference_key_language).summary = WikipediaApp.getInstance().language().appLanguageLocalizedNames
+        findPreference(R.string.preference_key_language).summary = WikipediaApp.instance.appLanguageState.appLanguageLocalizedNames
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

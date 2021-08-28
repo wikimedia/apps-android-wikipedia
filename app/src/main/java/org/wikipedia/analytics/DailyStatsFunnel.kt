@@ -14,7 +14,7 @@ class DailyStatsFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, SCHEMA_REVI
 
     fun log(context: Context) {
         log("appInstallAgeDays", getInstallAgeDays(context),
-                "languages", StringUtil.listToJsonArrayString(app.language().appLanguageCodes),
+                "languages", StringUtil.listToJsonArrayString(app.appLanguageState.appLanguageCodes),
                 "is_anon", !AccountUtil.isLoggedIn)
     }
 

@@ -194,19 +194,19 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
     private fun homeSiteObservable(): Observable<Pair<List<Contribution>, Int>> {
         return if (allContributions.isNotEmpty() && !continuations.containsKey(WikipediaApp.getInstance().wikiSite)) Observable.just(Pair(Collections.emptyList(), -1))
-        else ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getUserContributions(AccountUtil.userName!!, 50, continuations[WikipediaApp.getInstance().wikiSite])
+        else ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 50, continuations[WikipediaApp.instance.wikiSite])
             .subscribeOn(Schedulers.io())
             .flatMap { response ->
                 val contributions = mutableListOf<Contribution>()
                 val cont = response.continuation["uccontinue"]
                 if (cont.isNullOrEmpty()) {
-                    continuations.remove(WikipediaApp.getInstance().wikiSite)
+                    continuations.remove(WikipediaApp.instance.wikiSite)
                 } else {
-                    continuations[WikipediaApp.getInstance().wikiSite] = cont
+                    continuations[WikipediaApp.instance.wikiSite] = cont
                 }
                 response.query?.userContributions()?.forEach {
                     contributions.add(Contribution("", it.revid, it.title, it.title, it.title, EDIT_TYPE_GENERIC, null, it.date(),
-                        WikipediaApp.getInstance().wikiSite, 0, it.sizediff, it.top, 0))
+                        WikipediaApp.instance.wikiSite, 0, it.sizediff, it.top, 0))
                 }
                 Observable.just(Pair(contributions, response.query?.userInfo()!!.editCount))
             }
@@ -226,7 +226,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     continuations[WikiSite(Service.WIKIDATA_URL)] = cont
                 }
                 response.query?.userContributions()?.forEach { contribution ->
-                    var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
+                    var contributionLanguage = WikipediaApp.instance.appOrSystemLanguageCode
                     var contributionDescription = contribution.comment
                     var editType: Int = EDIT_TYPE_GENERIC
                     var qNumber = ""
@@ -288,7 +288,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                         continuations[WikiSite(Service.COMMONS_URL)] = cont
                     }
                     response.query?.userContributions()?.forEach { contribution ->
-                        var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
+                        var contributionLanguage = WikipediaApp.instance.appOrSystemLanguageCode
                         var editType: Int = EDIT_TYPE_GENERIC
                         var contributionDescription = contribution.comment
                         var qNumber = ""

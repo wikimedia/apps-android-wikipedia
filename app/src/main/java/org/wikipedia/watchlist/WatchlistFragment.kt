@@ -84,7 +84,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
-        menu.findItem(R.id.menu_change_language).isVisible = WikipediaApp.getInstance().language().appLanguageCodes.size > 1
+        menu.findItem(R.id.menu_change_language).isVisible = WikipediaApp.instance.appLanguageState.appLanguageCodes.size > 1
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -99,7 +99,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     private fun updateDisplayLanguages() {
-        displayLanguages = WikipediaApp.getInstance().language().appLanguageCodes.filterNot { Prefs.getWatchlistDisabledLanguages().contains(it) }
+        displayLanguages = WikipediaApp.instance.appLanguageState.appLanguageCodes.filterNot { Prefs.getWatchlistDisabledLanguages().contains(it) }
     }
 
     private fun fetchWatchlist(refreshing: Boolean) {

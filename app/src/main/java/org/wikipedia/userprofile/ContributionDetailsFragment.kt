@@ -57,7 +57,7 @@ class ContributionDetailsFragment : Fragment() {
         // To create the final color value for our gradient, we take the base color (red or green)
         // and give it a certain amount of transparency, but it needs to be a different transparency
         // value for light vs. dark theme.
-        val headerColor = ColorUtils.compositeColors(ColorUtils.setAlphaComponent(color, if (WikipediaApp.getInstance().currentTheme.isDark) 0x4c else 0x1c),
+        val headerColor = ColorUtils.compositeColors(ColorUtils.setAlphaComponent(color, if (WikipediaApp.instance.currentTheme.isDark) 0x4c else 0x1c),
                 ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         binding.topView.background = GradientUtil.getPowerGradientInt(headerColor, Gravity.TOP)
         binding.contributionDiffIndicatorLine.setBackgroundColor(color)
@@ -117,7 +117,7 @@ class ContributionDetailsFragment : Fragment() {
                 binding.pageViewsDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_views, getString(R.string.suggested_edits_contribution_article_label)),
                         contribution.pageViews.toString(), R.drawable.ic_trending_up_black_24dp)
                 binding.typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_text_hint), R.drawable.ic_article_description)
-                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode))
+                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.instance.appLanguageState.getAppLanguageCanonicalName(contribution.wikiSite.languageCode))
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 binding.contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
@@ -125,7 +125,7 @@ class ContributionDetailsFragment : Fragment() {
                 else resources.getQuantityString(R.plurals.suggested_edits_added_contribution_label, contribution.sizeDiff, contribution.sizeDiff)
                 binding.pageViewsDetailView.setLabelAndDetail()
                 binding.typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_add_caption_hint), R.drawable.ic_image_caption)
-                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode))
+                binding.languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.instance.appLanguageState.getAppLanguageCanonicalName(contribution.wikiSite.languageCode))
             }
             EDIT_TYPE_IMAGE_TAG -> {
                 binding.contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)

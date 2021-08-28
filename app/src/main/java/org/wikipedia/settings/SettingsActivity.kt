@@ -20,14 +20,14 @@ class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initialLanguageList = listToJsonArrayString(app.language().appLanguageCodes)
+        initialLanguageList = listToJsonArrayString(app.getAppLanguageState().appLanguageCodes)
         initialFeedCardsEnabled = Prefs.getFeedCardsEnabled()
         initialFeedCardsOrder = Prefs.getFeedCardsOrder()
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        val finalLanguageList = listToJsonArrayString(app.language().appLanguageCodes)
+        val finalLanguageList = listToJsonArrayString(app.getAppLanguageState().appLanguageCodes)
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE &&
                 finalLanguageList != initialLanguageList) {
             setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED)

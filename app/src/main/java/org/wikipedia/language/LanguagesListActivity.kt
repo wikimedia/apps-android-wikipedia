@@ -45,7 +45,7 @@ class LanguagesListActivity : BaseActivity() {
 
         binding.languagesListEmptyView.setEmptyText(R.string.langlinks_no_match)
         binding.languagesListEmptyView.visibility = View.GONE
-        binding.languagesListRecycler.adapter = LanguagesListAdapter(app.language().appMruLanguageCodes, app.language().remainingAvailableLanguageCodes)
+        binding.languagesListRecycler.adapter = LanguagesListAdapter(app.getAppLanguageState().appMruLanguageCodes, app.getAppLanguageState().remainingAvailableLanguageCodes)
         binding.languagesListRecycler.layoutManager = LinearLayoutManager(this)
         binding.languagesListLoadProgress.visibility = View.VISIBLE
         searchActionModeCallback = LanguageSearchCallback()
@@ -131,7 +131,7 @@ class LanguagesListActivity : BaseActivity() {
         // To remove the already selected languages and suggested languages from all languages list
         private val nonDuplicateLanguageCodesList
             get() = originalLanguageCodes.toMutableList().apply {
-                    removeAll(app.language().appLanguageCodes)
+                    removeAll(app.appLanguageState.appLanguageCodes)
                     removeAll(suggestedLanguageCodes)
                 }
 
@@ -163,7 +163,7 @@ class LanguagesListActivity : BaseActivity() {
             (holder as? LanguagesListItemHolder)?.itemView?.setOnClickListener {
                 val lang = languageCodes[pos]
                 if (lang != app.appOrSystemLanguageCode) {
-                    app.language().addAppLanguageCode(lang)
+                    app.appLanguageState.addAppLanguageCode(lang)
                 }
                 interactionsCount++
                 searchingFunnel.logLanguageAdded(true, lang, currentSearchQuery)
@@ -186,7 +186,7 @@ class LanguagesListActivity : BaseActivity() {
             languageCodes.clear()
             val filter = StringUtils.stripAccents(filterText).lowercase(Locale.getDefault())
             for (code in originalLanguageCodes) {
-                val localizedName = StringUtils.stripAccents(app.language().getAppLanguageLocalizedName(code).orEmpty())
+                val localizedName = StringUtils.stripAccents(app.appLanguageState.getAppLanguageLocalizedName(code).orEmpty())
                 val canonicalName = StringUtils.stripAccents(getCanonicalName(code).orEmpty())
                 if (code.contains(filter) ||
                         localizedName.lowercase(Locale.getDefault()).contains(filter) ||
@@ -207,7 +207,7 @@ class LanguagesListActivity : BaseActivity() {
             languageCodes.add(getString(R.string.languages_list_all_text))
             languageCodes.addAll(nonDuplicateLanguageCodesList)
             // should not be able to be searched while the languages are selected
-            originalLanguageCodes.removeAll(app.language().appLanguageCodes)
+            originalLanguageCodes.removeAll(app.getAppLanguageState().appLanguageCodes)
             notifyDataSetChanged()
         }
     }
@@ -215,7 +215,7 @@ class LanguagesListActivity : BaseActivity() {
     private fun getCanonicalName(code: String): String? {
         var canonicalName = siteInfoList?.find { it.code == code }?.localname
         if (canonicalName.isNullOrEmpty()) {
-            canonicalName = app.language().getAppLanguageCanonicalName(code)
+            canonicalName = app.getAppLanguageState().getAppLanguageCanonicalName(code)
         }
         return canonicalName
     }
@@ -233,10 +233,10 @@ class LanguagesListActivity : BaseActivity() {
 
         override fun bindItem(position: Int) {
             val languageCode = languageCodes[position]
-            localizedNameTextView.text = app.language().getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
+            localizedNameTextView.text = app.getAppLanguageState().getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
             val canonicalName = getCanonicalName(languageCode)
             if (binding.languagesListLoadProgress.visibility != View.VISIBLE) {
-                canonicalNameTextView.text = if (canonicalName.isNullOrEmpty()) app.language().getAppLanguageCanonicalName(languageCode) else canonicalName
+                canonicalNameTextView.text = if (canonicalName.isNullOrEmpty()) app.getAppLanguageState().getAppLanguageCanonicalName(languageCode) else canonicalName
             }
         }
     }

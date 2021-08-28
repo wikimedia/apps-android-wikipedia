@@ -76,7 +76,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                 if (showEditButton) imageCaptionOnClickListener(fragment, summaryForEdit) else null)
         } else {
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
-                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summaryForEdit, imageFromCommons))),
+                    WikipediaApp.instance.appLanguageState.getAppLanguageLocalizedName(getProperLanguageCode(summaryForEdit, imageFromCommons))),
                     if (summaryForEdit.pageTitle.description.isNullOrEmpty()) summaryForEdit.description
                     else summaryForEdit.pageTitle.description, if (showEditButton) imageCaptionOnClickListener(fragment, summaryForEdit) else null)
         }
@@ -117,7 +117,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     private fun getProperLanguageCode(summary: PageSummaryForEdit, imageFromCommons: Boolean): String {
         return if (!imageFromCommons || summary.lang == "commons") {
-            WikipediaApp.getInstance().language().appLanguageCode
+            WikipediaApp.instance.appLanguageState.appLanguageCode
         } else {
             summary.lang
         }

@@ -113,7 +113,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                 }
             }
 
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).subscribePush(csrfToken, token)
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).subscribePush(csrfToken, token)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .retry(SUBSCRIBE_RETRY_COUNT.toLong())
@@ -155,7 +155,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
             if (pushToken.isEmpty()) {
                 return Observable.just(MwQueryResponse())
             }
-            return ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, pushToken)
+            return ServiceFactory.get(WikipediaApp.instance.wikiSite).unsubscribePush(csrfToken, pushToken)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())

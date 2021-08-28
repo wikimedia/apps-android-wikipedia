@@ -165,7 +165,7 @@ abstract class AppDatabase : RoomDatabase() {
             if (instance == null) {
                 synchronized(AppDatabase::class) {
                     instance = Room.databaseBuilder(
-                        WikipediaApp.getInstance(),
+                        WikipediaApp.instance,
                         AppDatabase::class.java,
                         DATABASE_NAME
                     )

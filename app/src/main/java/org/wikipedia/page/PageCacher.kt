@@ -15,7 +15,7 @@ object PageCacher {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ summaryRsp ->
-                    WikipediaApp.getInstance().tabList.asReversed().find { it.backStackPositionTitle == title }?.backStackPositionTitle?.apply {
+                    WikipediaApp.instance.tabList.asReversed().find { it.backStackPositionTitle == title }?.backStackPositionTitle?.apply {
                         thumbUrl = summaryRsp.body()!!.thumbnailUrl
                     }
                 }) { caught -> L.e(caught) }

@@ -163,7 +163,7 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
                 INSTANCE = SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource)
             } else if (INSTANCE!!.invokeSource != invokeSource) {
                 INSTANCE?.log()
-                INSTANCE = SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource)
+                INSTANCE = SuggestedEditsFunnel(WikipediaApp.instance, invokeSource)
             }
             return INSTANCE!!
         }

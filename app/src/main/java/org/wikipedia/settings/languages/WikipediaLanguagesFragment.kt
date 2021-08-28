@@ -46,7 +46,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentWikipediaLanguagesBinding.inflate(inflater, container, false)
         invokeSource = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        initialLanguageList = listToJsonArrayString(app.language().appLanguageCodes)
+        initialLanguageList = listToJsonArrayString(app.getAppLanguageState().appLanguageCodes)
         funnel = AppLanguageSettingsFunnel()
         prepareWikipediaLanguagesList()
         setupRecyclerView()
@@ -70,7 +70,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
     }
 
     override fun onDestroyView() {
-        funnel.logLanguageSetting(invokeSource, initialLanguageList, listToJsonArrayString(app.language().appLanguageCodes), interactionsCount, isLanguageSearched)
+        funnel.logLanguageSetting(invokeSource, initialLanguageList, listToJsonArrayString(app.getAppLanguageState().appLanguageCodes), interactionsCount, isLanguageSearched)
         binding.wikipediaLanguagesRecycler.adapter = null
         _binding = null
         super.onDestroyView()
@@ -78,7 +78,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_wikipedia_languages, menu)
-        if (app.language().appLanguageCodes.size <= 1) {
+        if (app.getAppLanguageState().appLanguageCodes.size <= 1) {
             val overflowMenu = menu.getItem(0)
             overflowMenu.isVisible = false
         }
@@ -108,7 +108,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
 
     private fun prepareWikipediaLanguagesList() {
         wikipediaLanguages.clear()
-        wikipediaLanguages.addAll(app.language().appLanguageCodes)
+        wikipediaLanguages.addAll(app.getAppLanguageState().appLanguageCodes)
     }
 
     private fun setupRecyclerView() {
@@ -121,7 +121,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
     }
 
     private fun updateWikipediaLanguages() {
-        app.language().appLanguageCodes = wikipediaLanguages
+        app.getAppLanguageState().appLanguageCodes = wikipediaLanguages
         adapter.notifyDataSetChanged()
         requireActivity().invalidateOptionsMenu()
     }
@@ -259,7 +259,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
 
     private inner class WikipediaLanguageItemHolder constructor(itemView: WikipediaLanguagesItemView) : DefaultViewHolder<WikipediaLanguagesItemView>(itemView) {
         fun bindItem(languageCode: String, position: Int) {
-            view.setContents(languageCode, app.language().getAppLanguageLocalizedName(languageCode), position)
+            view.setContents(languageCode, app.getAppLanguageState().getAppLanguageLocalizedName(languageCode), position)
         }
     }
 
@@ -295,7 +295,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
     }
 
     private fun deleteSelectedLanguages() {
-        app.language().removeAppLanguageCodes(selectedCodes)
+        app.getAppLanguageState().removeAppLanguageCodes(selectedCodes)
         interactionsCount++
         prepareWikipediaLanguagesList()
         unselectAllLanguages()

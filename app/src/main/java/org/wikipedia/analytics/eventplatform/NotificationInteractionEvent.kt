@@ -51,7 +51,7 @@ class NotificationInteractionEvent(
 
         fun logIncoming(notification: Notification, type: String?) {
             EventPlatformClient.submit(NotificationInteractionEvent(notification.id().toInt(), notification.wiki(), type ?: notification.type(), ACTION_INCOMING,
-                "", "", incoming_only = true, device_level_enabled = NotificationManagerCompat.from(WikipediaApp.getInstance()).areNotificationsEnabled()))
+                "", "", incoming_only = true, device_level_enabled = NotificationManagerCompat.from(WikipediaApp.instance).areNotificationsEnabled()))
         }
 
         fun logAction(notification: Notification, index: Int, link: Notification.Link) {

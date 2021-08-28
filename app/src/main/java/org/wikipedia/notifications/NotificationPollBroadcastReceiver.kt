@@ -169,7 +169,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun getFullNotifications(context: Context, foreignWikis: List<String?>) {
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response -> onNotificationsComplete(context, response.query?.notifications()?.list()) }) { t -> L.e(t) }
@@ -216,7 +216,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                             n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
                             Prefs.showAllNotifications()) {
                         // Record that there is an incoming notification to track/compare further actions on it.
-                        NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
+                        NotificationInteractionFunnel(WikipediaApp.instance, n).logIncoming()
                         NotificationInteractionEvent.logIncoming(n, null)
                         NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki())) DBNAME_WIKI_NAME_MAP[n.wiki()] else n.wiki())!!)
                     }
@@ -233,7 +233,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun markItemsAsRead(items: List<Notification>) {
             val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
             for (item in items) {
-                val wiki = DBNAME_WIKI_SITE_MAP.getOrElse(item.wiki()) { WikipediaApp.getInstance().wikiSite }
+                val wiki = DBNAME_WIKI_SITE_MAP.getOrElse(item.wiki()) { WikipediaApp.instance.wikiSite }
                 notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(item)
             }
             for (wiki in notificationsPerWiki.keys) {

@@ -171,7 +171,7 @@ class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String 
         }
 
         private fun languageCodeToSubdomain(languageCode: String): String {
-            return WikipediaApp.getInstance().language().getDefaultLanguageCode(languageCode) ?: normalizeLanguageCode(languageCode)
+            return WikipediaApp.instance.appLanguageState.getDefaultLanguageCode(languageCode) ?: normalizeLanguageCode(languageCode)
         }
 
         private fun authorityToLanguageCode(authority: String): String {

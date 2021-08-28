@@ -47,7 +47,7 @@ class ConfigureItemView(context: Context) : FrameLayout(context) {
         binding.feedContentTypeTitle.setText(contentType.titleId)
         binding.feedContentTypeSubtitle.setText(contentType.subtitleId)
         binding.feedContentTypeCheckbox.isChecked = contentType.isEnabled
-        if (contentType.isPerLanguage && WikipediaApp.getInstance().language().appLanguageCodes.size > 1) {
+        if (contentType.isPerLanguage && WikipediaApp.instance.appLanguageState.appLanguageCodes.size > 1) {
             binding.feedContentTypeLangListContainer.visibility = VISIBLE
             adapter = LanguageItemAdapter(context, contentType)
             binding.feedContentTypeLangList.adapter = adapter
