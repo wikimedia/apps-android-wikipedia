@@ -5,11 +5,12 @@ import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.util.DateUtil
 import java.util.*
 
+@SuppressWarnings("unused")
 class UserInfo : BlockInfo() {
     val id = 0
     private val groups: List<String>? = null
     private val latestcontrib: String? = null
-    val editCount = 0
+    val editcount = 0
     val name: String = ""
 
     fun groups(): Set<String> {
