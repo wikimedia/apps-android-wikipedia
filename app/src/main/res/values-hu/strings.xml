@@ -163,7 +163,7 @@
   <string name="create_account_passwords_mismatch_error">A jelszavak nem egyeznek</string>
   <string name="create_account_email_error">Érvénytelen e-mail-cím</string>
   <string name="create_account_username_error">Érvénytelen karakterek a szerkesztőnévben</string>
-  <string name="create_account_password_error" fuzzy="true">A jelszó érvénytelen</string>
+  <string name="create_account_password_error">A jelszónak legalább 8 karakter hosszúnak kell lennie</string>
   <string name="create_account_generic_error">Nem sikerült a fiók létrehozása</string>
   <string name="create_account_next">Következő</string>
   <string name="email_recommendation_dialog_title">Biztosan e-mail-cím nélkül hozod létre a fiókot?</string>

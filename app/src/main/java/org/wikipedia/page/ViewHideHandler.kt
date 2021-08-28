@@ -86,7 +86,7 @@ class ViewHideHandler(private val hideableView: View,
         return false
     }
 
-    private fun ensureDisplayed() {
+    fun ensureDisplayed() {
         ensureTranslationY(hideableView, 0)
         anchoredView?.run {
             ensureTranslationY(this, 0)

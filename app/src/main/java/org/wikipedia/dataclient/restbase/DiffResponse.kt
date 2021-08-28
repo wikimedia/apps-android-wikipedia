@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
 @Serializable
+@Suppress("unused")
 class DiffResponse {
 
     private val from: DiffRevision? = null
