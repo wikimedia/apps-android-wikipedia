@@ -1,6 +1,7 @@
 package org.wikipedia.dataclient.mwapi
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
@@ -12,6 +13,7 @@ import org.wikipedia.settings.SiteInfo
 import org.wikipedia.util.DateUtil
 import java.util.*
 
+@Serializable
 class MwQueryResult : PostProcessable {
 
     @SerializedName("userinfo") val userInfo: UserInfo? = null
@@ -125,26 +127,32 @@ class MwQueryResult : PostProcessable {
         }
     }
 
+    @Serializable
     private class Redirect(@SerializedName("tofragment") val toFragment: String? = null,
-                           private val index: Int = 0,
-                           val from: String? = null,
-                           val to: String? = null)
+                                            private val index: Int = 0,
+                                            val from: String? = null,
+                                            val to: String? = null)
 
+    @Serializable
     class ConvertedTitle(val from: String? = null, val to: String? = null)
 
+    @Serializable
     private class Tokens(@SerializedName("csrftoken") val csrf: String? = null,
-                         @SerializedName("createaccounttoken") val createAccount: String? = null,
-                         @SerializedName("logintoken") val login: String? = null,
-                         @SerializedName("watchtoken") val watch: String? = null)
+                                          @SerializedName("createaccounttoken") val createAccount: String? = null,
+                                          @SerializedName("logintoken") val login: String? = null,
+                                          @SerializedName("watchtoken") val watch: String? = null)
 
+    @Serializable
     class MarkReadResponse(val timestamp: String? = null, val result: String? = null)
 
+    @Serializable
     class NotificationList(val list: List<Notification>? = null,
                            val seenTime: SeenTime? = null,
                            val count: Int = 0,
                            private val rawcount: Int = 0,
                            @SerializedName("continue") val continueStr: String? = null)
 
+    @Serializable
     class WatchlistItem {
 
         @SerializedName("new") private val isNew = false

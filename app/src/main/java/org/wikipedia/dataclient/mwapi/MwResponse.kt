@@ -7,7 +7,7 @@ import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 
 @Serializable
 abstract class MwResponse : PostProcessable {
-    val errors: List<@Contextual MwServiceError>? = null
+    val errors: List<MwServiceError>? = null
 
     @SerializedName("servedby")
     private val servedBy: String? = null

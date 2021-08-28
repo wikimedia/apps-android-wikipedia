@@ -8,10 +8,10 @@ import kotlinx.serialization.Serializable
 open class MwQueryResponse : MwResponse() {
 
     @SerializedName("batchcomplete")
-    val batchComplete = false
+    val batchComplete = true
 
     @SerializedName("continue")
     val continuation: Map<String, String> = emptyMap()
 
-    @Contextual var query: MwQueryResult? = null
+    var query: MwQueryResult? = null
 }
