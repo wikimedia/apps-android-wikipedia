@@ -120,7 +120,7 @@ object L {
     fun logRemoteError(t: Throwable) {
         LEVEL_E.log("", t)
         if (!ReleaseUtil.isPreBetaRelease) {
-            WikipediaApp.getInstance().logCrashManually(t)
+            WikipediaApp.instance.logCrashManually(t)
         }
     }
 

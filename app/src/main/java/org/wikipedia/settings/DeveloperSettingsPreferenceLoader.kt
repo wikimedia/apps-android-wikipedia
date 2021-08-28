@@ -156,7 +156,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     }
 
     private fun resetMediaWikiSettings() {
-        WikipediaApp.getInstance().resetWikiSite()
+        WikipediaApp.instance.resetWikiSite()
     }
 
     private fun createTestReadingList(listName: String, numOfLists: Int, numOfArticles: Int) {

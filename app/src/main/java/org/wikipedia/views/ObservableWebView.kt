@@ -180,7 +180,7 @@ class ObservableWebView : WebView {
                 it.onContentHeightChanged(currentContentHeight)
             }
         }
-        WikipediaApp.getInstance().bus.post(INVALIDATE_EVENT)
+        WikipediaApp.instance.bus.post(INVALIDATE_EVENT)
     }
 
     companion object {

@@ -34,7 +34,7 @@ class LangLinksActivity : BaseActivity() {
     private lateinit var title: PageTitle
 
     private var languageEntries = mutableListOf<PageTitle>()
-    private var app = WikipediaApp.getInstance()
+    private var app = WikipediaApp.instance
     private val disposables = CompositeDisposable()
 
     private var currentSearchQuery: String? = null
@@ -44,8 +44,8 @@ class LangLinksActivity : BaseActivity() {
     private val entriesByAppLanguages: List<PageTitle>
         get() = languageEntries.filter {
             it.wikiSite.languageCode == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
-                    app.getAppLanguageState().appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
-                    app.getAppLanguageState().appLanguageCodes.contains(it.wikiSite.languageCode)
+                    app.appLanguageState.appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
+                    app.appLanguageState.appLanguageCodes.contains(it.wikiSite.languageCode)
         }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -179,7 +179,7 @@ class LangLinksActivity : BaseActivity() {
         while (it.hasNext()) {
             val link = it.next()
             val languageCode = link.wikiSite.languageCode
-            val languageVariants = app.getAppLanguageState().getLanguageVariants(languageCode)
+            val languageVariants = app.appLanguageState.getLanguageVariants(languageCode)
             if (AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE == languageCode) {
                 // Replace legacy name of тарашкевіца language with the correct name.
                 // TODO: Can probably be removed when T111853 is resolved.
@@ -194,11 +194,11 @@ class LangLinksActivity : BaseActivity() {
                 }
             }
         }
-        addVariantEntriesIfNeeded(app.getAppLanguageState(), title, languageEntries)
+        addVariantEntriesIfNeeded(app.appLanguageState, title, languageEntries)
     }
 
     private fun updateVariantDisplayTitleIfNeeded() {
-        val list = languageEntries.filter { !app.getAppLanguageState().getDefaultLanguageCode(it.wikiSite.languageCode).isNullOrEmpty() }
+        val list = languageEntries.filter { !app.appLanguageState.getDefaultLanguageCode(it.wikiSite.languageCode).isNullOrEmpty() }
         disposables.add(Observable.fromIterable(list)
             .flatMap({ title ->
                 ServiceFactory.getRest(title.wikiSite).getSummary(null, title.prefixedText).subscribeOn(Schedulers.io()) },
@@ -214,7 +214,7 @@ class LangLinksActivity : BaseActivity() {
 
     private fun sortLanguageEntriesByMru(entries: MutableList<PageTitle>) {
         var addIndex = 0
-        for (language in app.getAppLanguageState().mruLanguageCodes) {
+        for (language in app.appLanguageState.mruLanguageCodes) {
             for (i in entries.indices) {
                 if (entries[i].wikiSite.languageCode == language) {
                     val entry = entries.removeAt(i)
@@ -271,8 +271,8 @@ class LangLinksActivity : BaseActivity() {
             val filter = filterText.lowercase(Locale.getDefault())
             for (entry in originalLanguageEntries) {
                 val languageCode = entry.wikiSite.languageCode
-                val canonicalName = app.getAppLanguageState().getAppLanguageCanonicalName(languageCode).orEmpty()
-                val localizedName = app.getAppLanguageState().getAppLanguageLocalizedName(languageCode).orEmpty()
+                val canonicalName = app.appLanguageState.getAppLanguageCanonicalName(languageCode).orEmpty()
+                val localizedName = app.appLanguageState.getAppLanguageLocalizedName(languageCode).orEmpty()
                 if (canonicalName.lowercase(Locale.getDefault()).contains(filter) ||
                         localizedName.lowercase(Locale.getDefault()).contains(filter)) {
                     languageEntries.add(entry)
@@ -314,12 +314,12 @@ class LangLinksActivity : BaseActivity() {
             pos = position
             val item = languageEntries[position]
             val languageCode = item.wikiSite.languageCode
-            val localizedLanguageName = app.getAppLanguageState().getAppLanguageLocalizedName(languageCode)
+            val localizedLanguageName = app.appLanguageState.getAppLanguageLocalizedName(languageCode)
             localizedLanguageNameTextView.text = localizedLanguageName?.capitalize(Locale.getDefault()) ?: languageCode
             articleTitleTextView.text = item.displayText
             if (binding.langlinksLoadProgress.visibility != View.VISIBLE) {
                 val canonicalName = getCanonicalName(languageCode)
-                if (canonicalName.isNullOrEmpty() || languageCode == app.getAppLanguageState().systemLanguageCode) {
+                if (canonicalName.isNullOrEmpty() || languageCode == app.appLanguageState.systemLanguageCode) {
                     nonLocalizedLanguageNameTextView.visibility = View.GONE
                 } else {
                     // TODO: Fix an issue when app language is zh-hant, the subtitle in zh-hans will display in English
@@ -332,7 +332,7 @@ class LangLinksActivity : BaseActivity() {
 
         override fun onClick(v: View) {
             val langLink = languageEntries[pos]
-            app.getAppLanguageState().addMruLanguageCode(langLink.wikiSite.languageCode)
+            app.appLanguageState.addMruLanguageCode(langLink.wikiSite.languageCode)
             val historyEntry = HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK)
             val intent = PageActivity.newIntentForCurrentTab(this@LangLinksActivity, historyEntry, langLink, false)
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent)
@@ -344,7 +344,7 @@ class LangLinksActivity : BaseActivity() {
     private fun getCanonicalName(code: String): String? {
         var canonicalName = siteInfoList?.find { it.code == code }?.localname
         if (canonicalName.isNullOrEmpty()) {
-            canonicalName = app.getAppLanguageState().getAppLanguageCanonicalName(code)
+            canonicalName = app.appLanguageState.getAppLanguageCanonicalName(code)
         }
         return canonicalName
     }

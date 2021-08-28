@@ -89,7 +89,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         setHeaderView()
         setRecyclerView()
         setSwipeRefreshView()
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
+        disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
         return binding.root
     }
 

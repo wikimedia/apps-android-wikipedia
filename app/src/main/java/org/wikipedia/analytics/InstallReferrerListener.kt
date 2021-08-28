@@ -45,7 +45,7 @@ class InstallReferrerListener : InstallReferrerStateListener {
             InstallReferrerClient.InstallReferrerResponse.FEATURE_NOT_SUPPORTED -> { }
             InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE -> { }
         }
-        WikipediaApp.getInstance().mainThreadHandler.post {
+        WikipediaApp.instance.mainThreadHandler.post {
             referrerClient?.endConnection()
             referrerClient = null
             INSTANCE = null
@@ -117,11 +117,11 @@ class InstallReferrerListener : InstallReferrerStateListener {
         // log the event only if at least one of the parameters is nonempty
         if (!refUrl.isNullOrEmpty() || !refUtmMedium.isNullOrEmpty() ||
                 !refUtmCampaign.isNullOrEmpty() || !refUtmSource.isNullOrEmpty()) {
-            val funnel = InstallReferrerFunnel(WikipediaApp.getInstance())
+            val funnel = InstallReferrerFunnel(WikipediaApp.instance)
             funnel.logInstall(refUrl, refUtmMedium, refUtmCampaign, refUtmSource)
         }
-        if (!refUrl.isNullOrEmpty() && ShareUtil.canOpenUrlInApp(WikipediaApp.getInstance(), refUrl)) {
-            openPageFromUrl(WikipediaApp.getInstance(), refUrl)
+        if (!refUrl.isNullOrEmpty() && ShareUtil.canOpenUrlInApp(WikipediaApp.instance, refUrl)) {
+            openPageFromUrl(WikipediaApp.instance, refUrl)
         }
         if (!refChannel.isNullOrEmpty()) {
             Prefs.setAppChannel(refChannel)

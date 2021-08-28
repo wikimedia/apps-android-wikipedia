@@ -18,7 +18,7 @@ object L10nUtil {
         get() = TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL
 
     private val currentConfiguration: Configuration
-        get() = Configuration(WikipediaApp.getInstance().resources.configuration)
+        get() = Configuration(WikipediaApp.instance.resources.configuration)
 
     @JvmStatic
     fun isLangRTL(lang: String): Boolean {
@@ -64,7 +64,7 @@ object L10nUtil {
         val localizedStrings = getTargetStrings(strings, config)
         config.setLocale(systemLocale)
         // reset to current configuration
-        WikipediaApp.getInstance().createConfigurationContext(config)
+        WikipediaApp.instance.createConfigurationContext(config)
         return localizedStrings
     }
 
@@ -77,16 +77,16 @@ object L10nUtil {
             return null
         }
         setDesiredLocale(config, targetLocale)
-        val targetResources = WikipediaApp.getInstance().createConfigurationContext(config).resources
+        val targetResources = WikipediaApp.instance.createConfigurationContext(config).resources
         config.setLocale(systemLocale)
         // reset to current configuration
-        WikipediaApp.getInstance().createConfigurationContext(config)
+        WikipediaApp.instance.createConfigurationContext(config)
         return targetResources
     }
 
     private fun getTargetStrings(@StringRes strings: IntArray, altConfig: Configuration): SparseArray<String> {
         val localizedStrings = SparseArray<String>()
-        val targetResources = WikipediaApp.getInstance().createConfigurationContext(altConfig).resources
+        val targetResources = WikipediaApp.instance.createConfigurationContext(altConfig).resources
         strings.forEach {
             localizedStrings.put(it, targetResources.getString(it))
         }

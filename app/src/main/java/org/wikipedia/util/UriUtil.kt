@@ -78,7 +78,7 @@ object UriUtil {
 
     @JvmStatic
     fun resolveProtocolRelativeUrl(url: String): String {
-        return if (url.startsWith("//")) WikipediaApp.getInstance().wikiSite.scheme() + ":" + url else url
+        return if (url.startsWith("//")) WikipediaApp.instance.wikiSite.scheme() + ":" + url else url
     }
 
     @JvmStatic

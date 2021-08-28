@@ -46,7 +46,7 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
     private val adapter = ToCAdapter()
     private var rtl = false
     private var currentItemSelected = 0
-    private var funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().wikiSite, 0, 0)
+    private var funnel = ToCInteractionFunnel(WikipediaApp.instance, WikipediaApp.instance.wikiSite, 0, 0)
 
     private val sectionOffsetsCallback: ValueCallback<String> = ValueCallback { value ->
         if (!fragment.isAdded) {
@@ -94,7 +94,7 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
                 gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
             }
             log()
-            funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), wiki, it.pageProperties.pageId, adapter.count)
+            funnel = ToCInteractionFunnel(WikipediaApp.instance, wiki, it.pageProperties.pageId, adapter.count)
         }
     }
 

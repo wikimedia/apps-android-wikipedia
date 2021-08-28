@@ -30,7 +30,7 @@ class LanguagesListActivity : BaseActivity() {
     private lateinit var searchActionModeCallback: LanguageSearchCallback
     private lateinit var searchingFunnel: AppLanguageSearchingFunnel
 
-    private var app = WikipediaApp.getInstance()
+    private var app = WikipediaApp.instance
     private var currentSearchQuery: String? = null
     private var actionMode: ActionMode? = null
     private var interactionsCount = 0
@@ -45,7 +45,7 @@ class LanguagesListActivity : BaseActivity() {
 
         binding.languagesListEmptyView.setEmptyText(R.string.langlinks_no_match)
         binding.languagesListEmptyView.visibility = View.GONE
-        binding.languagesListRecycler.adapter = LanguagesListAdapter(app.getAppLanguageState().appMruLanguageCodes, app.getAppLanguageState().remainingAvailableLanguageCodes)
+        binding.languagesListRecycler.adapter = LanguagesListAdapter(app.appLanguageState.appMruLanguageCodes, app.appLanguageState.remainingAvailableLanguageCodes)
         binding.languagesListRecycler.layoutManager = LinearLayoutManager(this)
         binding.languagesListLoadProgress.visibility = View.VISIBLE
         searchActionModeCallback = LanguageSearchCallback()
@@ -207,7 +207,7 @@ class LanguagesListActivity : BaseActivity() {
             languageCodes.add(getString(R.string.languages_list_all_text))
             languageCodes.addAll(nonDuplicateLanguageCodesList)
             // should not be able to be searched while the languages are selected
-            originalLanguageCodes.removeAll(app.getAppLanguageState().appLanguageCodes)
+            originalLanguageCodes.removeAll(app.appLanguageState.appLanguageCodes)
             notifyDataSetChanged()
         }
     }
@@ -215,7 +215,7 @@ class LanguagesListActivity : BaseActivity() {
     private fun getCanonicalName(code: String): String? {
         var canonicalName = siteInfoList?.find { it.code == code }?.localname
         if (canonicalName.isNullOrEmpty()) {
-            canonicalName = app.getAppLanguageState().getAppLanguageCanonicalName(code)
+            canonicalName = app.appLanguageState.getAppLanguageCanonicalName(code)
         }
         return canonicalName
     }
@@ -233,10 +233,10 @@ class LanguagesListActivity : BaseActivity() {
 
         override fun bindItem(position: Int) {
             val languageCode = languageCodes[position]
-            localizedNameTextView.text = app.getAppLanguageState().getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
+            localizedNameTextView.text = app.appLanguageState.getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
             val canonicalName = getCanonicalName(languageCode)
             if (binding.languagesListLoadProgress.visibility != View.VISIBLE) {
-                canonicalNameTextView.text = if (canonicalName.isNullOrEmpty()) app.getAppLanguageState().getAppLanguageCanonicalName(languageCode) else canonicalName
+                canonicalNameTextView.text = if (canonicalName.isNullOrEmpty()) app.appLanguageState.getAppLanguageCanonicalName(languageCode) else canonicalName
             }
         }
     }

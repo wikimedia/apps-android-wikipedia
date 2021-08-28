@@ -51,9 +51,9 @@ class NotificationInteractionFunnel(app: WikipediaApp, private val id: Long, pri
             if (!intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID)) {
                 return
             }
-            val funnel = NotificationInteractionFunnel(WikipediaApp.getInstance(),
+            val funnel = NotificationInteractionFunnel(WikipediaApp.instance,
                     intent.getLongExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, 0),
-                    WikipediaApp.getInstance().wikiSite.dbName(),
+                    WikipediaApp.instance.wikiSite.dbName(),
                     intent.getStringExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE))
             if (NotificationPollBroadcastReceiver.ACTION_CANCEL == intent.action) {
                 funnel.logDismissed()

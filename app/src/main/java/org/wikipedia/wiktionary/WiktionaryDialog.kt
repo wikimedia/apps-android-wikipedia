@@ -60,7 +60,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         binding.wiktionaryDefinitionDialogTitle.text = sanitizeForDialogTitle(selectedText)
         L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode)
         loadDefinitions()
-        funnel = WiktionaryDialogFunnel(WikipediaApp.getInstance(), selectedText)
+        funnel = WiktionaryDialogFunnel(WikipediaApp.instance, selectedText)
         return binding.root
     }
 

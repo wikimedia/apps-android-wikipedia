@@ -22,7 +22,7 @@ object GradientUtil {
     fun getPowerGradient(@ColorRes baseColor: Int, gravity: Int): Drawable {
         val drawable = PaintDrawable()
         drawable.shape = RectShape()
-        setPowerGradient(drawable, ContextCompat.getColor(WikipediaApp.getInstance(), baseColor), gravity)
+        setPowerGradient(drawable, ContextCompat.getColor(WikipediaApp.instance, baseColor), gravity)
         return drawable
     }
 

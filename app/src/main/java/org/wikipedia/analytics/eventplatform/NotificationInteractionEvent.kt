@@ -33,13 +33,13 @@ class NotificationInteractionEvent(
 
         private fun logClicked(intent: Intent) {
             EventPlatformClient.submit(NotificationInteractionEvent(intent.getLongExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, 0).toInt(),
-                WikipediaApp.getInstance().wikiSite.dbName(), intent.getStringExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE).orEmpty(), ACTION_CLICKED,
+                WikipediaApp.instance.wikiSite.dbName(), intent.getStringExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE).orEmpty(), ACTION_CLICKED,
                 "", "", incoming_only = false, device_level_enabled = true))
         }
 
         private fun logDismissed(intent: Intent) {
             EventPlatformClient.submit(NotificationInteractionEvent(intent.getLongExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, 0).toInt(),
-                WikipediaApp.getInstance().wikiSite.dbName(), intent.getStringExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE).orEmpty(), ACTION_DISMISSED,
+                WikipediaApp.instance.wikiSite.dbName(), intent.getStringExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE).orEmpty(), ACTION_DISMISSED,
                 "", "", incoming_only = false, device_level_enabled = true))
         }
 

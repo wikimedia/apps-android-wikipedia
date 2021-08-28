@@ -62,7 +62,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         private var csrfDisposable: Disposable? = null
 
         fun isUsingPush(): Boolean {
-            return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.getInstance()) == ConnectionResult.SUCCESS &&
+            return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.instance) == ConnectionResult.SUCCESS &&
                     Prefs.getPushNotificationToken().isNotEmpty() &&
                     Prefs.isPushNotificationTokenSubscribed()
         }
@@ -74,7 +74,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
             }
 
             csrfDisposable?.dispose()
-            csrfDisposable = CsrfTokenClient(WikipediaApp.getInstance().wikiSite).token
+            csrfDisposable = CsrfTokenClient(WikipediaApp.instance.wikiSite).token
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
@@ -141,7 +141,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
             // Explicitly enable cross-wiki notifications
             optionList.add("echo-cross-wiki-notifications=1")
 
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).postSetOptions(optionList.joinToString(separator = "|"), csrfToken)
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).postSetOptions(optionList.joinToString(separator = "|"), csrfToken)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({

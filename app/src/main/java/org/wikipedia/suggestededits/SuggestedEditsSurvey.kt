@@ -38,8 +38,8 @@ object SuggestedEditsSurvey {
     private fun openSurveyInBrowser() {
         Prefs.setSuggestedEditsSurveyClicked(true)
         UriUtil.visitInExternalBrowser(
-            WikipediaApp.getInstance(),
-            Uri.parse(WikipediaApp.getInstance().getString(R.string.suggested_edits_survey_url))
+            WikipediaApp.instance,
+            Uri.parse(WikipediaApp.instance.getString(R.string.suggested_edits_survey_url))
         )
     }
 }

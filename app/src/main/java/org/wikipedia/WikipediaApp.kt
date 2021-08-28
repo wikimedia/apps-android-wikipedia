@@ -91,7 +91,6 @@ class WikipediaApp : Application() {
             }
         }
 
-
     val appOrSystemLanguageCode: String
         get() {
             val code = appLanguageState.appLanguageCode
@@ -241,9 +240,7 @@ class WikipediaApp : Application() {
     // handle the case where we have a single tab with an empty backstack,
     // which shouldn't count as a valid tab:
     val tabCount: Int
-        get() =// handle the case where we have a single tab with an empty backstack,
-            // which shouldn't count as a valid tab:
-            if (tabList.size > 1) tabList.size else if (tabList.isEmpty()) 0 else if (tabList[0].backStack.isEmpty()) 0 else tabList.size
+        get() = if (tabList.size > 1 || !tabList.firstOrNull()?.backStack.isNullOrEmpty()) tabList.size else 0
     val isOnline: Boolean
         get() = connectivityReceiver.isOnline()
 
@@ -253,12 +250,9 @@ class WikipediaApp : Application() {
      * @param window The window on which the font will be displayed.
      * @return Actual current size of the font.
      */
-    fun getFontSize(window: Window?): Float {
-        return getFontSizeFromSp(
-            window!!,
-            resources.getDimension(R.dimen.textSize)
-        ) * (1.0f + Prefs.getTextSizeMultiplier()
-                * getFloat(R.dimen.textSizeMultiplierFactor))
+    fun getFontSize(window: Window): Float {
+        return getFontSizeFromSp(window, resources.getDimension(R.dimen.textSize)) *
+                (1.0f + Prefs.getTextSizeMultiplier() * getFloat(R.dimen.textSizeMultiplierFactor))
     }
 
     @Synchronized

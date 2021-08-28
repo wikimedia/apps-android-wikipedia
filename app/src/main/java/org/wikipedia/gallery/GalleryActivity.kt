@@ -84,7 +84,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
      */
     private var initialImageIndex = -1
     private var targetLanguageCode: String? = null
-    private val app = WikipediaApp.getInstance()
+    private val app = WikipediaApp.instance
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
@@ -296,7 +296,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private fun startCaptionTranslation(item: GalleryItemFragment) {
         val sourceTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL, sourceWiki.languageCode))
         val targetTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL,
-            targetLanguageCode ?: app.getAppLanguageState().appLanguageCodes[1]))
+            targetLanguageCode ?: app.appLanguageState.appLanguageCodes[1]))
         val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode].orEmpty().ifEmpty {
             RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
         }
@@ -602,8 +602,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
         // and if we have another language in which the caption doesn't exist, then offer
         // it to be translatable.
-        if (app.getAppLanguageState().appLanguageCodes.size > 1) {
-            for (lang in app.getAppLanguageState().appLanguageCodes) {
+        if (app.appLanguageState.appLanguageCodes.size > 1) {
+            for (lang in app.appLanguageState.appLanguageCodes) {
                 if (!item.mediaInfo!!.captions.containsKey(lang)) {
                     targetLanguageCode = lang
                     imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION

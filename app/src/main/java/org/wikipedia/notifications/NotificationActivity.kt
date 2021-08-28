@@ -274,7 +274,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 notificationList.add(notification)
             } else {
                 notificationList.remove(notification)
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
+                NotificationInteractionFunnel(WikipediaApp.instance, notification).logMarkRead(selectionKey)
                 NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }

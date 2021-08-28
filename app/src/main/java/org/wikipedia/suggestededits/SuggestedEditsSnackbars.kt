@@ -20,7 +20,7 @@ object SuggestedEditsSnackbars {
     @JvmStatic
     fun show(activity: Activity, action: Action?, sequentialSnackbar: Boolean = true, targetLanguageCode: String? = null,
              enableViewAction: Boolean = false, listener: OpenPageListener? = null) {
-        val app = WikipediaApp.getInstance()
+        val app = WikipediaApp.instance
         if (sequentialSnackbar) {
             val snackbar = FeedbackUtil.makeSnackbar(activity,
                     if ((action == Action.TRANSLATE_DESCRIPTION || action == Action.TRANSLATE_CAPTION) &&

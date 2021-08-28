@@ -41,7 +41,7 @@ class ReadingListSyncAdapter : JobIntentService() {
         val listIdsDeleted = Prefs.getReadingListsDeletedIds()
         val pageIdsDeleted = Prefs.getReadingListPagesDeletedIds()
         var allLocalLists: MutableList<ReadingList>? = null
-        val wiki = WikipediaApp.getInstance().wikiSite
+        val wiki = WikipediaApp.instance.wikiSite
         val client = ReadingListClient(wiki)
         val readingListSyncNotification = ReadingListSyncNotification.instance
         var lastSyncTime = Prefs.getReadingListsLastSyncTime()
@@ -118,7 +118,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
 
             // Notify any event consumers that reading lists are, in fact, enabled.
-            WikipediaApp.getInstance().bus.post(ReadingListsEnabledStatusEvent())
+            WikipediaApp.instance.bus.post(ReadingListsEnabledStatusEvent())
 
             // setup syncing indicator for remote to local
             val remoteItemsTotal = remoteListsModified.size
@@ -484,7 +484,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             manualSync()
         }
 
-        val isDisabledByRemoteConfig get() = WikipediaApp.getInstance().remoteConfig.config.optBoolean("disableReadingListSync", false)
+        val isDisabledByRemoteConfig get() = WikipediaApp.instance.remoteConfig.config.optBoolean("disableReadingListSync", false)
 
         @JvmStatic
         fun manualSyncWithDeleteList(list: ReadingList) {
@@ -530,7 +530,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             if (inProgress()) {
                 return
             }
-            if (AccountUtil.account() == null || !WikipediaApp.getInstance().isOnline) {
+            if (AccountUtil.account() == null || !WikipediaApp.instance.isOnline) {
                 if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
                     SavedPageSyncService.sendSyncEvent()
                 }
@@ -539,8 +539,8 @@ class ReadingListSyncAdapter : JobIntentService() {
             extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true)
             extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true)
 
-            enqueueWork(WikipediaApp.getInstance(), ReadingListSyncAdapter::class.java,
-                JOB_ID, Intent(WikipediaApp.getInstance(), ReadingListSyncAdapter::class.java)
+            enqueueWork(WikipediaApp.instance, ReadingListSyncAdapter::class.java,
+                JOB_ID, Intent(WikipediaApp.instance, ReadingListSyncAdapter::class.java)
                     .putExtras(extras))
         }
     }

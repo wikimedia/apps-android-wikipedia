@@ -193,7 +193,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     }
 
     private fun homeSiteObservable(): Observable<Pair<List<Contribution>, Int>> {
-        return if (allContributions.isNotEmpty() && !continuations.containsKey(WikipediaApp.getInstance().wikiSite)) Observable.just(Pair(Collections.emptyList(), -1))
+        return if (allContributions.isNotEmpty() && !continuations.containsKey(WikipediaApp.instance.wikiSite)) Observable.just(Pair(Collections.emptyList(), -1))
         else ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 50, continuations[WikipediaApp.instance.wikiSite])
             .subscribeOn(Schedulers.io())
             .flatMap { response ->

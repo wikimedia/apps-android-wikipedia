@@ -95,9 +95,9 @@ object ThrowableUtil {
     @WorkerThread
     fun getBlockMessageHtml(blockInfo: MwServiceError.BlockInfo): String {
         var html = ""
-        Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo,
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parsePage("MediaWiki:Blockedtext"),
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parseText(blockInfo.blockReason),
+        Observable.zip(ServiceFactory.get(WikipediaApp.instance.wikiSite).userInfo,
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).parsePage("MediaWiki:Blockedtext"),
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).parseText(blockInfo.blockReason),
             { userInfoResponse, blockedParseResponse, reasonParseResponse ->
                 parseBlockedError(blockedParseResponse.text, blockInfo,
                     reasonParseResponse.text, userInfoResponse.query?.userInfo()!!.name)

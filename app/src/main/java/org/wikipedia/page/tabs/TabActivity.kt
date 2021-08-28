@@ -37,7 +37,7 @@ import java.util.*
 
 class TabActivity : BaseActivity() {
     private lateinit var binding: ActivityTabsBinding
-    private val app: WikipediaApp = WikipediaApp.getInstance()
+    private val app: WikipediaApp = WikipediaApp.instance
     private val tabListener = TabListener()
     private val funnel = TabFunnel()
     private var launchedFromPageActivity = false

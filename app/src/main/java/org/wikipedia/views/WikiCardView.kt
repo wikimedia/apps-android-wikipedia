@@ -38,7 +38,7 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            when (WikipediaApp.getInstance().currentTheme) {
+            when (WikipediaApp.instance.currentTheme) {
                 Theme.DARK -> {
                     cardElevation = elevation
                     outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.base0)
@@ -62,7 +62,7 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
     }
 
     fun setDefaultBorder() {
-        strokeWidth = when (WikipediaApp.getInstance().currentTheme) {
+        strokeWidth = when (WikipediaApp.instance.currentTheme) {
             Theme.DARK -> {
                 DimenUtil.roundedDpToPx(0f)
             }

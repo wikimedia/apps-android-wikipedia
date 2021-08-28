@@ -115,7 +115,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         @SuppressLint("CheckResult")
         @JvmStatic
         fun pollNotifications(context: Context) {
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).lastUnreadNotification
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
@@ -142,7 +142,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun assertLoggedIn() {
             // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
             // and should automatically log us out if the credentials are no longer valid.
-            CsrfTokenClient(WikipediaApp.getInstance().wikiSite).token
+            CsrfTokenClient(WikipediaApp.instance.wikiSite).token
                     .subscribeOn(Schedulers.io())
                     .subscribe()
         }
@@ -151,7 +151,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun retrieveNotifications(context: Context) {
             DBNAME_WIKI_SITE_MAP.clear()
             DBNAME_WIKI_NAME_MAP.clear()
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unreadNotificationWikis
+            ServiceFactory.get(WikipediaApp.instance.wikiSite).unreadNotificationWikis
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
@@ -196,12 +196,12 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
             if (notificationsToDisplay.isNotEmpty()) {
                 Prefs.setNotificationUnreadCount(notificationsToDisplay.size)
-                WikipediaApp.getInstance().bus.post(UnreadNotificationsEvent())
+                WikipediaApp.instance.bus.post(UnreadNotificationsEvent())
             }
 
             if (notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki(), TYPE_MULTIPLE).logIncoming()
+                NotificationInteractionFunnel(WikipediaApp.instance, 0, notificationsToDisplay[0].wiki(), TYPE_MULTIPLE).logIncoming()
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
@@ -243,7 +243,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
         fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             val idListStr = notifications.joinToString("|")
-            CsrfTokenClient(wiki, WikipediaApp.getInstance().wikiSite).token
+            CsrfTokenClient(wiki, WikipediaApp.instance.wikiSite).token
                     .subscribeOn(Schedulers.io())
                     .flatMap {
                         ServiceFactory.get(wiki).markRead(it, if (unread) null else idListStr, if (unread) idListStr else null)
@@ -253,7 +253,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun maybeShowLocalNotificationForEditorReactivation(context: Context) {
-            if (Prefs.getLastDescriptionEditTime() == 0L || WikipediaApp.getInstance().isAnyActivityResumed) {
+            if (Prefs.getLastDescriptionEditTime() == 0L || WikipediaApp.instance.isAnyActivityResumed) {
                 return
             }
             var days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastDescriptionEditTime())

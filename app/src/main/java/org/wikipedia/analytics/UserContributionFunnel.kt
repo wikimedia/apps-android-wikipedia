@@ -2,7 +2,7 @@ package org.wikipedia.analytics
 
 import org.wikipedia.WikipediaApp
 
-class UserContributionFunnel private constructor() : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+class UserContributionFunnel private constructor() : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
     fun logOpen() {
         log("action", "open_hist")

@@ -120,7 +120,7 @@ class TalkTopicsActivity : BaseActivity() {
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE && resultCode == RESULT_OK) {
             if (data != null && data.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                 val pos = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
-                if (pos < WikipediaApp.instance.getAppLanguageState().appLanguageCodes.size) {
+                if (pos < WikipediaApp.instance.appLanguageState.appLanguageCodes.size) {
                     funnel.logChangeLanguage()
 
                     val newNamespace = when {

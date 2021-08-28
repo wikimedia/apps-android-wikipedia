@@ -58,8 +58,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private fun setUpPagerWithSECards(card: SuggestedEditsCard) {
         binding.seCardsPager.adapter = SECardsPagerAdapter(context as AppCompatActivity, card)
         binding.seCardsPager.offscreenPageLimit = 3
-        L10nUtil.setConditionalLayoutDirection(binding.seCardsPager, WikipediaApp.getInstance().wikiSite.languageCode)
-        L10nUtil.setConditionalLayoutDirection(binding.seCardsIndicatorLayout, WikipediaApp.getInstance().wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.seCardsPager, WikipediaApp.instance.wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.seCardsIndicatorLayout, WikipediaApp.instance.wikiSite.languageCode)
         TabLayoutMediator(binding.seCardsIndicatorLayout, binding.seCardsPager) { _: TabLayout.Tab, _: Int -> }.attach()
     }
 

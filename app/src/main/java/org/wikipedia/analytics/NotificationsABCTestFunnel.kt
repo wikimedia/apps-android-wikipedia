@@ -3,7 +3,7 @@ package org.wikipedia.analytics
 import org.wikipedia.WikipediaApp
 
 class NotificationsABCTestFunnel :
-    Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+    Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
     private val abTestImpl = ABTestFunnel("notificationIcons", ABTestFunnel.GROUP_SIZE_3)
 
     val aBTestGroup: Int get() = abTestImpl.aBTestGroup

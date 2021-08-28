@@ -31,7 +31,7 @@ import org.wikipedia.views.ImageZoomHelper
 class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(context), CardFooterView.Callback {
 
     private val binding = ViewCardOnThisDayBinding.inflate(LayoutInflater.from(context), this, true)
-    private val funnel = FeedFunnel(WikipediaApp.getInstance())
+    private val funnel = FeedFunnel(WikipediaApp.instance)
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var age = 0
 

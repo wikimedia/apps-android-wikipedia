@@ -62,12 +62,12 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
     }
 
     private fun getFeaturedArticleInformation(cb: Callback) {
-        val app = WikipediaApp.getInstance()
+        val app = WikipediaApp.instance
         val mainPageTitle = PageTitle(
                 MainPageNameData.valueFor(app.appOrSystemLanguageCode),
                 app.wikiSite)
         val date = DateUtil.getUtcRequestDateFor(0)
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getAggregatedFeed(date.year, date.month, date.day)
+        ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getAggregatedFeed(date.year, date.month, date.day)
                 .flatMap { response: AggregatedFeedContent ->
                     if (response.tfa != null) {
                         Observable.just(response.tfa)
@@ -108,7 +108,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     text.getSpanEnd(span) - text.getSpanStart(span) <= 1) {
                 continue
             }
-            val title = WikipediaApp.getInstance().wikiSite
+            val title = WikipediaApp.instance.wikiSite
                     .titleForInternalLink(UriUtil.decodeURL(span.url))
             if (!title.isFilePage && !title.isSpecial) {
                 titleText = title.displayText

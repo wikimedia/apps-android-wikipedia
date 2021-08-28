@@ -35,7 +35,7 @@ import java.io.IOException
 
 class SavedPageSyncService : JobIntentService() {
     private val savedPageSyncNotification = SavedPageSyncNotification.instance
-    val app: WikipediaApp = WikipediaApp.getInstance()
+    val app: WikipediaApp = WikipediaApp.instance
 
     override fun onHandleWork(intent: Intent) {
         if (ReadingListSyncAdapter.inProgress()) {
@@ -318,7 +318,7 @@ class SavedPageSyncService : JobIntentService() {
         const val MEDIA_LIST_PROGRESS = 30
 
         private val ENQUEUE_RUNNABLE = Runnable {
-            enqueueWork(WikipediaApp.getInstance(),
+            enqueueWork(WikipediaApp.instance,
                     SavedPageSyncService::class.java, JOB_ID, Intent(WikipediaApp.instance, SavedPageSyncService::class.java))
         }
 
@@ -327,8 +327,8 @@ class SavedPageSyncService : JobIntentService() {
             if (ReadingListSyncAdapter.inProgress()) {
                 return
             }
-            WikipediaApp.getInstance().mainThreadHandler.removeCallbacks(ENQUEUE_RUNNABLE)
-            WikipediaApp.getInstance().mainThreadHandler.postDelayed(ENQUEUE_RUNNABLE, ENQUEUE_DELAY_MILLIS.toLong())
+            WikipediaApp.instance.mainThreadHandler.removeCallbacks(ENQUEUE_RUNNABLE)
+            WikipediaApp.instance.mainThreadHandler.postDelayed(ENQUEUE_RUNNABLE, ENQUEUE_DELAY_MILLIS.toLong())
         }
 
         @JvmStatic
@@ -336,7 +336,7 @@ class SavedPageSyncService : JobIntentService() {
         fun sendSyncEvent(showMessage: Boolean = false) {
             // Note: this method posts from a background thread but subscribers expect events to be
             // received on the main thread.
-            WikipediaApp.getInstance().bus.post(ReadingListSyncEvent(showMessage))
+            WikipediaApp.instance.bus.post(ReadingListSyncEvent(showMessage))
         }
     }
 }
