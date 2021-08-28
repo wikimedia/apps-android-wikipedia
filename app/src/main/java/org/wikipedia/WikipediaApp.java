@@ -362,7 +362,7 @@ public class WikipediaApp extends Application {
                 .subscribe(response -> {
                     if (AccountUtil.isLoggedIn() && response.getQuery().getUserInfo() != null) {
                         // noinspection ConstantConditions
-                        int id = response.getQuery().getUserInfo().id();
+                        int id = response.getQuery().getUserInfo().getId();
                         AccountUtil.putUserIdForLanguage(code, id);
                         L.d("Found user ID " + id + " for " + code);
                     }

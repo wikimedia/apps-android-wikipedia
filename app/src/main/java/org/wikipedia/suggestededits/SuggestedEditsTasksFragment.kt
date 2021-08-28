@@ -185,9 +185,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                         blockMessage = ThrowableUtil.getBlockMessageHtml(blockInfo)
                     }
 
-                    totalContributions += wikidataResponse.query?.userInfo!!.editCount
-                    totalContributions += commonsResponse.query?.userInfo!!.editCount
-                    totalContributions += homeSiteResponse.query?.userInfo!!.editCount
+                    totalContributions += wikidataResponse.query?.userInfo!!.editcount
+                    totalContributions += commonsResponse.query?.userInfo!!.editcount
+                    totalContributions += homeSiteResponse.query?.userInfo!!.editcount
 
                     latestEditDate = wikidataResponse.query?.userInfo!!.latestContrib
 
