@@ -12,7 +12,7 @@ class UserInfo : BlockInfo() {
     val editCount = 0
     val name: String = ""
 
-    fun getGroups(): Set<String?>? {
+    fun groups(): Set<String> {
         return if (groups != null) ArraySet(groups) else Collections.emptySet()
     }
 

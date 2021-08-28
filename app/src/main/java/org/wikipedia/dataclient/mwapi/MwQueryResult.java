@@ -139,7 +139,7 @@ public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable 
             return false;
         }
         for (Protection protection : firstPage().protection()) {
-            if (protection.getType().equals("edit") && !userInfo().getGroups().contains(protection.getLevel())) {
+            if (protection.getType().equals("edit") && !userInfo().groups().contains(protection.getLevel())) {
                 return true;
             }
         }
