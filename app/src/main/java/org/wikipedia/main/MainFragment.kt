@@ -127,7 +127,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             true
         }
 
-        notificationButtonView = NotificationButtonView(requireActivity(), null)
+        notificationButtonView = NotificationButtonView(requireActivity())
 
         maybeShowEditsTooltip()
 
