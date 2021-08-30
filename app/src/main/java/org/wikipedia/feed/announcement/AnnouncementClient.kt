@@ -64,7 +64,7 @@ class AnnouncementClient : FeedClient {
 
         @JvmStatic
         fun shouldShow(announcement: Announcement?, country: String?, date: Date): Boolean {
-            return (announcement != null && (announcement.platforms.contains(PLATFORM_CODE) ||
+            return (announcement != null && !announcement.platforms.isNullOrEmpty() && (announcement.platforms.contains(PLATFORM_CODE) ||
                     announcement.platforms.contains(PLATFORM_CODE_NEW)) &&
                     matchesCountryCode(announcement, country) && matchesDate(announcement, date) &&
                     matchesVersionCodes(announcement.minVersion, announcement.maxVersion) && matchesConditions(announcement))
@@ -76,7 +76,7 @@ class AnnouncementClient : FeedClient {
             if (!announcementsCountryOverride.isNullOrEmpty()) {
                 countryCode = announcementsCountryOverride
             }
-            return if (countryCode.isNullOrEmpty()) {
+            return if (countryCode.isNullOrEmpty() || announcement.countries.isNullOrEmpty()) {
                 false
             } else announcement.countries.contains(countryCode)
         }

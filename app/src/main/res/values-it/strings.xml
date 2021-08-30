@@ -34,6 +34,7 @@
 * Senpremì
 * Simoarmanni
 * Statix64
+* Stefano
 * SuperVirtual
 * The Polish
 * Yacine Boussoufa
@@ -194,6 +195,7 @@
   <string name="create_account_ip_block_help_url">https://it.m.wikipedia.org/wiki/Wikipedia:Politiche_di_blocco_degli_utenti</string>
   <string name="create_account_ip_block_details">Dettagli</string>
   <string name="preferences_general_heading">Generale</string>
+  <string name="preferences_account_heading">Account</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Invia commento sull\'applicazione</string>
   <string name="create_account_account_created_toast">Utenza creata!</string>
@@ -994,6 +996,7 @@
   <string name="talk_subject_empty">L\'oggetto non può essere vuoto.</string>
   <string name="talk_response_submitted">Risposta pubblicata.</string>
   <string name="talk_snackbar_undo">Annulla</string>
+  <string name="talk_last_modified">&lt;b&gt;Ultima modifica alle %1$s&lt;/b&gt; da %2$s</string>
   <string name="menu_option_share_edit">Condividi modifica</string>
   <string name="menu_option_user_profile">Profilo di %s</string>
   <string name="menu_option_user_contributions">Contributi di %s</string>
