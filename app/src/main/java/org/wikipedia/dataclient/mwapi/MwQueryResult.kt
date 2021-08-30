@@ -55,7 +55,7 @@ class MwQueryResult : PostProcessable {
 
     fun captchaId(): String? {
         var captchaId: String? = null
-        amInfo?.requests()?.asSequence()?.filter { "CaptchaAuthenticationRequest" == it.id() }?.forEach { captchaId = it.fields()["captchaId"]!!.value() }
+        amInfo?.requests?.asSequence()?.filter { "CaptchaAuthenticationRequest" == it.id }?.forEach { captchaId = it.fields!!["captchaId"]!!.value }
         return captchaId
     }
 
