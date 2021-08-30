@@ -1044,6 +1044,8 @@
     <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
+    <string name="watchlist_details_next_edit">Next edit</string>
+    <string name="watchlist_details_prev_edit">Previous edit</string>
     <string name="thank_label">Thank</string>
     <string name="go_to_user_page">Go to user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
