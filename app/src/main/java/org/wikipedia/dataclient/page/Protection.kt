@@ -1,10 +1,8 @@
 package org.wikipedia.dataclient.page
 
-import kotlinx.serialization.Serializable
 import java.util.*
 
 /** Protection settings for a page  */
-@Serializable
 class Protection {
 
     private val edit: String? = null
