@@ -81,7 +81,7 @@ object ServiceFactory {
             .baseUrl(baseUrl)
             .client(OkHttpConnectionFactory.client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(wiki)).build())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .addConverterFactory(Json.asConverterFactory(contentType))
+            .addConverterFactory(Json{ignoreUnknownKeys = true}.asConverterFactory(contentType))
             .build()
     }
 

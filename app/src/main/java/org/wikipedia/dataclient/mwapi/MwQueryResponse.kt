@@ -7,8 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 open class MwQueryResponse : MwResponse() {
 
-    @SerializedName("batchcomplete")
-    val batchComplete = true
+    val batchcomplete = true
 
     @SerializedName("continue")
     val continuation: Map<String, String> = emptyMap()

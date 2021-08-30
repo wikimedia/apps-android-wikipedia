@@ -1,5 +1,6 @@
 package org.wikipedia.gallery
 
+import androidx.annotation.Nullable
 import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
@@ -35,8 +36,7 @@ class ImageInfo {
     @SerializedName("url")
     val originalUrl = ""
 
-    @SerializedName("mime")
-    val mimeType = "*/*"
+    val mime = "*/*"
 
     @SerializedName("extmetadata")
     val metadata: ExtMetadata? = null
