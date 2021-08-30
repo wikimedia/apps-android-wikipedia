@@ -1,5 +1,39 @@
-Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut. Sovellus on kirjoitettu alusta alkaen uusiksi ja on parempi kuin koskaan aiemmin.
+Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 39 miljoonaa artikkelia lähes 300 kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut. Lempitietosanakirjasi on nyt kätesi ulottuvilla.
 
 Ominaisuudet:
 
-Lähdekoodi on täysin avointa. Jos sinulla on kokemusta Javan ja Android SDK:n parissa työskentelystä, tee kopio koodistamme! https://github.com/wikimedia/apps-android-wikipedia
+Selaa syötettä. Uusi 'selaa syötettä' tarjoaa suositeltuja ja jatkuvasti ylläpidettyjä Wikipedia-sisältöjä kotiruudulla, kuten trendaavat artikkelit, ajankohtaiset tapahtumat, ehdotetut luettavat ja paljon muuta.
+
+Ääniohjattu haku - Löydä helposti etsimäsi ylhäällä olevan hakupalkin kautta, mukaan lukien ääniaktivoidun haun laitteessasi.
+
+Lähellä - Opi lisää, mitä on sinun ympärilläsi. Valitse kohteet interaktiiviselta kartalta nähdäksesi artikkeleita nykyiseen ja lähistön sijaintiin liittyen.
+
+Kielituki. Vaihda saumattomasti mihin tahansa kielituettuun Wikipediaan; joko vaihtamalla nykyisen artikkelin kielen tai vaihtamalla ensisijaisen hakukielen.
+
+Linkkien esikatselut - Napauta artikkelia avataksesi esikatselun ilman, että hukkaat kohdan, jota olet lukemassa. Paina ja pidä pohjassa avattavaa linkkiä avataksesi sen uudessa välilehdessä, mikä antaa sinun lukea nykyistä artikkelia ilman kohdan hukkaamista. Vaihda uuteen välilehteen, kun olet valmis.
+
+Sisällysluettelo - pyyhkäise vasemmalle missä tahansa artikkelissa nähdäksesi sisällysluettelon, joka sallii sinun hypätä artikkelin kappaleisiin nopeasti.
+
+Lukulistat - Lajittele selaamasi artikkelit lukulistoiksi, joita voit lukea myös ilman verkkoyhteyttä. Luo niin monta listaa kuin haluat. Anna niille haluamasi nimet ja kuvaukset. Rikastuta kokemusta tuomalla lisäksi eri kieliversiot muunkielisistä Wikipedoista.
+
+Kuvagalleria - Napauta kuvaa avataksesi esikatseluun kokoruudun korkealaatuisen kuvan. Pyyhkäisemällä voit selata lisää kuvia.
+
+Sanojen määritelmät Wiktionarysta - Napauta ja pidä pohjassa korostaaksesi sanan, paina sen jälkeen "Määritä"-nappia nähdäksesi sanan kuvauksen Wiktionarysta.
+
+Wikipedia Zero - Käytä Wikipediaa Androidilla ilman datamaksuja tiettyjen mobiilioperaattoreiden piirissä. (linkki osallistuviin operaattoreihin).
+
+Lähetä meille palautetta sovelluksesta! Valikossa paina "Asetukset", sitten "Tietoa Wikipedia-sovelluksesta", ja sieltä "Lähetä palautetta".
+
+Koodi on 100 % avointa lähdekoodia. Jos sinulla on kokemusta Javasta ja Android SDK:sta, odotamme innolla apuasi! https://github.com/wikimedia/apps-android-wikipedia
+
+Käyttämällä sovellusta hyväksyt automaattisten kaatumisilmoitusten lähettämisen kolmannen osapuolen palveluntarjoajalle. Jos haluat poistaa tämän ominaisuuden käytöstä, valitse "Asetukset", ja Yksityisyys-valikon alta ota pois päältä asetus "Lähetä kaatumisilmoitukset". Selitykset sovelluksen pyytämiin lupiin löytyy sivulta: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Tietosuojakäytännöt: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Kaatumisilmoituksia käsittelevän kolmannen osapuolen palveluntarjoajan tietosuojakäytäntö: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Tietoa Wikimedia-säätiöstä.
+
+Wikimedia Foundation on voittoa tavoittelematon säätiö, joka tukee Wikipediaa ja muita Wikimedia-projekteja. Wikimedia Foundation on lahjoituskelpoinen säätiö ja sitä rahoitetaan pääasiassa lahjoituksilla. Lisätietoja verkkosivuilta: https://wikimediafoundation.org/wiki/Home.
