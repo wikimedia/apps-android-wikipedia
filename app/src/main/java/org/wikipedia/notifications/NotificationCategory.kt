@@ -43,7 +43,7 @@ enum class NotificationCategory constructor(val id: String,
 
     companion object {
 
-        private val MAP = EnumCodeMap(NotificationCategory::class.java)
+        val MAP = EnumCodeMap(NotificationCategory::class.java)
 
         fun find(id: String): NotificationCategory {
             for (i in 0 until MAP.size()) {
