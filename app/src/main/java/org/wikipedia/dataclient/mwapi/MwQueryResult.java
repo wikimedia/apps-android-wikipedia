@@ -84,9 +84,9 @@ public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable 
     @Nullable public String captchaId() {
         String captchaId = null;
         if (amInfo != null) {
-            for (MwAuthManagerInfo.Request request : amInfo.requests()) {
-                if ("CaptchaAuthenticationRequest".equals(request.id())) {
-                    captchaId = request.fields().get("captchaId").value();
+            for (MwAuthManagerInfo.Request request : amInfo.getRequests()) {
+                if ("CaptchaAuthenticationRequest".equals(request.getId())) {
+                    captchaId = request.getFields().get("captchaId").getValue();
                 }
             }
         }
