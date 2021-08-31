@@ -259,6 +259,8 @@ abstract class BaseActivity : AppCompatActivity() {
         imageZoomHelper = ImageZoomHelper(this)
     }
 
+    open fun onUnreadNotification() { }
+
     /**
      * Bus consumer that should be registered by all created activities.
      */
@@ -292,6 +294,12 @@ abstract class BaseActivity : AppCompatActivity() {
                 if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
                     FeedbackUtil.makeSnackbar(this@BaseActivity,
                             getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show()
+                }
+            } else if (event is UnreadNotificationsEvent) {
+                runOnUiThread {
+                    if (!isDestroyed) {
+                        onUnreadNotification()
+                    }
                 }
             }
         }
