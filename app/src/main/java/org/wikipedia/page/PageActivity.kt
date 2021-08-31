@@ -13,6 +13,7 @@ import android.text.format.DateUtils
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
 import androidx.core.view.*
 import androidx.preference.PreferenceManager
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -408,11 +409,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 val title = wiki.titleForUri(it)
                 val historyEntry = HistoryEntry(title, if (intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID))
                     HistoryEntry.SOURCE_NOTIFICATION_SYSTEM else HistoryEntry.SOURCE_EXTERNAL_LINK)
-                if (intent.hasExtra(Intent.EXTRA_REFERRER)) {
-                    // Populate the referrer with the externally-referring URL, e.g. an external Browser URL.
-                    // This can be a Uri or a String, so let's extract it safely as an Object.
-                    historyEntry.referrer = intent.extras?.get(Intent.EXTRA_REFERRER)?.toString()
-                }
+                // Populate the referrer with the externally-referring URL, e.g. an external Browser URL, if present.
+                historyEntry.referrer = ActivityCompat.getReferrer(this)?.toString()
                 // Special cases:
                 // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
                 // after having donated), then bounce it out to an external browser, since we don't have
