@@ -17,4 +17,7 @@
     <item android:id="@+id/menu_view_in_browser"
         android:title="@string/page_view_in_browser"
         app:showAsAction="never" />
+    <item android:id="@+id/menu_default_replies"
+        android:title="@string/talk_default_replies"
+        app:showAsAction="never" />
 </menu>
