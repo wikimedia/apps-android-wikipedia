@@ -67,7 +67,7 @@
   <string name="app_settings">Button text to take user to app settings screen</string>
   <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
   <string name="history_list_title">Label text for history items list.</string>
-  <string name="image_content_description">Content description for an image.</string>
+  <string name="image_content_description">Content description for an image. The \"%s\" symbol is replaced with the name of the subject.</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
   <string name="dialog_message_clear_history_yes">Affirmative answer to clear the browsing history, as well close any tabs that are open.\n{{Identical|Yes}}</string>
