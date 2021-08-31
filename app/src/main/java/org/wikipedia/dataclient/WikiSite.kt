@@ -2,9 +2,9 @@ package org.wikipedia.dataclient
 
 import android.net.Uri
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Contextual
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -36,9 +36,9 @@ import org.wikipedia.util.UriUtil
  *  * Incorrect: "wikipedia.org", "test"
  *
  */
-@Parcelize
 @Serializable
-class WikiSite(@SerializedName("domain") var uri: @Contextual Uri, var languageCode: String = "") : Parcelable {
+@Parcelize
+class WikiSite(@SerialName("domain") var uri: @Contextual Uri, var languageCode: String = "") : Parcelable {
 
     constructor(uri: Uri) : this(uri, "") {
         val tempUri = ensureScheme(uri)

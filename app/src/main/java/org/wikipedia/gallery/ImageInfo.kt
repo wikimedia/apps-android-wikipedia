@@ -1,7 +1,6 @@
 package org.wikipedia.gallery
 
-import androidx.annotation.Nullable
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -10,10 +9,10 @@ class ImageInfo {
     var source = ""
     var captions = emptyMap<String, String>()
 
-    @SerializedName("short_name")
+    @SerialName("short_name")
     private val shortName: String? = null
 
-    @SerializedName("descriptionshorturl")
+    @SerialName("descriptionshorturl")
     private val descriptionShortUrl: String? = null
     private val derivatives = emptyList<Derivative>()
 
@@ -21,24 +20,24 @@ class ImageInfo {
     private val codecs: List<String>? = null
     private val name: String? = null
 
-    @SerializedName("descriptionurl")
+    @SerialName("descriptionurl")
     val commonsUrl = ""
 
-    @SerializedName("thumburl")
+    @SerialName("thumburl")
     val thumbUrl = ""
 
-    @SerializedName("thumbwidth")
+    @SerialName("thumbwidth")
     val thumbWidth = 0
 
-    @SerializedName("thumbheight")
+    @SerialName("thumbheight")
     val thumbHeight = 0
 
-    @SerializedName("url")
+    @SerialName("url")
     val originalUrl = ""
 
     val mime = "*/*"
 
-    @SerializedName("extmetadata")
+    @SerialName("extmetadata")
     val metadata: ExtMetadata? = null
 
     val user = ""

@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.page.Protection
@@ -10,14 +10,14 @@ import org.wikipedia.page.Namespace
 @Serializable
 class MwQueryPage {
 
-    @SerializedName("descriptionsource") val descriptionSource: String? = null
-    @SerializedName("imageinfo") private val imageInfo: List<ImageInfo>? = null
-    @SerializedName("videoinfo") private val videoInfo: List<ImageInfo>? = null
-    @SerializedName("watchlistexpiry") private val watchlistExpiry: String? = null
-    @SerializedName("pageviews") val pageViewsMap: Map<String, Long> = emptyMap()
-    @SerializedName("imagelabels") val imageLabels: List<ImageLabel> = emptyList()
-    @SerializedName("pageid") val pageId = 0
-    @SerializedName("pageprops") val pageProps: PageProps? = null
+    @SerialName("descriptionsource") val descriptionSource: String? = null
+    @SerialName("imageinfo") private val imageInfo: List<ImageInfo>? = null
+    @SerialName("videoinfo") private val videoInfo: List<ImageInfo>? = null
+    @SerialName("watchlistexpiry") private val watchlistExpiry: String? = null
+    @SerialName("pageviews") val pageViewsMap: Map<String, Long> = emptyMap()
+    @SerialName("imagelabels") val imageLabels: List<ImageLabel> = emptyList()
+    @SerialName("pageid") val pageId = 0
+    @SerialName("pageprops") val pageProps: PageProps? = null
 
     private val ns = 0
     private var coordinates: List<Coordinates>? = null
@@ -81,9 +81,9 @@ class MwQueryPage {
     @Serializable
     class Revision {
 
-        @SerializedName("contentformat") private val contentFormat: String? = null
-        @SerializedName("contentmodel") private val contentModel: String? = null
-        @SerializedName("timestamp") val timeStamp: String = ""
+        @SerialName("contentformat") private val contentFormat: String? = null
+        @SerialName("contentmodel") private val contentModel: String? = null
+        @SerialName("timestamp") val timeStamp: String = ""
 
         private val slots: Map<String, RevisionSlot>? = null
         private val minor = false
@@ -118,7 +118,7 @@ class MwQueryPage {
     @Serializable
     class PageProps {
 
-        @SerializedName("wikibase_item") val wikiBaseItem: String = ""
+        @SerialName("wikibase_item") val wikiBaseItem: String = ""
         private val disambiguation: String? = null
         val displayTitle: String? = null
 
@@ -133,7 +133,7 @@ class MwQueryPage {
     @Serializable
     class ImageLabel {
 
-        @SerializedName("wikidata_id") var wikidataId: String? = ""
+        @SerialName("wikidata_id") var wikidataId: String? = ""
         private val confidence: Confidence? = null
         val state: String = ""
         var label: String = ""

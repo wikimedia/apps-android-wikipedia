@@ -3,40 +3,47 @@ package org.wikipedia.dataclient.wikidata
 import android.location.Location
 import com.google.gson.JsonElement
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwResponse
 import org.wikipedia.json.GsonUtil
 
+@Serializable
 class Claims : MwResponse() {
 
     val claims: Map<String, List<Claim>> = emptyMap()
 
+    @Serializable
     class Claim {
 
         private val type: String? = null
         private val id: String? = null
         private val rank: String? = null
 
-        @SerializedName("mainsnak")
+        @SerialName("mainsnak")
         val mainSnak: MainSnak? = null
     }
 
+    @Serializable
     class MainSnak {
 
-        @SerializedName("snaktype")
+        @SerialName("snaktype")
         private val snakType: String? = null
 
-        @SerializedName("datatype")
+        @SerialName("datatype")
         private val dataType: String? = null
         private val property: String? = null
         private val hash: String? = null
 
-        @SerializedName("datavalue")
+        @SerialName("datavalue")
         val dataValue: DataValue? = null
     }
 
+    @Serializable
     class DataValue {
 
-        private val value: JsonElement? = null
+        @Contextual private val value: JsonElement? = null
         private val type: String? = null
 
         fun value(): String {
