@@ -52,7 +52,7 @@ object Constants {
     const val RECENT_SEARCHES_FRAGMENT_LOADER_ID = 101
     const val SUGGESTION_REQUEST_ITEMS = 5
 
-    enum class InvokeSource(name: String) {
+    enum class InvokeSource(val value: String) {
         ANNOUNCEMENT("announcement"),
         APP_SHORTCUTS("appShortcuts"),
         BOOKMARK_BUTTON("bookmark"),

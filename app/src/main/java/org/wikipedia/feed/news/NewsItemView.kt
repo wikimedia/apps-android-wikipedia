@@ -49,11 +49,11 @@ class NewsItemView(context: Context) : WikiCardView(context) {
         binding.horizontalScrollListItemText.text = removeImageCaption(StringUtil.fromHtml(newsItem.story))
         RichTextUtil.removeUnderlinesFromLinksAndMakeBold(binding.horizontalScrollListItemText)
         newsItem.thumb()?.let {
-            binding.horizontalScrollListItemImage.visibility = VISIBLE
+            binding.horizontalScrollListItemImageContainer.visibility = VISIBLE
             binding.horizontalScrollListItemImage.loadImage(it)
             ImageZoomHelper.setViewZoomable(binding.horizontalScrollListItemImage)
         } ?: run {
-            binding.horizontalScrollListItemImage.visibility = GONE
+            binding.horizontalScrollListItemImageContainer.visibility = GONE
             binding.horizontalScrollListItemText.maxLines = 10
         }
     }

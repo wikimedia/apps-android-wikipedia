@@ -183,7 +183,7 @@
   <string name="create_account_passwords_mismatch_error">گذرواژه‌ها مطابقت ندارند</string>
   <string name="create_account_email_error">آدرس ایمیل نامعتبر است</string>
   <string name="create_account_username_error">نویسهٔ نامعتبر در نام کاربری شما</string>
-  <string name="create_account_password_error" fuzzy="true">گذرواژه نامعتبر است</string>
+  <string name="create_account_password_error">گذرواژه باید دست کم دارای ۸ نویسه باشد</string>
   <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
   <string name="create_account_next">بعدی</string>
   <string name="email_recommendation_dialog_title">حساب بدون ایمیل ساخته شود؟</string>
@@ -197,6 +197,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">جزئیات</string>
   <string name="preferences_general_heading">عمومی</string>
+  <string name="preferences_account_heading">حساب کاربری</string>
   <string name="wikipedia_app_faq">پاسخ پرسش‌های رایج ویکی‌پدیا</string>
   <string name="send_feedback">ارسال بازخورد برنامه</string>
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
