@@ -455,10 +455,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             return false
         }
 
-        override fun onThumbClick(item: ReadingListPage?) {
-            onClick(item)
-        }
-
         override fun onActionClick(item: ReadingListPage?, view: View) {
             item?.let {
                 if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi &&
