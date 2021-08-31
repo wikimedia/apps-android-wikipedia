@@ -20,28 +20,20 @@ class WatchlistHeaderView constructor(context: Context, attrs: AttributeSet? = n
         orientation = VERTICAL
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-        binding.filterButtonAll.setOnClickListener(this)
-        binding.filterButtonTalk.setOnClickListener(this)
-        binding.filterButtonPages.setOnClickListener(this)
-        binding.filterButtonOther.setOnClickListener(this)
+        binding.filterButtonAllContainer.setOnClickListener(this)
+        binding.filterButtonTalkContainer.setOnClickListener(this)
+        binding.filterButtonPagesContainer.setOnClickListener(this)
+        binding.filterButtonOtherContainer.setOnClickListener(this)
 
         enableFilterButton(binding.filterButtonAll)
     }
 
     fun enableByFilterMode(mode: Int) {
         enableFilterButton(when (mode) {
-            WatchlistFragment.FILTER_MODE_PAGES -> {
-                binding.filterButtonPages
-            }
-            WatchlistFragment.FILTER_MODE_TALK -> {
-                binding.filterButtonTalk
-            }
-            WatchlistFragment.FILTER_MODE_OTHER -> {
-                binding.filterButtonOther
-            }
-            else -> {
-                binding.filterButtonAll
-            }
+            WatchlistFragment.FILTER_MODE_PAGES -> binding.filterButtonPages
+            WatchlistFragment.FILTER_MODE_TALK -> binding.filterButtonTalk
+            WatchlistFragment.FILTER_MODE_OTHER -> binding.filterButtonOther
+            else -> binding.filterButtonAll
         })
     }
 
@@ -64,20 +56,12 @@ class WatchlistHeaderView constructor(context: Context, attrs: AttributeSet? = n
     }
 
     override fun onClick(v: View?) {
-        enableFilterButton(v as TextView)
+        enableFilterButton((v as LinearLayout).getChildAt(0) as TextView)
         when (v) {
-            binding.filterButtonAll -> {
-                callback?.onSelectFilterAll()
-            }
-            binding.filterButtonTalk -> {
-                callback?.onSelectFilterTalk()
-            }
-            binding.filterButtonPages -> {
-                callback?.onSelectFilterPages()
-            }
-            binding.filterButtonOther -> {
-                callback?.onSelectFilterOther()
-            }
+            binding.filterButtonAllContainer -> callback?.onSelectFilterAll()
+            binding.filterButtonTalkContainer -> callback?.onSelectFilterTalk()
+            binding.filterButtonPagesContainer -> callback?.onSelectFilterPages()
+            binding.filterButtonOtherContainer -> callback?.onSelectFilterOther()
         }
     }
 

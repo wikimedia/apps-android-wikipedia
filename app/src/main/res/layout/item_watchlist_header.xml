@@ -6,60 +6,100 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/filterButtonAll"
+    <LinearLayout
+        android:id="@+id/filterButtonAllContainer"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_margin="4dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/filterButtonTalk"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="@string/watchlist_filter_all"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_20dp_accent90_fill"/>
+        app:layout_constraintEnd_toStartOf="@id/filterButtonTalkContainer">
 
-    <TextView
-        android:id="@+id/filterButtonTalk"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_margin="4dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/filterButtonAll"
-        app:layout_constraintEnd_toStartOf="@id/filterButtonPages"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="@string/watchlist_filter_talk"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_20dp_accent90_fill"/>
+        <TextView
+            android:id="@+id/filterButtonAll"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="@string/watchlist_filter_all"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_20dp_accent90_fill"/>
 
-    <TextView
-        android:id="@+id/filterButtonPages"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_margin="4dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/filterButtonTalk"
-        app:layout_constraintEnd_toStartOf="@id/filterButtonOther"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="@string/watchlist_filter_pages"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_20dp_accent90_fill"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/filterButtonOther"
+    <LinearLayout
+        android:id="@+id/filterButtonTalkContainer"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_margin="4dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/filterButtonPages"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="48dp"
         android:gravity="center"
-        android:textAlignment="center"
-        android:text="@string/watchlist_filter_other"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_20dp_accent90_fill"/>
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filterButtonAllContainer"
+        app:layout_constraintEnd_toStartOf="@id/filterButtonPagesContainer">
+
+        <TextView
+            android:id="@+id/filterButtonTalk"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="@string/watchlist_filter_talk"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_20dp_accent90_fill"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/filterButtonPagesContainer"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filterButtonTalkContainer"
+        app:layout_constraintEnd_toStartOf="@id/filterButtonOtherContainer">
+
+        <TextView
+            android:id="@+id/filterButtonPages"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="@string/watchlist_filter_pages"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_20dp_accent90_fill"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/filterButtonOtherContainer"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filterButtonPagesContainer"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/filterButtonOther"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="@string/watchlist_filter_other"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_20dp_accent90_fill"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

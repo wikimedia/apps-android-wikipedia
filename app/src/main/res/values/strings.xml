@@ -33,6 +33,7 @@
     <string name="app_settings">App settings</string>
     <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
     <string name="history_list_title">History</string>
+    <string name="image_content_description">Image: %s</string>
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
@@ -1061,6 +1062,8 @@
     <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
+    <string name="watchlist_details_next_edit">Next edit</string>
+    <string name="watchlist_details_prev_edit">Previous edit</string>
     <string name="thank_label">Thank</string>
     <string name="go_to_user_page">Go to user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
