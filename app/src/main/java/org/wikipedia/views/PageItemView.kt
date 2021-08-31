@@ -14,13 +14,7 @@ import com.google.android.material.chip.Chip
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemPageListEntryBinding
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
-import org.wikipedia.util.DimenUtil.roundedDpToPx
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil.getThemedAttributeId
-import org.wikipedia.util.ResourceUtil.getThemedColor
-import org.wikipedia.util.StringUtil.boldenKeywordText
-import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.util.*
 
 /*
  * TODO: Use this for future RecyclerView updates where we show a list of pages
@@ -30,7 +24,6 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
     interface Callback<T> {
         fun onClick(item: T?)
         fun onLongClick(item: T?): Boolean
-        fun onThumbClick(item: T?)
         fun onActionClick(item: T?, view: View)
         fun onListChipClick(readingList: ReadingList)
     }
@@ -43,11 +36,11 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        setPadding(0, roundedDpToPx(16f), 0, roundedDpToPx(16f))
-        background = AppCompatResources.getDrawable(context, getThemedAttributeId(context, R.attr.selectableItemBackground))
+        setPadding(0, DimenUtil.roundedDpToPx(16f), 0, DimenUtil.roundedDpToPx(16f))
+        background = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         isFocusable = true
         setOnClickListeners()
-        setContextClickAsLongClick(this)
+        DeviceUtil.setContextClickAsLongClick(this)
         FeedbackUtil.setButtonLongPressToast(binding.pageListItemAction)
     }
 
@@ -66,9 +59,6 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
             callback?.onLongClick(item)
             false
         }
-        binding.pageListItemImage.setOnClickListener {
-            callback?.onThumbClick(item)
-        }
         binding.pageListItemAction.setOnClickListener {
             callback?.onActionClick(item, this)
         }
@@ -78,17 +68,22 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
         if (selected) {
             binding.pageListItemSelectedImage.visibility = VISIBLE
             binding.pageListItemImage.visibility = GONE
-            setBackgroundColor(getThemedColor(context, R.attr.multi_select_background_color))
+            setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.multi_select_background_color))
         } else {
-            binding.pageListItemImage.visibility = if (imageUrl.isNullOrEmpty()) GONE else VISIBLE
-            ViewUtil.loadImageWithRoundedCorners(binding.pageListItemImage, imageUrl)
+            if (imageUrl.isNullOrEmpty()) {
+                binding.pageListItemImage.visibility = GONE
+            } else {
+                binding.pageListItemImage.visibility = VISIBLE
+                binding.pageListItemImage.contentDescription = context.getString(R.string.image_content_description, binding.pageListItemTitle.text)
+                ViewUtil.loadImageWithRoundedCorners(binding.pageListItemImage, imageUrl)
+            }
             binding.pageListItemSelectedImage.visibility = GONE
-            setBackground(AppCompatResources.getDrawable(context, getThemedAttributeId(context, R.attr.selectableItemBackground)))
+            setBackground(AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground)))
         }
     }
 
     fun setTitle(text: String?) {
-        binding.pageListItemTitle.text = fromHtml(text)
+        binding.pageListItemTitle.text = StringUtil.fromHtml(text)
     }
 
     fun setTitleMaxLines(linesCount: Int) {
@@ -149,7 +144,7 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
             TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle)
             chip.text = readingList.title
             chip.isClickable = true
-            chip.setChipBackgroundColorResource(getThemedAttributeId(context, R.attr.chip_background_color))
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.chip_background_color))
             chip.setOnClickListener {
                 callback?.onListChipClick(readingList)
             }
@@ -163,7 +158,7 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
 
     fun setSearchQuery(searchQuery: String?) {
         // highlight search term within the text
-        boldenKeywordText(binding.pageListItemTitle, binding.pageListItemTitle.text.toString(), searchQuery)
+        StringUtil.boldenKeywordText(binding.pageListItemTitle, binding.pageListItemTitle.text.toString(), searchQuery)
     }
 
     fun setViewsGreyedOut(greyedOut: Boolean) {
