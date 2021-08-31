@@ -410,7 +410,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 val historyEntry = HistoryEntry(title, if (intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID))
                     HistoryEntry.SOURCE_NOTIFICATION_SYSTEM else HistoryEntry.SOURCE_EXTERNAL_LINK)
                 // Populate the referrer with the externally-referring URL, e.g. an external Browser URL, if present.
-                historyEntry.referrer = ActivityCompat.getReferrer(this)?.toString()
+                ActivityCompat.getReferrer(this)?.let { uri ->
+                    historyEntry.referrer = uri.toString()
+                }
                 // Special cases:
                 // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
                 // after having donated), then bounce it out to an external browser, since we don't have
