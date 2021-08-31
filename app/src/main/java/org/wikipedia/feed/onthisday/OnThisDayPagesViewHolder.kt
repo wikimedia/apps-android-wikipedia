@@ -3,6 +3,7 @@ package org.wikipedia.feed.onthisday
 import android.app.Activity
 import android.net.Uri
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.FragmentManager
@@ -30,14 +31,16 @@ class OnThisDayPagesViewHolder(
     private val wiki: WikiSite
 ) : RecyclerView.ViewHolder(v) {
 
+    private val imageContainer: FrameLayout
+    private val image: FaceAndColorDetectImageView
     private var selectedPage: PageSummary? = null
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private var image: FaceAndColorDetectImageView? = null
 
     init {
         DeviceUtil.setContextClickAsLongClick(v)
         this.itemView.setOnClickListener { onBaseViewClicked() }
         this.itemView.setOnLongClickListener { showOverflowMenu(it) }
+        imageContainer = this.itemView.findViewById(R.id.image_container)
         image = this.itemView.findViewById(R.id.image)
     }
 
@@ -54,17 +57,15 @@ class OnThisDayPagesViewHolder(
     }
 
     private fun setImage(url: String?) {
-        image?.let {
-            if (url == null) {
-                it.visibility = View.GONE
-            } else {
-                it.visibility = View.VISIBLE
-                it.loadImage(Uri.parse(url))
-            }
+        if (url.isNullOrEmpty()) {
+            imageContainer.visibility = View.GONE
+        } else {
+            imageContainer.visibility = View.VISIBLE
+            image.loadImage(Uri.parse(url))
         }
     }
 
-    fun onBaseViewClicked() {
+    private fun onBaseViewClicked() {
         val entry = HistoryEntry(
             selectedPage!!.getPageTitle(wiki),
             HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY
@@ -81,7 +82,7 @@ class OnThisDayPagesViewHolder(
         )
     }
 
-    fun showOverflowMenu(anchorView: View?): Boolean {
+    private fun showOverflowMenu(anchorView: View?): Boolean {
         val entry = HistoryEntry(
             selectedPage!!.getPageTitle(wiki),
             HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY
