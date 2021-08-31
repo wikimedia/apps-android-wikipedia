@@ -3,9 +3,9 @@ package org.wikipedia.dataclient.page
 import android.location.Location
 import android.os.Parcelable
 import com.google.gson.annotations.JsonAdapter
-import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Contextual
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.*
@@ -21,10 +21,10 @@ open class PageSummary(
     var thumbnail: Thumbnail? = null,
     var extract: String? = null,
     var description: String? = null,
-    @SerializedName("originalimage") private val originalImage: Thumbnail? = null,
-    @SerializedName("wikibase_item") val wikiBaseItem: String? = null,
-    @SerializedName("extract_html") val extractHtml: String? = null,
-    @SerializedName("description_source") val descriptionSource: String = "",
+    @SerialName("originalimage") private val originalImage: Thumbnail? = null,
+    @SerialName("wikibase_item") val wikiBaseItem: String? = null,
+    @SerialName("extract_html") val extractHtml: String? = null,
+    @SerialName("description_source") val descriptionSource: String = "",
     @JsonAdapter(GeoTypeAdapter::class) val geo: @Contextual Location? = null,
     val type: String = TYPE_STANDARD,
     val pageId: Int = 0,
@@ -32,7 +32,7 @@ open class PageSummary(
     val timestamp: String = "",
     val views: Long = 0,
     private val rank: Long = 0,
-    @SerializedName("view_history") val viewHistory: List<ViewHistory>? = null
+    @SerialName("view_history") val viewHistory: List<ViewHistory>? = null
 ) : Parcelable {
 
     val thumbnailUrl get() = thumbnail?.source
@@ -80,15 +80,15 @@ open class PageSummary(
     }
 
     @Parcelize
-    @kotlinx.serialization.Serializable
+    @Serializable
     data class NamespaceContainer(val id: Int = 0, val text: String = "") : Parcelable
 
     @Parcelize
-    @kotlinx.serialization.Serializable
+    @Serializable
     class Titles(val canonical: String?, val display: String?) : Parcelable
 
     @Parcelize
-    @kotlinx.serialization.Serializable
+    @Serializable
     class Thumbnail(val source: String?, val width: Int, val height: Int) : Parcelable
 
     @Parcelize
