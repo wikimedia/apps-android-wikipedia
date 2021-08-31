@@ -22,8 +22,8 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
             val channelId = NotificationCategory.MAP[i].id
             val importance = notificationManagerCompat.getNotificationChannel(channelId)?.importance
             // TODO: figure out the "Show notifications" status
-            toggleMap[channelId] = importance != NotificationManagerCompat.IMPORTANCE_NONE
-                    && importance != null && notificationManagerCompat.areNotificationsEnabled()
+            toggleMap[channelId] = importance != NotificationManagerCompat.IMPORTANCE_NONE &&
+                    importance != null && notificationManagerCompat.areNotificationsEnabled()
         }
 
         log(
