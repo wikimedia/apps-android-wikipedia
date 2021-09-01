@@ -1,7 +1,7 @@
 package org.wikipedia.dataclient.mwapi
 
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
+import org.wikipedia.serialization.DateSerializer
 import org.wikipedia.util.DateUtil
 import java.text.ParseException
 import java.util.*
@@ -16,7 +16,7 @@ class UserContribution {
     val ns: Int = 0
     val title: String = ""
     private val timestamp: String = ""
-    @Contextual
+    @Serializable(with = DateSerializer::class)
     private var parsedDate: Date? = null
     val comment: String = ""
     val new: Boolean = false

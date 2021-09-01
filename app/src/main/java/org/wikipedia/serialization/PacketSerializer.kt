@@ -20,7 +20,7 @@ object PacketSerializer : KSerializer<Packet> {
         mapOf(
             "String" to serializer<String>(),
             "Int" to serializer<Int>(),
-            //list them all
+            // list them all
              ).mapValues { (_, v) -> v as KSerializer<Any> }
 
     private fun getPayloadSerializer(dataType: String): KSerializer<Any> = dataTypeSerializers[dataType]

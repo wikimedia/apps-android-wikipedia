@@ -80,8 +80,7 @@ object ServiceFactory {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(OkHttpConnectionFactory.client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(wiki)).build())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .addConverterFactory(Json{ignoreUnknownKeys = true}.asConverterFactory(contentType))
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).addConverterFactory(Json { ignoreUnknownKeys = true }.asConverterFactory(contentType))
             .build()
     }
 

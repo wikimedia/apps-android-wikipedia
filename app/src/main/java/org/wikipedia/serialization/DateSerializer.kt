@@ -14,14 +14,14 @@ import java.util.*
 object DateSerializer : KSerializer<Date> {
     override val descriptor: SerialDescriptor = DateSurrogate.serializer().descriptor
 
-
     override fun serialize(output: Encoder, obj: Date) {
         output.encodeString(obj.time.toString())
     }
 
     override fun deserialize(input: Decoder): Date {
-        return  SimpleDateFormat("yyyy-MM-dd'Z'", Locale.getDefault()).parse(input.decodeString())!!
+        return SimpleDateFormat("yyyy-MM-dd'Z'", Locale.getDefault()).parse(input.decodeString())!!
     }
+
     @Serializable
     @SerialName("Date")
     private class DateSurrogate(val timeInMillis: Long)

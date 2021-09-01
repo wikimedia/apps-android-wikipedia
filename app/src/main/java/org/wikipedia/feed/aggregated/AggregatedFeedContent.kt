@@ -1,6 +1,5 @@
 package org.wikipedia.feed.aggregated
 
-import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.page.PageSummary

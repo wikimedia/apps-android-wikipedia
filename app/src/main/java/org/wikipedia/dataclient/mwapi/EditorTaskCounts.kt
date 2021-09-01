@@ -1,11 +1,8 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.JsonArray
-import com.google.gson.JsonElement
-import com.google.gson.annotations.SerializedName
-import kotlinx.serialization.Contextual
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikipedia.json.GsonUtil
+import kotlinx.serialization.json.*
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import java.util.*
@@ -13,17 +10,16 @@ import java.util.*
 @Serializable
 class EditorTaskCounts {
 
-    @SerializedName("revert_counts") @Contextual private val revertCounts: JsonElement? = null
-    @SerializedName("edit_streak") @Contextual private val editStreak: JsonElement? = null
+    @SerialName("revert_counts") private val revertCounts: JsonElement? = null
+    @SerialName("edit_streak") private val editStreak: JsonElement? = null
 
-    @Contextual private val counts: JsonElement? = null
+    private val counts: JsonElement? = null
 
     private val descriptionEditsPerLanguage: Map<String, Int>
         private get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(counts, Counts::class.java).appDescriptionEdits
+                editsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { counts }).appDescriptionEdits
             }
             return editsPerLanguage ?: emptyMap()
         }
@@ -31,8 +27,7 @@ class EditorTaskCounts {
         private get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(counts, Counts::class.java).appCaptionEdits
+                editsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { counts }).appCaptionEdits
             }
             return editsPerLanguage ?: emptyMap()
         }
@@ -40,8 +35,7 @@ class EditorTaskCounts {
         get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(counts, Counts::class.java).appDepictsEdits
+                editsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { counts }).appDepictsEdits
             }
             return if (editsPerLanguage == null) 0 else (if (editsPerLanguage["*"] == null) 0 else editsPerLanguage["*"])!!
         }
@@ -80,8 +74,7 @@ class EditorTaskCounts {
         private get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(revertCounts, Counts::class.java).appDescriptionEdits
+                revertsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { revertCounts }).appDescriptionEdits
             }
             return revertsPerLanguage ?: emptyMap()
         }
@@ -89,8 +82,7 @@ class EditorTaskCounts {
         private get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(revertCounts, Counts::class.java).appCaptionEdits
+                revertsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { revertCounts }).appCaptionEdits
             }
             return revertsPerLanguage ?: emptyMap()
         }
@@ -98,8 +90,7 @@ class EditorTaskCounts {
         private get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(revertCounts, Counts::class.java).appDepictsEdits
+                revertsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { revertCounts }).appDepictsEdits
             }
             return if (revertsPerLanguage == null) 0 else (if (revertsPerLanguage["*"] == null) 0 else revertsPerLanguage["*"])!!
         }
@@ -123,7 +114,7 @@ class EditorTaskCounts {
         if (editStreak == null || editStreak is JsonArray) {
             return 0
         }
-        val streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak::class.java)
+        val streak = Json.decodeFromJsonElement<EditStreak>(buildJsonObject { editStreak })
         return streak.length
     }
 
@@ -133,7 +124,7 @@ class EditorTaskCounts {
             if (editStreak == null || editStreak is JsonArray) {
                 return date
             }
-            val streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak::class.java)
+            val streak = Json.decodeFromJsonElement<EditStreak>(buildJsonObject { editStreak })
             date = DateUtil.dbDateParse(streak.lastEditTime.orEmpty())
             return date
         }
@@ -141,15 +132,15 @@ class EditorTaskCounts {
     @Serializable
     class Counts {
 
-        @SerializedName("app_description_edits") val appDescriptionEdits: Map<String, Int>? = null
-        @SerializedName("app_caption_edits") val appCaptionEdits: Map<String, Int>? = null
-        @SerializedName("app_depicts_edits") val appDepictsEdits: Map<String, Int>? = null
+        @SerialName("app_description_edits") val appDescriptionEdits: Map<String, Int>? = null
+        @SerialName("app_caption_edits") val appCaptionEdits: Map<String, Int>? = null
+        @SerialName("app_depicts_edits") val appDepictsEdits: Map<String, Int>? = null
     }
 
     @Serializable
     private class EditStreak {
 
-        @SerializedName("last_edit_time") val lastEditTime: String? = null
+        @SerialName("last_edit_time") val lastEditTime: String? = null
         val length = 0
     }
 }

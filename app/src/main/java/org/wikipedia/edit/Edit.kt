@@ -1,6 +1,6 @@
 package org.wikipedia.edit
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 
@@ -12,9 +12,9 @@ class Edit : MwPostResponse() {
     @Serializable
     class Result {
         private val captcha: Captcha? = null
-        @SerializedName("result")
+        @SerialName("result")
         val status: String? = null
-        @SerializedName("newrevid")
+        @SerialName("newrevid")
         val newRevId: Long = 0
         val code: String? = null
         val info: String? = null

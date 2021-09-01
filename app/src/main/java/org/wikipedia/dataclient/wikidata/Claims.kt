@@ -1,13 +1,11 @@
 package org.wikipedia.dataclient.wikidata
 
 import android.location.Location
-import com.google.gson.JsonElement
-import com.google.gson.annotations.SerializedName
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.json.*
 import org.wikipedia.dataclient.mwapi.MwResponse
-import org.wikipedia.json.GsonUtil
 
 @Serializable
 class Claims : MwResponse() {
@@ -43,23 +41,21 @@ class Claims : MwResponse() {
     @Serializable
     class DataValue {
 
-        @Contextual private val value: JsonElement? = null
+        private val value: JsonElement? = null
         private val type: String? = null
 
         fun value(): String {
             if (value != null) {
-                if ("string" == type && value.isJsonPrimitive) {
-                    return value.asString
-                } else if ("wikibase-entityid" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson().fromJson(value, EntityIdValue::class.java).id
-                } else if ("time" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson().fromJson(value, TimeValue::class.java).time
-                } else if ("monolingualtext" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson()
-                        .fromJson(value, MonolingualTextValue::class.java).text
-                } else if ("globecoordinate" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson()
-                        .fromJson(value, GlobeCoordinateValue::class.java).location.toString()
+                if ("string" == type && value is PrimitiveKind) {
+                    return value.toString()
+                } else if ("wikibase-entityid" == type && value is JsonObject) {
+                    return Json.decodeFromJsonElement<EntityIdValue>(buildJsonObject { value }).id
+                } else if ("time" == type && value is JsonObject) {
+                    return Json.decodeFromJsonElement<TimeValue>(buildJsonObject { value }).time
+                } else if ("monolingualtext" == type && value is JsonObject) {
+                    return Json.decodeFromJsonElement<MonolingualTextValue>(buildJsonObject { value }).text
+                } else if ("globecoordinate" == type && value is JsonObject) {
+                    return Json.decodeFromJsonElement<GlobeCoordinateValue>(buildJsonObject { value }).location.toString()
                 }
             }
             return ""

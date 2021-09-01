@@ -1,11 +1,8 @@
 package org.wikipedia.notifications
 
-import com.google.gson.JsonElement
-import com.google.gson.JsonObject
-import com.google.gson.annotations.SerializedName
-import kotlinx.serialization.Contextual
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikipedia.json.GsonUtil
+import kotlinx.serialization.json.*
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UriUtil
 import java.util.*
@@ -13,7 +10,7 @@ import java.util.*
 @Serializable
 class Notification {
 
-    @SerializedName("*") val contents: Contents? = null
+    @SerialName("*") val contents: Contents? = null
     private val timestamp: Timestamp? = null
     val category = ""
     val wiki = ""
@@ -43,7 +40,7 @@ class Notification {
     @Serializable
     class Title {
 
-        @SerializedName("namespace-key") private val namespaceKey = 0
+        @SerialName("namespace-key") private val namespaceKey = 0
         var full: String = ""
         val text: String = ""
         private val namespace: String? = null
@@ -84,7 +81,7 @@ class Notification {
     class Links {
 
         private var primaryLink: Link? = null
-        @Contextual val primary: JsonElement? = null
+       val primary: JsonElement? = null
         val secondary: List<Link>? = null
 
         fun getPrimary(): Link? {
@@ -92,7 +89,7 @@ class Notification {
                 return null
             }
             if (primaryLink == null && primary is JsonObject) {
-                primaryLink = GsonUtil.getDefaultGson().fromJson(primary, Link::class.java)
+                primaryLink = Json.decodeFromJsonElement<Link>(buildJsonObject { primary })
             }
             return primaryLink
         }

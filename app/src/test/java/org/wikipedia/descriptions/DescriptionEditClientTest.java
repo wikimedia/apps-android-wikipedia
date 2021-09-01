@@ -7,6 +7,7 @@ import com.google.gson.stream.MalformedJsonException;
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
