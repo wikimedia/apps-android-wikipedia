@@ -4,14 +4,13 @@ import android.location.Location
 import android.os.Parcelable
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
-import org.wikipedia.auth.AccountUtil.isMemberOf
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.Protection
-import org.wikipedia.util.DateUtil.iso8601DateParse
-import org.wikipedia.util.DimenUtil.calculateLeadImageWidth
-import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
-import org.wikipedia.util.UriUtil.decodeURL
-import org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl
+import org.wikipedia.util.DateUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.UriUtil
 import java.util.*
 
 /**
@@ -60,11 +59,11 @@ data class PageProperties constructor(
         pageSummary.pageId,
         pageSummary.ns,
         pageSummary.revision,
-        if (pageSummary.timestamp.isEmpty()) Date() else iso8601DateParse(pageSummary.timestamp),
+        if (pageSummary.timestamp.isEmpty()) Date() else DateUtil.iso8601DateParse(pageSummary.timestamp),
         pageSummary.displayTitle,
         isMainPage = pageSummary.type == PageSummary.TYPE_MAIN_PAGE,
-        leadImageUrl = pageSummary.thumbnailUrl?.let { resolveProtocolRelativeUrl(getUrlForPreferredSize(it, calculateLeadImageWidth())) },
-        leadImageName = decodeURL(pageSummary.leadImageName.orEmpty()),
+        leadImageUrl = pageSummary.thumbnailUrl?.let { ImageUrlUtil.getUrlForPreferredSize(it, DimenUtil.calculateLeadImageWidth()) },
+        leadImageName = UriUtil.decodeURL(pageSummary.leadImageName.orEmpty()),
         leadImageWidth = pageSummary.thumbnailWidth,
         leadImageHeight = pageSummary.thumbnailHeight,
         geo = pageSummary.geo,
@@ -81,5 +80,5 @@ data class PageProperties constructor(
         displayTitle = title.displayText, isMainPage = isMainPage)
 
     private val isLoggedInUserAllowedToEdit: Boolean
-        get() = protection != null && isMemberOf(protection!!.editRoles)
+        get() = protection != null && AccountUtil.isMemberOf(protection!!.editRoles)
 }
