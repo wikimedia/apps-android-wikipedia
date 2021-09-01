@@ -9,6 +9,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.*
+import org.wikipedia.serialization.DateSerializer
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 import java.util.*
 
@@ -93,7 +94,7 @@ open class PageSummary(
 
     @Parcelize
     @Serializable
-    class ViewHistory(val date: @Contextual Date?, val views: Float) : Parcelable
+    class ViewHistory(@Serializable(with = DateSerializer::class) val date: Date?, val views: Float) : Parcelable
 
     companion object {
         const val TYPE_STANDARD = "standard"
