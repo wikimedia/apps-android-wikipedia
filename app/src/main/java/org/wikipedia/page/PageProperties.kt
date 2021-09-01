@@ -13,9 +13,6 @@ import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.UriUtil
 import java.util.*
 
-/**
- * Immutable class that contains metadata associated with a PageTitle.
- */
 @Parcelize
 data class PageProperties constructor(
     val pageId: Int = 0,
@@ -25,10 +22,6 @@ data class PageProperties constructor(
     val displayTitle: String = "",
     private var editProtectionStatus: String = "",
     val isMainPage: Boolean = false,
-    /**
-     * @return Nullable URL with no scheme. For example, foo.bar.com/ instead of
-     * http://foo.bar.com/.
-     */
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/.  */
     val leadImageUrl: String? = null,
     val leadImageName: String? = null,
@@ -37,12 +30,10 @@ data class PageProperties constructor(
     val geo: Location? = null,
     val wikiBaseItem: String? = null,
     val descriptionSource: String? = null,
-    /**
-     * True if the user who first requested this page can edit this page
-     * FIXME: This is not a true page property, since it depends on current user.
-     */
+    // FIXME: This is not a true page property, since it depends on current user.
     var canEdit: Boolean = false
 ) : Parcelable {
+
     @IgnoredOnParcel
     var protection: Protection? = null
         set(value) {
@@ -71,14 +62,9 @@ data class PageProperties constructor(
         descriptionSource = pageSummary.descriptionSource
     )
 
-    /**
-     * Constructor to be used when building a Page from a compilation. Initializes the title and
-     * namespace fields, and explicitly disables editing. All other fields initialized to defaults.
-     * @param title Title to which these properties apply.
-     */
     constructor(title: PageTitle, isMainPage: Boolean) : this(namespace = title.namespace(),
         displayTitle = title.displayText, isMainPage = isMainPage)
 
     private val isLoggedInUserAllowedToEdit: Boolean
-        get() = protection != null && AccountUtil.isMemberOf(protection!!.editRoles)
+        get() = protection?.run { AccountUtil.isMemberOf(editRoles) } ?: false
 }
