@@ -1,5 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
+import com.squareup.moshi.Json
 import org.wikipedia.BuildConfig
 
 /**
@@ -11,7 +12,6 @@ import org.wikipedia.BuildConfig
  * the future, so flexible destination event service support is added optimistically now.
  */
 enum class DestinationEventService(val id: String, val baseUri: String) {
-
-    ANALYTICS("eventgate-analytics-external", BuildConfig.EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI),
-    LOGGING("eventgate-logging-external", BuildConfig.EVENTGATE_LOGGING_EXTERNAL_BASE_URI);
+    @Json(name = "eventgate-analytics-external") ANALYTICS("eventgate-analytics-external", BuildConfig.EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI),
+    @Json(name = "eventgate-logging-external") LOGGING("eventgate-logging-external", BuildConfig.EVENTGATE_LOGGING_EXTERNAL_BASE_URI);
 }

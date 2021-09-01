@@ -167,8 +167,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         binding.imageCaption.text = captions[callback().getLangCode()]
                         binding.imageCaption.visibility = VISIBLE
                     } else {
-                        if (page?.imageInfo?.metadata != null) {
-                            binding.imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription()).toString().trim()
+                        val metadata = page?.firstImageInfo?.metadata
+                        if (metadata != null) {
+                            binding.imageCaption.text = StringUtil.fromHtml(metadata.imageDescription).toString().trim()
                             binding.imageCaption.visibility = VISIBLE
                             binding.imageView.contentDescription = binding.imageCaption.text
                         } else {
