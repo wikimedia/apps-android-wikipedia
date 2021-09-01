@@ -1,7 +1,6 @@
 package org.wikipedia.talk.replies
 
 import android.app.Activity
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -19,8 +18,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentDefaultRepliesBinding
-import org.wikipedia.language.LanguagesListActivity
-import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.MultiSelectActionModeCallback
 import java.util.*
@@ -135,13 +132,13 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
                     FooterViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_default_reply_footer, parent, false))
                 }
                 else -> {
-                    WikipediaLanguageItemHolder(DefaultRepliesItemView(parent.context))
+                    ItemHolder(DefaultRepliesItemView(parent.context))
                 }
             }
         }
 
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
-            if (holder is WikipediaLanguageItemHolder) {
+            if (holder is ItemHolder) {
                 holder.bindItem(defaultRepliesList[pos - NUM_HEADERS], pos - NUM_FOOTERS)
                 holder.view.setCheckBoxEnabled(checkboxEnabled)
                 holder.view.setCheckBoxChecked(selectedReplies.contains(defaultRepliesList[pos - NUM_HEADERS]))
@@ -157,7 +154,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
 
         override fun onViewAttachedToWindow(holder: DefaultViewHolder<*>) {
             super.onViewAttachedToWindow(holder)
-            if (holder is WikipediaLanguageItemHolder) {
+            if (holder is ItemHolder) {
                 holder.view.setDragHandleTouchListener { v: View, event: MotionEvent ->
                     when (event.actionMasked) {
                         MotionEvent.ACTION_DOWN -> {
@@ -172,16 +169,13 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
             } else if (holder is FooterViewHolder) {
                 holder.view.visibility = if (checkboxEnabled) View.GONE else View.VISIBLE
                 holder.view.setOnClickListener {
-                    Intent(requireActivity(), LanguagesListActivity::class.java).let {
-                        startActivityForResult(it, Constants.ACTIVITY_REQUEST_ADD_A_REPLY)
-                        actionMode?.finish()
-                    }
+                    // TODO: show a dialog to enter a default reply
                 }
             }
         }
 
         override fun onViewDetachedFromWindow(holder: DefaultViewHolder<*>) {
-            if (holder is WikipediaLanguageItemHolder) {
+            if (holder is ItemHolder) {
                 holder.view.callback = null
                 holder.view.setDragHandleTouchListener(null)
             }
@@ -209,11 +203,11 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
         override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
-            return if (viewHolder is WikipediaLanguageItemHolder) makeMovementFlags(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) else -1
+            return if (viewHolder is ItemHolder) makeMovementFlags(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) else -1
         }
 
         override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-            if (target is WikipediaLanguageItemHolder) {
+            if (target is ItemHolder) {
                 adapter.onMoveItem(source.adapterPosition, target.getAdapterPosition())
             }
             return true
@@ -231,11 +225,11 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
 
     private inner class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         init {
-            itemView.findViewById<TextView>(R.id.section_header_text).setText(R.string.wikipedia_languages_your_languages_text)
+            itemView.findViewById<TextView>(R.id.section_header_text).setText(R.string.talk_default_replies_title)
         }
     }
 
-    private inner class WikipediaLanguageItemHolder constructor(itemView: DefaultRepliesItemView) : DefaultViewHolder<DefaultRepliesItemView>(itemView) {
+    private inner class ItemHolder constructor(itemView: DefaultRepliesItemView) : DefaultViewHolder<DefaultRepliesItemView>(itemView) {
         fun bindItem(languageCode: String, position: Int) {
             view.setContents(languageCode, position)
         }
@@ -276,8 +270,8 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
-            mode.setTitle(R.string.wikipedia_languages_remove_action_mode_title)
-            mode.menuInflater.inflate(R.menu.menu_action_mode_wikipedia_languages, menu)
+            mode.setTitle(R.string.talk_default_replies_multiple_remove)
+            mode.menuInflater.inflate(R.menu.menu_action_mode_default_replies, menu)
             actionMode = mode
             selectedReplies.clear()
             return super.onCreateActionMode(mode, menu)
@@ -296,25 +290,15 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     }
 
     fun showRemoveRepliesDialog() {
-        // TODO: update replies string
         if (selectedReplies.size > 0) {
             AlertDialog.Builder(requireActivity()).let {
-                if (selectedReplies.size < defaultRepliesList.size) {
-                    it
-                    .setTitle(resources.getQuantityString(R.plurals.wikipedia_languages_remove_dialog_title, selectedReplies.size))
-                    .setMessage(R.string.wikipedia_languages_remove_dialog_content)
-                    .setPositiveButton(R.string.remove_language_dialog_ok_button_text) { _: DialogInterface, _: Int ->
-                        deleteSelectedReplies()
-                        actionMode?.finish()
-                        requireActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)
-                    }
-                    .setNegativeButton(R.string.remove_language_dialog_cancel_button_text, null)
-                } else {
-                    it
-                    .setTitle(R.string.wikipedia_languages_remove_warning_dialog_title)
-                    .setMessage(R.string.wikipedia_languages_remove_warning_dialog_content)
-                    .setPositiveButton(R.string.remove_all_language_warning_dialog_ok_button_text, null)
+                it
+                .setTitle(resources.getQuantityString(R.plurals.talk_default_replies_remove_dialog_title, selectedReplies.size))
+                .setPositiveButton(R.string.talk_default_replies_remove_dialog_ok_button) { _, _ ->
+                    deleteSelectedReplies()
+                    actionMode?.finish()
                 }
+                .setNegativeButton(R.string.talk_default_replies_remove_dialog_cancel_button, null)
                 it.show()
             }
         }

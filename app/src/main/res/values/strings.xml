@@ -1044,6 +1044,13 @@
     <string name="talk_default_replies_title">Your default replies</string>
     <string name="talk_default_replies_add">Add a default reply</string>
     <string name="talk_default_replies_remove">Remove default reply</string>
+    <string name="talk_default_replies_multiple_remove">Remove default replies</string>
+    <plurals name="talk_default_replies_remove_dialog_title">
+        <item quantity="one">Remove selected reply?</item>
+        <item quantity="other">Remove selected replies?</item>
+    </plurals>
+    <string name="talk_default_replies_remove_dialog_cancel_button">Cancel</string>
+    <string name="talk_default_replies_remove_dialog_ok_button">OK</string>
     <string name="menu_option_share_edit">Share edit</string>
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>
