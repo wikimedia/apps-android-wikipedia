@@ -63,6 +63,7 @@
     <string name="preference_key_notification_login_fail_enable">enableLoginFailNotification</string>
     <string name="preference_key_notification_mention_enable">enableMentionNotification</string>
     <string name="preference_key_notification_show_all">showAllNotifications</string>
+    <string name="preference_key_notification_unread_count">notificationUnreadCount</string>
     <string name="preference_key_prefer_offline_content">preferOfflineContent</string>
     <string name="preference_key_editing_text_size_extra">editingTextSizeExtra</string>
     <string name="preference_key_feed_cards_order">feedCardsOrder</string>
