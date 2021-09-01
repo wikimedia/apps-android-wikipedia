@@ -113,7 +113,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     target.extractHtml
                             )
                             updateContents()
-                        }, { this.setErrorState(it) })!!)
+                        }, { setErrorState(it) }))
             }
 
             ADD_CAPTION -> {
@@ -152,7 +152,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 )
                             }
                             updateContents()
-                        }, { this.setErrorState(it) })!!)
+                        }, { setErrorState(it) }))
             }
 
             TRANSLATE_CAPTION -> {
@@ -205,7 +205,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 )
                             }
                             updateContents()
-                        }, { this.setErrorState(it) })!!)
+                        }, { setErrorState(it) }))
             }
 
             else -> {
@@ -224,7 +224,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     pageSummary.extractHtml
                             )
                             updateContents()
-                        }, { this.setErrorState(it) }))
+                        }, { setErrorState(it) }))
             }
         }
     }
@@ -250,6 +250,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.cardItemErrorView.visibility = GONE
         binding.cardItemContainer.visibility = if (sourceAvailable) VISIBLE else GONE
         binding.cardItemProgressBar.visibility = if (sourceAvailable) GONE else VISIBLE
+        binding.viewArticleImage.contentDescription = getString(R.string.image_content_description, sourceSummaryForEdit?.displayTitle)
         if (!sourceAvailable) {
             return
         }
