@@ -37,7 +37,6 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
 
     init {
         binding.clickContainer.setOnClickListener { view -> onCardClicked(view) }
-        binding.eventLayout.year.setOnClickListener { view -> onCardClicked(view) }
     }
 
     override fun onFooterClicked() {

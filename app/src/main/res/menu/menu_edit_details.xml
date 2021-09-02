@@ -5,7 +5,7 @@
         android:id="@+id/empty"
         android:icon="@drawable/ic_more_vert_themed_24dp"
         android:orderInCategory="101"
-        android:title=""
+        android:title="@string/abc_action_menu_overflow_description"
         app:showAsAction="always">
         <menu>
             <item

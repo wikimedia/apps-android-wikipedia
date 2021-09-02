@@ -54,6 +54,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         binding.summaryText.text = StringUtil.fromHtml(item.parsedComment)
         binding.timeText.text = DateUtil.getTimeString(item.date)
         binding.userNameText.text = item.user
+        binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
 
         binding.userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_talk)
         if (item.logtype.isNotEmpty()) {

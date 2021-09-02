@@ -6,23 +6,31 @@
     tools:layout_height="wrap_content"
     tools:parentTag="android.widget.LinearLayout">
 
-    <TextView
-        android:id="@+id/editTypeTitle"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/editTypeContainer"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginStart="12dp"
-        android:layout_weight="1"
+        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="12sp" />
+        tools:ignore="UseCompoundDrawables">
 
-    <ImageView
-        android:id="@+id/editTypeImage"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="12dp"
-        android:layout_gravity="center_vertical"
-        android:contentDescription="@null"
-        app:tint="?attr/colorAccent" />
+        <TextView
+            android:id="@+id/editTypeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/editTypeImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="12dp"
+            android:contentDescription="@null"
+            app:tint="?attr/colorAccent" />
+
+    </LinearLayout>
 
 </merge>

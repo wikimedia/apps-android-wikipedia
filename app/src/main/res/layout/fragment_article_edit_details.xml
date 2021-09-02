@@ -107,6 +107,7 @@
                     android:paddingEnd="24dp"
                     android:paddingBottom="12dp"
                     android:scaleX="-1"
+                    android:contentDescription="@string/watchlist_details_prev_edit"
                     app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                     app:tint="?attr/primary_text_color" />
 
@@ -120,6 +121,7 @@
                     android:paddingStart="32dp"
                     android:paddingTop="12dp"
                     android:paddingBottom="12dp"
+                    android:contentDescription="@string/watchlist_details_next_edit"
                     app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                     app:tint="?attr/primary_text_color" />
             </LinearLayout>
