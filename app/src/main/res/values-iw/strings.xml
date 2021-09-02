@@ -55,6 +55,7 @@
   <string name="app_settings">הגדרות היישום</string>
   <string name="search_tab_tooltip">לחץ על הסמל שוב כדי להתחיל ישר להקליד את מילת החיפוש.</string>
   <string name="history_list_title">היסטוריה</string>
+  <string name="image_content_description">תמונה: %s</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="dialog_message_clear_history_yes">כן</string>
@@ -1042,6 +1043,8 @@
   <string name="menu_option_user_contributions">התרומות של %s</string>
   <string name="watchlist_details_watching_label">במעקב</string>
   <string name="watchlist_details_watch_label">לעקוב</string>
+  <string name="watchlist_details_next_edit">העריכה הבאה</string>
+  <string name="watchlist_details_prev_edit">העריכה הקודמת</string>
   <string name="thank_label">תודה</string>
   <string name="go_to_user_page">מעבר לדף משתמש</string>
   <string name="thank_dialog_title_text">שליחת \"תודה\" באופן ציבורי</string>
