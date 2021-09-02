@@ -25,9 +25,14 @@ class AppShortcuts {
 
         @JvmStatic
         fun setShortcuts(app: Context) {
-            CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
-                ShortcutManagerCompat.setDynamicShortcuts(app,
-                    listOf(searchShortcut(app), continueReadingShortcut(app), randomShortcut(app)))
+            if (ShortcutManagerCompat.getDynamicShortcuts(app).size < 3) {
+                CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
+                    ShortcutManagerCompat.setDynamicShortcuts(app,
+                        listOf(searchShortcut(app), continueReadingShortcut(app), randomShortcut(app)))
+                }
+            } else {
+                L.d("Create dynamic shortcuts skipped.")
+                return
             }
         }
 
