@@ -1,5 +1,8 @@
 package org.wikipedia.analytics.eventplatform
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class UserContributionEvent(private val action: String) : Event(SCHEMA_NAME, STREAM_NAME) {
 
     companion object {

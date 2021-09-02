@@ -2,12 +2,14 @@ package org.wikipedia.analytics.eventplatform
 
 import android.content.Intent
 import androidx.core.app.NotificationManagerCompat
+import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.notifications.Notification
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 
 @Suppress("unused")
+@Serializable
 class NotificationInteractionEvent(
     private val notification_id: Int,
     private val notification_wiki: String,

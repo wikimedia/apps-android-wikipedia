@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.os.bundleOf
+import kotlinx.serialization.json.Json
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
@@ -20,7 +21,6 @@ import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Compan
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Companion.ACTION_SECONDARY
 import org.wikipedia.databinding.ViewNotificationActionsBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.json.GsonUtil
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageTitle
@@ -142,7 +142,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
         fun newInstance(notification: Notification): NotificationItemActionsDialog {
             return NotificationItemActionsDialog().apply {
-                arguments = bundleOf(ARG_NOTIFICATION to encodeToString(Notification.serializer(),notification))
+                arguments = bundleOf(ARG_NOTIFICATION to Json.encodeToString(Notification.serializer(),notification))
             }
         }
     }

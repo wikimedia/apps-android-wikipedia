@@ -1,23 +1,28 @@
 package org.wikipedia.analytics.eventplatform
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikipedia.util.DateUtil.iso8601DateFormat
 import java.util.*
 
 /** Base class for an Event Platform event.  */
-open class Event(private val schema: String, stream: String) {
+@Serializable
+open class Event(private val schema: String, val stream: String) {
 
-    @SerializedName("app_session_id")
+    @SerialName("app_session_id")
     var sessionId: String? = null
 
-    @SerializedName("app_install_id")
+    @SerialName("app_install_id")
     var appInstallId: String? = null
 
     private val meta: Meta?
     private val dt: String?
-    val stream: String
-        get() = meta!!.stream
 
+    fun getStreamStr(): String? {
+        return meta?.stream
+    }
+
+    @Serializable
     private class Meta(val stream: String)
 
     init {
