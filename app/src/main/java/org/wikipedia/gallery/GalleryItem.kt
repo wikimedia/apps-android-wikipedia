@@ -1,6 +1,6 @@
 package org.wikipedia.gallery
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE
 import org.wikipedia.dataclient.Service
@@ -10,20 +10,20 @@ import java.util.*
 @Serializable
 open class GalleryItem {
 
-    @SerializedName("section_id")
+    @SerialName("section_id")
     val sectionId = 0
 
-    @SerializedName("wb_entity_id")
+    @SerialName("wb_entity_id")
     val entityId: String = ""
 
-    @SerializedName("audio_type")
+    @SerialName("audio_type")
     val audioType: String = ""
 
-    @SerializedName("structured")
+    @SerialName("structured")
     var structuredData: StructuredData? = null
 
     // return the base url of Wiki Commons for WikiSite() if the file_page is null.
-    @SerializedName("file_page")
+    @SerialName("file_page")
     var filePage: String = Service.COMMONS_URL
 
     val duration = 0.0
