@@ -25,10 +25,9 @@ import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
-import java.lang.Exception
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 23
+const val DATABASE_VERSION = 24
 
 @Database(
     entities = [
@@ -157,7 +156,12 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("DROP TABLE pageimages")
             }
         }
-
+        // TODO: add test
+        val MIGRATION_23_24 = object : Migration(23, 24) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("CREATE TABLE IF NOT EXISTS `DefaultReplies` (`text` TEXT NOT NULL, `itemOrder` INTEGER NOT NULL, PRIMARY KEY(`text`))")
+            }
+        }
         @Volatile
         private var instance: AppDatabase? = null
 
@@ -169,7 +173,7 @@ abstract class AppDatabase : RoomDatabase() {
                         AppDatabase::class.java,
                         DATABASE_NAME
                     )
-                        .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23)
+                        .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24)
                         .allowMainThreadQueries() // TODO: remove after migration
                         .fallbackToDestructiveMigration()
                         .build()
