@@ -39,6 +39,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.talk.replies.DefaultRepliesActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
@@ -200,6 +201,10 @@ class TalkTopicsActivity : BaseActivity() {
             R.id.menu_view_user_page -> {
                 val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+                return true
+            }
+            R.id.menu_default_replies -> {
+                startActivity(DefaultRepliesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY))
                 return true
             }
             else -> return super.onOptionsItemSelected(item)

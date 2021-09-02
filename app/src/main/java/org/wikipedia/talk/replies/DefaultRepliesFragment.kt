@@ -20,6 +20,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentDefaultRepliesBinding
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.MultiSelectActionModeCallback
+import org.wikipedia.views.TextInputDialog
 import java.util.*
 
 class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
@@ -169,7 +170,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
             } else if (holder is FooterViewHolder) {
                 holder.view.visibility = if (checkboxEnabled) View.GONE else View.VISIBLE
                 holder.view.setOnClickListener {
-                    // TODO: show a dialog to enter a default reply
+                    showTextInputDialog()
                 }
             }
         }
@@ -190,6 +191,48 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
         fun onCheckboxEnabled(enabled: Boolean) {
             checkboxEnabled = enabled
         }
+    }
+
+    private fun showTextInputDialog() {
+        TextInputDialog(requireContext()).let { textInputDialog ->
+            textInputDialog.callback = object : TextInputDialog.Callback {
+                override fun onShow(dialog: TextInputDialog) {
+                    dialog.setHint(R.string.talk_default_replies_input_dialog_hint)
+                }
+
+                override fun onTextChanged(text: CharSequence, dialog: TextInputDialog) {
+                    text.toString().trim().let {
+                        when {
+                            it.isEmpty() -> {
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+                            defaultRepliesList.contains(it) -> {
+                                dialog.setError(
+                                    dialog.context.getString(
+                                        R.string.reading_list_title_exists,
+                                        it
+                                    )
+                                )
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+                            else -> {
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(true)
+                            }
+                        }
+                    }
+                }
+
+                override fun onSuccess(text: CharSequence, secondaryText: CharSequence) {
+                    val defaultReply = text.toString().trim()
+                    // TODO: save to database
+                }
+
+                override fun onCancel() {}
+            }
+            textInputDialog.showSecondaryText(false)
+        }.show()
     }
 
     private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: ItemAdapter) : ItemTouchHelper.Callback() {

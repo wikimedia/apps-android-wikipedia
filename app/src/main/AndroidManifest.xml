@@ -266,7 +266,7 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity android:name=".talk.replies.DefaultRepliesActivity"
-            android:label="@string/talk_default_replies_title"
+            android:label="@string/talk_default_replies"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
