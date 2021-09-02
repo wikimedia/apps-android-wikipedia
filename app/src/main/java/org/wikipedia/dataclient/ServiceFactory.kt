@@ -57,7 +57,7 @@ object ServiceFactory {
 
     @JvmStatic
     fun getAnalyticsRest(streamConfig: StreamConfig): EventService {
-        return ANALYTICS_REST_SERVICE_CACHE[streamConfig.getDestinationEventService()]!!
+        return ANALYTICS_REST_SERVICE_CACHE[streamConfig.destinationEventService]!!
     }
 
     operator fun <T> get(wiki: WikiSite, baseUrl: String?, service: Class<T>?): T {

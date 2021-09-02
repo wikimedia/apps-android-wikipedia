@@ -57,13 +57,6 @@ public class EventPlatformClientTest {
     }
 
     @Test
-    public void testGetStream() {
-        setStreamConfig(new StreamConfig("test", null, null));
-        assertThat(STREAM_CONFIGS.get("test"), is(notNullValue()));
-        assertThat(STREAM_CONFIGS.get("key.does.not.exist"), is(nullValue()));
-    }
-
-    @Test
     public void testEventSerialization() {
         Event event = new Event("test", "test");
         addEventMetadata(event);
@@ -117,24 +110,6 @@ public class EventPlatformClientTest {
     }
 
     @Test
-    public void testAlwaysInSampleIfStreamConfiguredButNoSamplingConfig() {
-        setStreamConfig(new StreamConfig("configured", null, null));
-        assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "configured")), is(true));
-    }
-
-    @Test
-    public void testAlwaysInSample() {
-        setStreamConfig(new StreamConfig("alwaysInSample", new SamplingConfig(1.0, null), null));
-        assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "alwaysInSample")), is(true));
-    }
-
-    @Test
-    public void testNeverInSample() {
-        setStreamConfig(new StreamConfig("neverInSample", new SamplingConfig(0.0, null), null));
-        assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "neverInSample")), is(false));
-    }
-
-    @Test
     public void testSamplingControllerGetSamplingValue() {
         double deviceVal = EventPlatformClient.SamplingController.getSamplingValue(DEVICE);
         assertThat(deviceVal, greaterThanOrEqualTo(0.0));
@@ -154,18 +129,6 @@ public class EventPlatformClientTest {
         assertThat(EventPlatformClient.SamplingController.getSamplingId(DEVICE), is(notNullValue()));
         assertThat(EventPlatformClient.SamplingController.getSamplingId(PAGEVIEW), is(notNullValue()));
         assertThat(EventPlatformClient.SamplingController.getSamplingId(SESSION), is(notNullValue()));
-    }
-
-    @Test
-    public void testGetEventService() {
-        StreamConfig streamConfig = new StreamConfig("test", null, LOGGING);
-        assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
-    }
-
-    @Test
-    public void testGetEventServiceDefaultDestination() {
-        StreamConfig streamConfig = new StreamConfig("test", null, null);
-        assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
     }
 
     @Test

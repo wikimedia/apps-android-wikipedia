@@ -1,8 +1,8 @@
 package org.wikipedia.analytics.eventplatform
 
-import androidx.annotation.VisibleForTesting
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.analytics.eventplatform.DestinationEventService.ANALYTICS
 
 @Serializable
 class StreamConfig {
@@ -14,7 +14,7 @@ class StreamConfig {
     var canaryEventsEnabled = false
 
     @SerialName("destination_event_service")
-    private var destinationEventService: DestinationEventService?
+    var destinationEventService: DestinationEventService = ANALYTICS
 
     @SerialName("schema_title")
     val schemaTitle: String = ""
@@ -24,16 +24,5 @@ class StreamConfig {
     val topics: List<String> = emptyList()
 
     @SerialName("sampling")
-    val samplingConfig: SamplingConfig?
-
-    fun getDestinationEventService(): DestinationEventService {
-        return destinationEventService ?: DestinationEventService.ANALYTICS
-    }
-
-    @VisibleForTesting
-    constructor(streamName: String, samplingConfig: SamplingConfig?, destinationEventService: DestinationEventService?) {
-        this.streamName = streamName
-        this.samplingConfig = samplingConfig
-        this.destinationEventService = destinationEventService
-    }
+    val samplingConfig: SamplingConfig? = null
 }
