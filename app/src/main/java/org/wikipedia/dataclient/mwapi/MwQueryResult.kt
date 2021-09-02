@@ -61,7 +61,7 @@ class MwQueryResult : PostProcessable {
 
     fun getUserResponse(userName: String): ListUserResponse? {
         // MediaWiki user names are case sensitive, but the first letter is always capitalized.
-        return users?.find { StringUtils.capitalize(userName) == it.name() }
+        return users?.find { StringUtils.capitalize(userName) == it.name }
     }
 
     fun langLinks(): MutableList<PageTitle> {
