@@ -8,21 +8,17 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.getSystemService
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.util.MathUtil.percentage
 
 class NotificationWithProgressBar {
-    lateinit var channelId: String
+    lateinit var notificationCategory: NotificationCategory
     lateinit var targetClass: Class<*>
-    var channelName = 0
-    var channelDescription = 0
     var notificationId = 0
-    var notificationIcon = 0
     var notificationTitle = 0
     var notificationDescription = 0
     var isEnableCancelButton = false
@@ -33,28 +29,21 @@ class NotificationWithProgressBar {
     fun setNotificationProgress(context: Context, itemsTotal: Int, itemsProgress: Int) {
         isCanceled = false
         isPaused = false
-        val builder = NotificationCompat.Builder(context, channelId)
+        val builder = NotificationCompat.Builder(context, notificationCategory.id)
         build(context, builder, itemsTotal, itemsProgress)
         builder.setProgress(itemsTotal, itemsProgress, itemsProgress == 0)
         showNotification(context, builder)
     }
 
     fun setNotificationPaused(context: Context, itemsTotal: Int, itemsProgress: Int) {
-        val builder = NotificationCompat.Builder(context, channelId)
+        val builder = NotificationCompat.Builder(context, notificationCategory.id)
         build(context, builder, itemsTotal, itemsProgress)
         builder.setProgress(itemsTotal, itemsProgress, true)
         showNotification(context, builder)
     }
 
     private fun build(context: Context, builder: NotificationCompat.Builder, total: Int, progress: Int) {
-        // Notification channel ( >= API 26 )
-        val channelCompat = NotificationChannelCompat.Builder(channelId, NotificationManagerCompat.IMPORTANCE_LOW)
-            .setName(context.resources.getQuantityString(channelName, total))
-            .setDescription(context.getString(channelDescription))
-            .setSound(null, null)
-            .build()
-        NotificationManagerCompat.from(context).createNotificationChannel(channelCompat)
-        val builderIcon = notificationIcon
+        val builderIcon = notificationCategory.iconResId
         val builderTitle = context.resources.getQuantityString(notificationTitle, total, total)
         val builderInfo = "${percentage(progress.toFloat(), total.toFloat()).toInt()}%"
         val builderDescription = context.resources.getQuantityString(notificationDescription, total - progress, total - progress)

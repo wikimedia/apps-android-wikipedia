@@ -51,6 +51,7 @@
   <string name="app_settings">Applikationsinställningar</string>
   <string name="search_tab_tooltip">Tryck på ikonen igen för att börja skriva en sökterm.</string>
   <string name="history_list_title">Historik</string>
+  <string name="image_content_description">Bild: %s</string>
   <string name="dialog_title_clear_history">Rensa läsarhistoriken</string>
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -161,7 +162,7 @@
   <string name="create_account_passwords_mismatch_error">Lösenorden matchar inte</string>
   <string name="create_account_email_error">Ogiltig e-postadress</string>
   <string name="create_account_username_error">Ogiltiga tecken i användarnamnet</string>
-  <string name="create_account_password_error" fuzzy="true">Lösenordet är ogiltigt</string>
+  <string name="create_account_password_error">Lösenordet måste vara minst 8 tecken</string>
   <string name="create_account_generic_error">Kan inte skapa konto</string>
   <string name="create_account_next">Nästa</string>
   <string name="email_recommendation_dialog_title">Skapa konto utan en e-postadress?</string>
@@ -175,6 +176,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Allmänt</string>
+  <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">Vanliga frågor om Wikipedia-appen</string>
   <string name="send_feedback">Skicka återkoppling om appen</string>
   <string name="create_account_account_created_toast">Konto har skapats!</string>
@@ -967,7 +969,7 @@
   <string name="talk_title">Diskussion</string>
   <string name="talk_user_title">Diskussion: %s</string>
   <string name="talk_new_topic">Nytt ämne</string>
-  <string name="talk_new_topic_submitted" fuzzy="true">Ämnet skickades.</string>
+  <string name="talk_new_topic_submitted">Ämnet skickades.</string>
   <string name="talk_page_empty">Den här diskussionssidan är tom.</string>
   <string name="talk_add_reply">Svara</string>
   <string name="talk_no_subject">(Inget ämne)</string>
@@ -976,7 +978,7 @@
   <string name="talk_message_hint">Skriv meddelande</string>
   <string name="talk_message_empty">Meddelandet kan inte vara tomt.</string>
   <string name="talk_subject_empty">Ämnet kan inte vara tomt.</string>
-  <string name="talk_response_submitted" fuzzy="true">Svaret skickades.</string>
+  <string name="talk_response_submitted">Svaret skickades.</string>
   <string name="talk_snackbar_undo">Ångra</string>
   <string name="talk_last_modified">&lt;b&gt;Senast redigerad %1$s&lt;/b&gt; av %2$s</string>
   <string name="menu_option_share_edit">Dela redigering</string>
@@ -984,6 +986,8 @@
   <string name="menu_option_user_contributions">%ss bidrag</string>
   <string name="watchlist_details_watching_label">Bevakar</string>
   <string name="watchlist_details_watch_label">Bevaka</string>
+  <string name="watchlist_details_next_edit">Nästa redigering</string>
+  <string name="watchlist_details_prev_edit">Föregående redigering</string>
   <string name="thank_label">Tacka</string>
   <string name="go_to_user_page">Gå till användarsidan</string>
   <string name="thank_dialog_title_text">Skicka offentligt tack</string>
