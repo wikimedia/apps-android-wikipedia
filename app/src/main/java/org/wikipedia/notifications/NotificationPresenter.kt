@@ -10,9 +10,7 @@ import android.graphics.Rect
 import android.net.Uri
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import androidx.core.graphics.applyCanvas
@@ -26,18 +24,17 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
 object NotificationPresenter {
-    private const val CHANNEL_ID = "MEDIAWIKI_ECHO_CHANNEL"
 
     fun showNotification(context: Context, n: Notification, wikiSiteName: String) {
-        @DrawableRes var iconResId = R.drawable.ic_speech_bubbles
-        @ColorRes var iconColor = R.color.accent50
 
-        val builder = getDefaultBuilder(context, n.id, n.type)
+        val notificationCategory = NotificationCategory.find(n.category)
+        val activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id, n.type)
+        val builder = getDefaultBuilder(context, n.id, n.type, notificationCategory)
         val title: String = StringUtil.fromHtml(if (n.contents != null) n.contents.header else "").toString()
 
         n.contents?.links?.let {
             it.getPrimary()?.let { primary ->
-                if (Notification.CATEGORY_EDIT_USER_TALK == n.category) {
+                if (NotificationCategory.EDIT_USER_TALK.id == n.category) {
                     addActionForTalkPage(context, builder, primary, n)
                 } else {
                     addAction(context, builder, primary, n)
@@ -53,35 +50,7 @@ object NotificationPresenter {
             }
         }
 
-        val activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id, n.type)
-        val s = n.category
-        when {
-            Notification.CATEGORY_EDIT_USER_TALK == s -> {
-                iconResId = R.drawable.ic_edit_user_talk
-                iconColor = R.color.accent50
-            }
-            Notification.CATEGORY_REVERTED == s -> {
-                iconResId = R.drawable.ic_revert
-                iconColor = R.color.base20
-            }
-            Notification.CATEGORY_EDIT_THANK == s -> {
-                iconResId = R.drawable.ic_user_talk
-                iconColor = R.color.green50
-            }
-            Notification.CATEGORY_MILESTONE_EDIT == s -> {
-                iconResId = R.drawable.ic_edit_progressive
-                iconColor = R.color.accent50
-            }
-            s.startsWith(Notification.CATEGORY_MENTION) -> {
-                iconResId = R.drawable.ic_mention
-                iconColor = R.color.accent50
-            }
-            Notification.CATEGORY_LOGIN_FAIL == s -> {
-                iconResId = R.drawable.ic_user_avatar
-                iconColor = R.color.base0
-            }
-        }
-        showNotification(context, builder, n.key().toInt(), wikiSiteName, title, title, iconResId, iconColor, true, activityIntent)
+        showNotification(context, builder, n.key().toInt(), wikiSiteName, title, title, notificationCategory.iconResId, notificationCategory.iconColor, true, activityIntent)
     }
 
     fun showMultipleUnread(context: Context, unreadCount: Int) {
@@ -100,21 +69,8 @@ object NotificationPresenter {
                 .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type)
     }
 
-    fun getDefaultBuilder(context: Context, id: Long, type: String?): NotificationCompat.Builder {
-        val notificationManagerCompat = NotificationManagerCompat.from(context)
-
-        // Notification channel ( >= API 26 )
-        var notificationChannelCompat = notificationManagerCompat.getNotificationChannelCompat(CHANNEL_ID)
-        if (notificationChannelCompat == null) {
-            notificationChannelCompat = NotificationChannelCompat.Builder(CHANNEL_ID, NotificationManagerCompat.IMPORTANCE_HIGH)
-                .setName(context.getString(R.string.notification_echo_channel_description))
-                .setLightColor(ContextCompat.getColor(context, R.color.accent50))
-                .setVibrationEnabled(true)
-                .build()
-            notificationManagerCompat.createNotificationChannel(notificationChannelCompat)
-        }
-
-        return NotificationCompat.Builder(context, CHANNEL_ID)
+    fun getDefaultBuilder(context: Context, id: Long, type: String?, notificationCategory: NotificationCategory = NotificationCategory.SYSTEM): NotificationCompat.Builder {
+        return NotificationCompat.Builder(context, notificationCategory.id)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)

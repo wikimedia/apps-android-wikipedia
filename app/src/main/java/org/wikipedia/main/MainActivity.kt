@@ -13,6 +13,7 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.appshortcuts.AppShortcuts.Companion.setShortcuts
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -32,6 +33,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        NotificationCategory.createNotificationChannels(this)
         setShortcuts(this)
         setImageZoomHelper()
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {

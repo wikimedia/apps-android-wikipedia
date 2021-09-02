@@ -3,19 +3,20 @@ package org.wikipedia.notifications;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
-import java.util.List;
-
-import io.reactivex.rxjava3.core.Observable;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.wikipedia.notifications.Notification.CATEGORY_EDIT_THANK;
 import static org.wikipedia.notifications.Notification.CATEGORY_MENTION;
+
+import java.util.List;
+
+import io.reactivex.rxjava3.core.Observable;
 
 public class NotificationClientTest extends MockRetrofitTest {
 

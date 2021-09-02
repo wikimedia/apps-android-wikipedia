@@ -7,7 +7,7 @@ import java.util.*
 
 /** Base class for an Event Platform event.  */
 @Serializable
-open class Event(private val schema: String, val stream: String) {
+open class Event(@SerialName("\$schema") val schema: String, stream: String) {
 
     @SerialName("app_session_id")
     var sessionId: String? = null
@@ -15,18 +15,15 @@ open class Event(private val schema: String, val stream: String) {
     @SerialName("app_install_id")
     var appInstallId: String? = null
 
-    private val meta: Meta?
-    private val dt: String?
+    private val meta: Meta = Meta(stream)
+    private val dt: String = iso8601DateFormat(Date())
+    val stream: String
+        get() = meta.stream
 
-    fun getStreamStr(): String? {
-        return meta?.stream
+    fun getStreamStr(): String {
+        return meta.stream
     }
 
     @Serializable
     private class Meta(val stream: String)
-
-    init {
-        meta = Meta(stream)
-        dt = iso8601DateFormat(Date())
-    }
 }

@@ -57,6 +57,7 @@
   <string name="app_settings">Configuració de l\'aplicació</string>
   <string name="search_tab_tooltip">Torneu a tocar la icona per a començar a teclejar un terme de cerca.</string>
   <string name="history_list_title">Historial</string>
+  <string name="image_content_description">Imatge: %s</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -991,6 +992,8 @@
   <string name="menu_option_user_contributions">Contribucions de %s</string>
   <string name="watchlist_details_watching_label">En seguiment</string>
   <string name="watchlist_details_watch_label">Segueix</string>
+  <string name="watchlist_details_next_edit">Edició següent</string>
+  <string name="watchlist_details_prev_edit">Edició anterior</string>
   <string name="thank_label">Agraeix</string>
   <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
   <string name="thank_dialog_title_text">Envia \'agraïments\' públicament</string>
