@@ -46,9 +46,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     return
                 }
                 maybeShowLocalNotificationForEditorReactivation(context)
-                if (!Prefs.notificationPollEnabled()) {
-                    return
-                }
 
                 // If push notifications are active, then don't actually do any polling.
                 if (WikipediaFirebaseMessagingService.isUsingPush()) {

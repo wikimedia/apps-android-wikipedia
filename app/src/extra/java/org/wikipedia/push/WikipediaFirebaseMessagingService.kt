@@ -25,7 +25,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         L.d("Message from: ${remoteMessage.from}")
 
         if (remoteMessage.data.containsValue(MESSAGE_TYPE_CHECK_ECHO)) {
-            handleCheckEcho()
+            NotificationPollBroadcastReceiver.pollNotifications(this)
         }
 
         // The message could also contain a notification payload, but that's not how we're using it.
@@ -47,13 +47,6 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         Prefs.setPushNotificationTokenSubscribed(false)
 
         updateSubscription()
-    }
-
-    private fun handleCheckEcho() {
-        if (!Prefs.notificationPollEnabled()) {
-            return
-        }
-        NotificationPollBroadcastReceiver.pollNotifications(this)
     }
 
     companion object {
