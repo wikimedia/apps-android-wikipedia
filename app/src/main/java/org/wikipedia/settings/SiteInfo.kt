@@ -1,13 +1,14 @@
 package org.wikipedia.settings
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class SiteInfo(val mainpage: String?,
                                      val sitename: String?,
                                      val lang: String?,
-                                     @SerializedName("readinglists-config")
+                                     @SerialName("readinglists-config")
                     val readingListsConfig: ReadingListsConfig?) {
 
     @Serializable
