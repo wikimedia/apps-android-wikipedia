@@ -69,6 +69,7 @@
   <string name="app_settings">Appinstellingen</string>
   <string name="search_tab_tooltip">Klik nog een keer op het icoon om rechtstreeks te zoeken.</string>
   <string name="history_list_title">Geschiedenis</string>
+  <string name="image_content_description">Afbeelding: %s</string>
   <string name="dialog_title_clear_history">Browsergeschiedenis wissen</string>
   <string name="dialog_message_clear_history">Hierdoor wordt uw volledige browsergeschiedenis gewist en worden alle huidige open tabbladen gesloten. Weet u het zeker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -179,7 +180,7 @@
   <string name="create_account_passwords_mismatch_error">Wachtwoorden komen niet overeen</string>
   <string name="create_account_email_error">Ongeldig e-mailadres</string>
   <string name="create_account_username_error">Ongeldige tekens in gebruikersnaam</string>
-  <string name="create_account_password_error" fuzzy="true">Het wachtwoord is ongeldig.</string>
+  <string name="create_account_password_error">Het wachtwoord moet ten minste 8 tekens lang zijn.</string>
   <string name="create_account_generic_error">Het was niet mogelijk een account aan te maken</string>
   <string name="create_account_next">Volgende</string>
   <string name="email_recommendation_dialog_title">Account aanmaken zonder e-mailadres?</string>
@@ -193,6 +194,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Details</string>
   <string name="preferences_general_heading">Algemeen</string>
+  <string name="preferences_account_heading">Account</string>
   <string name="wikipedia_app_faq">Veelgestelde vragen over de Wikipedia-app</string>
   <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="create_account_account_created_toast">Account aangemaakt!</string>
@@ -263,7 +265,7 @@
   <string name="edit_summary_tag_grammar">Grammatica gecorrigeerd</string>
   <string name="edit_summary_tag_links">Koppelingen toegevoegd</string>
   <string name="edit_summary_tag_other">Overige</string>
-  <string name="edit_summary_tag_other_hint">Andere manieren waarop hoe u de pagina hebt verbeterd</string>
+  <string name="edit_summary_tag_other_hint">Andere manieren waarop u de pagina hebt verbeterd</string>
   <string name="edit_conflict_title">Bewerkingsconflict</string>
   <string name="edit_conflict_message">Deze pagina is reeds aangepast door een andere gebruiker en deze bewerking conflicteert met die van u. Kopieer alstublieft uw bewerkingen, ga terug, ververs de pagina en probeer opnieuw te bewerken.</string>
   <string name="find_next">Volgende zoeken</string>
@@ -1001,6 +1003,8 @@
   <string name="menu_option_user_contributions">Bijdragen van %s</string>
   <string name="watchlist_details_watching_label">Aan het bekijken</string>
   <string name="watchlist_details_watch_label">Volgen</string>
+  <string name="watchlist_details_next_edit">Volgende bewerking</string>
+  <string name="watchlist_details_prev_edit">Vorige bewerking</string>
   <string name="thank_label">Bedanken</string>
   <string name="go_to_user_page">Ga naar gebruikerspagina</string>
   <string name="thank_dialog_title_text">Publiekelijk een bedankje sturen</string>
