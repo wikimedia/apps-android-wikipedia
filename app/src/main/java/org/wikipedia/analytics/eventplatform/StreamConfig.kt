@@ -2,28 +2,29 @@ package org.wikipedia.analytics.eventplatform
 
 import androidx.annotation.VisibleForTesting
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 class StreamConfig {
 
-    @SerializedName("stream")
+    @SerialName("stream")
     var streamName = ""
 
-    @SerializedName("canary_events_enabled")
+    @SerialName("canary_events_enabled")
     var canaryEventsEnabled = false
 
-    @SerializedName("destination_event_service")
+    @SerialName("destination_event_service")
     private var destinationEventService: DestinationEventService?
 
-    @SerializedName("schema_title")
+    @SerialName("schema_title")
     val schemaTitle: String = ""
 
-    @SerializedName("topic_prefixes")
+    @SerialName("topic_prefixes")
     val topicPrefixes: List<String> = emptyList()
     val topics: List<String> = emptyList()
 
-    @SerializedName("sampling")
+    @SerialName("sampling")
     val samplingConfig: SamplingConfig?
 
     fun getDestinationEventService(): DestinationEventService {

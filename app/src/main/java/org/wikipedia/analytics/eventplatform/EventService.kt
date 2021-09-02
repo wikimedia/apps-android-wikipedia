@@ -1,6 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
 import io.reactivex.rxjava3.core.Observable
+import kotlinx.serialization.Contextual
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -17,7 +18,7 @@ import retrofit2.http.POST
  */
 interface EventService {
     @POST("/v1/events?hasty=true")
-    fun postEventsHasty(@Body events: @JvmSuppressWildcards Any): Observable<Response<Unit>>
+    fun postEventsHasty(@Body events: @JvmSuppressWildcards Any): Observable<Response<@Contextual Unit>>
 
     @POST("/v1/events")
     fun postEvents(@Body events: @JvmSuppressWildcards Any): Observable<Response<EventServiceResponse>>

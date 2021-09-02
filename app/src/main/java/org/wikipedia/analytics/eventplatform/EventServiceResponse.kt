@@ -1,7 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
-import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Contextual
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -17,6 +17,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 class EventServiceResponse {
 
-    @SerializedName("invalid") val invalidEvents: List<@Contextual Any> = emptyList()
-    @SerializedName("error") val errorEvents: List<@Contextual Any> = emptyList()
+    @SerialName("invalid") val invalidEvents: List<@Contextual Any> = emptyList()
+    @SerialName("error") val errorEvents: List<@Contextual Any> = emptyList()
 }
