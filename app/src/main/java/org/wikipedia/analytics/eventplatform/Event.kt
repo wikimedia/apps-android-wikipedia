@@ -5,7 +5,7 @@ import org.wikipedia.util.DateUtil.iso8601DateFormat
 import java.util.*
 
 /** Base class for an Event Platform event.  */
-open class Event(private val schema: String, stream: String) {
+open class Event(@SerializedName("\$schema") val schema: String, stream: String) {
 
     @SerializedName("app_session_id")
     var sessionId: String? = null
@@ -13,15 +13,10 @@ open class Event(private val schema: String, stream: String) {
     @SerializedName("app_install_id")
     var appInstallId: String? = null
 
-    private val meta: Meta?
-    private val dt: String?
+    private val meta: Meta = Meta(stream)
+    private val dt: String = iso8601DateFormat(Date())
     val stream: String
-        get() = meta!!.stream
+        get() = meta.stream
 
     private class Meta(val stream: String)
-
-    init {
-        meta = Meta(stream)
-        dt = iso8601DateFormat(Date())
-    }
 }
