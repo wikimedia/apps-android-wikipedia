@@ -2,7 +2,9 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.*
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import java.util.*
@@ -19,7 +21,7 @@ class EditorTaskCounts {
         private get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { counts }).appDescriptionEdits
+                editsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), counts).appDescriptionEdits
             }
             return editsPerLanguage ?: emptyMap()
         }
@@ -27,7 +29,7 @@ class EditorTaskCounts {
         private get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { counts }).appCaptionEdits
+                editsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), counts).appCaptionEdits
             }
             return editsPerLanguage ?: emptyMap()
         }
@@ -35,7 +37,7 @@ class EditorTaskCounts {
         get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { counts }).appDepictsEdits
+                editsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), counts).appDepictsEdits
             }
             return if (editsPerLanguage == null) 0 else (if (editsPerLanguage["*"] == null) 0 else editsPerLanguage["*"])!!
         }
@@ -74,7 +76,7 @@ class EditorTaskCounts {
         private get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { revertCounts }).appDescriptionEdits
+                revertsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), revertCounts).appDescriptionEdits
             }
             return revertsPerLanguage ?: emptyMap()
         }
@@ -82,7 +84,7 @@ class EditorTaskCounts {
         private get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { revertCounts }).appCaptionEdits
+                revertsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), revertCounts).appCaptionEdits
             }
             return revertsPerLanguage ?: emptyMap()
         }
@@ -90,7 +92,7 @@ class EditorTaskCounts {
         private get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage = Json.decodeFromJsonElement<Counts>(buildJsonObject { revertCounts }).appDepictsEdits
+                revertsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), revertCounts).appDepictsEdits
             }
             return if (revertsPerLanguage == null) 0 else (if (revertsPerLanguage["*"] == null) 0 else revertsPerLanguage["*"])!!
         }
@@ -114,7 +116,7 @@ class EditorTaskCounts {
         if (editStreak == null || editStreak is JsonArray) {
             return 0
         }
-        val streak = Json.decodeFromJsonElement<EditStreak>(buildJsonObject { editStreak })
+        val streak = Json.decodeFromJsonElement(EditStreak.serializer(), editStreak)
         return streak.length
     }
 
@@ -124,7 +126,7 @@ class EditorTaskCounts {
             if (editStreak == null || editStreak is JsonArray) {
                 return date
             }
-            val streak = Json.decodeFromJsonElement<EditStreak>(buildJsonObject { editStreak })
+            val streak = Json.decodeFromJsonElement(EditStreak.serializer(), editStreak)
             date = DateUtil.dbDateParse(streak.lastEditTime.orEmpty())
             return date
         }

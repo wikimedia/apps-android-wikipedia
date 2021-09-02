@@ -55,7 +55,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewNotificationActionsBinding.inflate(inflater, container, false)
 
-        notification = GsonUtil.getDefaultGson().fromJson(requireArguments().getString(ARG_NOTIFICATION), Notification::class.java)
+        notification = Json.decodeFromString(Notification.serializer(),requireArguments().getString(ARG_NOTIFICATION)!!)
         linkHandler = NotificationLinkHandler(requireContext())
         notification.contents?.let {
             binding.notificationItemText.text = StringUtil.fromHtml(it.header).toString()
@@ -142,7 +142,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
         fun newInstance(notification: Notification): NotificationItemActionsDialog {
             return NotificationItemActionsDialog().apply {
-                arguments = bundleOf(ARG_NOTIFICATION to GsonUtil.getDefaultGson().toJson(notification))
+                arguments = bundleOf(ARG_NOTIFICATION to encodeToString(Notification.serializer(),notification))
             }
         }
     }
