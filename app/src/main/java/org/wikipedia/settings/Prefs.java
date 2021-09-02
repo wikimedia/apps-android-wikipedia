@@ -431,22 +431,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_dim_dark_mode_images, enabled);
     }
 
-    public static boolean notificationPollEnabled() {
-        return getBoolean(R.string.preference_key_notification_poll_enable, true);
-    }
-
-    public static void setNotificationPollEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_notification_poll_enable, enabled);
-    }
-
-    public static boolean notificationPollReminderEnabled() {
-        return getBoolean(R.string.preference_key_notification_poll_reminder, true);
-    }
-
-    public static void setNotificationPollReminderEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_notification_poll_reminder, enabled);
-    }
-
     public static int getNotificationUnreadCount() {
         return getInt(R.string.preference_key_notification_unread_count, 0);
     }
