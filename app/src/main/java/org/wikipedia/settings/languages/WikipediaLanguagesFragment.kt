@@ -21,6 +21,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.AppLanguageSettingsFunnel
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.language.LanguagesListActivity
+import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.StringUtil.listToJsonArrayString
 import org.wikipedia.views.DefaultViewHolder
@@ -66,6 +67,8 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
             prepareWikipediaLanguagesList()
             requireActivity().invalidateOptionsMenu()
             adapter.notifyDataSetChanged()
+            // explicitly update notification subscription options for any new language wikis
+            WikipediaFirebaseMessagingService.updateSubscription()
         }
     }
 
