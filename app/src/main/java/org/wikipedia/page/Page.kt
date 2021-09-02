@@ -7,5 +7,5 @@ class Page(var title: PageTitle, var sections: List<Section> = emptyList(), var 
     val displayTitle = pageProperties.displayTitle.orEmpty()
     val isMainPage = pageProperties.isMainPage
     val isArticle = !isMainPage && title.namespace() === Namespace.MAIN
-    val isProtected = !pageProperties.canEdit()
+    val isProtected = !pageProperties.canEdit
 }
