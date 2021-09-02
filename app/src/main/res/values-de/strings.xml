@@ -67,6 +67,7 @@
   <string name="app_settings">App-Einstellungen</string>
   <string name="search_tab_tooltip">Berühre das Symbol noch einmal, um direkt mit der Eingabe zu beginnen.</string>
   <string name="history_list_title">Historie</string>
+  <string name="image_content_description">Bild: %s</string>
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
   <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -1001,6 +1002,8 @@
   <string name="menu_option_user_contributions">Beiträge von %s</string>
   <string name="watchlist_details_watching_label">Beobachtet</string>
   <string name="watchlist_details_watch_label">Beobachten</string>
+  <string name="watchlist_details_next_edit">Nächste Bearbeitung</string>
+  <string name="watchlist_details_prev_edit">Vorherige Bearbeitung</string>
   <string name="thank_label">Danken</string>
   <string name="go_to_user_page">Zur Benutzerseite</string>
   <string name="thank_dialog_title_text">Öffentlich das Danke senden</string>

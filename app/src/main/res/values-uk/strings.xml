@@ -88,7 +88,7 @@
   <string name="last_updated_text">Останнє оновлення %s</string>
   <string name="talk_page_link_text">Сторінка обговорення</string>
   <string name="edit_history_link_text">Див. історію редагувань</string>
-  <string name="map_view_link_text">Переглянути на карті</string>
+  <string name="map_view_link_text">Переглянути на мапі</string>
   <string name="other_languages_indication_text">Читати іншою мовою</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
@@ -172,7 +172,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Продовжити без електронної пошти</string>
   <string name="email_recommendation_dialog_create_with_email_action">Додати електронну пошту</string>
   <string name="create_account_button">Створити обліковий запис</string>
-  <string name="create_account_name_unavailable">Ім\'я користувача \"%s\" недоступно. Будь-ласка вкажіть інше.</string>
+  <string name="create_account_name_unavailable">Ім’я користувача «%s» недоступно. Будь-ласка вкажіть інше.</string>
   <string name="create_account_ip_block_message">Вибачите, ваша IP-адреса наразі заблокована від створення нових облікових записів.</string>
   <string name="create_account_ip_block_help_url">https://uk.wikipedia.org/wiki/Вікіпедія:Правила_блокувань</string>
   <string name="create_account_ip_block_details">Деталі</string>
@@ -261,7 +261,7 @@
   <string name="abusefilter_text_warn">Автоматичний фільтр визначив це редагування як потенційно неконструктивне. У ньому може бути щось із цього:&lt;br /&gt;&lt;br /&gt;· Набрано повністю великими літерами&lt;br /&gt;· Очищення статті або спам&lt;br /&gt;· Невідповідні зовнішні посилання чи зображення&lt;br /&gt;· Повторювані символи</string>
   <string name="abusefilter_text_disallow">Автоматизований фільтр визначив це редагування як потенційно неконструктивне або потенційний вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедія — це енциклопедія, і розміщений у ній може бути тільки нейтральний і значущий вміст.</string>
   <string name="page_similar_titles">Подібні сторінки</string>
-  <string name="search_did_you_mean">Ви мали на увазі \"%s\"?</string>
+  <string name="search_did_you_mean">Ви мали на увазі «%s»?</string>
   <string name="search_recent_header">Недавні пошукові запити:</string>
   <string name="search_results_count_zero">Немає результатів</string>
   <plurals name="search_results_count">
@@ -393,7 +393,7 @@
   <string name="article_menu_bar_search_button">Пошук</string>
   <string name="article_menu_bar_theme_button">Тема</string>
   <string name="article_menu_bar_contents_button">Вміст</string>
-  <string name="article_header_edit_hint">Редагувати...</string>
+  <string name="article_header_edit_hint">Редагувати…</string>
   <string name="article_header_edit_description">Редагувати опис статті</string>
   <string name="article_header_edit_lead_section">Редагувати вступ</string>
   <string name="color_theme_select">Тема</string>
@@ -407,7 +407,7 @@
   <string name="preference_summary_color_theme">Перейти до використання темного шаблону програми</string>
   <string name="text_size_increase">Збільшити розмір тексту</string>
   <string name="text_size_decrease">Зменшити розмір тексту</string>
-  <string name="text_size_percent_default">%s (стандартно)</string>
+  <string name="text_size_percent_default">%s (за замовчуванням)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="nav_item_saved">Збережено</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
@@ -832,7 +832,7 @@
   <string name="suggested_edits_disabled_message">Пропоновані редагування було відключено. Перепрошуємо, %s, але забагато з ваших останніх редагувань було скасовано.</string>
   <string name="suggested_edits_ip_blocked_message">Схоже, що IP-адреса, якою ви користуєтесь (або діапазон IP-адрес), наразі заблокована для редагування у Вікіпедії.</string>
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
-  <string name="suggested_edits_help_page_link_text">Довідка з \"Пропонованих редагуваннь\"</string>
+  <string name="suggested_edits_help_page_link_text">Довідка з «Пропонованих редагувань»</string>
   <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>
   <string name="suggested_edits_views_label_text">Перегляди</string>
   <string name="suggested_edits_quality_label_text">Якість редагувань</string>

@@ -77,6 +77,7 @@
   <string name="app_settings">Uygulama ayarları</string>
   <string name="search_tab_tooltip">Doğrudan bir arama terimi yazmaya başlamak için simgeye tekrar dokunun.</string>
   <string name="history_list_title">Geçmiş</string>
+  <string name="image_content_description">Resim: %s</string>
   <string name="dialog_title_clear_history">Tarama geçmişini temizle</string>
   <string name="dialog_message_clear_history">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
   <string name="dialog_message_clear_history_yes">Evet</string>
@@ -1008,6 +1009,8 @@
   <string name="menu_option_user_contributions">%s kullanıcısının katkıları</string>
   <string name="watchlist_details_watching_label">İzleniyor</string>
   <string name="watchlist_details_watch_label">İzle</string>
+  <string name="watchlist_details_next_edit">Sonraki düzenleme</string>
+  <string name="watchlist_details_prev_edit">Önceki düzenleme</string>
   <string name="thank_label">Teşekkür et</string>
   <string name="go_to_user_page">Kullanıcı sayfasına gidin</string>
   <string name="thank_dialog_title_text">Açık olarak \'Teşekkür\' gönder</string>
