@@ -415,7 +415,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 val adapter = MoshiUtil.getDefaultMoshi().adapter(Protection::class.java)
                 adapter.fromJson(value)?.let {
                     page.pageProperties.protection = it
-                    bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit()))
+                    bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit))
                 }
             }
         }
