@@ -17,7 +17,9 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentDefaultRepliesBinding
+import org.wikipedia.talk.db.DefaultReplies
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.TextInputDialog
@@ -30,8 +32,8 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     private lateinit var adapter: ItemAdapter
     private lateinit var invokeSource: InvokeSource
     private var app: WikipediaApp = WikipediaApp.getInstance()
-    private val defaultRepliesList = mutableListOf<String>()
-    private val selectedReplies = mutableListOf<String>()
+    private val defaultRepliesList = mutableListOf<DefaultReplies>()
+    private val selectedReplies = mutableListOf<DefaultReplies>()
     private var actionMode: ActionMode? = null
     private val multiSelectCallback: MultiSelectCallback = MultiSelectCallback()
     private var interactionsCount = 0
@@ -92,7 +94,8 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     }
 
     private fun prepareList() {
-        // TODO: get from database.
+        defaultRepliesList.clear()
+        defaultRepliesList.addAll(AppDatabase.getAppDatabase().defaultRepliesDao().getAll())
     }
 
     private fun setupRecyclerView() {
@@ -207,7 +210,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
                                 dialog.setError(null)
                                 dialog.setPositiveButtonEnabled(false)
                             }
-                            defaultRepliesList.contains(it) -> {
+                            defaultRepliesList.map { item -> item.text }.contains(it) -> {
                                 dialog.setError(
                                     dialog.context.getString(
                                         R.string.reading_list_title_exists,
@@ -273,8 +276,8 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     }
 
     private inner class ItemHolder constructor(itemView: DefaultRepliesItemView) : DefaultViewHolder<DefaultRepliesItemView>(itemView) {
-        fun bindItem(languageCode: String, position: Int) {
-            view.setContents(languageCode, position)
+        fun bindItem(defaultReply: DefaultReplies, position: Int) {
+            view.setContents(defaultReply, position)
         }
     }
 
@@ -291,11 +294,11 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
         setMultiSelectEnabled(true)
     }
 
-    private fun toggleSelectedReplies(code: String) {
-        if (selectedReplies.contains(code)) {
-            selectedReplies.remove(code)
+    private fun toggleSelectedReplies(defaultReply: DefaultReplies) {
+        if (selectedReplies.contains(defaultReply)) {
+            selectedReplies.remove(defaultReply)
         } else {
-            selectedReplies.add(code)
+            selectedReplies.add(defaultReply)
         }
     }
 

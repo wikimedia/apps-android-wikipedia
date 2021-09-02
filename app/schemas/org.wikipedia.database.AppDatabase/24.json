@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 24,
-    "identityHash": "d64b3c12b7065e2c33d9a521fc921228",
+    "identityHash": "30aa2a8446e658f7e5a2b7faac01005e",
     "entities": [
       {
         "tableName": "HistoryEntry",
@@ -405,12 +405,38 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "DefaultReplies",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`text` TEXT NOT NULL, `itemOrder` INTEGER NOT NULL, PRIMARY KEY(`text`))",
+        "fields": [
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "itemOrder",
+            "columnName": "itemOrder",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "text"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd64b3c12b7065e2c33d9a521fc921228')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '30aa2a8446e658f7e5a2b7faac01005e')"
     ]
   }
 }

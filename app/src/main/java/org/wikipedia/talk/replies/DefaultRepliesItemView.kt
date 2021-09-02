@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemDefaultReplyBinding
+import org.wikipedia.talk.db.DefaultReplies
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 import java.util.*
@@ -52,10 +53,10 @@ class DefaultRepliesItemView : LinearLayout {
         else ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
-    fun setContents(reply: String?, position: Int) {
+    fun setContents(defaultReply: DefaultReplies, position: Int) {
         this.position = position
-        binding.replyOrder.text = (position + 1).toString()
-        binding.replyContent.text = reply.orEmpty().capitalize(Locale.getDefault())
+        binding.replyOrder.text = defaultReply.itemOrder.toString()
+        binding.replyContent.text = defaultReply.text.capitalize(Locale.getDefault())
     }
 
     fun setCheckBoxEnabled(enabled: Boolean) {

@@ -23,6 +23,8 @@ import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.staticdata.MainPageNameData
+import org.wikipedia.talk.db.DefaultReplies
+import org.wikipedia.talk.db.DefaultRepliesDao
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
 
@@ -38,7 +40,8 @@ const val DATABASE_VERSION = 24
         EditSummary::class,
         OfflineObject::class,
         ReadingList::class,
-        ReadingListPage::class
+        ReadingListPage::class,
+        DefaultReplies::class
     ],
     version = DATABASE_VERSION
 )
@@ -58,6 +61,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun offlineObjectDao(): OfflineObjectDao
     abstract fun readingListDao(): ReadingListDao
     abstract fun readingListPageDao(): ReadingListPageDao
+    abstract fun defaultRepliesDao(): DefaultRepliesDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
