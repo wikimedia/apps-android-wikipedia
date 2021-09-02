@@ -5,17 +5,15 @@ import android.content.Context
 import android.content.Intent
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.views.NotificationWithProgressBar
 
 class SavedPageSyncNotification : BroadcastReceiver() {
     private val notification = NotificationWithProgressBar()
 
     init {
-        notification.channelId = CHANNEL_ID
+        notification.notificationCategory = NotificationCategory.SYNCING
         notification.notificationId = NOTIFICATION_ID
-        notification.channelName = R.plurals.notification_channel_name
-        notification.channelDescription = R.string.notification_channel_description
-        notification.notificationIcon = android.R.drawable.stat_sys_download
         notification.notificationTitle = R.plurals.notification_syncing_title
         notification.notificationDescription = R.plurals.notification_syncing_description
         notification.isEnableCancelButton = true
@@ -70,7 +68,6 @@ class SavedPageSyncNotification : BroadcastReceiver() {
     }
 
     companion object {
-        private const val CHANNEL_ID = "SYNCING_CHANNEL"
         private const val NOTIFICATION_ID = 1001
         val instance = SavedPageSyncNotification()
     }
