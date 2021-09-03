@@ -1,58 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <org.wikipedia.settings.SwitchPreferenceMultiLine
-        android:key="@string/preference_key_notification_poll_enable"
-        android:defaultValue="true"
-        android:title="@string/preference_title_notification_poll"
-        android:summary="@string/preference_summary_notification_poll" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        android:title="@string/preference_category_notification_types">
+        android:title="@string/preference_category_push_notifications">
+
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:key="@string/preference_key_notification_customize_push"
+            android:widgetLayout="@layout/preference_multiline_with_system_action"
+            android:title="@string/preference_title_customize_push_notifications"
+            app:allowDividerAbove="true"
+            app:allowDividerBelow="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/preference_category_display_settings">
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_system_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_system"
-            android:summary="@string/preference_summary_notification_system" />
+            android:key="@string/preference_key_notification_hide_read"
+            android:defaultValue="false"
+            android:title="@string/preference_title_hide_read_notifications"
+            app:allowDividerAbove="true" />
 
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_milestone_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_milestone"
-            android:summary="@string/preference_summary_notification_milestone" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_thanks_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_thanks"
-            android:summary="@string/preference_summary_notification_thanks" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_revert_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_revert"
-            android:summary="@string/preference_summary_notification_revert" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_user_talk_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_user_talk"
-            android:summary="@string/preference_summary_notification_user_talk" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_login_fail_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_login_fail"
-            android:summary="@string/preference_summary_notification_login_fail" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_notification_mention_enable"
-            android:defaultValue="true"
-            android:title="@string/preference_title_notification_mention"
-            android:summary="@string/preference_summary_notification_mention" />
+        <!-- TODO: replace/remove this empty placeholder if the bottom divider can show correctly -->
+        <Preference
+            app:allowDividerAbove="true"
+            android:enabled="false"/>
 
     </PreferenceCategory>
 
