@@ -2,17 +2,24 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/menu_notifications_search"
-        android:icon="@drawable/ic_search_themed_24dp"
-        android:title="@string/notifications_search"
-        app:showAsAction="ifRoom" />
-    <item android:id="@+id/menu_notifications_view_archived"
-        android:title="@string/notifications_view_archived"
-        app:showAsAction="never" />
-    <item android:id="@+id/menu_notifications_view_unread"
-        android:title="@string/notifications_view_unread"
-        app:showAsAction="never" />
-    <item android:id="@+id/menu_notifications_prefs"
-        android:title="@string/notifications_prefs"
-        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_notifications_group"
+        android:icon="@drawable/ic_more_vert_themed_24dp"
+        android:title="@string/nav_item_more"
+        app:showAsAction="always">
+        <menu>
+
+            <item android:id="@+id/menu_notifications_mark_all_as_read"
+                android:icon="@drawable/ic_mark_all_as_read_themed_24dp"
+                android:title="@string/notifications_mark_all_as_read"
+                app:showAsAction="ifRoom" />
+
+            <item android:id="@+id/menu_notifications_prefs"
+                android:icon="@drawable/ic_settings_themed_24dp"
+                android:title="@string/notifications_prefs"
+                app:showAsAction="never" />
+
+        </menu>
+    </item>
 </menu>

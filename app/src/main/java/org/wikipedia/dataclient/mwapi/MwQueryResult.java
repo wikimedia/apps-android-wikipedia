@@ -84,9 +84,9 @@ public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable 
     @Nullable public String captchaId() {
         String captchaId = null;
         if (amInfo != null) {
-            for (MwAuthManagerInfo.Request request : amInfo.requests()) {
-                if ("CaptchaAuthenticationRequest".equals(request.id())) {
-                    captchaId = request.fields().get("captchaId").value();
+            for (MwAuthManagerInfo.Request request : amInfo.getRequests()) {
+                if ("CaptchaAuthenticationRequest".equals(request.getId())) {
+                    captchaId = request.getFields().get("captchaId").getValue();
                 }
             }
         }
@@ -97,7 +97,7 @@ public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable 
         if (users != null) {
             for (ListUserResponse user : users) {
                 // MediaWiki user names are case sensitive, but the first letter is always capitalized.
-                if (StringUtils.capitalize(userName).equals(user.name())) {
+                if (StringUtils.capitalize(userName).equals(user.getName())) {
                     return user;
                 }
             }
