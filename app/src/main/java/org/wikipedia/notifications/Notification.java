@@ -17,14 +17,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Notification {
-    public static final String CATEGORY_SYSTEM = "system";
-    public static final String CATEGORY_SYSTEM_NO_EMAIL = "system-noemail"; // default welcome
-    public static final String CATEGORY_MILESTONE_EDIT = "thank-you-edit"; // milestone
-    public static final String CATEGORY_EDIT_USER_TALK = "edit-user-talk";
-    public static final String CATEGORY_EDIT_THANK = "edit-thank";
-    public static final String CATEGORY_REVERTED = "reverted";
-    public static final String CATEGORY_LOGIN_FAIL = "login-fail";
-    public static final String CATEGORY_MENTION = "mention"; // combines "mention", "mention-failure" and "mention-success"
 
     @SuppressWarnings("unused") @Nullable private String wiki;
     @SuppressWarnings("unused") private long id;
