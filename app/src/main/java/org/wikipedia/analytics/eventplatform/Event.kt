@@ -14,7 +14,7 @@ open class Event(@SerializedName("\$schema") val schema: String, stream: String)
     var appInstallId: String? = null
 
     private val meta: Meta = Meta(stream)
-    
+
     private val dt: String = DateUtil.iso8601DateFormat(Date())
 
     val stream: String
