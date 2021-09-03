@@ -1,7 +1,5 @@
 package org.wikipedia.dataclient.page
 
-import java.util.*
-
 /** Protection settings for a page  */
 class Protection {
 
@@ -13,8 +11,8 @@ class Protection {
         get() = edit.orEmpty()
     val editRoles: Set<String>
         get() {
-            val roleSet: MutableSet<String> = HashSet()
+            val roleSet = mutableSetOf<String>()
             edit?.let { roleSet.add(edit) }
-            return Collections.unmodifiableSet(roleSet)
+            return roleSet.toSet()
         }
 }
