@@ -13,13 +13,11 @@ class Protection {
     val level: String = ""
     val expiry: String = ""
     val firstAllowedEditorRole: String
-        get() = StringUtils.defaultString(edit)
+        get() = edit.orEmpty()
     val editRoles: Set<String>
         get() {
-            val roleSet: MutableSet<String> = HashSet()
-            if (edit != null) {
-                roleSet.add(edit)
-            }
-            return Collections.unmodifiableSet(roleSet)
+            val roleSet = mutableSetOf<String>()
+            edit?.let { roleSet.add(edit) }
+            return roleSet.toSet()
         }
 }

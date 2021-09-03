@@ -7,7 +7,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.notifications.NotificationCategory
-import org.wikipedia.settings.Prefs
 
 class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
@@ -28,10 +27,7 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
 
             log(
                 "type_toggles", GsonUtil.getDefaultGson().toJson(toggleMap),
-                "background_fetch",
-                if (Prefs.notificationPollEnabled()) app.resources.getInteger(R.integer.notification_poll_interval_minutes)
-                    .toString()
-                else "disabled"
+                "background_fetch", app.resources.getInteger(R.integer.notification_poll_interval_minutes)
             )
         }
     }
