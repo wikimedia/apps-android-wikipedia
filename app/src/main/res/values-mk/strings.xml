@@ -39,6 +39,7 @@
   <string name="app_settings">Поставки за прилогот</string>
   <string name="search_tab_tooltip">Повторно допрете ја иконата за да почнете со непосредно внесување на саканото пребарување.</string>
   <string name="history_list_title">Историја</string>
+  <string name="image_content_description">Слика: %s</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -973,6 +974,8 @@
   <string name="menu_option_user_contributions">Придонеси на %s</string>
   <string name="watchlist_details_watching_label">Набљудувана</string>
   <string name="watchlist_details_watch_label">Набљудувај</string>
+  <string name="watchlist_details_next_edit">Следно уредување</string>
+  <string name="watchlist_details_prev_edit">Претходно уредување</string>
   <string name="thank_label">Благодарност</string>
   <string name="go_to_user_page">Оди на корисничката страница</string>
   <string name="thank_dialog_title_text">Јавно испрати благодарница</string>
