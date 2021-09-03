@@ -54,7 +54,7 @@ class DefaultRepliesItemView : LinearLayout {
 
     fun setContents(defaultReply: String, position: Int) {
         this.position = position
-        binding.replyOrder.text = position.toString()
+        binding.replyOrder.text = (position + 1).toString()
         binding.replyContent.text = defaultReply.capitalize(Locale.getDefault())
     }
 

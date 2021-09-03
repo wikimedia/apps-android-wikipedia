@@ -91,7 +91,6 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
-                        app:boxBackgroundColor="@android:color/transparent"
                         android:hint="@string/talk_reply_hint"
                         app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
 
@@ -102,7 +101,6 @@
                             android:imeOptions="flagNoExtractUi|actionNone"
                             android:inputType="textMultiLine"
                             android:lineSpacingExtra="6sp"
-                            android:background="@android:color/transparent"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>

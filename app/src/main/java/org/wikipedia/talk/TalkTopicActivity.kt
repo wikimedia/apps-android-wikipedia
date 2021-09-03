@@ -10,6 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
@@ -65,6 +67,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler.onUrlClick(url, null, "")
     }
+    private var defaultReplies = Prefs.getDefaultReplies()
     private var x1 = 0f
     private var x2 = 0f
 
@@ -102,19 +105,27 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             replyClicked()
         }
 
+        val defaultBoxBackgroundColor = binding.replyTextLayout.boxBackgroundColor
+        val defaultReplyTextBackgroundColor = binding.replyEditText.background
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
             binding.replySubjectLayout.error = null
             binding.replyTextLayout.error = null
             // Canned messages
             val text = binding.replyEditText.text.toString()
             if (text.isNotBlank() && text.isNotEmpty()) {
-                val found = CANNED_MESSAGES_LIST.find { it.startsWith(text) }
+                val found = defaultReplies.find { it.startsWith(text) }
                 if (!found.isNullOrEmpty()) {
+                    binding.replyTextLayout.boxBackgroundColor = ContextCompat.getColor(this, android.R.color.transparent)
+                    binding.replyEditText.setBackgroundColor(ContextCompat.getColor(this, android.R.color.transparent))
                     binding.replyEditTextHint.setText(found)
                 } else {
+                    binding.replyTextLayout.boxBackgroundColor = defaultBoxBackgroundColor
+                    binding.replyEditText.background = defaultReplyTextBackgroundColor
                     binding.replyEditTextHint.setText("")
                 }
             } else {
+                binding.replyTextLayout.boxBackgroundColor = defaultBoxBackgroundColor
+                binding.replyEditText.background = defaultReplyTextBackgroundColor
                 binding.replyEditTextHint.setText("")
             }
         }
@@ -138,6 +149,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         updateEditLicenseText()
         enableSwipeToCompleteGesture()
         onInitialLoad()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        defaultReplies = Prefs.getDefaultReplies()
     }
 
     private fun replyClicked() {
@@ -531,9 +547,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
-        // TODO: move these messages to values/strings.xml
-        private val CANNED_MESSAGES_LIST = listOf("Excellent. I am glad that all worked out.",
-            "Got it! Thanks for the update.", "Let me know if you have any questions.", "Looks fine to me.")
         const val EXTRA_TOPIC = "topicId"
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"

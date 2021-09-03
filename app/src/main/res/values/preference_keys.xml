@@ -119,4 +119,5 @@
     <string name="preference_key_watchlist_disabled_langs">watchlistDisabledLangs</string>
     <string name="preference_key_watchlist_page_onboarding_tooltip_shown">watchlistPageOnboardingTooltipShown</string>
     <string name="preference_key_watchlist_main_onboarding_tooltip_shown">watchlistMainOnboardingTooltipShown</string>
+    <string name="preference_key_default_replies">defaultReplies</string>
 </resources>

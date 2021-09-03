@@ -1,7 +1,5 @@
 package org.wikipedia.talk.replies
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
@@ -16,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentDefaultRepliesBinding
+import org.wikipedia.settings.Prefs
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.TextInputDialog
@@ -29,12 +27,10 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     private lateinit var itemTouchHelper: ItemTouchHelper
     private lateinit var adapter: ItemAdapter
     private lateinit var invokeSource: InvokeSource
-    private var app: WikipediaApp = WikipediaApp.getInstance()
     private val defaultRepliesList = mutableListOf<String>()
     private val selectedReplies = mutableListOf<String>()
     private var actionMode: ActionMode? = null
     private val multiSelectCallback: MultiSelectCallback = MultiSelectCallback()
-    private var interactionsCount = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentDefaultRepliesBinding.inflate(inflater, container, false)
@@ -47,16 +43,6 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setHasOptionsMenu(true)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_REPLY && resultCode == Activity.RESULT_OK) {
-            interactionsCount += data!!.getIntExtra(ADD_REPLY_INTERACTIONS, 0)
-            prepareList()
-            requireActivity().invalidateOptionsMenu()
-            adapter.notifyDataSetChanged()
-        }
     }
 
     override fun onDestroyView() {
@@ -93,7 +79,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
 
     private fun prepareList() {
         defaultRepliesList.clear()
-        // TODO: use simple list
+        defaultRepliesList.addAll(Prefs.getDefaultReplies())
     }
 
     private fun setupRecyclerView() {
@@ -106,7 +92,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     }
 
     private fun updateDefaultReplies() {
-        // TODO: save to database
+        Prefs.setDefaultReplies(defaultRepliesList)
         adapter.notifyDataSetChanged()
         requireActivity().invalidateOptionsMenu()
     }
@@ -160,7 +146,6 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
                 holder.view.setDragHandleTouchListener { v: View, event: MotionEvent ->
                     when (event.actionMasked) {
                         MotionEvent.ACTION_DOWN -> {
-                            interactionsCount++
                             itemTouchHelper.startDrag(holder)
                         }
                         MotionEvent.ACTION_UP -> v.performClick()
@@ -227,7 +212,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
 
                 override fun onSuccess(text: CharSequence, secondaryText: CharSequence) {
                     val defaultReply = text.toString().trim()
-                    // TODO: update list
+                    defaultRepliesList.add(defaultReply)
                     updateDefaultReplies()
                     textInputDialog.dismiss()
                 }
@@ -308,8 +293,8 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     }
 
     private fun deleteSelectedReplies() {
-        interactionsCount++
-        prepareList()
+        defaultRepliesList.removeAll(selectedReplies)
+        Prefs.setDefaultReplies(defaultRepliesList)
         unselectAllReplies()
     }
 

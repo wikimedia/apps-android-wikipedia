@@ -1,5 +1,18 @@
 package org.wikipedia.settings;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+import static org.wikipedia.settings.PrefsIoUtil.contains;
+import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
+import static org.wikipedia.settings.PrefsIoUtil.getInt;
+import static org.wikipedia.settings.PrefsIoUtil.getKey;
+import static org.wikipedia.settings.PrefsIoUtil.getLong;
+import static org.wikipedia.settings.PrefsIoUtil.getString;
+import static org.wikipedia.settings.PrefsIoUtil.remove;
+import static org.wikipedia.settings.PrefsIoUtil.setBoolean;
+import static org.wikipedia.settings.PrefsIoUtil.setInt;
+import static org.wikipedia.settings.PrefsIoUtil.setLong;
+import static org.wikipedia.settings.PrefsIoUtil.setString;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -31,19 +44,6 @@ import java.util.Map;
 import java.util.Set;
 
 import okhttp3.logging.HttpLoggingInterceptor.Level;
-
-import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
-import static org.wikipedia.settings.PrefsIoUtil.contains;
-import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
-import static org.wikipedia.settings.PrefsIoUtil.getInt;
-import static org.wikipedia.settings.PrefsIoUtil.getKey;
-import static org.wikipedia.settings.PrefsIoUtil.getLong;
-import static org.wikipedia.settings.PrefsIoUtil.getString;
-import static org.wikipedia.settings.PrefsIoUtil.remove;
-import static org.wikipedia.settings.PrefsIoUtil.setBoolean;
-import static org.wikipedia.settings.PrefsIoUtil.setInt;
-import static org.wikipedia.settings.PrefsIoUtil.setLong;
-import static org.wikipedia.settings.PrefsIoUtil.setString;
 
 /** Shared preferences utility for convenient POJO access. */
 @SuppressWarnings("checkstyle:magicnumber")
@@ -924,6 +924,19 @@ public final class Prefs {
 
     public static void setWatchlistMainOnboardingTooltipShown(boolean enabled) {
         setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled);
+    }
+
+    @NonNull public static List<String> getDefaultReplies() {
+        if (!contains(R.string.preference_key_default_replies)) {
+            return Collections.emptyList();
+        }
+        List<String> orderList = GsonUnmarshaller.unmarshal(new TypeToken<ArrayList<String>>(){},
+                getString(R.string.preference_key_default_replies, null));
+        return orderList != null ? orderList : Collections.emptyList();
+    }
+
+    public static void setDefaultReplies(@NonNull List<String> defaultReplies) {
+        setString(R.string.preference_key_default_replies, GsonMarshaller.marshal(defaultReplies));
     }
 
     private Prefs() { }
