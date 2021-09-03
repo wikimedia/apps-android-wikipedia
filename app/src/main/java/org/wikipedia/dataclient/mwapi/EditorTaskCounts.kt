@@ -16,7 +16,7 @@ class EditorTaskCounts {
     private val counts: JsonElement? = null
 
     private val descriptionEditsPerLanguage: Map<String, Int>
-        private get() {
+        get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
                 editsPerLanguage =
@@ -25,7 +25,7 @@ class EditorTaskCounts {
             return editsPerLanguage ?: emptyMap()
         }
     private val captionEditsPerLanguage: Map<String, Int>
-        private get() {
+        get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
                 editsPerLanguage =
@@ -40,41 +40,22 @@ class EditorTaskCounts {
                 editsPerLanguage =
                     GsonUtil.getDefaultGson().fromJson(counts, Counts::class.java).appDepictsEdits
             }
-            return if (editsPerLanguage == null) 0 else (if (editsPerLanguage["*"] == null) 0 else editsPerLanguage["*"])!!
+            return editsPerLanguage?.get("*") ?: 0
         }
     val totalEdits: Int
         get() {
-            var totalEdits = 0
-            for (count in descriptionEditsPerLanguage.values) {
-                totalEdits += count
-            }
-            for (count in captionEditsPerLanguage.values) {
-                totalEdits += count
-            }
-            totalEdits += totalDepictsEdits
+            var totalEdits = descriptionEditsPerLanguage.values.sum() + captionEditsPerLanguage.values.sum() + totalDepictsEdits
             if (Prefs.shouldOverrideSuggestedEditCounts()) {
                 totalEdits = Prefs.getOverrideSuggestedEditCount()
             }
             return totalEdits
         }
     val totalDescriptionEdits: Int
-        get() {
-            var totalEdits = 0
-            for (count in descriptionEditsPerLanguage.values) {
-                totalEdits += count
-            }
-            return totalEdits
-        }
+        get() { return descriptionEditsPerLanguage.values.sum() }
     val totalImageCaptionEdits: Int
-        get() {
-            var totalEdits = 0
-            for (count in captionEditsPerLanguage.values) {
-                totalEdits += count
-            }
-            return totalEdits
-        }
+        get() { return captionEditsPerLanguage.values.sum() }
     private val descriptionRevertsPerLanguage: Map<String, Int>
-        private get() {
+        get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
                 revertsPerLanguage =
@@ -83,7 +64,7 @@ class EditorTaskCounts {
             return revertsPerLanguage ?: emptyMap()
         }
     private val captionRevertsPerLanguage: Map<String, Int>
-        private get() {
+        get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
                 revertsPerLanguage =
@@ -92,24 +73,17 @@ class EditorTaskCounts {
             return revertsPerLanguage ?: emptyMap()
         }
     private val totalDepictsReverts: Int
-        private get() {
+        get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
                 revertsPerLanguage =
                     GsonUtil.getDefaultGson().fromJson(revertCounts, Counts::class.java).appDepictsEdits
             }
-            return if (revertsPerLanguage == null) 0 else (if (revertsPerLanguage["*"] == null) 0 else revertsPerLanguage["*"])!!
+            return revertsPerLanguage?.get("*") ?: 0
         }
     val totalReverts: Int
         get() {
-            var totalReverts = 0
-            for (count in descriptionRevertsPerLanguage.values) {
-                totalReverts += count
-            }
-            for (count in captionRevertsPerLanguage.values) {
-                totalReverts += count
-            }
-            totalReverts += totalDepictsReverts
+            var totalReverts = descriptionRevertsPerLanguage.values.sum() + captionRevertsPerLanguage.values.sum() + totalDepictsReverts
             if (Prefs.shouldOverrideSuggestedEditCounts()) {
                 totalReverts = Prefs.getOverrideSuggestedRevertCount()
             }
