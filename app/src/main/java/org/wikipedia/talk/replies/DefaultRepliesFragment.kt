@@ -17,9 +17,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentDefaultRepliesBinding
-import org.wikipedia.talk.db.DefaultReplies
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.TextInputDialog
@@ -32,8 +30,8 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     private lateinit var adapter: ItemAdapter
     private lateinit var invokeSource: InvokeSource
     private var app: WikipediaApp = WikipediaApp.getInstance()
-    private val defaultRepliesList = mutableListOf<DefaultReplies>()
-    private val selectedReplies = mutableListOf<DefaultReplies>()
+    private val defaultRepliesList = mutableListOf<String>()
+    private val selectedReplies = mutableListOf<String>()
     private var actionMode: ActionMode? = null
     private val multiSelectCallback: MultiSelectCallback = MultiSelectCallback()
     private var interactionsCount = 0
@@ -95,7 +93,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
 
     private fun prepareList() {
         defaultRepliesList.clear()
-        defaultRepliesList.addAll(AppDatabase.getAppDatabase().defaultRepliesDao().getAll())
+        // TODO: use simple list
     }
 
     private fun setupRecyclerView() {
@@ -210,7 +208,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
                                 dialog.setError(null)
                                 dialog.setPositiveButtonEnabled(false)
                             }
-                            defaultRepliesList.map { item -> item.text }.contains(it) -> {
+                            defaultRepliesList.contains(it) -> {
                                 dialog.setError(
                                     dialog.context.getString(
                                         R.string.reading_list_title_exists,
@@ -229,10 +227,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
 
                 override fun onSuccess(text: CharSequence, secondaryText: CharSequence) {
                     val defaultReply = text.toString().trim()
-                    val lastNumber = defaultRepliesList.maxByOrNull { it.itemOrder }?.itemOrder ?: 0
-                    AppDatabase.getAppDatabase().defaultRepliesDao().insetDefaultReply(
-                        DefaultReplies(defaultReply, lastNumber + 1)
-                    )
+                    // TODO: update list
                     updateDefaultReplies()
                     textInputDialog.dismiss()
                 }
@@ -281,7 +276,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
     }
 
     private inner class ItemHolder constructor(itemView: DefaultRepliesItemView) : DefaultViewHolder<DefaultRepliesItemView>(itemView) {
-        fun bindItem(defaultReply: DefaultReplies, position: Int) {
+        fun bindItem(defaultReply: String, position: Int) {
             view.setContents(defaultReply, position)
         }
     }
@@ -299,7 +294,7 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
         setMultiSelectEnabled(true)
     }
 
-    private fun toggleSelectedReplies(defaultReply: DefaultReplies) {
+    private fun toggleSelectedReplies(defaultReply: String) {
         if (selectedReplies.contains(defaultReply)) {
             selectedReplies.remove(defaultReply)
         } else {
