@@ -18,6 +18,7 @@ import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.InstallReferrerListener;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.analytics.eventplatform.EventPlatformClient;
+import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
@@ -28,6 +29,7 @@ import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeFontChangeEvent;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
+import org.wikipedia.notifications.NotificationCategory;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.push.WikipediaFirebaseMessagingService;
@@ -149,6 +151,9 @@ public class WikipediaApp extends Application {
 
         registerActivityLifecycleCallbacks(activityLifecycleHandler);
         registerComponentCallbacks(activityLifecycleHandler);
+
+        NotificationCategory.Companion.createNotificationChannels(this);
+        AppShortcuts.Companion.setShortcuts(this);
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this);

@@ -97,7 +97,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         NotificationsABCTestFunnel().logSelect()
 
         beginUpdateList()
-        NotificationSettingsActivity.promptEnablePollDialog(this)
     }
 
     public override fun onDestroy() {
