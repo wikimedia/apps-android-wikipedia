@@ -81,7 +81,7 @@ class MwQueryResult : PostProcessable {
                 return false
             }
             for (protection in firstPage()!!.protection) {
-                if (protection.type == "edit" && !userInfo.groups.contains(protection.level)) {
+                if (protection.type == "edit" && !userInfo.groups().contains(protection.level)) {
                     return true
                 }
             }

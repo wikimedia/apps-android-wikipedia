@@ -2,7 +2,6 @@ package org.wikipedia.search;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.wikipedia.dataclient.mwapi.MwQueryResult;
 import org.wikipedia.json.GsonUtil;
 
 import static org.hamcrest.MatcherAssert.assertThat;
