@@ -1,7 +1,6 @@
 package org.wikipedia.dataclient.mwapi
 
 import com.google.gson.annotations.SerializedName
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.Namespace
@@ -13,7 +12,7 @@ class MwQueryPage {
     @SerializedName("videoinfo") private val videoInfo: List<ImageInfo>? = null
     @SerializedName("watchlistexpiry") private val watchlistExpiry: String? = null
     @SerializedName("pageviews") val pageViewsMap: Map<String, Long> = emptyMap()
-    @SerializedName("imagelabels") val imageLabels: List<ImageLabel> = emptyList()
+    @SerializedName("imagelabels") val imageLabels: List<ImageLabel>? = null
     @SerializedName("pageid") val pageId = 0
     @SerializedName("pageprops") val pageProps: PageProps? = null
 
@@ -25,7 +24,7 @@ class MwQueryPage {
 
     val index = 0
     var title: String = ""
-    val langlinks: List<LangLink>? = null
+    val langlinks: List<LangLink> = emptyList()
     val revisions: List<Revision> = emptyList()
     val categories: List<Category>? = null
     val protection: List<Protection> = emptyList()
@@ -62,18 +61,18 @@ class MwQueryPage {
     }
 
     fun displayTitle(langCode: String): String {
-        return if (!varianttitles.isNullOrEmpty()) StringUtils.defaultIfEmpty(varianttitles[langCode], title)!! else title
+        return varianttitles?.get(langCode).orEmpty().ifEmpty { title }
     }
 
     val isImageShared: Boolean
-        get() = StringUtils.defaultString(imagerepository) == "shared"
+        get() = imagerepository.orEmpty() == "shared"
 
     fun hasWatchlistExpiry(): Boolean {
         return !watchlistExpiry.isNullOrEmpty()
     }
 
     fun getErrorForAction(actionName: String): List<MwServiceError> {
-        return if (actions?.containsKey(actionName)!!) actions[actionName]!! else emptyList()
+        return actions?.get(actionName) ?: emptyList()
     }
 
     class Revision {
@@ -113,10 +112,6 @@ class MwQueryPage {
         @SerializedName("wikibase_item") val wikiBaseItem: String = ""
         private val disambiguation: String? = null
         val displayTitle: String? = null
-
-        fun isDisambiguation(): Boolean {
-            return disambiguation.isNullOrEmpty()
-        }
     }
 
     class Category(val ns: Int = 0, val title: String = "", val hidden: Boolean = false)
