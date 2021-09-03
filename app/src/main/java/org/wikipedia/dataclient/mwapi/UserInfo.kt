@@ -1,6 +1,5 @@
 package org.wikipedia.dataclient.mwapi
 
-import androidx.collection.ArraySet
 import com.google.gson.annotations.SerializedName
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.util.DateUtil
@@ -14,10 +13,10 @@ class UserInfo : BlockInfo() {
     val name: String = ""
 
     fun groups(): Set<String> {
-        return if (groups != null) ArraySet(groups) else Collections.emptySet()
+        return groups?.toSet() ?: emptySet()
     }
 
-    val latestContribDate: Date
+    val latestContribution: Date
         get() {
             var date = Date(0)
             if (!latestContrib.isNullOrEmpty()) {
