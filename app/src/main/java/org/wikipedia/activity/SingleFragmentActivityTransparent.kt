@@ -2,6 +2,7 @@ package org.wikipedia.activity
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
 
@@ -14,7 +15,7 @@ import org.wikipedia.R
 abstract class SingleFragmentActivityTransparent<T : Fragment> : SingleFragmentActivity<T>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.fragment_container).background = null
+        ActivityCompat.requireViewById<View>(this, R.id.fragment_container).background = null
     }
 
     override fun setTheme() {
