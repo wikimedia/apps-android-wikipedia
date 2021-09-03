@@ -407,8 +407,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             model.page?.let { page ->
                 GsonUtil.getDefaultGson().fromJson(value, Protection::class.java)?.let {
-                    page.pageProperties.setProtection(it)
-                    bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit()))
+                    page.pageProperties.protection = it
+                    bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit))
                 }
             }
         }

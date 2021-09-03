@@ -71,6 +71,7 @@
   <string name="app_settings">Impostazioni dell\'applicazione</string>
   <string name="search_tab_tooltip">Clicca di nuovo l\'icona per iniziare direttamente una ricerca.</string>
   <string name="history_list_title">Cronologia</string>
+  <string name="image_content_description">Immagine: %s</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
   <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
@@ -1002,6 +1003,7 @@
   <string name="menu_option_user_contributions">Contributi di %s</string>
   <string name="watchlist_details_watching_label">Osservato</string>
   <string name="watchlist_details_watch_label">Osserva</string>
+  <string name="watchlist_details_prev_edit">Modifica precedente</string>
   <string name="thank_label">Ringrazia</string>
   <string name="go_to_user_page">Vai alla pagina utente</string>
   <string name="thank_dialog_title_text">Invia pubblicamente un \'ringraziamento\'</string>
