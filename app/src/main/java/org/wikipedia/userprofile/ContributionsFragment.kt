@@ -208,7 +208,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     contributions.add(Contribution("", it.revid, it.title, it.title, it.title, EDIT_TYPE_GENERIC, null, it.date(),
                         WikipediaApp.getInstance().wikiSite, 0, it.sizediff, it.top, 0))
                 }
-                Observable.just(Pair(contributions, response.query?.userInfo()!!.editcount))
+                Observable.just(Pair(contributions, response.query?.userInfo()!!.editCount))
             }
     }
 
@@ -270,7 +270,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                 }
                             }
                         }
-                        Observable.just(Pair(wikidataContributions, response.query?.userInfo()!!.editcount))
+                        Observable.just(Pair(wikidataContributions, response.query?.userInfo()!!.editCount))
                     }
             }
     }
@@ -331,7 +331,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                         contributions.add(Contribution(qNumber, contribution.revid, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
                             WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
                     }
-                    Observable.just(Pair(contributions, response.query?.userInfo()!!.editcount))
+                    Observable.just(Pair(contributions, response.query?.userInfo()!!.editCount))
                 }
     }
 

@@ -1,27 +1,27 @@
 package org.wikipedia.dataclient.mwapi
 
 import androidx.collection.ArraySet
+import com.google.gson.annotations.SerializedName
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.util.DateUtil
 import java.util.*
 
-@SuppressWarnings("unused")
 class UserInfo : BlockInfo() {
     val id = 0
     private val groups: List<String>? = null
-    private val latestcontrib: String? = null
-    val editcount = 0
+    @SerializedName("latestcontrib") private val latestContrib: String? = null
+    @SerializedName("editcount") val editCount = 0
     val name: String = ""
 
     fun groups(): Set<String> {
         return if (groups != null) ArraySet(groups) else Collections.emptySet()
     }
 
-    val latestContrib: Date
+    val latestContribDate: Date
         get() {
             var date = Date(0)
-            if (!latestcontrib.isNullOrEmpty()) {
-                date = DateUtil.iso8601DateParse(latestcontrib)
+            if (!latestContrib.isNullOrEmpty()) {
+                date = DateUtil.iso8601DateParse(latestContrib)
             }
             return date
         }
