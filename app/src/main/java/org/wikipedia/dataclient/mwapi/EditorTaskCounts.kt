@@ -5,8 +5,6 @@ import com.google.gson.JsonElement
 import com.google.gson.annotations.SerializedName
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil
-import java.util.*
 
 class EditorTaskCounts {
 
@@ -24,6 +22,7 @@ class EditorTaskCounts {
             }
             return editsPerLanguage ?: emptyMap()
         }
+
     private val captionEditsPerLanguage: Map<String, Int>
         get() {
             var editsPerLanguage: Map<String, Int>? = null
@@ -33,27 +32,7 @@ class EditorTaskCounts {
             }
             return editsPerLanguage ?: emptyMap()
         }
-    val totalDepictsEdits: Int
-        get() {
-            var editsPerLanguage: Map<String, Int>? = null
-            if (counts != null && counts !is JsonArray) {
-                editsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(counts, Counts::class.java).appDepictsEdits
-            }
-            return editsPerLanguage?.get("*") ?: 0
-        }
-    val totalEdits: Int
-        get() {
-            var totalEdits = descriptionEditsPerLanguage.values.sum() + captionEditsPerLanguage.values.sum() + totalDepictsEdits
-            if (Prefs.shouldOverrideSuggestedEditCounts()) {
-                totalEdits = Prefs.getOverrideSuggestedEditCount()
-            }
-            return totalEdits
-        }
-    val totalDescriptionEdits: Int
-        get() { return descriptionEditsPerLanguage.values.sum() }
-    val totalImageCaptionEdits: Int
-        get() { return captionEditsPerLanguage.values.sum() }
+
     private val descriptionRevertsPerLanguage: Map<String, Int>
         get() {
             var revertsPerLanguage: Map<String, Int>? = null
@@ -63,6 +42,7 @@ class EditorTaskCounts {
             }
             return revertsPerLanguage ?: emptyMap()
         }
+
     private val captionRevertsPerLanguage: Map<String, Int>
         get() {
             var revertsPerLanguage: Map<String, Int>? = null
@@ -72,6 +52,7 @@ class EditorTaskCounts {
             }
             return revertsPerLanguage ?: emptyMap()
         }
+
     private val totalDepictsReverts: Int
         get() {
             var revertsPerLanguage: Map<String, Int>? = null
@@ -81,32 +62,39 @@ class EditorTaskCounts {
             }
             return revertsPerLanguage?.get("*") ?: 0
         }
+
+    val totalDepictsEdits: Int
+        get() {
+            var editsPerLanguage: Map<String, Int>? = null
+            if (counts != null && counts !is JsonArray) {
+                editsPerLanguage =
+                    GsonUtil.getDefaultGson().fromJson(counts, Counts::class.java).appDepictsEdits
+            }
+            return editsPerLanguage?.get("*") ?: 0
+        }
+
+    val totalEdits: Int
+        get() {
+            return if (Prefs.shouldOverrideSuggestedEditCounts()) {
+                Prefs.getOverrideSuggestedEditCount()
+            } else {
+                descriptionEditsPerLanguage.values.sum() + captionEditsPerLanguage.values.sum() + totalDepictsEdits
+            }
+        }
+
+    val totalDescriptionEdits: Int
+        get() = descriptionEditsPerLanguage.values.sum()
+
+    val totalImageCaptionEdits: Int
+        get() = captionEditsPerLanguage.values.sum()
+
     val totalReverts: Int
         get() {
-            var totalReverts = descriptionRevertsPerLanguage.values.sum() + captionRevertsPerLanguage.values.sum() + totalDepictsReverts
-            if (Prefs.shouldOverrideSuggestedEditCounts()) {
-                totalReverts = Prefs.getOverrideSuggestedRevertCount()
+            return if (Prefs.shouldOverrideSuggestedEditCounts()) {
+                Prefs.getOverrideSuggestedRevertCount()
+            } else {
+                descriptionRevertsPerLanguage.values.sum() + captionRevertsPerLanguage.values.sum() + totalDepictsReverts
             }
-            return totalReverts
-        }
-
-    fun getEditStreak(): Int {
-        if (editStreak == null || editStreak is JsonArray) {
-            return 0
-        }
-        val streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak::class.java)
-        return streak.length
-    }
-
-    val lastEditDate: Date
-        get() {
-            var date = Date(0)
-            if (editStreak == null || editStreak is JsonArray) {
-                return date
-            }
-            val streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak::class.java)
-            date = DateUtil.dbDateParse(streak.lastEditTime.orEmpty())
-            return date
         }
 
     class Counts {
@@ -114,11 +102,5 @@ class EditorTaskCounts {
         @SerializedName("app_description_edits") val appDescriptionEdits: Map<String, Int>? = null
         @SerializedName("app_caption_edits") val appCaptionEdits: Map<String, Int>? = null
         @SerializedName("app_depicts_edits") val appDepictsEdits: Map<String, Int>? = null
-    }
-
-    private class EditStreak {
-
-        @SerializedName("last_edit_time") val lastEditTime: String? = null
-        val length = 0
     }
 }
