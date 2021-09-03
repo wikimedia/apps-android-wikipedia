@@ -229,7 +229,12 @@ class DefaultRepliesFragment : Fragment(), DefaultRepliesItemView.Callback {
 
                 override fun onSuccess(text: CharSequence, secondaryText: CharSequence) {
                     val defaultReply = text.toString().trim()
-                    // TODO: save to database
+                    val lastNumber = defaultRepliesList.maxByOrNull { it.itemOrder }?.itemOrder ?: 0
+                    AppDatabase.getAppDatabase().defaultRepliesDao().insetDefaultReply(
+                        DefaultReplies(defaultReply, lastNumber + 1)
+                    )
+                    updateDefaultReplies()
+                    textInputDialog.dismiss()
                 }
 
                 override fun onCancel() {}
