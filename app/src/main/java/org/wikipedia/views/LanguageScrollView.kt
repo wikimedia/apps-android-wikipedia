@@ -11,6 +11,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
+import androidx.core.view.ViewCompat
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import org.wikipedia.R
@@ -101,7 +102,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
     }
 
     private fun updateTabLanguageLabel(customView: View, languageCode: String?, @ColorInt textColor: Int?) {
-        val languageLabelTextView = customView.findViewById<TextView>(R.id.language_label)
+        val languageLabelTextView = ViewCompat.requireViewById<TextView>(customView, R.id.language_label)
         if (!languageCode.isNullOrEmpty()) {
             languageLabelTextView.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(languageCode)
         }
@@ -111,7 +112,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
     }
 
     private fun updateTabLanguageCode(customView: View, languageCode: String?, @ColorInt textColor: Int?, background: Drawable?, @ColorInt backgroundColorTint: Int?) {
-        val languageCodeTextView = customView.findViewById<TextView>(R.id.language_code)
+        val languageCodeTextView = ViewCompat.requireViewById<TextView>(customView, R.id.language_code)
         if (languageCode != null) {
             languageCodeTextView.text = languageCode
             ViewUtil.formatLangButton(languageCodeTextView, languageCode, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)

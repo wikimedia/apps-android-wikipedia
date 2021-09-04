@@ -7,6 +7,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ActionProvider
+import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.GroupSearchBinding
 import org.wikipedia.util.DeviceUtil.showSoftKeyboard
@@ -48,7 +49,7 @@ class SearchActionProvider(context: Context,
         }
 
         // remove focus line from search plate
-        val searchEditPlate = binding.searchInput.findViewById<View>(androidx.appcompat.R.id.search_plate)
+        val searchEditPlate = ViewCompat.requireViewById<View>(binding.searchInput, androidx.appcompat.R.id.search_plate)
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT)
         showSoftKeyboard(binding.searchInput)
         return binding.root

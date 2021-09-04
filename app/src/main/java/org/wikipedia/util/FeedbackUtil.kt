@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.core.app.ActivityCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.skydoves.balloon.*
@@ -147,11 +148,11 @@ object FeedbackUtil {
     fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int): Snackbar {
         val view = findBestView(activity)
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
-        val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
+        val textView = ViewCompat.requireViewById<TextView>(snackbar.view, R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
         RichTextUtil.removeUnderlinesFromLinks(textView)
-        val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
+        val actionView = ViewCompat.requireViewById<TextView>(snackbar.view, R.id.snackbar_action)
         actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
         return snackbar
     }
@@ -159,7 +160,7 @@ object FeedbackUtil {
     fun showToastOverView(view: View, text: CharSequence?, duration: Int): Toast {
         val toast = Toast.makeText(view.context, text, duration)
         val v = LayoutInflater.from(view.context).inflate(R.layout.abc_tooltip, null)
-        val message = v.findViewById<TextView>(R.id.message)
+        val message = ViewCompat.requireViewById<TextView>(v, R.id.message)
         message.text = text
         message.maxLines = Int.MAX_VALUE
         toast.view = v

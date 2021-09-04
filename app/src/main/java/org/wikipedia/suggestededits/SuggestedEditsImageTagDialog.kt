@@ -12,6 +12,7 @@ import android.text.TextWatcher
 import android.view.*
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -163,14 +164,14 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
     private inner class ResultItemHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         fun bindItem(item: MwQueryPage.ImageLabel) {
-            itemView.findViewById<TextView>(R.id.labelName).text = item.label
-            itemView.findViewById<TextView>(R.id.labelDescription).text = item.description
+            ViewCompat.requireViewById<TextView>(itemView, R.id.labelName).text = item.label
+            ViewCompat.requireViewById<TextView>(itemView, R.id.labelDescription).text = item.description
             itemView.tag = item
             itemView.setOnClickListener(this)
         }
 
-        override fun onClick(v: View?) {
-            val item = v!!.tag as MwQueryPage.ImageLabel
+        override fun onClick(v: View) {
+            val item = v.tag as MwQueryPage.ImageLabel
             callback()?.onSearchSelect(item)
             dismiss()
         }

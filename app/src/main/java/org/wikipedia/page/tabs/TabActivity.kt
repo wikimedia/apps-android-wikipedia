@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.graphics.scale
+import androidx.core.view.ViewCompat
 import de.mrapp.android.tabswitcher.Animation
 import de.mrapp.android.tabswitcher.TabSwitcher
 import de.mrapp.android.tabswitcher.TabSwitcherDecorator
@@ -73,10 +74,10 @@ class TabActivity : BaseActivity() {
                 if (viewType == 1 || tabIndex < 0 || app.tabList[tabIndex] == null) {
                     return
                 }
-                val titleText = view.findViewById<TextView>(R.id.tab_article_title)
-                val descriptionText = view.findViewById<TextView>(R.id.tab_article_description)
-                val title = app.tabList[tabIndex].backStackPositionTitle
-                titleText.text = StringUtil.fromHtml(title!!.displayText)
+                val titleText = ViewCompat.requireViewById<TextView>(view, R.id.tab_article_title)
+                val descriptionText = ViewCompat.requireViewById<TextView>(view, R.id.tab_article_description)
+                val title = app.tabList[tabIndex].backStackPositionTitle!!
+                titleText.text = StringUtil.fromHtml(title.displayText)
                 if (title.description.isNullOrEmpty()) {
                     descriptionText.visibility = View.GONE
                 } else {

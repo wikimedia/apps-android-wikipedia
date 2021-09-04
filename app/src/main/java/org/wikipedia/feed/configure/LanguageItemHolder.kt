@@ -7,12 +7,13 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
+import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DefaultViewHolder
 
 class LanguageItemHolder internal constructor(private val context: Context, itemView: View) : DefaultViewHolder<View>(itemView) {
-    private val langCodeView: TextView = itemView.findViewById(R.id.feed_content_type_lang_code)
+    private val langCodeView = ViewCompat.requireViewById<TextView>(itemView, R.id.feed_content_type_lang_code)
     fun bindItem(langCode: String, enabled: Boolean) {
         langCodeView.text = langCode
 

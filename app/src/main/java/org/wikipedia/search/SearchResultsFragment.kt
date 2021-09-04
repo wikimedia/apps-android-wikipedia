@@ -409,8 +409,8 @@ class SearchResultsFragment : Fragment() {
         fun bindItem(position: Int) {
             val langCode = WikipediaApp.getInstance().language().appLanguageCodes[position]
             val resultsCount = resultsCountList[position]
-            val resultsText = view.findViewById<TextView>(R.id.results_text)
-            val languageCodeText = view.findViewById<TextView>(R.id.language_code)
+            val resultsText = ViewCompat.requireViewById<TextView>(view, R.id.results_text)
+            val languageCodeText = ViewCompat.requireViewById<TextView>(view, R.id.language_code)
             resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
             resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             languageCodeText.visibility = if (resultsCountList.size == 1) View.GONE else View.VISIBLE
@@ -431,13 +431,13 @@ class SearchResultsFragment : Fragment() {
 
     private inner class SearchResultItemViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
         fun bindItem(position: Int) {
-            val pageTitleText = view.findViewById<TextView>(R.id.page_list_item_title)
+            val pageTitleText = ViewCompat.requireViewById<TextView>(view, R.id.page_list_item_title)
             val (pageTitle, redirectFrom, type) = totalResults[position]
-            val searchResultItemImage = view.findViewById<ImageView>(R.id.page_list_item_image)
-            val searchResultIcon = view.findViewById<ImageView>(R.id.page_list_icon)
-            val descriptionText = view.findViewById<GoneIfEmptyTextView>(R.id.page_list_item_description)
-            val redirectText = view.findViewById<TextView>(R.id.page_list_item_redirect)
-            val redirectArrow = view.findViewById<View>(R.id.page_list_item_redirect_arrow)
+            val searchResultItemImage = ViewCompat.requireViewById<ImageView>(view, R.id.page_list_item_image)
+            val searchResultIcon = ViewCompat.requireViewById<ImageView>(view, R.id.page_list_icon)
+            val descriptionText = ViewCompat.requireViewById<GoneIfEmptyTextView>(view, R.id.page_list_item_description)
+            val redirectText = ViewCompat.requireViewById<TextView>(view, R.id.page_list_item_redirect)
+            val redirectArrow = ViewCompat.requireViewById<View>(view, R.id.page_list_item_redirect_arrow)
             if (redirectFrom.isNullOrEmpty()) {
                 redirectText.visibility = View.GONE
                 redirectArrow.visibility = View.GONE

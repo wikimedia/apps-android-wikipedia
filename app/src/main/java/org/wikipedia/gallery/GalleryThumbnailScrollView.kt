@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
@@ -37,7 +38,7 @@ class GalleryThumbnailScrollView constructor(context: Context, attrs: AttributeS
     @SuppressLint("ClickableViewAccessibility")
     private inner class GalleryItemHolder constructor(itemView: View) : ViewHolder(itemView), OnClickListener, OnTouchListener {
         private lateinit var galleryItem: MwQueryPage
-        private val imageView = itemView.findViewById<ImageView>(R.id.gallery_thumbnail_image)
+        private val imageView = ViewCompat.requireViewById<ImageView>(itemView, R.id.gallery_thumbnail_image)
 
         fun bindItem(item: MwQueryPage) {
             galleryItem = item

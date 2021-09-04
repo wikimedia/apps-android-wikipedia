@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -318,17 +319,17 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     @Suppress("LeakingThis")
     private open inner class NotificationItemHolder constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener, OnLongClickListener {
-        private val titleView = view.findViewById<TextView>(R.id.notification_item_title)
-        private val descriptionView = view.findViewById<TextView>(R.id.notification_item_description)
-        private val secondaryActionHintView = view.findViewById<TextView>(R.id.notification_item_secondary_action_hint)
-        private val tertiaryActionHintView = view.findViewById<TextView>(R.id.notification_item_tertiary_action_hint)
-        private val wikiCodeView = view.findViewById<TextView>(R.id.notification_wiki_code)
-        private val wikiCodeImageView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_image)
-        private val wikiCodeBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_background)
-        private val imageContainerView = view.findViewById<View>(R.id.notification_item_image_container)
-        private val imageBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_item_image_background)
-        private val imageSelectedView = view.findViewById<View>(R.id.notification_item_selected_image)
-        private val imageView = view.findViewById<AppCompatImageView>(R.id.notification_item_image)
+        private val titleView = ViewCompat.requireViewById<TextView>(view, R.id.notification_item_title)
+        private val descriptionView = ViewCompat.requireViewById<TextView>(view, R.id.notification_item_description)
+        private val secondaryActionHintView = ViewCompat.requireViewById<TextView>(view, R.id.notification_item_secondary_action_hint)
+        private val tertiaryActionHintView = ViewCompat.requireViewById<TextView>(view, R.id.notification_item_tertiary_action_hint)
+        private val wikiCodeView = ViewCompat.requireViewById<TextView>(view, R.id.notification_wiki_code)
+        private val wikiCodeImageView = ViewCompat.requireViewById<AppCompatImageView>(view, R.id.notification_wiki_code_image)
+        private val wikiCodeBackgroundView = ViewCompat.requireViewById<AppCompatImageView>(view, R.id.notification_wiki_code_background)
+        private val imageContainerView = ViewCompat.requireViewById<View>(view, R.id.notification_item_image_container)
+        private val imageBackgroundView = ViewCompat.requireViewById<AppCompatImageView>(view, R.id.notification_item_image_background)
+        private val imageSelectedView = ViewCompat.requireViewById<View>(view, R.id.notification_item_selected_image)
+        private val imageView = ViewCompat.requireViewById<AppCompatImageView>(view, R.id.notification_item_image)
         lateinit var container: NotificationListItemContainer
 
         init {
@@ -421,9 +422,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     }
 
     private inner class NotificationDateHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-        private val dateView: TextView = view.findViewById(R.id.notification_date_text)
-        fun bindItem(date: Date?) {
-            dateView.text = getFeedCardDateString(date!!)
+        private val dateView = ViewCompat.requireViewById<TextView>(view, R.id.notification_date_text)
+        fun bindItem(date: Date) {
+            dateView.text = getFeedCardDateString(date)
         }
     }
 
@@ -449,7 +450,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             when (holder) {
-                is NotificationDateHolder -> holder.bindItem(notificationContainerList[pos].date)
+                is NotificationDateHolder -> holder.bindItem(notificationContainerList[pos].date!!)
                 is NotificationItemHolderSwipeable -> holder.bindItem(notificationContainerList[pos])
                 is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos])
             }

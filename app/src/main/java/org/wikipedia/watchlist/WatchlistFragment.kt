@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -267,7 +268,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     internal inner class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(date: Date) {
-            val textView = itemView.findViewById<TextView>(R.id.dateText)
+            val textView = ViewCompat.requireViewById<TextView>(itemView, R.id.dateText)
             textView.text = DateUtil.getMonthOnlyDateString(date)
         }
     }

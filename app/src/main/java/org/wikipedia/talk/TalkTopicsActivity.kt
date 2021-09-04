@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.*
 import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -338,8 +339,8 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
-        private val title: TextView = view.findViewById(R.id.topicTitleText)
-        private val subtitle: TextView = view.findViewById(R.id.topicSubtitleText)
+        private val title = ViewCompat.requireViewById<TextView>(view, R.id.topicTitleText)
+        private val subtitle = ViewCompat.requireViewById<TextView>(view, R.id.topicSubtitleText)
         private var id: Int = 0
 
         fun bindItem(topic: TalkPage.Topic) {

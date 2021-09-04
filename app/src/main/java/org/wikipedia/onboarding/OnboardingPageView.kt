@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
@@ -142,7 +143,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         override fun getItemCount() = items.size
 
         inner class OptionsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var optionLabelTextView = itemView.findViewById<TextView>(R.id.option_label)!!
+            var optionLabelTextView = ViewCompat.requireViewById<TextView>(itemView, R.id.option_label)
         }
     }
 

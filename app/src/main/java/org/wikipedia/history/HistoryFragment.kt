@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.ViewCompat
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
@@ -231,7 +232,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
-        var headerText = itemView.findViewById<TextView>(R.id.section_header_text)!!
+        var headerText = ViewCompat.requireViewById<TextView>(itemView, R.id.section_header_text)
 
         fun bindItem(date: String) {
             headerText.text = date
@@ -239,8 +240,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private inner class SearchCardViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
-        private val historyFilterButton: ImageView
-        private val clearHistoryButton: ImageView
+        private val historyFilterButton = ViewCompat.requireViewById<ImageView>(itemView, R.id.history_filter)
+        private val clearHistoryButton = ViewCompat.requireViewById<ImageView>(itemView, R.id.history_delete)
 
         fun bindItem() {
             clearHistoryButton.visibility = if (adapter.isEmpty) View.GONE else View.VISIBLE
@@ -266,10 +267,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
 
         init {
-            val searchCardView = itemView.findViewById<WikiCardView>(R.id.search_card)
-            val voiceSearchButton = itemView.findViewById<View>(R.id.voice_search_button)
-            historyFilterButton = itemView.findViewById(R.id.history_filter)
-            clearHistoryButton = itemView.findViewById(R.id.history_delete)
+            val searchCardView = ViewCompat.requireViewById<WikiCardView>(itemView, R.id.search_card)
+            val voiceSearchButton = ViewCompat.requireViewById<View>(itemView, R.id.voice_search_button)
             searchCardView.setOnClickListener { (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it) }
             voiceSearchButton.setOnClickListener { (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested() }
             historyFilterButton.setOnClickListener {

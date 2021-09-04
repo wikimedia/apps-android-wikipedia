@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -322,8 +323,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                 R.attr.material_theme_de_emphasised_color))
 
         // remove focus line from search plate
-        val searchEditPlate = binding.searchCabView
-                .findViewById<View>(androidx.appcompat.R.id.search_plate)
+        val searchEditPlate = ViewCompat.requireViewById<View>(binding.searchCabView, androidx.appcompat.R.id.search_plate)
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT)
     }
 

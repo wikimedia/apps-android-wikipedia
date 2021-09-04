@@ -9,6 +9,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.GroupFindInPageBinding
 import org.wikipedia.util.DeviceUtil
@@ -59,10 +60,10 @@ open class FindInPageActionProvider(private val context: Context) : ActionProvid
         binding.findInPageInput.inputType = EditorInfo.TYPE_CLASS_TEXT
         binding.findInPageInput.isSubmitButtonEnabled = false
         // remove focus line from search plate
-        val searchEditPlate = binding.findInPageInput.findViewById<View>(androidx.appcompat.R.id.search_plate)
+        val searchEditPlate = ViewCompat.requireViewById<View>(binding.findInPageInput, androidx.appcompat.R.id.search_plate)
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT)
         // remove the close icon in search view
-        val searchCloseButton = binding.findInPageInput.findViewById<ImageView>(androidx.appcompat.R.id.search_close_btn)
+        val searchCloseButton = ViewCompat.requireViewById<ImageView>(binding.findInPageInput, androidx.appcompat.R.id.search_close_btn)
         searchCloseButton.isEnabled = false
         searchCloseButton.setImageDrawable(null)
     }

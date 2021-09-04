@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.ViewCompat
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import org.wikipedia.R
@@ -27,8 +28,8 @@ class LogoutPreference : Preference {
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
         holder.itemView.isClickable = false
-        holder.itemView.findViewById<TextView>(R.id.accountName).text = AccountUtil.userName
-        holder.itemView.findViewById<Button>(R.id.logoutButton).setOnClickListener {
+        ViewCompat.requireViewById<TextView>(holder.itemView, R.id.accountName).text = AccountUtil.userName
+        ViewCompat.requireViewById<Button>(holder.itemView, R.id.logoutButton).setOnClickListener {
             activity?.let {
                 AlertDialog.Builder(it)
                     .setMessage(R.string.logout_prompt)

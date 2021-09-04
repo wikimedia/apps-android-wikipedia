@@ -9,6 +9,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.Group
+import androidx.core.view.ViewCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -113,7 +114,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun Group.addOnClickListener(listener: View.OnClickListener) {
         referencedIds.forEach { id ->
-            binding.userStatsClickTarget.findViewById<View>(id).setOnClickListener(listener)
+            ViewCompat.requireViewById<View>(binding.userStatsClickTarget, id).setOnClickListener(listener)
         }
         binding.userStatsClickTarget.setOnClickListener(listener)
     }

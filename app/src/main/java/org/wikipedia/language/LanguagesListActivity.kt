@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -223,13 +224,13 @@ class LanguagesListActivity : BaseActivity() {
     // TODO: optimize and reuse the header view holder?
     private open inner class DefaultViewHolder constructor(private val languageCodes: List<String>, itemView: View) : RecyclerView.ViewHolder(itemView) {
         open fun bindItem(position: Int) {
-            itemView.findViewById<TextView>(R.id.section_header_text).text = languageCodes[position]
+            ViewCompat.requireViewById<TextView>(itemView, R.id.section_header_text).text = languageCodes[position]
         }
     }
 
     private inner class LanguagesListItemHolder constructor(private val languageCodes: List<String>, itemView: View) : DefaultViewHolder(languageCodes, itemView) {
-        private val localizedNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
-        private val canonicalNameTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
+        private val localizedNameTextView = ViewCompat.requireViewById<TextView>(itemView, R.id.localized_language_name)
+        private val canonicalNameTextView = ViewCompat.requireViewById<TextView>(itemView, R.id.language_subtitle)
 
         override fun bindItem(position: Int) {
             val languageCode = languageCodes[position]

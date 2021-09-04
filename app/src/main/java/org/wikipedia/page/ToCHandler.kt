@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.webkit.ValueCallback
 import android.widget.*
 import android.widget.AdapterView.OnItemClickListener
+import androidx.core.view.ViewCompat
 import androidx.core.view.updateLayoutParams
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.FixedDrawerLayout
@@ -39,9 +40,9 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
                                       private val bridge: CommunicationBridge) :
         ObservableWebView.OnClickListener, ObservableWebView.OnScrollChangeListener, OnContentHeightChangedListener {
 
-    private val tocList = drawerLayout.findViewById<SwipeableListView>(R.id.toc_list)
+    private val tocList = ViewCompat.requireViewById<SwipeableListView>(drawerLayout, R.id.toc_list)
     private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
-    private val containerView = drawerLayout.findViewById<FrameLayout>(R.id.toc_container)
+    private val containerView = ViewCompat.requireViewById<FrameLayout>(drawerLayout, R.id.toc_container)
     private val webView = fragment.webView
     private val adapter = ToCAdapter()
     private var rtl = false
@@ -194,13 +195,11 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
         }
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-            var newConvertView = convertView
-            if (newConvertView == null) {
-                newConvertView = LayoutInflater.from(parent.context).inflate(R.layout.item_toc_entry, parent, false)
-            }
+            val newConvertView = convertView ?: LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_toc_entry, parent, false)
             val section = getItem(position)
-            val sectionHeading = newConvertView!!.findViewById<TextView>(R.id.page_toc_item_text)
-            val sectionBullet = newConvertView.findViewById<View>(R.id.page_toc_item_bullet)
+            val sectionHeading = ViewCompat.requireViewById<TextView>(newConvertView, R.id.page_toc_item_text)
+            val sectionBullet = ViewCompat.requireViewById<View>(newConvertView, R.id.page_toc_item_bullet)
             sectionHeading.text = StringUtil.fromHtml(section.heading)
             var textSize = TOC_SUBSECTION_TEXT_SIZE
             when {

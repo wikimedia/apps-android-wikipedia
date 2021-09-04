@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.FeedbackUtil
@@ -18,18 +19,16 @@ import org.wikipedia.util.ResourceUtil
 class CabSearchView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = androidx.appcompat.R.attr.searchViewStyle) :
         SearchView(context, attrs, defStyleAttr) {
 
-    private val searchCloseBtn: ImageView
-    private val searchSrcTextView: SearchAutoComplete
+    private val searchCloseBtn = ViewCompat.requireViewById<ImageView>(this, R.id.search_close_btn)
+    private val searchSrcTextView = ViewCompat.requireViewById<SearchAutoComplete>(this, R.id.search_src_text)
 
     init {
         val themedIconColor = ResourceUtil.getThemedColor(getContext(), R.attr.toolbar_icon_color)
-        searchSrcTextView = findViewById(R.id.search_src_text)
         searchSrcTextView.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.primary_text_color))
         searchSrcTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, SEARCH_TEXT_SIZE.toFloat())
         searchSrcTextView.setHintTextColor(themedIconColor)
-        val searchMagIcon = findViewById<ImageView>(R.id.search_mag_icon)
+        val searchMagIcon = ViewCompat.requireViewById<ImageView>(this, R.id.search_mag_icon)
         searchMagIcon.setColorFilter(themedIconColor)
-        searchCloseBtn = findViewById(R.id.search_close_btn)
         searchCloseBtn.visibility = GONE
         searchCloseBtn.setColorFilter(themedIconColor)
         FeedbackUtil.setButtonLongPressToast(searchCloseBtn)

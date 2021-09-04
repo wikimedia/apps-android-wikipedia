@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.ViewCompat
 import androidx.core.widget.PopupWindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,9 +46,9 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
     internal inner class WatchlistLangViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(position: Int) {
             val langCode = WikipediaApp.getInstance().language().appLanguageCodes[position]
-            itemView.findViewById<TextView>(R.id.languageText).text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
-            itemView.findViewById<TextView>(R.id.langCodeText).text = langCode
-            val checkBox = itemView.findViewById<CheckBox>(R.id.languageCheckBox)
+            ViewCompat.requireViewById<TextView>(itemView, R.id.languageText).text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
+            ViewCompat.requireViewById<TextView>(itemView, R.id.langCodeText).text = langCode
+            val checkBox = ViewCompat.requireViewById<CheckBox>(itemView, R.id.languageCheckBox)
             checkBox.tag = langCode
             checkBox.isChecked = !disabledLangCodes.contains(langCode)
             checkBox.setOnCheckedChangeListener(this@WatchlistLanguagePopupView)

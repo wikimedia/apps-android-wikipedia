@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -300,14 +301,14 @@ class LangLinksActivity : BaseActivity() {
     private open inner class DefaultViewHolder constructor(private val languageEntries: List<PageTitle>, itemView: View) : RecyclerView.ViewHolder(itemView) {
         open fun bindItem(position: Int) {
             // TODO: Optimize this
-            itemView.findViewById<TextView>(R.id.section_header_text).text = languageEntries[position].displayText
+            ViewCompat.requireViewById<TextView>(itemView, R.id.section_header_text).text = languageEntries[position].displayText
         }
     }
 
     private inner class LangLinksItemViewHolder constructor(private val languageEntries: List<PageTitle>, itemView: View) : DefaultViewHolder(languageEntries, itemView), View.OnClickListener {
-        private val localizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
-        private val nonLocalizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.non_localized_language_name)
-        private val articleTitleTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
+        private val localizedLanguageNameTextView = ViewCompat.requireViewById<TextView>(itemView, R.id.localized_language_name)
+        private val nonLocalizedLanguageNameTextView = ViewCompat.requireViewById<TextView>(itemView, R.id.non_localized_language_name)
+        private val articleTitleTextView = ViewCompat.requireViewById<TextView>(itemView, R.id.language_subtitle)
         private var pos = 0
 
         override fun bindItem(position: Int) {

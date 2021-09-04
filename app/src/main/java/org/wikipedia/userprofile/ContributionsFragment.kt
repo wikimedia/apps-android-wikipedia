@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -428,7 +429,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             itemView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(32f))
         }
 
-        var headerText: TextView = itemView.findViewById(R.id.section_header_text)
+        var headerText = ViewCompat.requireViewById<TextView>(itemView, R.id.section_header_text)
         fun bindItem(date: String) {
             headerText.text = date
         }

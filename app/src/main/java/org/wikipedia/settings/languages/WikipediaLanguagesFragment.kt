@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -256,7 +257,8 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
 
     private inner class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         init {
-            itemView.findViewById<TextView>(R.id.section_header_text).setText(R.string.wikipedia_languages_your_languages_text)
+            ViewCompat.requireViewById<TextView>(itemView, R.id.section_header_text)
+                .setText(R.string.wikipedia_languages_your_languages_text)
         }
     }
 

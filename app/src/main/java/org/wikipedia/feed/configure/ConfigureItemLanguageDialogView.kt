@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
@@ -42,9 +43,9 @@ class ConfigureItemLanguageDialogView : FrameLayout {
 
     private inner class LanguageItemHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView), OnClickListener {
         private lateinit var langCode: String
-        private val container = itemView.findViewById<View>(R.id.feed_content_type_lang_container)
-        private val checkbox = itemView.findViewById<CheckBox>(R.id.feed_content_type_lang_checkbox)
-        private val langNameView = itemView.findViewById<TextView>(R.id.feed_content_type_lang_name)
+        private val container = ViewCompat.requireViewById<View>(itemView, R.id.feed_content_type_lang_container)
+        private val checkbox = ViewCompat.requireViewById<CheckBox>(itemView, R.id.feed_content_type_lang_checkbox)
+        private val langNameView = ViewCompat.requireViewById<TextView>(itemView, R.id.feed_content_type_lang_name)
 
         fun bindItem(langCode: String) {
             this.langCode = langCode

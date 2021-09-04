@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
@@ -40,13 +41,13 @@ class OnThisDayPagesViewHolder(
         DeviceUtil.setContextClickAsLongClick(v)
         this.itemView.setOnClickListener { onBaseViewClicked() }
         this.itemView.setOnLongClickListener { showOverflowMenu(it) }
-        imageContainer = this.itemView.findViewById(R.id.image_container)
-        image = this.itemView.findViewById(R.id.image)
+        imageContainer = ViewCompat.requireViewById(itemView, R.id.image_container)
+        image = ViewCompat.requireViewById(itemView, R.id.image)
     }
 
     fun setFields(page: PageSummary) {
-        val description = this.itemView.findViewById<TextView>(R.id.description)
-        val title = this.itemView.findViewById<TextView>(R.id.title)
+        val description = ViewCompat.requireViewById<TextView>(itemView, R.id.description)
+        val title = ViewCompat.requireViewById<TextView>(itemView, R.id.title)
 
         selectedPage = page
         description.text = page.description
@@ -70,7 +71,7 @@ class OnThisDayPagesViewHolder(
             selectedPage!!.getPageTitle(wiki),
             HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY
         )
-        val sharedElements = TransitionUtil.getSharedElements(activity, image!!)
+        val sharedElements = TransitionUtil.getSharedElements(activity, image)
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, *sharedElements)
         val intent = PageActivity.newIntentForNewTab(activity, entry, entry.title)
         if (sharedElements.isNotEmpty()) {

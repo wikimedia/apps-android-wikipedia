@@ -12,6 +12,7 @@ import android.speech.RecognizerIntent
 import android.view.*
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -575,7 +576,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         if (currentFragment !is SuggestedEditsTasksFragment && Prefs.shouldShowSuggestedEditsTooltip() &&
                 Prefs.getExploreFeedVisitCount() >= SHOW_EDITS_SNACKBAR_COUNT) {
             enqueueTooltip {
-                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()),
+                FeedbackUtil.showTooltip(requireActivity(), ViewCompat.requireViewById(binding.mainNavTabLayout, NavTab.EDITS.id()),
                     if (AccountUtil.isLoggedIn) getString(R.string.main_tooltip_text, AccountUtil.userName)
                     else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
                             Prefs.setShouldShowSuggestedEditsTooltip(false)

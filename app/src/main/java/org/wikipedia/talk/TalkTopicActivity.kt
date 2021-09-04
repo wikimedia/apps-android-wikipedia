@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -266,9 +267,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
-        private val text: TextView = view.findViewById(R.id.replyText)
-        private val indentArrow: View = view.findViewById(R.id.replyIndentArrow)
-        private val bottomSpace: View = view.findViewById(R.id.replyBottomSpace)
+        private val text = ViewCompat.requireViewById<TextView>(view, R.id.replyText)
+        private val indentArrow = ViewCompat.requireViewById<View>(view, R.id.replyIndentArrow)
+        private val bottomSpace = ViewCompat.requireViewById<View>(view, R.id.replyBottomSpace)
         fun bindItem(reply: TalkPage.TopicReply, isLast: Boolean) {
             text.movementMethod = linkMovementMethod
             text.text = StringUtil.fromHtml(reply.html)

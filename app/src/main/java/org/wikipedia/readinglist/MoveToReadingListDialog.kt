@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -26,7 +27,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         val parentView = super.onCreateView(inflater, container, savedInstanceState)
-        parentView.findViewById<TextView>(R.id.dialog_title).setText(R.string.reading_list_move_to)
+        ViewCompat.requireViewById<TextView>(parentView, R.id.dialog_title).setText(R.string.reading_list_move_to)
         val sourceReadingListId = requireArguments().getLong(SOURCE_READING_LIST_ID)
         sourceReadingList = AppDatabase.getAppDatabase().readingListDao().getListById(sourceReadingListId, false)
         if (sourceReadingList == null) {

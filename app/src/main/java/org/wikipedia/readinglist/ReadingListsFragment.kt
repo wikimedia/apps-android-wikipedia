@@ -7,6 +7,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -121,7 +122,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 true
             }
             R.id.menu_overflow_button -> {
-                ReadingListsOverflowView(requireContext()).show((requireActivity() as MainActivity).getToolbar().findViewById(R.id.menu_overflow_button), overflowCallback)
+                val overflowButton = ViewCompat.requireViewById<View>((requireActivity() as MainActivity).getToolbar(),
+                    R.id.menu_overflow_button)
+                ReadingListsOverflowView(requireContext()).show(overflowButton, overflowCallback)
                 true
             }
             else -> super.onOptionsItemSelected(item)
