@@ -89,7 +89,7 @@ class Notification {
                 return null
             }
             if (primaryLink == null && primary is JsonObject) {
-                primaryLink = Json.decodeFromJsonElement(Link.serializer(),primary)
+                primaryLink = Json.decodeFromJsonElement(Link.serializer(), primary)
             }
             return primaryLink
         }

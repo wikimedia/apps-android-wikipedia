@@ -2,16 +2,15 @@ package org.wikipedia.dataclient
 
 import androidx.collection.lruCache
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.InternalSerializationApi
-import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
-import kotlinx.serialization.modules.contextual
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.*
+import org.wikipedia.analytics.eventplatform.DestinationEventService
+import org.wikipedia.analytics.eventplatform.EventService
+import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.serialization.AnySerializer
 import org.wikipedia.settings.Prefs

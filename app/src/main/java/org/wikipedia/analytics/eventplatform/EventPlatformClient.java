@@ -72,7 +72,7 @@ public final class EventPlatformClient {
      * @param event event
      */
     public static synchronized void submit(Event event) {
-        StreamConfig streamConfig = STREAM_CONFIGS.get(event.getStreamStr());
+        StreamConfig streamConfig = STREAM_CONFIGS.get(event.getStream());
         if (streamConfig == null) {
             return;
         }
@@ -169,7 +169,7 @@ public final class EventPlatformClient {
         private static void send() {
             Map<String, ArrayList<Event>> eventsByStream = new HashMap<>();
             for (Event event : QUEUE) {
-                String stream = event.getStreamStr();
+                String stream = event.getStream();
                 if (!eventsByStream.containsKey(stream) || eventsByStream.get(stream) == null) {
                     eventsByStream.put(stream, new ArrayList<>());
                 }
@@ -308,7 +308,7 @@ public final class EventPlatformClient {
          * @return true if in sample or false otherwise
          */
         static boolean isInSample(Event event) {
-            String stream = event.getStreamStr();
+            String stream = event.getStream();
 
             if (SAMPLING_CACHE.containsKey(stream)) {
                 return SAMPLING_CACHE.get(stream);

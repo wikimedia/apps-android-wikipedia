@@ -1,8 +1,6 @@
 package org.wikipedia.dataclient.page
 
 import kotlinx.serialization.Serializable
-import org.apache.commons.lang3.StringUtils
-import java.util.*
 
 /** Protection settings for a page  */
 @Serializable
