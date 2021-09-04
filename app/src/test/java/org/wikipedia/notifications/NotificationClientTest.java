@@ -15,11 +15,6 @@ import io.reactivex.rxjava3.core.Observable;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-
-import java.util.List;
-
-import io.reactivex.rxjava3.core.Observable;
-
 public class NotificationClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccess() throws Throwable {
@@ -55,9 +50,9 @@ public class NotificationClientTest extends MockRetrofitTest {
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
                     List<Notification> notifications = response.getQuery().getNotifications().getList();
-                    return notifications.get(0).getCategory().startsWith(CATEGORY_MENTION)
-                            && notifications.get(1).getCategory().startsWith(CATEGORY_MENTION)
-                            && notifications.get(2).getCategory().startsWith(CATEGORY_MENTION);
+                    return notifications.get(0).getCategory().startsWith(NotificationCategory.MENTION.getId())
+                            && notifications.get(1).getCategory().startsWith(NotificationCategory.MENTION.getId())
+                            && notifications.get(2).getCategory().startsWith(NotificationCategory.MENTION.getId());
                 });
     }
 
