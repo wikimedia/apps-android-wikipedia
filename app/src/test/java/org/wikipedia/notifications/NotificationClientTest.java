@@ -1,6 +1,7 @@
 package org.wikipedia.notifications;
 
 import org.junit.Test;
+
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.test.MockRetrofitTest;
@@ -13,8 +14,11 @@ import io.reactivex.rxjava3.core.Observable;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.wikipedia.notifications.Notification.CATEGORY_EDIT_THANK;
-import static org.wikipedia.notifications.Notification.CATEGORY_MENTION;
+
+
+import java.util.List;
+
+import io.reactivex.rxjava3.core.Observable;
 
 public class NotificationClientTest extends MockRetrofitTest {
 
@@ -24,7 +28,7 @@ public class NotificationClientTest extends MockRetrofitTest {
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
                     List<Notification> notifications = response.getQuery().getNotifications().getList();
-                    return notifications.get(0).getCategory().equals(CATEGORY_EDIT_THANK)
+                    return notifications.get(0).getCategory().equals(NotificationCategory.EDIT_THANK.getId())
                             && notifications.get(0).getTitle().getFull().equals("PageTitle")
                             && notifications.get(0).getAgent().getName().equals("User1");
                 });

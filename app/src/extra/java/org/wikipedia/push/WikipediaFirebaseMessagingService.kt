@@ -6,12 +6,13 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
@@ -25,7 +26,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         L.d("Message from: ${remoteMessage.from}")
 
         if (remoteMessage.data.containsValue(MESSAGE_TYPE_CHECK_ECHO)) {
-            handleCheckEcho()
+            NotificationPollBroadcastReceiver.pollNotifications(this)
         }
 
         // The message could also contain a notification payload, but that's not how we're using it.
@@ -49,18 +50,11 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         updateSubscription()
     }
 
-    private fun handleCheckEcho() {
-        if (!Prefs.notificationPollEnabled()) {
-            return
-        }
-        NotificationPollBroadcastReceiver.pollNotifications(this)
-    }
-
     companion object {
         const val MESSAGE_TYPE_CHECK_ECHO = "checkEchoV1"
         private const val SUBSCRIBE_RETRY_COUNT = 5
         private const val UNSUBSCRIBE_RETRY_COUNT = 3
-        private var csrfDisposable: Disposable? = null
+        private var csrfDisposables = CompositeDisposable()
 
         fun isUsingPush(): Boolean {
             return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.getInstance()) == ConnectionResult.SUCCESS &&
@@ -74,16 +68,21 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                 return
             }
 
-            csrfDisposable?.dispose()
-            csrfDisposable = CsrfTokenClient(WikipediaApp.getInstance().wikiSite).token
+            csrfDisposables.clear()
+
+            for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
+                csrfDisposables.add(CsrfTokenClient(WikiSite.forLanguageCode(lang)).token
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
-                        subscribeWithCsrf(it)
-                        setNotificationOptions(it)
+                        if (lang == WikipediaApp.getInstance().appOrSystemLanguageCode) {
+                            subscribeWithCsrf(it)
+                        }
+                        setNotificationOptions(lang, it)
                     }, {
                         L.e(it)
-                    })
+                    }))
+            }
         }
 
         private fun subscribeWithCsrf(csrfToken: String) {
@@ -131,23 +130,23 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                     })
         }
 
-        private fun setNotificationOptions(csrfToken: String) {
+        private fun setNotificationOptions(lang: String, csrfToken: String) {
             val optionList = ArrayList<String>()
 
-            optionList.add("echo-subscriptions-push-edit-user-talk=" + if (Prefs.notificationUserTalkEnabled()) "1" else "0")
-            optionList.add("echo-subscriptions-push-login-fail=" + if (Prefs.notificationLoginFailEnabled()) "1" else "0")
-            optionList.add("echo-subscriptions-push-mention=" + if (Prefs.notificationMentionEnabled()) "1" else "0")
-            optionList.add("echo-subscriptions-push-thank-you-edit=" + if (Prefs.notificationMilestoneEnabled()) "1" else "0")
-            optionList.add("echo-subscriptions-push-reverted=" + if (Prefs.notificationRevertEnabled()) "1" else "0")
-            optionList.add("echo-subscriptions-push-edit-thank=" + if (Prefs.notificationThanksEnabled()) "1" else "0")
+            optionList.add("echo-subscriptions-push-edit-user-talk=1")
+            optionList.add("echo-subscriptions-push-login-fail=1")
+            optionList.add("echo-subscriptions-push-mention=1")
+            optionList.add("echo-subscriptions-push-thank-you-edit=1")
+            optionList.add("echo-subscriptions-push-reverted=1")
+            optionList.add("echo-subscriptions-push-edit-thank=1")
             // Explicitly enable cross-wiki notifications
             optionList.add("echo-cross-wiki-notifications=1")
 
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).postSetOptions(optionList.joinToString(separator = "|"), csrfToken)
+            ServiceFactory.get(WikiSite.forLanguageCode(lang)).postSetOptions(optionList.joinToString(separator = "|"), csrfToken)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
-                        L.d("Notification options successfully.")
+                        L.d("Notification options updated successfully.")
                     }, {
                         L.e(it)
                     })

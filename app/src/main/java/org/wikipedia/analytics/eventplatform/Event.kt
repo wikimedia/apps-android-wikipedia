@@ -2,7 +2,7 @@ package org.wikipedia.analytics.eventplatform
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import org.wikipedia.util.DateUtil.iso8601DateFormat
+import org.wikipedia.util.DateUtil
 import java.util.*
 
 /** Base class for an Event Platform event. */
@@ -10,7 +10,7 @@ import java.util.*
 open class Event(
     @Json(name = "\$schema") val schema: String = "",
     internal val meta: Meta = Meta(""),
-    internal val dt: String = iso8601DateFormat(Date()),
+    internal val dt: String = DateUtil.iso8601DateFormat(Date()),
     @Json(name = "app_session_id") var sessionId: String = "",
     @Json(name = "app_install_id") var appInstallId: String? = null
 ) {

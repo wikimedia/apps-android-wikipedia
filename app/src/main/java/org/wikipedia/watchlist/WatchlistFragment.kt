@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -123,7 +124,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         return when (item.itemId) {
             R.id.menu_change_language -> {
                 val overflowView = WatchlistLanguagePopupView(requireContext())
-                overflowView.show(requireActivity().window.decorView.findViewById(R.id.menu_change_language), this)
+                overflowView.show(ActivityCompat.requireViewById(requireActivity(), R.id.menu_change_language), this)
                 true
             }
             else -> super.onOptionsItemSelected(item)

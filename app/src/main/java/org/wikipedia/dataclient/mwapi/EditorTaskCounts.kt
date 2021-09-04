@@ -28,6 +28,13 @@ class EditorTaskCounts(
             descriptionEditsPerLanguage.values.sum() + captionEditsPerLanguage.values.sum() + totalDepictsEdits
         }
 
+    val totalReverts: Int
+        get() = if (Prefs.shouldOverrideSuggestedEditCounts()) {
+            Prefs.getOverrideSuggestedRevertCount()
+        } else {
+            descriptionRevertsPerLanguage.values.sum() + captionRevertsPerLanguage.values.sum() + totalDepictsReverts
+        }
+
     val totalDescriptionEdits: Int
         get() = descriptionEditsPerLanguage.values.sum()
 
@@ -42,13 +49,6 @@ class EditorTaskCounts(
 
     internal val totalDepictsReverts: Int
         get() = (revertCounts as? Counts)?.appDepictsEdits?.get("*") ?: 0
-
-    val totalReverts: Int
-        get() = if (Prefs.shouldOverrideSuggestedEditCounts()) {
-            Prefs.getOverrideSuggestedRevertCount()
-        } else {
-            descriptionRevertsPerLanguage.values.sum() + captionRevertsPerLanguage.values.sum() + totalDepictsReverts
-        }
 
     val editStreakLength: Int
         get() = (editStreak as? EditStreak)?.length ?: 0
