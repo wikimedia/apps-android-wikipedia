@@ -1,29 +1,28 @@
 package org.wikipedia.dataclient.mwapi
 
-import androidx.collection.ArraySet
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerialName
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.util.DateUtil
 import java.util.*
 
-@SuppressWarnings("unused")
 @Serializable
 class UserInfo : BlockInfo() {
     val id = 0
     private val groups: List<String>? = null
-    private val latestcontrib: String? = null
-    val editcount = 0
+    @SerialName("latestcontrib") private val latestContrib: String? = null
+    @SerialName("editcount") val editCount = 0
     val name: String = ""
 
     fun groups(): Set<String> {
-        return if (groups != null) ArraySet(groups) else Collections.emptySet()
+        return groups?.toSet() ?: emptySet()
     }
 
-    val latestContrib: Date
+    val latestContribution: Date
         get() {
             var date = Date(0)
-            if (!latestcontrib.isNullOrEmpty()) {
-                date = DateUtil.iso8601DateParse(latestcontrib)
+            if (!latestContrib.isNullOrEmpty()) {
+                date = DateUtil.iso8601DateParse(latestContrib)
             }
             return date
         }
