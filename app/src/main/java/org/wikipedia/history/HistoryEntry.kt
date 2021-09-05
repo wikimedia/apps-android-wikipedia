@@ -9,11 +9,11 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
-import org.wikipedia.parcel.DateParceler
-import java.util.*
+import org.wikipedia.parcel.LocalDateTimeParceler
+import java.time.LocalDateTime
 
 @Parcelize
-@TypeParceler<Date, DateParceler>()
+@TypeParceler<LocalDateTime, LocalDateTimeParceler>()
 @Entity
 class HistoryEntry(
     val authority: String = "",
@@ -22,13 +22,13 @@ class HistoryEntry(
     val displayTitle: String,
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val namespace: String,
-    var timestamp: Date = Date(),
+    var timestamp: LocalDateTime = LocalDateTime.now(),
     var source: Int = SOURCE_INTERNAL_LINK,
     var timeSpentSec: Int = 0,
 ) : Parcelable {
-    constructor(title: PageTitle, source: Int, timestamp: Date = Date(), timeSpentSec: Int = 0) : this(title.wikiSite.authority(),
-        title.wikiSite.languageCode, title.text, title.displayText, namespace = title.namespace,
-        timestamp = timestamp, source = source, timeSpentSec = timeSpentSec) {
+    constructor(title: PageTitle, source: Int, timestamp: LocalDateTime = LocalDateTime.now(), timeSpentSec: Int = 0) :
+            this(title.wikiSite.authority(), title.wikiSite.languageCode, title.text, title.displayText,
+        namespace = title.namespace, timestamp = timestamp, source = source, timeSpentSec = timeSpentSec) {
         pageTitle = title
     }
 

@@ -43,11 +43,7 @@ const val DATABASE_VERSION = 23
     ],
     version = DATABASE_VERSION
 )
-@TypeConverters(
-    DateTypeConverter::class,
-    WikiSiteTypeConverter::class,
-    NamespaceTypeConverter::class
-)
+@TypeConverters(AppTypeConverters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun historyEntryDao(): HistoryEntryDao

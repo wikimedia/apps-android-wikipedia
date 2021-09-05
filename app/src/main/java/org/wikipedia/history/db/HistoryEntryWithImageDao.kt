@@ -7,7 +7,6 @@ import org.apache.commons.lang3.StringUtils
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
-import java.text.DateFormat
 import java.util.*
 
 @Dao
@@ -54,10 +53,9 @@ interface HistoryEntryWithImageDao {
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
             // Always do it if this is the first item.
-            val curTime: String = getDateString(entries[i].timestamp)
-            val prevTime: String
+            val curTime = entries[i].timestamp.toLocalDate()
             if (i > 0) {
-                prevTime = getDateString(entries[i - 1].timestamp)
+                val prevTime = entries[i - 1].timestamp.toLocalDate()
                 if (curTime != prevTime) {
                     list.add(curTime)
                 }
@@ -81,9 +79,5 @@ interface HistoryEntryWithImageDao {
             entryWithImage.source, entryWithImage.timeSpentSec)
         entry.title.thumbUrl = entryWithImage.imageName
         return entry
-    }
-
-    private fun getDateString(date: Date): String {
-        return DateFormat.getDateInstance().format(date)
     }
 }

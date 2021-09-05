@@ -40,6 +40,9 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 import java.util.*
 
 class HistoryFragment : Fragment(), BackPressedHandler {
@@ -233,8 +236,12 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     private class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         var headerText = itemView.findViewById<TextView>(R.id.section_header_text)!!
 
-        fun bindItem(date: String) {
-            headerText.text = date
+        fun bindItem(localDate: LocalDate) {
+            headerText.text = DATE_FORMATTER.format(localDate)
+        }
+
+        companion object {
+            private val DATE_FORMATTER = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
         }
     }
 
@@ -325,7 +332,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         override fun getItemViewType(position: Int): Int {
             return when {
                 historyEntries[position] is SearchBar -> Companion.VIEW_TYPE_SEARCH_CARD
-                historyEntries[position] is String -> Companion.VIEW_TYPE_HEADER
+                historyEntries[position] is LocalDate -> Companion.VIEW_TYPE_HEADER
                 else -> Companion.VIEW_TYPE_ITEM
             }
         }
@@ -357,7 +364,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             when (holder) {
                 is SearchCardViewHolder -> holder.bindItem()
                 is HistoryEntryItemHolder -> holder.bindItem(historyEntries[pos] as HistoryEntry)
-                else -> (holder as HeaderViewHolder).bindItem(historyEntries[pos] as String)
+                else -> (holder as HeaderViewHolder).bindItem(historyEntries[pos] as LocalDate)
             }
         }
 
