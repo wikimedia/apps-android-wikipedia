@@ -8,7 +8,7 @@ import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
-import java.time.Instant
+import java.time.LocalDateTime
 
 @Parcelize
 @Entity
@@ -19,11 +19,11 @@ class HistoryEntry(
     val displayTitle: String,
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val namespace: String,
-    var timestamp: Instant = Instant.now(),
+    var timestamp: LocalDateTime = LocalDateTime.now(),
     var source: Int = SOURCE_INTERNAL_LINK,
     var timeSpentSec: Int = 0,
 ) : Parcelable {
-    constructor(title: PageTitle, source: Int, timestamp: Instant = Instant.now(), timeSpentSec: Int = 0) :
+    constructor(title: PageTitle, source: Int, timestamp: LocalDateTime = LocalDateTime.now(), timeSpentSec: Int = 0) :
             this(title.wikiSite.authority(), title.wikiSite.languageCode, title.text, title.displayText,
                 namespace = title.namespace, timestamp = timestamp, source = source, timeSpentSec = timeSpentSec) {
         pageTitle = title

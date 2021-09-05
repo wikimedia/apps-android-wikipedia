@@ -4,6 +4,8 @@ import androidx.room.TypeConverter
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.Namespace
 import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 object AppTypeConverters {
     @TypeConverter
@@ -14,6 +16,16 @@ object AppTypeConverters {
     @TypeConverter
     fun instantToTimestamp(instant: Instant?): Long? {
         return instant?.toEpochMilli()
+    }
+
+    @TypeConverter
+    fun timestampToLocalDateTime(value: Long?): LocalDateTime? {
+        return timestampToInstant(value)?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
+    }
+
+    @TypeConverter
+    fun localDateTimeToTimestamp(localDateTime: LocalDateTime?): Long? {
+        return localDateTime?.atZone(ZoneId.systemDefault())?.toInstant()?.toEpochMilli()
     }
 
     @TypeConverter
