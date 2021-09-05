@@ -405,10 +405,6 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             return true
         }
 
-        override fun onThumbClick(item: HistoryEntry?) {
-            onClick(item)
-        }
-
         override fun onActionClick(item: HistoryEntry?, view: View) {}
         override fun onListChipClick(readingList: ReadingList) {}
     }

@@ -18,7 +18,7 @@
             android:id="@+id/backButton"
             android:layout_width="?attr/actionBarSize"
             android:layout_height="?attr/actionBarSize"
-            android:contentDescription="@null"
+            android:contentDescription="@string/nav_item_back"
             android:padding="16dp"
             app:tint="?attr/material_theme_primary_color"
             app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />

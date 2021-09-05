@@ -13,6 +13,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
@@ -23,11 +24,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private val binding = ViewSuggestedEditsCardBinding.inflate(LayoutInflater.from(context), this, true)
+    private var prevImageDownloadSettings = Prefs.isImageDownloadEnabled()
 
     override var card: SuggestedEditsCard? = null
         set(value) {
-            if (field != value) {
+            if (field != value || prevImageDownloadSettings != Prefs.isImageDownloadEnabled()) {
                 field = value
+                prevImageDownloadSettings = Prefs.isImageDownloadEnabled()
                 value?.let {
                     header(it)
                     updateContents(it)

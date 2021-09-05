@@ -79,6 +79,7 @@
   <string name="app_settings">Paramètres de l’application</string>
   <string name="search_tab_tooltip">Taper de nouveau sur l’icône pour commencer directement à saisir un terme de recherche.</string>
   <string name="history_list_title">Historique</string>
+  <string name="image_content_description">Image : %s</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
   <string name="dialog_message_clear_history">Cela supprimera tout l’historique de navigation, et fermera tous les onglets ouverts actuellement. Êtes-vous sûr ?</string>
   <string name="dialog_message_clear_history_yes">Oui</string>
@@ -1013,6 +1014,8 @@
   <string name="menu_option_user_contributions">Contributions de %s</string>
   <string name="watchlist_details_watching_label">Suivi</string>
   <string name="watchlist_details_watch_label">Suivre</string>
+  <string name="watchlist_details_next_edit">Modification suivante</string>
+  <string name="watchlist_details_prev_edit">Modification précédente</string>
   <string name="thank_label">Remercier</string>
   <string name="go_to_user_page">Aller à la page utilisateur</string>
   <string name="thank_dialog_title_text">Envoyer « merci » publiquement</string>
