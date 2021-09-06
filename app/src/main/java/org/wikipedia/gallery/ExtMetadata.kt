@@ -1,6 +1,7 @@
 package org.wikipedia.gallery
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -18,13 +19,13 @@ class ExtMetadata(
     @SerialName("Credit") private val credit: Values? = null,
     @SerialName("Permission") private val permission: Values? = null,
     @SerialName("AuthorCount") private val authorCount: Values? = null,
-    @SerialName("LicenseShortName") private val licenseShortName: Values? = null,
+    @SerialName("LicenseShortName") @SerializedName("LicenseShortName") private val licenseShortName: Values? = null,
     @SerialName("UsageTerms") private val usageTerms: Values? = null,
-    @SerialName("LicenseUrl") private val licenseUrl: Values? = null,
+    @SerialName("LicenseUrl") @SerializedName("LicenseUrl") private val licenseUrl: Values? = null,
     @SerialName("AttributionRequired") private val attributionRequired: Values? = null,
     @SerialName("Copyrighted") private val copyrighted: Values? = null,
     @SerialName("Restrictions") private val restrictions: Values? = null,
-    @SerialName("License") private val license: Values? = null,
+    @SerialName("License") @SerializedName("License") private val license: Values? = null,
 ) : Parcelable {
 
     fun licenseShortName(): String {

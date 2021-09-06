@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient.mwapi
 
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.apache.commons.lang3.StringUtils
@@ -16,9 +17,9 @@ import java.util.*
 @Serializable
 class MwQueryResult : PostProcessable {
 
-    @SerialName("userinfo") val userInfo: UserInfo? = null
+    @SerialName("userinfo") @SerializedName("userinfo") val userInfo: UserInfo? = null
     @SerialName("unreadnotificationpages") val unreadNotificationWikis: Map<String, UnreadNotificationWikiItem>? = null
-    @SerialName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
+    @SerializedName("authmanagerinfo") @SerialName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
     @SerialName("general") val siteInfo: SiteInfo? = null
     @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
     @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
@@ -129,19 +130,19 @@ class MwQueryResult : PostProcessable {
     }
 
     @Serializable
-    private class Redirect(@SerialName("tofragment") val toFragment: String? = null,
-                                            private val index: Int = 0,
-                                            val from: String? = null,
-                                            val to: String? = null)
+    private class Redirect(@SerializedName("tofragment") @SerialName("tofragment") val toFragment: String? = null,
+                           private val index: Int = 0,
+                           val from: String? = null,
+                           val to: String? = null)
 
     @Serializable
     class ConvertedTitle(val from: String? = null, val to: String? = null)
 
     @Serializable
-    private class Tokens(@SerialName("csrftoken") val csrf: String? = null,
-                                          @SerialName("createaccounttoken") val createAccount: String? = null,
-                                          @SerialName("logintoken") val login: String? = null,
-                                          @SerialName("watchtoken") val watch: String? = null)
+    private class Tokens(@SerialName("csrftoken") @SerializedName("csrftoken") val csrf: String? = null,
+                         @SerializedName("createaccounttoken") @SerialName("createaccounttoken") val createAccount: String? = null,
+                         @SerialName("logintoken") val login: String? = null,
+                         @SerialName("watchtoken") val watch: String? = null)
 
     @Serializable
     class MarkReadResponse(val timestamp: String? = null, val result: String? = null)

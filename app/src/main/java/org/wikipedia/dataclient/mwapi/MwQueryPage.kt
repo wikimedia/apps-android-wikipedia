@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient.mwapi
 
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.apache.commons.lang3.StringUtils
@@ -11,8 +12,8 @@ import org.wikipedia.page.Namespace
 class MwQueryPage {
 
     @SerialName("descriptionsource") val descriptionSource: String? = null
-    @SerialName("imageinfo") private val imageInfo: List<ImageInfo>? = null
-    @SerialName("videoinfo") private val videoInfo: List<ImageInfo>? = null
+    @SerialName("imageinfo") @SerializedName("imageinfo") private val imageInfo: List<ImageInfo>? = null
+    @SerialName("videoinfo") @SerializedName("videoinfo") private val videoInfo: List<ImageInfo>? = null
     @SerialName("watchlistexpiry") private val watchlistExpiry: String? = null
     @SerialName("pageviews") val pageViewsMap: Map<String, Long> = emptyMap()
     @SerialName("imagelabels") val imageLabels: List<ImageLabel> = emptyList()
@@ -83,7 +84,7 @@ class MwQueryPage {
 
         @SerialName("contentformat") private val contentFormat: String? = null
         @SerialName("contentmodel") private val contentModel: String? = null
-        @SerialName("timestamp") val timeStamp: String = ""
+        @SerializedName("timestamp") @SerialName("timestamp") val timeStamp: String = ""
 
         private val slots: Map<String, RevisionSlot>? = null
         private val minor = false

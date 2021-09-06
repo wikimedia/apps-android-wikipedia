@@ -1,5 +1,6 @@
 package org.wikipedia.gallery
 
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -37,7 +38,7 @@ class ImageInfo {
 
     val mime = "*/*"
 
-    @SerialName("extmetadata")
+    @SerialName("extmetadata") @SerializedName("extmetadata")
     val metadata: ExtMetadata? = null
 
     val user = ""

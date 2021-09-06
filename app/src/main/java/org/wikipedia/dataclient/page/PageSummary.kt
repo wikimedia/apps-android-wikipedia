@@ -3,6 +3,7 @@ package org.wikipedia.dataclient.page
 import android.location.Location
 import android.os.Parcelable
 import com.google.gson.annotations.JsonAdapter
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.SerialName
@@ -24,7 +25,7 @@ open class PageSummary(
     var description: String? = null,
     @SerialName("originalimage") private val originalImage: Thumbnail? = null,
     @SerialName("wikibase_item") val wikiBaseItem: String? = null,
-    @SerialName("extract_html") val extractHtml: String? = null,
+    @SerialName("extract_html") @SerializedName("extract_html") val extractHtml: String? = null,
     @SerialName("description_source") val descriptionSource: String = "",
     @JsonAdapter(GeoTypeAdapter::class) val geo: @Contextual Location? = null,
     val type: String = TYPE_STANDARD,

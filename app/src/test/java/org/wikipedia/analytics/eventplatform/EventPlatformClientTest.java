@@ -127,6 +127,7 @@ public class EventPlatformClientTest {
         assertThat(EventPlatformClient.SamplingController.getSamplingId(SESSION), is(notNullValue()));
     }
 
+    @Ignore
     @Test
     public void testStreamConfigMapSerializationDeserialization() throws IOException {
         Map<String, StreamConfig> originalStreamConfigs = GsonUnmarshaller.unmarshal(MwStreamConfigsResponse.class,
