@@ -514,7 +514,7 @@
   <string name="preference_title_notification_mention">Mención</string>
   <string name="preference_summary_notification_mention">Dalguién te mentó nuna páxina</string>
   <string name="preference_title_notification_user_talk">Páxina d\'alderique</string>
-  <string name="preference_summary_notification_user_talk">Mensaxes de páxines d\'alderique</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Mensaxes de páxines d\'alderique</string>
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>
   <string name="view_random_article_card_title">Artículu al debalu</string>

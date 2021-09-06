@@ -401,7 +401,7 @@
   <string name="preference_title_notification_mention">उल्लेख</string>
   <string name="preference_summary_notification_mention">कसैले तपाईलाई पृष्ठमा उल्लेख गरेकाे छ</string>
   <string name="preference_title_notification_user_talk">वार्तालाप पृष्ठ</string>
-  <string name="preference_summary_notification_user_talk">वार्तालाप पृष्ठका सन्देशहरू</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">वार्तालाप पृष्ठका सन्देशहरू</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
   <string name="view_next_random_article">अर्को अनियमित लेख खाेल्नुहाेस्</string>

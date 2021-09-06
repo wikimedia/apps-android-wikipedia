@@ -508,7 +508,7 @@
   <string name="preference_title_notification_mention">Spominjanje</string>
   <string name="preference_summary_notification_mention">Netko Vas spominje na stranici</string>
   <string name="preference_title_notification_user_talk">Stranica za razgovor</string>
-  <string name="preference_summary_notification_user_talk">Poruke sa stranica za razgovor</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Poruke sa stranica za razgovor</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Slučajna stranica</string>
   <string name="view_random_article_card_title">Slučajni članak</string>
