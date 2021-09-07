@@ -586,7 +586,7 @@
   <string name="preference_title_notification_mention">Đề cập</string>
   <string name="preference_summary_notification_mention">Ai đó đề cập bạn trong một trang</string>
   <string name="preference_title_notification_user_talk">Trang thảo luận</string>
-  <string name="preference_summary_notification_user_talk">Tin nhắn từ trang thảo luận</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Tin nhắn từ trang thảo luận</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
   <string name="view_random_card_title">Ngẫu nhiên</string>
   <string name="view_random_article_card_title">Bài viết ngẫu nhiên</string>

@@ -547,7 +547,7 @@
   <string name="preference_title_notification_mention">Споменаване</string>
   <string name="preference_summary_notification_mention">Някой Ви споменава на страница</string>
   <string name="preference_title_notification_user_talk">Беседа</string>
-  <string name="preference_summary_notification_user_talk">Съобщения от беседи на страници</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Съобщения от беседи на страници</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>
   <string name="view_random_article_card_title">Случайна статия</string>

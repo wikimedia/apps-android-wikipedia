@@ -425,7 +425,7 @@
   <string name="preference_title_notification_mention">Yorong</string>
   <string name="preference_summary_notification_mention">A̱yin yorong ang mi̱ peji ghyang</string>
   <string name="preference_title_notification_user_talk">Peji a̱lyiat</string>
-  <string name="preference_summary_notification_user_talk">Tá̱m neet di̱ pejí a̱lyiat</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Tá̱m neet di̱ pejí a̱lyiat</string>
   <string name="view_because_you_read_card_title">Da̱nian a fang</string>
   <string name="view_random_card_title">A̱tyei-a̱kpeak</string>
   <string name="view_random_article_card_title">A̱kpeak a̱ti̱kut</string>
