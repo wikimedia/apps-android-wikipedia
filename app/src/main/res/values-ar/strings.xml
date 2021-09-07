@@ -628,7 +628,8 @@
   <string name="preference_title_notification_mention">إشارة</string>
   <string name="preference_summary_notification_mention">شخص ما يذكرك في صفحة</string>
   <string name="preference_title_notification_user_talk">صفحة النقاش</string>
-  <string name="preference_summary_notification_user_talk">رسائل من صفحات النقاش</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">رسائل من صفحات النقاش</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">إشعارات من ويكيبيديا</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>
   <string name="view_random_article_card_title">مقالة عشوائية</string>

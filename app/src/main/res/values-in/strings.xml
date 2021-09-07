@@ -594,7 +594,7 @@
   <string name="preference_title_notification_mention">Sebutkan</string>
   <string name="preference_summary_notification_mention">Seseorang menyebutkan Anda dalam sebuah halaman</string>
   <string name="preference_title_notification_user_talk">Halaman pembicaraan</string>
-  <string name="preference_summary_notification_user_talk">Pesan dari halaman pembicaraan</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Pesan dari halaman pembicaraan</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_random_article_card_title">Artikel acak</string>

@@ -589,7 +589,7 @@
   <string name="preference_title_notification_mention">Eslatma</string>
   <string name="preference_summary_notification_mention">Kimdir Sizga sahifada eslatma berdi</string>
   <string name="preference_title_notification_user_talk">Suhbat sahifasi</string>
-  <string name="preference_summary_notification_user_talk">Suhbatlardan kelgan xabarlar</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Suhbatlardan kelgan xabarlar</string>
   <string name="view_because_you_read_card_title">Oʻqiganingiz uchun tavsiya etildi</string>
   <string name="view_random_card_title">Tasodifiy tartibda</string>
   <string name="view_random_article_card_title">Tasodifiy maqola</string>

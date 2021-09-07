@@ -592,7 +592,7 @@
   <string name="preference_title_notification_mention">Említés</string>
   <string name="preference_summary_notification_mention">Valaki megemlített egy lapon</string>
   <string name="preference_title_notification_user_talk">Vitalap</string>
-  <string name="preference_summary_notification_user_talk">Üzenetek vitalapokról</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Üzenetek vitalapokról</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
   <string name="view_random_article_card_title">Szócikk találomra</string>
