@@ -628,7 +628,7 @@
   <string name="preference_summary_notification_article_linked">Short summary explaining what Links to articles you created notifications are.</string>
   <string name="preference_category_push_notifications">Label for the push notifications settings category.</string>
   <string name="preference_title_customize_push_notifications">Label that leads user to the system notifications settings page.</string>
-  <string name="preference_category_display_settings">>Label for the notification display settings category.</string>
+  <string name="preference_category_display_settings">&gt;Label for the notification display settings category.</string>
   <string name="preference_title_hide_read_notifications">Label for settings switch that shows or hides the read notifications.</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Title for the Wikipedia notifications group.</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Description for the Wikipedia notifications group.</string>

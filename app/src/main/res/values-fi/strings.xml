@@ -610,7 +610,7 @@
   <string name="preference_title_notification_mention">Maininnat</string>
   <string name="preference_summary_notification_mention">Joku mainitsi sinut sivulla</string>
   <string name="preference_title_notification_user_talk">Keskustelusivu</string>
-  <string name="preference_summary_notification_user_talk">Viestit keskustelusivuilta</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Viestit keskustelusivuilta</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
   <string name="view_random_article_card_title">Satunnainen artikkeli</string>

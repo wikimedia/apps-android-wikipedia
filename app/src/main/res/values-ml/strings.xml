@@ -349,7 +349,7 @@
   <string name="preference_title_notification_mention">പരാമർശം</string>
   <string name="preference_summary_notification_mention">താങ്കളെ ഒരു താളിൽ ആരോ പരാമർശിച്ചിരുന്നു</string>
   <string name="preference_title_notification_user_talk">സം‌വാദത്താൾ</string>
-  <string name="preference_summary_notification_user_talk">സംവാദ താളുകളിൽനിന്നുള്ള സന്ദേശങ്ങൾ</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">സംവാദ താളുകളിൽനിന്നുള്ള സന്ദേശങ്ങൾ</string>
   <string name="view_because_you_read_card_title">താങ്കൾ വായിച്ചതിനാൽ</string>
   <string name="view_main_page_card_title">വിക്കിപീഡിയയിൽ ഇന്ന്</string>
   <string name="view_main_page_card_action">പ്രധാന താൾ കാണുക</string>
