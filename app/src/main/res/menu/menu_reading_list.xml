@@ -3,7 +3,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_search_lists"
-        android:icon="@drawable/ic_baseline_filter_list_24"
+        android:icon="@drawable/ic_find_in_page_24px"
         android:title="@string/filter_hint_filter_my_lists_and_articles"
         app:showAsAction="ifRoom" />
     <item android:id="@+id/menu_sort_options"
