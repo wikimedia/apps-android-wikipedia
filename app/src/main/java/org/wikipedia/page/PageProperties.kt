@@ -4,9 +4,11 @@ import android.location.Location
 import android.os.Parcelable
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.TypeParceler
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.Protection
+import org.wikipedia.parcel.DateParceler
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
@@ -14,6 +16,7 @@ import org.wikipedia.util.UriUtil
 import java.util.*
 
 @Parcelize
+@TypeParceler<Date, DateParceler>()
 data class PageProperties constructor(
     val pageId: Int = 0,
     val namespace: Namespace,
