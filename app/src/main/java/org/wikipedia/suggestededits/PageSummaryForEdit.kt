@@ -1,14 +1,12 @@
 package org.wikipedia.suggestededits
 
 import android.os.Parcelable
-import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.Constants
 import org.wikipedia.gallery.ExtMetadata
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil
 
-@JsonClass(generateAdapter = true)
 @Parcelize
 data class PageSummaryForEdit(
     var title: String,
