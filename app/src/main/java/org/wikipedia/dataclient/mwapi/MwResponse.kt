@@ -1,13 +1,11 @@
 package org.wikipedia.dataclient.mwapi
 
 import com.google.gson.annotations.SerializedName
-import kotlinx.serialization.SerialName
 import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 
 abstract class MwResponse : PostProcessable {
     val errors: List<MwServiceError>? = null
 
-    @SerialName("servedby")
     @SerializedName("servedby")
     private val servedBy: String? = null
     override fun postProcess() {
