@@ -957,15 +957,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
             disposables.add(
-                Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
+                Observable.fromCallable { model.readingListPage = AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate {
                         pageActionTabsCallback.updateBookmark(model.readingListPage != null)
                         requireActivity().invalidateOptionsMenu()
                     }
-                    .subscribe({ page -> model.readingListPage = page }
-                    ) { model.readingListPage = null })
+                    .subscribe())
         }
     }
 
