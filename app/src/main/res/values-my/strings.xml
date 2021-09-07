@@ -563,7 +563,7 @@
   <string name="preference_title_notification_mention">ရည်ညွန်းပြောဆိုချက်</string>
   <string name="preference_summary_notification_mention">စာမျက်နှာတစ်ခုတွင် တစ်စုံတစ်ယောက်က သင်အားရည်ညွန်းပြောဆိုခဲ့သည်</string>
   <string name="preference_title_notification_user_talk">ဆွေးနွေးချက် စာမျက်နှာ</string>
-  <string name="preference_summary_notification_user_talk">ဆွေးနွေးချက်စာမျက်နှာများမှ မက်ဆေ့များ</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">ဆွေးနွေးချက်စာမျက်နှာများမှ မက်ဆေ့များ</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
   <string name="view_random_article_card_title">ကျပန်း ဆောင်းပါး</string>

@@ -56,6 +56,7 @@
   <string name="app_settings">應用程式設定</string>
   <string name="search_tab_tooltip">再次輕觸圖標可直接開始輸入搜尋項。</string>
   <string name="history_list_title">歷史</string>
+  <string name="image_content_description">圖片：%s</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
   <string name="dialog_message_clear_history">這樣做會刪除您的所有瀏覽記錄，並且關閉所有目前開啟的分頁。您確定嗎？</string>
   <string name="dialog_message_clear_history_yes">是</string>
@@ -604,7 +605,7 @@
   <string name="preference_title_notification_mention">提及</string>
   <string name="preference_summary_notification_mention">有人在頁面裡提及您</string>
   <string name="preference_title_notification_user_talk">對話頁</string>
-  <string name="preference_summary_notification_user_talk">來自對話頁的訊息</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">來自對話頁的訊息</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_article_card_title">隨機條目</string>
@@ -990,6 +991,8 @@
   <string name="menu_option_user_contributions">%s的貢獻</string>
   <string name="watchlist_details_watching_label">已監視</string>
   <string name="watchlist_details_watch_label">監視</string>
+  <string name="watchlist_details_next_edit">下一個編輯</string>
+  <string name="watchlist_details_prev_edit">上一個編輯</string>
   <string name="thank_label">感謝</string>
   <string name="go_to_user_page">前往使用者頁面</string>
   <string name="thank_dialog_title_text">公開發送感謝</string>

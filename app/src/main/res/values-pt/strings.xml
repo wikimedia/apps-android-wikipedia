@@ -55,6 +55,7 @@
   <string name="app_settings">Definições da aplicação</string>
   <string name="search_tab_tooltip">Toque outra vez no ícone para começar diretamente a introduzir um termo de pesquisa.</string>
   <string name="history_list_title">Historial</string>
+  <string name="image_content_description">Imagem: %s</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto eliminará todo o seu histórico de navegação e fechará todos os separadores abertos. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
@@ -179,6 +180,7 @@
   <string name="create_account_ip_block_help_url">https://pt.wikipedia.org/wiki/Ajuda:Fui_bloqueado</string>
   <string name="create_account_ip_block_details">Detalhes</string>
   <string name="preferences_general_heading">Geral</string>
+  <string name="preferences_account_heading">Conta</string>
   <string name="wikipedia_app_faq">Perguntas frequentes sobre a aplicação Wikipédia</string>
   <string name="send_feedback">Enviar comentários sobre a aplicação</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
@@ -228,7 +230,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida pelos tradutores voluntários da &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license" fuzzy="true">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
+  <string name="about_app_license">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem gravar as suas alterações?</string>
@@ -256,6 +258,7 @@
   <string name="find_previous">Localizar anterior</string>
   <string name="find_first_occurence">Esta é a primeira ocorrência</string>
   <string name="find_last_occurence">Esta é a última ocorrência</string>
+  <string name="article_opened_in_background_tab">O artigo foi aberto num separador de segundo plano.</string>
   <string name="abusefilter_title_warn">Esta edição poderá não ser construtiva. Tem a certeza que pretende publicá-la?</string>
   <string name="abusefilter_title_disallow">Não pode publicar esta edição. Volte atrás e altere-a, por favor.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou esta edição como não sendo construtiva. Ela pode conter os seguintes erros:&lt;br /&gt;&lt;br /&gt;· Uso excessivo de maiúsculas;&lt;br /&gt;· Esvaziamento de artigos e spam;&lt;br /&gt;· Imagens ou hiperligações externas irrelevantes;&lt;br /&gt;· Repetição de caracteres</string>
@@ -372,6 +375,14 @@
   <string name="page_footer_license_text">Conteúdo disponibilizado nos termos da licença $1, salvo indicação em contrário</string>
   <string name="empty_tab_title">Novo separador</string>
   <string name="menu_save_all_tabs">Guardar todos os separadores</string>
+  <string name="error_blocked_title">O seu nome de utilizador ou endereço IP foi bloqueado.</string>
+  <string name="error_blocked_by">O bloqueio foi feito por &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">O motivo apresentado é: %s</string>
+  <string name="error_blocked_start">Início do bloqueio: %s</string>
+  <string name="error_blocked_expiry">Expiração do bloqueio: %s</string>
+  <string name="error_blocked_id">Identificador do bloqueio: %s</string>
+  <string name="error_blocked_footer">Pode entrar em contacto com &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou outro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
+  <string name="error_blocked_footer_no_blocker">Pode entrar em contacto com um &lt;a href=\"https://pt.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
   <string name="crash_report_activity_title">Erro da aplicação</string>
   <string name="crash_report_relaunch_or_quit">Lamentamos, mas a aplicação Wikipédia teve uma falha e foi encerrada.\n\nQuer voltar a começar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
@@ -397,6 +408,7 @@
   <string name="text_size_decrease">Reduzir o tamanho do texto</string>
   <string name="text_size_percent_default">%s (Padrão)</string>
   <string name="text_style_title">Fonte</string>
+  <string name="nav_item_saved">Gravado</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
   <string name="reading_list_move_to">Mover para lista de leitura</string>
   <string name="reading_list_create_new">Criar nova</string>
@@ -440,9 +452,14 @@
   <string name="reading_list_name_hint">Nome desta lista</string>
   <string name="reading_list_description_hint">Descrição (opcional)</string>
   <string name="reading_list_item_deleted">%s removido da lista</string>
+  <string name="reading_list_item_deleted_from_list">%1$s removido de %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d artigo removido da lista</item>
     <item quantity="other">%d artigos removidos da lista</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d artigo removido de %s</item>
+    <item quantity="other">%d artigos removidos de %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d artigos removidos da lista</string>
   <string name="reading_lists_item_deleted">%s removido das listas</string>
@@ -521,10 +538,12 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_reverted_title">Edição desfeita</string>
+  <string name="notification_channel_title">A descarregar artigos</string>
   <string name="notification_channel_description">Progresso da transferência</string>
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Continuar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
+  <string name="notification_syncing_reading_list_channel_title">A sincronizar listas de leitura</string>
   <string name="notification_syncing_reading_list_channel_description">Progresso da sincronização das listas de leitura</string>
   <string name="notification_many_unread">Tem %d notificações não lidas</string>
   <plurals name="notification_channel_name">
@@ -570,6 +589,8 @@
   <string name="notifications_view_archived_button_text">Ver notificações arquivadas</string>
   <string name="notification_preferences_title">Preferências de notificação</string>
   <string name="notifications_mark_unread">Marcar como não lida</string>
+  <string name="notifications_mark_all_as_read">Marcar todas como lidas</string>
+  <string name="watchlist_title">Páginas vigiadas</string>
   <string name="preference_title_notification_poll">Inquérito sobre notificações</string>
   <string name="preference_summary_notification_poll">Permitir que a aplicação use tráfego de dados para verificar em segundo plano se existem novas notificações</string>
   <string name="preference_category_notification_types">Tipos de notificações na aplicação</string>
@@ -586,7 +607,13 @@
   <string name="preference_title_notification_mention">Menção</string>
   <string name="preference_summary_notification_mention">Alguém o menciona numa página</string>
   <string name="preference_title_notification_user_talk">Página de discussão</string>
-  <string name="preference_summary_notification_user_talk">Mensagens das páginas de discussão</string>
+  <string name="preference_summary_notification_user_talk">Mensagens e respostas das páginas de discussão</string>
+  <string name="preference_title_notification_email_user">Mensagens recebidas</string>
+  <string name="preference_summary_notification_email_user">Alguém lhe enviou uma mensagem de correio através da wiki</string>
+  <string name="preference_title_notification_user_rights">Alterações dos privilégios do utilizador</string>
+  <string name="preference_summary_notification_user_rights">Recebida quando os seus privilégios são alterados</string>
+  <string name="preference_title_notification_article_linked">Hiperligações para artigos criados por si</string>
+  <string name="preference_summary_notification_article_linked">Recebidas quando é feita uma hiperligação nova para uma página criada por si</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_article_card_title">Artigo aleatório</string>
