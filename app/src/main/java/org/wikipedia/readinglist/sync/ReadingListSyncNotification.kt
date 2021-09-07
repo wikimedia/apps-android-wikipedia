@@ -2,17 +2,15 @@ package org.wikipedia.readinglist.sync
 
 import android.content.Context
 import org.wikipedia.R
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.views.NotificationWithProgressBar
 
 class ReadingListSyncNotification private constructor() {
     private val notification: NotificationWithProgressBar = NotificationWithProgressBar()
 
     init {
-        notification.channelId = CHANNEL_ID
+        notification.notificationCategory = NotificationCategory.READING_LIST_SYNCING
         notification.notificationId = NOTIFICATION_ID
-        notification.channelName = R.plurals.notification_syncing_reading_list_channel_name
-        notification.channelDescription = R.string.notification_syncing_reading_list_channel_description
-        notification.notificationIcon = android.R.drawable.ic_popup_sync
         notification.notificationTitle = R.plurals.notification_syncing_reading_list_title
         notification.notificationDescription = R.plurals.notification_syncing_reading_list_description
     }

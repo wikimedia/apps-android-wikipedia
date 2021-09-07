@@ -289,7 +289,9 @@
   <string name="description_edit_help_about_wikidata">ವಿಕಿಡಾಟ ತಾ ಬಗ್ಗೆ</string>
   <string name="description_edit_success_done">ಆಂಡ್</string>
   <string name="description_edit_success_did_you_know">ಈರೆಗ್ ತೆರಿದ್‍ಂಡಾ?</string>
+  <string name="suggested_edits_my_contributions">ಎನ್ನ ಕಾನಿಕೆಲು</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ಸುರು ಮಲ್ಪುಲೆ</string>
+  <string name="suggested_edits_contribution_type_label">ಕಾನಿಕೆಲೆ ಬಗೆ</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">ಬುಡ್ಲೆ</string>
@@ -305,4 +307,5 @@
   <string name="more_language_options">ನನಾತ್</string>
   <string name="add_wikipedia_languages_text">ವಿಕಿಪೀಡಿಯಾ ಬಾಸೆಲೇನ್ ಸೇರಲೇ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ಬಾಸೆನ್ ಸೇರಾಲೆ.</string>
+  <string name="edit_type_all">ಮಾತ ಕಾನಿಕೆಲು</string>
 </resources>

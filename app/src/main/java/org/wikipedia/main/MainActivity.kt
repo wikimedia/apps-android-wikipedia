@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.appshortcuts.AppShortcuts.Companion.setShortcuts
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
@@ -32,7 +31,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setShortcuts(this)
         setImageZoomHelper()
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip

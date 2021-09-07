@@ -605,7 +605,7 @@
   <string name="preference_title_notification_mention">Omemba</string>
   <string name="preference_summary_notification_mention">Nekdo vas je omenil na eni od strani</string>
   <string name="preference_title_notification_user_talk">Pogovorna stran</string>
-  <string name="preference_summary_notification_user_talk">Sporočila s pogovornih strani</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Sporočila s pogovornih strani</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
   <string name="view_random_card_title">Randomizator</string>
   <string name="view_random_article_card_title">Naključni članek</string>

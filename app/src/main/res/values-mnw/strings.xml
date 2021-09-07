@@ -567,7 +567,7 @@
   <string name="preference_title_notification_mention">လဟီုစၞောန်</string>
   <string name="preference_summary_notification_mention">မၞိဟ်မွဲမွဲ ဟီုစၞောန် ယၟုမ္ဂး ပ္ဍဲ မုက်လိက်မွဲ</string>
   <string name="preference_title_notification_user_talk">မုက်လိက် ဓရီု</string>
-  <string name="preference_summary_notification_user_talk">လိက်မေတ်သုက် နူကဵု မုက်လိက် ဓရီု</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">လိက်မေတ်သုက် နူကဵု မုက်လိက် ဓရီု</string>
   <string name="view_because_you_read_card_title">ဟိုတ်နူ မၞး ဗှ်</string>
   <string name="view_random_card_title">ဂဇျောမ်</string>
   <string name="view_random_article_card_title">လိက်ပရေင် လၟက်</string>

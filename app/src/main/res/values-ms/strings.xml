@@ -575,7 +575,7 @@
   <string name="preference_title_notification_mention">Sebut</string>
   <string name="preference_summary_notification_mention">Seseorang menyebut nama anda dalam sebuah halaman</string>
   <string name="preference_title_notification_user_talk">Laman perbincangan</string>
-  <string name="preference_summary_notification_user_talk">Pesanan dari halaman perbincangan</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Pesanan dari halaman perbincangan</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>
   <string name="view_random_article_card_title">Rencana rawak</string>

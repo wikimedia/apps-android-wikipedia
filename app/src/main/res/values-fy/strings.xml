@@ -565,7 +565,7 @@
   <string name="preference_title_notification_mention">Neamd wurde</string>
   <string name="preference_summary_notification_mention">Immen neamt jo op in side</string>
   <string name="preference_title_notification_user_talk">Oerlisside</string>
-  <string name="preference_summary_notification_user_talk">Boadskippen op oerlissiden</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Boadskippen op oerlissiden</string>
   <string name="view_because_you_read_card_title">Om\'t jo dit lêzen hawwe</string>
   <string name="view_random_card_title">Samar wat</string>
   <string name="view_random_article_card_title">Samar in artikel</string>
