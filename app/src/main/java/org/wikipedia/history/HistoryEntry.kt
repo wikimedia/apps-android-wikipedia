@@ -6,11 +6,14 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.TypeParceler
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.parcel.DateParceler
 import java.util.*
 
 @Parcelize
+@TypeParceler<Date, DateParceler>()
 @Entity
 class HistoryEntry(
     val authority: String = "",
