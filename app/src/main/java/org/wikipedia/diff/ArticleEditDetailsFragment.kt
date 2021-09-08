@@ -177,13 +177,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     val firstPage = it.query?.firstPage()!!
-                    currentRevision = firstPage.revisions()[0]
+                    currentRevision = firstPage.revisions[0]
                     revisionId = currentRevision!!.revId
                     username = currentRevision!!.user
-                    newerRevisionId = if (firstPage.revisions().size < 2) {
+                    newerRevisionId = if (firstPage.revisions.size < 2) {
                         -1
                     } else {
-                        firstPage.revisions()[1].revId
+                        firstPage.revisions[1].revId
                     }
                     olderRevisionId = currentRevision!!.parentRevId
                     updateUI()
@@ -215,7 +215,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.diffText.scrollTo(0, 0)
         binding.diffText.text = ""
         binding.usernameButton.text = currentRevision!!.user
-        binding.editTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(currentRevision!!.timeStamp()))
+        binding.editTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(currentRevision!!.timeStamp))
         binding.editComment.text = currentRevision!!.comment
         binding.newerIdButton.isClickable = newerRevisionId != -1L
         binding.olderIdButton.isClickable = olderRevisionId != 0L
