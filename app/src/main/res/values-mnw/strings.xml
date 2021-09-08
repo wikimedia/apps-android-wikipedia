@@ -567,7 +567,7 @@
   <string name="preference_title_notification_mention">လဟီုစၞောန်</string>
   <string name="preference_summary_notification_mention">မၞိဟ်မွဲမွဲ ဟီုစၞောန် ယၟုမ္ဂး ပ္ဍဲ မုက်လိက်မွဲ</string>
   <string name="preference_title_notification_user_talk">မုက်လိက် ဓရီု</string>
-  <string name="preference_summary_notification_user_talk">လိက်မေတ်သုက် နူကဵု မုက်လိက် ဓရီု</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">လိက်မေတ်သုက် နူကဵု မုက်လိက် ဓရီု</string>
   <string name="view_because_you_read_card_title">ဟိုတ်နူ မၞး ဗှ်</string>
   <string name="view_random_card_title">ဂဇျောမ်</string>
   <string name="view_random_article_card_title">လိက်ပရေင် လၟက်</string>
@@ -892,7 +892,7 @@
   <string name="wikipedia_languages_remove_dialog_content">သွက်အရေဝ်ဘာသာ ဝဳကဳပဳဒဳယာ သၟေဟ်တအ်ဂှ်၊ မၞး ဂွံဆဵုကေတ် မာတိကာ ပ္ဍဲဒၞာဲမဂၠာဲ ကဵု ဒၞာဲမဂၠာဲဗွဲပရှ်ဟေင်ရ၊၊</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ပတိတ် အရေဝ်ဘာသာ သီုဖအိုတ် ဟွံဂွံ</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">အောန်အိုတ် ဒးစိုတ်လဝ် အရေဝ်ဘာသာ ဝဳကဳပဳဒဳယာ မွဲ နူ ဒၞာဲမာတိကာ သွက်ဂွံဂၠာဲ ကေုာံ သွက်ဂွံဗှ်၊၊</string>
-  <string name="more_language_options">ဂလိုင်</string>
+  <string name="more_language_options">ဗွဲမဂလိုင်</string>
   <string name="add_wikipedia_languages_text">စုတ် အရေဝ်ဘာသာ ဝဳကဳပဳဒဳယာဂမၠိုင်</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">ပတိတ်ထောအ် အရေဝ်ကြုက် မူတၞဟ်ခြာ နူ အရေဝ်ဘာသာ app？</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">ပြဟ်ဟ်ဏအ် ပ္ဍဲ အရေဝ်ဘာသာ app မၞးဂှ် နွံဒၟံင် အရေဝ်ကြုက် ခေတ်တြေံကီု သီုကဵု အရေဝ်ကြုက် ခေတ်တၟိ၊၊ ကလေင်ဗဟဵုတၟိပတိုန် ဒၞာဲမဖျေဟ်ဒၞာဲ အရေဝ်ဘာသာ app ဟာ？</string>

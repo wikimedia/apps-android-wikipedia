@@ -30,7 +30,7 @@ public class StreamConfigTest {
 
         assertThat(streamConfig.getStreamName(), is("test.event"));
         assertThat(streamConfig.getSchemaTitle(), is("test/event"));
-        assertThat(streamConfig.areCanaryEventsEnabled(), is(true));
+        assertThat(streamConfig.getCanaryEventsEnabled(), is(true));
         assertThat(streamConfig.getDestinationEventService(), is(ANALYTICS));
         assertThat(streamConfig.getTopicPrefixes(), is(Arrays.asList("eqiad.", "codfw.")));
         assertThat(streamConfig.getTopics(), is(Arrays.asList("eqiad.test.event", "codfw.test.event")));

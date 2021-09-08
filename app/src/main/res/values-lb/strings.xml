@@ -137,7 +137,7 @@
   <string name="create_account_passwords_mismatch_error">D\'Passwierder sinn net déi selwescht</string>
   <string name="create_account_email_error">Net-valabel E-Mail-Adress</string>
   <string name="create_account_username_error">Net valabel Zeechen am Benotzernumm</string>
-  <string name="create_account_password_error" fuzzy="true">D\'Passwuert ass net valabel</string>
+  <string name="create_account_password_error">D\'Passwuert muss mindestens 8 Zeechen hunn</string>
   <string name="create_account_generic_error">Benotzerkont konnt net opgemaach ginn</string>
   <string name="create_account_next">Weider</string>
   <string name="email_recommendation_dialog_title">Benotzerkont ouni E-Mail-Adress uleeën?</string>
@@ -473,7 +473,7 @@
   <string name="preference_title_notification_mention">Ernimmen</string>
   <string name="preference_summary_notification_mention">Et huet een Iech op enger Säit ernimmt</string>
   <string name="preference_title_notification_user_talk">Diskussiounssäit</string>
-  <string name="preference_summary_notification_user_talk">Message vun Diskussiounssäiten</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Message vun Diskussiounssäiten</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
   <string name="view_main_page_card_title">Haut op Wikipedia</string>

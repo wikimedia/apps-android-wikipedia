@@ -9,11 +9,10 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -25,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.LoginFunnel
+import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -68,6 +68,8 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
+import org.wikipedia.views.NotificationButtonView
+import org.wikipedia.views.TabCountsView
 import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -75,13 +77,16 @@ import java.util.concurrent.TimeUnit
 class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
-        fun updateTabCountsView()
         fun updateToolbarElevation(elevate: Boolean)
     }
 
     private var _binding: FragmentMainBinding? = null
     val binding get() = _binding!!
 
+    private lateinit var notificationButtonView: NotificationButtonView
+    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
+    private var tabCountsView: TabCountsView? = null
+    private var showTabCountsAnimation = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
@@ -122,11 +127,14 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             true
         }
 
+        notificationButtonView = NotificationButtonView(requireActivity())
+
         maybeShowEditsTooltip()
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
         }
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -141,6 +149,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         requireContext().registerReceiver(downloadReceiver,
                 IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
         downloadReceiver.callback = downloadReceiverCallback
+        setupNotificationsTest()
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0)
         maybeShowWatchlistTooltip()
@@ -212,6 +221,56 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_main, menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        requestUpdateToolbarElevation()
+
+        menu.findItem(R.id.menu_search_lists).isVisible = currentFragment is ReadingListsFragment
+        menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
+
+        val tabsItem = menu.findItem(R.id.menu_tabs)
+        if (WikipediaApp.getInstance().tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {
+            tabsItem.isVisible = false
+            tabCountsView = null
+        } else {
+            tabsItem.isVisible = true
+            tabCountsView = TabCountsView(requireActivity(), null)
+            tabCountsView!!.setOnClickListener {
+                if (WikipediaApp.getInstance().tabCount == 1) {
+                    startActivity(PageActivity.newIntent(requireActivity()))
+                } else {
+                    startActivityForResult(TabActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
+                }
+            }
+            tabCountsView!!.updateTabCount(showTabCountsAnimation)
+            tabCountsView!!.contentDescription = getString(R.string.menu_page_show_tabs)
+            tabsItem.actionView = tabCountsView
+            tabsItem.expandActionView()
+            FeedbackUtil.setButtonLongPressToast(tabCountsView!!)
+            showTabCountsAnimation = false
+        }
+        val notificationMenuItem = menu.findItem(R.id.menu_notifications)
+        if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
+            notificationMenuItem.isVisible = true
+            notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
+            notificationButtonView.setOnClickListener {
+                notificationsClick()
+            }
+            notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
+            notificationMenuItem.actionView = notificationButtonView
+            notificationMenuItem.expandActionView()
+            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+        } else {
+            notificationMenuItem.isVisible = false
+        }
+        updateNotificationDot(false)
+    }
+
     fun handleIntent(intent: Intent) {
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER)) {
             startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.getInstance().wikiSite, InvokeSource.APP_SHORTCUTS))
@@ -249,7 +308,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     override fun onFeedSelectPage(entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
         if (openInNewBackgroundTab) {
             TabUtil.openInNewBackgroundTab(entry)
-            callback()?.updateTabCountsView()
+            showTabCountsAnimation = true
+            requireActivity().invalidateOptionsMenu()
         } else {
             startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
         }
@@ -370,6 +430,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     override fun notificationsClick() {
         if (AccountUtil.isLoggedIn) {
+            notificationsABCTestFunnel.logSelect()
             startActivity(NotificationActivity.newIntent(requireActivity()))
         }
     }
@@ -414,6 +475,45 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             fragment.onGoOnline()
         } else if (fragment is HistoryFragment) {
             fragment.refresh()
+        }
+    }
+
+    // TODO: remove when ABC test is complete.
+    private fun setupNotificationsTest() {
+        binding.unreadDotView.isVisible = false
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0 -> notificationButtonView.setIcon(R.drawable.ic_inbox_24)
+            1 -> notificationButtonView.setIcon(R.drawable.ic_notifications_black_24dp)
+        }
+    }
+
+    fun updateNotificationDot(animate: Boolean) {
+        // TODO: remove when ABC test is complete.
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0, 1 -> {
+                if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+                    notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                    if (animate) {
+                        notificationsABCTestFunnel.logShow()
+                        notificationButtonView.runAnimation()
+                    }
+                } else {
+                    notificationButtonView.setUnreadCount(0)
+                }
+            }
+            else -> {
+                if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+                    binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                    binding.unreadDotView.isVisible = true
+                    if (animate) {
+                        notificationsABCTestFunnel.logShow()
+                        binding.unreadDotView.runAnimation()
+                    }
+                } else {
+                    binding.unreadDotView.isVisible = false
+                    binding.unreadDotView.setUnreadCount(0)
+                }
+            }
         }
     }
 

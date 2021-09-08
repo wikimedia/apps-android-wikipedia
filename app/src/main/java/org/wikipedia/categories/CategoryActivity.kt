@@ -110,8 +110,8 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .doAfterTerminate { binding.categoryProgress.visibility = View.GONE }
                 .subscribe({ response ->
                     unsortedTitleList.clear()
-                    for (page in response.query!!.categoryMembers()!!) {
-                        val title = PageTitle(page.title(), categoryTitle.wikiSite)
+                    for (page in response.query!!.categorymembers!!) {
+                        val title = PageTitle(page.title, categoryTitle.wikiSite)
                         if (page.namespace() == Namespace.CATEGORY) {
                             unsortedSubcategoryList.add(title)
                         } else {
@@ -159,11 +159,11 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    for (page in response.query!!.pages()!!) {
+                    for (page in response.query!!.pages!!) {
                         for (title in titles) {
-                            if (title!!.displayText == page.title()) {
+                            if (title!!.displayText == page.title) {
                                 title.thumbUrl = page.thumbUrl()
-                                title.description = if (page.description().isNullOrEmpty()) "" else page.description()
+                                title.description = if (page.description.isNullOrEmpty()) "" else page.description
                                 break
                             }
                         }
@@ -234,10 +234,6 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         override fun onLongClick(item: PageTitle?): Boolean {
             return false
-        }
-
-        override fun onThumbClick(item: PageTitle?) {
-            item?.let { loadPage(it) }
         }
 
         override fun onActionClick(item: PageTitle?, view: View) {}

@@ -13,10 +13,8 @@ import android.text.format.DateUtils
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.forEach
-import androidx.core.view.updatePadding
+import androidx.core.app.ActivityCompat
+import androidx.core.view.*
 import androidx.preference.PreferenceManager
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -25,10 +23,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.GalleryFunnel
-import org.wikipedia.analytics.IntentFunnel
-import org.wikipedia.analytics.LinkPreviewFunnel
-import org.wikipedia.analytics.WatchlistFunnel
+import org.wikipedia.analytics.*
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryDialog
 import org.wikipedia.commons.FilePageActivity
@@ -45,6 +40,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -65,7 +61,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         CURRENT_TAB, CURRENT_TAB_SQUASH, NEW_TAB_BACKGROUND, NEW_TAB_FOREGROUND, EXISTING_TAB
     }
 
-    private lateinit var binding: ActivityPageBinding
+    lateinit var binding: ActivityPageBinding
     private lateinit var toolbarHideHandler: ViewHideHandler
     private lateinit var pageFragment: PageFragment
     private var app = WikipediaApp.getInstance()
@@ -75,6 +71,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private val disposables = CompositeDisposable()
     private val overflowCallback = OverflowCallback()
     private val watchlistFunnel = WatchlistFunnel()
+    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
@@ -119,10 +116,17 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             startActivityForResult(TabActivity.newIntentFromPageActivity(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
         }
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP)
-        FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
+        FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             showOverflowMenu(it)
         }
+
+        binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color))
+        binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
+        binding.pageToolbarButtonNotifications.setOnClickListener {
+            overflowCallback.notificationsClick()
+        }
+        setupNotificationsTest()
 
         // Navigation setup
         binding.navigationDrawer.setScrimColor(Color.TRANSPARENT)
@@ -177,6 +181,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     override fun onResume() {
         super.onResume()
         app.resetWikiSite()
+        updateNotificationsButton(false)
         Prefs.storeTemporaryWikitext(null)
     }
 
@@ -405,10 +410,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 val title = wiki.titleForUri(it)
                 val historyEntry = HistoryEntry(title, if (intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID))
                     HistoryEntry.SOURCE_NOTIFICATION_SYSTEM else HistoryEntry.SOURCE_EXTERNAL_LINK)
-                if (intent.hasExtra(Intent.EXTRA_REFERRER)) {
-                    // Populate the referrer with the externally-referring URL, e.g. an external Browser URL.
-                    // This can be a Uri or a String, so let's extract it safely as an Object.
-                    historyEntry.referrer = intent.extras?.get(Intent.EXTRA_REFERRER)?.toString()
+                // Populate the referrer with the externally-referring URL, e.g. an external Browser URL, if present.
+                ActivityCompat.getReferrer(this)?.let { uri ->
+                    historyEntry.referrer = uri.toString()
                 }
                 // Special cases:
                 // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
@@ -612,6 +616,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             }
         }
 
+        override fun notificationsClick() {
+            if (AccountUtil.isLoggedIn) {
+                notificationsABCTestFunnel.logSelect()
+                startActivity(NotificationActivity.newIntent(this@PageActivity))
+            }
+        }
+
         override fun talkClick() {
             pageFragment.title?.run {
                 startActivity(TalkTopicsActivity.newIntent(this@PageActivity, pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY))
@@ -697,7 +708,59 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     fun animateTabsButton() {
+        toolbarHideHandler.ensureDisplayed()
         binding.pageToolbarButtonTabs.updateTabCount(true)
+    }
+
+    // TODO: remove when ABC test is complete.
+    private fun setupNotificationsTest() {
+        binding.pageToolbarButtonNotifications.isVisible = false
+        binding.unreadDotView.isVisible = false
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0 -> binding.pageToolbarButtonNotifications.setIcon(R.drawable.ic_inbox_24)
+            1 -> binding.pageToolbarButtonNotifications.setIcon(R.drawable.ic_notifications_black_24dp)
+        }
+    }
+
+    private fun updateNotificationsButton(animate: Boolean) {
+        // TODO: remove when ABC test is complete.
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0, 1 -> {
+                if (AccountUtil.isLoggedIn) {
+                    binding.pageToolbarButtonNotifications.isVisible = true
+                    if (Prefs.getNotificationUnreadCount() > 0) {
+                        binding.pageToolbarButtonNotifications.setUnreadCount(Prefs.getNotificationUnreadCount())
+                        if (animate) {
+                            notificationsABCTestFunnel.logShow()
+                            toolbarHideHandler.ensureDisplayed()
+                            binding.pageToolbarButtonNotifications.runAnimation()
+                        }
+                    } else {
+                        binding.pageToolbarButtonNotifications.setUnreadCount(0)
+                    }
+                } else {
+                    binding.pageToolbarButtonNotifications.isVisible = false
+                }
+            }
+            else -> {
+                if (AccountUtil.isLoggedIn) {
+                    if (Prefs.getNotificationUnreadCount() > 0) {
+                        binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                        if (animate) {
+                            notificationsABCTestFunnel.logShow()
+                            toolbarHideHandler.ensureDisplayed()
+                            binding.unreadDotView.runAnimation()
+                        }
+                        binding.unreadDotView.isVisible = true
+                    } else {
+                        binding.unreadDotView.setUnreadCount(0)
+                        binding.unreadDotView.isVisible = false
+                    }
+                } else {
+                    binding.unreadDotView.isVisible = false
+                }
+            }
+        }
     }
 
     fun clearActionBarTitle() {
@@ -708,17 +771,24 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         return binding.pageToolbarContainer.height
     }
 
+    override fun onUnreadNotification() {
+        updateNotificationsButton(true)
+    }
+
     private inner class EventBusConsumer : Consumer<Any> {
         override fun accept(event: Any?) {
-            if (event is ChangeTextSizeEvent) {
-                pageFragment.updateFontSize()
-            } else if (event is ArticleSavedOrDeletedEvent) {
-                if (!pageFragment.isAdded) {
-                    return
+            when (event) {
+                is ChangeTextSizeEvent -> {
+                    pageFragment.updateFontSize()
                 }
-                pageFragment.title?.run {
-                    if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode == wikiSite.languageCode }) {
-                        pageFragment.updateBookmarkAndMenuOptionsFromDao()
+                is ArticleSavedOrDeletedEvent -> {
+                    if (!pageFragment.isAdded) {
+                        return
+                    }
+                    pageFragment.title?.run {
+                        if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode == wikiSite.languageCode }) {
+                            pageFragment.updateBookmarkAndMenuOptionsFromDao()
+                        }
                     }
                 }
             }

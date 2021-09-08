@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iconImage"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_notifications_black_24dp"
+        app:tint="?attr/toolbar_icon_color"
+        android:contentDescription="@null"/>
+
+    <org.wikipedia.views.NotificationDotView
+        android:id="@+id/unreadDot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+</merge>

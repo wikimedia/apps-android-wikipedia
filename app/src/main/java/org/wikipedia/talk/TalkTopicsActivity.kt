@@ -17,7 +17,9 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.TalkFunnel
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
@@ -28,9 +30,11 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.staticdata.UserAliasData
@@ -39,6 +43,7 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
+import org.wikipedia.views.NotificationButtonView
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -47,6 +52,8 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var pageTitle: PageTitle
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var funnel: TalkFunnel
+    private lateinit var notificationButtonView: NotificationButtonView
+    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
     private val disposables = CompositeDisposable()
     private val topics = ArrayList<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
@@ -94,6 +101,7 @@ class TalkTopicsActivity : BaseActivity() {
                 startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle.displayText, it.revId, pageTitle.wikiSite.languageCode))
             }
         }
+        notificationButtonView = NotificationButtonView(this)
     }
 
     public override fun onDestroy() {
@@ -104,6 +112,7 @@ class TalkTopicsActivity : BaseActivity() {
     public override fun onResume() {
         super.onResume()
         loadTopics()
+        setupNotificationsTest()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -150,9 +159,31 @@ class TalkTopicsActivity : BaseActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_talk, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
         menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
-        return super.onCreateOptionsMenu(menu)
+        val notificationMenuItem = menu.findItem(R.id.menu_notifications)
+        if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
+            notificationMenuItem.isVisible = true
+            notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
+            notificationButtonView.setOnClickListener {
+                if (AccountUtil.isLoggedIn) {
+                    notificationsABCTestFunnel.logSelect()
+                    startActivity(NotificationActivity.newIntent(this))
+                }
+            }
+            notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
+            notificationMenuItem.actionView = notificationButtonView
+            notificationMenuItem.expandActionView()
+            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+        } else {
+            notificationMenuItem.isVisible = false
+        }
+        updateNotificationDot(false)
+        return super.onPrepareOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -175,6 +206,10 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
+    override fun onUnreadNotification() {
+        updateNotificationDot(true)
+    }
+
     private fun loadTopics() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
@@ -189,10 +224,10 @@ class TalkTopicsActivity : BaseActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap {
-                    it.query?.firstPage()?.revisions()?.getOrNull(0)?.let { revision ->
+                    it.query?.firstPage()?.revisions?.getOrNull(0)?.let { revision ->
                         revisionForLastEdit = revision
                         binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
-                            DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp()).time,
+                            DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
                                 System.currentTimeMillis(), 0L), revision.user))
                     }
                     ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
@@ -275,6 +310,31 @@ class TalkTopicsActivity : BaseActivity() {
             }, {
                 updateOnError(it)
             }))
+    }
+
+    // TODO: remove when ABC test is complete.
+    private fun setupNotificationsTest() {
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0 -> notificationButtonView.setIcon(R.drawable.ic_inbox_24)
+            1 -> notificationButtonView.setIcon(R.drawable.ic_notifications_black_24dp)
+        }
+    }
+
+    fun updateNotificationDot(animate: Boolean) {
+        // TODO: remove when ABC test is complete.
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0, 1 -> {
+                if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+                    notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                    if (animate) {
+                        notificationsABCTestFunnel.logShow()
+                        notificationButtonView.runAnimation()
+                    }
+                } else {
+                    notificationButtonView.setUnreadCount(0)
+                }
+            }
+        }
     }
 
     internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {

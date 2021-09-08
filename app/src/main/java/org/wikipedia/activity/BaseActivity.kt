@@ -30,7 +30,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
@@ -73,7 +72,6 @@ abstract class BaseActivity : AppCompatActivity() {
             NotificationInteractionFunnel.processIntent(intent)
             NotificationInteractionEvent.processIntent(intent)
         }
-        NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance())
 
         // Conditionally execute all recurring tasks
         RecurringTasksExecutor(WikipediaApp.getInstance()).run()
@@ -259,6 +257,8 @@ abstract class BaseActivity : AppCompatActivity() {
         imageZoomHelper = ImageZoomHelper(this)
     }
 
+    open fun onUnreadNotification() { }
+
     /**
      * Bus consumer that should be registered by all created activities.
      */
@@ -292,6 +292,12 @@ abstract class BaseActivity : AppCompatActivity() {
                 if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
                     FeedbackUtil.makeSnackbar(this@BaseActivity,
                             getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show()
+                }
+            } else if (event is UnreadNotificationsEvent) {
+                runOnUiThread {
+                    if (!isDestroyed) {
+                        onUnreadNotification()
+                    }
                 }
             }
         }

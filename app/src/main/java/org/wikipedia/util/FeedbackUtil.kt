@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.skydoves.balloon.*
@@ -241,25 +242,14 @@ object FeedbackUtil {
     }
 
     private fun findBestView(activity: Activity): View {
-        return when (activity) {
-            is MainActivity -> {
-                activity.findViewById(R.id.fragment_main_coordinator)
-            }
-            is PageActivity -> {
-                activity.findViewById(R.id.fragment_page_coordinator)
-            }
-            is RandomActivity -> {
-                activity.findViewById(R.id.random_coordinator_layout)
-            }
-            is ReadingListActivity -> {
-                activity.findViewById(R.id.fragment_reading_list_coordinator)
-            }
-            is SuggestionsActivity -> {
-                activity.findViewById(R.id.suggestedEditsCardsCoordinator)
-            }
-            else -> {
-                activity.findViewById(android.R.id.content)
-            }
+        val viewId = when (activity) {
+            is MainActivity -> R.id.fragment_main_coordinator
+            is PageActivity -> R.id.fragment_page_coordinator
+            is RandomActivity -> R.id.random_coordinator_layout
+            is ReadingListActivity -> R.id.fragment_reading_list_coordinator
+            is SuggestionsActivity -> R.id.suggestedEditsCardsCoordinator
+            else -> android.R.id.content
         }
+        return ActivityCompat.requireViewById(activity, viewId)
     }
 }

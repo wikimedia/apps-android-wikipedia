@@ -415,7 +415,7 @@
   <string name="preference_title_notification_thanks">Təşəkkür</string>
   <string name="preference_title_notification_login_fail">Daxil ol</string>
   <string name="preference_title_notification_user_talk">Müzakirə səhifəsi</string>
-  <string name="preference_summary_notification_user_talk">Müzakirə səhifələrindən ismarıclar</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Müzakirə səhifələrindən ismarıclar</string>
   <string name="view_featured_image_card_title">Günün şəkli</string>
   <string name="view_featured_image_card_download">Endir</string>
   <string name="view_continue_reading_card_subtitle_today">bu gün</string>

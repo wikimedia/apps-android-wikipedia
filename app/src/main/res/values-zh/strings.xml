@@ -211,6 +211,7 @@
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:%E6%88%91%E8%A2%AB%E5%B0%81%E7%A6%81%E4%BA%86</string>
   <string name="create_account_ip_block_details">详情</string>
   <string name="preferences_general_heading">通用</string>
+  <string name="preferences_account_heading">账户</string>
   <string name="wikipedia_app_faq">维基百科应用FAQ</string>
   <string name="send_feedback">发送应用反馈</string>
   <string name="create_account_account_created_toast">账户已创建！</string>
@@ -616,6 +617,7 @@
   <string name="notifications_view_archived_button_text">查看已存档通知</string>
   <string name="notification_preferences_title">通知参数设置</string>
   <string name="notifications_mark_unread">标记为未读</string>
+  <string name="notifications_mark_all_as_read">标记所有为已读</string>
   <string name="watchlist_title">监视列表</string>
   <string name="preference_title_notification_poll">投票通知</string>
   <string name="preference_summary_notification_poll">允许应用使用数据在后台检查新通知。</string>
@@ -633,7 +635,7 @@
   <string name="preference_title_notification_mention">提及</string>
   <string name="preference_summary_notification_mention">有人在页面中提到了您</string>
   <string name="preference_title_notification_user_talk">讨论页</string>
-  <string name="preference_summary_notification_user_talk">来自讨论页的消息</string>
+  <string name="preference_summary_notification_user_talk">来自讨论页的消息和回复</string>
   <string name="view_because_you_read_card_title">因你而读</string>
   <string name="view_random_card_title">随机条目</string>
   <string name="view_random_article_card_title">随机条目</string>

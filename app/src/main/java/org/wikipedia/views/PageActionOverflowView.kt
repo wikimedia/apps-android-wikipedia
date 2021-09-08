@@ -10,11 +10,14 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.annotation.DrawableRes
+import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
+import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.settings.Prefs
 
 class PageActionOverflowView(context: Context) : FrameLayout(context) {
 
@@ -27,6 +30,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         fun newTabClick()
         fun feedClick()
         fun categoriesClick()
+        fun notificationsClick()
     }
 
     private var binding = ViewPageActionOverflowBinding.inflate(LayoutInflater.from(context), this, true)
@@ -53,6 +57,20 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowWatchlist.setText(if (isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
         binding.overflowWatchlist.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(isWatched, hasWatchlistExpiry), 0, 0, 0)
         binding.overflowWatchlist.visibility = if (!isMobileWeb && AccountUtil.isLoggedIn) VISIBLE else GONE
+
+        // TODO: remove when ABC test is complete.
+        if (NotificationsABCTestFunnel().aBTestGroup > 1) {
+            binding.overflowNotifications.isVisible = true
+            if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
+                binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                binding.unreadDotView.isVisible = true
+            } else {
+                binding.unreadDotView.isVisible = false
+                binding.unreadDotView.setUnreadCount(0)
+            }
+        } else {
+            binding.overflowNotifications.isVisible = false
+        }
     }
 
     @DrawableRes
@@ -105,6 +123,10 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowCategories.setOnClickListener {
             dismissPopupWindowHost()
             callback?.categoriesClick()
+        }
+        binding.overflowNotifications.setOnClickListener {
+            dismissPopupWindowHost()
+            callback?.notificationsClick()
         }
     }
 }

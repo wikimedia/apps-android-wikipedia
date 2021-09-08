@@ -62,8 +62,8 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
                 .doFinally { binding.dialogCategoriesProgress.visibility = View.GONE }
                 .subscribe({ response ->
                     categoryList.clear()
-                    for (cat in response.query!!.firstPage()!!.categories()!!) {
-                        if (!cat.hidden()) {
+                    for (cat in response.query!!.firstPage()!!.categories!!) {
+                        if (!cat.hidden) {
                             categoryList.add(cat)
                         }
                     }
@@ -87,7 +87,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
 
     private inner class CategoryItemHolder constructor(itemView: PageItemView<PageTitle>) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(category: MwQueryPage.Category) {
-            val title = PageTitle(category.title(), pageTitle.wikiSite)
+            val title = PageTitle(category.title, pageTitle.wikiSite)
             view.item = title
             view.setTitle(title.text.replace("_", " "))
         }
@@ -130,12 +130,6 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
 
         override fun onLongClick(item: PageTitle?): Boolean {
             return false
-        }
-
-        override fun onThumbClick(item: PageTitle?) {
-            if (item != null) {
-                startActivity(CategoryActivity.newIntent(requireActivity(), item))
-            }
         }
 
         override fun onActionClick(item: PageTitle?, view: View) {}

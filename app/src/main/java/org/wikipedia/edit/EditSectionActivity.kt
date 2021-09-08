@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.view.*
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import androidx.core.os.postDelayed
 import androidx.core.view.isGone
@@ -172,7 +173,7 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun updateEditLicenseText() {
-        val editLicenseText = findViewById<TextView>(R.id.edit_section_license_text)
+        val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.edit_section_license_text)
         editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_3_url)))
@@ -496,10 +497,10 @@ class EditSectionActivity : BaseActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response: MwQueryResponse ->
                         val firstPage = response.query?.firstPage()!!
-                        val rev = firstPage.revisions()[0]
+                        val rev = firstPage.revisions[0]
 
-                        pageTitle = PageTitle(firstPage.title(), pageTitle.wikiSite)
-                        sectionWikitext = rev.content()
+                        pageTitle = PageTitle(firstPage.title, pageTitle.wikiSite)
+                        sectionWikitext = rev.content
                         currentRevision = rev.revId
 
                         val editError = response.query?.firstPage()!!.getErrorForAction("edit")
