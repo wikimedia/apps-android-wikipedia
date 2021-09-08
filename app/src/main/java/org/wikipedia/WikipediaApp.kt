@@ -6,7 +6,6 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Handler
-import android.text.TextUtils
 import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
@@ -14,44 +13,31 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.analytics.FunnelManager
-import org.wikipedia.analytics.InstallReferrerListener.Companion.newInstance
+import org.wikipedia.analytics.InstallReferrerListener
 import org.wikipedia.analytics.SessionFunnel
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.auth.AccountUtil.isLoggedIn
-import org.wikipedia.auth.AccountUtil.putUserIdForLanguage
-import org.wikipedia.auth.AccountUtil.removeAccount
-import org.wikipedia.auth.AccountUtil.userName
 import org.wikipedia.concurrency.RxBus
 import org.wikipedia.connectivity.NetworkConnectivityReceiver
-import org.wikipedia.dataclient.ServiceFactory.get
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.WikiSite.Companion.forLanguageCode
-import org.wikipedia.dataclient.WikiSite.Companion.setDefaultBaseUrl
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.language.AcceptLanguageUtil
 import org.wikipedia.language.AppLanguageState
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.startPollTask
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.tabs.Tab
-import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.unsubscribePushToken
-import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.updateSubscription
+import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.settings.SiteInfoClient.updateFor
 import org.wikipedia.theme.Theme
-import org.wikipedia.theme.Theme.Companion.fallback
-import org.wikipedia.theme.Theme.Companion.ofMarshallingId
-import org.wikipedia.util.DimenUtil.getFloat
-import org.wikipedia.util.DimenUtil.getFontSizeFromSp
-import org.wikipedia.util.ReleaseUtil.getChannel
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.util.log.L.d
-import org.wikipedia.util.log.L.e
 import java.util.*
 
 class WikipediaApp : Application() {
@@ -64,7 +50,7 @@ class WikipediaApp : Application() {
     val remoteConfig = RemoteConfig()
     val mainThreadHandler: Handler by lazy { Handler(mainLooper) }
     val userAgent: String by lazy {
-        var channel = getChannel(this)
+        var channel = ReleaseUtil.getChannel(this)
         channel = if (channel.isEmpty()) "" else " $channel"
         String.format(
             "WikipediaApp/%s (Android %s; %s; %s Build/%s)%s",
@@ -82,7 +68,7 @@ class WikipediaApp : Application() {
     private var wiki: WikiSite? = null
     val tabList: MutableList<Tab> = ArrayList()
 
-    var currentTheme = fallback
+    var currentTheme = Theme.fallback
         set(value) {
             if (value !== field) {
                 field = value
@@ -109,7 +95,7 @@ class WikipediaApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl())
+        WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl())
 
         // Register here rather than in AndroidManifest.xml so that we can target Android N.
         // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
@@ -137,12 +123,12 @@ class WikipediaApp : Application() {
         registerComponentCallbacks(activityLifecycleHandler)
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
-        startPollTask(this)
-        newInstance(this)
+        NotificationPollBroadcastReceiver.startPollTask(this)
+        InstallReferrerListener.newInstance(this)
 
         // For good measure, explicitly call our token subscription function, in case the
         // API failed in previous attempts.
-        updateSubscription()
+        WikipediaFirebaseMessagingService.updateSubscription()
         EventPlatformClient.setUpStreamConfigs()
     }
 
@@ -160,8 +146,7 @@ class WikipediaApp : Application() {
      * @return the value that should go in the Accept-Language header.
      */
     fun getAcceptLanguage(wiki: WikiSite?): String {
-        val wikiLang =
-            if (wiki == null || "meta" == wiki.languageCode) "" else StringUtils.defaultString(wiki.languageCode)
+        val wikiLang = if (wiki == null || "meta" == wiki.languageCode) "" else wiki.languageCode
         return AcceptLanguageUtil.getAcceptLanguage(
             wikiLang, appLanguageState.appLanguageCode,
             appLanguageState.systemLanguageCode
@@ -179,7 +164,7 @@ class WikipediaApp : Application() {
             return wiki ?: run {
                 val lang =
                     if (Prefs.getMediaWikiBaseUriSupportsLangCode()) appOrSystemLanguageCode else ""
-                val newWiki = forLanguageCode(lang)
+                val newWiki = WikiSite.forLanguageCode(lang)
                 // Kick off a task to retrieve the site info for the current wiki
                 updateFor(newWiki)
                 wiki = newWiki
@@ -224,7 +209,7 @@ class WikipediaApp : Application() {
     }
 
     fun logCrashManually(throwable: Throwable) {
-        e(throwable)
+        L.e(throwable)
         // TODO: send exception to custom crash reporting system
     }
 
@@ -251,8 +236,8 @@ class WikipediaApp : Application() {
      * @return Actual current size of the font.
      */
     fun getFontSize(window: Window): Float {
-        return getFontSizeFromSp(window, resources.getDimension(R.dimen.textSize)) *
-                (1.0f + Prefs.getTextSizeMultiplier() * getFloat(R.dimen.textSizeMultiplierFactor))
+        return DimenUtil.getFontSizeFromSp(window, resources.getDimension(R.dimen.textSize)) *
+                (1.0f + Prefs.getTextSizeMultiplier() * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
     }
 
     @Synchronized
@@ -262,21 +247,21 @@ class WikipediaApp : Application() {
 
     @SuppressLint("CheckResult")
     fun logOut() {
-        d("Logging out")
-        removeAccount()
+        L.d("Logging out")
+        AccountUtil.removeAccount()
         Prefs.setPushNotificationTokenSubscribed(false)
         Prefs.setPushNotificationTokenOld("")
-        get(wikiSite).csrfToken
+        ServiceFactory.get(wikiSite).csrfToken
             .subscribeOn(Schedulers.io())
             .flatMap { response: MwQueryResponse ->
                 val csrfToken = response.query!!.csrfToken()
-                unsubscribePushToken(csrfToken!!, Prefs.getPushNotificationToken())
+                WikipediaFirebaseMessagingService.unsubscribePushToken(csrfToken!!, Prefs.getPushNotificationToken())
                     .flatMap {
-                        get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io())
+                        ServiceFactory.get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io())
                     }
             }
             .doFinally { SharedPreferenceCookieManager.getInstance().clearAllCookies() }
-            .subscribe({ d("Logout complete.") }) { L.e(it) }
+            .subscribe({ L.d("Logout complete.") }) { L.e(it) }
     }
 
     private fun enableWebViewDebugging() {
@@ -286,31 +271,31 @@ class WikipediaApp : Application() {
     }
 
     fun unmarshalTheme(themeId: Int): Theme {
-        var result = ofMarshallingId(themeId)
+        var result = Theme.ofMarshallingId(themeId)
         if (result == null) {
-            d("Theme id=$themeId is invalid, using fallback.")
-            result = fallback
+            L.d("Theme id=$themeId is invalid, using fallback.")
+            result = Theme.fallback
         }
         return result
     }
 
     @SuppressLint("CheckResult")
     private fun getUserIdForLanguage(code: String) {
-        if (!isLoggedIn || TextUtils.isEmpty(userName)) {
+        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isNullOrEmpty()) {
             return
         }
-        val wikiSite = forLanguageCode(code)
-        get(wikiSite).userInfo
+        val wikiSite = WikiSite.forLanguageCode(code)
+        ServiceFactory.get(wikiSite).userInfo
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response: MwQueryResponse ->
-                if (isLoggedIn && response.query!!.userInfo() != null) {
+                if (AccountUtil.isLoggedIn && response.query!!.userInfo() != null) {
                     // noinspection ConstantConditions
                     val id = response.query!!.userInfo()!!.id
-                    putUserIdForLanguage(code, id)
-                    d("Found user ID $id for $code")
+                    AccountUtil.putUserIdForLanguage(code, id)
+                    L.d("Found user ID $id for $code")
                 }
-            }) { caught: Throwable? -> e("Failed to get user ID for $code", caught) }
+            }) { caught: Throwable? -> L.e("Failed to get user ID for $code", caught) }
     }
 
     private fun initTabs() {
