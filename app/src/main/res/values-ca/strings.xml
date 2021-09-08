@@ -57,6 +57,7 @@
   <string name="app_settings">Configuració de l\'aplicació</string>
   <string name="search_tab_tooltip">Torneu a tocar la icona per a començar a teclejar un terme de cerca.</string>
   <string name="history_list_title">Historial</string>
+  <string name="image_content_description">Imatge: %s</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -539,10 +540,12 @@
   <string name="reading_list_split_dialog_ok_button_text">D’acord</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_reverted_title">Modificació revertida</string>
+  <string name="notification_channel_title">Baixada d\'articles</string>
   <string name="notification_channel_description">Progrés de la baixada</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Reprèn</string>
   <string name="notification_syncing_cancel_button">Cancel·la</string>
+  <string name="notification_syncing_reading_list_channel_title">Sincronització de llistes de lectura</string>
   <string name="notification_syncing_reading_list_channel_description">Progrés de sincronització de llistes de lectura</string>
   <string name="notification_many_unread">Teniu %d notificacions per llegir</string>
   <plurals name="notification_channel_name">
@@ -588,6 +591,7 @@
   <string name="notifications_view_archived_button_text">Mostra les notificacions arxivades</string>
   <string name="notification_preferences_title">Preferències de notificació</string>
   <string name="notifications_mark_unread">Marca com a no llegit</string>
+  <string name="notifications_mark_all_as_read">Marca-les totes com llegides</string>
   <string name="watchlist_title">Llista de seguiment</string>
   <string name="preference_title_notification_poll">Activa les notificacions</string>
   <string name="preference_summary_notification_poll">Permet a l\'aplicació utilitzar dades per comprovar si hi ha noves notificacions en segon pla.</string>
@@ -605,7 +609,11 @@
   <string name="preference_title_notification_mention">Menció</string>
   <string name="preference_summary_notification_mention">Algú us menciona en una pàgina</string>
   <string name="preference_title_notification_user_talk">Pàgina de discussió</string>
-  <string name="preference_summary_notification_user_talk">Missatges de pàgines de discussió</string>
+  <string name="preference_summary_notification_user_talk">Missatges i respostes de pàgines de discussió</string>
+  <string name="preference_title_notification_email_user">Rebudes per correu</string>
+  <string name="preference_title_notification_user_rights">Canvis dels permisos d\'usuari</string>
+  <string name="preference_title_notification_article_linked">Enllaços a articles que heu creat</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Notificacions de la Viquipèdia</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>
   <string name="view_random_article_card_title">Article a l\'atzar</string>
@@ -991,6 +999,8 @@
   <string name="menu_option_user_contributions">Contribucions de %s</string>
   <string name="watchlist_details_watching_label">En seguiment</string>
   <string name="watchlist_details_watch_label">Segueix</string>
+  <string name="watchlist_details_next_edit">Edició següent</string>
+  <string name="watchlist_details_prev_edit">Edició anterior</string>
   <string name="thank_label">Agraeix</string>
   <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
   <string name="thank_dialog_title_text">Envia \'agraïments\' públicament</string>

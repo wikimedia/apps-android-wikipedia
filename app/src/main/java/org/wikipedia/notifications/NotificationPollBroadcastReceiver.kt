@@ -46,9 +46,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     return
                 }
                 maybeShowLocalNotificationForEditorReactivation(context)
-                if (!Prefs.notificationPollEnabled()) {
-                    return
-                }
 
                 // If push notifications are active, then don't actually do any polling.
                 if (WikipediaFirebaseMessagingService.isUsingPush()) {
@@ -206,20 +203,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
                 for (n in notificationsToDisplay) {
-                    // TODO: remove these conditions when the time is right.
-                    if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
-                            n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                            n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
-                            n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
-                            n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
-                            n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
-                            n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
-                            Prefs.showAllNotifications()) {
-                        // Record that there is an incoming notification to track/compare further actions on it.
-                        NotificationInteractionFunnel(WikipediaApp.instance, n).logIncoming()
-                        NotificationInteractionEvent.logIncoming(n, null)
-                        NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki())) DBNAME_WIKI_NAME_MAP[n.wiki()] else n.wiki())!!)
-                    }
+                    // Record that there is an incoming notification to track/compare further actions on it.
+                    NotificationInteractionFunnel(WikipediaApp.instance, n).logIncoming()
+                    NotificationInteractionEvent.logIncoming(n, null)
+                    NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki())) DBNAME_WIKI_NAME_MAP[n.wiki()] else n.wiki())!!)
                 }
             }
             if (locallyKnownModified) {

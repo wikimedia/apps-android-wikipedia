@@ -500,7 +500,7 @@
   <string name="preference_title_notification_mention">উল্লেখ</string>
   <string name="preference_summary_notification_mention">কোনোবাই পৃষ্ঠা এখনত আপোনাক উল্লেখ কৰে</string>
   <string name="preference_title_notification_user_talk">আলোচনা পৃষ্ঠা</string>
-  <string name="preference_summary_notification_user_talk">আলোচনা পৃষ্ঠাৰ বাৰ্তাসমূহ</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">আলোচনা পৃষ্ঠাৰ বাৰ্তাসমূহ</string>
   <string name="view_because_you_read_card_title">কাৰণ আপুনি পঢ়িছে</string>
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
   <string name="view_random_article_card_title">যাদৃচ্ছিক প্ৰবন্ধ</string>

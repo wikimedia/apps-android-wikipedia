@@ -53,14 +53,14 @@
 
     <ImageView
         android:id="@+id/view_list_card_header_menu"
-        android:layout_width="40dp"
+        android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="end"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:focusable="true"
         android:contentDescription="@string/abc_action_menu_overflow_description"
-        android:padding="8dp"
+        android:padding="12dp"
         app:tint="?attr/secondary_text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

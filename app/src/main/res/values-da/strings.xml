@@ -582,7 +582,7 @@
   <string name="preference_title_notification_mention">Nævnelse</string>
   <string name="preference_summary_notification_mention">Nogen nævner dig på en side</string>
   <string name="preference_title_notification_user_talk">Diskussionsside</string>
-  <string name="preference_summary_notification_user_talk">Beskeder fra diskussionssider</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Beskeder fra diskussionssider</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
   <string name="view_random_article_card_title">Tilfældig artikel</string>

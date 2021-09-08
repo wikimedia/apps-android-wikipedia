@@ -41,6 +41,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
             binding.primaryButton.iconSize = DimenUtil.roundedDpToPx(16f)
             binding.primaryButton.iconPadding = DimenUtil.roundedDpToPx(8f)
         }
+        binding.primaryButton.contentDescription = task.primaryAction + " " + task.title
         binding.taskIcon.setImageResource(task.imageDrawable)
         binding.taskTitleNewLabel.visibility = if (task.new) VISIBLE else GONE
 
@@ -61,6 +62,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         }
         binding.secondaryButton.visibility = if (task.secondaryAction.isNullOrEmpty()) View.GONE else VISIBLE
         binding.secondaryButton.text = task.secondaryAction
+        binding.secondaryButton.contentDescription = task.secondaryAction + " " + task.title
     }
 
     interface Callback {

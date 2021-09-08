@@ -77,6 +77,7 @@
   <string name="app_settings">Uygulama ayarları</string>
   <string name="search_tab_tooltip">Doğrudan bir arama terimi yazmaya başlamak için simgeye tekrar dokunun.</string>
   <string name="history_list_title">Geçmiş</string>
+  <string name="image_content_description">Resim: %s</string>
   <string name="dialog_title_clear_history">Tarama geçmişini temizle</string>
   <string name="dialog_message_clear_history">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
   <string name="dialog_message_clear_history_yes">Evet</string>
@@ -504,7 +505,7 @@
   <string name="reading_lists_sync_reminder_text">Okuma listelerine kaydedilen maddeler artık Vikipedi hesabınıza senkronize edilebilir. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza oturum açın ve listelerinizin kaydedilmesine izin verin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Senkronizasyonu etkinleştir</string>
-  <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
+  <string name="reading_list_login_reminder_title">Okuma listelerini eşitle</string>
   <string name="reading_lists_login_reminder_text">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
   <string name="reading_lists_login_button">Vikipedi\'ye oturum açın / katılın</string>
   <string name="reading_lists_ignore_button">Şimdi değil</string>
@@ -559,10 +560,12 @@
   <string name="reading_list_split_dialog_ok_button_text">Tamam</string>
   <string name="user_option_sync_label">Tercihler</string>
   <string name="notification_reverted_title">Geri alınan düzenleme</string>
+  <string name="notification_channel_title">Makaleler indiriliyor</string>
   <string name="notification_channel_description">İndirme ilerleme durumu</string>
   <string name="notification_syncing_pause_button">Duraklat</string>
   <string name="notification_syncing_resume_button">Devam et</string>
   <string name="notification_syncing_cancel_button">İptal</string>
+  <string name="notification_syncing_reading_list_channel_title">Okuma Listeleri Eşitleniyor</string>
   <string name="notification_syncing_reading_list_channel_description">Okuma listesi eşitlemesi sürüyor</string>
   <string name="notification_many_unread">%d okunmamış bildiriminiz var</string>
   <plurals name="notification_channel_name">
@@ -608,6 +611,7 @@
   <string name="notifications_view_archived_button_text">Arşivlenmiş bildirimleri görüntüle</string>
   <string name="notification_preferences_title">Bildirim tercihleri</string>
   <string name="notifications_mark_unread">Okunmamış olarak işaretle</string>
+  <string name="notifications_mark_all_as_read">Tümünü okundu olarak işaretle</string>
   <string name="watchlist_title">İzleme listesi</string>
   <string name="preference_title_notification_poll">Anket bildirimleri</string>
   <string name="preference_summary_notification_poll">Uygulamanın, arka planda yeni bildirimleri kontrol etmek için veri kullanmasına izin verin.</string>
@@ -625,7 +629,21 @@
   <string name="preference_title_notification_mention">Bahsetme</string>
   <string name="preference_summary_notification_mention">Bir sayfada sizden bahseden biri var</string>
   <string name="preference_title_notification_user_talk">Tartışma sayfası</string>
-  <string name="preference_summary_notification_user_talk">Tartışma sayfalarından gelen mesajlar</string>
+  <string name="preference_summary_notification_user_talk">Tartışma sayfalarından gelen mesajlar ve cevaplar</string>
+  <string name="preference_title_notification_email_user">E-posta alındı</string>
+  <string name="preference_summary_notification_email_user">Birisi viki\'den size bir e-posta gönderdi</string>
+  <string name="preference_title_notification_user_rights">Kullanıcı hakları değişiklikleri</string>
+  <string name="preference_summary_notification_user_rights">Kullanıcı haklarınız değiştiğinde alınır</string>
+  <string name="preference_title_notification_article_linked">Oluşturduğunuz makalelere bağlantılar</string>
+  <string name="preference_summary_notification_article_linked">Oluşturduğunuz bir sayfaya yeni bir bağlantı yapıldığında alınır</string>
+  <string name="preference_category_push_notifications">Anlık bildirimler</string>
+  <string name="preference_title_customize_push_notifications">Anlık bildirimleri özelleştir</string>
+  <string name="preference_category_display_settings">Görüntüleme ayarları</string>
+  <string name="preference_title_hide_read_notifications">Okunmuş bildirimleri gizle</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Vikipedi bildirimleri</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Vikipedi\'den bildirimler</string>
+  <string name="notifications_channel_group_other_title">Diğer</string>
+  <string name="notifications_channel_group_other_description">Uygulamadan diğer bildirimler</string>
   <string name="view_because_you_read_card_title">Okuduğun için</string>
   <string name="view_random_card_title">Rastgele</string>
   <string name="view_random_article_card_title">Rastgele madde</string>
@@ -1008,6 +1026,8 @@
   <string name="menu_option_user_contributions">%s kullanıcısının katkıları</string>
   <string name="watchlist_details_watching_label">İzleniyor</string>
   <string name="watchlist_details_watch_label">İzle</string>
+  <string name="watchlist_details_next_edit">Sonraki düzenleme</string>
+  <string name="watchlist_details_prev_edit">Önceki düzenleme</string>
   <string name="thank_label">Teşekkür et</string>
   <string name="go_to_user_page">Kullanıcı sayfasına gidin</string>
   <string name="thank_dialog_title_text">Açık olarak \'Teşekkür\' gönder</string>

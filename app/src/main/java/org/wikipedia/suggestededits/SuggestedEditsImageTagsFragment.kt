@@ -132,7 +132,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     this.page = page
                     updateContents()
                     updateTagChips()
-                }, { this.setErrorState(it) })!!)
+                }, { setErrorState(it) }))
     }
 
     private fun setErrorState(t: Throwable) {
@@ -167,9 +167,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         binding.imageCaption.text = captions[callback().getLangCode()]
                         binding.imageCaption.visibility = VISIBLE
                     } else {
-                        if (page!!.imageInfo() != null && page!!.imageInfo()!!.metadata != null) {
+                        if (page?.imageInfo()?.metadata != null) {
                             binding.imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription()).toString().trim()
                             binding.imageCaption.visibility = VISIBLE
+                            binding.imageView.contentDescription = binding.imageCaption.text
                         } else {
                             binding.imageCaption.visibility = GONE
                         }

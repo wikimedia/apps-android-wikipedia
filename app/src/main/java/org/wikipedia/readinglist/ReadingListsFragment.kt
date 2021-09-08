@@ -38,12 +38,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import java.util.*
@@ -116,12 +111,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     override fun onPause() {
         super.onPause()
         actionMode?.finish()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        if ((requireActivity() as MainActivity).isCurrentFragmentSelected(this)) {
-            inflater.inflate(R.menu.menu_reading_lists, menu)
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -453,10 +442,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 return true
             }
             return false
-        }
-
-        override fun onThumbClick(item: ReadingListPage?) {
-            onClick(item)
         }
 
         override fun onActionClick(item: ReadingListPage?, view: View) {

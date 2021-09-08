@@ -37,7 +37,6 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
 
     init {
         binding.clickContainer.setOnClickListener { view -> onCardClicked(view) }
-        binding.eventLayout.year.setOnClickListener { view -> onCardClicked(view) }
     }
 
     override fun onFooterClicked() {
@@ -107,9 +106,9 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
             val chosenPage = pages.find { it.thumbnailUrl != null }
             chosenPage?.let { page ->
                 if (page.thumbnailUrl.isNullOrEmpty()) {
-                    binding.eventLayout.page.image.visibility = GONE
+                    binding.eventLayout.page.imageContainer.visibility = GONE
                 } else {
-                    binding.eventLayout.page.image.visibility = VISIBLE
+                    binding.eventLayout.page.imageContainer.visibility = VISIBLE
                     binding.eventLayout.page.image.loadImage(Uri.parse(page.thumbnailUrl))
                     ImageZoomHelper.setViewZoomable(binding.eventLayout.page.image)
                 }

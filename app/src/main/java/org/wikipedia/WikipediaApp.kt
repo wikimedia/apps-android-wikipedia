@@ -306,7 +306,7 @@ class WikipediaApp : Application() {
             .subscribe({ response: MwQueryResponse ->
                 if (isLoggedIn && response.query!!.userInfo() != null) {
                     // noinspection ConstantConditions
-                    val id = response.query!!.userInfo()!!.id()
+                    val id = response.query!!.userInfo()!!.id
                     putUserIdForLanguage(code, id)
                     d("Found user ID $id for $code")
                 }

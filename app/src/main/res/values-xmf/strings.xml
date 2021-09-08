@@ -403,7 +403,7 @@
   <string name="preference_title_notification_thanks">მარდი</string>
   <string name="preference_summary_notification_thanks">მიდგაინ რედაქტირაფაშ გეშა მარდის გინმოიგანა</string>
   <string name="preference_title_notification_user_talk">სხუნუაშ ხასჷლა</string>
-  <string name="preference_summary_notification_user_talk">სხუნუაშ ხასჷლაშ გინაფეფი</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">სხუნუაშ ხასჷლაშ გინაფეფი</string>
   <string name="view_because_you_read_card_title">თიშ გეშა, ნამჷ-და თქვა კითხულენთ</string>
   <string name="view_random_card_title">ჩვაგაფი</string>
   <string name="home">დუდხასჷლა</string>

@@ -30,7 +30,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
@@ -73,7 +72,6 @@ abstract class BaseActivity : AppCompatActivity() {
             NotificationInteractionFunnel.processIntent(intent)
             NotificationInteractionEvent.processIntent(intent)
         }
-        NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.instance)
 
         // Conditionally execute all recurring tasks
         RecurringTasksExecutor(WikipediaApp.instance).run()

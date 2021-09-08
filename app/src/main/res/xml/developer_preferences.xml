@@ -90,11 +90,6 @@
             android:title="@string/preference_key_visited_article_page"
             android:defaultValue="false" />
 
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_notification_show_all"
-            android:title="@string/preference_key_notification_show_all"
-            android:defaultValue="false" />
-
         <org.wikipedia.settings.LongPreference
             style="@style/LongPreference"
             android:key="@string/preference_key_page_last_shown"

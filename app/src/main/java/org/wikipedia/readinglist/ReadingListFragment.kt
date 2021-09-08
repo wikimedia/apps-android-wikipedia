@@ -663,10 +663,6 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             return false
         }
 
-        override fun onThumbClick(item: ReadingListPage?) {
-            onClick(item)
-        }
-
         override fun onActionClick(item: ReadingListPage?, view: View) {
             item?.let {
                 if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi && it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {

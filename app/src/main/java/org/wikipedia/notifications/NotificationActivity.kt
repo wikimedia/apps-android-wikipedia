@@ -97,7 +97,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         NotificationsABCTestFunnel().logSelect()
 
         beginUpdateList()
-        NotificationSettingsActivity.promptEnablePollDialog(this)
     }
 
     public override fun onDestroy() {
@@ -110,31 +109,14 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         return true
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-        val itemArchived = menu.findItem(R.id.menu_notifications_view_archived)
-        val itemUnread = menu.findItem(R.id.menu_notifications_view_unread)
-        itemArchived.isVisible = !displayArchived
-        itemUnread.isVisible = displayArchived
-        return super.onPrepareOptionsMenu(menu)
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_notifications_view_archived -> {
-                onViewArchivedClick()
-                true
-            }
-            R.id.menu_notifications_view_unread -> {
-                displayArchived = false
-                beginUpdateList()
+            R.id.menu_notifications_mark_all_as_read -> {
+                // TODO: implement mark all as read
                 true
             }
             R.id.menu_notifications_prefs -> {
                 startActivity(NotificationSettingsActivity.newIntent(this))
-                true
-            }
-            R.id.menu_notifications_search -> {
-                startSupportActionMode(searchActionModeCallback)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -234,25 +216,14 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         notificationContainerList.clear()
         var millis = Long.MAX_VALUE
         for (n in notificationList) {
-
-            // TODO: remove this condition when the time is right.
-            if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
-                    n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
-                    n.category() == Notification.CATEGORY_MILESTONE_EDIT && Prefs.notificationMilestoneEnabled() ||
-                    n.category() == Notification.CATEGORY_REVERTED && Prefs.notificationRevertEnabled() ||
-                    n.category() == Notification.CATEGORY_EDIT_USER_TALK && Prefs.notificationUserTalkEnabled() ||
-                    n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
-                    n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
-                    Prefs.showAllNotifications()) {
-                if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents!!.header.contains(currentSearchQuery!!)) {
-                    continue
-                }
-                if (millis - n.timestamp.time > TimeUnit.DAYS.toMillis(1)) {
-                    notificationContainerList.add(NotificationListItemContainer(n.timestamp))
-                    millis = n.timestamp.time
-                }
-                notificationContainerList.add(NotificationListItemContainer(n))
+            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents!!.header.contains(currentSearchQuery!!)) {
+                continue
             }
+            if (millis - n.timestamp.time > TimeUnit.DAYS.toMillis(1)) {
+                notificationContainerList.add(NotificationListItemContainer(n.timestamp))
+                millis = n.timestamp.time
+            }
+            notificationContainerList.add(NotificationListItemContainer(n))
         }
         binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         if (notificationContainerList.isEmpty()) {
@@ -369,37 +340,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         fun bindItem(container: NotificationListItemContainer) {
             this.container = container
             val n = container.notification!!
-            var iconResId = R.drawable.ic_speech_bubbles
-            var iconBackColor = R.color.accent50
-            val s = n.category()
-            when {
-                Notification.CATEGORY_EDIT_USER_TALK == s -> {
-                    iconResId = R.drawable.ic_edit_user_talk
-                    iconBackColor = R.color.accent50
-                }
-                Notification.CATEGORY_REVERTED == s -> {
-                    iconResId = R.drawable.ic_revert
-                    iconBackColor = R.color.base20
-                }
-                Notification.CATEGORY_EDIT_THANK == s -> {
-                    iconResId = R.drawable.ic_user_talk
-                    iconBackColor = R.color.green50
-                }
-                Notification.CATEGORY_MILESTONE_EDIT == s -> {
-                    iconResId = R.drawable.ic_edit_progressive
-                    iconBackColor = R.color.accent50
-                }
-                s.startsWith(Notification.CATEGORY_MENTION) -> {
-                    iconResId = R.drawable.ic_mention
-                    iconBackColor = R.color.accent50
-                }
-                Notification.CATEGORY_LOGIN_FAIL == s -> {
-                    iconResId = R.drawable.ic_user_avatar
-                    iconBackColor = R.color.base0
-                }
-            }
-            imageView.setImageResource(iconResId)
-            imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, iconBackColor))
+            val notificationCategory = NotificationCategory.find(n.category())
+            imageView.setImageResource(notificationCategory.iconResId)
+            imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor))
             secondaryActionHintView.isVisible = false
             tertiaryActionHintView.isVisible = false
             n.contents?.let {
