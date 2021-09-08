@@ -42,6 +42,7 @@
 * Madamebiblio
 * MarcoAurelio
 * MarleneR329
+* Mnivar
 * Mouse21
 * Mynor Archila
 * Pantareje
@@ -57,6 +58,7 @@
 * Sukanya121
 * Tiberius1701
 * VegaDark
+* Warming Hearth
 * Whytheonlyone
 * Wifidel
 * Yllelder
@@ -575,6 +577,7 @@
   <string name="reading_list_split_dialog_ok_button_text">Aceptar</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_reverted_title">Edición revertida</string>
+  <string name="notification_channel_title">Descargando archivos</string>
   <string name="notification_channel_description">Progreso de la descarga</string>
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Reanudar</string>
@@ -624,6 +627,7 @@
   <string name="notifications_view_archived_button_text">Ver notificaciones archivadas</string>
   <string name="notification_preferences_title">Ajustes de notificaciones</string>
   <string name="notifications_mark_unread">Marcar como no leído</string>
+  <string name="notifications_mark_all_as_read">Marcar todo como leído</string>
   <string name="watchlist_title">Lista de seguimiento</string>
   <string name="preference_title_notification_poll">Verificar notificaciones</string>
   <string name="preference_summary_notification_poll">Habilitar a la aplicación para usar datos para las nuevas notificaciones en segundo plano</string>
@@ -641,7 +645,20 @@
   <string name="preference_title_notification_mention">Mención</string>
   <string name="preference_summary_notification_mention">Alguien te mencionó en una página</string>
   <string name="preference_title_notification_user_talk">Página de discusión</string>
-  <string name="preference_summary_notification_user_talk">Mensajes en páginas de discusión</string>
+  <string name="preference_summary_notification_user_talk">Mensajes y respuestas de páginas de conversación</string>
+  <string name="preference_title_notification_email_user">Email recibido</string>
+  <string name="preference_summary_notification_email_user">Alguien te ha enviado un email a través de la wiki</string>
+  <string name="preference_title_notification_user_rights">Cambios de derechos de usuario</string>
+  <string name="preference_summary_notification_user_rights">Recibido cuando sus derechos de usuario cambian</string>
+  <string name="preference_title_notification_article_linked">Enlances a artículos que usted ha creado</string>
+  <string name="preference_summary_notification_article_linked">Recibido cuando se crea un nuevo link hacia una página que usted creó</string>
+  <string name="preference_category_push_notifications">Notificaciones emergentes</string>
+  <string name="preference_title_customize_push_notifications">Personalizar notificaciones emergentes</string>
+  <string name="preference_title_hide_read_notifications">Ocultar notificaciones leídas</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Notificaciones de Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Notificaciones de Wikipedia</string>
+  <string name="notifications_channel_group_other_title">Otro</string>
+  <string name="notifications_channel_group_other_description">Otras notificaciones de la aplicación</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_article_card_title">Artículo aleatorio</string>

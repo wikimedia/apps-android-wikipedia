@@ -619,7 +619,7 @@
   <string name="preference_title_notification_mention">言及</string>
   <string name="preference_summary_notification_mention">誰かが特定のページであなたに言及しました</string>
   <string name="preference_title_notification_user_talk">トークページ</string>
-  <string name="preference_summary_notification_user_talk">トークページのメッセージ</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">トークページのメッセージ</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
   <string name="view_random_article_card_title">ランダム記事</string>

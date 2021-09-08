@@ -11,6 +11,7 @@
 * Dbrant
 * Deskana
 * Dianakc
+* Dr03ramos
 * EVinente
 * Eduardo Addad de Oliveira
 * Eduardoaddad
@@ -69,6 +70,7 @@
   <string name="app_settings">Configurações do aplicativo</string>
   <string name="search_tab_tooltip">Toque no ícone novamente para começar a digitar diretamente um termo de pesquisa.</string>
   <string name="history_list_title">Histórico</string>
+  <string name="image_content_description">Imagem: %s</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto apagará todo o seu histórico de navegação e fechará todas as guias abertas. Tem certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
@@ -384,7 +386,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Escurecimento de imagem (no tema escuro)</string>
   <string name="preference_title_prefer_offline_content">Prefira o conteúdo off-line</string>
   <string name="preference_summary_prefer_offline_content">Salve o uso de dados carregando artigos que estão disponíveis offline em vez de carregar sempre a versão mais recente de um artigo</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">Tema do sistema de correspondências</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Corresponder tema do sistema</string>
   <string name="page_footer_license_text">O conteúdo está disponível sob $1, salvo indicação em contrário</string>
   <string name="empty_tab_title">Nova guia</string>
   <string name="menu_save_all_tabs">Salvar todas as guias</string>
@@ -550,10 +552,12 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_reverted_title">Edição revertida</string>
+  <string name="notification_channel_title">Baixando artigos</string>
   <string name="notification_channel_description">Progresso do download</string>
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Retomar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
+  <string name="notification_syncing_reading_list_channel_title">Sincronizando listas de leitura</string>
   <string name="notification_syncing_reading_list_channel_description">Progresso da sincronização das listas de leitura</string>
   <string name="notification_many_unread">Você tem %d notificações não lidas</string>
   <plurals name="notification_channel_name">
@@ -599,6 +603,7 @@
   <string name="notifications_view_archived_button_text">Ver notificações arquivadas</string>
   <string name="notification_preferences_title">Preferências de notificação</string>
   <string name="notifications_mark_unread">Marcar como não lida</string>
+  <string name="notifications_mark_all_as_read">Marcas todas como lidas</string>
   <string name="watchlist_title">Lista de páginas vigiadas</string>
   <string name="preference_title_notification_poll">Pesquisa sobre notificações</string>
   <string name="preference_summary_notification_poll">Permitir que o aplicativo use dados para verificar em segundo plano se existem novas notificações</string>
@@ -616,7 +621,21 @@
   <string name="preference_title_notification_mention">Menção</string>
   <string name="preference_summary_notification_mention">Alguém menciona você em uma página</string>
   <string name="preference_title_notification_user_talk">Página de discussão</string>
-  <string name="preference_summary_notification_user_talk">Mensagens das páginas de discussão</string>
+  <string name="preference_summary_notification_user_talk">Mensagens e respostas das páginas de discussão</string>
+  <string name="preference_title_notification_email_user">Email recebido</string>
+  <string name="preference_summary_notification_email_user">Alguém lhe enviou um e-mail através da wiki</string>
+  <string name="preference_title_notification_user_rights">Mudanças nos direitos do usuário</string>
+  <string name="preference_summary_notification_user_rights">Recebido quando seus direitos de usuário mudam</string>
+  <string name="preference_title_notification_article_linked">Links para artigos que você criou</string>
+  <string name="preference_summary_notification_article_linked">Recebido quando um novo link é feito para uma página que você criou</string>
+  <string name="preference_category_push_notifications">Notificações via push</string>
+  <string name="preference_title_customize_push_notifications">Personalizar notificações de push</string>
+  <string name="preference_category_display_settings">Configuração de exibição</string>
+  <string name="preference_title_hide_read_notifications">Ocultar notificações lidas</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Notificações da Wikipédia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Notificações da Wikipédia</string>
+  <string name="notifications_channel_group_other_title">Outro</string>
+  <string name="notifications_channel_group_other_description">Outras notificações do aplicativo</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
   <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_article_card_title">Artigo aleatório</string>
@@ -816,7 +835,7 @@
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Editar sequência</string>
   <string name="suggested_edits_views_label_text">Visualizações</string>
-  <string name="suggested_edits_quality_label_text">Editar qualidade</string>
+  <string name="suggested_edits_quality_label_text">Qualidade das edições</string>
   <string name="suggested_edits_quality_perfect_text">Perfeito</string>
   <string name="suggested_edits_quality_excellent_text">Excelente</string>
   <string name="suggested_edits_quality_very_good_text">Muito bom</string>
@@ -876,7 +895,7 @@
     <item quantity="other">%1$s marcações</item>
   </plurals>
   <plurals name="suggested_edits_contribution_diff_count_text">
-    <item quantity="one">%1$s caráter</item>
+    <item quantity="one">%1$s caractere</item>
     <item quantity="other">%1$s caracteres</item>
   </plurals>
   <plurals name="suggested_edits_removed_contribution_label">
@@ -1002,6 +1021,8 @@
   <string name="menu_option_user_contributions">Contribuições de %s</string>
   <string name="watchlist_details_watching_label">Vigiado</string>
   <string name="watchlist_details_watch_label">Vigiar</string>
+  <string name="watchlist_details_next_edit">Próxima edição</string>
+  <string name="watchlist_details_prev_edit">Edição anterior</string>
   <string name="thank_label">Obrigado</string>
   <string name="go_to_user_page">Vá para a página do usuário</string>
   <string name="thank_dialog_title_text">Envie publicamente \"Obrigado\"</string>

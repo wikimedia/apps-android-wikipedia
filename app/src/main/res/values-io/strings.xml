@@ -408,7 +408,7 @@
   <string name="preference_summary_notification_revert">Un ek vua kontributaji desfacesis</string>
   <string name="preference_title_notification_login_fail">Enirar</string>
   <string name="preference_title_notification_user_talk">Diskuto-pagino</string>
-  <string name="preference_summary_notification_user_talk">Mesaji de diskuto-pagini</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Mesaji de diskuto-pagini</string>
   <string name="view_because_you_read_card_title">Pro ke vu lektis</string>
   <string name="view_random_card_title">Hazarda selekto</string>
   <string name="view_random_article_card_title">Hazard artiklo</string>

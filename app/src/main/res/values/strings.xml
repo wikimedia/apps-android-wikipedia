@@ -33,6 +33,7 @@
     <string name="app_settings">App settings</string>
     <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
     <string name="history_list_title">History</string>
+    <string name="image_content_description">Image: %s</string>
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
@@ -543,10 +544,12 @@
 
     <!-- Notifications -->
     <string name="notification_reverted_title">Reverted edit</string>
+    <string name="notification_channel_title">Downloading articles</string>
     <string name="notification_channel_description">Download progress</string>
     <string name="notification_syncing_pause_button">Pause</string>
     <string name="notification_syncing_resume_button">Resume</string>
     <string name="notification_syncing_cancel_button">Cancel</string>
+    <string name="notification_syncing_reading_list_channel_title">Syncing Reading Lists</string>
     <string name="notification_syncing_reading_list_channel_description">Syncing Reading Lists progress</string>
     <string name="notification_many_unread">You have %d unread notifications</string>
     <plurals name="notification_channel_name">
@@ -592,6 +595,7 @@
     <string name="notifications_view_archived_button_text">View archived notifications</string>
     <string name="notification_preferences_title">Notification preferences</string>
     <string name="notifications_mark_unread">Mark as unread</string>
+    <string name="notifications_mark_all_as_read">Mark all as read</string>
     <string name="watchlist_title">Watchlist</string>
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
@@ -609,7 +613,21 @@
     <string name="preference_title_notification_mention">Mention</string>
     <string name="preference_summary_notification_mention">Someone mentions you in a page</string>
     <string name="preference_title_notification_user_talk">Talk page</string>
-    <string name="preference_summary_notification_user_talk">Messages from talk pages</string>
+    <string name="preference_summary_notification_user_talk">Messages and replies from talk pages</string>
+    <string name="preference_title_notification_email_user">Email received</string>
+    <string name="preference_summary_notification_email_user">Someone sent you an email through the wiki</string>
+    <string name="preference_title_notification_user_rights">User rights changes</string>
+    <string name="preference_summary_notification_user_rights">Received when your user rights change</string>
+    <string name="preference_title_notification_article_linked">Links to articles you created</string>
+    <string name="preference_summary_notification_article_linked">Received when a new link is made to a page you created</string>
+    <string name="preference_category_push_notifications">Push notifications</string>
+    <string name="preference_title_customize_push_notifications">Customize push notifications</string>
+    <string name="preference_category_display_settings">Display settings</string>
+    <string name="preference_title_hide_read_notifications">Hide read notifications</string>
+    <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+    <string name="notifications_channel_group_wikipedia_notifications_description">Notifications from Wikipedia</string>
+    <string name="notifications_channel_group_other_title">Other</string>
+    <string name="notifications_channel_group_other_description">Other notifications from the app</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
@@ -1044,6 +1062,8 @@
     <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
+    <string name="watchlist_details_next_edit">Next edit</string>
+    <string name="watchlist_details_prev_edit">Previous edit</string>
     <string name="thank_label">Thank</string>
     <string name="go_to_user_page">Go to user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>

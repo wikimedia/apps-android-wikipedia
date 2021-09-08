@@ -540,7 +540,7 @@
   <string name="preference_title_notification_mention">Mención</string>
   <string name="preference_summary_notification_mention">Alguén menciónao nunha páxina</string>
   <string name="preference_title_notification_user_talk">Páxina de conversa</string>
-  <string name="preference_summary_notification_user_talk">Mensaxes das páxinas de conversa</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Mensaxes das páxinas de conversa</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_article_card_title">Artigo ao chou</string>

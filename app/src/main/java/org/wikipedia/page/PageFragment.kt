@@ -26,7 +26,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textview.MaterialTextView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.*
@@ -180,7 +179,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // Explicitly set background color of the WebView (independently of CSS, because
         // the background may be shown momentarily while the WebView loads content,
         // creating a seizure-inducing effect, or at the very least, a migraine with aura).
-        webView.setBackgroundColor(ResourceUtil.getThemedColor(requireActivity(), R.attr.paper_color))
+        val activity = requireActivity()
+        webView.setBackgroundColor(ResourceUtil.getThemedColor(activity, R.attr.paper_color))
         bridge = CommunicationBridge(this)
         setupMessageHandlers()
 
@@ -192,8 +192,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         editHandler = EditHandler(this, bridge)
-        tocHandler = ToCHandler(this, requireActivity().window.decorView.findViewById(R.id.navigation_drawer),
-            requireActivity().window.decorView.findViewById(R.id.page_scroller_button), bridge)
+        tocHandler = ToCHandler(this, ActivityCompat.requireViewById(activity, R.id.navigation_drawer),
+            ActivityCompat.requireViewById(activity, R.id.page_scroller_button), bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView)
         shareHandler = ShareHandler(this, bridge)
         pageFragmentLoadState = PageFragmentLoadState(model, this, webView, bridge, leadImagesHandler, currentTab)
@@ -202,7 +202,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, PageContainerLongPressHandler(this))
         }
 
-        if (shouldLoadFromBackstack(requireActivity()) || savedInstanceState != null) {
+        if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
             reloadFromBackstack()
         }
     }
@@ -407,8 +407,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             model.page?.let { page ->
                 GsonUtil.getDefaultGson().fromJson(value, Protection::class.java)?.let {
-                    page.pageProperties.setProtection(it)
-                    bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit()))
+                    page.pageProperties.protection = it
+                    bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit))
                 }
             }
         }
@@ -956,15 +956,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
             disposables.add(
-                Observable.fromCallable { AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
+                Completable.fromAction { model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate {
                         pageActionTabsCallback.updateBookmark(model.readingListPage != null)
                         requireActivity().invalidateOptionsMenu()
                     }
-                    .subscribe({ page -> model.readingListPage = page }
-                    ) { model.readingListPage = null })
+                    .subscribe())
         }
     }
 

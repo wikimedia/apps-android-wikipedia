@@ -612,7 +612,7 @@
   <string name="preference_title_notification_mention">Menționează</string>
   <string name="preference_summary_notification_mention">Cineva te menționează într-o pagină</string>
   <string name="preference_title_notification_user_talk">Pagina de discuții</string>
-  <string name="preference_summary_notification_user_talk">Mesaje din paginile de discuții</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Mesaje din paginile de discuții</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
   <string name="view_random_card_title">Aleatoriu</string>
   <string name="view_random_article_card_title">Articol aleatoriu</string>
