@@ -6,12 +6,12 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
-import kotlinx.serialization.Serializable
-import org.wikipedia.serialization.DateSerializer
 import kotlinx.parcelize.TypeParceler
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.parcel.DateParceler
+import org.wikipedia.serialization.DateSerializer
 import java.util.*
 
 @Serializable
