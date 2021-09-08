@@ -11,7 +11,7 @@ class MwQueryPage {
     @SerializedName("imageinfo") private val imageInfo: List<ImageInfo>? = null
     @SerializedName("videoinfo") private val videoInfo: List<ImageInfo>? = null
     @SerializedName("watchlistexpiry") private val watchlistExpiry: String? = null
-    @SerializedName("pageviews") val pageViewsMap: Map<String, Long> = emptyMap()
+    @SerializedName("pageviews") val pageViewsMap: Map<String, Long?> = emptyMap()
     @SerializedName("imagelabels") val imageLabels: List<ImageLabel>? = null
     @SerializedName("pageid") val pageId = 0
     @SerializedName("pageprops") val pageProps: PageProps? = null
@@ -91,7 +91,7 @@ class MwQueryPage {
         val comment: String = ""
 
         fun getContentFromSlot(slot: String): String {
-            return if (slots?.containsKey(slot)!!) slots[slot]!!.content else ""
+            return if (slots != null && slots.containsKey(slot)) slots[slot]!!.content else ""
         }
     }
 
@@ -116,24 +116,17 @@ class MwQueryPage {
 
     class Category(val ns: Int = 0, val title: String = "", val hidden: Boolean = false)
 
-    class ImageLabel {
+    class ImageLabel(
+        @SerializedName("wikidata_id") val wikidataId: String = "",
+        val label: String = "",
+        val description: String? = "",
+        val isCustom: Boolean = true
+    ) {
+        constructor() : this(isCustom = false)
 
-        @SerializedName("wikidata_id") var wikidataId: String? = ""
         private val confidence: Confidence? = null
         val state: String = ""
-        var label: String = ""
-        var description: String? = ""
         var isSelected = false
-        var isCustom = false
-
-        constructor()
-        constructor(wikidataId: String, label: String, description: String?) {
-            this.wikidataId = wikidataId
-            this.label = label
-            this.description = description
-            isCustom = true
-        }
-
         val confidenceScore: Float
             get() = confidence?.google ?: 0f
     }

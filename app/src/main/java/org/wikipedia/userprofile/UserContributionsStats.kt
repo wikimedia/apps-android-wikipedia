@@ -100,7 +100,7 @@ object UserContributionsStats {
                         resultList.filterIsInstance<MwQueryResponse>()
                                 .mapNotNull { it.query }
                                 .flatMap { it.pages!! }
-                                .flatMap { it.pageViewsMap?.values!! }
+                                .flatMap { it.pageViewsMap.values }
                                 .sumOf { it ?: 0 }
                     }
                 }
