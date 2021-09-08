@@ -23,9 +23,9 @@ public class NotificationClientTest extends MockRetrofitTest {
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
                     List<Notification> notifications = response.getQuery().getNotifications().getList();
-                    return notifications.get(0).category().equals(NotificationCategory.EDIT_THANK.getId())
-                            && notifications.get(0).title().full().equals("PageTitle")
-                            && notifications.get(0).agent().name().equals("User1");
+                    return notifications.get(0).getCategory().equals(NotificationCategory.EDIT_THANK.getId())
+                            && notifications.get(0).getTitle().getFull().equals("PageTitle")
+                            && notifications.get(0).getAgent().getName().equals("User1");
                 });
     }
 
@@ -50,9 +50,9 @@ public class NotificationClientTest extends MockRetrofitTest {
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
                     List<Notification> notifications = response.getQuery().getNotifications().getList();
-                    return notifications.get(0).category().startsWith(NotificationCategory.MENTION.getId())
-                            && notifications.get(1).category().startsWith(NotificationCategory.MENTION.getId())
-                            && notifications.get(2).category().startsWith(NotificationCategory.MENTION.getId());
+                    return notifications.get(0).getCategory().startsWith(NotificationCategory.MENTION.getId())
+                            && notifications.get(1).getCategory().startsWith(NotificationCategory.MENTION.getId())
+                            && notifications.get(2).getCategory().startsWith(NotificationCategory.MENTION.getId());
                 });
     }
 
