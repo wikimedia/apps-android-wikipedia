@@ -36,18 +36,11 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil.getFeedCardDateString
+import org.wikipedia.util.*
 import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.DrawableItemDecoration
-import org.wikipedia.views.MultiSelectActionModeCallback
-import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.*
 import java.util.*
-import java.util.concurrent.TimeUnit
 
 class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callback {
     private lateinit var binding: ActivityNotificationsBinding
@@ -214,14 +207,10 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
         notificationContainerList.clear()
-        var millis = Long.MAX_VALUE
+        notificationContainerList.add(NotificationListItemContainer()) // search bar
         for (n in notificationList) {
             if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
                 continue
-            }
-            if (millis - n.getTimestamp().time > TimeUnit.DAYS.toMillis(1)) {
-                notificationContainerList.add(NotificationListItemContainer(n.getTimestamp()))
-                millis = n.getTimestamp().time
             }
             notificationContainerList.add(NotificationListItemContainer(n))
         }
@@ -420,10 +409,20 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
     }
 
-    private inner class NotificationDateHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-        private val dateView: TextView = view.findViewById(R.id.notification_date_text)
-        fun bindItem(date: Date?) {
-            dateView.text = getFeedCardDateString(date!!)
+    private inner class NotificationSearchBarHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+        init {
+            (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
+            val notificationFilterButton = itemView.findViewById<View>(R.id.notification_filter_button)
+
+            itemView.setOnClickListener {
+                // TODO: open search page
+            }
+
+            notificationFilterButton.setOnClickListener {
+                // TODO: open filter page
+            }
+
+            FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
         }
     }
 
@@ -437,8 +436,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
-            if (type == NotificationListItemContainer.ITEM_DATE_HEADER) {
-                return NotificationDateHolder(layoutInflater.inflate(R.layout.item_notification_date, parent, false))
+            if (type == NotificationListItemContainer.ITEM_SEARCH_BAR) {
+                return NotificationSearchBarHolder(layoutInflater.inflate(R.layout.view_notification_search_bar, parent, false))
             }
             return if (displayArchived) {
                 NotificationItemHolder(layoutInflater.inflate(R.layout.item_notification, parent, false))
@@ -449,7 +448,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             when (holder) {
-                is NotificationDateHolder -> holder.bindItem(notificationContainerList[pos].date)
                 is NotificationItemHolderSwipeable -> holder.bindItem(notificationContainerList[pos])
                 is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos])
             }
@@ -523,12 +521,10 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     private class NotificationListItemContainer {
         val type: Int
         var notification: Notification? = null
-        var date: Date? = null
         var selected = false
 
-        constructor(date: Date) {
-            this.date = date
-            type = ITEM_DATE_HEADER
+        constructor() {
+            type = ITEM_SEARCH_BAR
         }
 
         constructor(notification: Notification) {
@@ -537,7 +533,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
 
         companion object {
-            const val ITEM_DATE_HEADER = 0
+            const val ITEM_SEARCH_BAR = 0
             const val ITEM_NOTIFICATION = 1
         }
     }

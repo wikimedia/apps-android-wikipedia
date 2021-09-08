@@ -628,6 +628,11 @@
     <string name="notifications_channel_group_wikipedia_notifications_description">Notifications from Wikipedia</string>
     <string name="notifications_channel_group_other_title">Other</string>
     <string name="notifications_channel_group_other_description">Other notifications from the app</string>
+    <string name="notifications_tab_filter_all">All</string>
+    <string name="notifications_tab_filter_mentions">Mentions</string>
+    <string name="notifications_tab_filter_unread">(%s)</string>
+    <string name="notifications_search_bar_hint">Search or filter notifications</string>
+    <string name="notifications_search_bar_filter_hint">Notification filter</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->

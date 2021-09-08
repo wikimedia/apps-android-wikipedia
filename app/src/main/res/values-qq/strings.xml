@@ -634,6 +634,11 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Description for the Wikipedia notifications group.</string>
   <string name="notifications_channel_group_other_title">Title for the other notifications group.</string>
   <string name="notifications_channel_group_other_description">Description for the other notifications group.</string>
+  <string name="notifications_tab_filter_all">Label for the tab button in the notification screen that shows all types of notification.</string>
+  <string name="notifications_tab_filter_mentions">Label for the tab button in the notification screen that shows mention types of notification.</string>
+  <string name="notifications_tab_filter_unread">Additional text for the tab button label in the notification screen that indicates how many unread notifications are in this type of notification. %s will be replaced by the unread number.</string>
+  <string name="notifications_search_bar_hint">Hint text for the notifications search bar.</string>
+  <string name="notifications_search_bar_filter_hint">Hint text for the notifications filter icon.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
