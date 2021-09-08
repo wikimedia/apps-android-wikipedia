@@ -4,6 +4,7 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 import org.wikipedia.json.GsonUtil
+import org.wikipedia.page.Namespace
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UriUtil
 import java.util.*
@@ -44,10 +45,10 @@ class Notification {
         private val namespaceKey = 0
         var full: String = ""
         val text: String = ""
-        private val namespace: String? = null
+        private val namespace: String = ""
 
         val isMainNamespace: Boolean
-            get() = namespaceKey == 0
+            get() = namespaceKey == Namespace.MAIN.code()
     }
 
     class Agent {
@@ -67,7 +68,7 @@ class Notification {
 
     class Link {
 
-        private val description: String? = null
+        private val description: String = ""
         val url: String = ""
             get() = UriUtil.decodeURL(field)
         val label: String = ""
@@ -102,7 +103,7 @@ class Notification {
 
     class Contents {
 
-        private val icon: String? = null
+        private val icon: String = ""
         val header: String = ""
         val compactHeader: String = ""
         val body: String = ""
@@ -119,7 +120,7 @@ class Notification {
 
     class SeenTime {
 
-        val alert: String? = null
-        val message: String? = null
+        val alert: String = ""
+        val message: String = ""
     }
 }
