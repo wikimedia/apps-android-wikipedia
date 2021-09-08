@@ -91,7 +91,7 @@ class MwQueryPage {
         val comment: String = ""
 
         fun getContentFromSlot(slot: String): String {
-            return if (slots != null && slots.containsKey(slot)) slots[slot]!!.content else ""
+            return slots?.get(slot)?.content.orEmpty()
         }
     }
 
