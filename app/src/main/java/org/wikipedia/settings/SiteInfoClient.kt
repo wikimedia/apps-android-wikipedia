@@ -45,6 +45,6 @@ object SiteInfoClient {
         ServiceFactory.get(wiki).siteInfo
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response -> SITE_INFO_MAP[wiki.languageCode] = response.query?.siteInfo() }) { caught -> L.d(caught) }
+                .subscribe({ response -> SITE_INFO_MAP[wiki.languageCode] = response.query?.siteInfo }) { caught -> L.d(caught) }
     }
 }

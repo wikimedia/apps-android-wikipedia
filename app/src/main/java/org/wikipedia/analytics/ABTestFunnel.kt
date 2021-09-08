@@ -3,7 +3,6 @@ package org.wikipedia.analytics
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.PrefsIoUtil
-import java.util.*
 import kotlin.random.Random
 
 class ABTestFunnel internal constructor(private val abTestName: String, private val abTestGroupCount: Int) :
@@ -18,7 +17,7 @@ class ABTestFunnel internal constructor(private val abTestName: String, private 
                 group = Random(Int.MAX_VALUE).nextInt()
                 PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
             }
-            return group % abTestGroupCount
+            return group.mod(abTestGroupCount)
         }
 
     private val isEnrolled = PrefsIoUtil.contains(AB_TEST_KEY_PREFIX + abTestName)

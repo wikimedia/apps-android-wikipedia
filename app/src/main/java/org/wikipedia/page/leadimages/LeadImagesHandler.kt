@@ -114,7 +114,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     imageEditType = null // Need to clear value from precious call
                     if (!pair.first.containsKey(it.wikiSite.languageCode)) {
                         imageEditType = ImageEditType.ADD_CAPTION
-                        return@flatMap ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage()!!.pageId(), it.wikiSite.languageCode)
+                        return@flatMap ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage()!!.pageId, it.wikiSite.languageCode)
                     }
                     if (WikipediaApp.getInstance().language().appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                         for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
@@ -125,7 +125,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                             }
                         }
                     }
-                    ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage()!!.pageId(), it.wikiSite.languageCode)
+                    ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage()!!.pageId, it.wikiSite.languageCode)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { imageTagsResult ->

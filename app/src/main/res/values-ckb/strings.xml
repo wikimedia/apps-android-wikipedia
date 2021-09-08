@@ -4,6 +4,7 @@
 * Asoxor
 * Cwtiyar
 * Diyariq
+* GoRaN
 * Kurd
 * Kushared
 * Pirehelokan
@@ -167,6 +168,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/یارمەتی:من بەربەستکراوم</string>
   <string name="create_account_ip_block_details">وردەکارییەکان</string>
   <string name="preferences_general_heading">گشتی</string>
+  <string name="preferences_account_heading">هەژمار</string>
   <string name="wikipedia_app_faq">پرسیارە دووپاتکراوەکانی نەرمەواڵەی مۆبایلی ویکیپیدیا</string>
   <string name="send_feedback">ناردنی فیدباکی نەرمەواڵە</string>
   <string name="create_account_account_created_toast">ھەژمار دروست کرا!</string>
@@ -523,7 +525,7 @@
   <string name="preference_summary_notification_login_fail">چالاکییەکانی چوونە ژوورەوەت</string>
   <string name="preference_title_notification_mention">بانگکردن</string>
   <string name="preference_title_notification_user_talk">پەڕەی وتووێژ</string>
-  <string name="preference_summary_notification_user_talk">نامەی پەڕەکانی وتووێژ</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">نامەی پەڕەکانی وتووێژ</string>
   <string name="view_because_you_read_card_title">لەبەرەوەی خوێندتەوە</string>
   <string name="view_random_card_title">وتارێک بە ھەڵکەوت</string>
   <string name="view_top_read_card_title">زۆرترین خوێندراوە</string>

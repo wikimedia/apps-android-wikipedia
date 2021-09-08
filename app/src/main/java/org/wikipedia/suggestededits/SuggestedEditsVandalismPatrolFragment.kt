@@ -54,7 +54,6 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
             getNextItem()
         }
 
-
         val transparency = 0xcc000000
         binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
@@ -117,7 +116,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
                 .flatMap {
                     candidate = it
                     ServiceFactory.getCoreRest(WikiSite.forLanguageCode(parent().langFromCode))
-                            .getDiff(candidate!!.revFrom, candidate!!.revTo)
+                            .getDiff(candidate!!.revFrom, candidate!!.curRev)
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -156,7 +155,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         binding.articleTitleView.text = candidate!!.title
 
         binding.userTextView.text = StringUtil.fromHtml("<b>User:</b> " + candidate!!.user)
-        binding.summaryTextView.text = StringUtil.fromHtml("<b>Summary:</b> " + candidate!!.comment)
+        binding.summaryTextView.text = StringUtil.fromHtml("<b>Summary:</b> " + candidate!!.parsedcomment)
 
         val sb = SpannableStringBuilder()
 

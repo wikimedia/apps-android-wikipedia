@@ -100,7 +100,7 @@ object ThrowableUtil {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parseText(blockInfo.blockReason),
             { userInfoResponse, blockedParseResponse, reasonParseResponse ->
                 parseBlockedError(blockedParseResponse.text, blockInfo,
-                    reasonParseResponse.text, userInfoResponse.query?.userInfo()!!.name)
+                    reasonParseResponse.text, userInfoResponse.query?.userInfo!!.name)
             }
         ).blockingSubscribe({ html = it }) { L.e(it) }
         return html

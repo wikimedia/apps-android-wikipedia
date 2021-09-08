@@ -603,7 +603,7 @@
   <string name="preference_title_notification_mention">Хьо хьоахавар</string>
   <string name="preference_summary_notification_mention">Цхьане оагӀона тӀа хьоахаваьв(-яьй) хьо</string>
   <string name="preference_title_notification_user_talk">Къамаьла оагӀонаш тӀа</string>
-  <string name="preference_summary_notification_user_talk">Къамаьла оагӀонаш тӀара дола хоамбар</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Къамаьла оагӀонаш тӀара дола хоамбар</string>
   <string name="view_because_you_read_card_title">Хьалха дийшачунга хьажжá</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_article_card_title">Ца ховш нийсъенна статья</string>
