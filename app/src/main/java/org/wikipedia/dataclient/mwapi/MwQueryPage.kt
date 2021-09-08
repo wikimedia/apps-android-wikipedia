@@ -3,7 +3,6 @@ package org.wikipedia.dataclient.mwapi
 import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.Namespace
@@ -28,7 +27,7 @@ class MwQueryPage {
 
     val index = 0
     var title: String = ""
-    val langlinks: List<LangLink>? = null
+    val langlinks: List<LangLink> = emptyList()
     val revisions: List<Revision> = emptyList()
     val categories: List<Category>? = null
     val protection: List<Protection> = emptyList()
@@ -65,25 +64,25 @@ class MwQueryPage {
     }
 
     fun displayTitle(langCode: String): String {
-        return if (!varianttitles.isNullOrEmpty()) StringUtils.defaultIfEmpty(varianttitles[langCode], title)!! else title
+        return varianttitles?.get(langCode).orEmpty().ifEmpty { title }
     }
 
     val isImageShared: Boolean
-        get() = StringUtils.defaultString(imagerepository) == "shared"
+        get() = imagerepository.orEmpty() == "shared"
 
     fun hasWatchlistExpiry(): Boolean {
         return !watchlistExpiry.isNullOrEmpty()
     }
 
     fun getErrorForAction(actionName: String): List<MwServiceError> {
-        return if (actions?.containsKey(actionName)!!) actions[actionName]!! else emptyList()
+        return actions?.get(actionName) ?: emptyList()
     }
 
     @Serializable
     class Revision {
 
-        @SerialName("contentformat") private val contentFormat: String? = null
-        @SerialName("contentmodel") private val contentModel: String? = null
+        @SerializedName("contentformat") private val contentFormat: String? = null
+        @SerializedName("contentmodel") private val contentModel: String? = null
         @SerializedName("timestamp") @SerialName("timestamp") val timeStamp: String = ""
 
         private val slots: Map<String, RevisionSlot>? = null
@@ -96,7 +95,7 @@ class MwQueryPage {
         val comment: String = ""
 
         fun getContentFromSlot(slot: String): String {
-            return if (slots?.containsKey(slot)!!) slots[slot]!!.content else ""
+            return slots?.get(slot)?.content.orEmpty()
         }
     }
 

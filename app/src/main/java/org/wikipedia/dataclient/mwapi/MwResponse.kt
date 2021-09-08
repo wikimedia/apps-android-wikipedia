@@ -7,19 +7,15 @@ import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 
 @Serializable
 abstract class MwResponse : PostProcessable {
-    val errors: List<MwServiceError>? = null
+    private val errors: List<MwServiceError>? = null
 
     @SerialName("servedby") @SerializedName("servedby")
     private val servedBy: String? = null
+
     override fun postProcess() {
-        if (errors != null && errors.isNotEmpty()) {
-            for (error in errors) {
-                // prioritize "blocked" errors over others.
-                if (error.title.contains("blocked")) {
-                    throw MwException(error)
-                }
-            }
-            throw MwException(errors[0])
+        if (errors?.isNotEmpty() == true) {
+            // prioritize "blocked" errors over others.
+            throw MwException(errors.firstOrNull { it.title.contains("blocked") } ?: errors.first())
         }
     }
 }

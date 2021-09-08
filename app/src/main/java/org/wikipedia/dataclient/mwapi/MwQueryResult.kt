@@ -57,10 +57,7 @@ class MwQueryResult : PostProcessable {
     }
 
     fun captchaId(): String? {
-        var captchaId: String? = null
-        amInfo?.requests?.asSequence()?.filter { "CaptchaAuthenticationRequest" == it.id }?.forEach { captchaId = it.fields!!["captchaId"]!!.value
-        }
-        return captchaId
+        return amInfo?.requests?.find { "CaptchaAuthenticationRequest" == it.id }?.fields?.get("captchaId")?.value
     }
 
     fun getUserResponse(userName: String): ListUserResponse? {
@@ -69,12 +66,12 @@ class MwQueryResult : PostProcessable {
     }
 
     fun langLinks(): MutableList<PageTitle> {
-        val result: MutableList<PageTitle> = ArrayList()
+        val result = mutableListOf<PageTitle>()
         if (pages.isNullOrEmpty() || pages[0].langlinks == null) {
             return result
         }
         // noinspection ConstantConditions
-        for (link in pages[0].langlinks!!) {
+        for (link in pages[0].langlinks) {
             val title = PageTitle(link.title, WikiSite.forLanguageCode(link.lang))
             result.add(title)
         }

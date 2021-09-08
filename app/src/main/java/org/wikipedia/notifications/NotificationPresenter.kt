@@ -26,7 +26,6 @@ import org.wikipedia.util.StringUtil
 object NotificationPresenter {
 
     fun showNotification(context: Context, n: Notification, wikiSiteName: String) {
-
         val notificationCategory = NotificationCategory.find(n.category)
         val activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id, n.type)
         val builder = getDefaultBuilder(context, n.id, n.type, notificationCategory)
