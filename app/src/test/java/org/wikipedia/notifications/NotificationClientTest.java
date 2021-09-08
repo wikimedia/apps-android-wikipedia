@@ -22,7 +22,7 @@ public class NotificationClientTest extends MockRetrofitTest {
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
-                    List<Notification> notifications = response.getQuery().notifications().list();
+                    List<Notification> notifications = response.getQuery().getNotifications().getList();
                     return notifications.get(0).getCategory().equals(NotificationCategory.EDIT_THANK.getId())
                             && notifications.get(0).getTitle().getFull().equals("PageTitle")
                             && notifications.get(0).getAgent().getName().equals("User1");
@@ -49,7 +49,7 @@ public class NotificationClientTest extends MockRetrofitTest {
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
                 .assertValue(response -> {
-                    List<Notification> notifications = response.getQuery().notifications().list();
+                    List<Notification> notifications = response.getQuery().getNotifications().getList();
                     return notifications.get(0).getCategory().startsWith(NotificationCategory.MENTION.getId())
                             && notifications.get(1).getCategory().startsWith(NotificationCategory.MENTION.getId())
                             && notifications.get(2).getCategory().startsWith(NotificationCategory.MENTION.getId());

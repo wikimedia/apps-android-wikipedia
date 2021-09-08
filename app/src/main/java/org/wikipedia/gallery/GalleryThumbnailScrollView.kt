@@ -51,7 +51,7 @@ class GalleryThumbnailScrollView constructor(context: Context, attrs: AttributeS
 
         override fun onClick(v: View) {
             galleryItem.imageInfo()?.let {
-                listener?.onGalleryItemClicked(v as ImageView, it.thumbUrl, StringUtil.addUnderscores(galleryItem.title()))
+                listener?.onGalleryItemClicked(v as ImageView, it.thumbUrl, StringUtil.addUnderscores(galleryItem.title))
             }
         }
 
