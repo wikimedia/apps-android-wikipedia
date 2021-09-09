@@ -648,7 +648,7 @@
   <string name="preference_title_customize_push_notifications">התאמה אישית של הודעות דחיפה</string>
   <string name="preference_category_display_settings">הגדרות תצוגה</string>
   <string name="preference_title_hide_read_notifications">הסתרת הודעות שנקראו</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">התראות ויקיפדיה</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ויקיפדיה</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">התראות מוויקיפדיה</string>
   <string name="notifications_channel_group_other_title">אחרות</string>
   <string name="notifications_channel_group_other_description">התראות אחרות מהיישום</string>

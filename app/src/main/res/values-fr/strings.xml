@@ -642,7 +642,7 @@
   <string name="preference_title_customize_push_notifications">Personnaliser les poussées de notifications</string>
   <string name="preference_category_display_settings">Afficher les paramètres</string>
   <string name="preference_title_hide_read_notifications">Marquer les notifications lues</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">Notifications de Wikipédia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipédia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notifications de Wikipédia</string>
   <string name="notifications_channel_group_other_title">Autre</string>
   <string name="notifications_channel_group_other_description">Autres notifications de l’application</string>

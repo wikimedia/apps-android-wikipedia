@@ -646,7 +646,7 @@
   <string name="preference_title_customize_push_notifications">Налаштуйте push-сповіщення</string>
   <string name="preference_category_display_settings">Показати налаштування</string>
   <string name="preference_title_hide_read_notifications">Приховати прочитані сповіщення</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">Сповіщення Вікіпедії</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Сповіщення Вікіпедії</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Сповіщення з Вікіпедії</string>
   <string name="notifications_channel_group_other_title">Інше</string>
   <string name="notifications_channel_group_other_description">Інші сповіщення від програми</string>
