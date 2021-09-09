@@ -54,6 +54,11 @@ enum class NotificationCategory constructor(val id: String,
             return MAP[0]
         }
 
+        fun isMentionsGroup(category: String): Boolean {
+            // TODO: add logic
+            return false
+        }
+
         fun createNotificationChannels(context: Context) {
             // Notification channel ( >= API 26 )
             val notificationManagerCompat = NotificationManagerCompat.from(context)

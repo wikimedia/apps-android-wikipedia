@@ -84,8 +84,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             beginUpdateList()
         }
 
-        binding.notificationsViewArchivedButton.setOnClickListener { onViewArchivedClick() }
-
         Prefs.setNotificationUnreadCount(0)
         NotificationsABCTestFunnel().logSelect()
 
@@ -116,34 +114,15 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
     }
 
-    override fun onBackPressed() {
-        if (displayArchived) {
-            displayArchived = false
-            beginUpdateList()
-            return
-        }
-        super.onBackPressed()
-    }
-
-    private fun onViewArchivedClick() {
-        displayArchived = true
-        beginUpdateList()
-    }
-
     private fun beginUpdateList() {
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
         binding.notificationsProgressBar.visibility = View.VISIBLE
-        supportActionBar?.setTitle(if (displayArchived) R.string.notifications_activity_title_archived else R.string.notifications_activity_title)
+        supportActionBar?.setTitle(R.string.notifications_activity_title)
         currentContinueStr = null
         disposables.clear()
 
-        // if we're not checking for unread notifications, then short-circuit straight to fetching them.
-        if (displayArchived) {
-            orContinueNotifications
-            return
-        }
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).unreadNotificationWikis
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -162,7 +141,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     private val orContinueNotifications: Unit
         get() {
             binding.notificationsProgressBar.visibility = View.VISIBLE
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications("*", if (displayArchived) "read" else "!read", currentContinueStr)
+            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications("*", "read|!read", currentContinueStr)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
@@ -204,6 +183,13 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         // Sort them by descending date...
         notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
 
+        val allTab = binding.notificationTabLayout.getTabAt(0)!!
+        val allUnreadCount = notificationList.count { it.unread }
+        allTab.text = getString(R.string.notifications_tab_filter_all) + " " + getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
+
+        val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
+        val mentionsUnreadCount = notificationList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.unread }
+
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
         notificationContainerList.clear()
@@ -217,7 +203,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         if (notificationContainerList.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = View.VISIBLE
-            binding.notificationsViewArchivedButton.visibility = if (displayArchived) View.GONE else View.VISIBLE
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
         }
