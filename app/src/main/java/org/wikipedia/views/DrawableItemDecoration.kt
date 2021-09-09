@@ -14,7 +14,8 @@ import org.wikipedia.util.ResourceUtil
 // todo: replace with DividerItemDecoration once it supports headers and footers
 class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRes id: Int,
                                                        private val drawStart: Boolean = false,
-                                                       private val drawEnd: Boolean = true) : ItemDecoration() {
+                                                       private val drawEnd: Boolean = true,
+                                                       private val startingPosition: Int = 0) : ItemDecoration() {
 
     private val drawable: Drawable = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, id))!!
 
@@ -32,10 +33,10 @@ class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRe
             return
         }
         val end = parent.childCount - 1
-        for (i in (if (drawStart) 0 else 1) until end) {
+        for (i in (if (drawStart) startingPosition else startingPosition + 1) until end) {
             draw(canvas, bounds(parent, parent.getChildAt(i), true))
         }
-        if (drawStart || parent.childCount > 1) {
+        if (drawStart || parent.childCount > startingPosition + 1) {
             draw(canvas, bounds(parent, parent.getChildAt(end), true))
         }
         if (drawEnd) {
