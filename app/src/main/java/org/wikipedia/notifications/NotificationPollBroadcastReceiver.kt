@@ -59,7 +59,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 NotificationInteractionFunnel.processIntent(intent)
             }
             ACTION_DIRECT_REPLY == intent.action -> {
-                Thread.sleep(10000)
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
                 val text = remoteInput.getCharSequence(RESULT_KEY_DIRECT_REPLY)
 
