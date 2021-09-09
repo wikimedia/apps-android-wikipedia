@@ -16,6 +16,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.tabs.TabLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -83,6 +84,20 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             binding.notificationsRefreshView.isRefreshing = false
             beginUpdateList()
         }
+
+        binding.notificationTabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                postprocessAndDisplay()
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+
+        })
+
 
         Prefs.setNotificationUnreadCount(0)
         NotificationsABCTestFunnel().logSelect()
@@ -189,12 +204,17 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
         val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
         val mentionsUnreadCount = notificationList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.unread }
+        mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " + getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
 
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
         notificationContainerList.clear()
         notificationContainerList.add(NotificationListItemContainer()) // search bar
-        for (n in notificationList) {
+
+        val selectedFilterTab = binding.notificationTabLayout.selectedTabPosition
+        val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
+
+        for (n in filteredList) {
             if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
                 continue
             }
