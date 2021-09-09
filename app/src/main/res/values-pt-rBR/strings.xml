@@ -632,7 +632,7 @@
   <string name="preference_title_customize_push_notifications">Personalizar notificações de push</string>
   <string name="preference_category_display_settings">Configuração de exibição</string>
   <string name="preference_title_hide_read_notifications">Ocultar notificações lidas</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">Notificações da Wikipédia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Notificações da Wikipédia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notificações da Wikipédia</string>
   <string name="notifications_channel_group_other_title">Outro</string>
   <string name="notifications_channel_group_other_description">Outras notificações do aplicativo</string>
