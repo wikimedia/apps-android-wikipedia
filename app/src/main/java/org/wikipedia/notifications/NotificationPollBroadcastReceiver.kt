@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
 import androidx.annotation.StringRes
+import androidx.core.app.RemoteInput
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -24,9 +25,9 @@ import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.main.MainActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
+import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import java.util.*
 import java.util.concurrent.TimeUnit
 
 class NotificationPollBroadcastReceiver : BroadcastReceiver() {
@@ -57,12 +58,30 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             ACTION_CANCEL == intent.action -> {
                 NotificationInteractionFunnel.processIntent(intent)
             }
+            ACTION_DIRECT_REPLY == intent.action -> {
+                Thread.sleep(10000)
+                val remoteInput = RemoteInput.getResultsFromIntent(intent)
+                val text = remoteInput.getCharSequence(RESULT_KEY_DIRECT_REPLY)
+
+                if (intent.hasExtra(RESULT_EXTRA_WIKI) && intent.hasExtra(RESULT_EXTRA_TITLE) && !text.isNullOrEmpty()) {
+                    NotificationDirectReplyHelper.handleReply(context,
+                        intent.getParcelableExtra(RESULT_EXTRA_WIKI)!!,
+                        intent.getParcelableExtra(RESULT_EXTRA_TITLE)!!,
+                        text.toString(),
+                        intent.getIntExtra(RESULT_EXTRA_ID, 0))
+                }
+            }
         }
     }
 
     companion object {
         const val ACTION_POLL = "action_notification_poll"
         const val ACTION_CANCEL = "action_notification_cancel"
+        const val ACTION_DIRECT_REPLY = "action_direct_reply"
+        const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
+        const val RESULT_EXTRA_WIKI = "extra_wiki"
+        const val RESULT_EXTRA_TITLE = "extra_title"
+        const val RESULT_EXTRA_ID = "extra_id"
         const val TYPE_MULTIPLE = "multiple"
 
         private const val TYPE_LOCAL = "local"
