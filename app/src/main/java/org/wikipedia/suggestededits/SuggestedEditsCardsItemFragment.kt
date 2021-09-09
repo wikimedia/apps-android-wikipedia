@@ -126,10 +126,10 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
                         .subscribe({ response ->
-                            val page = response.query?.pages()!![0]
+                            val page = response.query?.pages!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
+                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
 
                                 sourceSummaryForEdit = PageSummaryForEdit(
                                         title,
@@ -167,10 +167,10 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
                         .subscribe({ response ->
-                            val page = response.query?.pages()!![0]
+                            val page = response.query?.pages!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
+                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
 
                                 sourceSummaryForEdit = PageSummaryForEdit(
                                         title,

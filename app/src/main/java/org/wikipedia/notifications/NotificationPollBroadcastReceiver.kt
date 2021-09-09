@@ -117,7 +117,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         var lastNotificationTime = ""
-                        for (n in response.query?.notifications()?.list().orEmpty()) {
+                        for (n in response.query?.notifications?.list.orEmpty()) {
                             if (n.utcIso8601 > lastNotificationTime) {
                                 lastNotificationTime = n.utcIso8601
                             }
@@ -152,7 +152,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        val wikiMap = response.query!!.unreadNotificationWikis()
+                        val wikiMap = response.query!!.unreadNotificationWikis
                         val wikis = mutableListOf<String>()
                         wikis.addAll(wikiMap!!.keys)
                         for (dbName in wikiMap.keys) {
@@ -169,7 +169,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response -> onNotificationsComplete(context, response.query?.notifications()?.list()) }) { t -> L.e(t) }
+                    .subscribe({ response -> onNotificationsComplete(context, response.query?.notifications?.list) }) { t -> L.e(t) }
         }
 
         private fun onNotificationsComplete(context: Context, notifications: List<Notification>?) {
@@ -198,7 +198,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
             if (notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki(), TYPE_MULTIPLE).logIncoming()
+                NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki, TYPE_MULTIPLE).logIncoming()
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
@@ -206,7 +206,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     // Record that there is an incoming notification to track/compare further actions on it.
                     NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                     NotificationInteractionEvent.logIncoming(n, null)
-                    NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki())) DBNAME_WIKI_NAME_MAP[n.wiki()] else n.wiki())!!)
+                    NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki)) DBNAME_WIKI_NAME_MAP[n.wiki] else n.wiki)!!)
                 }
             }
             if (locallyKnownModified) {
@@ -220,7 +220,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun markItemsAsRead(items: List<Notification>) {
             val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
             for (item in items) {
-                val wiki = DBNAME_WIKI_SITE_MAP.getOrElse(item.wiki()) { WikipediaApp.getInstance().wikiSite }
+                val wiki = DBNAME_WIKI_SITE_MAP.getOrElse(item.wiki) { WikipediaApp.getInstance().wikiSite }
                 notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(item)
             }
             for (wiki in notificationsPerWiki.keys) {

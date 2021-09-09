@@ -53,6 +53,7 @@
   <string name="app_settings">Налаштування</string>
   <string name="search_tab_tooltip">Торкніться іконки знову щоб почати вводити пошуковий запит напряму.</string>
   <string name="history_list_title">Історія</string>
+  <string name="image_content_description">Зображення: %s</string>
   <string name="dialog_title_clear_history">Очистити історію перегляду</string>
   <string name="dialog_message_clear_history">Буде видалена вся історія відвідування сторінок і закриті всі відкриті вкладки. Ви впевнені?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
@@ -551,10 +552,12 @@
   <string name="reading_list_split_dialog_ok_button_text">Гаразд</string>
   <string name="user_option_sync_label">Налаштування</string>
   <string name="notification_reverted_title">Скасоване редагування</string>
+  <string name="notification_channel_title">Завантаження сторінок</string>
   <string name="notification_channel_description">Прогрес завантаження</string>
   <string name="notification_syncing_pause_button">Пауза</string>
   <string name="notification_syncing_resume_button">Продовжити</string>
   <string name="notification_syncing_cancel_button">Скасувати</string>
+  <string name="notification_syncing_reading_list_channel_title">Синхронізація списків читання</string>
   <string name="notification_syncing_reading_list_channel_description">Статус синхронізації списків читання</string>
   <string name="notification_many_unread">У вас є непрочитані сповіщення (%d)</string>
   <plurals name="notification_channel_name">
@@ -614,6 +617,7 @@
   <string name="notifications_view_archived_button_text">Перегляд архівованих сповіщень</string>
   <string name="notification_preferences_title">Налаштування сповіщень</string>
   <string name="notifications_mark_unread">Позначити як непрочитане</string>
+  <string name="notifications_mark_all_as_read">Позначити всі як прочитані</string>
   <string name="watchlist_title">Список спостереження</string>
   <string name="preference_title_notification_poll">Сповіщення про опитування</string>
   <string name="preference_summary_notification_poll">Дозволити додатку використовувати дані, щоб фоновим процесом перевіряти, чи є нові сповіщення.</string>
@@ -631,7 +635,21 @@
   <string name="preference_title_notification_mention">Вас згадано</string>
   <string name="preference_summary_notification_mention">Хтось згадав вас на сторінці</string>
   <string name="preference_title_notification_user_talk">На сторінках обговорень</string>
-  <string name="preference_summary_notification_user_talk">Повідомлення зі сторінок обговорень</string>
+  <string name="preference_summary_notification_user_talk">Повідомлення та відповіді зі сторінок обговорень</string>
+  <string name="preference_title_notification_email_user">Отримано електронного листа</string>
+  <string name="preference_summary_notification_email_user">Хтось надіслав вам електронного листа через вікі</string>
+  <string name="preference_title_notification_user_rights">Зміни прав користувачів</string>
+  <string name="preference_summary_notification_user_rights">Отримано при зміні прав користувача</string>
+  <string name="preference_title_notification_article_linked">Посилання на створені вами статті</string>
+  <string name="preference_summary_notification_article_linked">Отримується при створенні нового посилання на створену вами сторінку</string>
+  <string name="preference_category_push_notifications">Push-сповіщення</string>
+  <string name="preference_title_customize_push_notifications">Налаштуйте push-сповіщення</string>
+  <string name="preference_category_display_settings">Показати налаштування</string>
+  <string name="preference_title_hide_read_notifications">Приховати прочитані сповіщення</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Сповіщення Вікіпедії</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Сповіщення з Вікіпедії</string>
+  <string name="notifications_channel_group_other_title">Інше</string>
+  <string name="notifications_channel_group_other_description">Інші сповіщення від програми</string>
   <string name="view_because_you_read_card_title">Оскільки Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>
   <string name="view_random_article_card_title">Випадкова стаття</string>
@@ -1041,6 +1059,8 @@
   <string name="menu_option_user_contributions">Внесок %s</string>
   <string name="watchlist_details_watching_label">Спостерігаю</string>
   <string name="watchlist_details_watch_label">Спостерігати</string>
+  <string name="watchlist_details_next_edit">Наступне редагування</string>
+  <string name="watchlist_details_prev_edit">Попереднє редагування</string>
   <string name="thank_label">Подякувати</string>
   <string name="go_to_user_page">Перейти на сторінку користувача</string>
   <string name="thank_dialog_title_text">Публічно відправити подяку</string>

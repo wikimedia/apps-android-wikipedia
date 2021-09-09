@@ -11,6 +11,7 @@
 * Arash.pt
 * AzorAhai
 * Dalba
+* Darafsh
 * Dbrant
 * Ebraminio
 * FarsiNevis
@@ -73,6 +74,7 @@
   <string name="app_settings">تنظیمات برنامه</string>
   <string name="search_tab_tooltip">برای تایپ عبارت جستجو، دوباره روی آیکون ضربه بزنید.</string>
   <string name="history_list_title">تاریخچه</string>
+  <string name="image_content_description">تصویر: %s</string>
   <string name="dialog_title_clear_history">پاک‌کردن تاریخچهٔ جستجو</string>
   <string name="dialog_message_clear_history">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
   <string name="dialog_message_clear_history_yes">بله</string>
@@ -95,7 +97,7 @@
   <string name="feed_card_add_to_default_list">ذخیره</string>
   <string name="menu_page_share">اشتراک‌گذاری پیوند</string>
   <string name="menu_page_open_a_new_tab">بازکردن سربرگ تازه</string>
-  <string name="menu_page_new_tab">زبانه جدید</string>
+  <string name="menu_page_new_tab">زبانهٔ جدید</string>
   <string name="menu_page_reading_lists">فهرست‌های مطالعه</string>
   <string name="menu_page_recently_viewed">بازدیدهای اخیر</string>
   <string name="menu_long_press_open_page">باز کردن</string>
@@ -170,7 +172,7 @@
   <string name="search_empty_message">جستجو و مطالعهٔ دانشنامهٔ آزاد به زبان شما</string>
   <string name="search_empty_message_multilingual_upgrade">جستجو در ویکی‌پدیا با زبان‌های بیشتر</string>
   <string name="delete_selected_items">حذف موارد انتخاب‌شده</string>
-  <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکی‌پدی&lt;big&gt;ا&lt;/big&gt;</string>
+  <string name="wp_stylized">&lt;big&gt;ویکی‌پدیا&lt;/big&gt;</string>
   <string name="create_account_username_hint">نام کاربری</string>
   <string name="login_dont_have_account">حساب کاربری ندارید؟</string>
   <string name="login_join_wikipedia">به ویکی‌پدیا بپیوندید</string>
@@ -208,7 +210,7 @@
   <string name="preference_title_download_reading_list_articles">دانلود مقالات فهرست مطالعه</string>
   <string name="preference_summary_sync_reading_lists">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب کاربری ویکی‌پدیا</string>
   <string name="preference_summary_sync_reading_lists_from_account">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب کاربری «%s» در ویکی‌پدیا</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های مطالعه همگام سازی‌شده از «%s» حذف شوند؟</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های مطالعهٔ همگام‌سازی‌شده از «%s» حذف شوند؟</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">این کار همهٔ فهرست‌های مطالعه که پیشتر در حافظه همگام‌سازی شده را کاملاً حذف می‌کند. همهٔ فهرست‌های همگام‌سازی‌شده از حساب کاربری شما «%s» پاک شود؟</string>
   <string name="preferences_privacy_settings_heading">حریم خصوصی</string>
   <string name="preference_title_eventlogging_opt_in">ارسال گزارش‌های استفاده</string>
@@ -505,7 +507,7 @@
   <string name="reading_list_articles_moved_to_named">%1$d مقاله به %2$s منتقل شد</string>
   <string name="reading_list_delete_confirm">آیا مطمئن هستید که می‌خواهید %s را حذف کنید؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">برای فعال‌کردن همگام‌سازی وارد شوید</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">برای ممکن ساخن ذخیرهٔ فهرست‌های مطالعهٔ خود، به حساب کاربری خود وارد شوید.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">برای ممکن ساختن ذخیرهٔ فهرست‌های مطالعهٔ خود، به حساب کاربری خود وارد شوید.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">لغو</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ورود</string>
   <string name="reading_list_turned_sync_off_dialog_title">همگام‌‌سازی فهرست مطالعه غیرفعال شد</string>
@@ -549,10 +551,12 @@
   <string name="reading_list_split_dialog_ok_button_text">تأیید</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_reverted_title">ویرایش واگردانی‌شده</string>
+  <string name="notification_channel_title">در حال دانلود مقاله‌ها</string>
   <string name="notification_channel_description">پیشرفت بارگیری</string>
   <string name="notification_syncing_pause_button">مکث</string>
   <string name="notification_syncing_resume_button">ادامه</string>
   <string name="notification_syncing_cancel_button">لغو</string>
+  <string name="notification_syncing_reading_list_channel_title">همگام‌سازی فهرست‌های مطالعه</string>
   <string name="notification_syncing_reading_list_channel_description">روند همگام‌سازی فهرست‌های مطالعه</string>
   <string name="notification_many_unread">شما %d اعلان خوانده‌نشده دارید</string>
   <plurals name="notification_channel_name">
@@ -598,6 +602,7 @@
   <string name="notifications_view_archived_button_text">مشاهدهٔ اعلان‌های بایگانی‌شده</string>
   <string name="notification_preferences_title">ترجیحات اعلان‌ها</string>
   <string name="notifications_mark_unread">نشانه‌گذاری به‌عنوان خوانده‌نشده</string>
+  <string name="notifications_mark_all_as_read">نشان‌گذاری همه به عنوان خوانده‌شده</string>
   <string name="watchlist_title">فهرست پی‌گیری</string>
   <string name="preference_title_notification_poll">سرشماری اعلان‌ها</string>
   <string name="preference_summary_notification_poll">به نرم‌افزار اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی اعلان‌های جدید استفاده کند.</string>
@@ -615,7 +620,21 @@
   <string name="preference_title_notification_mention">اشاره کردن</string>
   <string name="preference_summary_notification_mention">وقتی شخصی در صفحه‌ای به شما اشاره می‌کند</string>
   <string name="preference_title_notification_user_talk">صفحهٔ بحث</string>
-  <string name="preference_summary_notification_user_talk">پیام‌های صفحه‌های بحث</string>
+  <string name="preference_summary_notification_user_talk">پیام‌ها و پاسخ‌های صفحه‌های بحث</string>
+  <string name="preference_title_notification_email_user">ایمیل دریافت‌شده</string>
+  <string name="preference_summary_notification_email_user">کسی از طریق ویکی برای شما ایمیلی فرستاده است</string>
+  <string name="preference_title_notification_user_rights">اختیارات کاربری تغییر یافت</string>
+  <string name="preference_summary_notification_user_rights">هنگامی که اختیارات کاربری تغییر کرد دریافت شد</string>
+  <string name="preference_title_notification_article_linked">پیوند به مقاله‌هایی که ایجاد کردید</string>
+  <string name="preference_summary_notification_article_linked">زمانی دریافت می‌شود که پیوند جدیدی به صفحه‌ای که ایجاد کرده‌اید ساخته شود</string>
+  <string name="preference_category_push_notifications">اعلان‌ها</string>
+  <string name="preference_title_customize_push_notifications">شخصی‌سازی اعلان‌ها</string>
+  <string name="preference_category_display_settings">تنظیمات نمایش</string>
+  <string name="preference_title_hide_read_notifications">نهفتن اعلان‌های خوانده‌شده</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">اعلان‌های ویکی‌پدیا</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">اعلان‌های ویکی‌پدیا</string>
+  <string name="notifications_channel_group_other_title">سایر</string>
+  <string name="notifications_channel_group_other_description">سایر اعلان‌های برنامه</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه کرده‌اید</string>
   <string name="view_random_card_title">تصادفی</string>
   <string name="view_random_article_card_title">مقالهٔ تصادفی</string>
@@ -721,7 +740,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">آغاز ویرایش کردن</string>
   <string name="description_edit_tutorial_promise">پیش از استفاده، قول می‌دهم از این ویژگی سو‌ءاستفاده نکنم.</string>
   <string name="suggested_edits_describe_articles">مقاله‌ها را توصیف کنید</string>
-  <string name="suggested_edits_caption_images">به تصویرها توضیح بیافزایید</string>
+  <string name="suggested_edits_caption_images">به تصویرها توضیح بیفزایید</string>
   <string name="suggested_edits_tag_images">برچسب‌گذاری تصویرها</string>
   <string name="suggested_edits_review_description">مرور توضیحات مقاله</string>
   <string name="suggested_edits_add_description_button">افزدون توضیحات</string>
@@ -1000,6 +1019,8 @@
   <string name="menu_option_user_contributions">مشارکت‌های %s</string>
   <string name="watchlist_details_watching_label">پی‌گیری کردن</string>
   <string name="watchlist_details_watch_label">پی‌گیری</string>
+  <string name="watchlist_details_next_edit">ویرایش بعدی</string>
+  <string name="watchlist_details_prev_edit">ویرایش قبلی</string>
   <string name="thank_label">سپاس</string>
   <string name="go_to_user_page">رفتن به صفحه کاربر</string>
   <string name="thank_dialog_title_text">ارسال «تشکر» به‌صورت عمومی</string>
