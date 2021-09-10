@@ -48,32 +48,37 @@
         android:id="@+id/notificationUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="14dp"
         android:layout_marginEnd="8dp"
         android:textSize="16sp"
         android:textColor="?attr/colorAccent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/notificationItemImage"
+        app:layout_constraintEnd_toStartOf="@id/notificationTime"
         tools:text="Lorem ipsum" />
 
     <TextView
         android:id="@+id/notificationTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:textColor="?attr/secondary_text_color"
+        android:layout_marginEnd="-8dp"
         app:layout_constraintTop_toTopOf="@id/notificationUsername"
+        app:layout_constraintBottom_toBottomOf="@id/notificationUsername"
         app:layout_constraintEnd_toStartOf="@id/notificationOverflowMenu"
         tools:text="Lorem ipsum" />
 
     <ImageView
         android:id="@+id/notificationOverflowMenu"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/abc_action_menu_overflow_description"
+        android:paddingVertical="12dp"
+        android:layout_marginEnd="-16dp"
         app:tint="?attr/secondary_text_color"
         app:layout_constraintTop_toTopOf="@id/notificationUsername"
+        app:layout_constraintBottom_toBottomOf="@id/notificationUsername"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_more_vert_white_24dp" />
 
