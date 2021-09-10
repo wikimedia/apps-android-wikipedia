@@ -631,7 +631,7 @@
   <string name="preference_title_customize_push_notifications">شخصی‌سازی اعلان‌ها</string>
   <string name="preference_category_display_settings">تنظیمات نمایش</string>
   <string name="preference_title_hide_read_notifications">نهفتن اعلان‌های خوانده‌شده</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">اعلان‌های ویکی‌پدیا</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">اعلان‌های ویکی‌پدیا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">اعلان‌های ویکی‌پدیا</string>
   <string name="notifications_channel_group_other_title">سایر</string>
   <string name="notifications_channel_group_other_description">سایر اعلان‌های برنامه</string>
