@@ -323,7 +323,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             return
         }
 
-        body = addDefaultFormatting(body, topic?.depth ?: 0, isNewTopic())
+        var topicDepth = 0
+        topic?.replies?.lastOrNull()?.let {
+            topicDepth = it.depth
+        }
+
+        body = addDefaultFormatting(body, topicDepth, isNewTopic())
 
         binding.talkProgressBar.visibility = View.VISIBLE
         binding.replySaveButton.isEnabled = false
@@ -501,7 +506,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         fun addDefaultFormatting(text: String, topicDepth: Int, newTopic: Boolean = false): String {
-            var body = ":".repeat(topicDepth) + text
+            var body = ":".repeat(if (newTopic) 0 else topicDepth + 1) + text
             // if the message is not signed, then sign it explicitly
             if (!body.endsWith("~~~~")) {
                 body += " ~~~~"

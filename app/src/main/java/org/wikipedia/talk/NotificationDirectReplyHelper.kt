@@ -40,7 +40,11 @@ object NotificationDirectReplyHelper {
                 if (topic == null || title.fragment.isNullOrEmpty()) {
                     Observable.just(Edit())
                 } else {
-                    val body = TalkTopicActivity.addDefaultFormatting(replyText, topic.depth)
+                    var topicDepth = 0
+                    topic.replies?.lastOrNull()?.let {
+                        topicDepth = it.depth
+                    }
+                    val body = TalkTopicActivity.addDefaultFormatting(replyText, topicDepth)
                     ServiceFactory.get(wiki).postEditSubmit(
                         title.prefixedText, topic.id.toString(), null,
                         "", if (AccountUtil.isLoggedIn) "user" else null, null, body,
