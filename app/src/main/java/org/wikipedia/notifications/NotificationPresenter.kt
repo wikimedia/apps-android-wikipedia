@@ -116,7 +116,7 @@ object NotificationPresenter {
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_TITLE, title)
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_REPLY_TO, replyTo)
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_ID, id)
-        val resultPendingIntent = PendingIntent.getBroadcast(context, 0, resultIntent, 0)
+        val resultPendingIntent = PendingIntent.getBroadcast(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val action = NotificationCompat.Action.Builder(R.drawable.ic_reply_24, context.getString(R.string.notifications_direct_reply_action), resultPendingIntent)
             .addRemoteInput(remoteInput)
