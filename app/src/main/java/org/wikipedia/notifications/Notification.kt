@@ -30,7 +30,7 @@ class Notification {
     val isFromWikidata: Boolean
         get() = wiki == "wikidatawiki"
 
-    val unread: Boolean
+    val isUnread: Boolean
         get() = read.isNullOrEmpty()
 
     fun key(): Long {

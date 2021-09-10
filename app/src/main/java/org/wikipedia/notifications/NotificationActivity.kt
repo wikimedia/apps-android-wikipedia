@@ -3,14 +3,12 @@ package org.wikipedia.notifications
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.View.OnLongClickListener
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.view.ActionMode
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -27,6 +25,7 @@ import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
+import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -85,7 +84,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             beginUpdateList()
         }
 
-        binding.notificationTabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+        binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 postprocessAndDisplay()
             }
@@ -95,9 +94,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
-
         })
-
 
         Prefs.setNotificationUnreadCount(0)
         NotificationsABCTestFunnel().logSelect()
@@ -199,11 +196,11 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
 
         val allTab = binding.notificationTabLayout.getTabAt(0)!!
-        val allUnreadCount = notificationList.count { it.unread }
+        val allUnreadCount = notificationList.count { it.isUnread }
         allTab.text = getString(R.string.notifications_tab_filter_all) + " " + getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
 
         val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
-        val mentionsUnreadCount = notificationList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.unread }
+        val mentionsUnreadCount = notificationList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
         mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " + getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
 
         // Build the container list, and punctuate it by date granularity, while also applying the
@@ -311,18 +308,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     }
 
     @Suppress("LeakingThis")
-    private open inner class NotificationItemHolder constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener, OnLongClickListener {
-        private val titleView = view.findViewById<TextView>(R.id.notification_item_title)
-        private val descriptionView = view.findViewById<TextView>(R.id.notification_item_description)
-        private val secondaryActionHintView = view.findViewById<TextView>(R.id.notification_item_secondary_action_hint)
-        private val tertiaryActionHintView = view.findViewById<TextView>(R.id.notification_item_tertiary_action_hint)
-        private val wikiCodeView = view.findViewById<TextView>(R.id.notification_wiki_code)
-        private val wikiCodeImageView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_image)
-        private val wikiCodeBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_background)
-        private val imageContainerView = view.findViewById<View>(R.id.notification_item_image_container)
-        private val imageBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_item_image_background)
-        private val imageSelectedView = view.findViewById<View>(R.id.notification_item_selected_image)
-        private val imageView = view.findViewById<AppCompatImageView>(R.id.notification_item_image)
+    private open inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener,View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
+
         lateinit var container: NotificationListItemContainer
 
         init {
@@ -335,59 +323,53 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             this.container = container
             val n = container.notification!!
             val notificationCategory = NotificationCategory.find(n.category)
-            imageView.setImageResource(notificationCategory.iconResId)
-            imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor))
-            secondaryActionHintView.isVisible = false
-            tertiaryActionHintView.isVisible = false
+            binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
+            binding.notificationItemImage.setColorFilter(ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor))
             n.contents?.let {
-                titleView.text = StringUtil.fromHtml(it.header)
+                binding.notificationTitle.text = StringUtil.fromHtml(it.header)
                 if (it.body.trim().isNotEmpty()) {
-                    descriptionView.text = StringUtil.fromHtml(it.body)
-                    descriptionView.visibility = View.VISIBLE
+                    binding.notificationDescription.text = StringUtil.fromHtml(it.body)
+                    binding.notificationDescription.visibility = View.VISIBLE
                 } else {
-                    descriptionView.visibility = View.GONE
-                }
-                it.links?.secondary?.let { secondary ->
-                    if (secondary.size > 0) {
-                        secondaryActionHintView.text = secondary[0].label
-                        secondaryActionHintView.visibility = View.VISIBLE
-                        if (secondary.size > 1) {
-                            tertiaryActionHintView.text = secondary[1].label
-                            tertiaryActionHintView.visibility = View.VISIBLE
-                        }
-                    }
+                    binding.notificationDescription.visibility = View.GONE
                 }
             }
+            binding.notificationUsername.text = n.agent?.name // TODO: recheck
+            binding.notificationUsername.setOnClickListener {
+                // TODO: maybe link to user page?
+            }
+            binding.notificationItemReadDot.isVisible = n.isUnread
+            binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.getTimestamp().time, System.currentTimeMillis(), 0L)
             val wikiCode = n.wiki
             when {
                 wikiCode.contains("wikidata") -> {
-                    wikiCodeView.visibility = View.GONE
-                    wikiCodeBackgroundView.visibility = View.GONE
-                    wikiCodeImageView.visibility = View.VISIBLE
-                    wikiCodeImageView.setImageResource(R.drawable.ic_wikidata_logo)
+                    binding.notificationWikiCode.visibility = View.GONE
+                    binding.notificationWikiCodeBackground.visibility = View.GONE
+                    binding.notificationWikiCodeImage.visibility = View.VISIBLE
+                    binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
                 }
                 wikiCode.contains("commons") -> {
-                    wikiCodeView.visibility = View.GONE
-                    wikiCodeBackgroundView.visibility = View.GONE
-                    wikiCodeImageView.visibility = View.VISIBLE
-                    wikiCodeImageView.setImageResource(R.drawable.ic_commons_logo)
+                    binding.notificationWikiCode.visibility = View.GONE
+                    binding.notificationWikiCodeBackground.visibility = View.GONE
+                    binding.notificationWikiCodeImage.visibility = View.VISIBLE
+                    binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
                 }
                 else -> {
-                    wikiCodeBackgroundView.visibility = View.VISIBLE
-                    wikiCodeView.visibility = View.VISIBLE
-                    wikiCodeImageView.visibility = View.GONE
+                    binding.notificationWikiCodeBackground.visibility = View.VISIBLE
+                    binding.notificationWikiCode.visibility = View.VISIBLE
+                    binding.notificationWikiCodeImage.visibility = View.GONE
                     val langCode = n.wiki.replace("wiki", "")
-                    wikiCodeView.text = langCode
+                    binding.notificationWikiCode.text = langCode
                     L10nUtil.setConditionalLayoutDirection(itemView, langCode)
                 }
             }
             if (container.selected) {
-                imageSelectedView.visibility = View.VISIBLE
-                imageContainerView.visibility = View.INVISIBLE
+                binding.notificationItemSelectedImage.visibility = View.VISIBLE
+                binding.notificationItemImage.visibility = View.INVISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
             } else {
-                imageSelectedView.visibility = View.INVISIBLE
-                imageContainerView.visibility = View.VISIBLE
+                binding.notificationItemSelectedImage.visibility = View.INVISIBLE
+                binding.notificationItemImage.visibility = View.VISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.paper_color))
             }
         }
@@ -406,9 +388,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             toggleSelectItem(container)
             return true
         }
-    }
 
-    private inner class NotificationItemHolderSwipeable constructor(v: View) : NotificationItemHolder(v), SwipeableItemTouchHelperCallback.Callback {
         override fun onSwipe() {
             deleteItems(listOf(container), false)
         }
@@ -444,16 +424,11 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             if (type == NotificationListItemContainer.ITEM_SEARCH_BAR) {
                 return NotificationSearchBarHolder(layoutInflater.inflate(R.layout.view_notification_search_bar, parent, false))
             }
-            return if (displayArchived) {
-                NotificationItemHolder(layoutInflater.inflate(R.layout.item_notification, parent, false))
-            } else {
-                NotificationItemHolderSwipeable(layoutInflater.inflate(R.layout.item_notification, parent, false))
-            }
+            return NotificationItemHolder(ItemNotificationBinding.inflate(layoutInflater, parent, false))
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             when (holder) {
-                is NotificationItemHolderSwipeable -> holder.bindItem(notificationContainerList[pos])
                 is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos])
             }
 
