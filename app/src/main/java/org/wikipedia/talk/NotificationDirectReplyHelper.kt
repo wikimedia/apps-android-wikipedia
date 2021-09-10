@@ -4,6 +4,8 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.getSystemService
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -23,7 +25,10 @@ import java.util.concurrent.TimeUnit
 
 object NotificationDirectReplyHelper {
 
-    fun handleReply(context: Context, wiki: WikiSite, title: PageTitle, replyText: String, notificationId: Int) {
+    fun handleReply(context: Context, wiki: WikiSite, title: PageTitle, replyText: String,
+                    replyTo: String, notificationId: Int) {
+        Toast.makeText(context, context.getString(R.string.notifications_direct_reply_progress, replyTo), Toast.LENGTH_SHORT).show()
+
         Observable.zip(CsrfTokenClient(wiki).token.subscribeOn(Schedulers.io()),
             ServiceFactory.getRest(wiki).getTalkPage(title.prefixedText).subscribeOn(Schedulers.io()), {
                 token, response -> Pair(token, response)
@@ -43,12 +48,9 @@ object NotificationDirectReplyHelper {
                     )
                 }
             }
-            .doOnTerminate {
-                // updateNotification(context, notificationId)
-            }
             .subscribe({
                 if (it.edit?.editSucceeded == true) {
-                    waitForUpdatedRevision(context, wiki, title, it.edit.newRevId)
+                    waitForUpdatedRevision(context, wiki, title, it.edit.newRevId, notificationId)
                 } else {
                     fallBackToTalkPage(context, title)
                 }
@@ -58,7 +60,8 @@ object NotificationDirectReplyHelper {
             })
     }
 
-    private fun waitForUpdatedRevision(context: Context, wiki: WikiSite, title: PageTitle, newRevision: Long) {
+    private fun waitForUpdatedRevision(context: Context, wiki: WikiSite, title: PageTitle,
+                                       newRevision: Long, notificationId: Int) {
         ServiceFactory.getRest(wiki).getTalkPage(title.prefixedText)
             .delay(2, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
@@ -72,6 +75,9 @@ object NotificationDirectReplyHelper {
                 (t is IllegalStateException) || (t is HttpStatusException && t.code == 404)
             }
             .observeOn(AndroidSchedulers.mainThread())
+            .doOnTerminate {
+                cancelNotification(context, notificationId)
+            }
             .subscribe({
                 // revisionForUndo = it
                 Toast.makeText(context, R.string.notifications_direct_reply_success, Toast.LENGTH_LONG).show()
@@ -86,7 +92,7 @@ object NotificationDirectReplyHelper {
         context.startActivity(TalkTopicsActivity.newIntent(context, title, Constants.InvokeSource.NOTIFICATION))
     }
 
-    private fun updateNotification(context: Context, notificationId: Int) {
+    private fun cancelNotification(context: Context, notificationId: Int) {
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O) {
             return
         }
@@ -94,7 +100,13 @@ object NotificationDirectReplyHelper {
         val notifications = notificationManager.activeNotifications!!
         for (notification in notifications) {
             if (notification.id == notificationId) {
-                notificationManager.notify(notificationId, notification.notification)
+                val n = NotificationCompat.Builder(context, notification.notification)
+                    .setRemoteInputHistory(null)
+                    .setPriority(NotificationCompat.PRIORITY_MIN)
+                    .setVibrate(null)
+                    .setTimeoutAfter(1)
+                    .build()
+                NotificationManagerCompat.from(context).notify(notificationId, n)
             }
         }
     }

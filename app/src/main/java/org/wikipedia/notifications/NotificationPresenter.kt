@@ -37,7 +37,7 @@ object NotificationPresenter {
             it.getPrimary()?.let { primary ->
                 if (NotificationCategory.EDIT_USER_TALK.id == n.category) {
                     // addActionForTalkPage(context, builder, primary, n)
-                    addActionWithDirectReply(context, builder, primary, id)
+                    addActionWithDirectReply(context, builder, primary, n.agent?.name.orEmpty(), id)
                 } else {
                     addAction(context, builder, primary, n)
                 }
@@ -103,7 +103,8 @@ object NotificationPresenter {
         builder.addAction(0, labelStr, pendingIntent)
     }
 
-    private fun addActionWithDirectReply(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, id: Int) {
+    private fun addActionWithDirectReply(context: Context, builder: NotificationCompat.Builder,
+                                         link: Notification.Link, replyTo: String, id: Int) {
         val wiki = WikiSite(link.url)
         val title = wiki.titleForUri(Uri.parse(link.url))
 
@@ -113,6 +114,7 @@ object NotificationPresenter {
             .setAction(NotificationPollBroadcastReceiver.ACTION_DIRECT_REPLY)
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_WIKI, wiki)
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_TITLE, title)
+            .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_REPLY_TO, replyTo)
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_ID, id)
         val resultPendingIntent = PendingIntent.getBroadcast(context, 0, resultIntent, 0)
 

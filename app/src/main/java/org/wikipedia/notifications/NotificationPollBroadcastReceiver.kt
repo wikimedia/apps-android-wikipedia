@@ -67,6 +67,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         intent.getParcelableExtra(RESULT_EXTRA_WIKI)!!,
                         intent.getParcelableExtra(RESULT_EXTRA_TITLE)!!,
                         text.toString(),
+                        intent.getStringExtra(RESULT_EXTRA_REPLY_TO).orEmpty(),
                         intent.getIntExtra(RESULT_EXTRA_ID, 0))
                 }
             }
@@ -80,6 +81,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
         const val RESULT_EXTRA_WIKI = "extra_wiki"
         const val RESULT_EXTRA_TITLE = "extra_title"
+        const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
         const val TYPE_MULTIPLE = "multiple"
 
