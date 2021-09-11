@@ -60,7 +60,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         linkHandler = NotificationLinkHandler(requireContext())
         notification.contents?.let {
             binding.notificationItemText.text = StringUtil.fromHtml(it.header).toString()
-            it.links?.getPrimary()?.let { primary ->
+            it.links?.primary?.let { primary ->
                 setUpViewForLink(binding.notificationActionPrimary, binding.notificationActionPrimaryIcon, binding.notificationActionPrimaryText, primary)
                 binding.notificationActionPrimary.visibility = View.VISIBLE
             }

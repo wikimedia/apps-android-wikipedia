@@ -357,7 +357,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onItemClick(item: MwQueryResult.WatchlistItem) {
-        if (item.logtype.isNotEmpty()) {
+        if (item.logType.isNotEmpty()) {
             return
         }
         startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), item.title, item.revId,

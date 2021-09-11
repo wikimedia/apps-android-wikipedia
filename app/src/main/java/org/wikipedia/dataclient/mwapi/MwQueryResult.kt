@@ -24,7 +24,7 @@ class MwQueryResult(
     @Json(name = "echomarkseen") val echoMarkSeen: MarkReadResponse? = null,
     val notifications: NotificationList? = null,
     val unreadNotificationPages: Map<String, UnreadNotificationWikiItem> = emptyMap(),
-    @Json(name = "general") val generalSiteInfo: SiteInfo? = null,
+    @Json(name = "general") val siteInfo: SiteInfo? = null,
     @Json(name = "wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null,
     val watchlist: List<WatchlistItem> = emptyList(),
     @Json(name = "usercontribs") val userContributions: List<UserContribution> = emptyList()
@@ -130,7 +130,7 @@ class MwQueryResult(
         val timestamp: Date = Date(0),
         internal val comment: String = "",
         @Json(name = "parsedcomment") val parsedComment: String = "",
-        val logType: String = "",
+        @Json(name = "logtype") val logType: String = "",
         @Json(name = "anon") val isAnon: Boolean = false,
         internal val bot: Boolean = false,
         @Json(name = "new") internal val isNew: Boolean = false,

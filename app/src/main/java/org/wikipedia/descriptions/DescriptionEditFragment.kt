@@ -283,7 +283,7 @@ class DescriptionEditFragment : Fragment() {
                     }
                     .flatMap { response ->
                         val languageCode = if (response.query?.siteInfo?.lang != null &&
-                                response.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query?.generalSiteInfo?.lang
+                                response.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query?.siteInfo?.lang
                         else pageTitle.wikiSite.languageCode
                         getPostObservable(editToken, languageCode.orEmpty())
                     }

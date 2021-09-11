@@ -5,11 +5,13 @@ import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.TypeParceler
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.Page
 import org.wikipedia.page.PageProperties
 import org.wikipedia.page.PageTitle
+import org.wikipedia.parcel.DateParceler
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 import java.util.*
 
@@ -91,7 +93,8 @@ class PageSummary(
 
     @JsonClass(generateAdapter = true)
     @Parcelize
-    class ViewHistory(val date: Date?, val views: Float) : Parcelable
+    @TypeParceler<Date, DateParceler>()
+    class ViewHistory(val date: Date = Date(), val views: Float) : Parcelable
 
     companion object {
         const val TYPE_STANDARD = "standard"
