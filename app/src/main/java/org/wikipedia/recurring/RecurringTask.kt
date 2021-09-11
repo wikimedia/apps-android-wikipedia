@@ -2,7 +2,12 @@ package org.wikipedia.recurring
 
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
-import java.util.*
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+import java.time.temporal.ChronoUnit
 
 /**
  * Represents a task that needs to be run periodically.
@@ -17,23 +22,25 @@ import java.util.*
 abstract class RecurringTask {
     fun runIfNecessary() {
         val lastRunDate = lastRunDate
-        val lastExecutionLog = "$name. Last execution was $lastRunDate."
+        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
+        val lastExecutionLog = "$name. Last execution was ${formatter.format(lastRunDate)}."
         if (shouldRun(lastRunDate)) {
             L.d("Executing recurring task, $lastExecutionLog")
-            run(lastRunDate)
-            Prefs.setLastRunTime(name, absoluteTime)
+            run()
+            Prefs.setLastRunTime(name, System.currentTimeMillis())
         } else {
             L.d("Skipping recurring task, $lastExecutionLog")
         }
     }
 
-    protected abstract fun shouldRun(lastRun: Date): Boolean
-    protected abstract fun run(lastRun: Date)
+    private fun shouldRun(lastRun: LocalDateTime): Boolean {
+        return ChronoUnit.DAYS.between(lastRun, LocalDateTime.now()) > 1
+    }
+
+    protected abstract fun run()
 
     protected abstract val name: String
 
-    protected val absoluteTime: Long
-        get() = System.currentTimeMillis()
-    private val lastRunDate: Date
-        get() = Date(Prefs.getLastRunTime(name))
+    private val lastRunDate: LocalDateTime
+        get() = Instant.ofEpochMilli(Prefs.getLastRunTime(name)).atZone(ZoneId.systemDefault()).toLocalDateTime()
 }
