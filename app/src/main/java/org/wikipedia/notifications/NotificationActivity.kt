@@ -19,12 +19,14 @@ import com.google.android.material.tabs.TabLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.Service
@@ -37,6 +39,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
 import org.wikipedia.util.log.L
@@ -377,8 +380,20 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 }
             }
 
-            n.title?.let {
-                binding.notificationSource.text = it.full
+            n.title?.let { title ->
+                binding.notificationSource.text = title.full
+                binding.notificationSource.setOnClickListener {
+                    val langCode = n.wiki.replace("wiki", "")
+                    val pageTitle = PageTitle(title.full, WikiSite.forLanguageCode(langCode))
+                    when (n.title.namespaceKey) {
+                        0, 2 -> startActivity(PageActivity.newIntentForNewTab(this@NotificationActivity, HistoryEntry(pageTitle, HistoryEntry.SOURCE_NOTIFICATION), pageTitle))
+                        3 -> startActivity(TalkTopicsActivity.newIntent(this@NotificationActivity, pageTitle, Constants.InvokeSource.NOTIFICATION))
+                        6 -> startActivity(FilePageActivity.newIntent(this@NotificationActivity, pageTitle))
+                        else -> {
+                        // TODO: find the best way to open
+                        }
+                    }
+                }
             } ?: run {
                 binding.notificationSource.isVisible = false
                 binding.notificationWikiCodeBackground.isVisible = false
@@ -400,8 +415,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             if (MultiSelectActionModeCallback.isTagType(actionMode)) {
                 toggleSelectItem(container)
             } else {
-                bottomSheetPresenter.show(supportFragmentManager,
-                        NotificationItemActionsDialog.newInstance(container.notification!!))
+                // TODO: implement new onclick action
             }
         }
 

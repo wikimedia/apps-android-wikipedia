@@ -48,7 +48,7 @@ class Notification {
     class Title {
 
         @SerializedName("namespace-key")
-        private val namespaceKey = 0
+        val namespaceKey = 0
         var full: String = ""
         val text: String = ""
         private val namespace: String = ""
