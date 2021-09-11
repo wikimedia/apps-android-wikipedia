@@ -312,7 +312,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     @Suppress("LeakingThis")
     private open inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
-        RecyclerView.ViewHolder(binding.root), View.OnClickListener,View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
 
         lateinit var container: NotificationListItemContainer
 
@@ -343,7 +343,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     binding.notificationTitle.text = getString(notificationCategory.title)
                 }
             }
-
 
             // TODO: use better diff date method
             binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.getTimestamp().time, System.currentTimeMillis(), 0L)
