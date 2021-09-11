@@ -65,6 +65,7 @@
   <string name="app_settings">Pengaturan aplikasi</string>
   <string name="search_tab_tooltip">Ketuk ikon lagi untuk mulai mengetik istilah pencarian.</string>
   <string name="history_list_title">Riwayat</string>
+  <string name="image_content_description">Gambar: %s</string>
   <string name="dialog_title_clear_history">Hapus riwayat penelusuran</string>
   <string name="dialog_message_clear_history">Ini akan menghapus semua riwayat penelusuran Anda, dan menutup tab yang saat ini masih terbuka. Apakah Anda yakin?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
@@ -175,7 +176,7 @@
   <string name="create_account_passwords_mismatch_error">Kata sandi tidak cocok</string>
   <string name="create_account_email_error">Alamat surel tidak sah</string>
   <string name="create_account_username_error">Karakter tidak sah dalam nama pengguna</string>
-  <string name="create_account_password_error" fuzzy="true">Kata sandi tidak sah</string>
+  <string name="create_account_password_error">Kata sandi harus minimal memiliki 8 karakter</string>
   <string name="create_account_generic_error">Tidak dapat membuat akun</string>
   <string name="create_account_next">Selanjutnya</string>
   <string name="email_recommendation_dialog_title">Buat akun tanpa alamat surel?</string>
@@ -189,6 +190,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Rincian</string>
   <string name="preferences_general_heading">Umum</string>
+  <string name="preferences_account_heading">Akun</string>
   <string name="wikipedia_app_faq">Pertanyaan yang sering ditanyakan</string>
   <string name="send_feedback">Kirim umpan balik aplikasi</string>
   <string name="create_account_account_created_toast">Akun dibuat!</string>
@@ -238,7 +240,7 @@
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini telah diterjemahkan oleh penerjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
-  <string name="about_app_license" fuzzy="true">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
+  <string name="about_app_license">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
   <string name="about_wmf">Sebuah produk dari &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
@@ -384,6 +386,10 @@
   <string name="error_blocked_by">Penyekatan dilakukan oleh &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Alasan yang diberikan adalah: %s</string>
   <string name="error_blocked_start">Mulai penyekatan: %s</string>
+  <string name="error_blocked_expiry">Kadaluwarsa pemblokiran: %s</string>
+  <string name="error_blocked_id">ID Blokir: %s</string>
+  <string name="error_blocked_footer">Anda bisa menghubungi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; atau &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Pengurus\n\"&gt;pengurus&lt;/a&gt; lain untuk mendiskusikan pemblokiran Anda.</string>
+  <string name="error_blocked_footer_no_blocker">Anda bisa menghubungi seorang &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Pengurus\n\"&gt;pengurus&lt;/a&gt; untuk mendiskusikan pembatasan Anda.</string>
   <string name="crash_report_activity_title">Kesalahan aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.\n\nApakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
@@ -450,7 +456,11 @@
   <string name="reading_list_name_hint">Nama daftar ini</string>
   <string name="reading_list_description_hint">Deskripsi (opsional)</string>
   <string name="reading_list_item_deleted">%s dihapus dari daftar</string>
+  <string name="reading_list_item_deleted_from_list">%1$s dihapus dari %2$s</string>
   <string name="reading_list_articles_deleted">%d artikel dihapus dari daftar</string>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="other">%d artikel dihapus dari %s</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d artikel dihapus dari daftar</string>
   <string name="reading_lists_item_deleted">%s dihapus dari daftar</string>
   <string name="reading_list_item_delete_undo">Urungkan</string>
@@ -528,10 +538,12 @@
   <string name="reading_list_split_dialog_ok_button_text">Oke</string>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="notification_reverted_title">Suntingan yang dibalikkan</string>
+  <string name="notification_channel_title">Mengunduh artikel</string>
   <string name="notification_channel_description">Kemajuan pengunduhan</string>
   <string name="notification_syncing_pause_button">Jeda</string>
   <string name="notification_syncing_resume_button">Lanjutkan</string>
   <string name="notification_syncing_cancel_button">Batal</string>
+  <string name="notification_syncing_reading_list_channel_title">Menyinkronkan Daftar Bacaan</string>
   <string name="notification_syncing_reading_list_channel_description">Kemajuan Sinkronisasi Daftar Bacaan</string>
   <string name="notification_many_unread">Anda memiliki %d pemberitahuan yang belum dibaca</string>
   <plurals name="notification_channel_name">
@@ -577,6 +589,7 @@
   <string name="notifications_view_archived_button_text">Lihat pemberitahuan yang diarsipkan</string>
   <string name="notification_preferences_title">Pengaturan pemberitahuan</string>
   <string name="notifications_mark_unread">Tandai belum dibaca</string>
+  <string name="notifications_mark_all_as_read">Tandai semua sebagai telah dibaca</string>
   <string name="watchlist_title">Daftar pantauan</string>
   <string name="preference_title_notification_poll">Pilih pemberitahuan</string>
   <string name="preference_summary_notification_poll">Izinkan aplikasi menggunakan data untuk memeriksa pemberitahuan baru di latar belakang.</string>
@@ -594,7 +607,21 @@
   <string name="preference_title_notification_mention">Sebutkan</string>
   <string name="preference_summary_notification_mention">Seseorang menyebutkan Anda dalam sebuah halaman</string>
   <string name="preference_title_notification_user_talk">Halaman pembicaraan</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Pesan dari halaman pembicaraan</string>
+  <string name="preference_summary_notification_user_talk">Pesan dan balasan dari halaman pembicaraan</string>
+  <string name="preference_title_notification_email_user">Email yang diterima</string>
+  <string name="preference_summary_notification_email_user">Seorang editor telah mengirim Anda sebuah email melalui wiki</string>
+  <string name="preference_title_notification_user_rights">Perubahan hak pengguna</string>
+  <string name="preference_summary_notification_user_rights">Diterima ketika ada hak pengguna Anda berubah</string>
+  <string name="preference_title_notification_article_linked">Pranala ke artikel yang Anda buat</string>
+  <string name="preference_summary_notification_article_linked">Diterima ketika ada pranala baru menuju halaman yang Anda buat</string>
+  <string name="preference_category_push_notifications">Pemberitahuan otomatis</string>
+  <string name="preference_title_customize_push_notifications">Kustomisasi pemberitahuan otomatis</string>
+  <string name="preference_category_display_settings">Setelan tampilan</string>
+  <string name="preference_title_hide_read_notifications">Sembunyikan notifikasi yang telah dibaca</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Pemberitahuan Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Pemberitahuan dari Wikipedia</string>
+  <string name="notifications_channel_group_other_title">Lainnya</string>
+  <string name="notifications_channel_group_other_description">Pemberitahuan lain dari aplikasi</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_random_article_card_title">Artikel acak</string>
@@ -680,6 +707,7 @@
   <string name="description_too_short">Teksnya terlalu singkat.</string>
   <string name="description_ends_with_punctuation">Teksnya tidak boleh diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>
+  <string name="description_starts_with_lowercase">Jangan memulai dengan huruf kecil.</string>
   <string name="description_is_in_different_language">Teks tersebut tampaknya menggunakan bahasa yang tidak terduga. Bahasa harus %s.</string>
   <string name="description_edit_success_saved">Deskripsi artikel diterbitkan!</string>
   <string name="description_edit_success_saved_snackbar">Deskripsi artikel diterbitkan!</string>
@@ -742,6 +770,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Memulai</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Takarir gambar (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Berkas</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Berkas dari Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Seniman/Pembuat</string>
   <string name="suggested_edits_image_preview_dialog_tags">Tag</string>
   <string name="suggested_edits_image_preview_dialog_date">Tanggal</string>
@@ -844,6 +873,7 @@
   <string name="file_page_activity_title">Halaman berkas</string>
   <string name="file_page_add_image_caption_button">Tambahkan takarir gambar</string>
   <string name="file_page_add_image_tags_button">Tambahkan tanda gambar</string>
+  <string name="file_page_suggestion_reason">Alasan saran</string>
   <string name="description_edit_revert_subtitle">Terima kasih telah menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu Anda mencoba yang terbaik, tapi salah satu peninjau memiliki kekhawatiran. Kemungkinan alasan penyuntingan Anda telah dibalikkan meliputi:</string>
   <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
@@ -938,6 +968,7 @@
   <string name="talk_title">Pembicaraan</string>
   <string name="talk_user_title">Pembicaraan: %s</string>
   <string name="talk_new_topic">Topik baru</string>
+  <string name="talk_new_topic_submitted">Topik dipublikasikan.</string>
   <string name="talk_page_empty">Halaman pembicaraan ini kosong.</string>
   <string name="talk_add_reply">Balas</string>
   <string name="talk_no_subject">(Tidak ada subjek)</string>
@@ -946,11 +977,16 @@
   <string name="talk_message_hint">Susun pesan</string>
   <string name="talk_message_empty">Pesannya tidak bisa kosong.</string>
   <string name="talk_subject_empty">Subjeknya tidak bisa kosong.</string>
+  <string name="talk_response_submitted">Balasan dipublikasikan.</string>
+  <string name="talk_snackbar_undo">Urungkan</string>
+  <string name="talk_last_modified">&lt;b&gt;Terakir disunting %1$s&lt;/b&gt; oleh %2$s</string>
   <string name="menu_option_share_edit">Bagikan hasil suntingan</string>
   <string name="menu_option_user_profile">%s profil</string>
   <string name="menu_option_user_contributions">%s kontribusi</string>
   <string name="watchlist_details_watching_label">Memantau</string>
   <string name="watchlist_details_watch_label">Pantau</string>
+  <string name="watchlist_details_next_edit">Suntingan selanjutnya</string>
+  <string name="watchlist_details_prev_edit">Suntingan sebelumnya</string>
   <string name="thank_label">Berterimakasih</string>
   <string name="go_to_user_page">Kunjungi halaman pengguna</string>
   <string name="thank_dialog_title_text">Kirim \'Terima kasih\' secara publik</string>

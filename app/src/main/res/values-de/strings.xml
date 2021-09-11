@@ -630,7 +630,7 @@
   <string name="preference_title_customize_push_notifications">Anpassen von Push-Benachrichtigungen</string>
   <string name="preference_category_display_settings">Anzeigeeinstellungen</string>
   <string name="preference_title_hide_read_notifications">Lesebestätigungen ausblenden</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia-Benachrichtigungen</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Benachrichtigungen von Wikipedia</string>
   <string name="notifications_channel_group_other_title">Andere</string>
   <string name="notifications_channel_group_other_description">Andere Benachrichtigungen von der App</string>

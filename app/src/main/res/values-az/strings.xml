@@ -42,6 +42,7 @@
   <string name="app_settings">Tətbiqetmə parametrləri</string>
   <string name="search_tab_tooltip">Axtarış terminini birbaşa yazmağa başlamaq üçün yenidən ikona toxunun.</string>
   <string name="history_list_title">Tarixçə</string>
+  <string name="image_content_description">Şəkil: %s</string>
   <string name="dialog_title_clear_history">Baxış tarixini təmizləyin</string>
   <string name="dialog_message_clear_history">Bu, bütün axtarış tarixinizi siləcək və açıq pəncərələrinizi bağlayacaq. Siz əminsiniz?</string>
   <string name="dialog_message_clear_history_yes">Bəli</string>
@@ -152,7 +153,7 @@
   <string name="create_account_passwords_mismatch_error">Şifrələr uyğun gəlmir</string>
   <string name="create_account_email_error">Səhv e-poçt</string>
   <string name="create_account_username_error">İstifadəçi adında səhv simvollar</string>
-  <string name="create_account_password_error" fuzzy="true">Bu parol səhvdir.</string>
+  <string name="create_account_password_error">Parol ən az 8 simvoldan ibarət olmalıdır.</string>
   <string name="create_account_generic_error">Hesab yaradıla bilmədi</string>
   <string name="create_account_next">Növbəti</string>
   <string name="email_recommendation_dialog_title">E-poçt ünvanı olmadan hesab yaradılsın?</string>
@@ -166,6 +167,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detallar</string>
   <string name="preferences_general_heading">Ümumi</string>
+  <string name="preferences_account_heading">Hesab</string>
   <string name="wikipedia_app_faq">Vikipediya tətbiqetməsi TSS</string>
   <string name="send_feedback">Tətbiqetmə rəyi göndər</string>
   <string name="create_account_account_created_toast">Hesab yaradıldı!</string>
