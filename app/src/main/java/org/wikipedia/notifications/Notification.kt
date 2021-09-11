@@ -30,8 +30,12 @@ class Notification(
     }
 
     @JsonClass(generateAdapter = true)
-    class Title(var full: String = "", val text: String = "", internal val namespace: String = "",
-                @Json(name = "namespace-key") internal val namespaceKey: Int = 0) {
+    class Title(
+        var full: String = "",
+        val text: String = "",
+        internal val namespace: String = "",
+        @Json(name = "namespace-key") internal val namespaceKey: Int = 0
+    ) {
         val isMainNamespace: Boolean
             get() = namespaceKey == 0
     }
@@ -59,8 +63,14 @@ class Notification(
     }
 
     @JsonClass(generateAdapter = true)
-    class Contents(val header: String = "", val compactHeader: String = "", val body: String = "",
-                   internal val icon: String = "", internal val iconUrl: String = "", val links: Links? = null) {
+    class Contents(
+        val header: String = "",
+        val compactHeader: String = "",
+        val body: String = "",
+        internal val icon: String = "",
+        internal val iconUrl: String = "",
+        val links: Links? = null
+    ) {
         val decodedIconUrl: String
             get() = decodeURL(iconUrl)
     }

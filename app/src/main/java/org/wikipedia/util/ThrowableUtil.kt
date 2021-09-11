@@ -115,8 +115,8 @@ object ThrowableUtil {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parsePage("MediaWiki:Blockedtext"),
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parseText(blockInfo.blockReason),
             { userInfoResponse, blockedParseResponse, reasonParseResponse ->
-                parseBlockedError(blockedParseResponse.parse.text, blockInfo,
-                    reasonParseResponse.parse.text, userInfoResponse.query?.userInfo!!.name)
+                parseBlockedError(blockedParseResponse.text, blockInfo,
+                    reasonParseResponse.text, userInfoResponse.query?.userInfo!!.name)
             }
         ).blockingSubscribe({ html = it }) { L.e(it) }
         return html

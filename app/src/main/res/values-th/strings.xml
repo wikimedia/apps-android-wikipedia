@@ -577,7 +577,7 @@
   <string name="preference_title_notification_mention">การกล่าวถึง</string>
   <string name="preference_summary_notification_mention">มีคนกล่าวถึงคุณในหน้า</string>
   <string name="preference_title_notification_user_talk">หน้าคุย</string>
-  <string name="preference_summary_notification_user_talk">ข้อความจากหน้าคุย</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">ข้อความจากหน้าคุย</string>
   <string name="view_because_you_read_card_title">เนื่องจากคุณอ่าน</string>
   <string name="view_random_card_title">ตัวสุ่ม</string>
   <string name="view_random_article_card_title">สุ่มบทความ</string>

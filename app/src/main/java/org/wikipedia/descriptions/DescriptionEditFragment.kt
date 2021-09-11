@@ -282,8 +282,8 @@ class DescriptionEditFragment : Fragment() {
                         ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).siteInfo
                     }
                     .flatMap { response ->
-                        val languageCode = if (response.query?.generalSiteInfo?.lang != null &&
-                                response.query?.generalSiteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query?.generalSiteInfo?.lang
+                        val languageCode = if (response.query?.siteInfo?.lang != null &&
+                                response.query?.siteInfo?.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query?.generalSiteInfo?.lang
                         else pageTitle.wikiSite.languageCode
                         getPostObservable(editToken, languageCode.orEmpty())
                     }

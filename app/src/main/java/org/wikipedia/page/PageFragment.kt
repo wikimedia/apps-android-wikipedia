@@ -28,7 +28,6 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Types
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.*
@@ -970,15 +969,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
             disposables.add(
-                Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
+                Completable.fromAction { model.readingListPage = AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate {
                         pageActionTabsCallback.updateBookmark(model.readingListPage != null)
                         requireActivity().invalidateOptionsMenu()
                     }
-                    .subscribe({ page -> model.readingListPage = page }
-                    ) { model.readingListPage = null })
+                    .subscribe())
         }
     }
 

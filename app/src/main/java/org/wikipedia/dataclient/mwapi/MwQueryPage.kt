@@ -67,14 +67,14 @@ class MwQueryPage(
 
     @JsonClass(generateAdapter = true)
     class Revision(
-        @Json(name = "revid") val revId: Long = 0,
-        @Json(name = "parentid") val parentRevId: Long = 0,
-        val minor: Boolean = false,
-        @Json(name = "anon") val isAnon: Boolean = false,
-        val user: String = "",
-        @Json(name = "contentformat") val contentFormat: String = "",
-        @Json(name = "contentmodel") val contentModel: String = "",
+        @Json(name = "contentformat") internal val contentFormat: String? = null,
+        @Json(name = "contentmodel") internal val contentModel: String? = null,
         @Json(name = "timestamp") val timeStamp: String = "",
+        val revId: Long = 0,
+        val parentRevId: Long = 0,
+        val minor: Boolean = false,
+        val isAnon: Boolean = false,
+        val user: String = "",
         val content: String = "",
         val comment: String = "",
         val slots: Map<String, RevisionSlot> = emptyMap()
@@ -85,10 +85,12 @@ class MwQueryPage(
     }
 
     @JsonClass(generateAdapter = true)
-    class RevisionSlot(internal val contentmodel: String?, internal val contentformat: String?, val content: String)
+    class RevisionSlot(val content: String = "",
+                       internal val contentformat: String? = null,
+                       internal val contentmodel: String? = null)
 
     @JsonClass(generateAdapter = true)
-    class LangLink(val lang: String, val title: String)
+    class LangLink(val lang: String = "", val title: String = "")
 
     @JsonClass(generateAdapter = true)
     class Coordinates(val lan: Double?, val lon: Double?)
@@ -122,5 +124,5 @@ class MwQueryPage(
     }
 
     @JsonClass(generateAdapter = true)
-    class Confidence(val google: Float)
+    class Confidence(val google: Float = 0f)
 }

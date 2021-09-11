@@ -5,9 +5,11 @@ import android.os.Parcelable
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.TypeParceler
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.Protection
+import org.wikipedia.parcel.DateParceler
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
@@ -16,6 +18,7 @@ import java.util.*
 
 @Parcelize
 @JsonClass(generateAdapter = true)
+@TypeParceler<Date, DateParceler>()
 data class PageProperties constructor(
     val pageId: Int = 0,
     val namespace: Namespace,

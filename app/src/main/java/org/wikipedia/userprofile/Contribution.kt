@@ -3,11 +3,14 @@ package org.wikipedia.userprofile
 import android.os.Parcelable
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.TypeParceler
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.parcel.DateParceler
 import java.util.*
 
 @JsonClass(generateAdapter = true)
 @Parcelize
+@TypeParceler<Date, DateParceler>()
 class Contribution(
     val qNumber: String,
     val revId: Long,

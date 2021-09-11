@@ -1,7 +1,6 @@
 package org.wikipedia.notifications;
 
 import org.junit.Test;
-
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.json.MoshiUtil;
 import org.wikipedia.test.MockRetrofitTest;

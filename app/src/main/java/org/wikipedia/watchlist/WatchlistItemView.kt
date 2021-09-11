@@ -50,15 +50,15 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
     fun setItem(item: MwQueryResult.WatchlistItem) {
         this.item = item
         binding.titleText.text = item.title
-        binding.langCodeText.text = item.wiki.languageCode
+        binding.langCodeText.text = item.wiki!!.languageCode
         binding.summaryText.text = StringUtil.fromHtml(item.parsedComment)
         binding.timeText.text = DateUtil.getTimeString(item.timestamp)
         binding.userNameText.text = item.user
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
 
         binding.userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_talk)
-        if (item.logType.isNotEmpty()) {
-            when (item.logType) {
+        if (item.logtype.isNotEmpty()) {
+            when (item.logtype) {
                 context.getString(R.string.page_moved) -> {
                     setButtonTextAndIconColor(context.getString(R.string.watchlist_page_moved), R.attr.suggestions_background_color, R.drawable.ic_info_outline_black_24dp)
                 }
@@ -83,7 +83,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             binding.containerView.alpha = 1.0f
             binding.containerView.isClickable = true
         }
-        L10nUtil.setConditionalLayoutDirection(this, item.wiki.languageCode)
+        L10nUtil.setConditionalLayoutDirection(this, item.wiki!!.languageCode)
     }
 
     private fun setButtonTextAndIconColor(text: String, @AttrRes backgroundTint: Int, @DrawableRes iconResourceDrawable: Int? = null) {

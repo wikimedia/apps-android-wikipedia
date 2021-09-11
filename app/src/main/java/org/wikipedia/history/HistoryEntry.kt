@@ -7,11 +7,14 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.TypeParceler
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.parcel.DateParceler
 import java.util.*
 
 @Parcelize
+@TypeParceler<Date, DateParceler>()
 @Entity
 @JsonClass(generateAdapter = true)
 class HistoryEntry(

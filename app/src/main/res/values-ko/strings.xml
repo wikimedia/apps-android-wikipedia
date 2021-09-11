@@ -63,6 +63,7 @@
   <string name="app_settings">앱 설정</string>
   <string name="search_tab_tooltip">검색 항목 입력을 바로 시작하려면 아이콘을 다시 탭하십시오.</string>
   <string name="history_list_title">역사</string>
+  <string name="image_content_description">이미지: %s</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
   <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
   <string name="dialog_message_clear_history_yes">예</string>
@@ -543,10 +544,12 @@
   <string name="reading_list_split_dialog_ok_button_text">확인</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_reverted_title">되돌려진 편집</string>
+  <string name="notification_channel_title">문서를 다운로드하는 중</string>
   <string name="notification_channel_description">다운로드 진척도</string>
   <string name="notification_syncing_pause_button">일시 정지</string>
   <string name="notification_syncing_resume_button">재개</string>
   <string name="notification_syncing_cancel_button">취소</string>
+  <string name="notification_syncing_reading_list_channel_title">읽기 목록 동기화</string>
   <string name="notification_syncing_reading_list_channel_description">읽기 목록 동기화 진행</string>
   <string name="notification_many_unread">읽지 않은 알림 %d건이 있습니다</string>
   <plurals name="notification_channel_name">
@@ -586,6 +589,7 @@
   <string name="notifications_view_archived_button_text">보관된 알림 보기</string>
   <string name="notification_preferences_title">알림 환경 설정</string>
   <string name="notifications_mark_unread">읽지 않은 것으로 표시</string>
+  <string name="notifications_mark_all_as_read">모두 읽은 것으로 표시</string>
   <string name="watchlist_title">주시문서 목록</string>
   <string name="preference_title_notification_poll">알림 폴링</string>
   <string name="preference_summary_notification_poll">앱이 백그라운드에서 새 알림을 확인할 수 있게 합니다.</string>
@@ -603,7 +607,21 @@
   <string name="preference_title_notification_mention">언급</string>
   <string name="preference_summary_notification_mention">누군가가 문서에 당신을 언급했습니다</string>
   <string name="preference_title_notification_user_talk">토론 문서</string>
-  <string name="preference_summary_notification_user_talk">토크 페이지의 메시지</string>
+  <string name="preference_summary_notification_user_talk">토론 문서의 메시지와 답변</string>
+  <string name="preference_title_notification_email_user">이메일 받음</string>
+  <string name="preference_summary_notification_email_user">누군가가 위키를 통해 이메일을 보냈습니다</string>
+  <string name="preference_title_notification_user_rights">사용자 권한 변경</string>
+  <string name="preference_summary_notification_user_rights">사용자 권한이 변경될 때 알림을 받습니다</string>
+  <string name="preference_title_notification_article_linked">내가 만든 문서의 링크</string>
+  <string name="preference_summary_notification_article_linked">내가 만든 문서로 향하는 새로운 링크가 만들어질 때 알림을 받습니다</string>
+  <string name="preference_category_push_notifications">푸시 알림</string>
+  <string name="preference_title_customize_push_notifications">푸시 알림 사용자 지정</string>
+  <string name="preference_category_display_settings">표시 설정</string>
+  <string name="preference_title_hide_read_notifications">읽은 알림 숨기기</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">위키백과 알림</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">위키백과의 알림</string>
+  <string name="notifications_channel_group_other_title">기타</string>
+  <string name="notifications_channel_group_other_description">앱의 기타 알림</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의의 문서 보기</string>
   <string name="view_random_article_card_title">임의 문서</string>
@@ -978,6 +996,8 @@
   <string name="menu_option_user_contributions">%s님의 기여</string>
   <string name="watchlist_details_watching_label">주시 중</string>
   <string name="watchlist_details_watch_label">주시</string>
+  <string name="watchlist_details_next_edit">다음 편집</string>
+  <string name="watchlist_details_prev_edit">이전 편집</string>
   <string name="thank_label">감사 표현</string>
   <string name="go_to_user_page">사용자 문서로 이동하기</string>
   <string name="thank_dialog_title_text">공개적으로 감사 표하기</string>

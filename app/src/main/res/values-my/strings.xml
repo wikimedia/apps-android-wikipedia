@@ -122,7 +122,7 @@
   <string name="reading_lists_sync_login">အကောင့်ဝင်ရန်</string>
   <string name="create_account_login">အကောင့်ဝင်ရန်</string>
   <string name="menu_login">အကောင့်ဝင်ရန်</string>
-  <string name="login_activity_title">ဝင်ပါ</string>
+  <string name="login_activity_title">အကောင့်ထဲဝင်ရန်</string>
   <string name="login_in_progress_dialog_message">လော့ဂ်အင်ဝင်နေသည် …</string>
   <string name="login_success_toast">ဝင်ရောက်ခဲ့သည်</string>
   <string name="reset_password_title">သင်၏ စကားဝှက်ကို သတ်မှတ်ပါ</string>
@@ -203,7 +203,7 @@
   <string name="about_description">ဝီကီပီးဒီးယားအက်ပ် အကြောင်း</string>
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
   <string name="terms_of_use_description">အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ</string>
-  <string name="about_wikipedia_url">https://my.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:အကြောင်း</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -215,7 +215,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">အသုံးပြုထားသော စာကြည့်တိုက်များ</string>
   <string name="about_contributors_heading">ဆောင်ရွက်ပေးထားသူများ</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;အဖွဲ့စာမျက်နှာ&lt;/a&gt;</string>
   <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
   <string name="about_translators_translatewiki">ဤအက်ပ်ကို &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ရှိ စေတနာ့ဝန်ထမ်း ဘာသာပြန်သူများက ဘာသာပြန်ပေးထားသည်။</string>
   <string name="about_app_license_heading">လိုင်စင်</string>
@@ -282,7 +282,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ခွင့်ပြုရန်</string>
   <string name="read_more_section">ဆက်လက်ဖတ်ရှု</string>
   <string name="about_article_section">ဤဆောင်းပါးအကြောင်း</string>
-  <string name="menu_gallery_visit_image_page">ဖိုင်စာမျက်နှာသို့ သွားရန်</string>
+  <string name="menu_gallery_visit_image_page">ရုပ်ပုံစာမျက်နှာသို့ သွားရန်</string>
   <string name="gallery_error_draw_failed">ပုံဆွဲ၍ မရနိုင်ပါ။</string>
   <string name="license_title">%s အတွက် လိုင်စင်</string>
   <string name="gallery_menu_share">မျှဝေ</string>
@@ -307,9 +307,9 @@
   <string name="close_all_tabs_confirm_yes">လုပ်မည်</string>
   <string name="close_all_tabs_confirm_no">မလုပ်ပါ</string>
   <string name="button_close_tab">tab ပိတ်ရန်</string>
-  <string name="unnamed_tab_closed">Tabပိတ်ထားတယ်</string>
+  <string name="unnamed_tab_closed">Tab ပိတ်ထားသည်</string>
   <string name="tab_item_closed">%s ပိတ်သိမ်းပြီး။</string>
-  <string name="all_tab_items_closed">Tabအားလုံး ပိတ်ထားတယ်</string>
+  <string name="all_tab_items_closed">Tab အားလုံး ပိတ်ထားသည်</string>
   <string name="tool_tip_bookmark_icon_title">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="tool_tip_bookmark_icon_text">စာမူကိုစာဖတ်စာရင်းထဲသိမ်းဆည်းရန်အမှတ်အသားပြုသင်္ကေတပေါ်တွင်နှိပ်ပါ။</string>
   <string name="page_view_in_browser">စာမျက်နှာအား ဘရောက်ဇာတွင် ကြည့်ရန်</string>
@@ -357,8 +357,8 @@
   <string name="preference_summary_prefer_offline_content">ဆောင်းပါးတစ်ခု၏ နောက်ဆုံးဗားရှင်းထက် အော့ဖ်လိုင်းရရှိနိုင်မှုကို ခေါ်ယူသုံးစွဲခြင်းဖြင့် ဒေတာချွေတာရန်</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">စနစ်နောက်ခံကိုယှဉ်တွဲပါ</string>
   <string name="page_footer_license_text">အကြောင်းအရာကို အခြားမှတ်သားခြင်းမရှိပါက $1 အောက်တွင် ရရှိနိုင်ပါသည်။</string>
-  <string name="empty_tab_title">Tabအသစ်</string>
-  <string name="menu_save_all_tabs">Tabအားလုံးသိမ်းပါ</string>
+  <string name="empty_tab_title">Tab အသစ်</string>
+  <string name="menu_save_all_tabs">Tab အားလုံးသိမ်းပါ</string>
   <string name="error_blocked_reason">ပေးထားသောအကြောင်းပြချက်မှာ- %s</string>
   <string name="crash_report_activity_title">အပလီကေးရှင်း အမှား</string>
   <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။\n\nပြန်စမည်လော ထွက်မည်လော?</string>
@@ -497,6 +497,7 @@
   <string name="reading_list_split_dialog_ok_button_text">အိုကေ</string>
   <string name="user_option_sync_label">ရွေးချယ်စရာများ</string>
   <string name="notification_reverted_title">တည်းဖြတ်မှု နောက်ပြန်ပြင်ခဲ့ခြင်း</string>
+  <string name="notification_channel_title">ဆောင်ပါးများ ဒေါင်းလုတ်ဆွဲနေသည်</string>
   <string name="notification_channel_description">ဒေါင်းလုဒ် တိုးတက်လာမှု</string>
   <string name="notification_syncing_pause_button">ခေတ္တရပ်</string>
   <string name="notification_syncing_resume_button">ခေတ္တရပ်နားရာမှ ပြန်လုပ်ရန်</string>
@@ -546,6 +547,7 @@
   <string name="notifications_view_archived_button_text">မော်ကွန်း အသိပေးချက်များကို ကြည့်ရန်</string>
   <string name="notification_preferences_title">အသိပေးချက် ရွေးချယ်စရာများ</string>
   <string name="notifications_mark_unread">မဖတ်ရသေးကြောင်း မှတ်သားရန်</string>
+  <string name="notifications_mark_all_as_read">အကုန်လုံး ဖတ်ရှုပြီးဖြစ်ကြောင်း မှတ်သားရန်</string>
   <string name="watchlist_title">စောင့်ကြည့်စာရင်း</string>
   <string name="preference_title_notification_poll">အသိပေးချက်များကို မဲဆန္ဒပေးရန်</string>
   <string name="preference_summary_notification_poll">နောက်ခံမှ အသိပေးချက်အသစ်များကို စစ်ဆေးရန် ဒေတာသုံးစွဲခွင့်ကို app အား ခွင့်ပြုမည်။</string>
@@ -563,7 +565,15 @@
   <string name="preference_title_notification_mention">ရည်ညွန်းပြောဆိုချက်</string>
   <string name="preference_summary_notification_mention">စာမျက်နှာတစ်ခုတွင် တစ်စုံတစ်ယောက်က သင်အားရည်ညွန်းပြောဆိုခဲ့သည်</string>
   <string name="preference_title_notification_user_talk">ဆွေးနွေးချက် စာမျက်နှာ</string>
-  <string name="preference_summary_notification_user_talk">ဆွေးနွေးချက်စာမျက်နှာများမှ မက်ဆေ့များ</string>
+  <string name="preference_summary_notification_user_talk">ဆွေးနွေးချက်စာမျက်နှာများမှ မက်ဆေ့နှင့်ပြန်စာများ</string>
+  <string name="preference_title_notification_email_user">အီးမေးလ် လက်ခံရရှိသည်</string>
+  <string name="preference_summary_notification_email_user">တစုံတယောက်က သင့်ထံ ဝီကီမှ အီးမေးလ်ပို့လိုက်သည်</string>
+  <string name="preference_title_notification_user_rights">အသုံးပြုသူအခွင့်ရေး ပြောင်းလဲမှုများ</string>
+  <string name="preference_category_display_settings">ပြသမှု အပြင်အဆင်များ</string>
+  <string name="preference_title_hide_read_notifications">ဖတ်ပြီးသားအသိပေးချက်များကို ဝှက်ရန်</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ဝီကီပီးဒီးယား</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">ဝီကီပီဒီးယားမှ အသိပေးချက်များ</string>
+  <string name="notifications_channel_group_other_title">အခြား</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
   <string name="view_random_article_card_title">ကျပန်း ဆောင်းပါး</string>
@@ -681,7 +691,7 @@
   <string name="suggested_edits_task_multilingual_description">သင်သည် ဘာသာစကားတစ်ခုထက် ဖတ်ရှု၊ ရေးသားသူဆိုပါက ဘာသာပြန်လုပ်ငန်းများကို ရရှိနိုင်ပါသည်။</string>
   <string name="suggested_edits_task_multilingual_negative">မိမိအတွက် မဟုတ်ပါ</string>
   <string name="suggested_edits_task_multilingual_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
-  <string name="suggested_edits_image_caption_summary_title_image">ဖိုင်</string>
+  <string name="suggested_edits_image_caption_summary_title_image">ရုပ်ပုံ</string>
   <string name="suggested_edits_image_caption_summary_title_artist">အနုပညာရှင်</string>
   <string name="suggested_edits_image_caption_summary_title_author">စာရေးသူ</string>
   <string name="suggested_edits_image_caption_summary_title_source">ရင်းမြစ်</string>
@@ -696,8 +706,10 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန် (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">စတင်ပါ</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ရုပ်ပုံ ပုံစာ (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_image">ဖိုင်</string>
+  <string name="suggested_edits_image_preview_dialog_image">ရုပ်ပုံ</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">ဝီကီမီဒီယာ ကွန်မွန်းစ်ပေါ်ရှိဖိုင်</string>
   <string name="suggested_edits_image_preview_dialog_artist">အနုပညာရှင်</string>
+  <string name="suggested_edits_image_preview_dialog_tags">အမည်တွဲများ</string>
   <string name="suggested_edits_image_preview_dialog_date">နေ့စွဲ</string>
   <string name="suggested_edits_image_preview_dialog_source">ရင်းမြစ်/ဓါတ်ပုံဆရာ</string>
   <string name="suggested_edits_image_preview_dialog_licensing">လိုင်စင်သတ်မှတ်ခြင်း</string>
@@ -860,9 +872,14 @@
   <string name="talk_reply_subject">အကြောင်းအရာ</string>
   <string name="talk_message_empty">စာတို ဗလာဖြစ်၍ မရပါ။</string>
   <string name="talk_subject_empty">အကြောင်းအရာ ဗလာဖြစ်၍ မရပါ။</string>
+  <string name="talk_snackbar_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
+  <string name="menu_option_user_contributions">%s ၏ ပံ့ပိုးမှုများ</string>
   <string name="watchlist_details_watching_label">စောင့်ကြည့်နေသည်</string>
   <string name="watchlist_details_watch_label">စောင့်ကြည့်ရန်</string>
+  <string name="watchlist_details_prev_edit">ယခင်တည်းဖြတ်မှု</string>
   <string name="thank_label">ကျေးဇူးတင်</string>
+  <string name="go_to_user_page">အသုံးပြုသူစာမျက်နှာသို့သွားရန်</string>
+  <string name="thank_dialog_title_text">လူသိရှင်ကြား \'ကျေးဇူးတင်မှု\' ပို့ရန်</string>
   <string name="thank_dialog_positive_button_text">ကျေးဇူးတင်မှု ပို့ရန်</string>
   <string name="thank_dialog_negative_button_text">မလုပ်တော့ပါ</string>
   <string name="thank_success_message">သင်၏ \'ကျေးဇူးတင်မှု\' %s 👍 သို့ ပို့လိုက်ပါပြီ</string>
