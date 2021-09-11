@@ -2,6 +2,7 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.Menu
@@ -131,6 +132,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
         binding.notificationsProgressBar.visibility = View.VISIBLE
+        binding.notificationTabLayout.isEnabled = false
         supportActionBar?.setTitle(R.string.notifications_activity_title)
         currentContinueStr = null
         disposables.clear()
@@ -175,6 +177,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.VISIBLE
+        binding.notificationTabLayout.isEnabled = true
     }
 
     private fun onNotificationsComplete(notifications: List<Notification>, fromContinuation: Boolean) {
@@ -323,23 +326,34 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             this.container = container
             val n = container.notification!!
             val notificationCategory = NotificationCategory.find(n.category)
+            val notificationColor = ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor)
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
-            binding.notificationItemImage.setColorFilter(ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor))
+            binding.notificationItemImage.setColorFilter(notificationColor)
             n.contents?.let {
-                binding.notificationTitle.text = StringUtil.fromHtml(it.header)
+                binding.notificationSubtitle.text = StringUtil.fromHtml(it.header)
                 if (it.body.trim().isNotEmpty()) {
                     binding.notificationDescription.text = StringUtil.fromHtml(it.body)
                     binding.notificationDescription.visibility = View.VISIBLE
                 } else {
                     binding.notificationDescription.visibility = View.GONE
                 }
+                it.links?.secondary?.firstOrNull()?.let { link ->
+                    binding.notificationTitle.text = link.label
+                } ?: run {
+                    binding.notificationTitle.text = getString(notificationCategory.title)
+                }
             }
-            binding.notificationUsername.text = n.agent?.name // TODO: recheck
-            binding.notificationUsername.setOnClickListener {
-                // TODO: maybe link to user page?
-            }
-            binding.notificationItemReadDot.isVisible = n.isUnread
+
+
+            // TODO: use better diff date method
             binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.getTimestamp().time, System.currentTimeMillis(), 0L)
+
+            binding.notificationItemReadDot.isVisible = n.isUnread
+            binding.notificationItemReadDot.setColorFilter(notificationColor)
+            binding.notificationTitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+            binding.notificationTitle.setTextColor(notificationColor)
+            binding.notificationSubtitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+
             val wikiCode = n.wiki
             when {
                 wikiCode.contains("wikidata") -> {
@@ -363,6 +377,15 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     L10nUtil.setConditionalLayoutDirection(itemView, langCode)
                 }
             }
+
+            n.title?.let {
+                binding.notificationSource.text = it.full
+            } ?: run {
+                binding.notificationSource.isVisible = false
+                binding.notificationWikiCodeBackground.isVisible = false
+                binding.notificationWikiCodeContainer.isVisible = false
+            }
+
             if (container.selected) {
                 binding.notificationItemSelectedImage.visibility = View.VISIBLE
                 binding.notificationItemImage.visibility = View.INVISIBLE
