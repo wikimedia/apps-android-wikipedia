@@ -611,7 +611,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
         override fun notificationsClick() {
             if (AccountUtil.isLoggedIn) {
-                notificationsABCTestFunnel.logSelect()
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
             }
         }
