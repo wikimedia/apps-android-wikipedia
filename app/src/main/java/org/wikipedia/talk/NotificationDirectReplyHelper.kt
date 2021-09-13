@@ -24,6 +24,7 @@ import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
 
 object NotificationDirectReplyHelper {
+    const val DIRECT_REPLY_EDIT_COMMENT = "#directreply-1.0"
 
     fun handleReply(context: Context, wiki: WikiSite, title: PageTitle, replyText: String,
                     replyTo: String, notificationId: Int) {
@@ -47,7 +48,7 @@ object NotificationDirectReplyHelper {
                     val body = TalkTopicActivity.addDefaultFormatting(replyText, topicDepth)
                     ServiceFactory.get(wiki).postEditSubmit(
                         title.prefixedText, topic.id.toString(), null,
-                        "", if (AccountUtil.isLoggedIn) "user" else null, null, body,
+                        DIRECT_REPLY_EDIT_COMMENT, if (AccountUtil.isLoggedIn) "user" else null, null, body,
                         pair.second.revision, pair.first, null, null
                     )
                 }
