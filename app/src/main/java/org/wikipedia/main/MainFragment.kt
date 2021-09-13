@@ -430,7 +430,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     override fun notificationsClick() {
         if (AccountUtil.isLoggedIn) {
-            notificationsABCTestFunnel.logSelect()
             startActivity(NotificationActivity.newIntent(requireActivity()))
         }
     }

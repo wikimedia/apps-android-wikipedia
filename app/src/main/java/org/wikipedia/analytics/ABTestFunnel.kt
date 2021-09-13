@@ -14,7 +14,7 @@ class ABTestFunnel internal constructor(private val abTestName: String, private 
             var group = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1)
             if (group == -1) {
                 // initialize the group if it hasn't been yet.
-                group = Random(Int.MAX_VALUE).nextInt()
+                group = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE)
                 PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group)
             }
             return group.mod(abTestGroupCount)
