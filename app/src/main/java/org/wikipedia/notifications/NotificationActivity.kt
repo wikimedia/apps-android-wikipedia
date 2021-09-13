@@ -3,6 +3,7 @@ package org.wikipedia.notifications
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
+import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.Menu
@@ -19,14 +20,12 @@ import com.google.android.material.tabs.TabLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
-import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.Service
@@ -34,19 +33,18 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import java.util.*
 
-class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callback {
+class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
 
     private val notificationList = mutableListOf<Notification>()
@@ -56,12 +54,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     private var currentContinueStr: String? = null
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
-    private val searchActionModeCallback = SearchCallback()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private var linkHandler = NotificationLinkHandler(this)
     private var displayArchived = false
     var currentSearchQuery: String? = null
-
-    override val isShowingArchived get() = displayArchived
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -298,21 +293,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
     }
 
-    override fun onArchive(notification: Notification) {
-        bottomSheetPresenter.dismiss(supportFragmentManager)
-        for (c in notificationContainerList) {
-            if (c.notification != null && c.notification!!.key() == notification.key()) {
-                deleteItems(listOf(c), displayArchived)
-                break
-            }
-        }
-    }
-
-    override fun onActionPageTitle(pageTitle: PageTitle) {
-        startActivity(PageActivity.newIntentForCurrentTab(this,
-                HistoryEntry(pageTitle, HistoryEntry.SOURCE_NOTIFICATION), pageTitle))
-    }
-
     @Suppress("LeakingThis")
     private open inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
@@ -334,7 +314,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             binding.notificationItemImage.setColorFilter(notificationColor)
             n.contents?.let {
                 binding.notificationSubtitle.text = StringUtil.fromHtml(it.header)
-                if (it.body.trim().isNotEmpty()) {
+                if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
                     binding.notificationDescription.text = StringUtil.fromHtml(it.body)
                     binding.notificationDescription.visibility = View.VISIBLE
                 } else {
@@ -382,18 +362,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
             n.title?.let { title ->
                 binding.notificationSource.text = title.full
-                binding.notificationSource.setOnClickListener {
-                    val langCode = n.wiki.replace("wiki", "")
-                    val pageTitle = PageTitle(title.full, WikiSite.forLanguageCode(langCode))
-                    when (n.title.namespaceKey) {
-                        0, 2 -> startActivity(PageActivity.newIntentForNewTab(this@NotificationActivity, HistoryEntry(pageTitle, HistoryEntry.SOURCE_NOTIFICATION), pageTitle))
-                        3 -> startActivity(TalkTopicsActivity.newIntent(this@NotificationActivity, pageTitle, Constants.InvokeSource.NOTIFICATION))
-                        6 -> startActivity(FilePageActivity.newIntent(this@NotificationActivity, pageTitle))
-                        else -> {
-                        // TODO: find the best way to open
-                        }
-                    }
-                }
             } ?: run {
                 binding.notificationSource.isVisible = false
                 binding.notificationWikiCodeBackground.isVisible = false
@@ -409,13 +377,27 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 binding.notificationItemImage.visibility = View.VISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.paper_color))
             }
+
+            binding.notificationOverflowMenu.setOnClickListener {
+                // TODO: implement this
+            }
         }
 
         override fun onClick(v: View) {
             if (MultiSelectActionModeCallback.isTagType(actionMode)) {
                 toggleSelectItem(container)
             } else {
-                // TODO: implement new onclick action
+                val n = container.notification!!
+                n.contents?.links?.getPrimary()?.let { link ->
+                    val url = link.url
+                    if (url.isNotEmpty()) {
+                        // TODO: update event source?
+                        NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logAction(NotificationInteractionEvent.ACTION_PRIMARY, link)
+                        NotificationInteractionEvent.logAction(n, NotificationInteractionEvent.ACTION_PRIMARY, link)
+                        linkHandler.wikiSite = WikiSite(url)
+                        linkHandler.onUrlClick(url, null, "")
+                    }
+                }
             }
         }
 
@@ -475,33 +457,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
     }
 
-    private inner class SearchCallback : SearchActionModeCallback() {
-        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            actionMode = mode
-            return super.onCreateActionMode(mode, menu)
-        }
-
-        override fun onQueryChange(s: String) {
-            currentSearchQuery = s.trim()
-            postprocessAndDisplay()
-        }
-
-        override fun onDestroyActionMode(mode: ActionMode) {
-            super.onDestroyActionMode(mode)
-            actionMode = null
-            currentSearchQuery = null
-            postprocessAndDisplay()
-        }
-
-        override fun getSearchHintString(): String {
-            return getString(R.string.notifications_search)
-        }
-
-        override fun getParentContext(): Context {
-            return this@NotificationActivity
-        }
-    }
-
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
@@ -531,6 +486,33 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             unselectAllItems()
             actionMode = null
             super.onDestroyActionMode(mode)
+        }
+    }
+
+    private inner class NotificationLinkHandler constructor(context: Context) : LinkHandler(context) {
+
+        override fun onPageLinkClicked(anchor: String, linkText: String) {
+            // ignore
+        }
+
+        override fun onMediaLinkClicked(title: PageTitle) {
+            // ignore
+        }
+
+        override lateinit var wikiSite: WikiSite
+
+        override fun onInternalLinkClicked(title: PageTitle) {
+            startActivity(PageActivity.newIntentForCurrentTab(this@NotificationActivity,
+                HistoryEntry(title, HistoryEntry.SOURCE_NOTIFICATION), title))
+        }
+
+        override fun onExternalLinkClicked(uri: Uri) {
+            try {
+                // TODO: handle "change password" since it will open a blank page in PageActivity
+                startActivity(Intent(Intent.ACTION_VIEW).setData(uri))
+            } catch (e: Exception) {
+                L.e(e)
+            }
         }
     }
 
