@@ -539,10 +539,12 @@
   <string name="reading_list_split_dialog_ok_button_text">確認</string>
   <string name="user_option_sync_label">偏好設定</string>
   <string name="notification_reverted_title">回退的編輯</string>
+  <string name="notification_channel_title">正在下載條目</string>
   <string name="notification_channel_description">下載進度</string>
   <string name="notification_syncing_pause_button">暫停</string>
   <string name="notification_syncing_resume_button">繼續</string>
   <string name="notification_syncing_cancel_button">取消</string>
+  <string name="notification_syncing_reading_list_channel_title">正在同步閱讀清單</string>
   <string name="notification_syncing_reading_list_channel_description">同步閱讀清單進度</string>
   <string name="notification_many_unread">您有 %d 個尚未讀取的通知</string>
   <plurals name="notification_channel_name">
@@ -588,6 +590,7 @@
   <string name="notifications_view_archived_button_text">檢視存檔通知</string>
   <string name="notification_preferences_title">通知偏好設定</string>
   <string name="notifications_mark_unread">標記為未讀</string>
+  <string name="notifications_mark_all_as_read">標記所有為已讀</string>
   <string name="watchlist_title">監視清單</string>
   <string name="preference_title_notification_poll">調查通知</string>
   <string name="preference_summary_notification_poll">允許應用程式在背景執行使用資料來檢查新的通知。</string>
@@ -605,7 +608,21 @@
   <string name="preference_title_notification_mention">提及</string>
   <string name="preference_summary_notification_mention">有人在頁面裡提及您</string>
   <string name="preference_title_notification_user_talk">對話頁</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">來自對話頁的訊息</string>
+  <string name="preference_summary_notification_user_talk">來自對話頁的訊息與回覆</string>
+  <string name="preference_title_notification_email_user">已接收電子郵件</string>
+  <string name="preference_summary_notification_email_user">某人透過 wiki 發送電子郵件給您</string>
+  <string name="preference_title_notification_user_rights">使用者權限更改</string>
+  <string name="preference_summary_notification_user_rights">當您使用者權限更改時接收</string>
+  <string name="preference_title_notification_article_linked">您所創建條目的連結</string>
+  <string name="preference_summary_notification_article_linked">當您所建立的頁面有做出新連結時接收</string>
+  <string name="preference_category_push_notifications">推發通知</string>
+  <string name="preference_title_customize_push_notifications">自訂推發通知</string>
+  <string name="preference_category_display_settings">顯示設定</string>
+  <string name="preference_title_hide_read_notifications">隱藏閱讀通知</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">維基百科</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">來自維基百科的通知</string>
+  <string name="notifications_channel_group_other_title">其它</string>
+  <string name="notifications_channel_group_other_description">來自應用程式的其它通知</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_article_card_title">隨機條目</string>

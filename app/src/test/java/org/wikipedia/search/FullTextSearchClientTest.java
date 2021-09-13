@@ -17,7 +17,7 @@ public class FullTextSearchClientTest extends MockRetrofitTest {
                 .map(response -> {
                     if (response.getQuery() != null) {
                         // noinspection ConstantConditions
-                        return new SearchResults(response.getQuery().pages(), TESTWIKI,
+                        return new SearchResults(response.getQuery().getPages(), TESTWIKI,
                                 response.getContinuation(), null);
                     }
                     return new SearchResults();
