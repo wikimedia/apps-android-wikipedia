@@ -91,7 +91,10 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             beginUpdateList()
         }
 
-        binding.notificationsViewArchivedButton.setOnClickListener { onViewArchivedClick() }
+        binding.notificationsViewArchivedButton.setOnClickListener {
+            startActivity(NotificationsSearchActivity.newIntent(this))
+            // onViewArchivedClick()
+        }
 
         Prefs.setNotificationUnreadCount(0)
         NotificationsABCTestFunnel().logSelect()
