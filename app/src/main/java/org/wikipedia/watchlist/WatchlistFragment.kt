@@ -106,7 +106,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
             notificationButtonView.setOnClickListener {
                 if (AccountUtil.isLoggedIn) {
-                    notificationsABCTestFunnel.logSelect()
                     startActivity(NotificationActivity.newIntent(requireActivity()))
                 }
             }
