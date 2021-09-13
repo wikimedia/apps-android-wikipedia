@@ -618,7 +618,7 @@
   <string name="preference_title_customize_push_notifications">Kustomisasi pemberitahuan otomatis</string>
   <string name="preference_category_display_settings">Setelan tampilan</string>
   <string name="preference_title_hide_read_notifications">Sembunyikan notifikasi yang telah dibaca</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Pemberitahuan Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Pemberitahuan dari Wikipedia</string>
   <string name="notifications_channel_group_other_title">Lainnya</string>
   <string name="notifications_channel_group_other_description">Pemberitahuan lain dari aplikasi</string>
