@@ -37,9 +37,9 @@
         android:layout_width="8dp"
         android:layout_height="8dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@id/notificationItemSelectedImage"
+        app:layout_constraintStart_toStartOf="@id/notificationItemImage"
         app:layout_constraintTop_toBottomOf="@id/notificationItemImage"
-        app:layout_constraintEnd_toEndOf="@id/notificationItemSelectedImage"
+        app:layout_constraintEnd_toEndOf="@id/notificationItemImage"
         app:srcCompat="@drawable/shape_circle"
         app:tint="?attr/colorAccent"
         android:contentDescription="@string/notifications_view_unread"/>
@@ -163,7 +163,6 @@
         app:layout_constraintStart_toEndOf="@id/notificationWikiCodeContainer"
         app:layout_constraintTop_toTopOf="@id/notificationWikiCodeContainer"
         app:layout_constraintBottom_toBottomOf="@id/notificationWikiCodeContainer"
-        app:layout_constraintEnd_toStartOf="@id/notificationSourceExternalIcon"
         tools:text="Lorem ipsum" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -173,7 +172,6 @@
         android:layout_gravity="center_vertical"
         android:layout_marginHorizontal="8dp"
         android:contentDescription="@null"
-        android:visibility="gone"
         app:srcCompat="@drawable/ic_open_in_new_black_24px"
         app:tint="?attr/secondary_text_color"
         app:layout_constraintTop_toTopOf="@id/notificationSource"
