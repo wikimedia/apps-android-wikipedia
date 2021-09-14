@@ -461,6 +461,33 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
+    private inner class SearchCallback : SearchActionModeCallback() {
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            actionMode = mode
+            return super.onCreateActionMode(mode, menu)
+        }
+
+        override fun onQueryChange(s: String) {
+            currentSearchQuery = s.trim()
+            postprocessAndDisplay()
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode) {
+            super.onDestroyActionMode(mode)
+            actionMode = null
+            currentSearchQuery = null
+            postprocessAndDisplay()
+        }
+
+        override fun getSearchHintString(): String {
+            return getString(R.string.notifications_search)
+        }
+
+        override fun getParentContext(): Context {
+            return this@NotificationActivity
+        }
+    }
+
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)

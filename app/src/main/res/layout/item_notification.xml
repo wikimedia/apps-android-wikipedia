@@ -106,7 +106,7 @@
         android:textColor="?android:attr/textColorPrimary"
         android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationSubtitle"
-        app:layout_constraintStart_toStartOf="@id/notificationSubtitle"
+        app:layout_constraintStart_toStartOf="@id/notificationTitle"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Lorem ipsum" />
 
@@ -127,7 +127,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="@id/notificationDescription"
+        app:layout_constraintStart_toStartOf="@id/notificationTitle"
         app:layout_constraintTop_toBottomOf="@id/notificationDescription"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -156,7 +156,7 @@
 
     <TextView
         android:id="@+id/notificationSource"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:textColor="?attr/secondary_text_color"
@@ -178,7 +178,6 @@
         app:tint="?attr/secondary_text_color"
         app:layout_constraintTop_toTopOf="@id/notificationSource"
         app:layout_constraintBottom_toBottomOf="@id/notificationSource"
-        app:layout_constraintStart_toEndOf="@id/notificationSource"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toEndOf="@id/notificationSource"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
