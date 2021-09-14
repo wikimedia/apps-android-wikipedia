@@ -99,7 +99,7 @@
     <TextView
         android:id="@+id/notificationDescription"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="2"
@@ -107,6 +107,7 @@
         android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationSubtitle"
         app:layout_constraintStart_toStartOf="@id/notificationSubtitle"
+        app:layout_constraintBottom_toTopOf="@id/notificationWikiCodeContainer"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Lorem ipsum" />
 
@@ -127,8 +128,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/notificationDescription"
-        app:layout_constraintStart_toStartOf="@id/notificationSubtitle">
+        app:layout_constraintStart_toStartOf="@id/notificationDescription"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/notificationWikiCodeImage"
@@ -158,11 +159,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:ellipsize="end"
         android:textColor="?attr/secondary_text_color"
         app:layout_constraintStart_toEndOf="@id/notificationWikiCodeContainer"
         app:layout_constraintTop_toTopOf="@id/notificationWikiCodeContainer"
         app:layout_constraintBottom_toBottomOf="@id/notificationWikiCodeContainer"
+        app:layout_constraintEnd_toStartOf="@id/notificationSourceExternalIcon"
         tools:text="Lorem ipsum" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/notificationSourceExternalIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="8dp"
+        android:contentDescription="@null"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_open_in_new_black_24px"
+        app:tint="?attr/secondary_text_color"
+        app:layout_constraintTop_toTopOf="@id/notificationSource"
+        app:layout_constraintBottom_toBottomOf="@id/notificationSource"
+        app:layout_constraintStart_toEndOf="@id/notificationSource"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

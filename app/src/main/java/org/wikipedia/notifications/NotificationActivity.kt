@@ -67,7 +67,7 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, startingPosition = 1))
+        binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, skipSearchBar = true))
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
                 ResourceUtil.getThemedAttributeId(this, R.attr.chart_shade5),
@@ -362,8 +362,12 @@ class NotificationActivity : BaseActivity() {
 
             n.title?.let { title ->
                 binding.notificationSource.text = title.full
+                n.contents?.links?.getPrimary()?.url?.run {
+                    binding.notificationSourceExternalIcon.isVisible = !UriUtil.isAppSupportedLink(Uri.parse(this))
+                }
             } ?: run {
                 binding.notificationSource.isVisible = false
+                binding.notificationSourceExternalIcon.isVisible = false
                 binding.notificationWikiCodeBackground.isVisible = false
                 binding.notificationWikiCodeContainer.isVisible = false
             }
