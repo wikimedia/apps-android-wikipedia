@@ -3,6 +3,9 @@ package org.wikipedia.notifications
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -12,6 +15,7 @@ import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
+import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,9 +47,7 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.DrawableItemDecoration
-import org.wikipedia.views.MultiSelectActionModeCallback
-import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.*
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -92,6 +94,12 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
 
         binding.notificationsViewArchivedButton.setOnClickListener { onViewArchivedClick() }
+        binding.notificationsRecyclerView.visibility = View.GONE
+        binding.button.setOnClickListener {
+            if (actionMode == null) {
+                actionMode = startSupportActionMode(searchActionModeCallback)
+            }
+        }
 
         Prefs.setNotificationUnreadCount(0)
         NotificationsABCTestFunnel().logSelect()
@@ -141,6 +149,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
+        binding.notificationsSearchEmptyContainer.visibility = View.GONE
         binding.notificationsProgressBar.visibility = View.VISIBLE
         supportActionBar?.setTitle(if (displayArchived) R.string.notifications_activity_title_archived else R.string.notifications_activity_title)
         currentContinueStr = null
@@ -183,6 +192,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
+        binding.notificationsSearchEmptyContainer.visibility = View.GONE
         binding.notificationsErrorView.setError(t)
         binding.notificationsErrorView.visibility = View.VISIBLE
     }
@@ -227,11 +237,22 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
         binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         if (notificationContainerList.isEmpty()) {
-            binding.notificationsEmptyContainer.visibility = View.VISIBLE
+            if (actionMode == null) binding.notificationsEmptyContainer.visibility = View.VISIBLE
+            if (actionMode != null) binding.notificationsSearchEmptyContainer.visibility = View.VISIBLE
+            binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
             binding.notificationsViewArchivedButton.visibility = if (displayArchived) View.GONE else View.VISIBLE
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = View.GONE
         }
+    }
+
+    private fun getSpannedEmptySearchMessage(): Spannable {
+        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, 1, 1)
+        val finalStr = getString(R.string.notifications_empty_search_message, filtersStr)
+        val spannable: Spannable = SpannableString(finalStr)
+        spannable.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(this, R.attr.colorAccent)), 13, 13 + filtersStr.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        return spannable
     }
 
     private fun deleteItems(items: List<NotificationListItemContainer>, markUnread: Boolean) {
@@ -463,6 +484,20 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private inner class SearchCallback : SearchActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+
+            val menuItem = menu.add(searchHintString)
+
+            // Manually setup a action provider in order to have a custom view.
+            MenuItemCompat.setActionProvider(menuItem, SearchAndFilterActionProvider(parentContext, searchHintString, object :
+                SearchAndFilterActionProvider.Callback {
+                override fun onQueryTextChange(s: String) {
+                    onQueryChange(s)
+                }
+
+                override fun onQueryTextFocusChange() {
+                }
+            }))
+
             actionMode = mode
             return super.onCreateActionMode(mode, menu)
         }

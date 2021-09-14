@@ -1044,4 +1044,11 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
+  <string name="notifications_search_hint">Hint text for the notifications search box.</string>
+  <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
+  <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications.</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">Text indicating a single filter.</item>
+    <item quantity="other">Text indicating more than one filter.</item>
+  </plurals>
 </resources>
