@@ -86,13 +86,14 @@
         android:id="@+id/notificationSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginVertical="8dp"
         android:ellipsize="end"
         android:maxLines="2"
         android:textColor="?android:attr/textColorPrimary"
         android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationTitle"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
+        app:layout_constraintBottom_toTopOf="@id/notificationDescription"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Lorem ipsum" />
 
@@ -100,82 +101,94 @@
         android:id="@+id/notificationDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
         android:ellipsize="end"
+        android:lineSpacingExtra="8sp"
         android:maxLines="2"
         android:textColor="?android:attr/textColorPrimary"
-        android:lineSpacingExtra="8sp"
-        app:layout_constraintTop_toBottomOf="@id/notificationSubtitle"
+        app:layout_constraintBottom_toTopOf="@id/notificationInfoContainer"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Lorem ipsum" />
+        tools:text="Lorem ipsum"
+        tools:visibility="visible" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/notificationWikiCodeBackground"
+    <LinearLayout
+        android:id="@+id/notificationInfoContainer"
         android:layout_width="0dp"
-        android:layout_height="16dp"
-        android:contentDescription="@null"
-        app:layout_constraintBottom_toBottomOf="@id/notificationWikiCodeContainer"
-        app:layout_constraintEnd_toEndOf="@id/notificationWikiCodeContainer"
-        app:layout_constraintStart_toStartOf="@id/notificationWikiCodeContainer"
-        app:layout_constraintTop_toTopOf="@id/notificationWikiCodeContainer"
-        app:srcCompat="@drawable/lang_button_shape_border"
-        app:tint="?attr/secondary_text_color" />
-
-    <FrameLayout
-        android:id="@+id/notificationWikiCodeContainer"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
-        app:layout_constraintTop_toBottomOf="@id/notificationDescription"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/notificationWikiCodeImage"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
-            tools:src="@drawable/ic_wikidata_logo" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/notificationWikiCodeBackground"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="@id/notificationWikiCodeContainer"
+                app:layout_constraintEnd_toEndOf="@id/notificationWikiCodeContainer"
+                app:layout_constraintStart_toStartOf="@id/notificationWikiCodeContainer"
+                app:layout_constraintTop_toTopOf="@id/notificationWikiCodeContainer"
+                app:srcCompat="@drawable/lang_button_shape_border"
+                app:tint="?attr/secondary_text_color" />
+
+            <FrameLayout
+                android:id="@+id/notificationWikiCodeContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/notificationWikiCodeImage"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:tint="?attr/secondary_text_color"
+                    tools:src="@drawable/ic_wikidata_logo" />
+
+                <TextView
+                    android:id="@+id/notificationWikiCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="3dp"
+                    android:paddingTop="1dp"
+                    android:paddingEnd="3dp"
+                    android:paddingBottom="1dp"
+                    android:textAllCaps="true"
+                    android:textColor="?attr/secondary_text_color"
+                    android:textSize="9sp"
+                    tools:text="en" />
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/notificationWikiCode"
+            android:id="@+id/notificationSource"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="3dp"
-            android:paddingTop="1dp"
-            android:paddingEnd="3dp"
-            android:paddingBottom="1dp"
-            android:textAllCaps="true"
+            android:layout_marginStart="8dp"
             android:textColor="?attr/secondary_text_color"
-            android:textSize="9sp"
-            tools:text="en" />
+            tools:text="Lorem ipsum" />
 
-    </FrameLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/notificationSourceExternalIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="8dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_open_in_new_black_24px"
+            app:tint="?attr/secondary_text_color"/>
 
-    <TextView
-        android:id="@+id/notificationSource"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textColor="?attr/secondary_text_color"
-        app:layout_constraintStart_toEndOf="@id/notificationWikiCodeContainer"
-        app:layout_constraintTop_toTopOf="@id/notificationWikiCodeContainer"
-        app:layout_constraintBottom_toBottomOf="@id/notificationWikiCodeContainer"
-        tools:text="Lorem ipsum" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/notificationSourceExternalIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginHorizontal="8dp"
-        android:contentDescription="@null"
-        app:srcCompat="@drawable/ic_open_in_new_black_24px"
-        app:tint="?attr/secondary_text_color"
-        app:layout_constraintTop_toTopOf="@id/notificationSource"
-        app:layout_constraintBottom_toBottomOf="@id/notificationSource"
-        app:layout_constraintStart_toEndOf="@id/notificationSource"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
