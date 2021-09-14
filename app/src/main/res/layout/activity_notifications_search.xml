@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".notifications.NotificationsSearchActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -52,4 +53,12 @@
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notifications_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:foregroundTint="@color/accent20"
+        android:scrollbars="vertical" />
 </LinearLayout>

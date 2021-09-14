@@ -61,11 +61,6 @@ class CabSearchView @JvmOverloads constructor(context: Context, attrs: Attribute
         }
     }
 
-    fun disableCloseButton() {
-        searchCloseBtn.setImageDrawable(null)
-        searchCloseBtn.isEnabled = false
-    }
-
     private class PlainTextInputFilter : InputFilter {
         override fun filter(source: CharSequence, start: Int, end: Int, dest: Spanned,
                             dstart: Int, dend: Int): CharSequence {
