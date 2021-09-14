@@ -9,6 +9,7 @@ import androidx.annotation.AttrRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import org.wikipedia.R
 import org.wikipedia.util.ResourceUtil
 
 // todo: replace with DividerItemDecoration once it supports headers and footers
@@ -33,13 +34,13 @@ class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRe
             return
         }
 
-//        val startingPosition = if (parent.getChildAt(0).id == R.id.search_container && skipSearchBar) 1 else 0
+        val startingPosition = if (parent.getChildAt(0).id == R.id.search_container && skipSearchBar) 1 else 0
 
         val end = parent.childCount - 1
-        for (i in (if (drawStart) 0 else 0 + 1) until end) {
+        for (i in (if (drawStart) startingPosition else startingPosition + 1) until end) {
             draw(canvas, bounds(parent, parent.getChildAt(i), true))
         }
-        if (drawStart || parent.childCount > 0 + 1) {
+        if (drawStart || parent.childCount > startingPosition + 1) {
             draw(canvas, bounds(parent, parent.getChildAt(end), true))
         }
         if (drawEnd) {

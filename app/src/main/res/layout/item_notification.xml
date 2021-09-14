@@ -99,7 +99,7 @@
     <TextView
         android:id="@+id/notificationDescription"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="2"
@@ -107,7 +107,6 @@
         android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationSubtitle"
         app:layout_constraintStart_toStartOf="@id/notificationSubtitle"
-        app:layout_constraintBottom_toTopOf="@id/notificationWikiCodeContainer"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Lorem ipsum" />
 
@@ -129,6 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="@id/notificationDescription"
+        app:layout_constraintTop_toBottomOf="@id/notificationDescription"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
