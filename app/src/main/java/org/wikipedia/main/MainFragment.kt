@@ -47,6 +47,7 @@ import org.wikipedia.navtab.MenuNavTabDialog
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.notifications.NotificationFiltersActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -430,7 +431,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     override fun notificationsClick() {
         if (AccountUtil.isLoggedIn) {
-            startActivity(NotificationActivity.newIntent(requireActivity()))
+            startActivity(NotificationFiltersActivity.newIntent(requireActivity()))
         }
     }
 
