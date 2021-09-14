@@ -367,6 +367,7 @@
   <string name="preference_title_notification_thanks">Suksma</string>
   <string name="preference_title_notification_login_fail">Manjing log</string>
   <string name="preference_title_notification_user_talk">Kaca pabligbagan</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipédia</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d tl</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d Yt</string>
   <string name="view_main_page_card_title">Rahina mangkin ring Wikipédia</string>
