@@ -365,9 +365,14 @@ class NotificationActivity : BaseActivity() {
                 n.contents?.links?.getPrimary()?.url?.run {
                     binding.notificationSourceExternalIcon.isVisible = !UriUtil.isAppSupportedLink(Uri.parse(this))
                 }
-                binding.notificationInfoContainer.isVisible = true
+                binding.notificationSource.isVisible = true
+                binding.notificationWikiCodeBackground.isVisible = !binding.notificationWikiCodeImage.isVisible
+                binding.notificationWikiCodeContainer.isVisible = true
             } ?: run {
-                binding.notificationInfoContainer.isVisible = false
+                binding.notificationSource.isVisible = false
+                binding.notificationSourceExternalIcon.isVisible = false
+                binding.notificationWikiCodeBackground.isVisible = false
+                binding.notificationWikiCodeContainer.isVisible = false
             }
 
             if (container.selected) {
