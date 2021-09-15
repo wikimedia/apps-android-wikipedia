@@ -337,36 +337,35 @@ class NotificationActivity : BaseActivity() {
             binding.notificationSubtitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
 
             val wikiCode = n.wiki
-            when {
-                wikiCode.contains("wikidata") -> {
-                    binding.notificationWikiCode.visibility = View.GONE
-                    binding.notificationWikiCodeBackground.visibility = View.GONE
-                    binding.notificationWikiCodeImage.visibility = View.VISIBLE
-                    binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
-                }
-                wikiCode.contains("commons") -> {
-                    binding.notificationWikiCode.visibility = View.GONE
-                    binding.notificationWikiCodeBackground.visibility = View.GONE
-                    binding.notificationWikiCodeImage.visibility = View.VISIBLE
-                    binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
-                }
-                else -> {
-                    binding.notificationWikiCodeBackground.visibility = View.VISIBLE
-                    binding.notificationWikiCode.visibility = View.VISIBLE
-                    binding.notificationWikiCodeImage.visibility = View.GONE
-                    val langCode = n.wiki.replace("wiki", "")
-                    binding.notificationWikiCode.text = langCode
-                    L10nUtil.setConditionalLayoutDirection(itemView, langCode)
-                }
-            }
+            val langCode = wikiCode.replace("wiki", "")
+            L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
                 binding.notificationSource.text = title.full
                 n.contents?.links?.getPrimary()?.url?.run {
                     binding.notificationSourceExternalIcon.isVisible = !UriUtil.isAppSupportedLink(Uri.parse(this))
                 }
+                when {
+                    wikiCode.contains("wikidata") -> {
+                        binding.notificationWikiCode.visibility = View.GONE
+                        binding.notificationWikiCodeBackground.visibility = View.GONE
+                        binding.notificationWikiCodeImage.visibility = View.VISIBLE
+                        binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
+                    }
+                    wikiCode.contains("commons") -> {
+                        binding.notificationWikiCode.visibility = View.GONE
+                        binding.notificationWikiCodeBackground.visibility = View.GONE
+                        binding.notificationWikiCodeImage.visibility = View.VISIBLE
+                        binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
+                    }
+                    else -> {
+                        binding.notificationWikiCodeBackground.visibility = View.VISIBLE
+                        binding.notificationWikiCode.visibility = View.VISIBLE
+                        binding.notificationWikiCodeImage.visibility = View.GONE
+                        binding.notificationWikiCode.text = langCode
+                    }
+                }
                 binding.notificationSource.isVisible = true
-                binding.notificationWikiCodeBackground.isVisible = !binding.notificationWikiCodeImage.isVisible
                 binding.notificationWikiCodeContainer.isVisible = true
             } ?: run {
                 binding.notificationSource.isVisible = false
