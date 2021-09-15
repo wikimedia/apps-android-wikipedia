@@ -931,7 +931,7 @@ public final class Prefs {
         return getString(R.string.preference_key_languages_filter_notification, null);
     }
 
-    public static void setNotificationsFilterLanguageCodesv(@Nullable String languages) {
+    public static void setNotificationsFilterLanguageCodes(@Nullable String languages) {
         setString(R.string.preference_key_languages_filter_notification, languages);
     }
 

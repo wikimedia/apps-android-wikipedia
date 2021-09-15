@@ -34,6 +34,8 @@
     <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
     <string name="history_list_title">History</string>
     <string name="image_content_description">Image: %s</string>
+    <string name="wikimedia_commons">Wikimedia Commons</string>
+    <string name="wikidata">Wikidata</string>
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>

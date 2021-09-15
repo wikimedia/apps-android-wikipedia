@@ -1052,4 +1052,6 @@
     <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
     <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
   </plurals>
+  <string name="wikimedia_commons">Label text for Wikimedia Commons.</string>
+  <string name="wikidata">Label text for Wikidata.</string>
 </resources>
