@@ -7,15 +7,15 @@ import android.view.Menu
 import android.view.MenuItem
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.databinding.ActivityNotificationFiltersBinding
+import org.wikipedia.databinding.ActivityNotificationsFiltersBinding
 
-class NotificationFiltersActivity : BaseActivity() {
+class NotificationsFiltersActivity : BaseActivity() {
 
-    private lateinit var binding: ActivityNotificationFiltersBinding
+    private lateinit var binding: ActivityNotificationsFiltersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityNotificationFiltersBinding.inflate(layoutInflater)
+        binding = ActivityNotificationsFiltersBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
@@ -36,7 +36,7 @@ class NotificationFiltersActivity : BaseActivity() {
 
     companion object {
         fun newIntent(context: Context): Intent {
-            return Intent(context, NotificationFiltersActivity::class.java)
+            return Intent(context, NotificationsFiltersActivity::class.java)
         }
     }
 }

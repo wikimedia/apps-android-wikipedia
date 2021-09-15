@@ -926,5 +926,14 @@ public final class Prefs {
         setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled);
     }
 
+    @Nullable
+    public static String getNotificationsFilterLanguageCodes() {
+        return getString(R.string.preference_key_languages_filter_notification, null);
+    }
+
+    public static void setNotificationsFilterLanguageCodesv(@Nullable String languages) {
+        setString(R.string.preference_key_languages_filter_notification, languages);
+    }
+
     private Prefs() { }
 }

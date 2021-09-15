@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".notifications.NotificationFiltersActivity">
+    tools:context=".notifications.NotificationsFiltersActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notification_filter_recycler"
+        android:id="@+id/notifications_filter_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
