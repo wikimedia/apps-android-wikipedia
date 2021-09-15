@@ -55,7 +55,6 @@ class NotificationActivity : BaseActivity() {
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private var linkHandler = NotificationLinkHandler(this)
-    private var displayArchived = false
     var currentSearchQuery: String? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -114,7 +113,10 @@ class NotificationActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_notifications_mark_all_as_read -> {
-                // TODO: implement mark all as read
+                if (notificationContainerList.isNotEmpty()) {
+                    // TODO: optimize this
+                    markReadItems(notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }, false)
+                }
                 true
             }
             R.id.menu_notifications_prefs -> {
@@ -226,17 +228,14 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun deleteItems(items: List<NotificationListItemContainer>, markUnread: Boolean) {
+    private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean) {
         val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
             val notification = item.notification!!
             val wiki = dbNameMap.getOrElse(notification.wiki) { WikipediaApp.getInstance().wikiSite }
             notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
-            if (markUnread && !displayArchived) {
-                notificationList.add(notification)
-            } else {
-                notificationList.remove(notification)
+            if (!markUnread) {
                 NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
                 NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
@@ -246,15 +245,15 @@ class NotificationActivity : BaseActivity() {
                 NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, true)
             } else {
                 NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, false)
-                showDeleteItemsUndoSnackbar(items)
+                showMarkReadItemsUndoSnackbar(items)
             }
         }
         postprocessAndDisplay()
     }
 
-    private fun showDeleteItemsUndoSnackbar(items: List<NotificationListItemContainer>) {
+    private fun showMarkReadItemsUndoSnackbar(items: List<NotificationListItemContainer>) {
         val snackbar = FeedbackUtil.makeSnackbar(this, resources.getQuantityString(R.plurals.notification_archive_message, items.size, items.size), FeedbackUtil.LENGTH_DEFAULT)
-        snackbar.setAction(R.string.notification_archive_undo) { deleteItems(items, true) }
+        snackbar.setAction(R.string.notification_archive_undo) { markReadItems(items, true) }
         snackbar.show()
     }
 
@@ -414,7 +413,7 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onSwipe() {
-            deleteItems(listOf(container), false)
+            markReadItems(listOf(container), false)
         }
     }
 
@@ -494,8 +493,9 @@ class NotificationActivity : BaseActivity() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
             mode.menuInflater.inflate(R.menu.menu_action_mode_notifications, menu)
-            menu.findItem(R.id.menu_delete_selected).isVisible = !displayArchived
-            menu.findItem(R.id.menu_unarchive_selected).isVisible = displayArchived
+            // TODO: implement long press action
+//            menu.findItem(R.id.menu_delete_selected).isVisible = !displayArchived
+//            menu.findItem(R.id.menu_unarchive_selected).isVisible = displayArchived
             actionMode = mode
             return true
         }
@@ -512,7 +512,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onDeleteSelected() {
-            deleteItems(selectedItems, displayArchived)
+            // TODO: implement long press action
+            markReadItems(selectedItems, true)
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
