@@ -1047,9 +1047,9 @@
   <string name="notifications_search_hint">Hint text for the notifications search box.</string>
   <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
   <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters string.</string>
-  <plurals name="notifications_number_of_filters">
-    <item quantity="one">Text indicating a single filter.</item>
-    <item quantity="other">Text indicating more than one filter.</item>
-  </plurals>
   <string name="notifications_filter_label">Label text for filter notifications activity.</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
+    <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
+  </plurals>
 </resources>
