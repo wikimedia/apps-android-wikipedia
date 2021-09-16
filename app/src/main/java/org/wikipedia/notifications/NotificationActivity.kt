@@ -71,8 +71,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         binding = ActivityNotificationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // TODO: remove me.
-
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
