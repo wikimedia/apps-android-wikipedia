@@ -4,6 +4,7 @@
 * Masalli qasimli
 * NMW03
 * Neriman2003
+* Serkanland
 * Toghrul Rahimli
 * Verman1
 * Vesely35
@@ -261,7 +262,7 @@
   <string name="clear_recent_searches_confirm_yes">Bəli</string>
   <string name="clear_recent_searches_confirm_no">Xeyr</string>
   <string name="error_browser_not_found">Veb səhifəni açıla bilmədi (brauzer tətbiqi tapılmadı).</string>
-  <string name="table_infobox">Tez faktlar</string>
+  <string name="table_infobox">Cəld faktlar</string>
   <string name="table_other">Əlavə məlumat</string>
   <string name="table_close">Bağla</string>
   <string name="widget_name_featured_page">Vikipediya seçilmiş məqalə</string>
