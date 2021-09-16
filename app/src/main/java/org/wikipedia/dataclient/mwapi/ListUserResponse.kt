@@ -1,12 +1,11 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
 @Serializable
 class ListUserResponse {
 
-    @SerializedName("name") val name: String = ""
+    val name: String = ""
     private val userid: Long = 0
     private val groups: List<String>? = null
     private val missing = false

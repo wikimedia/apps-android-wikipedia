@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.restbase
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -41,7 +41,7 @@ class DiffResponse {
 
         private val id: Long = 0
 
-        @SerializedName("slot_role")
+        @SerialName("slot_role")
         private val slotRole: String? = null
         private val sections: List<RevisionSection>? = null
     }

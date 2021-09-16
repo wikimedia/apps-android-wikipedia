@@ -1,28 +1,27 @@
 package org.wikipedia.readinglist.sync
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.json.annotations.Required
 import org.wikipedia.util.DateUtil
 import java.text.Normalizer
 import java.util.*
 
 @Serializable
-data class SyncedReadingLists(val lists: List<RemoteReadingList>?,
-                              val entries: List<RemoteReadingListEntry>?,
-                              @SerializedName("next") val continueStr: String?) {
+data class SyncedReadingLists(val lists: List<RemoteReadingList>? = null,
+                              val entries: List<RemoteReadingListEntry>? = null,
+                              @SerialName("next") val continueStr: String? = null) {
 
     constructor(lists: List<RemoteReadingList>?, entries: List<RemoteReadingListEntry>?) : this(lists, entries, null)
 
     @Serializable
-    data class RemoteReadingList(@Required val id: Long,
-                                 @SerializedName("default") val isDefault: Boolean,
-                                 @Required private val name: String,
-                                 private val description: String?,
-                                 @Required val created: String,
-                                 @Required val updated: String,
-                                 @SerializedName("deleted") val isDeleted: Boolean) {
+    data class RemoteReadingList(val id: Long,
+                                 @SerialName("default") val isDefault: Boolean = false,
+                                 private val name: String,
+                                 private val description: String? = null,
+                                 val created: String,
+                                 val updated: String,
+                                 @SerialName("deleted") val isDeleted: Boolean = false) {
 
         constructor(name: String, description: String?) :
                 this(0, false, name, description, DateUtil.iso8601DateFormat(Date()), DateUtil.iso8601DateFormat(Date()), false)
@@ -32,14 +31,14 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>?,
     }
 
     @Serializable
-    data class RemoteReadingListEntry(val id: Long,
-                                      val listId: Long,
-                                      @Required private val project: String,
-                                      @Required private val title: String,
-                                      @Required val created: String,
-                                      @Required val updated: String,
-                                      val summary: PageSummary?,
-                                      @SerializedName("deleted") val isDeleted: Boolean) {
+    data class RemoteReadingListEntry(val id: Long = -1,
+                                      val listId: Long = -1,
+                                      private val project: String,
+                                      private val title: String,
+                                      val created: String,
+                                      val updated: String,
+                                      val summary: PageSummary? = null,
+                                      @SerialName("deleted") val isDeleted: Boolean = false) {
 
         constructor(project: String, title: String) :
                 this(0, 0, project, title, DateUtil.iso8601DateFormat(Date()), DateUtil.iso8601DateFormat(Date()), null, false)
@@ -53,10 +52,10 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>?,
     }
 
     inner class RemoteIdResponse {
-        @Required val id: Long = 0
+        val id: Long = 0
     }
 
     inner class RemoteIdResponseBatch {
-        @Required val batch: Array<RemoteIdResponse> = arrayOf()
+        val batch: Array<RemoteIdResponse> = arrayOf()
     }
 }

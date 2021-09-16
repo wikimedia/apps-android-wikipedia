@@ -1,9 +1,8 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.ServiceError
-import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ThrowableUtil
 import java.util.*
@@ -11,7 +10,7 @@ import java.util.*
 @Serializable
 class MwServiceError(val code: String?,
                      var html: String?,
-                     val data: Data? = null) : ServiceError, PostProcessable {
+                     val data: Data? = null) : ServiceError {
 
     fun badToken(): Boolean {
         return "badtoken" == code
@@ -33,7 +32,7 @@ class MwServiceError(val code: String?,
 
     override val details: String get() = html.orEmpty()
 
-    override fun postProcess() {
+    init {
         // Special case: if it's a Blocked error, parse the blockinfo structure ourselves.
         if (("blocked" == code || "autoblocked" == code) && data?.blockinfo != null) {
             html = ThrowableUtil.getBlockMessageHtml(data.blockinfo)
@@ -49,17 +48,17 @@ class MwServiceError(val code: String?,
     @Serializable
     open class BlockInfo {
 
-        @SerializedName("blockedbyid")
+        @SerialName("blockedbyid")
         val blockedById = 0
-        @SerializedName("blockid")
+        @SerialName("blockid")
         val blockId = 0
-        @SerializedName("blockedby")
+        @SerialName("blockedby")
         val blockedBy: String = ""
-        @SerializedName("blockreason")
+        @SerialName("blockreason")
         val blockReason: String = ""
-        @SerializedName("blockedtimestamp")
+        @SerialName("blockedtimestamp")
         val blockTimeStamp: String = ""
-        @SerializedName("blockexpiry")
+        @SerialName("blockexpiry")
         val blockExpiry: String = ""
 
         val isBlocked: Boolean

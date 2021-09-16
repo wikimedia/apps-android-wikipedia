@@ -19,9 +19,7 @@ public final class GsonUtil {
             .registerTypeHierarchyAdapter(Uri.class, new UriTypeAdapter().nullSafe())
             .registerTypeHierarchyAdapter(Namespace.class, new NamespaceTypeAdapter().nullSafe())
             .registerTypeAdapter(WikiSite.class, new WikiSiteTypeAdapter().nullSafe())
-            .registerTypeAdapter(SharedPreferenceCookieManager.class, new CookieManagerTypeAdapter().nullSafe())
-            .registerTypeAdapterFactory(new RequiredFieldsCheckOnReadTypeAdapterFactory())
-            .registerTypeAdapterFactory(new PostProcessingTypeAdapter());
+            .registerTypeAdapter(SharedPreferenceCookieManager.class, new CookieManagerTypeAdapter().nullSafe());
 
     private static final Gson DEFAULT_GSON = DEFAULT_GSON_BUILDER.create();
 

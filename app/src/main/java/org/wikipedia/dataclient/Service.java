@@ -168,7 +168,7 @@ public interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
-    @NonNull Observable<JsonElement> getLoginToken();
+    @NonNull Observable<MwQueryResponse> getLoginToken();
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")

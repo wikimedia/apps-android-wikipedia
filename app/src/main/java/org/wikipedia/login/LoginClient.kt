@@ -1,20 +1,18 @@
 package org.wikipedia.login
 
 import android.widget.Toast
-import com.google.gson.annotations.SerializedName
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwResponse
-import org.wikipedia.json.GsonUtil
 import org.wikipedia.util.log.L
 import java.io.IOException
 
@@ -64,11 +62,7 @@ class LoginClient {
             }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ loginResult ->
-                if (loginResult != null) {
-                    cb.success(loginResult)
-                } else {
-                    cb.error(Throwable("Login succeeded but getting group information failed. "))
-                }
+                cb.success(loginResult)
             }) { caught ->
                 L.e("Login process failed. $caught")
                 cb.error(caught)
@@ -83,9 +77,6 @@ class LoginClient {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .map { loginResponse ->
-                if (loginResponse == null) {
-                    throw IOException("Unexpected response when logging in.")
-                }
                 val loginResult = loginResponse.toLoginResult(wiki, password) ?: throw IOException("Unexpected response when logging in.")
                 if (LoginResult.STATUS_UI == loginResult.status) {
                     if (loginResult is LoginOAuthResult) {
@@ -101,15 +92,13 @@ class LoginClient {
             }
     }
 
-    private fun getLoginToken(wiki: WikiSite): Observable<String?> {
+    private fun getLoginToken(wiki: WikiSite): Observable<String> {
         return ServiceFactory.get(wiki).loginToken
             .subscribeOn(Schedulers.io())
             .map { response ->
-                val queryResponse =
-                    GsonUtil.getDefaultGson().fromJson(response, MwQueryResponse::class.java)
-                val loginToken = queryResponse.query?.loginToken()
+                val loginToken = response.query?.loginToken()
                 if (loginToken.isNullOrEmpty()) {
-                    throw RuntimeException("Received empty login token: " + GsonUtil.getDefaultGson().toJson(response))
+                    throw RuntimeException("Received empty login token.")
                 }
                 loginToken
             }
@@ -141,7 +130,7 @@ class LoginClient {
     @Serializable
     class LoginResponse : MwResponse() {
 
-        @SerializedName("clientlogin")
+        @SerialName("clientlogin")
         private val clientLogin: ClientLogin? = null
 
         fun toLoginResult(site: WikiSite, password: String): LoginResult? {
@@ -154,7 +143,7 @@ class LoginClient {
             private val status: String? = null
             private val requests: List<Request>? = null
             private val message: String? = null
-            @SerializedName("username")
+            @SerialName("username")
             private val userName: String? = null
 
             fun toLoginResult(site: WikiSite, password: String): LoginResult {
