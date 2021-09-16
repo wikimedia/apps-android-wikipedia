@@ -116,7 +116,7 @@ class NotificationActivity : BaseActivity() {
                 if (notificationContainerList.isNotEmpty()) {
                     markReadItems(notificationContainerList
                         .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
-                        .filter { it.notification?.isUnread == false }, true)
+                        .filter { it.notification?.isUnread == true }, false)
                 }
                 true
             }
