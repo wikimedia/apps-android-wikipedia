@@ -10,7 +10,6 @@ import androidx.appcompat.view.ActionMode
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -42,7 +41,7 @@ class LanguagesListActivity : BaseActivity() {
 
         binding.languagesListEmptyView.setEmptyText(R.string.langlinks_no_match)
         binding.languagesListEmptyView.visibility = View.GONE
-        languageAdapter = LanguagesListAdapter(app.language().appMruLanguageCodes, app.language().remainingAvailableLanguageCodes)
+        languageAdapter = LanguagesListAdapter()
         binding.languagesListRecycler.adapter = languageAdapter
         binding.languagesListRecycler.layoutManager = LinearLayoutManager(this)
         binding.languagesListLoadProgress.visibility = View.VISIBLE
@@ -89,7 +88,6 @@ class LanguagesListActivity : BaseActivity() {
             currentSearchQuery = ""
             isLanguageSearched = true
             actionMode = mode
-            languageAdapter.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
         }
 
@@ -106,8 +104,7 @@ class LanguagesListActivity : BaseActivity() {
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             binding.languagesListEmptyView.visibility = View.GONE
-            languageAdapter.reset()
-            languageAdapter.notifyDataSetChanged()
+            languageAdapter.setFilterText(null)
             actionMode = null
         }
 
@@ -120,125 +117,91 @@ class LanguagesListActivity : BaseActivity() {
         }
     }
 
-    private inner class LanguagesListAdapter(
-        languageCodes: List<String>,
-        private val suggestedLanguageCodes: List<String>
-        ) : RecyclerView.Adapter<DefaultViewHolder>() {
-        private val originalLanguageCodes = languageCodes.toMutableList()
-        private var languageCodes = mutableListOf<String>()
-
-        // To remove the already selected languages and suggested languages from all languages list
-        private val nonDuplicateLanguageCodesList
-            get() = originalLanguageCodes.toMutableList().apply {
-                    removeAll(app.language().appLanguageCodes)
-                    removeAll(suggestedLanguageCodes)
-                }
+    private inner class LanguagesListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), View.OnClickListener {
+        var listItems = listOf<LanguagesListViewModel.LanguageListItem>()
 
         init {
-            reset()
+            setFilterText(null)
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (shouldShowSectionHeader(position)) Companion.VIEW_TYPE_HEADER else Companion.VIEW_TYPE_ITEM
+            return if (listItems[position].isHeader) Companion.VIEW_TYPE_HEADER else Companion.VIEW_TYPE_ITEM
         }
 
         override fun getItemCount(): Int {
-            return languageCodes.size
+            return listItems.size
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             return if (viewType == Companion.VIEW_TYPE_HEADER) {
-                val view = inflater.inflate(R.layout.view_section_header, parent, false)
-                DefaultViewHolder(languageCodes, view)
+                HeaderViewHolder(inflater.inflate(R.layout.view_section_header, parent, false))
             } else {
-                val view = inflater.inflate(R.layout.item_language_list_entry, parent, false)
-                LanguagesListItemHolder(languageCodes, view)
+                LanguagesListItemHolder(inflater.inflate(R.layout.item_language_list_entry, parent, false))
             }
         }
 
-        override fun onBindViewHolder(holder: DefaultViewHolder, pos: Int) {
-            holder.bindItem(pos)
-            (holder as? LanguagesListItemHolder)?.itemView?.setOnClickListener {
-                val lang = languageCodes[pos]
-                if (lang != app.appOrSystemLanguageCode) {
-                    app.language().addAppLanguageCode(lang)
-                }
-                interactionsCount++
-                searchingFunnel.logLanguageAdded(true, lang, currentSearchQuery)
-                DeviceUtil.hideSoftKeyboard(this@LanguagesListActivity)
-                val returnIntent = Intent()
-                returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, interactionsCount)
-                returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
-                setResult(RESULT_OK, returnIntent)
-                finish()
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
+            if (holder is HeaderViewHolder) {
+                holder.bindItem(listItems[pos])
+            } else if (holder is LanguagesListItemHolder) {
+                holder.bindItem(listItems[pos])
+                holder.itemView.setOnClickListener(this)
             }
-        }
-
-        fun shouldShowSectionHeader(position: Int): Boolean {
-            return actionMode == null && (position == 0 || (suggestedLanguageCodes.isNotEmpty() &&
-                            position == suggestedLanguageCodes.size + 1))
+            holder.itemView.tag = pos
         }
 
         fun setFilterText(filterText: String?) {
-            val filteredLangCodes = mutableListOf<String>()
-            val filter = StringUtils.stripAccents(filterText).lowercase(Locale.getDefault())
-            for (code in originalLanguageCodes) {
-                val localizedName = StringUtils.stripAccents(app.language().getAppLanguageLocalizedName(code).orEmpty())
-                val canonicalName = StringUtils.stripAccents(viewModel.getCanonicalName(code).orEmpty())
-                if (code.contains(filter) ||
-                        localizedName.lowercase(Locale.getDefault()).contains(filter) ||
-                        canonicalName.lowercase(Locale.getDefault()).contains(filter)) {
-                    filteredLangCodes.add(code)
-                }
-            }
-            val diff = DiffUtil.calculateDiff(object: DiffUtil.Callback() {
+            val newListItems = viewModel.getListBySearchTerm(this@LanguagesListActivity, filterText)
+            val diff = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
                 override fun getOldListSize(): Int {
-                    return languageCodes.size
+                    return listItems.size
                 }
 
                 override fun getNewListSize(): Int {
-                    return filteredLangCodes.size
+                    return newListItems.size
                 }
 
                 override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-                    if (languageCodes.size <= oldItemPosition || filteredLangCodes.size <= newItemPosition) {
+                    if (listItems.size <= oldItemPosition || newListItems.size <= newItemPosition) {
                         return false
                     }
-                    return languageCodes[oldItemPosition] == filteredLangCodes[newItemPosition]
+                    return listItems[oldItemPosition] == newListItems[newItemPosition]
                 }
 
                 override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
                     return true
                 }
             })
-            languageCodes = filteredLangCodes
+            listItems = newListItems
             diff.dispatchUpdatesTo(this)
         }
 
-        fun reset() {
-            languageCodes.clear()
-            if (suggestedLanguageCodes.isNotEmpty()) {
-                languageCodes.add(getString(R.string.languages_list_suggested_text))
-                languageCodes.addAll(suggestedLanguageCodes)
+        override fun onClick(v: View) {
+            val item = listItems[v.tag as Int]
+            if (item.code != app.appOrSystemLanguageCode) {
+                app.language().addAppLanguageCode(item.code)
             }
-            languageCodes.add(getString(R.string.languages_list_all_text))
-            languageCodes.addAll(nonDuplicateLanguageCodesList)
-            // should not be able to be searched while the languages are selected
-            originalLanguageCodes.removeAll(app.language().appLanguageCodes)
+            interactionsCount++
+            searchingFunnel.logLanguageAdded(true, item.code, currentSearchQuery)
+            DeviceUtil.hideSoftKeyboard(this@LanguagesListActivity)
+            val returnIntent = Intent()
+            returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, interactionsCount)
+            returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
+            setResult(RESULT_OK, returnIntent)
+            finish()
         }
     }
 
-    // TODO: optimize and reuse the header view holder?
-    private open inner class DefaultViewHolder constructor(private val languageCodes: List<String>, itemView: View) : RecyclerView.ViewHolder(itemView) {
-        open fun bindItem(position: Int) {
-            itemView.findViewById<TextView>(R.id.section_header_text).text = languageCodes[position]
+    private inner class HeaderViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindItem(listItem: LanguagesListViewModel.LanguageListItem) {
+            itemView.findViewById<TextView>(R.id.section_header_text).text = listItem.code
         }
     }
 
-    private inner class LanguagesListItemHolder constructor(private val languageCodes: List<String>, itemView: View) : DefaultViewHolder(languageCodes, itemView) {
-        override fun bindItem(position: Int) {
-            val languageCode = languageCodes[position]
+    private inner class LanguagesListItemHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindItem(listItem: LanguagesListViewModel.LanguageListItem) {
+            val languageCode = listItem.code
             itemView.findViewById<TextView>(R.id.localized_language_name).text =
                 app.language().getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
             val canonicalName = viewModel.getCanonicalName(languageCode)
