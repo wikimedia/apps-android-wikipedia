@@ -7,9 +7,9 @@ import android.view.*
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -23,6 +23,7 @@ import java.util.*
 
 class LanguagesListActivity : BaseActivity() {
     private lateinit var binding: ActivityLanguagesListBinding
+    private lateinit var languageAdapter: LanguagesListAdapter
     private lateinit var searchActionModeCallback: LanguageSearchCallback
     private lateinit var searchingFunnel: AppLanguageSearchingFunnel
 
@@ -31,7 +32,6 @@ class LanguagesListActivity : BaseActivity() {
     private var actionMode: ActionMode? = null
     private var interactionsCount = 0
     private var isLanguageSearched = false
-    private val disposables = CompositeDisposable()
 
     private val viewModel: LanguagesListViewModel by viewModels()
 
@@ -42,7 +42,8 @@ class LanguagesListActivity : BaseActivity() {
 
         binding.languagesListEmptyView.setEmptyText(R.string.langlinks_no_match)
         binding.languagesListEmptyView.visibility = View.GONE
-        binding.languagesListRecycler.adapter = LanguagesListAdapter(app.language().appMruLanguageCodes, app.language().remainingAvailableLanguageCodes)
+        languageAdapter = LanguagesListAdapter(app.language().appMruLanguageCodes, app.language().remainingAvailableLanguageCodes)
+        binding.languagesListRecycler.adapter = languageAdapter
         binding.languagesListRecycler.layoutManager = LinearLayoutManager(this)
         binding.languagesListLoadProgress.visibility = View.VISIBLE
         searchActionModeCallback = LanguageSearchCallback()
@@ -51,14 +52,8 @@ class LanguagesListActivity : BaseActivity() {
 
         viewModel.siteListData.observe(this, {
             binding.languagesListLoadProgress.visibility = View.INVISIBLE
-            binding.languagesListRecycler.adapter?.notifyDataSetChanged()
+            languageAdapter.notifyDataSetChanged()
         })
-        viewModel.fetchData()
-    }
-
-    public override fun onDestroy() {
-        disposables.clear()
-        super.onDestroy()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -88,14 +83,13 @@ class LanguagesListActivity : BaseActivity() {
     }
 
     private inner class LanguageSearchCallback : SearchActionModeCallback() {
-        private val languageAdapter = binding.languagesListRecycler.adapter as LanguagesListAdapter
-
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             // currentSearchQuery is cleared here, instead of onDestroyActionMode
             // in order to make the most recent search string available to analytics
             currentSearchQuery = ""
             isLanguageSearched = true
             actionMode = mode
+            languageAdapter.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
         }
 
@@ -113,6 +107,7 @@ class LanguagesListActivity : BaseActivity() {
             super.onDestroyActionMode(mode)
             binding.languagesListEmptyView.visibility = View.GONE
             languageAdapter.reset()
+            languageAdapter.notifyDataSetChanged()
             actionMode = null
         }
 
@@ -130,8 +125,7 @@ class LanguagesListActivity : BaseActivity() {
         private val suggestedLanguageCodes: List<String>
         ) : RecyclerView.Adapter<DefaultViewHolder>() {
         private val originalLanguageCodes = languageCodes.toMutableList()
-        private val languageCodes = mutableListOf<String>()
-        private var isSearching = false
+        private var languageCodes = mutableListOf<String>()
 
         // To remove the already selected languages and suggested languages from all languages list
         private val nonDuplicateLanguageCodesList
@@ -182,13 +176,12 @@ class LanguagesListActivity : BaseActivity() {
         }
 
         fun shouldShowSectionHeader(position: Int): Boolean {
-            return !isSearching && (position == 0 || (suggestedLanguageCodes.isNotEmpty() &&
+            return actionMode == null && (position == 0 || (suggestedLanguageCodes.isNotEmpty() &&
                             position == suggestedLanguageCodes.size + 1))
         }
 
         fun setFilterText(filterText: String?) {
-            isSearching = true
-            languageCodes.clear()
+            val filteredLangCodes = mutableListOf<String>()
             val filter = StringUtils.stripAccents(filterText).lowercase(Locale.getDefault())
             for (code in originalLanguageCodes) {
                 val localizedName = StringUtils.stripAccents(app.language().getAppLanguageLocalizedName(code).orEmpty())
@@ -196,14 +189,34 @@ class LanguagesListActivity : BaseActivity() {
                 if (code.contains(filter) ||
                         localizedName.lowercase(Locale.getDefault()).contains(filter) ||
                         canonicalName.lowercase(Locale.getDefault()).contains(filter)) {
-                    languageCodes.add(code)
+                    filteredLangCodes.add(code)
                 }
             }
-            notifyDataSetChanged()
+            val diff = DiffUtil.calculateDiff(object: DiffUtil.Callback() {
+                override fun getOldListSize(): Int {
+                    return languageCodes.size
+                }
+
+                override fun getNewListSize(): Int {
+                    return filteredLangCodes.size
+                }
+
+                override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                    if (languageCodes.size <= oldItemPosition || filteredLangCodes.size <= newItemPosition) {
+                        return false
+                    }
+                    return languageCodes[oldItemPosition] == filteredLangCodes[newItemPosition]
+                }
+
+                override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                    return true
+                }
+            })
+            languageCodes = filteredLangCodes
+            diff.dispatchUpdatesTo(this)
         }
 
         fun reset() {
-            isSearching = false
             languageCodes.clear()
             if (suggestedLanguageCodes.isNotEmpty()) {
                 languageCodes.add(getString(R.string.languages_list_suggested_text))
@@ -213,7 +226,6 @@ class LanguagesListActivity : BaseActivity() {
             languageCodes.addAll(nonDuplicateLanguageCodesList)
             // should not be able to be searched while the languages are selected
             originalLanguageCodes.removeAll(app.language().appLanguageCodes)
-            notifyDataSetChanged()
         }
     }
 
@@ -225,15 +237,14 @@ class LanguagesListActivity : BaseActivity() {
     }
 
     private inner class LanguagesListItemHolder constructor(private val languageCodes: List<String>, itemView: View) : DefaultViewHolder(languageCodes, itemView) {
-        private val localizedNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
-        private val canonicalNameTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
-
         override fun bindItem(position: Int) {
             val languageCode = languageCodes[position]
-            localizedNameTextView.text = app.language().getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
+            itemView.findViewById<TextView>(R.id.localized_language_name).text =
+                app.language().getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
             val canonicalName = viewModel.getCanonicalName(languageCode)
             if (binding.languagesListLoadProgress.visibility != View.VISIBLE) {
-                canonicalNameTextView.text = if (canonicalName.isNullOrEmpty()) app.language().getAppLanguageCanonicalName(languageCode) else canonicalName
+                itemView.findViewById<TextView>(R.id.language_subtitle).text =
+                    if (canonicalName.isNullOrEmpty()) app.language().getAppLanguageCanonicalName(languageCode) else canonicalName
             }
         }
     }

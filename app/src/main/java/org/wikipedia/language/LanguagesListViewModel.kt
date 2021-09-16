@@ -21,7 +21,7 @@ class LanguagesListViewModel : ViewModel() {
     fun fetchData() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                val siteMatrix = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).siteMatrixCall.execute().body()!!
+                val siteMatrix = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getSiteMatrix()
                 val sites = SiteMatrix.getSites(siteMatrix)
                 siteListData.postValue(Resource.Success(sites))
             }
