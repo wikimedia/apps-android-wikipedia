@@ -18,6 +18,7 @@ import org.wikipedia.databinding.ActivityLanguagesListBinding
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.Resource
 import java.util.*
 
 class LanguagesListActivity : BaseActivity() {
@@ -50,8 +51,10 @@ class LanguagesListActivity : BaseActivity() {
         searchingFunnel = AppLanguageSearchingFunnel(intent.getStringExtra(WikipediaLanguagesFragment.SESSION_TOKEN).orEmpty())
 
         viewModel.siteListData.observe(this, {
-            binding.languagesListLoadProgress.visibility = View.INVISIBLE
-            languageAdapter.notifyDataSetChanged()
+            if (it is Resource.Success) {
+                binding.languagesListLoadProgress.visibility = View.INVISIBLE
+                languageAdapter.notifyDataSetChanged()
+            }
         })
     }
 
