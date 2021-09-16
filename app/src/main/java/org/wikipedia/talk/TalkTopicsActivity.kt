@@ -171,7 +171,6 @@ class TalkTopicsActivity : BaseActivity() {
             notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
             notificationButtonView.setOnClickListener {
                 if (AccountUtil.isLoggedIn) {
-                    notificationsABCTestFunnel.logSelect()
                     startActivity(NotificationActivity.newIntent(this))
                 }
             }

@@ -13,21 +13,22 @@ import java.util.*
 
 @JsonClass(generateAdapter = true)
 class MwQueryResult(
-    val pages: List<MwQueryPage> = emptyList(),
-    internal val redirects: List<Redirect> = emptyList(),
-    internal val converted: List<ConvertedTitle> = emptyList(),
     @Json(name = "userinfo") val userInfo: UserInfo = UserInfo(),
-    internal val users: List<ListUserResponse> = emptyList(),
-    internal val tokens: Tokens? = null,
+    @Json(name = "unreadnotificationpages") val unreadNotificationPages: Map<String, UnreadNotificationWikiItem> = emptyMap(),
     @Json(name = "authmanagerinfo") internal val amInfo: MwAuthManagerInfo? = null,
-    @Json(name = "echomarkread") internal val echoMarkRead: MarkReadResponse? = null,
-    @Json(name = "echomarkseen") val echoMarkSeen: MarkReadResponse? = null,
-    val notifications: NotificationList? = null,
-    val unreadNotificationPages: Map<String, UnreadNotificationWikiItem> = emptyMap(),
     @Json(name = "general") val siteInfo: SiteInfo? = null,
     @Json(name = "wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null,
+    @Json(name = "usercontribs") val userContributions: List<UserContribution> = emptyList(),
+
+    internal val redirects: List<Redirect> = emptyList(),
+    internal val converted: List<ConvertedTitle> = emptyList(),
+    internal val users: List<ListUserResponse> = emptyList(),
+    internal val tokens: Tokens? = null,
+    @Json(name = "echomarkread") internal val echoMarkRead: MarkReadResponse? = null,
+    val pages: List<MwQueryPage> = emptyList(),
+    @Json(name = "echomarkseen") val echoMarkSeen: MarkReadResponse? = null,
+    val notifications: NotificationList? = null,
     val watchlist: List<WatchlistItem> = emptyList(),
-    @Json(name = "usercontribs") val userContributions: List<UserContribution> = emptyList()
 ) {
     val firstPage: MwQueryPage?
         get() = pages.firstOrNull()

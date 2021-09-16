@@ -618,7 +618,7 @@
   <string name="preference_title_customize_push_notifications">푸시 알림 사용자 지정</string>
   <string name="preference_category_display_settings">표시 설정</string>
   <string name="preference_title_hide_read_notifications">읽은 알림 숨기기</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">위키백과 알림</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">위키백과</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">위키백과의 알림</string>
   <string name="notifications_channel_group_other_title">기타</string>
   <string name="notifications_channel_group_other_description">앱의 기타 알림</string>
