@@ -32,6 +32,7 @@
 * Mouse21
 * Movses
 * MuratTheTurkish
+* Natalilake
 * Nitch
 * Nzeemin
 * Oashnic
@@ -675,6 +676,7 @@
   <string name="preference_summary_notification_mention">Кто-то упомянул вас на странице</string>
   <string name="preference_title_notification_user_talk">На страницах обсуждений</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">Сообщения со страниц обсуждения</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Википедия</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_article_card_title">Случайная статья</string>
