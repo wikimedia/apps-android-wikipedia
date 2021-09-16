@@ -114,8 +114,9 @@ class NotificationActivity : BaseActivity() {
         return when (item.itemId) {
             R.id.menu_notifications_mark_all_as_read -> {
                 if (notificationContainerList.isNotEmpty()) {
-                    // TODO: optimize this
-                    markReadItems(notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }, false)
+                    markReadItems(notificationContainerList
+                        .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
+                        .filter { it.notification?.isUnread == false }, true)
                 }
                 true
             }
@@ -152,10 +153,21 @@ class NotificationActivity : BaseActivity() {
                 }) { t -> setErrorState(t) })
     }
 
+    private fun wikiList(): String {
+        val wikiList = mutableSetOf<String>()
+        WikipediaApp.getInstance().language().appLanguageCodes.forEach {
+            val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+            wikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+        }
+        wikiList.add("commonswiki")
+        wikiList.add("wikidatawiki")
+        return wikiList.joinToString("|")
+    }
+
     private val orContinueNotifications: Unit
         get() {
             binding.notificationsProgressBar.visibility = View.VISIBLE
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications("*", "read|!read", currentContinueStr)
+            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(wikiList(), "read|!read", currentContinueStr)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
@@ -200,11 +212,21 @@ class NotificationActivity : BaseActivity() {
 
         val allTab = binding.notificationTabLayout.getTabAt(0)!!
         val allUnreadCount = notificationList.count { it.isUnread }
-        allTab.text = getString(R.string.notifications_tab_filter_all) + " " + getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
+        if (allUnreadCount > 0) {
+            allTab.text = getString(R.string.notifications_tab_filter_all) + " " +
+                    getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
+        } else {
+            allTab.text = getString(R.string.notifications_tab_filter_all)
+        }
 
         val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
         val mentionsUnreadCount = notificationList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
-        mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " + getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
+        if (mentionsUnreadCount > 0) {
+            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " +
+                    getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
+        } else {
+            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions)
+        }
 
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
@@ -233,7 +255,16 @@ class NotificationActivity : BaseActivity() {
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
             val notification = item.notification!!
-            val wiki = dbNameMap.getOrElse(notification.wiki) { WikipediaApp.getInstance().wikiSite }
+            val wiki = dbNameMap.getOrElse(notification.wiki) {
+                when (notification.wiki) {
+                    "commonswiki" -> WikiSite(Service.COMMONS_URL)
+                    "wikidatawiki" -> WikiSite(Service.WIKIDATA_URL)
+                    else -> {
+                        val langCode = notification.wiki.replace("wiki", "").replace("_", "-")
+                        WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
+                    }
+                }
+            }
             notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
             if (!markUnread) {
                 NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
@@ -248,11 +279,14 @@ class NotificationActivity : BaseActivity() {
                 showMarkReadItemsUndoSnackbar(items)
             }
         }
+        // manually mark items in read state
+        notificationList.filter { n -> items.map { container -> container.notification?.id }
+            .firstOrNull { it == n.id } != null }.map { it.isUnread = markUnread }
         postprocessAndDisplay()
     }
 
     private fun showMarkReadItemsUndoSnackbar(items: List<NotificationListItemContainer>) {
-        val snackbar = FeedbackUtil.makeSnackbar(this, resources.getQuantityString(R.plurals.notification_archive_message, items.size, items.size), FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(this, resources.getQuantityString(R.plurals.notifications_mark_all_as_read_message, items.size, items.size), FeedbackUtil.LENGTH_DEFAULT)
         snackbar.setAction(R.string.notification_archive_undo) { markReadItems(items, true) }
         snackbar.show()
     }
@@ -396,7 +430,6 @@ class NotificationActivity : BaseActivity() {
                 n.contents?.links?.getPrimary()?.let { link ->
                     val url = link.url
                     if (url.isNotEmpty()) {
-                        // TODO: update event source?
                         NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logAction(NotificationInteractionEvent.ACTION_PRIMARY, link)
                         NotificationInteractionEvent.logAction(n, NotificationInteractionEvent.ACTION_PRIMARY, link)
                         linkHandler.wikiSite = WikiSite(url)

@@ -30,8 +30,9 @@ class Notification {
     val isFromWikidata: Boolean
         get() = wiki == "wikidatawiki"
 
-    val isUnread: Boolean
-        get() = read.isNullOrEmpty()
+    var isUnread: Boolean = true
+        get() = field && read.isNullOrEmpty()
+
 
     fun key(): Long {
         return id + wiki.hashCode()
