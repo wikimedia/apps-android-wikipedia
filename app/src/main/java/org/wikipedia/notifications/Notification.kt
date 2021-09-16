@@ -33,7 +33,6 @@ class Notification {
     var isUnread: Boolean = true
         get() = field && read.isNullOrEmpty()
 
-
     fun key(): Long {
         return id + wiki.hashCode()
     }
