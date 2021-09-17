@@ -2,10 +2,11 @@ package org.wikipedia.analytics.eventplatform
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 /** Base class for an Event Platform event.  */
 @Serializable
-sealed class Event(val stream: String) {
+sealed class Event(@Transient val stream: String = "") {
 
     @SerialName("app_session_id")
     var sessionId: String? = null
