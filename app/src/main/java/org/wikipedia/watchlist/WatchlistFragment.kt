@@ -106,7 +106,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
             notificationButtonView.setOnClickListener {
                 if (AccountUtil.isLoggedIn) {
-                    notificationsABCTestFunnel.logSelect()
                     startActivity(NotificationActivity.newIntent(requireActivity()))
                 }
             }
@@ -357,16 +356,16 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onItemClick(item: MwQueryResult.WatchlistItem) {
-        if (item.logType.isNotEmpty()) {
+        if (item.logtype.isNotEmpty()) {
             return
         }
         startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), item.title,
-                item.revid, item.wiki.languageCode))
+                item.revid, item.wiki!!.languageCode))
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem) {
         startActivity(TalkTopicsActivity.newIntent(requireContext(),
-                PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki),
+                PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki!!),
                 Constants.InvokeSource.WATCHLIST_ACTIVITY))
     }
 

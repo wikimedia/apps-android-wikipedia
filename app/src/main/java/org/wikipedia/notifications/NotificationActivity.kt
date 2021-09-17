@@ -155,7 +155,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    val wikiMap = response.query?.unreadNotificationWikis()
+                    val wikiMap = response.query?.unreadNotificationWikis
                     dbNameMap.clear()
                     for (key in wikiMap!!.keys) {
                         if (wikiMap[key]!!.source != null) {
@@ -173,8 +173,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
-                        onNotificationsComplete(response.query?.notifications()!!.list()!!, !currentContinueStr.isNullOrEmpty())
-                        currentContinueStr = response.query?.notifications()!!.getContinue()
+                        onNotificationsComplete(response.query?.notifications!!.list!!, !currentContinueStr.isNullOrEmpty())
+                        currentContinueStr = response.query?.notifications!!.continueStr
                     }) { t -> setErrorState(t) })
         }
 
@@ -200,7 +200,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
         }
         for (n in notifications) {
-            if (notificationList.none { it.id() == n.id() }) {
+            if (notificationList.none { it.id == n.id }) {
                 notificationList.add(n)
             }
         }
@@ -209,19 +209,19 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private fun postprocessAndDisplay() {
         // Sort them by descending date...
-        notificationList.sortWith { n1: Notification, n2: Notification -> n2.timestamp.compareTo(n1.timestamp) }
+        notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
 
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
         notificationContainerList.clear()
         var millis = Long.MAX_VALUE
         for (n in notificationList) {
-            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents!!.header.contains(currentSearchQuery!!)) {
+            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
                 continue
             }
-            if (millis - n.timestamp.time > TimeUnit.DAYS.toMillis(1)) {
-                notificationContainerList.add(NotificationListItemContainer(n.timestamp))
-                millis = n.timestamp.time
+            if (millis - n.getTimestamp().time > TimeUnit.DAYS.toMillis(1)) {
+                notificationContainerList.add(NotificationListItemContainer(n.getTimestamp()))
+                millis = n.getTimestamp().time
             }
             notificationContainerList.add(NotificationListItemContainer(n))
         }
@@ -340,7 +340,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         fun bindItem(container: NotificationListItemContainer) {
             this.container = container
             val n = container.notification!!
-            val notificationCategory = NotificationCategory.find(n.category())
+            val notificationCategory = NotificationCategory.find(n.category)
             imageView.setImageResource(notificationCategory.iconResId)
             imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor))
             secondaryActionHintView.isVisible = false
@@ -364,7 +364,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     }
                 }
             }
-            val wikiCode = n.wiki()
+            val wikiCode = n.wiki
             when {
                 wikiCode.contains("wikidata") -> {
                     wikiCodeView.visibility = View.GONE
@@ -382,7 +382,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     wikiCodeBackgroundView.visibility = View.VISIBLE
                     wikiCodeView.visibility = View.VISIBLE
                     wikiCodeImageView.visibility = View.GONE
-                    val langCode = n.wiki().replace("wiki", "")
+                    val langCode = n.wiki.replace("wiki", "")
                     wikiCodeView.text = langCode
                     L10nUtil.setConditionalLayoutDirection(itemView, langCode)
                 }

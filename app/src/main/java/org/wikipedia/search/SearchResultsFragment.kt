@@ -140,7 +140,7 @@ class SearchResultsFragment : Fragment() {
                     if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.getAppDatabase().historyEntryWithImageDao().findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
                     { searchResponse, readingListSearchResults, historySearchResults ->
 
-                        val searchResults = searchResponse?.query?.pages()?.let {
+                        val searchResults = searchResponse?.query?.pages?.let {
                             SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode),
                                 searchResponse.continuation,
                                 searchResponse.suggestion())
@@ -239,7 +239,7 @@ class SearchResultsFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
-                    response.query?.pages()?.let {
+                    response.query?.pages?.let {
                         // noinspection ConstantConditions
                         return@map SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode), response.continuation, null)
                     }
@@ -299,7 +299,7 @@ class SearchResultsFragment : Fragment() {
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .flatMap { response ->
-                                response.query?.pages()?.let {
+                                response.query?.pages?.let {
                                     return@flatMap Observable.just(response)
                                 }
                                 ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null)
@@ -307,7 +307,7 @@ class SearchResultsFragment : Fragment() {
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { response -> response.query?.pages()?.size ?: 0 }
+                .map { response -> response.query?.pages?.size ?: 0 }
     }
 
     private fun updateProgressBar(enabled: Boolean) {

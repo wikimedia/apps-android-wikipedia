@@ -151,7 +151,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
-        funnel = EditFunnel(WikipediaApp.instance, PageTitle(page!!.title(), WikiSite(Service.COMMONS_URL)))
+        funnel = EditFunnel(WikipediaApp.instance, PageTitle(page!!.title, WikiSite(Service.COMMONS_URL)))
 
         binding.tagsLicenseText.visibility = GONE
         binding.tagsHintText.visibility = VISIBLE
@@ -159,7 +159,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
-        disposables.add(MediaHelper.getImageCaptions(page!!.title())
+        disposables.add(MediaHelper.getImageCaptions(page!!.title)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { captions ->
@@ -337,7 +337,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ token ->
-                    val mId = "M" + page!!.pageId()
+                    val mId = "M" + page!!.pageId
                     var claimStr = "{\"claims\":["
                     var commentStr = "/* add-depicts: "
                     var first = true

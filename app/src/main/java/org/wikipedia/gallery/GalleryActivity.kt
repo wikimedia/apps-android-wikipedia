@@ -546,7 +546,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             Observable.zip<Map<String, String>, MwQueryResponse, Map<String, List<String>>, Pair<Boolean, Int>>(
                 MediaHelper.getImageCaptions(item.imageTitle!!.prefixedText),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.imageTitle!!.prefixedText!!),
-                ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(), sourceWiki.languageCode),
+                ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId, sourceWiki.languageCode),
                 { captions, protectionInfoRsp, imageTags ->
                     item.mediaInfo!!.captions = captions
                     Pair(protectionInfoRsp.query?.isEditProtected, imageTags.size)

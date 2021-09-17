@@ -640,7 +640,7 @@
   <string name="preference_title_customize_push_notifications">Anlık bildirimleri özelleştir</string>
   <string name="preference_category_display_settings">Görüntüleme ayarları</string>
   <string name="preference_title_hide_read_notifications">Okunmuş bildirimleri gizle</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">Vikipedi bildirimleri</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Vikipedi bildirimleri</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Vikipedi\'den bildirimler</string>
   <string name="notifications_channel_group_other_title">Diğer</string>
   <string name="notifications_channel_group_other_description">Uygulamadan diğer bildirimler</string>

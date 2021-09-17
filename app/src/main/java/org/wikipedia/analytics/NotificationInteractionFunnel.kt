@@ -10,7 +10,7 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 
 class NotificationInteractionFunnel(app: WikipediaApp, private val id: Long, private val wiki: String, private val type: String?) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
-    constructor(app: WikipediaApp, notification: Notification) : this(app, notification.id(), notification.wiki(), notification.type())
+    constructor(app: WikipediaApp, notification: Notification) : this(app, notification.id, notification.wiki, notification.type)
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "notification_id", id)

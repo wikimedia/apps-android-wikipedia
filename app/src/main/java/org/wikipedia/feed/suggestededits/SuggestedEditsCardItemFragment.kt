@@ -107,7 +107,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
             if (cardActionType != null) {
                 val openPageListener = SuggestedEditsSnackbars.OpenPageListener {
                     if (cardActionType === ADD_IMAGE_TAGS) {
-                        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(previousImageTagPage!!.title(), WikiSite(appLanguages[0]))))
+                        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(previousImageTagPage!!.title, WikiSite(appLanguages[0]))))
                         return@OpenPageListener
                     }
                     val pageTitle: PageTitle = previousSourceSummaryForEdit!!.pageTitle
@@ -276,13 +276,13 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     val page = response.query?.firstPage()!!
                     page.imageInfo()?.let {
                         sourceSummaryForEdit = PageSummaryForEdit(
-                            page.title(), langFromCode,
+                            page.title, langFromCode,
                             PageTitle(Namespace.FILE.name,
-                                StringUtil.removeNamespace(page.title()),
+                                StringUtil.removeNamespace(page.title),
                                 null,
                                 it.thumbUrl,
                                 WikiSite.forLanguageCode(langFromCode)),
-                            StringUtil.removeHTMLTags(page.title()),
+                            StringUtil.removeHTMLTags(page.title),
                             it.metadata!!.imageDescription(),
                             it.thumbUrl,
                             null,
@@ -317,16 +317,16 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     val page = response.query?.firstPage()!!
                     page.imageInfo()?.let {
                         sourceSummaryForEdit = PageSummaryForEdit(
-                            page.title(),
+                            page.title,
                             langFromCode,
                             PageTitle(
                                 Namespace.FILE.name,
-                                StringUtil.removeNamespace(page.title()),
+                                StringUtil.removeNamespace(page.title),
                                 null,
                                 it.thumbUrl,
                                 WikiSite.forLanguageCode(langFromCode)
                             ),
-                            StringUtil.removeHTMLTags(page.title()),
+                            StringUtil.removeHTMLTags(page.title),
                             fileCaption,
                             it.thumbUrl,
                             null,
@@ -341,7 +341,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             lang = targetLanguage!!,
                             pageTitle = PageTitle(
                                 Namespace.FILE.name,
-                                StringUtil.removeNamespace(page.title()),
+                                StringUtil.removeNamespace(page.title),
                                 null,
                                 it.thumbUrl,
                                 WikiSite.forLanguageCode(targetLanguage!!)
@@ -370,7 +370,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun showImageTagsUI() {
         showAddImageCaptionUI()
         binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_tags)
-        binding.viewArticleExtract.text = StringUtil.removeNamespace(imageTagPage!!.title())
+        binding.viewArticleExtract.text = StringUtil.removeNamespace(imageTagPage!!.title)
     }
 
     private fun showAddDescriptionUI() {
