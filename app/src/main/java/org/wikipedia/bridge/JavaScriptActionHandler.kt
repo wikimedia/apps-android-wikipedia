@@ -1,6 +1,7 @@
 package org.wikipedia.bridge
 
 import android.content.Context
+import kotlinx.serialization.Serializable
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -170,6 +171,7 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
-    data class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
-                            val src: String = "", val centerCrop: Boolean = false)
+    @Serializable
+    class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
+                       val src: String = "", val centerCrop: Boolean = false)
 }
