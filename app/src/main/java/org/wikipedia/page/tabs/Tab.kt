@@ -1,8 +1,10 @@
 package org.wikipedia.page.tabs
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageTitle
 
+@Serializable
 class Tab {
     val backStack = mutableListOf<PageBackStackItem>()
 
