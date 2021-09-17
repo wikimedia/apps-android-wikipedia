@@ -530,7 +530,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         if (response is MwQueryResponse) {
-                            contribution.pageViews = response.query?.pages?.sumOf { it.pageViewsMap?.values?.filterNotNull()?.sum()!! } ?: 0
+                            contribution.pageViews = response.query?.pages?.sumOf { it.pageViewsMap.values.filterNotNull().sum() } ?: 0
                             view.setPageViewCountText(contribution.pageViews)
                         }
                     }) { t -> L.e(t) })

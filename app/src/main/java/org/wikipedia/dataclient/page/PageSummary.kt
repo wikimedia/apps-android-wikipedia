@@ -6,9 +6,9 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.DateSerializer
 import org.wikipedia.json.LocationSerializer
 import org.wikipedia.page.*
-import org.wikipedia.serialization.DateSerializer
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 import java.util.*
 

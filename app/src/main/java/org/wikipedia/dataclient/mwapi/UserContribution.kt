@@ -1,7 +1,7 @@
 package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.Serializable
-import org.wikipedia.serialization.DateSerializer
+import org.wikipedia.json.DateSerializer
 import org.wikipedia.util.DateUtil
 import java.text.ParseException
 import java.util.*

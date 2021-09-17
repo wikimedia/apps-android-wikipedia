@@ -2,8 +2,6 @@ package org.wikipedia.dataclient
 
 import androidx.collection.lruCache
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.modules.SerializersModule
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
@@ -12,7 +10,7 @@ import org.wikipedia.analytics.eventplatform.DestinationEventService
 import org.wikipedia.analytics.eventplatform.EventService
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
-import org.wikipedia.serialization.AnySerializer
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
@@ -82,9 +80,7 @@ object ServiceFactory {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(OkHttpConnectionFactory.client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(wiki)).build())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).addConverterFactory(Json { ignoreUnknownKeys = true; serializersModule = SerializersModule {
-                contextual(Any::class, AnySerializer)
-            } }.asConverterFactory(contentType))
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).addConverterFactory(JsonUtil.json.asConverterFactory(contentType))
             .build()
     }
 

@@ -1,7 +1,5 @@
 package org.wikipedia.json;
 
-import android.net.Uri;
-
 import androidx.annotation.VisibleForTesting;
 
 import com.google.gson.Gson;
@@ -22,12 +20,12 @@ public final class GsonUtil {
 
     private static final Gson DEFAULT_GSON = DEFAULT_GSON_BUILDER.create();
 
-    public static Gson _getDefaultGson() {
+    public static Gson getDefaultGson() {
         return DEFAULT_GSON;
     }
 
     @VisibleForTesting
-    public static GsonBuilder _getDefaultGsonBuilder() {
+    public static GsonBuilder getDefaultGsonBuilder() {
         return DEFAULT_GSON_BUILDER;
     }
 

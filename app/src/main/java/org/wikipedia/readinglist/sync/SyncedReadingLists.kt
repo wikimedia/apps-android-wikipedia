@@ -47,15 +47,18 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>? = null,
         fun title(): String = Normalizer.normalize(title, Normalizer.Form.NFC)
     }
 
+    @Serializable
     data class RemoteReadingListEntryBatch(val entries: List<RemoteReadingListEntry>) {
         val batch: Array<RemoteReadingListEntry> = entries.toTypedArray()
     }
 
-    inner class RemoteIdResponse {
+    @Serializable
+    class RemoteIdResponse {
         val id: Long = 0
     }
 
-    inner class RemoteIdResponseBatch {
+    @Serializable
+    class RemoteIdResponseBatch {
         val batch: Array<RemoteIdResponse> = arrayOf()
     }
 }

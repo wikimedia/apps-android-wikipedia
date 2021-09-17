@@ -5,8 +5,8 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.json.DateSerializer
 import org.wikipedia.parcel.DateParceler
-import org.wikipedia.serialization.DateSerializer
 import java.util.*
 
 @Serializable

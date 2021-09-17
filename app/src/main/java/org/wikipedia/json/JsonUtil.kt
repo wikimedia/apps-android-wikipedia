@@ -3,11 +3,26 @@ package org.wikipedia.json
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.modules.SerializersModule
+import kotlinx.serialization.modules.polymorphic
+import kotlinx.serialization.modules.subclass
+import org.wikipedia.analytics.eventplatform.Event
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
+import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.util.log.L
 import java.lang.Exception
 
 object JsonUtil {
-    val json = Json { ignoreUnknownKeys = true }
+    val json = Json {
+        ignoreUnknownKeys = true
+        classDiscriminator = "\$schema"
+        serializersModule = SerializersModule {
+            polymorphic(Event::class) {
+                subclass(UserContributionEvent::class)
+                subclass(NotificationInteractionEvent::class)
+            }
+        }
+    }
 
     inline fun <reified T> decodeFromString(string: String): T? {
         try {

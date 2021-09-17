@@ -13,7 +13,7 @@ class MwQueryPage {
     @SerialName("imageinfo") private val imageInfo: List<ImageInfo>? = null
     @SerialName("videoinfo") private val videoInfo: List<ImageInfo>? = null
     @SerialName("watchlistexpiry") private val watchlistExpiry: String? = null
-    @SerialName("pageviews") val pageViewsMap: Map<String, Long> = emptyMap()
+    @SerialName("pageviews") val pageViewsMap: Map<String, Long?> = emptyMap()
     @SerialName("imagelabels") val imageLabels: List<ImageLabel> = emptyList()
     @SerialName("pageid") val pageId = 0
     @SerialName("pageprops") val pageProps: PageProps? = null
