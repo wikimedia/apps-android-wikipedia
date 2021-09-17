@@ -227,7 +227,7 @@
             android:name=".notifications.NotificationActivity"
             android:label="@string/notifications_activity_title"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme.ActionBar.Notification" />
 
         <activity
             android:name=".page.tabs.TabActivity"

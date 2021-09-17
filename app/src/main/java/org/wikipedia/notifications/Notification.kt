@@ -14,7 +14,7 @@ class Notification {
     @SerializedName("*")
     val contents: Contents? = null
     private val timestamp: Timestamp? = null
-    private val read: String? = null
+    var read: String? = null
     val category = ""
     val wiki = ""
     val id: Long = 0
@@ -30,8 +30,7 @@ class Notification {
     val isFromWikidata: Boolean
         get() = wiki == "wikidatawiki"
 
-    var isUnread: Boolean = true
-        get() = field && read.isNullOrEmpty()
+    val isUnread get() = read.isNullOrEmpty()
 
     fun key(): Long {
         return id + wiki.hashCode()

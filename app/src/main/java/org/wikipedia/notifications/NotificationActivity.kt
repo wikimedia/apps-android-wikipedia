@@ -79,6 +79,7 @@ class NotificationActivity : BaseActivity() {
 
         binding.notificationsRefreshView.setOnRefreshListener {
             binding.notificationsRefreshView.isRefreshing = false
+            actionMode?.finish()
             beginUpdateList()
         }
 
@@ -250,7 +251,7 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean) {
+    private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndo: Boolean = false) {
         val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
@@ -271,24 +272,25 @@ class NotificationActivity : BaseActivity() {
                 NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }
+
         for (wiki in notificationsPerWiki.keys) {
-            if (markUnread) {
-                NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, true)
-            } else {
-                NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, false)
-                showMarkReadItemsUndoSnackbar(items, markUnread)
-            }
+            NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, markUnread)
         }
+
+        if (!fromUndo) {
+            showMarkReadItemsUndoSnackbar(items, markUnread)
+        }
+
         // manually mark items in read state
         notificationList.filter { n -> items.map { container -> container.notification?.id }
-            .firstOrNull { it == n.id } != null }.map { it.isUnread = markUnread }
+            .firstOrNull { it == n.id } != null }.map { it.read = if (markUnread) null else Date().toString() }
         postprocessAndDisplay()
     }
 
     private fun showMarkReadItemsUndoSnackbar(items: List<NotificationListItemContainer>, markUnread: Boolean) {
         val snackbarStringRes = if (markUnread) R.string.notifications_mark_all_as_unread_message else R.string.notifications_mark_all_as_read_message
         val snackbar = FeedbackUtil.makeSnackbar(this, getString(snackbarStringRes, items.size), FeedbackUtil.LENGTH_DEFAULT)
-        snackbar.setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread) }
+        snackbar.setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread, true) }
         snackbar.show()
     }
 
@@ -311,7 +313,7 @@ class NotificationActivity : BaseActivity() {
         if (selectedCount == 0) {
             finishActionMode()
         } else if (actionMode != null) {
-            actionMode!!.title = resources.getQuantityString(R.plurals.multi_items_selected, selectedCount, selectedCount)
+            actionMode?.title = selectedCount.toString()
         }
         binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
     }
@@ -319,13 +321,6 @@ class NotificationActivity : BaseActivity() {
     private val selectedItemCount get() = notificationContainerList.count { it.selected }
 
     private val selectedItems get() = notificationContainerList.filter { it.selected }
-
-    private fun unselectAllItems() {
-        for (item in notificationContainerList) {
-            item.selected = false
-        }
-        binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
-    }
 
     @Suppress("LeakingThis")
     private open inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
@@ -526,6 +521,7 @@ class NotificationActivity : BaseActivity() {
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
+            mode.title = notificationContainerList.count { it.selected }.toString()
             mode.menuInflater.inflate(R.menu.menu_action_mode_notifications, menu)
             val isFirstItemUnread = notificationContainerList
                 .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
@@ -551,11 +547,11 @@ class NotificationActivity : BaseActivity() {
                     return true
                 }
                 R.id.menu_check_all -> {
-                    checkAllItems(mode.menu, true)
+                    checkAllItems(mode, true)
                     return true
                 }
                 R.id.menu_uncheck_all -> {
-                    checkAllItems(mode.menu, false)
+                    checkAllItems(mode, false)
                     return true
                 }
             }
@@ -567,15 +563,16 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
-            unselectAllItems()
+            checkAllItems(mode, false)
             actionMode = null
             super.onDestroyActionMode(mode)
         }
 
-        private fun checkAllItems(menu: Menu, check: Boolean) {
+        private fun checkAllItems(mode: ActionMode, check: Boolean) {
             notificationContainerList.map { it.selected = check }
-            menu.findItem(R.id.menu_check_all).isVisible = !check
-            menu.findItem(R.id.menu_uncheck_all).isVisible = check
+            mode.title = selectedItemCount.toString()
+            mode.menu.findItem(R.id.menu_check_all).isVisible = !check
+            mode.menu.findItem(R.id.menu_uncheck_all).isVisible = check
             binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         }
     }
