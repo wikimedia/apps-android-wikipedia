@@ -32,6 +32,7 @@ public class FullTextSearchClientTest extends MockRetrofitTest {
 
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     @Test public void testRequestSuccessWithContinuation() throws Throwable {
         enqueueFromFile("full_text_search_results.json");
         getObservable().test().await()
