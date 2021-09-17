@@ -52,6 +52,7 @@
   <string name="app_settings">Nastavenia aplikácie</string>
   <string name="search_tab_tooltip">Pre zadanie hľadaného výrazu stlačte toto tlačítko.</string>
   <string name="history_list_title">História</string>
+  <string name="image_content_description">Obrázok: %s</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
   <string name="dialog_message_clear_history">Toto odstráni celú Vašu históriu prehliadania a zavrie všetky otvorené karty. Pokračovať?</string>
   <string name="dialog_message_clear_history_yes">Áno</string>
@@ -162,7 +163,7 @@
   <string name="create_account_passwords_mismatch_error">Heslá sa nezhodujú</string>
   <string name="create_account_email_error">Neplatná e-mailová adresa</string>
   <string name="create_account_username_error">Neplatné znaky v používateľskom mene</string>
-  <string name="create_account_password_error">Heslo je neplatné</string>
+  <string name="create_account_password_error">Heslo musí mať aspoň 8 znakov</string>
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
   <string name="create_account_next">Ďalej</string>
   <string name="email_recommendation_dialog_title">Chcete vytvoriť účet bez e-mailovej adresy?</string>
@@ -176,6 +177,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Podrobnosti</string>
   <string name="preferences_general_heading">Všeobecné</string>
+  <string name="preferences_account_heading">Účet</string>
   <string name="wikipedia_app_faq">Často kladené otázky o tejto aplikácii</string>
   <string name="send_feedback">Odoslať spätnú väzbu</string>
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
@@ -549,10 +551,12 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Nastavenia</string>
   <string name="notification_reverted_title">Vaša úprava bol vrátená</string>
+  <string name="notification_channel_title">Sťahovanie článkov</string>
   <string name="notification_channel_description">Stav sťahovania</string>
   <string name="notification_syncing_pause_button">Pozastaviť</string>
   <string name="notification_syncing_resume_button">Pokračovať</string>
   <string name="notification_syncing_cancel_button">Zrušiť</string>
+  <string name="notification_syncing_reading_list_channel_title">Synchronizáciu zoznamov na čítanie</string>
   <string name="notification_syncing_reading_list_channel_description">Pokrok v synchronizácii zoznamov na prečítanie</string>
   <string name="notification_many_unread">Máte %d neprečítaných upozornení</string>
   <plurals name="notification_channel_name">
@@ -612,6 +616,7 @@
   <string name="notifications_view_archived_button_text">Zobraziť archivované upozornenia</string>
   <string name="notification_preferences_title">Nastavenia notifikácií</string>
   <string name="notifications_mark_unread">Označiť ako neprečítané</string>
+  <string name="notifications_mark_all_as_read">Označiť všetko ako prečítané</string>
   <string name="watchlist_title">Zoznam sledovaných</string>
   <string name="preference_title_notification_poll">Kontrola nových notifikácií</string>
   <string name="preference_summary_notification_poll">Povoliť aplikácii používanie dát ku kontrole nových notifikácií na pozadí.</string>
@@ -629,7 +634,21 @@
   <string name="preference_title_notification_mention">Zmienky</string>
   <string name="preference_summary_notification_mention">Niekto vás spomenul v diskusii</string>
   <string name="preference_title_notification_user_talk">Diskusná stránka</string>
-  <string name="preference_summary_notification_user_talk">Správy na vašej diskusnej stránke</string>
+  <string name="preference_summary_notification_user_talk">Správy a odpovede z diskusných stránok</string>
+  <string name="preference_title_notification_email_user">Prichádzajúci email</string>
+  <string name="preference_summary_notification_email_user">Niekto Vám poslal email prostredníctvom wiki</string>
+  <string name="preference_title_notification_user_rights">Používateľské práva zmenené</string>
+  <string name="preference_summary_notification_user_rights">Prijaté keď sa Vaše používateľské práva zmenili</string>
+  <string name="preference_title_notification_article_linked">Odkazy na Vami vytvorené články</string>
+  <string name="preference_summary_notification_article_linked">Prijaté keď je vytvorený nový odkaz na Vami vytvorenú stránku</string>
+  <string name="preference_category_push_notifications">Push upozornenia</string>
+  <string name="preference_title_customize_push_notifications">Upraviť push upozornenia</string>
+  <string name="preference_category_display_settings">Nastavenia zobrazenia</string>
+  <string name="preference_title_hide_read_notifications">Skryť prečítané notifikácie</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipédia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Notifikácie z Wikipédie</string>
+  <string name="notifications_channel_group_other_title">Iné</string>
+  <string name="notifications_channel_group_other_description">Iné notifikácie z aplikácie</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
   <string name="view_random_card_title">Náhodný článok</string>
   <string name="view_random_article_card_title">Náhodný článok</string>
@@ -1007,7 +1026,7 @@
   <string name="wikitext_template">Šablóna</string>
   <string name="wikitext_reference">Referencia</string>
   <string name="wikitext_preview_link">Náhľad odkazu</string>
-  <string name="main_drawer_help">Pomoc</string>
+  <string name="main_drawer_help">Pomocník</string>
   <string name="main_drawer_login">Prihlásiť/zaregistrovať sa na Wikipédiu</string>
   <string name="main_tooltip_text">Ahoj %s, vedeli ste, že Wikipédiu môže upravovať hocikto?</string>
   <string name="main_tooltip_text_v2">Vedeli ste, že Wikipédiu môže upravovať hocikto?</string>
@@ -1021,7 +1040,7 @@
   <string name="talk_title">Diskusia</string>
   <string name="talk_user_title">Diskusia: %s</string>
   <string name="talk_new_topic">Nová téma</string>
-  <string name="talk_new_topic_submitted">Téma odoslaná.</string>
+  <string name="talk_new_topic_submitted">Téma zverejnená.</string>
   <string name="talk_page_empty">Táto diskusná stránka je prázdna.</string>
   <string name="talk_add_reply">Odpovedať</string>
   <string name="talk_no_subject">(Bez predmetu)</string>
@@ -1030,7 +1049,7 @@
   <string name="talk_message_hint">Napísať správu</string>
   <string name="talk_message_empty">Správa nemôže byť prázdna.</string>
   <string name="talk_subject_empty">Predmet nemôže byť prázdny.</string>
-  <string name="talk_response_submitted">Odpoveď odoslaná.</string>
+  <string name="talk_response_submitted">Odpoveď zverejnená.</string>
   <string name="talk_snackbar_undo">Vrátiť</string>
   <string name="talk_last_modified">&lt;b&gt;Naposledy upravil/a %1$s&lt;/b&gt; %2$s</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
@@ -1038,6 +1057,8 @@
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>
   <string name="watchlist_details_watching_label">Sledované</string>
   <string name="watchlist_details_watch_label">Sledovať</string>
+  <string name="watchlist_details_next_edit">Ďalšia úprava</string>
+  <string name="watchlist_details_prev_edit">Predošlá úprava</string>
   <string name="thank_label">Poďakovať</string>
   <string name="go_to_user_page">Prejsť na stránku používateľa</string>
   <string name="thank_dialog_title_text">Verejne poslať poďakovanie</string>

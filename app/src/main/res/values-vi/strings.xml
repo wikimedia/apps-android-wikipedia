@@ -162,7 +162,7 @@
   <string name="create_account_passwords_mismatch_error">Mật khẩu không khớp</string>
   <string name="create_account_email_error">Địa chỉ thư điện tử không hợp lệ</string>
   <string name="create_account_username_error">Ký tự không hợp lệ trong tên người dùng</string>
-  <string name="create_account_password_error">Mật khẩu không hợp lệ</string>
+  <string name="create_account_password_error">Mật khẩu phải có ít nhất 8 ký tự</string>
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
   <string name="create_account_next">Tiếp</string>
   <string name="email_recommendation_dialog_title">Mở tài khoản mà không cung cấp địa chỉ thư điện tử?</string>
@@ -586,7 +586,7 @@
   <string name="preference_title_notification_mention">Đề cập</string>
   <string name="preference_summary_notification_mention">Ai đó đề cập bạn trong một trang</string>
   <string name="preference_title_notification_user_talk">Trang thảo luận</string>
-  <string name="preference_summary_notification_user_talk">Tin nhắn từ trang thảo luận</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Tin nhắn từ trang thảo luận</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
   <string name="view_random_card_title">Ngẫu nhiên</string>
   <string name="view_random_article_card_title">Bài viết ngẫu nhiên</string>
@@ -952,6 +952,7 @@
   <string name="talk_title">Thảo luận</string>
   <string name="talk_user_title">Thảo luận: %s</string>
   <string name="talk_new_topic">Đề tài mới</string>
+  <string name="talk_new_topic_submitted">Đã đăng chủ đề.</string>
   <string name="talk_page_empty">Trang thảo luận này hiện đang trống.</string>
   <string name="talk_add_reply">Trả lời</string>
   <string name="talk_no_subject">(Không tiêu đề)</string>
@@ -960,6 +961,7 @@
   <string name="talk_message_hint">Nhập tin nhắn</string>
   <string name="talk_message_empty">Tin nhắn này không trống</string>
   <string name="talk_subject_empty">Không thể để trống tiêu đề.</string>
+  <string name="talk_response_submitted">Đã đăng phản hồi.</string>
   <string name="menu_option_share_edit">Chia sẻ sửa đổi</string>
   <string name="menu_option_user_profile">%s\'s trang cá nhân</string>
   <string name="menu_option_user_contributions">%s\'s đóng góp</string>

@@ -24,7 +24,6 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ImageEditType
 import org.wikipedia.Constants.InvokeSource
@@ -268,10 +267,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     private fun startCaptionEdit(item: GalleryItemFragment) {
         val title = PageTitle(item.imageTitle!!.prefixedText,
-            WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()))
-        val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()]
+            WikiSite(Service.COMMONS_URL, sourceWiki.languageCode))
+        val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode]
         title.description = currentCaption
-        val summary = PageSummaryForEdit(title.prefixedText, sourceWiki.languageCode(), title,
+        val summary = PageSummaryForEdit(title.prefixedText, sourceWiki.languageCode, title,
             title.displayText, RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription()), item.mediaInfo!!.thumbUrl)
         startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null,
             DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
@@ -295,16 +294,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun startCaptionTranslation(item: GalleryItemFragment) {
-        val sourceTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()))
+        val sourceTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL, sourceWiki.languageCode))
         val targetTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL,
-            StringUtils.defaultString(targetLanguageCode, app.language().appLanguageCodes[1])))
-        var currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()]
-        if (currentCaption.isNullOrEmpty()) {
-            currentCaption = RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
+            targetLanguageCode ?: app.language().appLanguageCodes[1]))
+        val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode].orEmpty().ifEmpty {
+            RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
         }
-        val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode(),
+        val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode,
                             sourceTitle, sourceTitle.displayText, currentCaption, item.mediaInfo!!.thumbUrl)
-        val targetSummary = PageSummaryForEdit(targetTitle.prefixedText, targetTitle.wikiSite.languageCode(),
+        val targetSummary = PageSummaryForEdit(targetTitle.prefixedText, targetTitle.wikiSite.languageCode,
             targetTitle, targetTitle.displayText, null, item.mediaInfo!!.thumbUrl)
         startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary,
             targetSummary, if (sourceSummary.lang == targetSummary.lang) DescriptionEditActivity.Action.ADD_CAPTION
@@ -546,9 +544,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         disposeImageCaptionDisposable()
         imageCaptionDisposable =
             Observable.zip<Map<String, String>, MwQueryResponse, Map<String, List<String>>, Pair<Boolean, Int>>(
-                MediaHelper.getImageCaptions(item.imageTitle!!.prefixedText!!),
+                MediaHelper.getImageCaptions(item.imageTitle!!.prefixedText),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.imageTitle!!.prefixedText!!),
-                ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(), sourceWiki.languageCode()),
+                ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId, sourceWiki.languageCode),
                 { captions, protectionInfoRsp, imageTags ->
                     item.mediaInfo!!.captions = captions
                     Pair(protectionInfoRsp.query?.isEditProtected, imageTags.size)
@@ -590,9 +588,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     private fun decideImageEditType(item: GalleryItemFragment, tagsCount: Int) {
         imageEditType = null
-        if (!item.mediaInfo!!.captions.containsKey(sourceWiki.languageCode())) {
+        if (!item.mediaInfo!!.captions.containsKey(sourceWiki.languageCode)) {
             imageEditType = ImageEditType.ADD_CAPTION
-            targetLanguageCode = sourceWiki.languageCode()
+            targetLanguageCode = sourceWiki.languageCode
             binding.ctaButtonText.text = getString(R.string.gallery_add_image_caption_button)
             return
         }
@@ -621,7 +619,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private fun displayApplicableDescription(item: GalleryItemFragment) {
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
-        val descriptionStr = item.mediaInfo?.captions!!.getOrElse(sourceWiki.languageCode()) {
+        val descriptionStr = item.mediaInfo?.captions!!.getOrElse(sourceWiki.languageCode) {
             StringUtil.fromHtml(item.mediaInfo!!.metadata!!.imageDescription())
         }
 
@@ -634,9 +632,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun setLicenseInfo(item: GalleryItemFragment) {
-        val license = ImageLicense(item.mediaInfo!!.metadata!!.license(),
-            item.mediaInfo!!.metadata!!.licenseShortName(),
-            item.mediaInfo!!.metadata!!.licenseUrl())
+        val metadata = item.mediaInfo!!.metadata!!
+        val license = ImageLicense(metadata.license(), metadata.licenseShortName(), metadata.licenseUrl())
 
         // determine which icon to display...
         if (license.licenseIcon == R.drawable.ic_license_by) {
@@ -653,16 +650,16 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
         // Set the icon's content description to the UsageTerms property.
         // (if UsageTerms is not present, then default to Fair Use)
-        binding.licenseIcon.contentDescription = StringUtils.defaultIfBlank(item.mediaInfo!!.metadata!!.licenseShortName(),
-            getString(R.string.gallery_fair_use_license))
+        binding.licenseIcon.contentDescription = metadata.licenseShortName().ifBlank {
+            getString(R.string.gallery_fair_use_license)
+        }
         // Give the license URL to the icon, to be received by the click handler (may be null).
-        binding.licenseIcon.tag = item.mediaInfo!!.metadata!!.licenseUrl()
+        binding.licenseIcon.tag = metadata.licenseUrl()
         DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
-        val creditStr = if (item.mediaInfo!!.metadata!!.artist().isNotEmpty()) item.mediaInfo!!.metadata!!.artist()
-        else item.mediaInfo!!.metadata!!.credit()
+        val creditStr = metadata.artist().ifEmpty { metadata.credit() }
 
         // if we couldn't find a attribution string, then default to unknown
-        binding.creditText.text = StringUtil.fromHtml(StringUtils.defaultIfBlank(creditStr, getString(R.string.gallery_uploader_unknown)))
+        binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
         binding.infoContainer.visibility = View.VISIBLE
     }
 

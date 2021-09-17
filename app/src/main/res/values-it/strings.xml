@@ -34,6 +34,7 @@
 * Senpremì
 * Simoarmanni
 * Statix64
+* Stefano
 * SuperVirtual
 * The Polish
 * Yacine Boussoufa
@@ -70,6 +71,7 @@
   <string name="app_settings">Impostazioni dell\'applicazione</string>
   <string name="search_tab_tooltip">Clicca di nuovo l\'icona per iniziare direttamente una ricerca.</string>
   <string name="history_list_title">Cronologia</string>
+  <string name="image_content_description">Immagine: %s</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
   <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
@@ -180,7 +182,7 @@
   <string name="create_account_passwords_mismatch_error">Le password non corrispondono</string>
   <string name="create_account_email_error">Indirizzo email non valido</string>
   <string name="create_account_username_error">Caratteri non validi nel nome utente</string>
-  <string name="create_account_password_error">La password non è valida</string>
+  <string name="create_account_password_error">La password deve avere almeno 8 caratteri</string>
   <string name="create_account_generic_error">Impossibile creare l\'utenza</string>
   <string name="create_account_next">Successivo</string>
   <string name="email_recommendation_dialog_title">Creare un\'utenza senza indirizzo di posta elettronica?</string>
@@ -194,6 +196,7 @@
   <string name="create_account_ip_block_help_url">https://it.m.wikipedia.org/wiki/Wikipedia:Politiche_di_blocco_degli_utenti</string>
   <string name="create_account_ip_block_details">Dettagli</string>
   <string name="preferences_general_heading">Generale</string>
+  <string name="preferences_account_heading">Account</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Invia commento sull\'applicazione</string>
   <string name="create_account_account_created_toast">Utenza creata!</string>
@@ -614,7 +617,8 @@
   <string name="preference_title_notification_mention">Menziona</string>
   <string name="preference_summary_notification_mention">Qualcuno ti menziona in una pagina</string>
   <string name="preference_title_notification_user_talk">Pagina di discussione</string>
-  <string name="preference_summary_notification_user_talk">Messaggi dalle pagine di discussione</string>
+  <string name="preference_summary_notification_user_talk">Messaggi e risposte dalle pagine di discussione</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
   <string name="view_random_article_card_title">Voce a caso</string>
@@ -983,6 +987,7 @@
   <string name="talk_title">Discussione</string>
   <string name="talk_user_title">Discussione: %s</string>
   <string name="talk_new_topic">Nuovo argomento</string>
+  <string name="talk_new_topic_submitted">Argomento pubblicato.</string>
   <string name="talk_page_empty">Questa pagina di discussione è vuota.</string>
   <string name="talk_add_reply">Rispondi</string>
   <string name="talk_no_subject">(Nessun oggetto)</string>
@@ -991,12 +996,15 @@
   <string name="talk_message_hint">Scrivi un messaggio</string>
   <string name="talk_message_empty">Il messaggio non può essere vuoto.</string>
   <string name="talk_subject_empty">L\'oggetto non può essere vuoto.</string>
+  <string name="talk_response_submitted">Risposta pubblicata.</string>
   <string name="talk_snackbar_undo">Annulla</string>
+  <string name="talk_last_modified">&lt;b&gt;Ultima modifica alle %1$s&lt;/b&gt; da %2$s</string>
   <string name="menu_option_share_edit">Condividi modifica</string>
   <string name="menu_option_user_profile">Profilo di %s</string>
   <string name="menu_option_user_contributions">Contributi di %s</string>
   <string name="watchlist_details_watching_label">Osservato</string>
   <string name="watchlist_details_watch_label">Osserva</string>
+  <string name="watchlist_details_prev_edit">Modifica precedente</string>
   <string name="thank_label">Ringrazia</string>
   <string name="go_to_user_page">Vai alla pagina utente</string>
   <string name="thank_dialog_title_text">Invia pubblicamente un \'ringraziamento\'</string>

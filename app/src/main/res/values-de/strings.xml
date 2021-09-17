@@ -67,6 +67,7 @@
   <string name="app_settings">App-Einstellungen</string>
   <string name="search_tab_tooltip">Berühre das Symbol noch einmal, um direkt mit der Eingabe zu beginnen.</string>
   <string name="history_list_title">Historie</string>
+  <string name="image_content_description">Bild: %s</string>
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
   <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -177,7 +178,7 @@
   <string name="create_account_passwords_mismatch_error">Die Passwörter stimmen nicht überein.</string>
   <string name="create_account_email_error">Ungültige E-Mail-Adresse</string>
   <string name="create_account_username_error">Ungültige Zeichen im Benutzernamen</string>
-  <string name="create_account_password_error">Das Passwort ist ungültig</string>
+  <string name="create_account_password_error">Das Passwort muss mindestens 8 Zeichen lang sein.</string>
   <string name="create_account_generic_error">Benutzerkonto konnte nicht erstellt werden</string>
   <string name="create_account_next">Nächste</string>
   <string name="email_recommendation_dialog_title">Benutzerkonto ohne E-Mail-Adresse erstellen?</string>
@@ -191,6 +192,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Einzelheiten</string>
   <string name="preferences_general_heading">Allgemein</string>
+  <string name="preferences_account_heading">Benutzerkonto</string>
   <string name="wikipedia_app_faq">FAQ zur Wikipedia-App</string>
   <string name="send_feedback">App-Rückmeldung senden</string>
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
@@ -548,10 +550,12 @@
   <string name="reading_list_split_dialog_ok_button_text">Okay</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_reverted_title">Zurückgesetzte Bearbeitung</string>
+  <string name="notification_channel_title">Artikel herunterladen</string>
   <string name="notification_channel_description">Downloadfortschritt</string>
   <string name="notification_syncing_pause_button">Pausieren</string>
   <string name="notification_syncing_resume_button">Fortfahren</string>
   <string name="notification_syncing_cancel_button">Abbrechen</string>
+  <string name="notification_syncing_reading_list_channel_title">Leselisten synchronisieren</string>
   <string name="notification_syncing_reading_list_channel_description">Fortschritt der Synchronisierung von Leselisten</string>
   <string name="notification_many_unread">Du hast %d ungelesene Benachrichtigungen</string>
   <plurals name="notification_channel_name">
@@ -597,6 +601,7 @@
   <string name="notifications_view_archived_button_text">Archivierte Benachrichtigungen ansehen</string>
   <string name="notification_preferences_title">Benachrichtigungseinstellungen</string>
   <string name="notifications_mark_unread">Als ungelesen markieren</string>
+  <string name="notifications_mark_all_as_read">Alle als gelesen markieren</string>
   <string name="watchlist_title">Beobachtungsliste</string>
   <string name="preference_title_notification_poll">Benachrichtigungen abfragen</string>
   <string name="preference_summary_notification_poll">Der App erlauben, für die Suche nach neuen Benachrichtigungen im Hintergrund Daten zu verwenden.</string>
@@ -614,7 +619,21 @@
   <string name="preference_title_notification_mention">Erwähnung</string>
   <string name="preference_summary_notification_mention">Jemand hat Sie in einer Seite erwähnt</string>
   <string name="preference_title_notification_user_talk">Diskussionsseite</string>
-  <string name="preference_summary_notification_user_talk">Meldungen von Diskussionsseiten</string>
+  <string name="preference_summary_notification_user_talk">Meldungen und Antworten von Diskussionsseiten</string>
+  <string name="preference_title_notification_email_user">E-Mail erhalten</string>
+  <string name="preference_summary_notification_email_user">Jemand hat dir eine E-Mail über das Wiki geschickt</string>
+  <string name="preference_title_notification_user_rights">Änderungen der Benutzerrechte</string>
+  <string name="preference_summary_notification_user_rights">Erhältst du, wenn sich deine Benutzerrechte ändern</string>
+  <string name="preference_title_notification_article_linked">Links zu den von dir erstellten Artikeln</string>
+  <string name="preference_summary_notification_article_linked">Wird empfangen, wenn ein neuer Link zu einer von dir erstellten Seite erstellt wird</string>
+  <string name="preference_category_push_notifications">Push-Benachrichtigungen</string>
+  <string name="preference_title_customize_push_notifications">Anpassen von Push-Benachrichtigungen</string>
+  <string name="preference_category_display_settings">Anzeigeeinstellungen</string>
+  <string name="preference_title_hide_read_notifications">Lesebestätigungen ausblenden</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Benachrichtigungen von Wikipedia</string>
+  <string name="notifications_channel_group_other_title">Andere</string>
+  <string name="notifications_channel_group_other_description">Andere Benachrichtigungen von der App</string>
   <string name="view_because_you_read_card_title">Weil du das gelesen hast</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
   <string name="view_random_article_card_title">Zufälliger Artikel</string>
@@ -984,7 +1003,7 @@
   <string name="talk_user_title">Gespräch: %s</string>
   <string name="talk_new_topic">Neues Thema</string>
   <string name="talk_new_topic_submitted">Thema übermittelt.</string>
-  <string name="talk_page_empty">Diese Gesprächsseite ist leer.</string>
+  <string name="talk_page_empty">Diese Diskussionsseite ist leer.</string>
   <string name="talk_add_reply">Antworten</string>
   <string name="talk_no_subject">(Kein Betreff)</string>
   <string name="talk_reply_subject">Betreff</string>
@@ -1000,6 +1019,8 @@
   <string name="menu_option_user_contributions">Beiträge von %s</string>
   <string name="watchlist_details_watching_label">Beobachtet</string>
   <string name="watchlist_details_watch_label">Beobachten</string>
+  <string name="watchlist_details_next_edit">Nächste Bearbeitung</string>
+  <string name="watchlist_details_prev_edit">Vorherige Bearbeitung</string>
   <string name="thank_label">Danken</string>
   <string name="go_to_user_page">Zur Benutzerseite</string>
   <string name="thank_dialog_title_text">Öffentlich das Danke senden</string>

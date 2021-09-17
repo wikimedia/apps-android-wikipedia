@@ -137,7 +137,7 @@
   <string name="create_account_passwords_mismatch_error">Tembung sandi ora mathuk</string>
   <string name="create_account_email_error">Alamat layang-èl ora trep</string>
   <string name="create_account_username_error">Karakter ing jeneng naraguna ora trep</string>
-  <string name="create_account_password_error">Tembung sandi ora trep</string>
+  <string name="create_account_password_error" fuzzy="true">Tembung sandi ora trep</string>
   <string name="create_account_generic_error">Ora bisa gawé akun</string>
   <string name="create_account_next">Sabanjuré</string>
   <string name="email_recommendation_dialog_title">Gawé akun tanpa alamat layang-èl?</string>
@@ -479,7 +479,7 @@
   <string name="preference_title_notification_login_fail">Mlebu log</string>
   <string name="preference_summary_notification_mention">Ana wong kang nyebut jenengmu ing siji kaca</string>
   <string name="preference_title_notification_user_talk">Parembugan</string>
-  <string name="preference_summary_notification_user_talk">Layang saka parembugan</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Layang saka parembugan</string>
   <string name="view_because_you_read_card_title">Amarga panjenengan maca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_next_random_article">Mot sembarang artikel siji liyané</string>

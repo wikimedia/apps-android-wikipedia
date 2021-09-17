@@ -152,7 +152,7 @@
   <string name="create_account_passwords_mismatch_error">Zaporke se ne podudaraju</string>
   <string name="create_account_email_error">Nevaljala adresa e-pošte</string>
   <string name="create_account_username_error">Nevaljani znakovi u suradničkom imenu</string>
-  <string name="create_account_password_error">Zaporka nije valjana</string>
+  <string name="create_account_password_error" fuzzy="true">Zaporka nije valjana</string>
   <string name="create_account_generic_error">Nije moguće stvoriti suradnički račun</string>
   <string name="create_account_next">Sljedeće</string>
   <string name="email_recommendation_dialog_title">Stvoriti račun bez adrese e-pošte?</string>
@@ -508,7 +508,7 @@
   <string name="preference_title_notification_mention">Spominjanje</string>
   <string name="preference_summary_notification_mention">Netko Vas spominje na stranici</string>
   <string name="preference_title_notification_user_talk">Stranica za razgovor</string>
-  <string name="preference_summary_notification_user_talk">Poruke sa stranica za razgovor</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Poruke sa stranica za razgovor</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Slučajna stranica</string>
   <string name="view_random_article_card_title">Slučajni članak</string>

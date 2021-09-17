@@ -160,7 +160,7 @@
   <string name="create_account_passwords_mismatch_error">Passordene stemmer ikke overens</string>
   <string name="create_account_email_error">Ugyldig epostadresse</string>
   <string name="create_account_username_error">Ugyldige tegn i brukernavnet</string>
-  <string name="create_account_password_error">Passordet er ugyldig</string>
+  <string name="create_account_password_error" fuzzy="true">Passordet er ugyldig</string>
   <string name="create_account_generic_error">Kunne ikke opprette konto</string>
   <string name="create_account_next">Neste</string>
   <string name="email_recommendation_dialog_title">Opprett konto uten e-postadresse?</string>
@@ -589,7 +589,7 @@
   <string name="preference_title_notification_mention">Nevning</string>
   <string name="preference_summary_notification_mention">Noen nevnte deg på en side</string>
   <string name="preference_title_notification_user_talk">Diskusjonsside</string>
-  <string name="preference_summary_notification_user_talk">Meldinger fra diskusjonssider</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Meldinger fra diskusjonssider</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>
   <string name="view_random_article_card_title">Tilfeldig artikkel</string>

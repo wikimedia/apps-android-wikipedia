@@ -10,6 +10,7 @@
 * Codynguyen1116
 * Cooltey
 * Csbotero
+* Danniel07
 * DannyS712
 * David.novella
 * Dgstranz
@@ -37,10 +38,12 @@
 * KATRINE1992
 * Ktranz
 * Luisangelrg
+* Luna Brillante 12
 * Macofe
 * Madamebiblio
 * MarcoAurelio
 * MarleneR329
+* Mnivar
 * Mouse21
 * Mynor Archila
 * Pantareje
@@ -56,6 +59,7 @@
 * Sukanya121
 * Tiberius1701
 * VegaDark
+* Warming Hearth
 * Whytheonlyone
 * Wifidel
 * Yllelder
@@ -203,7 +207,7 @@
   <string name="create_account_passwords_mismatch_error">Las contraseñas no coinciden</string>
   <string name="create_account_email_error">Dirección de correo electrónico no válida.</string>
   <string name="create_account_username_error">Caracteres no válidos en el nombre de usuario</string>
-  <string name="create_account_password_error">La contraseña no es válida</string>
+  <string name="create_account_password_error" fuzzy="true">La contraseña no es válida</string>
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="email_recommendation_dialog_title">¿Crear una cuenta sin dirección de correo electrónico?</string>
@@ -574,10 +578,12 @@
   <string name="reading_list_split_dialog_ok_button_text">Aceptar</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_reverted_title">Edición revertida</string>
+  <string name="notification_channel_title">Descargando archivos</string>
   <string name="notification_channel_description">Progreso de la descarga</string>
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Reanudar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
+  <string name="notification_syncing_reading_list_channel_title">Sincronizar listas de lectura</string>
   <string name="notification_syncing_reading_list_channel_description">Progreso de sincronización de listas de lectura</string>
   <string name="notification_many_unread">Tienes %d notificaciones sin leer</string>
   <plurals name="notification_channel_name">
@@ -623,6 +629,7 @@
   <string name="notifications_view_archived_button_text">Ver notificaciones archivadas</string>
   <string name="notification_preferences_title">Ajustes de notificaciones</string>
   <string name="notifications_mark_unread">Marcar como no leído</string>
+  <string name="notifications_mark_all_as_read">Marcar todo como leído</string>
   <string name="watchlist_title">Lista de seguimiento</string>
   <string name="preference_title_notification_poll">Verificar notificaciones</string>
   <string name="preference_summary_notification_poll">Habilitar a la aplicación para usar datos para las nuevas notificaciones en segundo plano</string>
@@ -640,7 +647,21 @@
   <string name="preference_title_notification_mention">Mención</string>
   <string name="preference_summary_notification_mention">Alguien te mencionó en una página</string>
   <string name="preference_title_notification_user_talk">Página de discusión</string>
-  <string name="preference_summary_notification_user_talk">Mensajes en páginas de discusión</string>
+  <string name="preference_summary_notification_user_talk">Mensajes y respuestas de páginas de conversación</string>
+  <string name="preference_title_notification_email_user">Email recibido</string>
+  <string name="preference_summary_notification_email_user">Alguien te ha enviado un email a través de la wiki</string>
+  <string name="preference_title_notification_user_rights">Cambios de derechos de usuario</string>
+  <string name="preference_summary_notification_user_rights">Recibido cuando sus derechos de usuario cambian</string>
+  <string name="preference_title_notification_article_linked">Enlances a artículos que usted ha creado</string>
+  <string name="preference_summary_notification_article_linked">Recibido cuando se crea un nuevo link hacia una página que usted creó</string>
+  <string name="preference_category_push_notifications">Notificaciones emergentes</string>
+  <string name="preference_title_customize_push_notifications">Personalizar notificaciones emergentes</string>
+  <string name="preference_category_display_settings">Mostrar configuraciones</string>
+  <string name="preference_title_hide_read_notifications">Ocultar notificaciones leídas</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Notificaciones de Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Notificaciones de Wikipedia</string>
+  <string name="notifications_channel_group_other_title">Otro</string>
+  <string name="notifications_channel_group_other_description">Otras notificaciones de la aplicación</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_article_card_title">Artículo aleatorio</string>
@@ -1009,7 +1030,7 @@
   <string name="talk_title">Discusión</string>
   <string name="talk_user_title">Discusión: %s</string>
   <string name="talk_new_topic">Tema nuevo</string>
-  <string name="talk_new_topic_submitted">Tema enviado.</string>
+  <string name="talk_new_topic_submitted">Tema posted.</string>
   <string name="talk_page_empty">Esta página de discusión está vacía.</string>
   <string name="talk_add_reply">Responder</string>
   <string name="talk_no_subject">(Sin asunto)</string>
@@ -1018,7 +1039,7 @@
   <string name="talk_message_hint">Redactar mensaje</string>
   <string name="talk_message_empty">El mensaje no puede estar vacío.</string>
   <string name="talk_subject_empty">El asunto no puede estar vacío.</string>
-  <string name="talk_response_submitted">Respuesta enviada.</string>
+  <string name="talk_response_submitted">Respuesta posted.</string>
   <string name="talk_snackbar_undo">Deshacer</string>
   <string name="talk_last_modified">&lt;b&gt;Último editado&lt;/b&gt; %1$s por %2$s</string>
   <string name="menu_option_share_edit">Compartir edición</string>

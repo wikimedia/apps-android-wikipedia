@@ -39,6 +39,7 @@
   <string name="app_settings">Поставки за прилогот</string>
   <string name="search_tab_tooltip">Повторно допрете ја иконата за да почнете со непосредно внесување на саканото пребарување.</string>
   <string name="history_list_title">Историја</string>
+  <string name="image_content_description">Слика: %s</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -149,7 +150,7 @@
   <string name="create_account_passwords_mismatch_error">Лозинките не се совпаѓаат</string>
   <string name="create_account_email_error">Неважечка е-пошта</string>
   <string name="create_account_username_error">Неважечки знаци или корисничко име</string>
-  <string name="create_account_password_error">Лозинката е неважечка</string>
+  <string name="create_account_password_error">Лозинката мора да содржи барем 8 знаци</string>
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
   <string name="create_account_next">Следно</string>
   <string name="email_recommendation_dialog_title">Да ја создадам сметката без е-пошта?</string>
@@ -163,6 +164,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Подробно</string>
   <string name="preferences_general_heading">Општи</string>
+  <string name="preferences_account_heading">Сметка</string>
   <string name="wikipedia_app_faq">ЧПП за прилогот „Википедија“</string>
   <string name="send_feedback">Испрати мислење за прилогот</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
@@ -197,10 +199,10 @@
   <string name="privacy_policy_description">Заштита на личните податоци</string>
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy/mk?uselang=mk</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy/mk?uselang=mk</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/mk?uselang=mk</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/mk?uselang=mk</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
@@ -520,10 +522,12 @@
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
+  <string name="notification_channel_title">Преземање на статии</string>
   <string name="notification_channel_description">Напредок на подигањето</string>
   <string name="notification_syncing_pause_button">Паузирај</string>
   <string name="notification_syncing_resume_button">Продолжи</string>
   <string name="notification_syncing_cancel_button">Откажи</string>
+  <string name="notification_syncing_reading_list_channel_title">Усогласување на списоци за читање</string>
   <string name="notification_syncing_reading_list_channel_description">Напредок на усогласувањето на списоци за читање</string>
   <string name="notification_many_unread">Имате %d непрочитани известувања</string>
   <plurals name="notification_channel_name">
@@ -569,6 +573,7 @@
   <string name="notifications_view_archived_button_text">Погл. архивирани известувања</string>
   <string name="notification_preferences_title">Нагодувања на известувањата</string>
   <string name="notifications_mark_unread">Означи како непрочитано</string>
+  <string name="notifications_mark_all_as_read">Означи ги сите како прочитани</string>
   <string name="watchlist_title">Набљудувања</string>
   <string name="preference_title_notification_poll">Известувања за анкети</string>
   <string name="preference_summary_notification_poll">Дозволи му на прилогот да користи податоци за да проверува нови известувања во позадина.</string>
@@ -586,7 +591,21 @@
   <string name="preference_title_notification_mention">Спомнување</string>
   <string name="preference_summary_notification_mention">Некој ве спомнува на страница</string>
   <string name="preference_title_notification_user_talk">Разговорна страница</string>
-  <string name="preference_summary_notification_user_talk">Пораки од разговорни страници</string>
+  <string name="preference_summary_notification_user_talk">Пораки и одговори од разговорни страници</string>
+  <string name="preference_title_notification_email_user">Добиена е-пошта</string>
+  <string name="preference_summary_notification_email_user">Некој ви испрати е-пошта преку викито</string>
+  <string name="preference_title_notification_user_rights">Промени во кориснички права</string>
+  <string name="preference_summary_notification_user_rights">Се добива кога ќе ви бидат изменети корисничките права</string>
+  <string name="preference_title_notification_article_linked">Врски до ваши статии</string>
+  <string name="preference_summary_notification_article_linked">Се добива кога некој ќе стави нова врска ваша до статија</string>
+  <string name="preference_category_push_notifications">Доставни известувања</string>
+  <string name="preference_title_customize_push_notifications">Прилагоди доставни известувања</string>
+  <string name="preference_category_display_settings">Поставки за приказ</string>
+  <string name="preference_title_hide_read_notifications">Скриј прочитани известувања</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Известувања за Википедија</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Известувања од Википедија</string>
+  <string name="notifications_channel_group_other_title">Други</string>
+  <string name="notifications_channel_group_other_description">Други известувања од прилогот</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
   <string name="view_random_article_card_title">Случајна статија</string>
@@ -955,7 +974,7 @@
   <string name="talk_title">Разговор</string>
   <string name="talk_user_title">Разговор: %s</string>
   <string name="talk_new_topic">Нова тема</string>
-  <string name="talk_new_topic_submitted">Темата е поднесена.</string>
+  <string name="talk_new_topic_submitted">Темата е објавена.</string>
   <string name="talk_page_empty">Оваа разговорна страница е празна.</string>
   <string name="talk_add_reply">Одговор</string>
   <string name="talk_no_subject">(Без наслов)</string>
@@ -964,7 +983,7 @@
   <string name="talk_message_hint">Напиши порака</string>
   <string name="talk_message_empty">Пораката не може да стои празна.</string>
   <string name="talk_subject_empty">Насловот не може да стои празен.</string>
-  <string name="talk_response_submitted">Одговорот е поснесен.</string>
+  <string name="talk_response_submitted">Одговорот е објавен.</string>
   <string name="talk_snackbar_undo">Врати</string>
   <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
@@ -972,6 +991,8 @@
   <string name="menu_option_user_contributions">Придонеси на %s</string>
   <string name="watchlist_details_watching_label">Набљудувана</string>
   <string name="watchlist_details_watch_label">Набљудувај</string>
+  <string name="watchlist_details_next_edit">Следно уредување</string>
+  <string name="watchlist_details_prev_edit">Претходно уредување</string>
   <string name="thank_label">Благодарност</string>
   <string name="go_to_user_page">Оди на корисничката страница</string>
   <string name="thank_dialog_title_text">Јавно испрати благодарница</string>

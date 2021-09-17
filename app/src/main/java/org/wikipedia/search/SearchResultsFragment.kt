@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.collection.LruCache
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,15 +21,14 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.SearchFunnel
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.history.HistoryDbHelper.findHistoryItem
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColor
@@ -136,11 +136,11 @@ class SearchResultsFragment : Fragment() {
         updateProgressBar(true)
         disposables.add(Observable.timer(if (force) 0 else DELAY_MILLIS.toLong(), TimeUnit.MILLISECONDS).flatMap {
             Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                    if (searchTerm.length >= 2) Observable.fromCallable { ReadingListDbHelper.findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
-                    if (searchTerm.length >= 2) Observable.fromCallable { findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
+                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
+                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.getAppDatabase().historyEntryWithImageDao().findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
                     { searchResponse, readingListSearchResults, historySearchResults ->
 
-                        val searchResults = searchResponse?.query?.pages()?.let {
+                        val searchResults = searchResponse?.query?.pages?.let {
                             SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode),
                                 searchResponse.continuation,
                                 searchResponse.suggestion())
@@ -149,8 +149,10 @@ class SearchResultsFragment : Fragment() {
                         handleSuggestion(searchResults.suggestion)
                         val resultList = mutableListOf<SearchResult>()
                         addSearchResultsFromTabs(resultList)
-                        resultList.addAll(readingListSearchResults!!.results)
-                        resultList.addAll(historySearchResults.results)
+                        resultList.addAll(readingListSearchResults.results.filterNot { res ->
+                            resultList.map { it.pageTitle.prefixedText }.contains(res.pageTitle.prefixedText) }.take(1))
+                        resultList.addAll(historySearchResults.results.filterNot { res ->
+                            resultList.map { it.pageTitle.prefixedText }.contains(res.pageTitle.prefixedText) }.take(1))
                         resultList.addAll(searchResults.results)
                         resultList
                     })
@@ -237,7 +239,7 @@ class SearchResultsFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
-                    response.query?.pages()?.let {
+                    response.query?.pages?.let {
                         // noinspection ConstantConditions
                         return@map SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode), response.continuation, null)
                     }
@@ -297,7 +299,7 @@ class SearchResultsFragment : Fragment() {
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .flatMap { response ->
-                                response.query?.pages()?.let {
+                                response.query?.pages?.let {
                                     return@flatMap Observable.just(response)
                                 }
                                 ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null)
@@ -305,7 +307,7 @@ class SearchResultsFragment : Fragment() {
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { response -> response.query?.pages()?.size ?: 0 }
+                .map { response -> response.query?.pages?.size ?: 0 }
     }
 
     private fun updateProgressBar(enabled: Boolean) {
@@ -414,7 +416,7 @@ class SearchResultsFragment : Fragment() {
             languageCodeText.visibility = if (resultsCountList.size == 1) View.GONE else View.VISIBLE
             languageCodeText.text = langCode
             languageCodeText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            languageCodeText.backgroundTintList = if (resultsCount == 0) secondaryColorStateList else accentColorStateList
+            ViewCompat.setBackgroundTintList(languageCodeText, if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             formatLangButton(languageCodeText, langCode,
                     SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             view.isEnabled = resultsCount > 0

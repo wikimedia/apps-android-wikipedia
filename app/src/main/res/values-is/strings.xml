@@ -136,7 +136,7 @@
   <string name="create_account_passwords_mismatch_error">Lykilorðin samsvara ekki</string>
   <string name="create_account_email_error">Ógilt netfang</string>
   <string name="create_account_username_error">Ógildir stafir í notandanafni</string>
-  <string name="create_account_password_error">Ógilt lykilorð</string>
+  <string name="create_account_password_error" fuzzy="true">Ógilt lykilorð</string>
   <string name="create_account_generic_error">Gat ekki búið til notandaaðgang</string>
   <string name="create_account_next">Næsta</string>
   <string name="email_recommendation_dialog_title">Stofna aðgang án tölvupóstfangs?</string>
@@ -513,7 +513,7 @@
   <string name="preference_title_notification_mention">Minnst á</string>
   <string name="preference_summary_notification_mention">Einhver minntist á þig á síðu</string>
   <string name="preference_title_notification_user_talk">Spjallsíða</string>
-  <string name="preference_summary_notification_user_talk">Skilaboð frá spjallsíðum</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Skilaboð frá spjallsíðum</string>
   <string name="view_because_you_read_card_title">Því þú last</string>
   <string name="view_random_card_title">Slembið</string>
   <string name="view_next_random_article">Hlaða inn annari handahófsvalinni grein</string>

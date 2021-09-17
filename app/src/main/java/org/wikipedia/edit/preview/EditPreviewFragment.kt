@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.wikipedia.R
@@ -136,7 +137,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     }
 
     fun setCustomSummary(summary: String) {
-        otherTag.text = if (summary.isNotEmpty()) summary else getString(R.string.edit_summary_tag_other)
+        otherTag.text = summary.ifEmpty { getString(R.string.edit_summary_tag_other) }
         otherTag.isSelected = summary.isNotEmpty()
     }
 
@@ -155,7 +156,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         val postData = "wikitext=" + UriUtil.encodeURL(wikiText)
         binding.editPreviewWebview.postUrl(url, postData.toByteArray())
         ViewAnimations.fadeIn(binding.editPreviewContainer) { requireActivity().invalidateOptionsMenu() }
-        ViewAnimations.fadeOut(requireActivity().findViewById(R.id.edit_section_container))
+        ViewAnimations.fadeOut(ActivityCompat.requireViewById(requireActivity(), R.id.edit_section_container))
     }
 
     private fun initWebView() {

@@ -2,6 +2,7 @@
 <!-- Authors:
 * Aktron
 * Bsitzmann
+* Clon
 * Cvanca
 * Dbrant
 * Dvorapa
@@ -170,7 +171,7 @@
   <string name="create_account_passwords_mismatch_error">Hesla se neshodují</string>
   <string name="create_account_email_error">Neplatná e-mailová adresa</string>
   <string name="create_account_username_error">V uživatelském jménu jsou nepovolené znaky</string>
-  <string name="create_account_password_error">Heslo není platné</string>
+  <string name="create_account_password_error">Heslo musí mít alespoň 8 znaků</string>
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="create_account_next">Další</string>
   <string name="email_recommendation_dialog_title">Chcete vytvořit účet bez e-mailové adresy?</string>
@@ -184,6 +185,7 @@
   <string name="create_account_ip_block_help_url">https://cs.wikipedia.org/wiki/Wikipedie:Blokování</string>
   <string name="create_account_ip_block_details">Detaily</string>
   <string name="preferences_general_heading">Obecné</string>
+  <string name="preferences_account_heading">Účet</string>
   <string name="wikipedia_app_faq">FAQ aplikace Wikipedie</string>
   <string name="send_feedback">Poslat zpětnou vazbu</string>
   <string name="create_account_account_created_toast">Účet založen!</string>
@@ -382,6 +384,12 @@
   <string name="page_footer_license_text">Obsah je dostupný pod $1, pokud není uvedeno jinak</string>
   <string name="empty_tab_title">Nová záložka</string>
   <string name="menu_save_all_tabs">Uložit všechny záložky</string>
+  <string name="error_blocked_title">Vaše uživatelské jméno nebo IP adresa byly zablokované.</string>
+  <string name="error_blocked_by">Zablokování provedl(a) &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Uvedené zdůvodnění je: %s</string>
+  <string name="error_blocked_start">Začátek blokování: %s</string>
+  <string name="error_blocked_expiry">Konec blokování: %s</string>
+  <string name="error_blocked_id">ID blokování: %s</string>
   <string name="crash_report_activity_title">Chyba aplikace</string>
   <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedie došlo k chybě a byla ukončena.\n\nChcete aplikaci otevřít znovu nebo ji ukončit?</string>
   <string name="crash_report_relaunch">Otevřít znovu</string>
@@ -603,7 +611,7 @@
   <string name="preference_title_notification_mention">Zmínka</string>
   <string name="preference_summary_notification_mention">Někdo vás zmínil v diskusi</string>
   <string name="preference_title_notification_user_talk">Diskusní stránka</string>
-  <string name="preference_summary_notification_user_talk">Zprávy na vaší diskusi</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Zprávy na vaší diskusi</string>
   <string name="view_because_you_read_card_title">Protože jste četli</string>
   <string name="view_random_card_title">Náhodný článek</string>
   <string name="view_random_article_card_title">Náhodný článek</string>
@@ -754,6 +762,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulek obrázku (v jazyce %s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Soubor</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Soubor z Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umělec</string>
   <string name="suggested_edits_image_preview_dialog_tags">Značky</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
@@ -956,6 +965,7 @@
   <string name="talk_title">Diskuse</string>
   <string name="talk_user_title">Diskuse: %s</string>
   <string name="talk_new_topic">Nové téma</string>
+  <string name="talk_new_topic_submitted">Téma zveřejněno.</string>
   <string name="talk_page_empty">Tato diskusní stránka je prázdná.</string>
   <string name="talk_add_reply">Odpovědět</string>
   <string name="talk_no_subject">(Bez předmětu)</string>
@@ -964,6 +974,9 @@
   <string name="talk_message_hint">Napište zprávu</string>
   <string name="talk_message_empty">Zpráva nemůže být prázdná.</string>
   <string name="talk_subject_empty">Předmět nemůže být prázdný.</string>
+  <string name="talk_response_submitted">Odpověď zveřejněna.</string>
+  <string name="talk_snackbar_undo">Zpět</string>
+  <string name="talk_last_modified">&lt;b&gt;Naposledy upravil(a) %1$s&lt;/b&gt; %2$s</string>
   <string name="menu_option_share_edit">Sdílet editaci</string>
   <string name="menu_option_user_profile">Profil uživatele %s</string>
   <string name="menu_option_user_contributions">Příspěvky uživatele/uživatelky %s</string>

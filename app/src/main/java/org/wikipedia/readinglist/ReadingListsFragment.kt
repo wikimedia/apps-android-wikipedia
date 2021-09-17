@@ -22,6 +22,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentReadingListsBinding
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.feed.FeedFragment
@@ -33,17 +34,11 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import java.util.*
@@ -118,12 +113,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         actionMode?.finish()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        if ((requireActivity() as MainActivity).isCurrentFragmentSelected(this)) {
-            inflater.inflate(R.menu.menu_reading_lists, menu)
-        }
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_search_lists -> {
@@ -184,7 +173,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
             ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
                     existingTitles) { text, description ->
-                ReadingListDbHelper.createList(text, description)
+                AppDatabase.getAppDatabase().readingListDao().createList(text, description)
                 updateLists()
             }.show()
         }
@@ -439,8 +428,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 it.touch()
                 Completable.fromAction {
-                    ReadingListDbHelper.updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
-                    ReadingListDbHelper.updatePage(it)
+                    AppDatabase.getAppDatabase().readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
+                    AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(it)
                 }.subscribeOn(Schedulers.io()).subscribe()
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
@@ -453,10 +442,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 return true
             }
             return false
-        }
-
-        override fun onThumbClick(item: ReadingListPage?) {
-            onClick(item)
         }
 
         override fun onActionClick(item: ReadingListPage?, view: View) {

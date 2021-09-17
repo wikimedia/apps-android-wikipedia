@@ -11,6 +11,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.app.ActivityCompat
 import androidx.core.graphics.contains
 import androidx.core.view.forEach
 import java.lang.ref.WeakReference
@@ -50,7 +51,7 @@ class ImageZoomHelper(activity: Activity) {
         val activity = activityWeakReference.get() ?: return false
         if (ev.pointerCount == 2) {
             if (zoomableView == null) {
-                val view = findZoomableView(ev, activity.findViewById(android.R.id.content))
+                val view = findZoomableView(ev, ActivityCompat.requireViewById(activity, android.R.id.content))
                 if (view != null) {
                     zoomableView = view
 

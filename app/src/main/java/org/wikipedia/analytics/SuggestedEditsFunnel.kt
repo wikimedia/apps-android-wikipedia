@@ -98,7 +98,7 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
                 .create().toJson(statsCollection),
                 "help_opened", helpOpenedCount,
                 "scorecard_opened", contributionsOpenedCount,
-                "source", invokeSource.name
+                "source", invokeSource.value
         )
     }
 

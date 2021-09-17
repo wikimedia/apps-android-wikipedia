@@ -143,7 +143,7 @@
   <string name="create_account_passwords_mismatch_error">La pasovorti neegalesas</string>
   <string name="create_account_email_error">IP-adreso ne esas valida</string>
   <string name="create_account_username_error">Existas nevalida signi en la uzantonomo</string>
-  <string name="create_account_password_error">La pasovorto esas nevalida</string>
+  <string name="create_account_password_error">La pasovorto mustas havar adminime 8 literi/signi</string>
   <string name="create_account_generic_error">Ne povis krear konto</string>
   <string name="create_account_next">Sequanta</string>
   <string name="email_recommendation_dialog_title">Krear konto sen adreso di e-posto?</string>
@@ -408,7 +408,7 @@
   <string name="preference_summary_notification_revert">Un ek vua kontributaji desfacesis</string>
   <string name="preference_title_notification_login_fail">Enirar</string>
   <string name="preference_title_notification_user_talk">Diskuto-pagino</string>
-  <string name="preference_summary_notification_user_talk">Mesaji de diskuto-pagini</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Mesaji de diskuto-pagini</string>
   <string name="view_because_you_read_card_title">Pro ke vu lektis</string>
   <string name="view_random_card_title">Hazarda selekto</string>
   <string name="view_random_article_card_title">Hazard artiklo</string>

@@ -6,18 +6,18 @@ import org.wikipedia.feed.model.CardType
 
 open class AnnouncementCard(private val announcement: Announcement) : Card() {
 
-    val isArticlePlacement get() = Announcement.PLACEMENT_ARTICLE == announcement.placement()
+    val isArticlePlacement get() = Announcement.PLACEMENT_ARTICLE == announcement.placement
 
     override fun title(): String {
-        return announcement.type()
+        return announcement.type
     }
 
     override fun extract(): String? {
-        return announcement.text()
+        return announcement.text
     }
 
     override fun image(): Uri {
-        return Uri.parse(announcement.imageUrl())
+        return Uri.parse(announcement.imageUrl.orEmpty())
     }
 
     override fun type(): CardType {
@@ -25,12 +25,12 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     }
 
     override fun dismissHashCode(): Int {
-        return announcement.id().hashCode()
+        return announcement.id.hashCode()
     }
 
     fun imageHeight(): Int {
         return try {
-            announcement.imageHeight().toInt()
+            announcement.imageHeight.orEmpty().ifEmpty { "0" }.toInt()
         } catch (e: NumberFormatException) {
             0
         }
@@ -49,7 +49,7 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     }
 
     fun negativeText(): String? {
-        return announcement.negativeText()
+        return announcement.negativeText
     }
 
     fun hasFooterCaption(): Boolean {
@@ -57,7 +57,7 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     }
 
     fun footerCaption(): String {
-        return announcement.footerCaption()
+        return announcement.footerCaption.orEmpty()
     }
 
     fun hasImage(): Boolean {
@@ -65,6 +65,6 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     }
 
     fun hasBorder(): Boolean {
-        return announcement.hasBorder()
+        return announcement.border == true
     }
 }

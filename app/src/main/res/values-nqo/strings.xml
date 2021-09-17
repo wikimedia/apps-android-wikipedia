@@ -146,7 +146,7 @@
   <string name="create_account_passwords_mismatch_error">ߕߊ߬ߡߌ߲߬ߞߊ߲ ߡߊ߫ ߕߊ߬ߡߌ߲߬.</string>
   <string name="create_account_email_error">ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߍ߲߬ߣߍ߲߬ ߕߍ߫</string>
   <string name="create_account_username_error">ߛߓߍߘߋ߲ ߓߍ߲߬ߓߊߟߌ ߟߎ߬ ߦߋ߫ ߕߐ߯ ߟߊߓߊ߯ߙߕߊ ߘߐ߫</string>
-  <string name="create_account_password_error">ߕߊ߬ߡߌ߲߬ߞߊ߲ ߓߍ߲߬ߣߍ߲߫ ߕߍ߫</string>
+  <string name="create_account_password_error" fuzzy="true">ߕߊ߬ߡߌ߲߬ߞߊ߲ ߓߍ߲߬ߣߍ߲߫ ߕߍ߫</string>
   <string name="create_account_generic_error">ߊ߬ ߕߍߣߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߛߌ߲ߘߌ߫ ߟߊ߫</string>
   <string name="create_account_next">ߢߍߕߊ</string>
   <string name="email_recommendation_dialog_title">ߞߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߟߊߞߊ߬ ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ߫ ߕߍ߫؟</string>
@@ -508,7 +508,7 @@
   <string name="preference_summary_notification_login_fail">ߌ ߟߊ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߡߛߍ߬ߞߍ߬ߡߛߍߞߍ ߟߎ߫</string>
   <string name="preference_summary_notification_mention">ߘߏߕߌ߰ ߓߘߴߌ ߕߐ߮ ߘߐߕߍ߰ ߞߐߜߍ ߘߐ߫</string>
   <string name="preference_title_notification_user_talk">ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ</string>
-  <string name="preference_summary_notification_user_talk">ߗߋߛߓߍ ߞߊ߬ ߝߘߊ߫ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߊ߫</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">ߗߋߛߓߍ ߞߊ߬ ߝߘߊ߫ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߊ߫</string>
   <string name="view_because_you_read_card_title">ߞߊ߬ߡߊߛߐ߬ߘߐ߲߬ ߌ ߓߘߊ߫ ߘߐ߬ߞߊ߲߬ߠߌ߲ ߞߍ߫</string>
   <string name="view_random_card_title">ߞߎ߲߬ߝߍ߬ߦߊ߬ߣߍ߲</string>
   <string name="view_random_article_card_title">ߓߍ߲߬ߛߋ߲߬ߡߊ߫ ߞߎߡߘߊ</string>

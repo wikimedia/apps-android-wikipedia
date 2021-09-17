@@ -142,7 +142,7 @@
   <string name="create_account_passwords_mismatch_error">ڳجھالفظ نٿا ملن</string>
   <string name="create_account_email_error">ناقابلِڪار برقٽپال پتو</string>
   <string name="create_account_username_error">واپرائيندڙ-نانءَ ۾ ناقابلڪار نشانيون</string>
-  <string name="create_account_password_error">ڳجھولفظ ناقابلِڪار آھي</string>
+  <string name="create_account_password_error" fuzzy="true">ڳجھولفظ ناقابلِڪار آھي</string>
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
   <string name="email_recommendation_dialog_title">بغير برقٽپال جي کاتو کوليون؟</string>
@@ -516,7 +516,7 @@
   <string name="preference_title_notification_mention">ذڪر ڪريو</string>
   <string name="preference_summary_notification_mention">ڪو توھان جو ڪنھن صفحي تي ذڪر ڪري ٿو</string>
   <string name="preference_title_notification_user_talk">بحث صفحو</string>
-  <string name="preference_summary_notification_user_talk">بحث صفحن کان پيغام</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">بحث صفحن کان پيغام</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
   <string name="view_random_card_title">بلاترتيبڪار</string>
   <string name="view_random_article_card_title">بلاترتيب مضمون</string>

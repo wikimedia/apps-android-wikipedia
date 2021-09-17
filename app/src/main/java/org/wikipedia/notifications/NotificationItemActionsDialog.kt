@@ -13,7 +13,11 @@ import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.NotificationFunnel
+import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Companion.ACTION_LINK_CLICKED
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Companion.ACTION_PRIMARY
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Companion.ACTION_SECONDARY
 import org.wikipedia.databinding.ViewNotificationActionsBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.GsonUtil
@@ -38,10 +42,11 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
     private var actionClickListener = View.OnClickListener {
         val link = it.tag as Notification.Link
-        val linkIndex = if (it.id == R.id.notification_action_primary) 1 else if (it.id == R.id.notification_action_secondary) 2 else 3
+        val linkIndex = if (it.id == R.id.notification_action_primary) ACTION_PRIMARY else if (it.id == R.id.notification_action_secondary) ACTION_SECONDARY else ACTION_LINK_CLICKED
         val url = link.url
         if (url.isNotEmpty()) {
-            NotificationFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
+            NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
+            NotificationInteractionEvent.logAction(notification, linkIndex, link)
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")
         }
@@ -54,7 +59,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         linkHandler = NotificationLinkHandler(requireContext())
         notification.contents?.let {
             binding.notificationItemText.text = StringUtil.fromHtml(it.header).toString()
-            it.links?.primary?.let { primary ->
+            it.links?.getPrimary()?.let { primary ->
                 setUpViewForLink(binding.notificationActionPrimary, binding.notificationActionPrimaryIcon, binding.notificationActionPrimaryText, primary)
                 binding.notificationActionPrimary.visibility = View.VISIBLE
             }
@@ -92,11 +97,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun setUpViewForLink(containerView: View, iconView: AppCompatImageView, labelView: TextView, link: Notification.Link) {
-        if (link.tooltip.isNotEmpty()) {
-            labelView.text = StringUtil.fromHtml(link.tooltip)
-        } else {
-            labelView.text = StringUtil.fromHtml(link.label)
-        }
+        labelView.text = StringUtil.fromHtml(link.tooltip.ifEmpty { link.label })
         if ("userAvatar" == link.icon) {
             iconView.setImageResource(R.drawable.ic_user_avatar)
         } else {

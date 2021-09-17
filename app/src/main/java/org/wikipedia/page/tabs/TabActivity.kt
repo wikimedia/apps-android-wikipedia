@@ -83,7 +83,7 @@ class TabActivity : BaseActivity() {
                     descriptionText.text = title.description
                     descriptionText.visibility = View.VISIBLE
                 }
-                L10nUtil.setConditionalLayoutDirection(view, title.wikiSite.languageCode())
+                L10nUtil.setConditionalLayoutDirection(view, title.wikiSite.languageCode)
             }
 
             override fun getViewType(tab: de.mrapp.android.tabswitcher.Tab, index: Int): Int {

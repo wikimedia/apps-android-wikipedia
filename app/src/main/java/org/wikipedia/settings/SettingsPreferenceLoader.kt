@@ -10,13 +10,12 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.auth.AccountUtil.isLoggedIn
-import org.wikipedia.auth.AccountUtil.userName
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.theme.ThemeFittingRoomActivity.Companion.newIntent
+import org.wikipedia.theme.ThemeFittingRoomActivity
 
 /** UI code for app settings used by PreferenceFragment.  */
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -48,13 +47,18 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         findPreference(R.string.preference_key_color_theme).let {
             it.setSummary(WikipediaApp.getInstance().currentTheme.nameId)
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                activity.startActivity(newIntent(activity))
+                activity.startActivity(ThemeFittingRoomActivity.newIntent(activity))
                 true
             }
         }
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity.startActivity(Intent(activity, AboutActivity::class.java))
             true
+        }
+
+        if (AccountUtil.isLoggedIn) {
+            loadPreferences(R.xml.preferences_account)
+            (findPreference(R.string.preference_key_logout) as LogoutPreference).activity = activity
         }
     }
 
@@ -65,14 +69,14 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {
         override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
-            if (isLoggedIn) {
+            if (AccountUtil.isLoggedIn) {
                 if (newValue as Boolean) {
                     (preference as SwitchPreferenceCompat).isChecked = true
                     ReadingListSyncAdapter.setSyncEnabledWithSetup()
                 } else {
                     AlertDialog.Builder(activity)
-                            .setTitle(activity.getString(R.string.preference_dialog_of_turning_off_reading_list_sync_title, userName))
-                            .setMessage(activity.getString(R.string.preference_dialog_of_turning_off_reading_list_sync_text, userName))
+                            .setTitle(activity.getString(R.string.preference_dialog_of_turning_off_reading_list_sync_title, AccountUtil.userName))
+                            .setMessage(activity.getString(R.string.preference_dialog_of_turning_off_reading_list_sync_text, AccountUtil.userName))
                             .setPositiveButton(R.string.reading_lists_confirm_remote_delete_yes, DeleteRemoteListsYesListener(preference))
                             .setNegativeButton(R.string.reading_lists_confirm_remote_delete_no, null)
                             .show()
@@ -97,8 +101,8 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     fun updateSyncReadingListsPrefSummary() {
         findPreference(R.string.preference_key_sync_reading_lists).let {
-            if (isLoggedIn) {
-                it.summary = activity.getString(R.string.preference_summary_sync_reading_lists_from_account, userName)
+            if (AccountUtil.isLoggedIn) {
+                it.summary = activity.getString(R.string.preference_summary_sync_reading_lists_from_account, AccountUtil.userName)
             } else {
                 it.setSummary(R.string.preference_summary_sync_reading_lists)
             }

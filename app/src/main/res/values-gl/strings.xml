@@ -149,7 +149,7 @@
   <string name="create_account_passwords_mismatch_error">Os contrasinais non coinciden</string>
   <string name="create_account_email_error">O enderezo de correo electrónico non é válido</string>
   <string name="create_account_username_error">Caracteres non válidos no nome de usuario</string>
-  <string name="create_account_password_error">O contrasinal non é válido</string>
+  <string name="create_account_password_error" fuzzy="true">O contrasinal non é válido</string>
   <string name="create_account_generic_error">Non se puido crear a conta</string>
   <string name="create_account_next">Seguinte</string>
   <string name="email_recommendation_dialog_title">Crear unha conta sen enderezo de correo electrónico?</string>
@@ -540,7 +540,7 @@
   <string name="preference_title_notification_mention">Mención</string>
   <string name="preference_summary_notification_mention">Alguén menciónao nunha páxina</string>
   <string name="preference_title_notification_user_talk">Páxina de conversa</string>
-  <string name="preference_summary_notification_user_talk">Mensaxes das páxinas de conversa</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Mensaxes das páxinas de conversa</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_article_card_title">Artigo ao chou</string>

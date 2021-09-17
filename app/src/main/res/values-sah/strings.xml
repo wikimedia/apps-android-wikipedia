@@ -139,7 +139,7 @@
   <string name="create_account_passwords_mismatch_error">Аһарыктарыҥ сөп түбэспэтилэр</string>
   <string name="create_account_email_error">Э-почтаҥ алҕастаах</string>
   <string name="create_account_username_error">Бэлиэ-аакка туһаныллыбат бэлиэлэр туран хаалбыттар</string>
-  <string name="create_account_password_error">Табыллыбат аhaрык</string>
+  <string name="create_account_password_error" fuzzy="true">Табыллыбат аhaрык</string>
   <string name="create_account_generic_error">Бэлиэтэнэр сатаммат</string>
   <string name="create_account_next">Аныгыскы</string>
   <string name="email_recommendation_dialog_title">Электрон аадырыһа суох бэлиэтэнэҕин дуо?</string>
@@ -496,7 +496,7 @@
   <string name="preference_title_notification_mention">Эйигин ахтыыылара</string>
   <string name="preference_summary_notification_mention">Ким эрэ эйигин ахтыбыт</string>
   <string name="preference_title_notification_user_talk">Ырытар сирэйгэ</string>
-  <string name="preference_summary_notification_user_talk">Ырытыы сирэйдэригэр</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Ырытыы сирэйдэригэр</string>
   <string name="view_because_you_read_card_title">Тоҕо диэтэххэ ыстатыйаны аахпыккын</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_next_random_article">Атын түбэспиччэ ыстатыйа</string>

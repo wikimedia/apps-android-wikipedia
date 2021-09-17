@@ -151,7 +151,7 @@
   <string name="create_account_passwords_mismatch_error">Maxfiy so‘zlar mos kelmadi</string>
   <string name="create_account_email_error">Noto‘g‘ri elektron pochta manzili</string>
   <string name="create_account_username_error">Foydalanuvchi nomidagi belgilar noto‘g‘ri</string>
-  <string name="create_account_password_error">Parol shikastlangan</string>
+  <string name="create_account_password_error">Parol kamida 8 ta belgidan iborat boʻlsin</string>
   <string name="create_account_generic_error">Akkaunt tuzib bo‘lmadi</string>
   <string name="create_account_next">Keyingi</string>
   <string name="email_recommendation_dialog_title">Elektron pochtasiz akkaunt tuzmoqchimisiz?</string>
@@ -165,6 +165,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Tafsilotlar</string>
   <string name="preferences_general_heading">Umumiy</string>
+  <string name="preferences_account_heading">Akkaunt</string>
   <string name="wikipedia_app_faq">Savollarga javoblar</string>
   <string name="send_feedback">Dastur haqida fikr bildirish</string>
   <string name="create_account_account_created_toast">Hisob yozuvi yaratildi!</string>
@@ -588,7 +589,7 @@
   <string name="preference_title_notification_mention">Eslatma</string>
   <string name="preference_summary_notification_mention">Kimdir Sizga sahifada eslatma berdi</string>
   <string name="preference_title_notification_user_talk">Suhbat sahifasi</string>
-  <string name="preference_summary_notification_user_talk">Suhbatlardan kelgan xabarlar</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Suhbatlardan kelgan xabarlar</string>
   <string name="view_because_you_read_card_title">Oʻqiganingiz uchun tavsiya etildi</string>
   <string name="view_random_card_title">Tasodifiy tartibda</string>
   <string name="view_random_article_card_title">Tasodifiy maqola</string>

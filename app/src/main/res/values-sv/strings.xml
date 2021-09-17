@@ -51,6 +51,7 @@
   <string name="app_settings">Applikationsinställningar</string>
   <string name="search_tab_tooltip">Tryck på ikonen igen för att börja skriva en sökterm.</string>
   <string name="history_list_title">Historik</string>
+  <string name="image_content_description">Bild: %s</string>
   <string name="dialog_title_clear_history">Rensa läsarhistoriken</string>
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -161,7 +162,7 @@
   <string name="create_account_passwords_mismatch_error">Lösenorden matchar inte</string>
   <string name="create_account_email_error">Ogiltig e-postadress</string>
   <string name="create_account_username_error">Ogiltiga tecken i användarnamnet</string>
-  <string name="create_account_password_error">Lösenordet är ogiltigt</string>
+  <string name="create_account_password_error">Lösenordet måste vara minst 8 tecken</string>
   <string name="create_account_generic_error">Kan inte skapa konto</string>
   <string name="create_account_next">Nästa</string>
   <string name="email_recommendation_dialog_title">Skapa konto utan en e-postadress?</string>
@@ -175,6 +176,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Allmänt</string>
+  <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">Vanliga frågor om Wikipedia-appen</string>
   <string name="send_feedback">Skicka återkoppling om appen</string>
   <string name="create_account_account_created_toast">Konto har skapats!</string>
@@ -532,10 +534,12 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_reverted_title">Ogjord redigering</string>
+  <string name="notification_channel_title">Laddar ned artiklar</string>
   <string name="notification_channel_description">Nedladdningsförlopp</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Återuppta</string>
   <string name="notification_syncing_cancel_button">Avbryt</string>
+  <string name="notification_syncing_reading_list_channel_title">Synkroniserar läslistor</string>
   <string name="notification_syncing_reading_list_channel_description">Förlopp för synkronisering av läslistor</string>
   <string name="notification_many_unread">Du har %d olästa aviseringar</string>
   <plurals name="notification_channel_name">
@@ -581,6 +585,7 @@
   <string name="notifications_view_archived_button_text">Visa arkiverade aviseringar</string>
   <string name="notification_preferences_title">Aviseringsinställningar</string>
   <string name="notifications_mark_unread">Markera som oläst</string>
+  <string name="notifications_mark_all_as_read">Markera alla som lästa</string>
   <string name="watchlist_title">Bevakningslista</string>
   <string name="preference_title_notification_poll">Aktivera aviseringar</string>
   <string name="preference_summary_notification_poll">Tillåt appen att använda data för att leta efter nya aviseringar i bakgrunden.</string>
@@ -598,7 +603,21 @@
   <string name="preference_title_notification_mention">Omnämnande</string>
   <string name="preference_summary_notification_mention">Någon nämner dig på en sida</string>
   <string name="preference_title_notification_user_talk">Diskussionssida</string>
-  <string name="preference_summary_notification_user_talk">Meddelanden från diskussionssidor</string>
+  <string name="preference_summary_notification_user_talk">Meddelanden och svar från diskussionssidor</string>
+  <string name="preference_title_notification_email_user">E-post har mottagits</string>
+  <string name="preference_summary_notification_email_user">Någon skickade dig ett e-postmeddelande från wikin</string>
+  <string name="preference_title_notification_user_rights">Ändrade användarrättigheter</string>
+  <string name="preference_summary_notification_user_rights">Tas emot när din användarrättigheter ändras</string>
+  <string name="preference_title_notification_article_linked">Länkar till artiklar du har skapat</string>
+  <string name="preference_summary_notification_article_linked">Tas emot när en ny länk skapas till en sida du har skapat</string>
+  <string name="preference_category_push_notifications">Push-notiser</string>
+  <string name="preference_title_customize_push_notifications">Anpassa push-notiser</string>
+  <string name="preference_category_display_settings">Visningsinställningar</string>
+  <string name="preference_title_hide_read_notifications">Dölj lästa aviseringar</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Aviseringar från Wikipedia</string>
+  <string name="notifications_channel_group_other_title">Övrigt</string>
+  <string name="notifications_channel_group_other_description">Andra aviseringar från appen</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Slumpartikel</string>
   <string name="view_random_article_card_title">Slumpartikel</string>
@@ -984,6 +1003,8 @@
   <string name="menu_option_user_contributions">%ss bidrag</string>
   <string name="watchlist_details_watching_label">Bevakar</string>
   <string name="watchlist_details_watch_label">Bevaka</string>
+  <string name="watchlist_details_next_edit">Nästa redigering</string>
+  <string name="watchlist_details_prev_edit">Föregående redigering</string>
   <string name="thank_label">Tacka</string>
   <string name="go_to_user_page">Gå till användarsidan</string>
   <string name="thank_dialog_title_text">Skicka offentligt tack</string>

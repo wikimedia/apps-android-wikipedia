@@ -55,6 +55,7 @@
   <string name="app_settings">הגדרות היישום</string>
   <string name="search_tab_tooltip">לחץ על הסמל שוב כדי להתחיל ישר להקליד את מילת החיפוש.</string>
   <string name="history_list_title">היסטוריה</string>
+  <string name="image_content_description">תמונה: %s</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="dialog_message_clear_history_yes">כן</string>
@@ -165,7 +166,7 @@
   <string name="create_account_passwords_mismatch_error">הסיסמאות אינן תואמות</string>
   <string name="create_account_email_error">כתובת דוא\"ל שגויה</string>
   <string name="create_account_username_error">תווים בלתי־תקינים בשם המשתמש</string>
-  <string name="create_account_password_error">הסיסמה אינה תקינה</string>
+  <string name="create_account_password_error">הסיסמה צריכה להיות באורך 8 תווים לפחות</string>
   <string name="create_account_generic_error">לא היה ניתן ליצור חשבון</string>
   <string name="create_account_next">הבא</string>
   <string name="email_recommendation_dialog_title">ליצור חשבון ללא כתובת דואר אלקטרוני?</string>
@@ -179,6 +180,7 @@
   <string name="create_account_ip_block_help_url">https://he.wikipedia.org/wiki/WP:BLOCK</string>
   <string name="create_account_ip_block_details">פרטים</string>
   <string name="preferences_general_heading">כללי</string>
+  <string name="preferences_account_heading">חשבון</string>
   <string name="wikipedia_app_faq">שו\"ת יישום ויקיפדיה</string>
   <string name="send_feedback">לשלוח משוב על היישום</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
@@ -493,7 +495,7 @@
   <string name="reading_lists_sync_reminder_text">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
-  <string name="reading_list_login_reminder_title">סנכרן רשימות קריאה</string>
+  <string name="reading_list_login_reminder_title">סנכרון רשימות קריאה</string>
   <string name="reading_lists_login_reminder_text">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
   <string name="reading_lists_login_button">כניסה / הצטרפות לוויקיפדיה</string>
   <string name="reading_lists_ignore_button">לא כעת</string>
@@ -552,10 +554,12 @@
   <string name="reading_list_split_dialog_ok_button_text">אישור</string>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_reverted_title">עריכה משוחזרת</string>
+  <string name="notification_channel_title">הורדת ערכים</string>
   <string name="notification_channel_description">התקדמות הורדה</string>
   <string name="notification_syncing_pause_button">השהיה</string>
   <string name="notification_syncing_resume_button">המשך</string>
   <string name="notification_syncing_cancel_button">ביטול</string>
+  <string name="notification_syncing_reading_list_channel_title">מתבצע סנכרון רשימות קריאה</string>
   <string name="notification_syncing_reading_list_channel_description">התקדמות סנכרון רשימות קריאה</string>
   <string name="notification_many_unread">יש לך %d התראות שלא נקראו</string>
   <plurals name="notification_channel_name">
@@ -615,6 +619,7 @@
   <string name="notifications_view_archived_button_text">להציג הודעות בארכיון</string>
   <string name="notification_preferences_title">העדפות הודעות</string>
   <string name="notifications_mark_unread">סימון כהודעה שלא נקראה</string>
+  <string name="notifications_mark_all_as_read">לסמן שהכול נקרא</string>
   <string name="watchlist_title">רשימת המעקב</string>
   <string name="preference_title_notification_poll">דגימת הודעות</string>
   <string name="preference_summary_notification_poll">לאפשר ליישום להשתמש בנתונים כדי לבדוק הודעות חדשות ברקע.</string>
@@ -632,12 +637,26 @@
   <string name="preference_title_notification_mention">אזכור</string>
   <string name="preference_summary_notification_mention">אוזכרת על ידי מישהו בדף</string>
   <string name="preference_title_notification_user_talk">דף שיחה</string>
-  <string name="preference_summary_notification_user_talk">הודעות מדפי שיחה</string>
+  <string name="preference_summary_notification_user_talk">הודעות ותשובות מדפי שיחה</string>
+  <string name="preference_title_notification_email_user">הגיעה דוא\"ל</string>
+  <string name="preference_summary_notification_email_user">מישהו שלח לך דוא\"ל דרך הוויקי</string>
+  <string name="preference_title_notification_user_rights">שינויי הרשאות משתמש</string>
+  <string name="preference_summary_notification_user_rights">מתקבלת כשהרשאות המשתמש שלך משתנות</string>
+  <string name="preference_title_notification_article_linked">קישורים לערכים שיצרת</string>
+  <string name="preference_summary_notification_article_linked">מתקבלת כשנוצר קישור חדש לערך שיצרת</string>
+  <string name="preference_category_push_notifications">הודעות דחיפה</string>
+  <string name="preference_title_customize_push_notifications">התאמה אישית של הודעות דחיפה</string>
+  <string name="preference_category_display_settings">הגדרות תצוגה</string>
+  <string name="preference_title_hide_read_notifications">הסתרת הודעות שנקראו</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ויקיפדיה</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">התראות מוויקיפדיה</string>
+  <string name="notifications_channel_group_other_title">אחרות</string>
+  <string name="notifications_channel_group_other_description">התראות אחרות מהיישום</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_article_card_title">ערך אקראי</string>
   <string name="view_random_article_card_action">ערכים אקראיים נוספים</string>
-  <string name="view_top_read_card_title">ערכים מובילים</string>
+  <string name="view_top_read_card_title">הנקראים ביותר</string>
   <string name="view_top_read_card_action">ערכים מובילים נוספים</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d אלפים</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d מיליון</string>
@@ -1024,7 +1043,7 @@
   <string name="talk_title">שיחה</string>
   <string name="talk_user_title">שיחה: %s</string>
   <string name="talk_new_topic">נושא חדש</string>
-  <string name="talk_new_topic_submitted">הנושא נשלח.</string>
+  <string name="talk_new_topic_submitted">הנושא פורסם.</string>
   <string name="talk_page_empty">דף השיחה הזה ריק.</string>
   <string name="talk_add_reply">להגיב</string>
   <string name="talk_no_subject">(ללא כותרת)</string>
@@ -1033,7 +1052,7 @@
   <string name="talk_message_hint">כתיבת הודעה</string>
   <string name="talk_message_empty">ההודעה אינה יכולה להיות ריקה.</string>
   <string name="talk_subject_empty">הכותרת אינה יכולה להיות ריקה.</string>
-  <string name="talk_response_submitted">התגובה נשלחה.</string>
+  <string name="talk_response_submitted">התגובה פורסמה.</string>
   <string name="talk_snackbar_undo">ביטול</string>
   <string name="talk_last_modified">&lt;b&gt;נערך לאחרונה ב־%1$s&lt;/b&gt; על־ידי %2$s</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
@@ -1041,6 +1060,8 @@
   <string name="menu_option_user_contributions">התרומות של %s</string>
   <string name="watchlist_details_watching_label">במעקב</string>
   <string name="watchlist_details_watch_label">לעקוב</string>
+  <string name="watchlist_details_next_edit">העריכה הבאה</string>
+  <string name="watchlist_details_prev_edit">העריכה הקודמת</string>
   <string name="thank_label">תודה</string>
   <string name="go_to_user_page">מעבר לדף משתמש</string>
   <string name="thank_dialog_title_text">שליחת \"תודה\" באופן ציבורי</string>

@@ -4,6 +4,7 @@
 * Masalli qasimli
 * NMW03
 * Neriman2003
+* Serkanland
 * Toghrul Rahimli
 * Verman1
 * Vesely35
@@ -19,7 +20,9 @@
   <string name="page_tabs_back">Geri</string>
   <string name="nav_item_forward">Növbəti</string>
   <string name="search_hint">Vikipediyada axtar</string>
+  <string name="search_hint_voice_search">Səslə axtarış</string>
   <string name="search_hint_search_languages">Dili axtar</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Siyahılarımı süzgəcdən keçir</string>
   <string name="nav_item_suggested_edits">Redaktələr</string>
   <string name="nav_item_more">Daha</string>
   <string name="nav_item_search">Axtar</string>
@@ -31,12 +34,16 @@
   <string name="offline_load_error_retry">Yenidən cəhd edin</string>
   <string name="page_error_back_to_main">Geriyə</string>
   <string name="error_back">Geriyə</string>
+  <string name="error_next">Növbəti</string>
   <string name="menu_clear_all_history">Tarixçəni sil</string>
   <string name="history_item_deleted">tarixçə %s silindi</string>
   <string name="history_items_deleted">%d məqalə tarixdən silindi</string>
   <string name="history_item_delete_undo">Ləğv et</string>
   <string name="notification_archive_undo">Geri</string>
   <string name="app_settings">Tətbiqetmə parametrləri</string>
+  <string name="search_tab_tooltip">Axtarış terminini birbaşa yazmağa başlamaq üçün yenidən ikona toxunun.</string>
+  <string name="history_list_title">Tarixçə</string>
+  <string name="image_content_description">Şəkil: %s</string>
   <string name="dialog_title_clear_history">Baxış tarixini təmizləyin</string>
   <string name="dialog_message_clear_history">Bu, bütün axtarış tarixinizi siləcək və açıq pəncərələrinizi bağlayacaq. Siz əminsiniz?</string>
   <string name="dialog_message_clear_history_yes">Bəli</string>
@@ -46,7 +53,11 @@
   <string name="search_redirect_from">%s səhifəsindən istiqamətləndirildi</string>
   <string name="menu_page_show_tabs">Pəncərələri göstər</string>
   <string name="menu_page_other_languages">Dili dəyiş</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Səhifədə axtar</string>
+  <string name="menu_page_find_in_page">Səhifədə axtar</string>
+  <string name="menu_page_add_to_watchlist">İzləmə siyahısına əlavə et</string>
+  <string name="menu_page_view_talk">Müzakirə səhifəsini göstər</string>
+  <string name="menu_page_view_edit_history">Redaktə tarixçəsinə baxın</string>
+  <string name="menu_page_remove_from_watchlist">İzləmə siyahısından silin</string>
   <string name="edit_section_find_in_page">Səhifədə axtar</string>
   <string name="menu_page_font_and_theme">Şrift və tərtibatı dəyiş</string>
   <string name="menu_page_add_to_list">Oxuma siyahısına əlavə et</string>
@@ -55,6 +66,7 @@
   <string name="feed_card_add_to_default_list">Qeyd et</string>
   <string name="menu_page_share">İstinadı paylaş</string>
   <string name="menu_page_open_a_new_tab">Səhifəni yeni pəncərədə aç</string>
+  <string name="menu_page_new_tab">Yeni nişan</string>
   <string name="menu_page_reading_lists">Oxunan siyahılar</string>
   <string name="menu_page_recently_viewed">Son vaxtlarda baxıldı</string>
   <string name="menu_long_press_open_page">Aç</string>
@@ -70,6 +82,7 @@
   <string name="map_view_link_text">Xəritədə göstər</string>
   <string name="other_languages_indication_text">Başqa dillərdə oxuyun</string>
   <string name="language_count_link_text">%d digər dillərdə mövcuddur</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Yayımlarkən &lt;a href=\"%1$s\"&gt; İstifadə şərtləri &lt;/a&gt; ilə razılaşırsınız və &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 lizensiyası altında töhfələrinizi sərbəst buraxırsınız</string>
   <string name="edit_save_action_license_anon">Yayımlayarkən &lt;a href=\"%1$s\"&gt; İstifadə şərtləri &lt;/a&gt; ilə razılaşırsınız və &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 lizensiyası altında töhfələrinizi sərbəst buraxırsınız.Redaktələr cihazınızın IP ünvanına aid edilir. &lt;a href=\"https://#login\"&gt; Əgər daxil olmuşsunuzsa &lt;/a&gt;, daha çox gizlilik olacaq.</string>
   <string name="preference_title_language">Vikipediya dilləri</string>
@@ -141,7 +154,7 @@
   <string name="create_account_passwords_mismatch_error">Şifrələr uyğun gəlmir</string>
   <string name="create_account_email_error">Səhv e-poçt</string>
   <string name="create_account_username_error">İstifadəçi adında səhv simvollar</string>
-  <string name="create_account_password_error">Bu parol səhvdir.</string>
+  <string name="create_account_password_error">Parol ən az 8 simvoldan ibarət olmalıdır.</string>
   <string name="create_account_generic_error">Hesab yaradıla bilmədi</string>
   <string name="create_account_next">Növbəti</string>
   <string name="email_recommendation_dialog_title">E-poçt ünvanı olmadan hesab yaradılsın?</string>
@@ -155,6 +168,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detallar</string>
   <string name="preferences_general_heading">Ümumi</string>
+  <string name="preferences_account_heading">Hesab</string>
   <string name="wikipedia_app_faq">Vikipediya tətbiqetməsi TSS</string>
   <string name="send_feedback">Tətbiqetmə rəyi göndər</string>
   <string name="create_account_account_created_toast">Hesab yaradıldı!</string>
@@ -171,8 +185,9 @@
   <string name="preference_title_eventlogging_opt_in">İstifadə hesabatlarını göndərin</string>
   <string name="preference_summary_eventlogging_opt_in">Vikimediaya tətbiqin daha yaxşı tətbiq edilməsi üçün necə istifadə etdiyinə dair məlumat toplamaq imkanı verin</string>
   <string name="preference_title_auto_upload_crash_reports">Çökmə hesabatları göndərin</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün HockeyApp /üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
   <string name="editing_error_spamblacklist">Bloklanmış domenlərə aid linklər (%s) aşkarlandı. Lütfən onları çıxarın və yenidən cəhd edin.</string>
+  <string name="history_filter_list_hint">Filtr tarixçəsi</string>
   <string name="error_can_not_process_link">Bu linki göstərilə bilmədi</string>
   <string name="page_protected_autoconfirmed">Bu səhifə yarı-mühafizə edilir.</string>
   <string name="page_protected_sysop">Bu səhifə tam mühafizə edilir.</string>
@@ -180,6 +195,8 @@
   <string name="page_protected_can_not_edit">Üzr istəyirik, hesabınızın hazırda bu səhifəni redaktə etmək üçün kifayət qədər hüququ yoxdur.</string>
   <string name="page_protected_can_not_edit_anon">Üzr istəyirik, bu səhifə hazırda anonim olaraq redaktə edilə bilməz.</string>
   <string name="page_protected_can_not_edit_title">Bu səhifə mühafizə edilir</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">İzləmə siyahısına əlavə et</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Maraqlandığınız məqalələrdə nələrin baş verdiyini izləyin. Menyuya klikləyin və məqalədəki dəyişiklikləri görmək üçün &lt;b&gt;İzləmə siyahısına əlavə et&lt;/b&gt; düyməsinə klikləyin</string>
   <string name="settings_item_preferences">Tənzimləmələr</string>
   <string name="settings_activity_title">Tənzimləmələr</string>
   <string name="about_description">Vikipediya proqramı haqqında</string>
@@ -192,12 +209,14 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kitabxanalar istifadə edildi</string>
   <string name="about_contributors_heading">Tərtibatçılar</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Komanda&lt;/a&gt;</string>
   <string name="about_translators_heading">Tərcüməçilər</string>
   <string name="about_translators_translatewiki">Bu proqramlar, könüllü tərcüməçilər tərəfindən &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net saytında&lt;/a&gt; tərcümə edildi</string>
   <string name="about_app_license_heading">Lisenziya</string>
-  <string name="about_app_license" fuzzy="true">Mənbə kodu &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; və &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarında &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; lisenziyası altında mövcuddur. Əksi göstərilmədiyi zaman, məzmun &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; lisenziyası altında mövcuddur.</string>
+  <string name="about_app_license">Kod &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; və &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubda&lt;/a&gt; &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; lisenziyası altında yayımlanıb. Əksi göstərilmədiyi zaman, məzmun &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; lisenziyası altında yayımlanır.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya fondunun&lt;/a&gt; məhsulu</string>
   <string name="about_activity_title">Haqqında</string>
   <string name="edit_abandon_confirm">Səhifə redaktə edildi. Dəyişikliklərinizi saxlamadan çıxmaq istədiyinizə əminsiniz?</string>
@@ -225,6 +244,7 @@
   <string name="find_previous">Əvvəlkini axtar</string>
   <string name="find_first_occurence">Bu ilk hadisəsidir</string>
   <string name="find_last_occurence">Bu son hadisəsidir</string>
+  <string name="article_opened_in_background_tab">Məqalə arxa plan nişanında açılmışdır.</string>
   <string name="abusefilter_title_warn">Bu qeyri-konstruktiv bir düzəliş ola bilər. Bunu dərc etmək istədiyinizə əminsiniz?</string>
   <string name="abusefilter_title_disallow">Bu redaktəni dərc edə bilməzsiniz. Geri qayıdın və dəyişdirin.</string>
   <string name="abusefilter_text_warn">Avtomatik filtr bu redaktoru potensial olaraq qeyri-konstruktiv olaraq müəyyən etmişdir. Aşağıdakılardan bir və ya daha çoxunu ehtiva edə bilər: &lt;br /&gt; &lt;br /&gt; Bütün hərfləri böyük hərflə yazma &lt;br /&gt; Məqalələrin məzmununu silmə və ya spam &lt;br /&gt;  Əlaqəsiz xarici keçidlər və ya şəkillər &lt;br /&gt; Təkrarlanan simvollar</string>
@@ -232,12 +252,17 @@
   <string name="page_similar_titles">Oxşar səhifələr</string>
   <string name="search_did_you_mean">Bəlkə \"%s\" axtarırsınız?</string>
   <string name="search_recent_header">Son axtarışlar:</string>
+  <string name="search_results_count_zero">Nəticə yoxdur</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 nəticə</item>
+    <item quantity="other">%d nəticə</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Son axtarışları təmizlə</string>
   <string name="clear_recent_searches_confirm">Axtarış tarixçəsini silmək istədiyindən əminsən?</string>
   <string name="clear_recent_searches_confirm_yes">Bəli</string>
   <string name="clear_recent_searches_confirm_no">Xeyr</string>
   <string name="error_browser_not_found">Veb səhifəni açıla bilmədi (brauzer tətbiqi tapılmadı).</string>
-  <string name="table_infobox">Tez faktlar</string>
+  <string name="table_infobox">Cəld faktlar</string>
   <string name="table_other">Əlavə məlumat</string>
   <string name="table_close">Bağla</string>
   <string name="widget_name_featured_page">Vikipediya seçilmiş məqalə</string>
@@ -248,28 +273,119 @@
   <string name="alpha_update_notification_text">Yükləmək üçün vurun</string>
   <string name="dialog_close_description">Bağla</string>
   <string name="preference_title_show_images">Şəkilləri göstər</string>
+  <string name="preference_summary_show_images">Səhifələrdə şəkillərin yüklənməsini aktivləşdirin və ya söndürün. İnternet bağlantınız zəifdirsə bunu söndürün.</string>
+  <string name="preference_title_download_only_over_wifi">Yalnız Wi-Fi ilə yükləyin</string>
+  <string name="dialog_title_download_only_over_wifi">Mobil məlumatdan istifadə edərək yükləməyinizi təsdiqləyin</string>
+  <string name="dialog_text_download_only_over_wifi">Parametrlərinizdə \"Yalnız Wi-Fi ilə yüklə\" aktivdir. Bu yükləmə üçün mobil məlumat planınızdan istifadə etməyə icazə vermək istəyirsiniz?</string>
   <string name="dialog_title_download_only_over_wifi_allow">İzin ver</string>
   <string name="read_more_section">Əlaqəli məqalələr</string>
   <string name="about_article_section">Bu məqalə haqqında</string>
+  <string name="menu_gallery_visit_image_page">Şəklin səhifəsinə get</string>
+  <string name="gallery_error_draw_failed">Şəkil göstərilə bilmədi.</string>
+  <string name="license_title">%s üçün lisenziya</string>
   <string name="gallery_menu_share">Paylaş</string>
   <string name="gallery_share_error">Şəkil paylaşıla bilmədi: %s</string>
   <string name="gallery_save_progress">Fayl endirilir...</string>
   <string name="gallery_save_success">Fayl saxlandı</string>
+  <string name="gallery_error_video_failed">Videonu oxutmaq mümkün olmadı.</string>
+  <string name="gallery_save_image_write_permission_rationale">Şəkillərin yüklənilməsi üçün cihazınızda yaddaşa yazma icazəsi tələb olunur.</string>
+  <string name="gallery_add_image_caption_button">Şəkil başlığı əlavə edin</string>
+  <string name="gallery_add_image_caption_in_language_button">Şəkil başlığı əlavə edin (%s)</string>
+  <string name="err_cannot_save_file">Faylı yadda saxlamaq olmur</string>
+  <string name="expand_refs">Genişləndirmək üçün kliklə</string>
+  <string name="cc_logo">Creative Commons lisenziyası</string>
+  <string name="captcha_image">Captcha şəkli</string>
+  <string name="gallery_fair_use_license">Ədalətli istifadə</string>
+  <string name="gallery_uploader_unknown">Yükləyən bilinmir</string>
+  <string name="gallery_not_available_offline_snackbar">Qalereya görünüşü oflayn olaraq mövcud deyil.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Bağla</string>
+  <string name="menu_new_tab">Yeni nişan</string>
+  <string name="menu_close_all_tabs">Bütün nişanları bağlayın</string>
+  <string name="close_all_tabs_confirm">Bütün nişanları bağlamaq istədiyinizə əminsiniz?</string>
   <string name="close_all_tabs_confirm_yes">Bəli</string>
   <string name="close_all_tabs_confirm_no">Xeyr</string>
+  <string name="button_close_tab">Nişanı bağla</string>
+  <string name="unnamed_tab_closed">Nişan bağlandı.</string>
+  <string name="tab_item_closed">%s bağlandı.</string>
+  <string name="all_tab_items_closed">Bütün nişanlar bağlandı.</string>
+  <string name="tool_tip_bookmark_icon_title">Oxuma siyahısına əlavə et</string>
+  <string name="tool_tip_bookmark_icon_text">Məqaləni oxuma siyahısına əlavə etmək üçün əlfəcin işarəsinə vurun.</string>
+  <string name="page_view_in_browser">Brauzerdə göstər</string>
+  <string name="tool_tip_toc_title">Mündəricat</string>
+  <string name="tool_tip_toc_text">İndi məzmunu açmaq üçün sola sürüşdürə və eyni zamanda bir məqalənin fərqli hissələrinə sürətlə keçmək üçün bu sürüşdürücü düyməsini vurub sürükləyə bilərsiniz.</string>
+  <string name="tool_tip_lang_button">Artıq bir çox Vikipediya dillərində axtarış edib oxuya bilərsiniz.\n\nDaha çox dil əlavə etmək üçün ikonaya toxunun.</string>
+  <string name="error_response_malformed">Serverdən gələn cavab düzgün formatda deyil.</string>
+  <string name="error_unknown">Bilinməyən bir xəta yarandı.</string>
+  <string name="format_error_server_message">Mesaj: \"%s\"</string>
+  <string name="address_copied">Ünvan kopyalandı.</string>
+  <string name="text_copied">Mətn buferə kopyalandı.</string>
   <string name="button_continue_to_article">Məqalə oxu</string>
+  <string name="button_continue_to_talk_page">Müzakirə səhifəsini göstər</string>
   <string name="button_continue_to_disambiguation">Oxşar səhifələrə baxın</string>
   <string name="link_preview_disambiguation_description">Bu başlıq birdən çox səhifəyə aiddir:</string>
+  <string name="button_add_to_reading_list">Oxuma siyahısına əlavə et</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Məqalə oflayn olarkən yüklənə bilməz.</string>
+  <string name="page_offline_notice_add_to_reading_list">İpucu: Məqaləni oxuma siyahısına əlavə edin, yenidən onlayn olduqdan sonra yüklənəcəkdir.</string>
+  <string name="page_offline_notice_last_date">Siz bu məqalənin %s tarixində yüklənmiş oflayn versiyasını oxuyursunuz.</string>
+  <string name="button_get_directions">İstiqamətləri əldə edin</string>
+  <string name="error_no_maps_app">İstiqamət göstərən heç bir tətbiq tapa bilmədi.</string>
+  <string name="preference_title_show_link_previews">Keçid önizləmələrini göstərin</string>
+  <string name="preference_summary_show_link_previews">Keçidlərə vurarkən məqalələrin önizləməsini göstərin.</string>
+  <string name="preference_title_collapse_tables">Cədvəlləri bağla</string>
+  <string name="preference_summary_collapse_tables">Məlumat qutuları, istinadlar və qeydlər kimi məqalələrdəki cədvəlləri avtomatik olaraq bağlayın.</string>
+  <string name="nav_item_donate">Maddi kömək</string>
+  <string name="error_voice_search_not_available">Üzr istəyirik, səs tanıma mövcud deyil.</string>
+  <string name="location_service_disabled">Məkan xidmətləri deaktivdir.</string>
+  <string name="enable_location_service">Aktivləşdir</string>
+  <string name="location_permissions_enable_prompt">Yaxınlıqdakı yerləri görmək üçün yer icazələrini aktivləşdirin.</string>
+  <string name="location_permissions_enable_action">Yandır</string>
+  <string name="error_webview_updating">Android Sistem WebView hal-hazırda yenilənir. Xahiş edirik bir az sonra yenidən cəhd edin.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d seçildi</item>
+    <item quantity="other">%d seçildi</item>
+  </plurals>
+  <string name="multi_select_items_selected">%d seçildi</string>
+  <string name="error_message_generic">Xəta baş verdi</string>
+  <string name="view_link_preview_error_button_dismiss">Bağla</string>
+  <string name="error_page_does_not_exist">Bu səhifə mövcud deyil</string>
+  <string name="view_wiki_error_message_offline">İnternetə qoşulmaq mümkün olmadı.</string>
+  <string name="view_wiki_error_message_timeout">Vikipediyaya qoşulmaq mümkün olmadı. Şəbəkə bağlantınızı yoxlayın və ya sonra yenidən cəhd edin</string>
+  <string name="reference_title">İstinad %s</string>
   <string name="reference_list_title">İstinadlar</string>
+  <string name="preference_title_prefer_offline_content">Oflayn məzmuna üstünlük verin</string>
+  <string name="empty_tab_title">Yeni nişan</string>
+  <string name="menu_save_all_tabs">Bütün nişanları saxla</string>
+  <string name="error_blocked_title">İstifadəçi adınız və ya IP ünvanınız bloklanıb.</string>
+  <string name="error_blocked_by">Blok &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; tərəfindən edilib</string>
+  <string name="error_blocked_reason">Verilən səbəb: %s</string>
+  <string name="error_blocked_start">Blokun başlaması: %s</string>
+  <string name="error_blocked_expiry">Blokun bitməsi: %s</string>
+  <string name="error_blocked_id">Blok nömrəsi: %s</string>
+  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ilə əlaqə saxlaya bilə və digər &lt;a href=\"https://az.wikipedia.org/wiki/Vikipediya:İdarəçilər\"&gt;idarəçilərlə&lt;/a&gt; bloku müzakirə edə bilərsiniz.</string>
+  <string name="error_blocked_footer_no_blocker">Digər &lt;a href=\"https://az.wikipedia.org/wiki/Vikipediya:İdarəçilər\"&gt;idarəçilərlə&lt;/a&gt; bloku müzakirə edə bilərsiniz.</string>
+  <string name="crash_report_activity_title">Tətbiq xətası</string>
+  <string name="crash_report_relaunch_or_quit">Üzr istəyirik, Vikipediya applikasiyası bir xəta ilə üzləşib və dayandırılıb.\n\nYenidən başlamaq və ya çıxmaq istəyirsiniz?</string>
+  <string name="crash_report_relaunch">Yenidən başla</string>
+  <string name="crash_report_quit">Çıxış</string>
+  <string name="article_menu_bar_save_button">Qeyd et</string>
   <string name="article_menu_bar_language_button">Dil</string>
   <string name="article_menu_bar_search_button">Axtar</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">Mündəricat</string>
   <string name="article_header_edit_hint">Redaktə et...</string>
+  <string name="article_header_edit_description">Məqalə açıqlamasını redaktə edin</string>
+  <string name="article_header_edit_lead_section">Təqdimatı redaktə edin</string>
+  <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">İşıqlı</string>
   <string name="color_theme_dark">Qaranlıq</string>
   <string name="color_theme_black">Qara</string>
   <string name="color_theme_sepia">Sepiya</string>
   <string name="color_theme_test_title">Nümunə üçün mətn</string>
+  <string name="text_size_percent_default">%s (defolt)</string>
+  <string name="text_style_title">Şrift</string>
+  <string name="nav_item_saved">Saxlanıldı</string>
   <string name="reading_list_save_to">Oxuma siyahısına əlavə et</string>
+  <string name="reading_list_move_to">Oxuma siyahısına əlavə et</string>
   <string name="reading_list_create_new">Yenisini yarat</string>
   <string name="reading_list_added_view_button">Siyahıya bax</string>
   <string name="reading_list_add_to_list_button">Siyahıya əlavə et</string>
@@ -302,7 +418,7 @@
   <string name="preference_title_notification_thanks">Təşəkkür</string>
   <string name="preference_title_notification_login_fail">Daxil ol</string>
   <string name="preference_title_notification_user_talk">Müzakirə səhifəsi</string>
-  <string name="preference_summary_notification_user_talk">Müzakirə səhifələrindən ismarıclar</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Müzakirə səhifələrindən ismarıclar</string>
   <string name="view_featured_image_card_title">Günün şəkli</string>
   <string name="view_featured_image_card_download">Endir</string>
   <string name="view_continue_reading_card_subtitle_today">bu gün</string>

@@ -175,7 +175,7 @@
   <string name="create_account_passwords_mismatch_error">Hasła nie są identyczne</string>
   <string name="create_account_email_error">Nieprawidłowy adres e-mail</string>
   <string name="create_account_username_error">Nieprawidłowe znaki w nazwie użytkownika</string>
-  <string name="create_account_password_error">Hasło jest nieprawidłowe</string>
+  <string name="create_account_password_error" fuzzy="true">Hasło jest nieprawidłowe</string>
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_next">Dalej</string>
   <string name="email_recommendation_dialog_title">Założyć konto bez adresu e-mail?</string>
@@ -575,7 +575,7 @@
   <string name="preference_title_notification_mention">Wzmianki</string>
   <string name="preference_summary_notification_mention">Ktoś wspomniał o Tobie na stronie</string>
   <string name="preference_title_notification_user_talk">Strona dyskusji</string>
-  <string name="preference_summary_notification_user_talk">Wiadomości ze stron dyskusji</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Wiadomości ze stron dyskusji</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
   <string name="view_random_article_card_title">Losowy artykuł</string>

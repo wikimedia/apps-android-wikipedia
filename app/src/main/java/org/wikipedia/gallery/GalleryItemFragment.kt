@@ -56,7 +56,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         if (pageTitle == null) {
             pageTitle = PageTitle(mediaListItem.title, WikiSite(Service.COMMONS_URL))
         }
-        imageTitle = PageTitle("File: ${StringUtil.removeNamespace(mediaListItem.title)}", pageTitle!!.wikiSite)
+        imageTitle = PageTitle("File:${StringUtil.removeNamespace(mediaListItem.title)}", pageTitle!!.wikiSite)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -153,11 +153,11 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     }
 
     private fun loadMedia() {
-        if (pageTitle == null) {
+        if (pageTitle == null || imageTitle == null) {
             return
         }
         updateProgressBar(true)
-        disposables.add(getMediaInfoDisposable(mediaListItem.title, WikipediaApp.getInstance().appOrSystemLanguageCode)
+        disposables.add(getMediaInfoDisposable(imageTitle!!.prefixedText, WikipediaApp.getInstance().appOrSystemLanguageCode)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doAfterTerminate {
@@ -195,8 +195,9 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             if (loading || mediaInfo?.bestDerivative == null) {
                 return
             }
+            val bestDerivative = mediaInfo!!.bestDerivative!!.src
             loading = true
-            L.d("Loading video from url: " + mediaInfo!!.bestDerivative!!.src)
+            L.d("Loading video from url: $bestDerivative")
             binding.videoView.visibility = View.VISIBLE
             mediaController = MediaController(requireActivity())
             if (!DeviceUtil.isNavigationBarShowing) {
@@ -225,7 +226,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
                 loading = false
                 true
             }
-            binding.videoView.setVideoURI(Uri.parse(mediaInfo!!.bestDerivative!!.src))
+            binding.videoView.setVideoURI(Uri.parse(bestDerivative))
         }
     }
 

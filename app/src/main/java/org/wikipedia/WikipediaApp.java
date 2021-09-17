@@ -18,25 +18,21 @@ import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.InstallReferrerListener;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.analytics.eventplatform.EventPlatformClient;
+import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
-import org.wikipedia.database.Database;
-import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeFontChangeEvent;
-import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
+import org.wikipedia.notifications.NotificationCategory;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.push.WikipediaFirebaseMessagingService;
-import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
 import org.wikipedia.settings.SiteInfoClient;
@@ -45,10 +41,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -63,14 +56,12 @@ import static org.wikipedia.util.ReleaseUtil.getChannel;
 
 public class WikipediaApp extends Application {
     private final RemoteConfig remoteConfig = new RemoteConfig();
-    private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<>());
     private Handler mainThreadHandler;
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
     private NetworkConnectivityReceiver connectivityReceiver = new NetworkConnectivityReceiver();
     private ActivityLifecycleHandler activityLifecycleHandler = new ActivityLifecycleHandler();
-    private Database database;
     private String userAgent;
     private WikiSite wiki;
     private RxBus bus;
@@ -93,10 +84,6 @@ public class WikipediaApp extends Application {
 
     public RxBus getBus() {
         return bus;
-    }
-
-    public Database getDatabase() {
-        return database;
     }
 
     public FunnelManager getFunnelManager() {
@@ -157,7 +144,6 @@ public class WikipediaApp extends Application {
         appLanguageState = new AppLanguageState(this);
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
-        database = new Database(this);
 
         initTabs();
 
@@ -165,6 +151,9 @@ public class WikipediaApp extends Application {
 
         registerActivityLifecycleCallbacks(activityLifecycleHandler);
         registerComponentCallbacks(activityLifecycleHandler);
+
+        NotificationCategory.Companion.createNotificationChannels(this);
+        AppShortcuts.Companion.setShortcuts(this);
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this);
@@ -205,9 +194,9 @@ public class WikipediaApp extends Application {
      */
     @NonNull
     public String getAcceptLanguage(@Nullable WikiSite wiki) {
-        String wikiLang = wiki == null || "meta".equals(wiki.languageCode())
+        String wikiLang = wiki == null || "meta".equals(wiki.getLanguageCode())
                 ? ""
-                : defaultString(wiki.languageCode());
+                : defaultString(wiki.getLanguageCode());
         return AcceptLanguageUtil.getAcceptLanguage(wikiLang, appLanguageState.getAppLanguageCode(),
                 appLanguageState.getSystemLanguageCode());
     }
@@ -227,26 +216,6 @@ public class WikipediaApp extends Application {
             return newWiki;
         }
         return wiki;
-    }
-
-    public <T> DatabaseClient<T> getDatabaseClient(Class<T> cls) {
-        if (!databaseClients.containsKey(cls)) {
-            DatabaseClient<?> client;
-            if (cls.equals(HistoryEntry.class)) {
-                client = new DatabaseClient<>(this, HistoryEntry.DATABASE_TABLE);
-            } else if (cls.equals(PageImage.class)) {
-                client = new DatabaseClient<>(this, PageImage.DATABASE_TABLE);
-            } else if (cls.equals(RecentSearch.class)) {
-                client = new DatabaseClient<>(this, RecentSearch.DATABASE_TABLE);
-            } else if (cls.equals(EditSummary.class)) {
-                client = new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
-            } else {
-                throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
-            }
-            databaseClients.put(cls, client);
-        }
-        //noinspection unchecked
-        return (DatabaseClient<T>) databaseClients.get(cls);
     }
 
     /**
@@ -396,9 +365,9 @@ public class WikipediaApp extends Application {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    if (AccountUtil.isLoggedIn() && response.getQuery().userInfo() != null) {
+                    if (AccountUtil.isLoggedIn() && response.getQuery().getUserInfo() != null) {
                         // noinspection ConstantConditions
-                        int id = response.getQuery().userInfo().id();
+                        int id = response.getQuery().getUserInfo().getId();
                         AccountUtil.putUserIdForLanguage(code, id);
                         L.d("Found user ID " + id + " for " + code);
                     }

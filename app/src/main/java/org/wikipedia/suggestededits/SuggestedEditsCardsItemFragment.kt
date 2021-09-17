@@ -113,7 +113,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     target.extractHtml
                             )
                             updateContents()
-                        }, { this.setErrorState(it) })!!)
+                        }, { setErrorState(it) }))
             }
 
             ADD_CAPTION -> {
@@ -126,10 +126,10 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
                         .subscribe({ response ->
-                            val page = response.query?.pages()!![0]
+                            val page = response.query?.pages!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
+                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
 
                                 sourceSummaryForEdit = PageSummaryForEdit(
                                         title,
@@ -152,7 +152,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 )
                             }
                             updateContents()
-                        }, { this.setErrorState(it) })!!)
+                        }, { setErrorState(it) }))
             }
 
             TRANSLATE_CAPTION -> {
@@ -167,10 +167,10 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
                         .subscribe({ response ->
-                            val page = response.query?.pages()!![0]
+                            val page = response.query?.pages!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
+                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
 
                                 sourceSummaryForEdit = PageSummaryForEdit(
                                         title,
@@ -205,7 +205,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 )
                             }
                             updateContents()
-                        }, { this.setErrorState(it) })!!)
+                        }, { setErrorState(it) }))
             }
 
             else -> {
@@ -224,7 +224,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     pageSummary.extractHtml
                             )
                             updateContents()
-                        }, { this.setErrorState(it) }))
+                        }, { setErrorState(it) }))
             }
         }
     }
@@ -250,6 +250,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.cardItemErrorView.visibility = GONE
         binding.cardItemContainer.visibility = if (sourceAvailable) VISIBLE else GONE
         binding.cardItemProgressBar.visibility = if (sourceAvailable) GONE else VISIBLE
+        binding.viewArticleImage.contentDescription = getString(R.string.image_content_description, sourceSummaryForEdit?.displayTitle)
         if (!sourceAvailable) {
             return
         }
@@ -287,10 +288,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.viewArticleTitle.visibility = GONE
         binding.viewArticleSubtitleContainer.visibility = VISIBLE
 
-        val descriptionText = when {
-            addedContribution.isNotEmpty() -> addedContribution
-            sourceSummaryForEdit!!.description!!.isNotEmpty() -> sourceSummaryForEdit!!.description!!
-            else -> getString(R.string.suggested_edits_no_description)
+        val descriptionText = addedContribution.ifEmpty {
+            sourceSummaryForEdit!!.description!!.ifEmpty { getString(R.string.suggested_edits_no_description) }
         }
 
         binding.viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))

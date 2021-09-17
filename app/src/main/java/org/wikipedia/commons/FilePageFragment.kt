@@ -12,7 +12,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.databinding.FragmentFilePageBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -47,7 +46,7 @@ class FilePageFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentFilePageBinding.inflate(inflater, container, false)
-        L10nUtil.setConditionalLayoutDirection(container!!, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(container!!, pageTitle.wikiSite.languageCode)
         return binding.root
     }
 
@@ -97,16 +96,16 @@ class FilePageFragment : Fragment() {
 
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText,
-                    pageTitle.wikiSite.languageCode()), { caption, response ->
+                    pageTitle.wikiSite.languageCode), { caption, response ->
                     // set image caption to pageTitle description
-                    pageTitle.description = caption[pageTitle.wikiSite.languageCode()]
+                    pageTitle.description = caption[pageTitle.wikiSite.languageCode]
                     response
                 })
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     if (it.query?.firstPage()?.imageInfo() == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
-                        ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode())
+                        ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode)
                     } else {
                         // Fetch API from commons.wikimedia.org and check whether if it is not a "shared" image.
                         isFromCommons = !(it.query?.firstPage()?.isImageShared ?: false)
@@ -119,10 +118,10 @@ class FilePageFragment : Fragment() {
                     val imageInfo = page.imageInfo()!!
                     pageSummaryForEdit = PageSummaryForEdit(
                             pageTitle.prefixedText,
-                            pageTitle.wikiSite.languageCode(),
+                            pageTitle.wikiSite.languageCode,
                             pageTitle,
                             pageTitle.displayText,
-                            StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString(), null),
+                            StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString().ifBlank { null },
                             imageInfo.thumbUrl,
                             null,
                             null,
@@ -132,7 +131,7 @@ class FilePageFragment : Fragment() {
                     )
                     thumbnailHeight = imageInfo.thumbHeight
                     thumbnailWidth = imageInfo.thumbWidth
-                    ImageTagsProvider.getImageTagsObservable(page.pageId(), pageSummaryForEdit.lang)
+                    ImageTagsProvider.getImageTagsObservable(page.pageId, pageSummaryForEdit.lang)
                 }
                 .flatMap {
                     imageTags = it

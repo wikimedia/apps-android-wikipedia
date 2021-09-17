@@ -132,7 +132,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     this.page = page
                     updateContents()
                     updateTagChips()
-                }, { this.setErrorState(it) })!!)
+                }, { setErrorState(it) }))
     }
 
     private fun setErrorState(t: Throwable) {
@@ -151,7 +151,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
-        funnel = EditFunnel(WikipediaApp.getInstance(), PageTitle(page!!.title(), WikiSite(Service.COMMONS_URL)))
+        funnel = EditFunnel(WikipediaApp.getInstance(), PageTitle(page!!.title, WikiSite(Service.COMMONS_URL)))
 
         binding.tagsLicenseText.visibility = GONE
         binding.tagsHintText.visibility = VISIBLE
@@ -159,7 +159,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
-        disposables.add(MediaHelper.getImageCaptions(page!!.title())
+        disposables.add(MediaHelper.getImageCaptions(page!!.title)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { captions ->
@@ -167,9 +167,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         binding.imageCaption.text = captions[callback().getLangCode()]
                         binding.imageCaption.visibility = VISIBLE
                     } else {
-                        if (page!!.imageInfo() != null && page!!.imageInfo()!!.metadata != null) {
+                        if (page?.imageInfo()?.metadata != null) {
                             binding.imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription()).toString().trim()
                             binding.imageCaption.visibility = VISIBLE
+                            binding.imageView.contentDescription = binding.imageCaption.text
                         } else {
                             binding.imageCaption.visibility = GONE
                         }
@@ -336,7 +337,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ token ->
-                    val mId = "M" + page!!.pageId()
+                    val mId = "M" + page!!.pageId
                     var claimStr = "{\"claims\":["
                     var commentStr = "/* add-depicts: "
                     var first = true
@@ -369,7 +370,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             }
                             .subscribe({
                                 if (it.entity != null) {
-                                    funnel?.logSaved(it.entity!!.lastRevId, invokeSource.name)
+                                    funnel?.logSaved(it.entity.lastRevId, invokeSource.value)
                                 }
                                 publishSuccess = true
                                 onSuccess()
@@ -383,7 +384,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onSuccess() {
-        SuggestedEditsFunnel.get()!!.success(ADD_IMAGE_TAGS)
+        SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
 
         val duration = 500L
         binding.publishProgressBar.alpha = 1f
@@ -420,7 +421,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onError(caught: Throwable) {
         // TODO: expand this a bit.
-        SuggestedEditsFunnel.get()!!.failure(ADD_IMAGE_TAGS)
+        SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)

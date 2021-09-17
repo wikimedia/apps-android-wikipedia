@@ -160,7 +160,7 @@
   <string name="create_account_passwords_mismatch_error">Parolele nu sunt identice</string>
   <string name="create_account_email_error">Adresă de e-mail nevalidă</string>
   <string name="create_account_username_error">Caractere nevalide în numele de utilizator</string>
-  <string name="create_account_password_error">Parola nu este validă.</string>
+  <string name="create_account_password_error" fuzzy="true">Parola nu este validă.</string>
   <string name="create_account_generic_error">Nu s-a putut crea contul</string>
   <string name="create_account_next">Înainte</string>
   <string name="email_recommendation_dialog_title">Creați un cont fără o adresă de e-mail?</string>
@@ -223,7 +223,7 @@
   <string name="about_translators_heading">Traducători</string>
   <string name="about_translators_translatewiki">Această aplicație a fost tradusă de către traducători voluntari la &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licență</string>
-  <string name="about_app_license" fuzzy="true">Codul sursă este disponibil la &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; și &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licența Creative Commons Atribuire și distribuire în condiții identice&lt;/a&gt;.</string>
+  <string name="about_app_license">Codul sursă disponibil pe &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licența Creative Commons Atribuire și distribuire în condiții identice&lt;/a&gt;.</string>
   <string name="about_wmf">Un produs al &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundației Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Despre</string>
   <string name="edit_abandon_confirm">Pagina a fost modificată. Sigur doriți să ieșiți fără a vă salva modificările?</string>
@@ -260,6 +260,11 @@
   <string name="search_did_you_mean">Vă refereați la „%s”?</string>
   <string name="search_recent_header">Căutări recente:</string>
   <string name="search_results_count_zero">Fără rezultate</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 rezultat</item>
+    <item quantity="few">%d rezultate</item>
+    <item quantity="other">%d rezultate</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Șterge căutările recente</string>
   <string name="clear_recent_searches_confirm">Sunteți sigur(ă) că doriți să ștergeți istoricul căutărilor?</string>
   <string name="clear_recent_searches_confirm_yes">Da</string>
@@ -332,7 +337,9 @@
   <string name="page_offline_notice_last_date">Citiți o versiune offline a acestui articol salvată pe %s.</string>
   <string name="button_get_directions">Indicații de orientare</string>
   <string name="error_no_maps_app">Nu s-a găsit nicio aplicație care să ofere indicații de orientare.</string>
+  <string name="preference_title_customize_explore_feed">Explore Feed</string>
   <string name="preference_title_show_link_previews">Afișează previzualizarea legăturilor</string>
+  <string name="preference_summary_customize_explore_feed">Personalizează Explore Feed</string>
   <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
   <string name="preference_title_collapse_tables">Ascunde tabele</string>
   <string name="preference_summary_collapse_tables">Ascunde automat tabel în articole, precum infocasete, referințe și note.</string>
@@ -343,6 +350,11 @@
   <string name="location_permissions_enable_prompt">Activați permisiunile de localizare pentru a vedea locațiile din apropierea dvs.</string>
   <string name="location_permissions_enable_action">Pornește.</string>
   <string name="error_webview_updating">Android System WebView este actualizat în prezent. Încercați din nou într-o clipă.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d selectat</item>
+    <item quantity="few">%d selectaţi</item>
+    <item quantity="other">%d selectaţi</item>
+  </plurals>
   <string name="multi_select_items_selected">%d selectat</string>
   <string name="error_message_generic">O eroare a apărut</string>
   <string name="view_link_preview_error_button_dismiss">Renunțare</string>
@@ -358,6 +370,14 @@
   <string name="page_footer_license_text">Conținutul este disponibil sub $1, cu excepția cazului în care se menționează altfel</string>
   <string name="empty_tab_title">Filă nouă</string>
   <string name="menu_save_all_tabs">Salvează toate filele</string>
+  <string name="error_blocked_title">Numele dvs. de utilizator a fost blocat.</string>
+  <string name="error_blocked_by">Blocarea a fost efectuată de &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Motivul furnizat este: %s</string>
+  <string name="error_blocked_start">Începutul blocării: %s</string>
+  <string name="error_blocked_expiry">Expirarea blocării: %s</string>
+  <string name="error_blocked_id">ID Blocare: %s</string>
+  <string name="error_blocked_footer">Puteţi contacta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; sau alt &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; pentru a discuta blocarea.</string>
+  <string name="error_blocked_footer_no_blocker">Puteţi contacta un &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; pentru a discuta blocarea.</string>
   <string name="crash_report_activity_title">Eroare aplicație</string>
   <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
@@ -395,6 +415,16 @@
   <string name="reading_list_articles_already_exist_message">Toate bune! %s conține deja toate articolele.</string>
   <string name="reading_list_added_view_button">Vezi lista</string>
   <string name="reading_list_add_to_list_button">Adaugă la listă</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 articol, %2$.2f MB</item>
+    <item quantity="few">%1$d articole, %2$.2f MB</item>
+    <item quantity="other">%1$d articole, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d articol disponibil offline, %3$.2f MB</item>
+    <item quantity="few">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
+    <item quantity="other">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 articol, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articole, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d din 1 articole disponibile offline, %2$.2f MB</string>
@@ -420,6 +450,16 @@
   <string name="reading_list_description_hint">Descriere (opțională)</string>
   <string name="reading_list_item_deleted">%s a fost eliminat din listă</string>
   <string name="reading_list_item_deleted_from_list">%1$s eliminat din %2$s</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d articol eliminat din listă</item>
+    <item quantity="few">%d articole eliminate din listă</item>
+    <item quantity="other">%d articole eliminate din listă</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d articol eliminat din %s</item>
+    <item quantity="few">%d articole eliminate din %s</item>
+    <item quantity="other">%d articole eliminate din %s</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d articole eliminate din listă</string>
   <string name="reading_lists_item_deleted">%s eliminat din liste</string>
   <string name="reading_list_item_delete_undo">Anulează</string>
@@ -572,7 +612,7 @@
   <string name="preference_title_notification_mention">Menționează</string>
   <string name="preference_summary_notification_mention">Cineva te menționează într-o pagină</string>
   <string name="preference_title_notification_user_talk">Pagina de discuții</string>
-  <string name="preference_summary_notification_user_talk">Mesaje din paginile de discuții</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Mesaje din paginile de discuții</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
   <string name="view_random_card_title">Aleatoriu</string>
   <string name="view_random_article_card_title">Articol aleatoriu</string>
@@ -654,6 +694,7 @@
   <string name="description_edit_anon_limit">Vă mulțumim pentru interesul dvs. continuu de a edita descrierile articolelor! Pentru a face modificări suplimentare, vă rugăm să vă conectați la contul dvs. Wikipedia.</string>
   <string name="description_edit_license_notice">Modificând descrierea articolului, sunt de acord cu &lt;a href=\"%1$s\"&gt; Termenii de utilizare&lt;/a&gt; și îmi eliberez irevocabil contribuțiile sub licența &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">începe de obicei cu o literă mică</string>
+  <string name="description_edit_voice_input_description">Intrare vocală</string>
   <string name="description_too_short">Textul este prea scurt.</string>
   <string name="description_ends_with_punctuation">Textul nu trebuie să se termine cu punctuație</string>
   <string name="description_starts_with_uppercase">Începeți cu o literă mică exceptând cazul în care primul cuvânt este un substantiv propriu.</string>
@@ -811,6 +852,11 @@
   <string name="suggested_edits_contribution_image_label">Imagine</string>
   <string name="suggested_edits_contribution_article_label">Articol</string>
   <string name="suggested_edits_contribution_views">%s vizualizări</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Văzut o dată în ultimele 30 de zile.</item>
+    <item quantity="few">Văzut de %s ori în ultimele 30 de zile.</item>
+    <item quantity="other">Văzut de %s ori în ultimele 30 de zile.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Văzut %s ori în ultimele 30 de zile.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Ai adăugat eticheta %d</item>
@@ -825,10 +871,30 @@
   <string name="suggested_edits_contribution_type_image_tag">Etichetă imagine</string>
   <string name="suggested_edits_contribution_current_revision_text">Editarea dvs. este în prezent activă pe Wikipedia</string>
   <string name="suggested_card_more_edits">Mai multe editări sugerate</string>
-  <string name="suggested_edits_added_contribution_label" fuzzy="true">Ai adăugat %d caractere</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s etichetă</item>
+    <item quantity="few">%1$s etichete</item>
+    <item quantity="other">%1$s etichete</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s caracter</item>
+    <item quantity="few">%1$s caractere</item>
+    <item quantity="other">%1$s caractere</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Ați eliminat %d caracter</item>
+    <item quantity="few">Ați eliminat %d caractere</item>
+    <item quantity="other">Ați eliminat %d caractere</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Aţi adăugat %d caracter</item>
+    <item quantity="few">Aţi adăugat %d caractere</item>
+    <item quantity="other">Aţi adăugat %d caractere</item>
+  </plurals>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
+  <string name="file_page_suggestion_reason">Motivul sugestiei</string>
   <string name="description_edit_revert_subtitle">Mulțumim pentru editarea Wikipedia!</string>
   <string name="description_edit_revert_intro">Știm că ai încercat tot posibilul, dar unul dintre recenzori avea o îndoială. Posibilele motive pentru care modificarea dvs. a fost anulată includ:</string>
   <string name="description_edit_revert_reason1">contribuția dvs. nu a respectat una dintre &lt;a href=\"%1$s\"&gt;politici&lt;/a&gt;.</string>
@@ -925,6 +991,7 @@
   <string name="talk_title">Discuție</string>
   <string name="talk_user_title">Discuție: %s</string>
   <string name="talk_new_topic">Subiect nou</string>
+  <string name="talk_new_topic_submitted">Subiect postat.</string>
   <string name="talk_page_empty">Această pagină de discuție este goală.</string>
   <string name="talk_add_reply">Răspunde</string>
   <string name="talk_no_subject">(Niciun subiect)</string>
@@ -933,6 +1000,9 @@
   <string name="talk_message_hint">Compune mesaj</string>
   <string name="talk_message_empty">Mesajul nu poate fi gol.</string>
   <string name="talk_subject_empty">Subiectul nu poate fi gol.</string>
+  <string name="talk_response_submitted">Răspuns postat.</string>
+  <string name="talk_snackbar_undo">Anulează</string>
+  <string name="talk_last_modified">&lt;b&gt;Ultima modificare %1$s&lt;/b&gt; de %2$s</string>
   <string name="menu_option_share_edit">Distribuie editul</string>
   <string name="menu_option_user_profile">Profilul lui %s</string>
   <string name="menu_option_user_contributions">Contribuțiile lui %s</string>

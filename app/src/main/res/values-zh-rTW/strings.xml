@@ -5,6 +5,7 @@
 * Dbrant
 * Eric850130
 * Go1002opn
+* Impartial just
 * Kly
 * LEEJACK
 * LNDDYL
@@ -55,6 +56,7 @@
   <string name="app_settings">應用程式設定</string>
   <string name="search_tab_tooltip">再次輕觸圖標可直接開始輸入搜尋項。</string>
   <string name="history_list_title">歷史</string>
+  <string name="image_content_description">圖片：%s</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
   <string name="dialog_message_clear_history">這樣做會刪除您的所有瀏覽記錄，並且關閉所有目前開啟的分頁。您確定嗎？</string>
   <string name="dialog_message_clear_history_yes">是</string>
@@ -165,7 +167,7 @@
   <string name="create_account_passwords_mismatch_error">密碼不符合</string>
   <string name="create_account_email_error">無效的電子郵件地址</string>
   <string name="create_account_username_error">使用者名稱含有無效字元</string>
-  <string name="create_account_password_error">密碼無效</string>
+  <string name="create_account_password_error">密碼長度至少要 8 個字元</string>
   <string name="create_account_generic_error">無法建立帳號</string>
   <string name="create_account_next">下一步</string>
   <string name="email_recommendation_dialog_title">不帶電子郵件地址來建立帳號？</string>
@@ -179,6 +181,7 @@
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">詳細資料</string>
   <string name="preferences_general_heading">一般</string>
+  <string name="preferences_account_heading">帳戶</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
   <string name="send_feedback">傳送應用程式意見回饋</string>
   <string name="create_account_account_created_toast">已建立帳號！</string>
@@ -536,10 +539,12 @@
   <string name="reading_list_split_dialog_ok_button_text">確認</string>
   <string name="user_option_sync_label">偏好設定</string>
   <string name="notification_reverted_title">回退的編輯</string>
+  <string name="notification_channel_title">正在下載條目</string>
   <string name="notification_channel_description">下載進度</string>
   <string name="notification_syncing_pause_button">暫停</string>
   <string name="notification_syncing_resume_button">繼續</string>
   <string name="notification_syncing_cancel_button">取消</string>
+  <string name="notification_syncing_reading_list_channel_title">正在同步閱讀清單</string>
   <string name="notification_syncing_reading_list_channel_description">同步閱讀清單進度</string>
   <string name="notification_many_unread">您有 %d 個尚未讀取的通知</string>
   <plurals name="notification_channel_name">
@@ -585,6 +590,7 @@
   <string name="notifications_view_archived_button_text">檢視存檔通知</string>
   <string name="notification_preferences_title">通知偏好設定</string>
   <string name="notifications_mark_unread">標記為未讀</string>
+  <string name="notifications_mark_all_as_read">標記所有為已讀</string>
   <string name="watchlist_title">監視清單</string>
   <string name="preference_title_notification_poll">調查通知</string>
   <string name="preference_summary_notification_poll">允許應用程式在背景執行使用資料來檢查新的通知。</string>
@@ -602,7 +608,21 @@
   <string name="preference_title_notification_mention">提及</string>
   <string name="preference_summary_notification_mention">有人在頁面裡提及您</string>
   <string name="preference_title_notification_user_talk">對話頁</string>
-  <string name="preference_summary_notification_user_talk">來自對話頁的訊息</string>
+  <string name="preference_summary_notification_user_talk">來自對話頁的訊息與回覆</string>
+  <string name="preference_title_notification_email_user">已接收電子郵件</string>
+  <string name="preference_summary_notification_email_user">某人透過 wiki 發送電子郵件給您</string>
+  <string name="preference_title_notification_user_rights">使用者權限更改</string>
+  <string name="preference_summary_notification_user_rights">當您使用者權限更改時接收</string>
+  <string name="preference_title_notification_article_linked">您所創建條目的連結</string>
+  <string name="preference_summary_notification_article_linked">當您所建立的頁面有做出新連結時接收</string>
+  <string name="preference_category_push_notifications">推發通知</string>
+  <string name="preference_title_customize_push_notifications">自訂推發通知</string>
+  <string name="preference_category_display_settings">顯示設定</string>
+  <string name="preference_title_hide_read_notifications">隱藏閱讀通知</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">維基百科</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">來自維基百科的通知</string>
+  <string name="notifications_channel_group_other_title">其它</string>
+  <string name="notifications_channel_group_other_description">來自應用程式的其它通知</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_article_card_title">隨機條目</string>
@@ -971,7 +991,7 @@
   <string name="talk_title">對話</string>
   <string name="talk_user_title">對話：%s</string>
   <string name="talk_new_topic">新話題</string>
-  <string name="talk_new_topic_submitted">主題已提交。</string>
+  <string name="talk_new_topic_submitted">主題已發布。</string>
   <string name="talk_page_empty">此討論頁為空。</string>
   <string name="talk_add_reply">回覆</string>
   <string name="talk_no_subject">（無話題）</string>
@@ -980,7 +1000,7 @@
   <string name="talk_message_hint">撰寫訊息</string>
   <string name="talk_message_empty">訊息不能為空。</string>
   <string name="talk_subject_empty">話題不能為空。</string>
-  <string name="talk_response_submitted">回覆已提交。</string>
+  <string name="talk_response_submitted">回覆已發布。</string>
   <string name="talk_snackbar_undo">還原</string>
   <string name="talk_last_modified">由%2$s在&lt;b&gt; %1$s &lt;/b&gt;所做的最後一次編輯</string>
   <string name="menu_option_share_edit">分享編輯</string>
@@ -988,6 +1008,8 @@
   <string name="menu_option_user_contributions">%s的貢獻</string>
   <string name="watchlist_details_watching_label">已監視</string>
   <string name="watchlist_details_watch_label">監視</string>
+  <string name="watchlist_details_next_edit">下一個編輯</string>
+  <string name="watchlist_details_prev_edit">上一個編輯</string>
   <string name="thank_label">感謝</string>
   <string name="go_to_user_page">前往使用者頁面</string>
   <string name="thank_dialog_title_text">公開發送感謝</string>

@@ -11,6 +11,7 @@
 * Arash.pt
 * AzorAhai
 * Dalba
+* Darafsh
 * Dbrant
 * Ebraminio
 * FarsiNevis
@@ -73,6 +74,7 @@
   <string name="app_settings">تنظیمات برنامه</string>
   <string name="search_tab_tooltip">برای تایپ عبارت جستجو، دوباره روی آیکون ضربه بزنید.</string>
   <string name="history_list_title">تاریخچه</string>
+  <string name="image_content_description">تصویر: %s</string>
   <string name="dialog_title_clear_history">پاک‌کردن تاریخچهٔ جستجو</string>
   <string name="dialog_message_clear_history">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
   <string name="dialog_message_clear_history_yes">بله</string>
@@ -84,7 +86,7 @@
   <string name="menu_page_other_languages">تغییر زبان</string>
   <string name="menu_page_find_in_page">جستجو در مقاله</string>
   <string name="menu_page_add_to_watchlist">افزودن به فهرست پی‌گیری</string>
-  <string name="menu_page_view_talk">مشاهده صفحه بحث</string>
+  <string name="menu_page_view_talk">مشاهدهٔ صفحهٔ بحث</string>
   <string name="menu_page_view_edit_history">مشاهده تاریخچه ویرایش</string>
   <string name="menu_page_remove_from_watchlist">حذف از فهرست پی‌گیری</string>
   <string name="edit_section_find_in_page">جستجو در صفحه</string>
@@ -95,7 +97,7 @@
   <string name="feed_card_add_to_default_list">ذخیره</string>
   <string name="menu_page_share">اشتراک‌گذاری پیوند</string>
   <string name="menu_page_open_a_new_tab">بازکردن سربرگ تازه</string>
-  <string name="menu_page_new_tab">زبانه جدید</string>
+  <string name="menu_page_new_tab">زبانهٔ جدید</string>
   <string name="menu_page_reading_lists">فهرست‌های مطالعه</string>
   <string name="menu_page_recently_viewed">بازدیدهای اخیر</string>
   <string name="menu_long_press_open_page">باز کردن</string>
@@ -106,7 +108,7 @@
   <string name="reading_list_page_share">اشتراک‌گذاری</string>
   <string name="menu_text_select_edit_here">ویرایش اینجا</string>
   <string name="last_updated_text">آخرین بروزرسانی %s</string>
-  <string name="talk_page_link_text">نمایش صفحهٔ بحث</string>
+  <string name="talk_page_link_text">مشاهدهٔ صفحهٔ بحث</string>
   <string name="edit_history_link_text">مشاهده تاریخچه ویرایش</string>
   <string name="map_view_link_text">دیدن در نقشه</string>
   <string name="other_languages_indication_text">به زبان‌های دیگر مطالعه کنید</string>
@@ -170,7 +172,7 @@
   <string name="search_empty_message">جستجو و مطالعهٔ دانشنامهٔ آزاد به زبان شما</string>
   <string name="search_empty_message_multilingual_upgrade">جستجو در ویکی‌پدیا با زبان‌های بیشتر</string>
   <string name="delete_selected_items">حذف موارد انتخاب‌شده</string>
-  <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکی‌پدی&lt;big&gt;ا&lt;/big&gt;</string>
+  <string name="wp_stylized">&lt;big&gt;ویکی‌پدیا&lt;/big&gt;</string>
   <string name="create_account_username_hint">نام کاربری</string>
   <string name="login_dont_have_account">حساب کاربری ندارید؟</string>
   <string name="login_join_wikipedia">به ویکی‌پدیا بپیوندید</string>
@@ -183,7 +185,7 @@
   <string name="create_account_passwords_mismatch_error">گذرواژه‌ها مطابقت ندارند</string>
   <string name="create_account_email_error">آدرس ایمیل نامعتبر است</string>
   <string name="create_account_username_error">نویسهٔ نامعتبر در نام کاربری شما</string>
-  <string name="create_account_password_error">گذرواژه نامعتبر است</string>
+  <string name="create_account_password_error">گذرواژه باید دست کم دارای ۸ نویسه باشد</string>
   <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
   <string name="create_account_next">بعدی</string>
   <string name="email_recommendation_dialog_title">حساب بدون ایمیل ساخته شود؟</string>
@@ -197,6 +199,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">جزئیات</string>
   <string name="preferences_general_heading">عمومی</string>
+  <string name="preferences_account_heading">حساب کاربری</string>
   <string name="wikipedia_app_faq">پاسخ پرسش‌های رایج ویکی‌پدیا</string>
   <string name="send_feedback">ارسال بازخورد برنامه</string>
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
@@ -207,7 +210,7 @@
   <string name="preference_title_download_reading_list_articles">دانلود مقالات فهرست مطالعه</string>
   <string name="preference_summary_sync_reading_lists">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب کاربری ویکی‌پدیا</string>
   <string name="preference_summary_sync_reading_lists_from_account">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب کاربری «%s» در ویکی‌پدیا</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های مطالعه همگام سازی‌شده از «%s» حذف شوند؟</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های مطالعهٔ همگام‌سازی‌شده از «%s» حذف شوند؟</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">این کار همهٔ فهرست‌های مطالعه که پیشتر در حافظه همگام‌سازی شده را کاملاً حذف می‌کند. همهٔ فهرست‌های همگام‌سازی‌شده از حساب کاربری شما «%s» پاک شود؟</string>
   <string name="preferences_privacy_settings_heading">حریم خصوصی</string>
   <string name="preference_title_eventlogging_opt_in">ارسال گزارش‌های استفاده</string>
@@ -231,10 +234,10 @@
   <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
   <string name="terms_of_use_description">شرایط استفاده</string>
   <string name="about_wikipedia_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it/Lettura_e_dati_offline</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:درخواست_ایجاد_حساب_کاربری</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -246,7 +249,7 @@
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده‌است.</string>
   <string name="about_app_license_heading">مجوز</string>
-  <string name="about_app_license" fuzzy="true">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
+  <string name="about_app_license">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
   <string name="about_wmf">محصولی از &lt;a href=\"https://wikimediafoundation.org/\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>
   <string name="edit_abandon_confirm">صفحه ویرایش شده است. آیا مطمئنید که می‌خواهید بدون ذخیره تغییرات خارج شوید؟</string>
@@ -274,6 +277,7 @@
   <string name="find_previous">یافتن قبلی</string>
   <string name="find_first_occurence">این نخستین مورد است</string>
   <string name="find_last_occurence">این آخرین مورد است</string>
+  <string name="article_opened_in_background_tab">مقاله در یک زبانهٔ پس‌زمینه گشوده شده‌است.</string>
   <string name="abusefilter_title_warn">این ویرایش ممکن است غیرسازنده باشد. آیا مطمئنید می‌خواهید منتشرش کنید؟</string>
   <string name="abusefilter_title_disallow">شما نمی‌توانید این ویرایش را منتشر کنید. لطفاً بازگردید و تغییرش دهید.</string>
   <string name="abusefilter_text_warn">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده شناسایی کرده‌است. این ویرایش ممکن است شامل یک یا چند مورد از موارد زیر باشد:&lt;br /&gt;&lt;br /&gt;· همه را با حروف بزرگ نوشتن&lt;br /&gt;· خالی‌گذاشتن مقاله‌ها یا هرز نگاره&lt;br /&gt;· پیوندهای بیرونی یا تصاویر نامرتبط&lt;br /&gt;· تکرار نویسه‌ها</string>
@@ -503,7 +507,7 @@
   <string name="reading_list_articles_moved_to_named">%1$d مقاله به %2$s منتقل شد</string>
   <string name="reading_list_delete_confirm">آیا مطمئن هستید که می‌خواهید %s را حذف کنید؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">برای فعال‌کردن همگام‌سازی وارد شوید</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">برای ممکن ساخن ذخیرهٔ فهرست‌های مطالعهٔ خود، به حساب کاربری خود وارد شوید.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">برای ممکن ساختن ذخیرهٔ فهرست‌های مطالعهٔ خود، به حساب کاربری خود وارد شوید.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">لغو</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ورود</string>
   <string name="reading_list_turned_sync_off_dialog_title">همگام‌‌سازی فهرست مطالعه غیرفعال شد</string>
@@ -547,10 +551,12 @@
   <string name="reading_list_split_dialog_ok_button_text">تأیید</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_reverted_title">ویرایش واگردانی‌شده</string>
+  <string name="notification_channel_title">در حال دانلود مقاله‌ها</string>
   <string name="notification_channel_description">پیشرفت بارگیری</string>
   <string name="notification_syncing_pause_button">مکث</string>
   <string name="notification_syncing_resume_button">ادامه</string>
   <string name="notification_syncing_cancel_button">لغو</string>
+  <string name="notification_syncing_reading_list_channel_title">همگام‌سازی فهرست‌های مطالعه</string>
   <string name="notification_syncing_reading_list_channel_description">روند همگام‌سازی فهرست‌های مطالعه</string>
   <string name="notification_many_unread">شما %d اعلان خوانده‌نشده دارید</string>
   <plurals name="notification_channel_name">
@@ -596,6 +602,7 @@
   <string name="notifications_view_archived_button_text">مشاهدهٔ اعلان‌های بایگانی‌شده</string>
   <string name="notification_preferences_title">ترجیحات اعلان‌ها</string>
   <string name="notifications_mark_unread">نشانه‌گذاری به‌عنوان خوانده‌نشده</string>
+  <string name="notifications_mark_all_as_read">نشان‌گذاری همه به عنوان خوانده‌شده</string>
   <string name="watchlist_title">فهرست پی‌گیری</string>
   <string name="preference_title_notification_poll">سرشماری اعلان‌ها</string>
   <string name="preference_summary_notification_poll">به نرم‌افزار اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی اعلان‌های جدید استفاده کند.</string>
@@ -613,7 +620,21 @@
   <string name="preference_title_notification_mention">اشاره کردن</string>
   <string name="preference_summary_notification_mention">وقتی شخصی در صفحه‌ای به شما اشاره می‌کند</string>
   <string name="preference_title_notification_user_talk">صفحهٔ بحث</string>
-  <string name="preference_summary_notification_user_talk">پیام‌های صفحه‌های بحث</string>
+  <string name="preference_summary_notification_user_talk">پیام‌ها و پاسخ‌های صفحه‌های بحث</string>
+  <string name="preference_title_notification_email_user">ایمیل دریافت‌شده</string>
+  <string name="preference_summary_notification_email_user">کسی از طریق ویکی برای شما ایمیلی فرستاده است</string>
+  <string name="preference_title_notification_user_rights">اختیارات کاربری تغییر یافت</string>
+  <string name="preference_summary_notification_user_rights">هنگامی که اختیارات کاربری تغییر کرد دریافت شد</string>
+  <string name="preference_title_notification_article_linked">پیوند به مقاله‌هایی که ایجاد کردید</string>
+  <string name="preference_summary_notification_article_linked">زمانی دریافت می‌شود که پیوند جدیدی به صفحه‌ای که ایجاد کرده‌اید ساخته شود</string>
+  <string name="preference_category_push_notifications">اعلان‌ها</string>
+  <string name="preference_title_customize_push_notifications">شخصی‌سازی اعلان‌ها</string>
+  <string name="preference_category_display_settings">تنظیمات نمایش</string>
+  <string name="preference_title_hide_read_notifications">نهفتن اعلان‌های خوانده‌شده</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">اعلان‌های ویکی‌پدیا</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">اعلان‌های ویکی‌پدیا</string>
+  <string name="notifications_channel_group_other_title">سایر</string>
+  <string name="notifications_channel_group_other_description">سایر اعلان‌های برنامه</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه کرده‌اید</string>
   <string name="view_random_card_title">تصادفی</string>
   <string name="view_random_article_card_title">مقالهٔ تصادفی</string>
@@ -719,7 +740,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">آغاز ویرایش کردن</string>
   <string name="description_edit_tutorial_promise">پیش از استفاده، قول می‌دهم از این ویژگی سو‌ءاستفاده نکنم.</string>
   <string name="suggested_edits_describe_articles">مقاله‌ها را توصیف کنید</string>
-  <string name="suggested_edits_caption_images">به تصویرها توضیح بیافزایید</string>
+  <string name="suggested_edits_caption_images">به تصویرها توضیح بیفزایید</string>
   <string name="suggested_edits_tag_images">برچسب‌گذاری تصویرها</string>
   <string name="suggested_edits_review_description">مرور توضیحات مقاله</string>
   <string name="suggested_edits_add_description_button">افزدون توضیحات</string>
@@ -786,7 +807,7 @@
   <string name="suggested_edits_image_tags">برچسب‌های تصویر</string>
   <string name="suggested_edits_image_tags_publishing">در حال انتشار</string>
   <string name="suggested_edits_image_tags_published">منتشر شد</string>
-  <string name="suggested_edits_image_tags_onboarding_title">برچسب‌گذاری تصویرها، یافتن‌شان را آسان‌تر می‌کند.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">برچسب‌گذاری تصویرها یافتن‌شان را آسان‌تر می‌کند.</string>
   <string name="suggested_edits_image_tags_onboarding_text">شما با افزودن برچسب‌ها به ساده‌تر شدن جستجو برای نگاره‌ها در ویکی‌انبار کمک خواهید کرد. ویکی‌انبار مخزنی از نگاره‌های آزاد است که ویکی‌پدیا از آن‌ها به‌عنوان تصاویر آزاد در مقاله‌هایش استفاده می‌کند.</string>
   <string name="suggested_edits_image_tags_onboarding_note">تنها برچسب‌هایی که انتخاب کنید به تصاویر افزوده خواهد شد.</string>
   <string name="suggested_edits_image_tags_task_detail">برچسب‌های سفارشی را به تصویرها بیفزایید تا یافتن‌شان آسان‌تر شود.</string>
@@ -946,7 +967,7 @@
   <string name="more_language_options">بیشتر</string>
   <string name="add_wikipedia_languages_text">افزودن زبان‌های ویکی‌پدیا</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">آیا می‌خواهید چینی از بخش زبان‌های نرم‌افزار حذف شود؟</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">اکنون هر دو زبان ساده و سنتی چینی در نرم‌افزار شما فعال شده‌است. تنظیمات زبان نرم‌افزار به‌روز شود؟</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">اکنون هر دو زبان ساده و سنتی چینی در نرم‌افزار شما فعال شده‌است. تنظیمات زبان نرم‌افزار روزآمد شود؟</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ویرایش زبان‌ها</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نه ممنون</string>
   <string name="remove_language_dialog_cancel_button_text">لغو</string>
@@ -981,6 +1002,7 @@
   <string name="talk_title">بحث</string>
   <string name="talk_user_title">بحث: %s</string>
   <string name="talk_new_topic">مبحث جدید</string>
+  <string name="talk_new_topic_submitted">ریسه ارسال شد.</string>
   <string name="talk_page_empty">این صفحهٔ بحث خالی است.</string>
   <string name="talk_add_reply">پاسخ</string>
   <string name="talk_no_subject">(بدون عنوان)</string>
@@ -989,11 +1011,16 @@
   <string name="talk_message_hint">نوشتن پیام</string>
   <string name="talk_message_empty">پیغام نمی‌تواند خالی باشد.</string>
   <string name="talk_subject_empty">عنوان نمی‌تواند خالی باشد.</string>
+  <string name="talk_response_submitted">پاسخ ارسال شد.</string>
+  <string name="talk_snackbar_undo">واگردانی</string>
+  <string name="talk_last_modified">&lt;b&gt;آخرین ویرایش در %1$s&lt;/b&gt; توسط %2$s</string>
   <string name="menu_option_share_edit">اشتراک‌گذاری ویرایش</string>
   <string name="menu_option_user_profile">رخ‌نمای %s</string>
   <string name="menu_option_user_contributions">مشارکت‌های %s</string>
   <string name="watchlist_details_watching_label">پی‌گیری کردن</string>
   <string name="watchlist_details_watch_label">پی‌گیری</string>
+  <string name="watchlist_details_next_edit">ویرایش بعدی</string>
+  <string name="watchlist_details_prev_edit">ویرایش قبلی</string>
   <string name="thank_label">سپاس</string>
   <string name="go_to_user_page">رفتن به صفحه کاربر</string>
   <string name="thank_dialog_title_text">ارسال «تشکر» به‌صورت عمومی</string>

@@ -135,7 +135,7 @@
   <string name="create_account_passwords_mismatch_error">Swáng-nwuai tai njhyang bah</string>
   <string name="create_account_email_error">A̱kace a̱vwuonswat ta̱m-i</string>
   <string name="create_account_username_error">A̱kace zwúnzwuo mami a̱lyoot-a̱tyuta̱m</string>
-  <string name="create_account_password_error">Swang-nwuai ji yet a̱kace ja</string>
+  <string name="create_account_password_error" fuzzy="true">Swang-nwuai ji yet a̱kace ja</string>
   <string name="create_account_generic_error">Á̱ ku si̱ mi̱n khwuk a̱la̱n bah</string>
   <string name="create_account_next">Si̱ a̱zanson</string>
   <string name="email_recommendation_dialog_title">Khwuk a̱la̱n di̱ mi̱n a̱vwuonswat ta̱m-i a?</string>
@@ -425,7 +425,7 @@
   <string name="preference_title_notification_mention">Yorong</string>
   <string name="preference_summary_notification_mention">A̱yin yorong ang mi̱ peji ghyang</string>
   <string name="preference_title_notification_user_talk">Peji a̱lyiat</string>
-  <string name="preference_summary_notification_user_talk">Tá̱m neet di̱ pejí a̱lyiat</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Tá̱m neet di̱ pejí a̱lyiat</string>
   <string name="view_because_you_read_card_title">Da̱nian a fang</string>
   <string name="view_random_card_title">A̱tyei-a̱kpeak</string>
   <string name="view_random_article_card_title">A̱kpeak a̱ti̱kut</string>

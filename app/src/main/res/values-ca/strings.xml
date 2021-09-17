@@ -57,6 +57,7 @@
   <string name="app_settings">Configuració de l\'aplicació</string>
   <string name="search_tab_tooltip">Torneu a tocar la icona per a començar a teclejar un terme de cerca.</string>
   <string name="history_list_title">Historial</string>
+  <string name="image_content_description">Imatge: %s</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -167,7 +168,7 @@
   <string name="create_account_passwords_mismatch_error">Les contrasenyes no coincideixen</string>
   <string name="create_account_email_error">Correu electrònic no vàlid</string>
   <string name="create_account_username_error">Caràcters no vàlids en el nom d\'usuari</string>
-  <string name="create_account_password_error">La contrasenya no és vàlida</string>
+  <string name="create_account_password_error">La contrasenya ha de tenir com a mínim 8 caràcters</string>
   <string name="create_account_generic_error">No s\'ha pogut crear el compte</string>
   <string name="create_account_next">Següent</string>
   <string name="email_recommendation_dialog_title">Voleu crear un compte sense adreça electrònica?</string>
@@ -181,6 +182,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalls</string>
   <string name="preferences_general_heading">General</string>
+  <string name="preferences_account_heading">Compte</string>
   <string name="wikipedia_app_faq">PMF de l\'aplicació de la Viquipèdia</string>
   <string name="send_feedback">Envieu els vostres comentaris sobre l\'aplicació</string>
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
@@ -538,10 +540,12 @@
   <string name="reading_list_split_dialog_ok_button_text">D’acord</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_reverted_title">Modificació revertida</string>
+  <string name="notification_channel_title">Baixada d\'articles</string>
   <string name="notification_channel_description">Progrés de la baixada</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Reprèn</string>
   <string name="notification_syncing_cancel_button">Cancel·la</string>
+  <string name="notification_syncing_reading_list_channel_title">Sincronització de llistes de lectura</string>
   <string name="notification_syncing_reading_list_channel_description">Progrés de sincronització de llistes de lectura</string>
   <string name="notification_many_unread">Teniu %d notificacions per llegir</string>
   <plurals name="notification_channel_name">
@@ -587,6 +591,7 @@
   <string name="notifications_view_archived_button_text">Mostra les notificacions arxivades</string>
   <string name="notification_preferences_title">Preferències de notificació</string>
   <string name="notifications_mark_unread">Marca com a no llegit</string>
+  <string name="notifications_mark_all_as_read">Marca-les totes com llegides</string>
   <string name="watchlist_title">Llista de seguiment</string>
   <string name="preference_title_notification_poll">Activa les notificacions</string>
   <string name="preference_summary_notification_poll">Permet a l\'aplicació utilitzar dades per comprovar si hi ha noves notificacions en segon pla.</string>
@@ -604,7 +609,21 @@
   <string name="preference_title_notification_mention">Menció</string>
   <string name="preference_summary_notification_mention">Algú us menciona en una pàgina</string>
   <string name="preference_title_notification_user_talk">Pàgina de discussió</string>
-  <string name="preference_summary_notification_user_talk">Missatges de pàgines de discussió</string>
+  <string name="preference_summary_notification_user_talk">Missatges i respostes de pàgines de discussió</string>
+  <string name="preference_title_notification_email_user">Rebudes per correu</string>
+  <string name="preference_summary_notification_email_user">Algú us ha enviat un missatge de correu des del wiki</string>
+  <string name="preference_title_notification_user_rights">Canvis dels permisos d\'usuari</string>
+  <string name="preference_summary_notification_user_rights">Rebut quan canvien els vostres permisos d\'usuari</string>
+  <string name="preference_title_notification_article_linked">Enllaços a articles que heu creat</string>
+  <string name="preference_summary_notification_article_linked">Rebut quan es fa un nou enllaç a una pàgina que vau crear</string>
+  <string name="preference_category_push_notifications">Notificacions emergents</string>
+  <string name="preference_title_customize_push_notifications">Personalitza les notificacions emergents</string>
+  <string name="preference_category_display_settings">Configuració de visualització</string>
+  <string name="preference_title_hide_read_notifications">Amaga les notificacions llegides</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Viquipèdia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Notificacions de la Viquipèdia</string>
+  <string name="notifications_channel_group_other_title">Altres</string>
+  <string name="notifications_channel_group_other_description">Altres notificacions de l\'aplicació</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>
   <string name="view_random_article_card_title">Article a l\'atzar</string>
@@ -973,7 +992,7 @@
   <string name="talk_title">Discussió</string>
   <string name="talk_user_title">Discussió: %s</string>
   <string name="talk_new_topic">Tema nou</string>
-  <string name="talk_new_topic_submitted">S\'ha tramès un tema.</string>
+  <string name="talk_new_topic_submitted">S\'ha enviat un tema.</string>
   <string name="talk_page_empty">La pàgina de discussió és en blanc.</string>
   <string name="talk_add_reply">Respon</string>
   <string name="talk_no_subject">(sense tema)</string>
@@ -982,7 +1001,7 @@
   <string name="talk_message_hint">Redacta un missatge</string>
   <string name="talk_message_empty">El missatge no pot ser en blanc.</string>
   <string name="talk_subject_empty">El tema no pot ser en blanc.</string>
-  <string name="talk_response_submitted">S\'ha tramès una resposta.</string>
+  <string name="talk_response_submitted">S\'ha enviat una resposta.</string>
   <string name="talk_snackbar_undo">Desfés</string>
   <string name="talk_last_modified">&lt;b&gt;Editat per última vegada %1$s&lt;/b&gt; per %2$s</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>
@@ -990,6 +1009,8 @@
   <string name="menu_option_user_contributions">Contribucions de %s</string>
   <string name="watchlist_details_watching_label">En seguiment</string>
   <string name="watchlist_details_watch_label">Segueix</string>
+  <string name="watchlist_details_next_edit">Edició següent</string>
+  <string name="watchlist_details_prev_edit">Edició anterior</string>
   <string name="thank_label">Agraeix</string>
   <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
   <string name="thank_dialog_title_text">Envia \'agraïments\' públicament</string>

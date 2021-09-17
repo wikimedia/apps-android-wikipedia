@@ -10,6 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ViewCardNewsBinding
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
@@ -22,6 +23,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
     }
 
     private val binding = ViewCardNewsBinding.inflate(LayoutInflater.from(context), this, true)
+    private var prevImageDownloadSettings = Prefs.isImageDownloadEnabled()
     private var isSnapHelperAttached = false
 
     private fun setUpIndicatorDots(card: NewsCard) {
@@ -35,7 +37,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
                 DimenUtil.roundedDpToPx(indicatorHeight.toFloat()),
                 ResourceUtil.getThemedColor(context, R.attr.chart_shade5),
                 ResourceUtil.getThemedColor(context, R.attr.colorAccent),
-                L10nUtil.isLangRTL(card.wikiSite().languageCode())
+                L10nUtil.isLangRTL(card.wikiSite().languageCode)
             )
         )
     }
@@ -48,8 +50,9 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
 
     override var card: NewsCard? = null
         set(value) {
-            if (field != value) {
+            if (field != value || prevImageDownloadSettings != Prefs.isImageDownloadEnabled()) {
                 field = value
+                prevImageDownloadSettings = Prefs.isImageDownloadEnabled()
                 value?.let {
                     header(it)
                     setLayoutDirectionByWikiSite(it.wikiSite(), binding.rtlContainer)
@@ -79,7 +82,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
 
     private fun header(card: NewsCard) {
         binding.headerView.setTitle(card.title())
-            .setLangCode(card.wikiSite().languageCode())
+            .setLangCode(card.wikiSite().languageCode)
             .setCard(card)
     }
 

@@ -128,7 +128,7 @@
   <string name="create_account_passwords_mismatch_error">पासवर्ड्स मैच नहीं हो रहे</string>
   <string name="create_account_email_error">अवैध ईमेल पता</string>
   <string name="create_account_username_error">सदस्यनाम में अमान्य अक्षर</string>
-  <string name="create_account_password_error">ये पासवर्ड अमान्य है</string>
+  <string name="create_account_password_error" fuzzy="true">ये पासवर्ड अमान्य है</string>
   <string name="create_account_generic_error">खाता नहीं बन सका</string>
   <string name="create_account_next">अगला</string>
   <string name="create_account_button">खाता बनायें</string>
@@ -368,6 +368,8 @@
   <string name="notification_channel_name" fuzzy="true">सिंक हो रहा है</string>
   <string name="notification_syncing_title" fuzzy="true">%1$d लेख सिंक किये जा रहे हैं...</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d लेख बचे</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">विकिपीडिया</string>
+  <string name="notifications_channel_group_other_title">अन्य</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
   <string name="view_next_random_article">कोई दूसरा रैंडम लेख लोड करें</string>

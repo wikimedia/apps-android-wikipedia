@@ -134,7 +134,7 @@
   <string name="create_account_passwords_mismatch_error">Mae\'r cyfrineiriau\'n wahanol</string>
   <string name="create_account_email_error">Cyfeiriad e-bost annilys</string>
   <string name="create_account_username_error">Cymeriad/llythrennau/rhifolion annilys yn eich defnydd-enw (\'\'username\'\')</string>
-  <string name="create_account_password_error">Mae\'r cyfrinair yn anghymwys</string>
+  <string name="create_account_password_error" fuzzy="true">Mae\'r cyfrinair yn anghymwys</string>
   <string name="create_account_generic_error">Ni lwyddwyd i greu\'r cyfrif</string>
   <string name="create_account_next">Nesaf</string>
   <string name="email_recommendation_dialog_title">Creu cyfrif heb gyfeiriad ebost?</string>

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import androidx.core.util.Pair
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -21,6 +20,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentRandomBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -34,7 +34,6 @@ import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil.AddToDefaultListCallback
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil.addToDefaultList
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.AnimationUtil.PagerTransformer
 import org.wikipedia.util.DimenUtil
@@ -78,7 +77,7 @@ class RandomFragment : Fragment() {
 
         binding.randomItemPager.offscreenPageLimit = 2
         binding.randomItemPager.adapter = RandomItemAdapter(this)
-        binding.randomItemPager.setPageTransformer(PagerTransformer(resources.configuration.layoutDirection == ViewCompat.LAYOUT_DIRECTION_RTL))
+        binding.randomItemPager.setPageTransformer(PagerTransformer(resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL))
         binding.randomItemPager.registerOnPageChangeCallback(viewPagerListener)
 
         binding.randomNextButton.setOnClickListener { onNextClick() }
@@ -174,16 +173,8 @@ class RandomFragment : Fragment() {
     fun onAddPageToList(title: PageTitle, addToDefault: Boolean) {
         if (addToDefault) {
             addToDefaultList(requireActivity(), title, InvokeSource.RANDOM_ACTIVITY,
-                    object : AddToDefaultListCallback {
-                        override fun onMoveClicked(readingListId: Long) {
-                            onMovePageToList(readingListId, title)
-                        }
-                    },
-                    object : ReadingListBehaviorsUtil.Callback {
-                        override fun onCompleted() {
-                            updateSaveShareButton(title)
-                        }
-                    }
+                AddToDefaultListCallback { readingListId -> onMovePageToList(readingListId, title) },
+                ReadingListBehaviorsUtil.Callback { updateSaveShareButton(title) }
             )
         } else {
             bottomSheetPresenter.show(childFragmentManager,
@@ -210,7 +201,7 @@ class RandomFragment : Fragment() {
             return
         }
 
-        val d = Observable.fromCallable { ReadingListDbHelper.findPageInAnyList(title) != null }
+        val d = Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(title) != null }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ exists: Boolean ->
@@ -284,7 +275,7 @@ class RandomFragment : Fragment() {
                     return
                 }
                 for (page in event.pages) {
-                    if (page.apiTitle == topTitle?.prefixedText && page.wiki.languageCode() == topTitle?.wikiSite?.languageCode()) {
+                    if (page.apiTitle == topTitle?.prefixedText && page.wiki.languageCode == topTitle?.wikiSite?.languageCode) {
                         updateSaveShareButton(topTitle)
                     }
                 }

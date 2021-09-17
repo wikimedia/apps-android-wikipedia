@@ -136,7 +136,7 @@
   <string name="create_account_passwords_mismatch_error">Les contraseñes nun casen</string>
   <string name="create_account_email_error">Direición de corréu inválida</string>
   <string name="create_account_username_error">Hai caráuteres inválidos nel nome d\'usuariu</string>
-  <string name="create_account_password_error">La contraseña ye inválida</string>
+  <string name="create_account_password_error" fuzzy="true">La contraseña ye inválida</string>
   <string name="create_account_generic_error">Nun pudo crease la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="email_recommendation_dialog_title">¿Crear una cuenta ensin dirección de corréu electrónicu?</string>
@@ -196,7 +196,7 @@
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación traduxéronla traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicencia</string>
-  <string name="about_app_license" fuzzy="true">El códigu fonte ta disponible\'n &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baxo la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Llicencia Apache 2.0&lt;/a&gt;. Si nun s\'especifica lo contrario, el conteníu ta disponible baxo una &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Llicencia Creative Commons Reconocimientu-CompartirIgual&lt;/a&gt;.</string>
+  <string name="about_app_license">El códigu fonte ta disponible\'n &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baxo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Llicencia Apache 2.0&lt;/a&gt;. Si nun s\'especifica lo contrario, el conteníu ta disponible baxo una &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Llicencia Creative Commons Reconocimientu-CompartirIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Un productu de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Tocante a</string>
   <string name="edit_abandon_confirm">Cambióse la páxina. ¿Seguro que quies salir ensin guardar los cambios?</string>
@@ -514,7 +514,7 @@
   <string name="preference_title_notification_mention">Mención</string>
   <string name="preference_summary_notification_mention">Dalguién te mentó nuna páxina</string>
   <string name="preference_title_notification_user_talk">Páxina d\'alderique</string>
-  <string name="preference_summary_notification_user_talk">Mensaxes de páxines d\'alderique</string>
+  <string name="preference_summary_notification_user_talk" fuzzy="true">Mensaxes de páxines d\'alderique</string>
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>
   <string name="view_random_article_card_title">Artículu al debalu</string>
@@ -645,7 +645,9 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Amestar descripción del artículu (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primeros pasos</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Pie d\'imaxe (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_image">Imaxe</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Etiquetes</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotógrafu</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Llicencia</string>
@@ -699,6 +701,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
   <string name="suggested_edits_quality_poor_text">Probe</string>
   <string name="suggested_edits_quality_bad_text">Mala</string>
+  <string name="suggested_edits_label">Ediciones suxeríes</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribución</item>
     <item quantity="other">Contribuciones</item>
@@ -714,6 +717,15 @@
   <string name="suggested_edits_reactivation_notification_title">Ediciones suxeríes</string>
   <string name="suggested_edits_reactivation_notification_stage_one">¡Gracies por editar Wikipedia! ¿Cómo nun sigues onde lo dexasti?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">¿Tienes un minutu pa siguir ameyorando Wikipedia? Revisa estes suxerencies d\'edición.</string>
+  <string name="suggested_edits_contribution_image_label">Imaxe</string>
+  <string name="suggested_edits_contribution_article_label">Artículu</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Ayeri</string>
+  <string name="suggested_edits_contribution_type_image_tag">Etiqueta d\'imaxe</string>
+  <string name="suggested_card_more_edits">Más ediciones suxeríes</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s etiqueta</item>
+    <item quantity="other">%1$s etiquetes</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">¡Gracies por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentasti faelo lo meyor posible, pero unu de los revisores tuvo una esmolición. Les posibles razones poles que se revertió la edición incluyen:</string>
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -799,6 +811,7 @@
   <string name="text_input_dialog_ok_button_text">Aceutar</string>
   <string name="text_input_dialog_cancel_button_text">Encaboxar</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Encaboxar</string>
+  <string name="talk_title">Alderique</string>
   <string name="watchlist_expiry_dialog_one_week">1 selmana</string>
   <string name="watchlist_filter_talk">Alderique</string>
   <string name="watchlist_filter_pages">Páxines</string>

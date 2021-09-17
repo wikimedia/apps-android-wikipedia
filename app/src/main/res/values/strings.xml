@@ -33,6 +33,7 @@
     <string name="app_settings">App settings</string>
     <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
     <string name="history_list_title">History</string>
+    <string name="image_content_description">Image: %s</string>
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
@@ -152,7 +153,7 @@
     <string name="create_account_passwords_mismatch_error">Passwords don\'t match</string>
     <string name="create_account_email_error">Invalid email address</string>
     <string name="create_account_username_error">Invalid characters in username</string>
-    <string name="create_account_password_error">The password is invalid</string>
+    <string name="create_account_password_error">The password must be at least 8 characters</string>
     <string name="create_account_generic_error">Could not create account</string>
     <string name="create_account_next">Next</string>
     <string name="email_recommendation_dialog_title">Create account with no email address?</string>
@@ -166,6 +167,7 @@
     <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
     <string name="create_account_ip_block_details">Details</string>
     <string name="preferences_general_heading">General</string>
+    <string name="preferences_account_heading">Account</string>
     <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
     <string name="send_feedback">Send app feedback</string>
     <string name="create_account_account_created_toast">Account created!</string>
@@ -542,10 +544,12 @@
 
     <!-- Notifications -->
     <string name="notification_reverted_title">Reverted edit</string>
+    <string name="notification_channel_title">Downloading articles</string>
     <string name="notification_channel_description">Download progress</string>
     <string name="notification_syncing_pause_button">Pause</string>
     <string name="notification_syncing_resume_button">Resume</string>
     <string name="notification_syncing_cancel_button">Cancel</string>
+    <string name="notification_syncing_reading_list_channel_title">Syncing Reading Lists</string>
     <string name="notification_syncing_reading_list_channel_description">Syncing Reading Lists progress</string>
     <string name="notification_many_unread">You have %d unread notifications</string>
     <plurals name="notification_channel_name">
@@ -591,6 +595,7 @@
     <string name="notifications_view_archived_button_text">View archived notifications</string>
     <string name="notification_preferences_title">Notification preferences</string>
     <string name="notifications_mark_unread">Mark as unread</string>
+    <string name="notifications_mark_all_as_read">Mark all as read</string>
     <string name="watchlist_title">Watchlist</string>
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
@@ -608,7 +613,21 @@
     <string name="preference_title_notification_mention">Mention</string>
     <string name="preference_summary_notification_mention">Someone mentions you in a page</string>
     <string name="preference_title_notification_user_talk">Talk page</string>
-    <string name="preference_summary_notification_user_talk">Messages from talk pages</string>
+    <string name="preference_summary_notification_user_talk">Messages and replies from talk pages</string>
+    <string name="preference_title_notification_email_user">Email received</string>
+    <string name="preference_summary_notification_email_user">Someone sent you an email through the wiki</string>
+    <string name="preference_title_notification_user_rights">User rights changes</string>
+    <string name="preference_summary_notification_user_rights">Received when your user rights change</string>
+    <string name="preference_title_notification_article_linked">Links to articles you created</string>
+    <string name="preference_summary_notification_article_linked">Received when a new link is made to a page you created</string>
+    <string name="preference_category_push_notifications">Push notifications</string>
+    <string name="preference_title_customize_push_notifications">Customize push notifications</string>
+    <string name="preference_category_display_settings">Display settings</string>
+    <string name="preference_title_hide_read_notifications">Hide read notifications</string>
+    <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+    <string name="notifications_channel_group_wikipedia_notifications_description">Notifications from Wikipedia</string>
+    <string name="notifications_channel_group_other_title">Other</string>
+    <string name="notifications_channel_group_other_description">Other notifications from the app</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
@@ -1026,7 +1045,7 @@
     <string name="talk_title">Talk</string>
     <string name="talk_user_title">Talk: %s</string>
     <string name="talk_new_topic">New topic</string>
-    <string name="talk_new_topic_submitted">Topic submitted.</string>
+    <string name="talk_new_topic_submitted">Topic posted.</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_add_reply">Reply</string>
     <string name="talk_no_subject">(No subject)</string>
@@ -1035,7 +1054,7 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
-    <string name="talk_response_submitted">Response submitted.</string>
+    <string name="talk_response_submitted">Reply posted.</string>
     <string name="talk_snackbar_undo">Undo</string>
     <string name="talk_last_modified"><![CDATA[<b>Last edited %1$s</b> by %2$s]]></string>
     <string name="menu_option_share_edit">Share edit</string>
@@ -1043,6 +1062,8 @@
     <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
+    <string name="watchlist_details_next_edit">Next edit</string>
+    <string name="watchlist_details_prev_edit">Previous edit</string>
     <string name="thank_label">Thank</string>
     <string name="go_to_user_page">Go to user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>

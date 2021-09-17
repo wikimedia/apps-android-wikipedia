@@ -6,7 +6,9 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -21,11 +23,14 @@ class BecauseYouReadClient : FeedClient {
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
         disposables.add(
-            Observable.fromCallable(MainPageReadMoreTopicTask(age))
+            Observable.fromCallable {
+                AppDatabase.getAppDatabase().historyEntryWithImageDao().findEntryForReadMore(age,
+                    context.resources.getInteger(R.integer.article_engagement_threshold_sec))
+            }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                        entry -> getCardForHistoryEntry(entry, cb)
+                .subscribe({ entries ->
+                    if (entries.size <= age) cb.success(emptyList()) else getCardForHistoryEntry(entries[age], cb)
                 }) { cb.success(emptyList()) })
     }
 
@@ -37,7 +42,7 @@ class BecauseYouReadClient : FeedClient {
 
         // If the language code has a parent language code, it means set "Accept-Language" will slow down the loading time of /page/related
         // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
-        val hasParentLanguageCode = !WikipediaApp.getInstance().language().getDefaultLanguageCode(entry.title.wikiSite.languageCode()).isNullOrEmpty()
+        val hasParentLanguageCode = !WikipediaApp.getInstance().language().getDefaultLanguageCode(entry.title.wikiSite.languageCode).isNullOrEmpty()
         disposables.add(ServiceFactory.getRest(entry.title.wikiSite)
             .getRelatedPages(entry.title.prefixedText)
             .subscribeOn(Schedulers.io())
@@ -45,7 +50,7 @@ class BecauseYouReadClient : FeedClient {
             .flatMap { relatedPages ->
                 val list = relatedPages.getPages(Constants.SUGGESTION_REQUEST_ITEMS)
                 list.add(0, PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
-                        entry.title.extract, entry.title.thumbUrl, entry.title.wikiSite.languageCode()))
+                        entry.title.extract, entry.title.thumbUrl, entry.title.wikiSite.languageCode))
                 Observable.fromIterable(list)
             }
             .concatMap { pageSummary ->
