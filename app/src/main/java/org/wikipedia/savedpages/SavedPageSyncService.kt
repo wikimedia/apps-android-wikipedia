@@ -211,7 +211,7 @@ class SavedPageSyncService : JobIntentService() {
         return pageSize
     }
 
-    private fun reqPageSummary(pageTitle: PageTitle): Observable<Response<PageSummary?>> {
+    private fun reqPageSummary(pageTitle: PageTitle): Observable<Response<PageSummary>> {
         return ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText,
                 null, CACHE_CONTROL_FORCE_NETWORK.toString(),
                 OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,
