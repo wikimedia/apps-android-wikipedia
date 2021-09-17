@@ -13,7 +13,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivitySuggestedEditsFeedCardImageTagsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.json.GsonMarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -90,7 +90,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
         @JvmStatic
         fun newIntent(context: Context, page: MwQueryPage, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, SuggestedEditsImageTagEditActivity::class.java)
-                    .putExtra(ARG_PAGE, GsonMarshaller.marshal(page))
+                    .putExtra(ARG_PAGE, JsonUtil.encodeToString(page))
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

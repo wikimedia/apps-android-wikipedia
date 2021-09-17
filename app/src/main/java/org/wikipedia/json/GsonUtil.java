@@ -23,12 +23,12 @@ public final class GsonUtil {
 
     private static final Gson DEFAULT_GSON = DEFAULT_GSON_BUILDER.create();
 
-    public static Gson getDefaultGson() {
+    public static Gson _getDefaultGson() {
         return DEFAULT_GSON;
     }
 
     @VisibleForTesting
-    public static GsonBuilder getDefaultGsonBuilder() {
+    public static GsonBuilder _getDefaultGsonBuilder() {
         return DEFAULT_GSON_BUILDER;
     }
 
