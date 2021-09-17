@@ -3,7 +3,6 @@ package org.wikipedia.views
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.view.ActionProvider.VisibilityListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -71,13 +70,11 @@ class SearchAndFilterActionProvider(context: Context,
         binding.notificationFilterCount.text = delimitedFilterString
         if (delimitedFilterString == "0") {
             binding.notificationFilterCount.visibility = View.GONE
-            binding.notificationFilterIcon.imageTintList =
-                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
+            binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
         } else {
             binding.notificationFilterCount.visibility = View.VISIBLE
             binding.notificationFilterIcon.imageTintList =
                 ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         }
     }
-
 }
