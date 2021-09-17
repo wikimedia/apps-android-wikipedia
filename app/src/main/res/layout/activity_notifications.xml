@@ -19,7 +19,10 @@
                 android:id="@+id/notification_tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:background="?attr/paper_color"
+                app:tabTextColor="?android:attr/textColorTertiary"
+                app:tabSelectedTextColor="?attr/colorAccent">
 
                 <com.google.android.material.tabs.TabItem
                     android:text="@string/notifications_tab_filter_all"
