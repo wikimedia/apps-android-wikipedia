@@ -1,14 +1,18 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
+import android.view.ActionProvider.VisibilityListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ActionProvider
-import org.wikipedia.R.attr
+import org.wikipedia.R
 import org.wikipedia.databinding.ViewSearchAndFilterBinding
+import org.wikipedia.notifications.NotificationsFiltersActivity
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 
@@ -29,7 +33,8 @@ class SearchAndFilterActionProvider(context: Context,
         binding.searchInput.inputType = EditorInfo.TYPE_CLASS_TEXT
         binding.searchInput.isSubmitButtonEnabled = false
         binding.searchInput.queryHint = searchHintString
-        binding.searchInput.setSearchHintTextColor(ResourceUtil.getThemedColor(context, attr.material_theme_de_emphasised_color))
+        binding.searchInput.setSearchHintTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color))
+        updateFilterIconAndText()
         binding.searchInput.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(s: String): Boolean {
                 return false
@@ -46,6 +51,9 @@ class SearchAndFilterActionProvider(context: Context,
                 callback.onQueryTextFocusChange()
             }
         }
+        binding.notificationFilterIcon.setOnClickListener {
+            context.startActivity(NotificationsFiltersActivity.newIntent(context))
+        }
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchInput.findViewById<View>(androidx.appcompat.R.id.search_plate)
@@ -57,4 +65,19 @@ class SearchAndFilterActionProvider(context: Context,
     override fun overridesItemVisibility(): Boolean {
         return true
     }
+
+    fun updateFilterIconAndText() {
+        val delimitedFilterString = Prefs.getNotificationsFilterLanguageCodes().orEmpty().split(",").filter { it.isNotEmpty() }.size.toString()
+        binding.notificationFilterCount.text = delimitedFilterString
+        if (delimitedFilterString == "0") {
+            binding.notificationFilterCount.visibility = View.GONE
+            binding.notificationFilterIcon.imageTintList =
+                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
+        } else {
+            binding.notificationFilterCount.visibility = View.VISIBLE
+            binding.notificationFilterIcon.imageTintList =
+                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+        }
+    }
+
 }

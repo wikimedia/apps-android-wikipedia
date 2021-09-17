@@ -638,6 +638,7 @@
         <item quantity="one">%d filter</item>
         <item quantity="other">%d filters</item>
     </plurals>
+    <string name="notifications_select_all_filters">Select all filters</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
@@ -1105,4 +1106,5 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+    <string name="notification_filter_heading">Filter notifications by wiki</string>
 </resources>

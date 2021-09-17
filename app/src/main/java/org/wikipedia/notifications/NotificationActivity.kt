@@ -2,6 +2,7 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
@@ -107,6 +108,16 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         beginUpdateList()
     }
 
+    override fun onResume() {
+        super.onResume()
+        beginUpdateList()
+        actionMode?.let {
+            if (SearchActionModeCallback.`is`(it)) {
+                searchActionModeCallback.refreshProvider()
+            }
+        }
+    }
+
     public override fun onDestroy() {
         disposables.clear()
         super.onDestroy()
@@ -178,7 +189,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     private val orContinueNotifications: Unit
         get() {
             binding.notificationsProgressBar.visibility = View.VISIBLE
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications("*", if (displayArchived) "read" else "!read", currentContinueStr)
+            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(getFilteredWikiList().joinToString("|"), if (displayArchived) "read" else "!read", currentContinueStr)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
@@ -186,6 +197,25 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                         currentContinueStr = response.query?.notifications!!.continueStr
                     }) { t -> setErrorState(t) })
         }
+
+    private fun getFilteredWikiList(): List<String> {
+        val filteredWikiList = mutableListOf<String>()
+        when {
+            Prefs.getNotificationsFilterLanguageCodes() == null -> {
+                filteredWikiList.add("*")
+            }
+            Prefs.getNotificationsFilterLanguageCodes()?.isEmpty()!! -> {
+                filteredWikiList.add("")
+            }
+            else -> {
+                filteredWikiList.addAll(StringUtil.csvToList(Prefs.getNotificationsFilterLanguageCodes().orEmpty()) as MutableList<String>)
+                for (i in 0 until filteredWikiList.size) {
+                    filteredWikiList[i] = filteredWikiList[i] + "wiki"
+                }
+            }
+        }
+        return filteredWikiList
+    }
 
     private fun setErrorState(t: Throwable) {
         L.e(t)
@@ -237,8 +267,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
         binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         if (notificationContainerList.isEmpty()) {
-            if (actionMode == null) binding.notificationsEmptyContainer.visibility = View.VISIBLE
-            if (actionMode != null) binding.notificationsSearchEmptyContainer.visibility = View.VISIBLE
+            binding.notificationsEmptyContainer.visibility = if (actionMode == null) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
             binding.notificationsViewArchivedButton.visibility = if (displayArchived) View.GONE else View.VISIBLE
         } else {
@@ -368,6 +398,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             tertiaryActionHintView.isVisible = false
             n.contents?.let {
                 titleView.text = StringUtil.fromHtml(it.header)
+                StringUtil.highlightAndBoldenText(titleView, currentSearchQuery, true, Color.YELLOW)
                 if (it.body.trim().isNotEmpty()) {
                     descriptionView.text = StringUtil.fromHtml(it.body)
                     descriptionView.visibility = View.VISIBLE
@@ -375,7 +406,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     descriptionView.visibility = View.GONE
                 }
                 it.links?.secondary?.let { secondary ->
-                    if (secondary.size > 0) {
+                    if (secondary.isNotEmpty()) {
                         secondaryActionHintView.text = secondary[0].label
                         secondaryActionHintView.visibility = View.VISIBLE
                         if (secondary.size > 1) {
@@ -483,20 +514,23 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     }
 
     private inner class SearchCallback : SearchActionModeCallback() {
+
+        var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(parentContext, searchHintString,
+                object : SearchAndFilterActionProvider.Callback {
+                    override fun onQueryTextChange(s: String) {
+                        onQueryChange(s)
+                    }
+
+                    override fun onQueryTextFocusChange() {
+                    }
+                })
 
             val menuItem = menu.add(searchHintString)
 
             // Manually setup a action provider in order to have a custom view.
-            MenuItemCompat.setActionProvider(menuItem, SearchAndFilterActionProvider(parentContext, searchHintString, object :
-                SearchAndFilterActionProvider.Callback {
-                override fun onQueryTextChange(s: String) {
-                    onQueryChange(s)
-                }
-
-                override fun onQueryTextFocusChange() {
-                }
-            }))
+            MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 
             actionMode = mode
             return super.onCreateActionMode(mode, menu)
@@ -520,6 +554,10 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
         override fun getParentContext(): Context {
             return this@NotificationActivity
+        }
+
+        fun refreshProvider() {
+            searchAndFilterActionProvider?.updateFilterIconAndText()
         }
     }
 

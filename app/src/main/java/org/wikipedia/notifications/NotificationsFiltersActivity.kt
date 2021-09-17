@@ -22,17 +22,18 @@ import org.wikipedia.views.DefaultViewHolder
 class NotificationsFiltersActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNotificationsFiltersBinding
+    private var notificationsFiltersAdapter = NotificationsFiltersAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsFiltersBinding.inflate(layoutInflater)
-        setUpFiltersRecyclerView()
+        setUpRecyclerView()
         setContentView(binding.root)
     }
 
-    private fun setUpFiltersRecyclerView() {
+    private fun setUpRecyclerView() {
         binding.notificationsFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.notificationsFiltersRecyclerView.adapter = NotificationsFiltersAdapter(this)
+        binding.notificationsFiltersRecyclerView.adapter = notificationsFiltersAdapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -43,7 +44,7 @@ class NotificationsFiltersActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_notifications_filter -> {
-                // Todo: implement
+                notificationsFiltersAdapter.selectAll()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -60,18 +61,28 @@ class NotificationsFiltersActivity : BaseActivity() {
     class NotificationsFiltersAdapter(val context: Context) :
         RecyclerView.Adapter<NotificationFilterItemHolder>(), Callback {
         var app: WikipediaApp = WikipediaApp.getInstance()
-        var appLanguageCodes: MutableList<String> = app.language().appLanguageCodes
+        private var filteredWikisList = mutableListOf<String>()
         private var fullWikisList = mutableListOf<String>()
 
         init {
-            fullWikisList.addAll(appLanguageCodes)
+            filteredWikisList.clear()
+            fullWikisList.clear()
+            fullWikisList.addAll(app.language().appLanguageCodes)
             fullWikisList.add("commons")
             fullWikisList.add("wikidata")
             filteredWikisList.addAll(if (Prefs.getNotificationsFilterLanguageCodes() == null) fullWikisList
             else csvToList(StringUtils.defaultString(Prefs.getNotificationsFilterLanguageCodes())))
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): NotificationFilterItemHolder {
+        fun selectAll() {
+            Prefs.setNotificationsFilterLanguageCodes(StringUtil.listToCsv(fullWikisList))
+            filteredWikisList.clear()
+            filteredWikisList.addAll(csvToList(StringUtils.defaultString(Prefs.getNotificationsFilterLanguageCodes())))
+            notifyDataSetChanged()
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup,
+                                        type: Int): NotificationFilterItemHolder {
             val notificationsFilterItemView = NotificationsFilterItemView(context)
             notificationsFilterItemView.callback = this
             return NotificationFilterItemHolder(notificationsFilterItemView)
@@ -85,9 +96,15 @@ class NotificationsFiltersActivity : BaseActivity() {
             val languageCode = fullWikisList[position]
             val showCheck = filteredWikisList.contains(languageCode)
             when (languageCode) {
-                "commons" -> { holder.bindItem(null, context.getString(R.string.wikimedia_commons), showCheck, R.drawable.ic_commons_logo) }
-                "wikidata" -> { holder.bindItem(null, context.getString(R.string.wikidata), showCheck, R.drawable.ic_wikidata_logo) }
-                else -> { holder.bindItem(languageCode, app.language().getAppLanguageCanonicalName(languageCode).orEmpty(), showCheck, null) }
+                "commons" -> {
+                    holder.bindItem(null, context.getString(R.string.wikimedia_commons), showCheck, R.drawable.ic_commons_logo)
+                }
+                "wikidata" -> {
+                    holder.bindItem(null, context.getString(R.string.wikidata), showCheck, R.drawable.ic_wikidata_logo)
+                }
+                else -> {
+                    holder.bindItem(languageCode, app.language().getAppLanguageCanonicalName(languageCode).orEmpty(), showCheck, null)
+                }
             }
         }
 
@@ -103,8 +120,6 @@ class NotificationsFiltersActivity : BaseActivity() {
     }
 
     companion object {
-        private var filteredWikisList = mutableListOf<String>()
-
         fun newIntent(context: Context): Intent {
             return Intent(context, NotificationsFiltersActivity::class.java)
         }
