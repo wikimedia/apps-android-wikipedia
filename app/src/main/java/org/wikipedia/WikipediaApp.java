@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.math.MathUtils;
 
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.InstallReferrerListener;
@@ -245,13 +246,9 @@ public class WikipediaApp extends Application {
     }
 
     public boolean setFontSizeMultiplier(int multiplier) {
-        int minMultiplier = getResources().getInteger(R.integer.minTextSizeMultiplier);
-        int maxMultiplier = getResources().getInteger(R.integer.maxTextSizeMultiplier);
-        if (multiplier < minMultiplier) {
-            multiplier = minMultiplier;
-        } else if (multiplier > maxMultiplier) {
-            multiplier = maxMultiplier;
-        }
+        final int minMultiplier = getResources().getInteger(R.integer.minTextSizeMultiplier);
+        final int maxMultiplier = getResources().getInteger(R.integer.maxTextSizeMultiplier);
+        multiplier = MathUtils.clamp(multiplier, minMultiplier, maxMultiplier);
         if (multiplier != getTextSizeMultiplier()) {
             Prefs.setTextSizeMultiplier(multiplier);
             bus.post(new ChangeTextSizeEvent());
