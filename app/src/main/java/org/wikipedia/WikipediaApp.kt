@@ -181,14 +181,9 @@ class WikipediaApp : Application() {
         get() = Prefs.getAppInstallId() ?: UUID.randomUUID().toString().also { Prefs.setAppInstallId(it) }
 
     fun setFontSizeMultiplier(multiplier: Int): Boolean {
-        var multiplier = multiplier
         val minMultiplier = resources.getInteger(R.integer.minTextSizeMultiplier)
         val maxMultiplier = resources.getInteger(R.integer.maxTextSizeMultiplier)
-        if (multiplier < minMultiplier) {
-            multiplier = minMultiplier
-        } else if (multiplier > maxMultiplier) {
-            multiplier = maxMultiplier
-        }
+        val multiplier = multiplier.coerceIn(minMultiplier, maxMultiplier)
         if (multiplier != Prefs.getTextSizeMultiplier()) {
             Prefs.setTextSizeMultiplier(multiplier)
             bus.post(ChangeTextSizeEvent())
@@ -289,9 +284,9 @@ class WikipediaApp : Application() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response: MwQueryResponse ->
-                if (AccountUtil.isLoggedIn && response.query!!.userInfo() != null) {
+                if (AccountUtil.isLoggedIn && response.query!!.userInfo != null) {
                     // noinspection ConstantConditions
-                    val id = response.query!!.userInfo()!!.id
+                    val id = response.query!!.userInfo!!.id
                     AccountUtil.putUserIdForLanguage(code, id)
                     L.d("Found user ID $id for $code")
                 }
