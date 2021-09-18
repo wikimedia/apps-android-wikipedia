@@ -46,7 +46,7 @@
   <string name="offline_load_error_retry">Tentar novamente</string>
   <string name="page_error_back_to_main">Voltar</string>
   <string name="error_back">Voltar</string>
-  <string name="error_next">Próxima\nPróximo</string>
+  <string name="error_next">Seguinte</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
   <string name="history_item_deleted">%s removido do histórico</string>
   <string name="history_items_deleted">%d artigos removidos do histórico</string>
@@ -65,7 +65,7 @@
   <string name="search_redirect_from">Redirecionado de %s</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
-  <string name="menu_page_find_in_page">Localizar na página</string>
+  <string name="menu_page_find_in_page">Localizar no artigo</string>
   <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
   <string name="menu_page_view_talk">Ver página de discussão</string>
   <string name="menu_page_view_edit_history">Ver historial de edições</string>
@@ -215,10 +215,10 @@
   <string name="privacy_policy_description">Normas de privacidade</string>
   <string name="terms_of_use_description">Condições de utilização</string>
   <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/pt</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>

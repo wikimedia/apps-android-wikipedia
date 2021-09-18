@@ -133,7 +133,7 @@
   <string name="create_account_passwords_mismatch_error">Lö faoma nonokusi</string>
   <string name="create_account_email_error">Alamat email lö atulö</string>
   <string name="create_account_username_error">So hurufo sitebai ba döi zangoguna</string>
-  <string name="create_account_password_error" fuzzy="true">Onokusi lö atulö</string>
+  <string name="create_account_password_error">Ambö anau nonokusi (si lö\'önia 8 hurufo)</string>
   <string name="create_account_generic_error">So zi fasala ba wamazökhi akun</string>
   <string name="create_account_next">Föna</string>
   <string name="email_recommendation_dialog_title">Mufazökhi akun si lö alamat email?</string>
@@ -147,7 +147,9 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detil</string>
   <string name="preferences_general_heading">Umum</string>
+  <string name="preferences_account_heading">Akun</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
+  <string name="send_feedback">Be zöndra sanandrösa ba aplikasi</string>
   <string name="create_account_account_created_toast">No tefazökhi akun!</string>
   <string name="preferences_heading_syncing">Mufagölösi</string>
   <string name="preferences_heading_data_usage">Fangoguna\'ö data</string>
@@ -181,11 +183,17 @@
   <string name="terms_of_use_description">Goi-goi wangoguna\'ö</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/nia</string>
+  <string name="android_app_request_an_account_url">https://nia.wikipedia.org/wiki/Wikipedia:Mangandrö_wamazökhi_akun</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Pustaka ni\'oguna\'ö</string>
   <string name="about_contributors_heading">Kontributor</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Nga\'örö tim&lt;/a&gt;</string>
   <string name="about_translators_heading">Sangali</string>
   <string name="about_translators_translatewiki">No la\'ali aplikasi andre ira relawan ba &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
+  <string name="about_app_license">Umbu kode so ba &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ba ba &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; barö &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Na lö famataro tanö bö\'ö, fefu konten tefa\'anö barö &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Produk &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sanandrösa</string>
   <string name="edit_abandon_confirm">Nga\'örö andre no mubulö\'ö. Hadia edöna ötibo\'ö fefu ia?</string>
