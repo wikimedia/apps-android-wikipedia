@@ -82,7 +82,7 @@ object Prefs {
 
     var hiddenCards: Set<String>
         get() {
-            val emptySet: Set<String> = LinkedHashSet()
+            val emptySet = linkedSetOf<String>()
             if (!hasHiddenCards()) {
                 return emptySet
             }
@@ -276,7 +276,7 @@ object Prefs {
             if (!PrefsIoUtil.contains(R.string.preference_key_feed_cards_enabled)) {
                 return emptyList()
             }
-            val enabledList: List<Boolean>? = GsonUnmarshaller.unmarshal(
+            val enabledList = GsonUnmarshaller.unmarshal(
                 object : TypeToken<ArrayList<Boolean>?>() {},
                 PrefsIoUtil.getString(R.string.preference_key_feed_cards_enabled, null)
             )
@@ -291,7 +291,7 @@ object Prefs {
             if (!PrefsIoUtil.contains(R.string.preference_key_feed_cards_order)) {
                 return emptyList()
             }
-            val orderList: List<Int>? = GsonUnmarshaller.unmarshal(
+            val orderList = GsonUnmarshaller.unmarshal(
                 object : TypeToken<ArrayList<Int>?>() {},
                 PrefsIoUtil.getString(R.string.preference_key_feed_cards_order, null)
             )
@@ -306,7 +306,7 @@ object Prefs {
             if (!PrefsIoUtil.contains(R.string.preference_key_feed_cards_lang_supported)) {
                 return emptyMap()
             }
-            val map: Map<Int, List<String>>? = GsonUnmarshaller.unmarshal(
+            val map = GsonUnmarshaller.unmarshal(
                 object : TypeToken<Map<Int, List<String>>?>() {},
                 PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_supported, null)
             )
@@ -325,7 +325,7 @@ object Prefs {
             if (!PrefsIoUtil.contains(R.string.preference_key_feed_cards_lang_disabled)) {
                 return emptyMap()
             }
-            val map: Map<Int, List<String>>? = GsonUnmarshaller.unmarshal(
+            val map = GsonUnmarshaller.unmarshal(
                 object : TypeToken<Map<Int, List<String>>?>() {},
                 PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_disabled, null)
             )
@@ -352,11 +352,11 @@ object Prefs {
 
     var readingListsDeletedIds: Set<Long>
         get() {
-            val set: MutableSet<Long> = HashSet()
+            val set = mutableSetOf<Long>()
             if (!PrefsIoUtil.contains(R.string.preference_key_reading_lists_deleted_ids)) {
                 return set
             }
-            val tempSet: Set<Long>? = GsonUnmarshaller.unmarshal(
+            val tempSet = GsonUnmarshaller.unmarshal(
                 object : TypeToken<Set<Long>?>() {},
                 PrefsIoUtil.getString(R.string.preference_key_reading_lists_deleted_ids, null)
             )
@@ -380,7 +380,7 @@ object Prefs {
             if (!PrefsIoUtil.contains(R.string.preference_key_reading_lists_deleted_ids)) {
                 return set
             }
-            val tempSet: Set<String>? = GsonUnmarshaller.unmarshal(
+            val tempSet = GsonUnmarshaller.unmarshal(
                 object : TypeToken<Set<String>?>() {},
                 PrefsIoUtil.getString(R.string.preference_key_reading_list_pages_deleted_ids, null)
             )
@@ -420,11 +420,11 @@ object Prefs {
 
     var locallyKnownNotifications: List<Long>
         get() {
-            val list: MutableList<Long> = ArrayList()
+            val list = mutableListOf<Long>()
             if (!PrefsIoUtil.contains(R.string.preference_key_locally_known_notifications)) {
                 return list
             }
-            val tempList: List<Long>? = GsonUnmarshaller.unmarshal(
+            val tempList = GsonUnmarshaller.unmarshal(
                 object : TypeToken<ArrayList<Long>?>() {},
                 PrefsIoUtil.getString(R.string.preference_key_locally_known_notifications, null)
             )
@@ -473,7 +473,7 @@ object Prefs {
 
     var announcementShownDialogs: Set<String>
         get() {
-            val emptySet: MutableSet<String> = LinkedHashSet()
+            val emptySet = linkedSetOf<String>()
             if (!hasAnnouncementShownDialogs()) {
                 return emptySet
             }
@@ -502,7 +502,7 @@ object Prefs {
 
     var watchlistDisabledLanguages: Set<String>
         get() {
-            val emptySet: Set<String> = LinkedHashSet()
+            val emptySet = linkedSetOf<String>()
             if (!PrefsIoUtil.contains(R.string.preference_key_watchlist_disabled_langs)) {
                 return emptySet
             }
