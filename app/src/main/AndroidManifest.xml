@@ -271,7 +271,7 @@
             android:theme="@style/AppTheme.ActionBar"  />
 
         <activity
-            android:name=".notifications.NotificationsFiltersActivity"
+            android:name=".notifications.NotificationsFilterActivity"
             android:label="@string/notifications_filter_label"
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />

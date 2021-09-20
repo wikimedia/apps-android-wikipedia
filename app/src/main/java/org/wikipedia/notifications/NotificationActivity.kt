@@ -189,7 +189,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     private val orContinueNotifications: Unit
         get() {
             binding.notificationsProgressBar.visibility = View.VISIBLE
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(getFilteredWikiList().joinToString("|"), if (displayArchived) "read" else "!read", currentContinueStr)
+            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(getDelimitedFilteredWikiList(), if (displayArchived) "read" else "!read", currentContinueStr)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
@@ -198,7 +198,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                     }) { t -> setErrorState(t) })
         }
 
-    private fun getFilteredWikiList(): List<String> {
+    private fun getDelimitedFilteredWikiList(): String {
         val filteredWikiList = mutableListOf<String>()
         when {
             Prefs.getNotificationsFilterLanguageCodes() == null -> {
@@ -214,7 +214,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 }
             }
         }
-        return filteredWikiList
+        return filteredWikiList.joinToString("|")
     }
 
     private fun setErrorState(t: Throwable) {
@@ -529,7 +529,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
             val menuItem = menu.add(searchHintString)
 
-            // Manually setup a action provider in order to have a custom view.
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 
             actionMode = mode

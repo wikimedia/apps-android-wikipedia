@@ -13,8 +13,8 @@ import org.wikipedia.databinding.ItemNotificationFilterBinding
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 
-class NotificationsFilterItemView constructor(context: Context, attrs: AttributeSet? = null) :
-    LinearLayout(context, attrs) {
+class NotificationFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+
     interface Callback {
         fun onCheckedChanged(langCode: String)
     }
@@ -48,8 +48,7 @@ class NotificationsFilterItemView constructor(context: Context, attrs: Attribute
     fun setContents(langCode: String?, title: String, selected: Boolean, imageRes: Int?) {
         binding.notificationFilterTitle.text = title
         binding.notificationFilterCheck.visibility = if (selected) View.VISIBLE else View.GONE
-        if (langCode == null) binding.notificationFilterLanguageCode.visibility =
-            GONE else View.VISIBLE
+        if (langCode == null) binding.notificationFilterLanguageCode.visibility = GONE else View.VISIBLE
         langCode?.let { binding.notificationFilterLanguageCode.text = langCode }
         if (imageRes == null) binding.notificationFilterWikiLogo.visibility = GONE else View.VISIBLE
         imageRes?.let { binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, imageRes)) }

@@ -10,7 +10,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.ActionProvider
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewSearchAndFilterBinding
-import org.wikipedia.notifications.NotificationsFiltersActivity
+import org.wikipedia.notifications.NotificationsFilterActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
@@ -18,6 +18,7 @@ import org.wikipedia.util.ResourceUtil
 class SearchAndFilterActionProvider(context: Context,
                                     private val searchHintString: String,
                                     private val callback: Callback) : ActionProvider(context) {
+
     interface Callback {
         fun onQueryTextChange(s: String)
         fun onQueryTextFocusChange()
@@ -51,7 +52,7 @@ class SearchAndFilterActionProvider(context: Context,
             }
         }
         binding.notificationFilterIcon.setOnClickListener {
-            context.startActivity(NotificationsFiltersActivity.newIntent(context))
+            context.startActivity(NotificationsFilterActivity.newIntent(context))
         }
 
         // remove focus line from search plate
@@ -66,15 +67,14 @@ class SearchAndFilterActionProvider(context: Context,
     }
 
     fun updateFilterIconAndText() {
-        val delimitedFilterString = Prefs.getNotificationsFilterLanguageCodes().orEmpty().split(",").filter { it.isNotEmpty() }.size.toString()
-        binding.notificationFilterCount.text = delimitedFilterString
-        if (delimitedFilterString == "0") {
+        val delimitedFiltersSizeString = Prefs.getNotificationsFilterLanguageCodes().orEmpty().split(",").filter { it.isNotEmpty() }.size.toString()
+        binding.notificationFilterCount.text = delimitedFiltersSizeString
+        if (delimitedFiltersSizeString == "0") {
             binding.notificationFilterCount.visibility = View.GONE
             binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
         } else {
             binding.notificationFilterCount.visibility = View.VISIBLE
-            binding.notificationFilterIcon.imageTintList =
-                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+            binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         }
     }
 }

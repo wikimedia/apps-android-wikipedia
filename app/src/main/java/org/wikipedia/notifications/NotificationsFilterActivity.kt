@@ -13,13 +13,13 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityNotificationsFiltersBinding
-import org.wikipedia.notifications.NotificationsFilterItemView.Callback
+import org.wikipedia.notifications.NotificationFilterItemView.Callback
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.StringUtil.csvToList
 import org.wikipedia.views.DefaultViewHolder
 
-class NotificationsFiltersActivity : BaseActivity() {
+class NotificationsFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNotificationsFiltersBinding
     private var notificationsFiltersAdapter = NotificationsFiltersAdapter(this)
@@ -51,8 +51,8 @@ class NotificationsFiltersActivity : BaseActivity() {
         }
     }
 
-    class NotificationFilterItemHolder constructor(itemView: NotificationsFilterItemView) :
-        DefaultViewHolder<NotificationsFilterItemView>(itemView) {
+    class NotificationFilterItemHolder constructor(itemView: NotificationFilterItemView) :
+        DefaultViewHolder<NotificationFilterItemView>(itemView) {
         fun bindItem(langCode: String?, title: String, selected: Boolean, imageRes: Int?) {
             view.setContents(langCode, title, selected, imageRes)
         }
@@ -83,7 +83,7 @@ class NotificationsFiltersActivity : BaseActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup,
                                         type: Int): NotificationFilterItemHolder {
-            val notificationsFilterItemView = NotificationsFilterItemView(context)
+            val notificationsFilterItemView = NotificationFilterItemView(context)
             notificationsFilterItemView.callback = this
             return NotificationFilterItemHolder(notificationsFilterItemView)
         }
@@ -121,7 +121,7 @@ class NotificationsFiltersActivity : BaseActivity() {
 
     companion object {
         fun newIntent(context: Context): Intent {
-            return Intent(context, NotificationsFiltersActivity::class.java)
+            return Intent(context, NotificationsFilterActivity::class.java)
         }
     }
 }
