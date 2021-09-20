@@ -72,7 +72,7 @@ class EditorTaskCounts {
     val totalEdits: Int
         get() {
             return if (Prefs.shouldOverrideSuggestedEditCounts()) {
-                Prefs.getOverrideSuggestedEditCount()
+                Prefs.overrideSuggestedEditCount
             } else {
                 descriptionEditsPerLanguage.values.sum() + captionEditsPerLanguage.values.sum() + totalDepictsEdits
             }
@@ -87,7 +87,7 @@ class EditorTaskCounts {
     val totalReverts: Int
         get() {
             return if (Prefs.shouldOverrideSuggestedEditCounts()) {
-                Prefs.getOverrideSuggestedRevertCount()
+                Prefs.overrideSuggestedRevertCount
             } else {
                 descriptionRevertsPerLanguage.values.sum() + captionRevertsPerLanguage.values.sum() + totalDepictsReverts
             }

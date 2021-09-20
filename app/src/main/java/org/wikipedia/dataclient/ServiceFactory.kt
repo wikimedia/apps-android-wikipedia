@@ -37,7 +37,7 @@ object ServiceFactory {
     })
 
     private val ANALYTICS_REST_SERVICE_CACHE = lruCache<DestinationEventService, EventService>(SERVICE_CACHE_SIZE, create = {
-        val intakeBaseUriOverride = Prefs.getEventPlatformIntakeUriOverride().ifEmpty { it.baseUri }
+        val intakeBaseUriOverride = Prefs.eventPlatformIntakeUriOverride.ifEmpty { it.baseUri }
         createRetrofit(null, intakeBaseUriOverride).create<EventService>()
     })
 
@@ -65,12 +65,12 @@ object ServiceFactory {
     }
 
     private fun getBasePath(wiki: WikiSite): String {
-        return Prefs.getMediaWikiBaseUrl().ifEmpty { wiki.url() + "/" }
+        return Prefs.mediaWikiBaseUrl.ifEmpty { wiki.url() + "/" }
     }
 
     fun getRestBasePath(wiki: WikiSite): String {
-        var path = if (Prefs.getRestbaseUriFormat().isEmpty()) wiki.url() + "/" + RestService.REST_API_PREFIX
-        else String.format(Prefs.getRestbaseUriFormat(), "https", wiki.authority())
+        var path = if (Prefs.restbaseUriFormat.isEmpty()) wiki.url() + "/" + RestService.REST_API_PREFIX
+        else String.format(Prefs.restbaseUriFormat, "https", wiki.authority())
         if (!path.endsWith("/")) {
             path += "/"
         }
