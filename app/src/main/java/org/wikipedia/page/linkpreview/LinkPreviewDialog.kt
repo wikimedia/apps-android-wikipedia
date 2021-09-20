@@ -194,7 +194,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private fun loadGallery() {
-        if (Prefs.isImageDownloadEnabled()) {
+        if (Prefs.isImageDownloadEnabled) {
             disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getMediaList(pageTitle.prefixedText, revision)
                     .flatMap { mediaList ->
                         val maxImages = 10

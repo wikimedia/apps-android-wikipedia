@@ -14,7 +14,7 @@ object TransitionUtil {
         return views.filter {
             (it is TextView && it.text.isNotEmpty()) ||
                     (it is ImageView && it.isVisible && (it.parent as View).isVisible &&
-                            !DimenUtil.isLandscape(context) && Prefs.isImageDownloadEnabled())
+                            !DimenUtil.isLandscape(context) && Prefs.isImageDownloadEnabled)
         }
                 .map { Pair(it, it.transitionName) }
                 .toTypedArray()

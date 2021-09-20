@@ -62,7 +62,7 @@ class AnnouncementDialog internal constructor(context: Context, val announcement
     }
 
     private fun dismissDialog() {
-        Prefs.setAnnouncementShownDialogs(setOf(announcement.id))
+        Prefs.announcementShownDialogs = setOf(announcement.id)
         dismiss()
     }
 }
