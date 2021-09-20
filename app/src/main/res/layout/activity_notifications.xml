@@ -21,6 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="?attr/paper_color"
+                android:visibility="gone"
                 app:tabTextColor="?android:attr/textColorTertiary"
                 app:tabSelectedTextColor="?attr/colorAccent">
 

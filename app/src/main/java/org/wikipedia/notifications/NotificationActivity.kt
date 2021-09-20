@@ -134,7 +134,7 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
         binding.notificationsProgressBar.visibility = View.VISIBLE
-        binding.notificationTabLayout.isEnabled = false
+        binding.notificationTabLayout.visibility = View.GONE
         supportActionBar?.setTitle(R.string.notifications_activity_title)
         currentContinueStr = null
         disposables.clear()
@@ -190,7 +190,7 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.VISIBLE
-        binding.notificationTabLayout.isEnabled = true
+        binding.notificationTabLayout.visibility = View.VISIBLE
     }
 
     private fun onNotificationsComplete(notifications: List<Notification>, fromContinuation: Boolean) {
