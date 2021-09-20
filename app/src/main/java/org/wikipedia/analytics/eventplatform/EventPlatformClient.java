@@ -196,6 +196,8 @@ public final class EventPlatformClient {
                             //    TODO: Retry failed events?
                             //    L.logRemoteError(new RuntimeException(response.toString()));
                             //    break;
+                            default:
+                                break;
                         }
                     }, throwable -> {
                         if (throwable instanceof HttpStatusException) {
