@@ -167,7 +167,7 @@ object StringUtil {
         if (!input.isNullOrEmpty()) {
             val spannableString = SpannableString(textView.text)
             var indexOfKeyword = spannableString.toString().indexOf(input)
-            while (indexOfKeyword > 0) {
+            while (indexOfKeyword >= 0) {
                 spannableString.setSpan(BackgroundColorSpan(highlightColor), indexOfKeyword, indexOfKeyword + input.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                 if (shouldBolden) {
                     spannableString.setSpan(StyleSpan(Typeface.BOLD), indexOfKeyword, indexOfKeyword + input.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
