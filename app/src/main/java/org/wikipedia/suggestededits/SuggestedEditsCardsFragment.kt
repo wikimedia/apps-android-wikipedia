@@ -154,8 +154,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     }
 
     private fun maybeShowOnboarding() {
-        if (action == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
-            Prefs.setShowImageTagsOnboarding(false)
+        if (action == ADD_IMAGE_TAGS && Prefs.showImageTagsOnboarding) {
+            Prefs.showImageTagsOnboarding = false
             startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
         }
     }
