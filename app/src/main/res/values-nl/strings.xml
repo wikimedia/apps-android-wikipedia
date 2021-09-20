@@ -632,7 +632,7 @@
   <string name="preference_title_customize_push_notifications">Pushmeldingen aanpassen</string>
   <string name="preference_category_display_settings">Weergave-instellingen</string>
   <string name="preference_title_hide_read_notifications">Meldingen \"gelezen\" verbergen</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia-meldingen</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Wikipedia-meldingen</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Meldingen van Wikipedia</string>
   <string name="notifications_channel_group_other_title">Overige</string>
   <string name="notifications_channel_group_other_description">Andere meldingen van de app</string>

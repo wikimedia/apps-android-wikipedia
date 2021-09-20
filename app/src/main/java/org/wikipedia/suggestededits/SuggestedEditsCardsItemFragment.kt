@@ -270,7 +270,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
         if (parent().action == TRANSLATE_DESCRIPTION) {
             binding.viewArticleSubtitleContainer.visibility = VISIBLE
-            binding.viewArticleSubtitle.text = if (addedContribution.isNotEmpty()) addedContribution else sourceSummaryForEdit!!.description
+            binding.viewArticleSubtitle.text = addedContribution.ifEmpty { sourceSummaryForEdit!!.description }
         }
 
         binding.viewImageSummaryContainer.visibility = GONE

@@ -87,9 +87,9 @@ class MwQueryPage {
 
         private val slots: Map<String, RevisionSlot>? = null
         private val minor = false
-        val revId: Long = 0
-        val parentRevId: Long = 0
-        val isAnon = false
+        @SerializedName("revid") val revId: Long = 0
+        @SerializedName("parentid") val parentRevId: Long = 0
+        @SerializedName("anon") val isAnon = false
         val user: String = ""
         val content: String = ""
         val comment: String = ""
@@ -120,11 +120,7 @@ class MwQueryPage {
 
         @SerialName("wikibase_item") val wikiBaseItem: String = ""
         private val disambiguation: String? = null
-        val displayTitle: String? = null
-
-        fun isDisambiguation(): Boolean {
-            return disambiguation.isNullOrEmpty()
-        }
+        @SerialName("displaytitle") val displayTitle: String? = null
     }
 
     @Serializable

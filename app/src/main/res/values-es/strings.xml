@@ -10,6 +10,7 @@
 * Codynguyen1116
 * Cooltey
 * Csbotero
+* Danniel07
 * DannyS712
 * David.novella
 * Dgstranz
@@ -49,6 +50,7 @@
 * Papouten
 * Pginer
 * Remux
+* Reverse88
 * Rodm23
 * Rodney Araujo
 * Ryo567
@@ -582,6 +584,7 @@
   <string name="notification_syncing_pause_button">Pausar</string>
   <string name="notification_syncing_resume_button">Reanudar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
+  <string name="notification_syncing_reading_list_channel_title">Sincronizar listas de lectura</string>
   <string name="notification_syncing_reading_list_channel_description">Progreso de sincronización de listas de lectura</string>
   <string name="notification_many_unread">Tienes %d notificaciones sin leer</string>
   <plurals name="notification_channel_name">
@@ -654,8 +657,9 @@
   <string name="preference_summary_notification_article_linked">Recibido cuando se crea un nuevo link hacia una página que usted creó</string>
   <string name="preference_category_push_notifications">Notificaciones emergentes</string>
   <string name="preference_title_customize_push_notifications">Personalizar notificaciones emergentes</string>
+  <string name="preference_category_display_settings">Mostrar configuraciones</string>
   <string name="preference_title_hide_read_notifications">Ocultar notificaciones leídas</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title">Notificaciones de Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notificaciones de Wikipedia</string>
   <string name="notifications_channel_group_other_title">Otro</string>
   <string name="notifications_channel_group_other_description">Otras notificaciones de la aplicación</string>
