@@ -200,18 +200,12 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private fun getDelimitedFilteredWikiList(): String {
         val filteredWikiList = mutableListOf<String>()
-        when {
-            Prefs.getNotificationsFilterLanguageCodes() == null -> {
-                filteredWikiList.add("*")
-            }
-            Prefs.getNotificationsFilterLanguageCodes()?.isEmpty()!! -> {
-                filteredWikiList.add("")
-            }
-            else -> {
-                filteredWikiList.addAll(StringUtil.csvToList(Prefs.getNotificationsFilterLanguageCodes().orEmpty()) as MutableList<String>)
-                for (i in 0 until filteredWikiList.size) {
-                    filteredWikiList[i] = filteredWikiList[i] + "wiki"
-                }
+        if (Prefs.getNotificationsFilterLanguageCodes() == null) {
+            filteredWikiList.add("*")
+        } else {
+            filteredWikiList.addAll(StringUtil.csvToList(Prefs.getNotificationsFilterLanguageCodes().orEmpty()) as MutableList<String>)
+            for (i in 0 until filteredWikiList.size) {
+                filteredWikiList[i] = filteredWikiList[i] + "wiki"
             }
         }
         return filteredWikiList.joinToString("|")
@@ -278,7 +272,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     }
 
     private fun getSpannedEmptySearchMessage(): Spannable {
-        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, 1, 1)
+        val numberOfFilters = StringUtil.csvToList(Prefs.getNotificationsFilterLanguageCodes().orEmpty()).size
+        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, numberOfFilters, numberOfFilters)
         val finalStr = getString(R.string.notifications_empty_search_message, filtersStr)
         val spannable: Spannable = SpannableString(finalStr)
         spannable.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(this, R.attr.colorAccent)), 13, 13 + filtersStr.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)

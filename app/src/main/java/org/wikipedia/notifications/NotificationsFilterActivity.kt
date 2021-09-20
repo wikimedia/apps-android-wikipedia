@@ -13,7 +13,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityNotificationsFiltersBinding
-import org.wikipedia.notifications.NotificationFilterItemView.Callback
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.StringUtil.csvToList
@@ -22,7 +21,7 @@ import org.wikipedia.views.DefaultViewHolder
 class NotificationsFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNotificationsFiltersBinding
-    private var notificationsFiltersAdapter = NotificationsFiltersAdapter(this)
+    private var notificationsFilterAdapter = NotificationsFilterAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +32,7 @@ class NotificationsFilterActivity : BaseActivity() {
 
     private fun setUpRecyclerView() {
         binding.notificationsFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.notificationsFiltersRecyclerView.adapter = notificationsFiltersAdapter
+        binding.notificationsFiltersRecyclerView.adapter = notificationsFilterAdapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -44,7 +43,7 @@ class NotificationsFilterActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_notifications_filter -> {
-                notificationsFiltersAdapter.selectAll()
+                notificationsFilterAdapter.selectAll()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -58,8 +57,8 @@ class NotificationsFilterActivity : BaseActivity() {
         }
     }
 
-    class NotificationsFiltersAdapter(val context: Context) :
-        RecyclerView.Adapter<NotificationFilterItemHolder>(), Callback {
+    class NotificationsFilterAdapter(val context: Context) :
+        RecyclerView.Adapter<NotificationFilterItemHolder>(), NotificationFilterItemView.Callback {
         var app: WikipediaApp = WikipediaApp.getInstance()
         private var filteredWikisList = mutableListOf<String>()
         private var fullWikisList = mutableListOf<String>()
@@ -81,8 +80,7 @@ class NotificationsFilterActivity : BaseActivity() {
             notifyDataSetChanged()
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup,
-                                        type: Int): NotificationFilterItemHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): NotificationFilterItemHolder {
             val notificationsFilterItemView = NotificationFilterItemView(context)
             notificationsFilterItemView.callback = this
             return NotificationFilterItemHolder(notificationsFilterItemView)
