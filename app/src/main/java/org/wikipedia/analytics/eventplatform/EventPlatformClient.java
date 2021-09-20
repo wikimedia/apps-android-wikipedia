@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
@@ -194,25 +195,30 @@ public final class EventPlatformClient {
                             //    TODO: Retry failed events?
                             //    L.logRemoteError(new RuntimeException(response.toString()));
                             //    break;
-                            case HTTP_BAD_REQUEST: // 400 - Failure
-                                L.logRemoteError(new RuntimeException(response.toString()));
-                                break;
-                            // Occasional server errors are unfortunately not unusual, so log the error
-                            // but don't crash even on pre-production builds.
-                            case HTTP_INTERNAL_ERROR: // 500
-                            case HTTP_UNAVAILABLE: // 503
-                            case HTTP_GATEWAY_TIMEOUT: // 504
-                                L.logRemoteError(new RuntimeException(response.message()));
-                                break;
                             default:
-                                // Something unexpected happened. Crash if this is a pre-production build.
-                                L.logRemoteErrorIfProd(
-                                        new RuntimeException("Unexpected EventGate response: "
-                                                + response.toString())
-                                );
                                 break;
                         }
-                    }, L::w);
+                    }, throwable -> {
+                        if (throwable instanceof HttpStatusException) {
+                            switch (((HttpStatusException) throwable).getCode()) {
+                                // TODO: parse the response to see the exact problem from the backend.
+                                case HTTP_BAD_REQUEST: // 400 - Failure
+                                // Occasional server errors are unfortunately not unusual, so log the error
+                                // but don't crash even on pre-production builds.
+                                case HTTP_INTERNAL_ERROR: // 500
+                                case HTTP_UNAVAILABLE: // 503
+                                case HTTP_GATEWAY_TIMEOUT: // 504
+                                    L.e(throwable);
+                                    break;
+                                default:
+                                    // Something unexpected happened. Crash if this is a pre-production build.
+                                    L.logRemoteErrorIfProd(throwable);
+                                    break;
+                            }
+                        } else {
+                            L.w(throwable);
+                        }
+                    });
         }
 
     }
