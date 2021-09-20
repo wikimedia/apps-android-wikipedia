@@ -30,7 +30,7 @@ class ReadingList(
     private var accentAndCaseInvariantTitle: String? = null
 
     var title
-        get() = if (listTitle.isEmpty()) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else listTitle
+        get() = listTitle.ifEmpty { WikipediaApp.getInstance().getString(R.string.default_reading_list_name) }
         set(value) { listTitle = value }
 
     val isDefault

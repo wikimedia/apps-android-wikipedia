@@ -50,6 +50,7 @@
 * Papouten
 * Pginer
 * Remux
+* Reverse88
 * Rodm23
 * Rodney Araujo
 * Ryo567
@@ -658,7 +659,7 @@
   <string name="preference_title_customize_push_notifications">Personalizar notificaciones emergentes</string>
   <string name="preference_category_display_settings">Mostrar configuraciones</string>
   <string name="preference_title_hide_read_notifications">Ocultar notificaciones leídas</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Notificaciones de Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notificaciones de Wikipedia</string>
   <string name="notifications_channel_group_other_title">Otro</string>
   <string name="notifications_channel_group_other_description">Otras notificaciones de la aplicación</string>

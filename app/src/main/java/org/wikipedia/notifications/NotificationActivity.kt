@@ -94,7 +94,7 @@ class NotificationActivity : BaseActivity() {
             }
         })
 
-        Prefs.setNotificationUnreadCount(0)
+        Prefs.notificationUnreadCount = 0
         NotificationsABCTestFunnel().logSelect()
 
         beginUpdateList()
