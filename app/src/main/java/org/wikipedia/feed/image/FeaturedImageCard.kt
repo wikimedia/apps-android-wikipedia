@@ -1,6 +1,7 @@
 package org.wikipedia.feed.image
 
 import android.net.Uri
+import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
@@ -21,7 +22,7 @@ class FeaturedImageCard(private val featuredImage: FeaturedImage,
     }
 
     override fun image(): Uri? {
-        return if (featuredImage.thumbnailUrl.isEmpty()) null else Uri.parse(featuredImage.thumbnailUrl)
+        return featuredImage.thumbnailUrl.ifEmpty { null }?.toUri()
     }
 
     override fun type(): CardType {

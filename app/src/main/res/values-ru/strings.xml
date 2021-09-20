@@ -97,6 +97,7 @@
   <string name="app_settings">Настройки приложения</string>
   <string name="search_tab_tooltip">Нажмите на иконку снова, чтобы начать ввод поискового запроса.</string>
   <string name="history_list_title">История</string>
+  <string name="image_content_description">Изображение: %s</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -595,10 +596,12 @@
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_reverted_title">Отменённая правка</string>
+  <string name="notification_channel_title">Скачивание статей</string>
   <string name="notification_channel_description">Прогресс загрузки</string>
   <string name="notification_syncing_pause_button">Пауза</string>
   <string name="notification_syncing_resume_button">Продолжить</string>
   <string name="notification_syncing_cancel_button">Отмена</string>
+  <string name="notification_syncing_reading_list_channel_title">Синхронизация списков для чтения</string>
   <string name="notification_syncing_reading_list_channel_description">Статус синхронизации списков чтения</string>
   <string name="notification_many_unread">У вас %d непрочитанных уведомлений</string>
   <plurals name="notification_channel_name">
@@ -658,6 +661,7 @@
   <string name="notifications_view_archived_button_text">Просмотр архива уведомления</string>
   <string name="notification_preferences_title">Настройки уведомлений</string>
   <string name="notifications_mark_unread">Отметить как непрочитанное</string>
+  <string name="notifications_mark_all_as_read">Отметить все как прочитанные</string>
   <string name="watchlist_title">Список наблюдения</string>
   <string name="preference_title_notification_poll">Извещения об опросах</string>
   <string name="preference_summary_notification_poll">Позволяет приложению использовать данные для проверки новых уведомлений в фоне.</string>
@@ -675,8 +679,21 @@
   <string name="preference_title_notification_mention">Упоминания вас</string>
   <string name="preference_summary_notification_mention">Кто-то упомянул вас на странице</string>
   <string name="preference_title_notification_user_talk">На страницах обсуждений</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Сообщения со страниц обсуждения</string>
+  <string name="preference_summary_notification_user_talk">Сообщения и ответы со страниц обсуждения</string>
+  <string name="preference_title_notification_email_user">Получение писем</string>
+  <string name="preference_summary_notification_email_user">Кто-то отправил вам электронное письмо через вики</string>
+  <string name="preference_title_notification_user_rights">Изменения прав участника</string>
+  <string name="preference_summary_notification_user_rights">Получаются при изменении ваших прав участника</string>
+  <string name="preference_title_notification_article_linked">Ссылки на созданные вами статьи</string>
+  <string name="preference_summary_notification_article_linked">Получаются, когда создаётся новая ссылка на созданную вами страницу</string>
+  <string name="preference_category_push_notifications">Push-уведомления</string>
+  <string name="preference_title_customize_push_notifications">Настроить push-уведомления</string>
+  <string name="preference_category_display_settings">Настройки отображения</string>
+  <string name="preference_title_hide_read_notifications">Скрыть уведомления о прочтении</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Википедия</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Уведомления из Википедии</string>
+  <string name="notifications_channel_group_other_title">Прочие</string>
+  <string name="notifications_channel_group_other_description">Другие уведомления от приложения</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_article_card_title">Случайная статья</string>
