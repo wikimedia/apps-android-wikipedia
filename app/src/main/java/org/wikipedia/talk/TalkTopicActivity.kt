@@ -262,7 +262,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     // TODO: remove when the API fixes it
     private fun shouldHideReplyButton(): Boolean {
-        return topicId == -1
+        return topicId == -1 || (topic?.html).orEmpty().trim().isEmpty()
     }
 
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {

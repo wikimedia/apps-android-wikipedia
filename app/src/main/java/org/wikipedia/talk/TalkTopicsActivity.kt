@@ -238,13 +238,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
                 .subscribe({ response ->
                     topics.clear()
-                    for (topic in response.topics!!) {
-                        if (topic.id == 0 && topic.html!!.trim().isEmpty()) {
-                            continue
-                        }
-                        L.d("loadTopics add  " + topic.html)
-                        topics.add(topic)
-                    }
+                    topics.addAll(response.topics!!)
                     updateOnSuccess()
                 }, { t ->
                     L.e(t)
@@ -265,11 +259,19 @@ class TalkTopicsActivity : BaseActivity() {
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
 
-        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false) &&
-            !pageTitle.fragment.isNullOrEmpty()) {
+        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
-            topics.find { StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html) }?.let {
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource))
+            var topic: TalkPage.Topic? = null
+            if (topics.size == 1) {
+                topic = topics.first()
+            }
+            if (!pageTitle.fragment.isNullOrEmpty()) {
+                topic = topics.find {
+                    StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html)
+                } ?: topic
+            }
+            if (topic != null) {
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource))
             }
         }
     }
@@ -344,7 +346,17 @@ class TalkTopicsActivity : BaseActivity() {
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
             val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
-            val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
+            var titleStr = StringUtil.fromHtml(topic.html).toString().trim()
+            if (titleStr.isEmpty()) {
+                // build up a title based on the contents...
+                topic.replies?.firstOrNull()?.let {
+                    titleStr = StringUtil.fromHtml(it.html).toString().replace("\n", " ")
+                    if (titleStr.length > MAX_CHARS_NO_SUBJECT) {
+                        titleStr = titleStr.substring(0, MAX_CHARS_NO_SUBJECT) + "…"
+                    }
+                }
+            }
+
             title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
             title.visibility = View.VISIBLE
             subtitle.visibility = View.GONE
@@ -376,6 +388,7 @@ class TalkTopicsActivity : BaseActivity() {
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
+        private const val MAX_CHARS_NO_SUBJECT = 100
         const val NEW_TOPIC_ID = -2
 
         @JvmStatic
