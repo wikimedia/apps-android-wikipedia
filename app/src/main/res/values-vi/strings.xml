@@ -200,7 +200,7 @@
   <string name="page_protected_sysop">Trang này đã bị khóa hẳn.</string>
   <string name="page_protected_other">Trang này đã bị khóa ở mức độ sau: %s</string>
   <string name="page_protected_can_not_edit">Rất tiếc, tài khoản của bạn không có đủ quyền để sửa đổi trang vào lúc này.</string>
-  <string name="page_protected_can_not_edit_anon">Rất tiếc, không thể chỉnh sửa ẩn danh vào lúc này.</string>
+  <string name="page_protected_can_not_edit_anon">Rất tiếc, không thể sửa đổi vô danh vào lúc này.</string>
   <string name="page_protected_can_not_edit_title">Trang này bị khóa</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Thêm vào danh sách theo dõi</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Theo dõi những gì đang xảy ra với các trang mà bạn quan tâm. Nhấn vào menu mục bổ sung và chọn &lt;b&gt;Thêm vào danh sách theo dõi&lt;/b&gt; để xem các thay đổi đối với một bài viết.</string>
@@ -428,7 +428,7 @@
   <string name="reading_list_sort_by_created">Sắp xếp theo ngày được tạo (mới nhất)</string>
   <string name="reading_list_sort_by_created_desc">Sắp xếp theo ngày được tạo (cũ nhất)</string>
   <string name="reading_list_menu_delete">Xóa danh sách</string>
-  <string name="reading_list_menu_rename">Chỉnh sửa tên/mô tả</string>
+  <string name="reading_list_menu_rename">Sửa đổi tên/miêu tả</string>
   <string name="reading_list_action_menu_remove_from_offline">Xóa khỏi bộ nhớ ngoại tuyến</string>
   <string name="reading_list_action_menu_save_for_offline">Lưu để đọc ngoại tuyến</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Xóa hết khỏi bộ nhớ ngoại tuyến</string>
@@ -715,8 +715,8 @@
   <string name="suggested_edits_task_translate_caption_description">Dịch chú thích sang các ngôn ngữ khác</string>
   <string name="suggested_edits_task_multilingual_title">Nhiều nhiệm vụ hơn cho các biên tập viên đa ngôn ngữ</string>
   <string name="suggested_edits_task_multilingual_description">Các nhiệm vụ dịch thuật có sẵn nếu bạn đọc và viết bằng nhiều ngôn ngữ Wikipedia.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Bị khóa cho đến khi bạn chỉnh sửa %d chú thích hình ảnh</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Bị khóa cho đến khi bạn chỉnh sửa %d mô tả bài viết (đã xác minh)</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Bị khóa cho đến khi bạn sửa đổi %d chú thích hình ảnh</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Bị khóa cho đến khi bạn sửa đổi %d miêu tả bài viết (đã xác minh)</string>
   <string name="suggested_edits_task_multilingual_negative">Không phải cho tôi</string>
   <string name="suggested_edits_task_multilingual_positive">Thêm ngôn ngữ</string>
   <string name="suggested_edits_image_caption_summary_title_image">Tập tin</string>
@@ -750,7 +750,7 @@
   <string name="suggested_edits_feed_card_add_image_caption">Thêm chú thích hình ảnh</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Thêm chú thích hình ảnh (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Gắn thẻ cho hình ảnh</string>
-  <string name="suggested_edits_snackbar_survey_text">Kinh nghiệm chỉnh sửa của bạn như thế nào?  Vui lòng dành một chút thời gian để điền vào bản khảo sát về chỉnh sửa trong ứng dụng.</string>
+  <string name="suggested_edits_snackbar_survey_text">Kinh nghiệm sửa đổi của bạn như thế nào? Vui lòng dành một chút thời gian để điền vào bản khảo sát về sửa đổi trong ứng dụng.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Thực hiện khảo sát</string>
   <string name="suggested_edits_task_action_text_add">Thêm</string>
   <string name="suggested_edits_task_action_text_translate">Dịch</string>
@@ -837,7 +837,7 @@
   <string name="suggested_edits_encourage_account_creation_message">Các sửa đổi gợi ý là một cách mới để đóng góp cho Wikipedia trên Android. Nó giúp bạn có những đóng góp nhỏ nhưng quan trọng cho Wikipedia.\nMục tiêu của chúng tôi là làm cho việc sửa đổi dễ dàng hơn và dễ tiếp cận hơn cho mọi người! Đăng nhập hoặc tham gia Wikipedia để bắt đầu.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Đăng nhập / Tham gia Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Thẻ quyền cho hình ảnh</string>
-  <string name="suggested_edits_contribution_current_revision_text">Chỉnh sửa của bạn đang ở trên Wikipedia</string>
+  <string name="suggested_edits_contribution_current_revision_text">Sửa đổi của bạn đang hiện tại ở Wikipedia</string>
   <string name="suggested_card_more_edits">Thêm các sửa đổi gợi ý</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s thẻ</item>
