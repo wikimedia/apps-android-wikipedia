@@ -43,7 +43,7 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
 
     override fun onSwitchChange(view: OnboardingPageView, checked: Boolean) {
         if (OnboardingPage.of(view.tag as Int) == OnboardingPage.PAGE_USAGE_DATA) {
-            Prefs.setEventLoggingEnabled(checked)
+            Prefs.isEventLoggingEnabled = checked
         }
     }
 
@@ -85,7 +85,7 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
             val position = requireArguments().getInt("position", 0)
             val view = inflater.inflate(OnboardingPage.of(position).layout, container, false) as OnboardingPageView
             if (OnboardingPage.PAGE_USAGE_DATA.code() == position) {
-                view.setSwitchChecked(Prefs.isEventLoggingEnabled())
+                view.setSwitchChecked(Prefs.isEventLoggingEnabled)
             }
             view.tag = position
             view.callback = callback

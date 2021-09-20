@@ -93,7 +93,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
         binding.notificationsViewArchivedButton.setOnClickListener { onViewArchivedClick() }
 
-        Prefs.setNotificationUnreadCount(0)
+        Prefs.notificationUnreadCount = 0
         NotificationsABCTestFunnel().logSelect()
 
         beginUpdateList()

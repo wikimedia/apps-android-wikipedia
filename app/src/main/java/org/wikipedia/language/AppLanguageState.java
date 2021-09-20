@@ -34,8 +34,8 @@ public class AppLanguageState {
 
     public AppLanguageState(@NonNull Context context) {
         appLanguageLookUpTable = new AppLanguageLookUpTable(context);
-        mruLanguageCodes = new ArrayList<>(StringUtil.csvToList(defaultString(Prefs.getMruLanguageCodeCsv())));
-        appLanguageCodes = new ArrayList<>(StringUtil.csvToList(defaultString(Prefs.getAppLanguageCodeCsv())));
+        mruLanguageCodes = new ArrayList<>(StringUtil.csvToList(defaultString(Prefs.INSTANCE.getMruLanguageCodeCsv())));
+        appLanguageCodes = new ArrayList<>(StringUtil.csvToList(defaultString(Prefs.INSTANCE.getAppLanguageCodeCsv())));
         initAppLanguageCodes();
     }
 
@@ -51,7 +51,7 @@ public class AppLanguageState {
     public void addAppLanguageCode(@Nullable String code) {
         appLanguageCodes.remove(code);
         appLanguageCodes.add(code);
-        Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
+        Prefs.INSTANCE.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
         WikipediaApp.getInstance().resetWikiSite();
     }
 
@@ -62,20 +62,20 @@ public class AppLanguageState {
                 appLanguageCodes.add(code);
             }
         }
-        Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
+        Prefs.INSTANCE.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
         WikipediaApp.getInstance().resetWikiSite();
     }
 
     public void removeAppLanguageCodes(@NonNull List<String> codes) {
         if (appLanguageCodes.size() > 1) {
             appLanguageCodes.removeAll(codes);
-            Prefs.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
+            Prefs.INSTANCE.setAppLanguageCodeCsv(StringUtil.listToCsv(appLanguageCodes));
         }
     }
 
     private void initAppLanguageCodes() {
         if (appLanguageCodes.isEmpty()) {
-            if (Prefs.isInitialOnboardingEnabled()) {
+            if (Prefs.INSTANCE.isInitialOnboardingEnabled()) {
                 setAppLanguageCodes(getRemainingAvailableLanguageCodes());
             } else {
                 // If user has never changed app language before
@@ -113,7 +113,7 @@ public class AppLanguageState {
     public void addMruLanguageCode(@Nullable String code) {
         mruLanguageCodes.remove(code);
         mruLanguageCodes.add(0, code);
-        Prefs.setMruLanguageCodeCsv(StringUtil.listToCsv(mruLanguageCodes));
+        Prefs.INSTANCE.setMruLanguageCodeCsv(StringUtil.listToCsv(mruLanguageCodes));
     }
 
     /** @return All app supported languages in MRU order. */
@@ -127,7 +127,7 @@ public class AppLanguageState {
                 ++insertIndex;
             }
         }
-        if (!Prefs.isShowDeveloperSettingsEnabled()) {
+        if (!Prefs.INSTANCE.isShowDeveloperSettingsEnabled()) {
             codes.remove(TEST_LANGUAGE_CODE);
         }
         return codes;
