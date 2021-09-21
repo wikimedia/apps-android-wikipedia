@@ -72,6 +72,7 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
             } else {
                 canvas.drawBitmap(swipeIconBitmap, viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP * densityScalar, (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - swipeIconBitmap.height / 2)).toFloat(), swipeIconPaint)
             }
+            // TODO: put text in canvas
             canvas.drawRect(dx, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width + dx, (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), itemBackgroundPaint)
             viewHolder.itemView.translationX = dx
         } else {

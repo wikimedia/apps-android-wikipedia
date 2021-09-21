@@ -69,9 +69,9 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, skipSearchBar = true))
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
-                ResourceUtil.getThemedAttributeId(this, R.attr.chart_shade5),
-                R.drawable.ic_archive_white_24dp,
-                ResourceUtil.getThemedAttributeId(this, R.attr.secondary_text_color))
+                ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
+                R.drawable.ic_outline_drafts_24,
+                android.R.color.white)
 
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
