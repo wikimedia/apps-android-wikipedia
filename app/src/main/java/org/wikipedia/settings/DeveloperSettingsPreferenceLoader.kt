@@ -115,7 +115,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                     }
             true
         }
-        findPreference(R.string.preference_key_announcement_shown_dialogs).summary = activity.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.getAnnouncementShownDialogs().size)
+        findPreference(R.string.preference_key_announcement_shown_dialogs).summary = activity.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.announcementShownDialogs.size)
         findPreference(R.string.preference_key_announcement_shown_dialogs).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             Prefs.resetAnnouncementShownDialogs()
             loadPreferences()

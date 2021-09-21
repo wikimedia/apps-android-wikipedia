@@ -52,13 +52,13 @@ object ReadingListBehaviorsUtil {
             allReadingLists.filter { list -> list.pages.any { it.displayTitle == readingListPage.displayTitle } }
 
     fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
-        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi) {
+        if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi) {
             showMobileDataWarningDialog(activity) { _, _ ->
                 savePagesForOffline(activity, selectedPages, true)
                 callback.onCompleted()
             }
         } else {
-            savePagesForOffline(activity, selectedPages, !Prefs.isDownloadingReadingListArticlesEnabled())
+            savePagesForOffline(activity, selectedPages, !Prefs.isDownloadingReadingListArticlesEnabled)
             callback.onCompleted()
         }
     }
@@ -228,13 +228,13 @@ object ReadingListBehaviorsUtil {
 
     fun toggleOffline(activity: Activity, page: ReadingListPage, callback: Callback) {
         resetPageProgress(page)
-        if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi) {
+        if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi) {
             showMobileDataWarningDialog(activity) { _, _ ->
                 toggleOffline(activity, page, true)
                 callback.onCompleted()
             }
         } else {
-            toggleOffline(activity, page, !Prefs.isDownloadingReadingListArticlesEnabled())
+            toggleOffline(activity, page, !Prefs.isDownloadingReadingListArticlesEnabled)
             callback.onCompleted()
         }
     }

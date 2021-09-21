@@ -23,7 +23,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
     }
 
     private val binding = ViewCardNewsBinding.inflate(LayoutInflater.from(context), this, true)
-    private var prevImageDownloadSettings = Prefs.isImageDownloadEnabled()
+    private var prevImageDownloadSettings = Prefs.isImageDownloadEnabled
     private var isSnapHelperAttached = false
 
     private fun setUpIndicatorDots(card: NewsCard) {
@@ -50,9 +50,9 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
 
     override var card: NewsCard? = null
         set(value) {
-            if (field != value || prevImageDownloadSettings != Prefs.isImageDownloadEnabled()) {
+            if (field != value || prevImageDownloadSettings != Prefs.isImageDownloadEnabled) {
                 field = value
-                prevImageDownloadSettings = Prefs.isImageDownloadEnabled()
+                prevImageDownloadSettings = Prefs.isImageDownloadEnabled
                 value?.let {
                     header(it)
                     setLayoutDirectionByWikiSite(it.wikiSite(), binding.rtlContainer)

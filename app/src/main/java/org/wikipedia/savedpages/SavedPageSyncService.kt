@@ -43,8 +43,8 @@ class SavedPageSyncService : JobIntentService() {
             return
         }
         val pagesToSave = AppDatabase.instance.readingListPageDao().allPagesToBeForcedSave.toMutableList()
-        if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi) &&
-                Prefs.isDownloadingReadingListArticlesEnabled()) {
+        if ((!Prefs.isDownloadOnlyOverWiFiEnabled || DeviceUtil.isOnWiFi) &&
+                Prefs.isDownloadingReadingListArticlesEnabled) {
             pagesToSave.addAll(AppDatabase.instance.readingListPageDao().allPagesToBeSaved)
         }
         val pagesToUnSave = AppDatabase.instance.readingListPageDao().allPagesToBeUnsaved
@@ -176,7 +176,7 @@ class SavedPageSyncService : JobIntentService() {
                             fileUrls.addAll(PageComponentsUrlParser.parse(it.string(),
                                     pageTitle.wikiSite).filter { url -> url.isNotEmpty() })
                         }
-                        if (Prefs.isImageDownloadEnabled()) {
+                        if (Prefs.isImageDownloadEnabled) {
                             // download thumbnail and lead image
                             if (!summaryRsp.body()!!.thumbnailUrl.isNullOrEmpty()) {
                                 page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite,

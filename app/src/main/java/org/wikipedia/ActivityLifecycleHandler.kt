@@ -25,18 +25,18 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
         if (activity is MainActivity) {
             haveMainActivity = true
         }
-        if (Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        if (Prefs.shouldMatchSystemTheme && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             val currentTheme = app.currentTheme
             when (app.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
                 Configuration.UI_MODE_NIGHT_YES -> if (!app.currentTheme.isDark) {
-                    app.currentTheme = if (!app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark) Theme.BLACK
-                    else app.unmarshalTheme(Prefs.getPreviousThemeId())
-                    Prefs.setPreviousThemeId(currentTheme.marshallingId)
+                    app.currentTheme = if (!app.unmarshalTheme(Prefs.previousThemeId).isDark) Theme.BLACK
+                    else app.unmarshalTheme(Prefs.previousThemeId)
+                    Prefs.previousThemeId = currentTheme.marshallingId
                 }
                 Configuration.UI_MODE_NIGHT_NO -> if (app.currentTheme.isDark) {
-                    app.currentTheme = if (app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark) Theme.LIGHT
-                    else app.unmarshalTheme(Prefs.getPreviousThemeId())
-                    Prefs.setPreviousThemeId(currentTheme.marshallingId)
+                    app.currentTheme = if (app.unmarshalTheme(Prefs.previousThemeId).isDark) Theme.LIGHT
+                    else app.unmarshalTheme(Prefs.previousThemeId)
+                    Prefs.previousThemeId = currentTheme.marshallingId
                 }
             }
         }
