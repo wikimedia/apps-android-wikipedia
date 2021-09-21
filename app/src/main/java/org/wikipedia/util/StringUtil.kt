@@ -166,13 +166,14 @@ object StringUtil {
     fun highlightAndBoldenText(textView: TextView, input: String?, shouldBolden: Boolean, highlightColor: Int) {
         if (!input.isNullOrEmpty()) {
             val spannableString = SpannableString(textView.text)
-            var indexOfKeyword = spannableString.toString().indexOf(input)
+            val caseInsensitiveSpannableString = SpannableString(textView.text.toString().lowercase())
+            var indexOfKeyword = caseInsensitiveSpannableString.toString().lowercase().indexOf(input.lowercase())
             while (indexOfKeyword >= 0) {
                 spannableString.setSpan(BackgroundColorSpan(highlightColor), indexOfKeyword, indexOfKeyword + input.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                 if (shouldBolden) {
                     spannableString.setSpan(StyleSpan(Typeface.BOLD), indexOfKeyword, indexOfKeyword + input.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                 }
-                indexOfKeyword = spannableString.toString().indexOf(input, indexOfKeyword + input.length)
+                indexOfKeyword = caseInsensitiveSpannableString.indexOf(input.lowercase(), indexOfKeyword + input.length)
             }
             textView.text = spannableString
         }

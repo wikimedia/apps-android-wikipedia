@@ -68,14 +68,14 @@ class NotificationsFilterActivity : BaseActivity() {
             fullWikisList.addAll(app.language().appLanguageCodes)
             fullWikisList.add("commons")
             fullWikisList.add("wikidata")
-            filteredWikisList.addAll(if (Prefs.getNotificationsFilterLanguageCodes() == null) fullWikisList
-            else csvToList(Prefs.getNotificationsFilterLanguageCodes().orEmpty()))
+            filteredWikisList.addAll(if (Prefs.notificationsFilterLanguageCodes == null) fullWikisList
+            else csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
         }
 
         fun selectAll() {
-            Prefs.setNotificationsFilterLanguageCodes(StringUtil.listToCsv(fullWikisList))
+            Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(fullWikisList)
             filteredWikisList.clear()
-            filteredWikisList.addAll(csvToList(Prefs.getNotificationsFilterLanguageCodes().orEmpty()))
+            filteredWikisList.addAll(csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
             notifyDataSetChanged()
         }
 
@@ -111,7 +111,7 @@ class NotificationsFilterActivity : BaseActivity() {
             } else {
                 filteredWikisList.add(langCode)
             }
-            Prefs.setNotificationsFilterLanguageCodes(StringUtil.listToCsv(filteredWikisList))
+            Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(filteredWikisList)
             notifyDataSetChanged()
         }
     }

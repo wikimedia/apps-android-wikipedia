@@ -200,10 +200,10 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private fun getDelimitedFilteredWikiList(): String {
         val filteredWikiList = mutableListOf<String>()
-        if (Prefs.getNotificationsFilterLanguageCodes() == null) {
+        if (Prefs.notificationsFilterLanguageCodes == null) {
             filteredWikiList.add("*")
         } else {
-            filteredWikiList.addAll(StringUtil.csvToList(Prefs.getNotificationsFilterLanguageCodes().orEmpty()) as MutableList<String>)
+            filteredWikiList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()) as MutableList<String>)
             for (i in 0 until filteredWikiList.size) {
                 filteredWikiList[i] = filteredWikiList[i] + "wiki"
             }
@@ -272,7 +272,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     }
 
     private fun getSpannedEmptySearchMessage(): Spannable {
-        val numberOfFilters = StringUtil.csvToList(Prefs.getNotificationsFilterLanguageCodes().orEmpty()).size
+        val numberOfFilters = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).size
         val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, numberOfFilters, numberOfFilters)
         val finalStr = getString(R.string.notifications_empty_search_message, filtersStr)
         val spannable: Spannable = SpannableString(finalStr)

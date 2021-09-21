@@ -67,7 +67,7 @@ class SearchAndFilterActionProvider(context: Context,
     }
 
     fun updateFilterIconAndText() {
-        val delimitedFiltersSizeString = Prefs.getNotificationsFilterLanguageCodes().orEmpty().split(",").filter { it.isNotEmpty() }.size.toString()
+        val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size.toString()
         binding.notificationFilterCount.text = delimitedFiltersSizeString
         if (delimitedFiltersSizeString == "0") {
             binding.notificationFilterCount.visibility = View.GONE
