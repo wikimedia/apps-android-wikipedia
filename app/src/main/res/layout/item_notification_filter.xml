@@ -9,14 +9,13 @@
     <TextView
         android:id="@+id/notification_filter_language_code"
         style="@style/TextViewCentered"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="24dp"
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textSize="10sp"
         android:textColor="@color/base30" />
 
     <androidx.appcompat.widget.AppCompatImageView

@@ -10,8 +10,10 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemNotificationFilterBinding
+import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.ViewUtil
 
 class NotificationFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
@@ -51,6 +53,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         langCode?.let {
             binding.notificationFilterLanguageCode.text = langCode
             binding.notificationFilterLanguageCode.visibility = View.VISIBLE
+            ViewUtil.formatLangButton(binding.notificationFilterLanguageCode, langCode, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
             binding.notificationFilterLanguageCode.visibility = View.GONE
         }
