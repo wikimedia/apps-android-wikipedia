@@ -29,7 +29,7 @@ public final class SharedPreferenceCookieManager implements CookieJar {
     public static SharedPreferenceCookieManager getInstance() {
         if (INSTANCE == null) {
             try {
-                INSTANCE = Prefs.getCookies();
+                INSTANCE = Prefs.INSTANCE.getCookies();
             } catch (Exception e) {
                 L.logRemoteErrorIfProd(e);
             }
@@ -53,7 +53,7 @@ public final class SharedPreferenceCookieManager implements CookieJar {
     }
 
     private void persistCookies() {
-        Prefs.setCookies(this);
+        Prefs.INSTANCE.setCookies(this);
     }
 
     public synchronized void clearAllCookies() {

@@ -77,7 +77,7 @@ class SettingsFragment : PreferenceLoaderFragment() {
     }
 
     private fun prepareDeveloperSettingsMenuItem(menu: Menu) {
-        menu.findItem(R.id.developer_settings).isVisible = Prefs.isShowDeveloperSettingsEnabled()
+        menu.findItem(R.id.developer_settings).isVisible = Prefs.isShowDeveloperSettingsEnabled
     }
 
     private fun setReadingListSyncPref(checked: Boolean) {
@@ -94,7 +94,7 @@ class SettingsFragment : PreferenceLoaderFragment() {
                     setReadingListSyncPref(false)
                 }
                 is ReadingListsEnableSyncStatusEvent -> {
-                    setReadingListSyncPref(Prefs.isReadingListSyncEnabled())
+                    setReadingListSyncPref(Prefs.isReadingListSyncEnabled)
                 }
             }
         }

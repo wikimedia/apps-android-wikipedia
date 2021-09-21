@@ -46,7 +46,7 @@ class WhiteBackgroundTransformation : BitmapTransformation() {
             targetBitmap.applyCanvas {
                 drawRect(0f, 0f, targetBitmap.width.toFloat(), targetBitmap.height.toFloat(), PAINT_WHITE)
                 drawBitmap(inBitmap, matrix, DEFAULT_PAINT)
-                if (WikipediaApp.instance.currentTheme.isDark && Prefs.shouldDimDarkModeImages()) {
+                if (WikipediaApp.instance.currentTheme.isDark && Prefs.dimDarkModeImages) {
                     // "dim" images by drawing a translucent black rectangle over them.
                     drawRect(0f, 0f, targetBitmap.width.toFloat(), targetBitmap.height.toFloat(), PAINT_DARK_OVERLAY)
                 }

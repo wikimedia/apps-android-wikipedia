@@ -114,17 +114,17 @@ enum class FeedContentType(private val code: Int,
                 langSupportedMap[it.code] = it.langCodesSupported
                 langDisabledMap[it.code] = it.langCodesDisabled
             }
-            Prefs.setFeedCardsEnabled(enabledList)
-            Prefs.setFeedCardsOrder(orderList)
+            Prefs.feedCardsEnabled = enabledList
+            Prefs.feedCardsOrder = orderList
             Prefs.setFeedCardsLangSupported(langSupportedMap)
             Prefs.setFeedCardsLangDisabled(langDisabledMap)
         }
 
         fun restoreState() {
-            val enabledList = Prefs.getFeedCardsEnabled()
-            val orderList = Prefs.getFeedCardsOrder()
-            val langSupportedMap = Prefs.getFeedCardsLangSupported()
-            val langDisabledMap = Prefs.getFeedCardsLangDisabled()
+            val enabledList = Prefs.feedCardsEnabled
+            val orderList = Prefs.feedCardsOrder
+            val langSupportedMap = Prefs.feedCardsLangSupported
+            val langDisabledMap = Prefs.feedCardsLangDisabled
             values().forEachIndexed { i, type ->
                 type.isEnabled = if (i < enabledList.size) enabledList[i] else true
                 type.order = if (i < orderList.size) orderList[i] else i

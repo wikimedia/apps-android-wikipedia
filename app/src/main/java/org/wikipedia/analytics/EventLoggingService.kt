@@ -15,7 +15,7 @@ import org.wikipedia.util.log.L
 class EventLoggingService private constructor() {
 
     fun log(event: JSONObject?) {
-        if (!Prefs.isEventLoggingEnabled() || !WikipediaApp.instance.isOnline) {
+        if (!Prefs.isEventLoggingEnabled || !WikipediaApp.instance.isOnline) {
             // Do not send events if the user opted out of EventLogging or the device is offline.
             return
         }

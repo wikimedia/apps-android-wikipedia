@@ -48,7 +48,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     private val activity get() = parentFragment.requireActivity()
     private val disposables = CompositeDisposable()
 
-    private val isLeadImageEnabled get() = Prefs.isImageDownloadEnabled() && !DimenUtil.isLandscape(activity) && displayHeightDp >= MIN_SCREEN_HEIGHT_DP && !isMainPage && !leadImageUrl.isNullOrEmpty()
+    private val isLeadImageEnabled get() = Prefs.isImageDownloadEnabled && !DimenUtil.isLandscape(activity) && displayHeightDp >= MIN_SCREEN_HEIGHT_DP && !isMainPage && !leadImageUrl.isNullOrEmpty()
     private val leadImageWidth get() = page?.run { pageProperties.leadImageWidth } ?: pageHeaderView.getImageView().width
     private val leadImageHeight get() = page?.run { pageProperties.leadImageHeight } ?: pageHeaderView.getImageView().height
 

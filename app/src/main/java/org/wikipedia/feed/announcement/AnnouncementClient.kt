@@ -72,7 +72,7 @@ class AnnouncementClient : FeedClient {
 
         private fun matchesCountryCode(announcement: Announcement, country: String?): Boolean {
             var countryCode = country
-            val announcementsCountryOverride = Prefs.getAnnouncementsCountryOverride()
+            val announcementsCountryOverride = Prefs.announcementsCountryOverride
             if (!announcementsCountryOverride.isNullOrEmpty()) {
                 countryCode = announcementsCountryOverride
             }
@@ -82,7 +82,7 @@ class AnnouncementClient : FeedClient {
         }
 
         private fun matchesDate(announcement: Announcement, date: Date): Boolean {
-            if (Prefs.ignoreDateForAnnouncements()) {
+            if (Prefs.ignoreDateForAnnouncements) {
                 return true
             }
             return if (announcement.startTime() != null && announcement.startTime().after(date)) {
@@ -96,11 +96,11 @@ class AnnouncementClient : FeedClient {
             }
             return if (announcement.loggedIn != null && announcement.loggedIn != AccountUtil.isLoggedIn) {
                 false
-            } else announcement.readingListSyncEnabled == null || announcement.readingListSyncEnabled == Prefs.isReadingListSyncEnabled()
+            } else announcement.readingListSyncEnabled == null || announcement.readingListSyncEnabled == Prefs.isReadingListSyncEnabled
         }
 
         private fun matchesVersionCodes(minVersion: String?, maxVersion: String?): Boolean {
-            val versionCode = if (Prefs.announcementsVersionCode() > 0) Prefs.announcementsVersionCode()
+            val versionCode = if (Prefs.announcementsVersionCode > 0) Prefs.announcementsVersionCode
             else WikipediaApp.instance.versionCode
             try {
                 if (!minVersion.isNullOrEmpty() && minVersion.toInt() > versionCode) {

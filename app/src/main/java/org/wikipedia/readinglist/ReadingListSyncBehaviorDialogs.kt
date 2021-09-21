@@ -32,7 +32,7 @@ object ReadingListSyncBehaviorDialogs {
 
     @JvmStatic
     fun promptEnableSyncDialog(activity: Activity) {
-        if (!Prefs.shouldShowReadingListSyncEnablePrompt() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+        if (!Prefs.showReadingListSyncEnablePrompt || Prefs.isSuggestedEditsHighestPriorityEnabled) {
             return
         }
         val binding = DialogWithCheckboxBinding.inflate(activity.layoutInflater)
@@ -46,7 +46,7 @@ object ReadingListSyncBehaviorDialogs {
                 ) { _: DialogInterface, _: Int -> ReadingListSyncAdapter.setSyncEnabledWithSetup() }
                 .setNegativeButton(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks, null)
                 .setOnDismissListener {
-                    Prefs.shouldShowReadingListSyncEnablePrompt(!binding.dialogCheckbox.isChecked)
+                    Prefs.showReadingListSyncEnablePrompt = !binding.dialogCheckbox.isChecked
                     WikipediaApp.instance.bus.post(ReadingListsEnableSyncStatusEvent())
                 }
                 .show()
@@ -54,7 +54,7 @@ object ReadingListSyncBehaviorDialogs {
 
     @JvmStatic
     fun promptLogInToSyncDialog(activity: Activity) {
-        if (!Prefs.shouldShowReadingListSyncEnablePrompt() || PROMPT_LOGIN_TO_SYNC_DIALOG_SHOWING) {
+        if (!Prefs.showReadingListSyncEnablePrompt || PROMPT_LOGIN_TO_SYNC_DIALOG_SHOWING) {
             return
         }
         val binding = DialogWithCheckboxBinding.inflate(activity.layoutInflater)
@@ -72,7 +72,7 @@ object ReadingListSyncBehaviorDialogs {
                 .setNegativeButton(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks, null)
                 .setOnDismissListener {
                     PROMPT_LOGIN_TO_SYNC_DIALOG_SHOWING = false
-                    Prefs.shouldShowReadingListSyncEnablePrompt(!binding.dialogCheckbox.isChecked)
+                    Prefs.showReadingListSyncEnablePrompt = !binding.dialogCheckbox.isChecked
                 }
                 .show()
         PROMPT_LOGIN_TO_SYNC_DIALOG_SHOWING = true

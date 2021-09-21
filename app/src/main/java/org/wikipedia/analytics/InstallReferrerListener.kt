@@ -40,7 +40,7 @@ class InstallReferrerListener : InstallReferrerStateListener {
         when (responseCode) {
             InstallReferrerClient.InstallReferrerResponse.OK -> {
                 processInstallReferrer()
-                Prefs.setInstallReferrerAttempts(Int.MAX_VALUE)
+                Prefs.installReferrerAttempts = Int.MAX_VALUE
             }
             InstallReferrerClient.InstallReferrerResponse.FEATURE_NOT_SUPPORTED -> { }
             InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE -> { }
@@ -124,7 +124,7 @@ class InstallReferrerListener : InstallReferrerStateListener {
             openPageFromUrl(WikipediaApp.instance, refUrl)
         }
         if (!refChannel.isNullOrEmpty()) {
-            Prefs.setAppChannel(refChannel)
+            Prefs.appChannel = refChannel
         }
     }
 
@@ -140,11 +140,11 @@ class InstallReferrerListener : InstallReferrerStateListener {
 
         @JvmStatic
         fun newInstance(context: Context) {
-            val attempts = Prefs.getInstallReferrerAttempts()
+            val attempts = Prefs.installReferrerAttempts
             if (attempts > 2) {
                 return
             }
-            Prefs.setInstallReferrerAttempts(attempts + 1)
+            Prefs.installReferrerAttempts = attempts + 1
             INSTANCE = InstallReferrerListener()
             INSTANCE?.queryReferrer(context)
         }

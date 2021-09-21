@@ -124,7 +124,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     private fun showRemoveChineseVariantPrompt() {
         if (app.appLanguageState.appLanguageCodes.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE) &&
             app.appLanguageState.appLanguageCodes.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE) &&
-            Prefs.shouldShowRemoveChineseVariantPrompt()) {
+            Prefs.shouldShowRemoveChineseVariantPrompt) {
             AlertDialog.Builder(requireActivity())
                 .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)
                 .setMessage(R.string.dialog_of_remove_chinese_variants_from_app_lang_text)
@@ -132,7 +132,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
                 .setNegativeButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_no, null)
                 .show()
         }
-        Prefs.shouldShowRemoveChineseVariantPrompt(false)
+        Prefs.shouldShowRemoveChineseVariantPrompt = false
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -49,12 +49,7 @@ class WikiSite(@SerializedName("domain") var uri: Uri, var languageCode: String 
 
         // Unconditionally transform any mobile authority to canonical.
         authority = authority.replace(".m.", ".")
-        val langVariant = UriUtil.getLanguageVariantFromUri(tempUri)
-        languageCode = if (langVariant.isNotEmpty()) {
-            langVariant
-        } else {
-            authorityToLanguageCode(authority)
-        }
+        languageCode = UriUtil.getLanguageVariantFromUri(tempUri).ifEmpty { authorityToLanguageCode(authority) }
 
         // This prevents showing mixed Chinese variants article when the URL is /zh/ or /wiki/ in zh.wikipedia.org
         if (languageCode == AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) {

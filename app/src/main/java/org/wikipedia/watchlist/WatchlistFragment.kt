@@ -103,7 +103,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         val notificationMenuItem = menu.findItem(R.id.menu_notifications)
         if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
             notificationMenuItem.isVisible = true
-            notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
+            notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             notificationButtonView.setOnClickListener {
                 if (AccountUtil.isLoggedIn) {
                     startActivity(NotificationActivity.newIntent(requireActivity()))
@@ -142,8 +142,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         // TODO: remove when ABC test is complete.
         when (notificationsABCTestFunnel.aBTestGroup) {
             0, 1 -> {
-                if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
-                    notificationButtonView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
+                    notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
                     if (animate) {
                         notificationsABCTestFunnel.logShow()
                         notificationButtonView.runAnimation()
@@ -156,7 +156,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     private fun updateDisplayLanguages() {
-        displayLanguages = WikipediaApp.instance.appLanguageState.appLanguageCodes.filterNot { Prefs.getWatchlistDisabledLanguages().contains(it) }
+        displayLanguages = WikipediaApp.instance.appLanguageState.appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
     }
 
     private fun fetchWatchlist(refreshing: Boolean) {

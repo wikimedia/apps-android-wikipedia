@@ -49,7 +49,7 @@ class ReadingListsFunnel : Funnel(WikipediaApp.instance, SCHEMA_NAME, REV_ID) {
     }
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
-        preprocessData(eventData, "synced", Prefs.isReadingListSyncEnabled())
+        preprocessData(eventData, "synced", Prefs.isReadingListSyncEnabled)
         return super.preprocessData(eventData)
     }
 

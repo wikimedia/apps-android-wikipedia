@@ -21,7 +21,7 @@ class FeedConfigureFunnel(app: WikipediaApp, wiki: WikiSite?, private val source
         }
         log(
                 "source", source,
-                "feed_views", Prefs.getExploreFeedVisitCount(),
+                "feed_views", Prefs.exploreFeedVisitCount,
                 "enabled_list", StringUtil.stringToListMapToJSONString(enabledMap),
                 "order_list", StringUtil.listToJSONString(orderedList),
                 "languages", StringUtil.listToJsonArrayString(app.appLanguageState.appLanguageCodes)

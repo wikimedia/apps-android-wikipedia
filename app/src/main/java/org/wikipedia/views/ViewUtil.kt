@@ -47,7 +47,7 @@ object ViewUtil {
                   listener: RequestListener<Drawable?>? = null) {
         val placeholder = getPlaceholderDrawable(view.context)
         var builder = Glide.with(view)
-                .load(if ((Prefs.isImageDownloadEnabled() || force) && !TextUtils.isEmpty(url)) Uri.parse(url) else null)
+                .load(if ((Prefs.isImageDownloadEnabled || force) && !TextUtils.isEmpty(url)) Uri.parse(url) else null)
                 .placeholder(placeholder)
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
                 .error(placeholder)

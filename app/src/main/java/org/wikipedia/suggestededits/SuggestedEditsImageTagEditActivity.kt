@@ -78,8 +78,8 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
     }
 
     private fun maybeShowOnboarding() {
-        if (Prefs.shouldShowImageTagsOnboarding()) {
-            Prefs.setShowImageTagsOnboarding(false)
+        if (Prefs.showImageTagsOnboarding) {
+            Prefs.showImageTagsOnboarding = false
             startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(this))
         }
     }

@@ -35,9 +35,9 @@ class LogoutPreference : Preference {
                     .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
                     .setPositiveButton(R.string.preference_title_logout) { _, _ ->
                         WikipediaApp.instance.logOut()
-                        Prefs.setReadingListsLastSyncTime(null)
-                        Prefs.setReadingListSyncEnabled(false)
-                        Prefs.setSuggestedEditsHighestPriorityEnabled(false)
+                        Prefs.readingListsLastSyncTime = null
+                        Prefs.isReadingListSyncEnabled = false
+                        Prefs.isSuggestedEditsHighestPriorityEnabled = false
                         it.setResult(SettingsActivity.ACTIVITY_RESULT_LOG_OUT)
                         it.finish()
                     }.show()

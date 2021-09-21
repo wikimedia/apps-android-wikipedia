@@ -72,7 +72,7 @@ class WikipediaApp : Application() {
         set(value) {
             if (value !== field) {
                 field = value
-                Prefs.setCurrentThemeId(currentTheme.marshallingId)
+                Prefs.currentThemeId = currentTheme.marshallingId
                 bus.post(ThemeFontChangeEvent())
             }
         }
@@ -95,7 +95,7 @@ class WikipediaApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl())
+        WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
         // Register here rather than in AndroidManifest.xml so that we can target Android N.
         // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
@@ -113,7 +113,7 @@ class WikipediaApp : Application() {
         // TODO: consider more comprehensive handling of these errors.
         RxJavaPlugins.setErrorHandler(Functions.emptyConsumer())
         bus = RxBus()
-        currentTheme = unmarshalTheme(Prefs.getCurrentThemeId())
+        currentTheme = unmarshalTheme(Prefs.currentThemeId)
         appLanguageState = AppLanguageState(this)
         funnelManager = FunnelManager(this)
         sessionFunnel = SessionFunnel(this)
@@ -162,8 +162,7 @@ class WikipediaApp : Application() {
         get() {
             // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
             return wiki ?: run {
-                val lang =
-                    if (Prefs.getMediaWikiBaseUriSupportsLangCode()) appOrSystemLanguageCode else ""
+                val lang = if (Prefs.mediaWikiBaseUriSupportsLangCode) appOrSystemLanguageCode else ""
                 val newWiki = WikiSite.forLanguageCode(lang)
                 // Kick off a task to retrieve the site info for the current wiki
                 updateFor(newWiki)
@@ -178,14 +177,14 @@ class WikipediaApp : Application() {
      * @return Unique install ID for this app.
      */
     val appInstallID: String
-        get() = Prefs.getAppInstallId() ?: UUID.randomUUID().toString().also { Prefs.setAppInstallId(it) }
+        get() = Prefs.appInstallId ?: UUID.randomUUID().toString().also { Prefs.appInstallId = it }
 
     fun setFontSizeMultiplier(multiplier: Int): Boolean {
         val minMultiplier = resources.getInteger(R.integer.minTextSizeMultiplier)
         val maxMultiplier = resources.getInteger(R.integer.maxTextSizeMultiplier)
         val multiplier = multiplier.coerceIn(minMultiplier, maxMultiplier)
-        if (multiplier != Prefs.getTextSizeMultiplier()) {
-            Prefs.setTextSizeMultiplier(multiplier)
+        if (multiplier != Prefs.textSizeMultiplier) {
+            Prefs.textSizeMultiplier = multiplier
             bus.post(ChangeTextSizeEvent())
             return true
         }
@@ -193,8 +192,8 @@ class WikipediaApp : Application() {
     }
 
     fun setFontFamily(fontFamily: String) {
-        if (fontFamily != Prefs.getFontFamily()) {
-            Prefs.setFontFamily(fontFamily)
+        if (fontFamily != Prefs.fontFamily) {
+            Prefs.fontFamily = fontFamily
             bus.post(ThemeFontChangeEvent())
         }
     }
@@ -213,7 +212,7 @@ class WikipediaApp : Application() {
             Prefs.clearTabs()
             initTabs()
         } else {
-            Prefs.setTabs(tabList)
+            Prefs.tabs = tabList
         }
     }
 
@@ -232,7 +231,7 @@ class WikipediaApp : Application() {
      */
     fun getFontSize(window: Window): Float {
         return DimenUtil.getFontSizeFromSp(window, resources.getDimension(R.dimen.textSize)) *
-                (1.0f + Prefs.getTextSizeMultiplier() * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
+                (1.0f + Prefs.textSizeMultiplier * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
     }
 
     @Synchronized
@@ -244,13 +243,13 @@ class WikipediaApp : Application() {
     fun logOut() {
         L.d("Logging out")
         AccountUtil.removeAccount()
-        Prefs.setPushNotificationTokenSubscribed(false)
-        Prefs.setPushNotificationTokenOld("")
+        Prefs.isPushNotificationTokenSubscribed = false
+        Prefs.pushNotificationTokenOld = ""
         ServiceFactory.get(wikiSite).csrfToken
             .subscribeOn(Schedulers.io())
             .flatMap { response: MwQueryResponse ->
                 val csrfToken = response.query!!.csrfToken()
-                WikipediaFirebaseMessagingService.unsubscribePushToken(csrfToken!!, Prefs.getPushNotificationToken())
+                WikipediaFirebaseMessagingService.unsubscribePushToken(csrfToken!!, Prefs.pushNotificationToken)
                     .flatMap {
                         ServiceFactory.get(wikiSite).postLogout(csrfToken).subscribeOn(Schedulers.io())
                     }
@@ -294,8 +293,8 @@ class WikipediaApp : Application() {
     }
 
     private fun initTabs() {
-        if (Prefs.hasTabs()) {
-            tabList.addAll(Prefs.getTabs())
+        if (Prefs.hasTabs) {
+            tabList.addAll(Prefs.tabs)
         }
         if (tabList.isEmpty()) {
             tabList.add(Tab())

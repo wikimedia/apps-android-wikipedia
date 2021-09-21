@@ -21,8 +21,8 @@ class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initialLanguageList = listToJsonArrayString(app.appLanguageState.appLanguageCodes)
-        initialFeedCardsEnabled = Prefs.getFeedCardsEnabled()
-        initialFeedCardsOrder = Prefs.getFeedCardsOrder()
+        initialFeedCardsEnabled = Prefs.feedCardsEnabled
+        initialFeedCardsOrder = Prefs.feedCardsOrder
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -32,7 +32,7 @@ class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
                 finalLanguageList != initialLanguageList) {
             setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_FEED_CONFIGURE &&
-                (Prefs.getFeedCardsEnabled() != initialFeedCardsEnabled || Prefs.getFeedCardsOrder() != initialFeedCardsOrder)) {
+                (Prefs.feedCardsEnabled != initialFeedCardsEnabled || Prefs.feedCardsOrder != initialFeedCardsOrder)) {
             setResult(ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED)
         }
     }

@@ -35,6 +35,7 @@
   <string name="app_settings">Postavke aplikacije</string>
   <string name="search_tab_tooltip">Ponovo dodirnite ikonu za direktno pretraživanje.</string>
   <string name="history_list_title">Historija</string>
+  <string name="image_content_description">Slika: %s</string>
   <string name="dialog_title_clear_history">Čišćenje historije pregledavanja</string>
   <string name="dialog_message_clear_history">Izbrisat ćete svu historiju pregledavanja i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
@@ -145,10 +146,12 @@
   <string name="create_account_passwords_mismatch_error">Lozinke se ne slažu</string>
   <string name="create_account_email_error">Neispravna adresa e-pošte</string>
   <string name="create_account_username_error">Neispravni znakovi u korisničkom imenu</string>
-  <string name="create_account_password_error" fuzzy="true">Lozinka nije ispravna</string>
+  <string name="create_account_password_error">Lozinka mora da sadrži barem 8 znakova</string>
   <string name="create_account_generic_error">Nije moguće napraviti korisnički račun</string>
   <string name="create_account_next">Sljedeće</string>
   <string name="email_recommendation_dialog_title">Da napravim račun bez adrese e-pošte?</string>
+  <string name="email_recommendation_dialog_message">Iako adresa e-pošte nije obavezna, &lt;b&gt;preporučena je&lt;/b&gt;, budući da je potrebna za oporavak računa ako zaboravite lozinku.</string>
+  <string name="email_recommendation_message">Preporučuje se jer je adresa e-pošte potrebna za oporavak računa.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Nastavi bez e-pošte</string>
   <string name="email_recommendation_dialog_create_with_email_action">Dodaj adresu e-pošte</string>
   <string name="create_account_button">Napravi korisnički račun</string>
@@ -156,12 +159,14 @@
   <string name="create_account_ip_block_message">Vašoj IP-adresi trenutno je zabranjeno stvaranje novih računa.</string>
   <string name="create_account_ip_block_details">Detalji</string>
   <string name="preferences_general_heading">Općenito</string>
+  <string name="preferences_account_heading">Račun</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji</string>
   <string name="send_feedback">Pošalji povratne informacije</string>
   <string name="create_account_account_created_toast">Korisnički račun napravljen!</string>
   <string name="preferences_heading_syncing">Sinhronizacija</string>
   <string name="preferences_heading_data_usage">Upotreba podataka</string>
   <string name="preferences_heading_experimental">Eksperimentalno</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sinhronizacija spiska za čitanje</string>
   <string name="preference_summary_sync_reading_lists">Sinhronizirajte spiskove za čitanje među raznim uređajima tako što ćete ih sačuvati na Vaš račun na Wikipediji</string>
   <string name="preferences_privacy_settings_heading">Privatnost</string>
   <string name="preference_title_eventlogging_opt_in">Šalji izvještaje o korištenju</string>
@@ -277,6 +282,7 @@
   <string name="all_tab_items_closed">Sve kartice su zatvorene.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj na spisak za čitanje</string>
   <string name="page_view_in_browser">Prikaži stranicu u pregledniku</string>
+  <string name="tool_tip_toc_title">Brzi pristup pregledu sadržaja</string>
   <string name="error_response_malformed">Serverov odgovor nije ispravno formatiran.</string>
   <string name="error_unknown">Došlo je do nepoznate greške.</string>
   <string name="format_error_server_message">Poruka: \"%s\"</string>
@@ -293,6 +299,7 @@
   <string name="error_no_maps_app">Ne mogu pronaći aplikacije koje pružaju uputstva.</string>
   <string name="preference_title_show_link_previews">Prikaži preglede linkova</string>
   <string name="preference_summary_show_link_previews">Omogućite brz pregled članaka kad dodirnete linkove.</string>
+  <string name="preference_title_collapse_tables">Skupljanje tabela</string>
   <string name="nav_item_donate">Donirajte</string>
   <string name="error_voice_search_not_available">Izvinjavamo se, prepoznavanje govora nije dostupno.</string>
   <string name="location_service_disabled">Lokacijske usluge su isključene.</string>
@@ -311,6 +318,11 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">U skladu s temom sistema</string>
   <string name="empty_tab_title">Nova kartica</string>
   <string name="menu_save_all_tabs">Sačuvaj sve kartice</string>
+  <string name="error_blocked_by">Blokirao/-la Vas je &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Razlog: %s</string>
+  <string name="error_blocked_start">Početak blokade: %s</string>
+  <string name="error_blocked_expiry">Istek blokade: %s</string>
+  <string name="error_blocked_id">ID blokade: %s</string>
   <string name="crash_report_activity_title">Greška u aplikaciji</string>
   <string name="crash_report_relaunch_or_quit">Žao nam je. Došlo je do greške u aplikaciji Wikipedia i prekinula je s radom.\n\nŽelite li je ponovo pokrenuti ili je zatvoriti?</string>
   <string name="crash_report_relaunch">Ponovo pokreni</string>

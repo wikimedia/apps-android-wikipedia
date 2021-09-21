@@ -12,7 +12,7 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
     private var leadSectionStartTime: Long = 0
 
     init {
-        sessionData = Prefs.getSessionData()
+        sessionData = Prefs.sessionData
         if (sessionData.startTime == 0L || sessionData.lastTouchTime == 0L) {
             // session was serialized/deserialized incorrectly, so reset it.
             sessionData = SessionData()
@@ -26,7 +26,7 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
      * so that we don't have to save its state every time a single parameter is modified.
      */
     fun persistSession() {
-        Prefs.setSessionData(sessionData)
+        Prefs.sessionData = sessionData
     }
 
     /**
@@ -68,7 +68,7 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
     }
 
     private fun hasTimedOut(): Boolean {
-        return System.currentTimeMillis() - sessionData.lastTouchTime > Prefs.getSessionTimeout() * DateUtils.MINUTE_IN_MILLIS
+        return System.currentTimeMillis() - sessionData.lastTouchTime > Prefs.sessionTimeout * DateUtils.MINUTE_IN_MILLIS
     }
 
     private fun logSessionData() {
