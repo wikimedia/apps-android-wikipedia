@@ -86,9 +86,9 @@ class MwQueryPage {
 
         private val slots: Map<String, RevisionSlot>? = null
         private val minor = false
-        @SerializedName("revid") val revId: Long = 0
-        @SerializedName("parentid") val parentRevId: Long = 0
-        @SerializedName("anon") val isAnon = false
+        @SerialName("revid") val revId: Long = 0
+        @SerialName("parentid") val parentRevId: Long = 0
+        @SerialName("anon") val isAnon = false
         val user: String = ""
         val content: String = ""
         val comment: String = ""
