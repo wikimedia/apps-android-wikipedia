@@ -8,7 +8,6 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -70,13 +69,13 @@ class NotificationsFilterActivity : BaseActivity() {
             fullWikisList.add("commons")
             fullWikisList.add("wikidata")
             filteredWikisList.addAll(if (Prefs.getNotificationsFilterLanguageCodes() == null) fullWikisList
-            else csvToList(StringUtils.defaultString(Prefs.getNotificationsFilterLanguageCodes())))
+            else csvToList(Prefs.getNotificationsFilterLanguageCodes().orEmpty()))
         }
 
         fun selectAll() {
             Prefs.setNotificationsFilterLanguageCodes(StringUtil.listToCsv(fullWikisList))
             filteredWikisList.clear()
-            filteredWikisList.addAll(csvToList(StringUtils.defaultString(Prefs.getNotificationsFilterLanguageCodes())))
+            filteredWikisList.addAll(csvToList(Prefs.getNotificationsFilterLanguageCodes().orEmpty()))
             notifyDataSetChanged()
         }
 

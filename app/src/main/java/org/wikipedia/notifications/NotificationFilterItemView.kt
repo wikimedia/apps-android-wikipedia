@@ -19,8 +19,8 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         fun onCheckedChanged(langCode: String)
     }
 
-    var callback: Callback? = null
     private var binding = ItemNotificationFilterBinding.inflate(LayoutInflater.from(context), this)
+    var callback: Callback? = null
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200)
@@ -48,9 +48,17 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     fun setContents(langCode: String?, title: String, selected: Boolean, imageRes: Int?) {
         binding.notificationFilterTitle.text = title
         binding.notificationFilterCheck.visibility = if (selected) View.VISIBLE else View.GONE
-        if (langCode == null) binding.notificationFilterLanguageCode.visibility = GONE else View.VISIBLE
-        langCode?.let { binding.notificationFilterLanguageCode.text = langCode }
-        if (imageRes == null) binding.notificationFilterWikiLogo.visibility = GONE else View.VISIBLE
-        imageRes?.let { binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, imageRes)) }
+        langCode?.let {
+            binding.notificationFilterLanguageCode.text = langCode
+            binding.notificationFilterLanguageCode.visibility = View.VISIBLE
+        } ?: run {
+            binding.notificationFilterLanguageCode.visibility = View.GONE
+        }
+        imageRes?.let {
+            binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, imageRes))
+            binding.notificationFilterWikiLogo.visibility = View.VISIBLE
+        } ?: run {
+            binding.notificationFilterWikiLogo.visibility = View.GONE
+        }
     }
 }
