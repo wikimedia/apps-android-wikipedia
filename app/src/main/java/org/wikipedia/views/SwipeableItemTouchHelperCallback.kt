@@ -19,7 +19,8 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
         context: Context,
         @ColorRes swipeColor: Int = R.color.red50,
         @DrawableRes swipeIcon: Int = R.drawable.ic_delete_white_24dp,
-        @ColorRes swipeIconTint: Int? = null
+        @ColorRes swipeIconTint: Int? = null,
+        private val swipeTextFromTag: Boolean = false
 ) : ItemTouchHelper.Callback() {
 
     interface Callback {
@@ -32,7 +33,7 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
     private val swipeIconBitmap: Bitmap
     private val valueTextPaint = Paint().apply {
         color = ContextCompat.getColor(context, swipeIconTint ?: android.R.color.white)
-        textSize = DimenUtil.dpToPx(16f)
+        textSize = DimenUtil.dpToPx(12f)
         textAlign = Paint.Align.CENTER
     }
     var swipeableEnabled = false
@@ -75,10 +76,16 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
             canvas.drawRect(0f, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width.toFloat(), (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), swipeBackgroundPaint)
             if (dx >= 0) {
                 canvas.drawBitmap(swipeIconBitmap, SWIPE_ICON_PADDING_DP * densityScalar, (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - swipeIconBitmap.height / 2)).toFloat(), swipeIconPaint)
-                canvas.drawText("Unread", swipeIconBitmap.width.toFloat() + SWIPE_ICON_PADDING_DP, viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) + SWIPE_ICON_PADDING_DP, valueTextPaint)
+                if (swipeTextFromTag) {
+                    canvas.drawText(viewHolder.itemView.tag.toString(),
+                        swipeIconBitmap.width + SWIPE_ICON_PADDING_DP, viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) + SWIPE_ICON_PADDING_DP, valueTextPaint)
+                }
             } else {
                 canvas.drawBitmap(swipeIconBitmap, viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP * densityScalar, (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - swipeIconBitmap.height / 2)).toFloat(), swipeIconPaint)
-                canvas.drawText("Unread", viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP, viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) + SWIPE_ICON_PADDING_DP, valueTextPaint)
+                if (swipeTextFromTag) {
+                    canvas.drawText(viewHolder.itemView.tag.toString(),
+                        viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP, viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) + SWIPE_ICON_PADDING_DP, valueTextPaint)
+                }
             }
             canvas.drawRect(dx, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width + dx, (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), itemBackgroundPaint)
             viewHolder.itemView.translationX = dx

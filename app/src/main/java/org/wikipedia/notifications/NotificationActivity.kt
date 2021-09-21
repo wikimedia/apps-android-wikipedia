@@ -71,7 +71,7 @@ class NotificationActivity : BaseActivity() {
         val touchCallback = SwipeableItemTouchHelperCallback(this,
                 ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
                 R.drawable.ic_outline_drafts_24,
-                android.R.color.white)
+                android.R.color.white, true)
 
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
@@ -413,6 +413,9 @@ class NotificationActivity : BaseActivity() {
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.paper_color))
             }
 
+            // setting tag for swipe action text
+            itemView.tag = getString(if (n.isUnread) R.string.notifications_swipe_action_read else R.string.notifications_swipe_action_unread).uppercase()
+
             binding.notificationOverflowMenu.setOnClickListener {
                 // TODO: implement this
             }
@@ -442,7 +445,9 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onSwipe() {
-            markReadItems(listOf(container), false)
+            container.notification?.let {
+                markReadItems(listOf(container), !it.isUnread)
+            }
         }
     }
 
