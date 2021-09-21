@@ -1,6 +1,5 @@
 package org.wikipedia.page.references
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -12,5 +11,5 @@ data class PageReferences(val selectedIndex: Int = 0,
     data class Reference(val id: String?,
                          val href: String?,
                          val text: String = "",
-                         @SerialName("html") val content: String = "")
+                         val html: String = "")
 }

@@ -26,7 +26,7 @@ import java.util.*
 @Parcelize
 class PageTitle(
     @SerialName("namespace") private var _namespace: String?,
-    // TODO: remove this SerializedName when Tab list is no longer serialized to shared prefs.
+    // TODO: remove this SerialName when Tab list is no longer serialized to shared prefs.
     @SerialName("site") var wikiSite: WikiSite,
     @SerialName("text") private var _text: String = "",
     var fragment: String? = null,

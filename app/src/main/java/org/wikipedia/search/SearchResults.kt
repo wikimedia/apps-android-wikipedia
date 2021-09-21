@@ -1,9 +1,11 @@
 package org.wikipedia.search
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 
+@Serializable
 data class SearchResults constructor(var results: MutableList<SearchResult> = ArrayList(),
                                      var continuation: MwQueryResponse.Continuation? = null,
                                      var suggestion: String? = null) {
