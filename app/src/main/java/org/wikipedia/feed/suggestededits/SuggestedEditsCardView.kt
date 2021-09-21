@@ -24,13 +24,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private val binding = ViewSuggestedEditsCardBinding.inflate(LayoutInflater.from(context), this, true)
-    private var prevImageDownloadSettings = Prefs.isImageDownloadEnabled()
+    private var prevImageDownloadSettings = Prefs.isImageDownloadEnabled
 
     override var card: SuggestedEditsCard? = null
         set(value) {
-            if (field != value || prevImageDownloadSettings != Prefs.isImageDownloadEnabled()) {
+            if (field != value || prevImageDownloadSettings != Prefs.isImageDownloadEnabled) {
                 field = value
-                prevImageDownloadSettings = Prefs.isImageDownloadEnabled()
+                prevImageDownloadSettings = Prefs.isImageDownloadEnabled
                 value?.let {
                     header(it)
                     updateContents(it)

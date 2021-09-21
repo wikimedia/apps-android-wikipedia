@@ -8,15 +8,16 @@
 * Sociologist
 * Zafar Shamsiddinov
 * Таржимон
+* Шоҳидахоним
 -->
 <resources>
   <string name="app_name_prod">Vikipediya</string>
   <string name="app_name_beta">Vikipedia Beta</string>
   <string name="app_name_alpha">Vikipediya Alfa</string>
-  <string name="wikimedia">Vikimedia</string>
+  <string name="wikimedia">Vikimediya</string>
   <string name="nav_item_back">Orqaga</string>
   <string name="page_tabs_back">Ortga</string>
-  <string name="nav_item_forward">Navbatdagi</string>
+  <string name="nav_item_forward">Keyingi</string>
   <string name="search_hint">Vikipedia saytidan izlash</string>
   <string name="search_hint_voice_search">Ovoz bilan izlash</string>
   <string name="search_hint_search_languages">Til bo‘yicha izlash</string>
@@ -41,6 +42,7 @@
   <string name="app_settings">Ilova tanlovlari</string>
   <string name="search_tab_tooltip">Qidiruv so‘zini to‘g‘ridan-to‘g‘ri yozishni boshlash uchun ikonkaga yana bir marta bosing.</string>
   <string name="history_list_title">Tarix</string>
+  <string name="image_content_description">Surat: %s</string>
   <string name="dialog_title_clear_history">Ko‘rish tarixini o‘chirasizmi?</string>
   <string name="dialog_message_clear_history">Bu sizning barcha brauzer tarixingizni o‘chirib tashlaydi va hozirda ochilgan yorliqlarni yopadi. Ishonchingiz komilmi?</string>
   <string name="dialog_message_clear_history_yes">Ha</string>
@@ -523,10 +525,12 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Tanlovlar</string>
   <string name="notification_reverted_title">Qayta tahrir</string>
+  <string name="notification_channel_title">Fayl yuklanmoqda...</string>
   <string name="notification_channel_description">Yuklab olish jarayoni</string>
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Davom etmoq</string>
   <string name="notification_syncing_cancel_button">Bekor qilmoq</string>
+  <string name="notification_syncing_reading_list_channel_title">Sinxronlashgan roʻyxatlar</string>
   <string name="notification_syncing_reading_list_channel_description">Roʻyxatni sinxronlash jarayoni</string>
   <string name="notification_many_unread">%d ta bildirgi oʻqilmagan</string>
   <plurals name="notification_channel_name">
@@ -572,6 +576,7 @@
   <string name="notifications_view_archived_button_text">Arxivlangan bildirishnomalar</string>
   <string name="notification_preferences_title">Bildirishnoma tanlovlari</string>
   <string name="notifications_mark_unread">Oʻqilmagan deb belgilash</string>
+  <string name="notifications_mark_all_as_read">Barchasini oʻqilgan deb belgilash</string>
   <string name="watchlist_title">Kuzatuv roʻyxati</string>
   <string name="preference_title_notification_poll">Bildirishnomalarga ovoz bermoq</string>
   <string name="preference_summary_notification_poll">Orqa fonda yangi bildirishnomalarni tekshirish uchun ilovaga trafikdan foydalanishga ruxsat bering.</string>
@@ -589,7 +594,18 @@
   <string name="preference_title_notification_mention">Eslatma</string>
   <string name="preference_summary_notification_mention">Kimdir Sizga sahifada eslatma berdi</string>
   <string name="preference_title_notification_user_talk">Suhbat sahifasi</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Suhbatlardan kelgan xabarlar</string>
+  <string name="preference_summary_notification_user_talk">Suhbatlardan kelgan xabarlar</string>
+  <string name="preference_title_notification_email_user">E-pochta saqlandi</string>
+  <string name="preference_summary_notification_email_user">Kimdir sizga viki orqali e-pochta yubordi</string>
+  <string name="preference_title_notification_user_rights">Foydalanuvchi huquqlari o‘zgarishi</string>
+  <string name="preference_category_push_notifications">Push-bildirishnomalar</string>
+  <string name="preference_title_customize_push_notifications">Push-bildirishnomalarni moslashtirish</string>
+  <string name="preference_category_display_settings">Displey sozlamalari</string>
+  <string name="preference_title_hide_read_notifications">O‘qilgan bildirishnomalarni yashirish</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Vikipediya</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Vikipediya\'dan bildirishnomalar</string>
+  <string name="notifications_channel_group_other_title">Boshqa</string>
+  <string name="notifications_channel_group_other_description">Ilovadan boshqa bildirishnomalar</string>
   <string name="view_because_you_read_card_title">Oʻqiganingiz uchun tavsiya etildi</string>
   <string name="view_random_card_title">Tasodifiy tartibda</string>
   <string name="view_random_article_card_title">Tasodifiy maqola</string>
@@ -974,6 +990,8 @@
   <string name="menu_option_user_contributions">%sning hissalari</string>
   <string name="watchlist_details_watching_label">Kuzatilmoqda</string>
   <string name="watchlist_details_watch_label">Kuzatmoq</string>
+  <string name="watchlist_details_next_edit">Keyingi tahrir</string>
+  <string name="watchlist_details_prev_edit">Oldingi tahrir</string>
   <string name="thank_label">Tashakkur</string>
   <string name="go_to_user_page">Foydalanuvchi sahifasiga oʻtmoq</string>
   <string name="thank_dialog_title_text">«Tashakkur» bildirmoq</string>

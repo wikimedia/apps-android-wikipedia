@@ -440,6 +440,7 @@
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
   <string name="suggested_edits_edit_translation_button">Modifikar tradukuro</string>
+  <string name="suggested_edits_no_description">Ca arkivo havas nula deskripto</string>
   <string name="suggested_edits_image_caption_license_notice">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termi pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autoro</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonto</string>

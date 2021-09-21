@@ -37,7 +37,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
     @JvmOverloads
     fun loadImage(uri: Uri?, roundedCorners: Boolean = false, cropped: Boolean = true, listener: OnImageLoadListener? = null) {
         val placeholder = ViewUtil.getPlaceholderDrawable(context)
-        if (!Prefs.isImageDownloadEnabled() || uri == null) {
+        if (!Prefs.isImageDownloadEnabled || uri == null) {
             setImageDrawable(placeholder)
             return
         }
