@@ -1,5 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.BuildConfig
 
 /**
@@ -10,6 +11,7 @@ import org.wikipedia.BuildConfig
  * event service configured as eventgate-analytics-external. However, that will likely change in
  * the future, so flexible destination event service support is added optimistically now.
  */
+@Serializable
 enum class DestinationEventService(val id: String, val baseUri: String) {
 
     ANALYTICS("eventgate-analytics-external", BuildConfig.EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI),

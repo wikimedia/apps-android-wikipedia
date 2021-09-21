@@ -1,9 +1,12 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.JsonObject
-import org.wikipedia.json.GsonUtil
-import java.util.*
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.decodeFromJsonElement
 
+@Serializable
 class SiteMatrix : MwResponse() {
 
     val sitematrix: JsonObject? = null
@@ -22,12 +25,8 @@ class SiteMatrix : MwResponse() {
             // We have to parse the Json manually because the list of SiteInfo objects
             // contains a "count" member that prevents it from being able to deserialize
             // as a list automatically.
-            siteMatrix.sitematrix?.keySet()?.filterNot { it == "count" }?.forEach { key ->
-                GsonUtil.getDefaultGson().fromJson(
-                    siteMatrix.sitematrix[key], SiteInfo::class.java
-                )?.let {
-                    sites.add(it)
-                }
+            siteMatrix.sitematrix?.keys?.filterNot { it == "count" }?.forEach { key ->
+                Json.decodeFromJsonElement<SiteInfo>(buildJsonObject { siteMatrix.sitematrix[key] }).let { sites.add(it) }
             }
             return sites
         }

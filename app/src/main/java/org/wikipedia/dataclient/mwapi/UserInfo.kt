@@ -1,15 +1,17 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.util.DateUtil
 import java.util.*
 
+@Serializable
 class UserInfo : BlockInfo() {
     val id = 0
     private val groups: List<String>? = null
-    @SerializedName("latestcontrib") private val latestContrib: String? = null
-    @SerializedName("editcount") val editCount = 0
+    @SerialName("latestcontrib") private val latestContrib: String? = null
+    @SerialName("editcount") val editCount = 0
     val name: String = ""
 
     fun groups(): Set<String> {

@@ -4,9 +4,11 @@ import android.location.Location
 import com.google.gson.TypeAdapter
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
+import kotlinx.serialization.Serializable
 import org.wikipedia.util.log.L
 import java.io.IOException
 
+@Serializable
 class GeoTypeAdapter : TypeAdapter<Location>() {
     @Throws(IOException::class)
     override fun write(out: JsonWriter, value: Location) {

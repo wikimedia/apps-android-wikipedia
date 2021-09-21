@@ -1,39 +1,44 @@
 package org.wikipedia.dataclient.wikidata
 
 import android.location.Location
-import com.google.gson.JsonElement
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.json.*
 import org.wikipedia.dataclient.mwapi.MwResponse
-import org.wikipedia.json.GsonUtil
 
+@Serializable
 class Claims : MwResponse() {
 
     val claims: Map<String, List<Claim>> = emptyMap()
 
+    @Serializable
     class Claim {
 
         private val type: String? = null
         private val id: String? = null
         private val rank: String? = null
 
-        @SerializedName("mainsnak")
+        @SerialName("mainsnak")
         val mainSnak: MainSnak? = null
     }
 
+    @Serializable
     class MainSnak {
 
-        @SerializedName("snaktype")
+        @SerialName("snaktype")
         private val snakType: String? = null
 
-        @SerializedName("datatype")
+        @SerialName("datatype")
         private val dataType: String? = null
         private val property: String? = null
         private val hash: String? = null
 
-        @SerializedName("datavalue")
+        @SerialName("datavalue")
         val dataValue: DataValue? = null
     }
 
+    @Serializable
     class DataValue {
 
         private val value: JsonElement? = null
@@ -41,29 +46,29 @@ class Claims : MwResponse() {
 
         fun value(): String {
             if (value != null) {
-                if ("string" == type && value.isJsonPrimitive) {
-                    return value.asString
-                } else if ("wikibase-entityid" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson().fromJson(value, EntityIdValue::class.java).id
-                } else if ("time" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson().fromJson(value, TimeValue::class.java).time
-                } else if ("monolingualtext" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson()
-                        .fromJson(value, MonolingualTextValue::class.java).text
-                } else if ("globecoordinate" == type && value.isJsonObject) {
-                    return GsonUtil.getDefaultGson()
-                        .fromJson(value, GlobeCoordinateValue::class.java).location.toString()
+                if ("string" == type && value is PrimitiveKind) {
+                    return value.toString()
+                } else if ("wikibase-entityid" == type && value is JsonObject) {
+                    return Json.decodeFromJsonElement<EntityIdValue>(buildJsonObject { value }).id
+                } else if ("time" == type && value is JsonObject) {
+                    return Json.decodeFromJsonElement<TimeValue>(buildJsonObject { value }).time
+                } else if ("monolingualtext" == type && value is JsonObject) {
+                    return Json.decodeFromJsonElement<MonolingualTextValue>(buildJsonObject { value }).text
+                } else if ("globecoordinate" == type && value is JsonObject) {
+                    return Json.decodeFromJsonElement<GlobeCoordinateValue>(buildJsonObject { value }).location.toString()
                 }
             }
             return ""
         }
     }
 
+    @Serializable
     class EntityIdValue {
 
         val id: String = ""
     }
 
+    @Serializable
     class TimeValue {
 
         private val timezone = 0
@@ -73,12 +78,14 @@ class Claims : MwResponse() {
         val time: String = ""
     }
 
+    @Serializable
     class MonolingualTextValue {
 
         private val language: String? = null
         val text: String = ""
     }
 
+    @Serializable
     class GlobeCoordinateValue {
 
         private val latitude = 0.0

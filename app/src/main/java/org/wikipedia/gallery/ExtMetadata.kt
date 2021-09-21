@@ -3,27 +3,29 @@ package org.wikipedia.gallery
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 @Parcelize
+@Serializable
 class ExtMetadata(
-    @SerializedName("DateTime") private val dateTime: Values? = null,
-    @SerializedName("ObjectName") private val objectName: Values? = null,
-    @SerializedName("CommonsMetadataExtension") private val commonsMetadataExtension: Values? = null,
-    @SerializedName("Categories") private val categories: Values? = null,
-    @SerializedName("Assessments") private val assessments: Values? = null,
-    @SerializedName("ImageDescription") private val imageDescription: Values? = null,
-    @SerializedName("DateTimeOriginal") private val dateTimeOriginal: Values? = null,
-    @SerializedName("Artist") private val artist: Values? = null,
-    @SerializedName("Credit") private val credit: Values? = null,
-    @SerializedName("Permission") private val permission: Values? = null,
-    @SerializedName("AuthorCount") private val authorCount: Values? = null,
-    @SerializedName("LicenseShortName") private val licenseShortName: Values? = null,
-    @SerializedName("UsageTerms") private val usageTerms: Values? = null,
-    @SerializedName("LicenseUrl") private val licenseUrl: Values? = null,
-    @SerializedName("AttributionRequired") private val attributionRequired: Values? = null,
-    @SerializedName("Copyrighted") private val copyrighted: Values? = null,
-    @SerializedName("Restrictions") private val restrictions: Values? = null,
-    @SerializedName("License") private val license: Values? = null,
+    @SerialName("DateTime") private val dateTime: Values? = null,
+    @SerialName("ObjectName") private val objectName: Values? = null,
+    @SerialName("Categories") private val categories: Values? = null,
+    @SerialName("Assessments") private val assessments: Values? = null,
+    @SerialName("ImageDescription") private val imageDescription: Values? = null,
+    @SerialName("DateTimeOriginal") private val dateTimeOriginal: Values? = null,
+    @SerialName("Artist") private val artist: Values? = null,
+    @SerialName("Credit") private val credit: Values? = null,
+    @SerialName("Permission") private val permission: Values? = null,
+    @SerialName("AuthorCount") private val authorCount: Values? = null,
+    @SerializedName("LicenseShortName") @SerialName("LicenseShortName") private val licenseShortName: Values? = null,
+    @SerialName("UsageTerms") private val usageTerms: Values? = null,
+    @SerializedName("LicenseUrl") @SerialName("LicenseUrl") private val licenseUrl: Values? = null,
+    @SerialName("AttributionRequired") private val attributionRequired: Values? = null,
+    @SerialName("Copyrighted") private val copyrighted: Values? = null,
+    @SerialName("Restrictions") private val restrictions: Values? = null,
+    @SerializedName("License") @SerialName("License") private val license: Values? = null,
 ) : Parcelable {
 
     fun licenseShortName(): String {
@@ -67,6 +69,7 @@ class ExtMetadata(
     }
 
     @Parcelize
+    @Serializable
     class Values(
         val value: String? = null,
         val source: String? = null,

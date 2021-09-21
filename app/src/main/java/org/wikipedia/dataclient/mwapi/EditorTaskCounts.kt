@@ -1,15 +1,17 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.JsonArray
-import com.google.gson.JsonElement
-import com.google.gson.annotations.SerializedName
-import org.wikipedia.json.GsonUtil
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
 import org.wikipedia.settings.Prefs
 
+@Serializable
 class EditorTaskCounts {
 
-    @SerializedName("revert_counts") private val revertCounts: JsonElement? = null
-    @SerializedName("edit_streak") private val editStreak: JsonElement? = null
+    @SerialName("revert_counts") private val revertCounts: JsonElement? = null
+    @SerialName("edit_streak") private val editStreak: JsonElement? = null
 
     private val counts: JsonElement? = null
 
@@ -17,8 +19,7 @@ class EditorTaskCounts {
         get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(counts, Counts::class.java).appDescriptionEdits
+                editsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), counts).appDescriptionEdits
             }
             return editsPerLanguage ?: emptyMap()
         }
@@ -27,8 +28,7 @@ class EditorTaskCounts {
         get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(counts, Counts::class.java).appCaptionEdits
+                editsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), counts).appCaptionEdits
             }
             return editsPerLanguage ?: emptyMap()
         }
@@ -37,8 +37,7 @@ class EditorTaskCounts {
         get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(revertCounts, Counts::class.java).appDescriptionEdits
+                revertsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), revertCounts).appDescriptionEdits
             }
             return revertsPerLanguage ?: emptyMap()
         }
@@ -47,8 +46,7 @@ class EditorTaskCounts {
         get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(revertCounts, Counts::class.java).appCaptionEdits
+                revertsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), revertCounts).appCaptionEdits
             }
             return revertsPerLanguage ?: emptyMap()
         }
@@ -57,8 +55,7 @@ class EditorTaskCounts {
         get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(revertCounts, Counts::class.java).appDepictsEdits
+                revertsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), revertCounts).appDepictsEdits
             }
             return revertsPerLanguage?.get("*") ?: 0
         }
@@ -67,8 +64,7 @@ class EditorTaskCounts {
         get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage =
-                    GsonUtil.getDefaultGson().fromJson(counts, Counts::class.java).appDepictsEdits
+                editsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), counts).appDepictsEdits
             }
             return editsPerLanguage?.get("*") ?: 0
         }
@@ -97,10 +93,11 @@ class EditorTaskCounts {
             }
         }
 
+    @Serializable
     class Counts {
 
-        @SerializedName("app_description_edits") val appDescriptionEdits: Map<String, Int>? = null
-        @SerializedName("app_caption_edits") val appCaptionEdits: Map<String, Int>? = null
-        @SerializedName("app_depicts_edits") val appDepictsEdits: Map<String, Int>? = null
+        @SerialName("app_description_edits") val appDescriptionEdits: Map<String, Int>? = null
+        @SerialName("app_caption_edits") val appCaptionEdits: Map<String, Int>? = null
+        @SerialName("app_depicts_edits") val appDepictsEdits: Map<String, Int>? = null
     }
 }

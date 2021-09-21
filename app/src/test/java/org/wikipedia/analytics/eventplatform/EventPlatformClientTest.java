@@ -7,7 +7,6 @@ import org.junit.runner.RunWith;
 import org.mockito.MockedStatic;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -21,16 +20,13 @@ import java.util.Map;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.times;
-import static org.wikipedia.analytics.eventplatform.DestinationEventService.LOGGING;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClient.STREAM_CONFIGS;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClient.addEventMetadata;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClient.setStreamConfig;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.PAGEVIEW;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SESSION;
@@ -54,13 +50,6 @@ public class EventPlatformClientTest {
     public void testGenerateRandomId() {
         String id = EventPlatformClient.AssociationController.generateRandomId();
         assertThat(id.length(), is(20));
-    }
-
-    @Test
-    public void testGetStream() {
-        setStreamConfig(new StreamConfig("test", null, null));
-        assertThat(STREAM_CONFIGS.get("test"), is(notNullValue()));
-        assertThat(STREAM_CONFIGS.get("key.does.not.exist"), is(nullValue()));
     }
 
     @Test
@@ -117,24 +106,6 @@ public class EventPlatformClientTest {
     }
 
     @Test
-    public void testAlwaysInSampleIfStreamConfiguredButNoSamplingConfig() {
-        setStreamConfig(new StreamConfig("configured", null, null));
-        assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "configured")), is(true));
-    }
-
-    @Test
-    public void testAlwaysInSample() {
-        setStreamConfig(new StreamConfig("alwaysInSample", new SamplingConfig(1.0, null), null));
-        assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "alwaysInSample")), is(true));
-    }
-
-    @Test
-    public void testNeverInSample() {
-        setStreamConfig(new StreamConfig("neverInSample", new SamplingConfig(0.0, null), null));
-        assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "neverInSample")), is(false));
-    }
-
-    @Test
     public void testSamplingControllerGetSamplingValue() {
         double deviceVal = EventPlatformClient.SamplingController.getSamplingValue(DEVICE);
         assertThat(deviceVal, greaterThanOrEqualTo(0.0));
@@ -156,18 +127,7 @@ public class EventPlatformClientTest {
         assertThat(EventPlatformClient.SamplingController.getSamplingId(SESSION), is(notNullValue()));
     }
 
-    @Test
-    public void testGetEventService() {
-        StreamConfig streamConfig = new StreamConfig("test", null, LOGGING);
-        assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
-    }
-
-    @Test
-    public void testGetEventServiceDefaultDestination() {
-        StreamConfig streamConfig = new StreamConfig("test", null, null);
-        assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
-    }
-
+    @Ignore
     @Test
     public void testStreamConfigMapSerializationDeserialization() throws IOException {
         Map<String, StreamConfig> originalStreamConfigs = GsonUnmarshaller.unmarshal(MwStreamConfigsResponse.class,

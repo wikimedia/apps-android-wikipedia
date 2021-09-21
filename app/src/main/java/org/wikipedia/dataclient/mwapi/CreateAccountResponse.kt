@@ -1,5 +1,8 @@
 package org.wikipedia.dataclient.mwapi
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class CreateAccountResponse : MwResponse() {
 
     private val createaccount: Result? = null
@@ -10,6 +13,7 @@ class CreateAccountResponse : MwResponse() {
 
     val message get() = createaccount?.message.orEmpty()
 
+    @Serializable
     class Result {
 
         val status: String = ""

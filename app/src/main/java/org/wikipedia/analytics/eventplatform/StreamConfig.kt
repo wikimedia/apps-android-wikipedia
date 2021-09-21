@@ -1,37 +1,29 @@
 package org.wikipedia.analytics.eventplatform
 
-import androidx.annotation.VisibleForTesting
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import org.wikipedia.analytics.eventplatform.DestinationEventService.ANALYTICS
 
+@Serializable
 class StreamConfig {
 
-    @SerializedName("stream")
+    @SerialName("stream") @SerializedName("stream")
     var streamName = ""
 
-    @SerializedName("canary_events_enabled")
+    @SerialName("canary_events_enabled") @SerializedName("canary_events_enabled")
     var canaryEventsEnabled = false
 
-    @SerializedName("destination_event_service")
-    private var destinationEventService: DestinationEventService?
+    @SerialName("destination_event_service") @SerializedName("destination_event_service")
+    var destinationEventService: DestinationEventService = ANALYTICS
 
-    @SerializedName("schema_title")
+    @SerialName("schema_title") @SerializedName("schema_title")
     val schemaTitle: String = ""
 
-    @SerializedName("topic_prefixes")
+    @SerialName("topic_prefixes") @SerializedName("topic_prefixes")
     val topicPrefixes: List<String> = emptyList()
     val topics: List<String> = emptyList()
 
-    @SerializedName("sampling")
-    val samplingConfig: SamplingConfig?
-
-    fun getDestinationEventService(): DestinationEventService {
-        return destinationEventService ?: DestinationEventService.ANALYTICS
-    }
-
-    @VisibleForTesting
-    constructor(streamName: String, samplingConfig: SamplingConfig?, destinationEventService: DestinationEventService?) {
-        this.streamName = streamName
-        this.samplingConfig = samplingConfig
-        this.destinationEventService = destinationEventService
-    }
+    @SerialName("sampling") @SerializedName("sampling")
+    val samplingConfig: SamplingConfig? = null
 }

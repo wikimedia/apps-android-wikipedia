@@ -1,6 +1,8 @@
 package org.wikipedia.analytics.eventplatform
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Gson POJO representing a response body from the Event Platform's intake API (EventGate).
@@ -12,8 +14,9 @@ import com.google.gson.annotations.SerializedName
  * N.B. The response body will always be empty when sending events hastily. This class is provided
  * in anticipation of adding retry behavior for failed events in the future.
  */
+@Serializable
 class EventServiceResponse {
 
-    @SerializedName("invalid") val invalidEvents: List<Any> = emptyList()
-    @SerializedName("error") val errorEvents: List<Any> = emptyList()
+    @SerialName("invalid") val invalidEvents: List<@Contextual Any> = emptyList()
+    @SerialName("error") val errorEvents: List<@Contextual Any> = emptyList()
 }

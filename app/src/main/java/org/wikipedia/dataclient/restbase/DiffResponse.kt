@@ -1,7 +1,9 @@
 package org.wikipedia.dataclient.restbase
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Suppress("unused")
 class DiffResponse {
 
@@ -9,6 +11,7 @@ class DiffResponse {
     private val to: DiffRevision? = null
     val diff: List<DiffItem> = emptyList()
 
+    @Serializable
     class DiffItem {
 
         val type = 0
@@ -18,12 +21,14 @@ class DiffResponse {
         val highlightRanges: List<HighlightRange> = emptyList()
     }
 
+    @Serializable
     class DiffOffset {
 
         private val from = 0
         private val to = 0
     }
 
+    @Serializable
     class HighlightRange {
 
         val start = 0
@@ -31,15 +36,17 @@ class DiffResponse {
         val type = 0
     }
 
+    @Serializable
     class DiffRevision {
 
         private val id: Long = 0
 
-        @SerializedName("slot_role")
+        @SerialName("slot_role")
         private val slotRole: String? = null
         private val sections: List<RevisionSection>? = null
     }
 
+    @Serializable
     class RevisionSection {
 
         private val level = 0

@@ -11,7 +11,6 @@ import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.wikipedia.analytics.eventplatform.DestinationEventService.ANALYTICS;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
 
 @SuppressWarnings("checkstyle:magicnumber")
@@ -31,7 +30,6 @@ public class StreamConfigTest {
         assertThat(streamConfig.getStreamName(), is("test.event"));
         assertThat(streamConfig.getSchemaTitle(), is("test/event"));
         assertThat(streamConfig.getCanaryEventsEnabled(), is(true));
-        assertThat(streamConfig.getDestinationEventService(), is(ANALYTICS));
         assertThat(streamConfig.getTopicPrefixes(), is(Arrays.asList("eqiad.", "codfw.")));
         assertThat(streamConfig.getTopics(), is(Arrays.asList("eqiad.test.event", "codfw.test.event")));
 

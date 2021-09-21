@@ -5,12 +5,17 @@ import android.os.Parcelable
 import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.*
+import org.wikipedia.serialization.DateSerializer
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 import java.util.*
 
 @Parcelize
+@Serializable
 open class PageSummary(
     val namespace: NamespaceContainer? = null,
     var titles: Titles? = null,
@@ -18,18 +23,18 @@ open class PageSummary(
     var thumbnail: Thumbnail? = null,
     var extract: String? = null,
     var description: String? = null,
-    @SerializedName("originalimage") private val originalImage: Thumbnail? = null,
-    @SerializedName("wikibase_item") val wikiBaseItem: String? = null,
-    @SerializedName("extract_html") val extractHtml: String? = null,
-    @SerializedName("description_source") val descriptionSource: String = "",
-    @JsonAdapter(GeoTypeAdapter::class) val geo: Location? = null,
+    @SerialName("originalimage") private val originalImage: Thumbnail? = null,
+    @SerialName("wikibase_item") val wikiBaseItem: String? = null,
+    @SerializedName("extract_html") @SerialName("extract_html") val extractHtml: String? = null,
+    @SerialName("description_source") val descriptionSource: String = "",
+    @JsonAdapter(GeoTypeAdapter::class) val geo: @Contextual Location? = null,
     val type: String = TYPE_STANDARD,
     val pageId: Int = 0,
     val revision: Long = 0L,
     val timestamp: String = "",
     val views: Long = 0,
     private val rank: Long = 0,
-    @SerializedName("view_history") val viewHistory: List<ViewHistory>? = null
+    @SerialName("view_history") val viewHistory: List<ViewHistory>? = null
 ) : Parcelable {
 
     val thumbnailUrl get() = thumbnail?.source
@@ -77,16 +82,20 @@ open class PageSummary(
     }
 
     @Parcelize
+    @Serializable
     data class NamespaceContainer(val id: Int = 0, val text: String = "") : Parcelable
 
     @Parcelize
+    @Serializable
     class Titles(val canonical: String?, val display: String?) : Parcelable
 
     @Parcelize
+    @Serializable
     class Thumbnail(val source: String?, val width: Int, val height: Int) : Parcelable
 
     @Parcelize
-    class ViewHistory(val date: Date?, val views: Float) : Parcelable
+    @Serializable
+    class ViewHistory(@Serializable(with = DateSerializer::class) val date: Date?, val views: Float) : Parcelable
 
     companion object {
         const val TYPE_STANDARD = "standard"

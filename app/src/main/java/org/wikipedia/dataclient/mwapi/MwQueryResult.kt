@@ -1,6 +1,8 @@
 package org.wikipedia.dataclient.mwapi
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 import org.wikipedia.notifications.Notification
@@ -11,14 +13,15 @@ import org.wikipedia.settings.SiteInfo
 import org.wikipedia.util.DateUtil
 import java.util.*
 
+@Serializable
 class MwQueryResult : PostProcessable {
 
-    @SerializedName("userinfo") val userInfo: UserInfo? = null
-    @SerializedName("unreadnotificationpages") val unreadNotificationWikis: Map<String, UnreadNotificationWikiItem>? = null
-    @SerializedName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
-    @SerializedName("general") val siteInfo: SiteInfo? = null
-    @SerializedName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
-    @SerializedName("usercontribs") val userContributions: List<UserContribution> = emptyList()
+    @SerializedName("userinfo") @SerialName("userinfo") val userInfo: UserInfo? = null
+    @SerialName("unreadnotificationpages") val unreadNotificationWikis: Map<String, UnreadNotificationWikiItem>? = null
+    @SerializedName("authmanagerinfo") @SerialName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
+    @SerialName("general") val siteInfo: SiteInfo? = null
+    @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
+    @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
 
     private val redirects: MutableList<Redirect>? = null
     private val converted: MutableList<ConvertedTitle>? = null
@@ -122,31 +125,37 @@ class MwQueryResult : PostProcessable {
         }
     }
 
-    private class Redirect(@SerializedName("tofragment") val toFragment: String? = null,
+    @Serializable
+    private class Redirect(@SerializedName("tofragment") @SerialName("tofragment") val toFragment: String? = null,
                            private val index: Int = 0,
                            val from: String? = null,
                            val to: String? = null)
 
+    @Serializable
     class ConvertedTitle(val from: String? = null, val to: String? = null)
 
-    private class Tokens(@SerializedName("csrftoken") val csrf: String? = null,
-                         @SerializedName("createaccounttoken") val createAccount: String? = null,
-                         @SerializedName("logintoken") val login: String? = null,
-                         @SerializedName("watchtoken") val watch: String? = null)
+    @Serializable
+    private class Tokens(@SerializedName("csrftoken") @SerialName("csrftoken") val csrf: String? = null,
+                         @SerializedName("createaccounttoken") @SerialName("createaccounttoken") val createAccount: String? = null,
+                         @SerialName("logintoken") val login: String? = null,
+                         @SerialName("watchtoken") val watch: String? = null)
 
+    @Serializable
     class MarkReadResponse(val timestamp: String? = null, val result: String? = null)
 
+    @Serializable
     class NotificationList(val list: List<Notification>? = null,
                            val seenTime: SeenTime? = null,
                            val count: Int = 0,
                            private val rawcount: Int = 0,
-                           @SerializedName("continue") val continueStr: String? = null)
+                           @SerialName("continue") val continueStr: String? = null)
 
+    @Serializable
     class WatchlistItem {
 
-        @SerializedName("new") private val isNew = false
-        @SerializedName("anon") val isAnon = false
-        @SerializedName("old_revid") private val oldRevid: Long = 0
+        @SerialName("new") private val isNew = false
+        @SerialName("anon") val isAnon = false
+        @SerialName("old_revid") private val oldRevid: Long = 0
         private val pageid = 0
         private val timestamp: String? = null
         private val comment: String? = null
@@ -160,7 +169,7 @@ class MwQueryResult : PostProcessable {
         val oldlen = 0
         val newlen = 0
         var wiki: WikiSite? = null
-        @SerializedName("parsedcomment") val parsedComment: String = ""
+        @SerialName("parsedcomment") val parsedComment: String = ""
         val date: Date
             get() = DateUtil.iso8601DateParse(timestamp.orEmpty())
     }
