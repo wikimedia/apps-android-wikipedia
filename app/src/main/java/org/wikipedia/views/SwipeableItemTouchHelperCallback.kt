@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.densityScalar
 import org.wikipedia.util.ResourceUtil.bitmapFromVectorDrawable
 import org.wikipedia.util.ResourceUtil.getThemedColor
@@ -29,6 +30,11 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
     private val swipeIconPaint = Paint()
     private val itemBackgroundPaint = Paint()
     private val swipeIconBitmap: Bitmap
+    private val valueTextPaint = Paint().apply {
+        color = ContextCompat.getColor(context, swipeIconTint ?: android.R.color.white)
+        textSize = DimenUtil.dpToPx(16f)
+        textAlign = Paint.Align.CENTER
+    }
     var swipeableEnabled = false
 
     init {
@@ -69,10 +75,11 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
             canvas.drawRect(0f, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width.toFloat(), (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), swipeBackgroundPaint)
             if (dx >= 0) {
                 canvas.drawBitmap(swipeIconBitmap, SWIPE_ICON_PADDING_DP * densityScalar, (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - swipeIconBitmap.height / 2)).toFloat(), swipeIconPaint)
+                canvas.drawText("Unread", swipeIconBitmap.width.toFloat() + SWIPE_ICON_PADDING_DP, viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) + SWIPE_ICON_PADDING_DP, valueTextPaint)
             } else {
                 canvas.drawBitmap(swipeIconBitmap, viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP * densityScalar, (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - swipeIconBitmap.height / 2)).toFloat(), swipeIconPaint)
+                canvas.drawText("Unread", viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP, viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) + SWIPE_ICON_PADDING_DP, valueTextPaint)
             }
-            // TODO: put text in canvas
             canvas.drawRect(dx, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width + dx, (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), itemBackgroundPaint)
             viewHolder.itemView.translationX = dx
         } else {
