@@ -11,7 +11,7 @@ class CaptchaClientTest : MockRetrofitTest() {
         enqueueFromFile("captcha.json")
         observable.test().await()
             .assertComplete().assertNoErrors()
-            .assertValue { result -> result.captchaId == "1572672319" }
+            .assertValue { it.captchaId == "1572672319" }
     }
 
     @Test
@@ -39,5 +39,5 @@ class CaptchaClientTest : MockRetrofitTest() {
     }
 
     private val observable
-        get() = apiService.newCaptcha.map { response -> CaptchaResult(response.captchaId()) }
+        get() = apiService.newCaptcha.map { CaptchaResult(it.captchaId()) }
 }

@@ -2,7 +2,6 @@ package org.wikipedia.createaccount
 
 import com.google.gson.stream.MalformedJsonException
 import org.junit.Test
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.test.MockRetrofitTest
 
 class CreateAccountInfoClientTest : MockRetrofitTest() {
@@ -12,9 +11,9 @@ class CreateAccountInfoClientTest : MockRetrofitTest() {
         enqueueFromFile("create_account_info.json")
         apiService.authManagerInfo.test().await()
             .assertComplete().assertNoErrors()
-            .assertValue { response: MwQueryResponse ->
-                val token = response.query!!.createAccountToken()
-                val captchaId = response.query!!.captchaId()
+            .assertValue {
+                val token = it.query!!.createAccountToken()
+                val captchaId = it.query!!.captchaId()
                 token == "5d78e6a823be0901eeae9f6486f752da59123760+\\" && captchaId == "272460457"
             }
     }

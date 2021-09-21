@@ -30,7 +30,7 @@ class AnnouncementClientTest : MockRetrofitTest() {
         restService.announcements.test().await()
             .assertComplete()
             .assertNoErrors()
-            .assertValue { list -> list.items.size == 8 }
+            .assertValue { it.items.size == 8 }
     }
 
     @Test

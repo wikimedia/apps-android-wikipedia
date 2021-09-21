@@ -41,7 +41,9 @@ class RelatedPagesSearchClientTest : MockRetrofitTest() {
     fun testRequestResponseFailure() {
         enqueue404()
         restService.getRelatedPages("foo")
-            .map(RbRelatedPages::pages)
+            .map {
+                it.pages!!
+            }
             .test().await()
             .assertError(Exception::class.java)
     }
@@ -55,7 +57,7 @@ class RelatedPagesSearchClientTest : MockRetrofitTest() {
     }
 
     private val observable: Observable<List<PageSummary>>
-        get() = restService.getRelatedPages("foo").map(RbRelatedPages::pages)
+        get() = restService.getRelatedPages("foo").map { it.pages!! }
 
     companion object {
         private const val RAW_JSON_FILE = "related_pages_search_results.json"

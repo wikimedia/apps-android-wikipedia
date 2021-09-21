@@ -187,7 +187,7 @@ class EventPlatformClientTest {
     @Test
     @Throws(IOException::class)
     fun testStreamConfigMapSerializationDeserialization() {
-        val originalStreamConfigs: Map<String, StreamConfig> = GsonUnmarshaller.unmarshal(
+        val originalStreamConfigs = GsonUnmarshaller.unmarshal(
             MwStreamConfigsResponse::class.java,
             TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE)
         ).streamConfigs
