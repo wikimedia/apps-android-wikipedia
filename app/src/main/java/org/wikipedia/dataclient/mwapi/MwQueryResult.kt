@@ -1,10 +1,8 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 import org.wikipedia.notifications.Notification
 import org.wikipedia.notifications.Notification.SeenTime
 import org.wikipedia.notifications.Notification.UnreadNotificationWikiItem
@@ -14,11 +12,11 @@ import org.wikipedia.util.DateUtil
 import java.util.*
 
 @Serializable
-class MwQueryResult : PostProcessable {
+class MwQueryResult {
 
-    @SerializedName("userinfo") @SerialName("userinfo") val userInfo: UserInfo? = null
+    @SerialName("userinfo") val userInfo: UserInfo? = null
     @SerialName("unreadnotificationpages") val unreadNotificationWikis: Map<String, UnreadNotificationWikiItem>? = null
-    @SerializedName("authmanagerinfo") @SerialName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
+    @SerialName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
     @SerialName("general") val siteInfo: SiteInfo? = null
     @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
     @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
@@ -32,6 +30,11 @@ class MwQueryResult : PostProcessable {
     val echomarkseen: MarkReadResponse? = null
     val notifications: NotificationList? = null
     val watchlist: List<WatchlistItem> = emptyList()
+
+    init {
+        resolveConvertedTitles()
+        resolveRedirectedTitles()
+    }
 
     fun firstPage(): MwQueryPage? {
         return if (pages != null && pages.size > 0) {
@@ -66,7 +69,7 @@ class MwQueryResult : PostProcessable {
 
     fun langLinks(): MutableList<PageTitle> {
         val result = mutableListOf<PageTitle>()
-        if (pages.isNullOrEmpty() || pages[0].langlinks == null) {
+        if (pages.isNullOrEmpty()) {
             return result
         }
         // noinspection ConstantConditions
@@ -89,11 +92,6 @@ class MwQueryResult : PostProcessable {
             }
             return false
         }
-
-    override fun postProcess() {
-        resolveConvertedTitles()
-        resolveRedirectedTitles()
-    }
 
     private fun resolveRedirectedTitles() {
         if (redirects.isNullOrEmpty() || pages.isNullOrEmpty()) {
@@ -126,7 +124,7 @@ class MwQueryResult : PostProcessable {
     }
 
     @Serializable
-    private class Redirect(@SerializedName("tofragment") @SerialName("tofragment") val toFragment: String? = null,
+    private class Redirect(@SerialName("tofragment") val toFragment: String? = null,
                            private val index: Int = 0,
                            val from: String? = null,
                            val to: String? = null)
@@ -135,8 +133,8 @@ class MwQueryResult : PostProcessable {
     class ConvertedTitle(val from: String? = null, val to: String? = null)
 
     @Serializable
-    private class Tokens(@SerializedName("csrftoken") @SerialName("csrftoken") val csrf: String? = null,
-                         @SerializedName("createaccounttoken") @SerialName("createaccounttoken") val createAccount: String? = null,
+    private class Tokens(@SerialName("csrftoken") val csrf: String? = null,
+                         @SerialName("createaccounttoken") val createAccount: String? = null,
                          @SerialName("logintoken") val login: String? = null,
                          @SerialName("watchtoken") val watch: String? = null)
 

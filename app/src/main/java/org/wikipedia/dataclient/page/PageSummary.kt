@@ -2,17 +2,13 @@ package org.wikipedia.dataclient.page
 
 import android.location.Location
 import android.os.Parcelable
-import com.google.gson.annotations.JsonAdapter
-import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.LocationSerializer
 import org.wikipedia.page.*
-import org.wikipedia.serialization.DateSerializer
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
-import java.util.*
 
 @Parcelize
 @Serializable
@@ -25,9 +21,9 @@ open class PageSummary(
     var description: String? = null,
     @SerialName("originalimage") private val originalImage: Thumbnail? = null,
     @SerialName("wikibase_item") val wikiBaseItem: String? = null,
-    @SerializedName("extract_html") @SerialName("extract_html") val extractHtml: String? = null,
+    @SerialName("extract_html") val extractHtml: String? = null,
     @SerialName("description_source") val descriptionSource: String = "",
-    @JsonAdapter(GeoTypeAdapter::class) val geo: @Contextual Location? = null,
+    @Serializable(with = LocationSerializer::class) val geo: Location? = null,
     val type: String = TYPE_STANDARD,
     val pageId: Int = 0,
     val revision: Long = 0L,
@@ -95,7 +91,7 @@ open class PageSummary(
 
     @Parcelize
     @Serializable
-    class ViewHistory(@Serializable(with = DateSerializer::class) val date: Date?, val views: Float) : Parcelable
+    class ViewHistory(val date: String, val views: Float) : Parcelable
 
     companion object {
         const val TYPE_STANDARD = "standard"

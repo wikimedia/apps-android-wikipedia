@@ -2,8 +2,6 @@ package org.wikipedia.dataclient
 
 import androidx.collection.lruCache
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.modules.SerializersModule
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
@@ -12,7 +10,7 @@ import org.wikipedia.analytics.eventplatform.DestinationEventService
 import org.wikipedia.analytics.eventplatform.EventService
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
-import org.wikipedia.serialization.AnySerializer
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
@@ -59,7 +57,7 @@ object ServiceFactory {
         return ANALYTICS_REST_SERVICE_CACHE[streamConfig.destinationEventService]!!
     }
 
-    operator fun <T> get(wiki: WikiSite, baseUrl: String?, service: Class<T>?): T {
+    operator fun <T> get(wiki: WikiSite, baseUrl: String?, service: Class<T>): T {
         val r = createRetrofit(wiki, baseUrl.orEmpty().ifEmpty { wiki.url() + "/" })
         return r.create(service)
     }
@@ -78,13 +76,11 @@ object ServiceFactory {
     }
 
     private fun createRetrofit(wiki: WikiSite?, baseUrl: String): Retrofit {
-        val contentType = "application/json".toMediaType()
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(OkHttpConnectionFactory.client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(wiki)).build())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).addConverterFactory(Json { ignoreUnknownKeys = true; coerceInputValues = true; serializersModule = SerializersModule {
-                contextual(Any::class, AnySerializer)
-            } }.asConverterFactory(contentType))
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .addConverterFactory(JsonUtil.json.asConverterFactory("application/json".toMediaType()))
             .build()
     }
 

@@ -7,8 +7,8 @@ import org.wikipedia.page.PageTitle
 
 @Serializable
 data class SearchResult(val pageTitle: PageTitle,
-                                         val redirectFrom: String?,
-                                         val type: SearchResultType) {
+                        val redirectFrom: String?,
+                        val type: SearchResultType) {
 
     @Serializable
     enum class SearchResultType {

@@ -5,11 +5,11 @@ import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.os.Build
 import androidx.core.os.bundleOf
-import com.google.gson.reflect.TypeToken
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.login.LoginResult
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
@@ -70,13 +70,13 @@ object AccountUtil {
         get() {
             val account = account() ?: return emptySet()
             val setStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_groups))
-            return if (setStr.isNullOrEmpty()) emptySet() else GsonUnmarshaller.unmarshal(object : TypeToken<Set<String>>() {}, setStr)
+            return if (setStr.isNullOrEmpty()) emptySet() else Json.decodeFromString(setStr)
         }
         set(groups) {
             val account = account() ?: return
             accountManager().setUserData(account,
                     WikipediaApp.getInstance().getString(R.string.preference_key_login_groups),
-                    GsonMarshaller.marshal(groups))
+                    Json.encodeToString(groups))
         }
 
     @JvmStatic
@@ -140,13 +140,13 @@ object AccountUtil {
         get() {
             val account = account() ?: return emptyMap()
             val mapStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map))
-            return if (mapStr.isNullOrEmpty()) emptyMap() else GsonUnmarshaller.unmarshal(object : TypeToken<Map<String, Int>>() {}, mapStr)
+            return if (mapStr.isNullOrEmpty()) emptyMap() else Json.decodeFromString(mapStr)
         }
         private set(ids) {
             val account = account() ?: return
             accountManager().setUserData(account,
                     WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map),
-                    GsonMarshaller.marshal(ids))
+                    Json.encodeToString(ids))
         }
 
     private fun accountManager(): AccountManager {

@@ -3,16 +3,15 @@ package org.wikipedia.dataclient.wikidata
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwResponse
-import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 
 @Serializable
-class Entities : MwResponse(), PostProcessable {
+class Entities : MwResponse() {
 
     val entities: Map<String, Entity> = emptyMap()
     val first: Entity?
         get() = if (entities.isEmpty()) null else entities.values.iterator().next()
 
-    override fun postProcess() {
+    init {
         if (first?.isMissing == true) {
             throw RuntimeException("The requested entity was not found.")
         }

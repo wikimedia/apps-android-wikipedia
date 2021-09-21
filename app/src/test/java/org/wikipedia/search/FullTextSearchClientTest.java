@@ -32,12 +32,13 @@ public class FullTextSearchClientTest extends MockRetrofitTest {
 
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     @Test public void testRequestSuccessWithContinuation() throws Throwable {
         enqueueFromFile("full_text_search_results.json");
         getObservable().test().await()
                 .assertComplete().assertNoErrors()
-                .assertValue(result -> result.getContinuation().get("continue").equals("gsroffset||")
-                        && result.getContinuation().get("gsroffset").equals("20"));
+                .assertValue(result -> result.getContinuation().getContinuation().equals("gsroffset||")
+                        && result.getContinuation().getGsroffset() == 20);
     }
 
     @Test public void testRequestSuccessNoResults() throws Throwable {
