@@ -24,7 +24,10 @@ object JsonUtil {
         }
     }
 
-    inline fun <reified T> decodeFromString(string: String): T? {
+    inline fun <reified T> decodeFromString(string: String?): T? {
+        if (string == null) {
+            return null
+        }
         try {
             return json.decodeFromString(string)
         } catch (e: Exception) {

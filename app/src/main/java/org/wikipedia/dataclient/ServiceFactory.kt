@@ -57,7 +57,7 @@ object ServiceFactory {
         return ANALYTICS_REST_SERVICE_CACHE[streamConfig.destinationEventService]!!
     }
 
-    operator fun <T> get(wiki: WikiSite, baseUrl: String?, service: Class<T>?): T {
+    operator fun <T> get(wiki: WikiSite, baseUrl: String?, service: Class<T>): T {
         val r = createRetrofit(wiki, baseUrl.orEmpty().ifEmpty { wiki.url() + "/" })
         return r.create(service)
     }
@@ -76,11 +76,11 @@ object ServiceFactory {
     }
 
     private fun createRetrofit(wiki: WikiSite?, baseUrl: String): Retrofit {
-        val contentType = "application/json".toMediaType()
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(OkHttpConnectionFactory.client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(wiki)).build())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).addConverterFactory(JsonUtil.json.asConverterFactory(contentType))
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .addConverterFactory(JsonUtil.json.asConverterFactory("application/json".toMediaType()))
             .build()
     }
 
