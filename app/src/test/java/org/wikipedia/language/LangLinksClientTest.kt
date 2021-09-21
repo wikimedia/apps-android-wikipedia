@@ -1,39 +1,34 @@
-package org.wikipedia.createaccount
+package org.wikipedia.language
 
 import com.google.gson.stream.MalformedJsonException
 import io.reactivex.rxjava3.core.Observable
 import org.junit.Test
-import org.wikipedia.dataclient.Service
-import org.wikipedia.dataclient.mwapi.CreateAccountResponse
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.test.MockRetrofitTest
 
-class CreateAccountClientTest : MockRetrofitTest() {
-    private val observable: Observable<CreateAccountResponse>
-        get() = apiService.postCreateAccount("user", "pass", "pass", "token",
-            Service.WIKIPEDIA_URL, null, null, null)
-
+class LangLinksClientTest : MockRetrofitTest() {
     @Test
     @Throws(Throwable::class)
-    fun testRequestSuccess() {
-        enqueueFromFile("create_account_success.json")
+    fun testRequestSuccessHasResults() {
+        enqueueFromFile("lang_links.json")
         observable.test().await()
             .assertComplete().assertNoErrors()
-            .assertValue { it.status == "PASS" && it.user == "Farb0nucci" }
+            .assertValue { it.query!!.langLinks()[0].displayText == "Sciëntologie" }
     }
 
     @Test
     @Throws(Throwable::class)
-    fun testRequestFailure() {
-        enqueueFromFile("create_account_failure.json")
+    fun testRequestSuccessNoResults() {
+        enqueueFromFile("lang_links_empty.json")
         observable.test().await()
             .assertComplete().assertNoErrors()
-            .assertValue { it.status == "FAIL" }
+            .assertValue { it.query!!.langLinks().isEmpty() }
     }
 
     @Test
     @Throws(Throwable::class)
-    fun testRequestResponse404() {
-        enqueue404()
+    fun testRequestResponseApiError() {
+        enqueueFromFile("api_error.json")
         observable.test().await()
             .assertError(Exception::class.java)
     }
@@ -45,4 +40,7 @@ class CreateAccountClientTest : MockRetrofitTest() {
         observable.test().await()
             .assertError(MalformedJsonException::class.java)
     }
+
+    private val observable: Observable<MwQueryResponse>
+        get() = apiService.getLangLinks("foo")
 }

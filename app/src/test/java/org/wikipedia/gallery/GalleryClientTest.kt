@@ -1,7 +1,6 @@
 package org.wikipedia.gallery
 
 import com.google.gson.stream.MalformedJsonException
-import io.reactivex.rxjava3.core.Observable
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -12,7 +11,7 @@ class GalleryClientTest : MockRetrofitTest() {
         enqueueFromFile(RAW_JSON_FILE)
         observable.test().await()
             .assertComplete().assertNoErrors()
-            .assertValue { gallery: MediaList ->
+            .assertValue { gallery ->
                 (gallery.getItems("image").size == 1 && gallery.getItems("video").size == 1)
             }
     }
@@ -23,7 +22,7 @@ class GalleryClientTest : MockRetrofitTest() {
         enqueueFromFile(RAW_JSON_FILE)
         observable.test().await()
             .assertComplete().assertNoErrors()
-            .assertValue { gallery: MediaList ->
+            .assertValue { gallery ->
                 val result: List<MediaListItem> = gallery.getItems("image")
                 result.size == 1 && result[0].type == "image" && result[0].title == "File:BarackObamaportrait.jpg" && result[0].showInGallery
             }
@@ -35,7 +34,7 @@ class GalleryClientTest : MockRetrofitTest() {
         enqueueFromFile(RAW_JSON_FILE)
         observable.test().await()
             .assertComplete().assertNoErrors()
-            .assertValue { gallery: MediaList ->
+            .assertValue { gallery ->
                 val result: List<MediaListItem> = gallery.getItems("video")
                 result[0].type == "video" && result[0].title == "File:20090124_WeeklyAddress.ogv" && result[0].showInGallery
             }
@@ -55,7 +54,7 @@ class GalleryClientTest : MockRetrofitTest() {
         observable.test().await().assertError(MalformedJsonException::class.java)
     }
 
-    private val observable: Observable<MediaList>
+    private val observable
         get() = restService.getMediaList("foo", 0)
 
     companion object {
