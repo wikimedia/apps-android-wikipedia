@@ -505,6 +505,9 @@
   <string name="preference_title_notification_revert">প্রত্যাবর্তন</string>
   <string name="preference_title_notification_login_fail">প্রবেশ</string>
   <string name="preference_title_notification_user_talk">আলাপ পাতা</string>
+  <string name="preference_category_display_settings">প্রদর্শন সেটিং</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">উইকিপিডিয়া</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">উইকিপিডিয়া থেকে বিজ্ঞপ্তি</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
   <string name="view_random_article_card_title">অজানা নিবন্ধ</string>

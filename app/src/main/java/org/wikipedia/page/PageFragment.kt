@@ -241,7 +241,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         disposables.clear()
         webView.clearAllListeners()
         (webView.parent as ViewGroup).removeView(webView)
-        Prefs.setSuggestedEditsHighestPriorityEnabled(false)
+        Prefs.isSuggestedEditsHighestPriorityEnabled = false
         _binding = null
         super.onDestroyView()
     }
@@ -254,7 +254,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         app.commitTabState()
         closePageScrollFunnel()
         val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
-        Prefs.pageLastShown(time)
+        Prefs.pageLastShown = time
     }
 
     override fun onResume() {
@@ -426,7 +426,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         model.title?.run {
             historyEntry.referrer = uri
         }
-        if (title.namespace() !== Namespace.MAIN || !Prefs.isLinkPreviewEnabled()) {
+        if (title.namespace() !== Namespace.MAIN || !Prefs.isLinkPreviewEnabled) {
             loadPage(title, historyEntry)
         } else {
             callback()?.onPageShowLinkPreview(historyEntry)
@@ -619,7 +619,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun maybeShowAnnouncement() {
         title?.let {
-            if (Prefs.hasVisitedArticlePage()) {
+            if (Prefs.hasVisitedArticlePage) {
                 disposables.add(ServiceFactory.getRest(it.wikiSite).announcements
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -629,7 +629,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         for (announcement in list.items) {
                             if (AnnouncementClient.shouldShow(announcement, country, now) &&
                                 announcement.placement == Announcement.PLACEMENT_ARTICLE &&
-                                !Prefs.getAnnouncementShownDialogs().contains(announcement.id)) {
+                                !Prefs.announcementShownDialogs.contains(announcement.id)) {
                                 val dialog = AnnouncementDialog(requireActivity(), announcement)
                                 dialog.setCancelable(false)
                                 dialog.show()
@@ -1081,7 +1081,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun verifyBeforeEditingDescription(text: String?) {
         page?.let {
-            if (!AccountUtil.isLoggedIn && Prefs.getTotalAnonDescriptionsEdited() >= resources.getInteger(R.integer.description_max_anon_edits)) {
+            if (!AccountUtil.isLoggedIn && Prefs.totalAnonDescriptionsEdited >= resources.getInteger(R.integer.description_max_anon_edits)) {
                 AlertDialog.Builder(requireActivity())
                     .setMessage(R.string.description_edit_anon_limit)
                     .setPositiveButton(R.string.page_editing_login) { _, _ ->
@@ -1096,7 +1096,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun startDescriptionEditActivity(text: String?) {
-        if (Prefs.isDescriptionEditTutorialEnabled()) {
+        if (Prefs.isDescriptionEditTutorialEnabled) {
             requireActivity().startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text),
                 Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL)
         } else {

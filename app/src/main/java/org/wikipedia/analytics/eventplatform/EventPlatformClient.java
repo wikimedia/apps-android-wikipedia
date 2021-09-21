@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
@@ -29,7 +30,6 @@ import static org.wikipedia.BuildConfig.META_WIKI_BASE_URI;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.PAGEVIEW;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SESSION;
-import static org.wikipedia.settings.Prefs.isEventLoggingEnabled;
 
 public final class EventPlatformClient {
 
@@ -103,7 +103,7 @@ public final class EventPlatformClient {
      */
     static void addEventMetadata(Event event) {
         event.setSessionId(AssociationController.getSessionId());
-        event.setAppInstallId(Prefs.getAppInstallId());
+        event.setAppInstallId(Prefs.INSTANCE.getAppInstallId());
         event.setDt(DateUtil.iso8601DateFormat(new Date()));
     }
 
@@ -179,7 +179,7 @@ public final class EventPlatformClient {
                 eventsByStream.get(stream).add(event);
             }
             for (String stream : eventsByStream.keySet()) {
-                if (isEventLoggingEnabled()) {
+                if (Prefs.INSTANCE.isEventLoggingEnabled()) {
                     sendEventsForStream(STREAM_CONFIGS.get(stream), eventsByStream.get(stream));
                 }
             }
@@ -198,25 +198,30 @@ public final class EventPlatformClient {
                             //    TODO: Retry failed events?
                             //    L.logRemoteError(new RuntimeException(response.toString()));
                             //    break;
-                            case HTTP_BAD_REQUEST: // 400 - Failure
-                                L.logRemoteError(new RuntimeException(response.toString()));
-                                break;
-                            // Occasional server errors are unfortunately not unusual, so log the error
-                            // but don't crash even on pre-production builds.
-                            case HTTP_INTERNAL_ERROR: // 500
-                            case HTTP_UNAVAILABLE: // 503
-                            case HTTP_GATEWAY_TIMEOUT: // 504
-                                L.logRemoteError(new RuntimeException(response.message()));
-                                break;
                             default:
-                                // Something unexpected happened. Crash if this is a pre-production build.
-                                L.logRemoteErrorIfProd(
-                                        new RuntimeException("Unexpected EventGate response: "
-                                                + response.toString())
-                                );
                                 break;
                         }
-                    }, L::w);
+                    }, throwable -> {
+                        if (throwable instanceof HttpStatusException) {
+                            switch (((HttpStatusException) throwable).getCode()) {
+                                // TODO: parse the response to see the exact problem from the backend.
+                                case HTTP_BAD_REQUEST: // 400 - Failure
+                                // Occasional server errors are unfortunately not unusual, so log the error
+                                // but don't crash even on pre-production builds.
+                                case HTTP_INTERNAL_ERROR: // 500
+                                case HTTP_UNAVAILABLE: // 503
+                                case HTTP_GATEWAY_TIMEOUT: // 504
+                                    L.e(throwable);
+                                    break;
+                                default:
+                                    // Something unexpected happened. Crash if this is a pre-production build.
+                                    L.logRemoteErrorIfProd(throwable);
+                                    break;
+                            }
+                        } else {
+                            L.w(throwable);
+                        }
+                    });
         }
 
     }
@@ -263,13 +268,13 @@ public final class EventPlatformClient {
             if (SESSION_ID == null) {
                 // If there is no runtime value for SESSION_ID, try to load a
                 // value from persistent store.
-                SESSION_ID = Prefs.getEventPlatformSessionId();
+                SESSION_ID = Prefs.INSTANCE.getEventPlatformSessionId();
 
                 if (SESSION_ID == null) {
                     // If there is no value in the persistent store, generate a new value for
                     // SESSION_ID, and write the update to the persistent store.
                     SESSION_ID = generateRandomId();
-                    Prefs.setEventPlatformSessionId(SESSION_ID);
+                    Prefs.INSTANCE.setEventPlatformSessionId(SESSION_ID);
                 }
             }
             return SESSION_ID;
@@ -278,7 +283,7 @@ public final class EventPlatformClient {
         static void beginNewSession() {
             // Clear runtime and persisted value for SESSION_ID.
             SESSION_ID = null;
-            Prefs.setEventPlatformSessionId(null);
+            Prefs.INSTANCE.setEventPlatformSessionId(null);
 
             // A session refresh implies a pageview refresh, so clear runtime value of PAGEVIEW_ID.
             PAGEVIEW_ID = null;
@@ -356,7 +361,7 @@ public final class EventPlatformClient {
                 return AssociationController.getPageViewId();
             }
             if (identifier == DEVICE) {
-                return Prefs.getAppInstallId();
+                return Prefs.INSTANCE.getAppInstallId();
             }
             throw new RuntimeException("Bad identifier type");
         }
@@ -372,11 +377,11 @@ public final class EventPlatformClient {
 
     private static synchronized void updateStreamConfigs(@NonNull Map<String, StreamConfig> streamConfigs) {
         STREAM_CONFIGS = streamConfigs;
-        Prefs.setStreamConfigs(STREAM_CONFIGS);
+        Prefs.INSTANCE.setStreamConfigs(STREAM_CONFIGS);
     }
 
     public static void setUpStreamConfigs() {
-        STREAM_CONFIGS = Prefs.getStreamConfigs();
+        STREAM_CONFIGS = Prefs.INSTANCE.getStreamConfigs();
         refreshStreamConfigs();
     }
 

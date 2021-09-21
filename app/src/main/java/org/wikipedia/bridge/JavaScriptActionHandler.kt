@@ -86,7 +86,7 @@ object JavaScriptActionHandler {
         val res = L10nUtil.getStringsForArticleLanguage(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
         val leadImageHeight = if (isPreview) 0 else
-            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled()) 0 else (leadImageHeightForDevice(context) / densityScalar).roundToInt() - topActionBarHeight)
+            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) 0 else (leadImageHeightForDevice(context) / densityScalar).roundToInt() - topActionBarHeight)
         val topMargin = topActionBarHeight + 16
 
         return String.format(Locale.ROOT, "{" +
@@ -99,13 +99,13 @@ object JavaScriptActionHandler {
                 "       \"tableClose\": \"${res[R.string.table_close]}\"" +
                 "   }," +
                 "   \"theme\": \"${app.currentTheme.funnelName}\"," +
-                "   \"bodyFont\": \"${Prefs.getFontFamily()}\"," +
-                "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.shouldDimDarkModeImages())}," +
+                "   \"bodyFont\": \"${Prefs.fontFamily}\"," +
+                "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.dimDarkModeImages)}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
                 "   \"leadImageHeight\": \"%dpx\"," +
-                "   \"areTablesInitiallyExpanded\": ${!Prefs.isCollapseTablesEnabled()}," +
+                "   \"areTablesInitiallyExpanded\": ${!Prefs.isCollapseTablesEnabled}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
-                "   \"loadImages\": ${Prefs.isImageDownloadEnabled()}," +
+                "   \"loadImages\": ${Prefs.isImageDownloadEnabled}," +
                 "   \"userGroups\": \"${AccountUtil.groups}\"" +
                 "}", topMargin, 16, 48, 16, leadImageHeight)
     }

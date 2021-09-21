@@ -119,7 +119,7 @@ object UserContributionsStats {
     }
 
     fun maybePauseAndGetEndDate(): Date? {
-        val pauseDate = Prefs.getSuggestedEditsPauseDate()
+        val pauseDate = Prefs.suggestedEditsPauseDate
         var pauseEndDate: Date? = null
 
         // Are we currently in a pause period?
@@ -131,18 +131,18 @@ object UserContributionsStats {
 
             if (Date().after((pauseEndDate))) {
                 // We've exceeded the pause period, so remove it.
-                Prefs.setSuggestedEditsPauseDate(Date(0))
+                Prefs.suggestedEditsPauseDate = Date(0)
                 pauseEndDate = null
             }
         }
 
         if (getRevertSeverity() > REVERT_SEVERITY_PAUSE_THRESHOLD) {
             // Do we need to impose a new pause?
-            if (totalReverts > Prefs.getSuggestedEditsPauseReverts()) {
+            if (totalReverts > Prefs.suggestedEditsPauseReverts) {
                 val cal = Calendar.getInstance()
                 cal.time = Date()
-                Prefs.setSuggestedEditsPauseDate(cal.time)
-                Prefs.setSuggestedEditsPauseReverts(totalReverts)
+                Prefs.suggestedEditsPauseDate = cal.time
+                Prefs.suggestedEditsPauseReverts = totalReverts
 
                 cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
                 pauseEndDate = cal.time

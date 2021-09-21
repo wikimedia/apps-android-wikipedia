@@ -2,7 +2,6 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.Notification
 import org.wikipedia.notifications.Notification.SeenTime
@@ -28,7 +27,7 @@ class MwQueryResult {
     private val tokens: Tokens? = null
     private val echomarkread: MarkReadResponse? = null
     val pages: MutableList<MwQueryPage>? = null
-    val echoMarkSeen: MarkReadResponse? = null
+    val echomarkseen: MarkReadResponse? = null
     val notifications: NotificationList? = null
     val watchlist: List<WatchlistItem> = emptyList()
 
@@ -65,7 +64,7 @@ class MwQueryResult {
 
     fun getUserResponse(userName: String): ListUserResponse? {
         // MediaWiki user names are case sensitive, but the first letter is always capitalized.
-        return users?.find { StringUtils.capitalize(userName) == it.name }
+        return users?.find { userName.capitalize(Locale.getDefault()) == it.name }
     }
 
     fun langLinks(): MutableList<PageTitle> {
@@ -153,11 +152,11 @@ class MwQueryResult {
     class WatchlistItem {
 
         @SerialName("new") private val isNew = false
+        @SerialName("anon") val isAnon = false
         @SerialName("old_revid") private val oldRevid: Long = 0
         private val pageid = 0
         private val timestamp: String? = null
         private val comment: String? = null
-        private val parsedcomment: String? = null
         private val minor = false
         private val bot = false
         val revid: Long = 0
@@ -165,11 +164,10 @@ class MwQueryResult {
         val title: String = ""
         val user: String = ""
         val logtype: String = ""
-        val isAnon = false
         val oldlen = 0
         val newlen = 0
         var wiki: WikiSite? = null
-        val parsedComment: String = ""
+        @SerialName("parsedcomment") val parsedComment: String = ""
         val date: Date
             get() = DateUtil.iso8601DateParse(timestamp.orEmpty())
     }
