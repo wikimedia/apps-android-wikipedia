@@ -38,7 +38,7 @@ class ImageInfo {
 
     val mime = "*/*"
 
-    @SerialName("extmetadata") @SerializedName("extmetadata")
+    @SerializedName("extmetadata") @SerialName("extmetadata")
     val metadata: ExtMetadata? = null
 
     val user = ""

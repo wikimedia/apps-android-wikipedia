@@ -25,7 +25,7 @@ open class PageSummary(
     var description: String? = null,
     @SerialName("originalimage") private val originalImage: Thumbnail? = null,
     @SerialName("wikibase_item") val wikiBaseItem: String? = null,
-    @SerialName("extract_html") @SerializedName("extract_html") val extractHtml: String? = null,
+    @SerializedName("extract_html") @SerialName("extract_html") val extractHtml: String? = null,
     @SerialName("description_source") val descriptionSource: String = "",
     @JsonAdapter(GeoTypeAdapter::class) val geo: @Contextual Location? = null,
     val type: String = TYPE_STANDARD,

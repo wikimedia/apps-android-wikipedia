@@ -81,15 +81,15 @@ class MwQueryPage {
     @Serializable
     class Revision {
 
-        @SerializedName("contentformat") private val contentFormat: String? = null
-        @SerializedName("contentmodel") private val contentModel: String? = null
+        @SerialName("contentformat") private val contentFormat: String? = null
+        @SerialName("contentmodel") private val contentModel: String? = null
         @SerializedName("timestamp") @SerialName("timestamp") val timeStamp: String = ""
 
         private val slots: Map<String, RevisionSlot>? = null
         private val minor = false
-        @SerializedName("revid") val revId: Long = 0
-        @SerializedName("parentid") val parentRevId: Long = 0
-        @SerializedName("anon") val isAnon = false
+        @SerialName("revid") val revId: Long = 0
+        @SerialName("parentid") val parentRevId: Long = 0
+        @SerialName("anon") val isAnon = false
         val user: String = ""
         val content: String = ""
         val comment: String = ""

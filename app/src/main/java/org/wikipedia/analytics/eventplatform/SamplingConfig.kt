@@ -1,7 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
 import androidx.annotation.VisibleForTesting
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -14,9 +14,9 @@ import kotlinx.serialization.Serializable
 class SamplingConfig {
 
     enum class Identifier {
-        @SerializedName("pageview") PAGEVIEW,
-        @SerializedName("session") SESSION,
-        @SerializedName("device") DEVICE
+        @SerialName("pageview") PAGEVIEW,
+        @SerialName("session") SESSION,
+        @SerialName("device") DEVICE
     }
 
     private var identifier: Identifier? = null

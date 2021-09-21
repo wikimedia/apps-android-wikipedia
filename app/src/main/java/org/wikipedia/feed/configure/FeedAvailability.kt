@@ -1,23 +1,23 @@
 package org.wikipedia.feed.configure
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 class FeedAvailability {
 
-    @SerializedName("todays_featured_article")
+    @SerialName("todays_featured_article")
     val featuredArticle: List<String> = emptyList()
 
-    @SerializedName("most_read")
+    @SerialName("most_read")
     val mostRead: List<String> = emptyList()
 
-    @SerializedName("picture_of_the_day")
+    @SerialName("picture_of_the_day")
     val featuredPicture: List<String> = emptyList()
 
-    @SerializedName("in_the_news")
+    @SerialName("in_the_news")
     val news: List<String> = emptyList()
 
-    @SerializedName("on_this_day")
+    @SerialName("on_this_day")
     val onThisDay: List<String> = emptyList()
 }

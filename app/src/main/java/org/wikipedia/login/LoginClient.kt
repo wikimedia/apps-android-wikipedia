@@ -1,11 +1,11 @@
 package org.wikipedia.login
 
 import android.widget.Toast
-import com.google.gson.annotations.SerializedName
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -141,7 +141,7 @@ class LoginClient {
     @Serializable
     class LoginResponse : MwResponse() {
 
-        @SerializedName("clientlogin")
+        @SerialName("clientlogin")
         private val clientLogin: ClientLogin? = null
 
         fun toLoginResult(site: WikiSite, password: String): LoginResult? {
@@ -154,7 +154,7 @@ class LoginClient {
             private val status: String? = null
             private val requests: List<Request>? = null
             private val message: String? = null
-            @SerializedName("username")
+            @SerialName("username")
             private val userName: String? = null
 
             fun toLoginResult(site: WikiSite, password: String): LoginResult {

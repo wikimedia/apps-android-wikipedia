@@ -16,7 +16,7 @@ import java.util.*
 @Serializable
 class MwQueryResult : PostProcessable {
 
-    @SerialName("userinfo") @SerializedName("userinfo") val userInfo: UserInfo? = null
+    @SerializedName("userinfo") @SerialName("userinfo") val userInfo: UserInfo? = null
     @SerialName("unreadnotificationpages") val unreadNotificationWikis: Map<String, UnreadNotificationWikiItem>? = null
     @SerializedName("authmanagerinfo") @SerialName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
     @SerialName("general") val siteInfo: SiteInfo? = null
@@ -135,7 +135,7 @@ class MwQueryResult : PostProcessable {
     class ConvertedTitle(val from: String? = null, val to: String? = null)
 
     @Serializable
-    private class Tokens(@SerialName("csrftoken") @SerializedName("csrftoken") val csrf: String? = null,
+    private class Tokens(@SerializedName("csrftoken") @SerialName("csrftoken") val csrf: String? = null,
                          @SerializedName("createaccounttoken") @SerialName("createaccounttoken") val createAccount: String? = null,
                          @SerialName("logintoken") val login: String? = null,
                          @SerialName("watchtoken") val watch: String? = null)

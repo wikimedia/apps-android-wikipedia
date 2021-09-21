@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.ServiceError
 import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
@@ -49,17 +49,17 @@ class MwServiceError(val code: String?,
     @Serializable
     open class BlockInfo {
 
-        @SerializedName("blockedbyid")
+        @SerialName("blockedbyid")
         val blockedById = 0
-        @SerializedName("blockid")
+        @SerialName("blockid")
         val blockId = 0
-        @SerializedName("blockedby")
+        @SerialName("blockedby")
         val blockedBy: String = ""
-        @SerializedName("blockreason")
+        @SerialName("blockreason")
         val blockReason: String = ""
-        @SerializedName("blockedtimestamp")
+        @SerialName("blockedtimestamp")
         val blockTimeStamp: String = ""
-        @SerializedName("blockexpiry")
+        @SerialName("blockexpiry")
         val blockExpiry: String = ""
 
         val isBlocked: Boolean

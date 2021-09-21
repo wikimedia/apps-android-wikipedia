@@ -9,7 +9,7 @@ import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 abstract class MwResponse : PostProcessable {
     private val errors: List<MwServiceError>? = null
 
-    @SerialName("servedby") @SerializedName("servedby")
+    @SerializedName("servedby") @SerialName("servedby")
     private val servedBy: String? = null
 
     override fun postProcess() {

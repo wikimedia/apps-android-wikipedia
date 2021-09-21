@@ -1,5 +1,6 @@
 package org.wikipedia.notifications
 
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.*
@@ -11,7 +12,7 @@ import java.util.*
 @Serializable
 class Notification {
 
-    @SerialName("*")
+    @SerializedName("*")@SerialName("*")
     val contents: Contents? = null
     private val timestamp: Timestamp? = null
     val category = ""
@@ -42,7 +43,7 @@ class Notification {
     @Serializable
     class Title {
 
-        @SerialName("namespace-key")
+        @SerializedName("namespace-key")@SerialName("namespace-key")
         private val namespaceKey = 0
         var full: String = ""
         val text: String = ""

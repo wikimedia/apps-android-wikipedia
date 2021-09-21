@@ -82,7 +82,7 @@ object ServiceFactory {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(OkHttpConnectionFactory.client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(wiki)).build())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).addConverterFactory(Json { ignoreUnknownKeys = true; serializersModule = SerializersModule {
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).addConverterFactory(Json { ignoreUnknownKeys = true; coerceInputValues = true; serializersModule = SerializersModule {
                 contextual(Any::class, AnySerializer)
             } }.asConverterFactory(contentType))
             .build()

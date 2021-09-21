@@ -62,11 +62,13 @@ class Claims : MwResponse() {
         }
     }
 
+    @Serializable
     class EntityIdValue {
 
         val id: String = ""
     }
 
+    @Serializable
     class TimeValue {
 
         private val timezone = 0
@@ -76,12 +78,14 @@ class Claims : MwResponse() {
         val time: String = ""
     }
 
+    @Serializable
     class MonolingualTextValue {
 
         private val language: String? = null
         val text: String = ""
     }
 
+    @Serializable
     class GlobeCoordinateValue {
 
         private val latitude = 0.0
