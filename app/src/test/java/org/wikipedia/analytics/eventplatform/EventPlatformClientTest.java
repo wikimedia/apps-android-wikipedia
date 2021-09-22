@@ -106,7 +106,7 @@ public class EventPlatformClientTest {
         String sessionId = EventPlatformClient.AssociationController.getSessionId();
         assertThat(sessionId.length(), equalTo(20));
 
-        String persistentSessionId = Prefs.getEventPlatformSessionId();
+        String persistentSessionId = Prefs.INSTANCE.getEventPlatformSessionId();
         assertThat(persistentSessionId, is(notNullValue()));
         assertThat(persistentSessionId.length(), equalTo(20));
     }
@@ -173,8 +173,8 @@ public class EventPlatformClientTest {
         Map<String, StreamConfig> originalStreamConfigs = GsonUnmarshaller.unmarshal(MwStreamConfigsResponse.class,
                 TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE)).getStreamConfigs();
 
-        Prefs.setStreamConfigs(originalStreamConfigs);
-        Map<String, StreamConfig> restoredStreamConfigs = Prefs.getStreamConfigs();
+        Prefs.INSTANCE.setStreamConfigs(originalStreamConfigs);
+        Map<String, StreamConfig> restoredStreamConfigs = Prefs.INSTANCE.getStreamConfigs();
         assertThat(GsonMarshaller.marshal(restoredStreamConfigs), is(GsonMarshaller.marshal(originalStreamConfigs)));
     }
 }

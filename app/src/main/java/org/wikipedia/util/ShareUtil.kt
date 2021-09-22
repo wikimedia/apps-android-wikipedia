@@ -168,8 +168,9 @@ object ShareUtil {
                 excludedComponents.add(componentName)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Intent.createChooser(intent, chooserTitle)
-                    .putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, excludedComponents.toTypedArray())
+            return if (excludedComponents.size >= infoList.size) null
+            else Intent.createChooser(intent, chooserTitle)
+                .putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, excludedComponents.toTypedArray())
         }
         if (infoList.isEmpty()) {
             return null

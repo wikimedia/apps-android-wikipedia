@@ -69,12 +69,12 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                 if (!fromUser) {
                     return
                 }
-                val currentMultiplier = Prefs.getTextSizeMultiplier()
+                val currentMultiplier = Prefs.textSizeMultiplier
                 val changed = app.setFontSizeMultiplier(binding.textSizeSeekBar.value)
                 if (changed) {
                     updatingFont = true
                     updateFontSize()
-                    funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.getTextSizeMultiplier().toFloat())
+                    funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
                 }
             }
 
@@ -114,28 +114,28 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun onToggleDimImages(enabled: Boolean) {
-        if (enabled == Prefs.shouldDimDarkModeImages()) {
+        if (enabled == Prefs.dimDarkModeImages) {
             return
         }
-        Prefs.setDimDarkModeImages(enabled)
+        Prefs.dimDarkModeImages = enabled
         callback()?.onToggleDimImages()
     }
 
     private fun onToggleMatchSystemTheme(enabled: Boolean) {
-        if (enabled == Prefs.shouldMatchSystemTheme()) {
+        if (enabled == Prefs.shouldMatchSystemTheme) {
             return
         }
-        Prefs.setMatchSystemTheme(enabled)
+        Prefs.shouldMatchSystemTheme = enabled
         val currentTheme = app.currentTheme
         if (isMatchingSystemThemeEnabled) {
             when (app.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
                 Configuration.UI_MODE_NIGHT_YES -> if (!app.currentTheme.isDark) {
-                    app.currentTheme = if (!app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark) Theme.BLACK else app.unmarshalTheme(Prefs.getPreviousThemeId())
-                    Prefs.setPreviousThemeId(currentTheme.marshallingId)
+                    app.currentTheme = if (!app.unmarshalTheme(Prefs.previousThemeId).isDark) Theme.BLACK else app.unmarshalTheme(Prefs.previousThemeId)
+                    Prefs.previousThemeId = currentTheme.marshallingId
                 }
                 Configuration.UI_MODE_NIGHT_NO -> if (app.currentTheme.isDark) {
-                    app.currentTheme = if (app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark) Theme.LIGHT else app.unmarshalTheme(Prefs.getPreviousThemeId())
-                    Prefs.setPreviousThemeId(currentTheme.marshallingId)
+                    app.currentTheme = if (app.unmarshalTheme(Prefs.previousThemeId).isDark) Theme.LIGHT else app.unmarshalTheme(Prefs.previousThemeId)
+                    Prefs.previousThemeId = currentTheme.marshallingId
                 }
             }
         }
@@ -154,7 +154,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private val isMatchingSystemThemeEnabled: Boolean
-        get() = Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+        get() = Prefs.shouldMatchSystemTheme && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
 
     private fun updateComponents() {
         updateFontSize()
@@ -167,7 +167,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     private fun updateMatchSystemThemeSwitch() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             binding.themeChooserMatchSystemThemeSwitch.visibility = View.VISIBLE
-            binding.themeChooserMatchSystemThemeSwitch.isChecked = Prefs.shouldMatchSystemTheme()
+            binding.themeChooserMatchSystemThemeSwitch.isChecked = Prefs.shouldMatchSystemTheme
             conditionallyDisableThemeButtons()
         } else {
             binding.themeChooserMatchSystemThemeSwitch.visibility = View.GONE
@@ -175,7 +175,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateFontSize() {
-        val multiplier = Prefs.getTextSizeMultiplier()
+        val multiplier = Prefs.textSizeMultiplier
         binding.textSizeSeekBar.value = multiplier
         val percentStr = getString(R.string.text_size_percent,
                 (100 * (1 + multiplier * getFloat(R.dimen.textSizeMultiplierFactor))).toInt())
@@ -188,8 +188,8 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateFontFamily() {
-        binding.buttonFontFamilySansSerif.strokeWidth = if (Prefs.getFontFamily() == binding.buttonFontFamilySansSerif.tag) BUTTON_STROKE_WIDTH else 0
-        binding.buttonFontFamilySerif.strokeWidth = if (Prefs.getFontFamily() == binding.buttonFontFamilySerif.tag) BUTTON_STROKE_WIDTH else 0
+        binding.buttonFontFamilySansSerif.strokeWidth = if (Prefs.fontFamily == binding.buttonFontFamilySansSerif.tag) BUTTON_STROKE_WIDTH else 0
+        binding.buttonFontFamilySerif.strokeWidth = if (Prefs.fontFamily == binding.buttonFontFamilySerif.tag) BUTTON_STROKE_WIDTH else 0
     }
 
     private fun updateThemeButtons() {
@@ -205,7 +205,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateDimImagesSwitch() {
-        binding.themeChooserDarkModeDimImagesSwitch.isChecked = Prefs.shouldDimDarkModeImages()
+        binding.themeChooserDarkModeDimImagesSwitch.isChecked = Prefs.dimDarkModeImages
         binding.themeChooserDarkModeDimImagesSwitch.isEnabled = app.currentTheme.isDark
         binding.themeChooserDarkModeDimImagesSwitch.setTextColor(if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled)
             getThemedColor(requireContext(), R.attr.section_title_color) else ContextCompat.getColor(requireContext(), R.color.black26))
@@ -224,7 +224,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         override fun onClick(v: View) {
             if (v.tag != null) {
                 val newFontFamily = v.tag as String
-                funnel.logFontThemeChange(Prefs.getFontFamily(), newFontFamily)
+                funnel.logFontThemeChange(Prefs.fontFamily, newFontFamily)
                 app.setFontFamily(newFontFamily)
             }
         }
@@ -232,13 +232,13 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     private inner class FontSizeButtonListener(private val action: FontSizeAction) : View.OnClickListener {
         override fun onClick(view: View) {
-            val currentMultiplier = Prefs.getTextSizeMultiplier()
+            val currentMultiplier = Prefs.textSizeMultiplier
             val changed = when (action) {
                 FontSizeAction.INCREASE -> {
-                    app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() + 1)
+                    app.setFontSizeMultiplier(Prefs.textSizeMultiplier + 1)
                 }
                 FontSizeAction.DECREASE -> {
-                    app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() - 1)
+                    app.setFontSizeMultiplier(Prefs.textSizeMultiplier - 1)
                 }
                 FontSizeAction.RESET -> {
                     app.setFontSizeMultiplier(0)
@@ -247,7 +247,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             if (changed) {
                 updatingFont = true
                 updateFontSize()
-                funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.getTextSizeMultiplier().toFloat())
+                funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
             }
         }
     }
