@@ -11,7 +11,7 @@ class SharedPreferenceCookieManager(
     val cookieJar: MutableMap<String, MutableList<Cookie>> = HashMap()
 ) : CookieJar {
     private fun persistCookies() {
-        Prefs.setCookies(this)
+        Prefs.cookies = this
     }
 
     @Synchronized
@@ -112,7 +112,7 @@ class SharedPreferenceCookieManager(
         @JvmStatic
         val instance: SharedPreferenceCookieManager by lazy {
             try {
-                Prefs.getCookies() ?: SharedPreferenceCookieManager()
+                Prefs.cookies ?: SharedPreferenceCookieManager()
             } catch (e: Exception) {
                 logRemoteErrorIfProd(e)
                 SharedPreferenceCookieManager()

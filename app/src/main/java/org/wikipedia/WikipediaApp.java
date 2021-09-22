@@ -51,7 +51,6 @@ import io.reactivex.rxjava3.plugins.RxJavaPlugins;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
 
@@ -122,7 +121,7 @@ public class WikipediaApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl());
+        WikiSite.setDefaultBaseUrl(Prefs.INSTANCE.getMediaWikiBaseUrl());
 
         // Register here rather than in AndroidManifest.xml so that we can target Android N.
         // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
@@ -140,7 +139,7 @@ public class WikipediaApp extends Application {
 
         bus = new RxBus();
 
-        currentTheme = unmarshalTheme(Prefs.getCurrentThemeId());
+        currentTheme = unmarshalTheme(Prefs.INSTANCE.getCurrentThemeId());
 
         appLanguageState = new AppLanguageState(this);
         funnelManager = new FunnelManager(this);
@@ -209,7 +208,7 @@ public class WikipediaApp extends Application {
     @NonNull public synchronized WikiSite getWikiSite() {
         // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
         if (wiki == null) {
-            String lang = Prefs.getMediaWikiBaseUriSupportsLangCode() ? getAppOrSystemLanguageCode() : "";
+            String lang = Prefs.INSTANCE.getMediaWikiBaseUriSupportsLangCode() ? getAppOrSystemLanguageCode() : "";
             WikiSite newWiki = WikiSite.forLanguageCode(lang);
             // Kick off a task to retrieve the site info for the current wiki
             SiteInfoClient.updateFor(newWiki);
@@ -225,10 +224,10 @@ public class WikipediaApp extends Application {
      * @return Unique install ID for this app.
      */
     public String getAppInstallID() {
-        String id = Prefs.getAppInstallId();
+        String id = Prefs.INSTANCE.getAppInstallId();
         if (id == null) {
             id = UUID.randomUUID().toString();
-            Prefs.setAppInstallId(id);
+            Prefs.INSTANCE.setAppInstallId(id);
         }
         return id;
     }
@@ -240,7 +239,7 @@ public class WikipediaApp extends Application {
     public void setCurrentTheme(@NonNull Theme theme) {
         if (theme != currentTheme) {
             currentTheme = theme;
-            Prefs.setCurrentThemeId(currentTheme.getMarshallingId());
+            Prefs.INSTANCE.setCurrentThemeId(currentTheme.getMarshallingId());
             bus.post(new ThemeFontChangeEvent());
         }
     }
@@ -249,8 +248,8 @@ public class WikipediaApp extends Application {
         final int minMultiplier = getResources().getInteger(R.integer.minTextSizeMultiplier);
         final int maxMultiplier = getResources().getInteger(R.integer.maxTextSizeMultiplier);
         multiplier = MathUtils.clamp(multiplier, minMultiplier, maxMultiplier);
-        if (multiplier != getTextSizeMultiplier()) {
-            Prefs.setTextSizeMultiplier(multiplier);
+        if (multiplier != Prefs.INSTANCE.getTextSizeMultiplier()) {
+            Prefs.INSTANCE.setTextSizeMultiplier(multiplier);
             bus.post(new ChangeTextSizeEvent());
             return true;
         }
@@ -258,8 +257,8 @@ public class WikipediaApp extends Application {
     }
 
     public void setFontFamily(@NonNull String fontFamily) {
-        if (!fontFamily.equals(Prefs.getFontFamily())) {
-            Prefs.setFontFamily(fontFamily);
+        if (!fontFamily.equals(Prefs.INSTANCE.getFontFamily())) {
+            Prefs.INSTANCE.setFontFamily(fontFamily);
             bus.post(new ThemeFontChangeEvent());
         }
     }
@@ -286,10 +285,10 @@ public class WikipediaApp extends Application {
 
     public void commitTabState() {
         if (tabList.isEmpty()) {
-            Prefs.clearTabs();
+            Prefs.INSTANCE.clearTabs();
             initTabs();
         } else {
-            Prefs.setTabs(tabList);
+            Prefs.INSTANCE.setTabs(tabList);
         }
     }
 
@@ -312,7 +311,7 @@ public class WikipediaApp extends Application {
      */
     public float getFontSize(Window window) {
         return getFontSizeFromSp(window,
-                getResources().getDimension(R.dimen.textSize)) * (1.0f + getTextSizeMultiplier()
+                getResources().getDimension(R.dimen.textSize)) * (1.0f + Prefs.INSTANCE.getTextSizeMultiplier()
                 * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor));
     }
 
@@ -324,13 +323,13 @@ public class WikipediaApp extends Application {
     public void logOut() {
         L.d("Logging out");
         AccountUtil.removeAccount();
-        Prefs.setPushNotificationTokenSubscribed(false);
-        Prefs.setPushNotificationTokenOld("");
+        Prefs.INSTANCE.setPushNotificationTokenSubscribed(false);
+        Prefs.INSTANCE.setPushNotificationTokenOld("");
         ServiceFactory.get(getWikiSite()).getCsrfToken()
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> {
                     String csrfToken = response.getQuery().csrfToken();
-                    return WikipediaFirebaseMessagingService.Companion.unsubscribePushToken(csrfToken, Prefs.getPushNotificationToken())
+                    return WikipediaFirebaseMessagingService.Companion.unsubscribePushToken(csrfToken, Prefs.INSTANCE.getPushNotificationToken())
                             .flatMap(res -> ServiceFactory.get(getWikiSite()).postLogout(csrfToken).subscribeOn(Schedulers.io()));
                 })
                 .doFinally(() -> SharedPreferenceCookieManager.getInstance().clearAllCookies())
@@ -372,8 +371,8 @@ public class WikipediaApp extends Application {
     }
 
     private void initTabs() {
-        if (Prefs.hasTabs()) {
-            tabList.addAll(Prefs.getTabs());
+        if (Prefs.INSTANCE.getHasTabs()) {
+            tabList.addAll(Prefs.INSTANCE.getTabs());
         }
 
         if (tabList.isEmpty()) {

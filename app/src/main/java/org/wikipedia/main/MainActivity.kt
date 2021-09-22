@@ -32,10 +32,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onCreate(savedInstanceState)
 
         setImageZoomHelper()
-        if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
+        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
             // is not shown again for first time users
-            Prefs.setMultilingualSearchTutorialEnabled(false)
+            Prefs.isMultilingualSearchTutorialEnabled = false
 
             // Use startActivityForResult to avoid preload the Feed contents before finishing the initial onboarding.
             // The ACTIVITY_REQUEST_INITIAL_ONBOARDING has not been used in any onActivityResult
@@ -63,9 +63,9 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             binding.mainToolbar.title = ""
             controlNavTabInFragment = false
         } else {
-            if (tab == NavTab.SEARCH && Prefs.shouldShowSearchTabTooltip()) {
+            if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
                 FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
-                Prefs.setShowSearchTabTooltip(false)
+                Prefs.showSearchTabTooltip = false
             }
             binding.mainToolbarWordmark.visibility = View.GONE
             binding.mainToolbar.setTitle(tab.text())
