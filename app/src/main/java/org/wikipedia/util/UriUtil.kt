@@ -70,9 +70,6 @@ object UriUtil {
     }
 
     private fun visitInExternalBrowserExplicit(context: Context, uri: Uri) {
-        val infoList = context.packageManager.queryIntentActivities(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.example.com")), PackageManager.MATCH_DEFAULT_ONLY)
-        L.d(infoList.toString())
-
         context.packageManager.queryIntentActivities(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.example.com")), PackageManager.MATCH_DEFAULT_ONLY)
             .first().let {
                 val componentName = ComponentName(it.activityInfo.packageName, it.activityInfo.name)
