@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +33,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CustomDatePicker
 import org.wikipedia.views.HeaderMarginItemDecoration
+import java.time.LocalDate
 import java.util.*
 import kotlin.math.abs
 
@@ -40,7 +42,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     private var _binding: FragmentOnThisDayBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var date: Calendar
+    private lateinit var date: LocalDate
     private lateinit var wiki: WikiSite
     private lateinit var invokeSource: InvokeSource
     private var funnel: OnThisDayFunnel? = null
@@ -55,10 +57,10 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         _binding = FragmentOnThisDayBinding.inflate(inflater, container, false)
 
         val topDecorationDp = 24
-        val age = requireArguments().getInt(OnThisDayActivity.EXTRA_AGE, 0)
+        val age = requireArguments().getLong(OnThisDayActivity.EXTRA_AGE, 0)
         wiki = requireArguments().getParcelable(OnThisDayActivity.EXTRA_WIKISITE)!!
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        date = DateUtil.getDefaultDateFor(age)
+        date = LocalDate.now().minusDays(age)
         yearOnCardView = requireArguments().getInt(OnThisDayActivity.EXTRA_YEAR, -1)
         setUpToolbar()
         binding.eventsRecycler.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
@@ -75,7 +77,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         return binding.root
     }
 
-    private fun setUpTransitionAnimation(savedInstanceState: Bundle?, age: Int) {
+    private fun setUpTransitionAnimation(savedInstanceState: Bundle?, age: Long) {
         val animDelay = if (requireActivity().window.sharedElementEnterTransition != null &&
             savedInstanceState == null) 500L else 0L
         binding.onThisDayTitleView.postDelayed({
@@ -86,17 +88,16 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         }, animDelay)
     }
 
-    private fun updateContents(age: Int) {
-        val today = DateUtil.getDefaultDateFor(age)
-        requestEvents(today[Calendar.MONTH], today[Calendar.DATE])
+    private fun updateContents(age: Long) {
+        requestEvents(LocalDate.now().minusDays(age))
         funnel = OnThisDayFunnel(WikipediaApp.getInstance(), wiki, invokeSource)
     }
 
-    private fun requestEvents(month: Int, date: Int) {
+    private fun requestEvents(localDate: LocalDate) {
         binding.progressBar.visibility = View.VISIBLE
         binding.eventsRecycler.visibility = View.GONE
         binding.errorView.visibility = View.GONE
-        disposables.add(ServiceFactory.getRest(wiki).getOnThisDay(month + 1, date)
+        disposables.add(ServiceFactory.getRest(wiki).getOnThisDay(localDate.monthValue, localDate.dayOfMonth)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doAfterTerminate {
@@ -136,7 +137,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         binding.collapsingToolbarLayout.setCollapsedTitleTextColor(
             ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color)
         )
-        binding.day.text = DateUtil.getMonthOnlyDateString(date.time)
+        binding.day.text = DateUtil.getMonthOnlyDateString(date)
         maybeHideDateIndicator()
         binding.appBar.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
             binding.headerFrameLayout.alpha = 1.0f - abs(verticalOffset / appBarLayout.totalScrollRange.toFloat())
@@ -145,7 +146,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
             } else if (verticalOffset <= -appBarLayout.totalScrollRange) {
                 binding.dropDownToolbar.visibility = View.VISIBLE
             }
-            val newText = if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(date.time) else ""
+            val newText = if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(date) else ""
             if (newText != binding.toolbarDay.text.toString()) {
                 appBarLayout.post { binding.toolbarDay.text = newText }
             }
@@ -153,10 +154,9 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     }
 
     private fun maybeHideDateIndicator() {
-        binding.indicatorLayout.visibility =
-            if (date[Calendar.MONTH] == Calendar.getInstance()[Calendar.MONTH] &&
-                date[Calendar.DATE] == Calendar.getInstance()[Calendar.DATE]) View.GONE else View.VISIBLE
-        binding.indicatorDate.text = String.format(Locale.getDefault(), "%d", Calendar.getInstance()[Calendar.DATE])
+        val today = LocalDate.now()
+        binding.indicatorLayout.isGone = date.month == today.month && date.dayOfMonth == today.dayOfMonth
+        binding.indicatorDate.text = String.format(Locale.getDefault(), "%d", today.dayOfMonth)
     }
 
     override fun onDestroyView() {
@@ -175,24 +175,24 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         recycler.clipToPadding = false
     }
 
-    override fun onDatePicked(month: Int, day: Int) {
+    override fun onDatePicked(localDate: LocalDate) {
         binding.eventsRecycler.visibility = View.GONE
-        date[CustomDatePicker.LEAP_YEAR, month, day, 0] = 0
-        binding.day.text = DateUtil.getMonthOnlyDateString(date.time)
+        date = localDate.withYear(CustomDatePicker.LEAP_YEAR)
+        binding.day.text = DateUtil.getMonthOnlyDateString(date)
         binding.appBar.setExpanded(true)
-        requestEvents(month, day)
+        requestEvents(localDate)
         maybeHideDateIndicator()
     }
 
     private fun onCalendarClicked() {
         val newFragment = CustomDatePicker()
-        newFragment.setSelectedDay(date[Calendar.MONTH], date[Calendar.DATE])
+        newFragment.setSelectedDay(date)
         newFragment.callback = this@OnThisDayFragment
         newFragment.show(parentFragmentManager, "date picker")
     }
 
     private fun onIndicatorLayoutClicked() {
-        onDatePicked(Calendar.getInstance()[Calendar.MONTH], Calendar.getInstance()[Calendar.DATE])
+        onDatePicked(LocalDate.now())
     }
 
     private inner class RecyclerAdapter(private val events: List<OnThisDay.Event>,
