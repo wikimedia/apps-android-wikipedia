@@ -205,7 +205,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         } else {
             filteredWikiList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()) as MutableList<String>)
             for (i in 0 until filteredWikiList.size) {
-                filteredWikiList[i] = filteredWikiList[i] + "wiki"
+                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(filteredWikiList[i]) ?: filteredWikiList[i]
+                filteredWikiList[i] = "${defaultLangCode.replace("-", "_")}wiki"
             }
         }
         return filteredWikiList.joinToString("|")
