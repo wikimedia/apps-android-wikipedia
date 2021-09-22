@@ -22,6 +22,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
+import androidx.webkit.WebViewFeature
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textview.MaterialTextView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -354,8 +355,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 onPageLoadError(RuntimeException(description))
             }
 
+            // This method can be invoked on API levels below 23 if the WebView APK is up-to-date.
             override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
-                if (!request.url.toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
+                if (!WebViewFeature.isFeatureSupported(WebViewFeature.RECEIVE_HTTP_ERROR) ||
+                    !request.url.toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
                     // If the request is anything except the main mobile-html content request, then
                     // don't worry about any errors and let the WebView deal with it.
                     return

@@ -4,7 +4,7 @@ import android.view.KeyEvent
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
-import android.webkit.WebViewClient
+import androidx.webkit.WebViewClientCompat
 import okhttp3.Headers
 import okhttp3.Request
 import okhttp3.Response
@@ -18,7 +18,7 @@ import java.io.IOException
 import java.io.InputStream
 import java.nio.charset.Charset
 
-abstract class OkHttpWebViewClient : WebViewClient() {
+abstract class OkHttpWebViewClient : WebViewClientCompat() {
     /*
         Note: Any data transformations performed here are only for the benefit of WebViews.
         They should not be made into general Interceptors.
