@@ -3,18 +3,18 @@ package org.wikipedia.notifications
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
 import android.text.format.DateUtils
+import android.text.style.ForegroundColorSpan
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
@@ -60,6 +60,7 @@ class NotificationActivity : BaseActivity() {
     private var currentContinueStr: String? = null
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
+    private val searchActionModeCallback = SearchCallback()
     private var linkHandler = NotificationLinkHandler(this)
     var currentSearchQuery: String? = null
 
@@ -87,8 +88,6 @@ class NotificationActivity : BaseActivity() {
             binding.notificationsRefreshView.isRefreshing = false
             beginUpdateList()
         }
-
-        binding.notificationsViewArchivedButton.setOnClickListener { onViewArchivedClick() }
 
         binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -172,21 +171,10 @@ class NotificationActivity : BaseActivity() {
                 }) { t -> setErrorState(t) })
     }
 
-    private fun wikiList(): String {
-        val wikiList = mutableSetOf<String>()
-        WikipediaApp.getInstance().language().appLanguageCodes.forEach {
-            val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
-            wikiList.add("${defaultLangCode.replace("-", "_")}wiki")
-        }
-        wikiList.add("commonswiki")
-        wikiList.add("wikidatawiki")
-        return wikiList.joinToString("|")
-    }
-
     private val orContinueNotifications: Unit
         get() {
             binding.notificationsProgressBar.visibility = View.VISIBLE
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(getDelimitedFilteredWikiList(), "read|!read", currentContinueStr)
+            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(delimitedFilteredWikiList(), "read|!read", currentContinueStr)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
@@ -195,7 +183,7 @@ class NotificationActivity : BaseActivity() {
                     }) { t -> setErrorState(t) })
         }
 
-    private fun getDelimitedFilteredWikiList(): String {
+    private fun delimitedFilteredWikiList(): String {
         val filteredWikiList = mutableListOf<String>()
         if (Prefs.notificationsFilterLanguageCodes == null) {
             filteredWikiList.add("*")
@@ -281,7 +269,6 @@ class NotificationActivity : BaseActivity() {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
-            binding.notificationsViewArchivedButton.visibility = if (displayArchived) View.GONE else View.VISIBLE
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
             binding.notificationsSearchEmptyContainer.visibility = View.GONE
@@ -504,11 +491,13 @@ class NotificationActivity : BaseActivity() {
             val notificationFilterButton = itemView.findViewById<View>(R.id.notification_filter_button)
 
             itemView.setOnClickListener {
-                // TODO: open search page
+                if (actionMode == null) {
+                    actionMode = startSupportActionMode(searchActionModeCallback)
+                }
             }
 
             notificationFilterButton.setOnClickListener {
-                // TODO: open filter page
+                startActivity(NotificationsFilterActivity.newIntent(it.context))
             }
 
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)

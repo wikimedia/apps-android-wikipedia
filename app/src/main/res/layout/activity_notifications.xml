@@ -22,21 +22,20 @@
                 android:layout_gravity="center"
                 android:background="?attr/paper_color"
                 android:visibility="gone"
-                app:tabTextColor="?android:attr/textColorTertiary"
-                app:tabSelectedTextColor="?attr/colorAccent">
+                app:tabSelectedTextColor="?attr/colorAccent"
+                app:tabTextColor="?android:attr/textColorTertiary">
 
                 <com.google.android.material.tabs.TabItem
-                    android:text="@string/notifications_tab_filter_all"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="@string/notifications_tab_filter_all" />
 
                 <com.google.android.material.tabs.TabItem
-                    android:text="@string/notifications_tab_filter_mentions"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@string/notifications_tab_filter_mentions" />
 
             </com.google.android.material.tabs.TabLayout>
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/notifications_recycler_view"
@@ -93,7 +92,7 @@
                 style="@style/MaterialMediumSecondaryCaption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"/>
+                android:layout_marginTop="24dp" />
         </LinearLayout>
 
         <org.wikipedia.views.WikiErrorView
