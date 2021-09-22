@@ -30,7 +30,7 @@ class NotificationLinkHandler constructor(context: Context) : LinkHandler(contex
     override fun onExternalLinkClicked(uri: Uri) {
         try {
             // TODO: handle "change password" since it will open a blank page in PageActivity
-            context. startActivity(Intent(Intent.ACTION_VIEW).setData(uri))
+            context.startActivity(Intent(Intent.ACTION_VIEW).setData(uri))
         } catch (e: Exception) {
             L.e(e)
         }

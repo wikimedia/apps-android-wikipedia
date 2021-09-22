@@ -47,7 +47,6 @@ class NotificationItemOverflowView(context: Context) : FrameLayout(context) {
             PopupWindowCompat.showAsDropDown(it, anchorView, 0, 0, Gravity.END)
         }
 
-
         container.notification?.contents?.let {
             it.links?.getPrimary()?.let { primary ->
                 setUpViewForLink(binding.overflowViewPrimary, primary, true)
