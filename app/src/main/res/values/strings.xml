@@ -598,6 +598,10 @@
     <string name="notification_preferences_title">Notification preferences</string>
     <string name="notifications_mark_unread">Mark as unread</string>
     <string name="notifications_mark_all_as_read">Mark all as read</string>
+    <plurals name="notifications_mark_all_as_read_message">
+        <item quantity="one">Notification marked as read</item>
+        <item quantity="other">%d notifications marked as read</item>
+    </plurals>
     <string name="watchlist_title">Watchlist</string>
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
@@ -639,6 +643,12 @@
         <item quantity="other">%d filters</item>
     </plurals>
     <string name="notifications_select_all_filters">Select all filters</string>
+    <string name="notifications_tab_filter_all">All</string>
+    <string name="notifications_tab_filter_mentions">Mentions</string>
+    <string name="notifications_tab_filter_unread">(%s)</string>
+    <string name="notifications_search_bar_hint">Search or filter notifications</string>
+    <string name="notifications_search_bar_filter_hint">Notification filter</string>
+    <string name="notification_filter_heading">Filter notifications by wiki</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
@@ -1106,5 +1116,4 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
-    <string name="notification_filter_heading">Filter notifications by wiki</string>
 </resources>
