@@ -253,8 +253,8 @@ class NotificationActivity : BaseActivity() {
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
         notificationContainerList.clear()
-        if(actionMode==null) notificationContainerList.add(NotificationListItemContainer()) // search bar
-        binding.notificationTabLayout.visibility = if(actionMode!=null) View.GONE else View.VISIBLE
+        if (actionMode == null) notificationContainerList.add(NotificationListItemContainer()) // search bar
+        binding.notificationTabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
 
         val selectedFilterTab = binding.notificationTabLayout.selectedTabPosition
         val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
