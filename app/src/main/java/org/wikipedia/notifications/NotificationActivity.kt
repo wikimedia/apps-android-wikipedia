@@ -444,7 +444,7 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun showOverflowMenu(anchorView: View) {
-            NotificationItemOverflowView(this@NotificationActivity).show(anchorView, container) {
+            NotificationActionsOverflowView(this@NotificationActivity).show(anchorView, container) {
                     container, markRead -> markReadItems(listOf(container), !markRead)
             }
         }

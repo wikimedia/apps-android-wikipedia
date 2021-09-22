@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
@@ -15,20 +16,20 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
-import org.wikipedia.databinding.ViewNotificationItemOverflowBinding
+import org.wikipedia.databinding.ViewNotificationActionsOverflowBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.Notification
 import org.wikipedia.notifications.NotificationLinkHandler
 import org.wikipedia.notifications.NotificationListItemContainer
 import org.wikipedia.util.StringUtil
 
-class NotificationItemOverflowView(context: Context) : FrameLayout(context) {
+class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
     fun interface Callback {
         fun markAsReadClick(container: NotificationListItemContainer, markRead: Boolean)
     }
 
-    private var binding = ViewNotificationItemOverflowBinding.inflate(LayoutInflater.from(context), this, true)
+    private var binding = ViewNotificationActionsOverflowBinding.inflate(LayoutInflater.from(context), this, true)
 
     private lateinit var container: NotificationListItemContainer
     private lateinit var linkHandler: NotificationLinkHandler
@@ -78,9 +79,9 @@ class NotificationItemOverflowView(context: Context) : FrameLayout(context) {
         }
     }
 
-    private var actionClickListener = View.OnClickListener {
+    private var actionClickListener = OnClickListener {
         val link = it.tag as Notification.Link
-        val linkIndex = if (it.id == R.id.notification_action_primary) NotificationInteractionEvent.ACTION_PRIMARY else if (it.id == R.id.notification_action_secondary) NotificationInteractionEvent.ACTION_SECONDARY else NotificationInteractionEvent.ACTION_LINK_CLICKED
+        val linkIndex = if (it.id == R.id.overflow_view_primary) NotificationInteractionEvent.ACTION_PRIMARY else if (it.id == R.id.overflow_view_secondary) NotificationInteractionEvent.ACTION_SECONDARY else NotificationInteractionEvent.ACTION_LINK_CLICKED
         val url = link.url
         val notification = container.notification
         if (url.isNotEmpty() && notification != null) {
