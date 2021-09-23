@@ -46,10 +46,10 @@ object Prefs {
 
     var cookies
         get() = if (!PrefsIoUtil.contains(R.string.preference_key_cookie_map)) {
-            null
+            emptyMap()
         } else {
             val map = JsonUtil.decodeFromString<Map<String, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_cookie_map, "").orEmpty())
-            if (map == null) null
+            if (map == null) emptyMap()
             else {
                 val cookies = mutableMapOf<String, List<Cookie>>()
                 for (key in map.keys) {
@@ -65,19 +65,15 @@ object Prefs {
             }
         }
         set(cookieMap) {
-            var marshalStr: String? = null
-            if (cookieMap != null) {
-                val map = mutableMapOf<String, List<String>>()
-                for (key in cookieMap.keys) {
-                    val list = mutableListOf<String>()
-                    map[key] = list
-                    for (cookie in cookieMap[key]!!) {
-                        list.add(cookie.toString())
-                    }
+            val map = mutableMapOf<String, List<String>>()
+            for (key in cookieMap.keys) {
+                val list = mutableListOf<String>()
+                map[key] = list
+                for (cookie in cookieMap[key]!!) {
+                    list.add(cookie.toString())
                 }
-                marshalStr = JsonUtil.encodeToString(map)
             }
-            PrefsIoUtil.setString(R.string.preference_key_cookie_map, marshalStr)
+            PrefsIoUtil.setString(R.string.preference_key_cookie_map, JsonUtil.encodeToString(map))
         }
 
     var isShowDeveloperSettingsEnabled

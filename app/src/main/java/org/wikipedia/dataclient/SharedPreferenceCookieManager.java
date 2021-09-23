@@ -41,7 +41,7 @@ public final class SharedPreferenceCookieManager implements CookieJar {
     }
 
     public SharedPreferenceCookieManager(Map<String, List<Cookie>> cookieJar) {
-        this.cookieJar = cookieJar;
+        this.cookieJar = new HashMap<>(cookieJar);
     }
 
     private SharedPreferenceCookieManager() {
