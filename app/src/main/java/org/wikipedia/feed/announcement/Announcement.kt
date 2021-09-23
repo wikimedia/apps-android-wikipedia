@@ -11,27 +11,27 @@ class Announcement(val id: String = "",
                    val type: String = "",
                    val platforms: List<String> = emptyList(),
                    val countries: List<String> = emptyList(),
-                   @SerialName("start_time") private val startTime: String = "",
-                   @SerialName("end_time") private val endTime: String = "",
+                   @SerialName("start_time") private val startTime: String? = null,
+                   @SerialName("end_time") private val endTime: String? = null,
                    @SerialName("image_url") val imageUrl: String? = "",
                    @SerialName("negative_text") val negativeText: String? = "",
                    @SerialName("caption_HTML") val footerCaption: String? = "",
                    @SerialName("image_height") val imageHeight: String? = "",
                    @SerialName("logged_in") val loggedIn: Boolean? = null,
                    @SerialName("reading_list_sync_enabled") val readingListSyncEnabled: Boolean? = null,
-                   @SerialName("min_version") val minVersion: String? = null,
-                   @SerialName("max_version") val maxVersion: String? = null,
+                   @SerialName("min_version") val minVersion: Int = -1,
+                   @SerialName("max_version") val maxVersion: Int = -1,
                    val border: Boolean? = null,
                    val beta: Boolean? = null,
                    val placement: String = PLACEMENT_FEED,
                    val action: Action?) {
 
-    fun startTime(): Date {
-        return DateUtil.iso8601DateParse(startTime)
+    fun startTime(): Date? {
+        return startTime?.let { DateUtil.iso8601DateParse(it) }
     }
 
-    fun endTime(): Date {
-        return DateUtil.iso8601DateParse(endTime)
+    fun endTime(): Date? {
+        return endTime?.let { DateUtil.iso8601DateParse(it) }
     }
 
     fun hasAction(): Boolean {

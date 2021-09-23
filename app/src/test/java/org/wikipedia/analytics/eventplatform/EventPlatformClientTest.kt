@@ -13,8 +13,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient.SamplingController
 import org.wikipedia.dataclient.ServiceFactory.getAnalyticsRest
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.test.TestFileUtil
 import java.io.IOException
@@ -50,9 +49,9 @@ class EventPlatformClientTest {
 
     @Test
     fun testEventSerialization() {
-        val event = Event("test", "test")
+        val event = Event("test")
         EventPlatformClient.addEventMetadata(event)
-        val serialized = GsonMarshaller.marshal(event)
+        val serialized = JsonUtil.encodeToString(event)!!
         MatcherAssert.assertThat(serialized.contains("dt"), CoreMatchers.`is`(true))
         MatcherAssert.assertThat(serialized.contains("app_session_id"), CoreMatchers.`is`(true))
         MatcherAssert.assertThat(serialized.contains("app_install_id"), CoreMatchers.`is`(true))
@@ -61,7 +60,7 @@ class EventPlatformClientTest {
     @Ignore("Disabled for testing: https://phabricator.wikimedia.org/T281001")
     @Test
     fun testOutputBufferEnqueuesEventOnSubmit() {
-        val event = Event("test", "test")
+        val event = Event("test")
         Mockito.mockStatic(EventPlatformClient.OutputBuffer::class.java).use { outputBuffer ->
             Mockito.mockStatic(
                 SamplingController::class.java
@@ -104,7 +103,7 @@ class EventPlatformClientTest {
     @Test
     fun testNeverInSampleIfNoStreamConfig() {
         MatcherAssert.assertThat(
-            SamplingController.isInSample(Event("test", "not-configured")),
+            SamplingController.isInSample(Event("not-configured")),
             CoreMatchers.`is`(false)
         )
     }
@@ -113,7 +112,7 @@ class EventPlatformClientTest {
     fun testAlwaysInSampleIfStreamConfiguredButNoSamplingConfig() {
         EventPlatformClient.setStreamConfig(StreamConfig("configured", null, null))
         MatcherAssert.assertThat(
-            SamplingController.isInSample(Event("test", "configured")),
+            SamplingController.isInSample(Event("configured")),
             CoreMatchers.`is`(true)
         )
     }
@@ -124,7 +123,7 @@ class EventPlatformClientTest {
             StreamConfig("alwaysInSample", SamplingConfig(1.0, null), null)
         )
         MatcherAssert.assertThat(
-            SamplingController.isInSample(Event("test", "alwaysInSample")),
+            SamplingController.isInSample(Event("alwaysInSample")),
             CoreMatchers.`is`(true)
         )
     }
@@ -135,7 +134,7 @@ class EventPlatformClientTest {
             StreamConfig("neverInSample", SamplingConfig(0.0, null), null)
         )
         MatcherAssert.assertThat(
-            SamplingController.isInSample(Event("test", "neverInSample")),
+            SamplingController.isInSample(Event("neverInSample")),
             CoreMatchers.`is`(false)
         )
     }
@@ -187,15 +186,12 @@ class EventPlatformClientTest {
     @Test
     @Throws(IOException::class)
     fun testStreamConfigMapSerializationDeserialization() {
-        val originalStreamConfigs = GsonUnmarshaller.unmarshal(
-            MwStreamConfigsResponse::class.java,
-            TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE)
-        ).streamConfigs
-        Prefs.setStreamConfigs(originalStreamConfigs)
+        val originalStreamConfigs = JsonUtil.decodeFromString<MwStreamConfigsResponse>(TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE))!!.streamConfigs
+        Prefs.streamConfigs = originalStreamConfigs
         val restoredStreamConfigs = Prefs.streamConfigs
         MatcherAssert.assertThat(
-            GsonMarshaller.marshal(restoredStreamConfigs),
-            CoreMatchers.`is`(GsonMarshaller.marshal(originalStreamConfigs))
+            JsonUtil.encodeToString(restoredStreamConfigs),
+            CoreMatchers.`is`(JsonUtil.encodeToString(originalStreamConfigs))
         )
     }
 

@@ -4,7 +4,7 @@ import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert
 import org.junit.Test
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.test.TestFileUtil
 import java.io.IOException
 
@@ -13,7 +13,7 @@ class StreamConfigTest {
     @Throws(IOException::class)
     fun testStreamConfigResponseDeserialization() {
         val json = TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE)
-        val response = GsonUnmarshaller.unmarshal(MwStreamConfigsResponse::class.java, json)
+        val response = JsonUtil.decodeFromString<MwStreamConfigsResponse>(json)!!
         val streamConfigs = response.streamConfigs
         MatcherAssert.assertThat(streamConfigs.containsKey("test.event"), CoreMatchers.`is`(true))
         val streamConfig = streamConfigs["test.event"]

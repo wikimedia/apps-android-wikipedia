@@ -6,7 +6,7 @@ import kotlinx.serialization.Transient
 
 /** Base class for an Event Platform event.  */
 @Serializable
-sealed class Event(@Transient val stream: String = "") {
+open class Event(@Transient val stream: String = "") {
 
     @SerialName("app_session_id")
     var sessionId: String? = null

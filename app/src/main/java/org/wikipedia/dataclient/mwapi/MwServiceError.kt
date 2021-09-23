@@ -8,8 +8,8 @@ import org.wikipedia.util.ThrowableUtil
 import java.util.*
 
 @Serializable
-class MwServiceError(val code: String?,
-                     var html: String?,
+class MwServiceError(val code: String? = null,
+                     var html: String? = null,
                      val data: Data? = null) : ServiceError {
 
     fun badToken(): Boolean {
@@ -40,7 +40,7 @@ class MwServiceError(val code: String?,
     }
 
     @Serializable
-    class Data(val messages: List<Message>?, val blockinfo: BlockInfo?)
+    class Data(val messages: List<Message>? = null, val blockinfo: BlockInfo? = null)
 
     @Serializable
     class Message(val name: String?, val html: String = "")

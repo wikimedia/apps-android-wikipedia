@@ -8,9 +8,6 @@ import org.junit.Before
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
-import org.wikipedia.json.GsonUtil
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 @RunWith(RobolectricTestRunner::class)
 abstract class MockWebServerTest {
@@ -52,19 +49,5 @@ abstract class MockWebServerTest {
 
     protected fun enqueueEmptyJson() {
         server.enqueue(MockResponse().setBody("{}"))
-    }
-
-    protected fun <T> service(clazz: Class<T>): T {
-        return service(clazz, server().url)
-    }
-
-    protected fun <T> service(clazz: Class<T>, url: String): T {
-        return Retrofit.Builder()
-            .baseUrl(url)
-            .callbackExecutor(ImmediateExecutor())
-            .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
-            .build()
-            .create(clazz)
     }
 }

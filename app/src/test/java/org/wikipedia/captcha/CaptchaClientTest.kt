@@ -1,6 +1,5 @@
 package org.wikipedia.captcha
 
-import com.google.gson.stream.MalformedJsonException
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -35,7 +34,7 @@ class CaptchaClientTest : MockRetrofitTest() {
     fun testRequestResponseMalformed() {
         enqueueMalformed()
         observable.test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 
     private val observable

@@ -85,9 +85,9 @@ class AnnouncementClient : FeedClient {
             if (Prefs.ignoreDateForAnnouncements) {
                 return true
             }
-            return if (announcement.startTime() != null && announcement.startTime().after(date)) {
+            return if (announcement.startTime() != null && announcement.startTime()!!.after(date)) {
                 false
-            } else announcement.endTime() == null || !announcement.endTime().before(date)
+            } else announcement.endTime() == null || !announcement.endTime()!!.before(date)
         }
 
         private fun matchesConditions(announcement: Announcement): Boolean {
@@ -99,14 +99,14 @@ class AnnouncementClient : FeedClient {
             } else announcement.readingListSyncEnabled == null || announcement.readingListSyncEnabled == Prefs.isReadingListSyncEnabled
         }
 
-        private fun matchesVersionCodes(minVersion: String?, maxVersion: String?): Boolean {
+        private fun matchesVersionCodes(minVersion: Int, maxVersion: Int): Boolean {
             val versionCode = if (Prefs.announcementsVersionCode > 0) Prefs.announcementsVersionCode
             else WikipediaApp.getInstance().versionCode
             try {
-                if (!minVersion.isNullOrEmpty() && minVersion.toInt() > versionCode) {
+                if (minVersion != -1 && minVersion > versionCode) {
                     return false
                 }
-                if (!maxVersion.isNullOrEmpty() && maxVersion.toInt() < versionCode) {
+                if (maxVersion != -1 && maxVersion < versionCode) {
                     return false
                 }
             } catch (e: NumberFormatException) {
