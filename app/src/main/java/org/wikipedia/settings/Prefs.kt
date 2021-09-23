@@ -620,7 +620,7 @@ object Prefs {
             ) as HashMap<String, StreamConfig>
         }
 
-    fun setStreamConfigs(streamConfigs: Map<String?, StreamConfig?>) {
+    fun setStreamConfigs(streamConfigs: Map<String, StreamConfig>) {
         PrefsIoUtil.setString(
             R.string.preference_key_event_platform_stored_stream_configs,
             GsonMarshaller.marshal(streamConfigs)
