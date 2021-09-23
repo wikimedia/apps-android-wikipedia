@@ -49,7 +49,7 @@ class EventPlatformClientTest {
 
     @Test
     fun testEventSerialization() {
-        val event = Event("test")
+        val event = TestEvent("test")
         EventPlatformClient.addEventMetadata(event)
         val serialized = JsonUtil.encodeToString(event)!!
         MatcherAssert.assertThat(serialized.contains("dt"), CoreMatchers.`is`(true))
@@ -60,7 +60,7 @@ class EventPlatformClientTest {
     @Ignore("Disabled for testing: https://phabricator.wikimedia.org/T281001")
     @Test
     fun testOutputBufferEnqueuesEventOnSubmit() {
-        val event = Event("test")
+        val event = TestEvent("test")
         Mockito.mockStatic(EventPlatformClient.OutputBuffer::class.java).use { outputBuffer ->
             Mockito.mockStatic(
                 SamplingController::class.java
@@ -103,7 +103,7 @@ class EventPlatformClientTest {
     @Test
     fun testNeverInSampleIfNoStreamConfig() {
         MatcherAssert.assertThat(
-            SamplingController.isInSample(Event("not-configured")),
+            SamplingController.isInSample(TestEvent("not-configured")),
             CoreMatchers.`is`(false)
         )
     }
@@ -112,7 +112,7 @@ class EventPlatformClientTest {
     fun testAlwaysInSampleIfStreamConfiguredButNoSamplingConfig() {
         EventPlatformClient.setStreamConfig(StreamConfig("configured", null, null))
         MatcherAssert.assertThat(
-            SamplingController.isInSample(Event("configured")),
+            SamplingController.isInSample(TestEvent("configured")),
             CoreMatchers.`is`(true)
         )
     }
@@ -123,7 +123,7 @@ class EventPlatformClientTest {
             StreamConfig("alwaysInSample", SamplingConfig(1.0, null), null)
         )
         MatcherAssert.assertThat(
-            SamplingController.isInSample(Event("alwaysInSample")),
+            SamplingController.isInSample(TestEvent("alwaysInSample")),
             CoreMatchers.`is`(true)
         )
     }
@@ -134,7 +134,7 @@ class EventPlatformClientTest {
             StreamConfig("neverInSample", SamplingConfig(0.0, null), null)
         )
         MatcherAssert.assertThat(
-            SamplingController.isInSample(Event("neverInSample")),
+            SamplingController.isInSample(TestEvent("neverInSample")),
             CoreMatchers.`is`(false)
         )
     }
