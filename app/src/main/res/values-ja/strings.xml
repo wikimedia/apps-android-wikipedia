@@ -609,6 +609,7 @@
   <string name="notifications_view_archived_button_text">アーカイブした通知を表示</string>
   <string name="notification_preferences_title">通知の設定</string>
   <string name="notifications_mark_unread">未読にする</string>
+  <string name="notifications_mark_all_as_read">すべて既読にする</string>
   <string name="watchlist_title">ウォッチリスト</string>
   <string name="preference_title_notification_poll">通知に投票</string>
   <string name="preference_summary_notification_poll">バックグラウンドで新規通知をチェックするのにアプリがデータ通信するのを許可する</string>
@@ -627,6 +628,11 @@
   <string name="preference_summary_notification_mention">誰かが特定のページであなたに言及しました</string>
   <string name="preference_title_notification_user_talk">トークページ</string>
   <string name="preference_summary_notification_user_talk">トークページからのメッセージと返信</string>
+  <string name="preference_category_push_notifications">プッシュ通知</string>
+  <string name="preference_category_display_settings">表示設定</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ウィキペディア</string>
+  <string name="notifications_channel_group_other_title">その他</string>
+  <string name="notifications_channel_group_other_description">アプリからのその他の通知</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
   <string name="view_random_article_card_title">ランダム記事</string>
