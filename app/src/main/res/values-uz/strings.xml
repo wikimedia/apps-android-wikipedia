@@ -395,7 +395,7 @@
   <string name="text_size_decrease">Matn oʻlchamini kichraytirmoq</string>
   <string name="text_size_percent_default">%s (standart)</string>
   <string name="text_style_title">Shrift</string>
-  <string name="nav_item_saved">Saqlandi</string>
+  <string name="nav_item_saved">Saqlamalar</string>
   <string name="reading_list_save_to">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="reading_list_move_to">Oʻqish roʻyxatiga oʻtmoq</string>
   <string name="reading_list_create_new">Maqola tuzmoq</string>
@@ -493,7 +493,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Boshqa koʻrsatilmasin</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sinxronlashtirmoq</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Yo‘q, rahmat</string>
-  <string name="default_reading_list_name">Saqlandi</string>
+  <string name="default_reading_list_name">Saqlamalar</string>
   <string name="default_reading_list_description">Saqlangan maqolalaringiz uchun standart roʻyxat</string>
   <string name="no_user_lists_title">Roʻyxatdagi maqolalarni tartiblamoq</string>
   <string name="no_user_lists_msg">Sayohat qilish uchun joylar, sevimli mavzular va boshqa koʻplab mavzularga oid roʻyxatlar yarating</string>
@@ -598,6 +598,9 @@
   <string name="preference_title_notification_email_user">E-pochta saqlandi</string>
   <string name="preference_summary_notification_email_user">Kimdir sizga viki orqali e-pochta yubordi</string>
   <string name="preference_title_notification_user_rights">Foydalanuvchi huquqlari o‘zgarishi</string>
+  <string name="preference_summary_notification_user_rights">Foydalanuvchi huquqlari oʻzgarganda qabul qilinadi</string>
+  <string name="preference_title_notification_article_linked">Siz tuzgan maqola havolalari</string>
+  <string name="preference_summary_notification_article_linked">Siz tuzgan sahifaga yangi havola berilganda qabul qilinadi</string>
   <string name="preference_category_push_notifications">Push-bildirishnomalar</string>
   <string name="preference_title_customize_push_notifications">Push-bildirishnomalarni moslashtirish</string>
   <string name="preference_category_display_settings">Displey sozlamalari</string>
