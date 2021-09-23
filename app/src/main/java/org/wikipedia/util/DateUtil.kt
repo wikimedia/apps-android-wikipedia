@@ -78,10 +78,6 @@ object DateUtil {
         return getExtraShortDateString(localDate)
     }
 
-    fun getFeedCardShortDateString(date: Calendar): String {
-        return getExtraShortDateString(date.time)
-    }
-
     fun getMDYDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy")
     }
@@ -100,10 +96,6 @@ object DateUtil {
 
     private fun getExtraShortDateString(localDate: LocalDate): String {
         return getDateStringWithSkeletonPattern(localDate, "MMM d")
-    }
-
-    private fun getExtraShortDateString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "MMM d")
     }
 
     fun getTimeString(date: Date): String {
@@ -155,13 +147,6 @@ object DateUtil {
     @JvmStatic
     fun getUtcRequestDateFor(age: Int): UtcDate {
         return UtcDate(age)
-    }
-
-    @JvmStatic
-    fun getDefaultDateFor(age: Int): Calendar {
-        val calendar = Calendar.getInstance(TimeZone.getDefault())
-        calendar.add(Calendar.DATE, -age)
-        return calendar
     }
 
     @Synchronized
