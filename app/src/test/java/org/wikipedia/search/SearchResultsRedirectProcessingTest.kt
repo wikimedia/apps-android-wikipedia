@@ -17,18 +17,20 @@ class SearchResultsRedirectProcessingTest {
 
     @Test
     fun testRedirectHandling() {
-        MatcherAssert.assertThat(result.pages!!.size, Matchers.`is`(2))
-        MatcherAssert.assertThat(result.pages!![0].title, Matchers.`is`("Narthecium#Foo"))
-        MatcherAssert.assertThat(result.pages!![0].redirectFrom, Matchers.`is`("Abama"))
-        MatcherAssert.assertThat(result.pages!![1].title, Matchers.`is`("Amitriptyline"))
-        MatcherAssert.assertThat(result.pages!![1].redirectFrom, Matchers.`is`("Abamax"))
+        val pages = result.pages!!
+        MatcherAssert.assertThat(pages.size, Matchers.`is`(2))
+        MatcherAssert.assertThat(pages[0].title, Matchers.`is`("Narthecium#Foo"))
+        MatcherAssert.assertThat(pages[0].redirectFrom, Matchers.`is`("Abama"))
+        MatcherAssert.assertThat(pages[1].title, Matchers.`is`("Amitriptyline"))
+        MatcherAssert.assertThat(pages[1].redirectFrom, Matchers.`is`("Abamax"))
     }
 
     @Test
     fun testConvertTitleHandling() {
-        MatcherAssert.assertThat(result.pages!!.size, Matchers.`is`(2))
-        MatcherAssert.assertThat(result.pages!![0].title, Matchers.`is`("Narthecium#Foo"))
-        MatcherAssert.assertThat(result.pages!![0].convertedFrom, Matchers.`is`("NotNarthecium"))
+        val pages = result.pages!!
+        MatcherAssert.assertThat(pages.size, Matchers.`is`(2))
+        MatcherAssert.assertThat(pages[0].title, Matchers.`is`("Narthecium#Foo"))
+        MatcherAssert.assertThat(pages[0].convertedFrom, Matchers.`is`("NotNarthecium"))
     }
 
     private val queryJson = """{

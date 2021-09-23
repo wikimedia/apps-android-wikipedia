@@ -23,7 +23,7 @@ class GalleryClientTest : MockRetrofitTest() {
         observable.test().await()
             .assertComplete().assertNoErrors()
             .assertValue { gallery ->
-                val result: List<MediaListItem> = gallery.getItems("image")
+                val result = gallery.getItems("image")
                 result.size == 1 && result[0].type == "image" && result[0].title == "File:BarackObamaportrait.jpg" && result[0].showInGallery
             }
     }
@@ -35,7 +35,7 @@ class GalleryClientTest : MockRetrofitTest() {
         observable.test().await()
             .assertComplete().assertNoErrors()
             .assertValue { gallery ->
-                val result: List<MediaListItem> = gallery.getItems("video")
+                val result = gallery.getItems("video")
                 result[0].type == "video" && result[0].title == "File:20090124_WeeklyAddress.ogv" && result[0].showInGallery
             }
     }

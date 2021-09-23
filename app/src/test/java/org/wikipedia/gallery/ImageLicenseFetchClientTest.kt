@@ -14,8 +14,8 @@ class ImageLicenseFetchClientTest : MockRetrofitTest() {
         apiService.getImageInfo(PAGE_TITLE_MARK_SELBY.prefixedText, WIKISITE_TEST.languageCode)
             .map { response ->
                 // noinspection ConstantConditions
-                val page = response.query!!.pages!![0]
-                if (page.imageInfo() != null && page.imageInfo()!!.metadata != null) ImageLicense(page.imageInfo()!!.metadata!!) else ImageLicense()
+                val imageInfo = response.query?.pages?.firstOrNull()?.imageInfo()
+                if (imageInfo?.metadata != null) ImageLicense(imageInfo.metadata!!) else ImageLicense()
             }
             .test().await()
             .assertComplete().assertNoErrors()
