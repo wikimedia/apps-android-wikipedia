@@ -73,7 +73,7 @@ class MwQueryResult {
             return result
         }
         // noinspection ConstantConditions
-        for (link in pages[0].langlinks) {
+        for (link in pages.first().langlinks) {
             val title = PageTitle(link.title, WikiSite.forLanguageCode(link.lang))
             result.add(title)
         }
