@@ -702,7 +702,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             enqueueTooltip {
                 FeedbackUtil.showTooltip(this, targetView, getString(R.string.page_notification_tooltip),
                     aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
-                    Prefs.isPageNotificationTooltipShown = false
+                    Prefs.isPageNotificationTooltipShown = true
                 }
             }
         }
