@@ -8,6 +8,12 @@ import org.wikipedia.analytics.eventplatform.DestinationEventService.ANALYTICS
 @Serializable
 class StreamConfig {
 
+    constructor(streamName: String, samplingConfig: SamplingConfig?, destinationEventService: DestinationEventService?) {
+        this.streamName = streamName
+        this.samplingConfig = samplingConfig
+        this.destinationEventService = destinationEventService ?: ANALYTICS
+    }
+
     @SerialName("stream") @SerializedName("stream")
     var streamName = ""
 
@@ -25,5 +31,5 @@ class StreamConfig {
     val topics: List<String> = emptyList()
 
     @SerialName("sampling") @SerializedName("sampling")
-    val samplingConfig: SamplingConfig? = null
+    var samplingConfig: SamplingConfig? = null
 }

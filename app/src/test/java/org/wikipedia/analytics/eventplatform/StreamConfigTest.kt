@@ -20,7 +20,7 @@ class StreamConfigTest {
         MatcherAssert.assertThat(streamConfig!!.streamName, CoreMatchers.`is`("test.event"))
         MatcherAssert.assertThat(streamConfig.schemaTitle, CoreMatchers.`is`("test/event"))
         MatcherAssert.assertThat(streamConfig.canaryEventsEnabled, CoreMatchers.`is`(true))
-        MatcherAssert.assertThat(streamConfig.getDestinationEventService(), CoreMatchers.`is`(DestinationEventService.ANALYTICS))
+        MatcherAssert.assertThat(streamConfig.destinationEventService, CoreMatchers.`is`(DestinationEventService.ANALYTICS))
         MatcherAssert.assertThat(streamConfig.topicPrefixes, CoreMatchers.`is`(listOf("eqiad.", "codfw.")))
         MatcherAssert.assertThat(streamConfig.topics, CoreMatchers.`is`(listOf("eqiad.test.event", "codfw.test.event")))
         val samplingConfig = streamConfig.samplingConfig
