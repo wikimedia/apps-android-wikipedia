@@ -20,7 +20,7 @@ abstract class MockWebServerTest {
     @Before
     @Throws(Throwable::class)
     open fun setUp() {
-        val builder: OkHttpClient.Builder = client.newBuilder()
+        val builder = client.newBuilder()
         okHttpClient = builder.dispatcher(Dispatcher(ImmediateExecutorService())).build()
         server.setUp()
     }

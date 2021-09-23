@@ -7,10 +7,9 @@ import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
 import org.junit.Test
 import org.mockito.Mockito
-import org.wikipedia.dataclient.WikiSite.Companion.forLanguageCode
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
-import org.wikipedia.descriptions.DescriptionEditUtil.isEditAllowed
 import org.wikipedia.page.Page
 import org.wikipedia.page.PageProperties
 import org.wikipedia.page.PageTitle
@@ -100,22 +99,22 @@ class DescriptionEditClientTest : MockRetrofitTest() {
 
     @Test
     fun testIsEditAllowedSuccess() {
-        val wiki = forLanguageCode("ru")
+        val wiki = WikiSite.forLanguageCode("ru")
         val props = Mockito.mock(PageProperties::class.java)
         Mockito.`when`(props.wikiBaseItem).thenReturn("Q123")
         Mockito.`when`(props.canEdit).thenReturn(true)
         Mockito.`when`(props.descriptionSource).thenReturn("central")
         val page = Page(PageTitle("Test", wiki), emptyList(), props)
-        MatcherAssert.assertThat(isEditAllowed(page), Matchers.`is`(true))
+        MatcherAssert.assertThat(DescriptionEditUtil.isEditAllowed(page), Matchers.`is`(true))
     }
 
     @Test
     fun testIsEditAllowedNoWikiBaseItem() {
-        val wiki = forLanguageCode("ru")
+        val wiki = WikiSite.forLanguageCode("ru")
         val props = Mockito.mock(PageProperties::class.java)
         Mockito.`when`(props.wikiBaseItem).thenReturn(null)
         val page = Page(PageTitle("Test", wiki), emptyList(), props)
-        MatcherAssert.assertThat(isEditAllowed(page), Matchers.`is`(false))
+        MatcherAssert.assertThat(DescriptionEditUtil.isEditAllowed(page), Matchers.`is`(false))
     }
 
     private fun testErrorWithExpectedCodeAndMessage(
@@ -134,7 +133,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
     }
 
     private fun request(): Observable<EntityPostResponse> {
-        val pageTitle = PageTitle("foo", forLanguageCode("en"))
+        val pageTitle = PageTitle("foo", WikiSite.forLanguageCode("en"))
         return apiService.postDescriptionEdit(
             pageTitle.wikiSite.languageCode,
             pageTitle.wikiSite.languageCode, pageTitle.wikiSite.dbName(),

@@ -3,7 +3,7 @@ package org.wikipedia.test
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.wikipedia.dataclient.WikiSite.Companion.forLanguageCode
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.PageProperties
@@ -15,14 +15,14 @@ class ParcelableTest {
     @Test
     @Throws(Throwable::class)
     fun testPageTitle() {
-        val title = PageTitle(null, "Test", forLanguageCode("en"))
+        val title = PageTitle(null, "Test", WikiSite.forLanguageCode("en"))
         TestParcelUtil.test(title)
     }
 
     @Test
     @Throws(Throwable::class)
     fun testPageTitleTalk() {
-        val wiki = forLanguageCode("en")
+        val wiki = WikiSite.forLanguageCode("en")
         val origTitle = PageTitle("Talk", "India", wiki)
         TestParcelUtil.test(origTitle)
     }
@@ -30,7 +30,7 @@ class ParcelableTest {
     @Test
     @Throws(Throwable::class)
     fun testPageProperties() {
-        val wiki = forLanguageCode("en")
+        val wiki = WikiSite.forLanguageCode("en")
         val title = PageTitle("Talk", "India", wiki)
         val props = PageProperties(title, false)
         TestParcelUtil.test(props)
@@ -48,7 +48,7 @@ class ParcelableTest {
     @Test
     @Throws(Throwable::class)
     fun testPageImage() {
-        val wiki = forLanguageCode("en")
+        val wiki = WikiSite.forLanguageCode("en")
         val title = PageTitle("Talk", "India", wiki)
         val pageImage = PageImage(title, "Testing image")
         TestParcelUtil.test(pageImage)

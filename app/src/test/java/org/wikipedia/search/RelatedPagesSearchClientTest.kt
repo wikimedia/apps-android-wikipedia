@@ -1,10 +1,7 @@
 package org.wikipedia.search
 
 import com.google.gson.stream.MalformedJsonException
-import io.reactivex.rxjava3.core.Observable
 import org.junit.Test
-import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.dataclient.restbase.RbRelatedPages
 import org.wikipedia.test.MockRetrofitTest
 
 class RelatedPagesSearchClientTest : MockRetrofitTest() {
@@ -22,7 +19,7 @@ class RelatedPagesSearchClientTest : MockRetrofitTest() {
     fun testRequestSuccessWithLimit() {
         enqueueFromFile(RAW_JSON_FILE)
         restService.getRelatedPages("foo")
-            .map<List<PageSummary>> { response: RbRelatedPages -> response.getPages(3) }
+            .map { response -> response.getPages(3) }
             .test().await()
             .assertComplete().assertNoErrors()
             .assertValue { it.size == 3 && it[0].thumbnailUrl == "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/European_grey_wolf_in_Prague_zoo.jpg/291px-European_grey_wolf_in_Prague_zoo.jpg" && it[0].displayTitle == "Wolf" && it[0].description == "species of mammal" }
@@ -56,7 +53,7 @@ class RelatedPagesSearchClientTest : MockRetrofitTest() {
             .assertError(MalformedJsonException::class.java)
     }
 
-    private val observable: Observable<List<PageSummary>>
+    private val observable
         get() = restService.getRelatedPages("foo").map { it.pages!! }
 
     companion object {

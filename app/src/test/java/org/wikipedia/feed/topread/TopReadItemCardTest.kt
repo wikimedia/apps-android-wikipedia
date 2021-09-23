@@ -6,7 +6,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.wikipedia.dataclient.WikiSite.Companion.forLanguageCode
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.test.TestFileUtil
 
@@ -30,6 +30,6 @@ class TopReadItemCardTest {
     }
 
     companion object {
-        private val TEST = forLanguageCode("test")
+        private val TEST = WikiSite.forLanguageCode("test")
     }
 }

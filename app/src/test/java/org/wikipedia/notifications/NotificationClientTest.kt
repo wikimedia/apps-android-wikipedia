@@ -18,8 +18,10 @@ class NotificationClientTest : MockRetrofitTest() {
         observable.test().await()
             .assertComplete().assertNoErrors()
             .assertValue {
-                val notifications = it.query!!.notifications!!.list
-                notifications!![0].category == NotificationCategory.EDIT_THANK.id && notifications[0].title!!.full == "PageTitle" && notifications[0].agent!!.name == "User1"
+                val firstNotification = it.query?.notifications?.list?.first()!!
+                firstNotification.category == NotificationCategory.EDIT_THANK.id &&
+                        firstNotification.title?.full == "PageTitle" &&
+                        firstNotification.agent?.name == "User1"
             }
     }
 
@@ -38,7 +40,7 @@ class NotificationClientTest : MockRetrofitTest() {
         val n = GsonUnmarshaller.unmarshal(Notification::class.java, json)
         MatcherAssert.assertThat(n.type, Matchers.`is`(NotificationCategory.REVERTED.id))
         MatcherAssert.assertThat(n.wiki, Matchers.`is`("wikidatawiki"))
-        MatcherAssert.assertThat(n.agent!!.name, Matchers.`is`("User1"))
+        MatcherAssert.assertThat(n.agent?.name, Matchers.`is`("User1"))
         MatcherAssert.assertThat(n.isFromWikidata, Matchers.`is`(true))
     }
 
@@ -49,10 +51,10 @@ class NotificationClientTest : MockRetrofitTest() {
         observable.test().await()
             .assertComplete().assertNoErrors()
             .assertValue {
-                val notifications = it.query!!.notifications!!.list
-                (notifications!![0].category.startsWith(NotificationCategory.MENTION.id) &&
+                val notifications = it.query?.notifications?.list
+                notifications?.get(0)?.category?.startsWith(NotificationCategory.MENTION.id) == true &&
                         notifications[1].category.startsWith(NotificationCategory.MENTION.id) &&
-                        notifications[2].category.startsWith(NotificationCategory.MENTION.id))
+                        notifications[2].category.startsWith(NotificationCategory.MENTION.id)
             }
     }
 

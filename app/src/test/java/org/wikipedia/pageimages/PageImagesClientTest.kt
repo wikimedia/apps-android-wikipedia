@@ -4,7 +4,6 @@ import com.google.gson.stream.MalformedJsonException
 import io.reactivex.rxjava3.core.Observable
 import org.junit.Test
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.WikiSite.Companion.forLanguageCode
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
 import org.wikipedia.pageimages.db.PageImage
@@ -59,7 +58,7 @@ class PageImagesClientTest : MockRetrofitTest() {
     }
 
     companion object {
-        private val WIKISITE_TEST = forLanguageCode("test")
+        private val WIKISITE_TEST = WikiSite.forLanguageCode("test")
         private val PAGE_TITLE_BIDEN = PageTitle("Joe Biden", WIKISITE_TEST)
         private val PAGE_TITLE_OBAMA = PageTitle("Barack Obama", WIKISITE_TEST)
 

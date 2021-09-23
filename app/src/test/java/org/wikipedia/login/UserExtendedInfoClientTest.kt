@@ -13,8 +13,8 @@ class UserExtendedInfoClientTest : MockRetrofitTest() {
         apiService.userInfo.test().await()
             .assertComplete().assertNoErrors()
             .assertValue {
-                (it.query!!.userInfo!!.id == id &&
-                        it.query!!.getUserResponse("USER")!!.name == "USER")
+                it.query?.userInfo?.id == id &&
+                        it.query?.getUserResponse("USER")?.name == "USER"
             }
     }
 

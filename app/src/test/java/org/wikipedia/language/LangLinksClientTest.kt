@@ -13,7 +13,7 @@ class LangLinksClientTest : MockRetrofitTest() {
         enqueueFromFile("lang_links.json")
         observable.test().await()
             .assertComplete().assertNoErrors()
-            .assertValue { it.query!!.langLinks()[0].displayText == "Sciëntologie" }
+            .assertValue { it.query?.langLinks()?.firstOrNull()?.displayText == "Sciëntologie" }
     }
 
     @Test
