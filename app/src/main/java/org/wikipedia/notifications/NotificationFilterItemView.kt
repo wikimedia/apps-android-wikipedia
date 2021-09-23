@@ -32,16 +32,10 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
                 AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         }
         setOnClickListener {
-            when {
-                binding.notificationFilterTitle.text.toString() == context.getString(R.string.wikimedia_commons) -> {
-                    callback?.onCheckedChanged("commons")
-                }
-                binding.notificationFilterTitle.text.toString() == context.getString(R.string.wikidata) -> {
-                    callback?.onCheckedChanged("wikidata")
-                }
-                else -> {
-                    callback?.onCheckedChanged(binding.notificationFilterLanguageCode.text!!.toString())
-                }
+            when (binding.notificationFilterTitle.text.toString()) {
+                context.getString(R.string.wikimedia_commons) -> callback?.onCheckedChanged("commons")
+                context.getString(R.string.wikidata) -> callback?.onCheckedChanged("wikidata")
+                else -> callback?.onCheckedChanged(binding.notificationFilterLanguageCode.text!!.toString())
             }
         }
         DeviceUtil.setContextClickAsLongClick(this)

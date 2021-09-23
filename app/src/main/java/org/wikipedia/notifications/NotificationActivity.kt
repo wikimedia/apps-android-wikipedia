@@ -280,8 +280,9 @@ class NotificationActivity : BaseActivity() {
         val numberOfFilters = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).size
         val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, numberOfFilters, numberOfFilters)
         val finalStr = getString(R.string.notifications_empty_search_message, filtersStr)
-        val spannable: Spannable = SpannableString(finalStr)
-        spannable.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(this, R.attr.colorAccent)), 13, 13 + filtersStr.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        val spannable = SpannableString(finalStr)
+        val prefixStringLength = 13
+        spannable.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(this, R.attr.colorAccent)), prefixStringLength, prefixStringLength + filtersStr.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         return spannable
     }
 
