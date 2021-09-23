@@ -72,7 +72,8 @@
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme.Splash">
+            android:theme="@style/AppTheme.Splash"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -85,7 +86,8 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.Page"
             android:launchMode="singleTask"
-            android:parentActivityName=".main.MainActivity">
+            android:parentActivityName=".main.MainActivity"
+            android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".main.MainActivity" />
@@ -167,7 +169,8 @@
         <activity
             android:name=".settings.LicenseActivity"
             android:theme="@style/AppTheme.ActionBar"
-            tools:ignore="GoogleAppIndexingUrlError">
+            tools:ignore="GoogleAppIndexingUrlError"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -185,7 +188,8 @@
 
         <activity
             android:name=".search.SearchActivity"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
             <intent-filter android:label="@string/intent_share_search_label">
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -290,7 +294,8 @@
         <receiver
             android:icon="@mipmap/launcher"
             android:label="@string/widget_name_search"
-            android:name="org.wikipedia.widgets.WidgetProviderSearch" >
+            android:name="org.wikipedia.widgets.WidgetProviderSearch"
+            android:exported="true">
             <intent-filter >
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -303,7 +308,8 @@
         <receiver
             android:icon="@mipmap/launcher"
             android:label="@string/widget_name_featured_page"
-            android:name="org.wikipedia.widgets.WidgetProviderFeaturedPage" >
+            android:name="org.wikipedia.widgets.WidgetProviderFeaturedPage"
+            android:exported="true">
             <intent-filter >
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -313,7 +319,8 @@
                 android:resource="@xml/widget_featured_page" />
         </receiver>
 
-        <receiver android:name=".notifications.NotificationPollBroadcastReceiver">
+        <receiver android:name=".notifications.NotificationPollBroadcastReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name=".notifications.NotificationPollBroadcastReceiver.ACTION_POLL" />
