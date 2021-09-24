@@ -108,6 +108,11 @@ object UriUtil {
                         !uri.fragment!!.startsWith("cite"))))
     }
 
+    fun isAppSupportedLink(uri: Uri): Boolean {
+        val supportedAuthority = uri.authority?.run { WikiSite.supportedAuthority(this) } == true
+        return (uri.path?.run { matches(("^$WIKI_REGEX.*").toRegex()) } == true || !uri.fragment.isNullOrEmpty()) && supportedAuthority
+    }
+
     @JvmStatic
     fun handleExternalLink(context: Context, uri: Uri) {
         visitInExternalBrowser(context, uri)
