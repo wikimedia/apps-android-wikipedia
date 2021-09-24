@@ -34,21 +34,6 @@ class NotificationsFilterActivity : BaseActivity() {
         binding.notificationsFiltersRecyclerView.adapter = notificationsFilterAdapter
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_filter_notification, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_notifications_filter -> {
-                notificationsFilterAdapter.selectAll()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
     class NotificationFilterItemHolder constructor(itemView: NotificationFilterItemView) :
         DefaultViewHolder<NotificationFilterItemView>(itemView) {
         fun bindItem(langCode: String?, title: String, selected: Boolean, imageRes: Int?) {
