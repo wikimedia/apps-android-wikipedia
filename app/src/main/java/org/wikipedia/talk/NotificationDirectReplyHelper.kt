@@ -101,18 +101,16 @@ object NotificationDirectReplyHelper {
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O) {
             return
         }
-        val notificationManager = context.getSystemService<NotificationManager>()!!
-        val notifications = notificationManager.activeNotifications!!
-        for (notification in notifications) {
-            if (notification.id == notificationId) {
-                val n = NotificationCompat.Builder(context, notification.notification)
+        context.getSystemService<NotificationManager>()?.activeNotifications?.find {
+            it.id == notificationId
+        }?.run {
+            val n = NotificationCompat.Builder(context, this.notification)
                     .setRemoteInputHistory(null)
                     .setPriority(NotificationCompat.PRIORITY_MIN)
                     .setVibrate(null)
                     .setTimeoutAfter(1)
                     .build()
-                NotificationManagerCompat.from(context).notify(notificationId, n)
-            }
+            NotificationManagerCompat.from(context).notify(notificationId, n)
         }
     }
 }

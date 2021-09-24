@@ -19,7 +19,6 @@ import androidx.core.graphics.createBitmap
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -36,7 +35,6 @@ object NotificationPresenter {
         n.contents?.links?.let {
             it.getPrimary()?.let { primary ->
                 if (NotificationCategory.EDIT_USER_TALK.id == n.category) {
-                    // addActionForTalkPage(context, builder, primary, n)
                     addActionWithDirectReply(context, builder, primary, n.agent?.name.orEmpty(), id)
                 } else {
                     addAction(context, builder, primary, n)
@@ -122,14 +120,6 @@ object NotificationPresenter {
             .addRemoteInput(remoteInput)
             .build()
         builder.addAction(action)
-    }
-
-    private fun addActionForTalkPage(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
-        val wiki = WikiSite(link.url)
-        val title = wiki.titleForUri(Uri.parse(link.url))
-        val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(TalkTopicsActivity.newIntent(context, title.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id, n.type), 0)
-        builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 
     private fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, drawIconCircle: Boolean): Bitmap {
