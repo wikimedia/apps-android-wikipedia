@@ -186,7 +186,12 @@ class NotificationActivity : BaseActivity() {
     private fun delimitedFilteredWikiList(): String {
         val filteredWikiList = mutableListOf<String>()
         if (Prefs.notificationsFilterLanguageCodes == null) {
-            filteredWikiList.add("*")
+            WikipediaApp.getInstance().language().appLanguageCodes.forEach {
+                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+            }
+            filteredWikiList.add("commonswiki")
+            filteredWikiList.add("wikidatawiki")
         } else {
             filteredWikiList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()) as MutableList<String>)
             for (i in 0 until filteredWikiList.size) {
