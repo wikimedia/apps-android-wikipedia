@@ -1,6 +1,8 @@
 package org.wikipedia.richtext
 
-import android.text.*
+import android.text.Spannable
+import android.text.Spanned
+import android.text.TextUtils
 import android.text.style.URLSpan
 import android.widget.TextView
 import androidx.annotation.IntRange
@@ -89,7 +91,7 @@ object RichTextUtil {
         }
     }
 
-    fun stripHtml(html: String): String {
+    fun stripHtml(html: String?): String {
         return StringUtil.fromHtml(html).toString()
     }
 

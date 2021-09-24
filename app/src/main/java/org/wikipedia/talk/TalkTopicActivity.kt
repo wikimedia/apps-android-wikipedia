@@ -264,7 +264,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         // Hide the reply button when:
         // a) The topic ID is -1, which means the API couldn't parse it properly (TODO: wait until fixed)
         // b) The name of the topic is empty, implying that this is the topmost "header" section.
-        return topicId == -1 || (topic?.html).orEmpty().trim().isEmpty()
+        return topicId == -1 || topic?.html.orEmpty().trim().isEmpty()
     }
 
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
