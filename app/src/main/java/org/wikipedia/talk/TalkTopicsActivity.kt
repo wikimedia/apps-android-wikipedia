@@ -45,7 +45,6 @@ import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
 import org.wikipedia.views.NotificationButtonView
 import java.util.*
-import kotlin.collections.ArrayList
 
 class TalkTopicsActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicsBinding
@@ -55,7 +54,7 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var notificationButtonView: NotificationButtonView
     private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
     private val disposables = CompositeDisposable()
-    private val topics = ArrayList<TalkPage.Topic>()
+    private val topics = mutableListOf<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var revisionForLastEdit: MwQueryPage.Revision? = null
 
@@ -348,7 +347,8 @@ class TalkTopicsActivity : BaseActivity() {
             val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
             var titleStr = StringUtil.fromHtml(topic.html).toString().trim()
             if (titleStr.isEmpty()) {
-                // build up a title based on the contents...
+                // build up a title based on the contents, massaging the html into plain text that
+                // flows over a few lines...
                 topic.replies?.firstOrNull()?.let {
                     titleStr = StringUtil.fromHtml(it.html).toString().replace("\n", " ")
                     if (titleStr.length > MAX_CHARS_NO_SUBJECT) {

@@ -260,8 +260,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         return topicId == TalkTopicsActivity.NEW_TOPIC_ID
     }
 
-    // TODO: remove when the API fixes it
     private fun shouldHideReplyButton(): Boolean {
+        // Hide the reply button when:
+        // a) The topic ID is -1, which means the API couldn't parse it properly (TODO: wait until fixed)
+        // b) The name of the topic is empty, implying that this is the topmost "header" section.
         return topicId == -1 || (topic?.html).orEmpty().trim().isEmpty()
     }
 
