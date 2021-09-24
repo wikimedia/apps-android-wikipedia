@@ -7,12 +7,12 @@ import org.wikipedia.util.log.L
 import java.lang.Exception
 import java.util.*
 
+@Deprecated("This serializer is used only for HistoryEntry items in our Tabs structure and" +
+        "should be removed once we switch to saving tabs in the database instead of serializing.")
 object DateSerializer : KSerializer<Date> {
     override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("Date", PrimitiveKind.LONG)
     override fun serialize(encoder: Encoder, value: Date) = encoder.encodeLong(value.time)
     override fun deserialize(decoder: Decoder): Date {
-        // TODO: remove this handler and just use decodeLong once we switch to saving Tabs
-        // in the database instead of serializing.
         try {
             return Date(decoder.decodeLong())
         } catch (e: Exception) {
