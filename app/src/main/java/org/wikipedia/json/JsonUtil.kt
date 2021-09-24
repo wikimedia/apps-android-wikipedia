@@ -15,6 +15,7 @@ import java.lang.Exception
 object JsonUtil {
     val json = Json {
         ignoreUnknownKeys = true
+        coerceInputValues = true
         classDiscriminator = "\$schema"
         serializersModule = SerializersModule {
             polymorphic(Event::class) {
