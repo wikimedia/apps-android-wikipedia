@@ -2,6 +2,7 @@
 <!-- Authors:
 * Edgars2007
 * MuratTheTurkish
+* Natalilake
 * Papuass
 * Peridot Nation
 * Silraks
@@ -33,6 +34,7 @@
   <string name="notification_archive_undo">Atsaukt</string>
   <string name="app_settings">Lietotnes iestatījumi</string>
   <string name="history_list_title">Vēsture</string>
+  <string name="image_content_description">Attēls: %s</string>
   <string name="dialog_title_clear_history">Dzēst pārlūkošanas vēsturi</string>
   <string name="dialog_message_clear_history" fuzzy="true">Vai tiešām vēlaties notīrīt visu vēsturi?</string>
   <string name="dialog_message_clear_history_yes">Jā</string>
@@ -263,6 +265,7 @@
   <string name="notifications_poll_enable_positive">Iespējot</string>
   <string name="notifications_poll_enable_negative">Ne tagad</string>
   <string name="preference_title_notification_thanks">Paldies</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Vikipēdija</string>
   <string name="view_because_you_read_card_title">Jo tu lasīji</string>
   <string name="view_random_card_title">Nejauša lapa</string>
   <string name="view_next_random_article">Ielādēt vēl vienu nejaušu rakstu</string>
@@ -357,6 +360,8 @@
   <string name="custom_date_picker_dialog_cancel_button_text">Atcelt</string>
   <string name="talk_new_topic">Jauna tēma</string>
   <string name="talk_add_reply">Atbildēt</string>
+  <string name="watchlist_details_next_edit">Nākamais labojums</string>
+  <string name="watchlist_details_prev_edit">Iepriekšējais labojums</string>
   <string name="thank_label">Pateikties</string>
   <string name="thank_dialog_positive_button_text" fuzzy="true">NOSŪTĪT PATEICĪBU</string>
   <string name="thank_dialog_negative_button_text" fuzzy="true">ATCELT</string>

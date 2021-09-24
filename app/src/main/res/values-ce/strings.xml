@@ -88,6 +88,7 @@
   <string name="view_featured_image_card_download">Чуйаккха</string>
   <string name="menu_feed_card_dismiss">ХӀара карточка къайлайаккха</string>
   <string name="menu_feed_card_dismissed">Карточка къайлаяьккхина.</string>
+  <string name="menu_feed_overflow_label">Дукха таронаш</string>
   <string name="feed_featured_image_share_subject">Викиларман дика суьрташ</string>
   <string name="feed">Талла</string>
   <string name="view_static_card_icon_content_description">Карточкан хьаьрк</string>

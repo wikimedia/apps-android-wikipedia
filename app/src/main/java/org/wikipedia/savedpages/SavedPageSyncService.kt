@@ -43,8 +43,8 @@ class SavedPageSyncService : JobIntentService() {
             return
         }
         val pagesToSave = AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeForcedSave.toMutableList()
-        if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi) &&
-                Prefs.isDownloadingReadingListArticlesEnabled()) {
+        if ((!Prefs.isDownloadOnlyOverWiFiEnabled || DeviceUtil.isOnWiFi) &&
+                Prefs.isDownloadingReadingListArticlesEnabled) {
             pagesToSave.addAll(AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeSaved)
         }
         val pagesToUnSave = AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeUnsaved
@@ -176,7 +176,7 @@ class SavedPageSyncService : JobIntentService() {
                             fileUrls.addAll(PageComponentsUrlParser.parse(it.string(),
                                     pageTitle.wikiSite).filter { url -> url.isNotEmpty() })
                         }
-                        if (Prefs.isImageDownloadEnabled()) {
+                        if (Prefs.isImageDownloadEnabled) {
                             // download thumbnail and lead image
                             if (!summaryRsp.body()!!.thumbnailUrl.isNullOrEmpty()) {
                                 page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite,
@@ -211,7 +211,7 @@ class SavedPageSyncService : JobIntentService() {
         return pageSize
     }
 
-    private fun reqPageSummary(pageTitle: PageTitle): Observable<Response<PageSummary?>> {
+    private fun reqPageSummary(pageTitle: PageTitle): Observable<Response<PageSummary>> {
         return ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText,
                 null, CACHE_CONTROL_FORCE_NETWORK.toString(),
                 OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,

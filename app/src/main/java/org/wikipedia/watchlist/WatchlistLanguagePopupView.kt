@@ -21,7 +21,7 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
     val binding = ViewWatchlistLanguagePopupBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
     private var popupWindowHost: PopupWindow? = null
-    private val disabledLangCodes = Prefs.getWatchlistDisabledLanguages()
+    private val disabledLangCodes = Prefs.watchlistDisabledLanguages.toMutableSet()
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -75,7 +75,7 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
         } else if (!isChecked) {
             disabledLangCodes.add(langCode)
         }
-        Prefs.setWatchlistDisabledLanguages(disabledLangCodes)
+        Prefs.watchlistDisabledLanguages = disabledLangCodes
         callback?.onLanguageChanged()
     }
 

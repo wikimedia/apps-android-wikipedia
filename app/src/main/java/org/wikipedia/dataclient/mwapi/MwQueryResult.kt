@@ -1,7 +1,6 @@
 package org.wikipedia.dataclient.mwapi
 
 import com.google.gson.annotations.SerializedName
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.PostProcessingTypeAdapter.PostProcessable
 import org.wikipedia.notifications.Notification
@@ -27,7 +26,7 @@ class MwQueryResult : PostProcessable {
     private val tokens: Tokens? = null
     private val echomarkread: MarkReadResponse? = null
     val pages: MutableList<MwQueryPage>? = null
-    val echoMarkSeen: MarkReadResponse? = null
+    val echomarkseen: MarkReadResponse? = null
     val notifications: NotificationList? = null
     val watchlist: List<WatchlistItem> = emptyList()
 
@@ -59,16 +58,16 @@ class MwQueryResult : PostProcessable {
 
     fun getUserResponse(userName: String): ListUserResponse? {
         // MediaWiki user names are case sensitive, but the first letter is always capitalized.
-        return users?.find { StringUtils.capitalize(userName) == it.name }
+        return users?.find { userName.capitalize(Locale.getDefault()) == it.name }
     }
 
     fun langLinks(): MutableList<PageTitle> {
         val result = mutableListOf<PageTitle>()
-        if (pages.isNullOrEmpty() || pages[0].langlinks == null) {
+        if (pages.isNullOrEmpty()) {
             return result
         }
         // noinspection ConstantConditions
-        for (link in pages[0].langlinks) {
+        for (link in pages.first().langlinks) {
             val title = PageTitle(link.title, WikiSite.forLanguageCode(link.lang))
             result.add(title)
         }
@@ -146,11 +145,11 @@ class MwQueryResult : PostProcessable {
     class WatchlistItem {
 
         @SerializedName("new") private val isNew = false
+        @SerializedName("anon") val isAnon = false
         @SerializedName("old_revid") private val oldRevid: Long = 0
         private val pageid = 0
         private val timestamp: String? = null
         private val comment: String? = null
-        private val parsedcomment: String? = null
         private val minor = false
         private val bot = false
         val revid: Long = 0
@@ -158,11 +157,10 @@ class MwQueryResult : PostProcessable {
         val title: String = ""
         val user: String = ""
         val logtype: String = ""
-        val isAnon = false
         val oldlen = 0
         val newlen = 0
         var wiki: WikiSite? = null
-        val parsedComment: String = ""
+        @SerializedName("parsedcomment") val parsedComment: String = ""
         val date: Date
             get() = DateUtil.iso8601DateParse(timestamp.orEmpty())
     }

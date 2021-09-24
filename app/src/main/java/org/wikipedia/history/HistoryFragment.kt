@@ -177,9 +177,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     fun refresh() {
         adapter.notifyDataSetChanged()
-        if (!WikipediaApp.getInstance().isOnline && Prefs.shouldShowHistoryOfflineArticlesToast()) {
+        if (!WikipediaApp.getInstance().isOnline && Prefs.showHistoryOfflineArticlesToast) {
             Toast.makeText(requireContext(), R.string.history_offline_articles_toast, Toast.LENGTH_SHORT).show()
-            Prefs.shouldShowHistoryOfflineArticlesToast(false)
+            Prefs.showHistoryOfflineArticlesToast = false
         }
     }
 
