@@ -108,7 +108,7 @@ class Notification {
 
     class Contents {
 
-        val icon: String = ""
+        private val icon: String = ""
         val header: String = ""
         val compactHeader: String = ""
         val body: String = ""
