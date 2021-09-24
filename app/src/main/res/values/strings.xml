@@ -598,10 +598,8 @@
     <string name="notification_preferences_title">Notification preferences</string>
     <string name="notifications_mark_unread">Mark as unread</string>
     <string name="notifications_mark_all_as_read">Mark all as read</string>
-    <plurals name="notifications_mark_all_as_read_message">
-        <item quantity="one">Notification marked as read</item>
-        <item quantity="other">%d notifications marked as read</item>
-    </plurals>
+    <string name="notifications_mark_all_as_read_message">%d marked as read</string>
+    <string name="notifications_mark_all_as_unread_message">%d marked as unread</string>
     <string name="watchlist_title">Watchlist</string>
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
@@ -649,6 +647,9 @@
     <string name="notifications_search_bar_hint">Search or filter notifications</string>
     <string name="notifications_search_bar_filter_hint">Notification filter</string>
     <string name="notification_filter_heading">Filter notifications by wiki</string>
+    <string name="notifications_menu_mark_as_read">Mark as read</string>
+    <string name="notifications_menu_check_all">Check all items</string>
+    <string name="notifications_menu_uncheck_all">Uncheck all items</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->

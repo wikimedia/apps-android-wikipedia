@@ -43,6 +43,13 @@
     -->
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/full_backup_rules"
@@ -227,7 +234,7 @@
             android:name=".notifications.NotificationActivity"
             android:label="@string/notifications_activity_title"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme.ActionBar.Notification" />
 
         <activity
             android:name=".page.tabs.TabActivity"
