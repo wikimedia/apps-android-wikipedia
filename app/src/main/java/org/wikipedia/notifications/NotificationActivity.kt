@@ -274,7 +274,9 @@ class NotificationActivity : BaseActivity() {
             if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
                 continue
             }
-            notificationContainerList.add(NotificationListItemContainer(n))
+            val filterList = mutableListOf<String>()
+            filterList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).filter { NotificationCategory.isFiltersGroup(it) })
+            if (filterList.contains(n.category)) notificationContainerList.add(NotificationListItemContainer(n))
         }
         binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         if (notificationContainerList.isEmpty()) {
