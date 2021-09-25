@@ -1065,8 +1065,8 @@
   <string name="wikimedia_commons">Label text for Wikimedia Commons.</string>
   <string name="wikidata">Label text for Wikidata.</string>
   <string name="notifications_select_all_filters">Menu item label for selecting all notification filters at once.</string>
-  <string name="notifications_wikis_header">Header text for notification wikis filters</string>
-  <string name="notifications_types_header">Header text for notification types filters</string>
+  <string name="notifications_wiki_filter_header">Header text for notification wikis filters</string>
+  <string name="notifications_type_filter_header">Header text for notification types filters</string>
   <string name="notifications_all_wikis_text">Label text for button to enable all wikis for notifications.</string>
   <string name="notifications_all_types_text">Label text for button to enable all types for notifications.</string>
 </resources>
