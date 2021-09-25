@@ -1,18 +1,15 @@
 package org.wikipedia.feed.model
 
-import java.util.Calendar
-import java.util.TimeZone
+import java.time.ZoneOffset
+import java.time.ZonedDateTime
 
 class UtcDate(private val age: Int) {
+    val baseZonedDateTime: ZonedDateTime
+        get() = ZonedDateTime.now(ZoneOffset.UTC).minusDays(age.toLong())
 
-    val baseCalendar: Calendar
-        get() = Calendar.getInstance(TimeZone.getTimeZone("UTC")).also {
-            it.add(Calendar.DATE, -age)
-        }
+    val year get() = baseZonedDateTime.year.toString()
 
-    val year get() = baseCalendar[Calendar.YEAR].toString()
+    val month get() = baseZonedDateTime.monthValue.toString().padStart(2, '0')
 
-    val month get() = (baseCalendar[Calendar.MONTH] + 1).toString().padStart(2, '0')
-
-    val day get() = baseCalendar[Calendar.DATE].toString().padStart(2, '0')
+    val day get() = baseZonedDateTime.dayOfMonth.toString().padStart(2, '0')
 }

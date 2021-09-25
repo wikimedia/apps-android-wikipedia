@@ -46,12 +46,13 @@ object DateUtil {
 
     @JvmStatic
     fun getFeedCardDayHeaderDate(age: Int): String {
-        return getDateStringWithSkeletonPattern(UtcDate(age).baseCalendar.time, "MMMM d")
+        val calendar = GregorianCalendar.from(UtcDate(age).baseZonedDateTime)
+        return getDateStringWithSkeletonPattern(calendar.time, "MMMM d")
     }
 
     @JvmStatic
     fun getFeedCardDateString(age: Int): String {
-        return getFeedCardDateString(UtcDate(age).baseCalendar)
+        return getFeedCardDateString(GregorianCalendar.from(UtcDate(age).baseZonedDateTime))
     }
 
     private fun getFeedCardDateString(date: Calendar): String {
