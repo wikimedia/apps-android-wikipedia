@@ -72,7 +72,7 @@ class NotificationsFilterActivity : BaseActivity() {
         private var filteredWikisList = mutableListOf<String>()
 
         init {
-            if (Prefs.notificationsFilterLanguageCodes == null) selectAll()
+            if (Prefs.notificationsFilterLanguageCodes == null) addAll()
             else filteredWikisList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
         }
 
@@ -86,7 +86,7 @@ class NotificationsFilterActivity : BaseActivity() {
             return fullList
         }
 
-        fun selectAll() {
+        fun addAll() {
             Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(getFullWikiAndTypeList())
             filteredWikisList.clear()
             filteredWikisList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
@@ -118,10 +118,21 @@ class NotificationsFilterActivity : BaseActivity() {
         }
 
         override fun onCheckedChanged(langCode: String) {
-            if (filteredWikisList.contains(langCode)) {
-                filteredWikisList.remove(langCode)
+            if (langCode == context.getString(R.string.notifications_all_types_text)) {
+                NotificationCategory.FILTERS_GROUP.filter { !filteredWikisList.contains(it.id) }
+                    .forEach { category -> filteredWikisList.add(category.id) }
+            } else if (langCode == context.getString(R.string.notifications_all_wikis_text)) {
+                val wikiList = mutableListOf<String>()
+                wikiList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
+                wikiList.add("commons")
+                wikiList.add("wikidata")
+                wikiList.filter { !filteredWikisList.contains(it) }.forEach { category -> filteredWikisList.add(category) }
             } else {
-                filteredWikisList.add(langCode)
+                if (filteredWikisList.contains(langCode)) {
+                    filteredWikisList.remove(langCode)
+                } else {
+                    filteredWikisList.add(langCode)
+                }
             }
             Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(filteredWikisList)
             notifyDataSetChanged()
@@ -131,6 +142,19 @@ class NotificationsFilterActivity : BaseActivity() {
     class Filter constructor(val languageCode: String, val imageRes: Int? = null) {
         fun isEnabled(): Boolean {
             val list = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+
+            if (languageCode == WikipediaApp.getInstance().getString(R.string.notifications_all_types_text)) {
+                val typeList = mutableListOf<String>()
+                NotificationCategory.FILTERS_GROUP.forEach { typeList.add(it.id) }
+                return list.containsAll(typeList)
+            }
+            if (languageCode == WikipediaApp.getInstance().getString(R.string.notifications_all_wikis_text)) {
+                val wikiList = mutableListOf<String>()
+                wikiList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
+                wikiList.add("commons")
+                wikiList.add("wikidata")
+                return list.containsAll(wikiList)
+            }
             return list.contains(languageCode)
         }
     }

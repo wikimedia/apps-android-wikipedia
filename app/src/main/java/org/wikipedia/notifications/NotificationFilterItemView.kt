@@ -41,6 +41,8 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
                 return@setOnClickListener
             } ?: run {
                 when (binding.notificationFilterTitle.text.toString()) {
+                    context.getString(R.string.notifications_all_wikis_text) -> callback?.onCheckedChanged(context.getString(R.string.notifications_all_wikis_text))
+                    context.getString(R.string.notifications_all_types_text) -> callback?.onCheckedChanged(context.getString(R.string.notifications_all_types_text))
                     context.getString(R.string.wikimedia_commons) -> callback?.onCheckedChanged("commons")
                     context.getString(R.string.wikidata) -> callback?.onCheckedChanged("wikidata")
                     else -> callback?.onCheckedChanged(binding.notificationFilterLanguageCode.text!!.toString())
@@ -63,8 +65,11 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
             else binding.notificationFilterLanguageCode.visibility = View.GONE
         }
         filter.imageRes?.let {
-            filter.languageCode.let { languageCode -> if (NotificationCategory.isFiltersGroup(languageCode)) binding.notificationFilterWikiLogo.imageTintList =
-                ColorStateList.valueOf(ContextCompat.getColor(context, Companion.FILTERS_GROUP.find { category -> category.id == languageCode }!!.iconColor))
+            filter.languageCode.let { languageCode ->
+                if (NotificationCategory.isFiltersGroup(languageCode)) binding.notificationFilterWikiLogo.imageTintList =
+                    ColorStateList.valueOf(ContextCompat.getColor(context, Companion.FILTERS_GROUP.find { category -> category.id == languageCode }!!.iconColor))
+                else binding.notificationFilterWikiLogo.imageTintList =
+                    ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
             }
             binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, it))
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE

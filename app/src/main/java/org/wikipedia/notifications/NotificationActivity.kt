@@ -2,6 +2,7 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
@@ -16,6 +17,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
@@ -286,8 +288,10 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun getSpannedEmptySearchMessage(): Spannable {
-        val numberOfFilters = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).size
-        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, numberOfFilters, numberOfFilters)
+        val fullWikiAndTypeListSize = WikipediaApp.getInstance().language().appLanguageCodes.size + 2 + NotificationCategory.FILTERS_GROUP.size // 2 for "commons" and "wikidata"
+        val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+        val enabledFilters = (fullWikiAndTypeListSize - delimitedFiltersSizeString)
+        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, enabledFilters, enabledFilters)
         val finalStr = getString(R.string.notifications_empty_search_message, filtersStr)
         val spannable = SpannableString(finalStr)
         val prefixStringLength = 13
@@ -491,10 +495,15 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private inner class NotificationSearchBarHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+    private inner class NotificationSearchBarHolder constructor(view: View) :
+        RecyclerView.ViewHolder(view) {
+        val notificationFilterButton: AppCompatImageView = itemView.findViewById(R.id.notification_filter_button)
+        val notificationFilterCountView: TextView = itemView.findViewById(R.id.notification_filter_count)
+
         init {
             (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
-            val notificationFilterButton = itemView.findViewById<View>(R.id.notification_filter_button)
+
+            updateFilterIconAndCount()
 
             itemView.setOnClickListener {
                 if (actionMode == null) {
@@ -508,6 +517,20 @@ class NotificationActivity : BaseActivity() {
             }
 
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
+        }
+
+        private fun updateFilterIconAndCount() {
+            val fullWikiAndTypeListSize = WikipediaApp.getInstance().language().appLanguageCodes.size + 2 + NotificationCategory.FILTERS_GROUP.size // 2 for "commons" and "wikidata"
+            val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+            val enabledFilters = (fullWikiAndTypeListSize - delimitedFiltersSizeString)
+            if (enabledFilters == 0) {
+                notificationFilterCountView.visibility = View.GONE
+                notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.chip_text_color))
+            } else {
+                notificationFilterCountView.visibility = View.VISIBLE
+                notificationFilterCountView.text = enabledFilters.toString()
+                notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.colorAccent))
+            }
         }
     }
 

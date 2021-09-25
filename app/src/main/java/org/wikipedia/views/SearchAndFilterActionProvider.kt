@@ -9,7 +9,9 @@ import android.view.inputmethod.EditorInfo
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ActionProvider
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewSearchAndFilterBinding
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationsFilterActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
@@ -67,13 +69,15 @@ class SearchAndFilterActionProvider(context: Context,
     }
 
     fun updateFilterIconAndText() {
-        val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size.toString()
-        binding.notificationFilterCount.text = delimitedFiltersSizeString
-        if (delimitedFiltersSizeString == "0") {
+        val fullWikiAndTypeListSize = WikipediaApp.getInstance().language().appLanguageCodes.size + 2 + NotificationCategory.FILTERS_GROUP.size // 2 for "commons" and "wikidata"
+        val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+        val enabledFilters = (fullWikiAndTypeListSize - delimitedFiltersSizeString)
+        if (enabledFilters == 0) {
             binding.notificationFilterCount.visibility = View.GONE
             binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
         } else {
             binding.notificationFilterCount.visibility = View.VISIBLE
+            binding.notificationFilterCount.text = enabledFilters.toString()
             binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         }
     }

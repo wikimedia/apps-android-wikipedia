@@ -9,5 +9,6 @@
         android:id="@+id/notifications_filters_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="24dp"
         android:scrollbars="vertical" />
 </FrameLayout>
