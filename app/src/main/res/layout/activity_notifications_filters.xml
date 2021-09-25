@@ -5,26 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".notifications.NotificationsFilterActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/notification_filter_heading"
-        android:textColor="?attr/colorAccent"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="46dp"
-        android:background="?attr/material_theme_border_color" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notifications_filters_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="48dp"
         android:scrollbars="vertical" />
 </FrameLayout>

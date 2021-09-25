@@ -3,7 +3,10 @@ package org.wikipedia.notifications
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
@@ -12,13 +15,11 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityNotificationsFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.StringUtil.csvToList
 import org.wikipedia.views.DefaultViewHolder
 
 class NotificationsFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNotificationsFiltersBinding
-    private var notificationsFilterAdapter = NotificationsFilterAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,63 +30,91 @@ class NotificationsFilterActivity : BaseActivity() {
 
     private fun setUpRecyclerView() {
         binding.notificationsFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.notificationsFiltersRecyclerView.adapter = notificationsFilterAdapter
+        binding.notificationsFiltersRecyclerView.adapter = NotificationsFilterAdapter(this, filterListWithHeaders())
     }
 
-    class NotificationFilterItemHolder constructor(itemView: NotificationFilterItemView) :
+    private fun filterListWithHeaders(): MutableList<Any> {
+        val filterListWithHeaders = mutableListOf<Any>()
+        filterListWithHeaders.add(getString(R.string.notifications_wiki_filter_header))
+        filterListWithHeaders.add(Filter(getString(R.string.notifications_all_wikis_text)))
+        WikipediaApp.getInstance().language().appLanguageCodes.forEach {
+            filterListWithHeaders.add(Filter(it, null))
+        }
+        filterListWithHeaders.add(Filter("commons", R.drawable.ic_commons_logo))
+        filterListWithHeaders.add(Filter("wikidata", R.drawable.ic_wikidata_logo))
+        filterListWithHeaders.add(getString(R.string.notifications_type_filter_header))
+        filterListWithHeaders.add(Filter(getString(R.string.notifications_all_types_text)))
+        NotificationCategory.FILTERS_GROUP.forEach {
+            filterListWithHeaders.add(Filter(it.id, it.iconResId))
+        }
+        return filterListWithHeaders
+    }
+
+    class NotificationFilterItemViewHolder constructor(itemView: NotificationFilterItemView) :
         DefaultViewHolder<NotificationFilterItemView>(itemView) {
-        fun bindItem(langCode: String?, title: String, selected: Boolean, imageRes: Int?) {
-            view.setContents(langCode, title, selected, imageRes)
+        fun bindItem(filter: Filter) {
+            view.setContents(filter)
         }
     }
 
-    class NotificationsFilterAdapter(val context: Context) :
-        RecyclerView.Adapter<NotificationFilterItemHolder>(), NotificationFilterItemView.Callback {
+    class NotificationFilterHeaderViewHolder constructor(itemView: View) :
+        DefaultViewHolder<View>(itemView) {
+        var headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
+
+        fun bindItem(filterHeader: String) {
+            headerText.text = filterHeader
+        }
+    }
+
+    class NotificationsFilterAdapter(val context: Context, private val filtersList: MutableList<Any>) :
+        RecyclerView.Adapter<DefaultViewHolder<*>>(), NotificationFilterItemView.Callback {
         var app: WikipediaApp = WikipediaApp.getInstance()
         private var filteredWikisList = mutableListOf<String>()
-        private var fullWikisList = mutableListOf<String>()
 
         init {
-            filteredWikisList.clear()
-            fullWikisList.clear()
-            fullWikisList.addAll(app.language().appLanguageCodes)
-            fullWikisList.add("commons")
-            fullWikisList.add("wikidata")
-            filteredWikisList.addAll(if (Prefs.notificationsFilterLanguageCodes == null) fullWikisList
-            else csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
+            if (Prefs.notificationsFilterLanguageCodes == null) selectAll()
+            else filteredWikisList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
+        }
+
+        private fun getFullWikiAndTypeList(): List<String> {
+            val fullList = mutableListOf<String>()
+            filtersList.filterIsInstance<Filter>().forEach { filter ->
+                if (filter.languageCode != context.getString(R.string.notifications_all_wikis_text) &&
+                    filter.languageCode != context.getString(R.string.notifications_all_types_text))
+                        fullList.add(filter.languageCode)
+            }
+            return fullList
         }
 
         fun selectAll() {
-            Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(fullWikisList)
+            Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(getFullWikiAndTypeList())
             filteredWikisList.clear()
-            filteredWikisList.addAll(csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
-            notifyDataSetChanged()
+            filteredWikisList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): NotificationFilterItemHolder {
-            val notificationsFilterItemView = NotificationFilterItemView(context)
-            notificationsFilterItemView.callback = this
-            return NotificationFilterItemHolder(notificationsFilterItemView)
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
+            return if (type == VIEW_TYPE_HEADER) {
+                val view = LayoutInflater.from(context).inflate(R.layout.view_notification_filter_header, parent, false)
+                NotificationFilterHeaderViewHolder(view)
+            } else {
+                val notificationsFilterItemView = NotificationFilterItemView(context)
+                notificationsFilterItemView.callback = this
+                NotificationFilterItemViewHolder(notificationsFilterItemView)
+            }
         }
 
         override fun getItemCount(): Int {
-            return fullWikisList.size
+            return filtersList.size
         }
 
-        override fun onBindViewHolder(holder: NotificationFilterItemHolder, position: Int) {
-            val languageCode = fullWikisList[position]
-            val showCheck = filteredWikisList.contains(languageCode)
-            when (languageCode) {
-                "commons" -> {
-                    holder.bindItem(null, context.getString(R.string.wikimedia_commons), showCheck, R.drawable.ic_commons_logo)
-                }
-                "wikidata" -> {
-                    holder.bindItem(null, context.getString(R.string.wikidata), showCheck, R.drawable.ic_wikidata_logo)
-                }
-                else -> {
-                    holder.bindItem(languageCode, app.language().getAppLanguageCanonicalName(languageCode).orEmpty(), showCheck, null)
-                }
-            }
+        override fun getItemViewType(position: Int): Int {
+            return if (filtersList[position] is String) VIEW_TYPE_HEADER
+            else VIEW_TYPE_ITEM
+        }
+
+        override fun onBindViewHolder(holder: DefaultViewHolder<*>, position: Int) {
+            if (holder is NotificationFilterHeaderViewHolder) holder.bindItem(filtersList[position] as String)
+            else (holder as NotificationFilterItemViewHolder).bindItem(filtersList[position] as Filter)
         }
 
         override fun onCheckedChanged(langCode: String) {
@@ -99,7 +128,17 @@ class NotificationsFilterActivity : BaseActivity() {
         }
     }
 
+    class Filter constructor(val languageCode: String, val imageRes: Int? = null) {
+        fun isEnabled(): Boolean {
+            val list = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+            return list.contains(languageCode)
+        }
+    }
+
     companion object {
+        private const val VIEW_TYPE_HEADER = 0
+        private const val VIEW_TYPE_ITEM = 1
+
         fun newIntent(context: Context): Intent {
             return Intent(context, NotificationsFilterActivity::class.java)
         }
