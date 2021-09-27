@@ -135,7 +135,7 @@ class PageTitle(
                 _namespace = null
                 wikiSite = WikiSite(wiki.authority(), namespaceOrLanguage)
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
-            } else if (parts[1].isNotEmpty() && !Character.isWhitespace(parts[1][0]) && parts[1][0] != '_') {
+            } else if (parts[1].isNotEmpty() && !parts[1][0].isWhitespace() && parts[1][0] != '_') {
                 wikiSite = wiki
                 _namespace = namespaceOrLanguage
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")

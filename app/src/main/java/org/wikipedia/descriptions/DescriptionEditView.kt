@@ -286,7 +286,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 LanguageUtil.startsWithArticle(text, pageTitle.wikiSite.languageCode)) {
             setWarning(context.getString(R.string.description_starts_with_article))
         } else if ((action == DescriptionEditActivity.Action.ADD_DESCRIPTION || action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-                pageTitle.wikiSite.languageCode == "en" && Character.isLowerCase(binding.viewDescriptionEditText.text.toString()[0])) {
+                pageTitle.wikiSite.languageCode == "en" && binding.viewDescriptionEditText.text.toString()[0].isLowerCase()) {
             setWarning(context.getString(R.string.description_starts_with_lowercase))
         } else if (isLanguageWrong) {
             setWarning(context.getString(R.string.description_is_in_different_language,
