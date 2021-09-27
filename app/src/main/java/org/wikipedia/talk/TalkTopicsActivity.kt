@@ -369,17 +369,17 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<TalkTopicHolder>() {
         override fun getItemCount(): Int {
             return topics.size
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
             return TalkTopicHolder(layoutInflater.inflate(R.layout.item_talk_topic, parent, false))
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            (holder as TalkTopicHolder).bindItem(topics[pos])
+        override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
+            holder.bindItem(topics[pos])
         }
     }
 
