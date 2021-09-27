@@ -301,7 +301,6 @@ class TabActivity : BaseActivity() {
         finish()
     }
 
-
     // TODO: remove when ABC test is complete.
     private fun setupNotificationsTest() {
         binding.tabButtonNotifications.isVisible = false
