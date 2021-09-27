@@ -8,7 +8,7 @@ import kotlinx.serialization.descriptors.element
 import kotlinx.serialization.encoding.*
 
 object LocationSerializer : KSerializer<Location> {
-    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("Location") {
+    override val descriptor = buildClassSerialDescriptor("Location") {
         element<Double>("lat")
         element<Double>("lon")
     }

@@ -85,9 +85,7 @@ class AnnouncementClient : FeedClient {
             if (Prefs.ignoreDateForAnnouncements) {
                 return true
             }
-            return if (announcement.startTime() != null && announcement.startTime()!!.after(date)) {
-                false
-            } else announcement.endTime() == null || !announcement.endTime()!!.before(date)
+            return announcement.startTime()?.before(date) == true && announcement.endTime()?.after(date) == true
         }
 
         private fun matchesConditions(announcement: Announcement): Boolean {

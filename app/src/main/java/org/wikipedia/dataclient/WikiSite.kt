@@ -39,8 +39,8 @@ import org.wikipedia.util.UriUtil
 @Serializable
 @Parcelize
 class WikiSite(
-    @SerialName("domain") @Serializable(with = UriSerializer::class) var uri:
-    Uri, var languageCode: String = ""
+    @SerialName("domain") @Serializable(with = UriSerializer::class) var uri: Uri,
+    var languageCode: String = ""
 ) : Parcelable {
 
     constructor(uri: Uri) : this(uri, "") {

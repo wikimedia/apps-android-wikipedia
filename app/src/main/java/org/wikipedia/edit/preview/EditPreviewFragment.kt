@@ -184,9 +184,9 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         bridge.addListener("media") { _, _ -> }
 
         bridge.addListener("reference") { _, messagePayload ->
-            (JsonUtil.decodeFromString(messagePayload.toString()) as PageReferences?)?.let {
+            (JsonUtil.decodeFromString<PageReferences>(messagePayload.toString()))?.let {
                 references = it
-                if (references.referencesGroup!!.isNotEmpty()) {
+                if (!references.referencesGroup.isNullOrEmpty()) {
                     bottomSheetPresenter.show(childFragmentManager, ReferenceDialog())
                 }
             }

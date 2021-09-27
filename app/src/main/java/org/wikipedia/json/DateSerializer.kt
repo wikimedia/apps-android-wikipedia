@@ -10,7 +10,7 @@ import java.util.*
 @Deprecated("This serializer is used only for HistoryEntry items in our Tabs structure and" +
         "should be removed once we switch to saving tabs in the database instead of serializing.")
 object DateSerializer : KSerializer<Date> {
-    override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("Date", PrimitiveKind.LONG)
+    override val descriptor = PrimitiveSerialDescriptor("Date", PrimitiveKind.LONG)
     override fun serialize(encoder: Encoder, value: Date) = encoder.encodeLong(value.time)
     override fun deserialize(decoder: Decoder): Date {
         try {
