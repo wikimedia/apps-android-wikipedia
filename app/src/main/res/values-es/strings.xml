@@ -98,6 +98,7 @@
   <string name="app_settings">Configuración de aplicación</string>
   <string name="search_tab_tooltip">Pulsar de nuevo el icono para realizar otra búsqueda.</string>
   <string name="history_list_title">Historial</string>
+  <string name="image_content_description">Imagen: %s</string>
   <string name="dialog_title_clear_history">Borrar el historial de navegación</string>
   <string name="dialog_message_clear_history">¿Confirmas que quieres vaciar el historial de navegación y cerrar cualesquier pestañas abiertas?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -208,7 +209,7 @@
   <string name="create_account_passwords_mismatch_error">Las contraseñas no coinciden</string>
   <string name="create_account_email_error">Dirección de correo electrónico no válida.</string>
   <string name="create_account_username_error">Caracteres no válidos en el nombre de usuario</string>
-  <string name="create_account_password_error" fuzzy="true">La contraseña no es válida</string>
+  <string name="create_account_password_error">La contraseña debe tener al menos 8 caracteres</string>
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="email_recommendation_dialog_title">¿Crear una cuenta sin dirección de correo electrónico?</string>
@@ -222,6 +223,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalles</string>
   <string name="preferences_general_heading">General</string>
+  <string name="preferences_account_heading">Cuenta</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes</string>
   <string name="send_feedback">Enviar comentarios sobre la aplicación</string>
   <string name="create_account_account_created_toast">Se creó la cuenta.</string>
@@ -1048,6 +1050,8 @@
   <string name="menu_option_user_contributions">Contribuciones de %s</string>
   <string name="watchlist_details_watching_label">Vigilando</string>
   <string name="watchlist_details_watch_label">Vigilar</string>
+  <string name="watchlist_details_next_edit">Siguiente edición</string>
+  <string name="watchlist_details_prev_edit">Edición anterior</string>
   <string name="thank_label">Agradecer</string>
   <string name="go_to_user_page">Ir a la página de usuario</string>
   <string name="thank_dialog_title_text">Enviar agradecimiento públicamente</string>

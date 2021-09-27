@@ -279,17 +279,17 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
-    internal inner class TalkReplyItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal inner class TalkReplyItemAdapter : RecyclerView.Adapter<TalkReplyHolder>() {
         override fun getItemCount(): Int {
             return topic?.replies?.size ?: 0
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkReplyHolder {
             return TalkReplyHolder(layoutInflater.inflate(R.layout.item_talk_reply, parent, false))
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            (holder as TalkReplyHolder).bindItem(topic?.replies!![pos], pos == itemCount - 1)
+        override fun onBindViewHolder(holder: TalkReplyHolder, pos: Int) {
+            holder.bindItem(topic?.replies!![pos], pos == itemCount - 1)
         }
     }
 
