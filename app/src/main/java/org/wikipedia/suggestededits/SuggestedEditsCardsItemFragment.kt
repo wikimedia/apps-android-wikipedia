@@ -45,8 +45,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         setConditionalLayoutDirection(binding.viewArticleContainer, parent().langFromCode)
 
         binding.viewArticleImage.setOnClickListener {
-            if (Prefs.shouldShowImageZoomTooltip()) {
-                Prefs.setShouldShowImageZoomTooltip(false)
+            if (Prefs.showImageZoomTooltip) {
+                Prefs.showImageZoomTooltip = false
                 FeedbackUtil.showMessage(requireActivity(), R.string.suggested_edits_image_zoom_tooltip)
             }
         }
@@ -270,7 +270,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
         if (parent().action == TRANSLATE_DESCRIPTION) {
             binding.viewArticleSubtitleContainer.visibility = VISIBLE
-            binding.viewArticleSubtitle.text = if (addedContribution.isNotEmpty()) addedContribution else sourceSummaryForEdit!!.description
+            binding.viewArticleSubtitle.text = addedContribution.ifEmpty { sourceSummaryForEdit!!.description }
         }
 
         binding.viewImageSummaryContainer.visibility = GONE

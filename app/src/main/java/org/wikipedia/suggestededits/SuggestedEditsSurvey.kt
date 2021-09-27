@@ -14,7 +14,7 @@ object SuggestedEditsSurvey {
     private const val VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY = 3
 
     fun maybeRunSurvey(activity: Activity) {
-        if (Prefs.shouldShowSuggestedEditsSurvey()) {
+        if (Prefs.showSuggestedEditsSurvey) {
             val snackbar = FeedbackUtil.makeSnackbar(activity,
                 activity.getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_MEDIUM)
             val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
@@ -22,21 +22,21 @@ object SuggestedEditsSurvey {
             actionView.compoundDrawablePadding = activity.resources.getDimensionPixelOffset(R.dimen.margin)
             snackbar.setAction(activity.getString(R.string.suggested_edits_snackbar_survey_action_text)) { openSurveyInBrowser() }
             snackbar.show()
-            Prefs.setShouldShowSuggestedEditsSurvey(false)
+            Prefs.showSuggestedEditsSurvey = false
         }
     }
 
     fun onEditSuccess() {
-        Prefs.setSuggestedEditsCountForSurvey(Prefs.getSuggestedEditsCountForSurvey() + 1)
-        if (Prefs.getSuggestedEditsCountForSurvey() == 1 ||
-            Prefs.getSuggestedEditsCountForSurvey() == VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY &&
-            !Prefs.wasSuggestedEditsSurveyClicked()) {
-            Prefs.setShouldShowSuggestedEditsSurvey(true)
+        Prefs.suggestedEditsCountForSurvey = Prefs.suggestedEditsCountForSurvey + 1
+        if (Prefs.suggestedEditsCountForSurvey == 1 ||
+            Prefs.suggestedEditsCountForSurvey == VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY &&
+            !Prefs.suggestedEditsSurveyClicked) {
+            Prefs.showSuggestedEditsSurvey = true
         }
     }
 
     private fun openSurveyInBrowser() {
-        Prefs.setSuggestedEditsSurveyClicked(true)
+        Prefs.suggestedEditsSurveyClicked = true
         UriUtil.visitInExternalBrowser(
             WikipediaApp.getInstance(),
             Uri.parse(WikipediaApp.getInstance().getString(R.string.suggested_edits_survey_url))

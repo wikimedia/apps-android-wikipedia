@@ -52,7 +52,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 if (WikipediaFirebaseMessagingService.isUsingPush()) {
                     return
                 }
-                LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications()
+                LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
                 pollNotifications(context)
             }
             ACTION_CANCEL == intent.action -> {
@@ -91,7 +91,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
         private val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>()
         private val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
-        private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications()
+        private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
 
         @JvmStatic
         fun startPollTask(context: Context) {
@@ -100,7 +100,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                         SystemClock.elapsedRealtime(),
                         TimeUnit.MINUTES.toMillis((context.resources.getInteger(R.integer.notification_poll_interval_minutes) /
-                                if (Prefs.isSuggestedEditsReactivationTestEnabled() && !ReleaseUtil.isDevRelease) 10 else 1).toLong()),
+                                if (Prefs.isSuggestedEditsReactivationTestEnabled && !ReleaseUtil.isDevRelease) 10 else 1).toLong()),
                         getAlarmPendingIntent(context))
             } catch (e: Exception) {
                 // There seems to be a Samsung-specific issue where it doesn't update the existing
@@ -142,11 +142,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                                 lastNotificationTime = n.utcIso8601
                             }
                         }
-                        if (lastNotificationTime <= Prefs.getRemoteNotificationsSeenTime()) {
+                        if (lastNotificationTime <= Prefs.remoteNotificationsSeenTime) {
                             // we're in sync!
                             return@subscribe
                         }
-                        Prefs.setRemoteNotificationsSeenTime(lastNotificationTime)
+                        Prefs.remoteNotificationsSeenTime = lastNotificationTime
                         retrieveNotifications(context)
                     }) { t ->
                         if (t is MwException && t.error.title == "login-required") {
@@ -193,7 +193,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun onNotificationsComplete(context: Context, notifications: List<Notification>?) {
-            if (notifications.isNullOrEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+            if (notifications.isNullOrEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled) {
                 return
             }
             var locallyKnownModified = false
@@ -212,7 +212,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 locallyKnownModified = true
             }
             if (notificationsToDisplay.isNotEmpty()) {
-                Prefs.setNotificationUnreadCount(notificationsToDisplay.size)
+                Prefs.notificationUnreadCount = notificationsToDisplay.size
                 WikipediaApp.getInstance().bus.post(UnreadNotificationsEvent())
             }
 
@@ -230,7 +230,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 }
             }
             if (locallyKnownModified) {
-                Prefs.setLocallyKnownNotifications(LOCALLY_KNOWN_NOTIFICATIONS)
+                Prefs.locallyKnownNotifications = LOCALLY_KNOWN_NOTIFICATIONS
             }
             if (knownNotifications.size > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
                 markItemsAsRead(knownNotifications.subList(0, knownNotifications.size - MAX_LOCALLY_KNOWN_NOTIFICATIONS))
@@ -250,7 +250,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
         fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             val idListStr = notifications.joinToString("|")
-            CsrfTokenClient(wiki, WikipediaApp.getInstance().wikiSite).token
+            CsrfTokenClient(wiki, wiki).token
                     .subscribeOn(Schedulers.io())
                     .flatMap {
                         ServiceFactory.get(wiki).markRead(it, if (unread) null else idListStr, if (unread) idListStr else null)
@@ -260,18 +260,18 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun maybeShowLocalNotificationForEditorReactivation(context: Context) {
-            if (Prefs.getLastDescriptionEditTime() == 0L || WikipediaApp.getInstance().isAnyActivityResumed) {
+            if (Prefs.lastDescriptionEditTime == 0L || WikipediaApp.getInstance().isAnyActivityResumed) {
                 return
             }
-            var days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastDescriptionEditTime())
-            if (Prefs.isSuggestedEditsReactivationTestEnabled()) {
-                days = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - Prefs.getLastDescriptionEditTime())
+            var days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.lastDescriptionEditTime)
+            if (Prefs.isSuggestedEditsReactivationTestEnabled) {
+                days = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - Prefs.lastDescriptionEditTime)
             }
-            if (days in FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY until SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && !Prefs.isSuggestedEditsReactivationPassStageOne()) {
-                Prefs.setSuggestedEditsReactivationPassStageOne(true)
+            if (days in FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY until SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && !Prefs.isSuggestedEditsReactivationPassStageOne) {
+                Prefs.isSuggestedEditsReactivationPassStageOne = true
                 showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one)
-            } else if (days >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne()) {
-                Prefs.setSuggestedEditsReactivationPassStageOne(false)
+            } else if (days >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne) {
+                Prefs.isSuggestedEditsReactivationPassStageOne = false
                 showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two)
             }
         }

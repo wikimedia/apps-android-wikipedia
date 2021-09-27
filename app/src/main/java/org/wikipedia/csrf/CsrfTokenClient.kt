@@ -75,7 +75,7 @@ class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetrie
     private fun bailWithLogout() {
         // Signal to the rest of the app that we're explicitly logging out in the background.
         WikipediaApp.getInstance().logOut()
-        Prefs.setLoggedOutInBackground(true)
+        Prefs.loggedOutInBackground = true
         WikipediaApp.getInstance().bus.post(LoggedOutInBackgroundEvent())
     }
 

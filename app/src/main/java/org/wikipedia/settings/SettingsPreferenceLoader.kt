@@ -28,7 +28,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         findPreference(R.string.preference_key_sync_reading_lists).onPreferenceChangeListener = SyncReadingListsListener()
         findPreference(R.string.preference_key_eventlogging_opt_in).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
             if (!(newValue as Boolean)) {
-                Prefs.setAppInstallId(null)
+                Prefs.appInstallId = null
             }
             true
         }
@@ -112,9 +112,9 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
     private inner class DeleteRemoteListsYesListener(private val preference: Preference) : DialogInterface.OnClickListener {
         override fun onClick(dialog: DialogInterface, which: Int) {
             (preference as SwitchPreferenceCompat).isChecked = false
-            Prefs.setReadingListSyncEnabled(false)
-            Prefs.setReadingListsRemoteSetupPending(false)
-            Prefs.setReadingListsRemoteDeletePending(true)
+            Prefs.isReadingListSyncEnabled = false
+            Prefs.isReadingListsRemoteSetupPending = false
+            Prefs.isReadingListsRemoteDeletePending = true
             ReadingListSyncAdapter.manualSync()
         }
     }
