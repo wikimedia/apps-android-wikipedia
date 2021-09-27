@@ -38,5 +38,5 @@
         android:layout_marginEnd="16dp"
         android:contentDescription="@null"
         app:srcCompat="@drawable/ic_filter_notifications_icon"
-        app:tint="?attr/primary_text_color" />
+        app:tint="?attr/chip_text_color" />
 </LinearLayout>

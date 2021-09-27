@@ -281,7 +281,8 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         if (notificationContainerList.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null && enabledFiltersCount() != 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyText.visibility = if (actionMode != null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
@@ -289,11 +290,14 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun getSpannedEmptySearchMessage(): Spannable {
+    private fun enabledFiltersCount(): Int {
         val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
         val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
-        val enabledFilters = fullWikiAndTypeListSize - filtersSize
-        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, enabledFilters, enabledFilters)
+        return fullWikiAndTypeListSize - filtersSize
+    }
+
+    private fun getSpannedEmptySearchMessage(): Spannable {
+        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, enabledFiltersCount(), enabledFiltersCount())
         val emptySearchMessage = getString(R.string.notifications_empty_search_message, filtersStr)
         val spannable = SpannableString(emptySearchMessage)
         val prefixStringLength = 13
