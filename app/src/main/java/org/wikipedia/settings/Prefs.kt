@@ -468,8 +468,8 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
 
     var hasVisitedArticlePage
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visited_article_page, value)
 
     var announcementShownDialogs: Set<String>
         get() {

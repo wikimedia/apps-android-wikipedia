@@ -389,6 +389,10 @@
   <string name="reading_list_create_new">Yenisini yarat</string>
   <string name="reading_list_added_view_button">Siyahıya bax</string>
   <string name="reading_list_add_to_list_button">Siyahıya əlavə et</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 məqalə, %2$.2f MB</item>
+    <item quantity="other">%1$d məqalə, %2$.2f MB</item>
+  </plurals>
   <string name="reading_list_menu_delete">Siyahını sil</string>
   <string name="reading_list_item_delete_undo">Geri qaytar</string>
   <string name="reading_list_select_item">Seç</string>
