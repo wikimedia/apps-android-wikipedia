@@ -602,6 +602,10 @@
   <string name="notification_preferences_title">Title of activity where the notification preferences are managed.</string>
   <string name="notifications_mark_unread">Menu label for marking the selected notifications as unread.</string>
   <string name="notifications_mark_all_as_read">Menu label for marking all notifications as read.</string>
+  <string name="notifications_direct_reply_action">Button label for creating a direct reply to a message.</string>
+  <string name="notifications_direct_reply_progress">Label for message indicating that a reply is being posted. The %s symbol is replaced with the username to whom the reply is made.</string>
+  <string name="notifications_direct_reply_success">Message shown when a reply was posted successfully.</string>
+  <string name="notifications_direct_reply_error">Message shown when there was an error while posting a reply.</string>
   <string name="notifications_mark_all_as_read_message">Message shown when notifications are marked as read. The %d is replaced with the number of notifications.</string>
   <string name="notifications_mark_all_as_unread_message">Message shown when notifications are marked as unread. The %d is replaced with the number of notifications.</string>
   <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>

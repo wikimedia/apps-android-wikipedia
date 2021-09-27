@@ -323,14 +323,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             return
         }
 
-        // if the message is not signed, then sign it explicitly
-        if (!body.endsWith("~~~~")) {
-            body += " ~~~~"
+        var topicDepth = 0
+        topic?.replies?.lastOrNull()?.let {
+            topicDepth = it.depth
         }
-        if (!isNewTopic()) {
-            // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
-            body = "\n\n" + body
-        }
+
+        body = addDefaultFormatting(body, topicDepth, isNewTopic())
 
         binding.talkProgressBar.visibility = View.VISIBLE
         binding.replySaveButton.isEnabled = false
@@ -505,6 +503,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
                     .putExtra(EXTRA_BODY, undoneBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+        }
+
+        fun addDefaultFormatting(text: String, topicDepth: Int, newTopic: Boolean = false): String {
+            var body = ":".repeat(if (newTopic) 0 else topicDepth + 1) + text
+            // if the message is not signed, then sign it explicitly
+            if (!body.endsWith("~~~~")) {
+                body += " ~~~~"
+            }
+            if (!newTopic) {
+                // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
+                body = "\n\n" + body
+            }
+            return body
         }
     }
 }
