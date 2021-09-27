@@ -508,7 +508,7 @@ object Prefs {
         set(sessionId) = PrefsIoUtil.setString(R.string.preference_key_event_platform_session_id, sessionId)
 
     var streamConfigs
-        get() = JsonUtil.decodeFromString<Map<String, StreamConfig>>(PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, ""))
+        get() = JsonUtil.decodeFromString<Map<String, StreamConfig>>(PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, null))
             ?: emptyMap()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_event_platform_stored_stream_configs, JsonUtil.encodeToString(value))
 
