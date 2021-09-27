@@ -63,11 +63,11 @@ class MwQueryResult : PostProcessable {
 
     fun langLinks(): MutableList<PageTitle> {
         val result = mutableListOf<PageTitle>()
-        if (pages.isNullOrEmpty() || pages[0].langlinks == null) {
+        if (pages.isNullOrEmpty()) {
             return result
         }
         // noinspection ConstantConditions
-        for (link in pages[0].langlinks) {
+        for (link in pages.first().langlinks) {
             val title = PageTitle(link.title, WikiSite.forLanguageCode(link.lang))
             result.add(title)
         }
