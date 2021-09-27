@@ -400,7 +400,7 @@ class DescriptionEditFragment : Fragment() {
             articleText.replaceFirst(TEMPLATE_PARSE_REGEX.toRegex(), "$1$newDescription$3")
         } else {
             // add new description template
-            """{{${DESCRIPTION_TEMPLATES[0]}|$newDescription}}$articleText""".trimIndent()
+            """{{${DESCRIPTION_TEMPLATES[0]}|$newDescription}}\n$articleText""".trimIndent()
         }
     }
 
