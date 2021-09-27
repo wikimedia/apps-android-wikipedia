@@ -146,7 +146,7 @@ class NotificationsFilterActivity : BaseActivity() {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
 
-        fun allWikisList():List<String>{
+        fun allWikisList(): List<String> {
             val wikiList = mutableListOf<String>()
             wikiList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
             wikiList.add("commons")
@@ -154,7 +154,7 @@ class NotificationsFilterActivity : BaseActivity() {
             return wikiList
         }
 
-        fun allTypesIdList():List<String>{
+        fun allTypesIdList(): List<String> {
             val typeList = mutableListOf<String>()
             NotificationCategory.FILTERS_GROUP.forEach { typeList.add(it.id) }
             return typeList
