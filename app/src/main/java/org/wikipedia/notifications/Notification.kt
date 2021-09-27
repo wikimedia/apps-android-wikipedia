@@ -3,6 +3,7 @@ package org.wikipedia.notifications
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.*
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UriUtil
@@ -84,7 +85,7 @@ class Notification {
     class Links {
 
         private var primaryLink: Link? = null
-       val primary: JsonElement? = null
+        val primary: JsonElement? = null
         val secondary: List<Link>? = null
 
         fun getPrimary(): Link? {
@@ -92,7 +93,7 @@ class Notification {
                 return null
             }
             if (primaryLink == null && primary is JsonObject) {
-                primaryLink = Json.decodeFromJsonElement(Link.serializer(), primary)
+                primaryLink = JsonUtil.json.decodeFromJsonElement<Link>(primary)
             }
             return primaryLink
         }
