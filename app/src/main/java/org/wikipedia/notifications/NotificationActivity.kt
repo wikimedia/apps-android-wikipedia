@@ -196,13 +196,13 @@ class NotificationActivity : BaseActivity() {
             filteredWikiList.add("commonswiki")
             filteredWikiList.add("wikidatawiki")
         } else {
-            (StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()) as MutableList<String>)
-                .filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) || it == "commons" || it == "wikidata" }
-                .forEach { langCode -> filteredWikiList.add(langCode)
+            val wikiTypeList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+            wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
+                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
+                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
             }
-            for (i in 0 until filteredWikiList.size) {
-                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(filteredWikiList[i]) ?: filteredWikiList[i]
-                filteredWikiList[i] = "${defaultLangCode.replace("-", "_")}wiki"
+            wikiTypeList.filter { it == "commons" || it == "wikidata" }.forEach { langCode ->
+                filteredWikiList.add("${langCode}wiki")
             }
         }
         return filteredWikiList.joinToString("|")
@@ -290,12 +290,12 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun getSpannedEmptySearchMessage(): Spannable {
-        val fullWikiAndTypeListSize = WikipediaApp.getInstance().language().appLanguageCodes.size + 2 + NotificationCategory.FILTERS_GROUP.size // 2 for "commons" and "wikidata"
-        val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
-        val enabledFilters = (fullWikiAndTypeListSize - delimitedFiltersSizeString)
+        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
+        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+        val enabledFilters = fullWikiAndTypeListSize - filtersSize
         val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, enabledFilters, enabledFilters)
-        val finalStr = getString(R.string.notifications_empty_search_message, filtersStr)
-        val spannable = SpannableString(finalStr)
+        val emptySearchMessage = getString(R.string.notifications_empty_search_message, filtersStr)
+        val spannable = SpannableString(emptySearchMessage)
         val prefixStringLength = 13
         spannable.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(this, R.attr.colorAccent)), prefixStringLength, prefixStringLength + filtersStr.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         return spannable
@@ -522,9 +522,9 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun updateFilterIconAndCount() {
-            val fullWikiAndTypeListSize = WikipediaApp.getInstance().language().appLanguageCodes.size + 2 + NotificationCategory.FILTERS_GROUP.size // 2 for "commons" and "wikidata"
+            val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
             val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
-            val enabledFilters = (fullWikiAndTypeListSize - delimitedFiltersSizeString)
+            val enabledFilters = fullWikiAndTypeListSize - delimitedFiltersSizeString
             if (enabledFilters == 0) {
                 notificationFilterCountView.visibility = View.GONE
                 notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.chip_text_color))

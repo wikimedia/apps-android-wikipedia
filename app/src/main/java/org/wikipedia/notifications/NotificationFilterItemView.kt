@@ -68,8 +68,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
             filter.languageCode.let { languageCode ->
                 if (NotificationCategory.isFiltersGroup(languageCode)) binding.notificationFilterWikiLogo.imageTintList =
                     ColorStateList.valueOf(ContextCompat.getColor(context, Companion.FILTERS_GROUP.find { category -> category.id == languageCode }!!.iconColor))
-                else binding.notificationFilterWikiLogo.imageTintList =
-                    ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
+                else binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
             }
             binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, it))
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE

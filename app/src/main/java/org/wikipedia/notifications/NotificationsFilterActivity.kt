@@ -72,24 +72,17 @@ class NotificationsFilterActivity : BaseActivity() {
         private var filteredWikisList = mutableListOf<String>()
 
         init {
-            if (Prefs.notificationsFilterLanguageCodes == null) addAll()
+            if (Prefs.notificationsFilterLanguageCodes == null) addAllWikiAndTypeFilters()
             else filteredWikisList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
         }
 
-        private fun getFullWikiAndTypeList(): List<String> {
-            val fullList = mutableListOf<String>()
-            filtersList.filterIsInstance<Filter>().forEach { filter ->
-                if (filter.languageCode != context.getString(R.string.notifications_all_wikis_text) &&
-                    filter.languageCode != context.getString(R.string.notifications_all_types_text))
-                        fullList.add(filter.languageCode)
-            }
-            return fullList
-        }
-
-        fun addAll() {
-            Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(getFullWikiAndTypeList())
+        private fun addAllWikiAndTypeFilters() {
+            val allWikiAndTypeList = mutableListOf<String>()
+            allWikiAndTypeList.addAll(allWikisList())
+            allWikiAndTypeList.addAll(allTypesIdList())
+            Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(allWikiAndTypeList)
             filteredWikisList.clear()
-            filteredWikisList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
+            filteredWikisList.addAll(allWikiAndTypeList)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
@@ -119,14 +112,10 @@ class NotificationsFilterActivity : BaseActivity() {
 
         override fun onCheckedChanged(langCode: String) {
             if (langCode == context.getString(R.string.notifications_all_types_text)) {
-                NotificationCategory.FILTERS_GROUP.filter { !filteredWikisList.contains(it.id) }
-                    .forEach { category -> filteredWikisList.add(category.id) }
+                allTypesIdList().filter { !filteredWikisList.contains(it) }
+                    .forEach { typeId -> filteredWikisList.add(typeId) }
             } else if (langCode == context.getString(R.string.notifications_all_wikis_text)) {
-                val wikiList = mutableListOf<String>()
-                wikiList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
-                wikiList.add("commons")
-                wikiList.add("wikidata")
-                wikiList.filter { !filteredWikisList.contains(it) }.forEach { category -> filteredWikisList.add(category) }
+                allWikisList().filter { !filteredWikisList.contains(it) }.forEach { category -> filteredWikisList.add(category) }
             } else {
                 if (filteredWikisList.contains(langCode)) {
                     filteredWikisList.remove(langCode)
@@ -144,16 +133,10 @@ class NotificationsFilterActivity : BaseActivity() {
             val list = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
 
             if (languageCode == WikipediaApp.getInstance().getString(R.string.notifications_all_types_text)) {
-                val typeList = mutableListOf<String>()
-                NotificationCategory.FILTERS_GROUP.forEach { typeList.add(it.id) }
-                return list.containsAll(typeList)
+                return list.containsAll(allTypesIdList())
             }
             if (languageCode == WikipediaApp.getInstance().getString(R.string.notifications_all_wikis_text)) {
-                val wikiList = mutableListOf<String>()
-                wikiList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
-                wikiList.add("commons")
-                wikiList.add("wikidata")
-                return list.containsAll(wikiList)
+                return list.containsAll(allWikisList())
             }
             return list.contains(languageCode)
         }
@@ -162,6 +145,20 @@ class NotificationsFilterActivity : BaseActivity() {
     companion object {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
+
+        fun allWikisList():List<String>{
+            val wikiList = mutableListOf<String>()
+            wikiList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
+            wikiList.add("commons")
+            wikiList.add("wikidata")
+            return wikiList
+        }
+
+        fun allTypesIdList():List<String>{
+            val typeList = mutableListOf<String>()
+            NotificationCategory.FILTERS_GROUP.forEach { typeList.add(it.id) }
+            return typeList
+        }
 
         fun newIntent(context: Context): Intent {
             return Intent(context, NotificationsFilterActivity::class.java)
