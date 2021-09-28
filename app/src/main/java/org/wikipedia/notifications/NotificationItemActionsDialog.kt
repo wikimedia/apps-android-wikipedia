@@ -98,7 +98,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun setUpViewForLink(containerView: View, iconView: AppCompatImageView, labelView: TextView, link: Notification.Link) {
         labelView.text = StringUtil.fromHtml(link.tooltip.ifEmpty { link.label })
-        if ("userAvatar" == link.icon) {
+        if ("userAvatar" == link.icon()) {
             iconView.setImageResource(R.drawable.ic_user_avatar)
         } else {
             iconView.setImageResource(R.drawable.ic_arrow_forward_black_24dp)

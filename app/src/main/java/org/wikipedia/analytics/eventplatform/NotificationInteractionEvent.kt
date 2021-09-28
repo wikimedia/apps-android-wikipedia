@@ -59,7 +59,7 @@ class NotificationInteractionEvent(
 
         fun logAction(notification: Notification, index: Int, link: Notification.Link) {
             EventPlatformClient.submit(NotificationInteractionEvent(notification.id.toInt(), notification.wiki, notification.type, index,
-                link.icon, "", incoming_only = false, device_level_enabled = true))
+                link.icon(), "", incoming_only = false, device_level_enabled = true))
         }
 
         fun processIntent(intent: Intent) {

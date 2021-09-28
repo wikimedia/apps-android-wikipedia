@@ -78,7 +78,12 @@ class Notification {
             get() = UriUtil.decodeURL(field)
         val label: String = ""
         val tooltip: String = ""
-        val icon: String = ""
+        // The icon could be a string or `false`.
+        private val icon: JsonElement? = null
+
+        fun icon(): String {
+            return if (icon?.jsonPrimitive?.isString == true) icon.jsonPrimitive.content else ""
+        }
     }
 
     @Serializable
