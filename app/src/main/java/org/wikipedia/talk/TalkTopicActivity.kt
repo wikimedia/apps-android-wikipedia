@@ -325,10 +325,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             return
         }
 
-        var topicDepth = 0
-        topic?.replies?.lastOrNull()?.let {
-            topicDepth = it.depth
-        }
+        val topicDepth = topic?.replies?.lastOrNull()?.depth ?: 0
 
         body = addDefaultFormatting(body, topicDepth, isNewTopic())
 

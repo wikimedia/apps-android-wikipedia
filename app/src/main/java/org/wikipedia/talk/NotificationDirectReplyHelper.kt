@@ -41,10 +41,7 @@ object NotificationDirectReplyHelper {
                 if (topic == null || title.fragment.isNullOrEmpty()) {
                     Observable.just(Edit())
                 } else {
-                    var topicDepth = 0
-                    topic.replies?.lastOrNull()?.let {
-                        topicDepth = it.depth
-                    }
+                    val topicDepth = topic.replies?.lastOrNull()?.depth ?: 0
                     val body = TalkTopicActivity.addDefaultFormatting(replyText, topicDepth)
                     ServiceFactory.get(wiki).postEditSubmit(
                         title.prefixedText, topic.id.toString(), null,
