@@ -27,6 +27,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTabsBinding
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -53,7 +54,7 @@ class TabActivity : BaseActivity() {
         funnel.logEnterList(app.tabCount)
         binding.tabCountsView.updateTabCount(false)
         binding.tabCountsView.setOnClickListener { onBackPressed() }
-        FeedbackUtil.setButtonLongPressToast(binding.tabCountsView)
+        FeedbackUtil.setButtonLongPressToast(binding.tabCountsView, binding.tabButtonNotifications)
         binding.tabSwitcher.setPreserveState(false)
         binding.tabSwitcher.decorator = object : TabSwitcherDecorator() {
             override fun onInflateView(inflater: LayoutInflater, parent: ViewGroup?, viewType: Int): View {
@@ -126,6 +127,11 @@ class TabActivity : BaseActivity() {
             title = ""
         }
 
+        binding.tabButtonNotifications.setOnClickListener {
+            if (AccountUtil.isLoggedIn) {
+                startActivity(NotificationActivity.newIntent(this))
+            }
+        }
         setupNotificationsTest()
     }
 
