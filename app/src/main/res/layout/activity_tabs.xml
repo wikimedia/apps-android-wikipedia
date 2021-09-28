@@ -32,6 +32,12 @@
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/page_tabs_back" />
+
+            <org.wikipedia.views.NotificationButtonView
+                android:id="@+id/tab_button_notifications"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/notifications_activity_title"/>
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 

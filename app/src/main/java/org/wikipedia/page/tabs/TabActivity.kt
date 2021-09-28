@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.graphics.scale
+import androidx.core.view.isVisible
 import de.mrapp.android.tabswitcher.Animation
 import de.mrapp.android.tabswitcher.TabSwitcher
 import de.mrapp.android.tabswitcher.TabSwitcherDecorator
@@ -20,18 +21,17 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.TabFunnel
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTabsBinding
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import java.util.*
 
@@ -44,8 +44,9 @@ class TabActivity : BaseActivity() {
     private var cancelled = true
     private var tabUpdatedTimeMillis: Long = 0
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
 
-    public override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTabsBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -124,9 +125,11 @@ class TabActivity : BaseActivity() {
             setDisplayHomeAsUpEnabled(true)
             title = ""
         }
+
+        setupNotificationsTest()
     }
 
-    public override fun onDestroy() {
+    override fun onDestroy() {
         if (cancelled) {
             funnel.logCancel(app.tabCount)
         }
@@ -135,9 +138,14 @@ class TabActivity : BaseActivity() {
         super.onDestroy()
     }
 
-    public override fun onPause() {
+    override fun onPause() {
         super.onPause()
         app.commitTabState()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateNotificationsButton(false)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -177,6 +185,10 @@ class TabActivity : BaseActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onUnreadNotification() {
+        updateNotificationsButton(true)
     }
 
     private fun saveTabsToList() {
@@ -287,6 +299,37 @@ class TabActivity : BaseActivity() {
                 .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
                 .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
         finish()
+    }
+
+    // TODO: remove when ABC test is complete.
+    private fun setupNotificationsTest() {
+        binding.tabButtonNotifications.isVisible = false
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0 -> binding.tabButtonNotifications.setIcon(R.drawable.ic_inbox_24)
+            1 -> binding.tabButtonNotifications.setIcon(R.drawable.ic_notifications_black_24dp)
+        }
+    }
+
+    private fun updateNotificationsButton(animate: Boolean) {
+        // TODO: remove when ABC test is complete.
+        when (notificationsABCTestFunnel.aBTestGroup) {
+            0, 1 -> {
+                if (AccountUtil.isLoggedIn) {
+                    binding.tabButtonNotifications.isVisible = true
+                    if (Prefs.notificationUnreadCount > 0) {
+                        binding.tabButtonNotifications.setUnreadCount(Prefs.notificationUnreadCount)
+                        if (animate) {
+                            notificationsABCTestFunnel.logShow()
+                            binding.tabButtonNotifications.runAnimation()
+                        }
+                    } else {
+                        binding.tabButtonNotifications.setUnreadCount(0)
+                    }
+                } else {
+                    binding.tabButtonNotifications.isVisible = false
+                }
+            }
+        }
     }
 
     companion object {
