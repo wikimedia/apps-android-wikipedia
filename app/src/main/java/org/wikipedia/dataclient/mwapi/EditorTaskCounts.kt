@@ -2,9 +2,10 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.decodeFromJsonElement
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 
 @Serializable
@@ -19,7 +20,7 @@ class EditorTaskCounts {
         get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), counts).appDescriptionEdits
+                editsPerLanguage = JsonUtil.json.decodeFromJsonElement<Counts>(counts).appDescriptionEdits
             }
             return editsPerLanguage ?: emptyMap()
         }
@@ -28,7 +29,7 @@ class EditorTaskCounts {
         get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), counts).appCaptionEdits
+                editsPerLanguage = JsonUtil.json.decodeFromJsonElement<Counts>(counts).appCaptionEdits
             }
             return editsPerLanguage ?: emptyMap()
         }
@@ -37,7 +38,7 @@ class EditorTaskCounts {
         get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), revertCounts).appDescriptionEdits
+                revertsPerLanguage = JsonUtil.json.decodeFromJsonElement<Counts>(revertCounts).appDescriptionEdits
             }
             return revertsPerLanguage ?: emptyMap()
         }
@@ -46,7 +47,7 @@ class EditorTaskCounts {
         get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), revertCounts).appCaptionEdits
+                revertsPerLanguage = JsonUtil.json.decodeFromJsonElement<Counts>(revertCounts).appCaptionEdits
             }
             return revertsPerLanguage ?: emptyMap()
         }
@@ -55,7 +56,7 @@ class EditorTaskCounts {
         get() {
             var revertsPerLanguage: Map<String, Int>? = null
             if (revertCounts != null && revertCounts !is JsonArray) {
-                revertsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), revertCounts).appDepictsEdits
+                revertsPerLanguage = JsonUtil.json.decodeFromJsonElement<Counts>(revertCounts).appDepictsEdits
             }
             return revertsPerLanguage?.get("*") ?: 0
         }
@@ -64,7 +65,7 @@ class EditorTaskCounts {
         get() {
             var editsPerLanguage: Map<String, Int>? = null
             if (counts != null && counts !is JsonArray) {
-                editsPerLanguage = Json.decodeFromJsonElement(Counts.serializer(), counts).appDepictsEdits
+                editsPerLanguage = JsonUtil.json.decodeFromJsonElement<Counts>(counts).appDepictsEdits
             }
             return editsPerLanguage?.get("*") ?: 0
         }

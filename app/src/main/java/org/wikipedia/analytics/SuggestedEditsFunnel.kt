@@ -1,16 +1,12 @@
 package org.wikipedia.analytics
 
-import com.google.gson.JsonElement
-import com.google.gson.JsonNull
-import com.google.gson.JsonSerializationContext
-import com.google.gson.JsonSerializer
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.json.JSONObject
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.json.GsonUtil
-import java.lang.reflect.Type
+import org.wikipedia.json.JsonUtil
 
 class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val invokeSource: InvokeSource) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
@@ -93,21 +89,14 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
 
     fun log() {
         log(
-                "edit_tasks", GsonUtil.getDefaultGson().newBuilder()
-                .registerTypeAdapter(SuggestedEditStats::class.java, SuggestedEditsStatsTypeAdapter())
-                .create().toJson(statsCollection),
+                "edit_tasks", JsonUtil.encodeToString(statsCollection),
                 "help_opened", helpOpenedCount,
                 "scorecard_opened", contributionsOpenedCount,
                 "source", invokeSource.value
         )
     }
 
-    private class SuggestedEditsStatsTypeAdapter : JsonSerializer<SuggestedEditStats> {
-        override fun serialize(src: SuggestedEditStats, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-            return if (src.isEmpty) JsonNull.INSTANCE else GsonUtil.getDefaultGson().toJsonTree(src, typeOfSrc)
-        }
-    }
-
+    @Serializable
     private class SuggestedEditStatsCollection {
         @SerialName("a-d")
         val addDescriptionStats = SuggestedEditStats()
@@ -125,6 +114,7 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
         val imageTagStats = SuggestedEditStats()
     }
 
+    @Serializable
     private class SuggestedEditStats {
         @SerialName("imp")
         var impressions = 0

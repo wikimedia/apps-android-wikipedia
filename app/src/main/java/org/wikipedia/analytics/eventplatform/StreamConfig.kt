@@ -1,9 +1,9 @@
 package org.wikipedia.analytics.eventplatform
 
-import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.analytics.eventplatform.DestinationEventService.ANALYTICS
+import java.lang.IllegalArgumentException
 
 @Serializable
 class StreamConfig {
@@ -14,22 +14,30 @@ class StreamConfig {
         this.destinationEventService = destinationEventService ?: ANALYTICS
     }
 
-    @SerialName("stream") @SerializedName("stream")
+    @SerialName("stream")
     var streamName = ""
 
-    @SerialName("canary_events_enabled") @SerializedName("canary_events_enabled")
+    @SerialName("canary_events_enabled")
     var canaryEventsEnabled = false
 
-    @SerialName("destination_event_service") @SerializedName("destination_event_service")
+    @SerialName("destination_event_service")
+    val destinationEventServiceKey: String = "eventgate-analytics-external"
+
     var destinationEventService: DestinationEventService = ANALYTICS
 
-    @SerialName("schema_title") @SerializedName("schema_title")
+    @SerialName("schema_title")
     val schemaTitle: String = ""
 
-    @SerialName("topic_prefixes") @SerializedName("topic_prefixes")
+    @SerialName("topic_prefixes")
     val topicPrefixes: List<String> = emptyList()
     val topics: List<String> = emptyList()
 
-    @SerialName("sampling") @SerializedName("sampling")
+    @SerialName("sampling")
     var samplingConfig: SamplingConfig? = null
+
+    init {
+        try {
+            destinationEventService = DestinationEventService.valueOf(destinationEventServiceKey)
+        } catch (e: IllegalArgumentException) {}
+    }
 }

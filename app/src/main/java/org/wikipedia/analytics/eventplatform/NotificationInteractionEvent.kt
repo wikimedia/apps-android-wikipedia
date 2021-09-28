@@ -2,6 +2,7 @@ package org.wikipedia.analytics.eventplatform
 
 import android.content.Intent
 import androidx.core.app.NotificationManagerCompat
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -10,6 +11,7 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 
 @Suppress("unused")
 @Serializable
+@SerialName("/analytics/mobile_apps/android_notification_interaction/1.0.0")
 class NotificationInteractionEvent(
     private val notification_id: Int,
     private val notification_wiki: String,
@@ -19,10 +21,9 @@ class NotificationInteractionEvent(
     private val selection_token: String,
     private val incoming_only: Boolean,
     private val device_level_enabled: Boolean
-) : Event(SCHEMA_NAME, STREAM_NAME) {
+) : Event(STREAM_NAME) {
 
     companion object {
-        private const val SCHEMA_NAME = "/analytics/mobile_apps/android_notification_interaction/1.0.0"
         private const val STREAM_NAME = "android.notification_interaction"
 
         private const val ACTION_INCOMING = -1
@@ -58,7 +59,7 @@ class NotificationInteractionEvent(
 
         fun logAction(notification: Notification, index: Int, link: Notification.Link) {
             EventPlatformClient.submit(NotificationInteractionEvent(notification.id.toInt(), notification.wiki, notification.type, index,
-                link.icon, "", incoming_only = false, device_level_enabled = true))
+                link.icon(), "", incoming_only = false, device_level_enabled = true))
         }
 
         fun processIntent(intent: Intent) {

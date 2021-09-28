@@ -8,10 +8,11 @@ import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.DateSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.parcel.DateParceler
-import org.wikipedia.serialization.DateSerializer
 import java.util.*
 
 @Serializable
@@ -36,6 +37,7 @@ class HistoryEntry(
     }
 
     @IgnoredOnParcel
+    @Transient
     @Ignore
     private var pageTitle: PageTitle? = null
 
@@ -50,6 +52,7 @@ class HistoryEntry(
     // To be set when navigating back and forth between articles.
     @IgnoredOnParcel
     @Transient
+    @Ignore
     var referrer: String? = null
 
     companion object {

@@ -1,17 +1,17 @@
 package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
+import org.wikipedia.json.JsonUtil
 
 @Serializable
 class SiteMatrix : MwResponse() {
 
     val sitematrix: JsonObject? = null
 
-    inner class SiteInfo {
+    @Serializable
+    class SiteInfo {
 
         val code: String = ""
         val name: String = ""
@@ -26,7 +26,7 @@ class SiteMatrix : MwResponse() {
             // contains a "count" member that prevents it from being able to deserialize
             // as a list automatically.
             siteMatrix.sitematrix?.keys?.filterNot { it == "count" }?.forEach { key ->
-                Json.decodeFromJsonElement<SiteInfo>(buildJsonObject { siteMatrix.sitematrix[key] }).let { sites.add(it) }
+                JsonUtil.json.decodeFromJsonElement<SiteInfo>(siteMatrix.sitematrix[key]!!).let { sites.add(it) }
             }
             return sites
         }

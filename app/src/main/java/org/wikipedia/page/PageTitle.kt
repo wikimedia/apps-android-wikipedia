@@ -25,12 +25,12 @@ import java.util.*
 @Serializable
 @Parcelize
 class PageTitle(
-    @SerialName("namespace") private var _namespace: String?,
+    @SerialName("namespace") private var _namespace: String? = null,
     // TODO: remove this SerialName when Tab list is no longer serialized to shared prefs.
     @SerialName("site") var wikiSite: WikiSite,
     @SerialName("text") private var _text: String = "",
     var fragment: String? = null,
-    var thumbUrl: String?,
+    var thumbUrl: String? = null,
     var description: String? = null,
     // TODO: remove after the restbase endpoint supports ZH variants.
     @SerialName("displayText") private var _displayText: String? = null,

@@ -1,7 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
 import androidx.annotation.VisibleForTesting
-import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -14,17 +13,15 @@ import kotlinx.serialization.Serializable
 @Serializable
 class SamplingConfig {
 
+    @Serializable
     enum class Identifier {
-        @SerialName("pageview") @SerializedName("pageview") PAGEVIEW,
-        @SerialName("session") @SerializedName("session") SESSION,
-        @SerialName("device") @SerializedName("device") DEVICE
+        @SerialName("pageview") PAGEVIEW,
+        @SerialName("session") SESSION,
+        @SerialName("device") DEVICE
     }
 
     private var identifier: Identifier? = null
     var rate = 1.0
-
-    // This constructor is needed for correct Gson deserialization. Do not remove!
-    constructor()
 
     @VisibleForTesting
     constructor(rate: Double, identifier: Identifier?) {

@@ -1,11 +1,10 @@
 package org.wikipedia.analytics.eventplatform
 
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * Gson POJO representing a response body from the Event Platform's intake API (EventGate).
+ * POJO representing a response body from the Event Platform's intake API (EventGate).
  *
  * In case of success, a 201 (Success) or 202 (Hasty success) response will be returned with no
  * body. In the case of partial or total failure, failing events will be returned in the "invalid"
@@ -17,6 +16,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 class EventServiceResponse {
 
-    @SerialName("invalid") val invalidEvents: List<@Contextual Any> = emptyList()
-    @SerialName("error") val errorEvents: List<@Contextual Any> = emptyList()
+    @SerialName("invalid") val invalidEvents: List<Event> = emptyList()
+    @SerialName("error") val errorEvents: List<Event> = emptyList()
 }

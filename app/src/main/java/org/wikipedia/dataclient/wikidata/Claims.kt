@@ -3,9 +3,9 @@ package org.wikipedia.dataclient.wikidata
 import android.location.Location
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.json.*
 import org.wikipedia.dataclient.mwapi.MwResponse
+import org.wikipedia.json.JsonUtil
 
 @Serializable
 class Claims : MwResponse() {
@@ -46,16 +46,16 @@ class Claims : MwResponse() {
 
         fun value(): String {
             if (value != null) {
-                if ("string" == type && value is PrimitiveKind) {
+                if ("string" == type) {
                     return value.toString()
-                } else if ("wikibase-entityid" == type && value is JsonObject) {
-                    return Json.decodeFromJsonElement<EntityIdValue>(buildJsonObject { value }).id
-                } else if ("time" == type && value is JsonObject) {
-                    return Json.decodeFromJsonElement<TimeValue>(buildJsonObject { value }).time
-                } else if ("monolingualtext" == type && value is JsonObject) {
-                    return Json.decodeFromJsonElement<MonolingualTextValue>(buildJsonObject { value }).text
-                } else if ("globecoordinate" == type && value is JsonObject) {
-                    return Json.decodeFromJsonElement<GlobeCoordinateValue>(buildJsonObject { value }).location.toString()
+                } else if ("wikibase-entityid" == type) {
+                    return JsonUtil.json.decodeFromJsonElement<EntityIdValue>(value).id
+                } else if ("time" == type) {
+                    return JsonUtil.json.decodeFromJsonElement<TimeValue>(value).time
+                } else if ("monolingualtext" == type) {
+                    return JsonUtil.json.decodeFromJsonElement<MonolingualTextValue>(value).text
+                } else if ("globecoordinate" == type) {
+                    return JsonUtil.json.decodeFromJsonElement<GlobeCoordinateValue>(value).location.toString()
                 }
             }
             return ""

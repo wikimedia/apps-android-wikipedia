@@ -24,8 +24,8 @@ class DiffResponse {
     @Serializable
     class DiffOffset {
 
-        private val from = 0
-        private val to = 0
+        private val from: Int? = null
+        private val to: Int? = null
     }
 
     @Serializable

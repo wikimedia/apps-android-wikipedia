@@ -1,12 +1,11 @@
 package org.wikipedia.dataclient.mwapi
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 class ListUserResponse {
 
-    @SerialName("name") val name: String = ""
+    val name: String = ""
     private val userid: Long = 0
     private val groups: List<String>? = null
     private val missing = false

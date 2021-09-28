@@ -1,6 +1,5 @@
 package org.wikipedia.gallery
 
-import com.google.gson.stream.MalformedJsonException
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -51,7 +50,7 @@ class GalleryClientTest : MockRetrofitTest() {
     @Throws(Throwable::class)
     fun testRequestResponseMalformed() {
         enqueueMalformed()
-        observable.test().await().assertError(MalformedJsonException::class.java)
+        observable.test().await().assertError(Exception::class.java)
     }
 
     private val observable
