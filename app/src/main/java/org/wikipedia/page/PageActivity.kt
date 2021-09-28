@@ -108,7 +108,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonSearch.setOnClickListener {
             startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
         }
-        binding.pageToolbarButtonTabs.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color))
+        binding.pageToolbarButtonTabs.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
             TabActivity.captureFirstTabBitmap(pageFragment.containerView)
@@ -120,7 +120,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             showOverflowMenu(it)
         }
 
-        binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color))
+        binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
             overflowCallback.notificationsClick()
@@ -181,7 +181,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         super.onResume()
         app.resetWikiSite()
         updateNotificationsButton(false)
-        Prefs.storeTemporaryWikitext(null)
+        Prefs.temporaryWikitext = null
     }
 
     override fun onPause() {
@@ -218,7 +218,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 pageFragment.reloadFromBackstack()
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL && resultCode == RESULT_OK) {
-            Prefs.setDescriptionEditTutorialEnabled(false)
+            Prefs.isDescriptionEditTutorialEnabled = false
             data?.let {
                 pageFragment.startDescriptionEditActivity(it.getStringExtra(DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT))
             }
@@ -264,7 +264,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onDestroy() {
         disposables.clear()
-        Prefs.setHasVisitedArticlePage(true)
+        Prefs.hasVisitedArticlePage = true
         super.onDestroy()
     }
 
@@ -480,7 +480,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             binding.wikiArticleCardView.prepareForTransition(title)
             wasTransitionShown = true
         }
-        if (entry.source != HistoryEntry.SOURCE_INTERNAL_LINK || !Prefs.isLinkPreviewEnabled()) {
+        if (entry.source != HistoryEntry.SOURCE_INTERNAL_LINK || !Prefs.isLinkPreviewEnabled) {
             LinkPreviewFunnel(app, entry.source).logNavigate()
         }
         app.putCrashReportProperty("api", title.wikiSite.authority())
@@ -611,7 +611,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
         override fun notificationsClick() {
             if (AccountUtil.isLoggedIn) {
-                notificationsABCTestFunnel.logSelect()
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
             }
         }
@@ -686,13 +685,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private fun maybeShowWatchlistTooltip() {
         pageFragment.historyEntry?.let {
 
-            if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
+            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
                 binding.pageToolbarButtonShowOverflowMenu.postDelayed({
                     if (isDestroyed) {
                         return@postDelayed
                     }
                     watchlistFunnel.logShowTooltip()
-                    Prefs.setWatchlistPageOnboardingTooltipShown(true)
+                    Prefs.isWatchlistPageOnboardingTooltipShown = true
                     FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
                 }, 500)
@@ -721,8 +720,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             0, 1 -> {
                 if (AccountUtil.isLoggedIn) {
                     binding.pageToolbarButtonNotifications.isVisible = true
-                    if (Prefs.getNotificationUnreadCount() > 0) {
-                        binding.pageToolbarButtonNotifications.setUnreadCount(Prefs.getNotificationUnreadCount())
+                    if (Prefs.notificationUnreadCount > 0) {
+                        binding.pageToolbarButtonNotifications.setUnreadCount(Prefs.notificationUnreadCount)
                         if (animate) {
                             notificationsABCTestFunnel.logShow()
                             toolbarHideHandler.ensureDisplayed()
@@ -737,8 +736,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             }
             else -> {
                 if (AccountUtil.isLoggedIn) {
-                    if (Prefs.getNotificationUnreadCount() > 0) {
-                        binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+                    if (Prefs.notificationUnreadCount > 0) {
+                        binding.unreadDotView.setUnreadCount(Prefs.notificationUnreadCount)
                         if (animate) {
                             notificationsABCTestFunnel.logShow()
                             toolbarHideHandler.ensureDisplayed()

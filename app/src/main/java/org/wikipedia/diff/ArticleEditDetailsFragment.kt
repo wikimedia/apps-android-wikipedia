@@ -373,7 +373,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         diffSize = 0
         for (diff in diffs) {
             val prefixLength = spannableString.length
-            spannableString.append(if (diff.text.isNotEmpty()) diff.text else "\n")
+            spannableString.append(diff.text.ifEmpty { "\n" })
             when (diff.type) {
                 DiffResponse.DIFF_TYPE_LINE_ADDED -> {
                     diffSize += diff.text.length + 1

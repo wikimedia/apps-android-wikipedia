@@ -21,7 +21,7 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
     val binding = ViewWatchlistLanguagePopupBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
     private var popupWindowHost: PopupWindow? = null
-    private val disabledLangCodes = Prefs.getWatchlistDisabledLanguages()
+    private val disabledLangCodes = Prefs.watchlistDisabledLanguages.toMutableSet()
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -54,17 +54,17 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
         }
     }
 
-    internal inner class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal inner class RecyclerAdapter : RecyclerView.Adapter<WatchlistLangViewHolder>() {
         override fun getItemCount(): Int {
             return WikipediaApp.getInstance().language().appLanguageCodes.size
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WatchlistLangViewHolder {
             return WatchlistLangViewHolder(LayoutInflater.from(context).inflate(R.layout.item_watchlist_language, parent, false))
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            (holder as WatchlistLangViewHolder).bindItem(position)
+        override fun onBindViewHolder(holder: WatchlistLangViewHolder, position: Int) {
+            holder.bindItem(position)
         }
     }
 
@@ -75,7 +75,7 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
         } else if (!isChecked) {
             disabledLangCodes.add(langCode)
         }
-        Prefs.setWatchlistDisabledLanguages(disabledLangCodes)
+        Prefs.watchlistDisabledLanguages = disabledLangCodes
         callback?.onLanguageChanged()
     }
 

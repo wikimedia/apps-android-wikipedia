@@ -618,6 +618,9 @@
   <string name="preference_summary_notification_mention">Qualcuno ti menziona in una pagina</string>
   <string name="preference_title_notification_user_talk">Pagina di discussione</string>
   <string name="preference_summary_notification_user_talk">Messaggi e risposte dalle pagine di discussione</string>
+  <string name="preference_category_push_notifications">Notifiche push</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+  <string name="notifications_channel_group_other_title">Altro</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
   <string name="view_random_article_card_title">Voce a caso</string>
@@ -1003,6 +1006,7 @@
   <string name="menu_option_user_contributions">Contributi di %s</string>
   <string name="watchlist_details_watching_label">Osservato</string>
   <string name="watchlist_details_watch_label">Osserva</string>
+  <string name="watchlist_details_next_edit">Prossima modifica</string>
   <string name="watchlist_details_prev_edit">Modifica precedente</string>
   <string name="thank_label">Ringrazia</string>
   <string name="go_to_user_page">Vai alla pagina utente</string>

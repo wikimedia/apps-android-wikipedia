@@ -12,7 +12,7 @@ class RemoteConfig {
             if (curConfig == null) {
                 curConfig = try {
                     // If there's no pref set, just give back the empty JSON Object
-                    JSONObject(Prefs.getRemoteConfigJson())
+                    JSONObject(Prefs.remoteConfigJson)
                 } catch (e: JSONException) {
                     throw RuntimeException(e)
                 }
@@ -21,7 +21,7 @@ class RemoteConfig {
         }
 
     fun updateConfig(newConfig: JSONObject) {
-        Prefs.setRemoteConfigJson(newConfig.toString())
+        Prefs.remoteConfigJson = newConfig.toString()
         curConfig = newConfig
     }
 }

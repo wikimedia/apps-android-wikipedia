@@ -72,14 +72,14 @@ class DescriptionEditFragment : Fragment() {
         if (invokeSource == InvokeSource.SUGGESTED_EDITS) {
             SuggestedEditsSurvey.onEditSuccess()
         }
-        Prefs.setLastDescriptionEditTime(Date().time)
-        Prefs.setSuggestedEditsReactivationPassStageOne(false)
+        Prefs.lastDescriptionEditTime = Date().time
+        Prefs.isSuggestedEditsReactivationPassStageOne = false
         SuggestedEditsFunnel.get().success(action)
         binding.fragmentDescriptionEditView.setSaveState(false)
-        if (Prefs.shouldShowDescriptionEditSuccessPrompt() && invokeSource == InvokeSource.PAGE_ACTIVITY) {
+        if (Prefs.showDescriptionEditSuccessPrompt && invokeSource == InvokeSource.PAGE_ACTIVITY) {
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS)
-            Prefs.shouldShowDescriptionEditSuccessPrompt(false)
+            Prefs.showDescriptionEditSuccessPrompt = false
         } else {
             val intent = Intent()
             intent.putExtra(SuggestionsActivity.EXTRA_SOURCE_ADDED_CONTRIBUTION, binding.fragmentDescriptionEditView.description)
@@ -400,7 +400,7 @@ class DescriptionEditFragment : Fragment() {
             articleText.replaceFirst(TEMPLATE_PARSE_REGEX.toRegex(), "$1$newDescription$3")
         } else {
             // add new description template
-            """{{${DESCRIPTION_TEMPLATES[0]}|$newDescription}}$articleText""".trimIndent()
+            "{{${DESCRIPTION_TEMPLATES[0]}|$newDescription}}\n$articleText".trimIndent()
         }
     }
 
