@@ -1,6 +1,7 @@
 package org.wikipedia.edit
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.text.TextUtils
@@ -14,6 +15,7 @@ import androidx.core.os.postDelayed
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
+import androidx.core.view.setPadding
 import androidx.core.widget.doAfterTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -31,6 +33,7 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.ActivityEditSectionBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -41,10 +44,7 @@ import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.page.PageProperties
-import org.wikipedia.page.PageTitle
+import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
@@ -71,6 +71,7 @@ class EditSectionActivity : BaseActivity() {
     private var pageProps: PageProperties? = null
     private var textToHighlight: String? = null
     private var sectionWikitext: String? = null
+    private val editNotices = mutableListOf<CharSequence>()
 
     private var sectionTextModified = false
     private var sectionTextFirstLoad = true
@@ -390,6 +391,10 @@ class EditSectionActivity : BaseActivity() {
                 showFindInEditor()
                 true
             }
+            R.id.menu_edit_notices -> {
+                showEditNotices()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -397,6 +402,7 @@ class EditSectionActivity : BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_edit_section, menu)
         val item = menu.findItem(R.id.menu_save_section)
+        menu.findItem(R.id.menu_edit_notices).isVisible = editNotices.isNotEmpty()
         menu.findItem(R.id.menu_edit_zoom_in).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_out).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_find_in_editor).isVisible = !editPreviewFragment.isActive
@@ -516,9 +522,70 @@ class EditSectionActivity : BaseActivity() {
                         showError(throwable)
                         L.e(throwable)
                     })
+            disposables.add(ServiceFactory.get(pageTitle.wikiSite).getVisualEditorMetadata(pageTitle.prefixedText)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        editNotices.clear()
+                        editNotices.addAll(it.visualeditor?.notices.orEmpty().values)
+                        invalidateOptionsMenu()
+                        showEditNotices()
+                    }, {
+                        L.e(it)
+                    }))
         } else {
             displaySectionText()
         }
+    }
+
+    private fun showEditNotices() {
+        if (editNotices.isEmpty()) {
+            return
+        }
+        val message = StringBuilder()
+        for (notice in editNotices) {
+            if (message.isNotEmpty()) {
+                message.append("<br />————<br />")
+            }
+            message.append(notice)
+        }
+
+        val textView = TextView(this)
+        textView.text = StringUtil.fromHtml(message.toString())
+        textView.setPadding(DimenUtil.roundedDpToPx(16f))
+        textView.movementMethod = LinkMovementMethodExt { urlStr ->
+            L.v("Link clicked was $urlStr")
+            UriUtil.visitInExternalBrowser(this, Uri.parse(UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, urlStr)))
+            /*
+            var url = UriUtil.resolveProtocolRelativeUrl(urlStr)
+            if (url.startsWith("/wiki/")) {
+                val title = pageTitle.wikiSite.titleForInternalLink(url)
+                startActivity(PageActivity.newIntentForCurrentTab(this, HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
+            } else {
+                val uri = Uri.parse(url)
+                val authority = uri.authority
+                if (authority != null && WikiSite.supportedAuthority(authority) &&
+                        uri.path != null && uri.path!!.startsWith("/wiki/")) {
+                    val title = WikiSite(uri).titleForUri(uri)
+                    startActivity(PageActivity.newIntentForCurrentTab(this, HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
+                } else {
+                    // if it's a /w/ URI, turn it into a full URI and go external
+                    if (url.startsWith("/w/")) {
+                        url = String.format("%1\$s://%2\$s", pageTitle.wikiSite.scheme(),
+                                pageTitle.wikiSite.authority()) + url
+                    }
+                    UriUtil.handleExternalLink(this, Uri.parse(url))
+                }
+            }
+             */
+        }
+
+        AlertDialog.Builder(this)
+                .setTitle(R.string.edit_notices)
+                .setView(textView)
+                .setPositiveButton(android.R.string.ok, null)
+                .create()
+                .show()
     }
 
     private fun displaySectionText() {
