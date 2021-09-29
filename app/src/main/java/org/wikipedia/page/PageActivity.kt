@@ -108,7 +108,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonSearch.setOnClickListener {
             startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
         }
-        binding.pageToolbarButtonTabs.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color))
+        binding.pageToolbarButtonTabs.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
             TabActivity.captureFirstTabBitmap(pageFragment.containerView)
@@ -120,7 +120,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             showOverflowMenu(it)
         }
 
-        binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color))
+        binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
             overflowCallback.notificationsClick()
