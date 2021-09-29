@@ -11,10 +11,8 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.format.DateUtils
 import android.text.style.ForegroundColorSpan
-import android.view.Menu
-import android.view.MenuItem
+import android.view.*
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
@@ -39,11 +37,9 @@ import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.page.LinkHandler
-import org.wikipedia.page.PageActivity
-import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
@@ -64,6 +60,7 @@ class NotificationActivity : BaseActivity() {
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
     private var linkHandler = NotificationLinkHandler(this)
+    private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     var currentSearchQuery: String? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,9 +75,9 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, skipSearchBar = true))
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
-                ResourceUtil.getThemedAttributeId(this, R.attr.chart_shade5),
-                R.drawable.ic_archive_white_24dp,
-                ResourceUtil.getThemedAttributeId(this, R.attr.secondary_text_color))
+                ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
+                R.drawable.ic_outline_drafts_24,
+                android.R.color.white, true)
 
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
@@ -305,7 +302,7 @@ class NotificationActivity : BaseActivity() {
         return spannable
     }
 
-    private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndo: Boolean = false) {
+    private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false) {
         val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
@@ -331,7 +328,7 @@ class NotificationActivity : BaseActivity() {
             NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, markUnread)
         }
 
-        if (!fromUndo) {
+        if (!fromUndoOrClick) {
             showMarkReadItemsUndoSnackbar(items, markUnread)
         }
 
@@ -396,10 +393,10 @@ class NotificationActivity : BaseActivity() {
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
             binding.notificationItemImage.setColorFilter(notificationColor)
             n.contents?.let {
-                binding.notificationSubtitle.text = StringUtil.fromHtml(it.header)
+                binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
                 StringUtil.highlightAndBoldenText(binding.notificationSubtitle, currentSearchQuery, true, Color.YELLOW)
                 if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
-                    binding.notificationDescription.text = StringUtil.fromHtml(it.body)
+                    binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
                     binding.notificationDescription.visibility = View.VISIBLE
                 } else {
                     binding.notificationDescription.visibility = View.GONE
@@ -416,9 +413,9 @@ class NotificationActivity : BaseActivity() {
 
             binding.notificationItemReadDot.isVisible = n.isUnread
             binding.notificationItemReadDot.setColorFilter(notificationColor)
-            binding.notificationTitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+            binding.notificationTitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else typefaceSansSerifMedium
             binding.notificationTitle.setTextColor(notificationColor)
-            binding.notificationSubtitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+            binding.notificationSubtitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else typefaceSansSerifMedium
 
             val wikiCode = n.wiki
             val langCode = wikiCode.replace("wiki", "")
@@ -432,21 +429,20 @@ class NotificationActivity : BaseActivity() {
                 when {
                     wikiCode.contains("wikidata") -> {
                         binding.notificationWikiCode.visibility = View.GONE
-                        binding.notificationWikiCodeBackground.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
                     }
                     wikiCode.contains("commons") -> {
                         binding.notificationWikiCode.visibility = View.GONE
-                        binding.notificationWikiCodeBackground.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
                     }
                     else -> {
-                        binding.notificationWikiCodeBackground.visibility = View.VISIBLE
                         binding.notificationWikiCode.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.visibility = View.GONE
                         binding.notificationWikiCode.text = langCode
+                        ViewUtil.formatLangButton(binding.notificationWikiCode, langCode,
+                            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
                     }
                 }
                 binding.notificationSource.isVisible = true
@@ -454,7 +450,6 @@ class NotificationActivity : BaseActivity() {
             } ?: run {
                 binding.notificationSource.isVisible = false
                 binding.notificationSourceExternalIcon.isVisible = false
-                binding.notificationWikiCodeBackground.isVisible = false
                 binding.notificationWikiCodeContainer.isVisible = false
             }
 
@@ -468,8 +463,11 @@ class NotificationActivity : BaseActivity() {
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.paper_color))
             }
 
+            // setting tag for swipe action text
+            itemView.tag = getString(if (n.isUnread) R.string.notifications_swipe_action_read else R.string.notifications_swipe_action_unread).uppercase()
+
             binding.notificationOverflowMenu.setOnClickListener {
-                // TODO: implement this
+                showOverflowMenu(it)
             }
         }
 
@@ -478,6 +476,7 @@ class NotificationActivity : BaseActivity() {
                 toggleSelectItem(container)
             } else {
                 val n = container.notification!!
+                markReadItems(listOf(container), markUnread = false, fromUndoOrClick = true)
                 n.contents?.links?.getPrimary()?.let { link ->
                     val url = link.url
                     if (url.isNotEmpty()) {
@@ -497,7 +496,15 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onSwipe() {
-            markReadItems(listOf(container), false)
+            container.notification?.let {
+                markReadItems(listOf(container), !it.isUnread)
+            }
+        }
+
+        private fun showOverflowMenu(anchorView: View) {
+            NotificationActionsOverflowView(this@NotificationActivity).show(anchorView, container) {
+                    container, markRead -> markReadItems(listOf(container), !markRead)
+            }
         }
     }
 
@@ -666,58 +673,13 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun checkAllItems(mode: ActionMode, check: Boolean) {
-            notificationContainerList.map { it.selected = check }
+            notificationContainerList
+                .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
+                .map { it.selected = check }
             mode.title = selectedItemCount.toString()
             mode.menu.findItem(R.id.menu_check_all).isVisible = !check
             mode.menu.findItem(R.id.menu_uncheck_all).isVisible = check
             binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
-        }
-    }
-
-    private inner class NotificationLinkHandler constructor(context: Context) : LinkHandler(context) {
-
-        override fun onPageLinkClicked(anchor: String, linkText: String) {
-            // ignore
-        }
-
-        override fun onMediaLinkClicked(title: PageTitle) {
-            // ignore
-        }
-
-        override lateinit var wikiSite: WikiSite
-
-        override fun onInternalLinkClicked(title: PageTitle) {
-            startActivity(PageActivity.newIntentForCurrentTab(this@NotificationActivity,
-                HistoryEntry(title, HistoryEntry.SOURCE_NOTIFICATION), title))
-        }
-
-        override fun onExternalLinkClicked(uri: Uri) {
-            try {
-                // TODO: handle "change password" since it will open a blank page in PageActivity
-                startActivity(Intent(Intent.ACTION_VIEW).setData(uri))
-            } catch (e: Exception) {
-                L.e(e)
-            }
-        }
-    }
-
-    private class NotificationListItemContainer {
-        val type: Int
-        var notification: Notification? = null
-        var selected = false
-
-        constructor() {
-            type = ITEM_SEARCH_BAR
-        }
-
-        constructor(notification: Notification) {
-            this.notification = notification
-            type = ITEM_NOTIFICATION
-        }
-
-        companion object {
-            const val ITEM_SEARCH_BAR = 0
-            const val ITEM_NOTIFICATION = 1
         }
     }
 

@@ -43,7 +43,7 @@ enum class NotificationCategory constructor(val id: String,
 
     companion object {
 
-        val MENTIONS_GROUP = listOf(MENTION, EDIT_USER_TALK, EMAIL_USER, USER_RIGHTS, REVERTED)
+        private val MENTIONS_GROUP = listOf(MENTION, EDIT_USER_TALK, EMAIL_USER, USER_RIGHTS, REVERTED)
         val FILTERS_GROUP = listOf(EDIT_USER_TALK, MENTION, EMAIL_USER, REVERTED, USER_RIGHTS, EDIT_THANK, MILESTONE_EDIT, LOGIN_FAIL, SYSTEM, ARTICLE_LINKED)
 
         val MAP = EnumCodeMap(NotificationCategory::class.java)

@@ -11,6 +11,7 @@ import android.net.Uri
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.app.NotificationCompat
+import androidx.core.app.RemoteInput
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import androidx.core.graphics.applyCanvas
@@ -18,7 +19,6 @@ import androidx.core.graphics.createBitmap
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -30,11 +30,12 @@ object NotificationPresenter {
         val activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id, n.type)
         val builder = getDefaultBuilder(context, n.id, n.type, notificationCategory)
         val title: String = StringUtil.fromHtml(if (n.contents != null) n.contents.header else "").toString()
+        val id = n.key().toInt()
 
         n.contents?.links?.let {
             it.getPrimary()?.let { primary ->
                 if (NotificationCategory.EDIT_USER_TALK.id == n.category) {
-                    addActionForTalkPage(context, builder, primary, n)
+                    addActionWithDirectReply(context, builder, primary, n.agent?.name.orEmpty(), id)
                 } else {
                     addAction(context, builder, primary, n)
                 }
@@ -49,7 +50,7 @@ object NotificationPresenter {
             }
         }
 
-        showNotification(context, builder, n.key().toInt(), wikiSiteName, title, title, notificationCategory.iconResId, notificationCategory.iconColor, true, activityIntent)
+        showNotification(context, builder, id, wikiSiteName, title, title, notificationCategory.iconResId, notificationCategory.iconColor, true, activityIntent)
     }
 
     fun showMultipleUnread(context: Context, unreadCount: Int) {
@@ -100,12 +101,25 @@ object NotificationPresenter {
         builder.addAction(0, labelStr, pendingIntent)
     }
 
-    private fun addActionForTalkPage(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
+    private fun addActionWithDirectReply(context: Context, builder: NotificationCompat.Builder,
+                                         link: Notification.Link, replyTo: String, id: Int) {
         val wiki = WikiSite(link.url)
         val title = wiki.titleForUri(Uri.parse(link.url))
-        val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(TalkTopicsActivity.newIntent(context, title.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id, n.type), 0)
-        builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
+
+        val remoteInput = RemoteInput.Builder(NotificationPollBroadcastReceiver.RESULT_KEY_DIRECT_REPLY)
+            .build()
+        val resultIntent = Intent(context, NotificationPollBroadcastReceiver::class.java)
+            .setAction(NotificationPollBroadcastReceiver.ACTION_DIRECT_REPLY)
+            .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_WIKI, wiki)
+            .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_TITLE, title)
+            .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_REPLY_TO, replyTo)
+            .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_ID, id)
+        val resultPendingIntent = PendingIntent.getBroadcast(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val action = NotificationCompat.Action.Builder(R.drawable.ic_reply_24, context.getString(R.string.notifications_direct_reply_action), resultPendingIntent)
+            .addRemoteInput(remoteInput)
+            .build()
+        builder.addAction(action)
     }
 
     private fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, drawIconCircle: Boolean): Bitmap {

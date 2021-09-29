@@ -22,18 +22,19 @@
                 android:layout_gravity="center"
                 android:background="?attr/paper_color"
                 android:visibility="gone"
-                app:tabSelectedTextColor="?attr/colorAccent"
-                app:tabTextColor="?android:attr/textColorTertiary">
+                app:tabTextAppearance="@style/NotificationTabTextAppearance"
+                app:tabTextColor="?android:attr/textColorTertiary"
+                app:tabSelectedTextColor="?attr/colorAccent">
 
                 <com.google.android.material.tabs.TabItem
+                    android:text="@string/notifications_tab_filter_all"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/notifications_tab_filter_all" />
+                    android:layout_height="wrap_content" />
 
                 <com.google.android.material.tabs.TabItem
+                    android:text="@string/notifications_tab_filter_mentions"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/notifications_tab_filter_mentions" />
+                    android:layout_height="wrap_content"/>
 
             </com.google.android.material.tabs.TabLayout>
 
@@ -68,7 +69,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/notifications_empty_message" />
-
         </LinearLayout>
 
         <TextView

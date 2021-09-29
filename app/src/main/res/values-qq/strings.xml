@@ -602,6 +602,10 @@
   <string name="notification_preferences_title">Title of activity where the notification preferences are managed.</string>
   <string name="notifications_mark_unread">Menu label for marking the selected notifications as unread.</string>
   <string name="notifications_mark_all_as_read">Menu label for marking all notifications as read.</string>
+  <string name="notifications_direct_reply_action">Button label for creating a direct reply to a message.</string>
+  <string name="notifications_direct_reply_progress">Label for message indicating that a reply is being posted. The %s symbol is replaced with the username to whom the reply is made.</string>
+  <string name="notifications_direct_reply_success">Message shown when a reply was posted successfully.</string>
+  <string name="notifications_direct_reply_error">Message shown when there was an error while posting a reply.</string>
   <string name="notifications_mark_all_as_read_message">Message shown when notifications are marked as read. The %d is replaced with the number of notifications.</string>
   <string name="notifications_mark_all_as_unread_message">Message shown when notifications are marked as unread. The %d is replaced with the number of notifications.</string>
   <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>
@@ -642,6 +646,9 @@
   <string name="notifications_search_bar_hint">Hint text for the notifications search bar.</string>
   <string name="notifications_search_bar_filter_hint">Hint text for the notifications filter icon.</string>
   <string name="notifications_menu_mark_as_read">Menu item used for marking selected items as read.</string>
+  <string name="notifications_menu_mark_as_unread">Menu item used for marking selected items as unread.</string>
+  <string name="notifications_swipe_action_read">Text for swipe action on notifications list item to mark it as read.</string>
+  <string name="notifications_swipe_action_unread">Text for swipe action on notifications list item to mark it as unread.</string>
   <string name="notifications_menu_check_all">Menu item used for selecting all items in the list.</string>
   <string name="notifications_menu_uncheck_all">Menu item used for unselecting all items in the list.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
