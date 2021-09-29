@@ -28,6 +28,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
 
     private var binding = ItemNotificationFilterBinding.inflate(LayoutInflater.from(context), this)
     var callback: Callback? = null
+    var filter: Filter? = null
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.dpToPx(48f).toInt())
@@ -45,13 +46,14 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
                     context.getString(R.string.notifications_all_types_text) -> callback?.onCheckedChanged(context.getString(R.string.notifications_all_types_text))
                     context.getString(R.string.wikimedia_commons) -> callback?.onCheckedChanged("commons")
                     context.getString(R.string.wikidata) -> callback?.onCheckedChanged("wikidata")
-                    else -> callback?.onCheckedChanged(binding.notificationFilterLanguageCode.text!!.toString())
+                    else -> callback?.onCheckedChanged(filter?.languageCode.toString())
                 }
             }
         }
     }
 
     fun setContents(filter: Filter) {
+        this.filter = filter
         binding.notificationFilterTitle.text = getTitleFor(filter.languageCode)
         binding.notificationFilterCheck.visibility = if (filter.isEnabled()) View.VISIBLE else View.GONE
         getTitleCodeFor(filter.languageCode)?.let {
