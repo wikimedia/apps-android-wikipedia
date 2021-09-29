@@ -124,6 +124,10 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&generator=unreviewedimagelabels&guillimit=10&prop=imagelabels|imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     fun getImagesWithUnreviewedLabels(@Query("uselang") lang: String): Observable<MwQueryResponse>
 
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctoponly=1&rcshow=anon&rctype=edit|new")
+    fun getRecentEdits(@Query("rclimit") count: Int, @Query("rcstart") startTimeStamp: String): Observable<MwQueryResponse>
+
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")
     fun postSetOptions(
@@ -275,6 +279,15 @@ interface Service {
         @Field("captchaid") captchaId: String?,
         @Field("captchaword") captchaWord: String?
     ): Observable<Edit>
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=rollback")
+    fun postRollback(
+            @Field("title") title: String,
+            @Field("user") user: String,
+            @Field("summary") summary: String,
+            @Field("token") token: String
+    ): Observable<MwPostResponse>
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     fun getUserContributions(
