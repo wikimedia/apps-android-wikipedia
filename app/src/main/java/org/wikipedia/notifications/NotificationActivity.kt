@@ -42,6 +42,8 @@ import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
@@ -62,6 +64,7 @@ class NotificationActivity : BaseActivity() {
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
     private var linkHandler = NotificationLinkHandler(this)
+    private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     var currentSearchQuery: String? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -318,7 +321,7 @@ class NotificationActivity : BaseActivity() {
             NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, markUnread)
         }
 
-        if (!fromUndo) {
+        if (!fromUndoOrClick) {
             showMarkReadItemsUndoSnackbar(items, markUnread)
         }
 
@@ -383,10 +386,10 @@ class NotificationActivity : BaseActivity() {
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
             binding.notificationItemImage.setColorFilter(notificationColor)
             n.contents?.let {
-                binding.notificationSubtitle.text = StringUtil.fromHtml(it.header)
+                binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
                 StringUtil.highlightAndBoldenText(binding.notificationSubtitle, currentSearchQuery, true, Color.YELLOW)
                 if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
-                    binding.notificationDescription.text = StringUtil.fromHtml(it.body)
+                    binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
                     binding.notificationDescription.visibility = View.VISIBLE
                 } else {
                     binding.notificationDescription.visibility = View.GONE
@@ -403,9 +406,9 @@ class NotificationActivity : BaseActivity() {
 
             binding.notificationItemReadDot.isVisible = n.isUnread
             binding.notificationItemReadDot.setColorFilter(notificationColor)
-            binding.notificationTitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+            binding.notificationTitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else typefaceSansSerifMedium
             binding.notificationTitle.setTextColor(notificationColor)
-            binding.notificationSubtitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+            binding.notificationSubtitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else typefaceSansSerifMedium
 
             val wikiCode = n.wiki
             val langCode = wikiCode.replace("wiki", "")
@@ -419,21 +422,20 @@ class NotificationActivity : BaseActivity() {
                 when {
                     wikiCode.contains("wikidata") -> {
                         binding.notificationWikiCode.visibility = View.GONE
-                        binding.notificationWikiCodeBackground.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
                     }
                     wikiCode.contains("commons") -> {
                         binding.notificationWikiCode.visibility = View.GONE
-                        binding.notificationWikiCodeBackground.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
                     }
                     else -> {
-                        binding.notificationWikiCodeBackground.visibility = View.VISIBLE
                         binding.notificationWikiCode.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.visibility = View.GONE
                         binding.notificationWikiCode.text = langCode
+                        ViewUtil.formatLangButton(binding.notificationWikiCode, langCode,
+                            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
                     }
                 }
                 binding.notificationSource.isVisible = true
@@ -441,7 +443,6 @@ class NotificationActivity : BaseActivity() {
             } ?: run {
                 binding.notificationSource.isVisible = false
                 binding.notificationSourceExternalIcon.isVisible = false
-                binding.notificationWikiCodeBackground.isVisible = false
                 binding.notificationWikiCodeContainer.isVisible = false
             }
 
@@ -465,6 +466,7 @@ class NotificationActivity : BaseActivity() {
                 toggleSelectItem(container)
             } else {
                 val n = container.notification!!
+                markReadItems(listOf(container), markUnread = false, fromUndoOrClick = true)
                 n.contents?.links?.getPrimary()?.let { link ->
                     val url = link.url
                     if (url.isNotEmpty()) {
@@ -634,7 +636,9 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun checkAllItems(mode: ActionMode, check: Boolean) {
-            notificationContainerList.map { it.selected = check }
+            notificationContainerList
+                .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
+                .map { it.selected = check }
             mode.title = selectedItemCount.toString()
             mode.menu.findItem(R.id.menu_check_all).isVisible = !check
             mode.menu.findItem(R.id.menu_uncheck_all).isVisible = check

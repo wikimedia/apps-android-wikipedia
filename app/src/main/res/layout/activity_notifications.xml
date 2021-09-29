@@ -22,6 +22,7 @@
                 android:layout_gravity="center"
                 android:background="?attr/paper_color"
                 android:visibility="gone"
+                app:tabTextAppearance="@style/NotificationTabTextAppearance"
                 app:tabTextColor="?android:attr/textColorTertiary"
                 app:tabSelectedTextColor="?attr/colorAccent">
 

@@ -388,6 +388,10 @@
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
+    <style name="NotificationTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
     <style name="MaterialLargePrimaryTitle">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">20sp</item>
