@@ -9,6 +9,7 @@ import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil.densityScalar
 import org.wikipedia.util.ResourceUtil.bitmapFromVectorDrawable
@@ -18,7 +19,8 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
         context: Context,
         @ColorRes swipeColor: Int = R.color.red50,
         @DrawableRes swipeIcon: Int = R.drawable.ic_delete_white_24dp,
-        @ColorRes swipeIconTint: Int? = null
+        @ColorRes swipeIconTint: Int? = null,
+        val refreshLayout: SwipeRefreshLayout? = null
 ) : ItemTouchHelper.Callback() {
 
     interface Callback {
@@ -61,6 +63,11 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
         if (viewHolder is Callback) {
             viewHolder.onSwipe()
         }
+    }
+
+    override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
+        super.onSelectedChanged(viewHolder, actionState)
+        refreshLayout?.isEnabled = actionState != ItemTouchHelper.ACTION_STATE_SWIPE
     }
 
     override fun onChildDraw(canvas: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder,
