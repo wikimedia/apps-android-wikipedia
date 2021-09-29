@@ -638,4 +638,8 @@ object Prefs {
     var isWatchlistMainOnboardingTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, false)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled)
+
+    var isPageNotificationTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_page_notification_tooltip_shown, false)
+        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_page_notification_tooltip_shown, enabled)
 }
