@@ -4,6 +4,7 @@
 * Masalli qasimli
 * NMW03
 * Neriman2003
+* Serkanland
 * Toghrul Rahimli
 * Verman1
 * Vesely35
@@ -42,6 +43,7 @@
   <string name="app_settings">Tətbiqetmə parametrləri</string>
   <string name="search_tab_tooltip">Axtarış terminini birbaşa yazmağa başlamaq üçün yenidən ikona toxunun.</string>
   <string name="history_list_title">Tarixçə</string>
+  <string name="image_content_description">Şəkil: %s</string>
   <string name="dialog_title_clear_history">Baxış tarixini təmizləyin</string>
   <string name="dialog_message_clear_history">Bu, bütün axtarış tarixinizi siləcək və açıq pəncərələrinizi bağlayacaq. Siz əminsiniz?</string>
   <string name="dialog_message_clear_history_yes">Bəli</string>
@@ -152,7 +154,7 @@
   <string name="create_account_passwords_mismatch_error">Şifrələr uyğun gəlmir</string>
   <string name="create_account_email_error">Səhv e-poçt</string>
   <string name="create_account_username_error">İstifadəçi adında səhv simvollar</string>
-  <string name="create_account_password_error" fuzzy="true">Bu parol səhvdir.</string>
+  <string name="create_account_password_error">Parol ən az 8 simvoldan ibarət olmalıdır.</string>
   <string name="create_account_generic_error">Hesab yaradıla bilmədi</string>
   <string name="create_account_next">Növbəti</string>
   <string name="email_recommendation_dialog_title">E-poçt ünvanı olmadan hesab yaradılsın?</string>
@@ -166,6 +168,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detallar</string>
   <string name="preferences_general_heading">Ümumi</string>
+  <string name="preferences_account_heading">Hesab</string>
   <string name="wikipedia_app_faq">Vikipediya tətbiqetməsi TSS</string>
   <string name="send_feedback">Tətbiqetmə rəyi göndər</string>
   <string name="create_account_account_created_toast">Hesab yaradıldı!</string>
@@ -259,7 +262,7 @@
   <string name="clear_recent_searches_confirm_yes">Bəli</string>
   <string name="clear_recent_searches_confirm_no">Xeyr</string>
   <string name="error_browser_not_found">Veb səhifəni açıla bilmədi (brauzer tətbiqi tapılmadı).</string>
-  <string name="table_infobox">Tez faktlar</string>
+  <string name="table_infobox">Cəld faktlar</string>
   <string name="table_other">Əlavə məlumat</string>
   <string name="table_close">Bağla</string>
   <string name="widget_name_featured_page">Vikipediya seçilmiş məqalə</string>
@@ -386,6 +389,10 @@
   <string name="reading_list_create_new">Yenisini yarat</string>
   <string name="reading_list_added_view_button">Siyahıya bax</string>
   <string name="reading_list_add_to_list_button">Siyahıya əlavə et</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 məqalə, %2$.2f MB</item>
+    <item quantity="other">%1$d məqalə, %2$.2f MB</item>
+  </plurals>
   <string name="reading_list_menu_delete">Siyahını sil</string>
   <string name="reading_list_item_delete_undo">Geri qaytar</string>
   <string name="reading_list_select_item">Seç</string>

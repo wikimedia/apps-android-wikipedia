@@ -63,6 +63,7 @@
   <string name="app_settings">Sovellusasetukset</string>
   <string name="search_tab_tooltip">Napauta kuvaketta uudelleen aloittaaksesi hakutermin kirjoittamisen suoraan.</string>
   <string name="history_list_title">Historia</string>
+  <string name="image_content_description">Kuva: %s</string>
   <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi ja sulkee kaikki avoimet välilehdet. Oletko varma?</string>
   <string name="dialog_message_clear_history_yes">Kyllä</string>
@@ -173,7 +174,7 @@
   <string name="create_account_passwords_mismatch_error">Salasanat eivät täsmää</string>
   <string name="create_account_email_error">Virheellinen sähköpostiosoite</string>
   <string name="create_account_username_error">Käyttäjänimi sisältää kelpaamattomia merkkejä</string>
-  <string name="create_account_password_error" fuzzy="true">Salasana on virheellinen</string>
+  <string name="create_account_password_error">Salasanan tulee sisältää vähintään 8 merkkiä</string>
   <string name="create_account_generic_error">Käyttäjätunnusta ei voitu luoda</string>
   <string name="create_account_next">Seuraava</string>
   <string name="email_recommendation_dialog_title">Luo käyttäjätunnus ilman sähköpostiosoitetta?</string>
@@ -544,6 +545,7 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
+  <string name="notification_channel_title">Artikkelien lataaminen</string>
   <string name="notification_channel_description">Latauksen edistyminen</string>
   <string name="notification_syncing_pause_button">Tauko</string>
   <string name="notification_syncing_resume_button">Jatka</string>
@@ -593,6 +595,7 @@
   <string name="notifications_view_archived_button_text">Tarkastele arkistoituja ilmoituksia</string>
   <string name="notification_preferences_title">Ilmoitusasetukset</string>
   <string name="notifications_mark_unread">Merkitse lukemattomaksi</string>
+  <string name="notifications_mark_all_as_read">Merkitse kaikki luetuiksi</string>
   <string name="watchlist_title">Tarkkailulista</string>
   <string name="preference_title_notification_poll">Kyselyilmoitukset</string>
   <string name="preference_summary_notification_poll">Salli sovelluksen käyttää dataa uusien ilmoituksien tarkistamiseen taustalla.</string>
@@ -610,7 +613,17 @@
   <string name="preference_title_notification_mention">Maininnat</string>
   <string name="preference_summary_notification_mention">Joku mainitsi sinut sivulla</string>
   <string name="preference_title_notification_user_talk">Keskustelusivu</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Viestit keskustelusivuilta</string>
+  <string name="preference_summary_notification_user_talk">Viestit ja vastaukset keskustelusivuilta</string>
+  <string name="preference_title_notification_email_user">Sähköposti vastaanotettu</string>
+  <string name="preference_summary_notification_email_user">Joku lähetti sinulle sähköpostin wikistä</string>
+  <string name="preference_title_notification_user_rights">Käyttäjäoikeuksien muutokset</string>
+  <string name="preference_title_notification_article_linked">Linkit luomiisi artikkeleihin</string>
+  <string name="preference_category_push_notifications">Push-ilmoitukset</string>
+  <string name="preference_title_customize_push_notifications">Kustomoi push-ilmoituksia</string>
+  <string name="preference_category_display_settings">Näyttöasetukset</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Ilmoitukset Wikipediasta</string>
+  <string name="notifications_channel_group_other_title">Muu</string>
+  <string name="notifications_channel_group_other_description">Muut ilmoitukset sovelluksesta</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
   <string name="view_random_article_card_title">Satunnainen artikkeli</string>
@@ -994,6 +1007,8 @@
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
   <string name="watchlist_details_watching_label">Tarkkailemassa</string>
   <string name="watchlist_details_watch_label">Tarkkaile</string>
+  <string name="watchlist_details_next_edit">Seuraava muokkaus</string>
+  <string name="watchlist_details_prev_edit">Edellinen muokkaus</string>
   <string name="thank_label">Kiitä</string>
   <string name="go_to_user_page">Siirry käyttäjäsivulle</string>
   <string name="thank_dialog_title_text">Julkinen kiitos lähetetty</string>

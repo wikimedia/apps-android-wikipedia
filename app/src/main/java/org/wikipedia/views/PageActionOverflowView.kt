@@ -60,16 +60,16 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
 
         // TODO: remove when ABC test is complete.
         if (NotificationsABCTestFunnel().aBTestGroup > 1) {
-            binding.overflowNotifications.isVisible = true
-            if (AccountUtil.isLoggedIn && Prefs.getNotificationUnreadCount() > 0) {
-                binding.unreadDotView.setUnreadCount(Prefs.getNotificationUnreadCount())
+            binding.overflowNotificationsContainer.isVisible = true
+            if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
+                binding.unreadDotView.setUnreadCount(Prefs.notificationUnreadCount)
                 binding.unreadDotView.isVisible = true
             } else {
                 binding.unreadDotView.isVisible = false
                 binding.unreadDotView.setUnreadCount(0)
             }
         } else {
-            binding.overflowNotifications.isVisible = false
+            binding.overflowNotificationsContainer.isVisible = false
         }
     }
 

@@ -20,6 +20,7 @@
 * Omotecho
 * Otokoume
 * Penn Station
+* RYOUMA1117
 * RYU N
 * Rootflag
 * Runequest77
@@ -76,6 +77,7 @@
   <string name="app_settings">アプリの設定</string>
   <string name="search_tab_tooltip">再度アイコンをタップして直接検索ワードを入力することができます。</string>
   <string name="history_list_title">履歴</string>
+  <string name="image_content_description">画像 %s</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
   <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか?</string>
   <string name="dialog_message_clear_history_yes">はい</string>
@@ -395,9 +397,13 @@
   <string name="empty_tab_title">新しいタブ</string>
   <string name="menu_save_all_tabs">すべてのタブを保存</string>
   <string name="error_blocked_title">あなたのユーザー名またはIPアドレスはブロックされています。</string>
+  <string name="error_blocked_by">ブロックは&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;によって作成されました</string>
+  <string name="error_blocked_reason">与えられた理由は次のとおりです：%s</string>
   <string name="error_blocked_start">ブロックの開始日：%s</string>
   <string name="error_blocked_expiry">ブロックの終了日：%s</string>
   <string name="error_blocked_id">ブロックID：%s</string>
+  <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;&lt;/a&gt;または別の&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;&lt;/a&gt;管理者&lt;/ aに連絡できます。 &gt;ブロックについて話し合う。%1$s</string>
+  <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;管理者&lt;/a&gt;に連絡して、ブロックについて話し合うことができます。</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
@@ -553,6 +559,7 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">設定</string>
   <string name="notification_reverted_title">編集が差し戻されました</string>
+  <string name="notification_channel_title">ページのダウンロード中</string>
   <string name="notification_channel_description">ダウンロードの進行状況</string>
   <string name="notification_syncing_pause_button">一時停止</string>
   <string name="notification_syncing_resume_button">継続</string>
@@ -602,6 +609,7 @@
   <string name="notifications_view_archived_button_text">アーカイブした通知を表示</string>
   <string name="notification_preferences_title">通知の設定</string>
   <string name="notifications_mark_unread">未読にする</string>
+  <string name="notifications_mark_all_as_read">すべて既読にする</string>
   <string name="watchlist_title">ウォッチリスト</string>
   <string name="preference_title_notification_poll">通知に投票</string>
   <string name="preference_summary_notification_poll">バックグラウンドで新規通知をチェックするのにアプリがデータ通信するのを許可する</string>
@@ -619,7 +627,12 @@
   <string name="preference_title_notification_mention">言及</string>
   <string name="preference_summary_notification_mention">誰かが特定のページであなたに言及しました</string>
   <string name="preference_title_notification_user_talk">トークページ</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">トークページのメッセージ</string>
+  <string name="preference_summary_notification_user_talk">トークページからのメッセージと返信</string>
+  <string name="preference_category_push_notifications">プッシュ通知</string>
+  <string name="preference_category_display_settings">表示設定</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ウィキペディア</string>
+  <string name="notifications_channel_group_other_title">その他</string>
+  <string name="notifications_channel_group_other_description">アプリからのその他の通知</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
   <string name="view_random_article_card_title">ランダム記事</string>
