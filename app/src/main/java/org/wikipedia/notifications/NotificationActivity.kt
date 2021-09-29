@@ -15,6 +15,8 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.view.*
+import android.view.View
 import androidx.appcompat.view.ActionMode
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
@@ -37,11 +39,7 @@ import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.page.LinkHandler
-import org.wikipedia.page.PageActivity
-import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
@@ -79,9 +77,9 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, skipSearchBar = true))
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
-                ResourceUtil.getThemedAttributeId(this, R.attr.chart_shade5),
-                R.drawable.ic_archive_white_24dp,
-                ResourceUtil.getThemedAttributeId(this, R.attr.secondary_text_color))
+                ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
+                R.drawable.ic_outline_drafts_24,
+                android.R.color.white, true)
 
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
@@ -456,8 +454,11 @@ class NotificationActivity : BaseActivity() {
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.paper_color))
             }
 
+            // setting tag for swipe action text
+            itemView.tag = getString(if (n.isUnread) R.string.notifications_swipe_action_read else R.string.notifications_swipe_action_unread).uppercase()
+
             binding.notificationOverflowMenu.setOnClickListener {
-                // TODO: implement this
+                showOverflowMenu(it)
             }
         }
 
@@ -486,7 +487,15 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onSwipe() {
-            markReadItems(listOf(container), false)
+            container.notification?.let {
+                markReadItems(listOf(container), !it.isUnread)
+            }
+        }
+
+        private fun showOverflowMenu(anchorView: View) {
+            NotificationActionsOverflowView(this@NotificationActivity).show(anchorView, container) {
+                    container, markRead -> markReadItems(listOf(container), !markRead)
+            }
         }
     }
 
@@ -643,53 +652,6 @@ class NotificationActivity : BaseActivity() {
             mode.menu.findItem(R.id.menu_check_all).isVisible = !check
             mode.menu.findItem(R.id.menu_uncheck_all).isVisible = check
             binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
-        }
-    }
-
-    private inner class NotificationLinkHandler constructor(context: Context) : LinkHandler(context) {
-
-        override fun onPageLinkClicked(anchor: String, linkText: String) {
-            // ignore
-        }
-
-        override fun onMediaLinkClicked(title: PageTitle) {
-            // ignore
-        }
-
-        override lateinit var wikiSite: WikiSite
-
-        override fun onInternalLinkClicked(title: PageTitle) {
-            startActivity(PageActivity.newIntentForCurrentTab(this@NotificationActivity,
-                HistoryEntry(title, HistoryEntry.SOURCE_NOTIFICATION), title))
-        }
-
-        override fun onExternalLinkClicked(uri: Uri) {
-            try {
-                // TODO: handle "change password" since it will open a blank page in PageActivity
-                startActivity(Intent(Intent.ACTION_VIEW).setData(uri))
-            } catch (e: Exception) {
-                L.e(e)
-            }
-        }
-    }
-
-    private class NotificationListItemContainer {
-        val type: Int
-        var notification: Notification? = null
-        var selected = false
-
-        constructor() {
-            type = ITEM_SEARCH_BAR
-        }
-
-        constructor(notification: Notification) {
-            this.notification = notification
-            type = ITEM_NOTIFICATION
-        }
-
-        companion object {
-            const val ITEM_SEARCH_BAR = 0
-            const val ITEM_NOTIFICATION = 1
         }
     }
 
