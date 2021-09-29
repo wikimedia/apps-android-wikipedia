@@ -120,4 +120,5 @@
     <string name="preference_key_watchlist_page_onboarding_tooltip_shown">watchlistPageOnboardingTooltipShown</string>
     <string name="preference_key_watchlist_main_onboarding_tooltip_shown">watchlistMainOnboardingTooltipShown</string>
     <string name="preference_key_languages_filter_notification">filterNotificationsLanguages</string>
+    <string name="preference_key_page_notification_tooltip_shown">pageNotificationTooltipShown</string>
 </resources>

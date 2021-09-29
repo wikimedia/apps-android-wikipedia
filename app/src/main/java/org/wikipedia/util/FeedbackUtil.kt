@@ -171,8 +171,9 @@ object FeedbackUtil {
     }
 
     @JvmStatic
-    fun showTooltip(activity: Activity, anchor: View, text: CharSequence, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
-        return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss), anchor, aboveOrBelow, autoDismiss)
+    fun showTooltip(activity: Activity, anchor: View, text: CharSequence, aboveOrBelow: Boolean,
+                    autoDismiss: Boolean, arrowAnchorPadding: Int = 0, topOrBottomMargin: Int = 0): Balloon {
+        return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow), anchor, aboveOrBelow, autoDismiss)
     }
 
     @JvmStatic
@@ -193,7 +194,8 @@ object FeedbackUtil {
         return balloon
     }
 
-    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, showDismissButton: Boolean = false): Balloon {
+    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
+                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         if (showDismissButton) {
@@ -207,11 +209,14 @@ object FeedbackUtil {
             setArrowSize(24)
             setMarginLeft(8)
             setMarginRight(8)
+            setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
+            setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
             setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(binding.root)
             setWidth(BalloonSizeSpec.WRAP)
             setHeight(BalloonSizeSpec.WRAP)
+            setArrowAlignAnchorPadding(arrowAnchorPadding)
         }
 
         binding.buttonView.setOnClickListener {

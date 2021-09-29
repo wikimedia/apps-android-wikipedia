@@ -198,6 +198,7 @@
     <string name="page_protected_can_not_edit_title">This page is protected</string>
     <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Add to Watchlist</string>
     <string name="page_watchlist_overflow_menu_onboarding_tooltip_text"><![CDATA[Keep track of what\'s happening to articles you are interested in. Tap the overflow menu and select <b>Add to Watchlist</b> to see changes to an article.]]></string>
+    <string name="page_notification_tooltip">Your notifications are now here.</string>
     <string name="settings_item_preferences">Settings</string>
     <string name="settings_activity_title">Settings</string>
     <string name="about_description">About the Wikipedia app</string>
