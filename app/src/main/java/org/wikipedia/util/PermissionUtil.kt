@@ -1,10 +1,8 @@
 package org.wikipedia.util
 
 import android.Manifest
-import android.annotation.TargetApi
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -22,10 +20,9 @@ object PermissionUtil {
                 grantResults[0] == PackageManager.PERMISSION_GRANTED)
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     fun shouldShowWritePermissionRationale(activity: AppCompatActivity): Boolean {
-        return (!Prefs.askedForPermissionOnce(Manifest.permission.WRITE_EXTERNAL_STORAGE) ||
-                activity.shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE))
+        return !Prefs.askedForPermissionOnce(Manifest.permission.WRITE_EXTERNAL_STORAGE) ||
+                ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
     }
 
     @JvmStatic

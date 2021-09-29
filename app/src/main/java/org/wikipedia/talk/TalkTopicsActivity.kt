@@ -34,6 +34,7 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -260,10 +261,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
-            var topic: TalkPage.Topic? = null
-            if (topics.size == 1) {
-                topic = topics.first()
-            }
+            var topic = topics.firstOrNull()
             if (!pageTitle.fragment.isNullOrEmpty()) {
                 topic = topics.find {
                     StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html)
@@ -345,12 +343,12 @@ class TalkTopicsActivity : BaseActivity() {
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
             val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
-            var titleStr = StringUtil.fromHtml(topic.html).toString().trim()
+            var titleStr = RichTextUtil.stripHtml(topic.html).trim()
             if (titleStr.isEmpty()) {
                 // build up a title based on the contents, massaging the html into plain text that
                 // flows over a few lines...
                 topic.replies?.firstOrNull()?.let {
-                    titleStr = StringUtil.fromHtml(it.html).toString().replace("\n", " ")
+                    titleStr = RichTextUtil.stripHtml(it.html).replace("\n", " ")
                     if (titleStr.length > MAX_CHARS_NO_SUBJECT) {
                         titleStr = titleStr.substring(0, MAX_CHARS_NO_SUBJECT) + "…"
                     }
@@ -371,17 +369,17 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<TalkTopicHolder>() {
         override fun getItemCount(): Int {
             return topics.size
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
             return TalkTopicHolder(layoutInflater.inflate(R.layout.item_talk_topic, parent, false))
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            (holder as TalkTopicHolder).bindItem(topics[pos])
+        override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
+            holder.bindItem(topics[pos])
         }
     }
 
