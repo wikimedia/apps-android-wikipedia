@@ -56,6 +56,6 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
 
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppNotificationPreferences"
-        private const val REV_ID = 18325724
+        private const val REV_ID = 22083261
     }
 }
