@@ -40,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 50375
+        versionCode 50376
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -196,6 +196,7 @@ dependencies {
 
     implementation "com.google.android.material:material:1.4.0"
     implementation "androidx.core:core-ktx:1.6.0"
+    implementation "androidx.browser:browser:1.3.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
     implementation "androidx.fragment:fragment-ktx:1.3.6"
     implementation "androidx.palette:palette-ktx:1.0.0"
