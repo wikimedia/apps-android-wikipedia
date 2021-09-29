@@ -110,22 +110,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Lorem ipsum" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/notificationWikiCodeBackground"
-        android:layout_width="0dp"
-        android:layout_height="16dp"
-        android:contentDescription="@null"
-        app:layout_constraintBottom_toBottomOf="@id/notificationWikiCodeContainer"
-        app:layout_constraintEnd_toEndOf="@id/notificationWikiCodeContainer"
-        app:layout_constraintStart_toStartOf="@id/notificationWikiCodeContainer"
-        app:layout_constraintTop_toTopOf="@id/notificationWikiCodeContainer"
-        app:srcCompat="@drawable/lang_button_shape_border"
-        app:tint="?attr/secondary_text_color" />
-
     <FrameLayout
         android:id="@+id/notificationWikiCodeContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
         app:layout_constraintTop_toBottomOf="@id/notificationDescription"
@@ -133,24 +121,22 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/notificationWikiCodeImage"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:contentDescription="@null"
             app:tint="?attr/secondary_text_color"
             tools:src="@drawable/ic_wikidata_logo" />
 
         <TextView
             android:id="@+id/notificationWikiCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="3dp"
-            android:paddingTop="1dp"
-            android:paddingEnd="3dp"
-            android:paddingBottom="1dp"
+            style="@style/TextViewCentered"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/lang_button_shape_border"
+            android:fontFamily="sans-serif-medium"
             android:textAllCaps="true"
             android:textColor="?attr/secondary_text_color"
-            android:textSize="9sp"
-            tools:text="en" />
+            android:textSize="12sp" />
 
     </FrameLayout>
 

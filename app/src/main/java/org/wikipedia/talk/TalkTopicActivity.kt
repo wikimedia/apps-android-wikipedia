@@ -260,9 +260,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         return topicId == TalkTopicsActivity.NEW_TOPIC_ID
     }
 
-    // TODO: remove when the API fixes it
     private fun shouldHideReplyButton(): Boolean {
-        return topicId == -1
+        // Hide the reply button when:
+        // a) The topic ID is -1, which means the API couldn't parse it properly (TODO: wait until fixed)
+        // b) The name of the topic is empty, implying that this is the topmost "header" section.
+        return topicId == -1 || topic?.html.orEmpty().trim().isEmpty()
     }
 
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
@@ -277,17 +279,17 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
-    internal inner class TalkReplyItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal inner class TalkReplyItemAdapter : RecyclerView.Adapter<TalkReplyHolder>() {
         override fun getItemCount(): Int {
             return topic?.replies?.size ?: 0
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkReplyHolder {
             return TalkReplyHolder(layoutInflater.inflate(R.layout.item_talk_reply, parent, false))
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            (holder as TalkReplyHolder).bindItem(topic?.replies!![pos], pos == itemCount - 1)
+        override fun onBindViewHolder(holder: TalkReplyHolder, pos: Int) {
+            holder.bindItem(topic?.replies!![pos], pos == itemCount - 1)
         }
     }
 
@@ -323,14 +325,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             return
         }
 
-        // if the message is not signed, then sign it explicitly
-        if (!body.endsWith("~~~~")) {
-            body += " ~~~~"
-        }
-        if (!isNewTopic()) {
-            // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
-            body = "\n\n" + body
-        }
+        val topicDepth = topic?.replies?.lastOrNull()?.depth ?: 0
+
+        body = addDefaultFormatting(body, topicDepth, isNewTopic())
 
         binding.talkProgressBar.visibility = View.VISIBLE
         binding.replySaveButton.isEnabled = false
@@ -486,6 +483,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         if (replyActive && !isNewTopic()) {
             onInitialLoad()
         } else {
+            setResult(RESULT_BACK_FROM_TOPIC)
             super.onBackPressed()
         }
     }
@@ -496,6 +494,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
         const val RESULT_EDIT_SUCCESS = 1
+        const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource, undoneSubject: String? = null, undoneBody: String? = null): Intent {
@@ -505,6 +504,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
                     .putExtra(EXTRA_BODY, undoneBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+        }
+
+        fun addDefaultFormatting(text: String, topicDepth: Int, newTopic: Boolean = false): String {
+            var body = ":".repeat(if (newTopic) 0 else topicDepth + 1) + text
+            // if the message is not signed, then sign it explicitly
+            if (!body.endsWith("~~~~")) {
+                body += " ~~~~"
+            }
+            if (!newTopic) {
+                // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
+                body = "\n\n" + body
+            }
+            return body
         }
     }
 }
