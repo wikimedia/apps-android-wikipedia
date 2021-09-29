@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.*
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -58,6 +59,7 @@ class TalkTopicsActivity : BaseActivity() {
     private val topics = mutableListOf<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var revisionForLastEdit: MwQueryPage.Revision? = null
+    private val goToTopic get() = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -154,34 +156,43 @@ class TalkTopicsActivity : BaseActivity() {
                     }
                     .show()
             }
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_BACK_FROM_TOPIC) {
+            finish()
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_talk, menu)
+        if (!goToTopic) {
+            menuInflater.inflate(R.menu.menu_talk, menu)
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
-        menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
-        val notificationMenuItem = menu.findItem(R.id.menu_notifications)
-        if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
-            notificationMenuItem.isVisible = true
-            notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
-            notificationButtonView.setOnClickListener {
-                if (AccountUtil.isLoggedIn) {
-                    startActivity(NotificationActivity.newIntent(this))
+        if (!goToTopic) {
+            menu!!.findItem(R.id.menu_change_language).isVisible =
+                pageTitle.namespace() == Namespace.USER_TALK
+            menu.findItem(R.id.menu_view_user_page).isVisible =
+                pageTitle.namespace() == Namespace.USER_TALK
+            val notificationMenuItem = menu.findItem(R.id.menu_notifications)
+            if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
+                notificationMenuItem.isVisible = true
+                notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
+                notificationButtonView.setOnClickListener {
+                    if (AccountUtil.isLoggedIn) {
+                        startActivity(NotificationActivity.newIntent(this))
+                    }
                 }
+                notificationButtonView.contentDescription =
+                    getString(R.string.notifications_activity_title)
+                notificationMenuItem.actionView = notificationButtonView
+                notificationMenuItem.expandActionView()
+                FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            } else {
+                notificationMenuItem.isVisible = false
             }
-            notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
-            notificationMenuItem.actionView = notificationButtonView
-            notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
-        } else {
-            notificationMenuItem.isVisible = false
+            updateNotificationDot(false)
         }
-        updateNotificationDot(false)
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -213,9 +224,10 @@ class TalkTopicsActivity : BaseActivity() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
         binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
+        binding.talkUsernameView.isVisible = !goToTopic
 
         disposables.clear()
-        binding.talkProgressBar.visibility = View.VISIBLE
+        binding.talkProgressBar.isVisible = !goToTopic
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
 
@@ -247,18 +259,6 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun updateOnSuccess() {
-        if (topics.isEmpty()) {
-            updateOnEmpty()
-        } else {
-            binding.talkErrorView.visibility = View.GONE
-            binding.talkNewTopicButton.show()
-            binding.talkNewTopicButton.isEnabled = true
-            binding.talkNewTopicButton.alpha = 1.0f
-            binding.talkLastModified.visibility = View.VISIBLE
-            binding.talkRecyclerView.visibility = View.VISIBLE
-            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-        }
-
         if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
             var topic = topics.firstOrNull()
@@ -268,7 +268,21 @@ class TalkTopicsActivity : BaseActivity() {
                 } ?: topic
             }
             if (topic != null) {
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource))
+                startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource),
+                    Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY)
+                overridePendingTransition(0, 0)
+            }
+        } else {
+            if (topics.isEmpty()) {
+                updateOnEmpty()
+            } else {
+                binding.talkErrorView.visibility = View.GONE
+                binding.talkNewTopicButton.show()
+                binding.talkNewTopicButton.isEnabled = true
+                binding.talkNewTopicButton.alpha = 1.0f
+                binding.talkLastModified.visibility = View.VISIBLE
+                binding.talkRecyclerView.visibility = View.VISIBLE
+                binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             }
         }
     }

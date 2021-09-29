@@ -483,6 +483,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         if (replyActive && !isNewTopic()) {
             onInitialLoad()
         } else {
+            setResult(RESULT_BACK_FROM_TOPIC)
             super.onBackPressed()
         }
     }
@@ -493,6 +494,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
         const val RESULT_EDIT_SUCCESS = 1
+        const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource, undoneSubject: String? = null, undoneBody: String? = null): Intent {

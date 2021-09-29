@@ -254,7 +254,7 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndo: Boolean = false) {
+    private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick  : Boolean = false) {
         val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
@@ -280,7 +280,7 @@ class NotificationActivity : BaseActivity() {
             NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, markUnread)
         }
 
-        if (!fromUndo) {
+        if (!fromUndoOrClick) {
             showMarkReadItemsUndoSnackbar(items, markUnread)
         }
 
@@ -424,6 +424,7 @@ class NotificationActivity : BaseActivity() {
                 toggleSelectItem(container)
             } else {
                 val n = container.notification!!
+                markReadItems(listOf(container), markUnread = false, fromUndoOrClick = true)
                 n.contents?.links?.getPrimary()?.let { link ->
                     val url = link.url
                     if (url.isNotEmpty()) {
