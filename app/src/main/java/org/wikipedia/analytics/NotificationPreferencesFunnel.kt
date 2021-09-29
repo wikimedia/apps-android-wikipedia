@@ -7,8 +7,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.notifications.NotificationCategory
-import org.wikipedia.notifications.NotificationsFilterActivity.Companion.allTypesIdList
-import org.wikipedia.notifications.NotificationsFilterActivity.Companion.allWikisList
+import org.wikipedia.notifications.NotificationsFilterActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 
@@ -40,8 +39,8 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
         val fullFiltersList = mutableListOf<String>()
         val toggleMap = HashMap<String, Boolean>()
         val filteredList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
-        fullFiltersList.addAll(allWikisList())
-        fullFiltersList.addAll(allTypesIdList())
+        fullFiltersList.addAll(NotificationsFilterActivity.allWikisList())
+        fullFiltersList.addAll(NotificationsFilterActivity.allTypesIdList())
         fullFiltersList.forEach { toggleMap[it] = filteredList.contains(it) }
         log("type_toggles", GsonUtil.getDefaultGson().toJson(toggleMap))
     }
