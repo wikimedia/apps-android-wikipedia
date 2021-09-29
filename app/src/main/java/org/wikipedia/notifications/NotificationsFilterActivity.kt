@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.ActivityNotificationsFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
@@ -124,6 +125,7 @@ class NotificationsFilterActivity : BaseActivity() {
                 }
             }
             Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(filteredWikisList)
+            NotificationPreferencesFunnel(WikipediaApp.getInstance()).logNotificationFilterPrefs()
             notifyDataSetChanged()
         }
     }

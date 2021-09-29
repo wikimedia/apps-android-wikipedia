@@ -30,6 +30,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
@@ -62,6 +63,7 @@ class NotificationActivity : BaseActivity() {
     private var linkHandler = NotificationLinkHandler(this)
     private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     var currentSearchQuery: String? = null
+    var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -520,12 +522,14 @@ class NotificationActivity : BaseActivity() {
 
             itemView.setOnClickListener {
                 if (actionMode == null) {
+                    funnel.logSearchClick()
                     actionMode = startSupportActionMode(searchActionModeCallback)
                     postprocessAndDisplay()
                 }
             }
 
             notificationFilterButton.setOnClickListener {
+                funnel.logFilterClick()
                 startActivity(NotificationsFilterActivity.newIntent(it.context))
             }
 

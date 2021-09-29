@@ -7,6 +7,10 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.notifications.NotificationCategory
+import org.wikipedia.notifications.NotificationsFilterActivity.Companion.allTypesIdList
+import org.wikipedia.notifications.NotificationsFilterActivity.Companion.allWikisList
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.StringUtil
 
 class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
@@ -30,6 +34,24 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
                 "background_fetch", app.resources.getInteger(R.integer.notification_poll_interval_minutes)
             )
         }
+    }
+
+    fun logNotificationFilterPrefs() {
+        val fullFiltersList = mutableListOf<String>()
+        val toggleMap = HashMap<String, Boolean>()
+        val filteredList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+        fullFiltersList.addAll(allWikisList())
+        fullFiltersList.addAll(allTypesIdList())
+        fullFiltersList.forEach { toggleMap[it] = filteredList.contains(it) }
+        log("type_toggles", GsonUtil.getDefaultGson().toJson(toggleMap))
+    }
+
+    fun logSearchClick() {
+        log("type_toggles", "search_clicked")
+    }
+
+    fun logFilterClick() {
+        log("type_toggles", "filter_clicked")
     }
 
     companion object {

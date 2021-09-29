@@ -10,6 +10,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.ActionProvider
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.ViewSearchAndFilterBinding
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationsFilterActivity
@@ -54,6 +55,7 @@ class SearchAndFilterActionProvider(context: Context,
             }
         }
         binding.notificationFilterIcon.setOnClickListener {
+            NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
             context.startActivity(NotificationsFilterActivity.newIntent(context))
         }
 
