@@ -74,6 +74,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
+    private var exclusiveTooltipRunnable: Runnable? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -684,19 +685,41 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun maybeShowWatchlistTooltip() {
         pageFragment.historyEntry?.let {
-
             if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
-                binding.pageToolbarButtonShowOverflowMenu.postDelayed({
-                    if (isDestroyed) {
-                        return@postDelayed
-                    }
+                enqueueTooltip {
                     watchlistFunnel.logShowTooltip()
                     Prefs.isWatchlistPageOnboardingTooltipShown = true
                     FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
-                }, 500)
+                }
             }
         }
+    }
+
+    // TODO: remove on March 2022.
+    private fun maybeShowNotificationTooltip(targetView: View) {
+        if (!Prefs.isPageNotificationTooltipShown && AccountUtil.isLoggedIn) {
+            enqueueTooltip {
+                FeedbackUtil.showTooltip(this, targetView, getString(R.string.page_notification_tooltip),
+                    aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
+                    Prefs.isPageNotificationTooltipShown = true
+                }
+            }
+        }
+    }
+
+    private fun enqueueTooltip(runnable: Runnable) {
+        if (exclusiveTooltipRunnable != null) {
+            return
+        }
+        exclusiveTooltipRunnable = runnable
+        binding.pageToolbar.postDelayed({
+            exclusiveTooltipRunnable = null
+            if (isDestroyed) {
+                return@postDelayed
+            }
+            runnable.run()
+        }, 500)
     }
 
     fun animateTabsButton() {
@@ -716,6 +739,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun updateNotificationsButton(animate: Boolean) {
         // TODO: remove when ABC test is complete.
+        val targetView: View
         when (notificationsABCTestFunnel.aBTestGroup) {
             0, 1 -> {
                 if (AccountUtil.isLoggedIn) {
@@ -733,6 +757,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 } else {
                     binding.pageToolbarButtonNotifications.isVisible = false
                 }
+                targetView = binding.pageToolbarButtonNotifications
             }
             else -> {
                 if (AccountUtil.isLoggedIn) {
@@ -751,8 +776,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 } else {
                     binding.unreadDotView.isVisible = false
                 }
+                targetView = binding.pageToolbarButtonShowOverflowMenu
             }
         }
+        maybeShowNotificationTooltip(targetView)
     }
 
     fun clearActionBarTitle() {

@@ -221,6 +221,7 @@
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Title of tooltip telling the user that the article can be added to the Watchlist.</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Message of tooltip telling the user that the article can be added to the Watchlist.\n\n\"Add to Watchlist\" is {{msg-wm|Wikipedia-android-strings-menu page add to watchlist}}</string>
+  <string name="page_notification_tooltip">Message of tooltip telling the user where the notification is located.</string>
   <string name="settings_item_preferences">Menu item in the nav menu to go to the Settings screen.\n{{Identical|Settings}}</string>
   <string name="settings_activity_title">Title at the top of the Settings screen.\n{{Identical|Settings}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
