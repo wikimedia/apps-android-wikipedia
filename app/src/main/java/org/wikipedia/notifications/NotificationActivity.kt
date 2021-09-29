@@ -10,13 +10,9 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.format.DateUtils
 import android.text.style.ForegroundColorSpan
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import android.view.*
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
