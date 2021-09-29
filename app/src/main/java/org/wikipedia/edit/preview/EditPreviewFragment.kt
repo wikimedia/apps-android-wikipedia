@@ -243,6 +243,10 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
             // ignore
         }
 
+        override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
+            // ignore
+        }
+
         /**
          * Shows the user a dialogue asking them if they really meant to leave the edit
          * workflow, and warning them that their changes have not yet been saved.
