@@ -571,7 +571,9 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun checkAllItems(mode: ActionMode, check: Boolean) {
-            notificationContainerList.map { it.selected = check }
+            notificationContainerList
+                .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
+                .map { it.selected = check }
             mode.title = selectedItemCount.toString()
             mode.menu.findItem(R.id.menu_check_all).isVisible = !check
             mode.menu.findItem(R.id.menu_uncheck_all).isVisible = check
