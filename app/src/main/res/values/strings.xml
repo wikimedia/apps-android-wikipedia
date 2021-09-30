@@ -646,6 +646,7 @@
     <string name="notifications_swipe_action_unread">Unread</string>
     <string name="notifications_menu_check_all">Check all items</string>
     <string name="notifications_menu_uncheck_all">Uncheck all items</string>
+    <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->

@@ -3,6 +3,7 @@ package org.wikipedia.views
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.widget.PopupWindowCompat
 import com.google.android.material.textview.MaterialTextView
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.NotificationInteractionFunnel
@@ -21,7 +23,9 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.Notification
 import org.wikipedia.notifications.NotificationLinkHandler
 import org.wikipedia.notifications.NotificationListItemContainer
+import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 
 class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
@@ -57,6 +61,21 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
                 if (secondary.isNotEmpty()) {
                     setUpViewForLink(binding.overflowViewSecondary, secondary.first())
                     binding.overflowViewSecondary.visibility = View.VISIBLE
+
+                    val uri = Uri.parse(secondary.first().url)
+                    val pageTitle = WikiSite(uri).titleForUri(uri)
+                    if (pageTitle.isUserPage) {
+                        binding.overflowViewSecondaryTalk.visibility = View.VISIBLE
+                        binding.overflowViewSecondaryTalk.text = context.getString(R.string.notifications_menu_user_talk_page, secondary.first().label)
+                        binding.overflowViewSecondaryTalk.setOnClickListener {
+                            if (UriUtil.isAppSupportedLink(uri)) {
+                                context.startActivity(TalkTopicsActivity.newIntent(context, pageTitle, Constants.InvokeSource.NOTIFICATION))
+                            } else {
+                                linkHandler.onExternalLinkClicked(uri)
+                            }
+                        }
+                    }
+
                     if (secondary.size > 1) {
                         setUpViewForLink(binding.overflowViewTertiary, secondary[1])
                         binding.overflowViewTertiary.visibility = View.VISIBLE
