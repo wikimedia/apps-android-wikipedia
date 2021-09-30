@@ -285,6 +285,7 @@ class NotificationActivity : BaseActivity() {
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
             binding.notificationsSearchEmptyContainer.visibility = View.GONE
+            binding.notificationsSearchEmptyText.visibility = View.GONE
         }
     }
 

@@ -110,10 +110,17 @@ class NotificationsFilterActivity : BaseActivity() {
 
         override fun onCheckedChanged(langCode: String) {
             if (langCode == context.getString(R.string.notifications_all_types_text)) {
-                allTypesIdList().filter { !filteredWikisList.contains(it) }
-                    .forEach { typeId -> filteredWikisList.add(typeId) }
+                if (filteredWikisList.containsAll(allTypesIdList())) {
+                    filteredWikisList.removeAll(allTypesIdList())
+                } else {
+                    allTypesIdList().filter { !filteredWikisList.contains(it) }.forEach { typeId -> filteredWikisList.add(typeId) }
+                }
             } else if (langCode == context.getString(R.string.notifications_all_wikis_text)) {
-                allWikisList().filter { !filteredWikisList.contains(it) }.forEach { category -> filteredWikisList.add(category) }
+                if (filteredWikisList.containsAll(allWikisList())) {
+                    filteredWikisList.removeAll(allWikisList())
+                } else {
+                    allWikisList().filter { !filteredWikisList.contains(it) }.forEach { wiki -> filteredWikisList.add(wiki) }
+                }
             } else {
                 if (filteredWikisList.contains(langCode)) {
                     filteredWikisList.remove(langCode)
