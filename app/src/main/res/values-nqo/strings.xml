@@ -39,6 +39,7 @@
   <string name="app_settings">ߛߎ߲ߝߘߍ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߊ</string>
   <string name="search_tab_tooltip">ߛߌ߲ߞߐ߲ ߛߐ߲߬ߞߌ߲߬ ߕߎ߲߯ ߞߵߌ ߟߊߞߎ߲߬ߛߌ߲߫ ߢߌߣߌ߲ߠߌ߲ ߘߊߡߌ߬ߣߊ ߛߙߊߕߌ ߡߊ߬</string>
   <string name="history_list_title">ߘߐ߬ߝߐ</string>
+  <string name="image_content_description">ߖߌ߬ߦߊ߬ߓߍ: %s</string>
   <string name="dialog_title_clear_history">ߛߏ߲߯ߓߊߟߌ ߘߐ߬ߝߐ ߖߏ߬ߛߌ߬</string>
   <string name="dialog_message_clear_history">ߣߌ߲߬ ߘߌ߫ ߣߵߌ ߟߊ߫ ߛߏ߲߯ߓߊߟߌ ߞߘߐ߬ߡߊ߲ ߓߍ߯ ߖߏ߰ߛߌ߬߸ ߊ߬ ߣߌ߫ ߞߊ߬ ߕߋ߲߬ߕߋ߲߬ ߘߎ߲ߛߓߍ߫ ߟߊߞߊ߬ߣߍ߲ ߓߍ߯ ߘߊߕߎ߲߯. ߌ ߟߊ߫ ߣߴߏ߬ ߟߊ߫؟</string>
   <string name="dialog_message_clear_history_yes">ߊ߬ߥߐ߫</string>
@@ -146,7 +147,7 @@
   <string name="create_account_passwords_mismatch_error">ߕߊ߬ߡߌ߲߬ߞߊ߲ ߡߊ߫ ߕߊ߬ߡߌ߲߬.</string>
   <string name="create_account_email_error">ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߍ߲߬ߣߍ߲߬ ߕߍ߫</string>
   <string name="create_account_username_error">ߛߓߍߘߋ߲ ߓߍ߲߬ߓߊߟߌ ߟߎ߬ ߦߋ߫ ߕߐ߯ ߟߊߓߊ߯ߙߕߊ ߘߐ߫</string>
-  <string name="create_account_password_error" fuzzy="true">ߕߊ߬ߡߌ߲߬ߞߊ߲ ߓߍ߲߬ߣߍ߲߫ ߕߍ߫</string>
+  <string name="create_account_password_error">ߕߊ߬ߡߌ߲߬ߞߊ߲ ߘߐ߯ߦߊߣߍ߲ ߦߋ߫ ߞߍ߫ ߞߟߏ߫ ߈ ߠߎ߫ ߘߌ߫</string>
   <string name="create_account_generic_error">ߊ߬ ߕߍߣߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߛߌ߲ߘߌ߫ ߟߊ߫</string>
   <string name="create_account_next">ߢߍߕߊ</string>
   <string name="email_recommendation_dialog_title">ߞߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߟߊߞߊ߬ ߢߎߡߍߙߋ߲ߞߏ߲ߘߏ߫ ߕߍ߫؟</string>
@@ -160,6 +161,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">ߝߊߙߊ߲ߝߊ߯ߛߟߌ</string>
   <string name="preferences_general_heading">ߝߘߏ߬ߓߊ߬ߡߊ</string>
+  <string name="preferences_account_heading">ߖߊ߬ߕߋ߬ߘߊ</string>
   <string name="wikipedia_app_faq">ߥߞߌ-ߔߘߋߞߎ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߢ.ߡ.ߢ</string>
   <string name="send_feedback">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߟߢߊ߬ߟߌ߬ ߗߋߛߓߍ ߗߋ߫</string>
   <string name="create_account_account_created_toast">ߖߊ߬ߕߋ߬ߘߊ ߓߘߊ߫ ߛߌ߲ߘߌ߫߹</string>
@@ -183,6 +185,7 @@
   <string name="page_protected_can_not_edit_anon">ߤߊߞߍ߬ߕߏ߫߸ ߞߐߜߍ ߣߌ߲߬ ߕߴߛߋ߫ ߡߊߦߟߍ߬ߡߊ߲߬ ߠߊ߫ ߕߐ߯ߒߕߊ߲ߧߊ ߘߐ߫ ߥߊ߯ߕߌ ߣߌ߲߬ ߠߊ߫.</string>
   <string name="page_protected_can_not_edit_title">ߞߐߜߍ ߣߌ߲߬ ߠߊߞߊ߲ߘߊߣߍ߲ ߠߋ߬.</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ߊ߬ ߟߊߘߏ߲߬ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="page_notification_tooltip">ߌ ߟߊ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߦߋ߫ ߦߊ߲߬ ߠߋ߬ ߡߎ߬ߕߎ߲߫.</string>
   <string name="settings_item_preferences">ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ</string>
   <string name="settings_activity_title">ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ</string>
   <string name="about_description">ߞߊ߬ ߓߍ߲߬ ߥߞߌ-ߔߘߋߞߎ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߡߊ߬</string>
@@ -464,11 +467,14 @@
   <string name="reading_list_split_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="user_option_sync_label">ߝߌ߬ߛߊ߬ߡߊ߲߬ߕߋ</string>
   <string name="notification_reverted_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߟߊߞߐߛߊ߬ߦߌ߬ߣߍ߲</string>
+  <string name="notification_channel_title">ߞߎߡߘߊ ߟߊߖߌ߱ ߦߴߌ ߘߐ߫ ߌ ߞߎ߲߬...</string>
   <string name="notification_channel_description">ߟߊ߬ߖߌ߰ߒ߬ߞߎ߲߬ߠߌ߲ ߓߘߊ߫ ߖߊ߲߬ߝߊ߫</string>
   <string name="notification_syncing_pause_button">ߊ߬ ߟߊߟߐ߬</string>
   <string name="notification_syncing_resume_button">ߟߊߛߎ߬ߘߎ߲߬ߧߊ߫</string>
   <string name="notification_syncing_cancel_button">ߊ߬ ߘߐߛߊ߬</string>
+  <string name="notification_syncing_reading_list_channel_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߦߴߌ ߘߐ߫</string>
   <string name="notification_syncing_reading_list_channel_description">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߘߊ߫ ߖߊ߲߬ߝߊ߫</string>
+  <string name="notification_many_unread">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߬ ߘߐߞߊ߬ߙߊ߲߬ߓߊߟߌ %d ߟߎ߬ ߦߴߌ ߓߟߏ߫</string>
   <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="other">ߦߌߟߡߊ߫ ߞߋߟߋ߲߫=ߟߊ߬ߖߌ߰ߒ߬ߞߎ߲߬ߠߌ߲ ߦߴߌ ߘߐ߫</item>
   </plurals>
@@ -489,6 +495,8 @@
   </plurals>
   <string name="notification_echo_channel_description">ߥߞߌ-ߔߘߋߞߎ ߡߊ߬ߟߐ߲߬ߠߌ߲</string>
   <string name="notifications_activity_title">ߡߊ߬ߟߐ߲߬ߠߌ߲</string>
+  <string name="notifications_activity_title_archived">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߬ (ߟߊߡߊ߲߬ߘߌ߬ߣߍ߲) ߠߎ߬</string>
+  <string name="notifications_search">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߢߌߣߌ߲߫</string>
   <string name="notifications_view_unread">ߘߐ߬ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߟߎ߬ ߦߋ߫</string>
   <string name="notifications_view_archived">ߛߓߍߞߘߐߦߊߣߍ߲ ߠߎ߬ ߦߋ߫</string>
   <string name="notifications_archive">ߊ߬ ߣߐ߬ߣߐ߬ ߞߊ߬ߙߊ߲߬ߣߍ߲ ߘߌ߫ ߊ߬ ߣߌ߫ ߞߵߊ߬ ߞߍ߫ ߛߓߍߞߘߐ ߘߌ߫.</string>
