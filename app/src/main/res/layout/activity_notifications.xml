@@ -1,42 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/notifications_refresh_view"
+    android:id="@+id/notifications_coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/notifications_toolbar_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="?attr/paper_color">
 
-        <LinearLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/notifications_toolbar"
+            style="@style/ToolbarStyle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:elevation="4dp" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/notification_tab_layout"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/notification_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="?attr/paper_color"
+            android:visibility="gone"
+            app:tabTextAppearance="@style/NotificationTabTextAppearance"
+            app:tabTextColor="?android:attr/textColorTertiary"
+            app:tabSelectedTextColor="?attr/colorAccent">
+
+            <com.google.android.material.tabs.TabItem
+                android:text="@string/notifications_tab_filter_all"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="?attr/paper_color"
-                android:visibility="gone"
-                app:tabTextAppearance="@style/NotificationTabTextAppearance"
-                app:tabTextColor="?android:attr/textColorTertiary"
-                app:tabSelectedTextColor="?attr/colorAccent">
+                android:layout_height="wrap_content" />
 
-                <com.google.android.material.tabs.TabItem
-                    android:text="@string/notifications_tab_filter_all"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+            <com.google.android.material.tabs.TabItem
+                android:text="@string/notifications_tab_filter_mentions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-                <com.google.android.material.tabs.TabItem
-                    android:text="@string/notifications_tab_filter_mentions"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+        </com.google.android.material.tabs.TabLayout>
 
-            </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/notifications_refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/notifications_recycler_view"
@@ -44,48 +60,46 @@
                 android:layout_height="match_parent"
                 android:scrollbars="vertical" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/notifications_empty_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone"
-            tools:visibility="visible">
-
-            <ImageView
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_notifications_empty" />
-
-            <TextView
-                style="@style/MaterialMediumSecondaryCaption"
+            <LinearLayout
+                android:id="@+id/notifications_empty_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/notifications_empty_message" />
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_notifications_empty" />
 
-        <org.wikipedia.views.WikiErrorView
-            android:id="@+id/notifications_error_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical" />
+                <TextView
+                    style="@style/MaterialMediumSecondaryCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/notifications_empty_message" />
 
-        <ProgressBar
-            android:id="@+id/notifications_progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp" />
+            </LinearLayout>
 
-    </FrameLayout>
+            <org.wikipedia.views.WikiErrorView
+                android:id="@+id/notifications_error_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical" />
 
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            <ProgressBar
+                android:id="@+id/notifications_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp" />
+
+        </FrameLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

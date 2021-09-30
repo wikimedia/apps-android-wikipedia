@@ -58,6 +58,8 @@ class NotificationActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.notificationsToolbar)
+        supportActionBar?.title = getString(R.string.notifications_activity_title)
 
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
@@ -81,8 +83,8 @@ class NotificationActivity : BaseActivity() {
 
         binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                finishActionMode()
                 postprocessAndDisplay()
+                finishActionMode()
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
