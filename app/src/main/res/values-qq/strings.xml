@@ -652,6 +652,7 @@
   <string name="notifications_swipe_action_unread">Text for swipe action on notifications list item to mark it as unread.</string>
   <string name="notifications_menu_check_all">Menu item used for selecting all items in the list.</string>
   <string name="notifications_menu_uncheck_all">Menu item used for unselecting all items in the list.</string>
+  <string name="notifications_menu_user_talk_page">Menu item used for heading to the user\'s talk page. %s will be replaced by the user name.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
