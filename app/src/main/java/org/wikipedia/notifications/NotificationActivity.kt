@@ -75,12 +75,13 @@ class NotificationActivity : BaseActivity() {
 
         binding.notificationsRefreshView.setOnRefreshListener {
             binding.notificationsRefreshView.isRefreshing = false
-            actionMode?.finish()
+            finishActionMode()
             beginUpdateList()
         }
 
         binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
+                finishActionMode()
                 postprocessAndDisplay()
             }
 
@@ -280,6 +281,8 @@ class NotificationActivity : BaseActivity() {
         // manually mark items in read state
         notificationList.filter { n -> items.map { container -> container.notification?.id }
             .firstOrNull { it == n.id } != null }.map { it.read = if (markUnread) null else Date().toString() }
+
+        finishActionMode()
         postprocessAndDisplay()
     }
 
@@ -558,6 +561,7 @@ class NotificationActivity : BaseActivity() {
                 }
                 R.id.menu_uncheck_all -> {
                     checkAllItems(mode, false)
+                    finishActionMode()
                     return true
                 }
             }
