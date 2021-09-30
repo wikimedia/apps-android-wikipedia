@@ -71,6 +71,17 @@
                 android:text="@string/notifications_empty_message" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/notifications_search_empty_text"
+            style="@style/MaterialMediumSecondaryCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/search_results_count_zero"
+            android:visibility="gone" />
+
         <LinearLayout
             android:id="@+id/notifications_search_empty_container"
             android:layout_width="match_parent"

@@ -2,6 +2,7 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
@@ -14,6 +15,7 @@ import android.view.*
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
@@ -28,6 +30,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
@@ -60,6 +63,7 @@ class NotificationActivity : BaseActivity() {
     private var linkHandler = NotificationLinkHandler(this)
     private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     var currentSearchQuery: String? = null
+    var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -190,10 +194,13 @@ class NotificationActivity : BaseActivity() {
             filteredWikiList.add("commonswiki")
             filteredWikiList.add("wikidatawiki")
         } else {
-            filteredWikiList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()) as MutableList<String>)
-            for (i in 0 until filteredWikiList.size) {
-                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(filteredWikiList[i]) ?: filteredWikiList[i]
-                filteredWikiList[i] = "${defaultLangCode.replace("-", "_")}wiki"
+            val wikiTypeList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+            wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
+                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
+                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+            }
+            wikiTypeList.filter { it == "commons" || it == "wikidata" }.forEach { langCode ->
+                filteredWikiList.add("${langCode}wiki")
             }
         }
         return filteredWikiList.joinToString("|")
@@ -265,12 +272,15 @@ class NotificationActivity : BaseActivity() {
             if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
                 continue
             }
-            notificationContainerList.add(NotificationListItemContainer(n))
+            val filterList = mutableListOf<String>()
+            filterList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).filter { NotificationCategory.isFiltersGroup(it) })
+            if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
         }
         binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         if (notificationContainerList.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null && enabledFiltersCount() != 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyText.visibility = if (actionMode != null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
@@ -278,11 +288,16 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
+    private fun enabledFiltersCount(): Int {
+        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
+        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+        return fullWikiAndTypeListSize - filtersSize
+    }
+
     private fun getSpannedEmptySearchMessage(): Spannable {
-        val numberOfFilters = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).size
-        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, numberOfFilters, numberOfFilters)
-        val finalStr = getString(R.string.notifications_empty_search_message, filtersStr)
-        val spannable = SpannableString(finalStr)
+        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, enabledFiltersCount(), enabledFiltersCount())
+        val emptySearchMessage = getString(R.string.notifications_empty_search_message, filtersStr)
+        val spannable = SpannableString(emptySearchMessage)
         val prefixStringLength = 13
         spannable.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(this, R.attr.colorAccent)), prefixStringLength, prefixStringLength + filtersStr.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         return spannable
@@ -494,23 +509,44 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private inner class NotificationSearchBarHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+    private inner class NotificationSearchBarHolder constructor(view: View) :
+        RecyclerView.ViewHolder(view) {
+        val notificationFilterButton: AppCompatImageView = itemView.findViewById(R.id.notification_filter_button)
+        val notificationFilterCountView: TextView = itemView.findViewById(R.id.notification_filter_count)
+
         init {
             (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
-            val notificationFilterButton = itemView.findViewById<View>(R.id.notification_filter_button)
+
+            updateFilterIconAndCount()
 
             itemView.setOnClickListener {
                 if (actionMode == null) {
+                    funnel.logSearchClick()
                     actionMode = startSupportActionMode(searchActionModeCallback)
                     postprocessAndDisplay()
                 }
             }
 
             notificationFilterButton.setOnClickListener {
+                funnel.logFilterClick()
                 startActivity(NotificationsFilterActivity.newIntent(it.context))
             }
 
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
+        }
+
+        private fun updateFilterIconAndCount() {
+            val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
+            val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+            val enabledFilters = fullWikiAndTypeListSize - delimitedFiltersSizeString
+            if (enabledFilters == 0 || Prefs.notificationsFilterLanguageCodes == null) {
+                notificationFilterCountView.visibility = View.GONE
+                notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.chip_text_color))
+            } else {
+                notificationFilterCountView.visibility = View.VISIBLE
+                notificationFilterCountView.text = enabledFilters.toString()
+                notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.colorAccent))
+            }
         }
     }
 

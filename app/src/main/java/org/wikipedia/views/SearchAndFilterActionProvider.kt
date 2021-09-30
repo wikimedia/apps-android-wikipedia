@@ -9,6 +9,8 @@ import android.view.inputmethod.EditorInfo
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ActionProvider
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.ViewSearchAndFilterBinding
 import org.wikipedia.notifications.NotificationsFilterActivity
 import org.wikipedia.settings.Prefs
@@ -52,6 +54,7 @@ class SearchAndFilterActionProvider(context: Context,
             }
         }
         binding.notificationFilterIcon.setOnClickListener {
+            NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
             context.startActivity(NotificationsFilterActivity.newIntent(context))
         }
 
@@ -67,13 +70,15 @@ class SearchAndFilterActionProvider(context: Context,
     }
 
     fun updateFilterIconAndText() {
-        val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size.toString()
-        binding.notificationFilterCount.text = delimitedFiltersSizeString
-        if (delimitedFiltersSizeString == "0") {
+        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
+        val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+        val enabledFilters = (fullWikiAndTypeListSize - delimitedFiltersSizeString)
+        if (enabledFilters == 0 || Prefs.notificationsFilterLanguageCodes == null) {
             binding.notificationFilterCount.visibility = View.GONE
             binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
         } else {
             binding.notificationFilterCount.visibility = View.VISIBLE
+            binding.notificationFilterCount.text = enabledFilters.toString()
             binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         }
     }

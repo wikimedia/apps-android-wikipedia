@@ -16,7 +16,7 @@
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textColor="@color/base30" />
+        android:textColor="?attr/secondary_text_color" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/notification_filter_wiki_logo"
@@ -26,7 +26,7 @@
         android:contentDescription="@null"
         android:scaleType="center"
         android:layout_gravity="center_vertical"
-        app:tint="?attr/secondary_text_color" />
+        app:tint="?attr/material_theme_de_emphasised_color" />
 
     <TextView
         android:id="@+id/notification_filter_title"

@@ -612,8 +612,8 @@ object Prefs {
         set(sessionId) = PrefsIoUtil.setString(R.string.preference_key_event_platform_session_id, sessionId)
 
     var notificationsFilterLanguageCodes
-        get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_session_id, null)
-        set(languages) = PrefsIoUtil.setString(R.string.preference_key_event_platform_session_id, languages)
+        get() = PrefsIoUtil.getString(R.string.preference_key_languages_filter_notification, null)
+        set(languages) = PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, languages)
 
     val streamConfigs: Map<String, StreamConfig>
         get() {
