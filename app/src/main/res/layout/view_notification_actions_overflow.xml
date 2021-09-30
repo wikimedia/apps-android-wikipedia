@@ -37,6 +37,14 @@
                 app:drawableTint="?attr/material_theme_secondary_color" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/overflow_view_secondary_talk"
+                style="@style/OverflowMenuItem"
+                android:drawablePadding="16dp"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_user_talk"
+                app:drawableTint="?attr/material_theme_secondary_color" />
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/overflow_view_tertiary"
                 style="@style/OverflowMenuItem"
                 android:drawablePadding="16dp"
