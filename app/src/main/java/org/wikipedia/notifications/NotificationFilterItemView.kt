@@ -10,10 +10,10 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemNotificationFilterBinding
-import org.wikipedia.notifications.NotificationCategory.Companion
 import org.wikipedia.notifications.NotificationsFilterActivity.Filter
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
@@ -27,26 +27,27 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     }
 
     private var binding = ItemNotificationFilterBinding.inflate(LayoutInflater.from(context), this)
+    private var filter: Filter? = null
     var callback: Callback? = null
-    var filter: Filter? = null
 
     init {
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.dpToPx(48f).toInt())
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(48f))
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         }
         setOnClickListener {
-            NotificationCategory.FILTERS_GROUP.find { context.getString(it.title) == binding.notificationFilterTitle.text.toString() }?.let {
+            val filterTitleText = binding.notificationFilterTitle.text.toString()
+            NotificationCategory.findOrNull(filterTitleText)?.let {
                 callback?.onCheckedChanged(it.id)
                 return@setOnClickListener
             } ?: run {
-                when (binding.notificationFilterTitle.text.toString()) {
+                when (filterTitleText) {
                     context.getString(R.string.notifications_all_wikis_text) -> callback?.onCheckedChanged(context.getString(R.string.notifications_all_wikis_text))
                     context.getString(R.string.notifications_all_types_text) -> callback?.onCheckedChanged(context.getString(R.string.notifications_all_types_text))
                     context.getString(R.string.wikimedia_commons) -> callback?.onCheckedChanged("commons")
                     context.getString(R.string.wikidata) -> callback?.onCheckedChanged("wikidata")
-                    else -> callback?.onCheckedChanged(filter?.languageCode.toString())
+                    else -> callback?.onCheckedChanged(filter?.filterCode.toString())
                 }
             }
         }
@@ -54,22 +55,22 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
 
     fun setContents(filter: Filter) {
         this.filter = filter
-        binding.notificationFilterTitle.text = getTitleFor(filter.languageCode)
-        binding.notificationFilterCheck.visibility = if (filter.isEnabled()) View.VISIBLE else View.GONE
-        getTitleCodeFor(filter.languageCode)?.let {
+        binding.notificationFilterTitle.text = getTitleFor(filter.filterCode)
+        binding.notificationFilterCheck.isVisible = filter.isEnabled()
+        getTitleCodeFor(filter.filterCode)?.let {
             binding.notificationFilterLanguageCode.text = it
             binding.notificationFilterLanguageCode.visibility = View.VISIBLE
-            ViewUtil.formatLangButton(binding.notificationFilterLanguageCode, it, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+            ViewUtil.formatLangButton(binding.notificationFilterLanguageCode, it,
+                SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
-            if (filter.languageCode == context.getString(R.string.notifications_all_wikis_text) || filter.languageCode == context.getString(R.string.notifications_all_types_text))
+            if (filter.filterCode == context.getString(R.string.notifications_all_wikis_text) || filter.filterCode == context.getString(R.string.notifications_all_types_text))
                 binding.notificationFilterLanguageCode.visibility = View.INVISIBLE
             else binding.notificationFilterLanguageCode.visibility = View.GONE
         }
         filter.imageRes?.let {
-            filter.languageCode.let { languageCode ->
-                if (NotificationCategory.isFiltersGroup(languageCode)) binding.notificationFilterWikiLogo.imageTintList =
-                    ColorStateList.valueOf(ContextCompat.getColor(context, Companion.FILTERS_GROUP.find { category -> category.id == languageCode }!!.iconColor))
-                else binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
+            binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
+            if (NotificationCategory.isFiltersGroup(filter.filterCode)) {
+                binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, NotificationCategory.find(filter.filterCode).iconColor))
             }
             binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, it))
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE
@@ -78,15 +79,15 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         }
     }
 
-    private fun getTitleCodeFor(languageCode: String?): String? {
-        return if (languageCode == "commons" || languageCode == "wikidata" || languageCode == context.getString(R.string.notifications_all_wikis_text) ||
-            languageCode == context.getString(R.string.notifications_all_types_text) || NotificationCategory.isFiltersGroup(languageCode!!)) null
-        else languageCode
+    private fun getTitleCodeFor(filterCode: String?): String? {
+        return if (filterCode == "commons" || filterCode == "wikidata" || filterCode == context.getString(R.string.notifications_all_wikis_text) ||
+            filterCode == context.getString(R.string.notifications_all_types_text) || NotificationCategory.isFiltersGroup(filterCode.orEmpty())) null
+        else filterCode
     }
 
     private fun getTitleFor(languageCode: String?): String {
-        if (NotificationCategory.isFiltersGroup(languageCode!!)) {
-            return context.getString(NotificationCategory.FILTERS_GROUP.find { it.id == languageCode }!!.title)
+        if (languageCode != null && NotificationCategory.isFiltersGroup(languageCode)) {
+            return context.getString(NotificationCategory.find(languageCode).title)
         }
         return when (languageCode) {
             "commons" -> context.getString(R.string.wikimedia_commons)
