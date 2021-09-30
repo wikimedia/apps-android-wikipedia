@@ -38,7 +38,7 @@ class NotificationsFilterActivity : BaseActivity() {
         val filterListWithHeaders = mutableListOf<Any>()
         filterListWithHeaders.add(getString(R.string.notifications_wiki_filter_header))
         filterListWithHeaders.add(Filter(getString(R.string.notifications_all_wikis_text)))
-        WikipediaApp.getInstance().language().appLanguageCodes.forEach {
+        app.language().appLanguageCodes.forEach {
             filterListWithHeaders.add(Filter(it, null))
         }
         filterListWithHeaders.add(Filter("commons", R.drawable.ic_commons_logo))
@@ -69,7 +69,6 @@ class NotificationsFilterActivity : BaseActivity() {
 
     class NotificationsFilterAdapter(val context: Context, private val filtersList: MutableList<Any>) :
         RecyclerView.Adapter<DefaultViewHolder<*>>(), NotificationFilterItemView.Callback {
-        var app: WikipediaApp = WikipediaApp.getInstance()
         private var filteredWikisList = mutableListOf<String>()
 
         init {
@@ -125,7 +124,7 @@ class NotificationsFilterActivity : BaseActivity() {
                 }
             }
             Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(filteredWikisList)
-            NotificationPreferencesFunnel(WikipediaApp.getInstance()).logNotificationFilterPrefs()
+            NotificationPreferencesFunnel(app).logNotificationFilterPrefs()
             notifyDataSetChanged()
         }
     }
@@ -134,10 +133,10 @@ class NotificationsFilterActivity : BaseActivity() {
         fun isEnabled(): Boolean {
             val list = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
 
-            if (languageCode == WikipediaApp.getInstance().getString(R.string.notifications_all_types_text)) {
+            if (languageCode == app.getString(R.string.notifications_all_types_text)) {
                 return list.containsAll(allTypesIdList())
             }
-            if (languageCode == WikipediaApp.getInstance().getString(R.string.notifications_all_wikis_text)) {
+            if (languageCode == app.getString(R.string.notifications_all_wikis_text)) {
                 return list.containsAll(allWikisList())
             }
             return list.contains(languageCode)
@@ -147,10 +146,11 @@ class NotificationsFilterActivity : BaseActivity() {
     companion object {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
+        var app: WikipediaApp = WikipediaApp.getInstance()
 
         fun allWikisList(): List<String> {
             val wikiList = mutableListOf<String>()
-            wikiList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
+            wikiList.addAll(app.language().appLanguageCodes)
             wikiList.add("commons")
             wikiList.add("wikidata")
             return wikiList
