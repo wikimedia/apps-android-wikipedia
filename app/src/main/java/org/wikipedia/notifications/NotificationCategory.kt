@@ -48,13 +48,17 @@ enum class NotificationCategory constructor(val id: String,
 
         val MAP = EnumCodeMap(NotificationCategory::class.java)
 
-        fun find(id: String): NotificationCategory {
+        fun findOrNull(id: String): NotificationCategory? {
             for (i in 0 until MAP.size()) {
                 if (id == MAP[i].id || id.startsWith(MAP[i].id)) {
                     return MAP[i]
                 }
             }
-            return MAP[0]
+            return null
+        }
+
+        fun find(id: String): NotificationCategory {
+            return findOrNull(id) ?: MAP[0]
         }
 
         fun isMentionsGroup(category: String): Boolean {

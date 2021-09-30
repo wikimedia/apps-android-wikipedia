@@ -3,7 +3,6 @@ package org.wikipedia.notifications
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -67,7 +66,7 @@ class NotificationsFilterActivity : BaseActivity() {
         }
     }
 
-    class NotificationsFilterAdapter(val context: Context, private val filtersList: MutableList<Any>) :
+    private inner class NotificationsFilterAdapter(val context: Context, private val filtersList: MutableList<Any>) :
         RecyclerView.Adapter<DefaultViewHolder<*>>(), NotificationFilterItemView.Callback {
         private var filteredWikisList = mutableListOf<String>()
 
@@ -87,8 +86,7 @@ class NotificationsFilterActivity : BaseActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
             return if (type == VIEW_TYPE_HEADER) {
-                val view = LayoutInflater.from(context).inflate(R.layout.view_notification_filter_header, parent, false)
-                NotificationFilterHeaderViewHolder(view)
+                NotificationFilterHeaderViewHolder(layoutInflater.inflate(R.layout.view_notification_filter_header, parent, false))
             } else {
                 val notificationsFilterItemView = NotificationFilterItemView(context)
                 notificationsFilterItemView.callback = this
@@ -129,24 +127,24 @@ class NotificationsFilterActivity : BaseActivity() {
         }
     }
 
-    class Filter constructor(val languageCode: String, val imageRes: Int? = null) {
+    class Filter constructor(val filterCode: String, val imageRes: Int? = null) {
         fun isEnabled(): Boolean {
             val list = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
 
-            if (languageCode == app.getString(R.string.notifications_all_types_text)) {
+            if (filterCode == app.getString(R.string.notifications_all_types_text)) {
                 return list.containsAll(allTypesIdList())
             }
-            if (languageCode == app.getString(R.string.notifications_all_wikis_text)) {
+            if (filterCode == app.getString(R.string.notifications_all_wikis_text)) {
                 return list.containsAll(allWikisList())
             }
-            return list.contains(languageCode)
+            return list.contains(filterCode)
         }
     }
 
     companion object {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
-        var app: WikipediaApp = WikipediaApp.getInstance()
+        private var app = WikipediaApp.getInstance()
 
         fun allWikisList(): List<String> {
             val wikiList = mutableListOf<String>()
