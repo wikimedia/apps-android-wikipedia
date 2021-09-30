@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Build
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,12 +58,11 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         binding.notificationFilterTitle.text = getTitleFor(filter.languageCode)
         binding.notificationFilterCheck.visibility = if (filter.isEnabled()) View.VISIBLE else View.GONE
         getTitleCodeFor(filter.languageCode)?.let {
-            binding.notificationFilterLanguageCode.text = filter.languageCode
+            binding.notificationFilterLanguageCode.text = it
             binding.notificationFilterLanguageCode.visibility = View.VISIBLE
             ViewUtil.formatLangButton(binding.notificationFilterLanguageCode, it, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
-            if (filter.languageCode == context.getString(R.string.notifications_all_wikis_text) ||
-                filter.languageCode == context.getString(R.string.notifications_all_types_text))
+            if (filter.languageCode == context.getString(R.string.notifications_all_wikis_text) || filter.languageCode == context.getString(R.string.notifications_all_types_text))
                 binding.notificationFilterLanguageCode.visibility = View.INVISIBLE
             else binding.notificationFilterLanguageCode.visibility = View.GONE
         }
@@ -70,7 +70,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
             filter.languageCode.let { languageCode ->
                 if (NotificationCategory.isFiltersGroup(languageCode)) binding.notificationFilterWikiLogo.imageTintList =
                     ColorStateList.valueOf(ContextCompat.getColor(context, Companion.FILTERS_GROUP.find { category -> category.id == languageCode }!!.iconColor))
-                else binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
+                else binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
             }
             binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, it))
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE
@@ -82,7 +82,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     private fun getTitleCodeFor(languageCode: String?): String? {
         return if (languageCode == "commons" || languageCode == "wikidata" || languageCode == context.getString(R.string.notifications_all_wikis_text) ||
             languageCode == context.getString(R.string.notifications_all_types_text) || NotificationCategory.isFiltersGroup(languageCode!!)) null
-        else WikipediaApp.getInstance().language().getAppLanguageCanonicalName(languageCode).orEmpty()
+        else languageCode
     }
 
     private fun getTitleFor(languageCode: String?): String {
