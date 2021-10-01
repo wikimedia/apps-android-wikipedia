@@ -1,6 +1,5 @@
 package org.wikipedia.login
 
-import com.google.gson.stream.MalformedJsonException
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -31,6 +30,6 @@ class UserExtendedInfoClientTest : MockRetrofitTest() {
     fun testRequestResponseMalformed() {
         enqueueMalformed()
         apiService.userInfo.test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 }

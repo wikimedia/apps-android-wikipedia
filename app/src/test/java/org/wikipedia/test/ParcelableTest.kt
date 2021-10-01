@@ -5,7 +5,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageProperties
 import org.wikipedia.page.PageTitle
 import org.wikipedia.pageimages.db.PageImage
@@ -40,7 +40,7 @@ class ParcelableTest {
     @Throws(Throwable::class)
     fun testPagePropertiesFromSummary() {
         val json = TestFileUtil.readRawFile("rb_page_summary_geo.json")
-        val summary = GsonUnmarshaller.unmarshal(PageSummary::class.java, json)
+        val summary = JsonUtil.decodeFromString<PageSummary>(json)!!
         val props = PageProperties(summary)
         TestParcelUtil.test(props)
     }

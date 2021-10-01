@@ -2,7 +2,8 @@ package org.wikipedia.page
 
 import android.content.Context
 import android.net.Uri
-import com.google.gson.JsonObject
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.bridge.CommunicationBridge.JSEventListener
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.LinkMovementMethodExt.UrlHandlerWithText
@@ -19,7 +20,9 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
     // message from JS bridge:
     override fun onMessage(messageType: String, messagePayload: JsonObject?) {
         messagePayload?.let {
-            onUrlClick(UriUtil.decodeURL(it["href"].asString), it["title"]?.asString, it["text"]?.asString.orEmpty())
+            onUrlClick(UriUtil.decodeURL(it["href"]?.jsonPrimitive?.content.orEmpty()),
+                it["title"]?.jsonPrimitive?.content,
+                it["text"]?.jsonPrimitive?.content.orEmpty())
         }
     }
 

@@ -26,6 +26,11 @@ object DateUtil {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).parse(date)!!
     }
 
+    @Synchronized
+    fun iso8601ShortDateParse(date: String): Date {
+        return getCachedDateFormat("yyyy-MM-dd'Z'", Locale.ROOT, true).parse(date)!!
+    }
+
     @JvmStatic
     @Synchronized
     fun iso8601LocalDateFormat(date: Date): String {

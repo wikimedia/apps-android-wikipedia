@@ -1,24 +1,24 @@
 package org.wikipedia.analytics.eventplatform
 
-import com.google.gson.annotations.SerializedName
-import org.wikipedia.util.DateUtil
-import java.util.*
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
-/** Base class for an Event Platform event.  */
-open class Event(@SerializedName("\$schema") val schema: String, stream: String) {
+// Base class for an Event Platform event.
+// This class must be `sealed` for Serialization polymorphism to work properly.
+@Serializable
+sealed class Event(@Transient val stream: String = "") {
 
-    @SerializedName("app_session_id")
+    @SerialName("app_session_id")
     var sessionId: String? = null
 
-    @SerializedName("app_install_id")
+    @SerialName("app_install_id")
     var appInstallId: String? = null
 
     private val meta: Meta = Meta(stream)
 
-    private val dt: String = DateUtil.iso8601DateFormat(Date())
+    var dt: String? = null
 
-    val stream: String
-        get() = meta.stream
-
+    @Serializable
     private class Meta(val stream: String)
 }
