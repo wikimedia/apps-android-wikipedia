@@ -10,7 +10,7 @@ import kotlinx.parcelize.TypeParceler
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.json.DateSerializer
+import org.wikipedia.json.LocalDateTimeSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.parcel.LocalDateTimeParceler
 import java.time.LocalDateTime
@@ -26,7 +26,7 @@ class HistoryEntry(
     val displayTitle: String,
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val namespace: String,
-    var timestamp: LocalDateTime = LocalDateTime.now(),
+    @Serializable(with = LocalDateTimeSerializer::class) var timestamp: LocalDateTime = LocalDateTime.now(),
     var source: Int = SOURCE_INTERNAL_LINK,
     var timeSpentSec: Int = 0,
 ) : Parcelable {
