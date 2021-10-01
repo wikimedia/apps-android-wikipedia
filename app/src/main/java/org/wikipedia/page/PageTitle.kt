@@ -1,8 +1,9 @@
 package org.wikipedia.page
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.settings.SiteInfoClient
@@ -21,17 +22,18 @@ import java.util.*
  * description can be altered after construction. Therefore do NOT rely on all the fields
  * of a PageTitle to remain constant for the lifetime of the object.
  */
+@Serializable
 @Parcelize
 class PageTitle(
-    @SerializedName("namespace") private var _namespace: String?,
-    // TODO: remove this SerializedName when Tab list is no longer serialized to shared prefs.
-    @SerializedName("site") var wikiSite: WikiSite,
-    @SerializedName("text") private var _text: String = "",
+    @SerialName("namespace") private var _namespace: String? = null,
+    // TODO: remove this SerialName when Tab list is no longer serialized to shared prefs.
+    @SerialName("site") var wikiSite: WikiSite,
+    @SerialName("text") private var _text: String = "",
     var fragment: String? = null,
-    var thumbUrl: String?,
+    var thumbUrl: String? = null,
     var description: String? = null,
     // TODO: remove after the restbase endpoint supports ZH variants.
-    @SerializedName("displayText") private var _displayText: String? = null,
+    @SerialName("displayText") private var _displayText: String? = null,
     var extract: String? = null
 ) : Parcelable {
 

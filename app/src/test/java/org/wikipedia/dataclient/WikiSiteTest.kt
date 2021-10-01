@@ -5,8 +5,7 @@ import org.hamcrest.Matchers
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.test.TestParcelUtil
 
@@ -248,7 +247,7 @@ class WikiSiteTest {
     @Test
     fun testUnmarshal() {
         val wiki = WikiSite.forLanguageCode("test")
-        val wiki2 = GsonUnmarshaller.unmarshal(WikiSite::class.java, GsonMarshaller.marshal(wiki))
+        val wiki2 = JsonUtil.decodeFromString<WikiSite>(JsonUtil.encodeToString(wiki))!!
         MatcherAssert.assertThat(wiki2.languageCode, Matchers.`is`(wiki.languageCode))
         MatcherAssert.assertThat(wiki2.uri, Matchers.`is`(wiki.uri))
     }
@@ -256,7 +255,7 @@ class WikiSiteTest {
     @Test
     fun testUnmarshalScheme() {
         val wiki = WikiSite("wikipedia.org", "")
-        val wiki2 = GsonUnmarshaller.unmarshal(WikiSite::class.java, GsonMarshaller.marshal(wiki))
+        val wiki2 = JsonUtil.decodeFromString<WikiSite>(JsonUtil.encodeToString(wiki))!!
         MatcherAssert.assertThat(wiki2.languageCode, Matchers.`is`(wiki.languageCode))
         MatcherAssert.assertThat(wiki2.uri, Matchers.`is`(wiki.uri))
     }

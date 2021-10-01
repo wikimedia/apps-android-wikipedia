@@ -1,6 +1,5 @@
 package org.wikipedia.createaccount
 
-import com.google.gson.stream.MalformedJsonException
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -31,6 +30,6 @@ class CreateAccountInfoClientTest : MockRetrofitTest() {
     fun testRequestResponseMalformed() {
         enqueueMalformed()
         apiService.authManagerInfo.test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 }
