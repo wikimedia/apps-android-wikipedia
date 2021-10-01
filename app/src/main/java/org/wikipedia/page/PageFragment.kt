@@ -47,6 +47,7 @@ import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementClient
@@ -685,6 +686,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
             override fun onMediaLinkClicked(title: PageTitle) {
                 startGalleryActivity(title.prefixedText)
+            }
+
+            override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
+                startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), title.displayText, revisionId, title.wikiSite.languageCode))
             }
 
             // ignore

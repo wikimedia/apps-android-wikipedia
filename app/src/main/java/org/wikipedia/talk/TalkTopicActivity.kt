@@ -298,6 +298,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             // TODO
         }
 
+        override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
+            // TODO
+        }
+
         override lateinit var wikiSite: WikiSite
 
         override fun onPageLinkClicked(anchor: String, linkText: String) {

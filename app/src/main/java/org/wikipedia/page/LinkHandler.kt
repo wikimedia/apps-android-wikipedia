@@ -14,6 +14,7 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
     abstract fun onPageLinkClicked(anchor: String, linkText: String)
     abstract fun onInternalLinkClicked(title: PageTitle)
     abstract fun onMediaLinkClicked(title: PageTitle)
+    abstract fun onDiffLinkClicked(title: PageTitle, revisionId: Long)
     abstract var wikiSite: WikiSite
 
     // message from JS bridge:
@@ -60,15 +61,15 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
         if (convertedText != titleStr) {
             titleStr = convertedText
         }
+        var site = WikiSite(uri)
+        if (site.subdomain() == wikiSite.subdomain() && site.languageCode != wikiSite.languageCode) {
+            // override the languageCode from the parent WikiSite, in case it's a variant.
+            site = WikiSite(uri.authority!!, wikiSite.languageCode)
+        }
         L.d("Link clicked was $uri")
         val supportedAuthority = uri.authority?.run { WikiSite.supportedAuthority(this) } == true
         when {
             uri.path?.run { matches(("^${UriUtil.WIKI_REGEX}.*").toRegex()) } == true && supportedAuthority -> {
-                var site = WikiSite(uri)
-                if (site.subdomain() == wikiSite.subdomain() && site.languageCode != wikiSite.languageCode) {
-                    // override the languageCode from the parent WikiSite, in case it's a variant.
-                    site = WikiSite(uri.authority!!, wikiSite.languageCode)
-                }
                 val newTitle = if (titleStr.isNullOrEmpty()) site.titleForInternalLink(uri.path) else PageTitle.withSeparateFragment(titleStr, uri.fragment, site)
                 if (newTitle.isFilePage) {
                     onMediaLinkClicked(newTitle)
@@ -78,6 +79,9 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
             }
             !uri.fragment.isNullOrEmpty() && supportedAuthority -> {
                 onPageLinkClicked(uri.fragment!!, linkText)
+            }
+            !uri.getQueryParameter("title").isNullOrEmpty() && !uri.getQueryParameter("diff").isNullOrEmpty() && supportedAuthority -> {
+                onDiffLinkClicked(PageTitle(uri.getQueryParameter("title"), site), uri.getQueryParameter("diff")!!.toLong())
             }
             else -> {
                 onExternalLinkClicked(uri)
