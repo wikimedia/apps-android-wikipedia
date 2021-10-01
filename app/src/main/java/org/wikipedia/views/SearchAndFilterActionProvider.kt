@@ -15,6 +15,7 @@ import org.wikipedia.databinding.ViewSearchAndFilterBinding
 import org.wikipedia.notifications.NotificationsFilterActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 
 class SearchAndFilterActionProvider(context: Context,
@@ -57,6 +58,7 @@ class SearchAndFilterActionProvider(context: Context,
             NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
             context.startActivity(NotificationsFilterActivity.newIntent(context))
         }
+        FeedbackUtil.setButtonLongPressToast(binding.notificationFilterIcon)
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchInput.findViewById<View>(androidx.appcompat.R.id.search_plate)
