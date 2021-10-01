@@ -172,7 +172,7 @@ class PageTitle(
         val talkNamespace = if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(wikiSite.languageCode) else TalkAliasData.valueFor(wikiSite.languageCode)
         val pageTitle = PageTitle(talkNamespace, text, wikiSite)
         pageTitle.displayText = "$talkNamespace:" +
-                if (namespace.isNotEmpty() && displayText.startsWith(namespace)) StringUtil.removeNamespace(displayText) else displayText
+                if (namespace.isNotEmpty() && (displayText.startsWith(namespace) || displayText.startsWith(StringUtil.removeUnderscores(namespace)))) StringUtil.removeNamespace(displayText) else displayText
         pageTitle.fragment = fragment
         return pageTitle
     }
