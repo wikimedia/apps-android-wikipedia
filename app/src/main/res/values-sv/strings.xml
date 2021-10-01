@@ -190,7 +190,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ta bort synkroniserade läslistor från \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen helt och hållet. Ta bort alla synkroniserade listor från ditt konto \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Integritet</string>
-  <string name="preference_title_eventlogging_opt_in">\nSkicka användningsrapporter</string>
+  <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
   <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>
   <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till en tredjepartstjänst så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
@@ -404,7 +404,7 @@
   <string name="text_size_decrease">Minska textstorlek</string>
   <string name="text_size_percent_default">%s (standard)</string>
   <string name="text_style_title">Typsnitt</string>
-  <string name="nav_item_saved">Sparades</string>
+  <string name="nav_item_saved">Sparade</string>
   <string name="reading_list_save_to">Spara i läslista</string>
   <string name="reading_list_move_to">Flytta till läslista</string>
   <string name="reading_list_create_new">Skapa ny</string>

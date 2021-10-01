@@ -209,6 +209,7 @@
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">הוספה לרשימת המעקב</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">עקוב אחרי מה שקורה הערכים שמעניינים אותך. לחץ על תפריט הפעולות הנוספות ובחר &lt;b&gt;הוספה לרשימת המעקב&lt;/b&gt; כיד לראות את השינויים לערך.</string>
+  <string name="page_notification_tooltip">עכשיו ההתראות שלך נמצאות כאן.</string>
   <string name="settings_item_preferences">הגדרות</string>
   <string name="settings_activity_title">הגדרות</string>
   <string name="about_description">אודות יישום ויקיפדיה</string>
