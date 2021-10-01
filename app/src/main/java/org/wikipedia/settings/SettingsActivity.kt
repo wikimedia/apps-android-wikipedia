@@ -6,7 +6,7 @@ import android.os.Bundle
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.util.StringUtil.listToJsonArrayString
+import org.wikipedia.json.JsonUtil
 
 class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
     private lateinit var initialLanguageList: String
@@ -20,14 +20,14 @@ class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initialLanguageList = listToJsonArrayString(app.language().appLanguageCodes)
+        initialLanguageList = JsonUtil.encodeToString(app.language().appLanguageCodes).orEmpty()
         initialFeedCardsEnabled = Prefs.feedCardsEnabled
         initialFeedCardsOrder = Prefs.feedCardsOrder
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        val finalLanguageList = listToJsonArrayString(app.language().appLanguageCodes)
+        val finalLanguageList = JsonUtil.encodeToString(app.language().appLanguageCodes)
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE &&
                 finalLanguageList != initialLanguageList) {
             setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED)

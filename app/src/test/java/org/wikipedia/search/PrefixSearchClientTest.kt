@@ -1,6 +1,5 @@
 package org.wikipedia.search
 
-import com.google.gson.stream.MalformedJsonException
 import org.junit.Test
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.test.MockRetrofitTest
@@ -54,7 +53,7 @@ class PrefixSearchClientTest : MockRetrofitTest() {
     fun testRequestResponseMalformed() {
         enqueueMalformed()
         observable.test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 
     companion object {
