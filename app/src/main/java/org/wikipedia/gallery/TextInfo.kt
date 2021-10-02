@@ -1,5 +1,10 @@
 package org.wikipedia.gallery
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
-open class TextInfo(val lang: String = "", val text: String = "", val html: String = "") : Serializable
+@Serializable
+@Parcelize
+open class TextInfo(val lang: String = "", val text: String = "", val html: String = "") :
+    Parcelable

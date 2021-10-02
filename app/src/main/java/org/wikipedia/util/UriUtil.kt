@@ -1,7 +1,9 @@
 package org.wikipedia.util
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.TransactionTooLargeException
 import androidx.annotation.StringRes
@@ -52,8 +54,12 @@ object UriUtil {
     fun visitInExternalBrowser(context: Context, uri: Uri) {
         try {
             val chooserIntent = ShareUtil.getIntentChooser(context, Intent(Intent.ACTION_VIEW, uri))
-            chooserIntent!!.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            context.startActivity(chooserIntent)
+            if (chooserIntent != null) {
+                chooserIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                context.startActivity(chooserIntent)
+            } else {
+                visitInExternalBrowserExplicit(context, uri)
+            }
         } catch (e: TransactionTooLargeException) {
             L.logRemoteErrorIfProd(RuntimeException("Transaction too large for external link intent."))
         } catch (e: Exception) {
@@ -61,6 +67,18 @@ object UriUtil {
             // We will just show a toast now. FIXME: Make this more visible?
             ShareUtil.showUnresolvableIntentMessage(context)
         }
+    }
+
+    private fun visitInExternalBrowserExplicit(context: Context, uri: Uri) {
+        context.packageManager.queryIntentActivities(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.example.com")), PackageManager.MATCH_DEFAULT_ONLY)
+            .first().let {
+                val componentName = ComponentName(it.activityInfo.packageName, it.activityInfo.name)
+                val newIntent = Intent(Intent.ACTION_VIEW)
+                newIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                newIntent.data = uri
+                newIntent.component = componentName
+                context.startActivity(newIntent)
+            }
     }
 
     @JvmStatic

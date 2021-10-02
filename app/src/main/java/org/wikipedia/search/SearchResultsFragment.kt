@@ -140,7 +140,7 @@ class SearchResultsFragment : Fragment() {
                     if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
                     { searchResponse, readingListSearchResults, historySearchResults ->
 
-                        val searchResults = searchResponse?.query?.pages?.let {
+                        val searchResults = searchResponse.query?.pages?.let {
                             SearchResults(it, WikiSite.forLanguageCode(searchLanguageCode),
                                 searchResponse.continuation,
                                 searchResponse.suggestion())
@@ -230,12 +230,12 @@ class SearchResultsFragment : Fragment() {
     }
 
     private fun doFullTextSearch(searchTerm: String?,
-                                 continueOffset: Map<String, String>?,
+                                 continuation: MwQueryResponse.Continuation?,
                                  clearOnSuccess: Boolean) {
         val startTime = System.nanoTime()
         updateProgressBar(true)
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).fullTextSearch(searchTerm, BATCH_SIZE,
-                continueOffset?.get("continue"), continueOffset?.get("gsroffset"))
+                continuation?.continuation, continuation?.gsroffset?.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
@@ -466,7 +466,7 @@ class SearchResultsFragment : Fragment() {
                 if (lastFullTextResults == null) {
                     // the first full text search
                     doFullTextSearch(currentSearchTerm, null, false)
-                } else if (!lastFullTextResults!!.continuation.isNullOrEmpty()) {
+                } else if (lastFullTextResults!!.continuation != null) {
                     // subsequent full text searches
                     doFullTextSearch(currentSearchTerm, lastFullTextResults!!.continuation, false)
                 }

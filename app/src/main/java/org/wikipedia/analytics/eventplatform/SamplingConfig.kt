@@ -1,7 +1,8 @@
 package org.wikipedia.analytics.eventplatform
 
 import androidx.annotation.VisibleForTesting
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Represents the sampling config component of a stream configuration.
@@ -9,19 +10,18 @@ import com.google.gson.annotations.SerializedName
  * The boxed Double type is used instead of the double primitive because its value may be null,
  * which denotes that the stream should always be *included*.
  */
+@Serializable
 class SamplingConfig {
 
+    @Serializable
     enum class Identifier {
-        @SerializedName("pageview") PAGEVIEW,
-        @SerializedName("session") SESSION,
-        @SerializedName("device") DEVICE
+        @SerialName("pageview") PAGEVIEW,
+        @SerialName("session") SESSION,
+        @SerialName("device") DEVICE
     }
 
     private var identifier: Identifier? = null
     var rate = 1.0
-
-    // This constructor is needed for correct Gson deserialization. Do not remove!
-    constructor()
 
     @VisibleForTesting
     constructor(rate: Double, identifier: Identifier?) {
