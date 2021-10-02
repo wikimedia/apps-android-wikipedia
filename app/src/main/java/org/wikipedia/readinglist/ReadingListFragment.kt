@@ -792,12 +792,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     }
 
     private fun getPagePositionInList(page: ReadingListPage): Int {
-        displayedLists.forEach {
-            if (it is ReadingListPage && it.id == page.id) {
-                return displayedLists.indexOf(it)
-            }
-        }
-        return -1
+        return displayedLists.indexOfFirst { it is ReadingListPage && it.id == page.id }
     }
 
     companion object {
