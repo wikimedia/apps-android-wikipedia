@@ -5,11 +5,12 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.webkit.*
-import com.google.gson.JsonObject
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 import org.wikipedia.bridge.JavaScriptActionHandler.setUp
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.util.UriUtil
@@ -132,7 +133,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         try {
             val listeners: List<JSEventListener> = eventListeners[message.action]!!
             for (listener in listeners) {
-                listener.onMessage(message.action!!, message.data)
+                listener.onMessage(message.action, message.data)
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -159,9 +160,13 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         @Synchronized
         fun onReceiveMessage(message: String?) {
             if (incomingMessageHandler != null) {
-                val msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS,
-                        GsonUtil.getDefaultGson().fromJson(message, BridgeMessage::class.java))
-                incomingMessageHandler!!.sendMessage(msg)
+                val bridgeMessage: BridgeMessage? = JsonUtil.decodeFromString(message.orEmpty())
+                if (bridgeMessage != null) {
+                    val msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS, bridgeMessage)
+                    incomingMessageHandler!!.sendMessage(msg)
+                } else {
+                    L.w("Received malformed message: $message")
+                }
             }
         }
 
@@ -173,9 +178,9 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
                     communicationBridgeListener.toolbarMargin)
     }
 
+    @Serializable
     private class BridgeMessage {
-        val action: String? = null
-            get() = field.orEmpty()
+        val action: String = ""
         val data: JsonObject? = null
     }
 

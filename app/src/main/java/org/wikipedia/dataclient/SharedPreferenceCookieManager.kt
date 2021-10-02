@@ -8,10 +8,10 @@ import org.wikipedia.util.log.L.logRemoteErrorIfProd
 
 class SharedPreferenceCookieManager(
     // Map: domain -> list of cookies
-    val cookieJar: MutableMap<String, MutableList<Cookie>> = HashMap()
+    private val cookieJar: MutableMap<String, MutableList<Cookie>> = HashMap()
 ) : CookieJar {
     private fun persistCookies() {
-        Prefs.cookies = this
+        Prefs.cookies = cookieJar
     }
 
     @Synchronized
@@ -112,7 +112,8 @@ class SharedPreferenceCookieManager(
         @JvmStatic
         val instance: SharedPreferenceCookieManager by lazy {
             try {
-                Prefs.cookies ?: SharedPreferenceCookieManager()
+                val cookies = Prefs.cookies.mapValues { (_, value) -> value.toMutableList() }.toMutableMap()
+                SharedPreferenceCookieManager(cookies)
             } catch (e: Exception) {
                 logRemoteErrorIfProd(e)
                 SharedPreferenceCookieManager()

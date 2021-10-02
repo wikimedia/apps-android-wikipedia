@@ -1,10 +1,14 @@
 package org.wikipedia.dataclient.page
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class TalkPage {
     val revision: Long = 0
     val topics: List<Topic>? = null
         get() = field ?: emptyList()
 
+    @Serializable
     class Topic {
         val id = 0
         val depth = 0
@@ -19,6 +23,7 @@ class TalkPage {
         }
     }
 
+    @Serializable
     class TopicShas {
         val html: String? = null
             get() = field.orEmpty()
@@ -26,6 +31,7 @@ class TalkPage {
             get() = field.orEmpty()
     }
 
+    @Serializable
     class TopicReply {
         val depth = 0
         val sha: String? = null
