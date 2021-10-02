@@ -1,16 +1,12 @@
 package org.wikipedia.analytics
 
-import com.google.gson.JsonElement
-import com.google.gson.JsonNull
-import com.google.gson.JsonSerializationContext
-import com.google.gson.JsonSerializer
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.json.JSONObject
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.json.GsonUtil
-import java.lang.reflect.Type
+import org.wikipedia.json.JsonUtil
 
 class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val invokeSource: InvokeSource) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
@@ -93,55 +89,49 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
 
     fun log() {
         log(
-                "edit_tasks", GsonUtil.getDefaultGson().newBuilder()
-                .registerTypeAdapter(SuggestedEditStats::class.java, SuggestedEditsStatsTypeAdapter())
-                .create().toJson(statsCollection),
+                "edit_tasks", JsonUtil.encodeToString(statsCollection),
                 "help_opened", helpOpenedCount,
                 "scorecard_opened", contributionsOpenedCount,
                 "source", invokeSource.value
         )
     }
 
-    private class SuggestedEditsStatsTypeAdapter : JsonSerializer<SuggestedEditStats> {
-        override fun serialize(src: SuggestedEditStats, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-            return if (src.isEmpty) JsonNull.INSTANCE else GsonUtil.getDefaultGson().toJsonTree(src, typeOfSrc)
-        }
-    }
-
+    @Serializable
     private class SuggestedEditStatsCollection {
-        @SerializedName("a-d")
+        @SerialName("a-d")
         val addDescriptionStats = SuggestedEditStats()
 
-        @SerializedName("t-d")
+        @SerialName("t-d")
         val translateDescriptionStats = SuggestedEditStats()
 
-        @SerializedName("a-c")
+        @SerialName("a-c")
         val addCaptionStats = SuggestedEditStats()
 
-        @SerializedName("t-c")
+        @SerialName("t-c")
         val translateCaptionStats = SuggestedEditStats()
 
-        @SerializedName("i-t")
+        @SerialName("i-t")
         val imageTagStats = SuggestedEditStats()
     }
 
+    @Serializable
     private class SuggestedEditStats {
-        @SerializedName("imp")
+        @SerialName("imp")
         var impressions = 0
 
-        @SerializedName("clk")
+        @SerialName("clk")
         var clicks = 0
 
-        @SerializedName("sg")
+        @SerialName("sg")
         var suggestionsClicked = 0
 
-        @SerializedName("cxl")
+        @SerialName("cxl")
         var cancels = 0
 
-        @SerializedName("suc")
+        @SerialName("suc")
         var successes = 0
 
-        @SerializedName("fl")
+        @SerialName("fl")
         var failures = 0
         val isEmpty = impressions == 0 && clicks == 0 && suggestionsClicked == 0 && cancels == 0 &&
                 successes == 0 && failures == 0

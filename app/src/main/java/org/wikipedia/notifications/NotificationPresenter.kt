@@ -91,7 +91,7 @@ object NotificationPresenter {
 
     private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
         val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(Intent(Intent.ACTION_VIEW, Uri.parse(link.url)), n.id, n.type), 0)
+                addIntentExtras(Intent(Intent.ACTION_VIEW, Uri.parse(link.url)), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT)
         val labelStr: String = if (link.tooltip.isNotEmpty()) {
             StringUtil.fromHtml(link.tooltip).toString()
         } else {
@@ -104,7 +104,7 @@ object NotificationPresenter {
         val wiki = WikiSite(link.url)
         val title = wiki.titleForUri(Uri.parse(link.url))
         val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(TalkTopicsActivity.newIntent(context, title.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id, n.type), 0)
+                addIntentExtras(TalkTopicsActivity.newIntent(context, title.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT)
         builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 

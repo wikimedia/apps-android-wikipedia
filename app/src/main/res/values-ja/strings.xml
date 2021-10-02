@@ -564,6 +564,7 @@
   <string name="notification_syncing_pause_button">一時停止</string>
   <string name="notification_syncing_resume_button">継続</string>
   <string name="notification_syncing_cancel_button">キャンセル</string>
+  <string name="notification_syncing_reading_list_channel_title">あとで読むリストを同期しています</string>
   <string name="notification_syncing_reading_list_channel_description">あとで読むリストを同期中です</string>
   <string name="notification_many_unread">未読のお知らせが%d件あります</string>
   <plurals name="notification_channel_name">
@@ -609,6 +610,7 @@
   <string name="notifications_view_archived_button_text">アーカイブした通知を表示</string>
   <string name="notification_preferences_title">通知の設定</string>
   <string name="notifications_mark_unread">未読にする</string>
+  <string name="notifications_mark_all_as_read">すべて既読にする</string>
   <string name="watchlist_title">ウォッチリスト</string>
   <string name="preference_title_notification_poll">通知に投票</string>
   <string name="preference_summary_notification_poll">バックグラウンドで新規通知をチェックするのにアプリがデータ通信するのを許可する</string>
@@ -627,6 +629,13 @@
   <string name="preference_summary_notification_mention">誰かが特定のページであなたに言及しました</string>
   <string name="preference_title_notification_user_talk">トークページ</string>
   <string name="preference_summary_notification_user_talk">トークページからのメッセージと返信</string>
+  <string name="preference_category_push_notifications">プッシュ通知</string>
+  <string name="preference_title_customize_push_notifications">プッシュ通知をカスタマイズ</string>
+  <string name="preference_category_display_settings">表示設定</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ウィキペディア</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">ウィキペディアからの通知</string>
+  <string name="notifications_channel_group_other_title">その他</string>
+  <string name="notifications_channel_group_other_description">アプリからのその他の通知</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
   <string name="view_random_article_card_title">ランダム記事</string>
@@ -1001,6 +1010,7 @@
   <string name="talk_subject_empty">件名を空にすることはできません。</string>
   <string name="talk_response_submitted">返信が送信されました。</string>
   <string name="talk_snackbar_undo">取り消す</string>
+  <string name="talk_last_modified">&lt;b&gt;最終編集 %1$s&lt;/b&gt; 編集者: %2$s</string>
   <string name="menu_option_share_edit">編集をシェア</string>
   <string name="menu_option_user_profile">%s のプロフィール</string>
   <string name="menu_option_user_contributions">%s の投稿記録</string>
@@ -1013,6 +1023,7 @@
   <string name="thank_dialog_negative_button_text">キャンセル</string>
   <string name="thank_success_message">あなたの感謝は %s に送られました 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s とそのトークぺーj比は正常にウォッチリストから削除されました。</string>
   <string name="watchlist_expiry_dialog_one_week">1週間</string>
   <string name="watchlist_expiry_dialog_one_month">1ヵ月</string>
   <string name="watchlist_expiry_dialog_three_months">3ヵ月</string>

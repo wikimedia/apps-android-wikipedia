@@ -1,13 +1,16 @@
 package org.wikipedia.dataclient.wikidata
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwResponse
 
+@Serializable
 class Search : MwResponse() {
 
-    @SerializedName("search")
+    @SerialName("search")
     val results: List<SearchResult> = emptyList()
 
+    @Serializable
     class SearchResult {
         val id: String = ""
         val label: String = ""

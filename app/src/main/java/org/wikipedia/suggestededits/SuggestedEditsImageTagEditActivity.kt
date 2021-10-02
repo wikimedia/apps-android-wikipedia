@@ -6,14 +6,13 @@ import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
-import com.google.gson.Gson
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivitySuggestedEditsFeedCardImageTagsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.json.GsonMarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -29,7 +28,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
         binding = ActivitySuggestedEditsFeedCardImageTagsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        page = Gson().fromJson(intent.getStringExtra(ARG_PAGE), MwQueryPage::class.java)
+        page = JsonUtil.decodeFromString(intent.getStringExtra(ARG_PAGE))
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(R.string.suggested_edits_tag_images)
         setImageZoomHelper()
@@ -90,7 +89,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
         @JvmStatic
         fun newIntent(context: Context, page: MwQueryPage, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, SuggestedEditsImageTagEditActivity::class.java)
-                    .putExtra(ARG_PAGE, GsonMarshaller.marshal(page))
+                    .putExtra(ARG_PAGE, JsonUtil.encodeToString(page))
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

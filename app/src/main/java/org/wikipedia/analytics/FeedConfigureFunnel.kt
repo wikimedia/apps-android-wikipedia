@@ -4,8 +4,8 @@ import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedContentType
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.StringUtil
 import java.util.*
 
 class FeedConfigureFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: Int) :
@@ -22,9 +22,9 @@ class FeedConfigureFunnel(app: WikipediaApp, wiki: WikiSite?, private val source
         log(
                 "source", source,
                 "feed_views", Prefs.exploreFeedVisitCount,
-                "enabled_list", StringUtil.stringToListMapToJSONString(enabledMap),
-                "order_list", StringUtil.listToJSONString(orderedList),
-                "languages", StringUtil.listToJsonArrayString(app.appLanguageState.appLanguageCodes)
+                "enabled_list", JsonUtil.encodeToString(enabledMap),
+                "order_list", JsonUtil.encodeToString(orderedList),
+                "languages", JsonUtil.encodeToString(app.appLanguageState.appLanguageCodes)
         )
     }
 

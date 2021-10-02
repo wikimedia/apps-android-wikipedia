@@ -54,17 +54,17 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
         }
     }
 
-    internal inner class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal inner class RecyclerAdapter : RecyclerView.Adapter<WatchlistLangViewHolder>() {
         override fun getItemCount(): Int {
             return WikipediaApp.instance.appLanguageState.appLanguageCodes.size
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WatchlistLangViewHolder {
             return WatchlistLangViewHolder(LayoutInflater.from(context).inflate(R.layout.item_watchlist_language, parent, false))
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            (holder as WatchlistLangViewHolder).bindItem(position)
+        override fun onBindViewHolder(holder: WatchlistLangViewHolder, position: Int) {
+            holder.bindItem(position)
         }
     }
 

@@ -289,7 +289,7 @@ class CreateAccountActivity : BaseActivity() {
                             binding.createAccountUsername.isErrorEnabled = false
                             if (it.isBlocked) {
                                 handleAccountCreationError(it.error)
-                            } else if (!it.canCreate) {
+                            } else if (!it.cancreate) {
                                 binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
                             }
                         }

@@ -30,7 +30,7 @@ class NotificationInteractionFunnel(app: WikipediaApp, private val id: Long, pri
     }
 
     fun logAction(index: Int, link: Notification.Link) {
-        log("action_rank", index, "action_icon", link.icon)
+        log("action_rank", index, "action_icon", link.icon())
     }
 
     fun logClicked() {

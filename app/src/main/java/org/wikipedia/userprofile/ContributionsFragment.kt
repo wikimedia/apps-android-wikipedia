@@ -198,7 +198,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             .subscribeOn(Schedulers.io())
             .flatMap { response ->
                 val contributions = mutableListOf<Contribution>()
-                val cont = response.continuation["uccontinue"]
+                val cont = response.continuation?.ucContinuation
                 if (cont.isNullOrEmpty()) {
                     continuations.remove(WikipediaApp.instance.wikiSite)
                 } else {
@@ -219,7 +219,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             .flatMap { response ->
                 val wikidataContributions = mutableListOf<Contribution>()
                 val qLangMap = hashMapOf<String, HashSet<String>>()
-                val cont = response.continuation["uccontinue"]
+                val cont = response.continuation?.ucContinuation
                 if (cont.isNullOrEmpty()) {
                     continuations.remove(WikiSite(Service.WIKIDATA_URL))
                 } else {
@@ -281,7 +281,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
                     val contributions = mutableListOf<Contribution>()
-                    val cont = response.continuation["uccontinue"]
+                    val cont = response.continuation?.ucContinuation
                     if (cont.isNullOrEmpty()) {
                         continuations.remove(WikiSite(Service.COMMONS_URL))
                     } else {
@@ -530,7 +530,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         if (response is MwQueryResponse) {
-                            contribution.pageViews = response.query?.pages?.sumOf { it.pageViewsMap?.values?.filterNotNull()?.sum()!! } ?: 0
+                            contribution.pageViews = response.query?.pages?.sumOf { it.pageViewsMap.values.filterNotNull().sum() } ?: 0
                             view.setPageViewCountText(contribution.pageViews)
                         }
                     }) { t -> L.e(t) })

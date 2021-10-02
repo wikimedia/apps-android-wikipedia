@@ -80,7 +80,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         val touchCallback = SwipeableItemTouchHelperCallback(this,
                 ResourceUtil.getThemedAttributeId(this, R.attr.chart_shade5),
                 R.drawable.ic_archive_white_24dp,
-                ResourceUtil.getThemedAttributeId(this, R.attr.secondary_text_color))
+                ResourceUtil.getThemedAttributeId(this, R.attr.secondary_text_color),
+                binding.notificationsRefreshView)
 
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
@@ -109,14 +110,35 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         return true
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        val itemArchived = menu.findItem(R.id.menu_notifications_view_archived)
+        val itemUnread = menu.findItem(R.id.menu_notifications_view_unread)
+        itemArchived.isVisible = !displayArchived
+        itemUnread.isVisible = displayArchived
+        return super.onPrepareOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_notifications_mark_all_as_read -> {
                 // TODO: implement mark all as read
                 true
             }
+            R.id.menu_notifications_view_archived -> {
+                onViewArchivedClick()
+                true
+            }
+            R.id.menu_notifications_view_unread -> {
+                displayArchived = false
+                beginUpdateList()
+                true
+            }
             R.id.menu_notifications_prefs -> {
                 startActivity(NotificationSettingsActivity.newIntent(this))
+                true
+            }
+            R.id.menu_notifications_search -> {
+                startSupportActionMode(searchActionModeCallback)
                 true
             }
             else -> super.onOptionsItemSelected(item)

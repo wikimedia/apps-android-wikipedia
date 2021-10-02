@@ -555,7 +555,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pair ->
                     updateGalleryDescription(pair.first, pair.second)
-                }, { it?.stackTrace })
+                }, {
+                    L.e(it)
+                    updateGalleryDescription(false, 0)
+                })
     }
 
     fun updateGalleryDescription(isProtected: Boolean, tagsCount: Int) {

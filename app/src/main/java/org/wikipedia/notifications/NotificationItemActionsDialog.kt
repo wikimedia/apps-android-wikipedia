@@ -20,7 +20,7 @@ import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Compan
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent.Companion.ACTION_SECONDARY
 import org.wikipedia.databinding.ViewNotificationActionsBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageTitle
@@ -55,7 +55,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewNotificationActionsBinding.inflate(inflater, container, false)
 
-        notification = GsonUtil.getDefaultGson().fromJson(requireArguments().getString(ARG_NOTIFICATION), Notification::class.java)
+        notification = JsonUtil.decodeFromString(requireArguments().getString(ARG_NOTIFICATION)!!)!!
         linkHandler = NotificationLinkHandler(requireContext())
         notification.contents?.let {
             binding.notificationItemText.text = StringUtil.fromHtml(it.header).toString()
@@ -98,7 +98,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun setUpViewForLink(containerView: View, iconView: AppCompatImageView, labelView: TextView, link: Notification.Link) {
         labelView.text = StringUtil.fromHtml(link.tooltip.ifEmpty { link.label })
-        if ("userAvatar" == link.icon) {
+        if ("userAvatar" == link.icon()) {
             iconView.setImageResource(R.drawable.ic_user_avatar)
         } else {
             iconView.setImageResource(R.drawable.ic_arrow_forward_black_24dp)
@@ -142,7 +142,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
         fun newInstance(notification: Notification): NotificationItemActionsDialog {
             return NotificationItemActionsDialog().apply {
-                arguments = bundleOf(ARG_NOTIFICATION to GsonUtil.getDefaultGson().toJson(notification))
+                arguments = bundleOf(ARG_NOTIFICATION to JsonUtil.encodeToString(notification))
             }
         }
     }

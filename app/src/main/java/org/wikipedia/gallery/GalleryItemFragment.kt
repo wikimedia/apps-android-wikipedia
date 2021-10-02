@@ -51,7 +51,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mediaListItem = requireArguments().getSerializable(ARG_GALLERY_ITEM) as MediaListItem
+        mediaListItem = requireArguments().getParcelable(ARG_GALLERY_ITEM)!!
         pageTitle = requireArguments().getParcelable(ARG_PAGETITLE)
         if (pageTitle == null) {
             pageTitle = PageTitle(mediaListItem.title, WikiSite(Service.COMMONS_URL))

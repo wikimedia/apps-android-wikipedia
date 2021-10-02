@@ -3,8 +3,8 @@ package org.wikipedia.analytics
 import android.text.format.DateUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.StringUtil
 
 class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
 
@@ -87,7 +87,7 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
                 "fromSuggestedEdits", sessionData.pagesFromSuggestedEdits,
                 "totalPages", sessionData.totalPages,
                 "pageLoadLatency", sessionData.getLeadLatency(),
-                "languages", StringUtil.listToJsonArrayString(app.appLanguageState.appLanguageCodes),
+                "languages", JsonUtil.encodeToString(app.appLanguageState.appLanguageCodes),
                 "apiMode", 1
         )
     }

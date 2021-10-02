@@ -22,6 +22,7 @@ import org.wikipedia.analytics.SearchFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -37,7 +38,6 @@ import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
 import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
 import org.wikipedia.util.FeedbackUtil.showTooltip
 import org.wikipedia.util.ResourceUtil.getThemedColor
-import org.wikipedia.util.StringUtil.listToJsonArrayString
 import org.wikipedia.views.LanguageScrollView
 import org.wikipedia.views.ViewUtil.formatLangButton
 import java.util.*
@@ -103,7 +103,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         searchResultsFragment = childFragmentManager.findFragmentById(
                 R.id.fragment_search_results) as SearchResultsFragment
         binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
-        initialLanguageList = listToJsonArrayString(app.appLanguageState.appLanguageCodes)
+        initialLanguageList = JsonUtil.encodeToString(app.appLanguageState.appLanguageCodes).orEmpty()
         binding.searchContainer.setOnClickListener { onSearchContainerClick() }
         binding.searchLangButtonContainer.setOnClickListener { onLangButtonClick() }
         initSearchView()
@@ -129,7 +129,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH) {
             var position = 0
-            val finalLanguageList = listToJsonArrayString(app.appLanguageState.appLanguageCodes)
+            val finalLanguageList = JsonUtil.encodeToString(app.appLanguageState.appLanguageCodes)
             if (finalLanguageList != initialLanguageList) {
                 requireActivity().setResult(RESULT_LANG_CHANGED)
             }

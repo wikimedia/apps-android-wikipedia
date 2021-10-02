@@ -34,6 +34,7 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -45,7 +46,6 @@ import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
 import org.wikipedia.views.NotificationButtonView
 import java.util.*
-import kotlin.collections.ArrayList
 
 class TalkTopicsActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicsBinding
@@ -55,7 +55,7 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var notificationButtonView: NotificationButtonView
     private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
     private val disposables = CompositeDisposable()
-    private val topics = ArrayList<TalkPage.Topic>()
+    private val topics = mutableListOf<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var revisionForLastEdit: MwQueryPage.Revision? = null
 
@@ -238,13 +238,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
                 .subscribe({ response ->
                     topics.clear()
-                    for (topic in response.topics!!) {
-                        if (topic.id == 0 && topic.html!!.trim().isEmpty()) {
-                            continue
-                        }
-                        L.d("loadTopics add  " + topic.html)
-                        topics.add(topic)
-                    }
+                    topics.addAll(response.topics!!)
                     updateOnSuccess()
                 }, { t ->
                     L.e(t)
@@ -265,11 +259,16 @@ class TalkTopicsActivity : BaseActivity() {
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
 
-        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false) &&
-            !pageTitle.fragment.isNullOrEmpty()) {
+        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
-            topics.find { StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html) }?.let {
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource))
+            var topic = topics.firstOrNull()
+            if (!pageTitle.fragment.isNullOrEmpty()) {
+                topic = topics.find {
+                    StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html)
+                } ?: topic
+            }
+            if (topic != null) {
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource))
             }
         }
     }
@@ -344,7 +343,18 @@ class TalkTopicsActivity : BaseActivity() {
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
             val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
-            val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
+            var titleStr = RichTextUtil.stripHtml(topic.html).trim()
+            if (titleStr.isEmpty()) {
+                // build up a title based on the contents, massaging the html into plain text that
+                // flows over a few lines...
+                topic.replies?.firstOrNull()?.let {
+                    titleStr = RichTextUtil.stripHtml(it.html).replace("\n", " ")
+                    if (titleStr.length > MAX_CHARS_NO_SUBJECT) {
+                        titleStr = titleStr.substring(0, MAX_CHARS_NO_SUBJECT) + "…"
+                    }
+                }
+            }
+
             title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
             title.visibility = View.VISIBLE
             subtitle.visibility = View.GONE
@@ -359,23 +369,24 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<TalkTopicHolder>() {
         override fun getItemCount(): Int {
             return topics.size
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
             return TalkTopicHolder(layoutInflater.inflate(R.layout.item_talk_topic, parent, false))
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            (holder as TalkTopicHolder).bindItem(topics[pos])
+        override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
+            holder.bindItem(topics[pos])
         }
     }
 
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
+        private const val MAX_CHARS_NO_SUBJECT = 100
         const val NEW_TOPIC_ID = -2
 
         @JvmStatic
