@@ -507,6 +507,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_session_id, null)
         set(sessionId) = PrefsIoUtil.setString(R.string.preference_key_event_platform_session_id, sessionId)
 
+    var notificationsFilterLanguageCodes
+        get() = PrefsIoUtil.getString(R.string.preference_key_languages_filter_notification, null)
+        set(languages) = PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, languages)
+
     var streamConfigs
         get() = JsonUtil.decodeFromString<Map<String, StreamConfig>>(PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, null))
             ?: emptyMap()
