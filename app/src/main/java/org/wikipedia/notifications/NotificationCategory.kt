@@ -43,6 +43,7 @@ enum class NotificationCategory constructor(val id: String,
 
     companion object {
 
+        private val MENTIONS_GROUP = listOf(MENTION, EDIT_USER_TALK, EMAIL_USER, USER_RIGHTS, REVERTED)
         val MAP = EnumCodeMap(NotificationCategory::class.java)
 
         fun find(id: String): NotificationCategory {
@@ -52,6 +53,10 @@ enum class NotificationCategory constructor(val id: String,
                 }
             }
             return MAP[0]
+        }
+
+        fun isMentionsGroup(category: String): Boolean {
+            return MENTIONS_GROUP.find { category.startsWith(it.id) } != null
         }
 
         fun createNotificationChannels(context: Context) {
