@@ -124,7 +124,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         }
                         if (lastNotificationTime <= Prefs.remoteNotificationsSeenTime) {
                             // we're in sync!
-                            return@subscribe
+                            //return@subscribe
                         }
                         Prefs.remoteNotificationsSeenTime = lastNotificationTime
                         retrieveNotifications(context)
@@ -180,6 +180,18 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             val knownNotifications = mutableListOf<Notification>()
             val notificationsToDisplay = mutableListOf<Notification>()
             for (n in notifications) {
+
+
+
+
+                if (n.category == NotificationCategory.EDIT_USER_TALK.id) {
+                    notificationsToDisplay.add(n)
+                    break
+                }
+
+
+
+
                 knownNotifications.add(n)
                 if (LOCALLY_KNOWN_NOTIFICATIONS.contains(n.key())) {
                     continue
@@ -206,7 +218,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     // Record that there is an incoming notification to track/compare further actions on it.
                     NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                     NotificationInteractionEvent.logIncoming(n, null)
-                    NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki)) DBNAME_WIKI_NAME_MAP[n.wiki] else n.wiki)!!)
+                    NotificationPresenter.showNotification(context, n,
+                            (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki)) DBNAME_WIKI_NAME_MAP[n.wiki] else n.wiki)!!,
+                            (if (DBNAME_WIKI_SITE_MAP.containsKey(n.wiki)) DBNAME_WIKI_SITE_MAP[n.wiki] else WikipediaApp.getInstance().wikiSite)!!.languageCode)
                 }
             }
             if (locallyKnownModified) {
@@ -260,8 +274,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             val intent = NotificationPresenter.addIntentExtras(MainActivity.newIntent(context).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true), 0, TYPE_LOCAL)
             NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
-                    context.getString(description), context.getString(description),
-                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, false, intent)
+                    context.getString(description), context.getString(description), null,
+                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent)
         }
     }
 }

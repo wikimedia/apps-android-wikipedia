@@ -4,9 +4,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Paint
-import android.graphics.Rect
+import android.graphics.*
 import android.net.Uri
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
@@ -22,10 +20,11 @@ import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import java.util.*
 
 object NotificationPresenter {
 
-    fun showNotification(context: Context, n: Notification, wikiSiteName: String) {
+    fun showNotification(context: Context, n: Notification, wikiSiteName: String, lang: String) {
         val notificationCategory = NotificationCategory.find(n.category)
         val activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id, n.type)
         val builder = getDefaultBuilder(context, n.id, n.type, notificationCategory)
@@ -49,7 +48,8 @@ object NotificationPresenter {
             }
         }
 
-        showNotification(context, builder, n.key().toInt(), wikiSiteName, title, title, notificationCategory.iconResId, notificationCategory.iconColor, true, activityIntent)
+        showNotification(context, builder, n.key().toInt(), n.agent?.name ?: wikiSiteName, title, title, lang,
+                notificationCategory.iconResId, notificationCategory.iconColor, activityIntent)
     }
 
     fun showMultipleUnread(context: Context, unreadCount: Int) {
@@ -59,7 +59,7 @@ object NotificationPresenter {
         val builder = getDefaultBuilder(context, unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE)
         showNotification(context, builder, 0, context.getString(R.string.app_name),
                 context.getString(R.string.notification_many_unread, unreadCount), context.getString(R.string.notification_many_unread, unreadCount),
-                R.drawable.ic_notifications_black_24dp, R.color.accent50, true,
+                null, R.drawable.ic_notifications_black_24dp, R.color.accent50,
                 addIntentExtras(NotificationActivity.newIntent(context), unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE))
     }
 
@@ -77,10 +77,10 @@ object NotificationPresenter {
     }
 
     fun showNotification(context: Context, builder: NotificationCompat.Builder, id: Int,
-                         title: String, text: String, longText: CharSequence,
-                         @DrawableRes icon: Int, @ColorRes color: Int, drawIconCircle: Boolean, bodyIntent: Intent) {
+                         title: String, text: String, longText: CharSequence, lang: String?,
+                         @DrawableRes icon: Int, @ColorRes color: Int, bodyIntent: Intent) {
         builder.setContentIntent(PendingIntent.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT))
-                .setLargeIcon(drawNotificationBitmap(context, color, icon, drawIconCircle))
+                .setLargeIcon(drawNotificationBitmap(context, color, icon, lang.orEmpty().uppercase(Locale.getDefault())))
                 .setSmallIcon(R.drawable.ic_wikipedia_w)
                 .setColor(ContextCompat.getColor(context, color))
                 .setContentTitle(title)
@@ -108,17 +108,37 @@ object NotificationPresenter {
         builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 
-    private fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, drawIconCircle: Boolean): Bitmap {
-        val bitmapHalfSize = DimenUtil.roundedDpToPx(20f)
-        val iconHalfSize = DimenUtil.roundedDpToPx(12f)
+    private fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, lang: String): Bitmap {
+        val bitmapHalfSize = DimenUtil.roundedDpToPx(24f)
+        val iconHalfSize = DimenUtil.roundedDpToPx(14f)
         return createBitmap(bitmapHalfSize * 2, bitmapHalfSize * 2).applyCanvas {
             val p = Paint()
             p.isAntiAlias = true
-            p.color = ContextCompat.getColor(context, if (drawIconCircle) color else android.R.color.transparent)
-            drawCircle(bitmapHalfSize.toFloat(), bitmapHalfSize.toFloat(), bitmapHalfSize.toFloat(), p)
-            val iconBmp = ResourceUtil.bitmapFromVectorDrawable(context, icon, if (drawIconCircle) android.R.color.white else color)
-            drawBitmap(iconBmp, null, Rect(bitmapHalfSize - iconHalfSize, bitmapHalfSize - iconHalfSize,
-                    bitmapHalfSize + iconHalfSize, bitmapHalfSize + iconHalfSize), null)
+            p.color = ContextCompat.getColor(context, color)
+
+            if (lang.isNotEmpty()) {
+                p.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+                p.textSize = DimenUtil.dpToPx(12f)
+                p.strokeWidth = DimenUtil.dpToPx(1f)
+
+                val textBounds = Rect()
+                p.getTextBounds(lang, 0, lang.length, textBounds)
+
+                val rectPadding = DimenUtil.dpToPx(4f)
+                val textLeft = bitmapHalfSize.toFloat() - (textBounds.right - textBounds.left) / 2
+                val textBottom = bitmapHalfSize * 2 - rectPadding - p.strokeWidth
+
+                drawText(lang, textLeft, textBottom, p)
+
+                p.style = Paint.Style.STROKE
+                val rBounds = RectF(textLeft + textBounds.left - rectPadding, textBottom + textBounds.top - rectPadding,
+                        textLeft + textBounds.right + rectPadding, textBottom + textBounds.bottom + rectPadding)
+                drawRoundRect(rBounds, rectPadding, rectPadding, p)
+            }
+
+            val iconBmp = ResourceUtil.bitmapFromVectorDrawable(context, icon, color)
+            drawBitmap(iconBmp, null, Rect(bitmapHalfSize - iconHalfSize, 0,
+                    bitmapHalfSize + iconHalfSize, iconHalfSize * 2), null)
             iconBmp.recycle()
         }
     }
