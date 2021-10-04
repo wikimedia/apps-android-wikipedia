@@ -1,12 +1,11 @@
 package org.wikipedia.notifications
 
-import com.google.gson.stream.MalformedJsonException
 import io.reactivex.rxjava3.core.Observable
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
 import org.junit.Test
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.test.MockRetrofitTest
 import org.wikipedia.test.TestFileUtil
 
@@ -30,14 +29,14 @@ class NotificationClientTest : MockRetrofitTest() {
     fun testRequestMalformed() {
         enqueueMalformed()
         observable.test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 
     @Test
     @Throws(Throwable::class)
     fun testNotificationReverted() {
         val json = TestFileUtil.readRawFile("notification_revert.json")
-        val n = GsonUnmarshaller.unmarshal(Notification::class.java, json)
+        val n = JsonUtil.decodeFromString<Notification>(json)!!
         MatcherAssert.assertThat(n.type, Matchers.`is`(NotificationCategory.REVERTED.id))
         MatcherAssert.assertThat(n.wiki, Matchers.`is`("wikidatawiki"))
         MatcherAssert.assertThat(n.agent?.name, Matchers.`is`("User1"))

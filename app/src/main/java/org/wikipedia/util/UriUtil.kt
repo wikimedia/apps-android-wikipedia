@@ -74,6 +74,7 @@ object UriUtil {
             .first().let {
                 val componentName = ComponentName(it.activityInfo.packageName, it.activityInfo.name)
                 val newIntent = Intent(Intent.ACTION_VIEW)
+                newIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 newIntent.data = uri
                 newIntent.component = componentName
                 context.startActivity(newIntent)

@@ -10,9 +10,7 @@ import android.widget.TextView
 import androidx.annotation.IntRange
 import androidx.core.text.parseAsHtml
 import androidx.core.text.toSpanned
-import com.google.gson.Gson
 import okio.ByteString.Companion.encodeUtf8
-import org.json.JSONArray
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.UserAliasData
@@ -203,21 +201,6 @@ object StringUtil {
             num /= base
         }
         return str
-    }
-
-    @JvmStatic
-    fun listToJsonArrayString(list: List<String>): String {
-        return JSONArray(list).toString()
-    }
-
-    @JvmStatic
-    fun stringToListMapToJSONString(map: Map<String, List<Int>>): String {
-        return Gson().toJson(map)
-    }
-
-    @JvmStatic
-    fun listToJSONString(list: List<Int>): String {
-        return Gson().toJson(list)
     }
 
     fun userPageTitleFromName(userName: String, wiki: WikiSite): PageTitle {

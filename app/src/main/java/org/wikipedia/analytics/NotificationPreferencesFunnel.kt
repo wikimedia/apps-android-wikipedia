@@ -5,7 +5,7 @@ import androidx.core.app.NotificationManagerCompat
 import org.json.JSONObject
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationsFilterActivity
 import org.wikipedia.settings.Prefs
@@ -29,7 +29,7 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
             }
 
             log(
-                "type_toggles", GsonUtil.getDefaultGson().toJson(toggleMap),
+                "type_toggles", JsonUtil.encodeToString(toggleMap),
                 "background_fetch", app.resources.getInteger(R.integer.notification_poll_interval_minutes)
             )
         }
