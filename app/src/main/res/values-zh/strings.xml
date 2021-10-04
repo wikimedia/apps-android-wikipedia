@@ -241,6 +241,7 @@
   <string name="page_protected_can_not_edit_title">该页面受到保护</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">添加到监视列表</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">跟踪你感兴趣的条目正在发生的事情。点击下拉菜单并选择&lt;b&gt;添加到监视列表&lt;/b&gt;以查看条目的变化。</string>
+  <string name="page_notification_tooltip">您的通知现在在这里显示。</string>
   <string name="settings_item_preferences">设置</string>
   <string name="settings_activity_title">设置</string>
   <string name="about_description">关于维基百科应用</string>

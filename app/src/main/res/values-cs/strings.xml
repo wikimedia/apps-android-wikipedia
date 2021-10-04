@@ -7,6 +7,7 @@
 * Dbrant
 * Dvorapa
 * Evica
+* Fraxinus.cs
 * Frettie
 * Georg101
 * Ilimanaq29
@@ -214,6 +215,7 @@
   <string name="page_protected_can_not_edit_title">Tato stránka je zamčena</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Přidat do sledovaných stránek</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Sledujte, co se děje s články, které vás zajímají. Klepnutím na rozbalovací nabídku a výběrem možnosti &lt;b&gt;Přidat do sledovaných stránek&lt;/b&gt; uvidíte změny článku.</string>
+  <string name="page_notification_tooltip">Vaše oznámení se nyní nacházejí zde.</string>
   <string name="settings_item_preferences">Nastavení</string>
   <string name="settings_activity_title">Nastavení</string>
   <string name="about_description">O aplikaci Wikipedie</string>
