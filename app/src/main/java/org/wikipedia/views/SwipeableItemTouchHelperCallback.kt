@@ -81,17 +81,19 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
                              dx: Float, dy: Float, actionState: Int, isCurrentlyActive: Boolean) {
         if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
             canvas.drawRect(0f, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width.toFloat(), (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), swipeBackgroundPaint)
+            val iconPositionY = (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - (if (swipeTextFromTag) swipeIconBitmap.height else swipeIconBitmap.height / 2))).toFloat()
+            val iconTextPositionY = viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) - SWIPE_ICON_PADDING_DP
             if (dx >= 0) {
-                canvas.drawBitmap(swipeIconBitmap, SWIPE_ICON_PADDING_DP * densityScalar, (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - swipeIconBitmap.height / 2)).toFloat(), swipeIconPaint)
+                canvas.drawBitmap(swipeIconBitmap, SWIPE_ICON_PADDING_DP * densityScalar, iconPositionY, swipeIconPaint)
                 if (swipeTextFromTag) {
                     canvas.drawText(viewHolder.itemView.tag.toString(),
-                        swipeIconBitmap.width + SWIPE_ICON_PADDING_DP, viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) + SWIPE_ICON_PADDING_DP, valueTextPaint)
+                        swipeIconBitmap.width + SWIPE_ICON_PADDING_DP, iconTextPositionY, valueTextPaint)
                 }
             } else {
-                canvas.drawBitmap(swipeIconBitmap, viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP * densityScalar, (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - swipeIconBitmap.height / 2)).toFloat(), swipeIconPaint)
+                canvas.drawBitmap(swipeIconBitmap, viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP * densityScalar, iconPositionY, swipeIconPaint)
                 if (swipeTextFromTag) {
                     canvas.drawText(viewHolder.itemView.tag.toString(),
-                        viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP, viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) + SWIPE_ICON_PADDING_DP, valueTextPaint)
+                        viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP, iconTextPositionY, valueTextPaint)
                 }
             }
             canvas.drawRect(dx, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width + dx, (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), itemBackgroundPaint)
