@@ -85,4 +85,11 @@ public class UriUtilTest {
         assertThat(UriUtil.getFilenameFromUploadUrl("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Needle_Galaxy_4565.jpeg/320px-Needle_Galaxy_4565.jpeg"), is("Needle_Galaxy_4565.jpeg"));
         assertThat(UriUtil.getFilenameFromUploadUrl(""), is(""));
     }
+
+    @Test
+    public void testParseTalkTopicFromFragment() {
+        assertThat(UriUtil.parseTalkTopicFromFragment("c-Dmitry_Brant-2021-10-01T12:36:00.000Z-test"), is("test"));
+        assertThat(UriUtil.parseTalkTopicFromFragment("c-Dmitry_Brant-2021-10-01T12:36:00.000Z-test-1-2-3"), is("test-1-2-3"));
+        assertThat(UriUtil.parseTalkTopicFromFragment("test"), is("test"));
+    }
 }
