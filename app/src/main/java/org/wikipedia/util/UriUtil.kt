@@ -162,4 +162,9 @@ object UriUtil {
     fun removeFragment(link: String): String {
         return link.replaceFirst("#.*$".toRegex(), "")
     }
+
+    fun parseTalkTopicFromFragment(fragment: String): String {
+        val index = fragment.indexOf("Z-")
+        return if (index >= 0) fragment.substring(index + 2) else fragment
+    }
 }

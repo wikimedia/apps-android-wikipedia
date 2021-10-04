@@ -263,8 +263,9 @@ class TalkTopicsActivity : BaseActivity() {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
             var topic = topics.firstOrNull()
             if (!pageTitle.fragment.isNullOrEmpty()) {
+                val targetTopic = UriUtil.parseTalkTopicFromFragment(pageTitle.fragment.orEmpty())
                 topic = topics.find {
-                    StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html)
+                    StringUtil.addUnderscores(targetTopic) == StringUtil.addUnderscores(it.html)
                 } ?: topic
             }
             if (topic != null) {
