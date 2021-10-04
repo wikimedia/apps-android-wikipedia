@@ -42,7 +42,7 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
         fullFiltersList.addAll(NotificationsFilterActivity.allWikisList())
         fullFiltersList.addAll(NotificationsFilterActivity.allTypesIdList())
         fullFiltersList.forEach { toggleMap[it] = filteredList.contains(it) }
-        log("type_toggles", GsonUtil.getDefaultGson().toJson(toggleMap))
+        log("type_toggles", JsonUtil.encodeToString(toggleMap))
     }
 
     fun logSearchClick() {
