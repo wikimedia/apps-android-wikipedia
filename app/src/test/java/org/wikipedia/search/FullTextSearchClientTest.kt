@@ -1,6 +1,5 @@
 package org.wikipedia.search
 
-import com.google.gson.stream.MalformedJsonException
 import org.junit.Test
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.test.MockRetrofitTest
@@ -30,7 +29,7 @@ class FullTextSearchClientTest : MockRetrofitTest() {
         enqueueFromFile("full_text_search_results.json")
         observable.test().await()
             .assertComplete().assertNoErrors()
-            .assertValue { (_, continuation) -> continuation["continue"] == "gsroffset||" && continuation["gsroffset"] == "20" }
+            .assertValue { (_, continuation) -> continuation!!.continuation == "gsroffset||" && continuation.gsroffset == 20 }
     }
 
     @Test
@@ -63,7 +62,7 @@ class FullTextSearchClientTest : MockRetrofitTest() {
     fun testRequestResponseMalformed() {
         enqueueMalformed()
         observable.test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 
     companion object {

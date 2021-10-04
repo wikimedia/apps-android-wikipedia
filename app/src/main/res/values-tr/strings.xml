@@ -231,6 +231,7 @@
   <string name="page_protected_can_not_edit_title">Bu sayfa koruma altındadır</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">İzleme listesine ekle</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">İlgilendiğiniz maddelere ne olduğunu takip edin. Bir maddedeki değişiklikleri görmek için taşma menüsüne dokunun ve &lt;b&gt;İzleme Listesine Ekle&lt;/b&gt; seçeneğini seçin.</string>
+  <string name="page_notification_tooltip">Bildirimleriniz artık burada.</string>
   <string name="settings_item_preferences">Ayarlar</string>
   <string name="settings_activity_title">Ayarlar</string>
   <string name="about_description">Vikipedi uygulaması hakkında</string>
@@ -640,7 +641,7 @@
   <string name="preference_title_customize_push_notifications">Anlık bildirimleri özelleştir</string>
   <string name="preference_category_display_settings">Görüntüleme ayarları</string>
   <string name="preference_title_hide_read_notifications">Okunmuş bildirimleri gizle</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Vikipedi bildirimleri</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Vikipedi</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Vikipedi\'den bildirimler</string>
   <string name="notifications_channel_group_other_title">Diğer</string>
   <string name="notifications_channel_group_other_description">Uygulamadan diğer bildirimler</string>

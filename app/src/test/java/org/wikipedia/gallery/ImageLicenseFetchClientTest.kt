@@ -1,6 +1,5 @@
 package org.wikipedia.gallery
 
-import com.google.gson.stream.MalformedJsonException
 import org.junit.Test
 import org.wikipedia.dataclient.WikiSite.Companion.forLanguageCode
 import org.wikipedia.page.PageTitle
@@ -49,7 +48,7 @@ class ImageLicenseFetchClientTest : MockRetrofitTest() {
         apiService.getImageInfo(PAGE_TITLE_MARK_SELBY.prefixedText, WIKISITE_TEST.languageCode)
             .map { ImageLicense() }
             .test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 
     companion object {

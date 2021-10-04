@@ -7,10 +7,12 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -102,6 +104,7 @@ public final class EventPlatformClient {
     static void addEventMetadata(Event event) {
         event.setSessionId(AssociationController.getSessionId());
         event.setAppInstallId(Prefs.INSTANCE.getAppInstallId());
+        event.setDt(DateUtil.iso8601DateFormat(new Date()));
     }
 
     public static void flushCachedEvents() {
