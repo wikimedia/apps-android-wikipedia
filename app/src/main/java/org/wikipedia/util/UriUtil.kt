@@ -163,6 +163,7 @@ object UriUtil {
         return link.replaceFirst("#.*$".toRegex(), "")
     }
 
+    @JvmStatic
     fun parseTalkTopicFromFragment(fragment: String): String {
         val index = fragment.indexOf("Z-")
         return if (index >= 0) fragment.substring(index + 2) else fragment
