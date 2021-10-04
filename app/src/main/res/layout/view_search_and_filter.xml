@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <org.wikipedia.views.CabSearchView
+        android:id="@+id/search_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="-16dp"
+        android:layout_weight="1"
+        android:hint="@string/filter_hint_filter_my_lists_and_articles"
+        android:imeOptions="actionSearch|flagNoExtractUi"
+        android:inputType="text"
+        android:maxLines="1"
+        app:closeIcon="@null"
+        app:iconifiedByDefault="false"
+        app:searchIcon="@null"
+        app:defaultQueryHint="@string/notifications_search_hint" />
+
+    <TextView
+        android:id="@+id/notification_filter_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="6dp"
+        android:textColor="?attr/colorAccent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/notification_filter_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="end"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:contentDescription="@string/notifications_search_bar_filter_hint"
+        android:focusable="true"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_baseline_tune_24"
+        app:tint="?attr/chip_text_color" />
+</LinearLayout>
