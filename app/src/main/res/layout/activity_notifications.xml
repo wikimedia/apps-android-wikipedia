@@ -96,7 +96,7 @@
                 android:id="@+id/notifications_progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
+                android:layout_gravity="center"
                 android:layout_margin="16dp" />
 
         </FrameLayout>
