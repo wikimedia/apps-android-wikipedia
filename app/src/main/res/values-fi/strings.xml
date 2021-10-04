@@ -217,6 +217,7 @@
   <string name="page_protected_can_not_edit_title">Tämä sivu on suojattu</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Lisää tarkkailulistalle</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Seuraa helposti artikkelien kehitystä. Lisää artikkeli seurattavien joukkoon napauttamalla valikkoa ja valitsemalla &lt;b&gt;Lisää tarkkailulistalle&lt;/b&gt;.</string>
+  <string name="page_notification_tooltip">Ilmoituksesi ovat nyt täällä.</string>
   <string name="settings_item_preferences">Asetukset</string>
   <string name="settings_activity_title">Asetukset</string>
   <string name="about_description">Tietoja Wikipedia-sovelluksesta</string>
@@ -621,6 +622,7 @@
   <string name="preference_category_push_notifications">Push-ilmoitukset</string>
   <string name="preference_title_customize_push_notifications">Kustomoi push-ilmoituksia</string>
   <string name="preference_category_display_settings">Näyttöasetukset</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Ilmoitukset Wikipediasta</string>
   <string name="notifications_channel_group_other_title">Muu</string>
   <string name="notifications_channel_group_other_description">Muut ilmoitukset sovelluksesta</string>

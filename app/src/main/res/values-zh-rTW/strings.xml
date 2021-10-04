@@ -210,6 +210,7 @@
   <string name="page_protected_can_not_edit_title">此頁面受到保護</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">新增至監視清單</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">持續追蹤您感興趣條目的最新狀況。請輕觸溢位選單，並選擇&lt;b&gt;新增至監視清單&lt;/b&gt;來查看條目的變動內容。</string>
+  <string name="page_notification_tooltip">您的通知現在在此。</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
   <string name="about_description">關於維基百科應用程式</string>
