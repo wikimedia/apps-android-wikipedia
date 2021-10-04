@@ -144,7 +144,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         }
                         if (lastNotificationTime <= Prefs.remoteNotificationsSeenTime) {
                             // we're in sync!
-                            //return@subscribe
+                            return@subscribe
                         }
                         Prefs.remoteNotificationsSeenTime = lastNotificationTime
                         retrieveNotifications(context)
@@ -200,18 +200,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             val knownNotifications = mutableListOf<Notification>()
             val notificationsToDisplay = mutableListOf<Notification>()
             for (n in notifications) {
-
-
-
-
-                if (n.category == NotificationCategory.EDIT_USER_TALK.id) {
-                    notificationsToDisplay.add(n)
-                    break
-                }
-
-
-
-
                 knownNotifications.add(n)
                 if (LOCALLY_KNOWN_NOTIFICATIONS.contains(n.key())) {
                     continue
