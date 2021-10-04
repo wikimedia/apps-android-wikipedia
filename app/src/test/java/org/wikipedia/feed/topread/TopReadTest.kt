@@ -5,7 +5,7 @@ import org.hamcrest.Matchers
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.test.TestFileUtil
 import java.text.SimpleDateFormat
 import java.util.*
@@ -16,7 +16,7 @@ class TopReadTest {
     @Throws(Throwable::class)
     fun testUnmarshalManyArticles() {
         val subject = unmarshal("most_read.json")
-        MatcherAssert.assertThat(subject.date, Matchers.`is`(date("2016-06-01Z")))
+        MatcherAssert.assertThat(subject.date(), Matchers.`is`(date("2016-06-01Z")))
         MatcherAssert.assertThat(subject.articles, Matchers.notNullValue())
         MatcherAssert.assertThat(subject.articles.size, Matchers.`is`(40))
     }
@@ -32,7 +32,7 @@ class TopReadTest {
         @Throws(Throwable::class)
         fun unmarshal(filename: String): TopRead {
             val json = TestFileUtil.readRawFile(filename)
-            return GsonUnmarshaller.unmarshal(TopRead::class.java, json)
+            return JsonUtil.decodeFromString(json)!!
         }
     }
 }

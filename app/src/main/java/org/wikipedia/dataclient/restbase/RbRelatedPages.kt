@@ -1,7 +1,9 @@
 package org.wikipedia.dataclient.restbase
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.page.PageSummary
 
+@Serializable
 class RbRelatedPages {
 
     val pages: List<PageSummary>? = null

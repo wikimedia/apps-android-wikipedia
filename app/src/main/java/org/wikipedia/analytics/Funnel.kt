@@ -1,7 +1,6 @@
 package org.wikipedia.analytics
 
 import androidx.annotation.VisibleForTesting
-import com.google.gson.annotations.SerializedName
 import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
@@ -15,8 +14,7 @@ import java.util.*
  * these fields are not present or differently named, preprocess* or get*Field should be overridden.  */
 abstract class Funnel @JvmOverloads internal constructor(protected val app: WikipediaApp, private val schemaName: String,
                                                          private val revision: Int, private val sampleRate: Int = SAMPLE_LOG_ALL,
-                                                         // todo: remove @SerializedName if not pickled
-                                                         @SerializedName("site") private val wiki: WikiSite? = null) {
+                                                         private val wiki: WikiSite? = null) {
 
     private val sampleRateRemoteParamName = schemaName + "_rate"
 

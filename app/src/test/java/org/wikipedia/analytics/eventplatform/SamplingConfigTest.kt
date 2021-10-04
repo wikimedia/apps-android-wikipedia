@@ -3,7 +3,7 @@ package org.wikipedia.analytics.eventplatform
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert
 import org.junit.Test
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.JsonUtil
 
 class SamplingConfigTest {
     @Test
@@ -31,12 +31,8 @@ class SamplingConfigTest {
     }
 
     private fun assertDeserializedValues(json: String, rate: Double, identifier: SamplingConfig.Identifier) {
-        val config = GSON.fromJson(json, SamplingConfig::class.java)
+        val config = JsonUtil.decodeFromString<SamplingConfig>(json)!!
         MatcherAssert.assertThat(config.rate, CoreMatchers.equalTo(rate))
         MatcherAssert.assertThat(config.getIdentifier(), CoreMatchers.equalTo(identifier))
-    }
-
-    companion object {
-        private val GSON = GsonUtil.getDefaultGson()
     }
 }

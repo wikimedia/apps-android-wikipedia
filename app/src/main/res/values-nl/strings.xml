@@ -223,6 +223,7 @@
   <string name="page_protected_can_not_edit_title">Deze pagina is beveiligd</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Toevoegen aan volglijst</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Blijf op de hoogte van artikelen waar je geïnteresseerd in bent. Selecteer &lt;b&gt;Toevoegen aan Watchlist&lt;/b&gt; om wijzigingen aan een artikelen te zien.</string>
+  <string name="page_notification_tooltip">Uw meldingen bevinden zich nu hier.</string>
   <string name="settings_item_preferences">Instellingen</string>
   <string name="settings_activity_title">Instellingen</string>
   <string name="about_description">Over de Wikipedia-app</string>
@@ -632,7 +633,7 @@
   <string name="preference_title_customize_push_notifications">Pushmeldingen aanpassen</string>
   <string name="preference_category_display_settings">Weergave-instellingen</string>
   <string name="preference_title_hide_read_notifications">Meldingen \"gelezen\" verbergen</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Wikipedia-meldingen</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Meldingen van Wikipedia</string>
   <string name="notifications_channel_group_other_title">Overige</string>
   <string name="notifications_channel_group_other_description">Andere meldingen van de app</string>

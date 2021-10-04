@@ -5,6 +5,7 @@
 * Cwtiyar
 * Diyariq
 * GoRaN
+* Halbast
 * Kurd
 * Kushared
 * Pirehelokan
@@ -686,7 +687,7 @@
   <string name="suggested_edits_task_new">نوێ</string>
   <string name="suggested_edits_cc0_notice">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;بەندەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt;.</string>
   <string name="suggested_edits_contribution_language_label">زمان</string>
-  <string name="suggested_edits_contribution_date_time_label">بەروار/کات</string>
+  <string name="suggested_edits_contribution_date_time_label">ڕێکەوت/کات</string>
   <string name="suggested_edits_contribution_image_label">وێنە</string>
   <string name="suggested_edits_contribution_article_label">وتار</string>
   <string name="suggested_edits_contribution_views">%s بینراوە</string>
