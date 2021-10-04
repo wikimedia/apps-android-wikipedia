@@ -1,7 +1,9 @@
 package org.wikipedia.login
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 
+@Serializable
 open class LoginResult internal constructor(val site: WikiSite,
                                             val status: String,
                                             val userName: String?,

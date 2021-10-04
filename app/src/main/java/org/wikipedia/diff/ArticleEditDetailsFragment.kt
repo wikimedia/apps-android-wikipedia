@@ -35,7 +35,6 @@ import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonUtil
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
@@ -249,7 +248,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .flatMap { response ->
                     val watchToken = response.query?.watchToken()
                     if (watchToken.isNullOrEmpty()) {
-                        throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
+                        throw RuntimeException("Received empty watch token.")
                     }
                     ServiceFactory.get(WikiSite.forLanguageCode(languageCode))
                         .postWatch(if (unwatch) 1 else null, null, articlePageTitle.prefixedText, expiry.expiry, watchToken)

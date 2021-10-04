@@ -2,6 +2,7 @@
 <!-- Authors:
 * Jim-by
 * MuratTheTurkish
+* Nieszczarda2
 * Red Winged Duck
 * Renessaince
 -->
@@ -165,6 +166,7 @@
   <string name="page_protected_other">Гэтая старонка была абароненая на наступных узроўнях: %s</string>
   <string name="page_protected_can_not_edit">Выбачайце, ваш рахунак мае недастаткова правоў, каб рэдагаваць цяпер гэтую старонку.</string>
   <string name="page_protected_can_not_edit_title">Гэтая старонка абароненая</string>
+  <string name="page_notification_tooltip">Вашыя паведамленьні цяпер тут.</string>
   <string name="settings_item_preferences">Налады</string>
   <string name="settings_activity_title">Налады</string>
   <string name="about_description">Пра дастасаваньне Вікіпэдыя</string>

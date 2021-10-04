@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageActivity
@@ -18,6 +19,11 @@ class NotificationLinkHandler constructor(context: Context) : LinkHandler(contex
 
     override fun onMediaLinkClicked(title: PageTitle) {
         // ignore
+    }
+
+    override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
+        context.startActivity(ArticleEditDetailsActivity.newIntent(context,
+            title.displayText, revisionId, title.wikiSite.languageCode))
     }
 
     override lateinit var wikiSite: WikiSite

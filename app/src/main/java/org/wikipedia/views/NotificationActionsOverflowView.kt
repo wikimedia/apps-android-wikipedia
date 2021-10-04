@@ -116,7 +116,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         textView.text = StringUtil.fromHtml(link.tooltip.ifEmpty { link.label })
 
         if (!useDefaultIcon) {
-            val icon = when (link.icon) {
+            val icon = when (link.icon()) {
                 "userAvatar" -> R.drawable.ic_user_avatar
                 "changes" -> R.drawable.ic_icon_revision_history_apps
                 "speechBubbles", "userSpeechBubble" -> R.drawable.ic_user_talk

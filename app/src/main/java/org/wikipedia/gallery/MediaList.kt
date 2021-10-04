@@ -1,5 +1,8 @@
 package org.wikipedia.gallery
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class MediaList {
 
     private val revision: String? = null

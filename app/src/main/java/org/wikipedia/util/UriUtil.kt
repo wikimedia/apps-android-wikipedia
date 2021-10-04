@@ -74,6 +74,7 @@ object UriUtil {
             .first().let {
                 val componentName = ComponentName(it.activityInfo.packageName, it.activityInfo.name)
                 val newIntent = Intent(Intent.ACTION_VIEW)
+                newIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 newIntent.data = uri
                 newIntent.component = componentName
                 context.startActivity(newIntent)
@@ -165,5 +166,11 @@ object UriUtil {
     @VisibleForTesting
     fun removeFragment(link: String): String {
         return link.replaceFirst("#.*$".toRegex(), "")
+    }
+
+    @JvmStatic
+    fun parseTalkTopicFromFragment(fragment: String): String {
+        val index = fragment.indexOf("Z-")
+        return if (index >= 0) fragment.substring(index + 2) else fragment
     }
 }

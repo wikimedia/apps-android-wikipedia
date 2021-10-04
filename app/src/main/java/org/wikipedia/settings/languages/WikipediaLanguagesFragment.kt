@@ -20,10 +20,10 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.AppLanguageSettingsFunnel
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguagesListActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.SettingsActivity
-import org.wikipedia.util.StringUtil.listToJsonArrayString
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.MultiSelectActionModeCallback
 import java.util.*
@@ -47,7 +47,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentWikipediaLanguagesBinding.inflate(inflater, container, false)
         invokeSource = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        initialLanguageList = listToJsonArrayString(app.language().appLanguageCodes)
+        initialLanguageList = JsonUtil.encodeToString(app.language().appLanguageCodes).orEmpty()
         funnel = AppLanguageSettingsFunnel()
         prepareWikipediaLanguagesList()
         setupRecyclerView()
@@ -73,7 +73,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
     }
 
     override fun onDestroyView() {
-        funnel.logLanguageSetting(invokeSource, initialLanguageList, listToJsonArrayString(app.language().appLanguageCodes), interactionsCount, isLanguageSearched)
+        funnel.logLanguageSetting(invokeSource, initialLanguageList, JsonUtil.encodeToString(app.language().appLanguageCodes).orEmpty(), interactionsCount, isLanguageSearched)
         binding.wikipediaLanguagesRecycler.adapter = null
         _binding = null
         super.onDestroyView()

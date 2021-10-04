@@ -85,6 +85,41 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/notifications_search_empty_text"
+                style="@style/MaterialMediumSecondaryCaption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/search_results_count_zero"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/notifications_search_empty_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_notifications_search_empty_icon" />
+
+                <TextView
+                    android:id="@+id/notifications_empty_search_message"
+                    style="@style/MaterialMediumSecondaryCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp" />
+                
+            </LinearLayout>
+
             <org.wikipedia.views.WikiErrorView
                 android:id="@+id/notifications_error_view"
                 android:layout_width="wrap_content"

@@ -21,7 +21,7 @@ class TopReadListCard(private val articles: TopRead, val site: WikiSite) :
     }
 
     override fun subtitle(): String {
-        return DateUtil.getFeedCardDateString(articles.date)
+        return DateUtil.getFeedCardDateString(articles.date())
     }
 
     override fun type(): CardType {
@@ -33,7 +33,7 @@ class TopReadListCard(private val articles: TopRead, val site: WikiSite) :
     }
 
     override fun dismissHashCode(): Int {
-        return TimeUnit.MILLISECONDS.toDays(articles.date.time).toInt() + wikiSite().hashCode()
+        return TimeUnit.MILLISECONDS.toDays(articles.date().time).toInt() + wikiSite().hashCode()
     }
 
     companion object {

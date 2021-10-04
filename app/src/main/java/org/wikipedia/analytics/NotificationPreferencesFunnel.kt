@@ -5,8 +5,11 @@ import androidx.core.app.NotificationManagerCompat
 import org.json.JSONObject
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.NotificationCategory
+import org.wikipedia.notifications.NotificationsFilterActivity
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.StringUtil
 
 class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
@@ -26,14 +29,32 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
             }
 
             log(
-                "type_toggles", GsonUtil.getDefaultGson().toJson(toggleMap),
+                "type_toggles", JsonUtil.encodeToString(toggleMap),
                 "background_fetch", app.resources.getInteger(R.integer.notification_poll_interval_minutes)
             )
         }
     }
 
+    fun logNotificationFilterPrefs() {
+        val fullFiltersList = mutableListOf<String>()
+        val toggleMap = HashMap<String, Boolean>()
+        val filteredList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+        fullFiltersList.addAll(NotificationsFilterActivity.allWikisList())
+        fullFiltersList.addAll(NotificationsFilterActivity.allTypesIdList())
+        fullFiltersList.forEach { toggleMap[it] = filteredList.contains(it) }
+        log("type_toggles", JsonUtil.encodeToString(toggleMap))
+    }
+
+    fun logSearchClick() {
+        log("type_toggles", "search_clicked")
+    }
+
+    fun logFilterClick() {
+        log("type_toggles", "filter_clicked")
+    }
+
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppNotificationPreferences"
-        private const val REV_ID = 18325724
+        private const val REV_ID = 22083261
     }
 }

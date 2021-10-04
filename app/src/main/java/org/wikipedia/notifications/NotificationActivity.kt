@@ -2,14 +2,22 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
 import android.text.format.DateUtils
+import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.view.ActionMode
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
+import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +30,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
@@ -50,9 +59,11 @@ class NotificationActivity : BaseActivity() {
     private var currentContinueStr: String? = null
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
+    private val searchActionModeCallback = SearchCallback()
     private var linkHandler = NotificationLinkHandler(this)
     private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     var currentSearchQuery: String? = null
+    var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,6 +111,16 @@ class NotificationActivity : BaseActivity() {
         beginUpdateList()
     }
 
+    override fun onResume() {
+        super.onResume()
+        beginUpdateList()
+        actionMode?.let {
+            if (SearchActionModeCallback.`is`(it)) {
+                searchActionModeCallback.refreshProvider()
+            }
+        }
+    }
+
     public override fun onDestroy() {
         disposables.clear()
         super.onDestroy()
@@ -132,6 +153,7 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
+        binding.notificationsSearchEmptyContainer.visibility = View.GONE
         binding.notificationsProgressBar.visibility = View.VISIBLE
         binding.notificationTabLayout.visibility = View.GONE
         supportActionBar?.setTitle(R.string.notifications_activity_title)
@@ -153,21 +175,10 @@ class NotificationActivity : BaseActivity() {
                 }) { t -> setErrorState(t) })
     }
 
-    private fun wikiList(): String {
-        val wikiList = mutableSetOf<String>()
-        WikipediaApp.getInstance().language().appLanguageCodes.forEach {
-            val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
-            wikiList.add("${defaultLangCode.replace("-", "_")}wiki")
-        }
-        wikiList.add("commonswiki")
-        wikiList.add("wikidatawiki")
-        return wikiList.joinToString("|")
-    }
-
     private val orContinueNotifications: Unit
         get() {
             binding.notificationsProgressBar.visibility = View.VISIBLE
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(wikiList(), "read|!read", currentContinueStr)
+            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(delimitedFilteredWikiList(), "read|!read", currentContinueStr)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
@@ -176,11 +187,34 @@ class NotificationActivity : BaseActivity() {
                     }) { t -> setErrorState(t) })
         }
 
+    private fun delimitedFilteredWikiList(): String {
+        val filteredWikiList = mutableListOf<String>()
+        if (Prefs.notificationsFilterLanguageCodes == null) {
+            WikipediaApp.getInstance().language().appLanguageCodes.forEach {
+                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+            }
+            filteredWikiList.add("commonswiki")
+            filteredWikiList.add("wikidatawiki")
+        } else {
+            val wikiTypeList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+            wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
+                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
+                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+            }
+            wikiTypeList.filter { it == "commons" || it == "wikidata" }.forEach { langCode ->
+                filteredWikiList.add("${langCode}wiki")
+            }
+        }
+        return filteredWikiList.joinToString("|")
+    }
+
     private fun setErrorState(t: Throwable) {
         L.e(t)
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
+        binding.notificationsSearchEmptyContainer.visibility = View.GONE
         binding.notificationsErrorView.setError(t)
         binding.notificationsErrorView.visibility = View.VISIBLE
     }
@@ -231,7 +265,8 @@ class NotificationActivity : BaseActivity() {
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
         notificationContainerList.clear()
-        notificationContainerList.add(NotificationListItemContainer()) // search bar
+        if (actionMode == null) notificationContainerList.add(NotificationListItemContainer()) // search bar
+        binding.notificationTabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
 
         val selectedFilterTab = binding.notificationTabLayout.selectedTabPosition
         val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
@@ -240,14 +275,36 @@ class NotificationActivity : BaseActivity() {
             if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
                 continue
             }
-            notificationContainerList.add(NotificationListItemContainer(n))
+            val filterList = mutableListOf<String>()
+            filterList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).filter { NotificationCategory.isFiltersGroup(it) })
+            if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
         }
         binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         if (notificationContainerList.isEmpty()) {
-            binding.notificationsEmptyContainer.visibility = View.VISIBLE
+            binding.notificationsEmptyContainer.visibility = if (actionMode == null) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null && enabledFiltersCount() != 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyText.visibility = if (actionMode != null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
+            binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = View.GONE
+            binding.notificationsSearchEmptyText.visibility = View.GONE
         }
+    }
+
+    private fun enabledFiltersCount(): Int {
+        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
+        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+        return fullWikiAndTypeListSize - filtersSize
+    }
+
+    private fun getSpannedEmptySearchMessage(): Spannable {
+        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, enabledFiltersCount(), enabledFiltersCount())
+        val emptySearchMessage = getString(R.string.notifications_empty_search_message, filtersStr)
+        val spannable = SpannableString(emptySearchMessage)
+        val prefixStringLength = 13
+        spannable.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(this, R.attr.colorAccent)), prefixStringLength, prefixStringLength + filtersStr.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        return spannable
     }
 
     private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false) {
@@ -344,6 +401,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationItemImage.setColorFilter(notificationColor)
             n.contents?.let {
                 binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
+                StringUtil.highlightAndBoldenText(binding.notificationSubtitle, currentSearchQuery, true, Color.YELLOW)
                 if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
                     binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
                     binding.notificationDescription.visibility = View.VISIBLE
@@ -457,20 +515,44 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private inner class NotificationSearchBarHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+    private inner class NotificationSearchBarHolder constructor(view: View) :
+        RecyclerView.ViewHolder(view) {
+        val notificationFilterButton: AppCompatImageView = itemView.findViewById(R.id.notification_filter_button)
+        val notificationFilterCountView: TextView = itemView.findViewById(R.id.notification_filter_count)
+
         init {
             (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
-            val notificationFilterButton = itemView.findViewById<View>(R.id.notification_filter_button)
+
+            updateFilterIconAndCount()
 
             itemView.setOnClickListener {
-                // TODO: open search page
+                if (actionMode == null) {
+                    funnel.logSearchClick()
+                    actionMode = startSupportActionMode(searchActionModeCallback)
+                    postprocessAndDisplay()
+                }
             }
 
             notificationFilterButton.setOnClickListener {
-                // TODO: open filter page
+                funnel.logFilterClick()
+                startActivity(NotificationsFilterActivity.newIntent(it.context))
             }
 
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
+        }
+
+        private fun updateFilterIconAndCount() {
+            val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
+            val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+            val enabledFilters = fullWikiAndTypeListSize - delimitedFiltersSizeString
+            if (enabledFilters == 0 || Prefs.notificationsFilterLanguageCodes == null) {
+                notificationFilterCountView.visibility = View.GONE
+                notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.chip_text_color))
+            } else {
+                notificationFilterCountView.visibility = View.VISIBLE
+                notificationFilterCountView.text = enabledFilters.toString()
+                notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.colorAccent))
+            }
         }
     }
 
@@ -503,7 +585,23 @@ class NotificationActivity : BaseActivity() {
     }
 
     private inner class SearchCallback : SearchActionModeCallback() {
+
+        var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(parentContext, searchHintString,
+                object : SearchAndFilterActionProvider.Callback {
+                    override fun onQueryTextChange(s: String) {
+                        onQueryChange(s)
+                    }
+
+                    override fun onQueryTextFocusChange() {
+                    }
+                })
+
+            val menuItem = menu.add(searchHintString)
+
+            MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
+
             actionMode = mode
             return super.onCreateActionMode(mode, menu)
         }
@@ -526,6 +624,10 @@ class NotificationActivity : BaseActivity() {
 
         override fun getParentContext(): Context {
             return this@NotificationActivity
+        }
+
+        fun refreshProvider() {
+            searchAndFilterActionProvider?.updateFilterIconAndText()
         }
     }
 
