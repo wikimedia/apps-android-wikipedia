@@ -211,6 +211,7 @@
   <string name="page_protected_can_not_edit_title">La pàgina està protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Afegeix a la llista de seguiment</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Vigileu tot allò que passa en els articles en què esteu interessat. Toqueu el menú que sobresurt i seleccioneu &lt;b&gt;Afegeix a la llista de seguiment&lt;/b&gt; per a veure els canvis d\'un article.</string>
+  <string name="page_notification_tooltip">Les notificacions són ara aquí.</string>
   <string name="settings_item_preferences">Configuració</string>
   <string name="settings_activity_title">Configuració</string>
   <string name="about_description">Quant a l’aplicació de la Viquipèdia</string>
