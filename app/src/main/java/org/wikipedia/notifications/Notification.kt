@@ -14,7 +14,7 @@ import java.util.*
 
 @Serializable
 class Notification {
- 
+
     @SerialName("*")
     val contents: Contents? = null
     private val timestamp: Timestamp? = null
