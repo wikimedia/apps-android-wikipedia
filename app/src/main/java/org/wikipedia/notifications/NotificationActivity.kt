@@ -69,6 +69,8 @@ class NotificationActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.notificationsToolbar)
+        supportActionBar?.title = getString(R.string.notifications_activity_title)
 
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
@@ -86,13 +88,14 @@ class NotificationActivity : BaseActivity() {
 
         binding.notificationsRefreshView.setOnRefreshListener {
             binding.notificationsRefreshView.isRefreshing = false
-            actionMode?.finish()
+            finishActionMode()
             beginUpdateList()
         }
 
         binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 postprocessAndDisplay()
+                finishActionMode()
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -337,6 +340,8 @@ class NotificationActivity : BaseActivity() {
         // manually mark items in read state
         notificationList.filter { n -> items.map { container -> container.notification?.id }
             .firstOrNull { it == n.id } != null }.map { it.read = if (markUnread) null else Date().toString() }
+
+        finishActionMode()
         postprocessAndDisplay()
     }
 
@@ -660,6 +665,7 @@ class NotificationActivity : BaseActivity() {
                 }
                 R.id.menu_uncheck_all -> {
                     checkAllItems(mode, false)
+                    finishActionMode()
                     return true
                 }
             }
