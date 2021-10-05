@@ -77,6 +77,7 @@ class EditNoticesDialog constructor(
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder {
             val textView = TextView(context)
+            textView.layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             textView.movementMethod = movementMethod
             textView.setPadding(0, DimenUtil.roundedDpToPx(16f), 0, DimenUtil.roundedDpToPx(16f))
             return DefaultViewHolder(textView)
