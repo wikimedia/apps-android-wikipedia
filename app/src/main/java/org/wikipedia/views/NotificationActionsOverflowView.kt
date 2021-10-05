@@ -128,7 +128,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         val icon = when (link.icon()) {
             "userAvatar" -> R.drawable.ic_user_avatar
             "changes" -> R.drawable.ic_icon_revision_history_apps
-            "speechBubbles", "userSpeechBubble" -> R.drawable.ic_speech_bubbles
+            "speechBubbles", "userSpeechBubble" -> R.drawable.ic_notification_article_talk
             else -> customIcon
         }
 
