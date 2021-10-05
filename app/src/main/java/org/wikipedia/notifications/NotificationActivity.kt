@@ -61,6 +61,7 @@ class NotificationActivity : BaseActivity() {
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
     private var linkHandler = NotificationLinkHandler(this)
+    private var notificationActionOverflowView: NotificationActionsOverflowView? = null
     private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
     var currentSearchQuery: String? = null
@@ -157,6 +158,7 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsSearchEmptyContainer.visibility = View.GONE
         binding.notificationsProgressBar.visibility = View.VISIBLE
         binding.notificationTabLayout.visibility = View.GONE
+        notificationActionOverflowView?.dismiss()
         supportActionBar?.setTitle(R.string.notifications_activity_title)
         currentContinueStr = null
         disposables.clear()
@@ -510,7 +512,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun showOverflowMenu(anchorView: View) {
-            NotificationActionsOverflowView(this@NotificationActivity).show(anchorView, container) {
+            notificationActionOverflowView = NotificationActionsOverflowView(this@NotificationActivity)
+            notificationActionOverflowView?.show(anchorView, container) {
                     container, markRead -> markReadItems(listOf(container), !markRead)
             }
         }
