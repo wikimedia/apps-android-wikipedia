@@ -62,6 +62,7 @@ class NotificationActivity : BaseActivity() {
     private val searchActionModeCallback = SearchCallback()
     private var linkHandler = NotificationLinkHandler(this)
     private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+    private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
     var currentSearchQuery: String? = null
     var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
 
@@ -420,9 +421,9 @@ class NotificationActivity : BaseActivity() {
 
             binding.notificationItemReadDot.isVisible = n.isUnread
             binding.notificationItemReadDot.setColorFilter(notificationColor)
-            binding.notificationTitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else typefaceSansSerifMedium
+            binding.notificationTitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
             binding.notificationTitle.setTextColor(notificationColor)
-            binding.notificationSubtitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else typefaceSansSerifMedium
+            binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
 
             val wikiCode = n.wiki
             val langCode = wikiCode.replace("wiki", "")
