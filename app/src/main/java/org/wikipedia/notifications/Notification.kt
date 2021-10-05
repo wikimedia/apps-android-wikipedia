@@ -2,7 +2,10 @@ package org.wikipedia.notifications
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.*
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.decodeFromJsonElement
+import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.util.DateUtil
@@ -11,7 +14,7 @@ import java.util.*
 
 @Serializable
 class Notification {
-
+ 
     @SerialName("*")
     val contents: Contents? = null
     private val timestamp: Timestamp? = null
