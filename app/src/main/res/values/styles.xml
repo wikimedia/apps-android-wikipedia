@@ -63,7 +63,7 @@
         <item name="windowActionModeOverlay">false</item>
     </style>
 
-    <style name="AppTheme.ActionBar.Notification">
+    <style name="AppTheme.Notification">
         <item name="actionModeStyle">@style/ActionModeStyle.Notification</item>
     </style>
 

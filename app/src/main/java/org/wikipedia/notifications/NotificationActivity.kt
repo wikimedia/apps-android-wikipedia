@@ -62,6 +62,7 @@ class NotificationActivity : BaseActivity() {
     private val searchActionModeCallback = SearchCallback()
     private var linkHandler = NotificationLinkHandler(this)
     private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+    private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
     var currentSearchQuery: String? = null
     var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
 
@@ -69,6 +70,8 @@ class NotificationActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.notificationsToolbar)
+        supportActionBar?.title = getString(R.string.notifications_activity_title)
 
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
@@ -86,13 +89,14 @@ class NotificationActivity : BaseActivity() {
 
         binding.notificationsRefreshView.setOnRefreshListener {
             binding.notificationsRefreshView.isRefreshing = false
-            actionMode?.finish()
+            finishActionMode()
             beginUpdateList()
         }
 
         binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 postprocessAndDisplay()
+                finishActionMode()
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -344,6 +348,8 @@ class NotificationActivity : BaseActivity() {
         // manually mark items in read state
         notificationList.filter { n -> items.map { container -> container.notification?.id }
             .firstOrNull { it == n.id } != null }.map { it.read = if (markUnread) null else Date().toString() }
+
+        finishActionMode()
         postprocessAndDisplay()
     }
 
@@ -422,9 +428,9 @@ class NotificationActivity : BaseActivity() {
 
             binding.notificationItemReadDot.isVisible = n.isUnread
             binding.notificationItemReadDot.setColorFilter(notificationColor)
-            binding.notificationTitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else typefaceSansSerifMedium
+            binding.notificationTitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
             binding.notificationTitle.setTextColor(notificationColor)
-            binding.notificationSubtitle.typeface = if (n.isUnread) Typeface.DEFAULT_BOLD else typefaceSansSerifMedium
+            binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
 
             val wikiCode = n.wiki
             val langCode = wikiCode.replace("wiki", "")
@@ -667,6 +673,7 @@ class NotificationActivity : BaseActivity() {
                 }
                 R.id.menu_uncheck_all -> {
                     checkAllItems(mode, false)
+                    finishActionMode()
                     return true
                 }
             }
