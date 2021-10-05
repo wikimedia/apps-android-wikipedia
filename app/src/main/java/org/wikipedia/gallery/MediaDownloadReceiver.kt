@@ -35,17 +35,17 @@ class MediaDownloadReceiver : BroadcastReceiver() {
         val saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(imageTitle.displayText))
         var fileUrl = mediaInfo.originalUrl
         val targetDirectoryType: String
-        if (FileUtil.isVideo(mediaInfo.mimeType) && mediaInfo.bestDerivative != null) {
+        if (FileUtil.isVideo(mediaInfo.mime) && mediaInfo.bestDerivative != null) {
             targetDirectoryType = Environment.DIRECTORY_MOVIES
             fileUrl = mediaInfo.bestDerivative!!.src
-        } else if (FileUtil.isAudio(mediaInfo.mimeType)) {
+        } else if (FileUtil.isAudio(mediaInfo.mime)) {
             targetDirectoryType = Environment.DIRECTORY_MUSIC
-        } else if (FileUtil.isImage(mediaInfo.mimeType)) {
+        } else if (FileUtil.isImage(mediaInfo.mime)) {
             targetDirectoryType = Environment.DIRECTORY_PICTURES
         } else {
             targetDirectoryType = Environment.DIRECTORY_DOWNLOADS
         }
-        performDownloadRequest(context, fileUrl.toUri(), targetDirectoryType, saveFilename, mediaInfo.mimeType)
+        performDownloadRequest(context, fileUrl.toUri(), targetDirectoryType, saveFilename, mediaInfo.mime)
     }
 
     private fun performDownloadRequest(context: Context, uri: Uri, targetDirectoryType: String,

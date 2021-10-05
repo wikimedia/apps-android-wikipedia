@@ -1,6 +1,5 @@
 package org.wikipedia.pageimages
 
-import com.google.gson.stream.MalformedJsonException
 import io.reactivex.rxjava3.core.Observable
 import org.junit.Test
 import org.wikipedia.dataclient.WikiSite
@@ -47,7 +46,7 @@ class PageImagesClientTest : MockRetrofitTest() {
     fun testRequestResponseMalformed() {
         enqueueMalformed()
         getObservable(emptyList()).test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 
     private fun getObservable(titles: List<PageTitle>): Observable<Map<PageTitle?, PageImage>> {

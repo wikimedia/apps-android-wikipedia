@@ -1,11 +1,14 @@
 package org.wikipedia.analytics
 
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.MathUtil
 
+@Serializable
 class SessionData {
 
-    private val leadLatency = MathUtil.Averaged<Long>()
+    @Transient private val leadLatency = MathUtil.Averaged<Long>()
     var startTime: Long
     var lastTouchTime: Long
     var pagesFromSearch = 0

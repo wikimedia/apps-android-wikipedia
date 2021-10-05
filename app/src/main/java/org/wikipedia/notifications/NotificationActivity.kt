@@ -80,7 +80,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         val touchCallback = SwipeableItemTouchHelperCallback(this,
                 ResourceUtil.getThemedAttributeId(this, R.attr.chart_shade5),
                 R.drawable.ic_archive_white_24dp,
-                ResourceUtil.getThemedAttributeId(this, R.attr.secondary_text_color))
+                ResourceUtil.getThemedAttributeId(this, R.attr.secondary_text_color),
+                binding.notificationsRefreshView)
 
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)

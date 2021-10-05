@@ -10,7 +10,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.dataclient.WikiSite.Companion.forLanguageCode
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.test.TestFileUtil
 import org.wikipedia.util.StringUtil.fromHtml
 
@@ -22,7 +22,7 @@ class LinkPreviewContentsTest {
     @Throws(Throwable::class)
     fun setUp() {
         val json = TestFileUtil.readRawFile("rb_page_summary_valid.json")
-        rbPageSummary = GsonUnmarshaller.unmarshal(PageSummary::class.java, json)
+        rbPageSummary = JsonUtil.decodeFromString(json)!!
     }
 
     @Test

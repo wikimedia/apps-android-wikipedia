@@ -229,7 +229,7 @@ object EditingSuggestionsProvider {
             } else {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
                         .map { response ->
-                            response.query?.pages?.filter { it.imageInfo()?.mimeType == "image/jpeg" }?.forEach { page ->
+                            response.query?.pages?.filter { it.imageInfo()?.mime == "image/jpeg" }?.forEach { page ->
                                 if (page.revisions.none { "P180" in it.getContentFromSlot("mediainfo") }) {
                                     imagesWithMissingTagsCache.push(page)
                                 }

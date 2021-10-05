@@ -1,6 +1,5 @@
 package org.wikipedia.createaccount
 
-import com.google.gson.stream.MalformedJsonException
 import io.reactivex.rxjava3.core.Observable
 import org.junit.Test
 import org.wikipedia.dataclient.Service
@@ -43,6 +42,6 @@ class CreateAccountClientTest : MockRetrofitTest() {
     fun testRequestResponseMalformed() {
         enqueueMalformed()
         observable.test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 }
