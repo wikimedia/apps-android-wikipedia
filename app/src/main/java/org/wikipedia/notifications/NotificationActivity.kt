@@ -123,6 +123,11 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
+    override fun onStop() {
+        notificationActionOverflowView?.dismiss()
+        super.onStop()
+    }
+
     public override fun onDestroy() {
         disposables.clear()
         super.onDestroy()
@@ -158,7 +163,6 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsSearchEmptyContainer.visibility = View.GONE
         binding.notificationsProgressBar.visibility = View.VISIBLE
         binding.notificationTabLayout.visibility = View.GONE
-        notificationActionOverflowView?.dismiss()
         supportActionBar?.setTitle(R.string.notifications_activity_title)
         currentContinueStr = null
         disposables.clear()
