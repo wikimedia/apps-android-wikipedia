@@ -132,6 +132,11 @@ class NotificationActivity : BaseActivity() {
         return true
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_notifications_mark_all_as_read).isVisible = notificationList.count { it.isUnread } > 0
+        return super.onPrepareOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_notifications_mark_all_as_read -> {
@@ -291,6 +296,8 @@ class NotificationActivity : BaseActivity() {
             binding.notificationsSearchEmptyContainer.visibility = View.GONE
             binding.notificationsSearchEmptyText.visibility = View.GONE
         }
+
+        invalidateOptionsMenu()
     }
 
     private fun enabledFiltersCount(): Int {
