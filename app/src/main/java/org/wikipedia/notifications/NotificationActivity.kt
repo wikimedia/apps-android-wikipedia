@@ -61,6 +61,7 @@ class NotificationActivity : BaseActivity() {
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
     private var linkHandler = NotificationLinkHandler(this)
+    private var notificationActionOverflowView: NotificationActionsOverflowView? = null
     private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
     var currentSearchQuery: String? = null
@@ -122,6 +123,11 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
+    override fun onStop() {
+        notificationActionOverflowView?.dismiss()
+        super.onStop()
+    }
+
     public override fun onDestroy() {
         disposables.clear()
         super.onDestroy()
@@ -130,6 +136,11 @@ class NotificationActivity : BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_notifications, menu)
         return true
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_notifications_mark_all_as_read).isVisible = notificationList.count { it.isUnread } > 0
+        return super.onPrepareOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -291,6 +302,8 @@ class NotificationActivity : BaseActivity() {
             binding.notificationsSearchEmptyContainer.visibility = View.GONE
             binding.notificationsSearchEmptyText.visibility = View.GONE
         }
+
+        invalidateOptionsMenu()
     }
 
     private fun enabledFiltersCount(): Int {
@@ -510,7 +523,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun showOverflowMenu(anchorView: View) {
-            NotificationActionsOverflowView(this@NotificationActivity).show(anchorView, container) {
+            notificationActionOverflowView = NotificationActionsOverflowView(this@NotificationActivity)
+            notificationActionOverflowView?.show(anchorView, container) {
                     container, markRead -> markReadItems(listOf(container), !markRead)
             }
         }
