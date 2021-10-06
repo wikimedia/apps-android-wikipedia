@@ -61,6 +61,7 @@ class NotificationActivity : BaseActivity() {
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
     private var linkHandler = NotificationLinkHandler(this)
+    private var notificationActionOverflowView: NotificationActionsOverflowView? = null
     private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
     var currentSearchQuery: String? = null
@@ -120,6 +121,11 @@ class NotificationActivity : BaseActivity() {
                 searchActionModeCallback.refreshProvider()
             }
         }
+    }
+
+    override fun onStop() {
+        notificationActionOverflowView?.dismiss()
+        super.onStop()
     }
 
     public override fun onDestroy() {
@@ -517,7 +523,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun showOverflowMenu(anchorView: View) {
-            NotificationActionsOverflowView(this@NotificationActivity).show(anchorView, container) {
+            notificationActionOverflowView = NotificationActionsOverflowView(this@NotificationActivity)
+            notificationActionOverflowView?.show(anchorView, container) {
                     container, markRead -> markReadItems(listOf(container), !markRead)
             }
         }

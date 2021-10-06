@@ -105,6 +105,10 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         }
     }
 
+    fun dismiss() {
+        popupWindowHost?.dismiss()
+    }
+
     private var actionClickListener = OnClickListener {
         val link = it.tag as Notification.Link
         val linkIndex = if (it.id == R.id.overflow_view_primary) NotificationInteractionEvent.ACTION_PRIMARY else if (it.id == R.id.overflow_view_secondary) NotificationInteractionEvent.ACTION_SECONDARY else NotificationInteractionEvent.ACTION_LINK_CLICKED
