@@ -5,8 +5,8 @@ import androidx.core.app.NotificationManagerCompat
 import org.json.JSONObject
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.notifications.db.Notification
 
 class NotificationInteractionFunnel(app: WikipediaApp, private val id: Long, private val wiki: String, private val type: String?) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
