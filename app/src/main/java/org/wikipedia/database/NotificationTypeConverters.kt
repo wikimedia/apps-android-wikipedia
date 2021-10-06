@@ -2,7 +2,7 @@ package org.wikipedia.database
 
 import androidx.room.TypeConverter
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.notifications.Notification
+import org.wikipedia.notifications.db.Notification
 
 class NotificationTypeConverters {
     @TypeConverter

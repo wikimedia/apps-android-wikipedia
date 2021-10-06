@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.main.MainActivity
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper

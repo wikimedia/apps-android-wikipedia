@@ -1,4 +1,4 @@
-package org.wikipedia.notifications
+package org.wikipedia.notifications.db
 
 import androidx.room.Entity
 import kotlinx.serialization.SerialName

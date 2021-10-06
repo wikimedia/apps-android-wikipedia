@@ -12,7 +12,7 @@ import org.wikipedia.edit.db.EditSummaryDao
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
-import org.wikipedia.notifications.Notification
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
 import org.wikipedia.pageimages.db.PageImage

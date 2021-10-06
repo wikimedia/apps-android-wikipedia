@@ -3,9 +3,9 @@ package org.wikipedia.dataclient.mwapi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.notifications.Notification
-import org.wikipedia.notifications.Notification.SeenTime
-import org.wikipedia.notifications.Notification.UnreadNotificationWikiItem
+import org.wikipedia.notifications.db.Notification
+import org.wikipedia.notifications.db.Notification.SeenTime
+import org.wikipedia.notifications.db.Notification.UnreadNotificationWikiItem
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfo
 import org.wikipedia.util.DateUtil

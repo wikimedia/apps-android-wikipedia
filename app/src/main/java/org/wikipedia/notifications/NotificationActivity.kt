@@ -39,6 +39,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity

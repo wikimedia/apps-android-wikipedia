@@ -6,7 +6,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.notifications.Notification
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 
 @Suppress("unused")
