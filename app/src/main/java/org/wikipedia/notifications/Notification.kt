@@ -13,19 +13,17 @@ import org.wikipedia.util.UriUtil
 import java.util.*
 
 @Serializable
-class Notification {
+class Notification(@SerialName("*") val contents: Contents? = null,
+                   private val timestamp: Timestamp? = null,
+                   var read: String? = null,
+                   val category: String = "",
+                   val wiki: String = "",
+                   val id: Long = 0,
+                   val type: String = "",
+                   val revid: Long = 0,
+                   val title: Title? = null,
+                   val agent: Agent? = null) {
 
-    @SerialName("*")
-    val contents: Contents? = null
-    private val timestamp: Timestamp? = null
-    var read: String? = null
-    val category = ""
-    val wiki = ""
-    val id: Long = 0
-    val type = ""
-    val revid: Long = 0
-    val title: Title? = null
-    val agent: Agent? = null
     val sources: Map<String, Source>? = null
 
     val utcIso8601: String
