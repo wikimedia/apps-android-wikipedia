@@ -24,8 +24,6 @@ class Notification(@SerialName("*") val contents: Contents? = null,
                    val title: Title? = null,
                    val agent: Agent? = null) {
 
-    val sources: Map<String, Source>? = null
-
     val utcIso8601: String
         get() = timestamp?.utciso8601.orEmpty()
 
