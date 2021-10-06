@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
@@ -11,6 +12,8 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.core.widget.PopupWindowCompat
 import com.google.android.material.textview.MaterialTextView
 import org.wikipedia.Constants
@@ -21,9 +24,11 @@ import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ViewNotificationActionsOverflowBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.Notification
+import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationLinkHandler
 import org.wikipedia.notifications.NotificationListItemContainer
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -54,7 +59,9 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
         container.notification?.contents?.let {
             it.links?.getPrimary()?.let { primary ->
-                setUpViewForLink(binding.overflowViewPrimary, primary, true)
+                val category = NotificationCategory.find(container.notification!!.category)
+                val iconColor = ContextCompat.getColor(context, category.iconColor)
+                setUpViewForLink(binding.overflowViewPrimary, primary, category.iconResId, iconColor, iconColor)
                 binding.overflowViewPrimary.visibility = View.VISIBLE
             }
             it.links?.secondary?.let { secondary ->
@@ -98,6 +105,10 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         }
     }
 
+    fun dismiss() {
+        popupWindowHost?.dismiss()
+    }
+
     private var actionClickListener = OnClickListener {
         val link = it.tag as Notification.Link
         val linkIndex = if (it.id == R.id.overflow_view_primary) NotificationInteractionEvent.ACTION_PRIMARY else if (it.id == R.id.overflow_view_secondary) NotificationInteractionEvent.ACTION_SECONDARY else NotificationInteractionEvent.ACTION_LINK_CLICKED
@@ -112,19 +123,25 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         dismissPopupWindowHost()
     }
 
-    private fun setUpViewForLink(textView: MaterialTextView, link: Notification.Link, useDefaultIcon: Boolean = false) {
+    private fun setUpViewForLink(textView: MaterialTextView, link: Notification.Link,
+                                 customIcon: Int = R.drawable.ic_arrow_forward_black_24dp,
+                                 customIconColor: Int = ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color),
+                                 customTextColor: Int = ResourceUtil.getThemedColor(context, R.attr.primary_text_color)) {
         textView.text = StringUtil.fromHtml(link.tooltip.ifEmpty { link.label })
 
-        if (!useDefaultIcon) {
-            val icon = when (link.icon()) {
-                "userAvatar" -> R.drawable.ic_user_avatar
-                "changes" -> R.drawable.ic_icon_revision_history_apps
-                "speechBubbles", "userSpeechBubble" -> R.drawable.ic_user_talk
-                else -> R.drawable.ic_arrow_forward_black_24dp
-            }
-
-            textView.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0)
+        val icon = when (link.icon()) {
+            "userAvatar" -> R.drawable.ic_user_avatar
+            "changes" -> R.drawable.ic_icon_revision_history_apps
+            "speechBubbles", "userSpeechBubble" -> R.drawable.ic_notification_article_talk
+            else -> customIcon
         }
+
+        val iconColor = ColorStateList.valueOf(customIconColor)
+        val textColor = ColorStateList.valueOf(customTextColor)
+        val drawable = AppCompatResources.getDrawable(context, icon)
+        drawable?.setTintList(iconColor)
+        textView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
+        textView.setTextColor(textColor)
         textView.tag = link
         textView.visibility = View.VISIBLE
     }

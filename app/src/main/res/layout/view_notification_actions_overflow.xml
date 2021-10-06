@@ -24,17 +24,13 @@
                 android:id="@+id/overflow_view_primary"
                 style="@style/OverflowMenuItem"
                 android:drawablePadding="16dp"
-                android:textColor="?attr/colorAccent"
-                android:visibility="gone"
-                app:drawableStartCompat="@drawable/ic_baseline_chat_bubble_24"
-                app:drawableTint="?attr/colorAccent" />
+                android:visibility="gone" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/overflow_view_secondary"
                 style="@style/OverflowMenuItem"
                 android:drawablePadding="16dp"
-                android:visibility="gone"
-                app:drawableTint="?attr/material_theme_secondary_color" />
+                android:visibility="gone"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/overflow_view_secondary_talk"

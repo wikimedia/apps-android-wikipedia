@@ -140,7 +140,7 @@
 
     </FrameLayout>
 
-    <androidx.constraintlayout.helper.widget.Flow
+    <com.google.android.flexbox.FlexboxLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -148,28 +148,28 @@
         app:layout_constraintTop_toTopOf="@id/notificationWikiCodeContainer"
         app:layout_constraintBottom_toBottomOf="@id/notificationWikiCodeContainer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:flow_horizontalGap="8dp"
-        app:flow_horizontalStyle="packed"
-        app:flow_horizontalBias="0"
-        app:flow_wrapMode="chain"
-        app:constraint_referenced_ids="notificationSource,notificationSourceExternalIcon"/>
+        app:flexWrap="wrap"
+        app:alignItems="center"
+        app:justifyContent="flex_start">
 
-    <TextView
-        android:id="@+id/notificationSource"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="?attr/secondary_text_color"
-        android:fontFamily="sans-serif-medium"
-        tools:text="Lorem ipsum" />
+        <TextView
+            android:id="@+id/notificationSource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/secondary_text_color"
+            android:fontFamily="sans-serif-medium"
+            tools:text="Lorem ipsum" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/notificationSourceExternalIcon"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginHorizontal="8dp"
-        android:contentDescription="@null"
-        app:srcCompat="@drawable/ic_open_in_new_black_24px"
-        app:tint="?attr/secondary_text_color"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/notificationSourceExternalIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:contentDescription="@null"
+            android:layout_marginStart="8dp"
+            app:srcCompat="@drawable/ic_open_in_new_black_24px"
+            app:tint="?attr/secondary_text_color"/>
+
+    </com.google.android.flexbox.FlexboxLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
