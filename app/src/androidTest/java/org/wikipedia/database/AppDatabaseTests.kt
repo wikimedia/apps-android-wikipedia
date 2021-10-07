@@ -4,16 +4,22 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import org.hamcrest.CoreMatchers.*
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.wikipedia.R
+import org.wikipedia.json.JsonUtil
+import org.wikipedia.notifications.db.Notification
+import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
+import org.wikipedia.test.TestFileUtil
 import java.util.*
 
 @RunWith(AndroidJUnit4::class)
@@ -21,6 +27,7 @@ class AppDatabaseTests {
     private lateinit var db: AppDatabase
     private lateinit var recentSearchDao: RecentSearchDao
     private lateinit var talkPageSeenDao: TalkPageSeenDao
+    private lateinit var notificationDao: NotificationDao
 
     @Before
     fun createDb() {
@@ -28,6 +35,7 @@ class AppDatabaseTests {
         db = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
         recentSearchDao = db.recentSearchDao()
         talkPageSeenDao = db.talkPageSeenDao()
+        notificationDao = db.notificationDao()
     }
 
     @After
@@ -71,5 +79,32 @@ class AppDatabaseTests {
         talkPageSeenDao.deleteAll().blockingSubscribe()
         allSeen = talkPageSeenDao.getAll()
         assertThat(allSeen.size, equalTo(0))
+    }
+
+    @Test
+    fun testNotification() {
+
+        val notification = JsonUtil.decodeFromString<Notification>(TestFileUtil.readRawFile("notification.json"))!!
+        notificationDao.insertNotification(notification)
+
+        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")), notNullValue())
+        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().id, equalTo("87425134"))
+        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().id, equalTo("100609428"))
+        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().isUnread, equalTo(false))
+        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki", "wikidatawiki")).size, equalTo(2))
+        assertThat(notificationDao.getAllNotifications().size, equalTo(2))
+
+        val firstNotification = notificationDao.getNotificationsByWiki(listOf("enwiki")).first()
+        firstNotification.read = null
+        notificationDao.updateNotification(firstNotification)
+        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().id, equalTo("87425134"))
+        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().isUnread, equalTo(true))
+
+        notificationDao.deleteNotification(firstNotification)
+        assertThat(notificationDao.getAllNotifications().size, equalTo(1))
+        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).isEmpty(), equalTo(true))
+
+        notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("wikidatawiki")).first())
+        assertThat(notificationDao.getAllNotifications().size, equalTo(1))
     }
 }

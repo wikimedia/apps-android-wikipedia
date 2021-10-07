@@ -38,7 +38,7 @@ class Notification(val id: Long = 0,
         return id + wiki.hashCode()
     }
 
-    fun getTimestamp(): Date {
+    fun date(): Date {
         return timestamp?.date() ?: Date()
     }
 

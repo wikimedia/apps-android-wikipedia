@@ -255,7 +255,7 @@ class NotificationActivity : BaseActivity() {
 
     private fun postprocessAndDisplay() {
         // Sort them by descending date...
-        notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
+        notificationList.sortWith { n1, n2 -> n2.date().compareTo(n1.date()) }
 
         val allTab = binding.notificationTabLayout.getTabAt(0)!!
         val allUnreadCount = notificationList.count { it.isUnread }
@@ -431,7 +431,7 @@ class NotificationActivity : BaseActivity() {
             }
 
             // TODO: use better diff date method
-            binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.getTimestamp().time, System.currentTimeMillis(), 0L)
+            binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.date().time, System.currentTimeMillis(), 0L)
 
             binding.notificationItemReadDot.isVisible = n.isUnread
             binding.notificationItemReadDot.setColorFilter(notificationColor)

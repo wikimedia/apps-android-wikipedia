@@ -13,6 +13,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
 import org.wikipedia.pageimages.db.PageImage
@@ -61,6 +62,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun offlineObjectDao(): OfflineObjectDao
     abstract fun readingListDao(): ReadingListDao
     abstract fun readingListPageDao(): ReadingListPageDao
+    abstract fun notificationDao(): NotificationDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -163,7 +165,7 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("DROP TABLE pageimages")
             }
         }
-        val MIGRATION_23_24 = object : Migration(23, 24) {
+        private val MIGRATION_23_24 = object : Migration(23, 24) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("CREATE TABLE IF NOT EXISTS `Notification` (`id` INTEGER NOT NULL, `wiki` TEXT NOT NULL, `read` TEXT, `category` TEXT NOT NULL, `type` TEXT NOT NULL, `revid` INTEGER NOT NULL, `title` TEXT, `agent` TEXT, `timestamp` TEXT, `contents` TEXT, PRIMARY KEY(`id`, `wiki`))")
             }

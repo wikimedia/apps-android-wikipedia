@@ -13,6 +13,9 @@ interface NotificationDao {
     @Delete
     fun deleteNotification(notification: Notification)
 
-    @Query("SELECT * FROM Notification WHERE `wiki` = :wiki")
-    fun getNotificationsByWiki(wiki: String): List<Notification>
+    @Query("SELECT * FROM Notification")
+    fun getAllNotifications(): List<Notification>
+
+    @Query("SELECT * FROM Notification WHERE `wiki` IN (:wiki)")
+    fun getNotificationsByWiki(wiki: List<String>): List<Notification>
 }
