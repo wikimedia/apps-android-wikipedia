@@ -381,18 +381,16 @@ class NotificationActivity : BaseActivity() {
 
     private fun toggleSelectItem(container: NotificationListItemContainer) {
         container.selected = !container.selected
-        val selectedCount = selectedItemCount
-        if (selectedCount == 0) {
+        if (selectedItemCount == 0) {
             finishActionMode()
-        } else if (actionMode != null) {
-            actionMode?.title = selectedCount.toString()
         }
+        actionMode?.invalidate()
         binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     private val selectedItemCount get() = notificationContainerList.count { it.selected }
 
-    private val selectedItems get() = notificationContainerList.filter { it.selected }
+    private val selectedItems get() = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.filter { it.selected }
 
     @Suppress("LeakingThis")
     private open inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
@@ -511,8 +509,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onLongClick(v: View): Boolean {
-            toggleSelectItem(container)
             beginMultiSelect()
+            toggleSelectItem(container)
             return true
         }
 
@@ -649,17 +647,19 @@ class NotificationActivity : BaseActivity() {
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
-            mode.title = notificationContainerList.count { it.selected }.toString()
             mode.menuInflater.inflate(R.menu.menu_action_mode_notifications, menu)
-            val isFirstItemUnread = notificationContainerList
-                .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
-                .first { it.selected }.notification?.isUnread
+            actionMode = mode
+            return true
+        }
+
+        override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
+            mode.title = selectedItemCount.toString()
+            val isFirstItemUnread = selectedItems.firstOrNull()?.notification?.isUnread
             menu.findItem(R.id.menu_mark_as_read).isVisible = isFirstItemUnread == true
             menu.findItem(R.id.menu_mark_as_unread).isVisible = isFirstItemUnread == false
             menu.findItem(R.id.menu_check_all).isVisible = true
             menu.findItem(R.id.menu_uncheck_all).isVisible = false
-            actionMode = mode
-            return true
+            return super.onPrepareActionMode(mode, menu)
         }
 
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
