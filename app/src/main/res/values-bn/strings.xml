@@ -211,6 +211,7 @@
   <string name="page_protected_can_not_edit_anon">দুঃখিত, এই পৃষ্ঠাটি এই মুহুর্তে বেনামে সম্পাদনা করা যাবে না।</string>
   <string name="page_protected_can_not_edit_title">এই পাতাটি সুরক্ষিত</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">নজরতালিকায় যোগ করুন</string>
+  <string name="page_notification_tooltip">আপনার বিজ্ঞপ্তিগুলি এখন এখানে পাওয়া যাবে।</string>
   <string name="settings_item_preferences">সেটিংস</string>
   <string name="settings_activity_title">সেটিংস</string>
   <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
