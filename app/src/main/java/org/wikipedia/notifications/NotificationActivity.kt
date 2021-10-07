@@ -252,7 +252,7 @@ class NotificationActivity : BaseActivity() {
         postprocessAndDisplay()
     }
 
-    private fun postprocessAndDisplay() {
+    private fun postprocessAndDisplay(position: Int? = null) {
         // Sort them by descending date...
         notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
 
@@ -291,7 +291,6 @@ class NotificationActivity : BaseActivity() {
             filterList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).filter { NotificationCategory.isFiltersGroup(it) })
             if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
         }
-        binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
         if (notificationContainerList.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null && enabledFiltersCount() != 0) View.VISIBLE else View.GONE
@@ -304,6 +303,11 @@ class NotificationActivity : BaseActivity() {
         }
 
         invalidateOptionsMenu()
+        if (position != null) {
+            binding.notificationsRecyclerView.adapter?.notifyItemChanged(position)
+        } else {
+            binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
+        }
     }
 
     private fun enabledFiltersCount(): Int {
@@ -321,7 +325,7 @@ class NotificationActivity : BaseActivity() {
         return spannable
     }
 
-    private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false) {
+    private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false, position: Int? = null) {
         val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
@@ -356,7 +360,7 @@ class NotificationActivity : BaseActivity() {
             .firstOrNull { it == n.id } != null }.map { it.read = if (markUnread) null else Date().toString() }
 
         finishActionMode()
-        postprocessAndDisplay()
+        postprocessAndDisplay(position)
     }
 
     private fun showMarkReadItemsUndoSnackbar(items: List<NotificationListItemContainer>, markUnread: Boolean) {
@@ -379,13 +383,13 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun toggleSelectItem(container: NotificationListItemContainer) {
+    private fun toggleSelectItem(container: NotificationListItemContainer, position: Int) {
         container.selected = !container.selected
         if (selectedItemCount == 0) {
             finishActionMode()
         }
         actionMode?.invalidate()
-        binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
+        binding.notificationsRecyclerView.adapter?.notifyItemChanged(position)
     }
 
     private val selectedItemCount get() = notificationContainerList.count { it.selected }
@@ -397,6 +401,7 @@ class NotificationActivity : BaseActivity() {
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
 
         lateinit var container: NotificationListItemContainer
+        var itemPosition = -1
 
         init {
             itemView.setOnClickListener(this)
@@ -404,8 +409,9 @@ class NotificationActivity : BaseActivity() {
             setContextClickAsLongClick(itemView)
         }
 
-        fun bindItem(container: NotificationListItemContainer) {
+        fun bindItem(container: NotificationListItemContainer, pos: Int) {
             this.container = container
+            this.itemPosition = pos
             val n = container.notification!!
             val notificationCategory = NotificationCategory.find(n.category)
             val notificationColor = ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor)
@@ -492,10 +498,10 @@ class NotificationActivity : BaseActivity() {
 
         override fun onClick(v: View) {
             if (MultiSelectActionModeCallback.isTagType(actionMode)) {
-                toggleSelectItem(container)
+                toggleSelectItem(container, itemPosition)
             } else {
                 val n = container.notification!!
-                markReadItems(listOf(container), markUnread = false, fromUndoOrClick = true)
+                markReadItems(listOf(container), markUnread = false, fromUndoOrClick = true, position = itemPosition)
                 n.contents?.links?.getPrimary()?.let { link ->
                     val url = link.url
                     if (url.isNotEmpty()) {
@@ -510,20 +516,20 @@ class NotificationActivity : BaseActivity() {
 
         override fun onLongClick(v: View): Boolean {
             beginMultiSelect()
-            toggleSelectItem(container)
+            toggleSelectItem(container, itemPosition)
             return true
         }
 
         override fun onSwipe() {
             container.notification?.let {
-                markReadItems(listOf(container), !it.isUnread)
+                markReadItems(listOf(container), !it.isUnread, position = itemPosition)
             }
         }
 
         private fun showOverflowMenu(anchorView: View) {
             notificationActionOverflowView = NotificationActionsOverflowView(this@NotificationActivity)
             notificationActionOverflowView?.show(anchorView, container) {
-                    container, markRead -> markReadItems(listOf(container), !markRead)
+                    container, markRead -> markReadItems(listOf(container), !markRead, position = itemPosition)
             }
         }
     }
@@ -587,7 +593,7 @@ class NotificationActivity : BaseActivity() {
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             when (holder) {
-                is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos])
+                is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos], pos)
             }
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
