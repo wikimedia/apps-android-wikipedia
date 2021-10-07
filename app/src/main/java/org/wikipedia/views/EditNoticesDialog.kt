@@ -14,6 +14,7 @@ import org.wikipedia.R
 import org.wikipedia.databinding.DialogEditNoticesBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -31,28 +32,6 @@ class EditNoticesDialog constructor(
     private val movementMethod = LinkMovementMethodExt { urlStr ->
         L.v("Link clicked was $urlStr")
         UriUtil.visitInExternalBrowser(context, Uri.parse(UriUtil.resolveProtocolRelativeUrl(wikiSite, urlStr)))
-        /*
-        var url = UriUtil.resolveProtocolRelativeUrl(urlStr)
-        if (url.startsWith("/wiki/")) {
-            val title = pageTitle.wikiSite.titleForInternalLink(url)
-            startActivity(PageActivity.newIntentForCurrentTab(this, HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
-        } else {
-            val uri = Uri.parse(url)
-            val authority = uri.authority
-            if (authority != null && WikiSite.supportedAuthority(authority) &&
-                    uri.path != null && uri.path!!.startsWith("/wiki/")) {
-                val title = WikiSite(uri).titleForUri(uri)
-                startActivity(PageActivity.newIntentForCurrentTab(this, HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
-            } else {
-                // if it's a /w/ URI, turn it into a full URI and go external
-                if (url.startsWith("/w/")) {
-                    url = String.format("%1\$s://%2\$s", pageTitle.wikiSite.scheme(),
-                            pageTitle.wikiSite.authority()) + url
-                }
-                UriUtil.handleExternalLink(this, Uri.parse(url))
-            }
-        }
-        */
     }
 
     init {
@@ -64,10 +43,8 @@ class EditNoticesDialog constructor(
         binding.editNoticesRecycler.layoutManager = LinearLayoutManager(context)
         binding.editNoticesRecycler.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true))
 
-        binding.editNoticesCheckbox.isChecked = true
-        binding.editNoticesCheckbox.setOnClickListener {
-            // TODO
-        }
+        binding.editNoticesCheckbox.isChecked = Prefs.autoShowEditNotices
+        binding.editNoticesCheckbox.setOnCheckedChangeListener { _, isChecked -> Prefs.autoShowEditNotices = isChecked }
     }
 
     private inner class EditNoticesAdapter : RecyclerView.Adapter<DefaultViewHolder>() {

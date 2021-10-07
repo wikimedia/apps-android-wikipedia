@@ -397,7 +397,7 @@ class EditSectionActivity : BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_edit_section, menu)
         val item = menu.findItem(R.id.menu_save_section)
-        menu.findItem(R.id.menu_edit_notices).isVisible = editNotices.isNotEmpty()
+        menu.findItem(R.id.menu_edit_notices).isVisible = editNotices.isNotEmpty() && !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_in).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_out).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_find_in_editor).isVisible = !editPreviewFragment.isActive
@@ -524,7 +524,9 @@ class EditSectionActivity : BaseActivity() {
                         editNotices.clear()
                         editNotices.addAll(it.visualeditor?.notices.orEmpty().values)
                         invalidateOptionsMenu()
-                        showEditNotices()
+                        if (Prefs.autoShowEditNotices) {
+                            showEditNotices()
+                        }
                     }, {
                         L.e(it)
                     }))

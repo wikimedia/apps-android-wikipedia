@@ -171,6 +171,19 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
+    fun injectEditNotice(notice: String): String {
+        val formattedNotice = notice.replace("\n", "")
+                .replace("'", """\'""")
+                .replace("nomobile", "")
+
+        return "(function() {" +
+                "let el = document.getElementById('pcs');" +
+                "let div = document.createElement('div');" +
+                "div.innerHTML = '$formattedNotice';" +
+                "el.insertBefore(div, el.firstChild);" +
+                "})();"
+    }
+
     @Serializable
     class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
                        val src: String = "", val centerCrop: Boolean = false)

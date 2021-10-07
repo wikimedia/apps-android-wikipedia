@@ -230,26 +230,12 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     val notices = it.visualeditor?.notices.orEmpty()
-                    injectEditNotices(notices.values)
+                    for (notice in notices.values.reversed()) {
+                        bridge.evaluateImmediate(JavaScriptActionHandler.injectEditNotice(notice)) { }
+                    }
                 }, {
                     L.e(it)
                 }))
-    }
-
-    private fun injectEditNotices(notices: Collection<String>) {
-        for (notice in notices.reversed()) {
-            val formattedNotice = notice.replace("\n", "")
-                    .replace("'", """\'""")
-                    .replace("nomobile", "")
-
-            bridge.evaluateImmediate("(function() {" +
-                    "let el = document.getElementById('pcs');" +
-                    "let div = document.createElement('div');" +
-                    "div.innerHTML = '$formattedNotice';" +
-                    "el.insertBefore(div, el.firstChild);" +
-                    "})();"
-            ) { }
-        }
     }
 
     inner class EditLinkHandler constructor(context: Context) : LinkHandler(context) {
