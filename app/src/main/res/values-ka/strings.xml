@@ -34,6 +34,7 @@
   <string name="offline_load_error_retry">გამეორება</string>
   <string name="page_error_back_to_main">უკან</string>
   <string name="error_back">უკან დაბრუნება</string>
+  <string name="error_next">შემდეგი</string>
   <string name="menu_clear_all_history">ისტორიის გასუფთავება</string>
   <string name="history_item_deleted">%s წაიშალა ისტორიიდან</string>
   <string name="history_items_deleted">%d სტატია წაიშალა ისტორიიდან</string>
@@ -42,6 +43,7 @@
   <string name="app_settings">აპლიკაციის პარამეტრები</string>
   <string name="search_tab_tooltip">ხელახლა შეეხეთ ხატულას საძიებო ტერმინის აკრეფის პირდაპირ დაწყებისათვის</string>
   <string name="history_list_title">ისტორია</string>
+  <string name="image_content_description">სურათი: %s</string>
   <string name="dialog_title_clear_history">დათვალიერების ისტორიის გასუფთავება</string>
   <string name="dialog_message_clear_history">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ხართ?</string>
   <string name="dialog_message_clear_history_yes">დიახ</string>
@@ -51,7 +53,11 @@
   <string name="search_redirect_from">გადამისამართებულია %s-დან</string>
   <string name="menu_page_show_tabs">ჩანართების ჩვენება</string>
   <string name="menu_page_other_languages">ენის შეცვლა</string>
-  <string name="menu_page_find_in_page" fuzzy="true">გვერდში ძიება</string>
+  <string name="menu_page_find_in_page">სტატიაში ძიება</string>
+  <string name="menu_page_add_to_watchlist">კონტროლის სიაში დამატება</string>
+  <string name="menu_page_view_talk">განხილვის გვერდის ნახვა</string>
+  <string name="menu_page_view_edit_history">რედაქტირების ისტორიის ნახვა</string>
+  <string name="menu_page_remove_from_watchlist">კონტროლის სიიდან წაშლა</string>
   <string name="edit_section_find_in_page">გვერდზე ძიება</string>
   <string name="menu_page_font_and_theme">ფონტი და თემა</string>
   <string name="menu_page_add_to_list">საკითხავ სიაში დამატება</string>
@@ -60,6 +66,7 @@
   <string name="feed_card_add_to_default_list">შენახვა</string>
   <string name="menu_page_share">ბმულის გაზიარება</string>
   <string name="menu_page_open_a_new_tab">ახალ ჩანართში გახსნა</string>
+  <string name="menu_page_new_tab">ახალი ჩანართი</string>
   <string name="menu_page_reading_lists">საკითხავი სია</string>
   <string name="menu_page_recently_viewed">ბოლოს ნანახი</string>
   <string name="menu_long_press_open_page">გახსნა</string>
@@ -147,7 +154,7 @@
   <string name="create_account_passwords_mismatch_error">პაროლები არ დაემთხვა</string>
   <string name="create_account_email_error">ელ-ფოსტის არასწორი მისამართი</string>
   <string name="create_account_username_error">მომხმარებლის სახელში დაუშვებელი სიმბოლოებია</string>
-  <string name="create_account_password_error" fuzzy="true">პაროლი არასწორია</string>
+  <string name="create_account_password_error">პაროლი უნდა შეიცავდეს სულ მცირე 8 სიმბოლოს</string>
   <string name="create_account_generic_error">ანგარიშის შექმნა ვერ მოხერხდა</string>
   <string name="create_account_next">შემდეგი</string>
   <string name="email_recommendation_dialog_title">გსურთ შექმნათ ანგარიში ელ-ფოსტის გარეშე?</string>
@@ -159,6 +166,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">დეტალები</string>
   <string name="preferences_general_heading">მთავარი</string>
+  <string name="preferences_account_heading">ანგარიში</string>
   <string name="wikipedia_app_faq">ვიკიპედიის აპლიკაციის ხდშ</string>
   <string name="send_feedback">შეაფასეთ აპლიკაცია</string>
   <string name="create_account_account_created_toast">ანგარიში შექმნილია!</string>
@@ -172,12 +180,15 @@
   <string name="preference_summary_eventlogging_opt_in">ნება მიეცი ვიკიმედიას მოაგროვოს ინფორმაცია თუ როგორ იყენებ ამ აპლიკაციას, რათა ის უკეთესი გახადოს</string>
   <string name="preference_title_auto_upload_crash_reports">პრობლემის ანგარიშის გაგზავნა</string>
   <string name="editing_error_spamblacklist">შემჩნეულია ბმულები დაბლოკილ დომეიზე (%s). გთხოვთ წაშალოთ და სცადოთ თავიდან.</string>
+  <string name="history_filter_list_hint">ფილტრის ისტორია</string>
   <string name="error_can_not_process_link">ბმულის ჩვენება ვერ მოხერხდა</string>
   <string name="page_protected_autoconfirmed">ეს გვერდი ნახევრად დაცულია.</string>
   <string name="page_protected_sysop">ეს გვერდი სრულად დაცულია.</string>
   <string name="page_protected_other">გვერდი დაცულია შემდეგ დონეზე: %s</string>
   <string name="page_protected_can_not_edit">სამწუხაროდ, ამ მომენტისათვის თქვენს ანგარიშს არ აქვს ამ გვერდის რედაქტირებისთვის საჭირო შესაბამისი უფლებები.</string>
   <string name="page_protected_can_not_edit_title">ეს გვერდი დაცულია</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">კონტროლის სიაში დამატება</string>
+  <string name="page_notification_tooltip">თქვენი შეტყობინებები ახლა აქ არის.</string>
   <string name="settings_item_preferences">კონფიგურაცია</string>
   <string name="settings_activity_title">კონფიგურაცია</string>
   <string name="about_description">ვიკიპედიის აპლიკაციის შესახებ</string>
@@ -203,11 +214,16 @@
   <string name="edit_next">შემდეგი</string>
   <string name="edit_done">გამოქვეყნება</string>
   <string name="edit_preview">წინასწარი გადახედვა</string>
+  <string name="edit_undo">დაბრუნება</string>
+  <string name="edit_redo">გამეორება</string>
+  <string name="edit_zoom_in">გადიდება</string>
+  <string name="edit_zoom_out">შემცირება</string>
   <string name="edit_summary_tag_typo">ტიპოგრაფიული შესწორება</string>
   <string name="edit_summary_tag_grammar">გრამატიკის შესწორება</string>
   <string name="edit_summary_tag_links">დამატებული ბმულები</string>
   <string name="edit_summary_tag_other">სხვა</string>
   <string name="edit_summary_tag_other_hint">როგორ გაუუმჯობესეთ</string>
+  <string name="edit_conflict_title">რედაქტირების კონფლიქტი</string>
   <string name="find_next">შემდეგის მოძიება</string>
   <string name="find_previous">წინას მოძიება</string>
   <string name="abusefilter_title_warn">შესაძლოა ეს არაკონსტრუქციული რედაქტირებაა. გსურთ მისი გამოქვეყნება?</string>
@@ -215,6 +231,11 @@
   <string name="page_similar_titles">მსგავსი გვერდები</string>
   <string name="search_did_you_mean">ხომ არ იგულისხმეთ „%s“?</string>
   <string name="search_recent_header">ბოლოს მოძიებულები</string>
+  <string name="search_results_count_zero">შედეგები არ არის</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 შედეგი</item>
+    <item quantity="other">%d შედეგი</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">ბოლოს მოძიებულების გასუფთავება</string>
   <string name="clear_recent_searches_confirm">დარწმუნებული ხართ, რომ გსურთ ძიების ისტორიის გასუფთავება?</string>
   <string name="clear_recent_searches_confirm_yes">დიახ</string>
@@ -232,28 +253,40 @@
   <string name="dialog_close_description">დახურვა</string>
   <string name="preference_title_show_images">სურათების ჩვენება</string>
   <string name="preference_summary_show_images">შეგიძლიათ ჩართოთ ან გამორთოთ სურათების ატვირთვა გვერდებში. ჩახსენით ეს პარამეტრი, თუ თქვენი ინტერნეტ-სიჩქარე ნელია, ან დრო შეზღუდული გაქვთ.</string>
+  <string name="preference_title_download_only_over_wifi">მხოლოდ Wi-Fi-თი ჩამოტვირთვა</string>
+  <string name="dialog_title_download_only_over_wifi">ადასტურებთ მობილური ინტერნეტით ჩამოტვირთვას?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">დათანხმება</string>
   <string name="read_more_section">წაიკითხე მეტი</string>
+  <string name="about_article_section">ამ სტატიის შესახებ</string>
   <string name="menu_gallery_visit_image_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
   <string name="license_title">ლიცენზია %s-თვის</string>
   <string name="gallery_menu_share">გაზიარება</string>
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_save_progress">ფაილის ჩამოტვირთვა…</string>
-  <string name="gallery_save_success" fuzzy="true">ფაილი წარმატებით შეინახა.</string>
+  <string name="gallery_save_success">ფაილი შეინახა.</string>
   <string name="gallery_error_video_failed">ამ ვიდეოს გახსნა ვერ მოხერხდა.</string>
   <string name="gallery_save_image_write_permission_rationale">თქვენი მოწყობილობის მეხსიერებაში ჩასაწერად საჭიროა სურათების შენახვა.</string>
+  <string name="gallery_add_image_caption_button">სურათის წარწერის დამატება</string>
+  <string name="gallery_add_image_caption_in_language_button">სურათის წარწერის დამატება (%s)</string>
   <string name="err_cannot_save_file">ფაილი ვერ შეინახა</string>
   <string name="expand_refs">გადიდებისათვის დააჭირეთ</string>
   <string name="cc_logo">Creative Commons ლიცენზია</string>
   <string name="captcha_image">Captcha-ს სურათი</string>
   <string name="gallery_fair_use_license">კეთილსინდისიერი გამოყენება</string>
   <string name="gallery_uploader_unknown">ამტვირთველი უცნობია</string>
+  <string name="gallery_not_available_offline_snackbar">ინტერნეტის გარეშე გალერეა მიუწვდომელია.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">უარყოფა</string>
   <string name="menu_new_tab">ახალი ჩანართი</string>
   <string name="menu_close_all_tabs">ყველა ჩანართის დახურვა</string>
   <string name="close_all_tabs_confirm">ნამდვილად გსურთ, ყველა ჩანართის დახურვა?</string>
   <string name="close_all_tabs_confirm_yes">დიახ</string>
   <string name="close_all_tabs_confirm_no">არა</string>
   <string name="button_close_tab">ჩანართის დახურვა</string>
+  <string name="unnamed_tab_closed">ჩანართი დახურულია.</string>
+  <string name="tab_item_closed">%s დახურულია.</string>
+  <string name="all_tab_items_closed">ყველა ჩანართი დახურულია.</string>
+  <string name="tool_tip_bookmark_icon_title">საკითხავ სიაში დამატება</string>
   <string name="page_view_in_browser">გვერდის ბრაუზერში ხილვა</string>
   <string name="error_response_malformed">სერვერისგან პასუხი არასწორად დაფორმატდა.</string>
   <string name="error_unknown">აღმოჩენილია უცნობი შეცდომა.</string>
@@ -268,7 +301,7 @@
   <string name="error_no_maps_app">შეუძლებელია აპლიკაციის ოპვნა, რომელიც მიმართულებებს იძლევა.</string>
   <string name="preference_title_show_link_previews">წინასწარ გადახედეთ ბმულს</string>
   <string name="preference_summary_show_link_previews">მაჩვენე სტატიების სწრაფი წინასწარი გადახედვის რეჟიმი ბმულებზე დაწოლისას.</string>
-  <string name="nav_item_donate" fuzzy="true">ვიკიპედიის მხარდაჭერა</string>
+  <string name="nav_item_donate">შემოწირვა</string>
   <string name="error_voice_search_not_available">სამწუხაროდ, ხმით შეცნობა ხელმისაწვდომი არაა.</string>
   <string name="location_service_disabled">ლოკაციის სერვისი გამორთულია.</string>
   <string name="enable_location_service">ჩართვა</string>
@@ -282,6 +315,11 @@
   <string name="crash_report_relaunch_or_quit">გსურთ დაწყება ან გასვლა?</string>
   <string name="crash_report_relaunch">თავიდან დაწყება</string>
   <string name="crash_report_quit">გამოსვლა</string>
+  <string name="article_menu_bar_save_button">შენახვა</string>
+  <string name="article_menu_bar_language_button">ენა</string>
+  <string name="article_menu_bar_search_button">ძიება</string>
+  <string name="article_menu_bar_theme_button">თემა</string>
+  <string name="article_menu_bar_contents_button">შინაარსი</string>
   <string name="article_header_edit_hint">რედაქტირება</string>
   <string name="article_header_edit_description">სტატიის აღწერის რედაქტირება</string>
   <string name="article_header_edit_lead_section">შესავლის რედაქტირება</string>
@@ -292,8 +330,13 @@
   <string name="color_theme_sepia">სეპია</string>
   <string name="color_theme_test_title">ტექსტის ნიმუში</string>
   <string name="preference_title_app_theme">აპლიკაციის თემა</string>
+  <string name="text_size_increase">ტექსტის ზომის გაზრდა</string>
+  <string name="text_size_decrease">ტექსტის ზომის შემცირება</string>
   <string name="text_size_percent_default">%s (საწყისად)</string>
+  <string name="text_style_title">შრიფტი</string>
+  <string name="nav_item_saved">შენახულია</string>
   <string name="reading_list_save_to">საკითხავ სიაში შენახვა</string>
+  <string name="reading_list_move_to">საკითხავ სიაში გადატანა</string>
   <string name="reading_list_create_new">ახლის შექმნა</string>
   <string name="reading_list_title_exists">საკითხავი სია „%s“ უკვე არსებობს.</string>
   <string name="reading_list_added_view_button">სიის ხილვა</string>
@@ -343,20 +386,45 @@
   <string name="notification_syncing_pause_button">პაუზა</string>
   <string name="notification_syncing_resume_button">გაგრძელება</string>
   <string name="notification_syncing_cancel_button">გაუქმება</string>
-  <string name="notification_channel_name" fuzzy="true">სინქრონიზაცია</string>
-  <string name="notification_syncing_title" fuzzy="true">იტვირთება %1$d სტატია…</string>
-  <string name="notification_syncing_description" fuzzy="true">დარჩა %1$d სტატია</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">სტატიის ჩატვირთვა</item>
+    <item quantity="other">სტატიის ჩატვირთვა</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">იტვირთება %1$d სტატია…</item>
+    <item quantity="other">იტვირთება %1$d სტატია…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">დარჩა %1$d სტატია</item>
+    <item quantity="other">დარჩა %1$d სტატია</item>
+  </plurals>
+  <string name="preference_title_notification_thanks">მადლობა</string>
+  <string name="preference_title_notification_login_fail">შესვლა</string>
+  <string name="preference_title_notification_user_talk">განხილვის გვერდი</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ვიკიპედია</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">ვიკიპედიის შეტყობინებები</string>
+  <string name="notifications_channel_group_other_title">სხვა</string>
+  <string name="notifications_channel_group_other_description">აპლიკაციის სხვა შეტყობინებები</string>
   <string name="view_because_you_read_card_title">რადგან თქვენ კითხულობთ</string>
   <string name="view_random_card_title">შემთხვევითი</string>
+  <string name="view_random_article_card_title">შემთხვევითი სტატია</string>
+  <string name="view_random_article_card_action">მეტი შემთხვევითი სტატია</string>
+  <string name="view_top_read_card_title">ყველაზე კითხვადი</string>
+  <string name="view_top_read_card_action">მეტი ყველაზე კითხვადი</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d ათ.</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d მლნ.</string>
+  <string name="view_next_random_article">სხვა შემთხვევითი სტატიის ჩატვირთვა</string>
   <string name="view_main_page_card_title">დღეს ვიკიპედიაში</string>
   <string name="view_main_page_card_action">მთავარი გვერდის ნახვა</string>
   <string name="view_featured_image_card_title">დღის სურათი</string>
   <string name="view_featured_image_card_download">გადმოწერა</string>
+  <string name="view_featured_image_card_share">გაზიარება</string>
   <string name="menu_feed_card_dismiss">ამ ბარათის დამალვა</string>
   <string name="menu_feed_card_dismissed">ბარათი დამალულია.</string>
   <string name="menu_feed_overflow_label">მეტი პარამეტრები</string>
   <string name="feed_featured_image_share_subject">ვიკისაწყობის რჩეული სურათი</string>
   <string name="feed">კვლევა</string>
+  <string name="home">მთავარი</string>
   <string name="view_static_card_icon_content_description">ბარათის ხატულა</string>
   <string name="view_card_news_title">სიახლეებში</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -366,18 +434,39 @@
   <string name="view_continue_reading_card_subtitle_today">დღეს</string>
   <string name="view_announcement_card_negative_action">არა, გმადლობთ</string>
   <string name="view_featured_article_card_title">რჩეული სტატია</string>
-  <string name="feed_configure_menu_select_all" fuzzy="true">ყველას არჩევა</string>
-  <string name="feed_configure_menu_deselect_all" fuzzy="true">არჩევის გაუქმება</string>
-  <string name="description_edit_text_hint" fuzzy="true">სათაურის აღწერა</string>
+  <string name="view_static_card_save_button_label">შენახვა</string>
+  <string name="feed_configure_menu_select_all">ყველას ჩვენება</string>
+  <string name="feed_configure_menu_deselect_all">ყველას დამალვა</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">კარგი</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">გაუქმება</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">კარგი</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">გაუქმება</string>
+  <string name="description_edit_text_hint">სტატიის აღწერა</string>
+  <string name="description_edit_article_description_label">სტატია</string>
+  <string name="description_edit_translate_article_description_label_per_language">სტატიის აღწერა (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">სტატიის აღწერა (%s)</string>
+  <string name="description_edit_add_caption_label">სურათის აღწერა</string>
+  <string name="description_edit_add_caption_hint">სურათის წარწერა</string>
+  <string name="description_edit_translate_caption_label_per_language">სურათის წარწერა (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">სურათის წარწერა (%s)</string>
   <string name="description_edit_save">გამოქვეყნება</string>
-  <string name="description_edit_add_description" fuzzy="true">სათაურის აღწერის დამატება</string>
-  <string name="description_edit_edit_description" fuzzy="true">აღწერის რედაქტირება</string>
+  <string name="description_edit_read">კითხვა</string>
+  <string name="description_edit_add_description">სტატიის აღწერის დამატება</string>
+  <string name="description_edit_translate_description">სტატიის აღწერის თარგმნა</string>
+  <string name="description_edit_edit_description">სტატიის აღწერის რედაქტირება</string>
+  <string name="description_edit_add_image_caption">სურათის წარწერის დამატება</string>
+  <string name="description_edit_edit_image_caption">სურათის წარწერის რედატირება</string>
+  <string name="description_edit_translate_image_caption">სურათის წარწერის თარგმნა</string>
   <string name="description_edit_cancel_hint">გაუქმება</string>
+  <string name="description_edit_help_title">ინფო: სტატიის აღწერა</string>
   <string name="description_edit_help_about_wikidata">ვიკიმონაცემების შესახებ</string>
-  <string name="description_edit_success_saved" fuzzy="true">აღწერა გამოქვეყნდა!</string>
+  <string name="description_edit_voice_input_description">ხმოვანი შეყვანა</string>
+  <string name="description_too_short">ტექსტი ძალიან მოკლეა.</string>
+  <string name="description_ends_with_punctuation">ტექსტი სასვენი ნიშნებით არ უნდა მთავრდებოდეს.</string>
+  <string name="description_edit_success_saved">სტატიის აღწერა გამოქვეყნდა!</string>
   <string name="description_edit_success_done">გაკეთდა</string>
   <string name="description_edit_success_did_you_know">იცოდით?</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">სათაურის აღწერილობა</string>
+  <string name="description_edit_tutorial_title_descriptions">სტატიის აღწერა</string>
   <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="size_mb">%.2f მბ</string>
@@ -396,4 +485,23 @@
     <item quantity="other">%d წლის წინ</item>
   </plurals>
   <string name="more_language_options">მეტი</string>
+  <string name="thank_dialog_negative_button_text">გაუქმება</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">შეცვლა</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">სამუდამოდ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 კვირით</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 თვით</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 თვით</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 თვით</string>
+  <string name="watchlist_expiry_dialog_permanent">სამუდამო</string>
+  <string name="watchlist_expiry_dialog_one_week">1 კვირა</string>
+  <string name="watchlist_expiry_dialog_one_month">1 თვე</string>
+  <string name="watchlist_expiry_dialog_three_months">3 თვე</string>
+  <string name="watchlist_expiry_dialog_six_months">6 თვე</string>
+  <string name="watchlist_filter_all">ყველა</string>
+  <string name="watchlist_filter_talk">განხილვა</string>
+  <string name="watchlist_filter_pages">გვერდები</string>
+  <string name="watchlist_filter_other">სხვა</string>
+  <string name="watchlist_page_moved">გადატანილი</string>
+  <string name="watchlist_page_protected">დაცული</string>
+  <string name="watchlist_page_deleted">წაშლილი</string>
 </resources>
