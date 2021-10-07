@@ -807,7 +807,7 @@
   <string name="suggested_edits_image_tags_publishing">Publicare</string>
   <string name="suggested_edits_image_tags_published">Publicat</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etichetarea imaginilor le face mai ușor de găsit.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Prin adăugarea de etichete de imagine, veți ajuta să faceți mai ușor căutarea imaginilor pe Commons, depozitul gratuit de imagini pe licență pe care Wikipedia îl folosește pentru imaginile din articolele sale.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Prin adăugarea de etichete de imagine, veți ajuta să faceți mai ușor căutarea imaginilor pe Commons, depozitul de imagini cu licență liberă pe care Wikipedia îl folosește pentru imaginile din articolele sale.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Doar etichetele pe care le alegeți vor fi adăugate la imagini.</string>
   <string name="suggested_edits_image_tags_task_detail">Adăugați etichete personalizate la o imagine pentru a fi mai ușor de găsit.</string>
   <string name="suggested_edits_image_tags_choose">Adăugați sau alegeți etichete potrivite</string>
@@ -930,7 +930,7 @@
   <string name="onboarding_get_started">Începe</string>
   <string name="onboarding_maybe_later">Poate mai târziu</string>
   <string name="onboarding_explore_title">Noi căi de explorare</string>
-  <string name="onboarding_explore_text">Aruncăte în gaura de iepure Wikipedia cu o actualizare constantă a fluxului Explore. &lt;br/&gt; &lt;b&gt;Personalizați&lt;/b&gt; fluxul în funcție de interesele dvs. - fie că învață despre evenimente istorice &lt;b&gt;În această zi&lt;/b&gt;, fie că arunca cu zarurile cu &lt;b&gt;Aleator&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Aruncă-te în gaura de iepure Wikipedia cu o actualizare constantă a fluxului Explore. &lt;br/&gt; &lt;b&gt;Personalizați&lt;/b&gt; fluxul în funcție de interesele dvs. - fie că învață despre evenimente istorice &lt;b&gt;În această zi&lt;/b&gt;, fie că arunca cu zarurile cu &lt;b&gt;Aleator&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Citirea listelor cu sincronizare</string>
   <string name="onboarding_reading_list_sync_text_v2">Puteți crea liste de citire din articole pe care doriți să le citiți mai târziu, chiar și atunci când sunteți offline.&lt;br/&gt;Conectați-vă la contul dvs. Wikipedia pentru a vă sincroniza listele de citire.. &lt;a href=\"#login\"&gt;Alăturați-vă Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Trimiteți date anonime</string>

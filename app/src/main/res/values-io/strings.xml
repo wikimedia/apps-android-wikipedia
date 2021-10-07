@@ -337,7 +337,7 @@
   <string name="format_reading_list_statistical_summary_plural">%1$d artikli, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d ek 1 artikli disponebla \'offline\'; %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d ek %2$d artikli disponebla \'offline\', %3$.2f MB</string>
-  <string name="reading_list_sort">Klasifikar</string>
+  <string name="reading_list_sort">Klasifikez</string>
   <string name="reading_list_sort_ellipsis">Ordenar segun...</string>
   <string name="reading_list_sort_by_name">Ordenar segun nomo</string>
   <string name="reading_list_sort_by_name_desc">Ordenar segun nomo (inversa)</string>
