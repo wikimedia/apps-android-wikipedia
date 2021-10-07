@@ -37,7 +37,7 @@
                 style="@style/OverflowMenuItem"
                 android:drawablePadding="16dp"
                 android:visibility="gone"
-                app:drawableStartCompat="@drawable/ic_user_talk"
+                app:drawableStartCompat="@drawable/ic_notification_thanks"
                 app:drawableTint="?attr/material_theme_secondary_color" />
 
             <com.google.android.material.textview.MaterialTextView
