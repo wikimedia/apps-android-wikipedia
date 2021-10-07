@@ -107,6 +107,10 @@ class NotificationActivity : BaseActivity() {
             }
         })
 
+        binding.notificationsSearchEmptyContainer.setOnClickListener {
+            startActivity(NotificationsFilterActivity.newIntent(it.context))
+        }
+
         Prefs.notificationUnreadCount = 0
         NotificationsABCTestFunnel().logSelect()
 
