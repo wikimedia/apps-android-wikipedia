@@ -346,12 +346,17 @@
             android:title="@string/preferences_developer_suggested_edits_reactivation_notification_stage_two"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="A/B tests">
+    <PreferenceCategory android:title="Tests and surveys">
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="ab_test_notificationIcons"
             android:title="Test group for in-app Notification icons (0, 1, or 2)" />
+
+        <Preference
+            android:key="@string/preference_developer_show_talk_page_survey"
+            android:title="@string/preference_developer_show_talk_page_survey"
+            android:summary="Show Talk Page survey" />
 
     </PreferenceCategory>
 
