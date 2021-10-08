@@ -9,25 +9,25 @@
         android:id="@+id/notifications_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/paper_color">
+        android:background="?attr/paper_color"
+        app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/notifications_toolbar"
             style="@style/ToolbarStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:elevation="4dp" />
+            app:layout_scrollFlags="scroll|enterAlways" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/notification_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="?attr/paper_color"
+            android:background="@drawable/tab_layout_background_bottom_line"
             android:visibility="gone"
             app:tabTextAppearance="@style/NotificationTabTextAppearance"
-            app:tabTextColor="?android:attr/textColorTertiary"
+            app:tabTextColor="?attr/chart_shade4"
             app:tabSelectedTextColor="?attr/colorAccent">
 
             <com.google.android.material.tabs.TabItem

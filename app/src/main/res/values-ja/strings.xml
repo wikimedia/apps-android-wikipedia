@@ -15,6 +15,7 @@
 * Kokoko-H
 * LaMagiaaa
 * Los688
+* Marine-Blue
 * MathXplore
 * Mirinano
 * Omotecho
@@ -398,7 +399,7 @@
   <string name="menu_save_all_tabs">すべてのタブを保存</string>
   <string name="error_blocked_title">あなたのユーザー名またはIPアドレスはブロックされています。</string>
   <string name="error_blocked_by">ブロックは&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;によって作成されました</string>
-  <string name="error_blocked_reason">与えられた理由は次のとおりです：%s</string>
+  <string name="error_blocked_reason">理由は次のとおりです：%s</string>
   <string name="error_blocked_start">ブロックの開始日：%s</string>
   <string name="error_blocked_expiry">ブロックの終了日：%s</string>
   <string name="error_blocked_id">ブロックID：%s</string>
