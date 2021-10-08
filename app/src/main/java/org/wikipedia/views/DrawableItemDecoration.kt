@@ -30,7 +30,7 @@ class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRe
 
     override fun onDraw(canvas: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(canvas, parent, state)
-        if (parent.childCount == 0) {
+        if (parent.childCount == 0 || (skipSearchBar && parent.childCount == 1)) {
             return
         }
 
