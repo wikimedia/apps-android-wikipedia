@@ -5,7 +5,7 @@ import androidx.room.*
 @Dao
 interface NotificationDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNotification(notification: Notification)
+    fun insertNotification(notifications: List<Notification>)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateNotification(notification: Notification)
