@@ -86,6 +86,7 @@ class AppDatabaseTests {
             .context.resources.assets.open("database/json/notifications.json")
             .bufferedReader()
             .use { it.readText() }
+
         val notifications = JsonUtil.decodeFromString<List<Notification>>(rawJson)!!
         notificationDao.insertNotification(notifications)
 
