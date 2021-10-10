@@ -207,6 +207,7 @@
   <string name="page_protected_can_not_edit_title">Цю сторінку захищено</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додати до списку спостереження</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Слідкуйте за тим, що відбувається з цікавими вам статтями. Натисніть на значок меню і виберіть &lt;b&gt;Додати до списку спостереження&lt;/b&gt;, щоб бачити зміни до статті.</string>
+  <string name="page_notification_tooltip">Ваші сповіщення тепер тут.</string>
   <string name="settings_item_preferences">Налаштування</string>
   <string name="settings_activity_title">Налаштування</string>
   <string name="about_description">Про додаток Вікіпедії</string>
@@ -646,7 +647,7 @@
   <string name="preference_title_customize_push_notifications">Налаштуйте push-сповіщення</string>
   <string name="preference_category_display_settings">Показати налаштування</string>
   <string name="preference_title_hide_read_notifications">Приховати прочитані сповіщення</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Сповіщення Вікіпедії</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Вікіпедія</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Сповіщення з Вікіпедії</string>
   <string name="notifications_channel_group_other_title">Інше</string>
   <string name="notifications_channel_group_other_description">Інші сповіщення від програми</string>
