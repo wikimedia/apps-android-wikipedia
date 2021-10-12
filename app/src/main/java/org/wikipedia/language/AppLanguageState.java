@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
@@ -127,7 +128,7 @@ public class AppLanguageState {
                 ++insertIndex;
             }
         }
-        if (!Prefs.INSTANCE.isShowDeveloperSettingsEnabled()) {
+        if (!Prefs.INSTANCE.isShowDeveloperSettingsEnabled() && !ReleaseUtil.isPreBetaRelease()) {
             codes.remove(TEST_LANGUAGE_CODE);
         }
         return codes;
