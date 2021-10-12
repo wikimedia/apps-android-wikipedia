@@ -255,7 +255,9 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             notificationMenuItem.isVisible = true
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             notificationButtonView.setOnClickListener {
-                notificationsClick()
+                if (AccountUtil.isLoggedIn) {
+                    startActivity(NotificationActivity.newIntent(requireActivity()))
+                }
             }
             notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
             notificationMenuItem.actionView = notificationButtonView
@@ -420,12 +422,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     override fun loginClick() {
         onLoginRequested()
-    }
-
-    override fun notificationsClick() {
-        if (AccountUtil.isLoggedIn) {
-            startActivity(NotificationActivity.newIntent(requireActivity()))
-        }
     }
 
     override fun talkClick() {
