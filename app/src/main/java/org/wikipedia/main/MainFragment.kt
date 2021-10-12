@@ -263,6 +263,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
             FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+        } else {
+            notificationMenuItem.isVisible = false
         }
         updateNotificationDot(false)
     }
