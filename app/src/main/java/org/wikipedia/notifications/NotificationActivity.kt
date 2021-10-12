@@ -31,7 +31,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.NotificationPreferencesFunnel
-import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
@@ -112,7 +111,6 @@ class NotificationActivity : BaseActivity() {
         }
 
         Prefs.notificationUnreadCount = 0
-        NotificationsABCTestFunnel().logSelect()
 
         beginUpdateList()
     }

@@ -48,31 +48,15 @@ object Prefs {
         get() = if (!PrefsIoUtil.contains(R.string.preference_key_cookie_map)) {
             emptyMap()
         } else {
-            val map = JsonUtil.decodeFromString<Map<String, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_cookie_map, "").orEmpty())
-            if (map == null) emptyMap()
-            else {
-                val cookies = mutableMapOf<String, List<Cookie>>()
-                for (key in map.keys) {
-                    val list = mutableListOf<Cookie>()
-                    cookies[key] = list
-                    (WikiSite.DEFAULT_SCHEME + "://" + key).toHttpUrlOrNull()?.let { url ->
-                        for (value in map[key]!!) {
-                            Cookie.parse(url, value)?.run { list.add(this) }
-                        }
-                    }
-                }
-                cookies
+            val map = JsonUtil.decodeFromString<Map<String, List<String>>>(PrefsIoUtil
+                .getString(R.string.preference_key_cookie_map, "").orEmpty()).orEmpty()
+            map.mapValues { (key, values) ->
+                val url = "${WikiSite.DEFAULT_SCHEME}://$key".toHttpUrlOrNull()
+                url?.let { values.mapNotNull { value -> Cookie.parse(url, value) } }.orEmpty()
             }
         }
         set(cookieMap) {
-            val map = mutableMapOf<String, List<String>>()
-            for (key in cookieMap.keys) {
-                val list = mutableListOf<String>()
-                map[key] = list
-                for (cookie in cookieMap[key]!!) {
-                    list.add(cookie.toString())
-                }
-            }
+            val map = cookieMap.mapValues { (_, cookies) -> cookies.map { it.toString() } }
             PrefsIoUtil.setString(R.string.preference_key_cookie_map, JsonUtil.encodeToString(map))
         }
 
