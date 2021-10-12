@@ -337,7 +337,7 @@
   <string name="format_reading_list_statistical_summary_plural">%1$d artikli, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d ek 1 artikli disponebla \'offline\'; %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d ek %2$d artikli disponebla \'offline\', %3$.2f MB</string>
-  <string name="reading_list_sort">Klasifikar</string>
+  <string name="reading_list_sort">Klasifikez</string>
   <string name="reading_list_sort_ellipsis">Ordenar segun...</string>
   <string name="reading_list_sort_by_name">Ordenar segun nomo</string>
   <string name="reading_list_sort_by_name_desc">Ordenar segun nomo (inversa)</string>
@@ -382,6 +382,7 @@
   <string name="no_user_lists_title">Organizar artikli en listi</string>
   <string name="reading_lists_menu_create_list">Krear nova listo</string>
   <string name="reading_lists_menu_sort_by">Ordinar segun</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Nuligar</string>
   <string name="reading_list_split_dialog_ok_button_text">O.K.</string>
   <string name="user_option_sync_label">Preferaji</string>
   <string name="notification_reverted_title">Redakturo desfacita</string>
@@ -468,7 +469,9 @@
   <string name="this_year">Cayare</string>
   <string name="languages_list_all_text">Omna lingui</string>
   <string name="more_language_options">pluse</string>
+  <string name="remove_language_dialog_cancel_button_text">Nuligar</string>
   <string name="text_input_dialog_cancel_button_text">Nuligar</string>
   <string name="talk_snackbar_undo">Desfacez</string>
   <string name="talk_last_modified">&lt;b&gt;Lasta redakto %1$s&lt;/b&gt; da %2$s</string>
+  <string name="thank_dialog_negative_button_text">Nuligar</string>
 </resources>
