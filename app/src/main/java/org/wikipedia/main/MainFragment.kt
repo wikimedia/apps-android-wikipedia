@@ -12,7 +12,6 @@ import android.speech.RecognizerIntent
 import android.view.*
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -24,7 +23,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -84,7 +82,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     val binding get() = _binding!!
 
     private lateinit var notificationButtonView: NotificationButtonView
-    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
     private var tabCountsView: TabCountsView? = null
     private var showTabCountsAnimation = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
@@ -149,7 +146,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         requireContext().registerReceiver(downloadReceiver,
                 IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
         downloadReceiver.callback = downloadReceiverCallback
-        setupNotificationsTest()
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
         maybeShowWatchlistTooltip()
@@ -255,7 +251,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             showTabCountsAnimation = false
         }
         val notificationMenuItem = menu.findItem(R.id.menu_notifications)
-        if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
+        if (AccountUtil.isLoggedIn) {
             notificationMenuItem.isVisible = true
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             notificationButtonView.setOnClickListener {
@@ -265,8 +261,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
             FeedbackUtil.setButtonLongPressToast(notificationButtonView)
-        } else {
-            notificationMenuItem.isVisible = false
         }
         updateNotificationDot(false)
     }
@@ -477,42 +471,14 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
-    // TODO: remove when ABC test is complete.
-    private fun setupNotificationsTest() {
-        binding.unreadDotView.isVisible = false
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0 -> notificationButtonView.setIcon(R.drawable.ic_inbox_24)
-            1 -> notificationButtonView.setIcon(R.drawable.ic_notifications_black_24dp)
-        }
-    }
-
     fun updateNotificationDot(animate: Boolean) {
-        // TODO: remove when ABC test is complete.
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0, 1 -> {
-                if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
-                    notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
-                    if (animate) {
-                        notificationsABCTestFunnel.logShow()
-                        notificationButtonView.runAnimation()
-                    }
-                } else {
-                    notificationButtonView.setUnreadCount(0)
-                }
+        if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
+            notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
+            if (animate) {
+                notificationButtonView.runAnimation()
             }
-            else -> {
-                if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
-                    binding.unreadDotView.setUnreadCount(Prefs.notificationUnreadCount)
-                    binding.unreadDotView.isVisible = true
-                    if (animate) {
-                        notificationsABCTestFunnel.logShow()
-                        binding.unreadDotView.runAnimation()
-                    }
-                } else {
-                    binding.unreadDotView.isVisible = false
-                    binding.unreadDotView.setUnreadCount(0)
-                }
-            }
+        } else {
+            notificationButtonView.setUnreadCount(0)
         }
     }
 
