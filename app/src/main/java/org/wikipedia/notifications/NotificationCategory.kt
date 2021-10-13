@@ -2,6 +2,8 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import androidx.annotation.AttrRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationChannelGroupCompat
 import androidx.core.app.NotificationManagerCompat
@@ -16,9 +18,9 @@ private const val GROUP_OTHER: String = "WIKIPEDIA_NOTIFICATIONS_OTHER"
 
 @Suppress("unused")
 enum class NotificationCategory constructor(val id: String,
-                                            val title: Int,
-                                            val description: Int,
-                                            val iconResId: Int = R.drawable.ic_settings_black_24dp,
+                                            @StringRes val title: Int,
+                                            @StringRes val description: Int,
+                                            @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
                                             @AttrRes val iconColor: Int = R.attr.colorAccent,
                                             val importance: Int = NotificationManagerCompat.IMPORTANCE_DEFAULT,
                                             val group: String? = GROUP_WIKIPEDIA_NOTIFICATIONS) : EnumCode {
