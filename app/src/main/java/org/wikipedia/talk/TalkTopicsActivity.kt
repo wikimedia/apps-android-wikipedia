@@ -18,7 +18,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -54,7 +53,6 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var funnel: TalkFunnel
     private lateinit var notificationButtonView: NotificationButtonView
-    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
     private val disposables = CompositeDisposable()
     private val topics = mutableListOf<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
@@ -114,7 +112,6 @@ class TalkTopicsActivity : BaseActivity() {
     public override fun onResume() {
         super.onResume()
         loadTopics()
-        setupNotificationsTest()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -170,12 +167,10 @@ class TalkTopicsActivity : BaseActivity() {
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         if (!goToTopic) {
-            menu!!.findItem(R.id.menu_change_language).isVisible =
-                pageTitle.namespace() == Namespace.USER_TALK
-            menu.findItem(R.id.menu_view_user_page).isVisible =
-                pageTitle.namespace() == Namespace.USER_TALK
+            menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
+            menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
             val notificationMenuItem = menu.findItem(R.id.menu_notifications)
-            if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
+            if (AccountUtil.isLoggedIn) {
                 notificationMenuItem.isVisible = true
                 notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
                 notificationButtonView.setOnClickListener {
@@ -325,28 +320,14 @@ class TalkTopicsActivity : BaseActivity() {
             }))
     }
 
-    // TODO: remove when ABC test is complete.
-    private fun setupNotificationsTest() {
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0 -> notificationButtonView.setIcon(R.drawable.ic_inbox_24)
-            1 -> notificationButtonView.setIcon(R.drawable.ic_notifications_black_24dp)
-        }
-    }
-
     fun updateNotificationDot(animate: Boolean) {
-        // TODO: remove when ABC test is complete.
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0, 1 -> {
-                if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
-                    notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
-                    if (animate) {
-                        notificationsABCTestFunnel.logShow()
-                        notificationButtonView.runAnimation()
-                    }
-                } else {
-                    notificationButtonView.setUnreadCount(0)
-                }
+        if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
+            notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
+            if (animate) {
+                notificationButtonView.runAnimation()
             }
+        } else {
+            notificationButtonView.setUnreadCount(0)
         }
     }
 

@@ -31,7 +31,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.NotificationPreferencesFunnel
-import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
@@ -112,7 +111,6 @@ class NotificationActivity : BaseActivity() {
         }
 
         Prefs.notificationUnreadCount = 0
-        NotificationsABCTestFunnel().logSelect()
 
         beginUpdateList()
     }
@@ -298,7 +296,7 @@ class NotificationActivity : BaseActivity() {
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null && enabledFiltersCount() != 0) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyText.visibility = if (actionMode != null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
@@ -486,6 +484,10 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationItemSelectedImage.visibility = View.VISIBLE
                 binding.notificationItemImage.visibility = View.INVISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
+                if (WikipediaApp.getInstance().currentTheme.isDark) {
+                    binding.notificationItemReadDot.setColorFilter(android.R.color.white)
+                    binding.notificationTitle.setTextColor(ContextCompat.getColor(this@NotificationActivity, android.R.color.white))
+                }
             } else {
                 binding.notificationItemSelectedImage.visibility = View.INVISIBLE
                 binding.notificationItemImage.visibility = View.VISIBLE
