@@ -6,7 +6,7 @@
     <!-- URLs -->
     <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=%1$s&amp;uselang=%2$s</string>
     <string name="suggested_edits_survey_url">@null</string>
-    <string name="talk_pages_survey_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android/Communication/UsertestingOctober2021</string>
+    <string name="talk_pages_survey_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Communication/UsertestingOctober2021</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>

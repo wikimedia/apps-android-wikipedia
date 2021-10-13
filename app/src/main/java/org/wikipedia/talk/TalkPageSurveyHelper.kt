@@ -34,6 +34,8 @@ object TalkPageSurveyHelper {
     }
 
     private fun openSurveyInBrowser(activity: Activity) {
-        CustomTabsUtil.openInCustomTab(activity, activity.getString(R.string.talk_pages_survey_url))
+        val lang = if (arrayOf("ar", "fr", "hi", "id", "ja").contains(WikipediaApp.getInstance().appOrSystemLanguageCode))
+            ("/" + WikipediaApp.getInstance().appOrSystemLanguageCode) else ""
+        CustomTabsUtil.openInCustomTab(activity, activity.getString(R.string.talk_pages_survey_url) + lang)
     }
 }
