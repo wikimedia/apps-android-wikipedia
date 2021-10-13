@@ -484,6 +484,10 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationItemSelectedImage.visibility = View.VISIBLE
                 binding.notificationItemImage.visibility = View.INVISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
+                if (WikipediaApp.getInstance().currentTheme.isDark) {
+                    binding.notificationItemReadDot.setColorFilter(android.R.color.white)
+                    binding.notificationTitle.setTextColor(ContextCompat.getColor(this@NotificationActivity, android.R.color.white))
+                }
             } else {
                 binding.notificationItemSelectedImage.visibility = View.INVISIBLE
                 binding.notificationItemImage.visibility = View.VISIBLE
