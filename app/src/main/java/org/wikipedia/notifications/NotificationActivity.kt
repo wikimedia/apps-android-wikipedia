@@ -296,7 +296,7 @@ class NotificationActivity : BaseActivity() {
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null && enabledFiltersCount() != 0) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyText.visibility = if (actionMode != null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
