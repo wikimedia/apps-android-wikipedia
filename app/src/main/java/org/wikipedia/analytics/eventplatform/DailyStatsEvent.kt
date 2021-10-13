@@ -8,6 +8,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import java.util.concurrent.TimeUnit
 
+@Suppress("unused")
 @Serializable
 @SerialName("/analytics/mobile_apps/android_daily_stats/1.0.0")
 class DailyStatsEvent(private val app_install_age_in_days: Long,
