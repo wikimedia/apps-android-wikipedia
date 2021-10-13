@@ -196,6 +196,7 @@
   <string name="page_protected_can_not_edit_title">Bu sahifa himoyalangan</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Kuzatuv roʻyxatiga qoʻshmoq</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Siz qiziqish bildirgan maqolalarda qanday oʻzgarishlar boʻlayotganligini kuzatib turing. Maqoladagi oʻzgarishlardan boxabar boʻlib borish uchun qoʻshimcha menyudagi &lt;b&gt;Kuzatuv roʻyxatiga qoʻshmoq&lt;/b&gt; tugmasini tanlang.</string>
+  <string name="page_notification_tooltip">Sizning bildirishnomalaringiz bu yerda boʻladi.</string>
   <string name="settings_item_preferences">Tanlovlar</string>
   <string name="settings_activity_title">Tanlovlar</string>
   <string name="about_description">«Vikipediya» ilovasi haqida</string>

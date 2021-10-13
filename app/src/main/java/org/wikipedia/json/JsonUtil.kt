@@ -6,6 +6,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
+import org.wikipedia.analytics.eventplatform.DailyStatsEvent
 import org.wikipedia.analytics.eventplatform.Event
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
@@ -21,6 +22,7 @@ object JsonUtil {
             polymorphic(Event::class) {
                 subclass(UserContributionEvent::class)
                 subclass(NotificationInteractionEvent::class)
+                subclass(DailyStatsEvent::class)
             }
         }
     }

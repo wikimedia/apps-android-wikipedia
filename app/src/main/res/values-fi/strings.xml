@@ -390,6 +390,7 @@
   <string name="error_blocked_start">Eston alku: %s</string>
   <string name="error_blocked_expiry">Esto päättyy: %s</string>
   <string name="error_blocked_id">Eston tunniste: %s</string>
+  <string name="error_blocked_footer">Voit olla yhteydessä käyttäjään &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; tai toiseen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
@@ -1001,7 +1002,7 @@
   <string name="talk_message_hint">Kirjoita viesti</string>
   <string name="talk_message_empty">Viesti ei voi olla tyhjä.</string>
   <string name="talk_subject_empty">Kirjoita viestille aihe.</string>
-  <string name="talk_response_submitted" fuzzy="true">Vastaus lähetetty.</string>
+  <string name="talk_response_submitted">Vastaus lähetetty.</string>
   <string name="talk_snackbar_undo">Kumoa</string>
   <string name="talk_last_modified">&lt;b&gt;Sivua muokkasi viimeksi %1$s&lt;/b&gt; %2$s</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
@@ -1014,6 +1015,7 @@
   <string name="thank_label">Kiitä</string>
   <string name="go_to_user_page">Siirry käyttäjäsivulle</string>
   <string name="thank_dialog_title_text">Julkinen kiitos lähetetty</string>
+  <string name="thank_dialog_text">Kiitoksen lähettäminen on helppo tapa arvostaa toisen käyttäjän panosta Wikipedian kehittämiseen. Kiitoksia ei voi perua, ja ne ovat julkisesti nähtävillä.</string>
   <string name="thank_dialog_positive_button_text">Lähetä kiitokset</string>
   <string name="thank_dialog_negative_button_text">Peruuta</string>
   <string name="thank_success_message">Kiitoksesi lähetettiin käyttäjälle %s 👍</string>
