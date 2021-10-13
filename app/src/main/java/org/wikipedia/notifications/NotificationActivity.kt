@@ -416,7 +416,8 @@ class NotificationActivity : BaseActivity() {
             this.itemPosition = pos
             val n = container.notification!!
             val notificationCategory = NotificationCategory.find(n.category)
-            val notificationColor = ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor)
+            val notificationColor = ContextCompat.getColor(this@NotificationActivity,
+                ResourceUtil.getThemedAttributeId(this@NotificationActivity, notificationCategory.iconColor))
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
             binding.notificationItemImage.setColorFilter(notificationColor)
             n.contents?.let {

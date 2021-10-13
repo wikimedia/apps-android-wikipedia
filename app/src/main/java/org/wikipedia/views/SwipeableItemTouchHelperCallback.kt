@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Typeface
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
@@ -37,6 +38,7 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
         color = ContextCompat.getColor(context, swipeIconTint ?: android.R.color.white)
         textSize = DimenUtil.dpToPx(12f)
         textAlign = Paint.Align.CENTER
+        typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     }
     var swipeableEnabled = false
 
@@ -81,19 +83,19 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
                              dx: Float, dy: Float, actionState: Int, isCurrentlyActive: Boolean) {
         if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
             canvas.drawRect(0f, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width.toFloat(), (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), swipeBackgroundPaint)
-            val iconPositionY = (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - (if (swipeTextFromTag) swipeIconBitmap.height else swipeIconBitmap.height / 2))).toFloat()
+            val iconPositionY = (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - (if (swipeTextFromTag) (swipeIconBitmap.height / SWIPE_ICON_POSITION_SCALE).toInt() else swipeIconBitmap.height / 2))).toFloat()
             val iconTextPositionY = viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) - SWIPE_ICON_PADDING_DP
             if (dx >= 0) {
-                canvas.drawBitmap(swipeIconBitmap, SWIPE_ICON_PADDING_DP * densityScalar, iconPositionY, swipeIconPaint)
+                canvas.drawBitmap(swipeIconBitmap, SWIPE_ICON_PADDING_DP * SWIPE_ICON_POSITION_SCALE * densityScalar, iconPositionY, swipeIconPaint)
                 if (swipeTextFromTag) {
                     canvas.drawText(viewHolder.itemView.tag.toString(),
-                        swipeIconBitmap.width + SWIPE_ICON_PADDING_DP, iconTextPositionY, valueTextPaint)
+                        swipeIconBitmap.width + SWIPE_ICON_PADDING_DP * SWIPE_TEXT_POSITION_SCALE, iconTextPositionY, valueTextPaint)
                 }
             } else {
-                canvas.drawBitmap(swipeIconBitmap, viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP * densityScalar, iconPositionY, swipeIconPaint)
+                canvas.drawBitmap(swipeIconBitmap, viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP * SWIPE_ICON_POSITION_SCALE * densityScalar, iconPositionY, swipeIconPaint)
                 if (swipeTextFromTag) {
                     canvas.drawText(viewHolder.itemView.tag.toString(),
-                        viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP, iconTextPositionY, valueTextPaint)
+                        viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP * SWIPE_TEXT_POSITION_SCALE, iconTextPositionY, valueTextPaint)
                 }
             }
             canvas.drawRect(dx, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width + dx, (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), itemBackgroundPaint)
@@ -105,5 +107,7 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
 
     companion object {
         private const val SWIPE_ICON_PADDING_DP = 16f
+        private const val SWIPE_ICON_POSITION_SCALE = 1.4f
+        private const val SWIPE_TEXT_POSITION_SCALE = 2f
     }
 }
