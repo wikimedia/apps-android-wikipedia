@@ -26,6 +26,7 @@ import com.google.android.material.tabs.TabLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -286,7 +287,11 @@ class NotificationActivity : BaseActivity() {
         val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         for (n in filteredList) {
-            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
+            var linkText: String? = null
+            n.contents?.links?.secondary?.firstOrNull()?.let { link ->
+                linkText = link.label
+            }
+            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !(StringUtils.containsIgnoreCase(n.title?.full, currentSearchQuery!!)||StringUtils.containsIgnoreCase(n.contents.header, currentSearchQuery!!) || StringUtils.containsIgnoreCase(n.contents.body, currentSearchQuery!!) || (linkText != null && StringUtils.containsIgnoreCase(linkText!!, currentSearchQuery!!)))) {
                 continue
             }
             val filterList = mutableListOf<String>()
@@ -424,12 +429,14 @@ class NotificationActivity : BaseActivity() {
                 StringUtil.highlightAndBoldenText(binding.notificationSubtitle, currentSearchQuery, true, Color.YELLOW)
                 if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
                     binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
+                    StringUtil.highlightAndBoldenText(binding.notificationDescription, currentSearchQuery, true, Color.YELLOW)
                     binding.notificationDescription.visibility = View.VISIBLE
                 } else {
                     binding.notificationDescription.visibility = View.GONE
                 }
                 it.links?.secondary?.firstOrNull()?.let { link ->
                     binding.notificationTitle.text = link.label
+                    StringUtil.highlightAndBoldenText(binding.notificationTitle, currentSearchQuery, true, Color.YELLOW)
                 } ?: run {
                     binding.notificationTitle.text = getString(notificationCategory.title)
                 }
@@ -450,6 +457,7 @@ class NotificationActivity : BaseActivity() {
 
             n.title?.let { title ->
                 binding.notificationSource.text = title.full
+                StringUtil.highlightAndBoldenText(binding.notificationSource, currentSearchQuery, true, Color.YELLOW)
                 n.contents?.links?.getPrimary()?.url?.run {
                     binding.notificationSourceExternalIcon.isVisible = !UriUtil.isAppSupportedLink(Uri.parse(this))
                 }
