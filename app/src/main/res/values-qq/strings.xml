@@ -820,6 +820,8 @@
   <string name="suggested_edits_feed_card_add_image_tags">Suggested edits feed card call-to-action text for adding image depicts.</string>
   <string name="suggested_edits_snackbar_survey_text">One-time text shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Button label on the snackbar shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
+  <string name="talk_snackbar_survey_text">One-time text shown to users after they submit a talk page message, requesting them to take a survey.</string>
+  <string name="talk_snackbar_survey_action_text">Button label for navigating to a survey page.</string>
   <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action</string>
   <string name="suggested_edits_task_action_text_translate">Button label for suggested edits task translate action</string>
   <string name="suggested_edits_image_captions">Suggested Edits image captions task title</string>

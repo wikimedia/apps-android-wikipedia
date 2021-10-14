@@ -52,7 +52,7 @@ interface RestService {
      */
     @Headers("Accept: $ACCEPT_HEADER_DEFINITION")
     @GET("page/definition/{title}")
-    fun getDefinition(@Path("title") title: String): Observable<Map<String, Array<RbDefinition.Usage>>>
+    fun getDefinition(@Path("title") title: String): Observable<Map<String, List<RbDefinition.Usage>>>
 
     @get:GET("page/random/summary")
     @get:Headers("Accept: $ACCEPT_HEADER_SUMMARY")
