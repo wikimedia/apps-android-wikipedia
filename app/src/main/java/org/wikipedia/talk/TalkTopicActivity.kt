@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -445,6 +447,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     binding.talkProgressBar.visibility = View.VISIBLE
                     undoSave()
                 }
+                .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
+                    override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                        super.onDismissed(transientBottomBar, event)
+                        if (TalkPageSurveyHelper.shouldShowSurvey()) {
+                            TalkPageSurveyHelper.showSurvey(this@TalkTopicActivity)
+                        }
+                    }
+                })
                 .show()
             showUndoSnackbar = false
         }
