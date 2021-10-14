@@ -12,6 +12,9 @@ import org.wikipedia.util.GeoUtil
 object TalkPageSurveyHelper {
 
     fun shouldShowSurvey(): Boolean {
+        if (Prefs.talkPageSurveyOverride) {
+            return true
+        }
         val languages = WikipediaApp.getInstance().language().appLanguageCodes
         val country = GeoUtil.geoIPCountry.orEmpty()
 

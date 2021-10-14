@@ -515,4 +515,7 @@ object Prefs {
     var isPageNotificationTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_page_notification_tooltip_shown, false)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_page_notification_tooltip_shown, enabled)
+
+    val talkPageSurveyOverride
+        get() = PrefsIoUtil.getBoolean(R.string.preference_developer_override_talk_page_survey, false)
 }
