@@ -70,7 +70,8 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         filter.imageRes?.let {
             binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
             if (NotificationCategory.isFiltersGroup(filter.filterCode)) {
-                binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, NotificationCategory.find(filter.filterCode).iconColor))
+                binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context,
+                    ResourceUtil.getThemedAttributeId(context, NotificationCategory.find(filter.filterCode).iconColor)))
             }
             binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, it))
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE
