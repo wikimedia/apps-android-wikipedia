@@ -26,7 +26,6 @@ import com.google.android.material.tabs.TabLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -287,11 +286,8 @@ class NotificationActivity : BaseActivity() {
         val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         for (n in filteredList) {
-            var linkText: String? = null
-            n.contents?.links?.secondary?.firstOrNull()?.let { link ->
-                linkText = link.label
-            }
-            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !(StringUtils.containsIgnoreCase(n.title?.full, currentSearchQuery!!)||StringUtils.containsIgnoreCase(n.contents.header, currentSearchQuery!!) || StringUtils.containsIgnoreCase(n.contents.body, currentSearchQuery!!) || (linkText != null && StringUtils.containsIgnoreCase(linkText!!, currentSearchQuery!!)))) {
+            val linkText: String? = n.contents?.links?.secondary?.firstOrNull()?.label
+            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !(n.title?.full!!.contains(currentSearchQuery!!, true) || n.contents.header.contains(currentSearchQuery!!, true) || n.contents.body.contains(currentSearchQuery!!, true) || (linkText != null && linkText.contains(currentSearchQuery!!, true)))) {
                 continue
             }
             val filterList = mutableListOf<String>()
@@ -621,7 +617,7 @@ class NotificationActivity : BaseActivity() {
 
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(parentContext, searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@NotificationActivity, searchHintString,
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
