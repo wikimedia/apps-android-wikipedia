@@ -57,7 +57,7 @@ object NotificationPresenter {
         }
 
         showNotification(context, builder, id, n.agent?.name ?: wikiSiteName, title, title, lang,
-                notificationCategory.iconResId, notificationCategory.iconColor, activityIntent)
+                notificationCategory.iconResId, ResourceUtil.getThemedAttributeId(context, notificationCategory.iconColor), activityIntent)
     }
 
     fun showMultipleUnread(context: Context, unreadCount: Int) {
