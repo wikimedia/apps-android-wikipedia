@@ -18,7 +18,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 
-class SearchAndFilterActionProvider(var context: AppCompatActivity,
+class SearchAndFilterActionProvider(private val context: AppCompatActivity,
                                     private val searchHintString: String,
                                     private val callback: Callback) : ActionProvider(context) {
 
