@@ -56,7 +56,7 @@ class SearchAndFilterActionProvider(var context: AppCompatActivity,
         }
         binding.notificationFilterIcon.setOnClickListener {
             NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
-            DeviceUtil.hideSoftKeyboard(context )
+            DeviceUtil.hideSoftKeyboard(context)
             context.startActivity(NotificationsFilterActivity.newIntent(context))
         }
         FeedbackUtil.setButtonLongPressToast(binding.notificationFilterIcon)
