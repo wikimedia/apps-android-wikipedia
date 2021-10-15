@@ -1,11 +1,11 @@
 package org.wikipedia.views
 
-import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ActionProvider
 import org.wikipedia.R
@@ -18,7 +18,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 
-class SearchAndFilterActionProvider(context: Context,
+class SearchAndFilterActionProvider(var context: AppCompatActivity,
                                     private val searchHintString: String,
                                     private val callback: Callback) : ActionProvider(context) {
 
@@ -56,6 +56,7 @@ class SearchAndFilterActionProvider(context: Context,
         }
         binding.notificationFilterIcon.setOnClickListener {
             NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
+            DeviceUtil.hideSoftKeyboard(context)
             context.startActivity(NotificationsFilterActivity.newIntent(context))
         }
         FeedbackUtil.setButtonLongPressToast(binding.notificationFilterIcon)

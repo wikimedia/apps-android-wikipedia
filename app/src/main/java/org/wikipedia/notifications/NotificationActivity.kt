@@ -286,7 +286,8 @@ class NotificationActivity : BaseActivity() {
         val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         for (n in filteredList) {
-            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
+            val linkText: String? = n.contents?.links?.secondary?.firstOrNull()?.label
+            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !(n.title?.full!!.contains(currentSearchQuery!!, true) || n.contents.header.contains(currentSearchQuery!!, true) || n.contents.body.contains(currentSearchQuery!!, true) || (linkText != null && linkText.contains(currentSearchQuery!!, true)))) {
                 continue
             }
             val filterList = mutableListOf<String>()
@@ -294,8 +295,8 @@ class NotificationActivity : BaseActivity() {
             if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
         }
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
-            binding.notificationsEmptyContainer.visibility = if (actionMode == null) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null && enabledFiltersCount() != 0) View.VISIBLE else View.GONE
+            binding.notificationsEmptyContainer.visibility = if (actionMode == null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = if (enabledFiltersCount() != 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
@@ -425,12 +426,14 @@ class NotificationActivity : BaseActivity() {
                 StringUtil.highlightAndBoldenText(binding.notificationSubtitle, currentSearchQuery, true, Color.YELLOW)
                 if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
                     binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
+                    StringUtil.highlightAndBoldenText(binding.notificationDescription, currentSearchQuery, true, Color.YELLOW)
                     binding.notificationDescription.visibility = View.VISIBLE
                 } else {
                     binding.notificationDescription.visibility = View.GONE
                 }
                 it.links?.secondary?.firstOrNull()?.let { link ->
                     binding.notificationTitle.text = link.label
+                    StringUtil.highlightAndBoldenText(binding.notificationTitle, currentSearchQuery, true, Color.YELLOW)
                 } ?: run {
                     binding.notificationTitle.text = getString(notificationCategory.title)
                 }
@@ -451,6 +454,7 @@ class NotificationActivity : BaseActivity() {
 
             n.title?.let { title ->
                 binding.notificationSource.text = title.full
+                StringUtil.highlightAndBoldenText(binding.notificationSource, currentSearchQuery, true, Color.YELLOW)
                 n.contents?.links?.getPrimary()?.url?.run {
                     binding.notificationSourceExternalIcon.isVisible = !UriUtil.isAppSupportedLink(Uri.parse(this))
                 }
@@ -620,7 +624,7 @@ class NotificationActivity : BaseActivity() {
 
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(parentContext, searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@NotificationActivity, searchHintString,
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)

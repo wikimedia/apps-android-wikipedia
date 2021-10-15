@@ -640,7 +640,7 @@
     <string name="notifications_search_hint">Search Notifications</string>
     <string name="notifications_filter_label">Filter notifications</string>
     <string name="notifications_filter_icon_content_description">Filter notifications</string>
-    <string name="notifications_empty_search_message">Try removing %s to see more messages</string>
+    <string name="notifications_empty_search_message">Try removing %s to see more notifications</string>
     <plurals name="notifications_number_of_filters">
         <item quantity="one">%d filter</item>
         <item quantity="other">%d filters</item>
