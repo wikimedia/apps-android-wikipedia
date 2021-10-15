@@ -286,7 +286,8 @@ class NotificationActivity : BaseActivity() {
         val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         for (n in filteredList) {
-            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
+            val linkText: String? = n.contents?.links?.secondary?.firstOrNull()?.label
+            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !(n.title?.full!!.contains(currentSearchQuery!!, true) || n.contents.header.contains(currentSearchQuery!!, true) || n.contents.body.contains(currentSearchQuery!!, true) || (linkText != null && linkText.contains(currentSearchQuery!!, true)))) {
                 continue
             }
             val filterList = mutableListOf<String>()
@@ -294,8 +295,8 @@ class NotificationActivity : BaseActivity() {
             if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
         }
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
-            binding.notificationsEmptyContainer.visibility = if (actionMode == null) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyContainer.visibility = if (actionMode != null && enabledFiltersCount() != 0) View.VISIBLE else View.GONE
+            binding.notificationsEmptyContainer.visibility = if (actionMode == null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = if (enabledFiltersCount() != 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
@@ -416,7 +417,8 @@ class NotificationActivity : BaseActivity() {
             this.itemPosition = pos
             val n = container.notification!!
             val notificationCategory = NotificationCategory.find(n.category)
-            val notificationColor = ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor)
+            val notificationColor = ContextCompat.getColor(this@NotificationActivity,
+                ResourceUtil.getThemedAttributeId(this@NotificationActivity, notificationCategory.iconColor))
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
             binding.notificationItemImage.setColorFilter(notificationColor)
             n.contents?.let {
@@ -424,12 +426,14 @@ class NotificationActivity : BaseActivity() {
                 StringUtil.highlightAndBoldenText(binding.notificationSubtitle, currentSearchQuery, true, Color.YELLOW)
                 if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
                     binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
+                    StringUtil.highlightAndBoldenText(binding.notificationDescription, currentSearchQuery, true, Color.YELLOW)
                     binding.notificationDescription.visibility = View.VISIBLE
                 } else {
                     binding.notificationDescription.visibility = View.GONE
                 }
                 it.links?.secondary?.firstOrNull()?.let { link ->
                     binding.notificationTitle.text = link.label
+                    StringUtil.highlightAndBoldenText(binding.notificationTitle, currentSearchQuery, true, Color.YELLOW)
                 } ?: run {
                     binding.notificationTitle.text = getString(notificationCategory.title)
                 }
@@ -450,6 +454,7 @@ class NotificationActivity : BaseActivity() {
 
             n.title?.let { title ->
                 binding.notificationSource.text = title.full
+                StringUtil.highlightAndBoldenText(binding.notificationSource, currentSearchQuery, true, Color.YELLOW)
                 n.contents?.links?.getPrimary()?.url?.run {
                     binding.notificationSourceExternalIcon.isVisible = !UriUtil.isAppSupportedLink(Uri.parse(this))
                 }
@@ -495,7 +500,13 @@ class NotificationActivity : BaseActivity() {
             }
 
             // setting tag for swipe action text
-            itemView.tag = getString(if (n.isUnread) R.string.notifications_swipe_action_read else R.string.notifications_swipe_action_unread).uppercase()
+            if (n.isUnread) {
+                itemView.setTag(R.string.tag_text_key, getString(R.string.notifications_swipe_action_read))
+                itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_drafts_24)
+            } else {
+                itemView.setTag(R.string.tag_text_key, getString(R.string.notifications_swipe_action_unread))
+                itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_email_24)
+            }
 
             binding.notificationOverflowMenu.setOnClickListener {
                 showOverflowMenu(it)
@@ -613,7 +624,7 @@ class NotificationActivity : BaseActivity() {
 
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            searchAndFilterActionProvider = SearchAndFilterActionProvider(parentContext, searchHintString,
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@NotificationActivity, searchHintString,
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
                         onQueryChange(s)
