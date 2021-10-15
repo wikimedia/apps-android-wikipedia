@@ -496,7 +496,13 @@ class NotificationActivity : BaseActivity() {
             }
 
             // setting tag for swipe action text
-            itemView.tag = getString(if (n.isUnread) R.string.notifications_swipe_action_read else R.string.notifications_swipe_action_unread).uppercase()
+            if (n.isUnread) {
+                itemView.setTag(R.string.tag_text_key, getString(R.string.notifications_swipe_action_read))
+                itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_drafts_24)
+            } else {
+                itemView.setTag(R.string.tag_text_key, getString(R.string.notifications_swipe_action_unread))
+                itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_email_24)
+            }
 
             binding.notificationOverflowMenu.setOnClickListener {
                 showOverflowMenu(it)
