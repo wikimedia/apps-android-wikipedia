@@ -203,6 +203,15 @@ interface Service {
         @Query("notcontinue") continueStr: String?
     ): Observable<MwQueryResponse>
 
+    // TODO: remove "KT" if we remove the Observable one.
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
+    suspend fun getAllNotificationsKT(
+        @Query("notwikis") wikiList: String?,
+        @Query("notfilter") filter: String?,
+        @Query("notcontinue") continueStr: String?
+    ): MwQueryResponse
+
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echomarkread")
     fun markRead(

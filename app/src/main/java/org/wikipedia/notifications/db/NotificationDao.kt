@@ -1,21 +1,22 @@
 package org.wikipedia.notifications.db
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NotificationDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNotification(notifications: List<Notification>)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertNotification(notifications: List<Notification>)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateNotification(notification: Notification)
+    suspend fun updateNotification(notification: Notification)
 
     @Delete
-    fun deleteNotification(notification: Notification)
+    suspend fun deleteNotification(notification: Notification)
 
     @Query("SELECT * FROM Notification")
-    fun getAllNotifications(): List<Notification>
+    fun getAllNotifications(): Flow<List<Notification>>
 
     @Query("SELECT * FROM Notification WHERE `wiki` IN (:wiki)")
-    fun getNotificationsByWiki(wiki: List<String>): List<Notification>
+    fun getNotificationsByWiki(wiki: List<String>): Flow<List<Notification>>
 }

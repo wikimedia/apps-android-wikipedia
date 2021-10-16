@@ -14,6 +14,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.view.View
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
@@ -51,6 +52,7 @@ import java.util.*
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
+    private val viewModel: NotificationViewModel by viewModels()
 
     private val notificationList = mutableListOf<Notification>()
     private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
@@ -114,6 +116,9 @@ class NotificationActivity : BaseActivity() {
         Prefs.notificationUnreadCount = 0
 
         beginUpdateList()
+
+        // TODO: test the view model process
+        viewModel.fetchAndSave(delimitedFilteredWikiList(), "read|!read")
     }
 
     override fun onResume() {
