@@ -54,7 +54,6 @@ class NotificationActivity : BaseActivity() {
     private val notificationList = mutableListOf<Notification>()
     private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
     private val disposables = CompositeDisposable()
-    private val dbNameMap = mutableMapOf<String, WikiSite>()
     private var currentContinueStr: String? = null
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
@@ -174,19 +173,7 @@ class NotificationActivity : BaseActivity() {
         currentContinueStr = null
         disposables.clear()
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).unreadNotificationWikis
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    val wikiMap = response.query?.unreadNotificationWikis
-                    dbNameMap.clear()
-                    for (key in wikiMap!!.keys) {
-                        if (wikiMap[key]!!.source != null) {
-                            dbNameMap[key] = WikiSite(wikiMap[key]!!.source!!.base)
-                        }
-                    }
-                    orContinueNotifications
-                }) { t -> setErrorState(t) })
+        orContinueNotifications
     }
 
     private val orContinueNotifications: Unit
@@ -333,16 +320,15 @@ class NotificationActivity : BaseActivity() {
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
             val notification = item.notification!!
-            val wiki = dbNameMap.getOrElse(notification.wiki) {
-                when (notification.wiki) {
-                    "commonswiki" -> WikiSite(Service.COMMONS_URL)
-                    "wikidatawiki" -> WikiSite(Service.WIKIDATA_URL)
-                    else -> {
-                        val langCode = notification.wiki.replace("wiki", "").replace("_", "-")
-                        WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
-                    }
+            val wiki = when (notification.wiki) {
+                "commonswiki" -> WikiSite(Service.COMMONS_URL)
+                "wikidatawiki" -> WikiSite(Service.WIKIDATA_URL)
+                else -> {
+                    val langCode = notification.wiki.replace("wiki", "").replace("_", "-")
+                    WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
                 }
             }
+
             notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
             if (!markUnread) {
                 NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
