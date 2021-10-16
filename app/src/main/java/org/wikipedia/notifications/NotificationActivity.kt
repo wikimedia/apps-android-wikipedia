@@ -20,6 +20,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,9 @@ import com.google.android.material.tabs.TabLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -118,7 +122,11 @@ class NotificationActivity : BaseActivity() {
         beginUpdateList()
 
         // TODO: test the view model process
-        viewModel.fetchAndSave(delimitedFilteredWikiList(), "read|!read")
+        viewModel.viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                viewModel.fetchAndSave(delimitedFilteredWikiList(), "read|!read")
+            }
+        }
     }
 
     override fun onResume() {
