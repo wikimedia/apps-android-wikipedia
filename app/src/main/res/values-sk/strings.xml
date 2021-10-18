@@ -1054,6 +1054,8 @@
   <string name="talk_response_submitted">Odpoveď zverejnená.</string>
   <string name="talk_snackbar_undo">Vrátiť</string>
   <string name="talk_last_modified">&lt;b&gt;Naposledy upravil/a %1$s&lt;/b&gt; %2$s</string>
+  <string name="talk_snackbar_survey_text">Ďakujeme za používanie tejto aplikácie. Mohli by ste nám pomôcť zlepšiť aplikáciu a odpovedať na niekoľko otázok v našom prieskume?</string>
+  <string name="talk_snackbar_survey_action_text">Začať</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
   <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>
