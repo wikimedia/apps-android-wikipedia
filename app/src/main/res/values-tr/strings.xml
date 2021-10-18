@@ -1022,6 +1022,8 @@
   <string name="talk_response_submitted">Yanıt gönderildi.</string>
   <string name="talk_snackbar_undo">Geri al</string>
   <string name="talk_last_modified">&lt;b&gt;Son düzenleme %1$s tarihinde&lt;/b&gt; %2$s tarafından yapıldı</string>
+  <string name="talk_snackbar_survey_text">Tartışma sayfalarını kullandığınız için teşekkürler. Bir ankete katılarak uygulamayı geliştirmemize yardımcı olur musunuz?</string>
+  <string name="talk_snackbar_survey_action_text">Başla</string>
   <string name="menu_option_share_edit">Değişikliği paylaş</string>
   <string name="menu_option_user_profile">%s kullanıcısının bilgileri</string>
   <string name="menu_option_user_contributions">%s kullanıcısının katkıları</string>

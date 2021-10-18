@@ -1004,6 +1004,8 @@
   <string name="talk_response_submitted">回覆已發布。</string>
   <string name="talk_snackbar_undo">還原</string>
   <string name="talk_last_modified">由%2$s在&lt;b&gt; %1$s &lt;/b&gt;所做的最後一次編輯</string>
+  <string name="talk_snackbar_survey_text">感謝使用討論頁。您願意透過參與調查來協助我們改善此應用程式嗎？</string>
+  <string name="talk_snackbar_survey_action_text">入門</string>
   <string name="menu_option_share_edit">分享編輯</string>
   <string name="menu_option_user_profile">%s基本資料</string>
   <string name="menu_option_user_contributions">%s的貢獻</string>
