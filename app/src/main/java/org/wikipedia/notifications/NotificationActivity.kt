@@ -300,8 +300,13 @@ class NotificationActivity : BaseActivity() {
         val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         for (n in filteredList) {
-            val linkText: String? = n.contents?.links?.secondary?.firstOrNull()?.label
-            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !(n.title?.full!!.contains(currentSearchQuery!!, true) || n.contents.header.contains(currentSearchQuery!!, true) || n.contents.body.contains(currentSearchQuery!!, true) || (linkText != null && linkText.contains(currentSearchQuery!!, true)))) {
+            val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
+            val searchQuery = currentSearchQuery
+            if (!searchQuery.isNullOrEmpty() &&
+                !(n.title?.full?.contains(searchQuery, true) == true ||
+                        n.contents?.header?.contains(searchQuery, true) == true ||
+                        n.contents?.body?.contains(searchQuery, true) == true ||
+                        (linkText?.contains(searchQuery, true) == true))) {
                 continue
             }
             val filterList = mutableListOf<String>()

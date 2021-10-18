@@ -1017,6 +1017,7 @@
   <string name="talk_response_submitted">Resposta postada.</string>
   <string name="talk_snackbar_undo">Desfazer</string>
   <string name="talk_last_modified">&lt;b&gt;Última edição %1$s&lt;/b&gt; por %2$s</string>
+  <string name="talk_snackbar_survey_action_text">Começar</string>
   <string name="menu_option_share_edit">Compartilhar edição</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuições de %s</string>

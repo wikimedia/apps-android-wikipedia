@@ -19,6 +19,7 @@
 * Ngl2016
 * Ruila
 * SandroHc
+* Svjatysberega
 * Tooguether
 * Vitorvicentevalente
 * Webysther
@@ -1001,6 +1002,7 @@
   <string name="talk_response_submitted">Resposta publicada.</string>
   <string name="talk_snackbar_undo">Desfazer</string>
   <string name="talk_last_modified">&lt;b&gt;Última edição %1$s&lt;/b&gt; de %2$s</string>
+  <string name="talk_snackbar_survey_text">Obrigado por usar as páginas de discussão. Poderia nos ajudar a melhorar o aplicativo participando de uma pesquisa?</string>
   <string name="menu_option_share_edit">Partilhar a edição</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuições de %s</string>
