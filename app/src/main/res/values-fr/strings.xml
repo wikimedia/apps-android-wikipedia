@@ -11,6 +11,7 @@
 * DePlusJean
 * Derugon
 * Djiboun
+* DreZhsh
 * Elodark
 * Eneelk
 * Envlh
@@ -1027,6 +1028,8 @@
   <string name="talk_response_submitted">Réponse postée.</string>
   <string name="talk_snackbar_undo">Annuler</string>
   <string name="talk_last_modified">&lt;b&gt;Dernière modification le %1$s&lt;/b&gt; par %2$s</string>
+  <string name="talk_snackbar_survey_text">Merci d\'utiliser les pages de discussion. Pourriez-vous nous aider à améliorer l\'application en participant à une enquête ?</string>
+  <string name="talk_snackbar_survey_action_text">Démarrer</string>
   <string name="menu_option_share_edit">Partager la modification</string>
   <string name="menu_option_user_profile">Profil de %s</string>
   <string name="menu_option_user_contributions">Contributions de %s</string>

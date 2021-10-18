@@ -1056,6 +1056,8 @@
   <string name="talk_response_submitted">התגובה פורסמה.</string>
   <string name="talk_snackbar_undo">ביטול</string>
   <string name="talk_last_modified">&lt;b&gt;נערך לאחרונה ב־%1$s&lt;/b&gt; על־ידי %2$s</string>
+  <string name="talk_snackbar_survey_text">תודה על השימוש בדפי שיחה. אפשר לבקש ממך לעזור לנו לשפר את היישום באמצעות השתתפות בסקר?</string>
+  <string name="talk_snackbar_survey_action_text">להתחיל</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
   <string name="menu_option_user_profile">הפרופיל של %s</string>
   <string name="menu_option_user_contributions">התרומות של %s</string>
