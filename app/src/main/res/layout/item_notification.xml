@@ -140,36 +140,21 @@
 
     </FrameLayout>
 
-    <com.google.android.flexbox.FlexboxLayout
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/notificationSource"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:textColor="?attr/secondary_text_color"
+        android:fontFamily="sans-serif-medium"
+        android:drawablePadding="8dp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintWidth_default="wrap"
         app:layout_constraintStart_toEndOf="@id/notificationWikiCodeContainer"
         app:layout_constraintTop_toTopOf="@id/notificationWikiCodeContainer"
         app:layout_constraintBottom_toBottomOf="@id/notificationWikiCodeContainer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:flexWrap="wrap"
-        app:alignItems="center"
-        app:justifyContent="flex_start">
-
-        <TextView
-            android:id="@+id/notificationSource"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/secondary_text_color"
-            android:fontFamily="sans-serif-medium"
-            tools:text="Lorem ipsum" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/notificationSourceExternalIcon"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginHorizontal="8dp"
-            android:contentDescription="@null"
-            android:layout_marginStart="8dp"
-            app:srcCompat="@drawable/ic_open_in_new_black_24px"
-            app:tint="?attr/secondary_text_color"/>
-
-    </com.google.android.flexbox.FlexboxLayout>
+        app:drawableTint="?attr/secondary_text_color"
+        tools:text="Lorem ipsum" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
