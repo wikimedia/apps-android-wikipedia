@@ -7,7 +7,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.GeoUtil
 
 object TalkPageSurveyHelper {
 
@@ -15,6 +14,8 @@ object TalkPageSurveyHelper {
         if (Prefs.talkPageSurveyOverride) {
             return true
         }
+        return false
+        /*
         val languages = WikipediaApp.getInstance().language().appLanguageCodes
         val country = GeoUtil.geoIPCountry.orEmpty()
 
@@ -24,6 +25,7 @@ object TalkPageSurveyHelper {
                         languages.contains("ja") ||
                         ((languages.contains("ar") || languages.contains("fr")) && (country == "MA" || country == "EG" || country == "ML" || country == "CD")) ||
                         (languages.contains("en") && (country == "IN" || country == "NG")))
+         */
     }
 
     fun showSurvey(activity: Activity) {
