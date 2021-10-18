@@ -62,6 +62,7 @@
 * Tiberius1701
 * VegaDark
 * Warming Hearth
+* Whovian Biologist
 * Whytheonlyone
 * Wifidel
 * Yllelder
@@ -1047,6 +1048,8 @@
   <string name="talk_response_submitted">Respuesta posted.</string>
   <string name="talk_snackbar_undo">Deshacer</string>
   <string name="talk_last_modified">&lt;b&gt;Último editado&lt;/b&gt; %1$s por %2$s</string>
+  <string name="talk_snackbar_survey_text">Gracias por usar las páginas de discusión. ¿Podrías ayudarnos a mejorar la aplicación participando en una encuesta?</string>
+  <string name="talk_snackbar_survey_action_text">Empezar</string>
   <string name="menu_option_share_edit">Compartir edición</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>

@@ -723,4 +723,6 @@
   <string name="text_input_dialog_ok_button_text">Ados</string>
   <string name="text_input_dialog_cancel_button_text">Utzi</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Utzi</string>
+  <string name="talk_snackbar_survey_text">Eskerrik asko eztabaida orrialdeak erabiltzeagatik. Lagundu nahi al duzu aplikazioa hobetzen inkesta batean parte hartuz?</string>
+  <string name="talk_snackbar_survey_action_text">Hasi</string>
 </resources>
