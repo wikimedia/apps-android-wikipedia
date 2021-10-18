@@ -1015,6 +1015,8 @@
   <string name="talk_response_submitted">پاسخ ارسال شد.</string>
   <string name="talk_snackbar_undo">واگردانی</string>
   <string name="talk_last_modified">&lt;b&gt;آخرین ویرایش در %1$s&lt;/b&gt; توسط %2$s</string>
+  <string name="talk_snackbar_survey_text">از شما برای استفاده از صفحه‌های بحث سپاسگزاریم. آیا مایل هستید با شرکت در یک نظرسنجی به ما در بهبود نرم‌افزار کمک کنید؟</string>
+  <string name="talk_snackbar_survey_action_text">آغاز</string>
   <string name="menu_option_share_edit">اشتراک‌گذاری ویرایش</string>
   <string name="menu_option_user_profile">رخ‌نمای %s</string>
   <string name="menu_option_user_contributions">مشارکت‌های %s</string>
