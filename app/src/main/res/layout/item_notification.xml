@@ -140,7 +140,7 @@
 
     </FrameLayout>
 
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:id="@+id/notificationSource"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
