@@ -20,17 +20,11 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
-import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -40,7 +34,6 @@ import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.Service
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.db.Notification
@@ -54,7 +47,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import java.util.*
 
-class NotificationActivity : BaseActivity() {
+class NotificationActivity : BaseActivity(), NotificationViewModel.CoroutineCallback {
     private lateinit var binding: ActivityNotificationsBinding
     private val viewModel: NotificationViewModel by viewModels()
 
@@ -119,14 +112,9 @@ class NotificationActivity : BaseActivity() {
 
         Prefs.notificationUnreadCount = 0
 
-        beginUpdateList()
+        viewModel.coroutineCallback = this
 
-        // TODO: test the view model process
-        viewModel.viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                viewModel.fetchAndSave(delimitedFilteredWikiList(), "read|!read")
-            }
-        }
+        beginUpdateList()
     }
 
     override fun onResume() {
@@ -177,6 +165,20 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
+    override fun onError(throwable: Throwable) {
+        L.e(throwable)
+        binding.notificationsProgressBar.visibility = View.GONE
+        binding.notificationsRecyclerView.visibility = View.GONE
+        binding.notificationsEmptyContainer.visibility = View.GONE
+        binding.notificationsSearchEmptyContainer.visibility = View.GONE
+        binding.notificationsErrorView.setError(throwable)
+        binding.notificationsErrorView.visibility = View.VISIBLE
+    }
+
+    private fun fetchAndSave() {
+        viewModel.fetchAndSave(delimitedFilteredWikiList(), "read|!read", currentContinueStr) { currentContinueStr = it }
+    }
+
     private fun beginUpdateList() {
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
@@ -186,34 +188,10 @@ class NotificationActivity : BaseActivity() {
         binding.notificationTabLayout.visibility = View.GONE
         supportActionBar?.setTitle(R.string.notifications_activity_title)
         currentContinueStr = null
-        disposables.clear()
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).unreadNotificationWikis
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    val wikiMap = response.query?.unreadNotificationWikis
-                    dbNameMap.clear()
-                    for (key in wikiMap!!.keys) {
-                        if (wikiMap[key]!!.source != null) {
-                            dbNameMap[key] = WikiSite(wikiMap[key]!!.source!!.base)
-                        }
-                    }
-                    orContinueNotifications
-                }) { t -> setErrorState(t) })
+        fetchAndSave()
+        onNotificationsComplete(viewModel.getList(), !currentContinueStr.isNullOrEmpty())
     }
-
-    private val orContinueNotifications: Unit
-        get() {
-            binding.notificationsProgressBar.visibility = View.VISIBLE
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(delimitedFilteredWikiList(), "read|!read", currentContinueStr)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        onNotificationsComplete(response.query?.notifications!!.list!!, !currentContinueStr.isNullOrEmpty())
-                        currentContinueStr = response.query?.notifications!!.continueStr
-                    }) { t -> setErrorState(t) })
-        }
 
     private fun delimitedFilteredWikiList(): String {
         val filteredWikiList = mutableListOf<String>()
@@ -235,16 +213,6 @@ class NotificationActivity : BaseActivity() {
             }
         }
         return filteredWikiList.joinToString("|")
-    }
-
-    private fun setErrorState(t: Throwable) {
-        L.e(t)
-        binding.notificationsProgressBar.visibility = View.GONE
-        binding.notificationsRecyclerView.visibility = View.GONE
-        binding.notificationsEmptyContainer.visibility = View.GONE
-        binding.notificationsSearchEmptyContainer.visibility = View.GONE
-        binding.notificationsErrorView.setError(t)
-        binding.notificationsErrorView.visibility = View.VISIBLE
     }
 
     private fun setSuccessState() {
@@ -634,7 +602,7 @@ class NotificationActivity : BaseActivity() {
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
             if (pos == notificationContainerList.size - 1 && !currentContinueStr.isNullOrEmpty()) {
-                orContinueNotifications
+                fetchAndSave()
             }
         }
     }
