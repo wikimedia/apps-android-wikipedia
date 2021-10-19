@@ -33,10 +33,5 @@ class NotificationRepository constructor(private val notificationDao: Notificati
             newContinueStr = it.continueStr
         }
         return newContinueStr
-//        // TODO: Save all notifications to database?
-//        if (!newContinueStr.isNullOrEmpty()) {
-//            fetchAndSave(wikiList, filter, newContinueStr)
-//        }
     }
-
 }

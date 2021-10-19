@@ -53,7 +53,6 @@ class NotificationViewModel : ViewModel() {
     }
 
     sealed class UiState {
-        data class Success(val notifications: List<Notification>): UiState()
+        data class Success(val notifications: List<Notification>) : UiState()
     }
-
 }
