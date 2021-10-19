@@ -20,11 +20,13 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import kotlinx.coroutines.flow.collect
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -115,6 +117,17 @@ class NotificationActivity : BaseActivity(), NotificationViewModel.CoroutineCall
         viewModel.coroutineCallback = this
 
         beginUpdateList()
+
+        // TODO: use repeatOnLifecycle if the it is stable
+        lifecycleScope.launchWhenStarted {
+            viewModel.uiState.collect {
+                when (it) {
+                    is NotificationViewModel.UiState.Success -> {
+                        onNotificationsComplete(it.notifications, !currentContinueStr.isNullOrEmpty())
+                    }
+                }
+            }
+        }
     }
 
     override fun onResume() {
@@ -190,7 +203,7 @@ class NotificationActivity : BaseActivity(), NotificationViewModel.CoroutineCall
         currentContinueStr = null
 
         fetchAndSave()
-        onNotificationsComplete(viewModel.getList(), !currentContinueStr.isNullOrEmpty())
+//        onNotificationsComplete(viewModel.getList(), !currentContinueStr.isNullOrEmpty())
     }
 
     private fun delimitedFilteredWikiList(): String {
