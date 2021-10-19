@@ -256,6 +256,13 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_notification_unread_count, 0)
         set(count) = PrefsIoUtil.setInt(R.string.preference_key_notification_unread_count, count)
 
+    val hasAnonymousMessages
+        get() = !PrefsIoUtil.getString(R.string.preference_key_last_anon_user_with_messages, "").isNullOrEmpty()
+
+    var lastAnonUserWithMessages
+        get() = PrefsIoUtil.getString(R.string.preference_key_last_anon_user_with_messages, "")
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_last_anon_user_with_messages, value)
+
     fun preferOfflineContent(): Boolean {
         return PrefsIoUtil.getBoolean(R.string.preference_key_prefer_offline_content, false)
     }

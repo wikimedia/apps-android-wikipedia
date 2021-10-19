@@ -46,6 +46,7 @@ import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
@@ -125,6 +126,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonNotifications.setOnClickListener {
             if (AccountUtil.isLoggedIn) {
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
+            } else if (Prefs.hasAnonymousMessages && pageFragment.title != null) {
+                startActivity(TalkTopicsActivity.newIntent(this@PageActivity,
+                PageTitle(UserTalkAliasData.valueFor(pageFragment.title!!.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages, pageFragment.title!!.wikiSite), InvokeSource.PAGE_ACTIVITY))
             }
         }
 
@@ -733,6 +737,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             } else {
                 binding.pageToolbarButtonNotifications.setUnreadCount(0)
             }
+        } else if (!AccountUtil.isLoggedIn && Prefs.hasAnonymousMessages) {
+            binding.pageToolbarButtonNotifications.isVisible = true
+            binding.pageToolbarButtonNotifications.setUnreadCount(1)
+            if (animate) {
+                toolbarHideHandler.ensureDisplayed()
+                binding.pageToolbarButtonNotifications.runAnimation()
+            }
         } else {
             binding.pageToolbarButtonNotifications.isVisible = false
         }
@@ -748,6 +759,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onUnreadNotification() {
+        updateNotificationsButton(true)
+    }
+
+    fun onAnonNotification() {
         updateNotificationsButton(true)
     }
 
