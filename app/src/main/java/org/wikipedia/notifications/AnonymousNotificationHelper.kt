@@ -22,7 +22,4 @@ object AnonymousNotificationHelper {
         }
         return hasMessages
     }
-
-
-
 }
