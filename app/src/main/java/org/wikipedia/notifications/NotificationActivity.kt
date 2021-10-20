@@ -59,7 +59,6 @@ class NotificationActivity : BaseActivity() {
     private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
     private val disposables = CompositeDisposable()
     private val dbNameMap = mutableMapOf<String, WikiSite>()
-    private var currentContinueStr: String? = null
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
@@ -182,8 +181,7 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun fetchAndSave() {
-        // TODO: should we fetch all list and filter the list locally?
-        viewModel.fetchAndSave(delimitedFilteredWikiList(), "read|!read", currentContinueStr) { currentContinueStr = it }
+        viewModel.fetchAndSave(delimitedFilteredWikiList(), "read|!read")
     }
 
     private fun beginUpdateList() {
@@ -194,7 +192,6 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsProgressBar.visibility = View.VISIBLE
         binding.notificationTabLayout.visibility = View.GONE
         supportActionBar?.setTitle(R.string.notifications_activity_title)
-        currentContinueStr = null
 
         fetchAndSave()
     }
@@ -244,18 +241,11 @@ class NotificationActivity : BaseActivity() {
             notificationList.clear()
             binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
         }
-        for (n in notifications) {
-            if (notificationList.none { it.id == n.id }) {
-                notificationList.add(n)
-            }
-        }
+        notificationList.addAll(notifications)
         postprocessAndDisplay()
     }
 
     private fun postprocessAndDisplay(position: Int? = null) {
-        // Sort them by descending date...
-        notificationList.sortWith { n1, n2 -> n2.date().compareTo(n1.date()) }
-
         val allTab = binding.notificationTabLayout.getTabAt(0)!!
         val allUnreadCount = notificationList.count { it.isUnread }
         if (allUnreadCount > 0) {
@@ -621,7 +611,7 @@ class NotificationActivity : BaseActivity() {
             }
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
-            if (pos == notificationContainerList.size - 1 && !currentContinueStr.isNullOrEmpty()) {
+            if (pos == notificationContainerList.size - 1) {
                 // TODO: fix jumping issue when fetching more data.
                 fetchAndSave()
             }
