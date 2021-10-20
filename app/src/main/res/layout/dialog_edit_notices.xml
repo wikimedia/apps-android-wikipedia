@@ -72,6 +72,9 @@
         android:layout_gravity="end"
         app:srcCompat="@drawable/ic_close_black_24dp"
         app:tint="?attr/material_theme_secondary_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/table_close"/>
 
 </FrameLayout>
