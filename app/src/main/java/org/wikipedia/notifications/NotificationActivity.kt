@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.text.Spannable
@@ -52,6 +53,7 @@ import java.util.*
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
 
+    private lateinit var externalLinkIcon: Drawable
     private val notificationList = mutableListOf<Notification>()
     private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
     private val disposables = CompositeDisposable()
@@ -79,6 +81,10 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, skipSearchBar = true))
+
+        externalLinkIcon = ContextCompat.getDrawable(this, R.drawable.ic_open_in_new_black_24px)?.apply {
+            setBounds(0, 0, DimenUtil.roundedDpToPx(16f), DimenUtil.roundedDpToPx(16f))
+        }!!
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
                 ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
@@ -462,7 +468,11 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationSource.text = title.full
                 StringUtil.highlightAndBoldenText(binding.notificationSource, currentSearchQuery, true, Color.YELLOW)
                 n.contents?.links?.getPrimary()?.url?.run {
-                    binding.notificationSourceExternalIcon.isVisible = !UriUtil.isAppSupportedLink(Uri.parse(this))
+                    if (UriUtil.isAppSupportedLink(Uri.parse(this))) {
+                        binding.notificationSource.setCompoundDrawables(null, null, null, null)
+                    } else {
+                        binding.notificationSource.setCompoundDrawables(null, null, externalLinkIcon, null)
+                    }
                 }
                 when {
                     wikiCode.contains("wikidata") -> {
@@ -487,7 +497,7 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationWikiCodeContainer.isVisible = true
             } ?: run {
                 binding.notificationSource.isVisible = false
-                binding.notificationSourceExternalIcon.isVisible = false
+                binding.notificationSource.setCompoundDrawables(null, null, null, null)
                 binding.notificationWikiCodeContainer.isVisible = false
             }
 
