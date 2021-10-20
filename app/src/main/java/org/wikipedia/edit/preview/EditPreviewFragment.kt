@@ -10,9 +10,7 @@ import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.EditFunnel
@@ -34,7 +32,6 @@ import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewAnimations
 
 class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDialog.Callback {
@@ -177,7 +174,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 (requireActivity() as EditSectionActivity).showProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
                 bridge.execute(JavaScriptActionHandler.setTopMargin(0))
-                loadEditNotices()
             }
         }
 
@@ -222,20 +218,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         if (otherTag.selected) {
             outState.putString(KEY_OTHER_TAG, otherTag.toString())
         }
-    }
-
-    private fun loadEditNotices() {
-        disposables.add(ServiceFactory.get(model.title!!.wikiSite).getVisualEditorMetadata(model.title!!.prefixedText)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    val notices = it.visualeditor?.notices.orEmpty()
-                    for (notice in notices.values.reversed()) {
-                        bridge.evaluateImmediate(JavaScriptActionHandler.injectEditNotice(notice)) { }
-                    }
-                }, {
-                    L.e(it)
-                }))
     }
 
     inner class EditLinkHandler constructor(context: Context) : LinkHandler(context) {
