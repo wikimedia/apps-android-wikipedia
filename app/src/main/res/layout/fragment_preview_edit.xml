@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="32dp"
                 app:flexWrap="wrap"
                 app:justifyContent="flex_start" />
 
@@ -43,9 +43,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_margin="16dp">
 
             <ImageView
                 android:layout_width="20dp"
@@ -67,13 +65,18 @@
 
         </LinearLayout>
 
-        <View
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="?attr/material_theme_de_emphasised_color"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="?android:windowBackground"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="10dp"
+            android:text="@string/edit_preview"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <org.wikipedia.views.ObservableWebView
             android:id="@+id/edit_preview_webview"
