@@ -4,7 +4,6 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.wikipedia.util.log.L
-import java.lang.Exception
 
 object JsonUtil {
     val json = Json {
@@ -28,7 +27,10 @@ object JsonUtil {
         return null
     }
 
-    inline fun <reified T> encodeToString(value: T): String? {
+    inline fun <reified T> encodeToString(value: T?): String? {
+        if (value == null) {
+            return null
+        }
         try {
             return json.encodeToString(value)
         } catch (e: Exception) {
