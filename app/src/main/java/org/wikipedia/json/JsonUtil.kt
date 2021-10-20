@@ -3,27 +3,16 @@ package org.wikipedia.json
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.modules.SerializersModule
-import kotlinx.serialization.modules.polymorphic
-import kotlinx.serialization.modules.subclass
-import org.wikipedia.analytics.eventplatform.DailyStatsEvent
-import org.wikipedia.analytics.eventplatform.Event
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
-import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.util.log.L
 
 object JsonUtil {
     val json = Json {
         ignoreUnknownKeys = true
         coerceInputValues = true
+        // This "default" class discriminator is necessary for EventPlatform classes.
+        // If you need a different discriminator for a different set of classes, you'll need
+        // to use a separate Json object.
         classDiscriminator = "\$schema"
-        serializersModule = SerializersModule {
-            polymorphic(Event::class) {
-                subclass(UserContributionEvent::class)
-                subclass(NotificationInteractionEvent::class)
-                subclass(DailyStatsEvent::class)
-            }
-        }
     }
 
     inline fun <reified T> decodeFromString(string: String?): T? {
