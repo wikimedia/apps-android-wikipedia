@@ -36,15 +36,14 @@ class EditNoticesDialog constructor(
 
     init {
         setView(binding.root)
-        setTitle(R.string.edit_notices)
-        setButton(BUTTON_POSITIVE, context.getString(android.R.string.ok)) { _, _ -> }
+        binding.editNoticeCloseButton.setOnClickListener { dismiss() }
 
-        binding.editNoticesRecycler.adapter = EditNoticesAdapter()
-        binding.editNoticesRecycler.layoutManager = LinearLayoutManager(context)
-        binding.editNoticesRecycler.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true))
+        binding.editNoticeRecycler.adapter = EditNoticesAdapter()
+        binding.editNoticeRecycler.layoutManager = LinearLayoutManager(context)
+        binding.editNoticeRecycler.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true))
 
-        binding.editNoticesCheckbox.isChecked = Prefs.autoShowEditNotices
-        binding.editNoticesCheckbox.setOnCheckedChangeListener { _, isChecked -> Prefs.autoShowEditNotices = isChecked }
+        binding.editNoticeCheckbox.isChecked = Prefs.autoShowEditNotices
+        binding.editNoticeCheckbox.setOnCheckedChangeListener { _, isChecked -> Prefs.autoShowEditNotices = isChecked }
     }
 
     private inner class EditNoticesAdapter : RecyclerView.Adapter<DefaultViewHolder>() {

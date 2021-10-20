@@ -1,30 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:scrollbars="vertical">
+        android:layout_marginEnd="16dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/edit_notices_recycler"
+        <ImageView
+            android:id="@+id/editNoticeImage"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/ic_warning_24"
+            app:tint="@color/yellow30"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/editNoticeTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/edit_notices"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
-    </androidx.core.widget.NestedScrollView>
+        <TextView
+            android:id="@+id/editNoticeHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/edit_notices_please_read"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
-    <CheckBox
-        android:id="@+id/edit_notices_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Show edit notices automatically"/>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:scrollbars="vertical">
 
-</LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/editNoticeRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.core.widget.NestedScrollView>
+
+        <CheckBox
+            android:id="@+id/editNoticeCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_notices_show_auto"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/editNoticeCloseButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="12dp"
+        android:layout_gravity="end"
+        app:srcCompat="@drawable/ic_close_black_24dp"
+        app:tint="?attr/material_theme_secondary_color"
+        android:contentDescription="@string/table_close"/>
+
+</FrameLayout>
