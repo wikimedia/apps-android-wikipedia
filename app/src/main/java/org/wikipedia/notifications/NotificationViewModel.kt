@@ -14,31 +14,28 @@ import org.wikipedia.notifications.db.Notification
 
 class NotificationViewModel : ViewModel() {
 
-    // TODO: revisit this to see if there's a better approach
-    fun interface CoroutineCallback {
-        fun onError(throwable: Throwable)
-    }
-
     fun interface FetchAndSaveCallback {
         fun onReceive(continueStr: String?)
     }
 
     private val notificationRepository = NotificationRepository(AppDatabase.getAppDatabase().notificationDao())
-    private val handler = CoroutineExceptionHandler { _, exception ->
-        coroutineCallback?.onError(exception)
+    private val handler = CoroutineExceptionHandler { _, throwable ->
+        _uiState.value = UiState.Error(throwable)
     }
-    var coroutineCallback: CoroutineCallback? = null
+    private val _uiState = MutableStateFlow<UiState>(UiState.Success(emptyList()))
+
+    val uiState: StateFlow<UiState> = _uiState
 
     init {
         viewModelScope.launch(handler) {
-            notificationRepository.getAllNotifications().collect {
-                _uiState.value = UiState.Success(it)
-            }
+            collectAllNotifications()
         }
     }
 
-    private val _uiState = MutableStateFlow(UiState.Success(emptyList()))
-    val uiState: StateFlow<UiState> = _uiState
+    private suspend fun collectAllNotifications() = notificationRepository.getAllNotifications()
+        .collect {
+            _uiState.value = UiState.Success(it)
+        }
 
     fun fetchAndSave(wikiList: String?, filter: String?, continueStr: String?, callback: FetchAndSaveCallback) {
         viewModelScope.launch(handler) {
@@ -46,13 +43,12 @@ class NotificationViewModel : ViewModel() {
                 callback.onReceive(notificationRepository.fetchAndSave(wikiList, filter, continueStr))
             }
             // TODO: revisit this
-            notificationRepository.getAllNotifications().collect {
-                _uiState.value = UiState.Success(it)
-            }
+            collectAllNotifications()
         }
     }
 
     sealed class UiState {
         data class Success(val notifications: List<Notification>) : UiState()
+        data class Error(val throwable: Throwable) : UiState()
     }
 }

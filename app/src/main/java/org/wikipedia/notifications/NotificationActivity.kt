@@ -49,7 +49,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import java.util.*
 
-class NotificationActivity : BaseActivity(), NotificationViewModel.CoroutineCallback {
+class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
     private val viewModel: NotificationViewModel by viewModels()
 
@@ -114,17 +114,14 @@ class NotificationActivity : BaseActivity(), NotificationViewModel.CoroutineCall
 
         Prefs.notificationUnreadCount = 0
 
-        viewModel.coroutineCallback = this
-
         beginUpdateList()
 
         // TODO: use repeatOnLifecycle if the it is stable
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect {
                 when (it) {
-                    is NotificationViewModel.UiState.Success -> {
-                        onNotificationsComplete(it.notifications, !currentContinueStr.isNullOrEmpty())
-                    }
+                    is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, !currentContinueStr.isNullOrEmpty())
+                    is NotificationViewModel.UiState.Error -> setSuccessState(it.throwable)
                 }
             }
         }
@@ -178,17 +175,8 @@ class NotificationActivity : BaseActivity(), NotificationViewModel.CoroutineCall
         }
     }
 
-    override fun onError(throwable: Throwable) {
-        L.e(throwable)
-        binding.notificationsProgressBar.visibility = View.GONE
-        binding.notificationsRecyclerView.visibility = View.GONE
-        binding.notificationsEmptyContainer.visibility = View.GONE
-        binding.notificationsSearchEmptyContainer.visibility = View.GONE
-        binding.notificationsErrorView.setError(throwable)
-        binding.notificationsErrorView.visibility = View.VISIBLE
-    }
-
     private fun fetchAndSave() {
+        // TODO: should we fetch all list and filter the list locally?
         viewModel.fetchAndSave(delimitedFilteredWikiList(), "read|!read", currentContinueStr) { currentContinueStr = it }
     }
 
@@ -203,7 +191,6 @@ class NotificationActivity : BaseActivity(), NotificationViewModel.CoroutineCall
         currentContinueStr = null
 
         fetchAndSave()
-//        onNotificationsComplete(viewModel.getList(), !currentContinueStr.isNullOrEmpty())
     }
 
     private fun delimitedFilteredWikiList(): String {
@@ -233,6 +220,16 @@ class NotificationActivity : BaseActivity(), NotificationViewModel.CoroutineCall
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.VISIBLE
         binding.notificationTabLayout.visibility = View.VISIBLE
+    }
+
+    private fun setSuccessState(throwable: Throwable) {
+        L.e(throwable)
+        binding.notificationsProgressBar.visibility = View.GONE
+        binding.notificationsRecyclerView.visibility = View.GONE
+        binding.notificationsEmptyContainer.visibility = View.GONE
+        binding.notificationsSearchEmptyContainer.visibility = View.GONE
+        binding.notificationsErrorView.setError(throwable)
+        binding.notificationsErrorView.visibility = View.VISIBLE
     }
 
     private fun onNotificationsComplete(notifications: List<Notification>, fromContinuation: Boolean) {
@@ -615,6 +612,7 @@ class NotificationActivity : BaseActivity(), NotificationViewModel.CoroutineCall
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
             if (pos == notificationContainerList.size - 1 && !currentContinueStr.isNullOrEmpty()) {
+                // TODO: fix jumping issue when fetching more data.
                 fetchAndSave()
             }
         }
