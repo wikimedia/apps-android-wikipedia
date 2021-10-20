@@ -17,6 +17,7 @@ import androidx.core.graphics.createBitmap
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DimenUtil

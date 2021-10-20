@@ -1,5 +1,7 @@
 package org.wikipedia.notifications
 
+import org.wikipedia.notifications.db.Notification
+
 class NotificationListItemContainer {
     val type: Int
     var notification: Notification? = null

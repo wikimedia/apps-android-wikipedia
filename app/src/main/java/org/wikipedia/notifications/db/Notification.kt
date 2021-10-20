@@ -1,5 +1,6 @@
-package org.wikipedia.notifications
+package org.wikipedia.notifications.db
 
+import androidx.room.Entity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
@@ -13,20 +14,17 @@ import org.wikipedia.util.UriUtil
 import java.util.*
 
 @Serializable
-class Notification {
-
-    @SerialName("*")
-    val contents: Contents? = null
-    private val timestamp: Timestamp? = null
-    var read: String? = null
-    val category = ""
-    val wiki = ""
-    val id: Long = 0
-    val type = ""
-    val revid: Long = 0
-    val title: Title? = null
-    val agent: Agent? = null
-    val sources: Map<String, Source>? = null
+@Entity(primaryKeys = ["id", "wiki"])
+class Notification(val id: Long = 0,
+                   val wiki: String = "",
+                   var read: String? = null,
+                   val category: String = "",
+                   val type: String = "",
+                   val revid: Long = 0,
+                   val title: Title? = null,
+                   val agent: Agent? = null,
+                   val timestamp: Timestamp? = null,
+                   @SerialName("*") val contents: Contents? = null) {
 
     val utcIso8601: String
         get() = timestamp?.utciso8601.orEmpty()
@@ -40,7 +38,7 @@ class Notification {
         return id + wiki.hashCode()
     }
 
-    fun getTimestamp(): Date {
+    fun date(): Date {
         return timestamp?.date() ?: Date()
     }
 

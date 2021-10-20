@@ -6,6 +6,7 @@ import org.hamcrest.Matchers
 import org.junit.Test
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.test.MockRetrofitTest
 import org.wikipedia.test.TestFileUtil
 
