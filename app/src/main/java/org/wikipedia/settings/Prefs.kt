@@ -372,6 +372,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
 
+    var showTalkPageSurvey
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_talk_page_survey, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_talk_page_survey, value)
+
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visited_article_page, value)
@@ -515,4 +519,7 @@ object Prefs {
     var autoShowEditNotices
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_auto_show_edit_notices, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_auto_show_edit_notices, value)
+
+    val talkPageSurveyOverride
+        get() = PrefsIoUtil.getBoolean(R.string.preference_developer_override_talk_page_survey, false)
 }

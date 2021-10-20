@@ -1060,6 +1060,8 @@
     <string name="talk_response_submitted">Reply posted.</string>
     <string name="talk_snackbar_undo">Undo</string>
     <string name="talk_last_modified"><![CDATA[<b>Last edited %1$s</b> by %2$s]]></string>
+    <string name="talk_snackbar_survey_text">Thanks for using talk pages. Could you help us improve the app by participating in a survey?</string>
+    <string name="talk_snackbar_survey_action_text">Get started</string>
     <string name="menu_option_share_edit">Share edit</string>
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>

@@ -552,6 +552,7 @@
   <string name="notification_syncing_pause_button">Tauko</string>
   <string name="notification_syncing_resume_button">Jatka</string>
   <string name="notification_syncing_cancel_button">Peruuta</string>
+  <string name="notification_syncing_reading_list_channel_title">Synkronoidaan lukulistat</string>
   <string name="notification_syncing_reading_list_channel_description">Lukulistojen synkronoinnin edistyminen</string>
   <string name="notification_many_unread">Sinulla on %d lukematonta ilmoitusta</string>
   <plurals name="notification_channel_name">
@@ -1005,6 +1006,7 @@
   <string name="talk_response_submitted">Vastaus lähetetty.</string>
   <string name="talk_snackbar_undo">Kumoa</string>
   <string name="talk_last_modified">&lt;b&gt;Sivua muokkasi viimeksi %1$s&lt;/b&gt; %2$s</string>
+  <string name="talk_snackbar_survey_action_text">Aloita</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
   <string name="menu_option_user_profile">Käyttäjän %s profiili</string>
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
