@@ -210,9 +210,7 @@ class NotificationActivity : BaseActivity() {
     private fun delimitedFilteredWikiList(): String {
         val filteredWikiList = mutableListOf<String>()
         if (Prefs.notificationsFilterLanguageCodes == null || allWikisSelected()) {
-            for (key in dbNameMap.keys) {
-                filteredWikiList.add(key.replace("-", "_"))
-            }
+            filteredWikiList.addAll(dbNameMap.keys.map { it.replace("-", "_") })
         } else {
             val wikiTypeList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
             wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
