@@ -369,7 +369,7 @@
   <string name="error_no_maps_app">ルートを示すアプリが見つかりませんでした。</string>
   <string name="preference_title_customize_explore_feed">探索フィード</string>
   <string name="preference_title_show_link_previews">リンクのプレビューを表示</string>
-  <string name="preference_summary_customize_explore_feed">「探してみよう」フィードをカスタマイズ</string>
+  <string name="preference_summary_customize_explore_feed">探索フィードをカスタマイズ</string>
   <string name="preference_summary_show_link_previews">リンクをタップしたときに、記事のクイックプレビューを表示します。</string>
   <string name="preference_title_collapse_tables">表を閉じる</string>
   <string name="preference_summary_collapse_tables">記事内の基本データ、参考文献、脚注などの表を自動的に閉じる</string>
