@@ -79,7 +79,7 @@
   <string name="language_count_link_text">%d ٻولين ۾ موجود</string>
   <string name="content_license_cc_by_sa">ڪڪ بو-سا 3.0</string>
   <string name="edit_save_action_license_logged_in">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي جاري ڪرڻ لاءِ راضي آھيو.</string>
-  <string name="edit_save_action_license_anon">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيو. سنوارون توھان جي آئِپي پتي سان منتسب ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
+  <string name="edit_save_action_license_anon">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيو. سنوارون توھان جي آئِپي پتي سان منتسب ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ نويڪلائي هوندي.</string>
   <string name="preference_title_language">وڪيپيڊيا ٻوليون</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
   <string name="langlinks_empty">هيءُ صفحو ٻين ٻولين ۾ دستياب نہ آهي.</string>
@@ -121,7 +121,7 @@
   <string name="reset_password_description">توھان ھڪ عارضي ڳجھي-لفظ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ پنھننو ھڪ نئون ڳجھولفظ ترتيب ڪريو.</string>
   <string name="reset_password_hint">نئون ڳجھولفظ</string>
   <string name="reset_password_button">محفوظ ڪريو ۽ داخل ٿيو</string>
-  <string name="preference_title_logout">خارج ٿيو</string>
+  <string name="preference_title_logout">ٻاھر نڪرو</string>
   <string name="toast_logout_complete">نڪري چڪا</string>
   <string name="logout_prompt">ھي توھان کي سڀني اوزان تان خارج ڪري ڇڏيندو جتي توھان داخل ٿيل آھيو. ڇا توھان جاري رکڻ گھرو ٿا؟</string>
   <string name="logout_dialog_cancel_button_text">رد</string>
@@ -156,7 +156,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">ڪو برقٽپال پتو وجھو</string>
   <string name="create_account_button">کاتو کوليو</string>
   <string name="create_account_name_unavailable">واپرائيندڙ جو نالو \"%s\" موجود ناهي. مھرباني ڪري مختلف نالو چونڊيو.</string>
-  <string name="create_account_ip_block_message">معاف ڪجو، اوهان جي آئي پي تي نوان کاتا کولڻ تي بندش وڌل آهي.</string>
+  <string name="create_account_ip_block_message">معاف ڪجو، اوهان جي آئپي تان نوان کاتا کولڻ تي بندش وڌل آهي.</string>
   <string name="create_account_ip_block_help_url">https://sd.wikipedia.org/wiki/مدد:مون_تي_بندش_وڌي_وئي</string>
   <string name="create_account_ip_block_details">تفصيل</string>
   <string name="preferences_general_heading">عام</string>
@@ -167,7 +167,7 @@
   <string name="preferences_heading_data_usage">ڊيٽا کپت</string>
   <string name="preferences_heading_experimental">تجرباتي</string>
   <string name="preference_title_download_reading_list_articles">پڙھڻ جي فھرست جا مضمون لاھيو</string>
-  <string name="preferences_privacy_settings_heading">ذاتيات</string>
+  <string name="preferences_privacy_settings_heading">نويڪلائي</string>
   <string name="preference_title_eventlogging_opt_in">استعمال جون رپورٽون اماڻيو</string>
   <string name="preference_summary_eventlogging_opt_in">وڪيميڊيا ايپ کي اجازت ڏيو ته توهان هن ايپ ڪيئن استعمال ڪريو ٿا جي معلومات جمع ڪري ته جيئن هن ايپ کي وڌيڪ بهتر بڻائي سگھجي</string>
   <string name="preference_title_auto_upload_crash_reports">ڊهي پوڻ جي رپورٽ اماڻيو</string>
@@ -185,7 +185,7 @@
   <string name="settings_item_preferences">ترتيبون</string>
   <string name="settings_activity_title">ترتيبون</string>
   <string name="about_description">وڪيپيڊيا ايپ بابت</string>
-  <string name="privacy_policy_description">ذاتيات پاليسي</string>
+  <string name="privacy_policy_description">نويڪلائي نِيَمَ</string>
   <string name="terms_of_use_description">استعمال جا شرط</string>
   <string name="about_wikipedia_url">https://sd.wikipedia.org/wiki/Wikipedia:بابت</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
@@ -201,7 +201,7 @@
   <string name="about_translators_heading">ترجميڪارَ</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_app_license_heading">اجازتنامو</string>
-  <string name="about_app_license" fuzzy="true">سورس ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ھيٺ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; موجود آھي. نہ تہ ٻي صورت واضع ڪيل آھي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز انتساب-ھڪجھڙي-ونڊ&lt;/a&gt; ھيٺ موجود آھي.</string>
+  <string name="about_app_license">ذريعي جو ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;جَيرٽ&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جِٽ-ھب&lt;/a&gt; &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;اپاچي 2.0 لائسنس ھيٺ موجود آھي&lt;/a&gt;. جيسيتائين ٻي صورت واضع نہ ڪئي وڃي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز ھڪجھڙي-ونڊ-انتساب لائسنس ھيٺ موجود آھي&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;وڪيميڊيا فائونڊيشن&lt;/a&gt; جي مصنوع</string>
   <string name="about_activity_title">بابت</string>
   <string name="edit_abandon_confirm">هيءُ صفحو بدلائجي چڪو آهي. توهان کي پڪ آهي تہ توهان تبديليون سانڍڻ کان سواءِ ڇڏي وڃڻ چاهيو ٿا؟</string>
@@ -209,7 +209,7 @@
   <string name="edit_abandon_confirm_no">نہ</string>
   <string name="user_blocked_from_editing_title">بندشيل</string>
   <string name="user_logged_in_blocked_from_editing">هيءَ وڪِي سنوارڻ کان توهان جو کاتو بندشيو ويو آهي.</string>
-  <string name="user_anon_blocked_from_editing">توهان جو آءِ پِي پتو سنوارڻ کان بندشيويو آهي.</string>
+  <string name="user_anon_blocked_from_editing">توهان جي آئپي پتي سنوارڻ کان بندش آهي.</string>
   <string name="edit_how_page_improved">توهان ان صفحي کي ڪيئن سڌاريو؟</string>
   <string name="edit_next">اڳيون</string>
   <string name="edit_done">ڇاپڻ</string>
@@ -231,8 +231,8 @@
   <string name="article_opened_in_background_tab">ھي مضمون پسمنظر ٽيب ۾ کوليو ويو آھي.</string>
   <string name="abusefilter_title_warn">هي هڪ غير تخليقي سنوار ٿي سگھي ٿي. ڇا توهان کي پڪ آھي تہ توھان انکي ڇاپڻ چاهيو ٿا؟</string>
   <string name="abusefilter_title_disallow">توهان هي سنوار ڇاپي نٿا سگھو. مھرباني ڪري واپس وڃو ۽ انکي بدلايو.</string>
-  <string name="abusefilter_text_warn">ھڪ خودڪار ڇاڻيءَ ھن سنوار کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي. ان ۾ ھيٺين مان ھڪ شامل ٿي سگھن ٿا:&lt;br/&gt;&lt;br/&gt;· سڀني قسمن جي اکرن ۾ ٽائيپ ڪندي&lt;br/&gt;· مضمونن کي خالي ڪندي يا بگاڙيندي&lt;br/&gt;· اڻلاڳپيل خارجي ڳنڍڻا يا عڪس&lt;br/&gt;· نشانيون ورجائيندي</string>
-  <string name="abusefilter_text_disallow">ھڪ خودڪار ڇاڻيءَ ھن سنوار کي ممڪنہ طور تي غيرتعميري، يا سڌي تخريبڪاري طور سڃاتو آھي.&lt;br /&gt;&lt;br /&gt;وڪيپيڊيا ھڪ انسائيڪلوپيڊيا آھي ۽ رڳو اڻڌريو، مشھور مواد ھتان کان تعلق رکي ٿو.</string>
+  <string name="abusefilter_text_warn">ھڪ پاڻمرادي ڇاڻيءَ ھن سنوار کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي. ان ۾ ھيٺين مان ھڪ شامل ٿي سگهن ٿا:&lt;br/&gt;&lt;br/&gt;· سڀني قسمن جي اکرن ۾ ٽائيپ ڪندي&lt;br/&gt;· مضمونن کي خالي ڪندي يا بگاڙيندي&lt;br/&gt;· اڻلاڳپيل خارجي ڳنڍڻا يا عڪس&lt;br/&gt;· نشانيون ورجائيندي</string>
+  <string name="abusefilter_text_disallow">ھڪ پاڻمرادي ڇاڻيءَ ھن سنوار کي ممڪنہ طور تي غيرتعميري، يا سڌي تخريبڪاري طور سڃاتو آھي.&lt;br /&gt;&lt;br /&gt;وڪيپيڊيا ھڪ انسائيڪلوپيڊيا آھي ۽ رڳو اڻڌريو، مشھور مواد ھتي تعلق رکي ٿو.</string>
   <string name="page_similar_titles">ھڪجھڙا صفحا</string>
   <string name="search_did_you_mean">ڇا توهان جي مراد %s ھئي؟</string>
   <string name="search_recent_header">تازيون ڳولائون:</string>
@@ -309,7 +309,7 @@
   <string name="button_add_to_reading_list">پڙھڻ جي فھرست ۾ وجھو</string>
   <string name="page_offline_notice_cannot_load_while_offline">آفلائين ھجڻ وقت صفحو لاھي نٿو سگھجي.</string>
   <string name="page_offline_notice_add_to_reading_list">اشارو:ڪو بہ مضمون پنھنجي پڙھڻ جي فھرست ۾ شامل ڪريو ان کي لاٿو ويندو جڏھن توھان ٻيھر آنلائين ٿيندئو.</string>
-  <string name="page_offline_notice_last_date">توھان %s تي سانڍيل ھن مضمون جو ھڪ آفلائين ورزن پڙھي رھيا آھيو.</string>
+  <string name="page_offline_notice_last_date">توھان %s تي سانڍيل ھن مضمون جو ھڪ آفلائين ورجاءُ پڙھي رھيا آھيو.</string>
   <string name="button_get_directions">ھدايتون حاصل ڪريو</string>
   <string name="error_no_maps_app">ھدايتون مھيا ڪندڙ ڪي بہ ايپس لڀجي نہ سگھيون.</string>
   <string name="preference_title_customize_explore_feed">پھچ کوجيو</string>
@@ -565,7 +565,7 @@
   <string name="menu_feed_card_dismissed">ڪارڊ لڪيل.</string>
   <string name="menu_feed_card_edit_card_languages">ڪارڊ جون ٻوليون سنواريو</string>
   <string name="menu_feed_overflow_label">وڌيڪ چارا</string>
-  <string name="feed_featured_image_share_subject">وڪيميڊيا العام مان نمايان ڪيل تصوير</string>
+  <string name="feed_featured_image_share_subject">وڪيميڊيا العام مان چونڊ عڪس</string>
   <string name="feed">کوجيو</string>
   <string name="home">مُک صفحو</string>
   <string name="view_static_card_icon_content_description">ڪارڊ جو نشان</string>
@@ -629,7 +629,7 @@
   <string name="description_edit_license_notice">مضمون جي تشريح بدلائڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان راضي آھيان ۽ پنھنجون ڀاڱيداريون بغير رد ڪئي &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيان.</string>
   <string name="description_edit_helper_text_lowercase_warning">عام طور تي ننڍن اکرن کان شروع ڪريو</string>
   <string name="description_edit_voice_input_description">آوازي انپٽ</string>
-  <string name="description_too_short">لکت تمام مختصر آھي.</string>
+  <string name="description_too_short">متن ڏاڍو مختصر آھي.</string>
   <string name="description_ends_with_punctuation">متن بيھڪ جي نشانيءَ سان ختم نہ ٿيڻ گهرجي.</string>
   <string name="description_edit_success_saved">مضمون جي تشريح ڇپجي وئي!</string>
   <string name="description_edit_success_saved_snackbar">مضمون جي تشريح ڇپجي وئي!</string>
@@ -670,7 +670,7 @@
   <string name="suggested_edits_task_image_caption_description">عڪسن ۾ رھيل مختصر عنوان وجھو</string>
   <string name="suggested_edits_task_translate_caption_title">عڪس جا عنوان ترجمايو</string>
   <string name="suggested_edits_task_translate_caption_description">عنوانن کي ٻي ٻوليءَ ۾ ترجمايو</string>
-  <string name="suggested_edits_task_multilingual_title">گھڻ-لساني ترميمڪارن لاءِ وڌيڪ ڪم</string>
+  <string name="suggested_edits_task_multilingual_title">گهڻ-لساني سنواريندڙن لاءِ وڌيڪ ڪم</string>
   <string name="suggested_edits_task_multilingual_description">جيڪڏھن توھان ھڪ کان وڌيڪ ٻولين ۾ پڙھو ۽ لکو ٿا تہ ترجمي جا ڪم موجود آھن.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">تيسيتائين تالو لڳل آھي جيستائين توھان %d عڪسن جا عنوان نٿا سنواري وٺو</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">تيسيتائين تالو لڳل آھي جيسيتائي %d مضمونن جو تشريحون نٿا سنواري وٺو (پڪ ڪيل)</string>
@@ -893,6 +893,7 @@
   <string name="talk_response_submitted">ورندي پوسٽ ڪئي وئي.</string>
   <string name="talk_snackbar_undo">اڻڪريو</string>
   <string name="talk_last_modified">&lt;b&gt;%1$s کي آخري ڀيرو&lt;/b&gt; %2$s سنواريو</string>
+  <string name="talk_snackbar_survey_action_text">شروع ڪريو</string>
   <string name="menu_option_share_edit">سنوار ونڊيو</string>
   <string name="menu_option_user_profile">%s جو پروفائيل</string>
   <string name="menu_option_user_contributions">%s جون ڀاڱيداريون</string>
@@ -903,15 +904,19 @@
   <string name="thank_label">مھرباني چئو</string>
   <string name="go_to_user_page">واپرائيندڙ جي صفحي ڏانھن وڃو</string>
   <string name="thank_dialog_title_text">عوامي طور \'مھرباني\' چئو</string>
+  <string name="thank_dialog_text">\'مھربانيون\' وڪيپيڊيا تي ڪنھن سنواريندڙ جي ڪم جي تعريف ڪرڻ جو آسان طريقو آھن. \'مھربانيون\' واپس موٽائي نٿيون سگهجن ۽ عوامي طور ڏسي سگهجندڙ آھن.</string>
   <string name="thank_dialog_positive_button_text">مھرباني چئو</string>
   <string name="thank_dialog_negative_button_text">رد ڪريو</string>
   <string name="thank_success_message">توھان جي \'مھرباني\' %s ڏانھن موڪلي وئي 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ۽ ان جو بحث صفحو توھان جي %2$s نظر۾فھرست ۾ وڌا ويا آھن.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بدلايو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل طور</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 ھفتي لاءِ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 مھيني لاءِ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 مھينن لاءِ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 مھينن لاءِ</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ۽ ان جو بحث صفحو توھان جي نظر۾فھرست مان ڪڍيا ويا آھن.</string>
+  <string name="watchlist_expiry_dialog_title">نظر۾فھرست جو عرصو چونڊيو</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="watchlist_expiry_dialog_one_week">1 ھفتو</string>
   <string name="watchlist_expiry_dialog_one_month">1 مھينو</string>
