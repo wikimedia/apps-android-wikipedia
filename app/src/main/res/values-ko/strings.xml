@@ -992,6 +992,7 @@
   <string name="talk_response_submitted">응답이 게시되었습니다.</string>
   <string name="talk_snackbar_undo">실행 취소</string>
   <string name="talk_last_modified">%2$s님이 &lt;b&gt;%1$s에 마지막으로 편집함&lt;/b&gt;</string>
+  <string name="talk_snackbar_survey_action_text">시작하기</string>
   <string name="menu_option_share_edit">편집 공유</string>
   <string name="menu_option_user_profile">%s님의 정보</string>
   <string name="menu_option_user_contributions">%s님의 기여</string>
