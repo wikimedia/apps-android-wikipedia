@@ -1,6 +1,6 @@
 package org.wikipedia.views
 
-import android.content.ClipboardManager
+import android.content.ClipData
 import android.content.Context
 import android.os.SystemClock
 import android.text.InputType
@@ -8,13 +8,12 @@ import android.util.AttributeSet
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
-import androidx.annotation.MenuRes
+import androidx.core.view.ContentInfoCompat
+import androidx.core.view.ViewCompat
 import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.edit.richtext.SpanExtents
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.richtext.SyntaxHighlighter.OnSyntaxHighlightListener
-import org.wikipedia.util.ClipboardUtil.setPlainText
-import org.wikipedia.util.log.L.w
 import java.util.*
 
 class PlainPasteEditText : TextInputEditText {
@@ -32,10 +31,20 @@ class PlainPasteEditText : TextInputEditText {
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
-    override fun onTextContextMenuItem(id: Int): Boolean {
-        return if (id == android.R.id.paste) {
-            onTextContextMenuPaste(id)
-        } else super.onTextContextMenuItem(id)
+    init {
+        // The MIME type(s) need to be set for onReceiveContent() to be called.
+        ViewCompat.setOnReceiveContentListener(this, arrayOf("text/*"), null)
+    }
+
+    override fun onReceiveContent(payload: ContentInfoCompat): ContentInfoCompat? {
+        // Do not allow pasting of formatted text! We do this by replacing the contents of the clip
+        // with plain text.
+        val clip = payload.clip
+        val lastClipText = clip.getItemAt(clip.itemCount - 1).coerceToText(context).toString()
+        val updatedPayload = ContentInfoCompat.Builder(payload)
+            .setClip(ClipData.newPlainText(null, lastClipText))
+            .build()
+        return super.onReceiveContent(updatedPayload)
     }
 
     override fun onCreateInputConnection(outAttrs: EditorInfo): InputConnection? {
@@ -67,32 +76,6 @@ class PlainPasteEditText : TextInputEditText {
             it.sendKeyEvent(KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
                     KeyEvent.ACTION_UP, KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_ON or KeyEvent.META_SHIFT_ON))
         }
-    }
-
-    private fun onTextContextMenuPaste(@MenuRes menuId: Int): Boolean {
-        // Do not allow pasting of formatted text!
-        // We do this by intercepting the clipboard and temporarily replacing its
-        // contents with plain text.
-        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        if (clipboard.hasPrimaryClip() && clipboard.primaryClip != null) {
-            clipboard.primaryClip?.let {
-                val lastClipText = it.getItemAt(it.itemCount - 1).coerceToText(context).toString()
-                // temporarily set the new clip data as the primary
-                setPlainText(context, null, lastClipText)
-                // execute the paste!
-                super.onTextContextMenuItem(menuId)
-                // restore the clip data back to the old one.
-                try {
-                    clipboard.setPrimaryClip(it)
-                } catch (e: Exception) {
-                    // This could be a FileUriExposedException, among others, where we are unable to
-                    // set the clipboard contents back to their original state. Unfortunately there's
-                    // nothing to be done in that case.
-                    w(e)
-                }
-            }
-        }
-        return true
     }
 
     fun findInEditor(targetText: String?, syntaxHighlighter: SyntaxHighlighter) {

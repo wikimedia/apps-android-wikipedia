@@ -15,6 +15,7 @@
 * Kokoko-H
 * LaMagiaaa
 * Los688
+* Marine-Blue
 * MathXplore
 * Mirinano
 * Omotecho
@@ -231,6 +232,7 @@
   <string name="page_protected_can_not_edit_title">このページは保護されています</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ウォッチリストに追加</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">興味のある記事について何が起こったか追跡します。右上のメニューをタップして、&lt;b&gt;ウォッチリストに追加&lt;/b&gt;を選び、記事の変更を追ってみましょう。</string>
+  <string name="page_notification_tooltip">通知はここにあります。</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
   <string name="about_description">ウィキペディアアプリについて</string>
@@ -398,7 +400,7 @@
   <string name="menu_save_all_tabs">すべてのタブを保存</string>
   <string name="error_blocked_title">あなたのユーザー名またはIPアドレスはブロックされています。</string>
   <string name="error_blocked_by">ブロックは&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;によって作成されました</string>
-  <string name="error_blocked_reason">与えられた理由は次のとおりです：%s</string>
+  <string name="error_blocked_reason">理由は次のとおりです：%s</string>
   <string name="error_blocked_start">ブロックの開始日：%s</string>
   <string name="error_blocked_expiry">ブロックの終了日：%s</string>
   <string name="error_blocked_id">ブロックID：%s</string>
@@ -1011,6 +1013,8 @@
   <string name="talk_response_submitted">返信が送信されました。</string>
   <string name="talk_snackbar_undo">取り消す</string>
   <string name="talk_last_modified">&lt;b&gt;最終編集 %1$s&lt;/b&gt; 編集者: %2$s</string>
+  <string name="talk_snackbar_survey_text">トークページをご利用いただきありがとうございます。アンケートに参加して、アプリの改善にご協力いただけませんか？</string>
+  <string name="talk_snackbar_survey_action_text">始める</string>
   <string name="menu_option_share_edit">編集をシェア</string>
   <string name="menu_option_user_profile">%s のプロフィール</string>
   <string name="menu_option_user_contributions">%s の投稿記録</string>

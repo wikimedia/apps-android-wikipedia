@@ -58,43 +58,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/main_drawer_notifications_container"
-        style="@style/SideDrawerMenuItem">
-
-        <FrameLayout
-            android:layout_width="32dp"
-            android:layout_height="match_parent">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center_vertical"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_notifications_black_24dp"
-                app:tint="?attr/material_theme_secondary_color" />
-
-            <org.wikipedia.views.NotificationDotView
-                android:id="@+id/unreadDotView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="12dp"
-                android:visibility="visible"
-                tools:visibility="visible"/>
-
-        </FrameLayout>
-
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_weight="1"
-            android:text="@string/notifications_activity_title" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/main_drawer_talk_container"
         style="@style/SideDrawerMenuItem">
 

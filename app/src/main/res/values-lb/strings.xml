@@ -171,6 +171,7 @@
   <string name="page_protected_can_not_edit_anon">Leider kann dës Säit zu dësem Zäitpunkt net anonym geännert ginn.</string>
   <string name="page_protected_can_not_edit_title">Dës Säit ass gespaart</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
+  <string name="page_notification_tooltip">Är Notifikatioune sinn elo hei.</string>
   <string name="settings_item_preferences">Astellungen</string>
   <string name="settings_activity_title">Astellungen</string>
   <string name="about_description">Iwwer d\'Wikipedia App</string>

@@ -224,6 +224,7 @@
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Adicionar às páginas vigiadas</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Acompanhe o que está acontecendo com os artigos de seu interesse. Toque no menu flutuante e selecione &lt;b&gt;Adicionar à lista de páginas vigiadas&lt;/b&gt; para ver as alterações em um artigo.</string>
+  <string name="page_notification_tooltip">Suas notificações agora estão aqui.</string>
   <string name="settings_item_preferences">Configurações</string>
   <string name="settings_activity_title">Configurações</string>
   <string name="about_description">Sobre o aplicativo da Wikipédia</string>
@@ -632,7 +633,7 @@
   <string name="preference_title_customize_push_notifications">Personalizar notificações de push</string>
   <string name="preference_category_display_settings">Configuração de exibição</string>
   <string name="preference_title_hide_read_notifications">Ocultar notificações lidas</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Notificações da Wikipédia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipédia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notificações da Wikipédia</string>
   <string name="notifications_channel_group_other_title">Outro</string>
   <string name="notifications_channel_group_other_description">Outras notificações do aplicativo</string>
@@ -1016,6 +1017,7 @@
   <string name="talk_response_submitted">Resposta postada.</string>
   <string name="talk_snackbar_undo">Desfazer</string>
   <string name="talk_last_modified">&lt;b&gt;Última edição %1$s&lt;/b&gt; por %2$s</string>
+  <string name="talk_snackbar_survey_action_text">Começar</string>
   <string name="menu_option_share_edit">Compartilhar edição</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuições de %s</string>
