@@ -221,6 +221,7 @@
   <string name="page_protected_can_not_edit_title">Diese Seite ist geschützt</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Zur Beobachtungsliste hinzufügen</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Verfolge, was mit Artikeln geschieht, die dich interessieren. Tippe auf das Menü und wähle &lt;b&gt;Zur Beobachtungsliste hinzufügen&lt;/b&gt;, um Änderungen an einem Artikel zu sehen.</string>
+  <string name="page_notification_tooltip">Deinen Benachrichtigungen sind jetzt da.</string>
   <string name="settings_item_preferences">Einstellungen</string>
   <string name="settings_activity_title">Einstellungen</string>
   <string name="about_description">Über die Wikipedia-App</string>
@@ -1014,6 +1015,8 @@
   <string name="talk_response_submitted">Antwort übermittelt.</string>
   <string name="talk_snackbar_undo">Rückgängig</string>
   <string name="talk_last_modified">&lt;b&gt;Zuletzt bearbeitet %1$s&lt;/b&gt; von %2$s</string>
+  <string name="talk_snackbar_survey_text">Vielen Dank für die Nutzung der Diskussionsseiten. Könntest du uns helfen, die App zu verbessern, indem du an einer Umfrage teilnimmst?</string>
+  <string name="talk_snackbar_survey_action_text">Anfangen</string>
   <string name="menu_option_share_edit">Bearbeitung teilen</string>
   <string name="menu_option_user_profile">Profil von %s</string>
   <string name="menu_option_user_contributions">Beiträge von %s</string>
