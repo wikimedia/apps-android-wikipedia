@@ -3,6 +3,7 @@ package org.wikipedia.util
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Rect
 import android.net.ConnectivityManager
 import android.os.Build
 import android.view.KeyCharacterMap
@@ -20,6 +21,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import kotlin.math.roundToInt
 
 object DeviceUtil {
     private inline val Window.insetsControllerCompat
@@ -66,6 +68,14 @@ object DeviceUtil {
                 it.setOnContextClickListener { obj -> obj.performLongClick() }
             }
         }
+    }
+
+    fun isKeyboardOpen(view: View): Boolean {
+        val visibleBounds = Rect()
+        view.getWindowVisibleDisplayFrame(visibleBounds)
+        val heightDiff = view.height - visibleBounds.height()
+        val marginOfError = DimenUtil.dpToPx(50F).roundToInt()
+        return heightDiff > marginOfError
     }
 
     val isOnWiFi: Boolean

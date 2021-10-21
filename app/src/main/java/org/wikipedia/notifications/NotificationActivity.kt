@@ -19,7 +19,6 @@ import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -49,7 +48,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import java.util.*
 
-class NotificationActivity : BaseActivity() {
+class NotificationActivity : BaseActivity(), NotificationSearchView.Callback {
     private lateinit var binding: ActivityNotificationsBinding
 
     private lateinit var externalLinkIcon: Drawable
@@ -116,6 +115,7 @@ class NotificationActivity : BaseActivity() {
             startActivity(NotificationsFilterActivity.newIntent(it.context))
         }
 
+        binding.notificationsSearchEmptyContainer.callback = this
         Prefs.notificationUnreadCount = 0
 
         beginUpdateList()
@@ -309,7 +309,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyContainer.visibility = if (enabledFiltersCount() != 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
-            binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
+            binding.notificationsSearchEmptyContainer.setText(getSpannedEmptySearchMessage())
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
             binding.notificationsSearchEmptyContainer.visibility = View.GONE
@@ -749,6 +749,15 @@ class NotificationActivity : BaseActivity() {
     companion object {
         fun newIntent(context: Context): Intent {
             return Intent(context, NotificationActivity::class.java)
+        }
+    }
+
+    override fun onSearchEmptyViewVisible(visibility: Int) {
+        if (visibility == View.VISIBLE) {
+            if (DeviceUtil.isKeyboardOpen(binding.root)) {
+                DeviceUtil.hideSoftKeyboard(binding.root)
+                DeviceUtil.showSoftKeyboard(binding.root)
+            }
         }
     }
 }
