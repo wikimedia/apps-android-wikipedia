@@ -25,10 +25,10 @@ class NotificationViewModel : ViewModel() {
     private var selectedFilterTab: Int = 0
     private var currentContinueStr: String? = null
     private var currentSearchQuery: String? = null
-    private var mentionsUnreadCount: Int = 0
-    private var allUnreadCount: Int = 0
+    var mentionsUnreadCount: Int = 0
+    var allUnreadCount: Int = 0
 
-    private val _uiState = MutableStateFlow<UiState>(UiState.Success(emptyList()))
+    private val _uiState = MutableStateFlow<UiState>(UiState.Success(emptyList(), false))
     val uiState: StateFlow<UiState> = _uiState
 
     init {
@@ -40,7 +40,7 @@ class NotificationViewModel : ViewModel() {
     private suspend fun collectAllNotifications() = notificationRepository.getAllNotifications()
         .collect { list ->
             processList(list)
-            _uiState.value = UiState.Success(notificationList)
+            _uiState.value = UiState.Success(notificationContainerList, !currentContinueStr.isNullOrEmpty())
         }
 
     private fun processList(list: List<Notification>) {
@@ -98,7 +98,7 @@ class NotificationViewModel : ViewModel() {
     }
 
     sealed class UiState {
-        data class Success(val notifications: List<Notification>) : UiState()
+        data class Success(val notifications: List<NotificationListItemContainer>, val fromContinuation: Boolean) : UiState()
         data class Error(val throwable: Throwable) : UiState()
     }
 }

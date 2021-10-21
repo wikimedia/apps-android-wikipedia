@@ -55,7 +55,6 @@ class NotificationActivity : BaseActivity() {
     private val viewModel: NotificationViewModel by viewModels()
 
     private lateinit var externalLinkIcon: Drawable
-    private val notificationList = mutableListOf<Notification>()
     private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
     private val disposables = CompositeDisposable()
     private val dbNameMap = mutableMapOf<String, WikiSite>()
@@ -125,7 +124,7 @@ class NotificationActivity : BaseActivity() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect {
                 when (it) {
-                    is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, !currentContinueStr.isNullOrEmpty())
+                    is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, it.fromContinuation)
                     is NotificationViewModel.UiState.Error -> setSuccessState(it.throwable)
                 }
             }
@@ -158,7 +157,7 @@ class NotificationActivity : BaseActivity() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-        menu.findItem(R.id.menu_notifications_mark_all_as_read).isVisible = notificationList.count { it.isUnread } > 0
+        menu.findItem(R.id.menu_notifications_mark_all_as_read).isVisible = viewModel.allUnreadCount > 0
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -235,19 +234,22 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsErrorView.visibility = View.VISIBLE
     }
 
-    private fun onNotificationsComplete(notifications: List<Notification>, fromContinuation: Boolean) {
+    private fun onNotificationsComplete(notifications: List<NotificationListItemContainer>, fromContinuation: Boolean) {
         setSuccessState()
         if (!fromContinuation) {
-            notificationList.clear()
             binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
         }
-        notificationList.addAll(notifications)
+
+        // Build the container list, and punctuate it by date granularity, while also applying the
+        // current search query.
+        notificationContainerList.clear()
+        notificationContainerList.addAll(notifications)
         postprocessAndDisplay()
     }
 
     private fun postprocessAndDisplay(position: Int? = null) {
         val allTab = binding.notificationTabLayout.getTabAt(0)!!
-        val allUnreadCount = notificationList.count { it.isUnread }
+        val allUnreadCount = viewModel.allUnreadCount
         if (allUnreadCount > 0) {
             allTab.text = getString(R.string.notifications_tab_filter_all) + " " +
                     getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
@@ -256,7 +258,7 @@ class NotificationActivity : BaseActivity() {
         }
 
         val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
-        val mentionsUnreadCount = notificationList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
+        val mentionsUnreadCount = viewModel.mentionsUnreadCount
         if (mentionsUnreadCount > 0) {
             mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " +
                     getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
@@ -266,27 +268,9 @@ class NotificationActivity : BaseActivity() {
 
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
-        notificationContainerList.clear()
-        if (actionMode == null) notificationContainerList.add(NotificationListItemContainer()) // search bar
+        if (actionMode == null) notificationContainerList.add(0, NotificationListItemContainer()) // search bar
         binding.notificationTabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
 
-        val selectedFilterTab = binding.notificationTabLayout.selectedTabPosition
-        val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
-
-        for (n in filteredList) {
-            val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
-            val searchQuery = currentSearchQuery
-            if (!searchQuery.isNullOrEmpty() &&
-                !(n.title?.full?.contains(searchQuery, true) == true ||
-                        n.contents?.header?.contains(searchQuery, true) == true ||
-                        n.contents?.body?.contains(searchQuery, true) == true ||
-                        (linkText?.contains(searchQuery, true) == true))) {
-                continue
-            }
-            val filterList = mutableListOf<String>()
-            filterList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).filter { NotificationCategory.isFiltersGroup(it) })
-            if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
-        }
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyContainer.visibility = if (enabledFiltersCount() != 0) View.VISIBLE else View.GONE
@@ -352,8 +336,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         // manually mark items in read state
-        notificationList.filter { n -> items.map { container -> container.notification?.id }
-            .firstOrNull { it == n.id } != null }.map { it.read = if (markUnread) null else Date().toString() }
+//        notificationList.filter { n -> items.map { container -> container.notification?.id }
+//            .firstOrNull { it == n.id } != null }.map { it.read = if (markUnread) null else Date().toString() }
 
         finishActionMode()
         postprocessAndDisplay(position)
