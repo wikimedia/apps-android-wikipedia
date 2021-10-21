@@ -503,6 +503,7 @@
   <string name="notifications_poll_enable_positive">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_negative">ߌߞߘߐߣߌ߲߬ ߕߴߏ ߘߌ߫</string>
   <string name="notifications_mark_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
+  <string name="notifications_mark_all_as_read">ߊ߬ ߓߍ߯ ߣߐ߬ߣߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߣߍ߲ ߘߌ߫</string>
   <string name="watchlist_title">ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
   <string name="preference_title_notification_system">ߞߊ߲ߞߋ</string>
   <string name="preference_summary_notification_system">ߗߋߛߓߍ ߞߊ߬ ߝߘߊ߫ ߞߊ߲ߞߋ ߟߊ߫</string>
@@ -519,10 +520,15 @@
   <string name="preference_summary_notification_user_talk">ߗߋߛߓߍ ߣߴߊ߬ ߖߋ߬ߓߌ ߞߊ߬ ߝߘߊ߫ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߎ߫ ߟߊ߫</string>
   <string name="preference_title_notification_email_user">ߢߎߡߍߙߋ߲߫ ߗߋߛߓߍ߫ ߟߊߛߣߍߣߍ߲</string>
   <string name="preference_summary_notification_email_user">ߡߐ߱ ߘߏ߫ ߓߘߊ߫ ߢߎߡߍߙߋ߲߫ ߗߋߛߓߍ ߗߋ߫ ߌ ߡߊ߬ ߞߊ߬ ߝߘߊ߫ ߥߞߌ ߟߊ߫</string>
+  <string name="preference_title_notification_user_rights">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߤߊߞߍ ߡߊߦߟߍ߬ߡߊ߲߫</string>
+  <string name="preference_summary_notification_user_rights">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߦߴߌ ߟߊ߫ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߤߊߞߍ ߡߊߦߟߍ߬ߡߊ߲ ߠߋ߬ ߝߍ߬</string>
   <string name="preference_title_notification_article_linked">ߌ ߟߊ߫ ߞߎߡߘߊ߫ ߛߌ߲ߘߌߣߍ߲ ߠߎ߬ ߛߘߌ߬ߜߋ߲</string>
+  <string name="preference_summary_notification_article_linked">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߦߋ߫ ߟߋ߬ ߓߊߏ߬ ߛߘߌ߬ߜߋ߲ ߘߏ߫ ߓߘߊ߫ ߝߙߊ߬ ߌ ߟߊ߫ ߞߐߜߍ߫ ߛߌ߲ߘߌߣߍ߲ ߠߊ߫</string>
   <string name="preference_category_display_settings">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߟߎ߫</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ߥߞߌߔߋߘߌߦߊ</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߡߍ߲ ߝߘߊߣߍ߲߫ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫</string>
   <string name="notifications_channel_group_other_title">ߘߏ߫ ߜߘߍ߫</string>
+  <string name="notifications_channel_group_other_description">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߬ ߜߘߍ ߟߎ߬ ߞߊ߬ ߝߘߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊ߫</string>
   <string name="view_because_you_read_card_title">ߞߊ߬ߡߊߛߐ߬ߘߐ߲߬ ߌ ߓߘߊ߫ ߘߐ߬ߞߊ߲߬ߠߌ߲ ߞߍ߫</string>
   <string name="view_random_card_title">ߞߎ߲߬ߝߍ߬ߦߊ߬ߣߍ߲</string>
   <string name="view_random_article_card_title">ߓߍ߲߬ߛߋ߲߬ߡߊ߫ ߞߎߡߘߊ</string>
@@ -794,6 +800,7 @@
   <string name="wikitext_bold">ߞߟߏߞߎ߲ߓߊ</string>
   <string name="wikitext_italic">ߛߓߍߘߋ߲߫ ߡߊߖߍ߲߬ߞߍ߬ߣߍ߲</string>
   <string name="wikitext_link">ߛߘߌ߬ߜߋ߲</string>
+  <string name="wikitext_bulleted_list">ߕߏ߲ߘߋߦߊߟߌ߫ ߛߙߍߘߍ</string>
   <string name="wikitext_numbered_list">ߛߙߍߘߍ߫ ߝߙߍߕߍߦߊߣߍ߲</string>
   <string name="wikitext_template">ߞߙߊߞߏ</string>
   <string name="wikitext_reference">ߦߟߌߡߊߛߙߋ</string>
@@ -820,10 +827,15 @@
   <string name="talk_message_hint">ߗߋߛߓߍ ߛߏ߯ߙߏ߫</string>
   <string name="talk_message_empty">ߗߋߛߓߍ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߕߴߛߋ߫ ߕߏ߫ ߟߊ߫.</string>
   <string name="talk_subject_empty">ߝߐߡߊ ߘߐߞߏߟߏ߲ ߕߴߛߋ߫ ߕߏ߫ ߟߊ߫.</string>
+  <string name="talk_snackbar_undo">ߊ߬ ߘߐߛߊ߬</string>
+  <string name="talk_last_modified" fuzzy="true">&lt;b&gt;ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߣߍ߲߫%1$s ߞߐ߯ߟߕߊ&lt;/b&gt; %2$s ߓߟߏ߫</string>
+  <string name="talk_snackbar_survey_text">ߌ ߣߌ߫ ߗߋ߫ ߞߎߡߊ߫ ߞߐߜߍ ߟߊߓߊ߯ߙߊ ߟߊ߫. ߌ ߘߌ߫ ߛߴߊ߲ ߡߊߘߍ߬ߡߍ߲߫ ߠߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊߢߊ߭ ߟߊ߫ ߕߍ߬ߘߍ ߘߐ߫ ߘߐ߬ߛߏ߰ߙߋ߬ߟߌ (ߛߐ߲ߘߊߗ߭\\ߛߐ߯ߝ߭ߋ߬) ߘߐ߫؟</string>
+  <string name="talk_snackbar_survey_action_text">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫</string>
   <string name="menu_option_share_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_user_contributions">%s ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
   <string name="watchlist_details_watching_label">ߘߐߜߍߟߌ ߦߴߌ ߘߐ߫</string>
   <string name="watchlist_details_watch_label">ߊ߬ ߘߐߜߍ߫</string>
+  <string name="watchlist_details_next_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߢߍߕߊ</string>
   <string name="thank_label">ߌ ߞߎߟߎ߲ߖߋ߫</string>
   <string name="go_to_user_page">ߕߊ߯ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߞߐߜߍ ߘߐ߫</string>
   <string name="thank_dialog_title_text">\'ߌ ߣߌ߫ ߗߋ\' ߗߋߟߌ ߖߊ߬ߡߊ ߡߊ߬</string>

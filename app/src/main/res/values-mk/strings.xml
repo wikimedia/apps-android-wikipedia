@@ -987,6 +987,8 @@
   <string name="talk_response_submitted">Одговорот е објавен.</string>
   <string name="talk_snackbar_undo">Врати</string>
   <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
+  <string name="talk_snackbar_survey_text">Ви благодариме што ги користите разговорните страници. Дали би можеле да ни помогнете да ја подобриме алаткава со тоа што ќе пополните една анкета?</string>
+  <string name="talk_snackbar_survey_action_text">Започни</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
   <string name="menu_option_user_profile">Профил на %s</string>
   <string name="menu_option_user_contributions">Придонеси на %s</string>

@@ -39,4 +39,6 @@
     <string name="preference_developer_send_event_platform_test_event_title">Send test event</string>
     <string name="preference_developer_send_event_platform_test_event_summary">Send a test event to the configured Event Platform intake endpoint</string>
     <string name="preference_developer_clear_all_talk_topics">clearAllTalkTopics</string>
+    <string name="preference_developer_show_talk_page_survey">devShowTalkPageSurvey</string>
+    <string name="preference_developer_override_talk_page_survey">overrideTalkPageSurvey</string>
 </resources>
