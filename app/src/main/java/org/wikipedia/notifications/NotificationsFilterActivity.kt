@@ -3,17 +3,21 @@ package org.wikipedia.notifications
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.ActivityNotificationsFiltersBinding
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
 
@@ -26,6 +30,21 @@ class NotificationsFilterActivity : BaseActivity() {
         binding = ActivityNotificationsFiltersBinding.inflate(layoutInflater)
         setUpRecyclerView()
         setContentView(binding.root)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_notifications_filter, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_notifications_languages -> {
+                startActivity(WikipediaLanguagesActivity.newIntent(this@NotificationsFilterActivity, Constants.InvokeSource.NOTIFICATION))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun setUpRecyclerView() {
