@@ -18,7 +18,7 @@
         android:textAllCaps="true"
         android:textColor="?attr/secondary_text_color" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/notification_filter_wiki_logo"
         android:layout_width="24dp"
         android:layout_height="24dp"
@@ -39,7 +39,7 @@
         android:paddingEnd="8dp"
         tools:text="Lorem ipsum" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/notification_filter_check"
         android:layout_width="20dp"
         android:layout_height="20dp"

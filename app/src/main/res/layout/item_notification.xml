@@ -11,7 +11,7 @@
     android:paddingEnd="@dimen/list_item_horizontal_padding"
     android:paddingBottom="@dimen/list_item_vertical_padding">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/notificationItemImage"
         android:layout_width="24dp"
         android:layout_height="24dp"
@@ -119,7 +119,7 @@
         app:layout_constraintTop_toBottomOf="@id/notificationDescription"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/notificationWikiCodeImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
