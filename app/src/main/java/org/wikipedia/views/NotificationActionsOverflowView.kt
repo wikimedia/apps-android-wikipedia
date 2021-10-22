@@ -12,10 +12,10 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.PopupWindowCompat
-import com.google.android.material.textview.MaterialTextView
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -100,13 +100,14 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowViewSecondary.setOnClickListener(actionClickListener)
         binding.overflowViewTertiary.setOnClickListener(actionClickListener)
         binding.overflowMarkAsRead.setOnClickListener {
-            dismissPopupWindowHost()
+            dismiss()
             callback.markAsReadClick(container, container.notification?.isUnread == true)
         }
     }
 
     fun dismiss() {
         popupWindowHost?.dismiss()
+        popupWindowHost = null
     }
 
     private var actionClickListener = OnClickListener {
@@ -120,10 +121,10 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")
         }
-        dismissPopupWindowHost()
+        dismiss()
     }
 
-    private fun setUpViewForLink(textView: MaterialTextView, link: Notification.Link,
+    private fun setUpViewForLink(textView: TextView, link: Notification.Link,
                                  customIcon: Int = R.drawable.ic_arrow_forward_black_24dp,
                                  customIconColor: Int = ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color),
                                  customTextColor: Int = ResourceUtil.getThemedColor(context, R.attr.primary_text_color)) {
@@ -144,12 +145,5 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         textView.setTextColor(textColor)
         textView.tag = link
         textView.visibility = View.VISIBLE
-    }
-
-    private fun dismissPopupWindowHost() {
-        popupWindowHost?.let {
-            it.dismiss()
-            popupWindowHost = null
-        }
     }
 }

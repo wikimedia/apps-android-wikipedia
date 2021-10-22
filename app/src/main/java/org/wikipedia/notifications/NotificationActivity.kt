@@ -142,6 +142,7 @@ class NotificationActivity : BaseActivity() {
     }
 
     override fun onStop() {
+        binding.root.requestFocus()
         notificationActionOverflowView?.dismiss()
         super.onStop()
     }

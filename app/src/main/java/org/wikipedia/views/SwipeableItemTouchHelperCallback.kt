@@ -18,7 +18,7 @@ import org.wikipedia.util.ResourceUtil.bitmapFromVectorDrawable
 import org.wikipedia.util.ResourceUtil.getThemedColor
 
 class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
-        private val context: Context,
+        context: Context,
         @ColorRes swipeColor: Int = R.color.red50,
         @DrawableRes swipeIcon: Int = R.drawable.ic_delete_white_24dp,
         @ColorRes val swipeIconTint: Int? = null,
@@ -30,7 +30,7 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
         fun onSwipe()
     }
 
-    private lateinit var swipeIconBitmap: Bitmap
+    private var swipeIconBitmap: Bitmap
     private val swipeBackgroundPaint = Paint()
     private val swipeIconPaint = Paint()
     private val itemBackgroundPaint = Paint()
@@ -88,7 +88,7 @@ class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
                 viewHolder.itemView.getTag(R.string.tag_icon_key) != null &&
                 viewHolder.itemView.getTag(R.string.tag_text_key) != null) {
                 swipeText = viewHolder.itemView.getTag(R.string.tag_text_key).toString()
-                swipeIconBitmap = bitmapFromVectorDrawable(context, viewHolder.itemView.getTag(R.string.tag_icon_key) as Int, swipeIconTint)
+                swipeIconBitmap = bitmapFromVectorDrawable(recyclerView.context, viewHolder.itemView.getTag(R.string.tag_icon_key) as Int, swipeIconTint)
             }
 
             canvas.drawRect(0f, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width.toFloat(), (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), swipeBackgroundPaint)
