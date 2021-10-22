@@ -24,6 +24,19 @@ class NotificationRepository constructor(private val notificationDao: Notificati
         notificationDao.deleteNotification(notification)
     }
 
+    suspend fun fetchUnreadWikiDbNames(): Map<String, WikiSite> {
+        val dbNameMap = mutableMapOf<String, WikiSite>()
+        val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL)).unreadNotificationWikisKT()
+        val wikiMap = response.query?.unreadNotificationWikis
+        dbNameMap.clear()
+        for (key in wikiMap!!.keys) {
+            if (wikiMap[key]!!.source != null) {
+                dbNameMap[key] = WikiSite(wikiMap[key]!!.source!!.base)
+            }
+        }
+        return dbNameMap
+    }
+
     suspend fun fetchAndSave(wikiList: String?, filter: String?, continueStr: String? = null): String? {
         var newContinueStr: String? = null
         val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotificationsKT(wikiList, filter, continueStr)

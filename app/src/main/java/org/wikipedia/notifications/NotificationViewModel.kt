@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
@@ -21,24 +22,28 @@ class NotificationViewModel : ViewModel() {
         _uiState.value = UiState.Error(throwable)
     }
     private val notificationList = mutableListOf<Notification>()
+    private var dbNameMap = mapOf<String, WikiSite>()
     private var selectedFilterTab: Int = 0
     private var currentContinueStr: String? = null
     private var currentSearchQuery: String? = null
     var mentionsUnreadCount: Int = 0
     var allUnreadCount: Int = 0
 
-    private val _uiState = MutableStateFlow<UiState>(UiState.Success(emptyList(), false))
+    private val _uiState = MutableStateFlow<UiState>(UiState.Success(emptyList(), emptyMap(), false))
     val uiState: StateFlow<UiState> = _uiState
 
     init {
         viewModelScope.launch(handler) {
+            withContext(Dispatchers.IO) {
+                dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
+            }
             collectAllNotifications()
         }
     }
 
     private suspend fun collectAllNotifications() = notificationRepository.getAllNotifications()
         .collect { list ->
-            _uiState.value = UiState.Success(processList(list), !currentContinueStr.isNullOrEmpty())
+            _uiState.value = UiState.Success(processList(list), dbNameMap, !currentContinueStr.isNullOrEmpty())
         }
 
     private fun processList(list: List<Notification>): List<NotificationListItemContainer> {
@@ -99,7 +104,9 @@ class NotificationViewModel : ViewModel() {
     }
 
     sealed class UiState {
-        data class Success(val notifications: List<NotificationListItemContainer>, val fromContinuation: Boolean) : UiState()
+        data class Success(val notifications: List<NotificationListItemContainer>,
+                           val dbNameMap: Map<String, WikiSite>,
+                           val fromContinuation: Boolean) : UiState()
         data class Error(val throwable: Throwable) : UiState()
     }
 }

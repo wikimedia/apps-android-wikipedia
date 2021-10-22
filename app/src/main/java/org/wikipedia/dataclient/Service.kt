@@ -228,6 +228,10 @@ interface Service {
     @get:Headers("Cache-Control: no-cache")
     val unreadNotificationWikis: Observable<MwQueryResponse>
 
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
+    suspend fun unreadNotificationWikisKT(): MwQueryResponse
+
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=create&provider=fcm")
     fun subscribePush(
