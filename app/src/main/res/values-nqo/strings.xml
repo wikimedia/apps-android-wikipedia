@@ -828,7 +828,7 @@
   <string name="talk_message_empty">ߗߋߛߓߍ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߕߴߛߋ߫ ߕߏ߫ ߟߊ߫.</string>
   <string name="talk_subject_empty">ߝߐߡߊ ߘߐߞߏߟߏ߲ ߕߴߛߋ߫ ߕߏ߫ ߟߊ߫.</string>
   <string name="talk_snackbar_undo">ߊ߬ ߘߐߛߊ߬</string>
-  <string name="talk_last_modified" fuzzy="true">&lt;b&gt;ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߣߍ߲%1$s߫ ߞߐ߯ߟߕߊ&lt;/b&gt; %2$s ߓߟߏ߫</string>
+  <string name="talk_last_modified" fuzzy="true">&lt;b&gt;ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߣߍ߲߫%1$s ߞߐ߯ߟߕߊ&lt;/b&gt; %2$s ߓߟߏ߫</string>
   <string name="talk_snackbar_survey_text">ߌ ߣߌ߫ ߗߋ߫ ߞߎߡߊ߫ ߞߐߜߍ ߟߊߓߊ߯ߙߊ ߟߊ߫. ߌ ߘߌ߫ ߛߴߊ߲ ߡߊߘߍ߬ߡߍ߲߫ ߠߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊߢߊ߭ ߟߊ߫ ߕߍ߬ߘߍ ߘߐ߫ ߘߐ߬ߛߏ߰ߙߋ߬ߟߌ (ߛߐ߲ߘߊߗ߭\\ߛߐ߯ߝ߭ߋ߬) ߘߐ߫؟</string>
   <string name="talk_snackbar_survey_action_text">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫</string>
   <string name="menu_option_share_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߖߍ߲ߛߍ߲߫</string>

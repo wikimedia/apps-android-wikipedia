@@ -28,6 +28,7 @@
 * Izamo
 * JO777
 * Jackiezelaya
+* Jakeukalane
 * JanKlaaseen
 * Jduranboger
 * Joanmp17
@@ -283,7 +284,7 @@
   <string name="edit_abandon_confirm_yes">Sí</string>
   <string name="edit_abandon_confirm_no">No</string>
   <string name="user_blocked_from_editing_title">Bloqueado</string>
-  <string name="user_logged_in_blocked_from_editing">Se bloqueó la edición desde tu cuenta en este wiki.</string>
+  <string name="user_logged_in_blocked_from_editing">Se bloqueó la edición desde tu cuenta en esta wiki.</string>
   <string name="user_anon_blocked_from_editing">Se bloqueó la edición desde tu dirección IP.</string>
   <string name="edit_how_page_improved">¿Cómo has mejorado la página?</string>
   <string name="edit_next">Siguiente</string>
@@ -620,7 +621,7 @@
   <string name="notifications_activity_title">Notificaciones</string>
   <string name="notifications_activity_title_archived">Notificaciones (archivadas)</string>
   <string name="notifications_search">Buscar notificaciones</string>
-  <string name="notifications_view_unread">Marcar notificaciones como leídas.</string>
+  <string name="notifications_view_unread">Ver no leídas</string>
   <string name="notifications_view_archived">Ver notificaciones archivadas</string>
   <string name="notifications_prefs">Ajustes de notificaciones</string>
   <string name="notifications_archive">Marcar como visto y archivar</string>
