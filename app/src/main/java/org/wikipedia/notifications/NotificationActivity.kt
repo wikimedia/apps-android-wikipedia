@@ -26,7 +26,6 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import kotlinx.coroutines.flow.collect
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -56,7 +55,7 @@ class NotificationActivity : BaseActivity() {
 
     private lateinit var externalLinkIcon: Drawable
     private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
-    private val disposables = CompositeDisposable()
+    private var fromContinuation: Boolean = false
     private val dbNameMap = mutableMapOf<String, WikiSite>()
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
@@ -147,11 +146,6 @@ class NotificationActivity : BaseActivity() {
         super.onStop()
     }
 
-    public override fun onDestroy() {
-        disposables.clear()
-        super.onDestroy()
-    }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_notifications, menu)
         return true
@@ -237,6 +231,7 @@ class NotificationActivity : BaseActivity() {
 
     private fun onNotificationsComplete(notifications: List<NotificationListItemContainer>, fromContinuation: Boolean) {
         setSuccessState()
+        this.fromContinuation = fromContinuation
         if (!fromContinuation) {
             binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
         }
@@ -601,8 +596,7 @@ class NotificationActivity : BaseActivity() {
             }
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
-            if (pos == notificationContainerList.size - 1) {
-                // TODO: fix jumping issue when fetching more data.
+            if (pos == notificationContainerList.size - 1 && fromContinuation) {
                 fetchAndSave()
             }
         }
