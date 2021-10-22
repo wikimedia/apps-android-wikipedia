@@ -1,9 +1,11 @@
 package org.wikipedia.util;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import android.net.Uri;
+
+import org.junit.Test;
 
 public class UriUtilTest {
     /**
@@ -91,5 +93,16 @@ public class UriUtilTest {
         assertThat(UriUtil.parseTalkTopicFromFragment("c-Dmitry_Brant-2021-10-01T12:36:00.000Z-test"), is("test"));
         assertThat(UriUtil.parseTalkTopicFromFragment("c-Dmitry_Brant-2021-10-01T12:36:00.000Z-test-1-2-3"), is("test-1-2-3"));
         assertThat(UriUtil.parseTalkTopicFromFragment("test"), is("test"));
+    }
+
+    @Test
+    public void testIsAppSupportedLink() {
+        Uri uri = Uri.parse("https://en.wikipedia.org/wiki/Obama_Barack?markasread=10520073&markasreadwiki=zhwiki");
+        System.out.println("Uri " + uri);
+        assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://en.wikipedia.org/wiki/Obama_Barack?markasread=10520073&markasreadwiki=zhwiki")), is(true));
+        assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://en.wikipedia.org/w/index.php?title=Spacetime&oldid=prev&diff=816093705&markasread=123759827&markasreadwiki=enwiki")), is(true));
+        assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://en.wikipedia.org/wiki/User_talk:Cooltey?markasread=229654787&markasreadwiki=enwiki#c-RSchoenbaechler_(WMF)-2021-10-07T12:18:00.000Z-Cooltey-2021-09-27T22:53:00.000Z")), is(true));
+        assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://commons.wikimedia.org/wiki/User_talk:Cooltey?markasread=5393423&markasreadwiki=commonswiki")), is(false));
+        assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://mediawiki.org/wiki/Special:MyLanguage/Help:Login_notifications?markasread=135571654&markasreadwiki=enwiki")), is(false));
     }
 }
