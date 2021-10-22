@@ -100,15 +100,15 @@ class NotificationActivity : BaseActivity() {
         }
 
         binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                postprocessAndDisplay()
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                viewModel.updateTabSelection(tab.position)
                 finishActionMode()
             }
 
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            override fun onTabUnselected(tab: TabLayout.Tab) {
             }
 
-            override fun onTabReselected(tab: TabLayout.Tab?) {
+            override fun onTabReselected(tab: TabLayout.Tab) {
             }
         })
 
