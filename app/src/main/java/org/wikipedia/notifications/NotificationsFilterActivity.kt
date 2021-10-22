@@ -193,13 +193,6 @@ class NotificationsFilterActivity : BaseActivity() {
             return typeList
         }
 
-        fun addOrRemoveNotificationWiki(lang: String, toAdd: Boolean) {
-            val notificationWikisList = mutableListOf<String>()
-            notificationWikisList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
-            if (toAdd) notificationWikisList.add(lang) else notificationWikisList.remove(lang)
-            Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(notificationWikisList)
-        }
-
         fun newIntent(context: Context): Intent {
             return Intent(context, NotificationsFilterActivity::class.java)
         }
