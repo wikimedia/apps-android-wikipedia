@@ -644,7 +644,6 @@
   <string name="notifications_tab_filter_all">Label for the tab button in the notification screen that shows all types of notification.</string>
   <string name="notifications_tab_filter_mentions">Label for the tab button in the notification screen that shows mention types of notification.</string>
   <string name="notifications_tab_filter_unread">Additional text for the tab button label in the notification screen that indicates how many unread notifications are in this type of notification. %s will be replaced by the unread number.</string>
-  <string name="notifications_search_bar_hint">Hint text for the notifications search bar.</string>
   <string name="notifications_search_bar_filter_hint">Hint text for the notifications filter icon.</string>
   <string name="notifications_menu_mark_as_read">Menu item used for marking selected items as read.</string>
   <string name="notifications_menu_mark_as_unread">Menu item used for marking selected items as unread.</string>

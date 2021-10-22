@@ -10,7 +10,7 @@
     app:elevation="0dp"
     app:radius="22dp">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:contentDescription="@string/notifications_search_bar_hint"
@@ -38,7 +38,7 @@
         android:textSize="14sp"
         android:textStyle="bold" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/notification_filter_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
