@@ -19,9 +19,11 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.AppLanguageSettingsFunnel
+import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguagesListActivity
+import org.wikipedia.notifications.NotificationsFilterActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.views.DefaultViewHolder
@@ -299,6 +301,8 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
 
     private fun deleteSelectedLanguages() {
         app.language().removeAppLanguageCodes(selectedCodes)
+        // Remove the language from notifications preferences in order to stop receiving notifications from that language wiki
+        selectedCodes.forEach { NotificationsFilterActivity.addOrRemoveNotificationWiki(it, toAdd = false) }
         interactionsCount++
         prepareWikipediaLanguagesList()
         unselectAllLanguages()

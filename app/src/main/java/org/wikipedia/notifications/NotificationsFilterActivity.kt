@@ -37,10 +37,17 @@ class NotificationsFilterActivity : BaseActivity() {
         return true
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
+            setUpRecyclerView()
+        }
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_notifications_languages -> {
-                startActivity(WikipediaLanguagesActivity.newIntent(this@NotificationsFilterActivity, Constants.InvokeSource.NOTIFICATION))
+                startActivityForResult(WikipediaLanguagesActivity.newIntent(this@NotificationsFilterActivity, Constants.InvokeSource.NOTIFICATION), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -184,6 +191,13 @@ class NotificationsFilterActivity : BaseActivity() {
             val typeList = mutableListOf<String>()
             NotificationCategory.FILTERS_GROUP.forEach { typeList.add(it.id) }
             return typeList
+        }
+
+        fun addOrRemoveNotificationWiki(lang: String, toAdd: Boolean) {
+            val notificationWikisList = mutableListOf<String>()
+            notificationWikisList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
+            if (toAdd) notificationWikisList.add(lang) else notificationWikisList.remove(lang)
+            Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(notificationWikisList)
         }
 
         fun newIntent(context: Context): Intent {

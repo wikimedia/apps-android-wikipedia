@@ -17,6 +17,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
@@ -472,27 +473,40 @@ class NotificationActivity : BaseActivity() {
                         binding.notificationSource.setCompoundDrawables(null, null, externalLinkIcon, null)
                     }
                 }
+                val params = binding.notificationSource.layoutParams as ConstraintLayout.LayoutParams
+                val marginStart = DimenUtil.dpToPx(8F).toInt()
+                val marginTop = DimenUtil.dpToPx(12F).toInt()
+                params.setMargins(marginStart, 0, 0, 0)
+                binding.notificationSource.layoutParams = params
+
                 when {
                     wikiCode.contains("wikidata") -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
+                        binding.notificationWikiCodeContainer.isVisible = true
                     }
                     wikiCode.contains("commons") -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
+                        binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    else -> {
+                    WikipediaApp.getInstance().language().appLanguageCodes.contains(langCode) -> {
                         binding.notificationWikiCode.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.visibility = View.GONE
+                        binding.notificationWikiCodeContainer.isVisible = true
                         binding.notificationWikiCode.text = langCode
                         ViewUtil.formatLangButton(binding.notificationWikiCode, langCode,
                             SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
                     }
+                    else -> {
+                        params.setMargins(0, marginTop, 0, 0)
+                        binding.notificationSource.layoutParams = params
+                        binding.notificationWikiCodeContainer.isVisible = false
+                    }
                 }
                 binding.notificationSource.isVisible = true
-                binding.notificationWikiCodeContainer.isVisible = true
             } ?: run {
                 binding.notificationSource.isVisible = false
                 binding.notificationSource.setCompoundDrawables(null, null, null, null)
