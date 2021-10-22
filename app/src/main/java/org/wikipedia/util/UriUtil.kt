@@ -114,8 +114,8 @@ object UriUtil {
     fun isAppSupportedLink(uri: Uri): Boolean {
         val supportedAuthority = uri.authority?.run { WikiSite.supportedAuthority(this) } == true
         return (uri.path?.run { matches(("^$WIKI_REGEX.*").toRegex()) } == true ||
-                !uri.fragment.isNullOrEmpty()) && supportedAuthority ||
-                !uri.getQueryParameter("title").isNullOrEmpty() && !uri.getQueryParameter("diff").isNullOrEmpty()
+                !uri.fragment.isNullOrEmpty() ||
+                !uri.getQueryParameter("title").isNullOrEmpty() && !uri.getQueryParameter("diff").isNullOrEmpty()) && supportedAuthority
     }
 
     @JvmStatic
