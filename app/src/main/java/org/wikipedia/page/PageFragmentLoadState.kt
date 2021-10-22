@@ -125,13 +125,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
     private fun pageLoadCheckReadingLists() {
         model.title?.let {
             disposables.clear()
-            disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
+            disposables.add(Completable.fromAction { model.readingListPage = AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { pageLoadFromNetwork { fragment.onPageLoadError(it) } }
-                    .subscribe({ page -> model.readingListPage = page }
-                    ) { model.readingListPage = null }
-            )
+                    .subscribe())
         }
     }
 
