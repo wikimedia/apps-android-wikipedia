@@ -36,8 +36,8 @@ class MwQueryPage {
     var redirectFrom: String? = null
     var convertedFrom: String? = null
     var convertedTo: String? = null
-    val isWatched = false
-    val lastRevId: Long = 0
+    val watched = false
+    val lastrevid: Long = 0
 
     fun namespace(): Namespace {
         return Namespace.of(ns)
