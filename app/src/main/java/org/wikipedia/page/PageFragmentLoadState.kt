@@ -128,7 +128,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate { pageLoadFromNetwork { networkError -> fragment.onPageLoadError(networkError) } }
+                    .doAfterTerminate { pageLoadFromNetwork { fragment.onPageLoadError(it) } }
                     .subscribe({ page -> model.readingListPage = page }
                     ) { model.readingListPage = null }
             )
@@ -169,8 +169,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     .subscribe({ pair ->
                         val pageSummaryResponse = pair.first
                         val watchedResponse = pair.second
-                        val isWatched = watchedResponse?.query?.firstPage()?.isWatched ?: false
-                        val hasWatchlistExpiry = watchedResponse?.query?.firstPage()?.hasWatchlistExpiry() ?: false
+                        val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
+                        val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
                         if (pageSummaryResponse.body() == null) {
                             throw RuntimeException("Summary response was invalid.")
                         }
@@ -182,9 +182,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             bridge.resetHtml(title)
                         }
                         fragment.onPageMetadataLoaded()
-                    }) { throwable ->
-                        L.e("Page details network response error: ", throwable)
-                        commonSectionFetchOnCatch(throwable)
+                    }) {
+                        L.e("Page details network response error: ", it)
+                        commonSectionFetchOnCatch(it)
                     }
             )
         }
