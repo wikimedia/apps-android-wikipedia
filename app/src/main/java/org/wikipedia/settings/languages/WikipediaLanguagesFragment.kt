@@ -19,7 +19,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.AppLanguageSettingsFunnel
-import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguagesListActivity
