@@ -125,7 +125,7 @@ class NotificationActivity : BaseActivity() {
             viewModel.uiState.collect {
                 when (it) {
                     is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, it.fromContinuation)
-                    is NotificationViewModel.UiState.Error -> setSuccessState(it.throwable)
+                    is NotificationViewModel.UiState.Error -> setErrorState(it.throwable)
                 }
             }
         }
@@ -224,7 +224,7 @@ class NotificationActivity : BaseActivity() {
         binding.notificationTabLayout.visibility = View.VISIBLE
     }
 
-    private fun setSuccessState(throwable: Throwable) {
+    private fun setErrorState(throwable: Throwable) {
         L.e(throwable)
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
@@ -266,10 +266,15 @@ class NotificationActivity : BaseActivity() {
             mentionsTab.text = getString(R.string.notifications_tab_filter_mentions)
         }
 
-        // Build the container list, and punctuate it by date granularity, while also applying the
-        // current search query.
-        if (actionMode == null) notificationContainerList.add(0, NotificationListItemContainer()) // search bar
+        // Handle search bar and TabLayout visibility
         binding.notificationTabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
+        if (actionMode != null) {
+            notificationContainerList.removeAt(0)
+        } else {
+            if (notificationContainerList.none { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }) {
+                notificationContainerList.add(0, NotificationListItemContainer())
+            }
+        }
 
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE

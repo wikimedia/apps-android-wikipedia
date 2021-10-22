@@ -21,7 +21,6 @@ class NotificationViewModel : ViewModel() {
         _uiState.value = UiState.Error(throwable)
     }
     private val notificationList = mutableListOf<Notification>()
-    private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
     private var selectedFilterTab: Int = 0
     private var currentContinueStr: String? = null
     private var currentSearchQuery: String? = null
@@ -39,11 +38,10 @@ class NotificationViewModel : ViewModel() {
 
     private suspend fun collectAllNotifications() = notificationRepository.getAllNotifications()
         .collect { list ->
-            processList(list)
-            _uiState.value = UiState.Success(notificationContainerList, !currentContinueStr.isNullOrEmpty())
+            _uiState.value = UiState.Success(processList(list), !currentContinueStr.isNullOrEmpty())
         }
 
-    private fun processList(list: List<Notification>) {
+    private fun processList(list: List<Notification>): List<NotificationListItemContainer> {
         // Reduce duplicate notifications
         if (currentContinueStr.isNullOrEmpty()) {
             notificationList.clear()
@@ -63,6 +61,8 @@ class NotificationViewModel : ViewModel() {
         // Filtered the tab selection
         val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
+        val notificationContainerList = mutableListOf<NotificationListItemContainer>()
+
         // Save into display list
         for (n in filteredList) {
             val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
@@ -78,6 +78,7 @@ class NotificationViewModel : ViewModel() {
             filterList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).filter { NotificationCategory.isFiltersGroup(it) })
             if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
         }
+        return notificationContainerList
     }
 
     fun fetchAndSave(wikiList: String?, filter: String?) {
