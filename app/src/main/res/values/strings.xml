@@ -637,7 +637,6 @@
     <string name="notifications_channel_group_wikipedia_notifications_description">Notifications from Wikipedia</string>
     <string name="notifications_channel_group_other_title">Other</string>
     <string name="notifications_channel_group_other_description">Other notifications from the app</string>
-    <string name="notifications_search_hint">Search Notifications</string>
     <string name="notifications_filter_label">Filter notifications</string>
     <string name="notifications_filter_icon_content_description">Filter notifications</string>
     <string name="notifications_empty_search_message">Try removing %s to see more notifications</string>
