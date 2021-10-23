@@ -174,10 +174,6 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun fetchAndSave() {
-        viewModel.fetchAndSave(delimitedFilteredWikiList(), "read|!read")
-    }
-
     private fun beginUpdateList() {
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
@@ -186,30 +182,7 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsProgressBar.visibility = View.VISIBLE
         binding.notificationTabLayout.visibility = View.GONE
         supportActionBar?.setTitle(R.string.notifications_activity_title)
-
-        fetchAndSave()
-    }
-
-    private fun delimitedFilteredWikiList(): String {
-        val filteredWikiList = mutableListOf<String>()
-        if (Prefs.notificationsFilterLanguageCodes == null) {
-            WikipediaApp.getInstance().language().appLanguageCodes.forEach {
-                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
-                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
-            }
-            filteredWikiList.add("commonswiki")
-            filteredWikiList.add("wikidatawiki")
-        } else {
-            val wikiTypeList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
-            wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
-                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
-                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
-            }
-            wikiTypeList.filter { it == "commons" || it == "wikidata" }.forEach { langCode ->
-                filteredWikiList.add("${langCode}wiki")
-            }
-        }
-        return filteredWikiList.joinToString("|")
+        viewModel.fetchAndSave()
     }
 
     private fun setSuccessState() {
@@ -600,7 +573,7 @@ class NotificationActivity : BaseActivity() {
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
             if (pos == notificationContainerList.size - 1 && fromContinuation) {
-                fetchAndSave()
+                viewModel.fetchAndSave()
             }
         }
     }

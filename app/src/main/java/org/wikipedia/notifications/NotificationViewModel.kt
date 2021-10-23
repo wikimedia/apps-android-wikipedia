@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
@@ -69,7 +70,7 @@ class NotificationViewModel : ViewModel() {
         val notificationContainerList = mutableListOf<NotificationListItemContainer>()
 
         // Save into display list
-        for (n in filteredList) {
+        for (n in filteredList.filter { delimitedFilteredWikiList().contains(it.wiki) }) {
             val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
             val searchQuery = currentSearchQuery
             if (!searchQuery.isNullOrEmpty() &&
@@ -86,10 +87,35 @@ class NotificationViewModel : ViewModel() {
         return notificationContainerList
     }
 
-    fun fetchAndSave(wikiList: String?, filter: String?) {
+    // TODO: save as a variable and not run this every time when fetching API.
+    private fun delimitedFilteredWikiList(): List<String> {
+        val filteredWikiList = mutableListOf<String>()
+        if (Prefs.notificationsFilterLanguageCodes == null) {
+            WikipediaApp.getInstance().language().appLanguageCodes.forEach {
+                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+            }
+            filteredWikiList.add("commonswiki")
+            filteredWikiList.add("wikidatawiki")
+        } else {
+            val wikiTypeList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+            wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
+                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
+                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+            }
+            wikiTypeList.filter { it == "commons" || it == "wikidata" }.forEach { langCode ->
+                filteredWikiList.add("${langCode}wiki")
+            }
+        }
+        return filteredWikiList
+    }
+
+    fun fetchAndSave() {
         viewModelScope.launch(handler) {
+            // TODO: skip the loading?
             withContext(Dispatchers.IO) {
-                currentContinueStr = notificationRepository.fetchAndSave(wikiList, filter, currentContinueStr)
+                // TODO: fetch all notifications from all wiki sites
+                currentContinueStr = notificationRepository.fetchAndSave(delimitedFilteredWikiList().joinToString("|"), "read|!read", currentContinueStr)
             }
             // TODO: revisit this
             collectAllNotifications()

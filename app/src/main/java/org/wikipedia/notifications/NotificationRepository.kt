@@ -10,8 +10,6 @@ class NotificationRepository constructor(private val notificationDao: Notificati
 
     fun getAllNotifications() = notificationDao.getAllNotifications()
 
-    fun getNotificationsByWiki(wiki: List<String>) = notificationDao.getNotificationsByWiki(wiki)
-
     suspend fun insertNotification(notifications: List<Notification>) {
         notificationDao.insertNotification(notifications)
     }
