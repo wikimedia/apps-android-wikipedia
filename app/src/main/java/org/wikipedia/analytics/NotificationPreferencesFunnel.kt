@@ -9,7 +9,6 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationsFilterActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.StringUtil
 
 class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
