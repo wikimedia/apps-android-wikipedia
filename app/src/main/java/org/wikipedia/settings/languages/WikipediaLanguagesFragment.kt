@@ -301,7 +301,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
     private fun deleteSelectedLanguages() {
         app.language().removeAppLanguageCodes(selectedCodes)
         // Remove the language from notifications preferences in order to stop receiving notifications from that language wiki
-        selectedCodes.forEach { Prefs.addOrRemoveNotificationWiki(it, toAdd = false) }
+        Prefs.removeFromNotificationsFilterLanguageCodes(selectedCodes.toSet())
         interactionsCount++
         prepareWikipediaLanguagesList()
         unselectAllLanguages()

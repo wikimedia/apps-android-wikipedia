@@ -38,7 +38,7 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
     fun logNotificationFilterPrefs() {
         val fullFiltersList = mutableListOf<String>()
         val toggleMap = HashMap<String, Boolean>()
-        val filteredList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+        val filteredList = Prefs.notificationsFilterLanguageCodes.orEmpty()
         fullFiltersList.addAll(NotificationsFilterActivity.allWikisList())
         fullFiltersList.addAll(NotificationsFilterActivity.allTypesIdList())
         fullFiltersList.forEach { toggleMap[it] = filteredList.contains(it) }
