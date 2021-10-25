@@ -766,7 +766,7 @@
   <string name="description_edit_success_se_general_feed_link_snackbar">¿Lo disfrutaste? Ayúdanos a añadir más.</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
-  <string name="description_edit_success_did_you_know">¿Sabías?</string>
+  <string name="description_edit_success_did_you_know">¿Sabías qué…?</string>
   <string name="description_edit_success_article_edit_hint">También puedes editar artículos dentro de esta aplicación. Intenta corregir errores y pequeñas frases haciendo clic en el icono ^1 la próxima vez</string>
   <string name="description_edit_tutorial_title_descriptions">Descripciones de artículos</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Resume un artículo para ayudar a los lectores a comprender el tema de un vistazo</string>
