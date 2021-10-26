@@ -15,7 +15,6 @@ import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
-import org.wikipedia.util.StringUtil
 import java.util.*
 
 /** Shared preferences utility for convenient POJO access.  */
@@ -493,15 +492,11 @@ object Prefs {
         set(sessionId) = PrefsIoUtil.setString(R.string.preference_key_event_platform_session_id, sessionId)
 
     var notificationsFilterLanguageCodes
-        get() = PrefsIoUtil.getString(R.string.preference_key_languages_filter_notification, null)
-        set(languages) = PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, languages)
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_languages_filter_notification, null))
 
-    fun addOrRemoveNotificationWiki(lang: String, toAdd: Boolean) {
-        val notificationWikisList = mutableListOf<String>()
-        notificationWikisList.addAll(StringUtil.csvToList(notificationsFilterLanguageCodes.orEmpty()))
-        if (toAdd) notificationWikisList.add(lang) else notificationWikisList.remove(lang)
-        notificationsFilterLanguageCodes = StringUtil.listToCsv(notificationWikisList)
-    }
+        set(filters) {
+            PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, JsonUtil.encodeToString(filters))
+        }
 
     var streamConfigs
         get() = JsonUtil.decodeFromString<Map<String, StreamConfig>>(PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, null))

@@ -18,7 +18,6 @@ import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.ActivityNotificationsFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
 
 class NotificationsFilterActivity : BaseActivity() {
@@ -98,14 +97,14 @@ class NotificationsFilterActivity : BaseActivity() {
 
         init {
             if (Prefs.notificationsFilterLanguageCodes == null) addAllWikiAndTypeFilters()
-            else filteredWikisList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()))
+            else filteredWikisList.addAll(Prefs.notificationsFilterLanguageCodes.orEmpty())
         }
 
         private fun addAllWikiAndTypeFilters() {
-            val allWikiAndTypeList = mutableListOf<String>()
+            val allWikiAndTypeList = mutableSetOf<String>()
             allWikiAndTypeList.addAll(allWikisList())
             allWikiAndTypeList.addAll(allTypesIdList())
-            Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(allWikiAndTypeList)
+            Prefs.notificationsFilterLanguageCodes = allWikiAndTypeList
             filteredWikisList.clear()
             filteredWikisList.addAll(allWikiAndTypeList)
         }
@@ -154,7 +153,7 @@ class NotificationsFilterActivity : BaseActivity() {
                     filteredWikisList.add(langCode)
                 }
             }
-            Prefs.notificationsFilterLanguageCodes = StringUtil.listToCsv(filteredWikisList)
+            Prefs.notificationsFilterLanguageCodes = filteredWikisList.toSet()
             NotificationPreferencesFunnel(app).logNotificationFilterPrefs()
             notifyDataSetChanged()
         }
@@ -162,7 +161,7 @@ class NotificationsFilterActivity : BaseActivity() {
 
     class Filter constructor(val filterCode: String, val imageRes: Int? = null) {
         fun isEnabled(): Boolean {
-            val list = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+            val list = Prefs.notificationsFilterLanguageCodes.orEmpty()
 
             if (filterCode == app.getString(R.string.notifications_all_types_text)) {
                 return list.containsAll(allTypesIdList())

@@ -74,7 +74,7 @@ class SearchAndFilterActionProvider(context: Context,
 
     fun updateFilterIconAndText() {
         val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-        val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+        val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().filter { it.isNotEmpty() }.size
         val enabledFilters = (fullWikiAndTypeListSize - delimitedFiltersSizeString)
         if (enabledFilters == 0 || Prefs.notificationsFilterLanguageCodes == null) {
             binding.notificationFilterCount.visibility = View.GONE

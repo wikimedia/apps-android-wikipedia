@@ -214,7 +214,7 @@ class NotificationActivity : BaseActivity() {
         if (Prefs.notificationsFilterLanguageCodes == null || allWikisSelected()) {
             filteredWikiList.addAll(dbNameMap.keys.map { it.replace("-", "_") })
         } else {
-            val wikiTypeList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+            val wikiTypeList = Prefs.notificationsFilterLanguageCodes.orEmpty()
             wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
                 val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
                 filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
@@ -303,7 +303,7 @@ class NotificationActivity : BaseActivity() {
                 continue
             }
             val filterList = mutableListOf<String>()
-            filterList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).filter { NotificationCategory.isFiltersGroup(it) })
+            filterList.addAll(Prefs.notificationsFilterLanguageCodes.orEmpty().filter { NotificationCategory.isFiltersGroup(it) })
             if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
         }
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
@@ -327,7 +327,7 @@ class NotificationActivity : BaseActivity() {
 
     private fun enabledFiltersCount(): Int {
         val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().filter { it.isNotEmpty() }.size
         return fullWikiAndTypeListSize - filtersSize
     }
 
@@ -614,7 +614,7 @@ class NotificationActivity : BaseActivity() {
 
         private fun updateFilterIconAndCount() {
             val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-            val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+            val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().filter { it.isNotEmpty() }.size
             val enabledFilters = fullWikiAndTypeListSize - delimitedFiltersSizeString
             if (enabledFilters == 0 || Prefs.notificationsFilterLanguageCodes == null) {
                 notificationFilterCountView.visibility = View.GONE
