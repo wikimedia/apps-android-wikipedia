@@ -1,32 +1,29 @@
 package org.wikipedia.dataclient.wikidata
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 import org.wikipedia.dataclient.mwapi.MwResponse
 
 @Serializable
 class Entities : MwResponse() {
 
-    val entities: Map<String, Entity> = emptyMap()
+    var entities: Map<String, Entity> = emptyMap()
+        private set
     val first: Entity?
-        get() = if (entities.isEmpty()) null else entities.values.iterator().next()
+        get() = if (entities.isEmpty()) null else entities.values.first()
 
     init {
-        if (first?.isMissing == true) {
-            throw RuntimeException("The requested entity was not found.")
-        }
+        entities = entities.filter { it.key != "-1" && it.value.missing == null }
     }
 
     @Serializable
     class Entity {
 
-        private val id: String = ""
+        val id: String = ""
         val labels: Map<String, Label> = emptyMap()
         val descriptions: Map<String, Label> = emptyMap()
         val sitelinks: Map<String, SiteLink> = emptyMap()
-        @SerialName("missing")
-        val isMissing: Boolean? = null
-            get() = "-1" == id && field != null
+        val missing: JsonElement? = null
         val lastRevId: Long = 0
     }
 

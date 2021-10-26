@@ -8,6 +8,7 @@ import android.graphics.*
 import android.net.Uri
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.app.NotificationCompat
 import androidx.core.app.RemoteInput
 import androidx.core.content.ContextCompat
@@ -16,6 +17,7 @@ import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
@@ -56,8 +58,10 @@ object NotificationPresenter {
             }
         }
 
+        val themedContext = ContextThemeWrapper(context, WikipediaApp.getInstance().currentTheme.resourceId)
+
         showNotification(context, builder, id, n.agent?.name ?: wikiSiteName, title, title, lang,
-                notificationCategory.iconResId, ResourceUtil.getThemedAttributeId(context, notificationCategory.iconColor), activityIntent)
+                notificationCategory.iconResId, ResourceUtil.getThemedAttributeId(themedContext, notificationCategory.iconColor), activityIntent)
     }
 
     fun showMultipleUnread(context: Context, unreadCount: Int) {
