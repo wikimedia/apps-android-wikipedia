@@ -493,7 +493,7 @@ class NotificationActivity : BaseActivity() {
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
                         binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    appLangCodesContains(langCode) -> {
+                    WikipediaApp.getInstance().language().appLanguageCodes.contains(langCode) -> {
                         binding.notificationWikiCode.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.visibility = View.GONE
                         binding.notificationWikiCodeContainer.isVisible = true
@@ -540,15 +540,6 @@ class NotificationActivity : BaseActivity() {
             binding.notificationOverflowMenu.setOnClickListener {
                 showOverflowMenu(it)
             }
-        }
-
-        private fun appLangCodesContains(langCode: String): Boolean {
-            WikipediaApp.getInstance().language().appLanguageCodes.forEach{
-                if (WikipediaApp.getInstance().language().getDefaultLanguageCode(it) == langCode) {
-                    return true
-                }
-            }
-            return false
         }
 
         override fun onClick(v: View) {
