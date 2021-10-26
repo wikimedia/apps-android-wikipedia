@@ -498,18 +498,6 @@ object Prefs {
             PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, JsonUtil.encodeToString(filters))
         }
 
-    fun removeFromNotificationsFilterLanguageCodes(filters: Set<String>) {
-        val notificationFilters = notificationsFilterLanguageCodes.orEmpty().toMutableSet()
-        filters?.let { notificationFilters.removeAll(it) }
-        PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, JsonUtil.encodeToString(notificationFilters))
-    }
-
-    fun addToNotificationsFilterLanguageCodes(filter: String) {
-        val notificationFilters = notificationsFilterLanguageCodes.orEmpty().toMutableSet()
-        notificationFilters.add(filter)
-        PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, JsonUtil.encodeToString(notificationFilters))
-    }
-
     var streamConfigs
         get() = JsonUtil.decodeFromString<Map<String, StreamConfig>>(PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, null))
             ?: emptyMap()
