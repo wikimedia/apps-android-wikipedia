@@ -88,6 +88,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         setUpInitialUI()
         setUpListeners()
         getWatchedStatus()
@@ -163,10 +164,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    isWatched = it.query?.firstPage()?.isWatched ?: false
+                    isWatched = it.query?.firstPage()?.watched ?: false
                     hasWatchlistExpiry = it.query?.firstPage()?.hasWatchlistExpiry() ?: false
                     updateWatchlistButtonUI()
-                }) { setErrorState(it!!) })
+                }) { setErrorState(it) })
     }
 
     private fun fetchEditDetails() {
@@ -191,7 +192,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     } else {
                         binding.progressBar.visibility = INVISIBLE
                     }
-                }) { setErrorState(it!!) })
+                }) { setErrorState(it) })
     }
 
     private fun hideOrShowViews(isLoading: Boolean) {
@@ -273,7 +274,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                         updateWatchlistButtonUI()
                     }
                 }) {
-                    setErrorState(it!!)
+                    setErrorState(it)
                     binding.watchButton.isCheckable = true
                 })
     }
@@ -347,7 +348,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(),
                             R.attr.material_theme_de_emphasised_color))
                     binding.thankButton.isClickable = false
-                }) { setErrorState(it!!) })
+                }) { setErrorState(it) })
     }
 
     private fun fetchDiffText() {
@@ -363,7 +364,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     binding.diffCharacterCountView.visibility = VISIBLE
                     binding.progressBar.visibility = INVISIBLE
                 }) {
-                    setErrorState(it!!)
+                    setErrorState(it)
                 })
     }
 
@@ -438,11 +439,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         return indices
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {

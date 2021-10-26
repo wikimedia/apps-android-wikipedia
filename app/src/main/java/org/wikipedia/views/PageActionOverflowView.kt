@@ -46,7 +46,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         popupWindowHost?.let {
             it.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             PopupWindowCompat.setOverlapAnchor(it, true)
-            PopupWindowCompat.showAsDropDown(it, anchorView, 0, 0, Gravity.END)
+            it.showAsDropDown(anchorView, 0, 0, Gravity.END)
         }
         binding.overflowForward.visibility = if (currentTab.canGoForward()) VISIBLE else GONE
         binding.overflowWatchlist.setText(if (isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
