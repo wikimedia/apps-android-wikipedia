@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
-import androidx.appcompat.view.ActionMode
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -176,7 +175,7 @@ class LanguagesListActivity : BaseActivity() {
                 // Add the language to notifications preferences in order to receive notifications from that language wiki
                 val notificationFilters = Prefs.notificationsFilterLanguageCodes.orEmpty().toMutableSet()
                 notificationFilters.add(lang)
-                Prefs.notificationsFilterLanguageCodes=notificationFilters.toSet()
+                Prefs.notificationsFilterLanguageCodes = notificationFilters.toSet()
                 finish()
             }
         }

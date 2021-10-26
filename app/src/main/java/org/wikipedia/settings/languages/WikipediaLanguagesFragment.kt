@@ -8,7 +8,6 @@ import android.view.*
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -303,7 +302,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
         // Remove the language from notifications preferences in order to stop receiving notifications from that language wiki
         val notificationFilters = Prefs.notificationsFilterLanguageCodes.orEmpty().toMutableSet()
         notificationFilters.removeAll(selectedCodes)
-        Prefs.notificationsFilterLanguageCodes=notificationFilters.toSet()
+        Prefs.notificationsFilterLanguageCodes = notificationFilters.toSet()
         interactionsCount++
         prepareWikipediaLanguagesList()
         unselectAllLanguages()
