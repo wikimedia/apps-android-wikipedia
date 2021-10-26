@@ -543,7 +543,7 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun appLangCodesContains(langCode: String): Boolean {
-            WikipediaApp.getInstance().language().appLanguageCodes.forEach{
+            WikipediaApp.getInstance().language().appLanguageCodes.forEach {
                 if (WikipediaApp.getInstance().language().getDefaultLanguageCode(it) == langCode) {
                     return true
                 }
