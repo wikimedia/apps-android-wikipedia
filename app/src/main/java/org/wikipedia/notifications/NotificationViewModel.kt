@@ -10,11 +10,15 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.NotificationInteractionFunnel
+import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
+import java.util.*
 
 class NotificationViewModel : ViewModel() {
 
@@ -27,6 +31,7 @@ class NotificationViewModel : ViewModel() {
     private var selectedFilterTab: Int = 0
     private var currentContinueStr: String? = null
     private var currentSearchQuery: String? = null
+    private var filteredWikiList = emptyList<String>()
     var mentionsUnreadCount: Int = 0
     var allUnreadCount: Int = 0
 
@@ -34,6 +39,7 @@ class NotificationViewModel : ViewModel() {
     val uiState: StateFlow<UiState> = _uiState
 
     init {
+        filteredWikiList = delimitedFilteredWikiList()
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
@@ -70,7 +76,7 @@ class NotificationViewModel : ViewModel() {
         val notificationContainerList = mutableListOf<NotificationListItemContainer>()
 
         // Save into display list
-        for (n in filteredList.filter { delimitedFilteredWikiList().contains(it.wiki) }) {
+        for (n in filteredList.filter { filteredWikiList.contains(it.wiki) }) {
             val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
             val searchQuery = currentSearchQuery
             if (!searchQuery.isNullOrEmpty() &&
@@ -87,16 +93,21 @@ class NotificationViewModel : ViewModel() {
         return notificationContainerList
     }
 
-    // TODO: save as a variable and not run this every time when fetching API.
+    private fun allWikiList(): List<String> {
+        val wikiList = mutableListOf<String>()
+        WikipediaApp.getInstance().language().appLanguageCodes.forEach {
+            val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+            wikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+        }
+        wikiList.add("commonswiki")
+        wikiList.add("wikidatawiki")
+        return wikiList
+    }
+
     private fun delimitedFilteredWikiList(): List<String> {
         val filteredWikiList = mutableListOf<String>()
         if (Prefs.notificationsFilterLanguageCodes == null) {
-            WikipediaApp.getInstance().language().appLanguageCodes.forEach {
-                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
-                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
-            }
-            filteredWikiList.add("commonswiki")
-            filteredWikiList.add("wikidatawiki")
+            filteredWikiList.addAll(allWikiList())
         } else {
             val wikiTypeList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
             wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
@@ -110,12 +121,17 @@ class NotificationViewModel : ViewModel() {
         return filteredWikiList
     }
 
+    fun enabledFiltersCount(): Int {
+        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
+        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
+        return fullWikiAndTypeListSize - filtersSize
+    }
+
     fun fetchAndSave() {
         viewModelScope.launch(handler) {
             // TODO: skip the loading?
             withContext(Dispatchers.IO) {
-                // TODO: fetch all notifications from all wiki sites
-                currentContinueStr = notificationRepository.fetchAndSave(delimitedFilteredWikiList().joinToString("|"), "read|!read", currentContinueStr)
+                currentContinueStr = notificationRepository.fetchAndSave(allWikiList().joinToString("|"), "read|!read", currentContinueStr)
             }
             // TODO: revisit this
             collectAllNotifications()
@@ -127,6 +143,40 @@ class NotificationViewModel : ViewModel() {
         viewModelScope.launch(handler) {
             collectAllNotifications()
         }
+    }
+
+    fun updateFilteredWikiList() {
+        filteredWikiList = delimitedFilteredWikiList()
+    }
+
+    fun markItemsAsRead(items: List<NotificationListItemContainer>, markUnread: Boolean) {
+        val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
+        val selectionKey = if (items.size > 1) Random().nextLong() else null
+        for (item in items) {
+            val notification = item.notification!!
+            val wiki = dbNameMap.getOrElse(notification.wiki) {
+                when (notification.wiki) {
+                    "commonswiki" -> WikiSite(Service.COMMONS_URL)
+                    "wikidatawiki" -> WikiSite(Service.WIKIDATA_URL)
+                    else -> {
+                        val langCode = notification.wiki.replace("wiki", "").replace("_", "-")
+                        WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
+                    }
+                }
+            }
+            notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
+            if (!markUnread) {
+                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
+                NotificationInteractionEvent.logMarkRead(notification, selectionKey)
+            }
+        }
+
+        for (wiki in notificationsPerWiki.keys) {
+            NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, markUnread)
+        }
+        // manually mark items in read state
+        notificationList.filter { n -> items.map { container -> container.notification?.id }
+            .firstOrNull { it == n.id } != null }.map { it.read = if (markUnread) null else Date().toString() }
     }
 
     sealed class UiState {

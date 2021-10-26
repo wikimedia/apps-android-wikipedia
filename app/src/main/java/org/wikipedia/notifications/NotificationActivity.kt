@@ -35,10 +35,8 @@ import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.notifications.db.Notification
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
@@ -249,8 +247,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
-            binding.notificationsEmptyContainer.visibility = if (actionMode == null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyContainer.visibility = if (enabledFiltersCount() != 0) View.VISIBLE else View.GONE
+            binding.notificationsEmptyContainer.visibility = if (actionMode == null && viewModel.enabledFiltersCount() == 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = if (viewModel.enabledFiltersCount() != 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
@@ -267,14 +265,8 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun enabledFiltersCount(): Int {
-        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
-        return fullWikiAndTypeListSize - filtersSize
-    }
-
     private fun getSpannedEmptySearchMessage(): Spannable {
-        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, enabledFiltersCount(), enabledFiltersCount())
+        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, viewModel.enabledFiltersCount(), viewModel.enabledFiltersCount())
         val emptySearchMessage = getString(R.string.notifications_empty_search_message, filtersStr)
         val spannable = SpannableString(emptySearchMessage)
         val prefixStringLength = 13
@@ -283,48 +275,18 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false, position: Int? = null) {
-        val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
-        val selectionKey = if (items.size > 1) Random().nextLong() else null
-        for (item in items) {
-            val notification = item.notification!!
-            val wiki = dbNameMap.getOrElse(notification.wiki) {
-                when (notification.wiki) {
-                    "commonswiki" -> WikiSite(Service.COMMONS_URL)
-                    "wikidatawiki" -> WikiSite(Service.WIKIDATA_URL)
-                    else -> {
-                        val langCode = notification.wiki.replace("wiki", "").replace("_", "-")
-                        WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
-                    }
-                }
-            }
-            notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
-            if (!markUnread) {
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
-                NotificationInteractionEvent.logMarkRead(notification, selectionKey)
-            }
-        }
 
-        for (wiki in notificationsPerWiki.keys) {
-            NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, markUnread)
-        }
+        viewModel.markItemsAsRead(items, markUnread)
 
         if (!fromUndoOrClick) {
-            showMarkReadItemsUndoSnackbar(items, markUnread)
+            val snackbarStringRes = if (markUnread) R.string.notifications_mark_all_as_unread_message else R.string.notifications_mark_all_as_read_message
+            val snackbar = FeedbackUtil.makeSnackbar(this, getString(snackbarStringRes, items.size), FeedbackUtil.LENGTH_DEFAULT)
+            snackbar.setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread, true) }
+            snackbar.show()
         }
-
-        // manually mark items in read state
-//        notificationList.filter { n -> items.map { container -> container.notification?.id }
-//            .firstOrNull { it == n.id } != null }.map { it.read = if (markUnread) null else Date().toString() }
 
         finishActionMode()
         postprocessAndDisplay(position)
-    }
-
-    private fun showMarkReadItemsUndoSnackbar(items: List<NotificationListItemContainer>, markUnread: Boolean) {
-        val snackbarStringRes = if (markUnread) R.string.notifications_mark_all_as_unread_message else R.string.notifications_mark_all_as_read_message
-        val snackbar = FeedbackUtil.makeSnackbar(this, getString(snackbarStringRes, items.size), FeedbackUtil.LENGTH_DEFAULT)
-        snackbar.setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread, true) }
-        snackbar.show()
     }
 
     private fun finishActionMode() {
