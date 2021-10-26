@@ -40,6 +40,7 @@
   <string name="offline_load_error_retry">Ҡабатлау</string>
   <string name="page_error_back_to_main">Кире ҡайтырға</string>
   <string name="error_back">Кире ҡайтырға</string>
+  <string name="error_next">Артабан</string>
   <string name="menu_clear_all_history">Тарихты юйыу</string>
   <string name="history_item_deleted">\"%s\" мәҡәләһе ҡарау тарихынан юйылған</string>
   <string name="history_items_deleted">%d мәҡәлә ҡарау тарихынан юйылған</string>
@@ -48,6 +49,7 @@
   <string name="app_settings">Ҡушымта көйләүҙәре</string>
   <string name="search_tab_tooltip">Эҙләү һорауын яҙа башлау өсөн тағы бер тапҡып тамғаға баҫығыҙ.</string>
   <string name="history_list_title">Тарих</string>
+  <string name="image_content_description">Рәсем: %s</string>
   <string name="dialog_title_clear_history">Тарихты таҙартырға</string>
   <string name="dialog_message_clear_history">Ҡараған биттәр тарихы һәм ҡушымталар юйыласаҡ. Дауам итергәме?</string>
   <string name="dialog_message_clear_history_yes">Эйе</string>
@@ -158,7 +160,7 @@
   <string name="create_account_passwords_mismatch_error">Серһүҙ тура килмәй</string>
   <string name="create_account_email_error">Электрон почта адресы дөрөҫ түгел</string>
   <string name="create_account_username_error">Ҡатнашыусы исемендә дөрөҫ булмаған символдар</string>
-  <string name="create_account_password_error" fuzzy="true">Серһүҙ дөрөҫ түгел.</string>
+  <string name="create_account_password_error">Пароль 8 символдан кәм булмаҫҡа тейеш</string>
   <string name="create_account_generic_error">Иҫәп яҙмаһын булдырып булмай</string>
   <string name="create_account_next">Артабан</string>
   <string name="email_recommendation_dialog_title">Электрон почтаһыҙ иҫәп яҙмаһы булдырағыҙмы?</string>
@@ -172,6 +174,7 @@
   <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Википедия:Блокировкалар</string>
   <string name="create_account_ip_block_details">Ентеклерәк</string>
   <string name="preferences_general_heading">Дөйөм</string>
+  <string name="preferences_account_heading">Иҫәп яҙыуы</string>
   <string name="wikipedia_app_faq">Википедия ҡушымтаһы буйынса йыш бирелгән һорауҙар</string>
   <string name="send_feedback">Ҡушымта тураһында баһалама ебәрергә</string>
   <string name="create_account_account_created_toast">Иҫәп яҙмаһы  булдырылды!</string>
@@ -180,6 +183,7 @@
   <string name="preferences_heading_experimental">Эксперименталь</string>
   <string name="preference_title_sync_reading_lists_from_account">Уҡыу исемлектәрен синхронизациялау</string>
   <string name="preference_title_download_reading_list_articles">Уҡыу исемлектәренән мәҡәләләп йөкләү</string>
+  <string name="preference_summary_sync_reading_lists">Уҡыу исемлектәрен ҡулайламалар аша Википедия аккаунтына һаҡлап синхронлаштыра</string>
   <string name="preferences_privacy_settings_heading">Сер һаҡлау</string>
   <string name="preference_title_eventlogging_opt_in">Файҙаланыу тураһында отчет ебәреү</string>
   <string name="preference_summary_eventlogging_opt_in">Викимедиаға һеҙҙең ҡушымтаны нисек файҙаланыуығыҙ тураһында мәғлүмәт бирергә рөхсәт итеү. Был уны тағы ла яҡшыраҡ итергә мөмкинселек бирәсәк</string>

@@ -37,6 +37,7 @@
   <string name="app_settings">Приложене оттамаш</string>
   <string name="search_tab_tooltip">Юха а тоӀабе иконка тӀа, хье лаха лаьрхӀа волаш дола хӀама Ӏочуязде дӀаволалургволаш.</string>
   <string name="history_list_title">Тархьар</string>
+  <string name="image_content_description">Сурт: %s</string>
   <string name="dialog_title_clear_history">ЦIенде хьалха даь хьажараш</string>
   <string name="dialog_message_clear_history">Iа хьалха хьа мел йийла хинна оагIонаш дIяргья исторе чура, еррига вкладкаш а дIакъовлалургья. ДIахо дIаяхийтта вай?</string>
   <string name="dialog_message_clear_history_yes">XӀаъу</string>
