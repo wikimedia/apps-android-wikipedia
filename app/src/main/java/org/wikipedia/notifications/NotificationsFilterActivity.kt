@@ -101,10 +101,10 @@ class NotificationsFilterActivity : BaseActivity() {
         }
 
         private fun addAllWikiAndTypeFilters() {
-            val allWikiAndTypeList = mutableListOf<String>()
+            val allWikiAndTypeList = mutableSetOf<String>()
             allWikiAndTypeList.addAll(allWikisList())
             allWikiAndTypeList.addAll(allTypesIdList())
-            Prefs.notificationsFilterLanguageCodes = allWikiAndTypeList.toSet()
+            Prefs.notificationsFilterLanguageCodes = allWikiAndTypeList
             filteredWikisList.clear()
             filteredWikisList.addAll(allWikiAndTypeList)
         }

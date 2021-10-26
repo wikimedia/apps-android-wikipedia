@@ -498,16 +498,16 @@ object Prefs {
             PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, JsonUtil.encodeToString(filters))
         }
 
-    fun removeFromNotificationsFilterLanguageCodes(filters: Set<String>?) {
-        val announcementIds = notificationsFilterLanguageCodes.orEmpty().toMutableSet()
-        filters?.let { announcementIds.removeAll(it) }
-        PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, JsonUtil.encodeToString(announcementIds))
+    fun removeFromNotificationsFilterLanguageCodes(filters: Set<String>) {
+        val notificationFilters = notificationsFilterLanguageCodes.orEmpty().toMutableSet()
+        filters?.let { notificationFilters.removeAll(it) }
+        PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, JsonUtil.encodeToString(notificationFilters))
     }
 
     fun addToNotificationsFilterLanguageCodes(filter: String) {
-        val announcementIds = notificationsFilterLanguageCodes.orEmpty().toMutableSet()
-        announcementIds.add(filter)
-        PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, JsonUtil.encodeToString(announcementIds))
+        val notificationFilters = notificationsFilterLanguageCodes.orEmpty().toMutableSet()
+        notificationFilters.add(filter)
+        PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, JsonUtil.encodeToString(notificationFilters))
     }
 
     var streamConfigs
