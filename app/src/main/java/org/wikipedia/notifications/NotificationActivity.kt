@@ -258,6 +258,8 @@ class NotificationActivity : BaseActivity() {
                 notificationList.add(n)
             }
         }
+
+        L.d("onNotificationsComplete " + notificationList.size)
         postprocessAndDisplay()
     }
 
@@ -304,7 +306,9 @@ class NotificationActivity : BaseActivity() {
             }
             val filterList = mutableListOf<String>()
             filterList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).filter { NotificationCategory.isFiltersGroup(it) })
-            if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
+            if (filterList.find { n.category.startsWith(it) } != null || Prefs.notificationsFilterLanguageCodes == null) {
+                notificationContainerList.add(NotificationListItemContainer(n))
+            }
         }
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
