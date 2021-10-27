@@ -164,10 +164,19 @@ class NotificationActivity : BaseActivity() {
                 true
             }
             R.id.menu_notifications_prefs -> {
-                startActivity(NotificationSettingsActivity.newIntent(this))
+                // TODO: replace when using the ViewModel
+                startActivityForResult(NotificationSettingsActivity.newIntent(this), NOTIFICATION_ACTIVITY_INTENT)
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    // TODO: remove it when using the ViewModel
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == NOTIFICATION_ACTIVITY_INTENT) {
+            beginUpdateList()
         }
     }
 
@@ -280,7 +289,9 @@ class NotificationActivity : BaseActivity() {
         binding.notificationTabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
 
         val selectedFilterTab = binding.notificationTabLayout.selectedTabPosition
-        val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
+        val filteredList = notificationList
+            .filter { if (Prefs.hideReadNotificationsEnabled) it.isUnread else true }
+            .filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         for (n in filteredList) {
             val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
@@ -598,7 +609,8 @@ class NotificationActivity : BaseActivity() {
 
             notificationFilterButton.setOnClickListener {
                 funnel.logFilterClick()
-                startActivity(NotificationsFilterActivity.newIntent(it.context))
+                // TODO: replace when using the ViewModel
+                startActivityForResult(NotificationsFilterActivity.newIntent(it.context), NOTIFICATION_ACTIVITY_INTENT)
             }
 
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
@@ -761,6 +773,7 @@ class NotificationActivity : BaseActivity() {
     }
 
     companion object {
+        const val NOTIFICATION_ACTIVITY_INTENT = 1
         fun newIntent(context: Context): Intent {
             return Intent(context, NotificationActivity::class.java)
         }
