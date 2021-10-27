@@ -259,7 +259,6 @@ class NotificationActivity : BaseActivity() {
             }
         }
 
-        L.d("onNotificationsComplete " + notificationList.size)
         postprocessAndDisplay()
     }
 
