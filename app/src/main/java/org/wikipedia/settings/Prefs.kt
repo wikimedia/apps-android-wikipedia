@@ -518,4 +518,7 @@ object Prefs {
 
     val talkPageSurveyOverride
         get() = PrefsIoUtil.getBoolean(R.string.preference_developer_override_talk_page_survey, false)
+
+    val hideReadNotificationsEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notification_hide_read, false)
 }
