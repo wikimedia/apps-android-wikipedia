@@ -181,6 +181,7 @@
   <string name="page_protected_can_not_edit_anon">სანარღოთ, ასეშო თე ხასჷლაშ ანონიმურო რედაქტირაფა ვეშილებე.</string>
   <string name="page_protected_can_not_edit_title">თე ხასჷლა თხილერი რე</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">კონტროლიშ ერკებულშა გეძინა</string>
+  <string name="page_notification_tooltip">თქვანი გინაფეფი ასე ათაქ რე.</string>
   <string name="settings_item_preferences">კონფიგურაცია</string>
   <string name="settings_activity_title">კონფიგურაცია</string>
   <string name="about_description">ვიკიპედიაშ აპლიკაციაშ გეშა</string>

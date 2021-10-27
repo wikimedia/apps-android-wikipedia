@@ -21,11 +21,11 @@ import java.util.*
 @Entity
 class HistoryEntry(
     val authority: String = "",
-    val lang: String,
-    val apiTitle: String,
-    val displayTitle: String,
+    val lang: String = "",
+    val apiTitle: String = "",
+    val displayTitle: String = "",
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val namespace: String,
+    val namespace: String = "",
     @Serializable(with = DateSerializer::class) var timestamp: Date = Date(),
     var source: Int = SOURCE_INTERNAL_LINK,
     var timeSpentSec: Int = 0,
