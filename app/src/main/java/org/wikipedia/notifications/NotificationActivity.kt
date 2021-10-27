@@ -115,7 +115,8 @@ class NotificationActivity : BaseActivity() {
         })
 
         binding.notificationsSearchEmptyContainer.setOnClickListener {
-            startActivity(NotificationsFilterActivity.newIntent(it.context))
+            // TODO: remove when using ViewModel
+            startActivityForResult(NotificationsFilterActivity.newIntent(it.context), NOTIFICATION_ACTIVITY_INTENT)
         }
 
         Prefs.notificationUnreadCount = 0
