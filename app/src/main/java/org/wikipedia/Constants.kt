@@ -26,7 +26,7 @@ object Constants {
     const val ACTIVITY_REQUEST_VOICE_SEARCH = 45
     const val ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION = 44
     const val ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY = 68
-    
+
     const val API_QUERY_MAX_TITLES = 50
 
     const val INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading"
