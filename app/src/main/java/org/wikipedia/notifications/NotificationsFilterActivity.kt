@@ -96,15 +96,15 @@ class NotificationsFilterActivity : BaseActivity() {
         private var filteredWikisList = mutableListOf<String>()
 
         init {
-            if (Prefs.notificationsFilterLanguageCodes == null) addAllWikiAndTypeFilters()
-            else filteredWikisList.addAll(Prefs.notificationsFilterLanguageCodes.orEmpty())
+            if (Prefs.notificationFilterCodes == null) addAllWikiAndTypeFilters()
+            else filteredWikisList.addAll(Prefs.notificationFilterCodes.orEmpty())
         }
 
         private fun addAllWikiAndTypeFilters() {
             val allWikiAndTypeList = mutableSetOf<String>()
             allWikiAndTypeList.addAll(allWikisList())
             allWikiAndTypeList.addAll(allTypesIdList())
-            Prefs.notificationsFilterLanguageCodes = allWikiAndTypeList
+            Prefs.notificationFilterCodes = allWikiAndTypeList
             filteredWikisList.clear()
             filteredWikisList.addAll(allWikiAndTypeList)
         }
@@ -153,7 +153,7 @@ class NotificationsFilterActivity : BaseActivity() {
                     filteredWikisList.add(langCode)
                 }
             }
-            Prefs.notificationsFilterLanguageCodes = filteredWikisList.toSet()
+            Prefs.notificationFilterCodes = filteredWikisList.toSet()
             NotificationPreferencesFunnel(app).logNotificationFilterPrefs()
             notifyDataSetChanged()
         }
@@ -161,7 +161,7 @@ class NotificationsFilterActivity : BaseActivity() {
 
     class Filter constructor(val filterCode: String, val imageRes: Int? = null) {
         fun isEnabled(): Boolean {
-            val list = Prefs.notificationsFilterLanguageCodes.orEmpty()
+            val list = Prefs.notificationFilterCodes.orEmpty()
 
             if (filterCode == app.getString(R.string.notifications_all_types_text)) {
                 return list.containsAll(allTypesIdList())

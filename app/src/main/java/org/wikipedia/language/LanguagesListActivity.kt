@@ -174,9 +174,9 @@ class LanguagesListActivity : BaseActivity() {
                 returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
                 setResult(RESULT_OK, returnIntent)
                 // Add the language to notifications preferences in order to receive notifications from that language wiki
-                val notificationFilters = Prefs.notificationsFilterLanguageCodes.orEmpty().toMutableSet()
+                val notificationFilters = Prefs.notificationFilterCodes.orEmpty().toMutableSet()
                 notificationFilters.add(lang)
-                Prefs.notificationsFilterLanguageCodes = notificationFilters.toSet()
+                Prefs.notificationFilterCodes = notificationFilters.toSet()
                 finish()
             }
         }

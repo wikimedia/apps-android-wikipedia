@@ -211,10 +211,10 @@ class NotificationActivity : BaseActivity() {
 
     private fun delimitedFilteredWikiList(): String {
         val filteredWikiList = mutableListOf<String>()
-        if (Prefs.notificationsFilterLanguageCodes == null || allWikisSelected()) {
+        if (Prefs.notificationFilterCodes == null || allWikisSelected()) {
             filteredWikiList.addAll(dbNameMap.keys.map { it.replace("-", "_") })
         } else {
-            val wikiTypeList = Prefs.notificationsFilterLanguageCodes.orEmpty()
+            val wikiTypeList = Prefs.notificationFilterCodes.orEmpty()
             wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
                 val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
                 filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
@@ -227,7 +227,7 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun allWikisSelected(): Boolean {
-        return !NotificationsFilterActivity.allWikisList().any { !Prefs.notificationsFilterLanguageCodes.orEmpty().contains(it) }
+        return !NotificationsFilterActivity.allWikisList().any { !Prefs.notificationFilterCodes.orEmpty().contains(it) }
     }
 
     private fun setErrorState(t: Throwable) {
@@ -303,8 +303,8 @@ class NotificationActivity : BaseActivity() {
                 continue
             }
             val filterList = mutableListOf<String>()
-            filterList.addAll(Prefs.notificationsFilterLanguageCodes.orEmpty().filter { NotificationCategory.isFiltersGroup(it) })
-            if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
+            filterList.addAll(Prefs.notificationFilterCodes.orEmpty().filter { NotificationCategory.isFiltersGroup(it) })
+            if (filterList.contains(n.category) || Prefs.notificationFilterCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
         }
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
@@ -327,7 +327,7 @@ class NotificationActivity : BaseActivity() {
 
     private fun enabledFiltersCount(): Int {
         val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().filter { it.isNotEmpty() }.size
+        val filtersSize = Prefs.notificationFilterCodes.orEmpty().filter { it.isNotEmpty() }.size
         return fullWikiAndTypeListSize - filtersSize
     }
 
@@ -614,9 +614,9 @@ class NotificationActivity : BaseActivity() {
 
         private fun updateFilterIconAndCount() {
             val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-            val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().filter { it.isNotEmpty() }.size
+            val delimitedFiltersSizeString = Prefs.notificationFilterCodes.orEmpty().filter { it.isNotEmpty() }.size
             val enabledFilters = fullWikiAndTypeListSize - delimitedFiltersSizeString
-            if (enabledFilters == 0 || Prefs.notificationsFilterLanguageCodes == null) {
+            if (enabledFilters == 0 || Prefs.notificationFilterCodes == null) {
                 notificationFilterCountView.visibility = View.GONE
                 notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.chip_text_color))
             } else {

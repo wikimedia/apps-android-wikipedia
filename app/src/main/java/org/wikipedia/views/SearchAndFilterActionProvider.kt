@@ -74,9 +74,9 @@ class SearchAndFilterActionProvider(context: Context,
 
     fun updateFilterIconAndText() {
         val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-        val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().filter { it.isNotEmpty() }.size
+        val delimitedFiltersSizeString = Prefs.notificationFilterCodes.orEmpty().filter { it.isNotEmpty() }.size
         val enabledFilters = (fullWikiAndTypeListSize - delimitedFiltersSizeString)
-        if (enabledFilters == 0 || Prefs.notificationsFilterLanguageCodes == null) {
+        if (enabledFilters == 0 || Prefs.notificationFilterCodes == null) {
             binding.notificationFilterCount.visibility = View.GONE
             binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
         } else {
