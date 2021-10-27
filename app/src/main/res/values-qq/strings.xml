@@ -606,6 +606,12 @@
   <string name="notification_preferences_title">Title of activity where the notification preferences are managed.</string>
   <string name="notifications_mark_unread">Menu label for marking the selected notifications as unread.</string>
   <string name="notifications_mark_all_as_read">Menu label for marking all notifications as read.</string>
+  <string name="notifications_direct_reply_action">Button label for creating a direct reply to a message.</string>
+  <string name="notifications_direct_reply_progress">Label for message indicating that a reply is being posted. The %s symbol is replaced with the username to whom the reply is made.</string>
+  <string name="notifications_direct_reply_success">Message shown when a reply was posted successfully.</string>
+  <string name="notifications_direct_reply_error">Message shown when there was an error while posting a reply.</string>
+  <string name="notifications_mark_all_as_read_message">Message shown when notifications are marked as read. The %d is replaced with the number of notifications.</string>
+  <string name="notifications_mark_all_as_unread_message">Message shown when notifications are marked as unread. The %d is replaced with the number of notifications.</string>
   <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>
   <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.\n\n{{doc-important|\"Poll\" is a verb here. This is about the polling of notifications, not about notifications of polls.}}</string>
   <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
@@ -638,6 +644,18 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Description for the Wikipedia notifications group.</string>
   <string name="notifications_channel_group_other_title">Title for the other notifications group.</string>
   <string name="notifications_channel_group_other_description">Description for the other notifications group.</string>
+  <string name="notifications_tab_filter_all">Label for the tab button in the notification screen that shows all types of notification.</string>
+  <string name="notifications_tab_filter_mentions">Label for the tab button in the notification screen that shows mention types of notification.</string>
+  <string name="notifications_tab_filter_unread">Additional text for the tab button label in the notification screen that indicates how many unread notifications are in this type of notification. %s will be replaced by the unread number.</string>
+  <string name="notifications_search_bar_hint">Hint text for the notifications search bar.</string>
+  <string name="notifications_search_bar_filter_hint">Hint text for the notifications filter icon.</string>
+  <string name="notifications_menu_mark_as_read">Menu item used for marking selected items as read.</string>
+  <string name="notifications_menu_mark_as_unread">Menu item used for marking selected items as unread.</string>
+  <string name="notifications_swipe_action_read">Text for swipe action on notifications list item to mark it as read.</string>
+  <string name="notifications_swipe_action_unread">Text for swipe action on notifications list item to mark it as unread.</string>
+  <string name="notifications_menu_check_all">Menu item used for selecting all items in the list.</string>
+  <string name="notifications_menu_uncheck_all">Menu item used for unselecting all items in the list.</string>
+  <string name="notifications_menu_user_talk_page">Menu item used for heading to the user\'s talk page. %s will be replaced by the user name.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
@@ -1050,4 +1068,18 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
+  <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
+  <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters string.</string>
+  <string name="notifications_filter_label">Label text for filter notifications activity.</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
+    <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
+  </plurals>
+  <string name="wikimedia_commons">Label text for Wikimedia Commons.</string>
+  <string name="wikidata">Label text for Wikidata.</string>
+  <string name="notifications_select_all_filters">Menu item label for selecting all notification filters at once.</string>
+  <string name="notifications_wiki_filter_header">Header text for notification wikis filters</string>
+  <string name="notifications_type_filter_header">Header text for notification types filters</string>
+  <string name="notifications_all_wikis_text">Label text for button to enable all wikis for notifications.</string>
+  <string name="notifications_all_types_text">Label text for button to enable all types for notifications.</string>
 </resources>

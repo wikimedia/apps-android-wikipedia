@@ -34,6 +34,8 @@
     <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
     <string name="history_list_title">History</string>
     <string name="image_content_description">Image: %s</string>
+    <string name="wikimedia_commons">Wikimedia Commons</string>
+    <string name="wikidata">Wikidata</string>
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
@@ -600,6 +602,12 @@
     <string name="notification_preferences_title">Notification preferences</string>
     <string name="notifications_mark_unread">Mark as unread</string>
     <string name="notifications_mark_all_as_read">Mark all as read</string>
+    <string name="notifications_direct_reply_action">Reply</string>
+    <string name="notifications_direct_reply_progress">Posting reply to %s…</string>
+    <string name="notifications_direct_reply_success">Reply posted successfully.</string>
+    <string name="notifications_direct_reply_error">Could not post reply automatically.</string>
+    <string name="notifications_mark_all_as_read_message">%d marked as read</string>
+    <string name="notifications_mark_all_as_unread_message">%d marked as unread</string>
     <string name="watchlist_title">Watchlist</string>
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
@@ -632,6 +640,30 @@
     <string name="notifications_channel_group_wikipedia_notifications_description">Notifications from Wikipedia</string>
     <string name="notifications_channel_group_other_title">Other</string>
     <string name="notifications_channel_group_other_description">Other notifications from the app</string>
+    <string name="notifications_filter_label">Filter notifications</string>
+    <string name="notifications_filter_icon_content_description">Filter notifications</string>
+    <string name="notifications_empty_search_message">Try removing %s to see more notifications</string>
+    <plurals name="notifications_number_of_filters">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filters</item>
+    </plurals>
+    <string name="notifications_select_all_filters">Select all filters</string>
+    <string name="notifications_tab_filter_all">All</string>
+    <string name="notifications_tab_filter_mentions">Mentions</string>
+    <string name="notifications_tab_filter_unread">(%s)</string>
+    <string name="notifications_search_bar_hint">Search or filter notifications</string>
+    <string name="notifications_search_bar_filter_hint">Notification filter</string>
+    <string name="notifications_menu_mark_as_read">Mark as read</string>
+    <string name="notifications_menu_mark_as_unread">Mark as unread</string>
+    <string name="notifications_swipe_action_read">Read</string>
+    <string name="notifications_swipe_action_unread">Unread</string>
+    <string name="notifications_menu_check_all">Check all items</string>
+    <string name="notifications_menu_uncheck_all">Uncheck all items</string>
+    <string name="notifications_wiki_filter_header">Wiki filter</string>
+    <string name="notifications_type_filter_header">Type filter</string>
+    <string name="notifications_all_wikis_text">All \"wiki\"</string>
+    <string name="notifications_all_types_text">All \"type\"</string>
+    <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->

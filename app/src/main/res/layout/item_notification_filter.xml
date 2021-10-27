@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="@dimen/list_item_default_height"
+    tools:layout_width="match_parent"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <TextView
+        android:id="@+id/notification_filter_language_code"
+        style="@style/TextViewCentered"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/lang_button_shape_border"
+        android:fontFamily="sans-serif-medium"
+        android:textAllCaps="true"
+        android:textColor="?attr/secondary_text_color" />
+
+    <ImageView
+        android:id="@+id/notification_filter_wiki_logo"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="24dp"
+        android:contentDescription="@null"
+        android:scaleType="center"
+        android:layout_gravity="center_vertical"
+        app:tint="?attr/material_theme_de_emphasised_color" />
+
+    <TextView
+        android:id="@+id/notification_filter_title"
+        style="@style/MaterialListTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:paddingStart="14dp"
+        android:paddingEnd="8dp"
+        tools:text="Lorem ipsum" />
+
+    <ImageView
+        android:id="@+id/notification_filter_check"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="14dp"
+        android:contentDescription="@null"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_check_borderless"
+        app:tint="?attr/colorAccent" />
+
+</merge>
