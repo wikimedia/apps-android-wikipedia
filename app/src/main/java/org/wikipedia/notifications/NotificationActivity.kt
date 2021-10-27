@@ -28,6 +28,7 @@ import com.google.android.material.tabs.TabLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -484,13 +485,13 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationSource.layoutParams = params
 
                 when {
-                    wikiCode.contains("wikidata") -> {
+                    wikiCode.contains(Constants.WIKI_CODE_WIKIDATA) -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
                         binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    wikiCode.contains("commons") -> {
+                    wikiCode.contains(Constants.WIKI_CODE_COMMONS) -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
