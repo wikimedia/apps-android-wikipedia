@@ -325,19 +325,6 @@ class NotificationActivity : BaseActivity() {
         } else {
             binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
         }
-
-        invalidateOptionsMenu()
-        if (position != null) {
-            binding.notificationsRecyclerView.adapter?.notifyItemChanged(position)
-        } else {
-            binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
-        }
-    }
-
-    private fun enabledFiltersCount(): Int {
-        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
-        return fullWikiAndTypeListSize - filtersSize
     }
 
     private fun excludedFiltersCount(): Int {
