@@ -20,7 +20,6 @@ import org.wikipedia.databinding.ActivityLanguagesListBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.log.L
@@ -173,10 +172,6 @@ class LanguagesListActivity : BaseActivity() {
                 returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, interactionsCount)
                 returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
                 setResult(RESULT_OK, returnIntent)
-                // Add the language to notifications preferences in order to receive notifications from that language wiki
-                val notificationFilters = Prefs.notificationFilterCodes.orEmpty().toMutableSet()
-                notificationFilters.add(lang)
-                Prefs.notificationFilterCodes = notificationFilters.toSet()
                 finish()
             }
         }

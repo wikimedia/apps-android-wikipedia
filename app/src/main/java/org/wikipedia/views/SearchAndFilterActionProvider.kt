@@ -13,7 +13,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.ViewSearchAndFilterBinding
 import org.wikipedia.notifications.NotificationsFilterActivity
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -25,6 +24,7 @@ class SearchAndFilterActionProvider(context: Context,
     interface Callback {
         fun onQueryTextChange(s: String)
         fun onQueryTextFocusChange()
+        fun getExcludedFilterCount(): Int
     }
 
     private val binding = ViewSearchAndFilterBinding.inflate(LayoutInflater.from(context))
@@ -73,10 +73,8 @@ class SearchAndFilterActionProvider(context: Context,
     }
 
     fun updateFilterIconAndText() {
-        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-        val delimitedFiltersSizeString = Prefs.notificationFilterCodes.orEmpty().filter { it.isNotEmpty() }.size
-        val enabledFilters = (fullWikiAndTypeListSize - delimitedFiltersSizeString)
-        if (enabledFilters == 0 || Prefs.notificationFilterCodes == null) {
+        val enabledFilters = callback.getExcludedFilterCount()
+        if (enabledFilters == 0) {
             binding.notificationFilterCount.visibility = View.GONE
             binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
         } else {

@@ -491,12 +491,15 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_session_id, null)
         set(sessionId) = PrefsIoUtil.setString(R.string.preference_key_event_platform_session_id, sessionId)
 
-    var notificationFilterCodes
-        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_languages_filter_notification, null))
+    var notificationExcludedWikiCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_wiki_codes_notification, null))
+            ?: emptySet()
+        set(wikis) = PrefsIoUtil.setString(R.string.preference_key_excluded_wiki_codes_notification, JsonUtil.encodeToString(wikis))
 
-        set(filters) {
-            PrefsIoUtil.setString(R.string.preference_key_languages_filter_notification, JsonUtil.encodeToString(filters))
-        }
+    var notificationExcludedTypeCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_type_codes_notification, null))
+            ?: emptySet()
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_excluded_type_codes_notification, JsonUtil.encodeToString(types))
 
     var streamConfigs
         get() = JsonUtil.decodeFromString<Map<String, StreamConfig>>(PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, null))

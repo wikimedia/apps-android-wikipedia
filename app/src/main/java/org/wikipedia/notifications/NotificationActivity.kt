@@ -124,8 +124,8 @@ class NotificationActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        beginUpdateList()
         actionMode?.let {
+            beginUpdateList()
             if (SearchActionModeCallback.`is`(it)) {
                 searchActionModeCallback.refreshProvider()
             }
@@ -210,24 +210,14 @@ class NotificationActivity : BaseActivity() {
         }
 
     private fun delimitedFilteredWikiList(): String {
-        val filteredWikiList = mutableListOf<String>()
-        if (Prefs.notificationFilterCodes == null || allWikisSelected()) {
-            filteredWikiList.addAll(dbNameMap.keys.map { it.replace("-", "_") })
-        } else {
-            val wikiTypeList = Prefs.notificationFilterCodes.orEmpty()
-            wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
-                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
-                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val filteredWikiList =
+            NotificationsFilterActivity.allWikisList().filterNot { excludedWikiCodes.contains(it) }.map {
+                val defaultLangCode =
+                    WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+                "${defaultLangCode.replace("-", "_")}wiki"
             }
-            wikiTypeList.filter { it == "commons" || it == "wikidata" }.forEach { langCode ->
-                filteredWikiList.add("${langCode}wiki")
-            }
-        }
         return filteredWikiList.joinToString("|")
-    }
-
-    private fun allWikisSelected(): Boolean {
-        return !NotificationsFilterActivity.allWikisList().any { !Prefs.notificationFilterCodes.orEmpty().contains(it) }
     }
 
     private fun setErrorState(t: Throwable) {
@@ -302,13 +292,14 @@ class NotificationActivity : BaseActivity() {
                         (linkText?.contains(searchQuery, true) == true))) {
                 continue
             }
-            val filterList = mutableListOf<String>()
-            filterList.addAll(Prefs.notificationFilterCodes.orEmpty().filter { NotificationCategory.isFiltersGroup(it) })
-            if (filterList.contains(n.category) || Prefs.notificationFilterCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
+            val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
+            if (excludedTypeCodes.find { n.category.startsWith(it) } == null) {
+                notificationContainerList.add(NotificationListItemContainer(n))
+            }
         }
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
-            binding.notificationsEmptyContainer.visibility = if (actionMode == null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyContainer.visibility = if (enabledFiltersCount() != 0) View.VISIBLE else View.GONE
+            binding.notificationsEmptyContainer.visibility = if (actionMode == null && excludedFiltersCount() == 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = if (excludedFiltersCount() != 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
@@ -325,14 +316,15 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun enabledFiltersCount(): Int {
-        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-        val filtersSize = Prefs.notificationFilterCodes.orEmpty().filter { it.isNotEmpty() }.size
-        return fullWikiAndTypeListSize - filtersSize
+    private fun excludedFiltersCount(): Int {
+        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
+        return NotificationsFilterActivity.allWikisList().count { excludedWikiCodes.contains(it) } +
+                NotificationsFilterActivity.allTypesIdList().count { excludedTypeCodes.contains(it) }
     }
 
     private fun getSpannedEmptySearchMessage(): Spannable {
-        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, enabledFiltersCount(), enabledFiltersCount())
+        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, excludedFiltersCount(), excludedFiltersCount())
         val emptySearchMessage = getString(R.string.notifications_empty_search_message, filtersStr)
         val spannable = SpannableString(emptySearchMessage)
         val prefixStringLength = 13
@@ -613,15 +605,13 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun updateFilterIconAndCount() {
-            val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-            val delimitedFiltersSizeString = Prefs.notificationFilterCodes.orEmpty().filter { it.isNotEmpty() }.size
-            val enabledFilters = fullWikiAndTypeListSize - delimitedFiltersSizeString
-            if (enabledFilters == 0 || Prefs.notificationFilterCodes == null) {
+            val excludedFilters = excludedFiltersCount()
+            if (excludedFilters == 0) {
                 notificationFilterCountView.visibility = View.GONE
                 notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.chip_text_color))
             } else {
                 notificationFilterCountView.visibility = View.VISIBLE
-                notificationFilterCountView.text = enabledFilters.toString()
+                notificationFilterCountView.text = excludedFilters.toString()
                 notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.colorAccent))
             }
         }
@@ -666,6 +656,10 @@ class NotificationActivity : BaseActivity() {
                     }
 
                     override fun onQueryTextFocusChange() {
+                    }
+
+                    override fun getExcludedFilterCount(): Int {
+                        return excludedFiltersCount()
                     }
                 })
 

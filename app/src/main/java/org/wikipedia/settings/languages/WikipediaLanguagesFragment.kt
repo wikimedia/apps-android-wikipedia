@@ -23,7 +23,6 @@ import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguagesListActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
-import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.MultiSelectActionModeCallback
@@ -300,10 +299,6 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
 
     private fun deleteSelectedLanguages() {
         app.language().removeAppLanguageCodes(selectedCodes)
-        // Remove the language from notifications preferences in order to stop receiving notifications from that language wiki
-        val notificationFilters = Prefs.notificationFilterCodes.orEmpty().toMutableSet()
-        notificationFilters.removeAll(selectedCodes)
-        Prefs.notificationFilterCodes = notificationFilters.toSet()
         interactionsCount++
         prepareWikipediaLanguagesList()
         unselectAllLanguages()

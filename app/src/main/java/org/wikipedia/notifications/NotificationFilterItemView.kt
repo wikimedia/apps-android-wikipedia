@@ -23,11 +23,11 @@ import org.wikipedia.views.ViewUtil
 class NotificationFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
-        fun onCheckedChanged(langCode: String)
+        fun onCheckedChanged(filter: Filter)
     }
 
     private var binding = ItemNotificationFilterBinding.inflate(LayoutInflater.from(context), this)
-    private var filter: Filter? = null
+    private lateinit var filter: Filter
     var callback: Callback? = null
 
     init {
@@ -37,19 +37,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
             foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         }
         setOnClickListener {
-            val filterTitleText = binding.notificationFilterTitle.text.toString()
-            NotificationCategory.findOrNull(filterTitleText)?.let {
-                callback?.onCheckedChanged(it.id)
-                return@setOnClickListener
-            } ?: run {
-                when (filterTitleText) {
-                    context.getString(R.string.notifications_all_wikis_text) -> callback?.onCheckedChanged(context.getString(R.string.notifications_all_wikis_text))
-                    context.getString(R.string.notifications_all_types_text) -> callback?.onCheckedChanged(context.getString(R.string.notifications_all_types_text))
-                    context.getString(R.string.wikimedia_commons) -> callback?.onCheckedChanged("commons")
-                    context.getString(R.string.wikidata) -> callback?.onCheckedChanged("wikidata")
-                    else -> callback?.onCheckedChanged(filter?.filterCode.toString())
-                }
-            }
+            callback?.onCheckedChanged(filter)
         }
     }
 

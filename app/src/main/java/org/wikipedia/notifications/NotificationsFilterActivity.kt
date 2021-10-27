@@ -61,16 +61,16 @@ class NotificationsFilterActivity : BaseActivity() {
     private fun filterListWithHeaders(): MutableList<Any> {
         val filterListWithHeaders = mutableListOf<Any>()
         filterListWithHeaders.add(getString(R.string.notifications_wiki_filter_header))
-        filterListWithHeaders.add(Filter(getString(R.string.notifications_all_wikis_text)))
+        filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, getString(R.string.notifications_all_wikis_text)))
         app.language().appLanguageCodes.forEach {
-            filterListWithHeaders.add(Filter(it, null))
+            filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it, null))
         }
-        filterListWithHeaders.add(Filter("commons", R.drawable.ic_commons_logo))
-        filterListWithHeaders.add(Filter("wikidata", R.drawable.ic_wikidata_logo))
+        filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, "commons", R.drawable.ic_commons_logo))
+        filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, "wikidata", R.drawable.ic_wikidata_logo))
         filterListWithHeaders.add(getString(R.string.notifications_type_filter_header))
-        filterListWithHeaders.add(Filter(getString(R.string.notifications_all_types_text)))
+        filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, getString(R.string.notifications_all_types_text)))
         NotificationCategory.FILTERS_GROUP.forEach {
-            filterListWithHeaders.add(Filter(it.id, it.iconResId))
+            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, it.iconResId))
         }
         return filterListWithHeaders
     }
@@ -93,21 +93,8 @@ class NotificationsFilterActivity : BaseActivity() {
 
     private inner class NotificationsFilterAdapter(val context: Context, private val filtersList: MutableList<Any>) :
         RecyclerView.Adapter<DefaultViewHolder<*>>(), NotificationFilterItemView.Callback {
-        private var filteredWikisList = mutableListOf<String>()
-
-        init {
-            if (Prefs.notificationFilterCodes == null) addAllWikiAndTypeFilters()
-            else filteredWikisList.addAll(Prefs.notificationFilterCodes.orEmpty())
-        }
-
-        private fun addAllWikiAndTypeFilters() {
-            val allWikiAndTypeList = mutableSetOf<String>()
-            allWikiAndTypeList.addAll(allWikisList())
-            allWikiAndTypeList.addAll(allTypesIdList())
-            Prefs.notificationFilterCodes = allWikiAndTypeList
-            filteredWikisList.clear()
-            filteredWikisList.addAll(allWikiAndTypeList)
-        }
+        private var excludedWikiCodes = Prefs.notificationExcludedWikiCodes.toMutableSet()
+        private var excludedTypeCodes = Prefs.notificationExcludedTypeCodes.toMutableSet()
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
             return if (type == VIEW_TYPE_HEADER) {
@@ -133,49 +120,58 @@ class NotificationsFilterActivity : BaseActivity() {
             else (holder as NotificationFilterItemViewHolder).bindItem(filtersList[position] as Filter)
         }
 
-        override fun onCheckedChanged(langCode: String) {
-            if (langCode == context.getString(R.string.notifications_all_types_text)) {
-                if (filteredWikisList.containsAll(allTypesIdList())) {
-                    filteredWikisList.removeAll(allTypesIdList())
-                } else {
-                    allTypesIdList().filter { !filteredWikisList.contains(it) }.forEach { typeId -> filteredWikisList.add(typeId) }
+        override fun onCheckedChanged(filter: Filter) {
+            when (filter.filterCode) {
+                context.getString(R.string.notifications_all_types_text) -> {
+                    if (excludedTypeCodes.isEmpty()) {
+                        excludedTypeCodes.addAll(allTypesIdList())
+                    } else {
+                        excludedTypeCodes.clear()
+                    }
                 }
-            } else if (langCode == context.getString(R.string.notifications_all_wikis_text)) {
-                if (filteredWikisList.containsAll(allWikisList())) {
-                    filteredWikisList.removeAll(allWikisList())
-                } else {
-                    allWikisList().filter { !filteredWikisList.contains(it) }.forEach { wiki -> filteredWikisList.add(wiki) }
+                context.getString(R.string.notifications_all_wikis_text) -> {
+                    if (excludedWikiCodes.isEmpty()) {
+                        excludedWikiCodes.addAll(allTypesIdList())
+                    } else {
+                        excludedWikiCodes.clear()
+                    }
                 }
-            } else {
-                if (filteredWikisList.contains(langCode)) {
-                    filteredWikisList.remove(langCode)
-                } else {
-                    filteredWikisList.add(langCode)
+                else -> {
+                    if (filter.type == FILTER_TYPE_WIKI) {
+                        if (excludedWikiCodes.contains(filter.filterCode)) excludedWikiCodes.remove(filter.filterCode)
+                        else excludedWikiCodes.add(filter.filterCode)
+                    } else if (filter.type == Companion.FILTER_TYPE_CATEGORY) {
+                        if (excludedTypeCodes.contains(filter.filterCode)) excludedTypeCodes.remove(filter.filterCode)
+                        else excludedTypeCodes.add(filter.filterCode)
+                    }
                 }
             }
-            Prefs.notificationFilterCodes = filteredWikisList.toSet()
+            Prefs.notificationExcludedWikiCodes = excludedWikiCodes
+            Prefs.notificationExcludedTypeCodes = excludedTypeCodes
             NotificationPreferencesFunnel(app).logNotificationFilterPrefs()
             notifyDataSetChanged()
         }
     }
 
-    class Filter constructor(val filterCode: String, val imageRes: Int? = null) {
+    class Filter constructor(val type: Int, val filterCode: String, val imageRes: Int? = null) {
         fun isEnabled(): Boolean {
-            val list = Prefs.notificationFilterCodes.orEmpty()
-
+            val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+            val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
             if (filterCode == app.getString(R.string.notifications_all_types_text)) {
-                return list.containsAll(allTypesIdList())
+                return allTypesIdList().find { excludedTypeCodes.contains(it) } == null
             }
             if (filterCode == app.getString(R.string.notifications_all_wikis_text)) {
-                return list.containsAll(allWikisList())
+                return allWikisList().find { excludedWikiCodes.contains(it) } == null
             }
-            return list.contains(filterCode)
+            return !excludedWikiCodes.contains(filterCode) && !excludedTypeCodes.contains(filterCode)
         }
     }
 
     companion object {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
+        private const val FILTER_TYPE_WIKI = 0
+        private const val FILTER_TYPE_CATEGORY = 1
         private var app = WikipediaApp.getInstance()
 
         fun allWikisList(): List<String> {
