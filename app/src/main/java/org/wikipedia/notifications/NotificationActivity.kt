@@ -275,7 +275,10 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false, position: Int? = null) {
-
+        if (!WikipediaApp.getInstance().isOnline) {
+            // TODO: maybe show unavailable message
+            return
+        }
         viewModel.markItemsAsRead(items, markUnread)
 
         if (!fromUndoOrClick) {

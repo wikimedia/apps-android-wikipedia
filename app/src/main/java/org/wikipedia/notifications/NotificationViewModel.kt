@@ -130,8 +130,10 @@ class NotificationViewModel : ViewModel() {
     fun fetchAndSave() {
         viewModelScope.launch(handler) {
             // TODO: skip the loading?
-            withContext(Dispatchers.IO) {
-                currentContinueStr = notificationRepository.fetchAndSave(allWikiList().joinToString("|"), "read|!read", currentContinueStr)
+            if (WikipediaApp.getInstance().isOnline) {
+                withContext(Dispatchers.IO) {
+                    currentContinueStr = notificationRepository.fetchAndSave(allWikiList().joinToString("|"), "read|!read", currentContinueStr)
+                }
             }
             // TODO: revisit this
             collectAllNotifications()
