@@ -24,7 +24,7 @@ import java.util.*
  */
 @Serializable
 @Parcelize
-class PageTitle(
+data class PageTitle(
     @SerialName("namespace") private var _namespace: String? = null,
     // TODO: remove this SerialName when Tab list is no longer serialized to shared prefs.
     @SerialName("site") var wikiSite: WikiSite,
@@ -57,6 +57,9 @@ class PageTitle(
 
     val isSpecial: Boolean
         get() = namespace().special()
+
+    val isUserPage: Boolean
+        get() = namespace().user()
 
     val isMainPage: Boolean
         get() {

@@ -47,10 +47,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
     private val disposables = CompositeDisposable()
 
     fun load(pushBackStack: Boolean) {
-        if (pushBackStack) {
+        if (pushBackStack && model.title != null && model.curEntry != null) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem()
-            currentTab.pushBackStackItem(PageBackStackItem(model.title, model.curEntry))
+            currentTab.pushBackStackItem(PageBackStackItem(model.title!!, model.curEntry!!))
         }
         pageLoadCheckReadingLists()
     }
@@ -62,12 +62,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
         val item = currentTab.backStack[currentTab.backStackPosition]
         // display the page based on the backstack item, stage the scrollY position based on
         // the backstack item.
-        item.title?.let { title ->
-            item.historyEntry?.let { entry ->
-                fragment.loadPage(title, entry, false, item.scrollY, isRefresh)
-                L.d("Loaded page " + item.title!!.displayText + " from backstack")
-            }
-        }
+        fragment.loadPage(item.title, item.historyEntry, false, item.scrollY, isRefresh)
+        L.d("Loaded page " + item.title.displayText + " from backstack")
     }
 
     fun updateCurrentBackStackItem() {
@@ -76,11 +72,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
         }
         val item = currentTab.backStack[currentTab.backStackPosition]
         item.scrollY = webView.scrollY
-        item.title?.apply {
-            model.title?.let {
-                this.description = it.description
-                this.thumbUrl = it.thumbUrl
-            }
+        model.title?.let {
+            item.title.description = it.description
+            item.title.thumbUrl = it.thumbUrl
         }
     }
 
@@ -130,13 +124,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
     private fun pageLoadCheckReadingLists() {
         model.title?.let {
             disposables.clear()
-            disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
+            disposables.add(Completable.fromAction { model.readingListPage = AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate { pageLoadFromNetwork { networkError -> fragment.onPageLoadError(networkError) } }
-                    .subscribe({ page -> model.readingListPage = page }
-                    ) { model.readingListPage = null }
-            )
+                    .doAfterTerminate { pageLoadFromNetwork { fragment.onPageLoadError(it) } }
+                    .subscribe())
         }
     }
 
@@ -176,8 +168,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     .subscribe({ pair ->
                         val pageSummaryResponse = pair.first
                         val watchedResponse = pair.second
-                        val isWatched = watchedResponse?.query?.firstPage()?.isWatched ?: false
-                        val hasWatchlistExpiry = watchedResponse?.query?.firstPage()?.hasWatchlistExpiry() ?: false
+                        val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
+                        val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
                         if (pageSummaryResponse.body() == null) {
                             throw RuntimeException("Summary response was invalid.")
                         }
@@ -193,9 +185,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                             checkAnonNotifications(title)
                         }
-                    }) { throwable ->
-                        L.e("Page details network response error: ", throwable)
-                        commonSectionFetchOnCatch(throwable)
+                    }) {
+                        L.e("Page details network response error: ", it)
+                        commonSectionFetchOnCatch(it)
                     }
             )
         }

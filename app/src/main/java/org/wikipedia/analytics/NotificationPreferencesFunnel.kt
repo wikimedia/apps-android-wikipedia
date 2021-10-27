@@ -7,6 +7,8 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.NotificationCategory
+import org.wikipedia.notifications.NotificationsFilterActivity
+import org.wikipedia.settings.Prefs
 
 class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
@@ -32,8 +34,27 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
         }
     }
 
+    fun logNotificationFilterPrefs() {
+        val fullFiltersList = mutableListOf<String>()
+        val toggleMap = HashMap<String, Boolean>()
+        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
+        fullFiltersList.addAll(NotificationsFilterActivity.allWikisList())
+        fullFiltersList.addAll(NotificationsFilterActivity.allTypesIdList())
+        fullFiltersList.forEach { toggleMap[it] = !excludedWikiCodes.contains(it) && !excludedTypeCodes.contains(it) }
+        log("type_toggles", JsonUtil.encodeToString(toggleMap))
+    }
+
+    fun logSearchClick() {
+        log("type_toggles", "search_clicked")
+    }
+
+    fun logFilterClick() {
+        log("type_toggles", "filter_clicked")
+    }
+
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppNotificationPreferences"
-        private const val REV_ID = 18325724
+        private const val REV_ID = 22083261
     }
 }

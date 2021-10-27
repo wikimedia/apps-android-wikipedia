@@ -55,9 +55,9 @@
   <string name="menu_page_remove_from_watchlist">نظر۾فھرست مان ڪڍو</string>
   <string name="edit_section_find_in_page">صفحي ۾ لھو</string>
   <string name="menu_page_font_and_theme">اکر ۽ نظارو</string>
-  <string name="menu_page_add_to_list">پڙھڻ جي فھرست ۾ وجھو</string>
+  <string name="menu_page_add_to_list">پڙھڻ جي فھرست ۾ شامل ڪريو</string>
   <string name="menu_page_add_to_default_list">سانڍيو</string>
-  <string name="feed_card_add_to_list">پڙھڻ جي فھرست ۾ وجھو</string>
+  <string name="feed_card_add_to_list">پڙھڻ جي فھرست ۾ شامل ڪريو</string>
   <string name="feed_card_add_to_default_list">سانڍيو</string>
   <string name="menu_page_share">ڳنڍڻو ونڊيو</string>
   <string name="menu_page_open_a_new_tab">نئين ٽيب کوليو</string>
@@ -153,7 +153,7 @@
   <string name="create_account_next">اڳيون</string>
   <string name="email_recommendation_dialog_title">بغير برقٽپال جي کاتو کوليون؟</string>
   <string name="email_recommendation_dialog_create_without_email_action">برقٽپال سواءِ جاري رکو</string>
-  <string name="email_recommendation_dialog_create_with_email_action">ڪو برقٽپال پتو وجھو</string>
+  <string name="email_recommendation_dialog_create_with_email_action">ڪو ايميل پتو ڏيو</string>
   <string name="create_account_button">کاتو کوليو</string>
   <string name="create_account_name_unavailable">واپرائيندڙ جو نالو \"%s\" موجود ناهي. مھرباني ڪري مختلف نالو چونڊيو.</string>
   <string name="create_account_ip_block_message">معاف ڪجو، اوهان جي آئپي تان نوان کاتا کولڻ تي بندش وڌل آهي.</string>
@@ -162,7 +162,7 @@
   <string name="preferences_general_heading">عام</string>
   <string name="preferences_account_heading">کاتو</string>
   <string name="wikipedia_app_faq">وڪيپيڊيا ايپ ڪپس</string>
-  <string name="send_feedback">ايپ جي پذيرائي موڪليو</string>
+  <string name="send_feedback">ايپ تي موٽ موڪليو</string>
   <string name="create_account_account_created_toast">کاتو کلي چڪو!</string>
   <string name="preferences_heading_data_usage">ڊيٽا کپت</string>
   <string name="preferences_heading_experimental">تجرباتي</string>
@@ -201,7 +201,7 @@
   <string name="about_translators_heading">ترجميڪارَ</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_app_license_heading">اجازتنامو</string>
-  <string name="about_app_license">ذريعي جو ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;جَيرٽ&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جِٽ-ھب&lt;/a&gt; &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;اپاچي 2.0 لائسنس ھيٺ موجود آھي&lt;/a&gt;. جيسيتائين ٻي صورت واضع نہ ڪئي وڃي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز ھڪجھڙي-ونڊ-انتساب لائسنس ھيٺ موجود آھي&lt;/a&gt;.</string>
+  <string name="about_app_license">ذريعي جو ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;جَيرٽ&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جِٽ-ھب&lt;/a&gt; &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;اپاچي 2.0 اجازتنامي ھيٺ موجود آھي&lt;/a&gt;. جيسيتائين ٻي صورت واضع نہ ڪئي وڃي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز ھڪجھڙي-ونڊ-انتساب اجازتنامي ھيٺ موجود آھي&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;وڪيميڊيا فائونڊيشن&lt;/a&gt; جي مصنوع</string>
   <string name="about_activity_title">بابت</string>
   <string name="edit_abandon_confirm">هيءُ صفحو بدلائجي چڪو آهي. توهان کي پڪ آهي تہ توهان تبديليون سانڍڻ کان سواءِ ڇڏي وڃڻ چاهيو ٿا؟</string>
@@ -273,8 +273,8 @@
   <string name="gallery_save_success">فائيل سانڍجي ويو.</string>
   <string name="gallery_error_video_failed">وڊيو هلائي نہ سگھيو.</string>
   <string name="gallery_save_image_write_permission_rationale">تصويرون سانڍڻ لاءِ توھان ڊوائيس جي سنڀار تي ڪم ڪرڻ جي اجازت گھربل آھي.</string>
-  <string name="gallery_add_image_caption_button">عڪس جو عنوان وجھو</string>
-  <string name="gallery_add_image_caption_in_language_button">عڪس جو عنوان وجھو (%s)</string>
+  <string name="gallery_add_image_caption_button">عڪس کي عنوان ڏيو</string>
+  <string name="gallery_add_image_caption_in_language_button">(%s) ۾ عڪس کي عنوان ڏيو</string>
   <string name="err_cannot_save_file">فائيل سانڍي نٿو سگھجي</string>
   <string name="expand_refs">وڏو ڪرڻ لاءِ ڪلڪ ڪريو</string>
   <string name="cc_logo">ڪريئيٽو ڪامنز اجازتنامو</string>
@@ -292,11 +292,11 @@
   <string name="unnamed_tab_closed">ٽيب بند ٿي وئي.</string>
   <string name="tab_item_closed">بند (%s)</string>
   <string name="all_tab_items_closed">سڀ ٽيب بند</string>
-  <string name="tool_tip_bookmark_icon_title">پڙھڻ جي فھرست ۾ وجھو</string>
+  <string name="tool_tip_bookmark_icon_title">پڙھڻ جي فھرست ۾ شامل ڪريو</string>
   <string name="tool_tip_bookmark_icon_text">مضمون کي ڪنھن پڙھڻ جي فھرست ۾ وجھڻ لاءِ ڪتاب-نشاني جي نشان کي ڇھو.</string>
   <string name="page_view_in_browser">صفحي کي جھانگُوءَ ۾ ڏسو</string>
   <string name="tool_tip_toc_title">عنوان جي فھرست تڪڙي رسائي</string>
-  <string name="tool_tip_lang_button">ھاڻي توھان ايپ ۾ وڪيپيڊيا جي گھڻين ئي ٻولين ۾ ڳولي ۽ پڙھي سگھو ٿا.\n\n\nوڌيڪ ٻوليون وجھڻ لاءِ آئڪن تي ڇھو.</string>
+  <string name="tool_tip_lang_button">ھاڻي توھان ايپ ۾ وڪيپيڊيا جي گهڻين ئي ٻولين ۾ ڳولي ۽ پڙھي سگهو ٿا.\n\n\nوڌيڪ ٻوليون وجهن لاءِ آئڪن کي ڇُھو.</string>
   <string name="error_response_malformed">سرور جي جواب کي درست نموني منھن نہ ڏنو ويو.</string>
   <string name="error_unknown">اڻجاتل چُڪَ واقع ٿي.</string>
   <string name="format_error_server_message">نياپو: %s</string>
@@ -306,7 +306,7 @@
   <string name="button_continue_to_talk_page">بحث صفحو کوليو</string>
   <string name="button_continue_to_disambiguation">ھڪجڙا صفحا ڏيکاريو</string>
   <string name="link_preview_disambiguation_description">ھي عنوان ھڪ کان وڌيڪ صفحن سان تعلق رکي ٿو:</string>
-  <string name="button_add_to_reading_list">پڙھڻ جي فھرست ۾ وجھو</string>
+  <string name="button_add_to_reading_list">پڙھڻ جي فھرست ۾ شامل ڪريو</string>
   <string name="page_offline_notice_cannot_load_while_offline">آفلائين ھجڻ وقت صفحو لاھي نٿو سگھجي.</string>
   <string name="page_offline_notice_add_to_reading_list">اشارو:ڪو بہ مضمون پنھنجي پڙھڻ جي فھرست ۾ شامل ڪريو ان کي لاٿو ويندو جڏھن توھان ٻيھر آنلائين ٿيندئو.</string>
   <string name="page_offline_notice_last_date">توھان %s تي سانڍيل ھن مضمون جو ھڪ آفلائين ورجاءُ پڙھي رھيا آھيو.</string>
@@ -378,12 +378,12 @@
   <string name="reading_list_create_new">نئين سرجيو</string>
   <string name="reading_list_title_exists">پڙھڻ جي فھرست \"%s\" اڳ ئي وجود رکي ٿي.</string>
   <string name="reading_list_article_added_to_named">%1$s کي %2$s ۾ وڌو</string>
-  <string name="reading_list_article_added_to_default_list">%s سانڍجي ويو. ڇا توھان ان کي ڪنھن فھرست ۾ وجهڻ چاھيو ٿا؟</string>
+  <string name="reading_list_article_added_to_default_list">%s سانڍجي ويو. ڇا توھان ان کي ڪنھن فھرست ۾ شامل ڪرڻ چاھيو ٿا؟</string>
   <string name="reading_list_article_moved_to_named">%1$s کي %2$s ڏانھن موڪليو</string>
   <string name="reading_list_article_already_exists_message">ڏاڍو سٺو! %1$s مضمون %2$s ۾ اڳ ئي آھي.</string>
   <string name="reading_list_articles_already_exist_message">ڏاڍو سٺو! %s ۾ اڳ ئي مضمون موجود آھن.</string>
   <string name="reading_list_added_view_button">فھرست ڏسو</string>
-  <string name="reading_list_add_to_list_button">فھرست ۾ وجهو</string>
+  <string name="reading_list_add_to_list_button">فھرست ۾ شامل ڪريو</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 مضمون، %2$.2f ايم بي</item>
     <item quantity="other">%1$d مضمونَ، %2$.2f اي بي</item>
@@ -410,7 +410,7 @@
   <string name="reading_list_action_menu_save_for_offline">آفلائين لاءِ سانڍيو</string>
   <string name="reading_list_action_menu_remove_all_from_offline">آفلائين مان سڀ ھٽايو</string>
   <string name="reading_list_action_menu_save_all_for_offline">آفلائين لاءِ سڀ سانڍيو</string>
-  <string name="reading_list_action_menu_add_to_another_list">ھڪ ٻي فھرست ۾ وجھو</string>
+  <string name="reading_list_action_menu_add_to_another_list">ٻي ڪنھن فھرست ۾ شامل ڪريو</string>
   <string name="reading_list_action_menu_move_to_another_list">ٻي ڪنھن فھرست ڏانھن موڪليو</string>
   <string name="reading_list_name_sample">منھنجي پڙھڻ جي فھرست</string>
   <string name="reading_list_name_hint">فھرست جو نالو</string>
@@ -426,11 +426,11 @@
   <string name="reading_list_item_delete_undo">اڻڪريو</string>
   <string name="reading_list_deleted">%s ڊاھيو ويو</string>
   <string name="saved_list_empty_title">اڃان ڪي بہ سانڍيل صفحا ڪونھن</string>
-  <string name="reading_lists_empty_message">مضمونن کي بعد ۾ پڙھڻ جي لاءِ ڪنھن پڙھڻ جي فھرست ۾ وجھو تہ، ڀلي جڏھن توھان آف لائين ھجو.</string>
+  <string name="reading_lists_empty_message">مضمونن کي بعد ۾ پڙھڻ جي لاءِ ڪنھن پڙھڻ جي فھرست ۾ شامل ڪريو، ڀلي جڏھن توھان آف لائين بہ ھجو.</string>
   <string name="reading_list_empty">ھن فھرست ۾ ڪي بہ مضمون وڌل ناھن.</string>
   <string name="reading_list_article_offline">آفلائين موجود</string>
   <string name="reading_list_article_make_offline">ھن مضمون کي آفلائين موجود ڪرايو</string>
-  <string name="reading_list_add_to_other_list">ھڪ ٻي پڙھڻ جي فھرست ۾ شامو ڪريو</string>
+  <string name="reading_list_add_to_other_list">ھڪ ٻي پڙھڻ جي فھرست ۾ شامل ڪريو</string>
   <string name="reading_list_move_to_other_list">ھڪ ٻي پڙھڻ جي فھرست ۾ شامل ڪريو</string>
   <string name="reading_list_move_from_to_other_list">%s کان ٻي ڪنھن پڙھڻ جي فھرست ڏانھن چوريو</string>
   <string name="reading_list_remove_from_list">%s مان ھٽايو</string>
@@ -587,13 +587,13 @@
   <string name="feed_configure_language_warning">ياد رھي تہ پتن جا سڀ قسم سڀني وڪيپيڊيا ٻولين ۾ موجود ناھن. پنھنجون چونڊيل ٻوليون ترتيبن ۾ سنواريو.</string>
   <string name="feed_item_type_news">ھاڻوڪن واقعن بابت مضمون</string>
   <string name="feed_item_type_on_this_day">ھن ڏينھن تي تاريخ ۾ واقعا</string>
-  <string name="feed_item_type_because_you_read">توھان جي سوانح مان تازيل پڙھيل مضمونن تي ٻڌل صلاحون</string>
+  <string name="feed_item_type_because_you_read">توھان جي سوانح مان تازيل پڙھيل مضمونن تي ٻڌل مشورا</string>
   <string name="feed_item_type_featured_article">وڪيپيڊيا تي روزانو چونڊيل مضمون</string>
   <string name="feed_item_type_trending">روزانو سڀ کان وڌيڪ ڏٺل مضمون</string>
   <string name="feed_item_type_featured_image">وڪيميڊيا العام مان روزانو نمايان ڪيل عڪس</string>
   <string name="feed_item_type_main_page">روزانو نمايان ڪيو ويندڙ مواد سان وڪيپيڊيا جو مک صفحو</string>
   <string name="feed_item_type_randomizer">پڙھن لاءِ بلاترتيب مضمون پيدا ڪريو</string>
-  <string name="feed_item_type_suggested_edits">وڪيپيڊيا ۾ مواد وجھڻ لاءِ صلاحون</string>
+  <string name="feed_item_type_suggested_edits">وڪيپيڊيا ۾ مواد وجهڻ لاءِ مشورا</string>
   <string name="feed_empty_message">توھان جي کوجنا رسد ۾ ڪاشيءِ ناھي</string>
   <string name="feed_configure_onboarding_action">پنھنجايو</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ٺيڪ</string>
@@ -614,10 +614,10 @@
   <string name="description_edit_translate_caption_hint_per_language">عڪس جو عنوان (%s)</string>
   <string name="description_edit_save">ڇاپيو</string>
   <string name="description_edit_read">پڙهو</string>
-  <string name="description_edit_add_description">مضمون جي تشريح وجھو</string>
+  <string name="description_edit_add_description">مضمون جي تشريح ڏيو</string>
   <string name="description_edit_translate_description">مضمون جي تشريح ترجمايو</string>
   <string name="description_edit_edit_description">مضمون جي تشريح سنواريو</string>
-  <string name="description_edit_add_image_caption">عڪس جو عنوان وجھو</string>
+  <string name="description_edit_add_image_caption">عڪس کي عنوان ڏيو</string>
   <string name="description_edit_edit_image_caption">عڪس جو عنوان سنواريو</string>
   <string name="description_edit_translate_image_caption">عڪس جو عنوان ترجمايو</string>
   <string name="description_edit_cancel_hint">رد</string>
@@ -637,7 +637,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">عڪس جو عنوان ڇپجي ويو!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">عڪس جو عنوان ڇپجي ويو! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">عڪس ٽيگ ڇپجي ويو/ويا!</string>
-  <string name="description_edit_success_se_general_feed_link_snackbar">ان کي پسند ڪيوَ؟ اسان کي وڌيڪ شامل ڪرڻ ۾ مدد ڪريو.</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">اھو پسند ڪيوَ؟ اسان جي وڌيڪ شامل ڪرڻ ۾ مدد ڪريو.</string>
   <string name="description_edit_success_encouragement">توھان وڪيپيڊيا کي ھر ڪنھن لاءِ بھتر بڻايو</string>
   <string name="description_edit_success_done">ٿي ويو</string>
   <string name="description_edit_success_did_you_know">ڇا توهان کي ڄاڻ هئي؟</string>
@@ -647,16 +647,16 @@
   <string name="description_edit_tutorial_keep_it_short">ان کي ننڍو رکو</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">خيالي ھڪ سٽ، ٻن کان ٻارھن اکرن جي وچ ۾</string>
   <string name="description_edit_tutorial_button_label_start_editing">سنوارڻ شروع ڪريو</string>
-  <string name="description_edit_tutorial_promise">شرپع ڪرڻ سان، مان واعدو ٿو ڪريان مان ھن خوبي جو غلط استعمال نہ ڪندس.</string>
+  <string name="description_edit_tutorial_promise">شروع ڪرڻ سان، مان واعدو ٿو ڪريان مان ھن خصوصيت جو غلط استعمال نہ ڪندس.</string>
   <string name="suggested_edits_describe_articles">مضمونن کي بيان ڪريو</string>
   <string name="suggested_edits_caption_images">عڪسن کي عنوان ڏيو</string>
   <string name="suggested_edits_tag_images">عڪسن کي ٽيگ ھڻو</string>
   <string name="suggested_edits_review_description">مضمون جي تشريح جو جائزو وٺو</string>
-  <string name="suggested_edits_add_description_button">تشريح وجھو</string>
+  <string name="suggested_edits_add_description_button">تشريح ڏيو</string>
   <string name="suggested_edits_edit_description_button">تشريح سنواريو</string>
-  <string name="suggested_edits_add_translation_button">ترجمو وجھو</string>
+  <string name="suggested_edits_add_translation_button">ترجمو ڏيو</string>
   <string name="suggested_edits_edit_translation_button">ترجمو سنواريو</string>
-  <string name="suggested_edits_add_caption_button">عنوان وجھو</string>
+  <string name="suggested_edits_add_caption_button">عنوان ڏيو</string>
   <string name="suggested_edits_edit_caption_button">عنوان سنواريو</string>
   <string name="suggested_edits_review_image_caption">عڪس جي عنوان جو جائزو وٺو</string>
   <string name="suggested_edits_my_contributions">منھنجون ڀاڱيداريون</string>
@@ -664,10 +664,10 @@
   <string name="suggested_edits_license_notice">تشريح وجھڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ ڏيڻ لاءِ راضي آھيان.</string>
   <string name="suggested_edits_image_caption_license_notice">عڪسن جا عنوان وجھڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; ۽ بغير رد ڪندي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيان.</string>
   <string name="suggested_edits_menu_info">ڄاڻ</string>
-  <string name="suggested_edits_task_add_description_title">مضمون جو تشريحون وجھو</string>
+  <string name="suggested_edits_task_add_description_title">مضمونن جون تشريحون ڏيو</string>
   <string name="suggested_edits_task_add_description_description">مضمونن ۾ بغير تشريحن جي ڀاڱيداري ڪريو</string>
-  <string name="suggested_edits_task_image_caption_title">عڪس جا عنوان وجھو</string>
-  <string name="suggested_edits_task_image_caption_description">عڪسن ۾ رھيل مختصر عنوان وجھو</string>
+  <string name="suggested_edits_task_image_caption_title">عڪسن کي عنوان ڏيو</string>
+  <string name="suggested_edits_task_image_caption_description">عڪسن جا کٽل مختصر عنوان ڏيو</string>
   <string name="suggested_edits_task_translate_caption_title">عڪس جا عنوان ترجمايو</string>
   <string name="suggested_edits_task_translate_caption_description">عنوانن کي ٻي ٻوليءَ ۾ ترجمايو</string>
   <string name="suggested_edits_task_multilingual_title">گهڻ-لساني سنواريندڙن لاءِ وڌيڪ ڪم</string>
@@ -675,7 +675,7 @@
   <string name="suggested_edits_task_image_caption_edit_disable_text">تيسيتائين تالو لڳل آھي جيستائين توھان %d عڪسن جا عنوان نٿا سنواري وٺو</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">تيسيتائين تالو لڳل آھي جيسيتائي %d مضمونن جو تشريحون نٿا سنواري وٺو (پڪ ڪيل)</string>
   <string name="suggested_edits_task_multilingual_negative">منھنجي لاءِ نہ</string>
-  <string name="suggested_edits_task_multilingual_positive">ٻوليون وجھو</string>
+  <string name="suggested_edits_task_multilingual_positive">ٻوليون شامل ڪريو</string>
   <string name="suggested_edits_image_caption_summary_title_image">عڪس</string>
   <string name="suggested_edits_image_caption_summary_title_artist">فنڪار</string>
   <string name="suggested_edits_image_caption_summary_title_author">مصنف</string>
@@ -687,8 +687,8 @@
     <item quantity="other">%d ڀاڱيداريون</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">صلاح-ڏنل سنوارون</string>
-  <string name="suggested_edits_feed_card_add_description_button">مضمون جي تشريح وجھو</string>
-  <string name="suggested_edits_feed_card_add_translation_in_language_button">مضمون جي تشريح وجھو (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">مضمون جي تشريح ڏيو</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">(%s) ۾ مضمون جي تشريح ڏيو</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع ڪريو</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">عڪس جو عنوان (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">عڪس</string>
@@ -702,15 +702,15 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">وڪيميڊيا العام تي فائيل صفحو</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">وڪيپيڊيا تي فائيل جو صفحو</string>
   <string name="suggested_edits_article_cta_image_tags">عڪس جا ٽيگ وجهو</string>
-  <string name="suggested_edits_article_cta_image_caption">عڪس جو عنوان وجھو</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">عڪس جو عنوان وجھو (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">عڪس کي عنوان ڏيو</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">(%s) ۾ عڪس کي عنوان ڏيو</string>
   <string name="suggested_edits_article_cta_snackbar_action">ڏسو</string>
-  <string name="suggested_edits_feed_card_add_image_caption">عڪس جو عنوان وجھو</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">عڪس جو عنوان وجھو (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">عڪس کي عنوان ڏيو</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">(%s) ۾ عڪس کي عنوان ڏيو</string>
   <string name="suggested_edits_feed_card_add_image_tags">عڪس جا ٽيڪ وجهو</string>
   <string name="suggested_edits_snackbar_survey_text">توھان جو سنوارڻ جو تجربو ڪيئن رھيو؟ مھرباني ڪري ھڪ گھڙي ڪڍي ايپ-۾ سنوارڻ بابت سروي ڀريو.</string>
   <string name="suggested_edits_snackbar_survey_action_text">سروي ڏيو</string>
-  <string name="suggested_edits_task_action_text_add">وجھو</string>
+  <string name="suggested_edits_task_action_text_add">وجهو</string>
   <string name="suggested_edits_task_action_text_translate">ترجمايو</string>
   <string name="suggested_edits_image_captions">عڪسن جا عنوان</string>
   <string name="suggested_edits_image_tags">عڪسن جا ٽيگ</string>
@@ -791,9 +791,9 @@
     <item quantity="other">%1$s حرفَ</item>
   </plurals>
   <string name="file_page_activity_title">فائيل صفحو</string>
-  <string name="file_page_add_image_caption_button">عڪس جو عنوان وجهو</string>
+  <string name="file_page_add_image_caption_button">عڪس کي عنوان ڏيو</string>
   <string name="file_page_add_image_tags_button">عڪس جا ٽيگ وجهو</string>
-  <string name="file_page_suggestion_reason">صلاح جو سبب</string>
+  <string name="file_page_suggestion_reason">مشوري جو سبب</string>
   <string name="description_edit_revert_subtitle">وڪيپيڊيا کي سنوارڻ لاءِ مھرباني!</string>
   <string name="description_edit_revert_intro">اسان ڄاڻون ٿا توھان ڀرپور ڪوشش ڪئي، پر ھڪ جائزيڪار کي ڪو شڪ آھي. توھان جي سنوار ورائي وڃڻ جي سببن ۾ شامل آھن:</string>
   <string name="description_edit_revert_reason1">توھان جي ڀاڱيداريءَ &lt;a href=\"%1$s\"&gt;ھدايتن&lt;/a&gt; مان ڪنھن ھڪ جي پيروي نہ ڪئي.</string>
@@ -813,7 +813,7 @@
   <string name="onboarding_analytics_switch_title">استعمال جي ڊيٽا موڪليو</string>
   <string name="onboarding_got_it">سمجھي ويئو</string>
   <string name="onboarding_multilingual_secondary_text">اسان توھان جي اوزار تي ھي لڌيون آھن:</string>
-  <string name="onboarding_multilingual_add_language_text">ٻوليون وجھو يا سنواريو</string>
+  <string name="onboarding_multilingual_add_language_text">ٻوليون شامل يا مرتب ڪريو</string>
   <string name="onboarding_welcome_title_v2">کليل ڄاڻ-چيڪلو\n...300 کان مٿي ٻولين ۾</string>
   <string name="app_shortcuts_random">بلاترتيب</string>
   <string name="app_shortcuts_continue_reading">پڙھڻ جاري رکو</string>
@@ -831,12 +831,12 @@
   </plurals>
   <string name="on_this_day_end_of_scroll_message">توھان وقت 🚀 ذريعي سفر ڪيو</string>
   <string name="on_this_day_back_to_future">مستقبل ڏانھن واپسي</string>
-  <string name="languages_list_activity_title">ڪا ٻولي وجھو</string>
+  <string name="languages_list_activity_title">ڪا ٻولي شامل ڪريو</string>
   <string name="languages_list_suggested_text">صلاح ڏنل</string>
   <string name="languages_list_all_text">سڀ ٻوليون</string>
   <string name="wikipedia_languages_title">وڪيپيڊيا ٻوليون</string>
   <string name="wikipedia_languages_your_languages_text">توھان جون ٻوليون</string>
-  <string name="wikipedia_languages_add_language_text">ٻولي وجھو</string>
+  <string name="wikipedia_languages_add_language_text">ٻولي شامل ڪريو</string>
   <string name="wikipedia_languages_remove_text">ٻولي هٽايو</string>
   <string name="wikipedia_languages_remove_action_mode_title">ٻولي ھٽايو</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
@@ -847,7 +847,7 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگھجن</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">گھٽ ۾ گھٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگھجي.</string>
   <string name="more_language_options">وڌيڪ</string>
-  <string name="add_wikipedia_languages_text">وڪيپيڊيا ٻوليون وجھو</string>
+  <string name="add_wikipedia_languages_text">وڪيپيڊيا ٻوليون شامل ڪريو</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">چيني ٻولي کي ايپ مان ختم ڪرڻ چاهيو ٿا؟</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ٻوليون سنواريو</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نہ مھرباني</string>
@@ -887,8 +887,8 @@
   <string name="talk_no_subject">(ڪو مضمون ناھي)</string>
   <string name="talk_reply_subject">مضمون</string>
   <string name="talk_reply_hint">جواب جوڙيو</string>
-  <string name="talk_message_hint">پيغام جوڙيو</string>
-  <string name="talk_message_empty">پيغام خالي نٿو ٿي سگهي.</string>
+  <string name="talk_message_hint">نياپو لکو</string>
+  <string name="talk_message_empty">نياپو خالي نٿو ٿي سگهي.</string>
   <string name="talk_subject_empty">موضوع خالي نٿو ٿي سگهي.</string>
   <string name="talk_response_submitted">ورندي پوسٽ ڪئي وئي.</string>
   <string name="talk_snackbar_undo">اڻڪريو</string>
