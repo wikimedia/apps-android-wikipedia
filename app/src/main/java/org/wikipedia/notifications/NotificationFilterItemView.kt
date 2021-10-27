@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemNotificationFilterBinding
@@ -23,11 +24,11 @@ import org.wikipedia.views.ViewUtil
 class NotificationFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
-        fun onCheckedChanged(langCode: String)
+        fun onCheckedChanged(filter: Filter)
     }
 
     private var binding = ItemNotificationFilterBinding.inflate(LayoutInflater.from(context), this)
-    private var filter: Filter? = null
+    private lateinit var filter: Filter
     var callback: Callback? = null
 
     init {
@@ -37,19 +38,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
             foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         }
         setOnClickListener {
-            val filterTitleText = binding.notificationFilterTitle.text.toString()
-            NotificationCategory.findOrNull(filterTitleText)?.let {
-                callback?.onCheckedChanged(it.id)
-                return@setOnClickListener
-            } ?: run {
-                when (filterTitleText) {
-                    context.getString(R.string.notifications_all_wikis_text) -> callback?.onCheckedChanged(context.getString(R.string.notifications_all_wikis_text))
-                    context.getString(R.string.notifications_all_types_text) -> callback?.onCheckedChanged(context.getString(R.string.notifications_all_types_text))
-                    context.getString(R.string.wikimedia_commons) -> callback?.onCheckedChanged("commons")
-                    context.getString(R.string.wikidata) -> callback?.onCheckedChanged("wikidata")
-                    else -> callback?.onCheckedChanged(filter?.filterCode.toString())
-                }
-            }
+            callback?.onCheckedChanged(filter)
         }
     }
 
@@ -81,8 +70,9 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     }
 
     private fun getTitleCodeFor(filterCode: String?): String? {
-        return if (filterCode == "commons" || filterCode == "wikidata" || filterCode == context.getString(R.string.notifications_all_wikis_text) ||
-            filterCode == context.getString(R.string.notifications_all_types_text) || NotificationCategory.isFiltersGroup(filterCode.orEmpty())) null
+        return if (filterCode == Constants.WIKI_CODE_COMMONS || filterCode == Constants.WIKI_CODE_WIKIDATA ||
+                filterCode == context.getString(R.string.notifications_all_wikis_text) ||
+                filterCode == context.getString(R.string.notifications_all_types_text) || NotificationCategory.isFiltersGroup(filterCode.orEmpty())) null
         else filterCode
     }
 
@@ -91,8 +81,8 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
             return context.getString(NotificationCategory.find(languageCode).title)
         }
         return when (languageCode) {
-            "commons" -> context.getString(R.string.wikimedia_commons)
-            "wikidata" -> context.getString(R.string.wikidata)
+            Constants.WIKI_CODE_COMMONS -> context.getString(R.string.wikimedia_commons)
+            Constants.WIKI_CODE_WIKIDATA -> context.getString(R.string.wikidata)
             context.getString(R.string.notifications_all_wikis_text) -> languageCode
             context.getString(R.string.notifications_all_types_text) -> languageCode
             else -> WikipediaApp.getInstance().language().getAppLanguageCanonicalName(languageCode).orEmpty()

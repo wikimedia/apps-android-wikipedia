@@ -17,7 +17,6 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.StringUtil
 import java.util.*
 
 class NotificationViewModel : ViewModel() {
@@ -71,12 +70,14 @@ class NotificationViewModel : ViewModel() {
         mentionsUnreadCount = list.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
 
         // Filtered the tab selection
-        val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
+        val filteredList = notificationList
+            .filter { if (Prefs.hideReadNotificationsEnabled) it.isUnread else true }
+            .filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         val notificationContainerList = mutableListOf<NotificationListItemContainer>()
 
         // Save into display list
-        for (n in filteredList.filter { filteredWikiList.contains(it.wiki) }) {
+        for (n in filteredList) {
             val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
             val searchQuery = currentSearchQuery
             if (!searchQuery.isNullOrEmpty() &&
@@ -86,9 +87,10 @@ class NotificationViewModel : ViewModel() {
                         (linkText?.contains(searchQuery, true) == true))) {
                 continue
             }
-            val filterList = mutableListOf<String>()
-            filterList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).filter { NotificationCategory.isFiltersGroup(it) })
-            if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
+            val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
+            if (excludedTypeCodes.find { n.category.startsWith(it) } == null) {
+                notificationContainerList.add(NotificationListItemContainer(n))
+            }
         }
         return notificationContainerList
     }
@@ -105,26 +107,21 @@ class NotificationViewModel : ViewModel() {
     }
 
     private fun delimitedFilteredWikiList(): List<String> {
-        val filteredWikiList = mutableListOf<String>()
-        if (Prefs.notificationsFilterLanguageCodes == null) {
-            filteredWikiList.addAll(allWikiList())
-        } else {
-            val wikiTypeList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
-            wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
-                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
-                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val filteredWikiList =
+            NotificationsFilterActivity.allWikisList().filterNot { excludedWikiCodes.contains(it) }.map {
+                val defaultLangCode =
+                    WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+                "${defaultLangCode.replace("-", "_")}wiki"
             }
-            wikiTypeList.filter { it == "commons" || it == "wikidata" }.forEach { langCode ->
-                filteredWikiList.add("${langCode}wiki")
-            }
-        }
         return filteredWikiList
     }
 
-    fun enabledFiltersCount(): Int {
-        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
-        return fullWikiAndTypeListSize - filtersSize
+    fun excludedFiltersCount(): Int {
+        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
+        return NotificationsFilterActivity.allWikisList().count { excludedWikiCodes.contains(it) } +
+                NotificationsFilterActivity.allTypesIdList().count { excludedTypeCodes.contains(it) }
     }
 
     fun fetchAndSave() {
