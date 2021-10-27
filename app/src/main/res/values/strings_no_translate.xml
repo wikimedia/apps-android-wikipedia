@@ -80,4 +80,8 @@
     <!-- Font family -->
     <string name="font_family_sans_serif">sans-serif</string>
     <string name="font_family_serif">serif</string>
+
+    <!-- Tag ids for SwipeableItemTouchHelper -->
+    <string name="tag_icon_key">tagIconKey</string>
+    <string name="tag_text_key">tagTextKey</string>
 </resources>

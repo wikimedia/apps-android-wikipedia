@@ -58,6 +58,9 @@ data class PageTitle(
     val isSpecial: Boolean
         get() = namespace().special()
 
+    val isUserPage: Boolean
+        get() = namespace().user()
+
     val isMainPage: Boolean
         get() {
             val mainPageTitle = SiteInfoClient.getMainPageForLang(wikiSite.languageCode)

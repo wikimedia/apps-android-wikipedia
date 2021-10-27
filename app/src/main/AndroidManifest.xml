@@ -232,9 +232,8 @@
 
         <activity
             android:name=".notifications.NotificationActivity"
-            android:label="@string/notifications_activity_title"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme.Notification" />
 
         <activity
             android:name=".page.tabs.TabActivity"
@@ -276,6 +275,12 @@
             android:name=".diff.ArticleEditDetailsActivity"
             android:label=""
             android:theme="@style/AppTheme.ActionBar"  />
+
+        <activity
+            android:name=".notifications.NotificationsFilterActivity"
+            android:label="@string/notifications_filter_label"
+            android:theme="@style/AppTheme.ActionBar"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
