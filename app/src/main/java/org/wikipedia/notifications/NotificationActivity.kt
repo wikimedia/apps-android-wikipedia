@@ -17,6 +17,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
@@ -27,6 +28,7 @@ import com.google.android.material.tabs.TabLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -124,7 +126,6 @@ class NotificationActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        beginUpdateList()
         actionMode?.let {
             if (SearchActionModeCallback.`is`(it)) {
                 searchActionModeCallback.refreshProvider()
@@ -164,10 +165,19 @@ class NotificationActivity : BaseActivity() {
                 true
             }
             R.id.menu_notifications_prefs -> {
-                startActivity(NotificationSettingsActivity.newIntent(this))
+                // TODO: replace when using the ViewModel
+                startActivityForResult(NotificationSettingsActivity.newIntent(this), NOTIFICATION_ACTIVITY_INTENT)
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    // TODO: remove it when using the ViewModel
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == NOTIFICATION_ACTIVITY_INTENT) {
+            beginUpdateList()
         }
     }
 
@@ -210,24 +220,13 @@ class NotificationActivity : BaseActivity() {
         }
 
     private fun delimitedFilteredWikiList(): String {
-        val filteredWikiList = mutableListOf<String>()
-        if (Prefs.notificationsFilterLanguageCodes == null) {
-            WikipediaApp.getInstance().language().appLanguageCodes.forEach {
-                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
-                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
+        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val filteredWikiList =
+            NotificationsFilterActivity.allWikisList().filterNot { excludedWikiCodes.contains(it) }.map {
+                val defaultLangCode =
+                    WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+                "${defaultLangCode.replace("-", "_")}wiki"
             }
-            filteredWikiList.add("commonswiki")
-            filteredWikiList.add("wikidatawiki")
-        } else {
-            val wikiTypeList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
-            wikiTypeList.filter { WikipediaApp.getInstance().language().appLanguageCodes.contains(it) }.forEach { langCode ->
-                val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
-                filteredWikiList.add("${defaultLangCode.replace("-", "_")}wiki")
-            }
-            wikiTypeList.filter { it == "commons" || it == "wikidata" }.forEach { langCode ->
-                filteredWikiList.add("${langCode}wiki")
-            }
-        }
         return filteredWikiList.joinToString("|")
     }
 
@@ -291,7 +290,9 @@ class NotificationActivity : BaseActivity() {
         binding.notificationTabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
 
         val selectedFilterTab = binding.notificationTabLayout.selectedTabPosition
-        val filteredList = notificationList.filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
+        val filteredList = notificationList
+            .filter { if (Prefs.hideReadNotificationsEnabled) it.isUnread else true }
+            .filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         for (n in filteredList) {
             val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
@@ -303,13 +304,14 @@ class NotificationActivity : BaseActivity() {
                         (linkText?.contains(searchQuery, true) == true))) {
                 continue
             }
-            val filterList = mutableListOf<String>()
-            filterList.addAll(StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty()).filter { NotificationCategory.isFiltersGroup(it) })
-            if (filterList.contains(n.category) || Prefs.notificationsFilterLanguageCodes == null) notificationContainerList.add(NotificationListItemContainer(n))
+            val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
+            if (excludedTypeCodes.find { n.category.startsWith(it) } == null) {
+                notificationContainerList.add(NotificationListItemContainer(n))
+            }
         }
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
-            binding.notificationsEmptyContainer.visibility = if (actionMode == null && enabledFiltersCount() == 0) View.VISIBLE else View.GONE
-            binding.notificationsSearchEmptyContainer.visibility = if (enabledFiltersCount() != 0) View.VISIBLE else View.GONE
+            binding.notificationsEmptyContainer.visibility = if (actionMode == null && excludedFiltersCount() == 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = if (excludedFiltersCount() != 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
             binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
@@ -326,14 +328,15 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun enabledFiltersCount(): Int {
-        val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-        val filtersSize = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
-        return fullWikiAndTypeListSize - filtersSize
+    private fun excludedFiltersCount(): Int {
+        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
+        return NotificationsFilterActivity.allWikisList().count { excludedWikiCodes.contains(it) } +
+                NotificationsFilterActivity.allTypesIdList().count { excludedTypeCodes.contains(it) }
     }
 
     private fun getSpannedEmptySearchMessage(): Spannable {
-        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, enabledFiltersCount(), enabledFiltersCount())
+        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, excludedFiltersCount(), excludedFiltersCount())
         val emptySearchMessage = getString(R.string.notifications_empty_search_message, filtersStr)
         val spannable = SpannableString(emptySearchMessage)
         val prefixStringLength = 13
@@ -475,27 +478,40 @@ class NotificationActivity : BaseActivity() {
                         binding.notificationSource.setCompoundDrawables(null, null, externalLinkIcon, null)
                     }
                 }
+                val params = binding.notificationSource.layoutParams as ConstraintLayout.LayoutParams
+                val marginStart = DimenUtil.dpToPx(8F).toInt()
+                val marginTop = DimenUtil.dpToPx(12F).toInt()
+                params.setMargins(marginStart, 0, 0, 0)
+                binding.notificationSource.layoutParams = params
+
                 when {
-                    wikiCode.contains("wikidata") -> {
+                    wikiCode.contains(Constants.WIKI_CODE_WIKIDATA) -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
+                        binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    wikiCode.contains("commons") -> {
+                    wikiCode.contains(Constants.WIKI_CODE_COMMONS) -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
+                        binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    else -> {
+                    appLangCodesContains(langCode) -> {
                         binding.notificationWikiCode.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.visibility = View.GONE
+                        binding.notificationWikiCodeContainer.isVisible = true
                         binding.notificationWikiCode.text = langCode
                         ViewUtil.formatLangButton(binding.notificationWikiCode, langCode,
                             SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
                     }
+                    else -> {
+                        params.setMargins(0, marginTop, 0, 0)
+                        binding.notificationSource.layoutParams = params
+                        binding.notificationWikiCodeContainer.isVisible = false
+                    }
                 }
                 binding.notificationSource.isVisible = true
-                binding.notificationWikiCodeContainer.isVisible = true
             } ?: run {
                 binding.notificationSource.isVisible = false
                 binding.notificationSource.setCompoundDrawables(null, null, null, null)
@@ -528,6 +544,12 @@ class NotificationActivity : BaseActivity() {
             binding.notificationOverflowMenu.setOnClickListener {
                 showOverflowMenu(it)
             }
+        }
+
+        private fun appLangCodesContains(langCode: String): Boolean {
+            return WikipediaApp.getInstance().language().appLanguageCodes.count {
+                it == langCode || WikipediaApp.getInstance().language().getDefaultLanguageCode(it) == langCode
+            } > 0
         }
 
         override fun onClick(v: View) {
@@ -588,22 +610,21 @@ class NotificationActivity : BaseActivity() {
 
             notificationFilterButton.setOnClickListener {
                 funnel.logFilterClick()
-                startActivity(NotificationsFilterActivity.newIntent(it.context))
+                // TODO: replace when using the ViewModel
+                startActivityForResult(NotificationsFilterActivity.newIntent(it.context), NOTIFICATION_ACTIVITY_INTENT)
             }
 
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
         }
 
         private fun updateFilterIconAndCount() {
-            val fullWikiAndTypeListSize = NotificationsFilterActivity.allWikisList().size + NotificationsFilterActivity.allTypesIdList().size
-            val delimitedFiltersSizeString = Prefs.notificationsFilterLanguageCodes.orEmpty().split(",").filter { it.isNotEmpty() }.size
-            val enabledFilters = fullWikiAndTypeListSize - delimitedFiltersSizeString
-            if (enabledFilters == 0 || Prefs.notificationsFilterLanguageCodes == null) {
+            val excludedFilters = excludedFiltersCount()
+            if (excludedFilters == 0) {
                 notificationFilterCountView.visibility = View.GONE
                 notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.chip_text_color))
             } else {
                 notificationFilterCountView.visibility = View.VISIBLE
-                notificationFilterCountView.text = enabledFilters.toString()
+                notificationFilterCountView.text = excludedFilters.toString()
                 notificationFilterButton.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.colorAccent))
             }
         }
@@ -648,6 +669,10 @@ class NotificationActivity : BaseActivity() {
                     }
 
                     override fun onQueryTextFocusChange() {
+                    }
+
+                    override fun getExcludedFilterCount(): Int {
+                        return excludedFiltersCount()
                     }
                 })
 
@@ -749,6 +774,7 @@ class NotificationActivity : BaseActivity() {
     }
 
     companion object {
+        const val NOTIFICATION_ACTIVITY_INTENT = 1
         fun newIntent(context: Context): Intent {
             return Intent(context, NotificationActivity::class.java)
         }

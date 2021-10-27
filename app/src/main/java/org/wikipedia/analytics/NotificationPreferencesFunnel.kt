@@ -9,7 +9,6 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationsFilterActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.StringUtil
 
 class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
 
@@ -17,7 +16,7 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
 
     fun done() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val toggleMap = HashMap<String, Boolean>()
+            val toggleMap = mutableMapOf<String, Boolean>()
             val notificationManagerCompat = NotificationManagerCompat.from(app)
             for (i in 0 until NotificationCategory.MAP.size()) {
                 val channelId = NotificationCategory.MAP[i].id
@@ -37,11 +36,12 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
 
     fun logNotificationFilterPrefs() {
         val fullFiltersList = mutableListOf<String>()
-        val toggleMap = HashMap<String, Boolean>()
-        val filteredList = StringUtil.csvToList(Prefs.notificationsFilterLanguageCodes.orEmpty())
+        val toggleMap = mutableMapOf<String, Boolean>()
+        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
         fullFiltersList.addAll(NotificationsFilterActivity.allWikisList())
         fullFiltersList.addAll(NotificationsFilterActivity.allTypesIdList())
-        fullFiltersList.forEach { toggleMap[it] = filteredList.contains(it) }
+        fullFiltersList.forEach { toggleMap[it] = !excludedWikiCodes.contains(it) && !excludedTypeCodes.contains(it) }
         log("type_toggles", JsonUtil.encodeToString(toggleMap))
     }
 
