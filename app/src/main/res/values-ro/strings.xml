@@ -1023,6 +1023,8 @@
   <string name="talk_response_submitted">Răspuns postat.</string>
   <string name="talk_snackbar_undo">Anulează</string>
   <string name="talk_last_modified">&lt;b&gt;Ultima modificare %1$s&lt;/b&gt; de %2$s</string>
+  <string name="talk_snackbar_survey_text">Vă mulțumim pentru că utilizați pagini de discuție. Ne-ați putea ajuta să îmbunătățim aplicația participând la un sondaj?</string>
+  <string name="talk_snackbar_survey_action_text">Începeți</string>
   <string name="menu_option_share_edit">Distribuie modificarea</string>
   <string name="menu_option_user_profile">Profilul lui %s</string>
   <string name="menu_option_user_contributions">Contribuțiile lui %s</string>

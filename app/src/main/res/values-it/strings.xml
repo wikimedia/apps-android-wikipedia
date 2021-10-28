@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Ajeje Brazorf
 * Albe Albe 460
 * Albe Albe460
 * Beta16
@@ -621,6 +622,14 @@
   <string name="preference_category_push_notifications">Notifiche push</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_other_title">Altro</string>
+  <string name="notifications_filter_label">Filtra notifiche</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filtro</item>
+    <item quantity="other">%d filtri</item>
+  </plurals>
+  <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_menu_mark_as_read">Segna come già letto</string>
+  <string name="notifications_menu_user_talk_page">Pagina di discussione di %s</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
   <string name="view_random_article_card_title">Voce a caso</string>
