@@ -611,6 +611,14 @@
   <string name="notifications_direct_reply_error">Message shown when there was an error while posting a reply.</string>
   <string name="notifications_mark_all_as_read_message">Message shown when notifications are marked as read. The %d is replaced with the number of notifications.</string>
   <string name="notifications_mark_all_as_unread_message">Message shown when notifications are marked as unread. The %d is replaced with the number of notifications.</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">Message shown when a single notification is marked as read.</item>
+    <item quantity="other">Message shown when multiple notifications are marked as read. The %d is replaced with the number of notifications.</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">Message shown when a single notification is marked as unread.</item>
+    <item quantity="other">Message shown when multiple notifications are marked as unread. The %d is replaced with the number of notifications.</item>
+  </plurals>
   <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>
   <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.\n\n{{doc-important|\"Poll\" is a verb here. This is about the polling of notifications, not about notifications of polls.}}</string>
   <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
