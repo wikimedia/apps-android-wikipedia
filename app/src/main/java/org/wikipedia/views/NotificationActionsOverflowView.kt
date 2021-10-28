@@ -13,6 +13,8 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import android.widget.TextView
+import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.PopupWindowCompat
@@ -59,7 +61,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
         container.notification?.contents?.let {
             it.links?.getPrimary()?.let { primary ->
-                val category = NotificationCategory.find(container.notification!!.category)
+                val category = NotificationCategory.find(container.notification.category)
                 val iconColor = ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, category.iconColor))
                 setUpViewForLink(binding.overflowViewPrimary, primary, category.iconResId, iconColor, iconColor)
                 binding.overflowViewPrimary.visibility = View.VISIBLE
@@ -125,9 +127,9 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
     }
 
     private fun setUpViewForLink(textView: TextView, link: Notification.Link,
-                                 customIcon: Int = R.drawable.ic_arrow_forward_black_24dp,
-                                 customIconColor: Int = ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color),
-                                 customTextColor: Int = ResourceUtil.getThemedColor(context, R.attr.primary_text_color)) {
+                                 @DrawableRes customIcon: Int = R.drawable.ic_arrow_forward_black_24dp,
+                                 @ColorInt customIconColor: Int = ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color),
+                                 @ColorInt customTextColor: Int = ResourceUtil.getThemedColor(context, R.attr.primary_text_color)) {
         textView.text = StringUtil.fromHtml(link.tooltip.ifEmpty { link.label })
 
         val icon = when (link.icon()) {

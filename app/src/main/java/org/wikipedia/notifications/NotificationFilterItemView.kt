@@ -69,23 +69,23 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         }
     }
 
-    private fun getTitleCodeFor(filterCode: String?): String? {
+    private fun getTitleCodeFor(filterCode: String): String? {
         return if (filterCode == Constants.WIKI_CODE_COMMONS || filterCode == Constants.WIKI_CODE_WIKIDATA ||
                 filterCode == context.getString(R.string.notifications_all_wikis_text) ||
-                filterCode == context.getString(R.string.notifications_all_types_text) || NotificationCategory.isFiltersGroup(filterCode.orEmpty())) null
+                filterCode == context.getString(R.string.notifications_all_types_text) || NotificationCategory.isFiltersGroup(filterCode)) null
         else filterCode
     }
 
-    private fun getTitleFor(languageCode: String?): String {
-        if (languageCode != null && NotificationCategory.isFiltersGroup(languageCode)) {
-            return context.getString(NotificationCategory.find(languageCode).title)
+    private fun getTitleFor(filterCode: String): String {
+        if (NotificationCategory.isFiltersGroup(filterCode)) {
+            return context.getString(NotificationCategory.find(filterCode).title)
         }
-        return when (languageCode) {
+        return when (filterCode) {
             Constants.WIKI_CODE_COMMONS -> context.getString(R.string.wikimedia_commons)
             Constants.WIKI_CODE_WIKIDATA -> context.getString(R.string.wikidata)
-            context.getString(R.string.notifications_all_wikis_text) -> languageCode
-            context.getString(R.string.notifications_all_types_text) -> languageCode
-            else -> WikipediaApp.getInstance().language().getAppLanguageCanonicalName(languageCode).orEmpty()
+            context.getString(R.string.notifications_all_wikis_text) -> filterCode
+            context.getString(R.string.notifications_all_types_text) -> filterCode
+            else -> WikipediaApp.getInstance().language().getAppLanguageCanonicalName(filterCode).orEmpty()
         }
     }
 }
