@@ -15,6 +15,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.view.View
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
@@ -64,6 +65,12 @@ class NotificationActivity : BaseActivity() {
     private var notificationActionOverflowView: NotificationActionsOverflowView? = null
     private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
+    // TODO: maybe making the result observable and put into ViewModel class?
+    private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            beginUpdateList()
+        }
+    }
     var currentSearchQuery: String? = null
     var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
 
@@ -112,7 +119,7 @@ class NotificationActivity : BaseActivity() {
         })
 
         binding.notificationsSearchEmptyContainer.setOnClickListener {
-            startActivity(NotificationsFilterActivity.newIntent(it.context))
+            resultLauncher.launch(NotificationsFilterActivity.newIntent(it.context))
         }
 
         Prefs.notificationUnreadCount = 0
@@ -166,19 +173,10 @@ class NotificationActivity : BaseActivity() {
                 true
             }
             R.id.menu_notifications_prefs -> {
-                // TODO: replace when using the ViewModel
-                startActivityForResult(NotificationSettingsActivity.newIntent(this), NOTIFICATION_ACTIVITY_INTENT)
+                resultLauncher.launch(NotificationSettingsActivity.newIntent(this))
                 true
             }
             else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    // TODO: remove it when using the ViewModel
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == NOTIFICATION_ACTIVITY_INTENT) {
-            beginUpdateList()
         }
     }
 
@@ -523,8 +521,7 @@ class NotificationActivity : BaseActivity() {
 
             notificationFilterButton.setOnClickListener {
                 funnel.logFilterClick()
-                // TODO: replace when using the ViewModel
-                startActivityForResult(NotificationsFilterActivity.newIntent(it.context), NOTIFICATION_ACTIVITY_INTENT)
+                resultLauncher.launch(NotificationsFilterActivity.newIntent(it.context))
             }
 
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
@@ -687,7 +684,6 @@ class NotificationActivity : BaseActivity() {
     }
 
     companion object {
-        const val NOTIFICATION_ACTIVITY_INTENT = 1
         fun newIntent(context: Context): Intent {
             return Intent(context, NotificationActivity::class.java)
         }
