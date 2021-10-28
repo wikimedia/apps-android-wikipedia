@@ -408,6 +408,7 @@
   <string name="preference_summary_notification_thanks">მიდგაინ რედაქტირაფაშ გეშა მარდის გინმოიგანა</string>
   <string name="preference_title_notification_user_talk">სხუნუაშ ხასჷლა</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">სხუნუაშ ხასჷლაშ გინაფეფი</string>
+  <string name="notifications_menu_mark_as_read">უკითხირო მოღანკუა</string>
   <string name="view_because_you_read_card_title">თიშ გეშა, ნამჷ-და თქვა კითხულენთ</string>
   <string name="view_random_card_title">ჩვაგაფი</string>
   <string name="home">დუდხასჷლა</string>
@@ -455,6 +456,7 @@
   <string name="onboarding_get_started">დოჭყაფა</string>
   <string name="onboarding_maybe_later">მოგვიანაფათ შილებე</string>
   <string name="main_tooltip_watchlist_title">კონტროლიშ ერკებული</string>
+  <string name="talk_snackbar_survey_action_text">დოჭყაფა</string>
   <string name="menu_option_user_profile">%s-შ მუნაჩემეფი</string>
   <string name="menu_option_user_contributions">მახვარებუშ: %s მიშნაღელი თია</string>
   <string name="watchlist_details_watching_label">გინმაჯინე</string>
