@@ -15,6 +15,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.PluralsRes
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -28,6 +29,7 @@ import com.google.android.material.tabs.TabLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -114,7 +116,8 @@ class NotificationActivity : BaseActivity() {
         })
 
         binding.notificationsSearchEmptyContainer.setOnClickListener {
-            startActivity(NotificationsFilterActivity.newIntent(it.context))
+            // TODO: remove when using ViewModel
+            startActivityForResult(NotificationsFilterActivity.newIntent(it.context), NOTIFICATION_ACTIVITY_INTENT)
         }
 
         Prefs.notificationUnreadCount = 0
@@ -194,8 +197,8 @@ class NotificationActivity : BaseActivity() {
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).unreadNotificationWikis
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    val wikiMap = response.query?.unreadNotificationWikis
+                .subscribe({
+                    val wikiMap = it.query?.unreadNotificationWikis
                     dbNameMap.clear()
                     for (key in wikiMap!!.keys) {
                         if (wikiMap[key]!!.source != null) {
@@ -203,7 +206,7 @@ class NotificationActivity : BaseActivity() {
                         }
                     }
                     orContinueNotifications
-                }) { t -> setErrorState(t) })
+                }) { setErrorState(it) })
     }
 
     private val orContinueNotifications: Unit
@@ -212,21 +215,19 @@ class NotificationActivity : BaseActivity() {
             disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(delimitedFilteredWikiList(), "read|!read", currentContinueStr)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        onNotificationsComplete(response.query?.notifications!!.list!!, !currentContinueStr.isNullOrEmpty())
-                        currentContinueStr = response.query?.notifications!!.continueStr
-                    }) { t -> setErrorState(t) })
+                    .subscribe({
+                        onNotificationsComplete(it.query?.notifications!!.list!!, !currentContinueStr.isNullOrEmpty())
+                        currentContinueStr = it.query?.notifications!!.continueStr
+                    }) { setErrorState(it) })
         }
 
     private fun delimitedFilteredWikiList(): String {
         val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
-        val filteredWikiList =
-            NotificationsFilterActivity.allWikisList().filterNot { excludedWikiCodes.contains(it) }.map {
-                val defaultLangCode =
+        return NotificationsFilterActivity.allWikisList().filterNot { excludedWikiCodes.contains(it) }.joinToString("|") {
+            val defaultLangCode =
                     WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
-                "${defaultLangCode.replace("-", "_")}wiki"
-            }
-        return filteredWikiList.joinToString("|")
+            "${defaultLangCode.replace("-", "_")}wiki"
+        }
     }
 
     private fun setErrorState(t: Throwable) {
@@ -382,10 +383,10 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun showMarkReadItemsUndoSnackbar(items: List<NotificationListItemContainer>, markUnread: Boolean) {
-        val snackbarStringRes = if (markUnread) R.string.notifications_mark_all_as_unread_message else R.string.notifications_mark_all_as_read_message
-        val snackbar = FeedbackUtil.makeSnackbar(this, getString(snackbarStringRes, items.size), FeedbackUtil.LENGTH_DEFAULT)
-        snackbar.setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread, true) }
-        snackbar.show()
+        @PluralsRes val snackbarStringRes = if (markUnread) R.plurals.notifications_mark_as_unread_plural else R.plurals.notifications_mark_as_read_plural
+        FeedbackUtil.makeSnackbar(this, resources.getQuantityString(snackbarStringRes, items.size, items.size), FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread, true) }
+                .show()
     }
 
     private fun finishActionMode() {
@@ -464,7 +465,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
 
             val wikiCode = n.wiki
-            val langCode = wikiCode.replace("wiki", "")
+            val langCode = wikiCode.replace("wiki", "").replace("_", "-")
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
@@ -478,19 +479,19 @@ class NotificationActivity : BaseActivity() {
                     }
                 }
                 val params = binding.notificationSource.layoutParams as ConstraintLayout.LayoutParams
-                val marginStart = DimenUtil.dpToPx(8F).toInt()
-                val marginTop = DimenUtil.dpToPx(12F).toInt()
+                val marginStart = DimenUtil.roundedDpToPx(8f)
+                val marginTop = DimenUtil.roundedDpToPx(12f)
                 params.setMargins(marginStart, 0, 0, 0)
                 binding.notificationSource.layoutParams = params
 
                 when {
-                    wikiCode.contains("wikidata") -> {
+                    wikiCode.contains(Constants.WIKI_CODE_WIKIDATA) -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
                         binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    wikiCode.contains("commons") -> {
+                    wikiCode.contains(Constants.WIKI_CODE_COMMONS) -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
@@ -768,7 +769,7 @@ class NotificationActivity : BaseActivity() {
             mode.title = selectedItemCount.toString()
             mode.menu.findItem(R.id.menu_check_all).isVisible = !check
             mode.menu.findItem(R.id.menu_uncheck_all).isVisible = check
-            binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
+            binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
         }
     }
 

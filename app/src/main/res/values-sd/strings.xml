@@ -272,7 +272,7 @@
   <string name="gallery_save_progress">فائيل ڊائونلوڊ ڪندي…</string>
   <string name="gallery_save_success">فائيل سانڍجي ويو.</string>
   <string name="gallery_error_video_failed">وڊيو هلائي نہ سگھيو.</string>
-  <string name="gallery_save_image_write_permission_rationale">تصويرون سانڍڻ لاءِ توھان ڊوائيس جي سنڀار تي ڪم ڪرڻ جي اجازت گھربل آھي.</string>
+  <string name="gallery_save_image_write_permission_rationale">تصويرون سانڍڻ لاءِ توھان ڊوائيس جي اسٽوريج تي ڪم ڪرڻ جي اجازت گهربل آھي.</string>
   <string name="gallery_add_image_caption_button">عڪس کي عنوان ڏيو</string>
   <string name="gallery_add_image_caption_in_language_button">(%s) ۾ عڪس کي عنوان ڏيو</string>
   <string name="err_cannot_save_file">فائيل سانڍي نٿو سگھجي</string>
@@ -800,8 +800,8 @@
   <string name="description_edit_revert_reason2">توھان جي ڀاڱيداري ڪو تجربو يا تخريبڪاري وانگر لڳي</string>
   <string name="description_edit_revert_history">جيڪڏھن توھان دلچسپي رکو ٿا، تہ پوءِ &lt;a href=\"%1$s\"&gt;سنوارن جي سوانح&lt;/a&gt; ڏسو.</string>
   <string name="description_edit_login_cancel_button_text">رد</string>
-  <string name="offline_read_permission_rationale">آفلائين برائوزنگ لاءِ توھان جي ڊوائيس جي سنڀار تائين پھچ لاءِ اجازت گھربل آھي.</string>
-  <string name="offline_read_final_rationale">توھان جي اوزار تي اسٽوريج تائين پھچ لاءِ اجازت گھربل آھي تہ جيئن آفلائين لائبريري استعمال ڪري سگھجي.</string>
+  <string name="offline_read_permission_rationale">آفلائين برائوزنگ لاءِ توھان جي ڊوائيس جي اسٽوريج تائين پھچ لاءِ اجازت گهربل آھي.</string>
+  <string name="offline_read_final_rationale">توھان جي ڊوائيس تي اسٽوريج تائين پھچ لاءِ اجازت گهربل آھي تہ جيئن آفلائين لائبريري استعمال ڪري سگهجي.</string>
   <string name="size_gb">%.2f جيبي</string>
   <string name="size_mb">%.2f ايمبي</string>
   <string name="onboarding_skip">ڇڏيو</string>

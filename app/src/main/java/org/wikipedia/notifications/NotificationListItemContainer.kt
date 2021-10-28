@@ -1,19 +1,10 @@
 package org.wikipedia.notifications
 
-class NotificationListItemContainer {
-    val type: Int
-    var notification: Notification? = null
-    var selected = false
-
-    constructor() {
-        type = ITEM_SEARCH_BAR
-    }
-
-    constructor(notification: Notification) {
-        this.notification = notification
-        type = ITEM_NOTIFICATION
-    }
-
+class NotificationListItemContainer(
+        val notification: Notification? = null,
+        val type: Int = if (notification == null) ITEM_SEARCH_BAR else ITEM_NOTIFICATION,
+        var selected: Boolean = false
+) {
     companion object {
         const val ITEM_SEARCH_BAR = 0
         const val ITEM_NOTIFICATION = 1
