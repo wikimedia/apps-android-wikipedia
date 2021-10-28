@@ -67,14 +67,14 @@ object NotificationDirectReplyHelper {
         ServiceFactory.getRest(wiki).getTalkPage(title.prefixedText)
             .delay(2, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
-            .map { response ->
-                if (response.revision < newRevision) {
+            .map {
+                if (it.revision < newRevision) {
                     throw IllegalStateException()
                 }
-                response.revision
+                it.revision
             }
-            .retry(20) { t ->
-                (t is IllegalStateException) || (t is HttpStatusException && t.code == 404)
+            .retry(20) {
+                (it is IllegalStateException) || (it is HttpStatusException && it.code == 404)
             }
             .observeOn(AndroidSchedulers.mainThread())
             .doOnTerminate {
@@ -83,8 +83,8 @@ object NotificationDirectReplyHelper {
             .subscribe({
                 // revisionForUndo = it
                 Toast.makeText(context, R.string.notifications_direct_reply_success, Toast.LENGTH_LONG).show()
-            }, { t ->
-                L.e(t)
+            }, {
+                L.e(it)
                 fallBackToTalkPage(context, title)
             })
     }
