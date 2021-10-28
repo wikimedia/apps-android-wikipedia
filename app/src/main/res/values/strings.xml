@@ -601,7 +601,7 @@
     <string name="notifications_mark_all_as_read">Mark all as read</string>
     <string name="notifications_direct_reply_action">Reply</string>
     <string name="notifications_direct_reply_progress">Posting reply to %s…</string>
-    <string name="notifications_direct_reply_success">Reply posted successfully.</string>
+    <string name="notifications_direct_reply_success">Reply posted.</string>
     <string name="notifications_direct_reply_error">Could not post reply automatically.</string>
     <string name="notifications_mark_all_as_read_message">%d marked as read</string>
     <string name="notifications_mark_all_as_unread_message">%d marked as unread</string>
