@@ -465,7 +465,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
 
             val wikiCode = n.wiki
-            val langCode = wikiCode.replace("wiki", "")
+            val langCode = wikiCode.replace("wiki", "").replace("_", "-")
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
@@ -479,7 +479,9 @@ class NotificationActivity : BaseActivity() {
                     }
                 }
                 val params = binding.notificationSource.layoutParams as ConstraintLayout.LayoutParams
-                params.setMargins(DimenUtil.roundedDpToPx(8f), 0, 0, 0)
+                val marginStart = DimenUtil.roundedDpToPx(8f)
+                val marginTop = DimenUtil.roundedDpToPx(12f)
+                params.setMargins(marginStart, 0, 0, 0)
                 binding.notificationSource.layoutParams = params
 
                 when {
@@ -495,13 +497,18 @@ class NotificationActivity : BaseActivity() {
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
                         binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    else -> {
+                    appLangCodesContains(langCode) -> {
                         binding.notificationWikiCode.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.visibility = View.GONE
                         binding.notificationWikiCodeContainer.isVisible = true
-                        binding.notificationWikiCode.text = langCode.replace("_", "-")
+                        binding.notificationWikiCode.text = langCode
                         ViewUtil.formatLangButton(binding.notificationWikiCode, langCode,
                             SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+                    }
+                    else -> {
+                        params.setMargins(0, marginTop, 0, 0)
+                        binding.notificationSource.layoutParams = params
+                        binding.notificationWikiCodeContainer.isVisible = false
                     }
                 }
                 binding.notificationSource.isVisible = true
@@ -537,6 +544,12 @@ class NotificationActivity : BaseActivity() {
             binding.notificationOverflowMenu.setOnClickListener {
                 showOverflowMenu(it)
             }
+        }
+
+        private fun appLangCodesContains(langCode: String): Boolean {
+            return WikipediaApp.getInstance().language().appLanguageCodes.count {
+                it == langCode || WikipediaApp.getInstance().language().getDefaultLanguageCode(it) == langCode
+            } > 0
         }
 
         override fun onClick(v: View) {
