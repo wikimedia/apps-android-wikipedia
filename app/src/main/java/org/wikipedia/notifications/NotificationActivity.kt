@@ -68,6 +68,7 @@ class NotificationActivity : BaseActivity() {
     // TODO: maybe making the result observable and put into ViewModel class?
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
+            viewModel.updateFilteredWikiList()
             beginUpdateList()
         }
     }
@@ -218,8 +219,6 @@ class NotificationActivity : BaseActivity() {
             binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
         }
 
-        // Build the container list, and punctuate it by date granularity, while also applying the
-        // current search query.
         notificationContainerList.clear()
         notificationContainerList.addAll(notifications)
         postprocessAndDisplay()

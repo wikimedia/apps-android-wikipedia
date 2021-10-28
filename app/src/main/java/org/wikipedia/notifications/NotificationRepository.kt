@@ -10,8 +10,8 @@ class NotificationRepository constructor(private val notificationDao: Notificati
 
     fun getAllNotifications() = notificationDao.getAllNotifications()
 
-    suspend fun insertNotification(notifications: List<Notification>) {
-        notificationDao.insertNotification(notifications)
+    suspend fun insertNotifications(notifications: List<Notification>) {
+        notificationDao.insertNotifications(notifications)
     }
 
     suspend fun updateNotification(notification: Notification) {
@@ -40,7 +40,7 @@ class NotificationRepository constructor(private val notificationDao: Notificati
         val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotificationsKT(wikiList, filter, continueStr)
         response.query?.notifications?.let {
             // TODO: maybe add a logic to avoid adding same data into database.
-            insertNotification(it.list.orEmpty())
+            insertNotifications(it.list.orEmpty())
             newContinueStr = it.continueStr
         }
         return newContinueStr

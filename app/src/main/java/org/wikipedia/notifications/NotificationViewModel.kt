@@ -53,11 +53,15 @@ class NotificationViewModel : ViewModel() {
         }
 
     private fun processList(list: List<Notification>): List<NotificationListItemContainer> {
+
+        // First, filter the list with filteredWikiList
+        val filteredList = list.filter { filteredWikiList.contains(it.wiki) }
+
         // Reduce duplicate notifications
         if (currentContinueStr.isNullOrEmpty()) {
             notificationList.clear()
         }
-        for (n in list) {
+        for (n in filteredList) {
             if (notificationList.none { it.id == n.id }) {
                 notificationList.add(n)
             }
@@ -65,19 +69,17 @@ class NotificationViewModel : ViewModel() {
         // Sort them by descending date...
         notificationList.sortWith { n1, n2 -> n2.date().compareTo(n1.date()) }
 
-        // get unread counts
-        allUnreadCount = list.count { it.isUnread }
-        mentionsUnreadCount = list.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
+        updateTabUnreadCounts()
 
         // Filtered the tab selection
-        val filteredList = notificationList
+        val tabSelectedList = notificationList
             .filter { if (Prefs.hideReadNotificationsEnabled) it.isUnread else true }
             .filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         val notificationContainerList = mutableListOf<NotificationListItemContainer>()
 
         // Save into display list
-        for (n in filteredList) {
+        for (n in tabSelectedList) {
             val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
             val searchQuery = currentSearchQuery
             if (!searchQuery.isNullOrEmpty() &&
@@ -93,6 +95,11 @@ class NotificationViewModel : ViewModel() {
             }
         }
         return notificationContainerList
+    }
+
+    private fun updateTabUnreadCounts() {
+        allUnreadCount = notificationList.count { it.isUnread }
+        mentionsUnreadCount = notificationList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
     }
 
     private fun delimitedFilteredWikiList(): List<String> {
@@ -163,9 +170,22 @@ class NotificationViewModel : ViewModel() {
         for (wiki in notificationsPerWiki.keys) {
             NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, markUnread)
         }
-        // manually mark items in read state
-        notificationList.filter { n -> items.map { container -> container.notification?.id }
-            .firstOrNull { it == n.id } != null }.map { it.read = if (markUnread) null else Date().toString() }
+
+        // Mark items in read state and save into database
+        notificationList
+            .filter { n -> items.map { container -> container.notification?.id }
+            .firstOrNull { it == n.id } != null }
+            .map {
+                it.read = if (markUnread) null else Date().toString()
+                viewModelScope.launch(handler) {
+                    withContext(Dispatchers.IO) {
+                        notificationRepository.updateNotification(it)
+                    }
+                    // TODO: fixing jump
+                    collectAllNotifications()
+                    updateTabUnreadCounts()
+                }
+            }
     }
 
     sealed class UiState {

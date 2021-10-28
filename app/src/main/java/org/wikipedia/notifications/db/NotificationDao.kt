@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface NotificationDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNotification(notifications: List<Notification>)
+    suspend fun insertNotifications(notifications: List<Notification>)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateNotification(notification: Notification)
