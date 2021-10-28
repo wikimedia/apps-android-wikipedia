@@ -59,13 +59,14 @@ class TalkTopicsActivity : BaseActivity() {
     private val topics = mutableListOf<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var revisionForLastEdit: MwQueryPage.Revision? = null
-    private val goToTopic get() = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
+    private var goToTopic = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkTopicsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
@@ -232,7 +233,7 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkUsernameView.isVisible = !goToTopic
 
         disposables.clear()
-        binding.talkProgressBar.isVisible = !goToTopic
+        binding.talkProgressBar.isVisible = true
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
 
@@ -250,46 +251,50 @@ class TalkTopicsActivity : BaseActivity() {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
+                    invalidateOptionsMenu()
+                    binding.talkUsernameView.isVisible = !goToTopic
+                    binding.talkProgressBar.isVisible = !goToTopic
                     binding.talkProgressBar.visibility = View.GONE
                     binding.talkRefreshView.isRefreshing = false
                 }
-                .subscribe({ response ->
+                .subscribe({
                     topics.clear()
-                    topics.addAll(response.topics!!)
+                    topics.addAll(it.topics!!)
                     updateOnSuccess()
-                }, { t ->
-                    L.e(t)
-                    updateOnError(t)
+                }, {
+                    L.e(it)
+                    updateOnError(it)
                 }))
     }
 
     private fun updateOnSuccess() {
         if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
-            var topic = topics.firstOrNull()
+            var topic: TalkPage.Topic? = null
             if (!pageTitle.fragment.isNullOrEmpty()) {
                 val targetTopic = UriUtil.parseTalkTopicFromFragment(pageTitle.fragment.orEmpty())
                 topic = topics.find {
                     StringUtil.addUnderscores(targetTopic) == StringUtil.addUnderscores(it.html)
-                } ?: topic
+                }
             }
             if (topic != null) {
                 startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource),
-                    Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY)
+                        Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY)
                 overridePendingTransition(0, 0)
+                return
             }
+        }
+        goToTopic = false
+        if (topics.isEmpty()) {
+            updateOnEmpty()
         } else {
-            if (topics.isEmpty()) {
-                updateOnEmpty()
-            } else {
-                binding.talkErrorView.visibility = View.GONE
-                binding.talkNewTopicButton.show()
-                binding.talkNewTopicButton.isEnabled = true
-                binding.talkNewTopicButton.alpha = 1.0f
-                binding.talkLastModified.visibility = View.VISIBLE
-                binding.talkRecyclerView.visibility = View.VISIBLE
-                binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-            }
+            binding.talkErrorView.visibility = View.GONE
+            binding.talkNewTopicButton.show()
+            binding.talkNewTopicButton.isEnabled = true
+            binding.talkNewTopicButton.alpha = 1.0f
+            binding.talkLastModified.visibility = View.VISIBLE
+            binding.talkRecyclerView.visibility = View.VISIBLE
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
     }
 
