@@ -17,6 +17,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.annotation.PluralsRes
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -289,14 +290,18 @@ class NotificationActivity : BaseActivity() {
         viewModel.markItemsAsRead(items, markUnread)
 
         if (!fromUndoOrClick) {
-            val snackbarStringRes = if (markUnread) R.string.notifications_mark_all_as_unread_message else R.string.notifications_mark_all_as_read_message
-            val snackbar = FeedbackUtil.makeSnackbar(this, getString(snackbarStringRes, items.size), FeedbackUtil.LENGTH_DEFAULT)
-            snackbar.setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread, true) }
-            snackbar.show()
+            showMarkReadItemsUndoSnackbar(items, markUnread)
         }
 
         finishActionMode()
         postprocessAndDisplay(position)
+    }
+
+    private fun showMarkReadItemsUndoSnackbar(items: List<NotificationListItemContainer>, markUnread: Boolean) {
+        @PluralsRes val snackbarStringRes = if (markUnread) R.plurals.notifications_mark_as_unread_plural else R.plurals.notifications_mark_as_read_plural
+        FeedbackUtil.makeSnackbar(this, resources.getQuantityString(snackbarStringRes, items.size, items.size), FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread, true) }
+                .show()
     }
 
     private fun finishActionMode() {
@@ -375,7 +380,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
 
             val wikiCode = n.wiki
-            val langCode = wikiCode.replace("wiki", "")
+            val langCode = wikiCode.replace("wiki", "").replace("_", "-")
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
@@ -389,8 +394,8 @@ class NotificationActivity : BaseActivity() {
                     }
                 }
                 val params = binding.notificationSource.layoutParams as ConstraintLayout.LayoutParams
-                val marginStart = DimenUtil.dpToPx(8F).toInt()
-                val marginTop = DimenUtil.dpToPx(12F).toInt()
+                val marginStart = DimenUtil.roundedDpToPx(8f)
+                val marginTop = DimenUtil.roundedDpToPx(12f)
                 params.setMargins(marginStart, 0, 0, 0)
                 binding.notificationSource.layoutParams = params
 
@@ -678,7 +683,7 @@ class NotificationActivity : BaseActivity() {
             mode.title = selectedItemCount.toString()
             mode.menu.findItem(R.id.menu_check_all).isVisible = !check
             mode.menu.findItem(R.id.menu_uncheck_all).isVisible = check
-            binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
+            binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
         }
     }
 

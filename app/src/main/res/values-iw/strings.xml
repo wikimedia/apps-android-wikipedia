@@ -56,6 +56,8 @@
   <string name="search_tab_tooltip">לחץ על הסמל שוב כדי להתחיל ישר להקליד את מילת החיפוש.</string>
   <string name="history_list_title">היסטוריה</string>
   <string name="image_content_description">תמונה: %s</string>
+  <string name="wikimedia_commons">ויקישיתוף</string>
+  <string name="wikidata">ויקינתונים</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="dialog_message_clear_history_yes">כן</string>
@@ -621,6 +623,12 @@
   <string name="notification_preferences_title">העדפות הודעות</string>
   <string name="notifications_mark_unread">סימון כהודעה שלא נקראה</string>
   <string name="notifications_mark_all_as_read">לסמן שהכול נקרא</string>
+  <string name="notifications_direct_reply_action">תגובה</string>
+  <string name="notifications_direct_reply_progress">שליחת תגובה למשתמש %s...</string>
+  <string name="notifications_direct_reply_success">התגובה נשלחה בהצלחה.</string>
+  <string name="notifications_direct_reply_error">לא היה אפשר לשלוח תגובה אוטומטית.</string>
+  <string name="notifications_mark_all_as_read_message">%d סומנו כהודעות שנקראו</string>
+  <string name="notifications_mark_all_as_unread_message">%d סומנו כהודעות שלא נקראו</string>
   <string name="watchlist_title">רשימת המעקב</string>
   <string name="preference_title_notification_poll">דגימת הודעות</string>
   <string name="preference_summary_notification_poll">לאפשר ליישום להשתמש בנתונים כדי לבדוק הודעות חדשות ברקע.</string>
@@ -653,6 +661,32 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">התראות מוויקיפדיה</string>
   <string name="notifications_channel_group_other_title">אחרות</string>
   <string name="notifications_channel_group_other_description">התראות אחרות מהיישום</string>
+  <string name="notifications_filter_label">סינון התראות</string>
+  <string name="notifications_filter_icon_content_description">סינון התראות</string>
+  <string name="notifications_empty_search_message">נא לנסות להסיר את %s כדי לראות עוד התראות</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">מסנן אחד</item>
+    <item quantity="two">%d מסננים</item>
+    <item quantity="many">%d מסננים</item>
+    <item quantity="other">%d מסננים</item>
+  </plurals>
+  <string name="notifications_select_all_filters">בחירת כל המסננים</string>
+  <string name="notifications_tab_filter_all">הכול</string>
+  <string name="notifications_tab_filter_mentions">אזכורים</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_search_bar_hint">חיפוש או סינון התראות</string>
+  <string name="notifications_search_bar_filter_hint">סינון התראות</string>
+  <string name="notifications_menu_mark_as_read">סימון כהודעה שנקראה</string>
+  <string name="notifications_menu_mark_as_unread">סימון כהודעה שלא נקראה</string>
+  <string name="notifications_swipe_action_read">נקראה</string>
+  <string name="notifications_swipe_action_unread">לא נקראה</string>
+  <string name="notifications_menu_check_all">סימון כל הפריטים</string>
+  <string name="notifications_menu_uncheck_all">ביטול סימון כל הפריטים</string>
+  <string name="notifications_wiki_filter_header">סינון ויקי</string>
+  <string name="notifications_type_filter_header">סינון סוג</string>
+  <string name="notifications_all_wikis_text">כל סימוני \"ויקי\"</string>
+  <string name="notifications_all_types_text">כל סימוני \"סוג\"</string>
+  <string name="notifications_menu_user_talk_page">דף השיחה של %s</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_article_card_title">ערך אקראי</string>
@@ -877,7 +911,7 @@
     <item quantity="many">%d ימים</item>
     <item quantity="other">%d ימים</item>
   </plurals>
-  <string name="suggested_edits_what_is_title">מה זה ’עריכות מוצעות?’</string>
+  <string name="suggested_edits_what_is_title">מה זה עריכות מוצעות?</string>
   <string name="suggested_edits_what_is_text">עריכות מוצעות מציגות הזדמנויות לתרומות קטנות, אבל מועילות לוויקיפדיה.</string>
   <string name="suggested_edits_learn_more">מידע נוסף</string>
   <string name="suggested_edits_paused_title">מושהה</string>

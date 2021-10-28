@@ -85,7 +85,7 @@ class NotificationsFilterActivity : BaseActivity() {
 
     class NotificationFilterHeaderViewHolder constructor(itemView: View) :
         DefaultViewHolder<View>(itemView) {
-        var headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
+        val headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
 
         fun bindItem(filterHeader: String) {
             headerText.text = filterHeader
@@ -150,7 +150,7 @@ class NotificationsFilterActivity : BaseActivity() {
             Prefs.notificationExcludedWikiCodes = excludedWikiCodes
             Prefs.notificationExcludedTypeCodes = excludedTypeCodes
             NotificationPreferencesFunnel(WikipediaApp.getInstance()).logNotificationFilterPrefs()
-            notifyDataSetChanged()
+            notifyItemRangeChanged(0, itemCount)
         }
     }
 
