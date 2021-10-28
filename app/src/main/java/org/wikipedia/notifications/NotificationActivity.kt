@@ -15,6 +15,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.PluralsRes
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -116,7 +117,8 @@ class NotificationActivity : BaseActivity() {
         })
 
         binding.notificationsSearchEmptyContainer.setOnClickListener {
-            startActivity(NotificationsFilterActivity.newIntent(it.context))
+            // TODO: remove when using ViewModel
+            startActivityForResult(NotificationsFilterActivity.newIntent(it.context), NOTIFICATION_ACTIVITY_INTENT)
         }
 
         Prefs.notificationUnreadCount = 0
@@ -383,10 +385,10 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun showMarkReadItemsUndoSnackbar(items: List<NotificationListItemContainer>, markUnread: Boolean) {
-        val snackbarStringRes = if (markUnread) R.string.notifications_mark_all_as_unread_message else R.string.notifications_mark_all_as_read_message
-        val snackbar = FeedbackUtil.makeSnackbar(this, getString(snackbarStringRes, items.size), FeedbackUtil.LENGTH_DEFAULT)
-        snackbar.setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread, true) }
-        snackbar.show()
+        @PluralsRes val snackbarStringRes = if (markUnread) R.plurals.notifications_mark_as_unread_plural else R.plurals.notifications_mark_as_read_plural
+        FeedbackUtil.makeSnackbar(this, resources.getQuantityString(snackbarStringRes, items.size, items.size), FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread, true) }
+                .show()
     }
 
     private fun finishActionMode() {
