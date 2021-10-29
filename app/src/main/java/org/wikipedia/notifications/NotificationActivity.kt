@@ -15,6 +15,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.PluralsRes
@@ -285,13 +286,13 @@ class NotificationActivity : BaseActivity() {
 
     private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false, position: Int? = null) {
         if (!WikipediaApp.getInstance().isOnline) {
-            // TODO: maybe show unavailable message
-            return
-        }
-        viewModel.markItemsAsRead(items, markUnread)
+            Toast.makeText(this, R.string.notifications_offline_disable_message, Toast.LENGTH_SHORT).show()
+        } else {
+            viewModel.markItemsAsRead(items, markUnread)
 
-        if (!fromUndoOrClick) {
-            showMarkReadItemsUndoSnackbar(items, markUnread)
+            if (!fromUndoOrClick) {
+                showMarkReadItemsUndoSnackbar(items, markUnread)
+            }
         }
 
         finishActionMode()

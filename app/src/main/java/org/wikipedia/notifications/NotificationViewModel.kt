@@ -116,7 +116,6 @@ class NotificationViewModel : ViewModel() {
 
     fun fetchAndSave() {
         viewModelScope.launch(handler) {
-            // TODO: skip the loading?
             if (WikipediaApp.getInstance().isOnline) {
                 withContext(Dispatchers.IO) {
                     currentContinueStr = notificationRepository
