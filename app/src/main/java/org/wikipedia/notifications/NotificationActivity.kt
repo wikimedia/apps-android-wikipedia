@@ -128,7 +128,7 @@ class NotificationActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         actionMode?.let {
-            beginUpdateList()
+            postprocessAndDisplay()
             if (SearchActionModeCallback.`is`(it)) {
                 searchActionModeCallback.refreshProvider()
             }
@@ -179,7 +179,11 @@ class NotificationActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == NOTIFICATION_ACTIVITY_INTENT) {
-            beginUpdateList()
+            if (resultCode == NotificationsFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
+                beginUpdateList()
+            } else {
+                postprocessAndDisplay()
+            }
         }
     }
 
@@ -205,29 +209,26 @@ class NotificationActivity : BaseActivity() {
                             dbNameMap[key] = WikiSite(wikiMap[key]!!.source!!.base)
                         }
                     }
-                    orContinueNotifications
+                    loadNextNotificationsBatch()
                 }) { setErrorState(it) })
     }
 
-    private val orContinueNotifications: Unit
-        get() {
-            binding.notificationsProgressBar.visibility = View.VISIBLE
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(delimitedFilteredWikiList(), "read|!read", currentContinueStr)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
-                        onNotificationsComplete(it.query?.notifications!!.list!!, !currentContinueStr.isNullOrEmpty())
-                        currentContinueStr = it.query?.notifications!!.continueStr
-                    }) { setErrorState(it) })
-        }
+    private fun loadNextNotificationsBatch() {
+        binding.notificationsProgressBar.visibility = View.VISIBLE
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(delimitedWikiList(), "read|!read", currentContinueStr)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    onNotificationsComplete(it.query?.notifications!!.list!!, !currentContinueStr.isNullOrEmpty())
+                    currentContinueStr = it.query?.notifications!!.continueStr
+                }) { setErrorState(it) })
+    }
 
-    private fun delimitedFilteredWikiList(): String {
-        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
-        return NotificationsFilterActivity.allWikisList().filterNot { excludedWikiCodes.contains(it) }.joinToString("|") {
-            val defaultLangCode =
-                    WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+    private fun delimitedWikiList(): String {
+        return dbNameMap.keys.union(NotificationsFilterActivity.allWikisList().map {
+            val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
             "${defaultLangCode.replace("-", "_")}wiki"
-        }
+        }).joinToString("|")
     }
 
     private fun setErrorState(t: Throwable) {
@@ -262,6 +263,9 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun postprocessAndDisplay(position: Int? = null) {
+        if (notificationList.isEmpty()) {
+            return
+        }
         // Sort them by descending date...
         notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
 
@@ -294,6 +298,11 @@ class NotificationActivity : BaseActivity() {
             .filter { if (Prefs.hideReadNotificationsEnabled) it.isUnread else true }
             .filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
+        val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
+        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val includedWikiCodes = NotificationsFilterActivity.allWikisList().minus(excludedWikiCodes)
+        val checkExcludedWikiCodes = NotificationsFilterActivity.allWikisList().size != includedWikiCodes.size
+
         for (n in filteredList) {
             val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
             val searchQuery = currentSearchQuery
@@ -304,10 +313,16 @@ class NotificationActivity : BaseActivity() {
                         (linkText?.contains(searchQuery, true) == true))) {
                 continue
             }
-            val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
-            if (excludedTypeCodes.find { n.category.startsWith(it) } == null) {
-                notificationContainerList.add(NotificationListItemContainer(n))
+            if (excludedTypeCodes.find { n.category.startsWith(it) } != null) {
+                continue
             }
+            if (checkExcludedWikiCodes) {
+                val wikiCode = StringUtil.dbNameToLangCode(n.wiki)
+                if (!includedWikiCodes.contains(wikiCode)) {
+                    continue
+                }
+            }
+            notificationContainerList.add(NotificationListItemContainer(n))
         }
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null && excludedFiltersCount() == 0) View.VISIBLE else View.GONE
@@ -354,7 +369,7 @@ class NotificationActivity : BaseActivity() {
                     "commonswiki" -> WikiSite(Service.COMMONS_URL)
                     "wikidatawiki" -> WikiSite(Service.WIKIDATA_URL)
                     else -> {
-                        val langCode = notification.wiki.replace("wiki", "").replace("_", "-")
+                        val langCode = StringUtil.dbNameToLangCode(notification.wiki)
                         WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
                     }
                 }
@@ -415,8 +430,7 @@ class NotificationActivity : BaseActivity() {
 
     private val selectedItems get() = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.filter { it.selected }
 
-    @Suppress("LeakingThis")
-    private open inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
+    private inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
 
         lateinit var container: NotificationListItemContainer
@@ -464,8 +478,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationTitle.setTextColor(notificationColor)
             binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
 
-            val wikiCode = n.wiki
-            val langCode = wikiCode.replace("wiki", "").replace("_", "-")
+            val langCode = StringUtil.dbNameToLangCode(n.wiki)
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
@@ -485,19 +498,19 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationSource.layoutParams = params
 
                 when {
-                    wikiCode.contains(Constants.WIKI_CODE_WIKIDATA) -> {
+                    langCode == Constants.WIKI_CODE_WIKIDATA -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
                         binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    wikiCode.contains(Constants.WIKI_CODE_COMMONS) -> {
+                    langCode == Constants.WIKI_CODE_COMMONS -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
                         binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    appLangCodesContains(langCode) -> {
+                    isValidAppLanguageCode(langCode) -> {
                         binding.notificationWikiCode.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.visibility = View.GONE
                         binding.notificationWikiCodeContainer.isVisible = true
@@ -546,10 +559,8 @@ class NotificationActivity : BaseActivity() {
             }
         }
 
-        private fun appLangCodesContains(langCode: String): Boolean {
-            return WikipediaApp.getInstance().language().appLanguageCodes.count {
-                it == langCode || WikipediaApp.getInstance().language().getDefaultLanguageCode(it) == langCode
-            } > 0
+        private fun isValidAppLanguageCode(langCode: String): Boolean {
+            return WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) != null
         }
 
         override fun onClick(v: View) {
@@ -653,7 +664,7 @@ class NotificationActivity : BaseActivity() {
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
             if (pos == notificationContainerList.size - 1 && !currentContinueStr.isNullOrEmpty()) {
-                orContinueNotifications
+                loadNextNotificationsBatch()
             }
         }
     }

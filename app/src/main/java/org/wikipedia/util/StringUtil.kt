@@ -64,6 +64,11 @@ object StringUtil {
         return text.orEmpty().replace("_", " ")
     }
 
+    fun dbNameToLangCode(wikiDbName: String): String {
+        return (if (wikiDbName.endsWith("wiki")) wikiDbName.substring(0, wikiDbName.length - "wiki".length) else wikiDbName)
+                .replace("_", "-")
+    }
+
     @JvmStatic
     fun removeSectionAnchor(text: String?): String {
         text.orEmpty().let {
