@@ -239,7 +239,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         } else {
             // show the video thumbnail while the video loads...
             binding.videoThumbnail.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl)
+            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
         }
         binding.videoThumbnail.setOnClickListener(videoThumbnailClickListener)
     }
