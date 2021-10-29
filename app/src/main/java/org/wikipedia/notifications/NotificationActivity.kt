@@ -87,6 +87,7 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
         binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, skipSearchBar = true))
 
         externalLinkIcon = ContextCompat.getDrawable(this, R.drawable.ic_open_in_new_black_24px)?.apply {
@@ -216,9 +217,6 @@ class NotificationActivity : BaseActivity() {
         setSuccessState()
         this.dbNameMap = dbNameMap
         this.fromContinuation = fromContinuation
-        if (!fromContinuation) {
-            binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
-        }
 
         notificationContainerList.clear()
         notificationContainerList.addAll(notifications)

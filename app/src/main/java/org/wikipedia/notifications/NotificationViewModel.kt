@@ -39,12 +39,6 @@ class NotificationViewModel : ViewModel() {
 
     init {
         filteredWikiList = delimitedFilteredWikiList()
-        viewModelScope.launch(handler) {
-            withContext(Dispatchers.IO) {
-                dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
-            }
-            collectAllNotifications()
-        }
     }
 
     private suspend fun collectAllNotifications() = notificationRepository.getAllNotifications()
