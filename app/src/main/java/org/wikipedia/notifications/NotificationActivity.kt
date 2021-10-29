@@ -197,8 +197,8 @@ class NotificationActivity : BaseActivity() {
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).unreadNotificationWikis
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    val wikiMap = response.query?.unreadNotificationWikis
+                .subscribe({
+                    val wikiMap = it.query?.unreadNotificationWikis
                     dbNameMap.clear()
                     for (key in wikiMap!!.keys) {
                         if (wikiMap[key]!!.source != null) {
@@ -206,7 +206,7 @@ class NotificationActivity : BaseActivity() {
                         }
                     }
                     orContinueNotifications
-                }) { t -> setErrorState(t) })
+                }) { setErrorState(it) })
     }
 
     private val orContinueNotifications: Unit
@@ -215,10 +215,10 @@ class NotificationActivity : BaseActivity() {
             disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(delimitedFilteredWikiList(), "read|!read", currentContinueStr)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        onNotificationsComplete(response.query?.notifications!!.list!!, !currentContinueStr.isNullOrEmpty())
-                        currentContinueStr = response.query?.notifications!!.continueStr
-                    }) { t -> setErrorState(t) })
+                    .subscribe({
+                        onNotificationsComplete(it.query?.notifications!!.list!!, !currentContinueStr.isNullOrEmpty())
+                        currentContinueStr = it.query?.notifications!!.continueStr
+                    }) { setErrorState(it) })
         }
 
     private fun delimitedFilteredWikiList(): String {
@@ -471,7 +471,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
 
             val wikiCode = n.wiki
-            val langCode = wikiCode.replace("wiki", "")
+            val langCode = wikiCode.replace("wiki", "").replace("_", "-")
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
@@ -485,8 +485,8 @@ class NotificationActivity : BaseActivity() {
                     }
                 }
                 val params = binding.notificationSource.layoutParams as ConstraintLayout.LayoutParams
-                val marginStart = DimenUtil.dpToPx(8F).toInt()
-                val marginTop = DimenUtil.dpToPx(12F).toInt()
+                val marginStart = DimenUtil.roundedDpToPx(8f)
+                val marginTop = DimenUtil.roundedDpToPx(12f)
                 params.setMargins(marginStart, 0, 0, 0)
                 binding.notificationSource.layoutParams = params
 
@@ -775,7 +775,7 @@ class NotificationActivity : BaseActivity() {
             mode.title = selectedItemCount.toString()
             mode.menu.findItem(R.id.menu_check_all).isVisible = !check
             mode.menu.findItem(R.id.menu_uncheck_all).isVisible = check
-            binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
+            binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
         }
     }
 
