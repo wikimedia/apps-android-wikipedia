@@ -224,16 +224,12 @@ class NotificationActivity : BaseActivity() {
     private fun delimitedFilteredWikiList(): String {
         val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
         val filteredWikiList =
-            (if (allWikisSelected()) dbNameMap.keys else NotificationsFilterActivity.allWikisList()).filterNot { excludedWikiCodes.contains(it) }.map {
+            (dbNameMap.keys.plus(NotificationsFilterActivity.allWikisList())).filterNot { excludedWikiCodes.contains(it) }.map {
                 val langCode = (if (it.endsWith("wiki")) it.substring(0, it.length - "wiki".length) else it).replace("_", "-")
                 val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode
                 "${defaultLangCode}wiki"
             }
-        return filteredWikiList.joinToString("|")
-    }
-
-    private fun allWikisSelected(): Boolean {
-        return !NotificationsFilterActivity.allWikisList().any { Prefs.notificationExcludedWikiCodes.contains(it) }
+        return filteredWikiList.toSet().joinToString("|")
     }
 
     private fun setErrorState(t: Throwable) {
