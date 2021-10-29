@@ -214,6 +214,9 @@ class NotificationActivity : BaseActivity() {
     private fun onNotificationsComplete(notifications: List<NotificationListItemContainer>,
                                         dbNameMap: Map<String, WikiSite>,
                                         fromContinuation: Boolean) {
+        if (notifications.isEmpty() && dbNameMap.isEmpty()) {
+            return
+        }
         setSuccessState()
         this.dbNameMap = dbNameMap
         this.fromContinuation = fromContinuation
