@@ -10,12 +10,23 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 
 object TalkPageSurvey {
 
     fun shouldShowSurvey(): Boolean {
-        return Prefs.talkPageSurveyOverride
+        return Prefs.talkPageSurveyOverride && fallsWithinGeoRange()
+    }
+
+    private fun fallsWithinGeoRange(): Boolean {
+        val languages = WikipediaApp.getInstance().language().appLanguageCodes
+        val country = GeoUtil.geoIPCountry.orEmpty()
+        return (languages.contains("hi") ||
+                languages.contains("id") ||
+                languages.contains("ja") ||
+                ((languages.contains("ar") || languages.contains("fr")) && (country == "MA" || country == "EG" || country == "ML" || country == "CD")) ||
+                (languages.contains("en") && (country == "IN" || country == "NG")))
     }
 
     fun showSurvey(activity: Activity) {
