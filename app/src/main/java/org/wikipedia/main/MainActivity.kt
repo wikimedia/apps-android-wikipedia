@@ -14,6 +14,7 @@ import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.talk.TalkPageSurvey
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -26,6 +27,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     override fun inflateAndSetContentView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        TalkPageSurvey.showSurveyFirstAttempt(this)
+        TalkPageSurvey.showSurveyLastAttempt(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

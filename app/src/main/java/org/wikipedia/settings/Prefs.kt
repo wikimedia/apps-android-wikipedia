@@ -376,6 +376,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_talk_page_survey, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_talk_page_survey, value)
 
+    var showTalkPageSurveyLastAttempt
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_talk_page_survey_last_attempt, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_talk_page_survey_last_attempt, value)
+
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visited_article_page, value)
