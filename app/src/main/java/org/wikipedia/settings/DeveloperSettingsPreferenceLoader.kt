@@ -19,7 +19,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
-import org.wikipedia.talk.TalkPageSurveyHelper
+import org.wikipedia.talk.TalkPageSurvey
 import org.wikipedia.util.StringUtil.fromHtml
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -148,7 +148,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_developer_show_talk_page_survey).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            TalkPageSurveyHelper.showSurvey(activity)
+            TalkPageSurvey.showSurvey(activity)
             true
         }
     }

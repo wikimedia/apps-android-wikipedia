@@ -1141,7 +1141,7 @@
 
     <!-- TalkPage Survey -->
     <string name="survey_dialog_title">Help us improve Talk Pages</string>
-    <string name="survey_dialog_message">Please help us improve your talk page experience by taking a brief survey</string>
+    <string name="survey_dialog_message"><![CDATA[Please help us improve your talk page experience by taking a brief survey. <a href="https://foundation.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Talk_Page_Survey_Privacy_Statement">Read privacy policy</a>]]></string>
     <string name="survey_dialog_primary_action_text">Take survey</string>
     <string name="survey_dialog_secondary_action_text">Read privacy policy</string>
     <string name="survey_dialog_neutral_action_text">Maybe later</string>

@@ -157,8 +157,8 @@ class TalkTopicsActivity : BaseActivity() {
                     .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
                         override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
                             super.onDismissed(transientBottomBar, event)
-                            if (TalkPageSurveyHelper.shouldShowSurvey()) {
-                                TalkPageSurveyHelper.showSurvey(this@TalkTopicsActivity)
+                            if (TalkPageSurvey.shouldShowSurvey()) {
+                                TalkPageSurvey.showSurvey(this@TalkTopicsActivity)
                             }
                         }
                     })
