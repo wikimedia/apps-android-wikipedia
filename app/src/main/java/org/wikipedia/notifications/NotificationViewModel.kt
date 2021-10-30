@@ -45,7 +45,7 @@ class NotificationViewModel : ViewModel() {
         filteredWikiList = delimitedFilteredWikiList()
     }
 
-    private suspend fun collectionNotifications  () = notificationRepository.getAllNotifications()
+    private suspend fun collectionNotifications() = notificationRepository.getAllNotifications()
         .collect { list ->
             _uiState.value = UiState.Success(processList(list), !currentContinueStr.isNullOrEmpty())
         }

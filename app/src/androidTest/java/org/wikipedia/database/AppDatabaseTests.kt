@@ -92,7 +92,6 @@ class AppDatabaseTests {
 
         notificationDao.insertNotifications(notifications)
 
-
         var enWikiList = notificationDao.getNotificationsByWiki(listOf("enwiki")).first()
         val zhWikiList = notificationDao.getNotificationsByWiki(listOf("zhwiki")).first()
         assertThat(enWikiList, notNullValue())
