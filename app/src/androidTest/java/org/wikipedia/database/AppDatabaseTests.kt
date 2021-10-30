@@ -4,12 +4,16 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.*
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.wikipedia.json.JsonUtil
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
@@ -77,16 +81,16 @@ class AppDatabaseTests {
     }
 
     @Test
-    fun testNotification() {
-        // TODO: fix test cases with Flow
-//        val rawJson = InstrumentationRegistry.getInstrumentation()
-//            .context.resources.assets.open("database/json/notifications.json")
-//            .bufferedReader()
-//            .use { it.readText() }
-//
-//        val notifications = JsonUtil.decodeFromString<List<Notification>>(rawJson)!!
-//        notificationDao.insertNotification(notifications)
-//
+    fun testNotification() = runBlocking {
+        val rawJson = InstrumentationRegistry.getInstrumentation()
+            .context.resources.assets.open("database/json/notifications.json")
+            .bufferedReader()
+            .use { it.readText() }
+
+        val notifications = JsonUtil.decodeFromString<List<Notification>>(rawJson)!!
+
+        notificationDao.insertNotifications(notifications)
+
 //        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")), notNullValue())
 //        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().id, equalTo(123759827))
 //        assertThat(notificationDao.getNotificationsByWiki(listOf("zhwiki")).first().id, equalTo(2470933))

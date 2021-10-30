@@ -37,6 +37,11 @@ class NotificationViewModel : ViewModel() {
     val uiState = _uiState
 
     init {
+        viewModelScope.launch(handler) {
+            withContext(Dispatchers.IO) {
+                dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
+            }
+        }
         filteredWikiList = delimitedFilteredWikiList()
     }
 
