@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -34,16 +33,16 @@ class NotificationViewModel : ViewModel() {
     var mentionsUnreadCount: Int = 0
     var allUnreadCount: Int = 0
 
-    private val _uiState = MutableStateFlow<UiState>(UiState.Success(emptyList(), emptyMap(), false))
-    val uiState: StateFlow<UiState> = _uiState
+    private val _uiState = MutableStateFlow(UiState())
+    val uiState = _uiState
 
     init {
         filteredWikiList = delimitedFilteredWikiList()
     }
 
-    private suspend fun collectAllNotifications() = notificationRepository.getAllNotifications()
+    private suspend fun collectionNotifications  () = notificationRepository.getAllNotifications()
         .collect { list ->
-            _uiState.value = UiState.Success(processList(list), dbNameMap, !currentContinueStr.isNullOrEmpty())
+            _uiState.value = UiState.Success(processList(list), !currentContinueStr.isNullOrEmpty())
         }
 
     private fun processList(list: List<Notification>): List<NotificationListItemContainer> {
@@ -122,15 +121,14 @@ class NotificationViewModel : ViewModel() {
                         .fetchAndSave(NotificationsFilterActivity.allWikisList().joinToString("|"), "read|!read", currentContinueStr)
                 }
             }
-            // TODO: revisit this
-            collectAllNotifications()
+            collectionNotifications()
         }
     }
 
     fun updateTabSelection(position: Int) {
         selectedFilterTab = position
         viewModelScope.launch(handler) {
-            collectAllNotifications()
+            collectionNotifications()
         }
     }
 
@@ -174,16 +172,14 @@ class NotificationViewModel : ViewModel() {
                     withContext(Dispatchers.IO) {
                         notificationRepository.updateNotification(it)
                     }
-                    // TODO: fixing jump
-                    collectAllNotifications()
+                    collectionNotifications()
                     updateTabUnreadCounts()
                 }
             }
     }
 
-    sealed class UiState {
+    open class UiState {
         data class Success(val notifications: List<NotificationListItemContainer>,
-                           val dbNameMap: Map<String, WikiSite>,
                            val fromContinuation: Boolean) : UiState()
         data class Error(val throwable: Throwable) : UiState()
     }

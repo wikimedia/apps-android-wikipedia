@@ -59,7 +59,6 @@ class NotificationActivity : BaseActivity() {
     private lateinit var externalLinkIcon: Drawable
     private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
     private var fromContinuation: Boolean = false
-    private var dbNameMap = mapOf<String, WikiSite>()
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
@@ -134,7 +133,7 @@ class NotificationActivity : BaseActivity() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect {
                 when (it) {
-                    is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, it.dbNameMap, it.fromContinuation)
+                    is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, it.fromContinuation)
                     is NotificationViewModel.UiState.Error -> setErrorState(it.throwable)
                 }
             }
@@ -213,13 +212,8 @@ class NotificationActivity : BaseActivity() {
     }
 
     private fun onNotificationsComplete(notifications: List<NotificationListItemContainer>,
-                                        dbNameMap: Map<String, WikiSite>,
                                         fromContinuation: Boolean) {
-        if (notifications.isEmpty() && dbNameMap.isEmpty()) {
-            return
-        }
         setSuccessState()
-        this.dbNameMap = dbNameMap
         this.fromContinuation = fromContinuation
 
         notificationContainerList.clear()
