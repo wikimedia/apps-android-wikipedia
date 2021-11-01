@@ -37,10 +37,10 @@ object TalkPageSurvey {
                 .setNegativeButton(if (attempts == 0) R.string.onboarding_maybe_later else android.R.string.cancel, null)
                 .setCancelable(false)
                 .create()
+        dialog.show()
         dialog.findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethodExt { url ->
             CustomTabsUtil.openInCustomTab(activity, url)
         }
-        dialog.show()
     }
 
     private fun fallsWithinGeoRange(): Boolean {
