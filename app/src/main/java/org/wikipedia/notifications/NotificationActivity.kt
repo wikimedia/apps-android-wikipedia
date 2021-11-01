@@ -560,7 +560,7 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun isValidAppLanguageCode(langCode: String): Boolean {
-            return WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) != null
+            return WikipediaApp.getInstance().language().getLanguageCodeIndex(langCode) >= 0
         }
 
         override fun onClick(v: View) {
@@ -609,8 +609,6 @@ class NotificationActivity : BaseActivity() {
         init {
             (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
 
-            updateFilterIconAndCount()
-
             itemView.setOnClickListener {
                 if (actionMode == null) {
                     funnel.logSearchClick()
@@ -628,7 +626,7 @@ class NotificationActivity : BaseActivity() {
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
         }
 
-        private fun updateFilterIconAndCount() {
+        fun updateFilterIconAndCount() {
             val excludedFilters = excludedFiltersCount()
             if (excludedFilters == 0) {
                 notificationFilterCountView.visibility = View.GONE
@@ -660,6 +658,7 @@ class NotificationActivity : BaseActivity() {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             when (holder) {
                 is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos], pos)
+                is NotificationSearchBarHolder -> holder.updateFilterIconAndCount()
             }
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
