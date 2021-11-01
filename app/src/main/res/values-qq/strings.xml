@@ -1088,5 +1088,4 @@
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
   <string name="survey_dialog_title">Title text for talk page survey</string>
-  <string name="survey_dialog_message">Message text for talk page survey</string>
 </resources>
