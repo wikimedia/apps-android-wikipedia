@@ -54,6 +54,7 @@ object TalkPageSurvey {
     }
 
     private fun takeUserToSurvey(context: Context) {
+        Prefs.showTalkPageSurveyAttempts = 10
         CustomTabsUtil.openInCustomTab(context, getLanguageSpecificUrl())
     }
 
