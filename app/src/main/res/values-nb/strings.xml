@@ -17,6 +17,7 @@
 * SuperPotato
 * Tarjeimo
 * VukAnd12
+* Vukky
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -50,6 +51,8 @@
   <string name="app_settings">Innstillinger for appen</string>
   <string name="search_tab_tooltip">Trykk på ikonet igjen for å begynne å skrive et søkeord.</string>
   <string name="history_list_title">Historikk</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Tøm besøkslogg</string>
   <string name="dialog_message_clear_history">Dette vil slette hele besøksloggen og lukke alle åpne faner. Er du sikker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -572,6 +575,11 @@
   <string name="notifications_view_archived_button_text">Vis arkiverte varsler</string>
   <string name="notification_preferences_title">Varselinnstillinger</string>
   <string name="notifications_mark_unread">Marker som ulest</string>
+  <string name="notifications_direct_reply_action">Svar</string>
+  <string name="notifications_direct_reply_progress">Poster svar til %s.</string>
+  <string name="notifications_direct_reply_success">Svaret ble postet.</string>
+  <string name="notifications_direct_reply_error">Kunne ikke poste svar automatisk.</string>
+  <string name="notifications_mark_all_as_read_message">%d merket som lest</string>
   <string name="watchlist_title">Overvåkningsliste</string>
   <string name="preference_title_notification_poll">Se etter nye varsler</string>
   <string name="preference_summary_notification_poll">La appen bruke data for å sjekke nye varsler i bakgrunnen.</string>
@@ -590,6 +598,18 @@
   <string name="preference_summary_notification_mention">Noen nevnte deg på en side</string>
   <string name="preference_title_notification_user_talk">Diskusjonsside</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">Meldinger fra diskusjonssider</string>
+  <string name="notifications_filter_icon_content_description">Filtrer varsler</string>
+  <string name="notifications_empty_search_message">Prøv å fjerne %s for å se flere varsler</string>
+  <string name="notifications_select_all_filters">Velg alle filtre</string>
+  <string name="notifications_tab_filter_all">Alle</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_search_bar_filter_hint">Varselfilter</string>
+  <string name="notifications_menu_mark_as_read">Merk som lest</string>
+  <string name="notifications_menu_mark_as_unread">Merk som ulest</string>
+  <string name="notifications_menu_check_all">Merk alle elementer</string>
+  <string name="notifications_menu_uncheck_all">Fjern merking av alle elementer</string>
+  <string name="notifications_wiki_filter_header">Wikifilter</string>
+  <string name="notifications_type_filter_header">Filtertype</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>
   <string name="view_random_article_card_title">Tilfeldig artikkel</string>

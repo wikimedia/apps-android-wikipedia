@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlinx-serialization'
 apply plugin: 'kotlin-kapt'
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
@@ -39,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 50375
+        versionCode 50382
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -180,20 +181,24 @@ dependencies {
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
     String mockitoVersion = '3.4.0'
-    String leakCanaryVersion = '2.5'
+    String leakCanaryVersion = '2.7'
     String kotlinCoroutinesVersion = '1.3.9'
     String firebaseMessagingVersion = '22.0.0'
-    String mlKitVersion = '17.0.0'
+    String mlKitVersion = '17.0.1'
     String roomVersion = "2.3.0"
     String espressoVersion = '3.4.0'
+    String serialization_version = '1.2.1'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
 
     implementation "com.google.android.material:material:1.4.0"
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation "androidx.core:core-ktx:1.6.0"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation "androidx.browser:browser:1.3.0"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     implementation "androidx.fragment:fragment-ktx:1.3.6"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "androidx.preference:preference-ktx:1.1.1"
@@ -211,10 +216,8 @@ dependencies {
     implementation "com.github.bumptech.glide:okhttp3-integration:$glideVersion"
     kapt("com.github.bumptech.glide:compiler:$glideVersion")
 
-    implementation 'com.google.code.gson:gson:2.8.6'
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
     implementation "io.reactivex.rxjava3:rxjava:3.0.4"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
@@ -222,6 +225,7 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation "com.github.skydoves:balloon:1.3.4"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor "androidx.room:room-compiler:$roomVersion"

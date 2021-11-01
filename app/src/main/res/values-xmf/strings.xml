@@ -12,7 +12,7 @@
   <string name="wikimedia">ვიკიმედია</string>
   <string name="nav_item_back">უკახალე</string>
   <string name="page_tabs_back">უკახალე</string>
-  <string name="nav_item_forward">წიმი</string>
+  <string name="nav_item_forward">წჷმი</string>
   <string name="search_hint">ვიკიპედიას გორუა</string>
   <string name="search_hint_voice_search">ხონარით გორუა</string>
   <string name="search_hint_search_languages">ნინაშ გორუა</string>
@@ -181,6 +181,7 @@
   <string name="page_protected_can_not_edit_anon">სანარღოთ, ასეშო თე ხასჷლაშ ანონიმურო რედაქტირაფა ვეშილებე.</string>
   <string name="page_protected_can_not_edit_title">თე ხასჷლა თხილერი რე</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">კონტროლიშ ერკებულშა გეძინა</string>
+  <string name="page_notification_tooltip">თქვანი გინაფეფი ასე ათაქ რე.</string>
   <string name="settings_item_preferences">კონფიგურაცია</string>
   <string name="settings_activity_title">კონფიგურაცია</string>
   <string name="about_description">ვიკიპედიაშ აპლიკაციაშ გეშა</string>
@@ -210,6 +211,7 @@
   <string name="edit_done">გჷმოქიანაფა</string>
   <string name="edit_preview">გიწოთოლორაფა</string>
   <string name="edit_undo">გოუქვაფა</string>
+  <string name="edit_redo">ოშხონაფა</string>
   <string name="edit_zoom_in">გადიდორაფა</string>
   <string name="edit_zoom_out">დაჭიჭარაფა</string>
   <string name="edit_summary_tag_typo">ტიპოგრაფიული მიშათინუა</string>
@@ -218,6 +220,7 @@
   <string name="edit_summary_tag_other">შხვა</string>
   <string name="edit_summary_tag_other_hint">მუჭო გაუჯგუშენდით</string>
   <string name="edit_conflict_title">რედაქტირაფაშ კონფლიქტი</string>
+  <string name="edit_conflict_message">რედაქტირაფაშ კონფლიქტიქ იჸუ, თიშ გეშა, ნამჷ-და ხასჷლა შხვა მახვარებუქ უკვე დოთირუ. დაკოპორით თქვანი თირუეფი, დირთით დო გაახალით ხასჷლა დო უკული კჷნ ქოცადით რედაქტირაფა</string>
   <string name="find_next">უკულიანიშ გორუა</string>
   <string name="find_previous">წიმოხონიშ გორუა</string>
   <string name="find_first_occurence">თენა მაართა აკოხვალამა რე</string>
@@ -254,6 +257,7 @@
   <string name="preference_summary_show_images">შეილებჷნა ჩართათ ვარ-და გოთიშათ სურათეფიშ ხარგუა ხასჷლეფს. გოღიორით თე პარამეტრი, დო თქვანი ინტერნეტ-რსხუ რჩქალი ქორე-და, ვარ-და ბორჯი გოხურგელი გიღჷნა-და.</string>
   <string name="preference_title_download_only_over_wifi">ხვალე Wi-Fi-თ გჷმოხარგუა</string>
   <string name="dialog_title_download_only_over_wifi">დადასურით გჷმოხარგუა მობილურიშ ინტერნეტით?</string>
+  <string name="dialog_text_download_only_over_wifi">თქვა პარამეტრეფს ჩართული გაფჷნა \"გჷმოხარგუა ხვალე Wi-Fi-თ\". გონებნანო გჷმირინუათ თქვანი მობილური მუნაჩემეფი ხვალე ათე გჷმოხარგუაშო?</string>
   <string name="dialog_title_download_only_over_wifi_allow">ალობაშ მეჩამა</string>
   <string name="read_more_section">წეკითხით უმოსი</string>
   <string name="about_article_section">თე სტატიაშ გეშა</string>
@@ -303,7 +307,7 @@
   <string name="button_get_directions">მალობეფიშ მოგორაფა</string>
   <string name="error_no_maps_app">ვაშილებე აპლიკაციაშ გორუა, ნამუთ მეწურაფეფს ირზენსჷნ.</string>
   <string name="nav_item_donate">აზარა</string>
-  <string name="error_voice_search_not_available">სანარღოთ, ხონარიტ ჩინება ხემიოჭირინუ ვა რე.</string>
+  <string name="error_voice_search_not_available">სანარღოთ, ხონარით ჩინება ხემიოჭირინუ ვა რე.</string>
   <string name="location_service_disabled">ლოკაციაშ სერვისი გოთიშილი რე.</string>
   <string name="enable_location_service">ჩართება</string>
   <string name="location_permissions_enable_action">ჩართება</string>
@@ -404,6 +408,7 @@
   <string name="preference_summary_notification_thanks">მიდგაინ რედაქტირაფაშ გეშა მარდის გინმოიგანა</string>
   <string name="preference_title_notification_user_talk">სხუნუაშ ხასჷლა</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">სხუნუაშ ხასჷლაშ გინაფეფი</string>
+  <string name="notifications_menu_mark_as_read">უკითხირო მოღანკუა</string>
   <string name="view_because_you_read_card_title">თიშ გეშა, ნამჷ-და თქვა კითხულენთ</string>
   <string name="view_random_card_title">ჩვაგაფი</string>
   <string name="home">დუდხასჷლა</string>
@@ -451,6 +456,7 @@
   <string name="onboarding_get_started">დოჭყაფა</string>
   <string name="onboarding_maybe_later">მოგვიანაფათ შილებე</string>
   <string name="main_tooltip_watchlist_title">კონტროლიშ ერკებული</string>
+  <string name="talk_snackbar_survey_action_text">დოჭყაფა</string>
   <string name="menu_option_user_profile">%s-შ მუნაჩემეფი</string>
   <string name="menu_option_user_contributions">მახვარებუშ: %s მიშნაღელი თია</string>
   <string name="watchlist_details_watching_label">გინმაჯინე</string>

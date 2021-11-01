@@ -228,6 +228,7 @@
   <string name="page_protected_can_not_edit_title">این صفحه محافظت شده‌ است</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">افزودن به فهرست پی‌گیری</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">از آنچه بر مقاله‌های مورد علاقهٔ شما می‌گذرد باخبر بمانید. منوی پایین‌رونده را باز کنید و &lt;b&gt;افزودن به فهرست پی‌گیری‌ها&lt;/b&gt; را انتخاب کنید تا تغییرات در مقاله را ببینید.</string>
+  <string name="page_notification_tooltip">اکنون اعلان‌های شما در اینجا قرار دارند.</string>
   <string name="settings_item_preferences">تنظیمات</string>
   <string name="settings_activity_title">تنظیمات</string>
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
@@ -631,7 +632,7 @@
   <string name="preference_title_customize_push_notifications">شخصی‌سازی اعلان‌ها</string>
   <string name="preference_category_display_settings">تنظیمات نمایش</string>
   <string name="preference_title_hide_read_notifications">نهفتن اعلان‌های خوانده‌شده</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">اعلان‌های ویکی‌پدیا</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ویکی‌پدیا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">اعلان‌های ویکی‌پدیا</string>
   <string name="notifications_channel_group_other_title">سایر</string>
   <string name="notifications_channel_group_other_description">سایر اعلان‌های برنامه</string>
@@ -1014,6 +1015,8 @@
   <string name="talk_response_submitted">پاسخ ارسال شد.</string>
   <string name="talk_snackbar_undo">واگردانی</string>
   <string name="talk_last_modified">&lt;b&gt;آخرین ویرایش در %1$s&lt;/b&gt; توسط %2$s</string>
+  <string name="talk_snackbar_survey_text">از شما برای استفاده از صفحه‌های بحث سپاسگزاریم. آیا مایل هستید با شرکت در یک نظرسنجی به ما در بهبود نرم‌افزار کمک کنید؟</string>
+  <string name="talk_snackbar_survey_action_text">آغاز</string>
   <string name="menu_option_share_edit">اشتراک‌گذاری ویرایش</string>
   <string name="menu_option_user_profile">رخ‌نمای %s</string>
   <string name="menu_option_user_contributions">مشارکت‌های %s</string>

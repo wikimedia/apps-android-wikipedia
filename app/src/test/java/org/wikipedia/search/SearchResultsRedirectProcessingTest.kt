@@ -5,14 +5,14 @@ import org.hamcrest.Matchers
 import org.junit.Before
 import org.junit.Test
 import org.wikipedia.dataclient.mwapi.MwQueryResult
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.JsonUtil
 
 class SearchResultsRedirectProcessingTest {
     private lateinit var result: MwQueryResult
 
     @Before
     fun setUp() {
-        result = GsonUtil.getDefaultGson().fromJson(queryJson, MwQueryResult::class.java)
+        result = JsonUtil.decodeFromString(queryJson)!!
     }
 
     @Test

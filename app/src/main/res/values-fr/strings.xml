@@ -11,6 +11,7 @@
 * DePlusJean
 * Derugon
 * Djiboun
+* DreZhsh
 * Elodark
 * Eneelk
 * Envlh
@@ -233,6 +234,7 @@
   <string name="page_protected_can_not_edit_title">Cette page est protégée</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Ajouter à la liste de suivi</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Garder trace de ce qui se passe sur les articles qui vous intéressent. Taper sur le menu surgissant et sélectionner &lt;b&gt;Ajouter à la liste de suivi&lt;/b&gt; pour voir les modifications sur cet article.</string>
+  <string name="page_notification_tooltip">Vos notifications sont désormais ici.</string>
   <string name="settings_item_preferences">Paramètres</string>
   <string name="settings_activity_title">Paramètres</string>
   <string name="about_description">À propos de l’application Wikipédia</string>
@@ -1026,6 +1028,8 @@
   <string name="talk_response_submitted">Réponse postée.</string>
   <string name="talk_snackbar_undo">Annuler</string>
   <string name="talk_last_modified">&lt;b&gt;Dernière modification le %1$s&lt;/b&gt; par %2$s</string>
+  <string name="talk_snackbar_survey_text">Merci d\'utiliser les pages de discussion. Pourriez-vous nous aider à améliorer l\'application en participant à une enquête ?</string>
+  <string name="talk_snackbar_survey_action_text">Démarrer</string>
   <string name="menu_option_share_edit">Partager la modification</string>
   <string name="menu_option_user_profile">Profil de %s</string>
   <string name="menu_option_user_contributions">Contributions de %s</string>

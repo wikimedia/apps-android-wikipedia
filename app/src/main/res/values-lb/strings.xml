@@ -171,6 +171,7 @@
   <string name="page_protected_can_not_edit_anon">Leider kann dës Säit zu dësem Zäitpunkt net anonym geännert ginn.</string>
   <string name="page_protected_can_not_edit_title">Dës Säit ass gespaart</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
+  <string name="page_notification_tooltip">Är Notifikatioune sinn elo hei.</string>
   <string name="settings_item_preferences">Astellungen</string>
   <string name="settings_activity_title">Astellungen</string>
   <string name="about_description">Iwwer d\'Wikipedia App</string>
@@ -474,6 +475,7 @@
   <string name="preference_summary_notification_mention">Et huet een Iech op enger Säit ernimmt</string>
   <string name="preference_title_notification_user_talk">Diskussiounssäit</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">Message vun Diskussiounssäiten</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
   <string name="view_main_page_card_title">Haut op Wikipedia</string>
@@ -681,6 +683,7 @@
   <string name="talk_add_reply">Äntweren</string>
   <string name="talk_no_subject">(Kee Sujet)</string>
   <string name="talk_reply_subject">Sujet</string>
+  <string name="talk_snackbar_survey_action_text">Fir unzefänken</string>
   <string name="menu_option_user_contributions">Kontributioune vum %s</string>
   <string name="watchlist_details_watching_label">Iwwerwaacht</string>
   <string name="watchlist_details_watch_label">Iwwerwaachen</string>

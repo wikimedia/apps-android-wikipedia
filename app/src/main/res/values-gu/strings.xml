@@ -14,10 +14,13 @@
   <string name="app_name_alpha">વિકિપીડિયા આલ્ફા</string>
   <string name="wikimedia">વિકિમીડિયા</string>
   <string name="search_hint">વિકિપીડિયામાં શોધો</string>
+  <string name="nav_item_suggested_edits">સંપાદનો</string>
   <string name="error_network_error" fuzzy="true">નેટવર્ક સાથે જોડાણ સ્થાપિત કરી શકાતું નથી.</string>
   <string name="page_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="menu_clear_all_history">ઇતિહાસ હટાવો</string>
   <string name="dialog_title_clear_history" fuzzy="true">બ્રાઉઝિંગનો ઇતિહાસ હટાવશો?</string>
+  <string name="dialog_message_clear_history_yes">હા</string>
+  <string name="dialog_message_clear_history_no">ના</string>
   <string name="share_via">આના માધ્યમથી વહેંચો</string>
   <string name="menu_page_other_languages" fuzzy="true">અન્ય ભાષાઓમાં વાંચો</string>
   <string name="menu_page_find_in_page" fuzzy="true">પાનામાં શોધો</string>
@@ -63,6 +66,7 @@
   <string name="create_account_button">ખાતું બનાવો</string>
   <string name="preferences_general_heading">સામાન્ય</string>
   <string name="create_account_account_created_toast">ખાતું ખોલવામાં આવ્યું!</string>
+  <string name="preferences_privacy_settings_heading">ગોપનીયતા</string>
   <string name="settings_activity_title" fuzzy="true">ગોઠવણીઓ</string>
   <string name="privacy_policy_description">ગોપનિયતા નીતિ</string>
   <string name="terms_of_use_description">વપરાશની શરતો</string>

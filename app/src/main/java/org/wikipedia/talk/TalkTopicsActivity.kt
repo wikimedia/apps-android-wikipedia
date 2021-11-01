@@ -8,8 +8,11 @@ import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.*
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -17,7 +20,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -34,6 +36,7 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -45,7 +48,6 @@ import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
 import org.wikipedia.views.NotificationButtonView
 import java.util.*
-import kotlin.collections.ArrayList
 
 class TalkTopicsActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicsBinding
@@ -53,17 +55,18 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var funnel: TalkFunnel
     private lateinit var notificationButtonView: NotificationButtonView
-    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
     private val disposables = CompositeDisposable()
-    private val topics = ArrayList<TalkPage.Topic>()
+    private val topics = mutableListOf<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var revisionForLastEdit: MwQueryPage.Revision? = null
+    private var goToTopic = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkTopicsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
@@ -112,7 +115,6 @@ class TalkTopicsActivity : BaseActivity() {
     public override fun onResume() {
         super.onResume()
         loadTopics()
-        setupNotificationsTest()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -152,36 +154,51 @@ class TalkTopicsActivity : BaseActivity() {
                         binding.talkProgressBar.visibility = View.VISIBLE
                         undoSave(newRevisionId, topic, undoneSubject, undoneText)
                     }
+                    .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
+                        override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                            super.onDismissed(transientBottomBar, event)
+                            if (TalkPageSurveyHelper.shouldShowSurvey()) {
+                                TalkPageSurveyHelper.showSurvey(this@TalkTopicsActivity)
+                            }
+                        }
+                    })
                     .show()
             }
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_BACK_FROM_TOPIC) {
+            finish()
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_talk, menu)
+        if (!goToTopic) {
+            menuInflater.inflate(R.menu.menu_talk, menu)
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
-        menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
-        val notificationMenuItem = menu.findItem(R.id.menu_notifications)
-        if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
-            notificationMenuItem.isVisible = true
-            notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
-            notificationButtonView.setOnClickListener {
-                if (AccountUtil.isLoggedIn) {
-                    startActivity(NotificationActivity.newIntent(this))
+        if (!goToTopic) {
+            menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
+            menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
+            val notificationMenuItem = menu.findItem(R.id.menu_notifications)
+            if (AccountUtil.isLoggedIn) {
+                notificationMenuItem.isVisible = true
+                notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
+                notificationButtonView.setOnClickListener {
+                    if (AccountUtil.isLoggedIn) {
+                        startActivity(NotificationActivity.newIntent(this))
+                    }
                 }
+                notificationButtonView.contentDescription =
+                    getString(R.string.notifications_activity_title)
+                notificationMenuItem.actionView = notificationButtonView
+                notificationMenuItem.expandActionView()
+                FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            } else {
+                notificationMenuItem.isVisible = false
             }
-            notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
-            notificationMenuItem.actionView = notificationButtonView
-            notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
-        } else {
-            notificationMenuItem.isVisible = false
+            updateNotificationDot(false)
         }
-        updateNotificationDot(false)
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -213,9 +230,10 @@ class TalkTopicsActivity : BaseActivity() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
         binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
+        binding.talkUsernameView.isVisible = !goToTopic
 
         disposables.clear()
-        binding.talkProgressBar.visibility = View.VISIBLE
+        binding.talkProgressBar.isVisible = true
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
 
@@ -233,26 +251,40 @@ class TalkTopicsActivity : BaseActivity() {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
+                    invalidateOptionsMenu()
+                    binding.talkUsernameView.isVisible = !goToTopic
+                    binding.talkProgressBar.isVisible = !goToTopic
                     binding.talkProgressBar.visibility = View.GONE
                     binding.talkRefreshView.isRefreshing = false
                 }
-                .subscribe({ response ->
+                .subscribe({
                     topics.clear()
-                    for (topic in response.topics!!) {
-                        if (topic.id == 0 && topic.html!!.trim().isEmpty()) {
-                            continue
-                        }
-                        L.d("loadTopics add  " + topic.html)
-                        topics.add(topic)
-                    }
+                    topics.addAll(it.topics!!)
                     updateOnSuccess()
-                }, { t ->
-                    L.e(t)
-                    updateOnError(t)
+                }, {
+                    L.e(it)
+                    updateOnError(it)
                 }))
     }
 
     private fun updateOnSuccess() {
+        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
+            intent.putExtra(EXTRA_GO_TO_TOPIC, false)
+            var topic: TalkPage.Topic? = null
+            if (!pageTitle.fragment.isNullOrEmpty()) {
+                val targetTopic = UriUtil.parseTalkTopicFromFragment(pageTitle.fragment.orEmpty())
+                topic = topics.find {
+                    StringUtil.addUnderscores(targetTopic) == StringUtil.addUnderscores(it.html)
+                }
+            }
+            if (topic != null) {
+                startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource),
+                        Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY)
+                overridePendingTransition(0, 0)
+                return
+            }
+        }
+        goToTopic = false
         if (topics.isEmpty()) {
             updateOnEmpty()
         } else {
@@ -263,14 +295,6 @@ class TalkTopicsActivity : BaseActivity() {
             binding.talkLastModified.visibility = View.VISIBLE
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-        }
-
-        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false) &&
-            !pageTitle.fragment.isNullOrEmpty()) {
-            intent.putExtra(EXTRA_GO_TO_TOPIC, false)
-            topics.find { StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html) }?.let {
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, it.id, invokeSource))
-            }
         }
     }
 
@@ -311,28 +335,14 @@ class TalkTopicsActivity : BaseActivity() {
             }))
     }
 
-    // TODO: remove when ABC test is complete.
-    private fun setupNotificationsTest() {
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0 -> notificationButtonView.setIcon(R.drawable.ic_inbox_24)
-            1 -> notificationButtonView.setIcon(R.drawable.ic_notifications_black_24dp)
-        }
-    }
-
     fun updateNotificationDot(animate: Boolean) {
-        // TODO: remove when ABC test is complete.
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0, 1 -> {
-                if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
-                    notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
-                    if (animate) {
-                        notificationsABCTestFunnel.logShow()
-                        notificationButtonView.runAnimation()
-                    }
-                } else {
-                    notificationButtonView.setUnreadCount(0)
-                }
+        if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
+            notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
+            if (animate) {
+                notificationButtonView.runAnimation()
             }
+        } else {
+            notificationButtonView.setUnreadCount(0)
         }
     }
 
@@ -344,7 +354,18 @@ class TalkTopicsActivity : BaseActivity() {
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
             val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
-            val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
+            var titleStr = RichTextUtil.stripHtml(topic.html).trim()
+            if (titleStr.isEmpty()) {
+                // build up a title based on the contents, massaging the html into plain text that
+                // flows over a few lines...
+                topic.replies?.firstOrNull()?.let {
+                    titleStr = RichTextUtil.stripHtml(it.html).replace("\n", " ")
+                    if (titleStr.length > MAX_CHARS_NO_SUBJECT) {
+                        titleStr = titleStr.substring(0, MAX_CHARS_NO_SUBJECT) + "…"
+                    }
+                }
+            }
+
             title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
             title.visibility = View.VISIBLE
             subtitle.visibility = View.GONE
@@ -359,23 +380,24 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<TalkTopicHolder>() {
         override fun getItemCount(): Int {
             return topics.size
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
             return TalkTopicHolder(layoutInflater.inflate(R.layout.item_talk_topic, parent, false))
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            (holder as TalkTopicHolder).bindItem(topics[pos])
+        override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
+            holder.bindItem(topics[pos])
         }
     }
 
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
+        private const val MAX_CHARS_NO_SUBJECT = 100
         const val NEW_TOPIC_ID = -2
 
         @JvmStatic

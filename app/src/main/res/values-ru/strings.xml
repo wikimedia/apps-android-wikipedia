@@ -251,6 +251,7 @@
   <string name="page_protected_can_not_edit_title">Эта страница защищена</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Добавить в список наблюдения</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следите за тем, что происходит с интересующими вас статьями. Нажмите меню и выберите &lt;b&gt;Добавить в список наблюдения&lt;/b&gt;, чтобы увидеть изменения в статье.</string>
+  <string name="page_notification_tooltip">Ваши уведомления теперь здесь.</string>
   <string name="settings_item_preferences">Настройки</string>
   <string name="settings_activity_title">Настройки</string>
   <string name="about_description">О приложении «Википедия»</string>
@@ -1097,6 +1098,8 @@
   <string name="talk_response_submitted">Ответ опубликован.</string>
   <string name="talk_snackbar_undo">Отменить</string>
   <string name="talk_last_modified">&lt;b&gt;Последняя правка сделана %1$s&lt;/b&gt; участником %2$s</string>
+  <string name="talk_snackbar_survey_text">Спасибо за использование страниц обсуждения. Не могли бы вы помочь нам улучшить приложение, приняв участие в опросе?</string>
+  <string name="talk_snackbar_survey_action_text">Начать</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
   <string name="menu_option_user_profile">Профиль %s</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>

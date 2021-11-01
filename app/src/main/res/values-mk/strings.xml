@@ -193,6 +193,7 @@
   <string name="page_protected_can_not_edit_title">Оваа страница е заштитена</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додај во набљудувани</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следете што се случува со статиите кои ве интересираат. Допрете на расклопеното мени и изберете and select &lt;b&gt;Додај во набљудувани&lt;/b&gt; за да видите промени во статија.</string>
+  <string name="page_notification_tooltip">Сега вашите известувања се тука.</string>
   <string name="settings_item_preferences">Нагодувања</string>
   <string name="settings_activity_title">Нагодувања</string>
   <string name="about_description">За прилогот „Википедија“</string>
@@ -602,7 +603,7 @@
   <string name="preference_title_customize_push_notifications">Прилагоди доставни известувања</string>
   <string name="preference_category_display_settings">Поставки за приказ</string>
   <string name="preference_title_hide_read_notifications">Скриј прочитани известувања</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Известувања за Википедија</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Википедија</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Известувања од Википедија</string>
   <string name="notifications_channel_group_other_title">Други</string>
   <string name="notifications_channel_group_other_description">Други известувања од прилогот</string>
@@ -986,6 +987,8 @@
   <string name="talk_response_submitted">Одговорот е објавен.</string>
   <string name="talk_snackbar_undo">Врати</string>
   <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
+  <string name="talk_snackbar_survey_text">Ви благодариме што ги користите разговорните страници. Дали би можеле да ни помогнете да ја подобриме алаткава со тоа што ќе пополните една анкета?</string>
+  <string name="talk_snackbar_survey_action_text">Започни</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
   <string name="menu_option_user_profile">Профил на %s</string>
   <string name="menu_option_user_contributions">Придонеси на %s</string>

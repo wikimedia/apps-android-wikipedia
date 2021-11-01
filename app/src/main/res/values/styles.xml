@@ -63,6 +63,10 @@
         <item name="windowActionModeOverlay">false</item>
     </style>
 
+    <style name="AppTheme.Notification">
+        <item name="actionModeStyle">@style/ActionModeStyle.Notification</item>
+    </style>
+
     <style name="ActionModeCloseButtonStyle">
         <item name="android:visibility">gone</item>
         <item name="android:layout_marginStart">-48dp</item>
@@ -92,7 +96,7 @@
     </style>
 
     <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/material_theme_de_emphasised_color</item>
+        <item name="colorControlNormal">?attr/toolbar_icon_color</item>
     </style>
 
     <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
@@ -141,6 +145,10 @@
         <item name="subtitleTextStyle">@style/ActionModeSubtitleStyle</item>
     </style>
 
+    <style name="ActionModeStyle.Notification">
+        <item name="titleTextStyle">@style/NotificationActionModeTitleStyle</item>
+    </style>
+
     <style name="PageActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
         <item name="background">?attr/paper_color</item>
         <item name="backgroundSplit">?attr/paper_color</item>
@@ -151,6 +159,10 @@
 
     <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
         <item name="android:textColor">?attr/material_theme_primary_color</item>
+    </style>
+
+    <style name="NotificationActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
+        <item name="android:textColor">?attr/colorAccent</item>
     </style>
 
     <style name="ActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
@@ -374,6 +386,13 @@
 
     <style name="TextInputLayoutErrorTextAppearance">
         <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="NotificationTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.04</item>
     </style>
 
     <style name="MaterialLargePrimaryTitle">

@@ -44,7 +44,7 @@
             android:focusable="true"
             android:background="?attr/actionBarItemBackground"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_find_in_page_24px"
+            app:srcCompat="@drawable/ic_filter_list_24"
             app:tint="?attr/material_theme_secondary_color" />
 
         <ImageView

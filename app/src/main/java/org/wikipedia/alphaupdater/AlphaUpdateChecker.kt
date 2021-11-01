@@ -45,7 +45,7 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
 
     private fun showNotification() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(ALPHA_BUILD_APK_URL))
-        val pintent = PendingIntent.getActivity(context, 0, intent, 0)
+        val pintent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         val notificationManagerCompat = NotificationManagerCompat.from(context)
         val notificationCategory = NotificationCategory.ALPHA_BUILD_CHECKER

@@ -91,16 +91,20 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".main.MainActivity" />
-            <intent-filter>
+            <intent-filter
+                tools:targetApi="m"
+                android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!-- the following lines are merged
                      https://developer.android.com/training/app-links/deep-linking.html
                      so http and https apply to all prefixes-->
-                <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
-                <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" android:scheme="https" />
-                <data android:host="*.wikipedia.org" android:pathPattern="/sr.*" android:scheme="https" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" />
+                <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" />
+                <data android:host="*.wikipedia.org" android:pathPattern="/sr.*" />
             </intent-filter>
         </activity>
         <activity
@@ -236,9 +240,8 @@
 
         <activity
             android:name=".notifications.NotificationActivity"
-            android:label="@string/notifications_activity_title"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme.Notification" />
 
         <activity
             android:name=".page.tabs.TabActivity"
@@ -280,6 +283,12 @@
             android:name=".diff.ArticleEditDetailsActivity"
             android:label=""
             android:theme="@style/AppTheme.ActionBar"  />
+
+        <activity
+            android:name=".notifications.NotificationsFilterActivity"
+            android:label="@string/notifications_filter_label"
+            android:theme="@style/AppTheme.ActionBar"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

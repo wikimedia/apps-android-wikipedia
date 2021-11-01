@@ -13,6 +13,7 @@
 * Danniel07
 * DannyS712
 * David.novella
+* Destinid10 2
 * Dgstranz
 * Eduardo Addad de Oliveira
 * Eduardoaddad
@@ -27,6 +28,7 @@
 * Izamo
 * JO777
 * Jackiezelaya
+* Jakeukalane
 * JanKlaaseen
 * Jduranboger
 * Joanmp17
@@ -61,6 +63,7 @@
 * Tiberius1701
 * VegaDark
 * Warming Hearth
+* Whovian Biologist
 * Whytheonlyone
 * Wifidel
 * Yllelder
@@ -98,6 +101,7 @@
   <string name="app_settings">Configuración de aplicación</string>
   <string name="search_tab_tooltip">Pulsar de nuevo el icono para realizar otra búsqueda.</string>
   <string name="history_list_title">Historial</string>
+  <string name="image_content_description">Imagen: %s</string>
   <string name="dialog_title_clear_history">Borrar el historial de navegación</string>
   <string name="dialog_message_clear_history">¿Confirmas que quieres vaciar el historial de navegación y cerrar cualesquier pestañas abiertas?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -208,7 +212,7 @@
   <string name="create_account_passwords_mismatch_error">Las contraseñas no coinciden</string>
   <string name="create_account_email_error">Dirección de correo electrónico no válida.</string>
   <string name="create_account_username_error">Caracteres no válidos en el nombre de usuario</string>
-  <string name="create_account_password_error" fuzzy="true">La contraseña no es válida</string>
+  <string name="create_account_password_error">La contraseña debe tener al menos 8 caracteres</string>
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="email_recommendation_dialog_title">¿Crear una cuenta sin dirección de correo electrónico?</string>
@@ -222,6 +226,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalles</string>
   <string name="preferences_general_heading">General</string>
+  <string name="preferences_account_heading">Cuenta</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes</string>
   <string name="send_feedback">Enviar comentarios sobre la aplicación</string>
   <string name="create_account_account_created_toast">Se creó la cuenta.</string>
@@ -250,6 +255,7 @@
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Añadir a la lista de seguimiento</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Mantente al tanto de lo que está pasando en los artículos que a ti te interesan. Toca el menú de opciones y selecciona &lt;b&gt;Añadir a la lista de seguimiento&lt;/b&gt; para ver los cambios a un artículo.</string>
+  <string name="page_notification_tooltip">Tus notificaciones ahora están aquí.</string>
   <string name="settings_item_preferences">Configuración</string>
   <string name="settings_activity_title">Configuración</string>
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
@@ -278,7 +284,7 @@
   <string name="edit_abandon_confirm_yes">Sí</string>
   <string name="edit_abandon_confirm_no">No</string>
   <string name="user_blocked_from_editing_title">Bloqueado</string>
-  <string name="user_logged_in_blocked_from_editing">Se bloqueó la edición desde tu cuenta en este wiki.</string>
+  <string name="user_logged_in_blocked_from_editing">Se bloqueó la edición desde tu cuenta en esta wiki.</string>
   <string name="user_anon_blocked_from_editing">Se bloqueó la edición desde tu dirección IP.</string>
   <string name="edit_how_page_improved">¿Cómo has mejorado la página?</string>
   <string name="edit_next">Siguiente</string>
@@ -615,7 +621,7 @@
   <string name="notifications_activity_title">Notificaciones</string>
   <string name="notifications_activity_title_archived">Notificaciones (archivadas)</string>
   <string name="notifications_search">Buscar notificaciones</string>
-  <string name="notifications_view_unread">Marcar notificaciones como leídas.</string>
+  <string name="notifications_view_unread">Ver no leídas</string>
   <string name="notifications_view_archived">Ver notificaciones archivadas</string>
   <string name="notifications_prefs">Ajustes de notificaciones</string>
   <string name="notifications_archive">Marcar como visto y archivar</string>
@@ -760,7 +766,7 @@
   <string name="description_edit_success_se_general_feed_link_snackbar">¿Lo disfrutaste? Ayúdanos a añadir más.</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
-  <string name="description_edit_success_did_you_know">¿Sabías?</string>
+  <string name="description_edit_success_did_you_know">¿Sabías qué…?</string>
   <string name="description_edit_success_article_edit_hint">También puedes editar artículos dentro de esta aplicación. Intenta corregir errores y pequeñas frases haciendo clic en el icono ^1 la próxima vez</string>
   <string name="description_edit_tutorial_title_descriptions">Descripciones de artículos</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Resume un artículo para ayudar a los lectores a comprender el tema de un vistazo</string>
@@ -1043,11 +1049,15 @@
   <string name="talk_response_submitted">Respuesta posted.</string>
   <string name="talk_snackbar_undo">Deshacer</string>
   <string name="talk_last_modified">&lt;b&gt;Último editado&lt;/b&gt; %1$s por %2$s</string>
+  <string name="talk_snackbar_survey_text">Gracias por usar las páginas de discusión. ¿Podrías ayudarnos a mejorar la aplicación participando en una encuesta?</string>
+  <string name="talk_snackbar_survey_action_text">Empezar</string>
   <string name="menu_option_share_edit">Compartir edición</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>
   <string name="watchlist_details_watching_label">Vigilando</string>
   <string name="watchlist_details_watch_label">Vigilar</string>
+  <string name="watchlist_details_next_edit">Siguiente edición</string>
+  <string name="watchlist_details_prev_edit">Edición anterior</string>
   <string name="thank_label">Agradecer</string>
   <string name="go_to_user_page">Ir a la página de usuario</string>
   <string name="thank_dialog_title_text">Enviar agradecimiento públicamente</string>

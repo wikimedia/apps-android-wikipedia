@@ -70,10 +70,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private val disposables = CompositeDisposable()
     private val overflowCallback = OverflowCallback()
     private val watchlistFunnel = WatchlistFunnel()
-    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
+    private var exclusiveTooltipRunnable: Runnable? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,7 +108,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonSearch.setOnClickListener {
             startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
         }
-        binding.pageToolbarButtonTabs.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color))
+        binding.pageToolbarButtonTabs.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
             TabActivity.captureFirstTabBitmap(pageFragment.containerView)
@@ -120,12 +120,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             showOverflowMenu(it)
         }
 
-        binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color))
+        binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
-            overflowCallback.notificationsClick()
+            if (AccountUtil.isLoggedIn) {
+                startActivity(NotificationActivity.newIntent(this@PageActivity))
+            }
         }
-        setupNotificationsTest()
 
         // Navigation setup
         binding.navigationDrawer.setScrimColor(Color.TRANSPARENT)
@@ -609,12 +610,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             goToMainTab()
         }
 
-        override fun notificationsClick() {
-            if (AccountUtil.isLoggedIn) {
-                startActivity(NotificationActivity.newIntent(this@PageActivity))
-            }
-        }
-
         override fun talkClick() {
             pageFragment.title?.run {
                 startActivity(TalkTopicsActivity.newIntent(this@PageActivity, pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY))
@@ -684,19 +679,41 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun maybeShowWatchlistTooltip() {
         pageFragment.historyEntry?.let {
-
             if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
-                binding.pageToolbarButtonShowOverflowMenu.postDelayed({
-                    if (isDestroyed) {
-                        return@postDelayed
-                    }
+                enqueueTooltip {
                     watchlistFunnel.logShowTooltip()
                     Prefs.isWatchlistPageOnboardingTooltipShown = true
                     FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
-                }, 500)
+                }
             }
         }
+    }
+
+    // TODO: remove on March 2022.
+    private fun maybeShowNotificationTooltip(targetView: View) {
+        if (!Prefs.isPageNotificationTooltipShown && AccountUtil.isLoggedIn) {
+            enqueueTooltip {
+                FeedbackUtil.showTooltip(this, targetView, getString(R.string.page_notification_tooltip),
+                    aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
+                    Prefs.isPageNotificationTooltipShown = true
+                }
+            }
+        }
+    }
+
+    private fun enqueueTooltip(runnable: Runnable) {
+        if (exclusiveTooltipRunnable != null) {
+            return
+        }
+        exclusiveTooltipRunnable = runnable
+        binding.pageToolbar.postDelayed({
+            exclusiveTooltipRunnable = null
+            if (isDestroyed) {
+                return@postDelayed
+            }
+            runnable.run()
+        }, 500)
     }
 
     fun animateTabsButton() {
@@ -704,55 +721,22 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonTabs.updateTabCount(true)
     }
 
-    // TODO: remove when ABC test is complete.
-    private fun setupNotificationsTest() {
-        binding.pageToolbarButtonNotifications.isVisible = false
-        binding.unreadDotView.isVisible = false
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0 -> binding.pageToolbarButtonNotifications.setIcon(R.drawable.ic_inbox_24)
-            1 -> binding.pageToolbarButtonNotifications.setIcon(R.drawable.ic_notifications_black_24dp)
-        }
-    }
-
     private fun updateNotificationsButton(animate: Boolean) {
-        // TODO: remove when ABC test is complete.
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0, 1 -> {
-                if (AccountUtil.isLoggedIn) {
-                    binding.pageToolbarButtonNotifications.isVisible = true
-                    if (Prefs.notificationUnreadCount > 0) {
-                        binding.pageToolbarButtonNotifications.setUnreadCount(Prefs.notificationUnreadCount)
-                        if (animate) {
-                            notificationsABCTestFunnel.logShow()
-                            toolbarHideHandler.ensureDisplayed()
-                            binding.pageToolbarButtonNotifications.runAnimation()
-                        }
-                    } else {
-                        binding.pageToolbarButtonNotifications.setUnreadCount(0)
-                    }
-                } else {
-                    binding.pageToolbarButtonNotifications.isVisible = false
+        if (AccountUtil.isLoggedIn) {
+            binding.pageToolbarButtonNotifications.isVisible = true
+            if (Prefs.notificationUnreadCount > 0) {
+                binding.pageToolbarButtonNotifications.setUnreadCount(Prefs.notificationUnreadCount)
+                if (animate) {
+                    toolbarHideHandler.ensureDisplayed()
+                    binding.pageToolbarButtonNotifications.runAnimation()
                 }
+            } else {
+                binding.pageToolbarButtonNotifications.setUnreadCount(0)
             }
-            else -> {
-                if (AccountUtil.isLoggedIn) {
-                    if (Prefs.notificationUnreadCount > 0) {
-                        binding.unreadDotView.setUnreadCount(Prefs.notificationUnreadCount)
-                        if (animate) {
-                            notificationsABCTestFunnel.logShow()
-                            toolbarHideHandler.ensureDisplayed()
-                            binding.unreadDotView.runAnimation()
-                        }
-                        binding.unreadDotView.isVisible = true
-                    } else {
-                        binding.unreadDotView.setUnreadCount(0)
-                        binding.unreadDotView.isVisible = false
-                    }
-                } else {
-                    binding.unreadDotView.isVisible = false
-                }
-            }
+        } else {
+            binding.pageToolbarButtonNotifications.isVisible = false
         }
+        maybeShowNotificationTooltip(binding.pageToolbarButtonNotifications)
     }
 
     fun clearActionBarTitle() {

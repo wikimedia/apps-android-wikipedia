@@ -206,16 +206,17 @@
   <string name="page_protected_can_not_edit_title">Táto stránka je chránená</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Pridať do zoznamu sledovaných</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Sledujte čo sa deje s článkami, ktoré Vás zaujímajú. Stlačte menu a zvoľte &lt;b&gt;Pridať do zoznamu sledovaných&lt;/b&gt; pre zobrazenie zmien článku.</string>
+  <string name="page_notification_tooltip">Vaše notifikácie sa teraz nachádzajú tu.</string>
   <string name="settings_item_preferences">Nastavenia</string>
   <string name="settings_activity_title">Nastavenia</string>
   <string name="about_description">O aplikácii</string>
   <string name="privacy_policy_description">Zásady ochrany súkromia</string>
   <string name="terms_of_use_description">Podmienky používania</string>
   <string name="about_wikipedia_url">https://sk.wikipedia.org/wiki/Wikipédia:O_Wikipédii</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/sk</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -735,6 +736,7 @@
   <string name="description_edit_voice_input_description">Hlasový vstup</string>
   <string name="description_too_short">Text je príliš krátky.</string>
   <string name="description_ends_with_punctuation">Text nesmie končiť bodkou.</string>
+  <string name="description_starts_with_article">Vyhnite sa začatiu článku s \"a\" alebo \"the\". (v angličtine)</string>
   <string name="description_starts_with_uppercase">Začnite malým písmenom pokiaľ slovo nie je meno.</string>
   <string name="description_starts_with_lowercase">Vyhnite sa začatiu malým písmenom.</string>
   <string name="description_is_in_different_language">Zdá sa, že text je v neočakávanom jazyku. Jazyk by mal byť %s.</string>
@@ -1052,6 +1054,8 @@
   <string name="talk_response_submitted">Odpoveď zverejnená.</string>
   <string name="talk_snackbar_undo">Vrátiť</string>
   <string name="talk_last_modified">&lt;b&gt;Naposledy upravil/a %1$s&lt;/b&gt; %2$s</string>
+  <string name="talk_snackbar_survey_text">Ďakujeme za používanie tejto aplikácie. Mohli by ste nám pomôcť zlepšiť aplikáciu a odpovedať na niekoľko otázok v našom prieskume?</string>
+  <string name="talk_snackbar_survey_action_text">Začať</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
   <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>

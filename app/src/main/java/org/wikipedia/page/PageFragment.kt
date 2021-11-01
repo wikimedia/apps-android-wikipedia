@@ -28,6 +28,10 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.serialization.json.float
+import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.*
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.FragmentUtil.getCallback
@@ -43,16 +47,16 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
-import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementClient
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonUtil
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.media.AvPlayer
@@ -387,12 +391,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@evaluate
             }
             model.page?.let { page ->
-                GsonUtil.getDefaultGson().fromJson(value, Array<Section>::class.java)?.let {
-                    sections = it.toMutableList()
-                    sections?.let { sections ->
-                        sections.add(0, Section(0, 0, model.title?.displayText, model.title?.displayText, ""))
-                        page.sections = sections
-                    }
+                sections = JsonUtil.decodeFromString(value)
+                sections?.let { sections ->
+                    sections.add(0, Section(0, 0, model.title?.displayText.orEmpty(), model.title?.displayText.orEmpty(), ""))
+                    page.sections = sections
                 }
             }
 
@@ -406,10 +408,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@evaluate
             }
             model.page?.let { page ->
-                GsonUtil.getDefaultGson().fromJson(value, Protection::class.java)?.let {
-                    page.pageProperties.protection = it
-                    bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit))
-                }
+                page.pageProperties.protection = JsonUtil.decodeFromString(value)
+                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit))
             }
         }
     }
@@ -559,7 +559,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     return@evaluate
                 }
                 var options: ActivityOptionsCompat? = null
-                GsonUtil.getDefaultGson().fromJson(s, JavaScriptActionHandler.ImageHitInfo::class.java)?.let {
+
+                val hitInfo: JavaScriptActionHandler.ImageHitInfo? = JsonUtil.decodeFromString(s)
+                hitInfo?.let {
                     val params = CoordinatorLayout.LayoutParams(
                         DimenUtil.roundedDpToPx(it.width),
                         DimenUtil.roundedDpToPx(it.height)
@@ -687,6 +689,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 startGalleryActivity(title.prefixedText)
             }
 
+            override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
+                startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), title.displayText, revisionId, title.wikiSite.languageCode))
+            }
+
             // ignore
             override var wikiSite: WikiSite
                 get() = model.title?.run { wikiSite } ?: WikiSite.forLanguageCode("en")
@@ -724,8 +730,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (!isAdded) {
                 return@addListener
             }
-            GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences::class.java)?.let {
-                references = it
+            references = JsonUtil.decodeFromString(messagePayload.toString())
+            references?.let {
                 if (!it.referencesGroup.isNullOrEmpty()) {
                     showBottomSheet(ReferenceDialog())
                 }
@@ -733,17 +739,17 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("back_link") { _, messagePayload ->
             messagePayload?.let { payload ->
-                val backLinks = payload.getAsJsonArray("backLinks")
-                if (backLinks != null && backLinks.size() > 0) {
-                    val backLinksList = backLinks.map { it.asJsonObject["id"].asString }
-                    showFindReferenceInPage(payload["referenceId"].asString.orEmpty(), backLinksList, payload["referenceText"].asString.orEmpty())
+                val backLinks = payload["backLinks"]?.jsonArray
+                if (backLinks != null && !backLinks.isEmpty()) {
+                    val backLinksList = backLinks.map { it.jsonObject["id"]?.jsonPrimitive?.content }
+                    showFindReferenceInPage(payload["referenceId"]?.jsonPrimitive?.content.orEmpty(), backLinksList, payload["referenceText"]?.jsonPrimitive?.content.orEmpty())
                 }
             }
         }
         bridge.addListener("scroll_to_anchor") { _, messagePayload ->
             messagePayload?.let { payload ->
-                payload.getAsJsonObject("rect")?.let {
-                    val diffY = if (it.has("y")) DimenUtil.roundedDpToPx(it["y"].asFloat) else DimenUtil.roundedDpToPx(it["top"].asFloat)
+                payload["rect"]?.jsonObject?.let {
+                    val diffY = if (it.containsKey("y")) DimenUtil.roundedDpToPx(it["y"]!!.jsonPrimitive.float) else DimenUtil.roundedDpToPx(it["top"]!!.jsonPrimitive.float)
                     val offsetFraction = 3
                     webView.scrollY = webView.scrollY + diffY - webView.height / offsetFraction
                 }
@@ -751,12 +757,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("image") { _, messagePayload ->
             messagePayload?.let { payload ->
-                linkHandler.onUrlClick(UriUtil.decodeURL(payload["href"].asString), payload["title"]?.asString, "")
+                linkHandler.onUrlClick(UriUtil.decodeURL(payload["href"]?.jsonPrimitive?.content.orEmpty()), payload["title"]?.jsonPrimitive?.content, "")
             }
         }
         bridge.addListener("media") { _, messagePayload ->
             messagePayload?.let { payload ->
-                linkHandler.onUrlClick(UriUtil.decodeURL(payload["href"].asString), payload["title"]?.asString, "")
+                linkHandler.onUrlClick(UriUtil.decodeURL(payload["href"]?.jsonPrimitive?.content.orEmpty()), payload["title"]?.jsonPrimitive?.content, "")
             }
         }
         bridge.addListener("pronunciation") { _, messagePayload ->
@@ -767,9 +773,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 if (avCallback == null) {
                     avCallback = AvCallback()
                 }
-                if (!avPlayer!!.isPlaying && payload.has("url")) {
+                if (!avPlayer!!.isPlaying && payload.containsKey("url")) {
                     updateProgressBar(true)
-                    avPlayer!!.play(UriUtil.resolveProtocolRelativeUrl(payload["url"].asString), avCallback!!)
+                    avPlayer!!.play(UriUtil.resolveProtocolRelativeUrl(payload["url"]?.jsonPrimitive?.content.orEmpty()), avCallback!!)
                 } else {
                     updateProgressBar(false)
                     avPlayer!!.stop()
@@ -778,7 +784,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("footer_item") { _, messagePayload ->
             messagePayload?.let { payload ->
-                when (payload["itemType"].asString) {
+                when (payload["itemType"]?.jsonPrimitive?.content) {
                     "talkPage" -> model.title?.run { startTalkTopicActivity(this) }
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
@@ -1147,7 +1153,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 .flatMap { response ->
                     val watchToken = response.query?.watchToken()
                     if (watchToken.isNullOrEmpty()) {
-                        throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
+                        throw RuntimeException("Received empty watch token.")
                     }
                     ServiceFactory.get(it.wikiSite).postWatch(if (unwatch) 1 else null, null, it.prefixedText, expiry.expiry, watchToken)
                 }

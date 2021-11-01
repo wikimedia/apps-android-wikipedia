@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.graphics.scale
+import androidx.core.view.isVisible
 import de.mrapp.android.tabswitcher.Animation
 import de.mrapp.android.tabswitcher.TabSwitcher
 import de.mrapp.android.tabswitcher.TabSwitcherDecorator
@@ -21,17 +22,16 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.TabFunnel
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTabsBinding
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import java.util.*
 
@@ -45,14 +45,14 @@ class TabActivity : BaseActivity() {
     private var tabUpdatedTimeMillis: Long = 0
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
-    public override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTabsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         funnel.logEnterList(app.tabCount)
         binding.tabCountsView.updateTabCount(false)
         binding.tabCountsView.setOnClickListener { onBackPressed() }
-        FeedbackUtil.setButtonLongPressToast(binding.tabCountsView)
+        FeedbackUtil.setButtonLongPressToast(binding.tabCountsView, binding.tabButtonNotifications)
         binding.tabSwitcher.setPreserveState(false)
         binding.tabSwitcher.decorator = object : TabSwitcherDecorator() {
             override fun onInflateView(inflater: LayoutInflater, parent: ViewGroup?, viewType: Int): View {
@@ -124,9 +124,15 @@ class TabActivity : BaseActivity() {
             setDisplayHomeAsUpEnabled(true)
             title = ""
         }
+
+        binding.tabButtonNotifications.setOnClickListener {
+            if (AccountUtil.isLoggedIn) {
+                startActivity(NotificationActivity.newIntent(this))
+            }
+        }
     }
 
-    public override fun onDestroy() {
+    override fun onDestroy() {
         if (cancelled) {
             funnel.logCancel(app.tabCount)
         }
@@ -135,9 +141,14 @@ class TabActivity : BaseActivity() {
         super.onDestroy()
     }
 
-    public override fun onPause() {
+    override fun onPause() {
         super.onPause()
         app.commitTabState()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateNotificationsButton(false)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -177,6 +188,10 @@ class TabActivity : BaseActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onUnreadNotification() {
+        updateNotificationsButton(true)
     }
 
     private fun saveTabsToList() {
@@ -287,6 +302,22 @@ class TabActivity : BaseActivity() {
                 .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
                 .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
         finish()
+    }
+
+    private fun updateNotificationsButton(animate: Boolean) {
+        if (AccountUtil.isLoggedIn) {
+            binding.tabButtonNotifications.isVisible = true
+            if (Prefs.notificationUnreadCount > 0) {
+                binding.tabButtonNotifications.setUnreadCount(Prefs.notificationUnreadCount)
+                if (animate) {
+                    binding.tabButtonNotifications.runAnimation()
+                }
+            } else {
+                binding.tabButtonNotifications.setUnreadCount(0)
+            }
+        } else {
+            binding.tabButtonNotifications.isVisible = false
+        }
     }
 
     companion object {

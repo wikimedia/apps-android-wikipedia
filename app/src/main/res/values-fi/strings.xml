@@ -217,6 +217,7 @@
   <string name="page_protected_can_not_edit_title">Tämä sivu on suojattu</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Lisää tarkkailulistalle</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Seuraa helposti artikkelien kehitystä. Lisää artikkeli seurattavien joukkoon napauttamalla valikkoa ja valitsemalla &lt;b&gt;Lisää tarkkailulistalle&lt;/b&gt;.</string>
+  <string name="page_notification_tooltip">Ilmoituksesi ovat nyt täällä.</string>
   <string name="settings_item_preferences">Asetukset</string>
   <string name="settings_activity_title">Asetukset</string>
   <string name="about_description">Tietoja Wikipedia-sovelluksesta</string>
@@ -389,6 +390,7 @@
   <string name="error_blocked_start">Eston alku: %s</string>
   <string name="error_blocked_expiry">Esto päättyy: %s</string>
   <string name="error_blocked_id">Eston tunniste: %s</string>
+  <string name="error_blocked_footer">Voit olla yhteydessä käyttäjään &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; tai toiseen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
@@ -550,6 +552,7 @@
   <string name="notification_syncing_pause_button">Tauko</string>
   <string name="notification_syncing_resume_button">Jatka</string>
   <string name="notification_syncing_cancel_button">Peruuta</string>
+  <string name="notification_syncing_reading_list_channel_title">Synkronoidaan lukulistat</string>
   <string name="notification_syncing_reading_list_channel_description">Lukulistojen synkronoinnin edistyminen</string>
   <string name="notification_many_unread">Sinulla on %d lukematonta ilmoitusta</string>
   <plurals name="notification_channel_name">
@@ -621,6 +624,7 @@
   <string name="preference_category_push_notifications">Push-ilmoitukset</string>
   <string name="preference_title_customize_push_notifications">Kustomoi push-ilmoituksia</string>
   <string name="preference_category_display_settings">Näyttöasetukset</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Ilmoitukset Wikipediasta</string>
   <string name="notifications_channel_group_other_title">Muu</string>
   <string name="notifications_channel_group_other_description">Muut ilmoitukset sovelluksesta</string>
@@ -999,9 +1003,11 @@
   <string name="talk_message_hint">Kirjoita viesti</string>
   <string name="talk_message_empty">Viesti ei voi olla tyhjä.</string>
   <string name="talk_subject_empty">Kirjoita viestille aihe.</string>
-  <string name="talk_response_submitted" fuzzy="true">Vastaus lähetetty.</string>
+  <string name="talk_response_submitted">Vastaus lähetetty.</string>
   <string name="talk_snackbar_undo">Kumoa</string>
   <string name="talk_last_modified">&lt;b&gt;Sivua muokkasi viimeksi %1$s&lt;/b&gt; %2$s</string>
+  <string name="talk_snackbar_survey_text">Kiitos keskustelusivujen käyttämisestä. Voitko auttaa meitä parantamaan sovellusta osallistumalla kyselyyn?</string>
+  <string name="talk_snackbar_survey_action_text">Aloita</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
   <string name="menu_option_user_profile">Käyttäjän %s profiili</string>
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
@@ -1012,6 +1018,7 @@
   <string name="thank_label">Kiitä</string>
   <string name="go_to_user_page">Siirry käyttäjäsivulle</string>
   <string name="thank_dialog_title_text">Julkinen kiitos lähetetty</string>
+  <string name="thank_dialog_text">Kiitoksen lähettäminen on helppo tapa arvostaa toisen käyttäjän panosta Wikipedian kehittämiseen. Kiitoksia ei voi perua, ja ne ovat julkisesti nähtävillä.</string>
   <string name="thank_dialog_positive_button_text">Lähetä kiitokset</string>
   <string name="thank_dialog_negative_button_text">Peruuta</string>
   <string name="thank_success_message">Kiitoksesi lähetettiin käyttäjälle %s 👍</string>
