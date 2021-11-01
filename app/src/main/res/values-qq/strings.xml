@@ -1089,7 +1089,4 @@
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
   <string name="survey_dialog_title">Title text for talk page survey</string>
   <string name="survey_dialog_message">Message text for talk page survey</string>
-  <string name="survey_dialog_primary_action_text">Primary action button label for talk page survey dialog, leading users to the survey.</string>
-  <string name="survey_dialog_secondary_action_text">Secondary action button label for talk page survey dialog, leading users to our privacy policy.</string>
-  <string name="survey_dialog_neutral_action_text">Secondary action button label for talk page survey dialog, leading users to cancel the dialog</string>
 </resources>
