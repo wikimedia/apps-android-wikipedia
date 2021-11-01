@@ -372,9 +372,9 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
 
-    var showTalkPageSurvey
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_talk_page_survey, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_talk_page_survey, value)
+    var showTalkPageSurveyAttempts
+        get() = PrefsIoUtil.getInt(R.string.preference_key_show_talk_page_survey_attempts, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_show_talk_page_survey_attempts, value)
 
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
