@@ -12,6 +12,7 @@ import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.recurring.RecurringTask
 import org.wikipedia.settings.PrefsIoUtil
+import org.wikipedia.util.DeviceUtil
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -45,7 +46,7 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
 
     private fun showNotification() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(ALPHA_BUILD_APK_URL))
-        val pintent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+        val pintent = PendingIntent.getActivity(context, 0, intent, DeviceUtil.pendingIntentFlags)
 
         val notificationManagerCompat = NotificationManagerCompat.from(context)
         val notificationCategory = NotificationCategory.ALPHA_BUILD_CHECKER
