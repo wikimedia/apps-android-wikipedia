@@ -269,24 +269,6 @@ class NotificationActivity : BaseActivity() {
         // Sort them by descending date...
         notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
 
-        val allTab = binding.notificationTabLayout.getTabAt(0)!!
-        val allUnreadCount = notificationList.count { it.isUnread }
-        if (allUnreadCount > 0) {
-            allTab.text = getString(R.string.notifications_tab_filter_all) + " " +
-                    getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
-        } else {
-            allTab.text = getString(R.string.notifications_tab_filter_all)
-        }
-
-        val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
-        val mentionsUnreadCount = notificationList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
-        if (mentionsUnreadCount > 0) {
-            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " +
-                    getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
-        } else {
-            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions)
-        }
-
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
         notificationContainerList.clear()
@@ -326,6 +308,27 @@ class NotificationActivity : BaseActivity() {
             }
             notificationContainerList.add(NotificationListItemContainer(n))
         }
+
+        val finalFilteredList = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.map { it.notification!! }
+
+        val allTab = binding.notificationTabLayout.getTabAt(0)!!
+        val allUnreadCount = finalFilteredList.count { it.isUnread }
+        if (allUnreadCount > 0) {
+            allTab.text = getString(R.string.notifications_tab_filter_all) + " " +
+                    getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
+        } else {
+            allTab.text = getString(R.string.notifications_tab_filter_all)
+        }
+
+        val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
+        val mentionsUnreadCount = finalFilteredList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
+        if (mentionsUnreadCount > 0) {
+            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " +
+                    getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
+        } else {
+            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions)
+        }
+
         if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null && excludedFiltersCount() == 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyContainer.visibility = if (excludedFiltersCount() != 0) View.VISIBLE else View.GONE
