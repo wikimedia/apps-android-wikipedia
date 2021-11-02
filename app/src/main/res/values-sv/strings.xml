@@ -205,6 +205,7 @@
   <string name="page_protected_can_not_edit_title">Denna sida är skrivskyddad</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Lägg till i bevakningslistan</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Håll reda på vad som händer i artiklar du är intresserad av. Tryck på överflödesmenyn och välj &lt;b&gt;Lägg till i bevakningslistan&lt;/b&gt; för att se ändringar på en artikel.</string>
+  <string name="page_notification_tooltip">Dina aviseringar finns nu här.</string>
   <string name="settings_item_preferences">Inställningar</string>
   <string name="settings_activity_title">Inställningar</string>
   <string name="about_description">Om Wikipedia-appen</string>

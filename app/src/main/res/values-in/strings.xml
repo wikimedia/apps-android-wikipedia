@@ -12,6 +12,7 @@
 * Bramadiarya
 * Cooltey
 * Daud I.F. Argana
+* Dbrant
 * Gombang
 * Hanif Al Husaini
 * Hidayatsrf
@@ -980,6 +981,8 @@
   <string name="talk_response_submitted">Balasan dipublikasikan.</string>
   <string name="talk_snackbar_undo">Urungkan</string>
   <string name="talk_last_modified">&lt;b&gt;Terakir disunting %1$s&lt;/b&gt; oleh %2$s</string>
+  <string name="talk_snackbar_survey_text">Terima kasih telah menggunakan halaman pembicaraan. Dapatkah Anda membantu kami meningkatkan aplikasi dengan berpartisipasi dalam survei?</string>
+  <string name="talk_snackbar_survey_action_text">Mulai</string>
   <string name="menu_option_share_edit">Bagikan hasil suntingan</string>
   <string name="menu_option_user_profile">%s profil</string>
   <string name="menu_option_user_contributions">%s kontribusi</string>

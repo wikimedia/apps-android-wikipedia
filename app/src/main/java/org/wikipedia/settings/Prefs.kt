@@ -48,31 +48,15 @@ object Prefs {
         get() = if (!PrefsIoUtil.contains(R.string.preference_key_cookie_map)) {
             emptyMap()
         } else {
-            val map = JsonUtil.decodeFromString<Map<String, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_cookie_map, "").orEmpty())
-            if (map == null) emptyMap()
-            else {
-                val cookies = mutableMapOf<String, List<Cookie>>()
-                for (key in map.keys) {
-                    val list = mutableListOf<Cookie>()
-                    cookies[key] = list
-                    (WikiSite.DEFAULT_SCHEME + "://" + key).toHttpUrlOrNull()?.let { url ->
-                        for (value in map[key]!!) {
-                            Cookie.parse(url, value)?.run { list.add(this) }
-                        }
-                    }
-                }
-                cookies
+            val map = JsonUtil.decodeFromString<Map<String, List<String>>>(PrefsIoUtil
+                .getString(R.string.preference_key_cookie_map, "").orEmpty()).orEmpty()
+            map.mapValues { (key, values) ->
+                val url = "${WikiSite.DEFAULT_SCHEME}://$key".toHttpUrlOrNull()
+                url?.let { values.mapNotNull { value -> Cookie.parse(url, value) } }.orEmpty()
             }
         }
         set(cookieMap) {
-            val map = mutableMapOf<String, List<String>>()
-            for (key in cookieMap.keys) {
-                val list = mutableListOf<String>()
-                map[key] = list
-                for (cookie in cookieMap[key]!!) {
-                    list.add(cookie.toString())
-                }
-            }
+            val map = cookieMap.mapValues { (_, cookies) -> cookies.map { it.toString() } }
             PrefsIoUtil.setString(R.string.preference_key_cookie_map, JsonUtil.encodeToString(map))
         }
 
@@ -388,6 +372,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
 
+    var showTalkPageSurveyAttempts
+        get() = PrefsIoUtil.getInt(R.string.preference_key_show_talk_page_survey_attempts, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_show_talk_page_survey_attempts, value)
+
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visited_article_page, value)
@@ -396,7 +384,7 @@ object Prefs {
         get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_announcement_shown_dialogs, null))
             ?: emptySet()
         set(newAnnouncementIds) {
-            val announcementIds = announcementShownDialogs.toMutableList()
+            val announcementIds = announcementShownDialogs.toMutableSet()
             announcementIds.addAll(newAnnouncementIds)
             PrefsIoUtil.setString(R.string.preference_key_announcement_shown_dialogs, JsonUtil.encodeToString(announcementIds))
         }
@@ -408,11 +396,7 @@ object Prefs {
     var watchlistDisabledLanguages
         get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_watchlist_disabled_langs, null))
             ?: emptySet()
-        set(langCodes) {
-            val codes = watchlistDisabledLanguages.toMutableList()
-            codes.addAll(langCodes)
-            PrefsIoUtil.setString(R.string.preference_key_watchlist_disabled_langs, JsonUtil.encodeToString(langCodes))
-        }
+        set(langCodes) = PrefsIoUtil.setString(R.string.preference_key_watchlist_disabled_langs, JsonUtil.encodeToString(langCodes))
 
     var shouldMatchSystemTheme
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_match_system_theme, true)
@@ -507,6 +491,16 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_session_id, null)
         set(sessionId) = PrefsIoUtil.setString(R.string.preference_key_event_platform_session_id, sessionId)
 
+    var notificationExcludedWikiCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_wiki_codes_notification, null))
+            ?: emptySet()
+        set(wikis) = PrefsIoUtil.setString(R.string.preference_key_excluded_wiki_codes_notification, JsonUtil.encodeToString(wikis))
+
+    var notificationExcludedTypeCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_type_codes_notification, null))
+            ?: emptySet()
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_excluded_type_codes_notification, JsonUtil.encodeToString(types))
+
     var streamConfigs
         get() = JsonUtil.decodeFromString<Map<String, StreamConfig>>(PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, null))
             ?: emptyMap()
@@ -527,4 +521,10 @@ object Prefs {
     var isPageNotificationTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_page_notification_tooltip_shown, false)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_page_notification_tooltip_shown, enabled)
+
+    val talkPageSurveyOverride
+        get() = PrefsIoUtil.getBoolean(R.string.preference_developer_override_talk_page_survey, false)
+
+    val hideReadNotificationsEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notification_hide_read, false)
 }

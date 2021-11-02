@@ -4,7 +4,6 @@ import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import java.util.*
 
 object MediaHelper {
     private const val COMMONS_DB_NAME = "commonswiki"
@@ -15,7 +14,7 @@ object MediaHelper {
     fun getImageCaptions(fileName: String): Observable<Map<String, String>> {
         return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getEntitiesByTitle(fileName, COMMONS_DB_NAME)
                 .map { entities ->
-                    val captions = HashMap<String, String>()
+                    val captions = mutableMapOf<String, String>()
                     entities.first?.labels?.values?.forEach {
                         captions[it.language] = it.value
                     }

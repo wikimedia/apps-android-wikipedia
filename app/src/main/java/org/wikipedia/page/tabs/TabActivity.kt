@@ -21,7 +21,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.TabFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTabsBinding
@@ -45,7 +44,6 @@ class TabActivity : BaseActivity() {
     private var cancelled = true
     private var tabUpdatedTimeMillis: Long = 0
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -132,7 +130,6 @@ class TabActivity : BaseActivity() {
                 startActivity(NotificationActivity.newIntent(this))
             }
         }
-        setupNotificationsTest()
     }
 
     override fun onDestroy() {
@@ -307,34 +304,19 @@ class TabActivity : BaseActivity() {
         finish()
     }
 
-    // TODO: remove when ABC test is complete.
-    private fun setupNotificationsTest() {
-        binding.tabButtonNotifications.isVisible = false
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0 -> binding.tabButtonNotifications.setIcon(R.drawable.ic_inbox_24)
-            1 -> binding.tabButtonNotifications.setIcon(R.drawable.ic_notifications_black_24dp)
-        }
-    }
-
     private fun updateNotificationsButton(animate: Boolean) {
-        // TODO: remove when ABC test is complete.
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0, 1 -> {
-                if (AccountUtil.isLoggedIn) {
-                    binding.tabButtonNotifications.isVisible = true
-                    if (Prefs.notificationUnreadCount > 0) {
-                        binding.tabButtonNotifications.setUnreadCount(Prefs.notificationUnreadCount)
-                        if (animate) {
-                            notificationsABCTestFunnel.logShow()
-                            binding.tabButtonNotifications.runAnimation()
-                        }
-                    } else {
-                        binding.tabButtonNotifications.setUnreadCount(0)
-                    }
-                } else {
-                    binding.tabButtonNotifications.isVisible = false
+        if (AccountUtil.isLoggedIn) {
+            binding.tabButtonNotifications.isVisible = true
+            if (Prefs.notificationUnreadCount > 0) {
+                binding.tabButtonNotifications.setUnreadCount(Prefs.notificationUnreadCount)
+                if (animate) {
+                    binding.tabButtonNotifications.runAnimation()
                 }
+            } else {
+                binding.tabButtonNotifications.setUnreadCount(0)
             }
+        } else {
+            binding.tabButtonNotifications.isVisible = false
         }
     }
 

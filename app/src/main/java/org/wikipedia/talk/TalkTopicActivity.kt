@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -298,6 +300,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             // TODO
         }
 
+        override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
+            // TODO
+        }
+
         override lateinit var wikiSite: WikiSite
 
         override fun onPageLinkClicked(anchor: String, linkText: String) {
@@ -325,14 +331,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             return
         }
 
-        // if the message is not signed, then sign it explicitly
-        if (!body.endsWith("~~~~")) {
-            body += " ~~~~"
-        }
-        if (!isNewTopic()) {
-            // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
-            body = "\n\n" + body
-        }
+        val topicDepth = topic?.replies?.lastOrNull()?.depth ?: 0
+
+        body = addDefaultFormatting(body, topicDepth, isNewTopic())
 
         binding.talkProgressBar.visibility = View.VISIBLE
         binding.replySaveButton.isEnabled = false
@@ -445,6 +446,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     binding.talkProgressBar.visibility = View.VISIBLE
                     undoSave()
                 }
+                .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
+                    override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                        super.onDismissed(transientBottomBar, event)
+                        TalkPageSurvey.maybeShowSurvey(this@TalkTopicActivity)
+                    }
+                })
                 .show()
             showUndoSnackbar = false
         }
@@ -488,6 +495,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         if (replyActive && !isNewTopic()) {
             onInitialLoad()
         } else {
+            setResult(RESULT_BACK_FROM_TOPIC)
             super.onBackPressed()
         }
     }
@@ -498,6 +506,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
         const val RESULT_EDIT_SUCCESS = 1
+        const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource, undoneSubject: String? = null, undoneBody: String? = null): Intent {
@@ -507,6 +516,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
                     .putExtra(EXTRA_BODY, undoneBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+        }
+
+        fun addDefaultFormatting(text: String, topicDepth: Int, newTopic: Boolean = false): String {
+            var body = ":".repeat(if (newTopic) 0 else topicDepth + 1) + text
+            // if the message is not signed, then sign it explicitly
+            if (!body.endsWith("~~~~")) {
+                body += " ~~~~"
+            }
+            if (!newTopic) {
+                // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
+                body = "\n\n" + body
+            }
+            return body
         }
     }
 }

@@ -28,6 +28,7 @@
 * Izamo
 * JO777
 * Jackiezelaya
+* Jakeukalane
 * JanKlaaseen
 * Jduranboger
 * Joanmp17
@@ -62,6 +63,7 @@
 * Tiberius1701
 * VegaDark
 * Warming Hearth
+* Whovian Biologist
 * Whytheonlyone
 * Wifidel
 * Yllelder
@@ -282,7 +284,7 @@
   <string name="edit_abandon_confirm_yes">Sí</string>
   <string name="edit_abandon_confirm_no">No</string>
   <string name="user_blocked_from_editing_title">Bloqueado</string>
-  <string name="user_logged_in_blocked_from_editing">Se bloqueó la edición desde tu cuenta en este wiki.</string>
+  <string name="user_logged_in_blocked_from_editing">Se bloqueó la edición desde tu cuenta en esta wiki.</string>
   <string name="user_anon_blocked_from_editing">Se bloqueó la edición desde tu dirección IP.</string>
   <string name="edit_how_page_improved">¿Cómo has mejorado la página?</string>
   <string name="edit_next">Siguiente</string>
@@ -619,7 +621,7 @@
   <string name="notifications_activity_title">Notificaciones</string>
   <string name="notifications_activity_title_archived">Notificaciones (archivadas)</string>
   <string name="notifications_search">Buscar notificaciones</string>
-  <string name="notifications_view_unread">Marcar notificaciones como leídas.</string>
+  <string name="notifications_view_unread">Ver no leídas</string>
   <string name="notifications_view_archived">Ver notificaciones archivadas</string>
   <string name="notifications_prefs">Ajustes de notificaciones</string>
   <string name="notifications_archive">Marcar como visto y archivar</string>
@@ -764,7 +766,7 @@
   <string name="description_edit_success_se_general_feed_link_snackbar">¿Lo disfrutaste? Ayúdanos a añadir más.</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
-  <string name="description_edit_success_did_you_know">¿Sabías?</string>
+  <string name="description_edit_success_did_you_know">¿Sabías qué…?</string>
   <string name="description_edit_success_article_edit_hint">También puedes editar artículos dentro de esta aplicación. Intenta corregir errores y pequeñas frases haciendo clic en el icono ^1 la próxima vez</string>
   <string name="description_edit_tutorial_title_descriptions">Descripciones de artículos</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Resume un artículo para ayudar a los lectores a comprender el tema de un vistazo</string>
@@ -1047,6 +1049,8 @@
   <string name="talk_response_submitted">Respuesta posted.</string>
   <string name="talk_snackbar_undo">Deshacer</string>
   <string name="talk_last_modified">&lt;b&gt;Último editado&lt;/b&gt; %1$s por %2$s</string>
+  <string name="talk_snackbar_survey_text">Gracias por usar las páginas de discusión. ¿Podrías ayudarnos a mejorar la aplicación participando en una encuesta?</string>
+  <string name="talk_snackbar_survey_action_text">Empezar</string>
   <string name="menu_option_share_edit">Compartir edición</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>

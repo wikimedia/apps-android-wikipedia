@@ -55,7 +55,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
             popupWindowHost = it
             it.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             PopupWindowCompat.setOverlapAnchor(it, true)
-            PopupWindowCompat.showAsDropDown(it, anchorView, 0, 0, Gravity.END)
+            it.showAsDropDown(anchorView, 0, 0, Gravity.END)
         }
 
         Prefs.readingListsLastSyncTime.let {
