@@ -474,8 +474,6 @@ class NotificationActivity : BaseActivity() {
             // TODO: use better diff date method
             binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.getTimestamp().time, System.currentTimeMillis(), 0L)
 
-            binding.notificationItemReadDot.isVisible = n.isUnread
-            binding.notificationItemReadDot.setColorFilter(notificationColor)
             binding.notificationTitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
             binding.notificationTitle.setTextColor(notificationColor)
             binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
@@ -538,7 +536,6 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationItemImage.visibility = View.INVISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
                 if (WikipediaApp.getInstance().currentTheme.isDark) {
-                    binding.notificationItemReadDot.setColorFilter(android.R.color.white)
                     binding.notificationTitle.setTextColor(ContextCompat.getColor(this@NotificationActivity, android.R.color.white))
                 }
             } else {
