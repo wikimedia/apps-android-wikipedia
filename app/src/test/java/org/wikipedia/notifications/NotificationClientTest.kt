@@ -59,5 +59,5 @@ class NotificationClientTest : MockRetrofitTest() {
     }
 
     private val observable: Observable<MwQueryResponse>
-        get() = apiService.getAllNotifications("*", "!read", null)
+        get() = apiService.getAllNotificationsTest("*", "!read", null)
 }

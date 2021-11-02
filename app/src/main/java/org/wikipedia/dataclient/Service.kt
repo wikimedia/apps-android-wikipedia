@@ -197,16 +197,15 @@ interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
-    fun getAllNotifications(
+    fun getAllNotificationsTest(
         @Query("notwikis") wikiList: String?,
         @Query("notfilter") filter: String?,
         @Query("notcontinue") continueStr: String?
     ): Observable<MwQueryResponse>
 
-    // TODO: remove "KT" if we remove the Observable one.
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
-    suspend fun getAllNotificationsKT(
+    suspend fun getAllNotifications(
         @Query("notwikis") wikiList: String?,
         @Query("notfilter") filter: String?,
         @Query("notcontinue") continueStr: String?
@@ -220,18 +219,13 @@ interface Service {
         @Field("unreadlist") unreadList: String?
     ): Observable<MwQueryResponse>
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=notifications&notwikis=*&notprop=list&notfilter=!read&notlimit=1")
-    @get:Headers("Cache-Control: no-cache")
-    val lastUnreadNotification: Observable<MwQueryResponse>
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&meta=notifications&notwikis=*&notprop=list&notfilter=!read&notlimit=1")
+    suspend fun lastUnreadNotification(): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
-    @get:Headers("Cache-Control: no-cache")
-    val unreadNotificationWikis: Observable<MwQueryResponse>
-
-    // TODO: remove "KT" if we remove the Observable one.
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
-    suspend fun unreadNotificationWikisKT(): MwQueryResponse
+    suspend fun unreadNotificationWikis(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=create&provider=fcm")
