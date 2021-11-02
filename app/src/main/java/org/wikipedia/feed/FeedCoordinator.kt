@@ -33,10 +33,7 @@ class FeedCoordinator internal constructor(context: Context) : FeedCoordinatorBa
         conditionallyAddPendingClient(OnboardingClient(), age == 0)
         conditionallyAddPendingClient(OfflineCardClient(), age == 0 && !online)
 
-        val orderedContentTypes = mutableListOf<FeedContentType>()
-        orderedContentTypes.addAll(FeedContentType.values())
-        orderedContentTypes.sortWith { a, b -> a.order.compareTo(b.order) }
-        for (contentType in orderedContentTypes) {
+        for (contentType in FeedContentType.values().sortedBy { it.order }) {
             addPendingClient(contentType.newClient(aggregatedClient, age))
         }
     }
