@@ -112,8 +112,8 @@
 
     <FrameLayout
         android:id="@+id/notificationWikiCodeContainer"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
         app:layout_constraintTop_toBottomOf="@id/notificationDescription"
@@ -121,8 +121,8 @@
 
         <ImageView
             android:id="@+id/notificationWikiCodeImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:contentDescription="@null"
             app:tint="?attr/secondary_text_color"
             tools:src="@drawable/ic_wikidata_logo" />
@@ -130,8 +130,13 @@
         <TextView
             android:id="@+id/notificationWikiCode"
             style="@style/TextViewCentered"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
             android:background="@drawable/lang_button_shape_border"
             android:fontFamily="sans-serif-medium"
             android:textAllCaps="true"
