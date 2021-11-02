@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.StringUtil
 import java.util.*
 
 class NotificationViewModel : ViewModel() {
@@ -29,7 +30,6 @@ class NotificationViewModel : ViewModel() {
     private var selectedFilterTab: Int = 0
     private var currentContinueStr: String? = null
     private var currentSearchQuery: String? = null
-    private var filteredWikiList = emptyList<String>()
     var mentionsUnreadCount: Int = 0
     var allUnreadCount: Int = 0
 
@@ -42,7 +42,6 @@ class NotificationViewModel : ViewModel() {
                 dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
             }
         }
-        filteredWikiList = delimitedFilteredWikiList()
     }
 
     private suspend fun collectionNotifications() = notificationRepository.getAllNotifications()
@@ -52,14 +51,11 @@ class NotificationViewModel : ViewModel() {
 
     private fun processList(list: List<Notification>): List<NotificationListItemContainer> {
 
-        // First, filter the list with filteredWikiList
-        val filteredList = list.filter { filteredWikiList.contains(it.wiki) }
-
         // Reduce duplicate notifications
         if (currentContinueStr.isNullOrEmpty()) {
             notificationList.clear()
         }
-        for (n in filteredList) {
+        for (n in list) {
             if (notificationList.none { it.id == n.id }) {
                 notificationList.add(n)
             }
@@ -67,12 +63,17 @@ class NotificationViewModel : ViewModel() {
         // Sort them by descending date...
         notificationList.sortWith { n1, n2 -> n2.date().compareTo(n1.date()) }
 
-        updateTabUnreadCounts()
-
         // Filtered the tab selection
         val tabSelectedList = notificationList
             .filter { if (Prefs.hideReadNotificationsEnabled) it.isUnread else true }
             .filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
+
+        val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
+        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val includedWikiCodes = NotificationsFilterActivity.allWikisList().minus(excludedWikiCodes).map {
+            it.split("-")[0]
+        }
+        val checkExcludedWikiCodes = NotificationsFilterActivity.allWikisList().size != includedWikiCodes.size
 
         val notificationContainerList = mutableListOf<NotificationListItemContainer>()
 
@@ -87,28 +88,29 @@ class NotificationViewModel : ViewModel() {
                         (linkText?.contains(searchQuery, true) == true))) {
                 continue
             }
-            val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
-            if (excludedTypeCodes.find { n.category.startsWith(it) } == null) {
-                notificationContainerList.add(NotificationListItemContainer(n))
+            if (excludedTypeCodes.find { n.category.startsWith(it) } != null) {
+                continue
             }
+            if (checkExcludedWikiCodes) {
+                val wikiCode = StringUtil.dbNameToLangCode(n.wiki)
+                if (!includedWikiCodes.contains(wikiCode)) {
+                    continue
+                }
+            }
+            notificationContainerList.add(NotificationListItemContainer(n))
         }
+
+        allUnreadCount = notificationContainerList.map { it.notification!! }.count { it.isUnread }
+        mentionsUnreadCount = notificationContainerList.map { it.notification!! }.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
+
         return notificationContainerList
     }
 
-    private fun updateTabUnreadCounts() {
-        allUnreadCount = notificationList.count { it.isUnread }
-        mentionsUnreadCount = notificationList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
-    }
-
-    private fun delimitedFilteredWikiList(): List<String> {
-        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
-        val filteredWikiList =
-            NotificationsFilterActivity.allWikisList().filterNot { excludedWikiCodes.contains(it) }.map {
-                val defaultLangCode =
-                    WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
-                "${defaultLangCode.replace("-", "_")}wiki"
-            }
-        return filteredWikiList
+    private fun delimitedWikiList(): String {
+        return dbNameMap.keys.union(NotificationsFilterActivity.allWikisList().map {
+            val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
+            "${defaultLangCode.replace("-", "_")}wiki"
+        }).joinToString("|")
     }
 
     fun excludedFiltersCount(): Int {
@@ -123,7 +125,7 @@ class NotificationViewModel : ViewModel() {
             if (WikipediaApp.getInstance().isOnline) {
                 withContext(Dispatchers.IO) {
                     // TODO: fetch "all" wikis - update after the changes merging to the main branch.
-                    currentContinueStr = notificationRepository.fetchAndSave(delimitedFilteredWikiList().joinToString("|"), "read|!read", currentContinueStr)
+                    currentContinueStr = notificationRepository.fetchAndSave(delimitedWikiList(), "read|!read", currentContinueStr)
                 }
             }
             collectionNotifications()
@@ -137,10 +139,6 @@ class NotificationViewModel : ViewModel() {
         }
     }
 
-    fun updateFilteredWikiList() {
-        filteredWikiList = delimitedFilteredWikiList()
-    }
-
     fun markItemsAsRead(items: List<NotificationListItemContainer>, markUnread: Boolean) {
         val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
@@ -151,7 +149,7 @@ class NotificationViewModel : ViewModel() {
                     "commonswiki" -> WikiSite(Service.COMMONS_URL)
                     "wikidatawiki" -> WikiSite(Service.WIKIDATA_URL)
                     else -> {
-                        val langCode = notification.wiki.replace("wiki", "").replace("_", "-")
+                        val langCode = StringUtil.dbNameToLangCode(notification.wiki)
                         WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
                     }
                 }
@@ -178,7 +176,6 @@ class NotificationViewModel : ViewModel() {
                         notificationRepository.updateNotification(it)
                     }
                     collectionNotifications()
-                    updateTabUnreadCounts()
                 }
             }
     }

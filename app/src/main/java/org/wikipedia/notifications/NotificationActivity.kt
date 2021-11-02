@@ -68,9 +68,10 @@ class NotificationActivity : BaseActivity() {
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
     // TODO: maybe making the result observable and put into ViewModel class?
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
-            viewModel.updateFilteredWikiList()
+        if (result.resultCode == NotificationsFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
             beginUpdateList()
+        } else {
+            viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
     }
     var currentSearchQuery: String? = null
@@ -143,6 +144,7 @@ class NotificationActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         actionMode?.let {
+            postprocessAndDisplay()
             if (SearchActionModeCallback.`is`(it)) {
                 searchActionModeCallback.refreshProvider()
             }
@@ -283,7 +285,6 @@ class NotificationActivity : BaseActivity() {
             Toast.makeText(this, R.string.notifications_offline_disable_message, Toast.LENGTH_SHORT).show()
         } else {
             viewModel.markItemsAsRead(items, markUnread)
-
             if (!fromUndoOrClick) {
                 showMarkReadItemsUndoSnackbar(items, markUnread)
             }
@@ -326,8 +327,7 @@ class NotificationActivity : BaseActivity() {
 
     private val selectedItems get() = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.filter { it.selected }
 
-    @Suppress("LeakingThis")
-    private open inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
+    private inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
 
         lateinit var container: NotificationListItemContainer
@@ -375,8 +375,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationTitle.setTextColor(notificationColor)
             binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
 
-            val wikiCode = n.wiki
-            val langCode = wikiCode.replace("wiki", "").replace("_", "-")
+            val langCode = StringUtil.dbNameToLangCode(n.wiki)
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
@@ -396,19 +395,19 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationSource.layoutParams = params
 
                 when {
-                    wikiCode.contains(Constants.WIKI_CODE_WIKIDATA) -> {
+                    langCode == Constants.WIKI_CODE_WIKIDATA -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
                         binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    wikiCode.contains(Constants.WIKI_CODE_COMMONS) -> {
+                    langCode == Constants.WIKI_CODE_COMMONS -> {
                         binding.notificationWikiCode.visibility = View.GONE
                         binding.notificationWikiCodeImage.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
                         binding.notificationWikiCodeContainer.isVisible = true
                     }
-                    appLangCodesContains(langCode) -> {
+                    isValidAppLanguageCode(langCode) -> {
                         binding.notificationWikiCode.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.visibility = View.GONE
                         binding.notificationWikiCodeContainer.isVisible = true
@@ -457,10 +456,9 @@ class NotificationActivity : BaseActivity() {
             }
         }
 
-        private fun appLangCodesContains(langCode: String): Boolean {
-            return WikipediaApp.getInstance().language().appLanguageCodes.count {
-                it == langCode || WikipediaApp.getInstance().language().getDefaultLanguageCode(it) == langCode
-            } > 0
+        private fun isValidAppLanguageCode(langCode: String): Boolean {
+            return WikipediaApp.getInstance().language().getLanguageCodeIndex(langCode) >= 0 ||
+                    WikipediaApp.getInstance().language().getLanguageVariants(langCode) != null
         }
 
         override fun onClick(v: View) {
@@ -509,8 +507,6 @@ class NotificationActivity : BaseActivity() {
         init {
             (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
 
-            updateFilterIconAndCount()
-
             itemView.setOnClickListener {
                 if (actionMode == null) {
                     funnel.logSearchClick()
@@ -527,7 +523,7 @@ class NotificationActivity : BaseActivity() {
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
         }
 
-        private fun updateFilterIconAndCount() {
+        fun updateFilterIconAndCount() {
             val excludedFilters = viewModel.excludedFiltersCount()
             if (excludedFilters == 0) {
                 notificationFilterCountView.visibility = View.GONE
@@ -559,6 +555,7 @@ class NotificationActivity : BaseActivity() {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             when (holder) {
                 is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos], pos)
+                is NotificationSearchBarHolder -> holder.updateFilterIconAndCount()
             }
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
