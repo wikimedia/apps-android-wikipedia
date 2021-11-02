@@ -68,9 +68,10 @@ class NotificationActivity : BaseActivity() {
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
     // TODO: maybe making the result observable and put into ViewModel class?
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
-            // TODO: only fetchAndSave when change langauge code
+        if (result.resultCode == NotificationsFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
             beginUpdateList()
+        } else {
+            viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
     }
     var currentSearchQuery: String? = null

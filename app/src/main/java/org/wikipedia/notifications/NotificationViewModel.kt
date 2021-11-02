@@ -63,8 +63,6 @@ class NotificationViewModel : ViewModel() {
         // Sort them by descending date...
         notificationList.sortWith { n1, n2 -> n2.date().compareTo(n1.date()) }
 
-        updateTabUnreadCounts()
-
         // Filtered the tab selection
         val tabSelectedList = notificationList
             .filter { if (Prefs.hideReadNotificationsEnabled) it.isUnread else true }
@@ -101,12 +99,11 @@ class NotificationViewModel : ViewModel() {
             }
             notificationContainerList.add(NotificationListItemContainer(n))
         }
-        return notificationContainerList
-    }
 
-    private fun updateTabUnreadCounts() {
-        allUnreadCount = notificationList.count { it.isUnread }
-        mentionsUnreadCount = notificationList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
+        allUnreadCount = notificationContainerList.map { it.notification!! }.count { it.isUnread }
+        mentionsUnreadCount = notificationContainerList.map { it.notification!! }.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
+
+        return notificationContainerList
     }
 
     private fun delimitedWikiList(): String {
@@ -179,7 +176,6 @@ class NotificationViewModel : ViewModel() {
                         notificationRepository.updateNotification(it)
                     }
                     collectionNotifications()
-                    updateTabUnreadCounts()
                 }
             }
     }
