@@ -29,7 +29,6 @@ object TalkPageSurvey {
         Prefs.showTalkPageSurveyAttempts = attempts + 1
 
         val dialog = AlertDialog.Builder(activity)
-                .setTitle(activity.getString(R.string.survey_dialog_title))
                 .setMessage(StringUtil.fromHtml(activity.getString(R.string.talk_snackbar_survey_text) +
                         "<br/><br/><small><a href=\"https://foundation.m.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Talk_Page_Survey_Privacy_Statement\">" +
                         activity.getString(R.string.privacy_policy_description) + "</a></small>"))
