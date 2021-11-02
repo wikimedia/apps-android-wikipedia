@@ -122,8 +122,8 @@ class NotificationViewModel : ViewModel() {
         viewModelScope.launch(handler) {
             if (WikipediaApp.getInstance().isOnline) {
                 withContext(Dispatchers.IO) {
-                    currentContinueStr = notificationRepository
-                        .fetchAndSave(NotificationsFilterActivity.allWikisList().joinToString("|"), "read|!read", currentContinueStr)
+                    // TODO: fetch "all" wikis - update after the changes merging to the main branch.
+                    currentContinueStr = notificationRepository.fetchAndSave(delimitedFilteredWikiList().joinToString("|"), "read|!read", currentContinueStr)
                 }
             }
             collectionNotifications()
