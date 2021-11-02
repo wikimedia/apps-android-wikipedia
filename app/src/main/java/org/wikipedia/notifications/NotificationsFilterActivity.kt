@@ -39,6 +39,7 @@ class NotificationsFilterActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
+            setResult(ACTIVITY_RESULT_LANGUAGES_CHANGED)
             setUpRecyclerView()
         }
     }
@@ -168,6 +169,7 @@ class NotificationsFilterActivity : BaseActivity() {
     }
 
     companion object {
+        const val ACTIVITY_RESULT_LANGUAGES_CHANGED = 2
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
         private const val FILTER_TYPE_WIKI = 0
