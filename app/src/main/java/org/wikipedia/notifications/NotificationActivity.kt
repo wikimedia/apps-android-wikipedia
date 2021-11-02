@@ -267,7 +267,7 @@ class NotificationActivity : BaseActivity() {
             return
         }
         // Sort them by descending date...
-        notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
+        notificationList.sortByDescending { it.getTimestamp() }
 
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
