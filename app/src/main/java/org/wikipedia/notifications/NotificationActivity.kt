@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -451,8 +452,10 @@ class NotificationActivity : BaseActivity() {
             val notificationCategory = NotificationCategory.find(n.category)
             val notificationColor = ContextCompat.getColor(this@NotificationActivity,
                 ResourceUtil.getThemedAttributeId(this@NotificationActivity, notificationCategory.iconColor))
+            val secondaryColor = ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.material_theme_secondary_color)
+
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
-            binding.notificationItemImage.setColorFilter(notificationColor)
+            binding.notificationItemImage.setColorFilter(if (n.isUnread) notificationColor else secondaryColor, PorterDuff.Mode.SRC_IN)
             n.contents?.let {
                 binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
                 StringUtil.highlightAndBoldenText(binding.notificationSubtitle, currentSearchQuery, true, Color.YELLOW)
@@ -475,8 +478,10 @@ class NotificationActivity : BaseActivity() {
             binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.getTimestamp().time, System.currentTimeMillis(), 0L)
 
             binding.notificationTitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
-            binding.notificationTitle.setTextColor(notificationColor)
-            binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
+            binding.notificationTitle.setTextColor(if (n.isUnread) notificationColor else secondaryColor)
+            binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else Typeface.DEFAULT
+            binding.notificationSubtitle.setTextColor(ResourceUtil.getThemedColor(this@NotificationActivity,
+                    if (n.isUnread) R.attr.material_theme_primary_color else R.attr.material_theme_secondary_color))
 
             val langCode = StringUtil.dbNameToLangCode(n.wiki)
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
@@ -484,17 +489,12 @@ class NotificationActivity : BaseActivity() {
             n.title?.let { title ->
                 binding.notificationSource.text = title.full
                 StringUtil.highlightAndBoldenText(binding.notificationSource, currentSearchQuery, true, Color.YELLOW)
-                n.contents?.links?.getPrimary()?.url?.run {
-                    if (UriUtil.isAppSupportedLink(Uri.parse(this))) {
-                        binding.notificationSource.setCompoundDrawables(null, null, null, null)
-                    } else {
-                        binding.notificationSource.setCompoundDrawables(null, null, externalLinkIcon, null)
-                    }
+                n.contents?.links?.getPrimary()?.url?.let {
+                    binding.notificationSource.setCompoundDrawables(null, null,
+                            if (UriUtil.isAppSupportedLink(Uri.parse(it))) null else externalLinkIcon, null)
                 }
                 val params = binding.notificationSource.layoutParams as ConstraintLayout.LayoutParams
-                val marginStart = DimenUtil.roundedDpToPx(8f)
-                val marginTop = DimenUtil.roundedDpToPx(12f)
-                params.setMargins(marginStart, 0, 0, 0)
+                params.setMargins(DimenUtil.roundedDpToPx(8f), 0, 0, 0)
                 binding.notificationSource.layoutParams = params
 
                 when {
@@ -519,7 +519,7 @@ class NotificationActivity : BaseActivity() {
                             SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
                     }
                     else -> {
-                        params.setMargins(0, marginTop, 0, 0)
+                        params.setMargins(0, DimenUtil.roundedDpToPx(12f), 0, 0)
                         binding.notificationSource.layoutParams = params
                         binding.notificationWikiCodeContainer.isVisible = false
                     }
@@ -536,7 +536,7 @@ class NotificationActivity : BaseActivity() {
                 binding.notificationItemImage.visibility = View.INVISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
                 if (WikipediaApp.getInstance().currentTheme.isDark) {
-                    binding.notificationTitle.setTextColor(ContextCompat.getColor(this@NotificationActivity, android.R.color.white))
+                    binding.notificationTitle.setTextColor(Color.WHITE)
                 }
             } else {
                 binding.notificationItemSelectedImage.visibility = View.INVISIBLE

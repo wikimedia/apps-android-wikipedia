@@ -91,7 +91,7 @@
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textColor="?android:attr/textColorPrimary"
+        android:textColor="?attr/material_theme_secondary_color"
         android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationSubtitle"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
