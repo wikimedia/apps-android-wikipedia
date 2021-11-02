@@ -300,7 +300,9 @@ class NotificationActivity : BaseActivity() {
 
         val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
         val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
-        val includedWikiCodes = NotificationsFilterActivity.allWikisList().minus(excludedWikiCodes)
+        val includedWikiCodes = NotificationsFilterActivity.allWikisList().minus(excludedWikiCodes).map {
+            it.split("-")[0]
+        }
         val checkExcludedWikiCodes = NotificationsFilterActivity.allWikisList().size != includedWikiCodes.size
 
         for (n in filteredList) {
@@ -560,7 +562,8 @@ class NotificationActivity : BaseActivity() {
         }
 
         private fun isValidAppLanguageCode(langCode: String): Boolean {
-            return WikipediaApp.getInstance().language().getLanguageCodeIndex(langCode) >= 0
+            return WikipediaApp.getInstance().language().getLanguageCodeIndex(langCode) >= 0 ||
+                    WikipediaApp.getInstance().language().getLanguageVariants(langCode) != null
         }
 
         override fun onClick(v: View) {
