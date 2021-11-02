@@ -24,11 +24,11 @@ import org.wikipedia.views.ViewUtil
 class NotificationFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
-        fun onCheckedChanged(filter: Filter)
+        fun onCheckedChanged(filter: Filter?)
     }
 
     private var binding = ItemNotificationFilterBinding.inflate(LayoutInflater.from(context), this)
-    private lateinit var filter: Filter
+    private var filter: Filter? = null
     var callback: Callback? = null
 
     init {
@@ -67,6 +67,13 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         } ?: run {
             binding.notificationFilterWikiLogo.visibility = View.GONE
         }
+    }
+
+    fun setSingleLabel(text: String) {
+        binding.notificationFilterLanguageCode.visibility = View.INVISIBLE
+        binding.notificationFilterWikiLogo.visibility = View.GONE
+        binding.notificationFilterCheck.visibility = View.GONE
+        binding.notificationFilterTitle.text = text
     }
 
     private fun getTitleCodeFor(filterCode: String): String? {
