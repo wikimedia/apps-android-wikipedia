@@ -263,7 +263,7 @@ class NotificationActivity : BaseActivity() {
 
     private fun postprocessAndDisplay(position: Int? = null) {
         // Sort them by descending date...
-        notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
+        notificationList.sortByDescending { it.getTimestamp() }
 
         val allTab = binding.notificationTabLayout.getTabAt(0)!!
         val allUnreadCount = notificationList.count { it.isUnread }
