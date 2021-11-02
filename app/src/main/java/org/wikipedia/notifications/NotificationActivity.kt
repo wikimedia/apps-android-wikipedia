@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -455,7 +454,7 @@ class NotificationActivity : BaseActivity() {
             val secondaryColor = ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.material_theme_secondary_color)
 
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
-            binding.notificationItemImage.setColorFilter(if (n.isUnread) notificationColor else secondaryColor, PorterDuff.Mode.SRC_IN)
+            binding.notificationItemImage.setColorFilter(notificationColor)
             n.contents?.let {
                 binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
                 StringUtil.highlightAndBoldenText(binding.notificationSubtitle, currentSearchQuery, true, Color.YELLOW)
