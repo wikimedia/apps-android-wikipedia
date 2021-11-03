@@ -3,8 +3,6 @@ package org.wikipedia.notifications
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -31,25 +29,11 @@ class NotificationsFilterActivity : BaseActivity() {
         setContentView(binding.root)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_notifications_filter, menu)
-        return true
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
+            setResult(ACTIVITY_RESULT_LANGUAGES_CHANGED)
             setUpRecyclerView()
-        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_notifications_languages -> {
-                startActivityForResult(WikipediaLanguagesActivity.newIntent(this@NotificationsFilterActivity, Constants.InvokeSource.NOTIFICATION), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
         }
     }
 
@@ -58,15 +42,16 @@ class NotificationsFilterActivity : BaseActivity() {
         binding.notificationsFiltersRecyclerView.adapter = NotificationsFilterAdapter(this, filterListWithHeaders())
     }
 
-    private fun filterListWithHeaders(): MutableList<Any> {
+    private fun filterListWithHeaders(): List<Any> {
         val filterListWithHeaders = mutableListOf<Any>()
         filterListWithHeaders.add(getString(R.string.notifications_wiki_filter_header))
         filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, getString(R.string.notifications_all_wikis_text)))
-        app.language().appLanguageCodes.forEach {
+        WikipediaApp.getInstance().language().appLanguageCodes.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it, null))
         }
-        filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, "commons", R.drawable.ic_commons_logo))
-        filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, "wikidata", R.drawable.ic_wikidata_logo))
+        filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, Constants.WIKI_CODE_COMMONS, R.drawable.ic_commons_logo))
+        filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, Constants.WIKI_CODE_WIKIDATA, R.drawable.ic_wikidata_logo))
+        filterListWithHeaders.add(getString(R.string.onboarding_multilingual_add_language_text))
         filterListWithHeaders.add(getString(R.string.notifications_type_filter_header))
         filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, getString(R.string.notifications_all_types_text)))
         NotificationCategory.FILTERS_GROUP.forEach {
@@ -84,25 +69,43 @@ class NotificationsFilterActivity : BaseActivity() {
 
     class NotificationFilterHeaderViewHolder constructor(itemView: View) :
         DefaultViewHolder<View>(itemView) {
-        var headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
+        val headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
 
         fun bindItem(filterHeader: String) {
             headerText.text = filterHeader
         }
     }
 
-    private inner class NotificationsFilterAdapter(val context: Context, private val filtersList: MutableList<Any>) :
+    private inner class NotificationFilterAddLanguageViewHolder constructor(itemView: NotificationFilterItemView) :
+            DefaultViewHolder<NotificationFilterItemView>(itemView), NotificationFilterItemView.Callback {
+        fun bindItem(text: String) {
+            (itemView as NotificationFilterItemView).callback = this
+            itemView.setSingleLabel(text)
+        }
+
+        override fun onCheckedChanged(filter: Filter?) {
+            startActivityForResult(WikipediaLanguagesActivity.newIntent(this@NotificationsFilterActivity, Constants.InvokeSource.NOTIFICATION), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
+        }
+    }
+
+    private inner class NotificationsFilterAdapter(val context: Context, private val filtersList: List<Any>) :
         RecyclerView.Adapter<DefaultViewHolder<*>>(), NotificationFilterItemView.Callback {
         private var excludedWikiCodes = Prefs.notificationExcludedWikiCodes.toMutableSet()
         private var excludedTypeCodes = Prefs.notificationExcludedTypeCodes.toMutableSet()
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
-            return if (type == VIEW_TYPE_HEADER) {
-                NotificationFilterHeaderViewHolder(layoutInflater.inflate(R.layout.view_notification_filter_header, parent, false))
-            } else {
-                val notificationsFilterItemView = NotificationFilterItemView(context)
-                notificationsFilterItemView.callback = this
-                NotificationFilterItemViewHolder(notificationsFilterItemView)
+            return when (type) {
+                VIEW_TYPE_HEADER -> {
+                    NotificationFilterHeaderViewHolder(layoutInflater.inflate(R.layout.view_notification_filter_header, parent, false))
+                }
+                VIEW_TYPE_ADD_LANGUAGE -> {
+                    NotificationFilterAddLanguageViewHolder(NotificationFilterItemView(context))
+                }
+                else -> {
+                    val notificationsFilterItemView = NotificationFilterItemView(context)
+                    notificationsFilterItemView.callback = this
+                    NotificationFilterItemViewHolder(notificationsFilterItemView)
+                }
             }
         }
 
@@ -111,17 +114,21 @@ class NotificationsFilterActivity : BaseActivity() {
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (filtersList[position] is String) VIEW_TYPE_HEADER
+            return if (filtersList[position] is String && filtersList[position] == getString(R.string.onboarding_multilingual_add_language_text)) VIEW_TYPE_ADD_LANGUAGE
+            else if (filtersList[position] is String) VIEW_TYPE_HEADER
             else VIEW_TYPE_ITEM
         }
 
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, position: Int) {
-            if (holder is NotificationFilterHeaderViewHolder) holder.bindItem(filtersList[position] as String)
-            else (holder as NotificationFilterItemViewHolder).bindItem(filtersList[position] as Filter)
+            when (holder) {
+                is NotificationFilterHeaderViewHolder -> holder.bindItem(filtersList[position] as String)
+                is NotificationFilterAddLanguageViewHolder -> holder.bindItem(filtersList[position] as String)
+                else -> (holder as NotificationFilterItemViewHolder).bindItem(filtersList[position] as Filter)
+            }
         }
 
-        override fun onCheckedChanged(filter: Filter) {
-            when (filter.filterCode) {
+        override fun onCheckedChanged(filter: Filter?) {
+            when (filter!!.filterCode) {
                 context.getString(R.string.notifications_all_types_text) -> {
                     if (excludedTypeCodes.isEmpty()) {
                         excludedTypeCodes.addAll(allTypesIdList())
@@ -131,7 +138,7 @@ class NotificationsFilterActivity : BaseActivity() {
                 }
                 context.getString(R.string.notifications_all_wikis_text) -> {
                     if (excludedWikiCodes.isEmpty()) {
-                        excludedWikiCodes.addAll(allTypesIdList())
+                        excludedWikiCodes.addAll(allWikisList())
                     } else {
                         excludedWikiCodes.clear()
                     }
@@ -148,19 +155,19 @@ class NotificationsFilterActivity : BaseActivity() {
             }
             Prefs.notificationExcludedWikiCodes = excludedWikiCodes
             Prefs.notificationExcludedTypeCodes = excludedTypeCodes
-            NotificationPreferencesFunnel(app).logNotificationFilterPrefs()
-            notifyDataSetChanged()
+            NotificationPreferencesFunnel(WikipediaApp.getInstance()).logNotificationFilterPrefs()
+            notifyItemRangeChanged(0, itemCount)
         }
     }
 
-    class Filter constructor(val type: Int, val filterCode: String, val imageRes: Int? = null) {
+    inner class Filter constructor(val type: Int, val filterCode: String, val imageRes: Int? = null) {
         fun isEnabled(): Boolean {
             val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
             val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
-            if (filterCode == app.getString(R.string.notifications_all_types_text)) {
+            if (filterCode == getString(R.string.notifications_all_types_text)) {
                 return allTypesIdList().find { excludedTypeCodes.contains(it) } == null
             }
-            if (filterCode == app.getString(R.string.notifications_all_wikis_text)) {
+            if (filterCode == getString(R.string.notifications_all_wikis_text)) {
                 return allWikisList().find { excludedWikiCodes.contains(it) } == null
             }
             return !excludedWikiCodes.contains(filterCode) && !excludedTypeCodes.contains(filterCode)
@@ -168,17 +175,18 @@ class NotificationsFilterActivity : BaseActivity() {
     }
 
     companion object {
+        const val ACTIVITY_RESULT_LANGUAGES_CHANGED = 2
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
+        private const val VIEW_TYPE_ADD_LANGUAGE = 2
         private const val FILTER_TYPE_WIKI = 0
         private const val FILTER_TYPE_CATEGORY = 1
-        private var app = WikipediaApp.getInstance()
 
         fun allWikisList(): List<String> {
             val wikiList = mutableListOf<String>()
-            wikiList.addAll(app.language().appLanguageCodes)
-            wikiList.add("commons")
-            wikiList.add("wikidata")
+            wikiList.addAll(WikipediaApp.getInstance().language().appLanguageCodes)
+            wikiList.add(Constants.WIKI_CODE_COMMONS)
+            wikiList.add(Constants.WIKI_CODE_WIKIDATA)
             return wikiList
         }
 

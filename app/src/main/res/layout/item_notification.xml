@@ -32,18 +32,6 @@
         app:layout_constraintTop_toTopOf="@id/notificationItemImage"
         app:srcCompat="@drawable/ic_check_black_24dp" />
 
-    <ImageView
-        android:id="@+id/notificationItemReadDot"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@id/notificationItemImage"
-        app:layout_constraintTop_toBottomOf="@id/notificationItemImage"
-        app:layout_constraintEnd_toEndOf="@id/notificationItemImage"
-        app:srcCompat="@drawable/shape_circle"
-        app:tint="?attr/colorAccent"
-        android:contentDescription="@string/notifications_view_unread"/>
-
     <TextView
         android:id="@+id/notificationTitle"
         android:layout_width="0dp"
@@ -103,7 +91,7 @@
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textColor="?android:attr/textColorPrimary"
+        android:textColor="?attr/material_theme_secondary_color"
         android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationSubtitle"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
@@ -112,8 +100,8 @@
 
     <FrameLayout
         android:id="@+id/notificationWikiCodeContainer"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
         app:layout_constraintTop_toBottomOf="@id/notificationDescription"
@@ -121,8 +109,8 @@
 
         <ImageView
             android:id="@+id/notificationWikiCodeImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:contentDescription="@null"
             app:tint="?attr/secondary_text_color"
             tools:src="@drawable/ic_wikidata_logo" />
@@ -130,8 +118,13 @@
         <TextView
             android:id="@+id/notificationWikiCode"
             style="@style/TextViewCentered"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
             android:background="@drawable/lang_button_shape_border"
             android:fontFamily="sans-serif-medium"
             android:textAllCaps="true"
