@@ -61,7 +61,7 @@ class NotificationViewModel : ViewModel() {
             }
         }
         // Sort them by descending date...
-        notificationList.sortWith { n1, n2 -> n2.date().compareTo(n1.date()) }
+        notificationList.sortByDescending { it.date() }
 
         // Filtered the tab selection
         val tabSelectedList = notificationList

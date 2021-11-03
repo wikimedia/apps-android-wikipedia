@@ -352,7 +352,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 sortedContributions.addAll(allContributions)
             }
         }
-        sortedContributions.sortWith { o2, o1 -> (o1.date.compareTo(o2.date)) }
+        sortedContributions.sortByDescending { it.date }
 
         if (!sortedContributions.isNullOrEmpty()) {
             var currentDate = sortedContributions[0].date
