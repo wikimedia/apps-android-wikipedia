@@ -1,10 +1,11 @@
 package org.wikipedia.language
 
 import android.content.Context
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.apache.commons.lang3.StringUtils
@@ -17,21 +18,25 @@ import java.util.*
 
 class LanguagesListViewModel : ViewModel() {
 
-    val siteListData = MutableLiveData<Resource<List<SiteMatrix.SiteInfo>>>()
+    val siteListFlow = MutableStateFlow(Resource<List<SiteMatrix.SiteInfo>>())
     private val suggestedLanguageCodes = WikipediaApp.getInstance().language().remainingAvailableLanguageCodes
     private val nonSuggestedLanguageCodes = WikipediaApp.getInstance().language()
         .appMruLanguageCodes.toMutableList().also { it.removeAll(suggestedLanguageCodes) }
+
+    private val coroutineHandler = CoroutineExceptionHandler { _, throwable ->
+        siteListFlow.value = Resource.Error(throwable)
+    }
 
     init {
         fetchData()
     }
 
     private fun fetchData() {
-        viewModelScope.launch {
+        viewModelScope.launch(coroutineHandler) {
             withContext(Dispatchers.IO) {
                 val siteMatrix = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getSiteMatrix()
                 val sites = SiteMatrix.getSites(siteMatrix)
-                siteListData.postValue(Resource.Success(sites))
+                siteListFlow.value = Resource.Success(sites)
             }
         }
     }
@@ -71,12 +76,12 @@ class LanguagesListViewModel : ViewModel() {
     }
 
     fun getCanonicalName(code: String): String? {
-        var canonicalName = siteListData.value?.data?.find { it.code == code }?.localname
+        var canonicalName = siteListFlow.value.data?.find { it.code == code }?.localname
         if (canonicalName.isNullOrEmpty()) {
             canonicalName = WikipediaApp.getInstance().language().getAppLanguageCanonicalName(code)
         }
         return canonicalName
     }
 
-    data class LanguageListItem(val code: String, val isHeader: Boolean = false)
+    class LanguageListItem(val code: String, val isHeader: Boolean = false)
 }

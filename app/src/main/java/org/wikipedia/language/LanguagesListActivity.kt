@@ -7,9 +7,11 @@ import android.view.*
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.flow.collect
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -50,12 +52,14 @@ class LanguagesListActivity : BaseActivity() {
 
         searchingFunnel = AppLanguageSearchingFunnel(intent.getStringExtra(WikipediaLanguagesFragment.SESSION_TOKEN).orEmpty())
 
-        viewModel.siteListData.observe(this, {
-            if (it is Resource.Success) {
-                binding.languagesListLoadProgress.visibility = View.INVISIBLE
-                languageAdapter.notifyDataSetChanged()
+        lifecycleScope.launchWhenCreated {
+            viewModel.siteListFlow.collect {
+                if (it is Resource.Success) {
+                    binding.languagesListLoadProgress.visibility = View.INVISIBLE
+                    languageAdapter.notifyItemRangeChanged(0, languageAdapter.itemCount)
+                }
             }
-        })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
