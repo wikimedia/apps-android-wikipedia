@@ -110,7 +110,6 @@ object UriUtil {
     }
 
     @JvmStatic
-    @VisibleForTesting
     fun isAppSupportedLink(uri: Uri): Boolean {
         val supportedAuthority = uri.authority?.run { WikiSite.supportedAuthority(this) } == true
         return (uri.path?.run { matches(("^$WIKI_REGEX.*").toRegex()) } == true ||

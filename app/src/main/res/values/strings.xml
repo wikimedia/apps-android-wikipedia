@@ -601,10 +601,18 @@
     <string name="notifications_mark_all_as_read">Mark all as read</string>
     <string name="notifications_direct_reply_action">Reply</string>
     <string name="notifications_direct_reply_progress">Posting reply to %s…</string>
-    <string name="notifications_direct_reply_success">Reply posted successfully.</string>
+    <string name="notifications_direct_reply_success">Reply posted.</string>
     <string name="notifications_direct_reply_error">Could not post reply automatically.</string>
     <string name="notifications_mark_all_as_read_message">%d marked as read</string>
     <string name="notifications_mark_all_as_unread_message">%d marked as unread</string>
+    <plurals name="notifications_mark_as_read_plural">
+        <item quantity="one">1 marked as read</item>
+        <item quantity="other">%d marked as read</item>
+    </plurals>
+    <plurals name="notifications_mark_as_unread_plural">
+        <item quantity="one">1 marked as unread</item>
+        <item quantity="other">%d marked as unread</item>
+    </plurals>
     <string name="watchlist_title">Watchlist</string>
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
@@ -1130,4 +1138,5 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+
 </resources>

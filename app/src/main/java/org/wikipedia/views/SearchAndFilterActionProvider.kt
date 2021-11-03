@@ -49,7 +49,7 @@ class SearchAndFilterActionProvider(context: Context,
                 return true
             }
         })
-        binding.searchInput.setOnQueryTextFocusChangeListener { _: View?, isFocus: Boolean ->
+        binding.searchInput.setOnQueryTextFocusChangeListener { _, isFocus ->
             if (!isFocus) {
                 callback.onQueryTextFocusChange()
             }
@@ -62,8 +62,7 @@ class SearchAndFilterActionProvider(context: Context,
         FeedbackUtil.setButtonLongPressToast(binding.notificationFilterIcon)
 
         // remove focus line from search plate
-        val searchEditPlate = binding.searchInput.findViewById<View>(androidx.appcompat.R.id.search_plate)
-        searchEditPlate.setBackgroundColor(Color.TRANSPARENT)
+        binding.searchInput.findViewById<View?>(androidx.appcompat.R.id.search_plate)?.setBackgroundColor(Color.TRANSPARENT)
         DeviceUtil.showSoftKeyboard(binding.searchInput)
         return binding.root
     }
