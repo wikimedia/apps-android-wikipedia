@@ -32,18 +32,6 @@
         app:layout_constraintTop_toTopOf="@id/notificationItemImage"
         app:srcCompat="@drawable/ic_check_black_24dp" />
 
-    <ImageView
-        android:id="@+id/notificationItemReadDot"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@id/notificationItemImage"
-        app:layout_constraintTop_toBottomOf="@id/notificationItemImage"
-        app:layout_constraintEnd_toEndOf="@id/notificationItemImage"
-        app:srcCompat="@drawable/shape_circle"
-        app:tint="?attr/colorAccent"
-        android:contentDescription="@string/notifications_view_unread"/>
-
     <TextView
         android:id="@+id/notificationTitle"
         android:layout_width="0dp"
@@ -103,7 +91,7 @@
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textColor="?android:attr/textColorPrimary"
+        android:textColor="?attr/material_theme_secondary_color"
         android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationSubtitle"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
