@@ -197,14 +197,6 @@ interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
-    fun getAllNotificationsTest(
-        @Query("notwikis") wikiList: String?,
-        @Query("notfilter") filter: String?,
-        @Query("notcontinue") continueStr: String?
-    ): Observable<MwQueryResponse>
-
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
     suspend fun getAllNotifications(
         @Query("notwikis") wikiList: String?,
         @Query("notfilter") filter: String?,
