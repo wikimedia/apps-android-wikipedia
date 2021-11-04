@@ -82,7 +82,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .onErrorReturn {
-                    L.w("Cannot find definition, try lowercase text.")
+                    L.w("Cannot find the definition. Try to use lowercase text.")
                     ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WIKTIONARY_DOMAIN))
                         .getDefinition(finalSelectedText.lowercase(Locale.getDefault())).blockingFirst()
                 }
