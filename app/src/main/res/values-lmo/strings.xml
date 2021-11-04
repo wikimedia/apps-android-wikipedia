@@ -64,21 +64,21 @@
   <string name="on_this_day_page_share">Spartiss in gir</string>
   <string name="reading_list_page_share">Spartiss in \'na lista de lettura</string>
   <string name="menu_text_select_edit_here">Modifega chichinscì</string>
-  <string name="last_updated_text">Ultim asgiornament %s</string>
+  <string name="last_updated_text">Darera atualizazzion %s</string>
   <string name="talk_page_link_text">Varda la pagina de discussion</string>
-  <string name="edit_history_link_text">Varda la cronologia di cambiament</string>
+  <string name="edit_history_link_text">Varda la storia di cambiament</string>
   <string name="map_view_link_text">Varda in su \'na mappa</string>
   <string name="other_languages_indication_text">Lensg in d\'un\'altra lengua</string>
-  <string name="language_count_link_text">Disponibil in alter %d lengove</string>
+  <string name="language_count_link_text">Disponibil in alter %d lengue</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Cont el publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de dà la toa contribuzzion a la definitiva second conforma a la licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Con el publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de da la toa contribuzzion a la definitiva second conforma a la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. I modifiche i ghe sarann atribuid a l\'adress IP del to dispositif. Se &lt;a href=\"https://#login\"&gt;te se autentichet&lt;/a&gt; te gh\'avaret pussée de riservatezza.</string>
   <string name="preference_title_language">Lengov de la Wikipedia</string>
   <string name="langlinks_filter_hint">Cerca</string>
-  <string name="langlinks_empty">Questa pagina chì a l\'è minga disponibil in alter lengove</string>
+  <string name="langlinks_empty">Questa pagina chì a l\'è minga disponibil in alter lengov</string>
   <string name="langlinks_no_match">Nissuna lengua trovada</string>
-  <string name="langlinks_activity_title">Alter lengove</string>
-  <string name="langlinks_your_wikipedia_languages">I to lengove de Wikipedia</string>
+  <string name="langlinks_activity_title">Alter lengue</string>
+  <string name="langlinks_your_wikipedia_languages">I to lengov de Wikipedia</string>
   <string name="menu_save_changes">Met foeura i cambiament</string>
   <string name="edit_saved_successfully">Modifega publicada!</string>
   <string name="dialog_message_edit_failed">Modifega fallada!</string>
@@ -110,7 +110,7 @@
   <string name="login_activity_title">Và dent</string>
   <string name="login_in_progress_dialog_message">Te se \'dree a \'ndà dent...</string>
   <string name="login_success_toast">Te seet andad dent in del sistema</string>
-  <string name="reset_password_title">Cata foeura la toa parola ciav</string>
+  <string name="reset_password_title">Cata foeura la toa parolla ciav</string>
   <string name="reset_password_description">Te see coness cont una parola ciav provisoria. Per completà el process de entrada, te gh\'heet de impostà una parola ciav noeuva chichinscì.</string>
   <string name="reset_password_hint">Parolla ciav noeuva:</string>
   <string name="reset_password_button">Salva e và dent</string>
@@ -126,7 +126,7 @@
   <string name="history_empty_message">Manten el segn del quell che te see stad adrée a lensg scià</string>
   <string name="history_offline_articles_toast">Di vos in la cronologia i podarissen vesser minga visibel quand che te see minga conness.</string>
   <string name="search_empty_message">Cerca e lensg l\'enciclpedia libera in la toa lengua.</string>
-  <string name="search_empty_message_multilingual_upgrade">Cerca in Wikipedia in diverse lengove</string>
+  <string name="search_empty_message_multilingual_upgrade">Cerca in Wikipedia in diverse lengue</string>
   <string name="delete_selected_items">Scancela i element selezionad</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom de l\'utent</string>
@@ -206,7 +206,7 @@
   <string name="edit_done">Met foeura</string>
   <string name="edit_preview">Veduda antecipada</string>
   <string name="edit_undo">Torna a \'me che l\'era inanz</string>
-  <string name="edit_redo">Fà anmò \'na volta</string>
+  <string name="edit_redo">Fà an\'mò \'na volta</string>
   <string name="edit_zoom_in">Ingrandiment</string>
   <string name="edit_zoom_out">Spisciniment</string>
   <string name="edit_summary_tag_typo">Corregiud eror de batidura</string>
@@ -247,6 +247,10 @@
   <string name="notifications_mark_unread">Insegna come nananmò leggiud</string>
   <string name="preference_title_notification_poll">Verifica notifiche</string>
   <string name="preference_title_notification_system">Sistema</string>
+  <string name="notifications_menu_mark_as_read">Marca \'me lensgiud</string>
+  <string name="notifications_menu_mark_as_unread">Marca come minga lensgiud</string>
+  <string name="notifications_swipe_action_read">Lènsg</string>
+  <string name="notifications_wiki_filter_header">Wiki-filter</string>
   <string name="feed_accessibility_card_load_more_button">Caregenn anmò</string>
   <string name="suggested_edits_my_contributions">I me contrbuzzion</string>
   <string name="menu_option_share_edit">Scompartiss modifega</string>
