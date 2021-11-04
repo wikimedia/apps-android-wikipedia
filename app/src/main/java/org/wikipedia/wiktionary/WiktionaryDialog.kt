@@ -26,6 +26,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import java.util.*
 
 class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
@@ -76,9 +77,15 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         // TODO: centralize the Wiktionary domain better. Maybe a SharedPreference that defaults to
-        disposables.add(ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WIKTIONARY_DOMAIN)).getDefinition(StringUtil.addUnderscores(selectedText))
+        val finalSelectedText = StringUtil.addUnderscores(selectedText)
+        disposables.add(ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WIKTIONARY_DOMAIN)).getDefinition(finalSelectedText)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .onErrorReturn {
+                    L.w("Cannot find definition, try lowercase text.")
+                    ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WIKTIONARY_DOMAIN))
+                        .getDefinition(finalSelectedText.lowercase(Locale.getDefault())).blockingFirst()
+                }
                 .map { usages -> RbDefinition(usages) }
                 .subscribe({ definition ->
                     binding.dialogWiktionaryProgress.visibility = View.GONE
