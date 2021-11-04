@@ -623,10 +623,22 @@
   <string name="notifications_mark_all_as_read">Позначити всі як прочитані</string>
   <string name="notifications_direct_reply_action">Відповісти</string>
   <string name="notifications_direct_reply_progress">Публікація відповіді до %s…</string>
-  <string name="notifications_direct_reply_success">Відповідь успішно опублікована.</string>
+  <string name="notifications_direct_reply_success">Відповідь опубліковано.</string>
   <string name="notifications_direct_reply_error">Не вдалося автоматично опублікувати відповідь.</string>
   <string name="notifications_mark_all_as_read_message">%d позначено як прочитано</string>
   <string name="notifications_mark_all_as_unread_message">%d позначено як непрочитано</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 позначено як прочитане</item>
+    <item quantity="few">%d позначено як прочитані</item>
+    <item quantity="many">%d позначено як прочитані</item>
+    <item quantity="other">%d позначено як прочитані</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 позначено як непрочитане</item>
+    <item quantity="few">%d позначено як непрочитані</item>
+    <item quantity="many">%d позначено як непрочитані</item>
+    <item quantity="other">%d позначено як непрочитані</item>
+  </plurals>
   <string name="watchlist_title">Список спостереження</string>
   <string name="preference_title_notification_poll">Сповіщення про опитування</string>
   <string name="preference_summary_notification_poll">Дозволити додатку використовувати дані, щоб фоновим процесом перевіряти, чи є нові сповіщення.</string>
@@ -662,6 +674,12 @@
   <string name="notifications_filter_label">Фільтр сповіщень</string>
   <string name="notifications_filter_icon_content_description">Фільтр сповіщень</string>
   <string name="notifications_empty_search_message">Спробуйте видалити %s, щоб побачити більше сповіщень</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d фільтр</item>
+    <item quantity="few">%d фільтри</item>
+    <item quantity="many">%d фільтрів</item>
+    <item quantity="other"/>
+  </plurals>
   <string name="notifications_select_all_filters">Вибрати усі фільтри</string>
   <string name="notifications_tab_filter_all">Усі</string>
   <string name="notifications_tab_filter_mentions">Згадки</string>
