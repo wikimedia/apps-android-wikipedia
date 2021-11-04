@@ -98,6 +98,8 @@
   <string name="search_tab_tooltip">Нажмите на иконку снова, чтобы начать ввод поискового запроса.</string>
   <string name="history_list_title">История</string>
   <string name="image_content_description">Изображение: %s</string>
+  <string name="wikimedia_commons">Викисклад</string>
+  <string name="wikidata">Викиданные</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -663,6 +665,19 @@
   <string name="notification_preferences_title">Настройки уведомлений</string>
   <string name="notifications_mark_unread">Отметить как непрочитанное</string>
   <string name="notifications_mark_all_as_read">Отметить все как прочитанные</string>
+  <string name="notifications_direct_reply_success">Ответ опубликован.</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">%d отмечено как прочитанное</item>
+    <item quantity="few">%d отмечены как прочитанные</item>
+    <item quantity="many">%d отмечены как прочитанные</item>
+    <item quantity="other">%d отмечены как прочитанные</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">%d отмечено как прочитанное</item>
+    <item quantity="few">%d отмечены как прочитанные</item>
+    <item quantity="many">%d отмечены как прочитанные</item>
+    <item quantity="other">%d отмечены как прочитанные</item>
+  </plurals>
   <string name="watchlist_title">Список наблюдения</string>
   <string name="preference_title_notification_poll">Извещения об опросах</string>
   <string name="preference_summary_notification_poll">Позволяет приложению использовать данные для проверки новых уведомлений в фоне.</string>
@@ -695,6 +710,9 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Уведомления из Википедии</string>
   <string name="notifications_channel_group_other_title">Прочие</string>
   <string name="notifications_channel_group_other_description">Другие уведомления от приложения</string>
+  <string name="notifications_select_all_filters">Выбрать все фильтры</string>
+  <string name="notifications_menu_mark_as_read">Пометить как прочитанное</string>
+  <string name="notifications_wiki_filter_header">Вики фильтр</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_article_card_title">Случайная статья</string>
