@@ -667,16 +667,16 @@
   <string name="notifications_mark_all_as_read">Отметить все как прочитанные</string>
   <string name="notifications_direct_reply_success">Ответ опубликован.</string>
   <plurals name="notifications_mark_as_read_plural">
-    <item quantity="one">1 отмечено как прочитанное</item>
+    <item quantity="one">%d отмечено как прочитанное</item>
     <item quantity="few">%d отмечены как прочитанные</item>
     <item quantity="many">%d отмечены как прочитанные</item>
-    <item quantity="other">отмечены как прочитанные</item>
+    <item quantity="other">%d отмечены как прочитанные</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
-    <item quantity="one">1 отмечено как прочитанное</item>
+    <item quantity="one">%d отмечено как прочитанное</item>
     <item quantity="few">%d отмечены как прочитанные</item>
     <item quantity="many">%d отмечены как прочитанные</item>
-    <item quantity="other">отмечены как прочитанные</item>
+    <item quantity="other">%d отмечены как прочитанные</item>
   </plurals>
   <string name="watchlist_title">Список наблюдения</string>
   <string name="preference_title_notification_poll">Извещения об опросах</string>

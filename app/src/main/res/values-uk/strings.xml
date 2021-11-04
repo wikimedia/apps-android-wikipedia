@@ -678,7 +678,7 @@
     <item quantity="one">%d фільтр</item>
     <item quantity="few">%d фільтри</item>
     <item quantity="many">%d фільтрів</item>
-    <item quantity="other"/>
+    <item quantity="other">%d фільтрів</item>
   </plurals>
   <string name="notifications_select_all_filters">Вибрати усі фільтри</string>
   <string name="notifications_tab_filter_all">Усі</string>
