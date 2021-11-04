@@ -35,7 +35,7 @@
   <string name="nav_item_forward">Endavant</string>
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="search_hint_voice_search">Cerca d\'entrada de veu</string>
-  <string name="search_hint_search_languages">Cerca un idioma</string>
+  <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar les meves llistes</string>
   <string name="nav_item_suggested_edits">Edicions</string>
   <string name="nav_item_more">Més</string>
@@ -58,6 +58,8 @@
   <string name="search_tab_tooltip">Torneu a tocar la icona per a començar a teclejar un terme de cerca.</string>
   <string name="history_list_title">Historial</string>
   <string name="image_content_description">Imatge: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -66,7 +68,7 @@
   <string name="image_share_via">Compareteix amb</string>
   <string name="search_redirect_from">Redirigit des de %s</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
-  <string name="menu_page_other_languages">Canvia l\'idioma</string>
+  <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cerca a l\'article</string>
   <string name="menu_page_add_to_watchlist">Afegeix a la llista de seguiment</string>
   <string name="menu_page_view_talk">Mostra la pàgina de discussió</string>
@@ -94,16 +96,16 @@
   <string name="talk_page_link_text">Mostra la pàgina de discussió</string>
   <string name="edit_history_link_text">Mostra l\'historial de modificacions</string>
   <string name="map_view_link_text">Mostra al mapa</string>
-  <string name="other_languages_indication_text">Llegeix en un altre idioma</string>
+  <string name="other_languages_indication_text">Llegeix en una altra llengua</string>
   <string name="language_count_link_text">Disponible en %d altres llengües</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="preference_title_language">Llengües de la Viquipèdia</string>
   <string name="langlinks_filter_hint">Cerca</string>
-  <string name="langlinks_empty">Aquesta pàgina no està disponible en altres idiomes.</string>
-  <string name="langlinks_no_match">No s\'ha trobat cap idioma</string>
-  <string name="langlinks_activity_title">Altres idiomes</string>
+  <string name="langlinks_empty">Aquesta pàgina no està disponible en altres llengües.</string>
+  <string name="langlinks_no_match">No s\'ha trobat cap llengua</string>
+  <string name="langlinks_activity_title">Altres llengües</string>
   <string name="langlinks_your_wikipedia_languages">Les vostres llengües de la Viquipèdia</string>
   <string name="menu_save_changes">Publica els canvis</string>
   <string name="edit_saved_successfully">Modificació publicada!</string>
@@ -152,7 +154,7 @@
   <string name="history_empty_title">No hi ha articles vists recentment</string>
   <string name="history_empty_message">Consulteu el que heu llegit aquí.</string>
   <string name="history_offline_articles_toast">Alguns articles de l\'historial potser no són visibles quan s\'és fora de línia.</string>
-  <string name="search_empty_message">Cerqueu i llegiu l\'enciclopèdia lliure en el teu idioma</string>
+  <string name="search_empty_message">Cerqueu i llegiu l\'enciclopèdia lliure en la vostra llengua</string>
   <string name="search_empty_message_multilingual_upgrade">Cerca a la Viquipèdia en més llengües</string>
   <string name="delete_selected_items">Elimina els elements seleccionats</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -391,7 +393,7 @@
   <string name="crash_report_relaunch">Comença de nou</string>
   <string name="crash_report_quit">Surt</string>
   <string name="article_menu_bar_save_button">Desa</string>
-  <string name="article_menu_bar_language_button">Idioma</string>
+  <string name="article_menu_bar_language_button">Llengua</string>
   <string name="article_menu_bar_search_button">Cerca</string>
   <string name="article_menu_bar_theme_button">Tema</string>
   <string name="article_menu_bar_contents_button">Continguts</string>
@@ -593,6 +595,12 @@
   <string name="notification_preferences_title">Preferències de notificació</string>
   <string name="notifications_mark_unread">Marca com a no llegit</string>
   <string name="notifications_mark_all_as_read">Marca-les totes com llegides</string>
+  <string name="notifications_direct_reply_action">Respon</string>
+  <string name="notifications_direct_reply_progress">S\'està publicant una resposta a %s…</string>
+  <string name="notifications_direct_reply_success" fuzzy="true">S\'ha publicat la resposta amb èxit.</string>
+  <string name="notifications_direct_reply_error">No es pot publicar la resposta automàticament.</string>
+  <string name="notifications_mark_all_as_read_message">%d marcades com a llegides</string>
+  <string name="notifications_mark_all_as_unread_message">%d marcades com a no llegides</string>
   <string name="watchlist_title">Llista de seguiment</string>
   <string name="preference_title_notification_poll">Activa les notificacions</string>
   <string name="preference_summary_notification_poll">Permet a l\'aplicació utilitzar dades per comprovar si hi ha noves notificacions en segon pla.</string>
@@ -625,6 +633,30 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Notificacions de la Viquipèdia</string>
   <string name="notifications_channel_group_other_title">Altres</string>
   <string name="notifications_channel_group_other_description">Altres notificacions de l\'aplicació</string>
+  <string name="notifications_filter_label">Filtra les notificacions</string>
+  <string name="notifications_filter_icon_content_description">Filtra les notificacions</string>
+  <string name="notifications_empty_search_message">Proveu de suprimir %s per a veure més notificacions</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filtre</item>
+    <item quantity="other">%d filtres</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Selecciona tots els filtres</string>
+  <string name="notifications_tab_filter_all">Totes</string>
+  <string name="notifications_tab_filter_mentions">Mencions</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_search_bar_hint">Cerca o filtra les notificacions</string>
+  <string name="notifications_search_bar_filter_hint">Filtre de notificacions</string>
+  <string name="notifications_menu_mark_as_read">Marca com a llegit</string>
+  <string name="notifications_menu_mark_as_unread">Marca com a no llegit</string>
+  <string name="notifications_swipe_action_read">Llegides</string>
+  <string name="notifications_swipe_action_unread">No llegides</string>
+  <string name="notifications_menu_check_all">Marca tots els elements</string>
+  <string name="notifications_menu_uncheck_all">Desmarca tots els elements</string>
+  <string name="notifications_wiki_filter_header">Filtre wiki</string>
+  <string name="notifications_type_filter_header">Filtre de tipus</string>
+  <string name="notifications_all_wikis_text">Totes les de «wiki»</string>
+  <string name="notifications_all_types_text">Totes les de «tipus»</string>
+  <string name="notifications_menu_user_talk_page">Pàgina de discussió de %s</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>
   <string name="view_random_article_card_title">Article a l\'atzar</string>
@@ -712,7 +744,7 @@
   <string name="description_starts_with_article">Eviteu començar amb articles com \"un\" o \"el\"...</string>
   <string name="description_starts_with_uppercase">Comenceu amb minúscula a menys que la primera paraula sigui un nom propi.</string>
   <string name="description_starts_with_lowercase">Evita començar per una lletra en minúscula.</string>
-  <string name="description_is_in_different_language">El text sembla que estigui en un idioma no esperat. Caldria que fos en %s.</string>
+  <string name="description_is_in_different_language">El text sembla que estigui en una llengua no esperada. Caldria que fos en %s.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció d\'article!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció d\'article.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
@@ -753,7 +785,7 @@
   <string name="suggested_edits_task_translate_caption_title">Tradueix les llegendes de les imatges</string>
   <string name="suggested_edits_task_translate_caption_description">Tradueix les llegendes en altres llengües</string>
   <string name="suggested_edits_task_multilingual_title">Més tasques per a editors multilingües</string>
-  <string name="suggested_edits_task_multilingual_description">Les tasques de traducció són disponibles si llegiu i escriviu en més d\'un idioma de la Viquipèdia.</string>
+  <string name="suggested_edits_task_multilingual_description">Les tasques de traducció són disponibles si llegiu i escriviu en més d\'una llengua de la Viquipèdia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Bloquejat fins que no hàgiu editat %d llegendes d\'imatges</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloquejat fins que no hàgiu editat %d descripcions d\'article (verificat)</string>
   <string name="suggested_edits_task_multilingual_negative">No per a mi</string>
@@ -856,7 +888,7 @@
   <string name="suggested_edits_reactivation_notification_stage_one">Gràcies per editar a la Viquipèdia! Per què no continueu on ho heu deixat?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Teniu un minut per a continuar millorant la Viquipèdia? Comproveu aquests suggeriments d\'edició.</string>
   <string name="suggested_edits_contributions_screen_title">Contribucions de %s</string>
-  <string name="suggested_edits_contribution_language_label">Idioma</string>
+  <string name="suggested_edits_contribution_language_label">Llengua</string>
   <string name="suggested_edits_contribution_date_time_label">Data/Hora</string>
   <string name="suggested_edits_contribution_type_label">Tipus de contribució</string>
   <string name="suggested_edits_contribution_image_label">Imatge</string>
@@ -940,21 +972,21 @@
   </plurals>
   <string name="on_this_day_end_of_scroll_message">Heu viatjat en el temps</string>
   <string name="on_this_day_back_to_future">Retorn al futur</string>
-  <string name="languages_list_activity_title">Afegeix un idioma</string>
+  <string name="languages_list_activity_title">Afegeix una llengua</string>
   <string name="languages_list_suggested_text">Suggeriment</string>
   <string name="languages_list_all_text">Totes les llengües</string>
   <string name="wikipedia_languages_title">Llengües de la Viquipèdia</string>
   <string name="wikipedia_languages_your_languages_text">Les vostres llengües</string>
-  <string name="wikipedia_languages_add_language_text">Afegeix un idioma</string>
-  <string name="wikipedia_languages_remove_text">Suprimeix l\'idioma</string>
-  <string name="wikipedia_languages_remove_action_mode_title">Treu un idioma</string>
+  <string name="wikipedia_languages_add_language_text">Afegeix una llengua</string>
+  <string name="wikipedia_languages_remove_text">Suprimeix la llengua</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Treu una llengua</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
-    <item quantity="one">Voleu suprimir l\'idioma seleccionat?</item>
-    <item quantity="other">Voleu suprimir els idiomes seleccionats?</item>
+    <item quantity="one">Voleu suprimir la llengua seleccionada?</item>
+    <item quantity="other">Voleu suprimir les llengües seleccionades?</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Només veureu el contingut del canal d\'exploració i els filtres de cerca ràpids per a les llengües de Viquipèdia restants.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">No es poden suprimir totes les llengües</string>
-  <string name="wikipedia_languages_remove_warning_dialog_content">Mantingueu com a mínim un idioma de Viquipèdia a partir de la qual cercar i llegir contingut.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Mantingueu com a mínim una llengua de Viquipèdia a partir de la qual cercar i llegir contingut.</string>
   <string name="more_language_options">més</string>
   <string name="add_wikipedia_languages_text">Afegeix llengües de la Viquipèdia</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Voleu suprimir una variant xinesa les llengües de l\'aplicació?</string>

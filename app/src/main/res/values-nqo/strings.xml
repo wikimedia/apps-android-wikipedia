@@ -40,6 +40,8 @@
   <string name="search_tab_tooltip">ߛߌ߲ߞߐ߲ ߛߐ߲߬ߞߌ߲߬ ߕߎ߲߯ ߞߵߌ ߟߊߞߎ߲߬ߛߌ߲߫ ߢߌߣߌ߲ߠߌ߲ ߘߊߡߌ߬ߣߊ ߛߙߊߕߌ ߡߊ߬</string>
   <string name="history_list_title">ߘߐ߬ߝߐ</string>
   <string name="image_content_description">ߖߌ߬ߦߊ߬ߓߍ: %s</string>
+  <string name="wikimedia_commons">ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ߛ</string>
+  <string name="wikidata">ߥߞߌߘߕߊ</string>
   <string name="dialog_title_clear_history">ߛߏ߲߯ߓߊߟߌ ߘߐ߬ߝߐ ߖߏ߬ߛߌ߬</string>
   <string name="dialog_message_clear_history">ߣߌ߲߬ ߘߌ߫ ߣߵߌ ߟߊ߫ ߛߏ߲߯ߓߊߟߌ ߞߘߐ߬ߡߊ߲ ߓߍ߯ ߖߏ߰ߛߌ߬߸ ߊ߬ ߣߌ߫ ߞߊ߬ ߕߋ߲߬ߕߋ߲߬ ߘߎ߲ߛߓߍ߫ ߟߊߞߊ߬ߣߍ߲ ߓߍ߯ ߘߊߕߎ߲߯. ߌ ߟߊ߫ ߣߴߏ߬ ߟߊ߫؟</string>
   <string name="dialog_message_clear_history_yes">ߊ߬ߥߐ߫</string>
@@ -500,10 +502,18 @@
   <string name="notifications_view_unread">ߘߐ߬ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߟߎ߬ ߦߋ߫</string>
   <string name="notifications_view_archived">ߛߓߍߞߘߐߦߊߣߍ߲ ߠߎ߬ ߦߋ߫</string>
   <string name="notifications_archive">ߊ߬ ߣߐ߬ߣߐ߬ ߞߊ߬ߙߊ߲߬ߣߍ߲ ߘߌ߫ ߊ߬ ߣߌ߫ ߞߵߊ߬ ߞߍ߫ ߛߓߍߞߘߐ ߘߌ߫.</string>
+  <string name="notifications_poll_enable_title">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_positive">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_negative">ߌߞߘߐߣߌ߲߬ ߕߴߏ ߘߌ߫</string>
+  <string name="notifications_view_archived_button_text">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߞߘߐ߬ߡߊ߲ ߠߎ߬ ߦߌ߬ߘߊ߬</string>
   <string name="notifications_mark_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
   <string name="notifications_mark_all_as_read">ߊ߬ ߓߍ߯ ߣߐ߬ߣߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߣߍ߲ ߘߌ߫</string>
+  <string name="notifications_direct_reply_action">ߊ߬ ߞߐߖߋ߬ߓߌ߬</string>
+  <string name="notifications_direct_reply_progress">ߞߐߖߋߓߌ ߟߊߕߊ߯ ߦߴߌ %s ߡߊ߬...</string>
+  <string name="notifications_direct_reply_success">ߞߐߖߋߓߌ ߓߘߊ߫ ߥߊ߫.</string>
+  <string name="notifications_direct_reply_error">ߞߐߖߋߓߌ ߕߍ߫ ߛߐ߲߬ ߠߊߕߊ߯ ߟߊ߫ ߞߍߒߖߘߍߦߋߓߟߏߡߊ߬</string>
+  <string name="notifications_mark_all_as_read_message">%d ߖߊ߬ߕߋ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߣߍ߲ ߘߌ߫</string>
+  <string name="notifications_mark_all_as_unread_message">%d ߖߊ߬ߕߋ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
   <string name="watchlist_title">ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
   <string name="preference_title_notification_system">ߞߊ߲ߞߋ</string>
   <string name="preference_summary_notification_system">ߗߋߛߓߍ ߞߊ߬ ߝߘߊ߫ ߞߊ߲ߞߋ ߟߊ߫</string>
@@ -525,10 +535,17 @@
   <string name="preference_title_notification_article_linked">ߌ ߟߊ߫ ߞߎߡߘߊ߫ ߛߌ߲ߘߌߣߍ߲ ߠߎ߬ ߛߘߌ߬ߜߋ߲</string>
   <string name="preference_summary_notification_article_linked">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߦߋ߫ ߟߋ߬ ߓߊߏ߬ ߛߘߌ߬ߜߋ߲ ߘߏ߫ ߓߘߊ߫ ߝߙߊ߬ ߌ ߟߊ߫ ߞߐߜߍ߫ ߛߌ߲ߘߌߣߍ߲ ߠߊ߫</string>
   <string name="preference_category_display_settings">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߟߎ߫</string>
+  <string name="preference_title_hide_read_notifications">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߬ ߘߐߞߊ߬ߙߊ߲߬ߣߍ߲ ߠߎ߬ ߢߡߊߘߏ߲߰</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ߥߞߌߔߋߘߌߦߊ</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߡߍ߲ ߝߘߊߣߍ߲߫ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫</string>
   <string name="notifications_channel_group_other_title">ߘߏ߫ ߜߘߍ߫</string>
   <string name="notifications_channel_group_other_description">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߬ ߜߘߍ ߟߎ߬ ߞߊ߬ ߝߘߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊ߫</string>
+  <string name="notifications_tab_filter_all">ߊ߬ ߓߍ߯</string>
+  <string name="notifications_menu_mark_as_read">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
+  <string name="notifications_menu_mark_as_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
+  <string name="notifications_swipe_action_read">ߘߐ߬ߞߊ߬ߙߊ߲߬ߣߍ߲</string>
+  <string name="notifications_swipe_action_unread">ߘߐ߬ߞߊ߬ߙߊ߲߬ߓߊߟߌ</string>
+  <string name="notifications_menu_check_all">ߝߌ߬ߛߌ ߟߎ߬ ߓߍ߯ ߘߐߜߍ߫</string>
   <string name="view_because_you_read_card_title">ߞߊ߬ߡߊߛߐ߬ߘߐ߲߬ ߌ ߓߘߊ߫ ߘߐ߬ߞߊ߲߬ߠߌ߲ ߞߍ߫</string>
   <string name="view_random_card_title">ߞߎ߲߬ߝߍ߬ߦߊ߬ߣߍ߲</string>
   <string name="view_random_article_card_title">ߓߍ߲߬ߛߋ߲߬ߡߊ߫ ߞߎߡߘߊ</string>
@@ -827,8 +844,9 @@
   <string name="talk_message_hint">ߗߋߛߓߍ ߛߏ߯ߙߏ߫</string>
   <string name="talk_message_empty">ߗߋߛߓߍ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߕߴߛߋ߫ ߕߏ߫ ߟߊ߫.</string>
   <string name="talk_subject_empty">ߝߐߡߊ ߘߐߞߏߟߏ߲ ߕߴߛߋ߫ ߕߏ߫ ߟߊ߫.</string>
+  <string name="talk_response_submitted">ߞߐߖߋߓߌ ߓߘߊ߫ ߥߊ߫.</string>
   <string name="talk_snackbar_undo">ߊ߬ ߘߐߛߊ߬</string>
-  <string name="talk_last_modified" fuzzy="true">&lt;b&gt;ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߣߍ߲߫%1$s ߞߐ߯ߟߕߊ&lt;/b&gt; %2$s ߓߟߏ߫</string>
+  <string name="talk_last_modified">&lt;b&gt;ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߣߍ߲ ߞߐ߯ߟߕߊ %1$s&lt;/b&gt;߸ %2$s ߓߟߏ߫</string>
   <string name="talk_snackbar_survey_text">ߌ ߣߌ߫ ߗߋ߫ ߞߎߡߊ߫ ߞߐߜߍ ߟߊߓߊ߯ߙߊ ߟߊ߫. ߌ ߘߌ߫ ߛߴߊ߲ ߡߊߘߍ߬ߡߍ߲߫ ߠߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊߢߊ߭ ߟߊ߫ ߕߍ߬ߘߍ ߘߐ߫ ߘߐ߬ߛߏ߰ߙߋ߬ߟߌ (ߛߐ߲ߘߊߗ߭\\ߛߐ߯ߝ߭ߋ߬) ߘߐ߫؟</string>
   <string name="talk_snackbar_survey_action_text">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫</string>
   <string name="menu_option_share_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߖߍ߲ߛߍ߲߫</string>

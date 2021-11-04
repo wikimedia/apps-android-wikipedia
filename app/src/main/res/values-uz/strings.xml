@@ -43,6 +43,8 @@
   <string name="search_tab_tooltip">Qidiruv so‘zini to‘g‘ridan-to‘g‘ri yozishni boshlash uchun ikonkaga yana bir marta bosing.</string>
   <string name="history_list_title">Tarix</string>
   <string name="image_content_description">Surat: %s</string>
+  <string name="wikimedia_commons">Vikiombor</string>
+  <string name="wikidata">Vikimaʼlumot</string>
   <string name="dialog_title_clear_history">Ko‘rish tarixini o‘chirasizmi?</string>
   <string name="dialog_message_clear_history">Bu sizning barcha brauzer tarixingizni o‘chirib tashlaydi va hozirda ochilgan yorliqlarni yopadi. Ishonchingiz komilmi?</string>
   <string name="dialog_message_clear_history_yes">Ha</string>
@@ -578,6 +580,12 @@
   <string name="notification_preferences_title">Bildirishnoma tanlovlari</string>
   <string name="notifications_mark_unread">Oʻqilmagan deb belgilash</string>
   <string name="notifications_mark_all_as_read">Barchasini oʻqilgan deb belgilash</string>
+  <string name="notifications_direct_reply_action">Javob bermoq</string>
+  <string name="notifications_direct_reply_progress">%sʼga javob yuborilmoqda…</string>
+  <string name="notifications_direct_reply_success" fuzzy="true">Javob muvaffaqiyatli joʻnatildi.</string>
+  <string name="notifications_direct_reply_error">Avtomatik javob berib boʻlmadi.</string>
+  <string name="notifications_mark_all_as_read_message">%d tasi oʻqilgan tarzida belgilandi</string>
+  <string name="notifications_mark_all_as_unread_message">%d tasi oʻqilmagan</string>
   <string name="watchlist_title">Kuzatuv roʻyxati</string>
   <string name="preference_title_notification_poll">Bildirishnomalarga ovoz bermoq</string>
   <string name="preference_summary_notification_poll">Orqa fonda yangi bildirishnomalarni tekshirish uchun ilovaga trafikdan foydalanishga ruxsat bering.</string>
@@ -610,6 +618,29 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Vikipediya\'dan bildirishnomalar</string>
   <string name="notifications_channel_group_other_title">Boshqa</string>
   <string name="notifications_channel_group_other_description">Ilovadan boshqa bildirishnomalar</string>
+  <string name="notifications_filter_label">Bildirishnomalar filtri</string>
+  <string name="notifications_filter_icon_content_description">Bildirishnomalar filtri</string>
+  <string name="notifications_empty_search_message">Koʻproq bildirishnomalarni koʻrish uchun %sʼni oʻchirib koʻring</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d ta filtr</item>
+    <item quantity="other">%d ta filtr</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Barcha filtrlarni belgilamoq</string>
+  <string name="notifications_tab_filter_all">Barchasi</string>
+  <string name="notifications_tab_filter_mentions">Eslatmalar</string>
+  <string name="notifications_search_bar_hint">Bildirishnomalarni qidirish yoki filtrlash</string>
+  <string name="notifications_search_bar_filter_hint">Bildirishnoma filtri</string>
+  <string name="notifications_menu_mark_as_read">Oʻqilgan deb belgilash</string>
+  <string name="notifications_menu_mark_as_unread">Oʻqilmagan deb belgilash</string>
+  <string name="notifications_swipe_action_read">Oʻqimoq</string>
+  <string name="notifications_swipe_action_unread">Oʻqilmagan</string>
+  <string name="notifications_menu_check_all">Barcha elementlarni belgilash</string>
+  <string name="notifications_menu_uncheck_all">Barini belgilamaslik</string>
+  <string name="notifications_wiki_filter_header">Vikifiltr</string>
+  <string name="notifications_type_filter_header">Filtr turi</string>
+  <string name="notifications_all_wikis_text">Barcha “wiki”</string>
+  <string name="notifications_all_types_text">Barcha “tur”</string>
+  <string name="notifications_menu_user_talk_page">%sʼning suhbat sahifasi</string>
   <string name="view_because_you_read_card_title">Oʻqiganingiz uchun tavsiya etildi</string>
   <string name="view_random_card_title">Tasodifiy tartibda</string>
   <string name="view_random_article_card_title">Tasodifiy maqola</string>
@@ -989,6 +1020,8 @@
   <string name="talk_response_submitted">Soʻrov tasdiqlandi.</string>
   <string name="talk_snackbar_undo">Bekor qilish</string>
   <string name="talk_last_modified">&lt;b&gt;Soʻnggi oʻzgarish %1$s da&lt;/b&gt; %2$s tomonidan bajarilgan.</string>
+  <string name="talk_snackbar_survey_text">Suhbat sahifalaridan foydalanganingiz uchun tashakkur. Soʻrovnomada qatnashib, ilovani yaxshilashga yordam bera olasizmi?</string>
+  <string name="talk_snackbar_survey_action_text">Boshladik</string>
   <string name="menu_option_share_edit">Tahrirlashni ulashmoq</string>
   <string name="menu_option_user_profile">%sʼning profili</string>
   <string name="menu_option_user_contributions">%sning hissalari</string>

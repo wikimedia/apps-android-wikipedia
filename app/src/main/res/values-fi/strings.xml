@@ -15,6 +15,7 @@
 * Laurianttila
 * MITO
 * Maantietäjä
+* Markus Mikkonen
 * McSalama
 * Mediawikitranslator
 * Nike
@@ -40,7 +41,7 @@
   <string name="page_tabs_back">Takaisin</string>
   <string name="nav_item_forward">Eteenpäin</string>
   <string name="search_hint">Hae Wikipediasta</string>
-  <string name="search_hint_voice_search">Hae äänisyötteen perusteella</string>
+  <string name="search_hint_voice_search">Äänihaku</string>
   <string name="search_hint_search_languages">Etsi kieltä</string>
   <string name="filter_hint_filter_my_lists_and_articles">Suodata listani</string>
   <string name="nav_item_suggested_edits">Muokkaukset</string>
@@ -64,6 +65,8 @@
   <string name="search_tab_tooltip">Napauta kuvaketta uudelleen aloittaaksesi hakutermin kirjoittamisen suoraan.</string>
   <string name="history_list_title">Historia</string>
   <string name="image_content_description">Kuva: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi ja sulkee kaikki avoimet välilehdet. Oletko varma?</string>
   <string name="dialog_message_clear_history_yes">Kyllä</string>
@@ -599,6 +602,19 @@
   <string name="notification_preferences_title">Ilmoitusasetukset</string>
   <string name="notifications_mark_unread">Merkitse lukemattomaksi</string>
   <string name="notifications_mark_all_as_read">Merkitse kaikki luetuiksi</string>
+  <string name="notifications_direct_reply_action">Vastaa</string>
+  <string name="notifications_direct_reply_success">Vastaus lähetetty.</string>
+  <string name="notifications_direct_reply_error">Vastausta ei voitu julkaista automaattisesti.</string>
+  <string name="notifications_mark_all_as_read_message">%d merkitty luetuksi</string>
+  <string name="notifications_mark_all_as_unread_message">%d merkitty lukemattomaksi</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 merkitty luetuksi</item>
+    <item quantity="other">%d merkitty luetuksi</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 merkitty lukemattomaksi</item>
+    <item quantity="other">%d merkitty lukemattomaksi</item>
+  </plurals>
   <string name="watchlist_title">Tarkkailulista</string>
   <string name="preference_title_notification_poll">Kyselyilmoitukset</string>
   <string name="preference_summary_notification_poll">Salli sovelluksen käyttää dataa uusien ilmoituksien tarkistamiseen taustalla.</string>
@@ -628,6 +644,17 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Ilmoitukset Wikipediasta</string>
   <string name="notifications_channel_group_other_title">Muu</string>
   <string name="notifications_channel_group_other_description">Muut ilmoitukset sovelluksesta</string>
+  <string name="notifications_empty_search_message">Kokeile poistaa %s nähdäksesi lisää ilmoituksia</string>
+  <string name="notifications_select_all_filters">Valitse kaikki suodattimet</string>
+  <string name="notifications_tab_filter_all">Kaikki</string>
+  <string name="notifications_tab_filter_mentions">Maininnat</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_menu_mark_as_read">Merkitse luetuksi</string>
+  <string name="notifications_menu_mark_as_unread">Merkitse lukemattomaksi</string>
+  <string name="notifications_swipe_action_read">Luettu</string>
+  <string name="notifications_swipe_action_unread">Lukematon</string>
+  <string name="notifications_menu_check_all">Tarkista kaikki kohteet</string>
+  <string name="notifications_wiki_filter_header">Wikisuodatin</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
   <string name="view_random_article_card_title">Satunnainen artikkeli</string>

@@ -59,6 +59,8 @@
   <string name="app_settings">অ্যাপ সেটিং</string>
   <string name="search_tab_tooltip">সরাসরি অনুসন্ধানের শব্দ টাইপ করা শুরু করতে আইকনটিতে আবার টিপ দিন।</string>
   <string name="history_list_title">ইতিহাস</string>
+  <string name="wikimedia_commons">উইকিমিডিয়া কমন্স</string>
+  <string name="wikidata">উইকিউপাত্ত</string>
   <string name="dialog_title_clear_history">ব্রাউজ করার ইতিহাস অপসারণ করবেন</string>
   <string name="dialog_message_clear_history">এটি আপনার ব্রাউজ করা সব ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
   <string name="dialog_message_clear_history_yes">হ্যাঁ</string>
@@ -500,6 +502,7 @@
   <string name="notifications_view_archived_button_text">সংরক্ষণাগারভুক্ত বিজ্ঞপ্তিগুলি দেখুন</string>
   <string name="notification_preferences_title">বিজ্ঞপ্তির পছন্দসমূহ</string>
   <string name="notifications_mark_unread">অপঠিত হিসেবে চিহ্নিত করুন</string>
+  <string name="notifications_direct_reply_action">উত্তর দিন</string>
   <string name="watchlist_title">নজরতালিকা</string>
   <string name="preference_title_notification_milestone">মাইলফলক</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
@@ -509,6 +512,9 @@
   <string name="preference_category_display_settings">প্রদর্শন সেটিং</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">উইকিপিডিয়া</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">উইকিপিডিয়া থেকে বিজ্ঞপ্তি</string>
+  <string name="notifications_filter_label">বিজ্ঞপ্তি ছাঁকুন</string>
+  <string name="notifications_tab_filter_all">সকল</string>
+  <string name="notifications_menu_user_talk_page">%s-এর আলাপ পাতা</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
   <string name="view_random_article_card_title">অজানা নিবন্ধ</string>

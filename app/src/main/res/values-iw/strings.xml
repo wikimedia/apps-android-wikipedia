@@ -625,10 +625,22 @@
   <string name="notifications_mark_all_as_read">לסמן שהכול נקרא</string>
   <string name="notifications_direct_reply_action">תגובה</string>
   <string name="notifications_direct_reply_progress">שליחת תגובה למשתמש %s...</string>
-  <string name="notifications_direct_reply_success">התגובה נשלחה בהצלחה.</string>
+  <string name="notifications_direct_reply_success">התגובה נשלחה.</string>
   <string name="notifications_direct_reply_error">לא היה אפשר לשלוח תגובה אוטומטית.</string>
   <string name="notifications_mark_all_as_read_message">%d סומנו כהודעות שנקראו</string>
   <string name="notifications_mark_all_as_unread_message">%d סומנו כהודעות שלא נקראו</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">אחת סומנה בתור התראה שנקראה</item>
+    <item quantity="two">%d סומנו בתור התראות שנקראו</item>
+    <item quantity="many">%d סומנו בתור התראות שנקראו</item>
+    <item quantity="other">%d סומנו בתור התראות שנקראו</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">אחת סומנה בתור התראה שלא נקראה</item>
+    <item quantity="two">%d סומנו בתור התראות שלא נקראו</item>
+    <item quantity="many">%d סומנו בתור התראות שלא נקראו</item>
+    <item quantity="other">%d סומנו בתור התראות שלא נקראו</item>
+  </plurals>
   <string name="watchlist_title">רשימת המעקב</string>
   <string name="preference_title_notification_poll">דגימת הודעות</string>
   <string name="preference_summary_notification_poll">לאפשר ליישום להשתמש בנתונים כדי לבדוק הודעות חדשות ברקע.</string>
@@ -841,7 +853,7 @@
   <string name="suggested_edits_image_preview_dialog_image">קובץ</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">קובץ מוויקישיתוף</string>
   <string name="suggested_edits_image_preview_dialog_artist">יוצר</string>
-  <string name="suggested_edits_image_preview_dialog_tags">תגיות</string>
+  <string name="suggested_edits_image_preview_dialog_tags">תגים</string>
   <string name="suggested_edits_image_preview_dialog_date">תאריך</string>
   <string name="suggested_edits_image_preview_dialog_source">מקור/צלם</string>
   <string name="suggested_edits_image_preview_dialog_licensing">רישיון</string>
@@ -854,7 +866,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">הצגה</string>
   <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב תמונה</string>
   <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב תמונה (%s)</string>
-  <string name="suggested_edits_feed_card_add_image_tags">הוספת תגיות תמונה</string>
+  <string name="suggested_edits_feed_card_add_image_tags">הוספת תגי תמונה</string>
   <string name="suggested_edits_snackbar_survey_text">איך הייתה חוויית העריכה שלך? נשמח אם יתאפשר לך להשקיע בנו רגע קט למלא סקר בנוגע לעריכה בעזרת היישום.</string>
   <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
   <string name="suggested_edits_task_action_text_add">הוספה</string>
@@ -866,7 +878,7 @@
   <string name="suggested_edits_image_tags_onboarding_title">תיוג תמונות עוזר לאחרים למצוא אותן.</string>
   <string name="suggested_edits_image_tags_onboarding_text">אימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
-  <string name="suggested_edits_image_tags_task_detail">הוספת תגויות שונות לתמונות כדי שלאחרים יהיה קל יותר למצוא אותן.</string>
+  <string name="suggested_edits_image_tags_task_detail">הוסיפו תגים מותאמים אישית לתמונה כדי שיהיה קל יותר למצוא אותה.</string>
   <string name="suggested_edits_image_tags_choose">נא לבחור או להוסיף תגים תואמים</string>
   <string name="suggested_edits_image_tags_published_list">תגים שפורסמו</string>
   <string name="suggested_edits_image_tags_search">חיפוש תגים</string>
@@ -876,8 +888,8 @@
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;שלום %s&lt;/b&gt;, להלן אפשר למצוא כמה דרכים מהירות ופשוטות לעזור לשפר את ויקיפדיה. יהיה אפשר לראות את השינוי שאתה עושה מייד אחרי שתעשה אותו. עריכה מהנה!</string>
-  <string name="suggested_edits_image_captions_task_detail">נא לתאר את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">נא לסכם את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
+  <string name="suggested_edits_image_captions_task_detail">תארו את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">סַכמו את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
   <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך עד עכשיו.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים ברצף תרמת. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
   <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים.</string>
