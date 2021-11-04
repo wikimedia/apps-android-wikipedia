@@ -609,7 +609,7 @@
   <string name="notifications_mark_all_as_read">Marcas todas como lidas</string>
   <string name="notifications_direct_reply_action">Responder</string>
   <string name="notifications_direct_reply_progress">Postando resposta a %s…</string>
-  <string name="notifications_direct_reply_success">Resposta postada com sucesso.</string>
+  <string name="notifications_direct_reply_success" fuzzy="true">Resposta postada com sucesso.</string>
   <string name="notifications_direct_reply_error">Não foi possível responder automaticamente.</string>
   <string name="notifications_mark_all_as_read_message">%d marcado como lido</string>
   <string name="notifications_mark_all_as_unread_message">%d marcado como não lido</string>

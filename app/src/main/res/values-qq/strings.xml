@@ -659,14 +659,14 @@
     <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
   </plurals>
   <string name="notifications_select_all_filters">Menu item label for selecting all notification filters at once.</string>
-  <string name="notifications_tab_filter_all">Label for the tab button in the notification screen that shows all types of notification.</string>
+  <string name="notifications_tab_filter_all">Label for the tab button in the notification screen that shows all types of notification.\n{{identical|All}}</string>
   <string name="notifications_tab_filter_mentions">Label for the tab button in the notification screen that shows mention types of notification.</string>
   <string name="notifications_tab_filter_unread">Additional text for the tab button label in the notification screen that indicates how many unread notifications are in this type of notification. %s will be replaced by the unread number.</string>
   <string name="notifications_search_bar_hint">Hint text for the notifications search bar.</string>
   <string name="notifications_search_bar_filter_hint">Hint text for the notifications filter icon.</string>
   <string name="notifications_menu_mark_as_read">Menu item used for marking selected items as read.</string>
   <string name="notifications_menu_mark_as_unread">Menu item used for marking selected items as unread.</string>
-  <string name="notifications_swipe_action_read">Text for swipe action on notifications list item to mark it as read.</string>
+  <string name="notifications_swipe_action_read">Text for swipe action on notifications list item to mark it as read.\n{{identical|Read}}</string>
   <string name="notifications_swipe_action_unread">Text for swipe action on notifications list item to mark it as unread.</string>
   <string name="notifications_menu_check_all">Menu item used for selecting all items in the list.</string>
   <string name="notifications_menu_uncheck_all">Menu item used for unselecting all items in the list.</string>
@@ -775,7 +775,7 @@
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen\n{{Identical|Done}}</string>
   <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app\n{{Identical|Did you know}}</string>
   <string name="description_edit_success_article_edit_hint">A message informing the user about how to edit articles in the app.  The \"^1\" symbol is replaced with an edit pencil icon.</string>
-  <string name="description_edit_tutorial_title_descriptions">Heading for a tutorial about editing page article descriptions.</string>
+  <string name="description_edit_tutorial_title_descriptions">Heading for a tutorial about editing page article descriptions.\n\nAppears in a box above {{msg-wm|Wikipedia-android-strings-suggested edits add descriptions task detail}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags}}</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Summary of what page title descriptions are for.</string>
   <string name="description_edit_tutorial_keep_it_short">An instruction for the user to keep descriptions short.</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
@@ -845,14 +845,14 @@
   <string name="suggested_edits_snackbar_survey_action_text">Button label on the snackbar shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
   <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action</string>
   <string name="suggested_edits_task_action_text_translate">Button label for suggested edits task translate action</string>
-  <string name="suggested_edits_image_captions">Suggested Edits image captions task title</string>
-  <string name="suggested_edits_image_tags">Suggested Edits image tags task title</string>
+  <string name="suggested_edits_image_captions">Suggested Edits image captions task title.\n\nAppears in a box above {{msg-wm|Wikipedia-android-strings-suggested edits image captions task detail}}.\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags}}</string>
+  <string name="suggested_edits_image_tags">Suggested Edits image tags task title.\n\nAppears in a box above {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions}}\n* {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}</string>
   <string name="suggested_edits_image_tags_publishing">Status when the selected image tags are being published.</string>
   <string name="suggested_edits_image_tags_published">Status when the selected image tags have been published.</string>
   <string name="suggested_edits_image_tags_onboarding_title">Title shown on the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Body text of the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Footnote shown on the onboarding screen for adding tags to images.</string>
-  <string name="suggested_edits_image_tags_task_detail">Explanation for the task of adding tags to images.</string>
+  <string name="suggested_edits_image_tags_task_detail">Explanation for the task of adding tags to images.\n\nAppears in a box under {{msg-wm|Wikipedia-android-strings-suggested edits image tags}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions task detail}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits add descriptions task detail}}</string>
   <string name="suggested_edits_image_tags_choose">Short text asking the user to choose the tags that match the image.</string>
   <string name="suggested_edits_image_tags_published_list">Title for list of tags that have been published.</string>
   <string name="suggested_edits_image_tags_search">Hint for text field used for searching image tags.</string>
@@ -862,8 +862,8 @@
   <string name="suggested_edits_image_zoom_tooltip">Short message telling the user that they can pinch to zoom the image that is shown.</string>
   <string name="suggested_edits_encouragement_message">Message text shown to users to encourage them to continue and increase editing.%s represents the user\'s name.</string>
   <string name="suggested_edits_onboarding_message">Message text shown to users who havent yet used the suggested edits features, to encourage them to start editing.%s represents the user\'s name</string>
-  <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Article descriptions detail text explaining the task of adding article descriptions.</string>
+  <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.\n\nAppears in a box under {{msg-wm|Wikipedia-android-strings-suggested edits image captions}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits add descriptions task detail}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Article descriptions detail text explaining the task of adding article descriptions.\n\nAppears in a box under {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions task detail}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}</string>
   <string name="suggested_edits_contributions_stat_tooltip">Tool tip text explaining the contributions statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Tool tip text explaining the edit streak statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Tool tip text explaining the page views statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>

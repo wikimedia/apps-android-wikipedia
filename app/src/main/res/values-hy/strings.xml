@@ -37,6 +37,8 @@
   <string name="notification_archive_undo">Հետ շրջել</string>
   <string name="app_settings">Հավելվածի կարգավորումներ</string>
   <string name="history_list_title">Պատմություն</string>
+  <string name="wikimedia_commons">Վիքիպահեստ</string>
+  <string name="wikidata">Վիքիտվյալներ</string>
   <string name="dialog_title_clear_history">Մաքրել դիտումների պատմությունը</string>
   <string name="dialog_message_clear_history_yes">Այո</string>
   <string name="dialog_message_clear_history_no">Ոչ</string>
@@ -225,6 +227,7 @@
   <string name="notifications_activity_title">Ծանուցումներ</string>
   <string name="notifications_poll_enable_positive">Միացնել</string>
   <string name="notifications_poll_enable_negative">Հիմա չէ</string>
+  <string name="notifications_direct_reply_action">Պատասխանել</string>
   <string name="watchlist_title">Հսկացանկ</string>
   <string name="preference_title_notification_system">Հհամակարգչային</string>
   <string name="preference_title_notification_milestone">Փուլ</string>
@@ -233,6 +236,7 @@
   <string name="preference_summary_notification_revert">Ձեր խմբագրումներից մեկը շրջվել է</string>
   <string name="preference_title_notification_login_fail">Մուտք</string>
   <string name="preference_title_notification_user_talk">Քննարկման էջ</string>
+  <string name="notifications_tab_filter_all">Բոլորը</string>
   <string name="view_featured_image_card_title">Օրվա պատկեր</string>
   <string name="view_featured_image_card_download">Ներբեռնել</string>
   <string name="view_featured_image_card_share">Կիսվել</string>
