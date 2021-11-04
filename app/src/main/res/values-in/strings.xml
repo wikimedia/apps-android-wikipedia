@@ -67,6 +67,8 @@
   <string name="search_tab_tooltip">Ketuk ikon lagi untuk mulai mengetik istilah pencarian.</string>
   <string name="history_list_title">Riwayat</string>
   <string name="image_content_description">Gambar: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Hapus riwayat penelusuran</string>
   <string name="dialog_message_clear_history">Ini akan menghapus semua riwayat penelusuran Anda, dan menutup tab yang saat ini masih terbuka. Apakah Anda yakin?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
@@ -220,6 +222,7 @@
   <string name="page_protected_can_not_edit_title">Halaman ini dilindungi</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Tambahkan ke daftar pantauan</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Lacak apa yang terjadi pada artikel yang Anda minati. Ketuk menu tambahan dan pilih &lt;b&gt;Tambahkan ke Daftar Pantauan&lt;/b&gt; untuk melihat perubahan pada artikel.</string>
+  <string name="page_notification_tooltip">Notifikasi Anda sekarang disini.</string>
   <string name="settings_item_preferences">Pengaturan</string>
   <string name="settings_activity_title">Pengaturan</string>
   <string name="about_description">Tentang aplikasi Wikipedia</string>
@@ -591,6 +594,18 @@
   <string name="notification_preferences_title">Pengaturan pemberitahuan</string>
   <string name="notifications_mark_unread">Tandai belum dibaca</string>
   <string name="notifications_mark_all_as_read">Tandai semua sebagai telah dibaca</string>
+  <string name="notifications_direct_reply_action">Balas</string>
+  <string name="notifications_direct_reply_progress">Mengirim balasan ke %s...</string>
+  <string name="notifications_direct_reply_success">Balasan dipublikasikan.</string>
+  <string name="notifications_direct_reply_error">Tidak bisa mengirim balasan secara otomatis.</string>
+  <string name="notifications_mark_all_as_read_message">%d ditandai sebagai telah dibaca</string>
+  <string name="notifications_mark_all_as_unread_message">%d ditandai sebagai belum dibaca</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="other">%d ditandai sebagai telah dibaca</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="other">%d ditandai sebagai belum dibaca</item>
+  </plurals>
   <string name="watchlist_title">Daftar pantauan</string>
   <string name="preference_title_notification_poll">Pilih pemberitahuan</string>
   <string name="preference_summary_notification_poll">Izinkan aplikasi menggunakan data untuk memeriksa pemberitahuan baru di latar belakang.</string>
@@ -623,6 +638,28 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Pemberitahuan dari Wikipedia</string>
   <string name="notifications_channel_group_other_title">Lainnya</string>
   <string name="notifications_channel_group_other_description">Pemberitahuan lain dari aplikasi</string>
+  <string name="notifications_filter_label">Saring pemberitahuan</string>
+  <string name="notifications_filter_icon_content_description">Saring pemberitahuan</string>
+  <string name="notifications_empty_search_message">Coba menghapus %s untuk melihat lebih banyak notifikasi</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="other">%d penyaring</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Pilih semua penyaring</string>
+  <string name="notifications_tab_filter_all">Semua</string>
+  <string name="notifications_tab_filter_mentions">Sebutan</string>
+  <string name="notifications_search_bar_hint">Cari atau saring notifikasi</string>
+  <string name="notifications_search_bar_filter_hint">Saringan notifikasi</string>
+  <string name="notifications_menu_mark_as_read">Tandai sudah dibaca</string>
+  <string name="notifications_menu_mark_as_unread">Tandai belum dibaca</string>
+  <string name="notifications_swipe_action_read">Telah dibaca</string>
+  <string name="notifications_swipe_action_unread">Belum dibaca</string>
+  <string name="notifications_menu_check_all">Centang semua item</string>
+  <string name="notifications_menu_uncheck_all">Hapus centang semua item</string>
+  <string name="notifications_wiki_filter_header">Saringan Wiki</string>
+  <string name="notifications_type_filter_header">Saringan jenis</string>
+  <string name="notifications_all_wikis_text">Semua \"wiki\"</string>
+  <string name="notifications_all_types_text">Semua \"jenis\"</string>
+  <string name="notifications_menu_user_talk_page">Halaman pembicaraan %s</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_random_article_card_title">Artikel acak</string>
