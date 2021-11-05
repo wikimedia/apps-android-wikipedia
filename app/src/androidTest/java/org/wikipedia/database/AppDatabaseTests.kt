@@ -5,6 +5,8 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.*
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
@@ -80,37 +82,42 @@ class AppDatabaseTests {
     }
 
     @Test
-    fun testNotification() {
-
+    fun testNotification() = runBlocking {
         val rawJson = InstrumentationRegistry.getInstrumentation()
             .context.resources.assets.open("database/json/notifications.json")
             .bufferedReader()
             .use { it.readText() }
 
         val notifications = JsonUtil.decodeFromString<List<Notification>>(rawJson)!!
-        notificationDao.insertNotification(notifications)
 
-        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")), notNullValue())
-        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().id, equalTo(123759827))
-        assertThat(notificationDao.getNotificationsByWiki(listOf("zhwiki")).first().id, equalTo(2470933))
-        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().isUnread, equalTo(false))
-        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).size, equalTo(2))
-        assertThat(notificationDao.getAllNotifications().size, equalTo(3))
+        notificationDao.insertNotifications(notifications)
 
-        val firstEnNotification = notificationDao.getNotificationsByWiki(listOf("enwiki")).first()
+        var enWikiList = notificationDao.getNotificationsByWiki(listOf("enwiki")).first()
+        val zhWikiList = notificationDao.getNotificationsByWiki(listOf("zhwiki")).first()
+        assertThat(enWikiList, notNullValue())
+        assertThat(enWikiList.first().id, equalTo(123759827))
+        assertThat(zhWikiList.first().id, equalTo(2470933))
+        assertThat(enWikiList.first().isUnread, equalTo(false))
+        assertThat(enWikiList.size, equalTo(2))
+        assertThat(notificationDao.getAllNotifications().first().size, equalTo(3))
+
+        val firstEnNotification = enWikiList.first()
         firstEnNotification.read = null
         notificationDao.updateNotification(firstEnNotification)
-        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().id, equalTo(123759827))
-        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().isUnread, equalTo(true))
+
+        // get updated item
+        enWikiList = notificationDao.getNotificationsByWiki(listOf("enwiki")).first()
+        assertThat(enWikiList.first().id, equalTo(123759827))
+        assertThat(enWikiList.first().isUnread, equalTo(true))
 
         notificationDao.deleteNotification(firstEnNotification)
-        assertThat(notificationDao.getAllNotifications().size, equalTo(2))
-        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).size, equalTo(1))
+        assertThat(notificationDao.getAllNotifications().first().size, equalTo(2))
+        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().size, equalTo(1))
 
-        notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("enwiki")).first())
-        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).isEmpty(), equalTo(true))
+        notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().first())
+        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().isEmpty(), equalTo(true))
 
-        notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("zhwiki")).first())
-        assertThat(notificationDao.getAllNotifications().isEmpty(), equalTo(true))
+        notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("zhwiki")).first().first())
+        assertThat(notificationDao.getAllNotifications().first().isEmpty(), equalTo(true))
     }
 }
