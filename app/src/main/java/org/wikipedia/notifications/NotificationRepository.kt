@@ -24,7 +24,7 @@ class NotificationRepository constructor(private val notificationDao: Notificati
 
     suspend fun fetchUnreadWikiDbNames(): Map<String, WikiSite> {
         val dbNameMap = mutableMapOf<String, WikiSite>()
-        val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL)).unreadNotificationWikisKT()
+        val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL)).unreadNotificationWikis()
         val wikiMap = response.query?.unreadNotificationWikis
         dbNameMap.clear()
         for (key in wikiMap!!.keys) {
@@ -37,7 +37,7 @@ class NotificationRepository constructor(private val notificationDao: Notificati
 
     suspend fun fetchAndSave(wikiList: String?, filter: String?, continueStr: String? = null): String? {
         var newContinueStr: String? = null
-        val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotificationsKT(wikiList, filter, continueStr)
+        val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(wikiList, filter, continueStr)
         response.query?.notifications?.let {
             // TODO: maybe add a logic to avoid adding same data into database.
             insertNotifications(it.list.orEmpty())
