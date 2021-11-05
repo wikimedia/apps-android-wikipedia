@@ -4,30 +4,54 @@ import android.app.Activity
 import android.content.Context
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 
 object TalkPageSurvey {
 
-    fun maybeShowSurvey(activity: Activity) {
-        if (!activity.isDestroyed && (fallsWithinGeoRange() || Prefs.talkPageSurveyOverride)) {
-            showSurveyDialog(activity)
+    fun maybeShowSurvey(activity: Activity, editSubmitted: Boolean) {
+        if (fallsWithinGeoRange() || Prefs.talkPageSurveyOverride) {
+            queueSurveyDialog(activity, editSubmitted)
         }
     }
 
-    fun showSurveyDialog(activity: Activity) {
+    private fun queueSurveyDialog(activity: Activity, editSubmitted: Boolean) {
         val attempts = Prefs.showTalkPageSurveyAttempts
         if (attempts > 1) {
             return
         }
-
         Prefs.showTalkPageSurveyAttempts = attempts + 1
 
+        // If they just submitted an edit, then show the survey immediately.
+        if (editSubmitted) {
+            showSurveyDialog(activity, attempts)
+            return
+        }
+
+        // Otherwise, fetch the user's edit count, and only show the survey if the count is nonzero.
+        ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    if ((it.query?.userInfo?.editCount ?: 0) > 0) {
+                        showSurveyDialog(activity, attempts)
+                    }
+                }, { L.e(it) })
+    }
+
+    fun showSurveyDialog(activity: Activity, attempts: Int) {
+        if (activity.isDestroyed) {
+            return
+        }
         val dialog = AlertDialog.Builder(activity)
                 .setMessage(StringUtil.fromHtml(activity.getString(R.string.talk_snackbar_survey_text) +
                         "<br/><br/><small><a href=\"https://foundation.m.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Talk_Page_Survey_Privacy_Statement\">" +
