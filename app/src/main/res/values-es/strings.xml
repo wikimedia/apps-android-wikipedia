@@ -639,6 +639,10 @@
   <string name="notifications_mark_unread">Marcar como no leído</string>
   <string name="notifications_mark_all_as_read">Marcar todo como leído</string>
   <string name="notifications_direct_reply_success">Respuesta publicada.</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 marcado como no leído </item>
+    <item quantity="other">%d marcado como no leído</item>
+  </plurals>
   <plurals name="notifications_mark_as_unread_plural">
     <item quantity="one">1 marcado como no leído </item>
     <item quantity="other">%d marcado como no leído</item>

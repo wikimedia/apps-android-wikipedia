@@ -466,6 +466,8 @@
   <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
   <string name="notifications_mark_unread">Als net gelies markéieren</string>
   <string name="notifications_direct_reply_action">Äntweren</string>
+  <string name="notifications_mark_all_as_read_message">%d markéiert als geliest</string>
+  <string name="notifications_mark_all_as_unread_message">%d markéiert als net geliest</string>
   <string name="watchlist_title">Iwwerwaachungslëscht</string>
   <string name="preference_title_notification_system">System</string>
   <string name="preference_summary_notification_system">Message vum System</string>
