@@ -22,9 +22,9 @@ import static org.hamcrest.Matchers.is;
 
 @SuppressWarnings("checkstyle:magicnumber")
 public class TranslationTests {
-    private static File RES_BASE = new File("src/main/res/");
-    private static String STRINGS_DIRECTORY = "values";
-    private static String STRINGS_XML_NAME = "strings.xml";
+    private static final File RES_BASE = new File("src/main/res/");
+    private static final String STRINGS_DIRECTORY = "values";
+    private static final String STRINGS_XML_NAME = "strings.xml";
 
     /** Add more if needed, but then also add some tests. */
     private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%3$s",

@@ -175,7 +175,7 @@
   <string name="preference_title_auto_upload_crash_reports">ڊهي پوڻ جي رپورٽ اماڻيو</string>
   <string name="editing_error_spamblacklist">بندشيل ڊومينس جا ڳنڍڻا (%s) مليا آھن. مھرباني ڪري انھن کي ھٽايو ۽ ٻيھر ڪوشش ڪريو.</string>
   <string name="history_filter_list_hint">سوانح ڇانڊيو</string>
-  <string name="error_can_not_process_link">اهو ڳنڍڻو ڏيکاري نہ ٿو سگھجي.</string>
+  <string name="error_can_not_process_link">اهو ڳنڍڻو ڏيکاري نٿو سگهجي.</string>
   <string name="page_protected_autoconfirmed">هيءُ صفحو نيم تحفظيل آهي.</string>
   <string name="page_protected_sysop">هيءُ صفحو پوريءَ ريت تحفظيل آهي.</string>
   <string name="page_protected_other">هيءُ صفحو هيٺين سطحن تائين تحفظيل آهي: %s</string>
@@ -277,7 +277,7 @@
   <string name="gallery_save_image_write_permission_rationale">تصويرون سانڍڻ لاءِ توھان ڊوائيس جي اسٽوريج تي ڪم ڪرڻ جي اجازت گهربل آھي.</string>
   <string name="gallery_add_image_caption_button">عڪس کي عنوان ڏيو</string>
   <string name="gallery_add_image_caption_in_language_button">(%s) ۾ عڪس کي عنوان ڏيو</string>
-  <string name="err_cannot_save_file">فائيل سانڍي نٿو سگھجي</string>
+  <string name="err_cannot_save_file">فائيل سانڍي نٿو سگهجي</string>
   <string name="expand_refs">وڏو ڪرڻ لاءِ ڪلڪ ڪريو</string>
   <string name="cc_logo">ڪريئيٽو ڪامنز اجازتنامو</string>
   <string name="captcha_image">ڪيپچا عڪس</string>
@@ -309,7 +309,7 @@
   <string name="button_continue_to_disambiguation">ھڪجڙا صفحا ڏيکاريو</string>
   <string name="link_preview_disambiguation_description">ھي عنوان ھڪ کان وڌيڪ صفحن سان تعلق رکي ٿو:</string>
   <string name="button_add_to_reading_list">پڙھڻ جي فھرست ۾ شامل ڪريو</string>
-  <string name="page_offline_notice_cannot_load_while_offline">آفلائين ھجڻ وقت صفحو لاھي نٿو سگھجي.</string>
+  <string name="page_offline_notice_cannot_load_while_offline">آفلائين ھجڻ وقت صفحو لاھي نٿو سگهجي.</string>
   <string name="page_offline_notice_add_to_reading_list">اشارو:ڪو بہ مضمون پنھنجي پڙھڻ جي فھرست ۾ شامل ڪريو ان کي لاٿو ويندو جڏھن توھان ٻيھر آنلائين ٿيندئو.</string>
   <string name="page_offline_notice_last_date">توھان %s تي سانڍيل ھن مضمون جو ھڪ آفلائين ورجاءُ پڙھي رھيا آھيو.</string>
   <string name="button_get_directions">ھدايتون حاصل ڪريو</string>
@@ -324,7 +324,7 @@
   <string name="error_voice_search_not_available">معاف ڪجو، آواز شناس موجود نہ آھي.</string>
   <string name="location_service_disabled">مڪانيت سرور معذور ڪيل آھن.</string>
   <string name="enable_location_service">فعاليو</string>
-  <string name="location_permissions_enable_prompt">مڪانيت کي قابل بڻايو تہ جيئن توھان جي ويجھو واريون جڳھون ڏسي سگھجن.</string>
+  <string name="location_permissions_enable_prompt">اوھان جي ويجهو جڳھون ڏسڻ لاءِ مڪانيت اجازتن کي فعال ڪريو.</string>
   <string name="location_permissions_enable_action">ھلايو</string>
   <string name="error_webview_updating">دي اينڊروئڊ سسٽم ويبوِيو ھن وقت جديديو پيو وڃي.\nمھرباني ڪري ھڪ لمحي ۾ ٻيھر ڪوشش ڪريو.</string>
   <plurals name="multi_items_selected">
@@ -525,10 +525,14 @@
   <string name="notifications_mark_all_as_read">سڀ پڙھيل طور نشان لڳايو</string>
   <string name="notifications_direct_reply_action">ورندي ڏيو</string>
   <string name="notifications_direct_reply_progress">%s ڏانھن ورندي درج ڪندي…</string>
-  <string name="notifications_direct_reply_success" fuzzy="true">ورندي ڪاميابيءَ سان درج ٿي وئي.</string>
+  <string name="notifications_direct_reply_success">ورندي درج ٿي وئي.</string>
   <string name="notifications_direct_reply_error">ورندي پاڻمرادو درج نہ ڪري سگهيو.</string>
   <string name="notifications_mark_all_as_read_message">%d کي پڙھيل طور نشان لڳايو ويو</string>
   <string name="notifications_mark_all_as_unread_message">%d کي نہ-پڙھيل طور نشان لڳايو ويو</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 پڙھيل طور نشان لڳايو ويو</item>
+    <item quantity="other">%d پڙھيل طور نشان لڳايا ويا</item>
+  </plurals>
   <string name="watchlist_title">نظر۾فھرست</string>
   <string name="preference_summary_notification_poll">پسمنظر ۾ اطلاع چڪاسڻ لاءِ ايپ کي پسمنظر ۾ ڊيٽا ھلائڻ جي اجازت ڏيو.</string>
   <string name="preference_category_notification_types">ايپ-۾ اطلاعن جا قسم</string>
@@ -551,6 +555,7 @@
   <string name="preference_title_notification_user_rights">واپرائيندڙ جي حقن ۾ بدلاءَ</string>
   <string name="preference_summary_notification_user_rights">تڏھن حاصل ٿيندي جڏھن توھان جي بطور واپرائيندڙ حقن ۾ بدلاءُ ٿيندو</string>
   <string name="preference_title_notification_article_linked">توھان پاران سرجيل مضمون ڏانھن ڳنڊڻا</string>
+  <string name="preference_summary_notification_article_linked">تڏھن ملندا جڏھن توھان پاران سرجيل صفحي ڏانھن ڪو نئون ڱنڍڻو جوڙيو وڃي</string>
   <string name="preference_category_display_settings">ڊسپلي ترتيبون</string>
   <string name="preference_title_hide_read_notifications">پڙھيل اطلاع لڪايو</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">وڪيپيڊيا</string>
@@ -611,7 +616,7 @@
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s پڙھو</string>
   <string name="view_announcement_card_negative_action">نہ مھرباني</string>
-  <string name="view_offline_card_text">آفلائين ھجڻ مھل مواد نٿو لاھي سگھجي.</string>
+  <string name="view_offline_card_text">آفلائين ھجڻ مھل مواد نٿو لاھي سگهجي.</string>
   <string name="view_featured_article_card_title">چونڊ مضمون</string>
   <string name="view_static_card_save_button_label">سانڍيو</string>
   <string name="feed_configure_activity_title">پھاچل پنھنجايو</string>
@@ -688,14 +693,14 @@
   <string name="suggested_edits_describe_articles">مضمونن کي بيان ڪريو</string>
   <string name="suggested_edits_caption_images">عڪسن کي عنوان ڏيو</string>
   <string name="suggested_edits_tag_images">عڪسن کي ٽيگ ھڻو</string>
-  <string name="suggested_edits_review_description">مضمون جي تشريح جو جائزو وٺو</string>
+  <string name="suggested_edits_review_description">مضمون جي تشريح جي نظرثاني ڪريو</string>
   <string name="suggested_edits_add_description_button">تشريح ڏيو</string>
   <string name="suggested_edits_edit_description_button">تشريح سنواريو</string>
   <string name="suggested_edits_add_translation_button">ترجمو ڏيو</string>
   <string name="suggested_edits_edit_translation_button">ترجمو سنواريو</string>
   <string name="suggested_edits_add_caption_button">عنوان ڏيو</string>
   <string name="suggested_edits_edit_caption_button">عنوان سنواريو</string>
-  <string name="suggested_edits_review_image_caption">عڪس جي عنوان جو جائزو وٺو</string>
+  <string name="suggested_edits_review_image_caption">عڪس جي عنوان جي نظرثاني ڪريو</string>
   <string name="suggested_edits_my_contributions">منھنجون ڀاڱيداريون</string>
   <string name="suggested_edits_no_description">ھن فائيل کي تشريح ڪونھي</string>
   <string name="suggested_edits_license_notice">تشريح وجھڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ ڏيڻ لاءِ راضي آھيان.</string>
@@ -881,8 +886,8 @@
     <item quantity="other">چونڊيل ٻوليون هٽايون؟</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">توھان رڳو رھيل وڪيپيڊيا ٻولين لاءِ کوجنا رسد تي مواد ۽ ترت ڳولا ڇاڻيون ڏسندا.</string>
-  <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگھجن</string>
-  <string name="wikipedia_languages_remove_warning_dialog_content">گھٽ ۾ گھٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگھجي.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگهجن</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">گهٽ ۾ گهٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگهجي.</string>
   <string name="more_language_options">وڌيڪ</string>
   <string name="add_wikipedia_languages_text">وڪيپيڊيا ٻوليون شامل ڪريو</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">چيني ٻولي کي ايپ مان ختم ڪرڻ چاهيو ٿا؟</string>
