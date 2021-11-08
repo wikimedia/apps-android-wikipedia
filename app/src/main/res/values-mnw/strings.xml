@@ -4,6 +4,7 @@
 * Htawmonzel
 * MuratTheTurkish
 * Ninjastrikers
+* SawJaemin
 * 咽頭べさ
 -->
 <resources>
@@ -92,7 +93,7 @@
   <string name="dialog_message_leaving_edit">အပြံင်အလှာဲ မၞးဂှ် ဟွံဂွံ ဂိုင်သိပ်ဏီ၊၊ မၞး မိက်ဂွံတိတ် နူ မုက်လိက်ဏအ် ဍာံဍာံရဟာ？</string>
   <string name="dialog_message_leaving_edit_leave">တိတ်</string>
   <string name="dialog_message_leaving_edit_stay">ဆက်မံင်</string>
-  <string name="menu_show_toc">စရင် မာတိကာ</string>
+  <string name="menu_show_toc">မာတိကာ</string>
   <string name="search_no_results_found">အရာမဂၠာဲဂှ် မုဟွံဂွံ ဆဵု</string>
   <string name="search_reading_list_no_results">အရာမဂၠာဲဂှ် ဟွံဂွံဆဵု ပ္ဍဲ%s</string>
   <string name="search_reading_lists_no_results">အရာမဂၠာဲဂှ် ဟွံဂွံဆဵု ပ္ဍဲစရင် လိက်ဗွဟ်</string>

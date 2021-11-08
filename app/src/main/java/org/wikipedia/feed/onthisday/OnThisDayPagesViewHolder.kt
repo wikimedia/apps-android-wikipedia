@@ -70,7 +70,7 @@ class OnThisDayPagesViewHolder(
             selectedPage!!.getPageTitle(wiki),
             HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY
         )
-        val sharedElements = TransitionUtil.getSharedElements(activity, image!!)
+        val sharedElements = TransitionUtil.getSharedElements(activity, image)
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, *sharedElements)
         val intent = PageActivity.newIntentForNewTab(activity, entry, entry.title)
         if (sharedElements.isNotEmpty()) {
