@@ -449,7 +449,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
                     override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
                         super.onDismissed(transientBottomBar, event)
-                        TalkPageSurvey.maybeShowSurvey(this@TalkTopicActivity)
+                        TalkPageSurvey.maybeShowSurvey(this@TalkTopicActivity, editSubmitted = true)
                     }
                 })
                 .show()
