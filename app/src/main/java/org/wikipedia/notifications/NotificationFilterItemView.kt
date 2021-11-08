@@ -2,6 +2,7 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Typeface
 import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -70,10 +71,15 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     }
 
     fun setSingleLabel(text: String) {
-        binding.notificationFilterLanguageCode.visibility = View.INVISIBLE
-        binding.notificationFilterWikiLogo.visibility = View.GONE
+        binding.notificationFilterLanguageCode.visibility = View.GONE
+        binding.notificationFilterWikiLogo.visibility = View.VISIBLE
+        binding.notificationFilterWikiLogo.imageTintList =
+            ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent)))
+        binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_add_gray_themed_24dp))
         binding.notificationFilterCheck.visibility = View.GONE
-        binding.notificationFilterTitle.text = text
+        binding.notificationFilterTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+        binding.notificationFilterTitle.setTypeface(binding.notificationFilterTitle.typeface, Typeface.BOLD)
+        binding.notificationFilterTitle.text = text.uppercase()
     }
 
     private fun getTitleCodeFor(filterCode: String): String? {

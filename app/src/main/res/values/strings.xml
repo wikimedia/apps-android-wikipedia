@@ -1047,6 +1047,7 @@
     <string name="remove_language_dialog_cancel_button_text">Cancel</string>
     <string name="remove_language_dialog_ok_button_text">OK</string>
     <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+    <string name="add_app_language_text">Add or edit app languages</string>
     <!-- /MultiLingual -->
 
     <!-- Editing -->
