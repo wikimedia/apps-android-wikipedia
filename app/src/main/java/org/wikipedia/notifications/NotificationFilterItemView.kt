@@ -80,7 +80,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         binding.notificationFilterCheck.visibility = View.GONE
         binding.notificationFilterTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         binding.notificationFilterTitle.text = text.uppercase()
-        binding.notificationFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+        binding.notificationFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,
             resources.getDimensionPixelSize(R.dimen.suggested_edits_message_textview_text_size).toFloat())
     }
 
