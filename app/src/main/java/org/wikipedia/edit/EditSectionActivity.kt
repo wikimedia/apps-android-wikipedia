@@ -33,7 +33,6 @@ import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwParseResponse
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.edit.preview.EditPreviewFragment
@@ -119,9 +118,16 @@ class EditSectionActivity : BaseActivity() {
         if (savedInstanceState == null) {
             funnel.logStart()
         }
-        if (savedInstanceState != null && savedInstanceState.containsKey("hasTemporaryWikitextStored")) {
-            sectionWikitext = Prefs.temporaryWikitext
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey(EXTRA_KEY_TEMPORARY_WIKITEXT_STORED)) {
+                sectionWikitext = Prefs.temporaryWikitext
+            }
+            editingAllowed = savedInstanceState.getBoolean(EXTRA_KEY_EDITING_ALLOWED, false)
+            sectionTextModified = savedInstanceState.getBoolean(EXTRA_KEY_SECTION_TEXT_MODIFIED, false)
         }
+        L10nUtil.setConditionalTextDirection(binding.editSectionText, pageTitle.wikiSite.languageCode)
+        fetchSectionText()
+
         binding.viewEditSectionError.retryClickListener = View.OnClickListener {
             binding.viewEditSectionError.visibility = View.GONE
             captchaHandler.requestNewCaptcha()
@@ -130,11 +136,7 @@ class EditSectionActivity : BaseActivity() {
         binding.viewEditSectionError.backClickListener = View.OnClickListener {
             onBackPressed()
         }
-        L10nUtil.setConditionalTextDirection(binding.editSectionText, pageTitle.wikiSite.languageCode)
-        fetchSectionText()
-        if (savedInstanceState != null && savedInstanceState.containsKey("sectionTextModified")) {
-            sectionTextModified = savedInstanceState.getBoolean("sectionTextModified")
-        }
+
         textWatcher = binding.editSectionText.doAfterTextChanged {
             if (sectionTextFirstLoad) {
                 sectionTextFirstLoad = false
@@ -466,8 +468,9 @@ class EditSectionActivity : BaseActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putBoolean("hasTemporaryWikitextStored", true)
-        outState.putBoolean("sectionTextModified", sectionTextModified)
+        outState.putBoolean(EXTRA_KEY_TEMPORARY_WIKITEXT_STORED, true)
+        outState.putBoolean(EXTRA_KEY_SECTION_TEXT_MODIFIED, sectionTextModified)
+        outState.putBoolean(EXTRA_KEY_EDITING_ALLOWED, editingAllowed)
         Prefs.temporaryWikitext = sectionWikitext.orEmpty()
     }
 
@@ -490,12 +493,11 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun fetchSectionText() {
-        editingAllowed = false
         if (sectionWikitext == null) {
             disposables.add(ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, sectionID)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: MwQueryResponse ->
+                    .subscribe({ response ->
                         val firstPage = response.query?.firstPage()!!
                         val rev = firstPage.revisions[0]
 
@@ -511,7 +513,7 @@ class EditSectionActivity : BaseActivity() {
                             FeedbackUtil.showError(this, MwException(error))
                         }
                         displaySectionText()
-                    }) { throwable: Throwable? ->
+                    }) { throwable ->
                         showProgressBar(false)
                         showError(throwable)
                         L.e(throwable)
@@ -590,6 +592,9 @@ class EditSectionActivity : BaseActivity() {
     }
 
     companion object {
+        private const val EXTRA_KEY_SECTION_TEXT_MODIFIED = "sectionTextModified"
+        private const val EXTRA_KEY_TEMPORARY_WIKITEXT_STORED = "hasTemporaryWikitextStored"
+        private const val EXTRA_KEY_EDITING_ALLOWED = "editingAllowed"
         const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
