@@ -7,7 +7,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.test.TestFileUtil
 
 @RunWith(RobolectricTestRunner::class)
@@ -18,7 +18,7 @@ class TopReadItemCardTest {
     @Throws(Throwable::class)
     fun setUp() {
         val json = TestFileUtil.readRawFile("mostread_2016_11_07.json")
-        content = GsonUnmarshaller.unmarshal(TopRead::class.java, json)
+        content = JsonUtil.decodeFromString(json)!!
     }
 
     @Test

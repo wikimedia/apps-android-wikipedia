@@ -1,6 +1,5 @@
 package org.wikipedia.random
 
-import com.google.gson.stream.MalformedJsonException
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -19,7 +18,7 @@ class RandomSummaryClientTest : MockRetrofitTest() {
     fun testRequestMalformed() {
         enqueueMalformed()
         restService.randomSummary.test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 
     @Test

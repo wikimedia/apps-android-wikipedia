@@ -1,6 +1,5 @@
 package org.wikipedia.descriptions
 
-import com.google.gson.stream.MalformedJsonException
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.observers.TestObserver
 import org.hamcrest.MatcherAssert
@@ -94,7 +93,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
     fun testRequestResponseMalformed() {
         enqueueMalformed()
         request().test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 
     @Test

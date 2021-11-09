@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
 import androidx.annotation.StringRes
+import androidx.core.app.RemoteInput
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -24,9 +25,10 @@ import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.main.MainActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
+import org.wikipedia.talk.NotificationDirectReplyHelper
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import java.util.*
 import java.util.concurrent.TimeUnit
 
 class NotificationPollBroadcastReceiver : BroadcastReceiver() {
@@ -57,12 +59,31 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             ACTION_CANCEL == intent.action -> {
                 NotificationInteractionFunnel.processIntent(intent)
             }
+            ACTION_DIRECT_REPLY == intent.action -> {
+                val remoteInput = RemoteInput.getResultsFromIntent(intent)
+                val text = remoteInput.getCharSequence(RESULT_KEY_DIRECT_REPLY)
+
+                if (intent.hasExtra(RESULT_EXTRA_WIKI) && intent.hasExtra(RESULT_EXTRA_TITLE) && !text.isNullOrEmpty()) {
+                    NotificationDirectReplyHelper.handleReply(context,
+                        intent.getParcelableExtra(RESULT_EXTRA_WIKI)!!,
+                        intent.getParcelableExtra(RESULT_EXTRA_TITLE)!!,
+                        text.toString(),
+                        intent.getStringExtra(RESULT_EXTRA_REPLY_TO).orEmpty(),
+                        intent.getIntExtra(RESULT_EXTRA_ID, 0))
+                }
+            }
         }
     }
 
     companion object {
         const val ACTION_POLL = "action_notification_poll"
         const val ACTION_CANCEL = "action_notification_cancel"
+        const val ACTION_DIRECT_REPLY = "action_direct_reply"
+        const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
+        const val RESULT_EXTRA_WIKI = "extra_wiki"
+        const val RESULT_EXTRA_TITLE = "extra_title"
+        const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
+        const val RESULT_EXTRA_ID = "extra_id"
         const val TYPE_MULTIPLE = "multiple"
 
         private const val TYPE_LOCAL = "local"
@@ -98,7 +119,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun getAlarmPendingIntent(context: Context): PendingIntent {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             intent.action = ACTION_POLL
-            return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+            return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
         }
 
         fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent {
@@ -106,7 +127,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .setAction(ACTION_CANCEL)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type)
-            return PendingIntent.getBroadcast(context, id.toInt(), intent, 0)
+            return PendingIntent.getBroadcast(context, id.toInt(), intent, DeviceUtil.pendingIntentFlags)
         }
 
         @SuppressLint("CheckResult")
@@ -206,7 +227,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     // Record that there is an incoming notification to track/compare further actions on it.
                     NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                     NotificationInteractionEvent.logIncoming(n, null)
-                    NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki)) DBNAME_WIKI_NAME_MAP[n.wiki] else n.wiki)!!)
+                    NotificationPresenter.showNotification(context, n,
+                            (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki)) DBNAME_WIKI_NAME_MAP[n.wiki] else n.wiki)!!,
+                            (if (DBNAME_WIKI_SITE_MAP.containsKey(n.wiki)) DBNAME_WIKI_SITE_MAP[n.wiki] else WikipediaApp.getInstance().wikiSite)!!.languageCode)
                 }
             }
             if (locallyKnownModified) {
@@ -230,7 +253,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
         fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             val idListStr = notifications.joinToString("|")
-            CsrfTokenClient(wiki, WikipediaApp.getInstance().wikiSite).token
+            CsrfTokenClient(wiki, wiki).token
                     .subscribeOn(Schedulers.io())
                     .flatMap {
                         ServiceFactory.get(wiki).markRead(it, if (unread) null else idListStr, if (unread) idListStr else null)
@@ -260,8 +283,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             val intent = NotificationPresenter.addIntentExtras(MainActivity.newIntent(context).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true), 0, TYPE_LOCAL)
             NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
-                    context.getString(description), context.getString(description),
-                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, false, intent)
+                    context.getString(description), context.getString(description), null,
+                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent)
         }
     }
 }

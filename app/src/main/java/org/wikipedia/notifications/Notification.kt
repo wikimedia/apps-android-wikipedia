@@ -1,19 +1,21 @@
 package org.wikipedia.notifications
 
-import com.google.gson.JsonElement
-import com.google.gson.JsonObject
-import com.google.gson.annotations.SerializedName
-import org.wikipedia.json.GsonUtil
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.*
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UriUtil
 import java.util.*
 
+@Serializable
 class Notification {
 
-    @SerializedName("*")
+    @SerialName("*")
     val contents: Contents? = null
     private val timestamp: Timestamp? = null
+    var read: String? = null
     val category = ""
     val wiki = ""
     val id: Long = 0
@@ -22,10 +24,14 @@ class Notification {
     val title: Title? = null
     val agent: Agent? = null
     val sources: Map<String, Source>? = null
+
     val utcIso8601: String
         get() = timestamp?.utciso8601.orEmpty()
+
     val isFromWikidata: Boolean
         get() = wiki == "wikidatawiki"
+
+    val isUnread get() = read.isNullOrEmpty()
 
     fun key(): Long {
         return id + wiki.hashCode()
@@ -39,24 +45,27 @@ class Notification {
         return id.toString()
     }
 
+    @Serializable
     class Title {
 
-        @SerializedName("namespace-key")
+        @SerialName("namespace-key")
         private val namespaceKey = 0
         var full: String = ""
         val text: String = ""
-        private val namespace: String = ""
+        private val namespace: String? = null
 
         val isMainNamespace: Boolean
             get() = namespaceKey == Namespace.MAIN.code()
     }
 
+    @Serializable
     class Agent {
 
         private val id = 0
         val name: String = ""
     }
 
+    @Serializable
     class Timestamp {
 
         val utciso8601: String? = null
@@ -66,6 +75,7 @@ class Notification {
         }
     }
 
+    @Serializable
     class Link {
 
         private val description: String = ""
@@ -73,9 +83,15 @@ class Notification {
             get() = UriUtil.decodeURL(field)
         val label: String = ""
         val tooltip: String = ""
-        val icon: String = ""
+        // The icon could be a string or `false`.
+        private val icon: JsonElement? = null
+
+        fun icon(): String {
+            return if (icon?.jsonPrimitive?.isString == true) icon.jsonPrimitive.content else ""
+        }
     }
 
+    @Serializable
     class Links {
 
         private var primaryLink: Link? = null
@@ -87,12 +103,13 @@ class Notification {
                 return null
             }
             if (primaryLink == null && primary is JsonObject) {
-                primaryLink = GsonUtil.getDefaultGson().fromJson(primary, Link::class.java)
+                primaryLink = JsonUtil.json.decodeFromJsonElement<Link>(primary)
             }
             return primaryLink
         }
     }
 
+    @Serializable
     class Source {
 
         val title: String = ""
@@ -101,6 +118,7 @@ class Notification {
         val base: String = ""
     }
 
+    @Serializable
     class Contents {
 
         private val icon: String = ""
@@ -112,12 +130,14 @@ class Notification {
         val links: Links? = null
     }
 
+    @Serializable
     class UnreadNotificationWikiItem {
 
         val totalCount = 0
         val source: Source? = null
     }
 
+    @Serializable
     class SeenTime {
 
         val alert: String = ""

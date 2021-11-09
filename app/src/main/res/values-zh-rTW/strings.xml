@@ -57,6 +57,8 @@
   <string name="search_tab_tooltip">再次輕觸圖標可直接開始輸入搜尋項。</string>
   <string name="history_list_title">歷史</string>
   <string name="image_content_description">圖片：%s</string>
+  <string name="wikimedia_commons">維基共享資源</string>
+  <string name="wikidata">維基數據</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
   <string name="dialog_message_clear_history">這樣做會刪除您的所有瀏覽記錄，並且關閉所有目前開啟的分頁。您確定嗎？</string>
   <string name="dialog_message_clear_history_yes">是</string>
@@ -210,6 +212,7 @@
   <string name="page_protected_can_not_edit_title">此頁面受到保護</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">新增至監視清單</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">持續追蹤您感興趣條目的最新狀況。請輕觸溢位選單，並選擇&lt;b&gt;新增至監視清單&lt;/b&gt;來查看條目的變動內容。</string>
+  <string name="page_notification_tooltip">您的通知現在在此。</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
   <string name="about_description">關於維基百科應用程式</string>
@@ -591,6 +594,20 @@
   <string name="notification_preferences_title">通知偏好設定</string>
   <string name="notifications_mark_unread">標記為未讀</string>
   <string name="notifications_mark_all_as_read">標記所有為已讀</string>
+  <string name="notifications_direct_reply_action">回覆</string>
+  <string name="notifications_direct_reply_progress">正在發布回覆給%s…</string>
+  <string name="notifications_direct_reply_success">回覆已發布。</string>
+  <string name="notifications_direct_reply_error">無法自動發布回覆。</string>
+  <string name="notifications_mark_all_as_read_message">%d 個標記為已讀</string>
+  <string name="notifications_mark_all_as_unread_message">%d 個標記為未讀</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 個被標記為已讀</item>
+    <item quantity="other">%d 個被標記為已讀</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 個被標記為未讀</item>
+    <item quantity="other">%d 個被標記為未讀</item>
+  </plurals>
   <string name="watchlist_title">監視清單</string>
   <string name="preference_title_notification_poll">調查通知</string>
   <string name="preference_summary_notification_poll">允許應用程式在背景執行使用資料來檢查新的通知。</string>
@@ -623,6 +640,29 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">來自維基百科的通知</string>
   <string name="notifications_channel_group_other_title">其它</string>
   <string name="notifications_channel_group_other_description">來自應用程式的其它通知</string>
+  <string name="notifications_filter_label">篩選通知</string>
+  <string name="notifications_filter_icon_content_description">篩選通知</string>
+  <string name="notifications_empty_search_message">嘗試移除篩選字串%s來查看更多通知</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d 個篩選</item>
+    <item quantity="other">%d 個篩選</item>
+  </plurals>
+  <string name="notifications_select_all_filters">選擇所有篩選</string>
+  <string name="notifications_tab_filter_all">全部</string>
+  <string name="notifications_tab_filter_mentions">提及</string>
+  <string name="notifications_search_bar_hint">搜尋或篩選通知</string>
+  <string name="notifications_search_bar_filter_hint">通知篩選</string>
+  <string name="notifications_menu_mark_as_read">標記為已讀</string>
+  <string name="notifications_menu_mark_as_unread">標記為未讀</string>
+  <string name="notifications_swipe_action_read">已讀</string>
+  <string name="notifications_swipe_action_unread">未讀</string>
+  <string name="notifications_menu_check_all">勾選所有項目</string>
+  <string name="notifications_menu_uncheck_all">取消勾選所有項目</string>
+  <string name="notifications_wiki_filter_header">Wiki 篩選</string>
+  <string name="notifications_type_filter_header">類型篩選</string>
+  <string name="notifications_all_wikis_text">所有「wiki」</string>
+  <string name="notifications_all_types_text">所有「類型」</string>
+  <string name="notifications_menu_user_talk_page">%s的對話頁</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_article_card_title">隨機條目</string>
@@ -1003,6 +1043,8 @@
   <string name="talk_response_submitted">回覆已發布。</string>
   <string name="talk_snackbar_undo">還原</string>
   <string name="talk_last_modified">由%2$s在&lt;b&gt; %1$s &lt;/b&gt;所做的最後一次編輯</string>
+  <string name="talk_snackbar_survey_text">感謝使用討論頁。您願意透過參與調查來協助我們改善此應用程式嗎？</string>
+  <string name="talk_snackbar_survey_action_text">入門</string>
   <string name="menu_option_share_edit">分享編輯</string>
   <string name="menu_option_user_profile">%s基本資料</string>
   <string name="menu_option_user_contributions">%s的貢獻</string>

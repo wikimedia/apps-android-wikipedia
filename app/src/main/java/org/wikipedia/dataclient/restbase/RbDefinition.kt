@@ -1,8 +1,13 @@
 package org.wikipedia.dataclient.restbase
 
-class RbDefinition(val usagesByLang: Map<String, Array<Usage>>) {
+import kotlinx.serialization.Serializable
 
-    class Usage(val partOfSpeech: String, val definitions: Array<Definition>)
+@Serializable
+class RbDefinition(val usagesByLang: Map<String, List<Usage>>) {
 
-    class Definition(val definition: String, val examples: Array<String>?)
+    @Serializable
+    class Usage(val partOfSpeech: String = "", val definitions: List<Definition>)
+
+    @Serializable
+    class Definition(val definition: String = "", val examples: List<String>? = null)
 }

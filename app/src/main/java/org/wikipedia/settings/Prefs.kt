@@ -1,17 +1,16 @@
 package org.wikipedia.settings
 
-import com.google.gson.reflect.TypeToken
+import okhttp3.Cookie
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.SessionFunnel
 import org.wikipedia.analytics.eventplatform.StreamConfig
-import org.wikipedia.dataclient.SharedPreferenceCookieManager
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
-import org.wikipedia.json.SessionUnmarshaller
-import org.wikipedia.json.TabUnmarshaller
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.tabs.Tab
 import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
@@ -47,12 +46,19 @@ object Prefs {
 
     var cookies
         get() = if (!PrefsIoUtil.contains(R.string.preference_key_cookie_map)) {
-            null
-        } else GsonUnmarshaller.unmarshal(
-            SharedPreferenceCookieManager::class.java,
-            PrefsIoUtil.getString(R.string.preference_key_cookie_map, null)
-        )
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_cookie_map, GsonMarshaller.marshal(value))
+            emptyMap()
+        } else {
+            val map = JsonUtil.decodeFromString<Map<String, List<String>>>(PrefsIoUtil
+                .getString(R.string.preference_key_cookie_map, "").orEmpty()).orEmpty()
+            map.mapValues { (key, values) ->
+                val url = "${WikiSite.DEFAULT_SCHEME}://$key".toHttpUrlOrNull()
+                url?.let { values.mapNotNull { value -> Cookie.parse(url, value) } }.orEmpty()
+            }
+        }
+        set(cookieMap) {
+            val map = cookieMap.mapValues { (_, cookies) -> cookies.map { it.toString() } }
+            PrefsIoUtil.setString(R.string.preference_key_cookie_map, JsonUtil.encodeToString(map))
+        }
 
     var isShowDeveloperSettingsEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_developer_settings, isDevRelease)
@@ -71,8 +77,9 @@ object Prefs {
         set(json) = PrefsIoUtil.setString(R.string.preference_key_remote_config, json)
 
     var tabs
-        get() = if (hasTabs) TabUnmarshaller.unmarshal(PrefsIoUtil.getString(R.string.preference_key_tabs, null)) else emptyList()
-        set(tabs) = PrefsIoUtil.setString(R.string.preference_key_tabs, GsonMarshaller.marshal(tabs))
+        get() = JsonUtil.decodeFromString<List<Tab>>(PrefsIoUtil.getString(R.string.preference_key_tabs, null))
+            ?: emptyList()
+        set(tabs) = PrefsIoUtil.setString(R.string.preference_key_tabs, JsonUtil.encodeToString(tabs))
 
     val hasTabs get() = PrefsIoUtil.contains(R.string.preference_key_tabs)
 
@@ -81,32 +88,14 @@ object Prefs {
     }
 
     var hiddenCards: Set<String>
-        get() {
-            val emptySet = linkedSetOf<String>()
-            if (!hasHiddenCards()) {
-                return emptySet
-            }
-            val cards = GsonUnmarshaller.unmarshal(emptySet.javaClass, PrefsIoUtil.getString(R.string.preference_key_feed_hidden_cards, null))
-            return cards ?: emptySet
-        }
-        set(cards) = PrefsIoUtil.setString(R.string.preference_key_feed_hidden_cards, GsonMarshaller.marshal(cards))
-
-    private fun hasHiddenCards(): Boolean {
-        return PrefsIoUtil.contains(R.string.preference_key_feed_hidden_cards)
-    }
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_feed_hidden_cards, null))
+            ?: emptySet()
+        set(cards) = PrefsIoUtil.setString(R.string.preference_key_feed_hidden_cards, JsonUtil.encodeToString(cards))
 
     var sessionData
-        get() = if (hasSessionData()) SessionUnmarshaller.unmarshal(
-            PrefsIoUtil.getString(
-                R.string.preference_key_session_data,
-                null
-            )
-        ) else SessionData()
-        set(data) = PrefsIoUtil.setString(R.string.preference_key_session_data, GsonMarshaller.marshal(data))
-
-    private fun hasSessionData(): Boolean {
-        return PrefsIoUtil.contains(R.string.preference_key_session_data)
-    }
+        get() = JsonUtil.decodeFromString<SessionData>(PrefsIoUtil.getString(R.string.preference_key_session_data, null))
+            ?: SessionData()
+        set(data) = PrefsIoUtil.setString(R.string.preference_key_session_data, JsonUtil.encodeToString(data))
 
     // return the timeout, but don't let it be less than the minimum
     val sessionTimeout
@@ -271,73 +260,25 @@ object Prefs {
         return PrefsIoUtil.getBoolean(R.string.preference_key_prefer_offline_content, false)
     }
 
-    var feedCardsEnabled: List<Boolean>
-        get() {
-            if (!PrefsIoUtil.contains(R.string.preference_key_feed_cards_enabled)) {
-                return emptyList()
-            }
-            val enabledList = GsonUnmarshaller.unmarshal(
-                object : TypeToken<ArrayList<Boolean>?>() {},
-                PrefsIoUtil.getString(R.string.preference_key_feed_cards_enabled, null)
-            )
-            return enabledList ?: emptyList()
-        }
-        set(enabledList) {
-            PrefsIoUtil.setString(R.string.preference_key_feed_cards_enabled, GsonMarshaller.marshal(enabledList))
-        }
+    var feedCardsEnabled
+        get() = JsonUtil.decodeFromString<List<Boolean>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_enabled, null))
+            ?: emptyList()
+        set(enabledList) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_enabled, JsonUtil.encodeToString(enabledList))
 
-    var feedCardsOrder: List<Int>
-        get() {
-            if (!PrefsIoUtil.contains(R.string.preference_key_feed_cards_order)) {
-                return emptyList()
-            }
-            val orderList = GsonUnmarshaller.unmarshal(
-                object : TypeToken<ArrayList<Int>?>() {},
-                PrefsIoUtil.getString(R.string.preference_key_feed_cards_order, null)
-            )
-            return orderList ?: emptyList()
-        }
-        set(orderList) {
-            PrefsIoUtil.setString(R.string.preference_key_feed_cards_order, GsonMarshaller.marshal(orderList))
-        }
+    var feedCardsOrder
+        get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_order, null))
+            ?: emptyList()
+        set(orderList) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_order, JsonUtil.encodeToString(orderList))
 
-    val feedCardsLangSupported: Map<Int, List<String>>
-        get() {
-            if (!PrefsIoUtil.contains(R.string.preference_key_feed_cards_lang_supported)) {
-                return emptyMap()
-            }
-            val map = GsonUnmarshaller.unmarshal(
-                object : TypeToken<Map<Int, List<String>>?>() {},
-                PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_supported, null)
-            )
-            return map ?: emptyMap()
-        }
+    var feedCardsLangSupported
+        get() = JsonUtil.decodeFromString<Map<Int, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_supported, null))
+            ?: emptyMap()
+        set(langSupportedMap) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_lang_supported, JsonUtil.encodeToString(langSupportedMap))
 
-    fun setFeedCardsLangSupported(langSupportedMap: Map<Int, List<String>>) {
-        PrefsIoUtil.setString(
-            R.string.preference_key_feed_cards_lang_supported,
-            GsonMarshaller.marshal(langSupportedMap)
-        )
-    }
-
-    val feedCardsLangDisabled: Map<Int, List<String>>
-        get() {
-            if (!PrefsIoUtil.contains(R.string.preference_key_feed_cards_lang_disabled)) {
-                return emptyMap()
-            }
-            val map = GsonUnmarshaller.unmarshal(
-                object : TypeToken<Map<Int, List<String>>?>() {},
-                PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_disabled, null)
-            )
-            return map ?: emptyMap()
-        }
-
-    fun setFeedCardsLangDisabled(langDisabledMap: Map<Int, List<String>>) {
-        PrefsIoUtil.setString(
-            R.string.preference_key_feed_cards_lang_disabled,
-            GsonMarshaller.marshal(langDisabledMap)
-        )
-    }
+    var feedCardsLangDisabled
+        get() = JsonUtil.decodeFromString<Map<Int, List<String>>>(PrefsIoUtil.getString(R.string.preference_key_feed_cards_lang_disabled, null))
+            ?: emptyMap()
+        set(langDisabledMap) = PrefsIoUtil.setString(R.string.preference_key_feed_cards_lang_disabled, JsonUtil.encodeToString(langDisabledMap))
 
     fun resetFeedCustomizations() {
         PrefsIoUtil.remove(R.string.preference_key_feed_hidden_cards)
@@ -350,22 +291,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_reading_lists_last_sync_time, "")
         set(timeStr) = PrefsIoUtil.setString(R.string.preference_key_reading_lists_last_sync_time, timeStr)
 
-    var readingListsDeletedIds: Set<Long>
-        get() {
-            val set = mutableSetOf<Long>()
-            if (!PrefsIoUtil.contains(R.string.preference_key_reading_lists_deleted_ids)) {
-                return set
-            }
-            val tempSet = GsonUnmarshaller.unmarshal(
-                object : TypeToken<Set<Long>?>() {},
-                PrefsIoUtil.getString(R.string.preference_key_reading_lists_deleted_ids, null)
-            )
-            if (tempSet != null) {
-                set.addAll(tempSet)
-            }
-            return set
-        }
-        set(set) = PrefsIoUtil.setString(R.string.preference_key_reading_lists_deleted_ids, GsonMarshaller.marshal(set))
+    var readingListsDeletedIds
+        get() = JsonUtil.decodeFromString<Set<Long>>(PrefsIoUtil.getString(R.string.preference_key_reading_lists_deleted_ids, null))
+            ?: emptySet()
+        set(set) = PrefsIoUtil.setString(R.string.preference_key_reading_lists_deleted_ids, JsonUtil.encodeToString(set))
 
     fun addReadingListsDeletedIds(set: Set<Long>) {
         val maxStoredIds = 256
@@ -374,22 +303,10 @@ object Prefs {
         readingListsDeletedIds = if (currentSet.size < maxStoredIds) currentSet else set
     }
 
-    var readingListPagesDeletedIds: Set<String>
-        get() {
-            val set = mutableSetOf<String>()
-            if (!PrefsIoUtil.contains(R.string.preference_key_reading_lists_deleted_ids)) {
-                return set
-            }
-            val tempSet = GsonUnmarshaller.unmarshal(
-                object : TypeToken<Set<String>?>() {},
-                PrefsIoUtil.getString(R.string.preference_key_reading_list_pages_deleted_ids, null)
-            )
-            if (tempSet != null) {
-                set.addAll(tempSet)
-            }
-            return set
-        }
-        set(set) = PrefsIoUtil.setString(R.string.preference_key_reading_list_pages_deleted_ids, GsonMarshaller.marshal(set))
+    var readingListPagesDeletedIds
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_reading_list_pages_deleted_ids, null))
+            ?: emptySet()
+        set(set) = PrefsIoUtil.setString(R.string.preference_key_reading_list_pages_deleted_ids, JsonUtil.encodeToString(set))
 
     fun addReadingListPagesDeletedIds(set: Set<String>) {
         val maxStoredIds = 256
@@ -418,22 +335,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, enabled)
 
-    var locallyKnownNotifications: List<Long>
-        get() {
-            val list = mutableListOf<Long>()
-            if (!PrefsIoUtil.contains(R.string.preference_key_locally_known_notifications)) {
-                return list
-            }
-            val tempList = GsonUnmarshaller.unmarshal(
-                object : TypeToken<ArrayList<Long>?>() {},
-                PrefsIoUtil.getString(R.string.preference_key_locally_known_notifications, null)
-            )
-            if (tempList != null) {
-                list.addAll(tempList)
-            }
-            return list
-        }
-        set(list) = PrefsIoUtil.setString(R.string.preference_key_locally_known_notifications, GsonMarshaller.marshal(list))
+    var locallyKnownNotifications
+        get() = JsonUtil.decodeFromString<List<Long>>(PrefsIoUtil.getString(R.string.preference_key_locally_known_notifications, null))
+            ?: emptyList()
+        set(list) = PrefsIoUtil.setString(R.string.preference_key_locally_known_notifications, JsonUtil.encodeToString(list))
 
     var remoteNotificationsSeenTime
         get() = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "").orEmpty()
@@ -467,56 +372,31 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
 
+    var showTalkPageSurveyAttempts
+        get() = PrefsIoUtil.getInt(R.string.preference_key_show_talk_page_survey_attempts, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_show_talk_page_survey_attempts, value)
+
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visited_article_page, value)
 
-    var announcementShownDialogs: Set<String>
-        get() {
-            val emptySet = linkedSetOf<String>()
-            if (!hasAnnouncementShownDialogs()) {
-                return emptySet
-            }
-            val announcement = GsonUnmarshaller.unmarshal(
-                emptySet.javaClass,
-                PrefsIoUtil.getString(R.string.preference_key_announcement_shown_dialogs, null)
-            )
-            return announcement ?: emptySet
-        }
+    var announcementShownDialogs
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_announcement_shown_dialogs, null))
+            ?: emptySet()
         set(newAnnouncementIds) {
-            val announcementIds = announcementShownDialogs.toMutableList()
+            val announcementIds = announcementShownDialogs.toMutableSet()
             announcementIds.addAll(newAnnouncementIds)
-            PrefsIoUtil.setString(
-                R.string.preference_key_announcement_shown_dialogs,
-                GsonMarshaller.marshal(announcementIds)
-            )
+            PrefsIoUtil.setString(R.string.preference_key_announcement_shown_dialogs, JsonUtil.encodeToString(announcementIds))
         }
-
-    private fun hasAnnouncementShownDialogs(): Boolean {
-        return PrefsIoUtil.contains(R.string.preference_key_announcement_shown_dialogs)
-    }
 
     fun resetAnnouncementShownDialogs() {
         PrefsIoUtil.remove(R.string.preference_key_announcement_shown_dialogs)
     }
 
-    var watchlistDisabledLanguages: Set<String>
-        get() {
-            val emptySet = linkedSetOf<String>()
-            if (!PrefsIoUtil.contains(R.string.preference_key_watchlist_disabled_langs)) {
-                return emptySet
-            }
-            val codes = GsonUnmarshaller.unmarshal(
-                emptySet.javaClass,
-                PrefsIoUtil.getString(R.string.preference_key_watchlist_disabled_langs, null)
-            )
-            return codes ?: emptySet
-        }
-        set(langCodes) {
-            val codes = watchlistDisabledLanguages.toMutableList()
-            codes.addAll(langCodes)
-            PrefsIoUtil.setString(R.string.preference_key_watchlist_disabled_langs, GsonMarshaller.marshal(langCodes))
-        }
+    var watchlistDisabledLanguages
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_watchlist_disabled_langs, null))
+            ?: emptySet()
+        set(langCodes) = PrefsIoUtil.setString(R.string.preference_key_watchlist_disabled_langs, JsonUtil.encodeToString(langCodes))
 
     var shouldMatchSystemTheme
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_match_system_theme, true)
@@ -611,21 +491,20 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_session_id, null)
         set(sessionId) = PrefsIoUtil.setString(R.string.preference_key_event_platform_session_id, sessionId)
 
-    val streamConfigs: Map<String, StreamConfig>
-        get() {
-            val streamConfigJson = PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, "").orEmpty().ifEmpty { "{}" }
-            return GsonUnmarshaller.unmarshal(
-                object : TypeToken<HashMap<String, StreamConfig>?>() {},
-                streamConfigJson
-            ) as HashMap<String, StreamConfig>
-        }
+    var notificationExcludedWikiCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_wiki_codes_notification, null))
+            ?: emptySet()
+        set(wikis) = PrefsIoUtil.setString(R.string.preference_key_excluded_wiki_codes_notification, JsonUtil.encodeToString(wikis))
 
-    fun setStreamConfigs(streamConfigs: Map<String, StreamConfig>) {
-        PrefsIoUtil.setString(
-            R.string.preference_key_event_platform_stored_stream_configs,
-            GsonMarshaller.marshal(streamConfigs)
-        )
-    }
+    var notificationExcludedTypeCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_type_codes_notification, null))
+            ?: emptySet()
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_excluded_type_codes_notification, JsonUtil.encodeToString(types))
+
+    var streamConfigs
+        get() = JsonUtil.decodeFromString<Map<String, StreamConfig>>(PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, null))
+            ?: emptyMap()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_event_platform_stored_stream_configs, JsonUtil.encodeToString(value))
 
     var localClassName
         get() = PrefsIoUtil.getString(R.string.preference_key_crash_report_local_class_name, "")
@@ -638,4 +517,14 @@ object Prefs {
     var isWatchlistMainOnboardingTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, false)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled)
+
+    var isPageNotificationTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_page_notification_tooltip_shown, false)
+        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_page_notification_tooltip_shown, enabled)
+
+    val talkPageSurveyOverride
+        get() = PrefsIoUtil.getBoolean(R.string.preference_developer_override_talk_page_survey, false)
+
+    val hideReadNotificationsEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notification_hide_read, false)
 }

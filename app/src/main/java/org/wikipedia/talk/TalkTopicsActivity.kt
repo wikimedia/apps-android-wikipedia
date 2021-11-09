@@ -8,8 +8,11 @@ import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.*
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -17,7 +20,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -53,17 +55,18 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var funnel: TalkFunnel
     private lateinit var notificationButtonView: NotificationButtonView
-    private val notificationsABCTestFunnel = NotificationsABCTestFunnel()
     private val disposables = CompositeDisposable()
     private val topics = mutableListOf<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var revisionForLastEdit: MwQueryPage.Revision? = null
+    private var goToTopic = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkTopicsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
@@ -112,7 +115,7 @@ class TalkTopicsActivity : BaseActivity() {
     public override fun onResume() {
         super.onResume()
         loadTopics()
-        setupNotificationsTest()
+        TalkPageSurvey.maybeShowSurvey(this@TalkTopicsActivity, editSubmitted = false)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -152,36 +155,49 @@ class TalkTopicsActivity : BaseActivity() {
                         binding.talkProgressBar.visibility = View.VISIBLE
                         undoSave(newRevisionId, topic, undoneSubject, undoneText)
                     }
+                    .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
+                        override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                            super.onDismissed(transientBottomBar, event)
+                            TalkPageSurvey.maybeShowSurvey(this@TalkTopicsActivity, editSubmitted = true)
+                        }
+                    })
                     .show()
             }
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_BACK_FROM_TOPIC) {
+            finish()
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_talk, menu)
+        if (!goToTopic) {
+            menuInflater.inflate(R.menu.menu_talk, menu)
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
-        menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
-        val notificationMenuItem = menu.findItem(R.id.menu_notifications)
-        if (AccountUtil.isLoggedIn && notificationsABCTestFunnel.aBTestGroup <= 1) {
-            notificationMenuItem.isVisible = true
-            notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
-            notificationButtonView.setOnClickListener {
-                if (AccountUtil.isLoggedIn) {
-                    startActivity(NotificationActivity.newIntent(this))
+        if (!goToTopic) {
+            menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
+            menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
+            val notificationMenuItem = menu.findItem(R.id.menu_notifications)
+            if (AccountUtil.isLoggedIn) {
+                notificationMenuItem.isVisible = true
+                notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
+                notificationButtonView.setOnClickListener {
+                    if (AccountUtil.isLoggedIn) {
+                        startActivity(NotificationActivity.newIntent(this))
+                    }
                 }
+                notificationButtonView.contentDescription =
+                    getString(R.string.notifications_activity_title)
+                notificationMenuItem.actionView = notificationButtonView
+                notificationMenuItem.expandActionView()
+                FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            } else {
+                notificationMenuItem.isVisible = false
             }
-            notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
-            notificationMenuItem.actionView = notificationButtonView
-            notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
-        } else {
-            notificationMenuItem.isVisible = false
+            updateNotificationDot(false)
         }
-        updateNotificationDot(false)
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -213,9 +229,10 @@ class TalkTopicsActivity : BaseActivity() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
         binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
+        binding.talkUsernameView.isVisible = !goToTopic
 
         disposables.clear()
-        binding.talkProgressBar.visibility = View.VISIBLE
+        binding.talkProgressBar.isVisible = true
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
 
@@ -233,20 +250,40 @@ class TalkTopicsActivity : BaseActivity() {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
+                    invalidateOptionsMenu()
+                    binding.talkUsernameView.isVisible = !goToTopic
+                    binding.talkProgressBar.isVisible = !goToTopic
                     binding.talkProgressBar.visibility = View.GONE
                     binding.talkRefreshView.isRefreshing = false
                 }
-                .subscribe({ response ->
+                .subscribe({
                     topics.clear()
-                    topics.addAll(response.topics!!)
+                    topics.addAll(it.topics!!)
                     updateOnSuccess()
-                }, { t ->
-                    L.e(t)
-                    updateOnError(t)
+                }, {
+                    L.e(it)
+                    updateOnError(it)
                 }))
     }
 
     private fun updateOnSuccess() {
+        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
+            intent.putExtra(EXTRA_GO_TO_TOPIC, false)
+            var topic: TalkPage.Topic? = null
+            if (!pageTitle.fragment.isNullOrEmpty()) {
+                val targetTopic = UriUtil.parseTalkTopicFromFragment(pageTitle.fragment.orEmpty())
+                topic = topics.find {
+                    StringUtil.addUnderscores(targetTopic) == StringUtil.addUnderscores(it.html)
+                }
+            }
+            if (topic != null) {
+                startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource),
+                        Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY)
+                overridePendingTransition(0, 0)
+                return
+            }
+        }
+        goToTopic = false
         if (topics.isEmpty()) {
             updateOnEmpty()
         } else {
@@ -257,19 +294,6 @@ class TalkTopicsActivity : BaseActivity() {
             binding.talkLastModified.visibility = View.VISIBLE
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-        }
-
-        if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
-            intent.putExtra(EXTRA_GO_TO_TOPIC, false)
-            var topic = topics.firstOrNull()
-            if (!pageTitle.fragment.isNullOrEmpty()) {
-                topic = topics.find {
-                    StringUtil.addUnderscores(pageTitle.fragment) == StringUtil.addUnderscores(it.html)
-                } ?: topic
-            }
-            if (topic != null) {
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource))
-            }
         }
     }
 
@@ -310,28 +334,14 @@ class TalkTopicsActivity : BaseActivity() {
             }))
     }
 
-    // TODO: remove when ABC test is complete.
-    private fun setupNotificationsTest() {
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0 -> notificationButtonView.setIcon(R.drawable.ic_inbox_24)
-            1 -> notificationButtonView.setIcon(R.drawable.ic_notifications_black_24dp)
-        }
-    }
-
     fun updateNotificationDot(animate: Boolean) {
-        // TODO: remove when ABC test is complete.
-        when (notificationsABCTestFunnel.aBTestGroup) {
-            0, 1 -> {
-                if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
-                    notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
-                    if (animate) {
-                        notificationsABCTestFunnel.logShow()
-                        notificationButtonView.runAnimation()
-                    }
-                } else {
-                    notificationButtonView.setUnreadCount(0)
-                }
+        if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
+            notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
+            if (animate) {
+                notificationButtonView.runAnimation()
             }
+        } else {
+            notificationButtonView.setUnreadCount(0)
         }
     }
 

@@ -110,7 +110,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.bindItem(processLinkTextWithAlphaReferences(references[position].text),
-                    StringUtil.fromHtml(StringUtil.removeCiteMarkup(StringUtil.removeStyleTags(references[position].content))))
+                    StringUtil.fromHtml(StringUtil.removeCiteMarkup(StringUtil.removeStyleTags(references[position].html))))
         }
     }
 

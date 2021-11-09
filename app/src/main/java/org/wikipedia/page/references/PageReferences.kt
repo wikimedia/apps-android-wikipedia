@@ -1,13 +1,15 @@
 package org.wikipedia.page.references
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
-data class PageReferences(val selectedIndex: Int = 0,
-                          val tid: String?,
-                          val referencesGroup: List<Reference>? = emptyList()) {
+@Serializable
+class PageReferences(val selectedIndex: Int = 0,
+                     val tid: String? = null,
+                     val referencesGroup: List<Reference> = emptyList()) {
 
-    data class Reference(val id: String?,
-                         val href: String?,
-                         val text: String = "",
-                         @SerializedName("html") val content: String = "")
+    @Serializable
+    class Reference(val id: String? = null,
+                    val href: String? = null,
+                    val text: String = "",
+                    val html: String = "")
 }

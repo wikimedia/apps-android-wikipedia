@@ -220,6 +220,7 @@
   <string name="page_protected_can_not_edit_title">هذه الصفحة محمية</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">أضف لقائمة المراقبة</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">كن على اطلاع بما يحدث على المقالات التي تهمك. اضغط على قائمة الخيارات واختر &lt;b&gt;أضف لقائمة المراقبة&lt;/b&gt; لرؤية التغييرات على المقالة.</string>
+  <string name="page_notification_tooltip">إشعاراتك موجودة هنا الآن.</string>
   <string name="settings_item_preferences">الإعدادات</string>
   <string name="settings_activity_title">الإعدادات</string>
   <string name="about_description">حول تطبيق ويكيبيديا</string>
@@ -988,6 +989,8 @@
   <string name="talk_response_submitted">نُشِر الرد.</string>
   <string name="talk_snackbar_undo">تراجع</string>
   <string name="talk_last_modified">&lt;b&gt;آخر تعديل %1$s&lt;/b&gt; بواسطة %2$s</string>
+  <string name="talk_snackbar_survey_text">شكراً لاستخدام صفحات النقاش. هل يمكنك مساعدتنا في تحسين التطبيق من خلال المشاركة في استطلاع؟</string>
+  <string name="talk_snackbar_survey_action_text">ابدأ</string>
   <string name="menu_option_share_edit">شارك التعديل</string>
   <string name="menu_option_user_profile">ملف %s</string>
   <string name="menu_option_user_contributions">مساهمات %s</string>
