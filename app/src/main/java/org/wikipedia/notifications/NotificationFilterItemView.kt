@@ -20,8 +20,6 @@ import org.wikipedia.notifications.NotificationsFilterActivity.Filter
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.views.CabSearchView
-import org.wikipedia.views.CabSearchView.Companion
 import org.wikipedia.views.ViewUtil
 
 class NotificationFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
@@ -73,7 +71,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     }
 
     fun setSingleLabel(text: String) {
-        val  textSize = 14f
+        val textSize = 14f
         binding.notificationFilterLanguageCode.visibility = View.GONE
         binding.notificationFilterWikiLogo.visibility = View.VISIBLE
         binding.notificationFilterWikiLogo.imageTintList =
