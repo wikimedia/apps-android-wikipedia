@@ -1,10 +1,15 @@
 package org.wikipedia.util;
 
+import android.net.Uri;
+
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+@RunWith(RobolectricTestRunner.class)
 public class UriUtilTest {
     /**
      * Inspired by
@@ -84,5 +89,21 @@ public class UriUtilTest {
         assertThat(UriUtil.getFilenameFromUploadUrl("https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/Avengers_Endgame_poster.jpg/216px-Avengers_Endgame_poster.jpg"), is("Avengers_Endgame_poster.jpg"));
         assertThat(UriUtil.getFilenameFromUploadUrl("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Needle_Galaxy_4565.jpeg/320px-Needle_Galaxy_4565.jpeg"), is("Needle_Galaxy_4565.jpeg"));
         assertThat(UriUtil.getFilenameFromUploadUrl(""), is(""));
+    }
+
+    @Test
+    public void testParseTalkTopicFromFragment() {
+        assertThat(UriUtil.parseTalkTopicFromFragment("c-Dmitry_Brant-2021-10-01T12:36:00.000Z-test"), is("test"));
+        assertThat(UriUtil.parseTalkTopicFromFragment("c-Dmitry_Brant-2021-10-01T12:36:00.000Z-test-1-2-3"), is("test-1-2-3"));
+        assertThat(UriUtil.parseTalkTopicFromFragment("test"), is("test"));
+    }
+
+    @Test
+    public void testIsAppSupportedLink() {
+        assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://en.wikipedia.org/wiki/Obama_Barack?markasread=10520073&markasreadwiki=zhwiki")), is(true));
+        assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://en.wikipedia.org/w/index.php?title=Spacetime&oldid=prev&diff=816093705&markasread=123759827&markasreadwiki=enwiki")), is(true));
+        assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://en.wikipedia.org/wiki/User_talk:Cooltey?markasread=229654787&markasreadwiki=enwiki#c-RSchoenbaechler_(WMF)-2021-10-07T12:18:00.000Z-Cooltey-2021-09-27T22:53:00.000Z")), is(true));
+        assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://commons.wikimedia.org/wiki/User_talk:Cooltey?markasread=5393423&markasreadwiki=commonswiki")), is(false));
+        assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://mediawiki.org/wiki/Special:MyLanguage/Help:Login_notifications?markasread=135571654&markasreadwiki=enwiki")), is(false));
     }
 }

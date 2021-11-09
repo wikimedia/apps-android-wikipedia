@@ -1,6 +1,5 @@
 package org.wikipedia.edit.wikitext
 
-import com.google.gson.stream.MalformedJsonException
 import org.junit.Test
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.test.MockRetrofitTest
@@ -28,7 +27,7 @@ class WikitextClientTest : MockRetrofitTest() {
     fun testRequestResponseMalformed() {
         enqueueMalformed()
         observable.test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 
     private val observable

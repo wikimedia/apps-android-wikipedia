@@ -1,7 +1,9 @@
 package org.wikipedia.feed.onthisday
 
+import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.page.PageSummary
 
+@Serializable
 class OnThisDay {
 
     private val events: List<Event> = emptyList()
@@ -14,6 +16,7 @@ class OnThisDay {
         return (events + births + deaths + holidays).sortedByDescending { it.year }
     }
 
+    @Serializable
     class Event {
 
         private val pages: List<PageSummary?>? = null

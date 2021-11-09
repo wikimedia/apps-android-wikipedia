@@ -35,6 +35,8 @@
   <string name="notification_archive_undo">Réckgängeg maachen</string>
   <string name="app_settings">Astellunge vun der App</string>
   <string name="history_list_title">Versiounen</string>
+  <string name="wikimedia_commons">Wikimedia-Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
   <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>
   <string name="dialog_message_clear_history_yes">Jo</string>
@@ -171,6 +173,7 @@
   <string name="page_protected_can_not_edit_anon">Leider kann dës Säit zu dësem Zäitpunkt net anonym geännert ginn.</string>
   <string name="page_protected_can_not_edit_title">Dës Säit ass gespaart</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
+  <string name="page_notification_tooltip">Är Notifikatioune sinn elo hei.</string>
   <string name="settings_item_preferences">Astellungen</string>
   <string name="settings_activity_title">Astellungen</string>
   <string name="about_description">Iwwer d\'Wikipedia App</string>
@@ -462,6 +465,9 @@
   <string name="notifications_view_archived_button_text">Archivéiert Notifikatioune weisen</string>
   <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
   <string name="notifications_mark_unread">Als net gelies markéieren</string>
+  <string name="notifications_direct_reply_action">Äntweren</string>
+  <string name="notifications_mark_all_as_read_message">%d markéiert als geliest</string>
+  <string name="notifications_mark_all_as_unread_message">%d markéiert als net geliest</string>
   <string name="watchlist_title">Iwwerwaachungslëscht</string>
   <string name="preference_title_notification_system">System</string>
   <string name="preference_summary_notification_system">Message vum System</string>
@@ -475,6 +481,21 @@
   <string name="preference_title_notification_user_talk">Diskussiounssäit</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">Message vun Diskussiounssäiten</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+  <string name="notifications_filter_icon_content_description">Filter Notifikatiounen</string>
+  <string name="notifications_select_all_filters">All Filteren uwielen</string>
+  <string name="notifications_tab_filter_all">All</string>
+  <string name="notifications_tab_filter_mentions">Mentiounen</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_menu_mark_as_read">Als gelies markéieren</string>
+  <string name="notifications_menu_mark_as_unread">Als net gelies markéieren</string>
+  <string name="notifications_swipe_action_read">Liesen</string>
+  <string name="notifications_swipe_action_unread">Net gelies</string>
+  <string name="notifications_menu_check_all">All Elementer nokucken</string>
+  <string name="notifications_wiki_filter_header">Wiki-Filter</string>
+  <string name="notifications_type_filter_header">Typ Filter</string>
+  <string name="notifications_all_wikis_text">All \"Wiki\"</string>
+  <string name="notifications_all_types_text">All \"Typ\"</string>
+  <string name="notifications_menu_user_talk_page">Diskussiounssäit vum %s</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
   <string name="view_main_page_card_title">Haut op Wikipedia</string>
@@ -682,6 +703,7 @@
   <string name="talk_add_reply">Äntweren</string>
   <string name="talk_no_subject">(Kee Sujet)</string>
   <string name="talk_reply_subject">Sujet</string>
+  <string name="talk_snackbar_survey_action_text">Fir unzefänken</string>
   <string name="menu_option_user_contributions">Kontributioune vum %s</string>
   <string name="watchlist_details_watching_label">Iwwerwaacht</string>
   <string name="watchlist_details_watch_label">Iwwerwaachen</string>

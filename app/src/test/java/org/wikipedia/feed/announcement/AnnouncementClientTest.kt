@@ -1,11 +1,10 @@
 package org.wikipedia.feed.announcement
 
-import com.google.gson.stream.MalformedJsonException
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
 import org.junit.Before
 import org.junit.Test
-import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.test.MockRetrofitTest
 import org.wikipedia.test.TestFileUtil
 import java.text.SimpleDateFormat
@@ -20,7 +19,7 @@ class AnnouncementClientTest : MockRetrofitTest() {
     override fun setUp() {
         super.setUp()
         val json = TestFileUtil.readRawFile(ANNOUNCEMENT_JSON_FILE)
-        announcementList = GsonUnmarshaller.unmarshal(AnnouncementList::class.java, json)
+        announcementList = JsonUtil.decodeFromString(json)!!
     }
 
     @Test
@@ -38,7 +37,7 @@ class AnnouncementClientTest : MockRetrofitTest() {
     fun testRequestMalformed() {
         enqueueMalformed()
         restService.announcements.test().await()
-            .assertError(MalformedJsonException::class.java)
+            .assertError(Exception::class.java)
     }
 
     @Test

@@ -1,7 +1,7 @@
 package org.wikipedia.analytics
 
 import org.wikipedia.WikipediaApp
-import org.wikipedia.util.StringUtil
+import org.wikipedia.json.JsonUtil
 
 class WatchlistFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
@@ -48,7 +48,7 @@ class WatchlistFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, 
     fun logChangeLanguage(languagesList: List<String>) {
         log(
                 "action", "change_language",
-                "languages", StringUtil.listToJsonArrayString(languagesList)
+                "languages", JsonUtil.encodeToString(languagesList)
         )
     }
 

@@ -7,22 +7,26 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.DateSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.parcel.DateParceler
 import java.util.*
 
+@Serializable
 @Parcelize
 @TypeParceler<Date, DateParceler>()
 @Entity
 class HistoryEntry(
     val authority: String = "",
-    val lang: String,
-    val apiTitle: String,
-    val displayTitle: String,
+    val lang: String = "",
+    val apiTitle: String = "",
+    val displayTitle: String = "",
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val namespace: String,
-    var timestamp: Date = Date(),
+    val namespace: String = "",
+    @Serializable(with = DateSerializer::class) var timestamp: Date = Date(),
     var source: Int = SOURCE_INTERNAL_LINK,
     var timeSpentSec: Int = 0,
 ) : Parcelable {
@@ -33,6 +37,7 @@ class HistoryEntry(
     }
 
     @IgnoredOnParcel
+    @Transient
     @Ignore
     private var pageTitle: PageTitle? = null
 
@@ -47,6 +52,7 @@ class HistoryEntry(
     // To be set when navigating back and forth between articles.
     @IgnoredOnParcel
     @Transient
+    @Ignore
     var referrer: String? = null
 
     companion object {

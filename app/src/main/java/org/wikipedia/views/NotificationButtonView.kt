@@ -10,6 +10,7 @@ import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.core.view.isVisible
+import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewNotificationButtonBinding
 import org.wikipedia.util.DimenUtil
@@ -38,6 +39,6 @@ class NotificationButtonView constructor(context: Context, attrs: AttributeSet? 
     }
 
     fun setColor(@ColorInt color: Int) {
-        binding.iconImage.imageTintList = ColorStateList.valueOf(color)
+        ImageViewCompat.setImageTintList(binding.iconImage, ColorStateList.valueOf(color))
     }
 }

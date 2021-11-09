@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/overflow_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="-2dp"
+    android:layout_marginEnd="2dp"
+    app:cardUseCompatPadding="true">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="180dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/paper_color"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/overflow_view_primary"
+                style="@style/OverflowMenuItem"
+                android:drawablePadding="16dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/overflow_view_secondary"
+                style="@style/OverflowMenuItem"
+                android:drawablePadding="16dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/overflow_view_secondary_talk"
+                style="@style/OverflowMenuItem"
+                android:drawablePadding="16dp"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_notification_thanks"
+                app:drawableTint="?attr/material_theme_secondary_color" />
+
+            <TextView
+                android:id="@+id/overflow_view_tertiary"
+                style="@style/OverflowMenuItem"
+                android:drawablePadding="16dp"
+                android:visibility="gone"
+                app:drawableTint="?attr/material_theme_secondary_color" />
+
+            <TextView
+                android:id="@+id/overflow_mark_as_read"
+                style="@style/OverflowMenuItem"
+                android:drawablePadding="16dp"
+                android:text="@string/notifications_menu_mark_as_read"
+                app:drawableStartCompat="@drawable/ic_outline_markunread_24"
+                app:drawableTint="?attr/material_theme_secondary_color" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</org.wikipedia.views.WikiCardView>
