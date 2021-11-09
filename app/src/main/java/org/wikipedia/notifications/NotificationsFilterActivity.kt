@@ -51,7 +51,7 @@ class NotificationsFilterActivity : BaseActivity() {
         }
         filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, Constants.WIKI_CODE_COMMONS, R.drawable.ic_commons_logo))
         filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, Constants.WIKI_CODE_WIKIDATA, R.drawable.ic_wikidata_logo))
-        filterListWithHeaders.add(getString(R.string.add_app_language_text))
+        filterListWithHeaders.add(getString(R.string.notifications_filter_add_app_languages))
         filterListWithHeaders.add(getString(R.string.notifications_type_filter_header))
         filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, getString(R.string.notifications_all_types_text)))
         NotificationCategory.FILTERS_GROUP.forEach {
@@ -114,7 +114,7 @@ class NotificationsFilterActivity : BaseActivity() {
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (filtersList[position] is String && filtersList[position] == getString(R.string.add_app_language_text)) VIEW_TYPE_ADD_LANGUAGE
+            return if (filtersList[position] is String && filtersList[position] == getString(R.string.notifications_filter_add_app_languages)) VIEW_TYPE_ADD_LANGUAGE
             else if (filtersList[position] is String) VIEW_TYPE_HEADER
             else VIEW_TYPE_ITEM
         }
