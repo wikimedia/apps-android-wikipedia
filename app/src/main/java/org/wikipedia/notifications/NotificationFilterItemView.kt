@@ -2,6 +2,7 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Typeface
 import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
@@ -71,16 +72,16 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     }
 
     fun setSingleLabel(text: String) {
-        val textSize = 14f
+        val accentColor = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
         binding.notificationFilterLanguageCode.visibility = View.GONE
         binding.notificationFilterWikiLogo.visibility = View.VISIBLE
-        binding.notificationFilterWikiLogo.imageTintList =
-            ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent)))
+        binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(accentColor)
         binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_add_gray_themed_24dp))
         binding.notificationFilterCheck.visibility = View.GONE
-        binding.notificationFilterTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+        binding.notificationFilterTitle.setTextColor(accentColor)
         binding.notificationFilterTitle.text = text.uppercase()
-        binding.notificationFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
+        binding.notificationFilterTitle.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        binding.notificationFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
     }
 
     private fun getTitleCodeFor(filterCode: String): String? {
