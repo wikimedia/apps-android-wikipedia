@@ -2,9 +2,9 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.graphics.Typeface
 import android.os.Build
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +21,7 @@ import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
+
 
 class NotificationFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
@@ -78,8 +79,9 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_add_gray_themed_24dp))
         binding.notificationFilterCheck.visibility = View.GONE
         binding.notificationFilterTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
-        binding.notificationFilterTitle.setTypeface(binding.notificationFilterTitle.typeface, Typeface.BOLD)
         binding.notificationFilterTitle.text = text.uppercase()
+        binding.notificationFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+            resources.getDimensionPixelSize(R.dimen.suggested_edits_message_textview_text_size).toFloat())
     }
 
     private fun getTitleCodeFor(filterCode: String): String? {
