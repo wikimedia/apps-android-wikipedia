@@ -1131,8 +1131,17 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun addToReadingList(title: PageTitle, source: InvokeSource, addToDefault: Boolean) {
         if (addToDefault) {
-            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), title, source) { readingListId ->
-                moveToReadingList(readingListId, title, source, false) }
+            // Make sure handle redirected title before saving into database
+            disposables.add(ServiceFactory.getRest(title.wikiSite).getSummary(null, title.prefixedText)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ summary ->
+                    val finalPageTitle = summary.getPageTitle(title.wikiSite)
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), finalPageTitle, source) { readingListId ->
+                        moveToReadingList(readingListId, finalPageTitle, source, false) }
+                }, {
+                    L.e(it)
+                }))
         } else {
             callback()?.onPageAddToReadingList(title, source)
         }
