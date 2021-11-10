@@ -282,6 +282,10 @@ class NotificationActivity : BaseActivity() {
 
     private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false, position: Int? = null) {
         if (!WikipediaApp.getInstance().isOnline) {
+            if (fromUndoOrClick && position != null) {
+                // Skip if the action is from onClick.
+                return
+            }
             Toast.makeText(this, R.string.notifications_offline_disable_message, Toast.LENGTH_SHORT).show()
         } else {
             viewModel.markItemsAsRead(items, markUnread)
