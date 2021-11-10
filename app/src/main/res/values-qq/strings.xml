@@ -1088,4 +1088,5 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
+  <string name="notifications_filter_add_app_languages">Label text to add or edit app languages list.</string>
 </resources>
