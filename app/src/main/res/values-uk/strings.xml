@@ -673,6 +673,7 @@
   <string name="notifications_channel_group_other_description">Інші сповіщення від програми</string>
   <string name="notifications_filter_label">Фільтр сповіщень</string>
   <string name="notifications_filter_icon_content_description">Фільтр сповіщень</string>
+  <string name="notifications_filter_add_app_languages">Додайте або відредагуйте мови програми</string>
   <string name="notifications_empty_search_message">Спробуйте видалити %s, щоб побачити більше сповіщень</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d фільтр</item>
