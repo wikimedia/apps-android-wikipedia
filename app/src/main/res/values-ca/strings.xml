@@ -597,10 +597,18 @@
   <string name="notifications_mark_all_as_read">Marca-les totes com llegides</string>
   <string name="notifications_direct_reply_action">Respon</string>
   <string name="notifications_direct_reply_progress">S\'està publicant una resposta a %s…</string>
-  <string name="notifications_direct_reply_success" fuzzy="true">S\'ha publicat la resposta amb èxit.</string>
+  <string name="notifications_direct_reply_success">S\'ha publicat la resposta.</string>
   <string name="notifications_direct_reply_error">No es pot publicar la resposta automàticament.</string>
   <string name="notifications_mark_all_as_read_message">%d marcades com a llegides</string>
   <string name="notifications_mark_all_as_unread_message">%d marcades com a no llegides</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 marcada com a llegida</item>
+    <item quantity="other">%d marcades com a llegides</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 marcada com a no llegida</item>
+    <item quantity="other">%d marcada com a no llegides</item>
+  </plurals>
   <string name="watchlist_title">Llista de seguiment</string>
   <string name="preference_title_notification_poll">Activa les notificacions</string>
   <string name="preference_summary_notification_poll">Permet a l\'aplicació utilitzar dades per comprovar si hi ha noves notificacions en segon pla.</string>
@@ -946,7 +954,7 @@
   <string name="onboarding_get_started">Primers passos</string>
   <string name="onboarding_maybe_later">Potser més endavant</string>
   <string name="onboarding_explore_title">Noves formes d\'explorar</string>
-  <string name="onboarding_explore_text">Capbussat a l\'univers de la Viquipèdia amb el canal Exploreu actualitzat contínuament. &lt;br/&gt;&lt;b&gt;Personalitza&lt;/b&gt; el canal amb els teus interessos, llegeix sobre els esdeveniments històrics de &lt;b&gt;Un dia com avui&lt;/b&gt; o juga als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Capbusseu-vos a l\'univers de la Viquipèdia amb el canal d\'actualització contínua «Exploreu». &lt;br/&gt;&lt;b&gt;Personalitzeu&lt;/b&gt; el canal amb els vostres interessos, llegiu sobre els esdeveniments històrics d\'&lt;b&gt;Un dia com avui&lt;/b&gt; o jugueu als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
   <string name="onboarding_reading_list_sync_text_v2">Podeu fer llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan sigueu fora de línia. &lt;br/&gt;Inicieu una sessió al vostre compte de Viquipèdia per sincronitzar les llistes de lectura. &lt;a href=\"#login\"&gt;Uniu-vos a la Viquipèdia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>

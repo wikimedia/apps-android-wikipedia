@@ -675,6 +675,7 @@
   <string name="notifications_channel_group_other_description">התראות אחרות מהיישום</string>
   <string name="notifications_filter_label">סינון התראות</string>
   <string name="notifications_filter_icon_content_description">סינון התראות</string>
+  <string name="notifications_filter_add_app_languages">הוספה או עריכה של שפות היישום</string>
   <string name="notifications_empty_search_message">נא לנסות להסיר את %s כדי לראות עוד התראות</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">מסנן אחד</item>
