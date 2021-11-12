@@ -642,6 +642,7 @@
   <string name="notifications_channel_group_other_description">來自應用程式的其它通知</string>
   <string name="notifications_filter_label">篩選通知</string>
   <string name="notifications_filter_icon_content_description">篩選通知</string>
+  <string name="notifications_filter_add_app_languages">添加或編輯應用程式語言</string>
   <string name="notifications_empty_search_message">嘗試移除篩選字串%s來查看更多通知</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d 個篩選</item>

@@ -625,6 +625,7 @@
   <string name="notifications_channel_group_other_description">Други известувања од прилогот</string>
   <string name="notifications_filter_label">Филтрирање на известувања</string>
   <string name="notifications_filter_icon_content_description">Филтрирање на известувања</string>
+  <string name="notifications_filter_add_app_languages">Додај или измени јазици на прилогот</string>
   <string name="notifications_empty_search_message">Отстранете %s за да видите уште известувања</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d филтер</item>
