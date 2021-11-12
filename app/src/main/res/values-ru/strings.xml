@@ -665,6 +665,7 @@
   <string name="notification_preferences_title">Настройки уведомлений</string>
   <string name="notifications_mark_unread">Отметить как непрочитанное</string>
   <string name="notifications_mark_all_as_read">Отметить все как прочитанные</string>
+  <string name="notifications_direct_reply_action">Ответить</string>
   <string name="notifications_direct_reply_success">Ответ опубликован.</string>
   <plurals name="notifications_mark_as_read_plural">
     <item quantity="one">%d отмечено как прочитанное</item>
@@ -710,7 +711,17 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Уведомления из Википедии</string>
   <string name="notifications_channel_group_other_title">Прочие</string>
   <string name="notifications_channel_group_other_description">Другие уведомления от приложения</string>
+  <string name="notifications_filter_label">Фильтровать уведомления</string>
+  <string name="notifications_filter_icon_content_description">Фильтровать уведомления</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d фильтр</item>
+    <item quantity="few">%d фильтра</item>
+    <item quantity="many">%d фильтров</item>
+    <item quantity="other">%d фильтров</item>
+  </plurals>
   <string name="notifications_select_all_filters">Выбрать все фильтры</string>
+  <string name="notifications_tab_filter_all">Все</string>
+  <string name="notifications_tab_filter_mentions">Упоминания</string>
   <string name="notifications_menu_mark_as_read">Пометить как прочитанное</string>
   <string name="notifications_wiki_filter_header">Вики фильтр</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>

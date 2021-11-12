@@ -450,6 +450,6 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
   <string name="talk_title">वार्ता</string>
   <string name="talk_add_reply">जवाब दें</string>
-  <string name="talk_snackbar_survey_text">Talk Pages का इस्तेमाल करने के लिए शुक्रिया. क्या आप किसी सर्वे में भाग लेकर ऐप को बेहतर बनाने में हमारी मदद कर सकते हैं?</string>
+  <string name="talk_snackbar_survey_text">Talk Pages का इस्तेमाल करने के लिए धन्यवाद। क्या आप किसी सर्वे में भाग लेकर ऐप को बेहतर बनाने में हमारी मदद कर सकते हैं?</string>
   <string name="talk_snackbar_survey_action_text">शुरूआत करें</string>
 </resources>

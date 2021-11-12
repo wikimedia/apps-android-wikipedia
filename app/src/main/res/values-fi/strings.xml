@@ -644,6 +644,7 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Ilmoitukset Wikipediasta</string>
   <string name="notifications_channel_group_other_title">Muu</string>
   <string name="notifications_channel_group_other_description">Muut ilmoitukset sovelluksesta</string>
+  <string name="notifications_filter_add_app_languages">Lisää tai muokkaa sovelluksen kieliä</string>
   <string name="notifications_empty_search_message">Kokeile poistaa %s nähdäksesi lisää ilmoituksia</string>
   <string name="notifications_select_all_filters">Valitse kaikki suodattimet</string>
   <string name="notifications_tab_filter_all">Kaikki</string>
