@@ -399,6 +399,7 @@ class EditSectionActivity : BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_edit_section, menu)
         val item = menu.findItem(R.id.menu_save_section)
+
         menu.findItem(R.id.menu_edit_notices).isVisible = editNotices.isNotEmpty() && !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_in).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_out).isVisible = !editPreviewFragment.isActive
@@ -528,12 +529,26 @@ class EditSectionActivity : BaseActivity() {
                         invalidateOptionsMenu()
                         if (Prefs.autoShowEditNotices) {
                             showEditNotices()
+                        } else {
+                            maybeShowEditNoticesTooltip()
                         }
                     }, {
                         L.e(it)
                     }))
         } else {
             displaySectionText()
+        }
+    }
+
+    private fun maybeShowEditNoticesTooltip() {
+        if (!Prefs.autoShowEditNotices && !Prefs.isEditNoticesTooltipShown) {
+            Prefs.isEditNoticesTooltipShown = true
+            binding.root.postDelayed({
+                val anchorView = findViewById<View>(R.id.menu_edit_notices)
+                if (!isDestroyed && anchorView != null) {
+                    FeedbackUtil.showTooltip(this, anchorView, getString(R.string.edit_notices_tooltip), aboveOrBelow = false, autoDismiss = false)
+                }
+            }, 100)
         }
     }
 

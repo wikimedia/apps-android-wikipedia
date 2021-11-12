@@ -60,6 +60,7 @@
             android:id="@+id/editNoticeCheckbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?attr/material_theme_primary_color"
             android:text="@string/edit_notices_show_auto"/>
 
     </LinearLayout>

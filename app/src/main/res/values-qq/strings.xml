@@ -272,6 +272,7 @@
   <string name="edit_notices">Title for popup dialog that contains edit notices for the current article.</string>
   <string name="edit_notices_please_read">Instructional text encouraging the user to read the edit notices for this article.</string>
   <string name="edit_notices_show_auto">Label for checkbox that enables showing edit notices automatically when entering the editing workflow.</string>
+  <string name="edit_notices_tooltip">Text for a tooltip that points to the button for displaying edit notices.</string>
   <string name="find_next">Text for button that finds the next occurrence of a search term.\n{{Identical|Find next}}</string>
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_first_occurence">Text that shows up in hint when user tries to get to first occurence when he is already on it.</string>

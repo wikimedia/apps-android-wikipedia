@@ -526,6 +526,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_auto_show_edit_notices, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_auto_show_edit_notices, value)
 
+    var isEditNoticesTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_notices_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_notices_tooltip_shown, value)
+
     val talkPageSurveyOverride
         get() = PrefsIoUtil.getBoolean(R.string.preference_developer_override_talk_page_survey, false)
 
