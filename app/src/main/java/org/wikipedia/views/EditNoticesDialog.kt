@@ -3,7 +3,6 @@ package org.wikipedia.views
 import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -27,7 +26,7 @@ class EditNoticesDialog constructor(
         context: Context
 ) : AlertDialog(context) {
 
-    private val binding = DialogEditNoticesBinding.inflate(LayoutInflater.from(context))
+    private val binding = DialogEditNoticesBinding.inflate(layoutInflater)
 
     private val movementMethod = LinkMovementMethodExt { urlStr ->
         L.v("Link clicked was $urlStr")
