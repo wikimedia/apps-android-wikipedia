@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -66,7 +67,6 @@ class NotificationActivity : BaseActivity() {
     private val searchActionModeCallback = SearchCallback()
     private var linkHandler = NotificationLinkHandler(this)
     private var notificationActionOverflowView: NotificationActionsOverflowView? = null
-    private val typefaceSansSerifMedium = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
     var currentSearchQuery: String? = null
     var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
@@ -454,10 +454,11 @@ class NotificationActivity : BaseActivity() {
             val notificationCategory = NotificationCategory.find(n.category)
             val notificationColor = ContextCompat.getColor(this@NotificationActivity,
                 ResourceUtil.getThemedAttributeId(this@NotificationActivity, notificationCategory.iconColor))
-            val secondaryColor = ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.material_theme_secondary_color)
+            val primaryColor = ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.primary_text_color)
 
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
-            binding.notificationItemImage.setColorFilter(notificationColor)
+            binding.notificationItemImage.setColorFilter(if (n.isUnread) notificationColor else
+                ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN)
             n.contents?.let {
                 binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
                 StringUtil.highlightAndBoldenText(binding.notificationSubtitle, currentSearchQuery, true, Color.YELLOW)
@@ -479,11 +480,9 @@ class NotificationActivity : BaseActivity() {
             // TODO: use better diff date method
             binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.getTimestamp().time, System.currentTimeMillis(), 0L)
 
-            binding.notificationTitle.typeface = if (n.isUnread) typefaceSansSerifBold else typefaceSansSerifMedium
-            binding.notificationTitle.setTextColor(if (n.isUnread) notificationColor else secondaryColor)
+            binding.notificationTitle.typeface = if (n.isUnread) typefaceSansSerifBold else Typeface.DEFAULT
+            binding.notificationTitle.setTextColor(if (n.isUnread) notificationColor else primaryColor)
             binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else Typeface.DEFAULT
-            binding.notificationSubtitle.setTextColor(ResourceUtil.getThemedColor(this@NotificationActivity,
-                    if (n.isUnread) R.attr.material_theme_primary_color else R.attr.material_theme_secondary_color))
 
             val langCode = StringUtil.dbNameToLangCode(n.wiki)
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
@@ -518,7 +517,7 @@ class NotificationActivity : BaseActivity() {
                         binding.notificationWikiCodeContainer.isVisible = true
                         binding.notificationWikiCode.text = langCode
                         ViewUtil.formatLangButton(binding.notificationWikiCode, langCode,
-                            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+                            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_MEDIUM)
                     }
                     else -> {
                         params.setMargins(0, DimenUtil.roundedDpToPx(12f), 0, 0)
