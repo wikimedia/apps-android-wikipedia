@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Ajeje Brazorf
 * Albe Albe 460
 * Albe Albe460
 * Beta16
@@ -72,6 +73,8 @@
   <string name="search_tab_tooltip">Clicca di nuovo l\'icona per iniziare direttamente una ricerca.</string>
   <string name="history_list_title">Cronologia</string>
   <string name="image_content_description">Immagine: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
   <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
@@ -225,6 +228,7 @@
   <string name="page_protected_can_not_edit_title">Questa pagina è protetta</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Aggiungi agli osservati speciali</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Traccia ciò che accade alle voci a cui sei interessato. Premi nel menu e seleziona &lt;b&gt;Aggiungi agli osservati speciali&lt;/b&gt; per vedere le modifiche ad una voce.</string>
+  <string name="page_notification_tooltip">Le tue notifiche adesso stanno qui.</string>
   <string name="settings_item_preferences">Impostazioni</string>
   <string name="settings_activity_title">Impostazioni</string>
   <string name="about_description">Informazioni sull\'applicazione di Wikipedia</string>
@@ -621,6 +625,16 @@
   <string name="preference_category_push_notifications">Notifiche push</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_other_title">Altro</string>
+  <string name="notifications_filter_label">Filtra notifiche</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filtro</item>
+    <item quantity="other">%d filtri</item>
+  </plurals>
+  <string name="notifications_tab_filter_all">Tutto</string>
+  <string name="notifications_tab_filter_mentions">Menziona</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_menu_mark_as_read">Segna come già letto</string>
+  <string name="notifications_menu_user_talk_page">Pagina di discussione di %s</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
   <string name="view_random_article_card_title">Voce a caso</string>

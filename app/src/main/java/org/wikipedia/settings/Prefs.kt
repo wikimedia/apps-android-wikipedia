@@ -372,9 +372,9 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
 
-    var showTalkPageSurvey
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_talk_page_survey, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_talk_page_survey, value)
+    var showTalkPageSurveyAttempts
+        get() = PrefsIoUtil.getInt(R.string.preference_key_show_talk_page_survey_attempts, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_show_talk_page_survey_attempts, value)
 
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
@@ -384,7 +384,7 @@ object Prefs {
         get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_announcement_shown_dialogs, null))
             ?: emptySet()
         set(newAnnouncementIds) {
-            val announcementIds = announcementShownDialogs.toMutableList()
+            val announcementIds = announcementShownDialogs.toMutableSet()
             announcementIds.addAll(newAnnouncementIds)
             PrefsIoUtil.setString(R.string.preference_key_announcement_shown_dialogs, JsonUtil.encodeToString(announcementIds))
         }
@@ -396,11 +396,7 @@ object Prefs {
     var watchlistDisabledLanguages
         get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_watchlist_disabled_langs, null))
             ?: emptySet()
-        set(langCodes) {
-            val codes = watchlistDisabledLanguages.toMutableList()
-            codes.addAll(langCodes)
-            PrefsIoUtil.setString(R.string.preference_key_watchlist_disabled_langs, JsonUtil.encodeToString(langCodes))
-        }
+        set(langCodes) = PrefsIoUtil.setString(R.string.preference_key_watchlist_disabled_langs, JsonUtil.encodeToString(langCodes))
 
     var shouldMatchSystemTheme
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_match_system_theme, true)
@@ -495,6 +491,16 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_session_id, null)
         set(sessionId) = PrefsIoUtil.setString(R.string.preference_key_event_platform_session_id, sessionId)
 
+    var notificationExcludedWikiCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_wiki_codes_notification, null))
+            ?: emptySet()
+        set(wikis) = PrefsIoUtil.setString(R.string.preference_key_excluded_wiki_codes_notification, JsonUtil.encodeToString(wikis))
+
+    var notificationExcludedTypeCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_excluded_type_codes_notification, null))
+            ?: emptySet()
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_excluded_type_codes_notification, JsonUtil.encodeToString(types))
+
     var streamConfigs
         get() = JsonUtil.decodeFromString<Map<String, StreamConfig>>(PrefsIoUtil.getString(R.string.preference_key_event_platform_stored_stream_configs, null))
             ?: emptyMap()
@@ -516,6 +522,17 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_page_notification_tooltip_shown, false)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_page_notification_tooltip_shown, enabled)
 
+    var autoShowEditNotices
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_auto_show_edit_notices, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_auto_show_edit_notices, value)
+
+    var isEditNoticesTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_notices_tooltip_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_notices_tooltip_shown, value)
+
     val talkPageSurveyOverride
         get() = PrefsIoUtil.getBoolean(R.string.preference_developer_override_talk_page_survey, false)
+
+    val hideReadNotificationsEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_notification_hide_read, false)
 }

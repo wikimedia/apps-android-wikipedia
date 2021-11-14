@@ -81,7 +81,7 @@ object ViewUtil {
         if (langCode.length > langCodeStandardLength) {
             langButton.textSize = langButtonTextSizeSmaller.toFloat()
             if (langCode.length > langButtonTextMaxLength) {
-                langButton.text = langCode.substring(0, langButtonTextMaxLength).toUpperCase(Locale.ENGLISH)
+                langButton.text = langCode.substring(0, langButtonTextMaxLength).uppercase(Locale.ENGLISH)
             }
             return
         }

@@ -246,6 +246,10 @@
             android:key="@string/preference_key_page_notification_tooltip_shown"
             android:title="@string/preference_key_page_notification_tooltip_shown" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_edit_notices_tooltip_shown"
+            android:title="@string/preference_key_edit_notices_tooltip_shown" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_reading_list_category">
@@ -358,9 +362,10 @@
             android:title="@string/preference_developer_show_talk_page_survey"
             android:summary="Show Talk Page survey" />
 
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_talk_page_survey"
-            android:title="@string/preference_key_show_talk_page_survey" />
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_show_talk_page_survey_attempts"
+            android:title="@string/preference_key_show_talk_page_survey_attempts" />
 
         <SwitchPreferenceCompat
             android:key="@string/preference_developer_override_talk_page_survey"

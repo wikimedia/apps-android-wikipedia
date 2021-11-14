@@ -21,11 +21,11 @@ import java.time.LocalDateTime
 @Entity
 class HistoryEntry(
     val authority: String = "",
-    val lang: String,
-    val apiTitle: String,
-    val displayTitle: String,
+    val lang: String = "",
+    val apiTitle: String = "",
+    val displayTitle: String = "",
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val namespace: String,
+    val namespace: String = "",
     @Serializable(with = LocalDateTimeSerializer::class) var timestamp: LocalDateTime = LocalDateTime.now(),
     var source: Int = SOURCE_INTERNAL_LINK,
     var timeSpentSec: Int = 0,

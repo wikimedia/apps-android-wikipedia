@@ -64,6 +64,8 @@
   <string name="search_tab_tooltip">검색 항목 입력을 바로 시작하려면 아이콘을 다시 탭하십시오.</string>
   <string name="history_list_title">역사</string>
   <string name="image_content_description">이미지: %s</string>
+  <string name="wikimedia_commons">위키미디어 공용</string>
+  <string name="wikidata">위키데이터</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
   <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
   <string name="dialog_message_clear_history_yes">예</string>
@@ -591,6 +593,18 @@
   <string name="notification_preferences_title">알림 환경 설정</string>
   <string name="notifications_mark_unread">읽지 않은 것으로 표시</string>
   <string name="notifications_mark_all_as_read">모두 읽은 것으로 표시</string>
+  <string name="notifications_direct_reply_action">답변</string>
+  <string name="notifications_direct_reply_progress">답변을 %s에 게시하는 중…</string>
+  <string name="notifications_direct_reply_success">답변을 게시했습니다.</string>
+  <string name="notifications_direct_reply_error">답변을 자동으로 게시하지 못했습니다.</string>
+  <string name="notifications_mark_all_as_read_message">%d개를 읽은 것으로 표시함</string>
+  <string name="notifications_mark_all_as_unread_message">%d개를 읽지 않은 것으로 표시함</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="other">알림 %d개가 읽음으로 표시됨</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="other">알림 %d개가 읽지 않음으로 표시됨</item>
+  </plurals>
   <string name="watchlist_title">주시문서 목록</string>
   <string name="preference_title_notification_poll">알림 폴링</string>
   <string name="preference_summary_notification_poll">앱이 백그라운드에서 새 알림을 확인할 수 있게 합니다.</string>
@@ -623,6 +637,28 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">위키백과의 알림</string>
   <string name="notifications_channel_group_other_title">기타</string>
   <string name="notifications_channel_group_other_description">앱의 기타 알림</string>
+  <string name="notifications_filter_label">필터 알림</string>
+  <string name="notifications_filter_icon_content_description">필터 알림</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="other">%d개 필터</item>
+  </plurals>
+  <string name="notifications_select_all_filters">모든 필터 선택</string>
+  <string name="notifications_tab_filter_all">모두</string>
+  <string name="notifications_tab_filter_mentions">언급</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_search_bar_hint">알림 검색 또는 필터</string>
+  <string name="notifications_search_bar_filter_hint">알림 필터</string>
+  <string name="notifications_menu_mark_as_read">읽은 것으로 표시</string>
+  <string name="notifications_menu_mark_as_unread">읽지 않은 것으로 표시</string>
+  <string name="notifications_swipe_action_read">읽음</string>
+  <string name="notifications_swipe_action_unread">읽지 않음</string>
+  <string name="notifications_menu_check_all">모든 항목 체크</string>
+  <string name="notifications_menu_uncheck_all">모든 항목의 체크를 해제</string>
+  <string name="notifications_wiki_filter_header">위키 필터</string>
+  <string name="notifications_type_filter_header">유형 필터</string>
+  <string name="notifications_all_wikis_text">모든 \"위키\"</string>
+  <string name="notifications_all_types_text">모든 \"종류\"</string>
+  <string name="notifications_menu_user_talk_page">%s님의 토론 문서</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의의 문서 보기</string>
   <string name="view_random_article_card_title">임의 문서</string>
@@ -992,6 +1028,8 @@
   <string name="talk_response_submitted">응답이 게시되었습니다.</string>
   <string name="talk_snackbar_undo">실행 취소</string>
   <string name="talk_last_modified">%2$s님이 &lt;b&gt;%1$s에 마지막으로 편집함&lt;/b&gt;</string>
+  <string name="talk_snackbar_survey_text">토론 문서를 이용해 주셔서 고맙습니다. 설문조사에 참여하여 앱 개선을 지원해 주시겠습니까?</string>
+  <string name="talk_snackbar_survey_action_text">시작하기</string>
   <string name="menu_option_share_edit">편집 공유</string>
   <string name="menu_option_user_profile">%s님의 정보</string>
   <string name="menu_option_user_contributions">%s님의 기여</string>
