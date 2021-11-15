@@ -269,6 +269,10 @@
   <string name="edit_summary_tag_other_hint">Hint (input field placeholder) for the user to write a custom summary of edits</string>
   <string name="edit_conflict_title">Title for dialog box that warns the user about \'\'\'an\'\'\' edit conflict.\n\nThis is not the verb \"to edit/modify some conflict\", but the name for a \"conflict occuring while editing/modifying a page and trying to save the changes\".</string>
   <string name="edit_conflict_message">Message explaining to the user that the edit they are submitting is conflicting with the current state of the article, and instructs the user to go back and reload the page before trying to edit again.</string>
+  <string name="edit_notices">Title for popup dialog that contains edit notices for the current article.</string>
+  <string name="edit_notices_please_read">Instructional text encouraging the user to read the edit notices for this article.</string>
+  <string name="edit_notices_show_auto">Label for checkbox that enables showing edit notices automatically when entering the editing workflow.\n\nThe words \"edit notices\" must be translated consistently with {{msg-wm|Wikipedia-android-strings-edit notices}}.</string>
+  <string name="edit_notices_tooltip">Text for a tooltip that points to the button for displaying edit notices.</string>
   <string name="find_next">Text for button that finds the next occurrence of a search term.\n{{Identical|Find next}}</string>
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_first_occurence">Text that shows up in hint when user tries to get to first occurence when he is already on it.</string>
@@ -653,6 +657,7 @@
   <string name="notifications_channel_group_other_description">Description for the other notifications group.</string>
   <string name="notifications_filter_label">Label text for filter notifications activity.</string>
   <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
+  <string name="notifications_filter_add_app_languages">Label text to add or edit app languages list.</string>
   <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters string.</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
@@ -1088,5 +1093,4 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
-  <string name="notifications_filter_add_app_languages">Label text to add or edit app languages list.</string>
 </resources>

@@ -255,6 +255,10 @@
   <string name="edit_summary_tag_other_hint">Інші способи, якими ви поліпшили сторінку</string>
   <string name="edit_conflict_title">Конфлікт редагувань</string>
   <string name="edit_conflict_message">Сторінку вже змінив інший користувач, і це конфліктує з Вашим редагуванням. Будь ласка, скопіюйте свої зміни, поверніться назад та оновіть сторінку, після чого спробуйте відредагувати ще раз.</string>
+  <string name="edit_notices">Редагувати повідомлення</string>
+  <string name="edit_notices_please_read">Будь ласка, прочитайте перед редагуванням</string>
+  <string name="edit_notices_show_auto">Автоматично показувати повідомлення про редагування</string>
+  <string name="edit_notices_tooltip">Торкніться цієї кнопки, щоб переглянути повідомлення про редагування цієї статті.</string>
   <string name="find_next">Знайти наступне</string>
   <string name="find_previous">Знайти попереднє</string>
   <string name="find_first_occurence">Це і є перший збіг</string>
@@ -673,6 +677,7 @@
   <string name="notifications_channel_group_other_description">Інші сповіщення від програми</string>
   <string name="notifications_filter_label">Фільтр сповіщень</string>
   <string name="notifications_filter_icon_content_description">Фільтр сповіщень</string>
+  <string name="notifications_filter_add_app_languages">Додайте або відредагуйте мови програми</string>
   <string name="notifications_empty_search_message">Спробуйте видалити %s, щоб побачити більше сповіщень</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d фільтр</item>

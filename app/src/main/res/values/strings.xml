@@ -244,6 +244,10 @@
     <string name="edit_summary_tag_other_hint">Other ways you improved the page</string>
     <string name="edit_conflict_title">Edit conflict</string>
     <string name="edit_conflict_message">The page has already been modified by a different user, and is conflicting with your edit. Please copy your edits, go back and refresh the page, then try editing again.</string>
+    <string name="edit_notices">Edit notices</string>
+    <string name="edit_notices_please_read">Please read before editing</string>
+    <string name="edit_notices_show_auto">Show edit notices automatically</string>
+    <string name="edit_notices_tooltip">Tap this button to view edit notices for this article.</string>
     <string name="find_next">Find next</string>
     <string name="find_previous">Find previous</string>
     <string name="find_first_occurence">This is the first occurrence</string>
