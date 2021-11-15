@@ -653,6 +653,7 @@
   <string name="notifications_channel_group_other_description">Andere Benachrichtigungen von der App</string>
   <string name="notifications_filter_label">Benachrichtigungen filtern</string>
   <string name="notifications_filter_icon_content_description">Benachrichtigungen filtern</string>
+  <string name="notifications_filter_add_app_languages">Sprachen in der App hinzufügen oder bearbeiten</string>
   <string name="notifications_empty_search_message">Versuche %s zu entfernen, um mehr Benachrichtigungen zu sehen</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d Filter</item>
