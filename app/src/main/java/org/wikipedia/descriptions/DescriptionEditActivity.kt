@@ -26,12 +26,11 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS
     }
 
-    private lateinit var action: Action
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     public override fun createFragment(): DescriptionEditFragment {
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
+        val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
         val title = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
         SuggestedEditsFunnel.get().click(title.displayText, action)
         return DescriptionEditFragment.newInstance(title,
@@ -47,7 +46,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
             fragment.binding.fragmentDescriptionEditView.loadReviewContent(false)
         } else {
             DeviceUtil.hideSoftKeyboard(this)
-            SuggestedEditsFunnel.get().cancel(action)
+            SuggestedEditsFunnel.get().cancel(fragment.action)
             super.onBackPressed()
         }
     }

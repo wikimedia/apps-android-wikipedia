@@ -246,6 +246,10 @@
             android:key="@string/preference_key_page_notification_tooltip_shown"
             android:title="@string/preference_key_page_notification_tooltip_shown" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_edit_notices_tooltip_shown"
+            android:title="@string/preference_key_edit_notices_tooltip_shown" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_reading_list_category">

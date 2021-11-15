@@ -640,6 +640,7 @@
   <string name="notifications_channel_group_other_description">Pemberitahuan lain dari aplikasi</string>
   <string name="notifications_filter_label">Saring pemberitahuan</string>
   <string name="notifications_filter_icon_content_description">Saring pemberitahuan</string>
+  <string name="notifications_filter_add_app_languages">Tambah atau sunting bahasa aplikasi</string>
   <string name="notifications_empty_search_message">Coba menghapus %s untuk melihat lebih banyak notifikasi</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="other">%d penyaring</item>

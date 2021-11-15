@@ -72,7 +72,8 @@ class LinkMovementMethodExt : LinkMovementMethod {
         override fun onInternalLinkClicked(title: PageTitle) {
             // Explicitly send everything to an external browser, since the error might be shown in
             // a child activity of PageActivity, and we don't want to lose our place.
-            UriUtil.visitInExternalBrowser(WikipediaApp.getInstance(), Uri.parse(title.mobileUri))
+            UriUtil.visitInExternalBrowser(WikipediaApp.getInstance(),
+                    Uri.parse(UriUtil.resolveProtocolRelativeUrl(title.wikiSite, title.mobileUri)))
         }
     }
 
