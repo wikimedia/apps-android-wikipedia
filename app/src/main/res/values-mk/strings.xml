@@ -241,6 +241,10 @@
   <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
   <string name="edit_conflict_title">Спротиставеност во уредувањето</string>
   <string name="edit_conflict_message">Оваа страница е веќе изменета од друг корисник, и се коси со вашето уредување. Прекопирајте ги вашите уредувања, превчитајте ја страницата и обидете се повторно.</string>
+  <string name="edit_notices">Белешки за уредување</string>
+  <string name="edit_notices_please_read">Прочитајте пред да уредувате</string>
+  <string name="edit_notices_show_auto">Автоматски прикажувај белешки за уредување</string>
+  <string name="edit_notices_tooltip">Допрете на копчево за да ги видите белешките за уредувањето на оваа статија.</string>
   <string name="find_next">Најди следно</string>
   <string name="find_previous">Најди претходно</string>
   <string name="find_first_occurence">Ова е првото јавување</string>
