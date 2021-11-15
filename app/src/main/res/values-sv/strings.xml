@@ -592,7 +592,7 @@
   <string name="notifications_direct_reply_action">Svara</string>
   <string name="notifications_direct_reply_progress">Skickar svar till %s…</string>
   <string name="notifications_direct_reply_success">Svar skickades.</string>
-  <string name="notifications_direct_reply_error">Kunde inte skicka svaret automatiskt.</string>
+  <string name="notifications_direct_reply_error">Kunde inte automatiskt skicka svaret.</string>
   <string name="notifications_mark_all_as_read_message">%d markerades som läst</string>
   <string name="notifications_mark_all_as_unread_message">%d markerades som oläst</string>
   <plurals name="notifications_mark_as_read_plural">
@@ -655,7 +655,7 @@
   <string name="notifications_menu_uncheck_all">Avmarkera alla objekt</string>
   <string name="notifications_wiki_filter_header">Wikifilter</string>
   <string name="notifications_type_filter_header">Typfilter</string>
-  <string name="notifications_all_wikis_text">Alla \"wikis\"</string>
+  <string name="notifications_all_wikis_text">Alla \"wikier\"</string>
   <string name="notifications_all_types_text">Alla \"typer\"</string>
   <string name="notifications_menu_user_talk_page">%ss diskussionssida</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
