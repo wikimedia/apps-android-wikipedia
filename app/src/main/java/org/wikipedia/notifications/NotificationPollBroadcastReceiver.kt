@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.SystemClock
 import androidx.annotation.StringRes
 import androidx.core.app.RemoteInput
@@ -217,7 +218,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 WikipediaApp.getInstance().bus.post(UnreadNotificationsEvent())
             }
 
-            if (notificationsToDisplay.size > 2) {
+            // Android 7.0 and above performs automatic grouping of multiple notifications, in case
+            // there are significantly more than one. But in the case of Android 6.0 and below,
+            // we show our own custom "grouped" notification.
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N
+                    && notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
                 NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki, TYPE_MULTIPLE).logIncoming()
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
