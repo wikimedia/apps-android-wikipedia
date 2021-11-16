@@ -291,16 +291,6 @@ class NotificationActivity : BaseActivity() {
         var mentionsUnreadCount = 0
 
         for (n in filteredList) {
-            val isMention = NotificationCategory.isMentionsGroup(n.category)
-            if (n.isUnread) {
-                allUnreadCount++
-                if (isMention) {
-                    mentionsUnreadCount++
-                }
-            }
-            if (selectedFilterTab == 1 && !isMention) {
-                continue
-            }
             val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
             val searchQuery = currentSearchQuery
             if (!searchQuery.isNullOrEmpty() &&
@@ -318,6 +308,16 @@ class NotificationActivity : BaseActivity() {
                 if (!includedWikiCodes.contains(wikiCode)) {
                     continue
                 }
+            }
+            val isMention = NotificationCategory.isMentionsGroup(n.category)
+            if (n.isUnread) {
+                allUnreadCount++
+                if (isMention) {
+                    mentionsUnreadCount++
+                }
+            }
+            if (selectedFilterTab == 1 && !isMention) {
+                continue
             }
             notificationContainerList.add(NotificationListItemContainer(n))
         }
