@@ -75,7 +75,7 @@ class NotificationViewModel : ViewModel() {
         val checkExcludedWikiCodes = NotificationsFilterActivity.allWikisList().size != includedWikiCodes.size
 
         val notificationContainerList = mutableListOf<NotificationListItemContainer>()
-        
+
         allUnreadCount = 0
         mentionsUnreadCount = 0
 
