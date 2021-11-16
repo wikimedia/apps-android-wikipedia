@@ -37,8 +37,8 @@ class LinkPreviewErrorView : LinearLayout {
             binding.viewLinkPreviewErrorText.text = message
         } else {
             if (errorType == LinkPreviewErrorType.PAGE_MISSING) {
-                binding.viewLinkPreviewErrorText.text = StringUtil.fromHtml(context.resources.getString(errorType.text,
-                    callback?.onPageMissingMessage()?.replace("User:","")))
+                binding.viewLinkPreviewErrorText.text =
+                    StringUtil.fromHtml(context.resources.getString(errorType.text, callback?.onPageMissingMessage()?.replace("User:", "")))
                 binding.viewLinkPreviewErrorText.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
             } else
                 binding.viewLinkPreviewErrorText.text = context.resources.getString(errorType.text)
