@@ -376,6 +376,9 @@ interface Service {
         @Field("batch") batchLabels: String
     ): Observable<MwPostResponse>
 
+    @GET(MW_API_PREFIX + "action=visualeditor&paction=metadata")
+    fun getVisualEditorMetadata(@Query("page") page: String): Observable<MwVisualEditorResponse>
+
     // ------- Watchlist -------
 
     @Headers("Cache-Control: no-cache")

@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.core.widget.ImageViewCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -59,10 +60,12 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
             else binding.notificationFilterLanguageCode.visibility = View.GONE
         }
         filter.imageRes?.let {
-            binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
+            ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo,
+                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color)))
             if (NotificationCategory.isFiltersGroup(filter.filterCode)) {
-                binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context,
+                val colorStateList = ColorStateList.valueOf(ContextCompat.getColor(context,
                     ResourceUtil.getThemedAttributeId(context, NotificationCategory.find(filter.filterCode).iconColor)))
+                ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo, colorStateList)
             }
             binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, it))
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE
@@ -75,7 +78,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         val accentColor = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
         binding.notificationFilterLanguageCode.visibility = View.GONE
         binding.notificationFilterWikiLogo.visibility = View.VISIBLE
-        binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(accentColor)
+        ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo, ColorStateList.valueOf(accentColor))
         binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_add_gray_themed_24dp))
         binding.notificationFilterCheck.visibility = View.GONE
         binding.notificationFilterTitle.setTextColor(accentColor)
