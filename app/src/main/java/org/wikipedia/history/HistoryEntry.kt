@@ -20,12 +20,12 @@ import java.util.*
 @TypeParceler<Date, DateParceler>()
 @Entity
 class HistoryEntry(
-    val authority: String = "",
-    val lang: String = "",
-    val apiTitle: String = "",
-    val displayTitle: String = "",
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val namespace: String = "",
+    var authority: String = "",
+    var lang: String = "",
+    var apiTitle: String = "",
+    var displayTitle: String = "",
+    @PrimaryKey(autoGenerate = true) var id: Int = 0,
+    var namespace: String = "",
     @Serializable(with = DateSerializer::class) var timestamp: Date = Date(),
     var source: Int = SOURCE_INTERNAL_LINK,
     var timeSpentSec: Int = 0,
