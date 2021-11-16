@@ -279,7 +279,6 @@ class NotificationActivity : BaseActivity() {
         val selectedFilterTab = binding.notificationTabLayout.selectedTabPosition
         val filteredList = notificationList
             .filter { if (Prefs.hideReadNotificationsEnabled) it.isUnread else true }
-            .filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
         val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
@@ -288,7 +287,20 @@ class NotificationActivity : BaseActivity() {
         }
         val checkExcludedWikiCodes = NotificationsFilterActivity.allWikisList().size != includedWikiCodes.size
 
+        var allUnreadCount = 0
+        var mentionsUnreadCount = 0
+
         for (n in filteredList) {
+            val isMention = NotificationCategory.isMentionsGroup(n.category)
+            if (n.isUnread) {
+                allUnreadCount++
+                if (isMention) {
+                    mentionsUnreadCount++
+                }
+            }
+            if (selectedFilterTab == 1 && !isMention) {
+                continue
+            }
             val linkText = n.contents?.links?.secondary?.firstOrNull()?.label
             val searchQuery = currentSearchQuery
             if (!searchQuery.isNullOrEmpty() &&
@@ -310,10 +322,7 @@ class NotificationActivity : BaseActivity() {
             notificationContainerList.add(NotificationListItemContainer(n))
         }
 
-        val finalFilteredList = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.map { it.notification!! }
-
         val allTab = binding.notificationTabLayout.getTabAt(0)!!
-        val allUnreadCount = finalFilteredList.count { it.isUnread }
         if (allUnreadCount > 0) {
             allTab.text = getString(R.string.notifications_tab_filter_all) + " " +
                     getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
@@ -322,7 +331,6 @@ class NotificationActivity : BaseActivity() {
         }
 
         val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
-        val mentionsUnreadCount = finalFilteredList.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
         if (mentionsUnreadCount > 0) {
             mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " +
                     getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
