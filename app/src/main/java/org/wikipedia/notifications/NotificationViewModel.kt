@@ -66,7 +66,6 @@ class NotificationViewModel : ViewModel() {
         // Filtered the tab selection
         val tabSelectedList = notificationList
             .filter { if (Prefs.hideReadNotificationsEnabled) it.isUnread else true }
-            .filter { selectedFilterTab == 0 || (selectedFilterTab == 1 && NotificationCategory.isMentionsGroup(it.category)) }
 
         val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
         val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
@@ -76,6 +75,9 @@ class NotificationViewModel : ViewModel() {
         val checkExcludedWikiCodes = NotificationsFilterActivity.allWikisList().size != includedWikiCodes.size
 
         val notificationContainerList = mutableListOf<NotificationListItemContainer>()
+        
+        allUnreadCount = 0
+        mentionsUnreadCount = 0
 
         // Save into display list
         for (n in tabSelectedList) {
@@ -97,11 +99,18 @@ class NotificationViewModel : ViewModel() {
                     continue
                 }
             }
+            val isMention = NotificationCategory.isMentionsGroup(n.category)
+            if (n.isUnread) {
+                allUnreadCount++
+                if (isMention) {
+                    mentionsUnreadCount++
+                }
+            }
+            if (selectedFilterTab == 1 && !isMention) {
+                continue
+            }
             notificationContainerList.add(NotificationListItemContainer(n))
         }
-
-        allUnreadCount = notificationContainerList.map { it.notification!! }.count { it.isUnread }
-        mentionsUnreadCount = notificationContainerList.map { it.notification!! }.filter { NotificationCategory.isMentionsGroup(it.category) }.count { it.isUnread }
 
         return notificationContainerList
     }
