@@ -7,11 +7,14 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewLinkPreviewErrorBinding
+import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.util.StringUtil
 
 class LinkPreviewErrorView : LinearLayout {
     interface Callback {
         fun onAddToList()
         fun onDismiss()
+        fun onPageMissingMessage(): String
     }
 
     constructor(context: Context) : super(context)
@@ -33,7 +36,12 @@ class LinkPreviewErrorView : LinearLayout {
                     resources.getString(R.string.page_offline_notice_add_to_reading_list)).trimIndent()
             binding.viewLinkPreviewErrorText.text = message
         } else {
-            binding.viewLinkPreviewErrorText.text = context.resources.getString(errorType.text)
+            if (errorType == LinkPreviewErrorType.PAGE_MISSING) {
+                binding.viewLinkPreviewErrorText.text = StringUtil.fromHtml(context.resources.getString(errorType.text,
+                    callback?.onPageMissingMessage()?.replace("User:","")))
+                binding.viewLinkPreviewErrorText.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+            } else
+                binding.viewLinkPreviewErrorText.text = context.resources.getString(errorType.text)
         }
     }
 

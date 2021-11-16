@@ -14,7 +14,7 @@ enum class LinkPreviewErrorType(@DrawableRes val icon: Int,
             return errorView.addToListCallback
         }
     },
-    PAGE_MISSING(R.drawable.ic_error_black_24dp, R.string.error_page_does_not_exist, R.string.view_link_preview_error_button_dismiss) {
+    PAGE_MISSING(R.drawable.ic_userpage_image_error_message, R.string.error_user_page_does_not_exist, R.string.view_link_preview_error_button_dismiss) {
         override fun buttonAction(errorView: LinkPreviewErrorView): LinkPreviewOverlayView.Callback {
             return errorView.dismissCallback
         }
