@@ -40,17 +40,12 @@ import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.page.PageProperties
-import org.wikipedia.page.PageTitle
+import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
-import org.wikipedia.views.ViewAnimations
-import org.wikipedia.views.ViewUtil
-import org.wikipedia.views.WikiTextKeyboardView
+import org.wikipedia.views.*
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
@@ -70,6 +65,7 @@ class EditSectionActivity : BaseActivity() {
     private var pageProps: PageProperties? = null
     private var textToHighlight: String? = null
     private var sectionWikitext: String? = null
+    private val editNotices = mutableListOf<String>()
 
     private var sectionTextModified = false
     private var sectionTextFirstLoad = true
@@ -392,6 +388,10 @@ class EditSectionActivity : BaseActivity() {
                 showFindInEditor()
                 true
             }
+            R.id.menu_edit_notices -> {
+                showEditNotices()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -399,6 +399,8 @@ class EditSectionActivity : BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_edit_section, menu)
         val item = menu.findItem(R.id.menu_save_section)
+
+        menu.findItem(R.id.menu_edit_notices).isVisible = editNotices.isNotEmpty() && !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_in).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_out).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_find_in_editor).isVisible = !editPreviewFragment.isActive
@@ -518,9 +520,44 @@ class EditSectionActivity : BaseActivity() {
                         showError(throwable)
                         L.e(throwable)
                     })
+            disposables.add(ServiceFactory.get(pageTitle.wikiSite).getVisualEditorMetadata(pageTitle.prefixedText)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        editNotices.clear()
+                        editNotices.addAll(it.visualeditor?.notices.orEmpty().values)
+                        invalidateOptionsMenu()
+                        if (Prefs.autoShowEditNotices) {
+                            showEditNotices()
+                        } else {
+                            maybeShowEditNoticesTooltip()
+                        }
+                    }, {
+                        L.e(it)
+                    }))
         } else {
             displaySectionText()
         }
+    }
+
+    private fun maybeShowEditNoticesTooltip() {
+        if (!Prefs.autoShowEditNotices && !Prefs.isEditNoticesTooltipShown) {
+            Prefs.isEditNoticesTooltipShown = true
+            binding.root.postDelayed({
+                val anchorView = findViewById<View>(R.id.menu_edit_notices)
+                if (!isDestroyed && anchorView != null) {
+                    FeedbackUtil.showTooltip(this, anchorView, getString(R.string.edit_notices_tooltip), aboveOrBelow = false, autoDismiss = false)
+                }
+            }, 100)
+        }
+    }
+
+    private fun showEditNotices() {
+        if (editNotices.isEmpty()) {
+            return
+        }
+        EditNoticesDialog(pageTitle.wikiSite, editNotices, this)
+                .show()
     }
 
     private fun displaySectionText() {

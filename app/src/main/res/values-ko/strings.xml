@@ -639,6 +639,7 @@
   <string name="notifications_channel_group_other_description">앱의 기타 알림</string>
   <string name="notifications_filter_label">필터 알림</string>
   <string name="notifications_filter_icon_content_description">필터 알림</string>
+  <string name="notifications_filter_add_app_languages">앱 언어 추가 또는 편집</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="other">%d개 필터</item>
   </plurals>

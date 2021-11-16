@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * A2093064
+* Chubit
 * Cwlin0416
 * Dbrant
 * Eric850130
@@ -258,6 +259,10 @@
   <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
   <string name="edit_conflict_title">編輯衝突</string>
   <string name="edit_conflict_message">頁面已被不同的使用者給變動，並且有與您的編輯產生衝突。請複製您的編輯並返回來重整頁面，然後再重試編輯。</string>
+  <string name="edit_notices">編輯說明</string>
+  <string name="edit_notices_please_read">編輯前請閱讀</string>
+  <string name="edit_notices_show_auto">自動顯示編輯通知</string>
+  <string name="edit_notices_tooltip">點按此按鈕可查看此文章的編輯通知。</string>
   <string name="find_next">尋找下一筆</string>
   <string name="find_previous">尋找上一筆</string>
   <string name="find_first_occurence">這是首次出現</string>
@@ -642,6 +647,7 @@
   <string name="notifications_channel_group_other_description">來自應用程式的其它通知</string>
   <string name="notifications_filter_label">篩選通知</string>
   <string name="notifications_filter_icon_content_description">篩選通知</string>
+  <string name="notifications_filter_add_app_languages">添加或編輯應用程式語言</string>
   <string name="notifications_empty_search_message">嘗試移除篩選字串%s來查看更多通知</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d 個篩選</item>

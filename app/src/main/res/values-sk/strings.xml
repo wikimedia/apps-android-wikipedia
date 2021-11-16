@@ -53,6 +53,8 @@
   <string name="search_tab_tooltip">Pre zadanie hľadaného výrazu stlačte toto tlačítko.</string>
   <string name="history_list_title">História</string>
   <string name="image_content_description">Obrázok: %s</string>
+  <string name="wikimedia_commons">Wikimédia Commons</string>
+  <string name="wikidata">Wikiúdaje</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
   <string name="dialog_message_clear_history">Toto odstráni celú Vašu históriu prehliadania a zavrie všetky otvorené karty. Pokračovať?</string>
   <string name="dialog_message_clear_history_yes">Áno</string>
@@ -618,6 +620,9 @@
   <string name="notification_preferences_title">Nastavenia notifikácií</string>
   <string name="notifications_mark_unread">Označiť ako neprečítané</string>
   <string name="notifications_mark_all_as_read">Označiť všetko ako prečítané</string>
+  <string name="notifications_direct_reply_action">Odpovedať</string>
+  <string name="notifications_direct_reply_progress">Odosielanie odpovede pre %s...</string>
+  <string name="notifications_direct_reply_success">Odpoveď zverejnená.</string>
   <string name="watchlist_title">Zoznam sledovaných</string>
   <string name="preference_title_notification_poll">Kontrola nových notifikácií</string>
   <string name="preference_summary_notification_poll">Povoliť aplikácii používanie dát ku kontrole nových notifikácií na pozadí.</string>
