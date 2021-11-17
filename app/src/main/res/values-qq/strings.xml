@@ -1092,5 +1092,5 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
-  <string name="error_user_page_does_not_exist">Error message text shown when the user page does not yet exist. %1$s represents the wikisite, %2$s represents the username and \"%3$s\" represents username without prefix.</string>
+  <string name="error_user_page_does_not_exist">Error message text shown when the user page does not yet exist. %1$s represents the wikisite, %2$s  and %2$s represents the username and \"%3$s\" represents username without prefix.</string>
 </resources>
