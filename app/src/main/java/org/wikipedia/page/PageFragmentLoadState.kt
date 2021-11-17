@@ -28,8 +28,6 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import retrofit2.Response
-import java.util.*
-import java.util.concurrent.TimeUnit
 
 class PageFragmentLoadState(private var model: PageViewModel,
                             private var fragment: PageFragment,
@@ -198,10 +196,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    it.query?.firstPage()?.revisions?.firstOrNull()?.timeStamp?.let { dateStr ->
-                        if (Date().time - DateUtil.iso8601DateParse(dateStr).time < TimeUnit.DAYS.toMillis(7)) {
-                            fragment.showAnonNotification()
-                        }
+                    if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(it)) {
+                        fragment.showAnonNotification()
                     }
                 }, { L.e(it) })
         )

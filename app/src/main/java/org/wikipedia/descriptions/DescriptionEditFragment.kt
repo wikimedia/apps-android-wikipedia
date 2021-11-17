@@ -32,6 +32,7 @@ import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -246,6 +247,7 @@ class DescriptionEditFragment : Fragment() {
                         result.edit?.run {
                             when {
                                 editSucceeded -> {
+                                    AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     funnel.logSaved(newRevId)
                                 }
@@ -289,6 +291,7 @@ class DescriptionEditFragment : Fragment() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
+                        AnonymousNotificationHelper.onEditSubmitted()
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
                             funnel.logSaved(response.entity?.run { lastRevId } ?: 0)

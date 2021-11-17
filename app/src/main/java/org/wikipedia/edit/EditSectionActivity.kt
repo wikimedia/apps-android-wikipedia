@@ -40,6 +40,7 @@ import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.settings.Prefs
@@ -239,6 +240,7 @@ class EditSectionActivity : BaseActivity() {
 
     @Suppress("SameParameterValue")
     private fun waitForUpdatedRevision(newRevision: Long) {
+        AnonymousNotificationHelper.onEditSubmitted()
         disposables.add(ServiceFactory.getRest(pageTitle.wikiSite)
             .getSummaryResponse(pageTitle.prefixedText, null, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(), null, null, null)
             .delay(2, TimeUnit.SECONDS)

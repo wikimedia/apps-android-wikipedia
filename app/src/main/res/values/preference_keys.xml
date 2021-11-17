@@ -56,7 +56,10 @@
     <string name="preference_key_notification_customize_push">customizePushNotifications</string>
     <string name="preference_key_notification_hide_read">hideReadNotifications</string>
     <string name="preference_key_notification_unread_count">notificationUnreadCount</string>
+    <string name="preference_key_anon_user_has_notification">anonUserHasNotification</string>
     <string name="preference_key_last_anon_user_with_messages">lastAnonUserWithMessages</string>
+    <string name="preference_key_last_anon_edit_time">lastAnonEditTime</string>
+    <string name="preference_key_last_anon_notification_time">lastAnonNotificationTime</string>
     <string name="preference_key_empty_placeholder">emptyPlaceholder</string>
     <string name="preference_key_prefer_offline_content">preferOfflineContent</string>
     <string name="preference_key_editing_text_size_extra">editingTextSizeExtra</string>

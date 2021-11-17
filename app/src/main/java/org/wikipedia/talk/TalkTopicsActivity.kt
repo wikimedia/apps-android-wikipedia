@@ -105,6 +105,7 @@ class TalkTopicsActivity : BaseActivity() {
             }
         }
         notificationButtonView = NotificationButtonView(this)
+        Prefs.hasAnonymousNotification = false
     }
 
     public override fun onDestroy() {

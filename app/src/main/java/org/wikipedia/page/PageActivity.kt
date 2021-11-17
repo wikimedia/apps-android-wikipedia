@@ -39,6 +39,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
@@ -126,7 +127,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonNotifications.setOnClickListener {
             if (AccountUtil.isLoggedIn) {
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
-            } else if (Prefs.hasAnonymousMessages && pageFragment.title != null) {
+            } else if (AnonymousNotificationHelper.isWithinAnonNotificationTime() && pageFragment.title != null) {
                 startActivity(TalkTopicsActivity.newIntent(this@PageActivity,
                 PageTitle(UserTalkAliasData.valueFor(pageFragment.title!!.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages, pageFragment.title!!.wikiSite), InvokeSource.PAGE_ACTIVITY))
             }
@@ -737,12 +738,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             } else {
                 binding.pageToolbarButtonNotifications.setUnreadCount(0)
             }
-        } else if (!AccountUtil.isLoggedIn && Prefs.hasAnonymousMessages) {
+        } else if (!AccountUtil.isLoggedIn && AnonymousNotificationHelper.isWithinAnonNotificationTime()) {
             binding.pageToolbarButtonNotifications.isVisible = true
-            binding.pageToolbarButtonNotifications.setUnreadCount(1)
-            if (animate) {
-                toolbarHideHandler.ensureDisplayed()
-                binding.pageToolbarButtonNotifications.runAnimation()
+            if (Prefs.hasAnonymousNotification) {
+                binding.pageToolbarButtonNotifications.setUnreadCount(1)
+                if (animate) {
+                    toolbarHideHandler.ensureDisplayed()
+                    binding.pageToolbarButtonNotifications.runAnimation()
+                }
+            } else {
+                binding.pageToolbarButtonNotifications.setUnreadCount(0)
             }
         } else {
             binding.pageToolbarButtonNotifications.isVisible = false
