@@ -68,6 +68,7 @@
   <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
   <string name="history_list_title">Label text for history items list.</string>
   <string name="image_content_description">Content description for an image. The \"%s\" symbol is replaced with the name of the subject.</string>
+  <string name="page_content_description">Content description for a page. The \"%s\" symbol is replaced with the name of the subject.</string>
   <string name="wikimedia_commons">Label text for Wikimedia Commons.</string>
   <string name="wikidata">Label text for Wikidata.</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
