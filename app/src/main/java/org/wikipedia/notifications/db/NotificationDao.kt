@@ -5,14 +5,15 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NotificationDao {
+    // TODO: Adding suspend back once the Room library version is updated.
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNotifications(notifications: List<Notification>)
+    fun insertNotifications(notifications: List<Notification>)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun updateNotification(notification: Notification)
+    fun updateNotification(notification: Notification)
 
     @Delete
-    suspend fun deleteNotification(notification: Notification)
+    fun deleteNotification(notification: Notification)
 
     @Query("SELECT * FROM Notification")
     fun getAllNotifications(): Flow<List<Notification>>

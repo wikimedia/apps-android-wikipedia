@@ -21,6 +21,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -34,7 +35,7 @@ object NotificationPresenter {
         val notificationCategory = NotificationCategory.find(n.category)
         var activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id, n.type)
         val builder = getDefaultBuilder(context, n.id, n.type, notificationCategory)
-        val title: String = StringUtil.fromHtml(if (n.contents != null) n.contents.header else "").toString()
+        val title = RichTextUtil.stripHtml(n.contents?.header.orEmpty())
         val id = n.key().toInt()
 
         n.contents?.links?.let {
