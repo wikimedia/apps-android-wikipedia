@@ -525,7 +525,10 @@ class EditSectionActivity : BaseActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
                         editNotices.clear()
-                        editNotices.addAll(it.visualeditor?.notices.orEmpty().values)
+                        // Populate edit notices, but filter out anonymous edit warnings, since
+                        // we show that type of warning ourselves when previewing.
+                        editNotices.addAll(it.visualeditor?.notices.orEmpty()
+                                .filterKeys { key -> key != "anoneditwarning" }.values)
                         invalidateOptionsMenu()
                         if (Prefs.autoShowEditNotices) {
                             showEditNotices()
