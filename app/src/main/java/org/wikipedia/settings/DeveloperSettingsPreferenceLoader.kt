@@ -148,7 +148,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_developer_show_talk_page_survey).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            TalkPageSurvey.showSurveyDialog(activity)
+            TalkPageSurvey.showSurveyDialog(activity, Prefs.showTalkPageSurveyAttempts)
             true
         }
     }

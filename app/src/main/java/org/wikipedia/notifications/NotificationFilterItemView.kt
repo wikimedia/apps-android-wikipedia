@@ -2,8 +2,10 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Typeface
 import android.os.Build
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.core.widget.ImageViewCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -57,10 +60,12 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
             else binding.notificationFilterLanguageCode.visibility = View.GONE
         }
         filter.imageRes?.let {
-            binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
+            ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo,
+                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color)))
             if (NotificationCategory.isFiltersGroup(filter.filterCode)) {
-                binding.notificationFilterWikiLogo.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context,
+                val colorStateList = ColorStateList.valueOf(ContextCompat.getColor(context,
                     ResourceUtil.getThemedAttributeId(context, NotificationCategory.find(filter.filterCode).iconColor)))
+                ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo, colorStateList)
             }
             binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, it))
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE
@@ -70,10 +75,16 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     }
 
     fun setSingleLabel(text: String) {
-        binding.notificationFilterLanguageCode.visibility = View.INVISIBLE
-        binding.notificationFilterWikiLogo.visibility = View.GONE
+        val accentColor = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
+        binding.notificationFilterLanguageCode.visibility = View.GONE
+        binding.notificationFilterWikiLogo.visibility = View.VISIBLE
+        ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo, ColorStateList.valueOf(accentColor))
+        binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_add_gray_themed_24dp))
         binding.notificationFilterCheck.visibility = View.GONE
-        binding.notificationFilterTitle.text = text
+        binding.notificationFilterTitle.setTextColor(accentColor)
+        binding.notificationFilterTitle.text = text.uppercase()
+        binding.notificationFilterTitle.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        binding.notificationFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
     }
 
     private fun getTitleCodeFor(filterCode: String): String? {

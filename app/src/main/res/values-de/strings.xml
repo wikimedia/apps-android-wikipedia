@@ -68,6 +68,8 @@
   <string name="search_tab_tooltip">Berühre das Symbol noch einmal, um direkt mit der Eingabe zu beginnen.</string>
   <string name="history_list_title">Historie</string>
   <string name="image_content_description">Bild: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
   <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -603,6 +605,20 @@
   <string name="notification_preferences_title">Benachrichtigungseinstellungen</string>
   <string name="notifications_mark_unread">Als ungelesen markieren</string>
   <string name="notifications_mark_all_as_read">Alle als gelesen markieren</string>
+  <string name="notifications_direct_reply_action">Antwort</string>
+  <string name="notifications_direct_reply_progress">Absenden der Antwort auf %s …</string>
+  <string name="notifications_direct_reply_success">Antwort abgeschickt.</string>
+  <string name="notifications_direct_reply_error">Die Antwort konnte nicht automatisch gesendet werden.</string>
+  <string name="notifications_mark_all_as_read_message">%d als gelesen markiert</string>
+  <string name="notifications_mark_all_as_unread_message">%d als ungelesen markiert</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 als gelesen markiert</item>
+    <item quantity="other">%d als gelesen markiert</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 als ungelesen markiert</item>
+    <item quantity="other">%d als ungelesen markiert</item>
+  </plurals>
   <string name="watchlist_title">Beobachtungsliste</string>
   <string name="preference_title_notification_poll">Benachrichtigungen abfragen</string>
   <string name="preference_summary_notification_poll">Der App erlauben, für die Suche nach neuen Benachrichtigungen im Hintergrund Daten zu verwenden.</string>
@@ -635,6 +651,30 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Benachrichtigungen von Wikipedia</string>
   <string name="notifications_channel_group_other_title">Andere</string>
   <string name="notifications_channel_group_other_description">Andere Benachrichtigungen von der App</string>
+  <string name="notifications_filter_label">Benachrichtigungen filtern</string>
+  <string name="notifications_filter_icon_content_description">Benachrichtigungen filtern</string>
+  <string name="notifications_filter_add_app_languages">Sprachen in der App hinzufügen oder bearbeiten</string>
+  <string name="notifications_empty_search_message">Versuche %s zu entfernen, um mehr Benachrichtigungen zu sehen</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d Filter</item>
+    <item quantity="other">%d Filter</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Alle Filter auswählen</string>
+  <string name="notifications_tab_filter_all">Alle</string>
+  <string name="notifications_tab_filter_mentions">Erwähnungen</string>
+  <string name="notifications_search_bar_hint">Benachrichtigungen suchen oder filtern</string>
+  <string name="notifications_search_bar_filter_hint">Benachrichtigungsfilter</string>
+  <string name="notifications_menu_mark_as_read">Als gelesen markieren</string>
+  <string name="notifications_menu_mark_as_unread">Als ungelesen markieren</string>
+  <string name="notifications_swipe_action_read">Gelesen</string>
+  <string name="notifications_swipe_action_unread">Ungelesen</string>
+  <string name="notifications_menu_check_all">Alle Einträge auswählen</string>
+  <string name="notifications_menu_uncheck_all">Alle Einträge abwählen</string>
+  <string name="notifications_wiki_filter_header">Wiki-Filter</string>
+  <string name="notifications_type_filter_header">Typ-Filter</string>
+  <string name="notifications_all_wikis_text">Alle Wikis</string>
+  <string name="notifications_all_types_text">Alle Typen</string>
+  <string name="notifications_menu_user_talk_page">%ss Diskussionsseite</string>
   <string name="view_because_you_read_card_title">Weil du das gelesen hast</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
   <string name="view_random_article_card_title">Zufälliger Artikel</string>

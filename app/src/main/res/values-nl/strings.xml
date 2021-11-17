@@ -2,6 +2,7 @@
 <!-- Authors:
 * Aranka
 * Ciell
+* Danieldegroot2
 * Dbrant
 * Dutchy45
 * Elroy
@@ -70,6 +71,8 @@
   <string name="search_tab_tooltip">Klik nog een keer op het icoon om rechtstreeks te zoeken.</string>
   <string name="history_list_title">Geschiedenis</string>
   <string name="image_content_description">Afbeelding: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Browsergeschiedenis wissen</string>
   <string name="dialog_message_clear_history">Hierdoor wordt uw volledige browsergeschiedenis gewist en worden alle huidige open tabbladen gesloten. Weet u het zeker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -605,6 +608,20 @@
   <string name="notification_preferences_title">Meldingsvoorkeuren</string>
   <string name="notifications_mark_unread">Markeren als ongelezen</string>
   <string name="notifications_mark_all_as_read">Alles als gelezen markeren</string>
+  <string name="notifications_direct_reply_action">Reageren</string>
+  <string name="notifications_direct_reply_progress">Reactie op %s plaatsen...</string>
+  <string name="notifications_direct_reply_success">Reactie geplaatst.</string>
+  <string name="notifications_direct_reply_error">Kon reactie niet automatisch plaatsen.</string>
+  <string name="notifications_mark_all_as_read_message">%d gemarkeerd als gelezen</string>
+  <string name="notifications_mark_all_as_unread_message">%d gemarkeerd als ongelezen</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 gemarkeerd als gelezen</item>
+    <item quantity="other">%d gemarkeerd als gelezen</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 gemarkeerd als ongelezen</item>
+    <item quantity="other">%d gemarkeerd als ongelezen</item>
+  </plurals>
   <string name="watchlist_title">Volglijst</string>
   <string name="preference_title_notification_poll">Ververs meldingen</string>
   <string name="preference_summary_notification_poll">Sta de app toe data te gebruiken om op de achtergrond te checken op nieuwe meldingen.</string>
@@ -637,6 +654,24 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Meldingen van Wikipedia</string>
   <string name="notifications_channel_group_other_title">Overige</string>
   <string name="notifications_channel_group_other_description">Andere meldingen van de app</string>
+  <string name="notifications_filter_label">Meldingen filteren</string>
+  <string name="notifications_filter_icon_content_description">Meldingen filteren</string>
+  <string name="notifications_empty_search_message">Probeer er %s te verwijderen om meer meldingen te zien</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filter</item>
+    <item quantity="other">%d filters</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Alle filters selecteren</string>
+  <string name="notifications_tab_filter_all">Alle</string>
+  <string name="notifications_tab_filter_mentions">Vermeldingen</string>
+  <string name="notifications_search_bar_hint">Zoek of filter meldingen</string>
+  <string name="notifications_menu_mark_as_read">Als gelezen markeren</string>
+  <string name="notifications_menu_mark_as_unread">Als ongelezen markeren</string>
+  <string name="notifications_swipe_action_read">Gelezen</string>
+  <string name="notifications_swipe_action_unread">Ongelezen</string>
+  <string name="notifications_menu_check_all">Alle items selecteren</string>
+  <string name="notifications_menu_uncheck_all">Alle items deselecteren</string>
+  <string name="notifications_menu_user_talk_page">%s\'s overlegpagina</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
   <string name="view_random_article_card_title">Willekeurig artikel</string>
@@ -1016,6 +1051,8 @@
   <string name="talk_response_submitted">Reactie geplaatst.</string>
   <string name="talk_snackbar_undo">Ongedaan maken</string>
   <string name="talk_last_modified">&lt;b&gt;Laatst bewerkt %1$s&lt;/b&gt; door %2$s</string>
+  <string name="talk_snackbar_survey_text">Bedankt voor het gebruiken van overlegpagina\'s. Zou je ons kunnen helpen de app te verbeteren, door deel te nemen aan een enquête?</string>
+  <string name="talk_snackbar_survey_action_text">Aan de slag</string>
   <string name="menu_option_share_edit">Bewerking delen</string>
   <string name="menu_option_user_profile">Profiel van %s</string>
   <string name="menu_option_user_contributions">Bijdragen van %s</string>

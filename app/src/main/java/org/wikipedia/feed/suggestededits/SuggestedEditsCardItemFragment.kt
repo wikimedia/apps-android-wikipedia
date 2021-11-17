@@ -170,6 +170,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
             ADD_CAPTION -> addCaption()
             TRANSLATE_CAPTION -> translateCaption()
             ADD_IMAGE_TAGS -> addImageTags()
+            else -> {}
         }
     }
 

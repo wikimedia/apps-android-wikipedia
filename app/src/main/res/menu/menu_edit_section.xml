@@ -2,6 +2,10 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_edit_notices"
+        android:icon="@drawable/ic_warning_24"
+        android:title="@string/edit_notices"
+        app:showAsAction="always" />
     <item android:id="@+id/menu_find_in_editor"
         android:icon="@drawable/ic_find_in_page_24px"
         android:title="@string/menu_page_find_in_page"

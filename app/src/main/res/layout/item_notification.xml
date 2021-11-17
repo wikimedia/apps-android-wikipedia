@@ -32,18 +32,6 @@
         app:layout_constraintTop_toTopOf="@id/notificationItemImage"
         app:srcCompat="@drawable/ic_check_black_24dp" />
 
-    <ImageView
-        android:id="@+id/notificationItemReadDot"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@id/notificationItemImage"
-        app:layout_constraintTop_toBottomOf="@id/notificationItemImage"
-        app:layout_constraintEnd_toEndOf="@id/notificationItemImage"
-        app:srcCompat="@drawable/shape_circle"
-        app:tint="?attr/colorAccent"
-        android:contentDescription="@string/notifications_view_unread"/>
-
     <TextView
         android:id="@+id/notificationTitle"
         android:layout_width="0dp"
@@ -103,7 +91,7 @@
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textColor="?android:attr/textColorPrimary"
+        android:textColor="?attr/primary_text_color"
         android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationSubtitle"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
@@ -124,7 +112,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
+            app:tint="?attr/primary_text_color"
             tools:src="@drawable/ic_wikidata_logo" />
 
         <TextView
@@ -133,14 +121,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp"
+            android:paddingStart="4.5dp"
+            android:paddingEnd="4.5dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             android:background="@drawable/lang_button_shape_border"
+            android:backgroundTint="?attr/primary_text_color"
             android:fontFamily="sans-serif-medium"
             android:textAllCaps="true"
-            android:textColor="?attr/secondary_text_color"
+            android:textColor="?attr/primary_text_color"
             android:textSize="12sp" />
 
     </FrameLayout>
@@ -149,8 +138,7 @@
         android:id="@+id/notificationSource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?attr/secondary_text_color"
-        android:fontFamily="sans-serif-medium"
+        android:textColor="?attr/primary_text_color"
         android:drawablePadding="8dp"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constrainedWidth="true"
@@ -158,7 +146,7 @@
         app:layout_constraintTop_toTopOf="@id/notificationWikiCodeContainer"
         app:layout_constraintBottom_toBottomOf="@id/notificationWikiCodeContainer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:drawableTint="?attr/secondary_text_color"
+        app:drawableTint="?attr/primary_text_color"
         tools:text="Lorem ipsum" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
