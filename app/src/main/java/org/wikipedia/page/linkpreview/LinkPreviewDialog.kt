@@ -162,8 +162,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         dismiss()
     }
 
-    override fun onPageMissingMessage(): String {
-        return pageTitle.displayText
+    override fun onPageMissingMessage(): PageTitle {
+        return pageTitle
     }
 
     private fun loadContent() {

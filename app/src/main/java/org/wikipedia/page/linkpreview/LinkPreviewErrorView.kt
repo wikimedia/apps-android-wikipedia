@@ -8,13 +8,14 @@ import androidx.appcompat.content.res.AppCompatResources
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewLinkPreviewErrorBinding
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 
 class LinkPreviewErrorView : LinearLayout {
     interface Callback {
         fun onAddToList()
         fun onDismiss()
-        fun onPageMissingMessage(): String
+        fun onPageMissingMessage(): PageTitle
     }
 
     constructor(context: Context) : super(context)
@@ -37,8 +38,9 @@ class LinkPreviewErrorView : LinearLayout {
             binding.viewLinkPreviewErrorText.text = message
         } else {
             if (errorType == LinkPreviewErrorType.PAGE_MISSING) {
-                binding.viewLinkPreviewErrorText.text =
-                    StringUtil.fromHtml(context.resources.getString(errorType.text, callback?.onPageMissingMessage()?.replace("User:", "")))
+                val pageTitle = callback?.onPageMissingMessage()
+                binding.viewLinkPreviewErrorText.text = StringUtil.fromHtml(context.resources.getString(errorType.text, pageTitle?.wikiSite?.uri,
+                    pageTitle?.prefixedText, pageTitle?.prefixedText?.replace("User:", "")))
                 binding.viewLinkPreviewErrorText.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
             } else
                 binding.viewLinkPreviewErrorText.text = context.resources.getString(errorType.text)
