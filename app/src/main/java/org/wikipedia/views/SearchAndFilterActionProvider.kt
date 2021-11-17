@@ -8,6 +8,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ActionProvider
+import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.NotificationPreferencesFunnel
@@ -75,11 +76,13 @@ class SearchAndFilterActionProvider(context: Context,
         val enabledFilters = callback.getExcludedFilterCount()
         if (enabledFilters == 0) {
             binding.notificationFilterCount.visibility = View.GONE
-            binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color))
+            ImageViewCompat.setImageTintList(binding.notificationFilterIcon,
+                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.chip_text_color)))
         } else {
             binding.notificationFilterCount.visibility = View.VISIBLE
             binding.notificationFilterCount.text = enabledFilters.toString()
-            binding.notificationFilterIcon.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+            ImageViewCompat.setImageTintList(binding.notificationFilterIcon,
+                ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent)))
         }
     }
 }

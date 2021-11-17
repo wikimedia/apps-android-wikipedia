@@ -19,13 +19,14 @@ import java.time.LocalDateTime
 @Parcelize
 @TypeParceler<LocalDateTime, LocalDateTimeParceler>()
 @Entity
+// TODO: change these properties back to val when HistoryEntry is no longer serializable. (i.e. when we update Tabs to be in the database instead of Prefs)
 class HistoryEntry(
-    val authority: String = "",
-    val lang: String = "",
-    val apiTitle: String = "",
-    val displayTitle: String = "",
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val namespace: String = "",
+    var authority: String = "",
+    var lang: String = "",
+    var apiTitle: String = "",
+    var displayTitle: String = "",
+    @PrimaryKey(autoGenerate = true) var id: Int = 0,
+    var namespace: String = "",
     @Serializable(with = LocalDateTimeSerializer::class) var timestamp: LocalDateTime = LocalDateTime.now(),
     var source: Int = SOURCE_INTERNAL_LINK,
     var timeSpentSec: Int = 0,
