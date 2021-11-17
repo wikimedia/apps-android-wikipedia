@@ -89,6 +89,11 @@ object JavaScriptActionHandler {
             (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) 0 else (leadImageHeightForDevice(context) / densityScalar).roundToInt() - topActionBarHeight)
         val topMargin = topActionBarHeight + 16
 
+        var fontFamily = Prefs.fontFamily
+        if (fontFamily == context.getString(R.string.font_family_serif)) {
+            fontFamily = "'Linux Libertine',Georgia,Times,serif"
+        }
+
         return String.format(Locale.ROOT, "{" +
                 "   \"platform\": \"android\"," +
                 "   \"clientVersion\": \"${BuildConfig.VERSION_NAME}\"," +
@@ -99,7 +104,7 @@ object JavaScriptActionHandler {
                 "       \"tableClose\": \"${res[R.string.table_close]}\"" +
                 "   }," +
                 "   \"theme\": \"${app.currentTheme.funnelName}\"," +
-                "   \"bodyFont\": \"${Prefs.fontFamily}\"," +
+                "   \"bodyFont\": \"$fontFamily\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.dimDarkModeImages)}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
                 "   \"leadImageHeight\": \"%dpx\"," +

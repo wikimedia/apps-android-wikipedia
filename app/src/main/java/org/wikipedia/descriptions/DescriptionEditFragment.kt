@@ -53,9 +53,9 @@ class DescriptionEditFragment : Fragment() {
     private var _binding: FragmentDescriptionEditBinding? = null
     val binding get() = _binding!!
     private lateinit var funnel: DescriptionEditFunnel
-    private lateinit var action: DescriptionEditActivity.Action
     private lateinit var invokeSource: InvokeSource
     private lateinit var pageTitle: PageTitle
+    lateinit var action: DescriptionEditActivity.Action
     private var sourceSummary: PageSummaryForEdit? = null
     private var targetSummary: PageSummaryForEdit? = null
     private var highlightText: String? = null

@@ -5,7 +5,7 @@ import org.wikipedia.dataclient.mwapi.MwPostResponse
 
 @Serializable
 class WatchPostResponse : MwPostResponse() {
-    val batchcomplete: String? = null
+    val batchcomplete: Boolean? = null
 
     val watch: List<Watch>? = null
         get() = field ?: emptyList()

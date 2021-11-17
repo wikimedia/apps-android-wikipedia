@@ -1,6 +1,12 @@
 package org.wikipedia.util
 
+import android.graphics.Color
+import android.graphics.Typeface
+import android.text.SpannableString
 import android.text.Spanned
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.IntRange
@@ -56,6 +62,11 @@ object StringUtil {
     @JvmStatic
     fun removeUnderscores(text: String?): String {
         return text.orEmpty().replace("_", " ")
+    }
+
+    fun dbNameToLangCode(wikiDbName: String): String {
+        return (if (wikiDbName.endsWith("wiki")) wikiDbName.substring(0, wikiDbName.length - "wiki".length) else wikiDbName)
+                .replace("_", "-")
     }
 
     @JvmStatic
@@ -154,6 +165,23 @@ object StringUtil {
             textView.text = fromHtml(parentTextStr)
         } else {
             textView.text = parentTextStr
+        }
+    }
+
+    fun highlightAndBoldenText(textView: TextView, input: String?, shouldBolden: Boolean, highlightColor: Int) {
+        if (!input.isNullOrEmpty()) {
+            val spannableString = SpannableString(textView.text)
+            val caseInsensitiveSpannableString = SpannableString(textView.text.toString().lowercase())
+            var indexOfKeyword = caseInsensitiveSpannableString.toString().lowercase().indexOf(input.lowercase())
+            while (indexOfKeyword >= 0) {
+                spannableString.setSpan(BackgroundColorSpan(highlightColor), indexOfKeyword, indexOfKeyword + input.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                spannableString.setSpan(ForegroundColorSpan(Color.BLACK), indexOfKeyword, indexOfKeyword + input.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                if (shouldBolden) {
+                    spannableString.setSpan(StyleSpan(Typeface.BOLD), indexOfKeyword, indexOfKeyword + input.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                }
+                indexOfKeyword = caseInsensitiveSpannableString.indexOf(input.lowercase(), indexOfKeyword + input.length)
+            }
+            textView.text = spannableString
         }
     }
 

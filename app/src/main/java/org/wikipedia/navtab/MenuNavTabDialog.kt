@@ -7,18 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.NotificationsABCTestFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil.getDimension
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.ResourceUtil.getThemedColor
@@ -28,7 +25,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
         fun usernameClick()
         fun loginClick()
-        fun notificationsClick()
         fun talkClick()
         fun settingsClick()
         fun watchlistClick()
@@ -46,11 +42,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             } else {
                 callback()?.loginClick()
             }
-            dismiss()
-        }
-
-        binding.mainDrawerNotificationsContainer.setOnClickListener {
-            callback()?.notificationsClick()
             dismiss()
         }
 
@@ -104,20 +95,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerLoginOpenExternalIcon.visibility = View.VISIBLE
             binding.mainDrawerTalkContainer.visibility = View.VISIBLE
             binding.mainDrawerWatchlistContainer.visibility = View.VISIBLE
-
-            if (NotificationsABCTestFunnel().aBTestGroup > 1) {
-                binding.mainDrawerNotificationsContainer.isVisible = true
-                if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
-                    binding.unreadDotView.setUnreadCount(Prefs.notificationUnreadCount)
-                    binding.unreadDotView.isVisible = true
-                } else {
-                    binding.unreadDotView.isVisible = false
-                    binding.unreadDotView.setUnreadCount(0)
-                }
-            } else {
-                binding.mainDrawerNotificationsContainer.isVisible = false
-                binding.unreadDotView.isVisible = false
-            }
         } else {
             binding.mainDrawerAccountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_login_24px))
             ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, ColorStateList.valueOf(getThemedColor(requireContext(), R.attr.colorAccent)))
@@ -126,7 +103,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerLoginButton.text = getString(R.string.main_drawer_login)
             binding.mainDrawerLoginButton.setTextColor(getThemedColor(requireContext(), R.attr.colorAccent))
             binding.mainDrawerLoginOpenExternalIcon.visibility = View.GONE
-            binding.mainDrawerNotificationsContainer.visibility = View.GONE
             binding.mainDrawerTalkContainer.visibility = View.GONE
             binding.mainDrawerWatchlistContainer.visibility = View.GONE
         }

@@ -41,6 +41,8 @@
   <string name="menu_page_show_tabs">ጽላታት ኣርእይ</string>
   <string name="menu_page_other_languages">ቋንቋ ለውጥ</string>
   <string name="menu_page_find_in_page">ኣብ ጽሑፍ ርኸብ</string>
+  <string name="menu_page_view_talk">ገጽ ምይይጥ ርኣይ</string>
+  <string name="menu_page_view_edit_history">ታሪኽ ኣርትዖት ርኣይ</string>
   <string name="edit_section_find_in_page">ኣብ ገጽ ርኸብ</string>
   <string name="menu_page_font_and_theme">ቅርጺ ፈደልን ገጽታን</string>
   <string name="menu_page_add_to_default_list">ኣቐምጥ</string>
@@ -55,7 +57,7 @@
   <string name="on_this_day_page_share">ኣካፍል</string>
   <string name="reading_list_page_share">ኣካፍል</string>
   <string name="menu_text_select_edit_here">ኣብዚ ኣመዓራርይ</string>
-  <string name="talk_page_link_text">ናይ ምይይጥ ገጽ ርኣይ</string>
+  <string name="talk_page_link_text">ገጽ ምይይጥ ርኣይ</string>
   <string name="edit_history_link_text">ታሪኽ ኣርትዖት ርኣይ</string>
   <string name="map_view_link_text">ኣብ ካርታ ርኣይ</string>
   <string name="other_languages_indication_text">ኣብ ካልእ ቋንቋ ኣንብብ</string>
@@ -145,6 +147,7 @@
   </plurals>
   <string name="clear_recent_searches_confirm_yes">እወ</string>
   <string name="clear_recent_searches_confirm_no">ኣይፋል</string>
+  <string name="table_infobox">ቅልጡፍ ሓቅታት</string>
   <string name="table_other">ተወሳኺ ሓበሬታ</string>
   <string name="table_close">ዕጸው</string>
   <string name="widget_name_search">ኣብ ውሽጢ ዊኪፐድያ ድለይ</string>
@@ -176,6 +179,7 @@
   <string name="page_view_in_browser">ገጽ ኣብ መዳህሰሲ ርኣይ</string>
   <string name="format_error_server_message">መልእኽቲ፦ \"%s\"</string>
   <string name="button_continue_to_article">ጽሑፍ ኣንብብ</string>
+  <string name="button_continue_to_disambiguation">ተመሳሳሊ ገጻት ርኣይ</string>
   <string name="nav_item_donate">ድጋፍ ሃብ</string>
   <plurals name="multi_items_selected">
     <item quantity="one">%d ዝተመረጸ</item>

@@ -163,7 +163,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             .doAfterTerminate {
                 updateProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
-                (requireActivity() as GalleryActivity).layOutGalleryDescription()
+                (requireActivity() as GalleryActivity).layOutGalleryDescription(this)
             }
             .subscribe({ response ->
                 mediaPage = response.query?.firstPage()
@@ -209,7 +209,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             binding.videoView.setOnPreparedListener {
                 updateProgressBar(false)
                 // ...update the parent activity, which will trigger us to start playing!
-                (requireActivity() as GalleryActivity).layOutGalleryDescription()
+                (requireActivity() as GalleryActivity).layOutGalleryDescription(this@GalleryItemFragment)
                 // hide the video thumbnail, since we're about to start playback
                 binding.videoThumbnail.visibility = View.GONE
                 binding.videoPlayButton.visibility = View.GONE
@@ -239,7 +239,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         } else {
             // show the video thumbnail while the video loads...
             binding.videoThumbnail.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl)
+            ViewUtil.loadImage(binding.videoThumbnail, mediaInfo!!.thumbUrl, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
         }
         binding.videoThumbnail.setOnClickListener(videoThumbnailClickListener)
     }

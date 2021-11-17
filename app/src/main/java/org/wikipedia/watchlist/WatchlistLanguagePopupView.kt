@@ -39,7 +39,7 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
         popupWindowHost!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         PopupWindowCompat.setOverlapAnchor(popupWindowHost!!, true)
-        PopupWindowCompat.showAsDropDown(popupWindowHost!!, anchorView, 0, 0, Gravity.END)
+        popupWindowHost!!.showAsDropDown(anchorView, 0, 0, Gravity.END)
     }
 
     internal inner class WatchlistLangViewHolder(view: View) : RecyclerView.ViewHolder(view) {

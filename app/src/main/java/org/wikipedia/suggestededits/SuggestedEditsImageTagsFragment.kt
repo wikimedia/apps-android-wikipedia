@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.core.view.children
+import androidx.core.widget.ImageViewCompat
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -83,7 +84,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 intArrayOf(if (WikipediaApp.instance.currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
         binding.publishProgressBar.progressTintList = colorStateList
         binding.publishProgressBarComplete.progressTintList = colorStateList
-        binding.publishProgressCheck.imageTintList = colorStateList
+        ImageViewCompat.setImageTintList(binding.publishProgressCheck, colorStateList)
         binding.publishProgressText.setTextColor(colorStateList)
 
         binding.tagsLicenseText.text = StringUtil.fromHtml(getString(R.string.suggested_edits_cc0_notice,

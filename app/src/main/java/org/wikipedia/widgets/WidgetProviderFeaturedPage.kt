@@ -22,6 +22,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -52,7 +53,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     intent.putExtra(PageActivity.EXTRA_PAGETITLE, pageTitle)
                     intent.putExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET, true)
                     val pendingIntent = PendingIntent.getActivity(context, 1, intent,
-                            PendingIntent.FLAG_UPDATE_CURRENT)
+                            PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
 
                     remoteViews.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
                     appWidgetManager.updateAppWidget(widgetId, remoteViews)

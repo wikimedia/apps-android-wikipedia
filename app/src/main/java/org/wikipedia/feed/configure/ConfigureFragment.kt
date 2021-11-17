@@ -124,7 +124,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
     private fun prepareContentTypeList() {
         orderedContentTypes.clear()
         orderedContentTypes.addAll(FeedContentType.values())
-        orderedContentTypes.sortWith { a, b -> a.order.compareTo(b.order) }
+        orderedContentTypes.sortBy { it.order }
         // Remove items for which there are no available languages
         val i = orderedContentTypes.iterator()
         while (i.hasNext()) {

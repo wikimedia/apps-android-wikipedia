@@ -71,6 +71,8 @@
   <string name="search_tab_tooltip">Toque no ícone novamente para começar a digitar diretamente um termo de pesquisa.</string>
   <string name="history_list_title">Histórico</string>
   <string name="image_content_description">Imagem: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto apagará todo o seu histórico de navegação e fechará todas as guias abertas. Tem certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
@@ -224,6 +226,7 @@
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Adicionar às páginas vigiadas</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Acompanhe o que está acontecendo com os artigos de seu interesse. Toque no menu flutuante e selecione &lt;b&gt;Adicionar à lista de páginas vigiadas&lt;/b&gt; para ver as alterações em um artigo.</string>
+  <string name="page_notification_tooltip">Suas notificações agora estão aqui.</string>
   <string name="settings_item_preferences">Configurações</string>
   <string name="settings_activity_title">Configurações</string>
   <string name="about_description">Sobre o aplicativo da Wikipédia</string>
@@ -604,6 +607,12 @@
   <string name="notification_preferences_title">Preferências de notificação</string>
   <string name="notifications_mark_unread">Marcar como não lida</string>
   <string name="notifications_mark_all_as_read">Marcas todas como lidas</string>
+  <string name="notifications_direct_reply_action">Responder</string>
+  <string name="notifications_direct_reply_progress">Postando resposta a %s…</string>
+  <string name="notifications_direct_reply_success" fuzzy="true">Resposta postada com sucesso.</string>
+  <string name="notifications_direct_reply_error">Não foi possível responder automaticamente.</string>
+  <string name="notifications_mark_all_as_read_message">%d marcado como lido</string>
+  <string name="notifications_mark_all_as_unread_message">%d marcado como não lido</string>
   <string name="watchlist_title">Lista de páginas vigiadas</string>
   <string name="preference_title_notification_poll">Pesquisa sobre notificações</string>
   <string name="preference_summary_notification_poll">Permitir que o aplicativo use dados para verificar em segundo plano se existem novas notificações</string>
@@ -632,10 +641,35 @@
   <string name="preference_title_customize_push_notifications">Personalizar notificações de push</string>
   <string name="preference_category_display_settings">Configuração de exibição</string>
   <string name="preference_title_hide_read_notifications">Ocultar notificações lidas</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">Notificações da Wikipédia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipédia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notificações da Wikipédia</string>
   <string name="notifications_channel_group_other_title">Outro</string>
   <string name="notifications_channel_group_other_description">Outras notificações do aplicativo</string>
+  <string name="notifications_filter_label">Filtrar notificações</string>
+  <string name="notifications_filter_icon_content_description">Filtrar notificações</string>
+  <string name="notifications_filter_add_app_languages">Adicionar ou editar idiomas do aplicativo</string>
+  <string name="notifications_empty_search_message">Tente remover %s para ver mais notificações</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filtro</item>
+    <item quantity="other">%d filtros</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Selecionar todos os filtros</string>
+  <string name="notifications_tab_filter_all">Todos</string>
+  <string name="notifications_tab_filter_mentions">Menções</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_search_bar_hint">Pesquisar ou filtrar notificações</string>
+  <string name="notifications_search_bar_filter_hint">Filtro de notificação</string>
+  <string name="notifications_menu_mark_as_read">Marcar como lida</string>
+  <string name="notifications_menu_mark_as_unread">Marcar como não lida</string>
+  <string name="notifications_swipe_action_read">Ler</string>
+  <string name="notifications_swipe_action_unread">Não lidas</string>
+  <string name="notifications_menu_check_all">Verificar todos os itens</string>
+  <string name="notifications_menu_uncheck_all">Desmarque todos os itens</string>
+  <string name="notifications_wiki_filter_header">Filtro de wiki</string>
+  <string name="notifications_type_filter_header">Tipo de filtro</string>
+  <string name="notifications_all_wikis_text">Todas as \"wikis\"</string>
+  <string name="notifications_all_types_text">Todos os \"tipos\"</string>
+  <string name="notifications_menu_user_talk_page">página de discussão de %s</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
   <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_article_card_title">Artigo aleatório</string>
@@ -1016,6 +1050,8 @@
   <string name="talk_response_submitted">Resposta postada.</string>
   <string name="talk_snackbar_undo">Desfazer</string>
   <string name="talk_last_modified">&lt;b&gt;Última edição %1$s&lt;/b&gt; por %2$s</string>
+  <string name="talk_snackbar_survey_text">Obrigado por usar as páginas de discussão. Poderia nos ajudar a melhorar o aplicativo participando de uma pesquisa?</string>
+  <string name="talk_snackbar_survey_action_text">Começar</string>
   <string name="menu_option_share_edit">Compartilhar edição</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuições de %s</string>

@@ -4,6 +4,7 @@ import android.content.Context
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.DailyStatsFunnel
+import org.wikipedia.analytics.eventplatform.DailyStatsEvent
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.math.max
@@ -26,6 +27,7 @@ class DailyEventTask(context: Context) : RecurringTask() {
 
     private fun logDailyEventReport() {
         DailyStatsFunnel(WikipediaApp.instance).log(WikipediaApp.instance)
+        DailyStatsEvent.log(WikipediaApp.instance)
     }
 
     private fun isDailyEventDue(lastRun: Date): Boolean {

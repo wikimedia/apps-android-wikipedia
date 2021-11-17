@@ -12,6 +12,7 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE
 import org.wikipedia.R
@@ -116,7 +117,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     }
 
     private fun getProperLanguageCode(summary: PageSummaryForEdit, imageFromCommons: Boolean): String {
-        return if (!imageFromCommons || summary.lang == "commons") {
+        return if (!imageFromCommons || summary.lang == Constants.WIKI_CODE_COMMONS) {
             WikipediaApp.instance.appLanguageState.appLanguageCode
         } else {
             summary.lang

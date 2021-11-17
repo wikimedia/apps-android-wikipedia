@@ -110,6 +110,14 @@ object UriUtil {
     }
 
     @JvmStatic
+    fun isAppSupportedLink(uri: Uri): Boolean {
+        val supportedAuthority = uri.authority?.run { WikiSite.supportedAuthority(this) } == true
+        return (uri.path?.run { matches(("^$WIKI_REGEX.*").toRegex()) } == true ||
+                !uri.fragment.isNullOrEmpty() ||
+                !uri.getQueryParameter("title").isNullOrEmpty() && !uri.getQueryParameter("diff").isNullOrEmpty()) && supportedAuthority
+    }
+
+    @JvmStatic
     fun handleExternalLink(context: Context, uri: Uri) {
         visitInExternalBrowser(context, uri)
     }
@@ -161,5 +169,11 @@ object UriUtil {
     @VisibleForTesting
     fun removeFragment(link: String): String {
         return link.replaceFirst("#.*$".toRegex(), "")
+    }
+
+    @JvmStatic
+    fun parseTalkTopicFromFragment(fragment: String): String {
+        val index = fragment.indexOf("Z-")
+        return if (index >= 0) fragment.substring(index + 2) else fragment
     }
 }

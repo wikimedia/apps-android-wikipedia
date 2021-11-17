@@ -376,6 +376,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         private const val PANEL_SEARCH_RESULTS = 1
         const val RESULT_LANG_CHANGED = 1
         const val LANG_BUTTON_TEXT_SIZE_LARGER = 12
+        const val LANG_BUTTON_TEXT_SIZE_MEDIUM = 10
         const val LANG_BUTTON_TEXT_SIZE_SMALLER = 8
 
         @JvmStatic

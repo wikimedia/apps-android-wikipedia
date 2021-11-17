@@ -56,7 +56,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
                     rsp.body!!.contentType()!!.charset(Charset.defaultCharset())!!.name(),
                     rsp.code,
                     rsp.message.ifBlank { "Unknown error" },
-                    toMap(addResponseHeaders(rsp.headers)),
+                    addResponseHeaders(rsp.headers).toMap(),
                     getInputStream(rsp))
             }
         } catch (e: Exception) {
@@ -118,14 +118,6 @@ abstract class OkHttpWebViewClient : WebViewClient() {
     private fun addResponseHeaders(headers: Headers): Headers {
         // add CORS header to allow requests from all domains.
         return headers.newBuilder().set("Access-Control-Allow-Origin", "*").build()
-    }
-
-    private fun toMap(headers: Headers): Map<String, String> {
-        val map = mutableMapOf<String, String>()
-        for (i in 0 until headers.size) {
-            map[headers.name(i)] = headers.value(i)
-        }
-        return map
     }
 
     private fun getInputStream(rsp: Response): InputStream? {
