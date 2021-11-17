@@ -15,16 +15,16 @@ import java.util.*
 
 @Serializable
 @Entity(primaryKeys = ["id", "wiki"])
-class Notification(val id: Long = 0,
-                   val wiki: String = "",
+class Notification(var id: Long = 0,
+                   var wiki: String = "",
                    var read: String? = null,
-                   val category: String = "",
-                   val type: String = "",
-                   val revid: Long = 0,
-                   val title: Title? = null,
-                   val agent: Agent? = null,
-                   val timestamp: Timestamp? = null,
-                   @SerialName("*") val contents: Contents? = null) {
+                   var category: String = "",
+                   var type: String = "",
+                   var revid: Long = 0,
+                   var title: Title? = null,
+                   var agent: Agent? = null,
+                   var timestamp: Timestamp? = null,
+                   @SerialName("*") var contents: Contents? = null) {
 
     val utcIso8601: String
         get() = timestamp?.utciso8601.orEmpty()
