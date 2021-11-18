@@ -269,6 +269,10 @@
   <string name="edit_summary_tag_other_hint">Andere Wege, wie du die Seite verbessert hast</string>
   <string name="edit_conflict_title">Bearbeitungskonflikt</string>
   <string name="edit_conflict_message">Die Seite wurde bereits von einem anderen Benutzer verändert und kollidiert mit deiner Bearbeitung. Bitte kopiere deine Bearbeitungen, gehe zurück, aktualisiere die Seite und versuche die Bearbeitung erneut.</string>
+  <string name="edit_notices">Bearbeitungsnotizen</string>
+  <string name="edit_notices_please_read">Bitte vor der Bearbeitung lesen</string>
+  <string name="edit_notices_show_auto">Automatische Anzeige von Bearbeitungshinweisen</string>
+  <string name="edit_notices_tooltip">Tippe auf diese Schaltfläche, um die Bearbeitungshinweise für diesen Artikel anzuzeigen.</string>
   <string name="find_next">Nächste finden</string>
   <string name="find_previous">Vorherige finden</string>
   <string name="find_first_occurence">Dies ist das erste Auftreten</string>

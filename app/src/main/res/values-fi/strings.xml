@@ -195,7 +195,7 @@
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
   <string name="send_feedback">Lähetä palautetta sovelluksesta</string>
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>
-  <string name="preferences_heading_syncing">Synkronoidaan</string>
+  <string name="preferences_heading_syncing">Synkronointi</string>
   <string name="preferences_heading_data_usage">Datan käyttö</string>
   <string name="preferences_heading_experimental">Kokeellinen</string>
   <string name="preference_title_sync_reading_lists_from_account">Lukulistojen synkronointi</string>
@@ -650,12 +650,15 @@
   <string name="notifications_tab_filter_all">Kaikki</string>
   <string name="notifications_tab_filter_mentions">Maininnat</string>
   <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_search_bar_hint">Etsi tai suodata ilmoituksia</string>
   <string name="notifications_menu_mark_as_read">Merkitse luetuksi</string>
   <string name="notifications_menu_mark_as_unread">Merkitse lukemattomaksi</string>
   <string name="notifications_swipe_action_read">Luettu</string>
   <string name="notifications_swipe_action_unread">Lukematon</string>
   <string name="notifications_menu_check_all">Tarkista kaikki kohteet</string>
+  <string name="notifications_menu_uncheck_all">Poista valinta kaikista</string>
   <string name="notifications_wiki_filter_header">Wikisuodatin</string>
+  <string name="notifications_menu_user_talk_page">Käyttäjän %s keskustelusivu</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
   <string name="view_random_article_card_title">Satunnainen artikkeli</string>
@@ -928,6 +931,7 @@
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
   <string name="file_page_add_image_tags_button">Lisää kuvamerkintöjä</string>
+  <string name="file_page_suggestion_reason">Ehdotuksen syy</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
@@ -943,7 +947,7 @@
   <string name="onboarding_get_started">Aloitetaan</string>
   <string name="onboarding_maybe_later">Ehkä myöhemmin</string>
   <string name="onboarding_explore_title">Uusia tapoja tutkia</string>
-  <string name="onboarding_explore_text">Sukella Wikipedian jäniksenkoloon jatkuvasti päivittyvällä Tutustu-syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; syöte kiinnostuksen kohteillesi – onko se historiallisten tapahtumien oppimista &lt;b&gt;Tänä päivänä&lt;/b&gt;, tai heitä noppaa &lt;b&gt;satunnaisesti&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Sukella Wikipedian jäniksenkoloon jatkuvasti päivittyvällä Tutustu-syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; syöte kiinnostuksen kohteillesi – onko se historiallisten tapahtumien oppimista &lt;b&gt;tänä päivänä&lt;/b&gt;, tai heitä noppaa &lt;b&gt;satunnaisesti&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Synkronoidut lukulistat</string>
   <string name="onboarding_reading_list_sync_text_v2">Voit tehdä lukulistoja artikkeleista, joita haluat lukea myöhemmin, jopa silloin kun olet offline-tilassa. &lt;br/&gt;Kirjaudu Wikipedia-tunnuksellesi synkronoidaksesi lukulistojasi. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Lähetä dataa nimettömästi</string>

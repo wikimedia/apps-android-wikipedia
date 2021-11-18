@@ -47,6 +47,8 @@
   <string name="app_settings">App အပြင်အဆင်များ</string>
   <string name="history_list_title">ရာဇဝင်</string>
   <string name="image_content_description">ဓါတ်ပုံ- %s</string>
+  <string name="wikimedia_commons">ဝီကီမီဒီယာ ကွန်မွန်းစ်</string>
+  <string name="wikidata">ဝီကီဒေတာ</string>
   <string name="dialog_title_clear_history">အသုံးပြုမှတ်တမ်း ရှင်းလင်းရန်</string>
   <string name="dialog_message_clear_history">သင်၏ အသုံးပြုမှတ်တမ်းများ အားလုံးကို ဖျက်ပြီး လက်ရှိဖွင့်ထားသမျှကို ပိတ်ပါမည်။ သင်သေချာပြီလား?</string>
   <string name="dialog_message_clear_history_yes">လုပ်မည်</string>
@@ -245,6 +247,8 @@
   <string name="edit_summary_tag_other_hint">စာမျက်နှာအား တိုးတက်ကောင်းမွန်စေခဲ့သည့် အခြားနည်းလမ်းများ</string>
   <string name="edit_conflict_title">အငြင်းပွားဖွယ် တည်းဖြတ်မှု</string>
   <string name="edit_conflict_message">စာမျက်နှာကို မတူညီသော အသုံးပြုသူတစ်ဦးမှ ပြုပြင်ခဲ့ပြီး သင်၏တည်းဖြတ်မှုနှင့် ကွဲလွဲနေပါသည်။ သင်၏တည်းဖြတ်မှုကို မိတ္တူကူး၍ နောက်သို့ပြန်သွားကာ စာမျက်နှာအား refresh လုပ်ပါ၊ ပြီးလျင် ထပ်မံ၍ တည်းဖြတ်ကြည့်ပါ။</string>
+  <string name="edit_notices">အသိပေးချက်များကို တည်းဖြတ်ရန်</string>
+  <string name="edit_notices_please_read">မတည်းဖြတ်ခင် ကျေးဇူးပြ၍ဖတ်ပေးပါ</string>
   <string name="find_next">ရှေ့တွင် ရှာရန်</string>
   <string name="find_previous">နောက်တွင် ရှာရန်</string>
   <string name="find_first_occurence">ဤသည်မှာ ပထမဆုံးဖြစ်စဉ်ဖြစ်သည်။</string>
@@ -558,6 +562,7 @@
   <string name="notification_preferences_title">အသိပေးချက် ရွေးချယ်စရာများ</string>
   <string name="notifications_mark_unread">မဖတ်ရသေးကြောင်း မှတ်သားရန်</string>
   <string name="notifications_mark_all_as_read">အကုန်လုံး ဖတ်ရှုပြီးဖြစ်ကြောင်း မှတ်သားရန်</string>
+  <string name="notifications_direct_reply_action">စာပြန်ရန်</string>
   <string name="watchlist_title">စောင့်ကြည့်စာရင်း</string>
   <string name="preference_title_notification_poll">အသိပေးချက်များကို မဲဆန္ဒပေးရန်</string>
   <string name="preference_summary_notification_poll">နောက်ခံမှ အသိပေးချက်အသစ်များကို စစ်ဆေးရန် ဒေတာသုံးစွဲခွင့်ကို app အား ခွင့်ပြုမည်။</string>
@@ -584,6 +589,11 @@
   <string name="notifications_channel_group_wikipedia_notifications_title">ဝီကီပီးဒီးယား</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">ဝီကီပီဒီးယားမှ အသိပေးချက်များ</string>
   <string name="notifications_channel_group_other_title">အခြား</string>
+  <string name="notifications_filter_label">စိစစ်မှု အသိပေးချက်များ</string>
+  <string name="notifications_tab_filter_all">အားလုံး</string>
+  <string name="notifications_tab_filter_mentions">ရည်ညွန်းပြောဆိုချက်များ</string>
+  <string name="notifications_menu_mark_as_read">ဖတ်ပြီးကြောင်း မှတ်သားရန်</string>
+  <string name="notifications_swipe_action_read">ဖတ်ရန်</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
   <string name="view_random_article_card_title">ကျပန်း ဆောင်းပါး</string>
