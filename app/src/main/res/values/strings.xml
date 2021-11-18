@@ -675,6 +675,7 @@
     <string name="notifications_all_wikis_text">All \"wiki\"</string>
     <string name="notifications_all_types_text">All \"type\"</string>
     <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
+    <string name="notifications_offline_disable_message">The function is not available while offline.</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
