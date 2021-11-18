@@ -15,7 +15,6 @@ class LinkPreviewErrorView : LinearLayout {
     interface Callback {
         fun onAddToList()
         fun onDismiss()
-        fun onPageMissingMessage(): PageTitle
     }
 
     constructor(context: Context) : super(context)
@@ -27,8 +26,8 @@ class LinkPreviewErrorView : LinearLayout {
     val addToListCallback = OverlayViewAddToListCallback()
     val dismissCallback = OverlayViewDismissCallback()
 
-    fun setError(caught: Throwable?) {
-        val errorType = LinkPreviewErrorType[caught]
+    fun setError(caught: Throwable?, pageTitle: PageTitle) {
+        val errorType = LinkPreviewErrorType[caught, pageTitle]
         binding.viewLinkPreviewErrorIcon.setImageDrawable(AppCompatResources.getDrawable(context, errorType.icon))
 
         if (errorType === LinkPreviewErrorType.OFFLINE) {
@@ -37,10 +36,9 @@ class LinkPreviewErrorView : LinearLayout {
                     resources.getString(R.string.page_offline_notice_add_to_reading_list)).trimIndent()
             binding.viewLinkPreviewErrorText.text = message
         } else {
-            if (errorType == LinkPreviewErrorType.PAGE_MISSING) {
-                val pageTitle = callback?.onPageMissingMessage()
-                binding.viewLinkPreviewErrorText.text = StringUtil.fromHtml(context.resources.getString(errorType.text, pageTitle?.wikiSite?.uri,
-                    pageTitle?.prefixedText, pageTitle?.prefixedText?.replace("User:", "")))
+            if (errorType == LinkPreviewErrorType.USER_PAGE_MISSING) {
+                binding.viewLinkPreviewErrorText.text = StringUtil.fromHtml(context.resources.getString(errorType.text, pageTitle.wikiSite.uri,
+                    pageTitle.prefixedText, StringUtil.removeNamespace(pageTitle.prefixedText)))
                 binding.viewLinkPreviewErrorText.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
             } else
                 binding.viewLinkPreviewErrorText.text = context.resources.getString(errorType.text)

@@ -162,10 +162,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         dismiss()
     }
 
-    override fun onPageMissingMessage(): PageTitle {
-        return pageTitle
-    }
-
     private fun loadContent() {
         binding.linkPreviewProgress.visibility = View.VISIBLE
         disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText, null, null, null, null, null)
@@ -233,8 +229,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         binding.dialogLinkPreviewContentContainer.visibility = View.GONE
         binding.dialogLinkPreviewErrorContainer.visibility = View.VISIBLE
         binding.dialogLinkPreviewErrorContainer.callback = this
-        binding.dialogLinkPreviewErrorContainer.setError(caught)
-        LinkPreviewErrorType[caught].run {
+        binding.dialogLinkPreviewErrorContainer.setError(caught, pageTitle)
+        LinkPreviewErrorType[caught, pageTitle].run {
             overlayView?.let {
                 it.showSecondaryButton(false)
                 it.showTertiaryButton(false)
