@@ -738,6 +738,7 @@
   <string name="feed_accessibility_card_text">Short description for the accessibility card that tells user it is the bottom of the explore feed.</string>
   <string name="feed_accessibility_card_load_more_button">Button lable for manually loading more cards to the explore feed.</string>
   <string name="top_read_activity_title">Title for the screen with all top read links. \"%s\" represents the date string</string>
+  <string name="tabs_activity_title">Title for the tabs screen.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the article description field is empty.</string>
   <string name="description_edit_article_description_label">Label that prompts the user that the summary of the article shows under the label.\n{{Identical|Article}}</string>
   <string name="description_edit_translate_article_description_label_per_language">Label that prompts the user that the summary of the article shows under the label. %s represents the language of the description.</string>

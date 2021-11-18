@@ -739,6 +739,8 @@
 
     <string name="top_read_activity_title">Top read on %s</string>
 
+    <string name="tabs_activity_title">Tabs</string>
+
     <!-- Description editing -->
     <string name="description_edit_text_hint">Article description</string>
     <string name="description_edit_article_description_label">Article</string>
