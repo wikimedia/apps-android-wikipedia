@@ -31,17 +31,17 @@ class LinkPreviewErrorView : LinearLayout {
         binding.viewLinkPreviewErrorIcon.setImageDrawable(AppCompatResources.getDrawable(context, errorType.icon))
 
         if (errorType === LinkPreviewErrorType.OFFLINE) {
-            val message = (resources.getString(R.string.page_offline_notice_cannot_load_while_offline) +
+            val message = (context.getString(R.string.page_offline_notice_cannot_load_while_offline) +
                     "\n" +
-                    resources.getString(R.string.page_offline_notice_add_to_reading_list)).trimIndent()
+                    context.getString(R.string.page_offline_notice_add_to_reading_list)).trimIndent()
             binding.viewLinkPreviewErrorText.text = message
         } else {
             if (errorType == LinkPreviewErrorType.USER_PAGE_MISSING) {
-                binding.viewLinkPreviewErrorText.text = StringUtil.fromHtml(context.resources.getString(errorType.text, pageTitle.wikiSite.uri,
-                    pageTitle.prefixedText, StringUtil.removeNamespace(pageTitle.prefixedText)))
+                binding.viewLinkPreviewErrorText.text = StringUtil.fromHtml(context.getString(errorType.text,
+                        pageTitle.uri, pageTitle.displayText, StringUtil.removeNamespace(pageTitle.displayText)))
                 binding.viewLinkPreviewErrorText.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
             } else
-                binding.viewLinkPreviewErrorText.text = context.resources.getString(errorType.text)
+                binding.viewLinkPreviewErrorText.text = context.getString(errorType.text)
         }
     }
 

@@ -35,7 +35,6 @@ enum class LinkPreviewErrorType(@DrawableRes val icon: Int,
     abstract fun buttonAction(errorView: LinkPreviewErrorView): LinkPreviewOverlayView.Callback
 
     companion object {
-        @JvmStatic
         operator fun get(caught: Throwable?, pageTitle: PageTitle?): LinkPreviewErrorType {
             return if (caught != null && ThrowableUtil.is404(caught)) {
                 if (pageTitle?.namespace() == Namespace.USER)
