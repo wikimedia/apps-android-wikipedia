@@ -78,6 +78,7 @@
   <string name="search_tab_tooltip">Doğrudan bir arama terimi yazmaya başlamak için simgeye tekrar dokunun.</string>
   <string name="history_list_title">Geçmiş</string>
   <string name="image_content_description">Resim: %s</string>
+  <string name="wikidata">Vikiveri</string>
   <string name="dialog_title_clear_history">Tarama geçmişini temizle</string>
   <string name="dialog_message_clear_history">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
   <string name="dialog_message_clear_history_yes">Evet</string>
@@ -613,6 +614,11 @@
   <string name="notification_preferences_title">Bildirim tercihleri</string>
   <string name="notifications_mark_unread">Okunmamış olarak işaretle</string>
   <string name="notifications_mark_all_as_read">Tümünü okundu olarak işaretle</string>
+  <string name="notifications_direct_reply_action">Yanıtla</string>
+  <string name="notifications_direct_reply_success" fuzzy="true">Yanıt başarıyla gönderildi.</string>
+  <string name="notifications_direct_reply_error">Yanıt otomatik olarak gönderilemiyor.</string>
+  <string name="notifications_mark_all_as_read_message">%d okundu olarak işaretlendi</string>
+  <string name="notifications_mark_all_as_unread_message">%d okunmadı olarak işaretlendi</string>
   <string name="watchlist_title">İzleme listesi</string>
   <string name="preference_title_notification_poll">Anket bildirimleri</string>
   <string name="preference_summary_notification_poll">Uygulamanın, arka planda yeni bildirimleri kontrol etmek için veri kullanmasına izin verin.</string>

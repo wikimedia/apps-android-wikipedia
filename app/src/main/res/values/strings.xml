@@ -244,6 +244,10 @@
     <string name="edit_summary_tag_other_hint">Other ways you improved the page</string>
     <string name="edit_conflict_title">Edit conflict</string>
     <string name="edit_conflict_message">The page has already been modified by a different user, and is conflicting with your edit. Please copy your edits, go back and refresh the page, then try editing again.</string>
+    <string name="edit_notices">Edit notices</string>
+    <string name="edit_notices_please_read">Please read before editing</string>
+    <string name="edit_notices_show_auto">Show edit notices automatically</string>
+    <string name="edit_notices_tooltip">Tap this button to view edit notices for this article.</string>
     <string name="find_next">Find next</string>
     <string name="find_previous">Find previous</string>
     <string name="find_first_occurence">This is the first occurrence</string>
@@ -355,6 +359,7 @@
     <string name="error_message_generic">An error occurred</string>
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
+    <string name="error_user_page_does_not_exist"><![CDATA[Wikipedia does not have a <a href="%1$s/wiki/%2$s">user page</a> with this exact name. In general, this page should be created and edited by <b>%2$s</b>. If in doubt, please verify that \"%3$s\" exists.]]></string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
     <string name="view_wiki_error_message_timeout">Cannot connect to Wikipedia. Check your network connection, or try again later</string>
     <string name="reference_title">Reference %s</string>
@@ -647,6 +652,7 @@
     <string name="notifications_channel_group_other_description">Other notifications from the app</string>
     <string name="notifications_filter_label">Filter notifications</string>
     <string name="notifications_filter_icon_content_description">Filter notifications</string>
+    <string name="notifications_filter_add_app_languages">Add or edit app languages</string>
     <string name="notifications_empty_search_message">Try removing %s to see more notifications</string>
     <plurals name="notifications_number_of_filters">
         <item quantity="one">%d filter</item>
@@ -669,6 +675,7 @@
     <string name="notifications_all_wikis_text">All \"wiki\"</string>
     <string name="notifications_all_types_text">All \"type\"</string>
     <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
+    <string name="notifications_offline_disable_message">The function is not available while offline.</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->

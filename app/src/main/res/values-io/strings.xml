@@ -40,6 +40,8 @@
   <string name="search_tab_tooltip">Kliktez l\'ikono itere, por skribar vorto o texto por serchar.</string>
   <string name="history_list_title">Versionaro</string>
   <string name="image_content_description">Imajo: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Eliminar la listo historiala dil retnavigilo</string>
   <string name="dialog_message_clear_history">To eliminos komplete la listo di pagini vizitita de vua retnavigilo, e klozos omna pagini apertita. Ka tu deziras facar to?</string>
   <string name="dialog_message_clear_history_yes">Yes</string>
@@ -436,6 +438,13 @@
   <string name="notification_preferences_title">Preferaji pri notifiko</string>
   <string name="notifications_mark_unread">Indikez quale \"ne lektita\"</string>
   <string name="notifications_mark_all_as_read">Indikez omna quale \"lektita mesaji\"</string>
+  <string name="notifications_direct_reply_action">Respondez</string>
+  <string name="notifications_mark_all_as_read_message">%d indikar kom lektita</string>
+  <string name="notifications_mark_all_as_unread_message">%d indikar kom ne lektita</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 indikita kom lektita</item>
+    <item quantity="other">%d indikita kom lektita</item>
+  </plurals>
   <string name="watchlist_title">Surveyo-listo</string>
   <string name="preference_title_notification_poll">Poll notifications</string>
   <string name="preference_summary_notification_poll">Permisar l\'informatikoprogramo (\'\'app\'\') serchar nova avizi, an la dopa areo.</string>
@@ -462,6 +471,25 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Avizi de Wikipedio</string>
   <string name="notifications_channel_group_other_title">Altro</string>
   <string name="notifications_channel_group_other_description">Altra avizi del programo \'\'app\'\'</string>
+  <string name="notifications_filter_label">Filtrar avizi</string>
+  <string name="notifications_filter_icon_content_description">Filtrar avizi</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filtrilo</item>
+    <item quantity="other">%d filtrili</item>
+  </plurals>
+  <string name="notifications_tab_filter_all">Omna</string>
+  <string name="notifications_tab_filter_mentions">Mencioni</string>
+  <string name="notifications_search_bar_hint">Serchar o separar avizi</string>
+  <string name="notifications_search_bar_filter_hint">Filtrilo por avizi</string>
+  <string name="notifications_menu_mark_as_read">Indikez \"lektita\"</string>
+  <string name="notifications_menu_mark_as_unread">Indikez quale \"ne lektita\"</string>
+  <string name="notifications_swipe_action_read">Lektar</string>
+  <string name="notifications_swipe_action_unread">Ne-lektita</string>
+  <string name="notifications_menu_check_all">Verifikez omna detali</string>
+  <string name="notifications_wiki_filter_header">filtrilo dil wiki</string>
+  <string name="notifications_all_wikis_text">Omna \"wiki\"</string>
+  <string name="notifications_all_types_text">Omna \"tipi\"</string>
+  <string name="notifications_menu_user_talk_page">diskuto-pagino di %s\'s</string>
   <string name="view_because_you_read_card_title">Pro ke vu lektis</string>
   <string name="view_random_card_title">Hazarda selekto</string>
   <string name="view_random_article_card_title">Hazard artiklo</string>

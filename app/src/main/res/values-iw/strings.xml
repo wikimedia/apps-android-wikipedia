@@ -257,6 +257,10 @@
   <string name="edit_summary_tag_other_hint">איך עוד שיפרת את הדף</string>
   <string name="edit_conflict_title">התנגשות עריכה</string>
   <string name="edit_conflict_message">הדף כבר שוּנה על־ידי משתמש אחר, וזה מתנגש עם העריכה שלך. נא להעתיק את העריכות שלך, לחזור, לרענן את הדף, ולנסות לערוך שוב.</string>
+  <string name="edit_notices">הודעות לעורכים</string>
+  <string name="edit_notices_please_read">נא לקרוא לפני עריכה</string>
+  <string name="edit_notices_show_auto">להציג אוטומטית את ההודעות לעורכים</string>
+  <string name="edit_notices_tooltip">יש ללחוץ על הכפתור הזה כדי לצפות בהודעות לעורכים עבור הערך הזה.</string>
   <string name="find_next">חיפוש הבא</string>
   <string name="find_previous">חיפוש הקודם</string>
   <string name="find_first_occurence">זה המופע הראשון</string>
@@ -625,10 +629,22 @@
   <string name="notifications_mark_all_as_read">לסמן שהכול נקרא</string>
   <string name="notifications_direct_reply_action">תגובה</string>
   <string name="notifications_direct_reply_progress">שליחת תגובה למשתמש %s...</string>
-  <string name="notifications_direct_reply_success">התגובה נשלחה בהצלחה.</string>
+  <string name="notifications_direct_reply_success">התגובה נשלחה.</string>
   <string name="notifications_direct_reply_error">לא היה אפשר לשלוח תגובה אוטומטית.</string>
   <string name="notifications_mark_all_as_read_message">%d סומנו כהודעות שנקראו</string>
   <string name="notifications_mark_all_as_unread_message">%d סומנו כהודעות שלא נקראו</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">אחת סומנה בתור התראה שנקראה</item>
+    <item quantity="two">%d סומנו בתור התראות שנקראו</item>
+    <item quantity="many">%d סומנו בתור התראות שנקראו</item>
+    <item quantity="other">%d סומנו בתור התראות שנקראו</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">אחת סומנה בתור התראה שלא נקראה</item>
+    <item quantity="two">%d סומנו בתור התראות שלא נקראו</item>
+    <item quantity="many">%d סומנו בתור התראות שלא נקראו</item>
+    <item quantity="other">%d סומנו בתור התראות שלא נקראו</item>
+  </plurals>
   <string name="watchlist_title">רשימת המעקב</string>
   <string name="preference_title_notification_poll">דגימת הודעות</string>
   <string name="preference_summary_notification_poll">לאפשר ליישום להשתמש בנתונים כדי לבדוק הודעות חדשות ברקע.</string>
@@ -663,6 +679,7 @@
   <string name="notifications_channel_group_other_description">התראות אחרות מהיישום</string>
   <string name="notifications_filter_label">סינון התראות</string>
   <string name="notifications_filter_icon_content_description">סינון התראות</string>
+  <string name="notifications_filter_add_app_languages">הוספה או עריכה של שפות היישום</string>
   <string name="notifications_empty_search_message">נא לנסות להסיר את %s כדי לראות עוד התראות</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">מסנן אחד</item>
@@ -841,7 +858,7 @@
   <string name="suggested_edits_image_preview_dialog_image">קובץ</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">קובץ מוויקישיתוף</string>
   <string name="suggested_edits_image_preview_dialog_artist">יוצר</string>
-  <string name="suggested_edits_image_preview_dialog_tags">תגיות</string>
+  <string name="suggested_edits_image_preview_dialog_tags">תגים</string>
   <string name="suggested_edits_image_preview_dialog_date">תאריך</string>
   <string name="suggested_edits_image_preview_dialog_source">מקור/צלם</string>
   <string name="suggested_edits_image_preview_dialog_licensing">רישיון</string>
@@ -854,7 +871,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">הצגה</string>
   <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב תמונה</string>
   <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב תמונה (%s)</string>
-  <string name="suggested_edits_feed_card_add_image_tags">הוספת תגיות תמונה</string>
+  <string name="suggested_edits_feed_card_add_image_tags">הוספת תגי תמונה</string>
   <string name="suggested_edits_snackbar_survey_text">איך הייתה חוויית העריכה שלך? נשמח אם יתאפשר לך להשקיע בנו רגע קט למלא סקר בנוגע לעריכה בעזרת היישום.</string>
   <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
   <string name="suggested_edits_task_action_text_add">הוספה</string>
@@ -866,7 +883,7 @@
   <string name="suggested_edits_image_tags_onboarding_title">תיוג תמונות עוזר לאחרים למצוא אותן.</string>
   <string name="suggested_edits_image_tags_onboarding_text">אימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
-  <string name="suggested_edits_image_tags_task_detail">הוספת תגויות שונות לתמונות כדי שלאחרים יהיה קל יותר למצוא אותן.</string>
+  <string name="suggested_edits_image_tags_task_detail">הוסיפו תגים מותאמים אישית לתמונה כדי שיהיה קל יותר למצוא אותה.</string>
   <string name="suggested_edits_image_tags_choose">נא לבחור או להוסיף תגים תואמים</string>
   <string name="suggested_edits_image_tags_published_list">תגים שפורסמו</string>
   <string name="suggested_edits_image_tags_search">חיפוש תגים</string>
@@ -876,8 +893,8 @@
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;שלום %s&lt;/b&gt;, להלן אפשר למצוא כמה דרכים מהירות ופשוטות לעזור לשפר את ויקיפדיה. יהיה אפשר לראות את השינוי שאתה עושה מייד אחרי שתעשה אותו. עריכה מהנה!</string>
-  <string name="suggested_edits_image_captions_task_detail">נא לתאר את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">נא לסכם את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
+  <string name="suggested_edits_image_captions_task_detail">תארו את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">סַכמו את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
   <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך עד עכשיו.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים ברצף תרמת. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
   <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים.</string>
@@ -915,7 +932,7 @@
   <string name="suggested_edits_what_is_text">עריכות מוצעות מציגות הזדמנויות לתרומות קטנות, אבל מועילות לוויקיפדיה.</string>
   <string name="suggested_edits_learn_more">מידע נוסף</string>
   <string name="suggested_edits_paused_title">מושהה</string>
-  <string name="suggested_edits_disabled_title">מבוטל</string>
+  <string name="suggested_edits_disabled_title">כבוי</string>
   <string name="suggested_edits_ip_blocked_title">כתובת ה־IP חסומה</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>

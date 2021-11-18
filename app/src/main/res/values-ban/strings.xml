@@ -36,6 +36,8 @@
   <string name="search_tab_tooltip">Teken ikon malih antuk ngawitin ngetik paistilah parerehan</string>
   <string name="history_list_title">Lelintihan</string>
   <string name="image_content_description">Gambar: %s</string>
+  <string name="wikimedia_commons">Wikimédia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Apus leliltihan parerehan</string>
   <string name="dialog_message_clear_history">Puniki pacang ngapus sinamian lelintihan parerehan Ida, miwah minutup tab sané mangkin kantun kabuka. Napiké Ida seken?</string>
   <string name="dialog_message_clear_history_yes">Inggih</string>
@@ -194,10 +196,16 @@
   <string name="privacy_policy_description">Awig-awig indik data praragan</string>
   <string name="terms_of_use_description">Katentuan pawigunaan</string>
   <string name="about_wikipedia_url">https://ban.wikipedia.org/wiki/Wikipedia:Indik</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://ban.wikipedia.org/wiki/Wikipedia:Pinunas_satunggal_akun</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kapustakaan kaanggén</string>
   <string name="about_contributors_heading">Papituut</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Kaca seka&lt;/a&gt;</string>
   <string name="about_translators_heading">Pangalih basa</string>
   <string name="about_app_license_heading">Lisénsi</string>
   <string name="about_activity_title">Indik</string>

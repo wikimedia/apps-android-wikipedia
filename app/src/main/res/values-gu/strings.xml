@@ -26,7 +26,7 @@
   <string name="menu_page_find_in_page" fuzzy="true">પાનામાં શોધો</string>
   <string name="menu_page_share" fuzzy="true">વહેંચો</string>
   <string name="last_updated_text">%s એ છેલ્લું અદ્યતન કરાયું</string>
-  <string name="preference_title_language" fuzzy="true">વિકિપીડિયા ભાષા</string>
+  <string name="preference_title_language">વિકિપીડિયા ભાષાઓ</string>
   <string name="langlinks_filter_hint">શોધ</string>
   <string name="langlinks_empty">આ પાનું અન્ય ભાષાઓમાં ઉપલબ્ધ નથી.</string>
   <string name="langlinks_no_match" fuzzy="true">તમારી પૃચ્છાને અનુકૂળ કોઈ ભાષા મળી નથી.</string>

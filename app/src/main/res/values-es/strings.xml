@@ -6,6 +6,7 @@
 * Anarhistička Maca
 * Asierog
 * Athena in Wonderland
+* Bruno44101
 * Canaan9801
 * Codynguyen1116
 * Cooltey
@@ -637,6 +638,15 @@
   <string name="notification_preferences_title">Ajustes de notificaciones</string>
   <string name="notifications_mark_unread">Marcar como no leído</string>
   <string name="notifications_mark_all_as_read">Marcar todo como leído</string>
+  <string name="notifications_direct_reply_success">Respuesta publicada.</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 marcado como no leído </item>
+    <item quantity="other">%d marcado como no leído</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 marcado como no leído </item>
+    <item quantity="other">%d marcado como no leído</item>
+  </plurals>
   <string name="watchlist_title">Lista de seguimiento</string>
   <string name="preference_title_notification_poll">Verificar notificaciones</string>
   <string name="preference_summary_notification_poll">Habilitar a la aplicación para usar datos para las nuevas notificaciones en segundo plano</string>

@@ -19,8 +19,11 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -32,7 +35,7 @@ object NotificationPresenter {
         val notificationCategory = NotificationCategory.find(n.category)
         var activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id, n.type)
         val builder = getDefaultBuilder(context, n.id, n.type, notificationCategory)
-        val title: String = StringUtil.fromHtml(if (n.contents != null) n.contents.header else "").toString()
+        val title = RichTextUtil.stripHtml(n.contents?.header.orEmpty())
         val id = n.key().toInt()
 
         n.contents?.links?.let {
@@ -89,7 +92,7 @@ object NotificationPresenter {
     fun showNotification(context: Context, builder: NotificationCompat.Builder, id: Int,
                          title: String, text: String, longText: CharSequence, lang: String?,
                          @DrawableRes icon: Int, @ColorRes color: Int, bodyIntent: Intent) {
-        builder.setContentIntent(PendingIntent.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT))
+        builder.setContentIntent(PendingIntent.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
                 .setLargeIcon(drawNotificationBitmap(context, color, icon, lang.orEmpty().uppercase(Locale.getDefault())))
                 .setSmallIcon(R.drawable.ic_wikipedia_w)
                 .setColor(ContextCompat.getColor(context, color))
@@ -101,7 +104,7 @@ object NotificationPresenter {
 
     private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
         val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(Intent(Intent.ACTION_VIEW, Uri.parse(link.url)), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT)
+                addIntentExtras(Intent(Intent.ACTION_VIEW, Uri.parse(link.url)), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
         val labelStr: String = if (link.tooltip.isNotEmpty()) {
             StringUtil.fromHtml(link.tooltip).toString()
         } else {
@@ -128,7 +131,7 @@ object NotificationPresenter {
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_TITLE, title)
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_REPLY_TO, replyTo)
             .putExtra(NotificationPollBroadcastReceiver.RESULT_EXTRA_ID, id)
-        val resultPendingIntent = PendingIntent.getBroadcast(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val resultPendingIntent = PendingIntent.getBroadcast(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
 
         val action = NotificationCompat.Action.Builder(R.drawable.ic_reply_24, context.getString(R.string.notifications_direct_reply_action), resultPendingIntent)
             .addRemoteInput(remoteInput)

@@ -115,6 +115,7 @@ class TalkTopicsActivity : BaseActivity() {
     public override fun onResume() {
         super.onResume()
         loadTopics()
+        TalkPageSurvey.maybeShowSurvey(this@TalkTopicsActivity, editSubmitted = false)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -157,7 +158,7 @@ class TalkTopicsActivity : BaseActivity() {
                     .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
                         override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
                             super.onDismissed(transientBottomBar, event)
-                            TalkPageSurvey.maybeShowSurvey(this@TalkTopicsActivity)
+                            TalkPageSurvey.maybeShowSurvey(this@TalkTopicsActivity, editSubmitted = true)
                         }
                     })
                     .show()
