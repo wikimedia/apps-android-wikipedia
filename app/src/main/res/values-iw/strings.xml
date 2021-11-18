@@ -932,7 +932,7 @@
   <string name="suggested_edits_what_is_text">עריכות מוצעות מציגות הזדמנויות לתרומות קטנות, אבל מועילות לוויקיפדיה.</string>
   <string name="suggested_edits_learn_more">מידע נוסף</string>
   <string name="suggested_edits_paused_title">מושהה</string>
-  <string name="suggested_edits_disabled_title">מבוטל</string>
+  <string name="suggested_edits_disabled_title">כבוי</string>
   <string name="suggested_edits_ip_blocked_title">כתובת ה־IP חסומה</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
