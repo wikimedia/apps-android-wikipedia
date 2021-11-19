@@ -71,7 +71,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         binding.progressBar.visibility = GONE
         binding.filePageView.visibility = GONE
         binding.errorView.visibility = VISIBLE
-        binding.errorView.setError(caught)
+        binding.errorView.setError(caught, pageSummaryForEdit.pageTitle)
     }
 
     private fun loadImageInfo() {

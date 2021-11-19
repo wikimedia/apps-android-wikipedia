@@ -8,6 +8,7 @@ import org.wikipedia.analytics.NotificationPreferencesFunnel
 
 class NotificationSettingsActivity : SingleFragmentActivity<NotificationSettingsFragment>() {
     public override fun createFragment(): NotificationSettingsFragment {
+        setResult(RESULT_OK)
         return NotificationSettingsFragment.newInstance()
     }
 

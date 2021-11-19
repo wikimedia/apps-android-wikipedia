@@ -25,10 +25,10 @@ import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ViewNotificationActionsOverflowBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.notifications.Notification
 import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationLinkHandler
 import org.wikipedia.notifications.NotificationListItemContainer
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil

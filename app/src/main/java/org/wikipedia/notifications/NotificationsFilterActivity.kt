@@ -25,6 +25,7 @@ class NotificationsFilterActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsFiltersBinding.inflate(layoutInflater)
+        setResult(RESULT_OK)
         setUpRecyclerView()
         setContentView(binding.root)
     }
