@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*
 
-object AppTypeConverters {
+class AppTypeConverters {
     @TypeConverter
     fun timestampToDate(value: Long?): Date? {
         return value?.let { Date(it) }

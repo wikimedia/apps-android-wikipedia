@@ -185,7 +185,7 @@ dependencies {
     String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.7'
     String kotlinCoroutinesVersion = '1.3.9'
-    String firebaseMessagingVersion = '22.0.0'
+    String firebaseMessagingVersion = '23.0.0'
     String mlKitVersion = '17.0.1'
     String roomVersion = "2.3.0"
     String espressoVersion = '3.4.0'
@@ -200,8 +200,8 @@ dependencies {
 
     implementation "com.google.android.material:material:1.4.0"
     implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation "androidx.core:core-ktx:1.6.0"
-    implementation "androidx.browser:browser:1.3.0"
+    implementation "androidx.core:core-ktx:1.7.0"
+    implementation "androidx.browser:browser:1.4.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     implementation "androidx.fragment:fragment-ktx:1.3.6"
     implementation "androidx.palette:palette-ktx:1.0.0"
