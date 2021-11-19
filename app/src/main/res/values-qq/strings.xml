@@ -556,6 +556,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Negative action button text in pop-up dialog for removing article from offline storage.\n{{Identical|Cancel}}</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Negative action button text in pop-up dialog for downloading content on mobile data connection.\n{{Identical|Cancel}}</string>
   <string name="reading_list_split_dialog_ok_button_text">Positive action button text in warning pop-up dialog for splitting large reading lists.\n{{Identical|OK}}</string>
+  <string name="reading_list_activity_title">Title for reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_reverted_title">Title for notification when an edit made by the user is reverted.</string>
   <string name="notification_channel_title">Title of the notification channel</string>

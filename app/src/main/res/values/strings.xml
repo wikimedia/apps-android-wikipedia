@@ -545,6 +545,7 @@
     <string name="reading_list_remove_from_offline_cancel_button_text">Cancel</string>
     <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel</string>
     <string name="reading_list_split_dialog_ok_button_text">OK</string>
+    <string name="reading_list_activity_title">Reading list: %s</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

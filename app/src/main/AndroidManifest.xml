@@ -278,7 +278,7 @@
 
         <activity
             android:name=".talk.TalkTopicsActivity"
-            android:label="@string/talk_title"
+            android:label=""
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
