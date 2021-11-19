@@ -427,6 +427,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
         binding.talkProgressBar.visibility = View.GONE
+        binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)
     }
 
