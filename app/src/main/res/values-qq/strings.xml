@@ -1094,4 +1094,6 @@
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
   <string name="error_user_page_does_not_exist">Error message text shown when the user page does not yet exist. %1$s represents the full URL that points to the user page, %2$s represents the username and %3$s represents username without namespace.</string>
+  <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
+  <string name="talk_share_discussion_subject">Subject text while sharing a talk topic discussion. %s represents the topic subject.</string>
 </resources>

@@ -28,7 +28,7 @@ object ShareUtil {
     private const val FILE_PROVIDER_AUTHORITY = BuildConfig.APPLICATION_ID + ".fileprovider"
     private const val FILE_PREFIX = "file://"
 
-    private fun shareText(context: Context, subject: String, text: String) {
+    fun shareText(context: Context, subject: String, text: String) {
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
         shareIntent.putExtra(Intent.EXTRA_TEXT, text)
