@@ -469,14 +469,15 @@ class NotificationActivity : BaseActivity() {
                 val n = container.notification!!
                 markReadItems(listOf(container), markUnread = false, fromUndoOrClick = true, position = itemPosition)
                 n.contents?.links?.getPrimary()?.let { link ->
-                    val url = link.url
+                    var url = link.url
                     if (url.isNotEmpty()) {
                         NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logAction(NotificationInteractionEvent.ACTION_PRIMARY, link)
                         NotificationInteractionEvent.logAction(n, NotificationInteractionEvent.ACTION_PRIMARY, link)
                         linkHandler.wikiSite = WikiSite(url)
                         if (url.contains(COMMONS_URL, true)) {
+                            val firstPart = url.split("?")[0]
                             val lastPart = url.split("#")[1]
-                            url.replace(lastPart, UriUtil.encodeURL(lastPart))
+                            url = firstPart + "#" + UriUtil.encodeURL(lastPart)
                         }
                         linkHandler.onUrlClick(url, null, "")
                     }
