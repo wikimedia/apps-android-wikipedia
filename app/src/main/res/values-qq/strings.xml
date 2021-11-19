@@ -323,6 +323,7 @@
   <string name="gallery_save_success">Message shown when the current media item is downloaded successfully.</string>
   <string name="gallery_error_video_failed">Error message displayed when a video fails to be played on the device.</string>
   <string name="gallery_save_image_write_permission_rationale">Message shown to explain that an extra write permission is needed to save an image.</string>
+  <string name="gallery_edit_button_content_description">Content description for the edit button in the gallery item screen.</string>
   <string name="gallery_add_image_caption_button">A label text of adding caption to the image.</string>
   <string name="gallery_add_image_caption_in_language_button">A label text of adding caption to the image. The %s is replaced by the language that the caption was used.</string>
   <string name="err_cannot_save_file">Error message when we detect that a file cannot be written to storage.</string>
@@ -952,6 +953,7 @@
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
   <string name="file_page_suggestion_reason">Suggestion reason title text of the file summary shown in the file page.</string>
+  <string name="file_page_edit_button_content_description">Content description for the edit button in file page. The \"%s\" symbol is replaced with the name of the description type.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>

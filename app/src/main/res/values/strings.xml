@@ -299,6 +299,7 @@
     <string name="gallery_save_success">File saved.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="gallery_save_image_write_permission_rationale">Permission to write to storage on your device is required for saving images.</string>
+    <string name="gallery_edit_button_content_description">Edit image caption</string>
     <string name="gallery_add_image_caption_button">Add image caption</string>
     <string name="gallery_add_image_caption_in_language_button">Add image caption (%s)</string>
     <string name="err_cannot_save_file">Cannot save file</string>
@@ -975,6 +976,7 @@
     <string name="file_page_add_image_caption_button">Add image caption</string>
     <string name="file_page_add_image_tags_button">Add image tags</string>
     <string name="file_page_suggestion_reason">Suggestion reason</string>
+    <string name="file_page_edit_button_content_description">Edit %s</string>
     <!-- /File page -->
 
     <!-- Description editing revert help -->
