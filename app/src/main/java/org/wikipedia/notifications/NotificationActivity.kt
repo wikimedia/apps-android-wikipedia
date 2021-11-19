@@ -42,6 +42,7 @@ import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
+import org.wikipedia.dataclient.Service.Companion.COMMONS_URL
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.richtext.RichTextUtil
@@ -473,6 +474,10 @@ class NotificationActivity : BaseActivity() {
                         NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logAction(NotificationInteractionEvent.ACTION_PRIMARY, link)
                         NotificationInteractionEvent.logAction(n, NotificationInteractionEvent.ACTION_PRIMARY, link)
                         linkHandler.wikiSite = WikiSite(url)
+                        if (url.contains(COMMONS_URL, true)) {
+                            val lastPart = url.split("#")[1]
+                            url.replace(lastPart, UriUtil.encodeURL(lastPart))
+                        }
                         linkHandler.onUrlClick(url, null, "")
                     }
                 }
