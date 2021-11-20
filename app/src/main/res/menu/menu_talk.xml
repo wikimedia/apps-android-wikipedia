@@ -17,4 +17,9 @@
     <item android:id="@+id/menu_view_in_browser"
         android:title="@string/page_view_in_browser"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_talk_topic_share"
+        android:icon="@drawable/ic_share_material_secondary_themed"
+        android:title="@string/menu_option_share_talk_page"
+        app:showAsAction="ifRoom" />
 </menu>
