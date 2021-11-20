@@ -136,7 +136,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_talk_topic_share -> {
-                ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), pageTitle.uri+"#"+topic?.html)
+                ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), pageTitle.uri + "#" + topic?.html)
                 true
             }
             else -> super.onOptionsItemSelected(item)
