@@ -6,22 +6,21 @@ import org.wikipedia.page.Namespace
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.util.*
 
 class AppTypeConverters {
     @TypeConverter
-    fun timestampToDate(value: Long?): Date? {
-        return value?.let { Date(it) }
+    fun timestampToInstant(value: Long?): Instant? {
+        return value?.let { Instant.ofEpochMilli(it) }
     }
 
     @TypeConverter
-    fun dateToTimestamp(date: Date?): Long? {
-        return date?.time
+    fun instantToTimestamp(instant: Instant?): Long? {
+        return instant?.toEpochMilli()
     }
 
     @TypeConverter
     fun timestampToLocalDateTime(value: Long?): LocalDateTime? {
-        return value?.let { Instant.ofEpochMilli(it).atZone(ZoneId.systemDefault()).toLocalDateTime() }
+        return timestampToInstant(value)?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
     }
 
     @TypeConverter
