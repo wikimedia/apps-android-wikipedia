@@ -283,6 +283,10 @@
   <string name="edit_summary_tag_other_hint">Autres façons d’améliorer la page</string>
   <string name="edit_conflict_title">Conflit de modification</string>
   <string name="edit_conflict_message">La page a déjà été modifiée par un autre utilisateur et est en conflit avec votre modification. Veuillez copier vos modifications, revenir en arrière et rafraîchir la page, puis essayer de nouveau de la modifier.</string>
+  <string name="edit_notices">Avertissements de modification</string>
+  <string name="edit_notices_please_read">Veuillez lire avant de modifier</string>
+  <string name="edit_notices_show_auto">Afficher automatiquement les avertissements de modification</string>
+  <string name="edit_notices_tooltip">Taper sur ce bouton pour afficher les avertissements de modification pour cet article.</string>
   <string name="find_next">Rechercher le suivant</string>
   <string name="find_previous">Rechercher le précédent</string>
   <string name="find_first_occurence">Ceci est la première occurrence</string>
@@ -667,6 +671,7 @@
   <string name="notifications_channel_group_other_description">Autres notifications de l’application</string>
   <string name="notifications_filter_label">Filtrer les notifications</string>
   <string name="notifications_filter_icon_content_description">Filtrer les notifications</string>
+  <string name="notifications_filter_add_app_languages">Ajouter ou modifier des langues d’application</string>
   <string name="notifications_empty_search_message">Essayer de supprimer %s pour voir plus de notifications</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtre</item>

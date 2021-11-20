@@ -228,9 +228,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         binding.linkPreviewProgress.visibility = View.GONE
         binding.dialogLinkPreviewContentContainer.visibility = View.GONE
         binding.dialogLinkPreviewErrorContainer.visibility = View.VISIBLE
-        binding.dialogLinkPreviewErrorContainer.setError(caught)
         binding.dialogLinkPreviewErrorContainer.callback = this
-        LinkPreviewErrorType[caught].run {
+        binding.dialogLinkPreviewErrorContainer.setError(caught, pageTitle)
+        LinkPreviewErrorType[caught, pageTitle].run {
             overlayView?.let {
                 it.showSecondaryButton(false)
                 it.showTertiaryButton(false)
