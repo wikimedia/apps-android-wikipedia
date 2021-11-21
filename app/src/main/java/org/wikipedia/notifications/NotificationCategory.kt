@@ -51,13 +51,8 @@ enum class NotificationCategory constructor(val id: String,
 
         val MAP = EnumCodeMap(NotificationCategory::class.java)
 
-        fun findOrNull(id: String): NotificationCategory? {
-            for (i in 0 until MAP.size()) {
-                if (id == MAP[i].id || id.startsWith(MAP[i].id)) {
-                    return MAP[i]
-                }
-            }
-            return null
+        private fun findOrNull(id: String): NotificationCategory? {
+            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id.startsWith(it.id) }
         }
 
         fun find(id: String): NotificationCategory {
@@ -102,14 +97,13 @@ enum class NotificationCategory constructor(val id: String,
             notificationManagerCompat.deleteNotificationChannel("READING_LIST_SYNCING_CHANNEL")
             notificationManagerCompat.deleteNotificationChannel("SYNCING_CHANNEL")
 
-            for (i in 0 until MAP.size()) {
-                val category = MAP[i]
-                var notificationChannelCompat = notificationManagerCompat.getNotificationChannelCompat(category.id)
+            MAP.valueIterator().forEach {
+                var notificationChannelCompat = notificationManagerCompat.getNotificationChannelCompat(it.id)
                 if (notificationChannelCompat == null) {
-                    notificationChannelCompat = NotificationChannelCompat.Builder(category.id, category.importance)
-                        .setName(context.getString(category.title))
-                        .setDescription(context.getString(category.description))
-                        .setGroup(category.group)
+                    notificationChannelCompat = NotificationChannelCompat.Builder(it.id, it.importance)
+                        .setName(context.getString(it.title))
+                        .setDescription(context.getString(it.description))
+                        .setGroup(it.group)
                         .setLightColor(ContextCompat.getColor(context, R.color.accent50))
                         .setVibrationEnabled(true)
                         .build()

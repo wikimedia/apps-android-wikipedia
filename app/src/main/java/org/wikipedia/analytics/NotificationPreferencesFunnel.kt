@@ -16,15 +16,12 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
 
     fun done() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val toggleMap = mutableMapOf<String, Boolean>()
             val notificationManagerCompat = NotificationManagerCompat.from(app)
-            for (i in 0 until NotificationCategory.MAP.size()) {
-                val channelId = NotificationCategory.MAP[i].id
-                val importance =
-                    notificationManagerCompat.getNotificationChannel(channelId)?.importance
+            val toggleMap = NotificationCategory.MAP.valueIterator().asSequence().associate {
+                val importance = notificationManagerCompat.getNotificationChannel(it.id)?.importance
                 // TODO: figure out the "Show notifications" status
-                toggleMap[channelId] = importance != NotificationManagerCompat.IMPORTANCE_NONE &&
-                        importance != null && notificationManagerCompat.areNotificationsEnabled()
+                it.id to (importance != NotificationManagerCompat.IMPORTANCE_NONE &&
+                        importance != null && notificationManagerCompat.areNotificationsEnabled())
             }
 
             log(
