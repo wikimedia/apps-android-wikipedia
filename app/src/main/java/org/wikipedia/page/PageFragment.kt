@@ -50,6 +50,7 @@ import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementClient
@@ -688,6 +689,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 startGalleryActivity(title.prefixedText)
             }
 
+            override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
+                startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), title.displayText, revisionId, title.wikiSite.languageCode))
+            }
+
             // ignore
             override var wikiSite: WikiSite
                 get() = model.title?.run { wikiSite } ?: WikiSite.forLanguageCode("en")
@@ -1126,8 +1131,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun addToReadingList(title: PageTitle, source: InvokeSource, addToDefault: Boolean) {
         if (addToDefault) {
-            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), title, source) { readingListId ->
-                moveToReadingList(readingListId, title, source, false) }
+            var finalPageTitle = title
+            // Make sure handle redirected title before saving into database
+            disposables.add(ServiceFactory.getRest(title.wikiSite).getSummary(null, title.prefixedText)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate {
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), finalPageTitle, source) { readingListId ->
+                        moveToReadingList(readingListId, finalPageTitle, source, false) }
+                }
+                .subscribe({
+                    finalPageTitle = it.getPageTitle(title.wikiSite)
+                }, {
+                    L.e(it)
+                }))
         } else {
             callback()?.onPageAddToReadingList(title, source)
         }

@@ -40,6 +40,8 @@
   <string name="search_tab_tooltip">Повторно допрете ја иконата за да почнете со непосредно внесување на саканото пребарување.</string>
   <string name="history_list_title">Историја</string>
   <string name="image_content_description">Слика: %s</string>
+  <string name="wikimedia_commons">Ризница</string>
+  <string name="wikidata">Википодатоци</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -239,6 +241,10 @@
   <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
   <string name="edit_conflict_title">Спротиставеност во уредувањето</string>
   <string name="edit_conflict_message">Оваа страница е веќе изменета од друг корисник, и се коси со вашето уредување. Прекопирајте ги вашите уредувања, превчитајте ја страницата и обидете се повторно.</string>
+  <string name="edit_notices">Белешки за уредување</string>
+  <string name="edit_notices_please_read">Прочитајте пред да уредувате</string>
+  <string name="edit_notices_show_auto">Автоматски прикажувај белешки за уредување</string>
+  <string name="edit_notices_tooltip">Допрете на копчево за да ги видите белешките за уредувањето на оваа статија.</string>
   <string name="find_next">Најди следно</string>
   <string name="find_previous">Најди претходно</string>
   <string name="find_first_occurence">Ова е првото јавување</string>
@@ -575,6 +581,20 @@
   <string name="notification_preferences_title">Нагодувања на известувањата</string>
   <string name="notifications_mark_unread">Означи како непрочитано</string>
   <string name="notifications_mark_all_as_read">Означи ги сите како прочитани</string>
+  <string name="notifications_direct_reply_action">Одговори</string>
+  <string name="notifications_direct_reply_progress">Одговор на %s…</string>
+  <string name="notifications_direct_reply_success">Одговорот е објавен.</string>
+  <string name="notifications_direct_reply_error">Не можев автоматски да го објавам одговорот.</string>
+  <string name="notifications_mark_all_as_read_message">%d означени како прочитани</string>
+  <string name="notifications_mark_all_as_unread_message">%d означени како непрочитани</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 означено како прочитано</item>
+    <item quantity="other">%d означени како прочитани</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 означено како непрочитано</item>
+    <item quantity="other">%d означени како непрочитани</item>
+  </plurals>
   <string name="watchlist_title">Набљудувања</string>
   <string name="preference_title_notification_poll">Известувања за анкети</string>
   <string name="preference_summary_notification_poll">Дозволи му на прилогот да користи податоци за да проверува нови известувања во позадина.</string>
@@ -607,6 +627,31 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Известувања од Википедија</string>
   <string name="notifications_channel_group_other_title">Други</string>
   <string name="notifications_channel_group_other_description">Други известувања од прилогот</string>
+  <string name="notifications_filter_label">Филтрирање на известувања</string>
+  <string name="notifications_filter_icon_content_description">Филтрирање на известувања</string>
+  <string name="notifications_filter_add_app_languages">Додај или измени јазици на прилогот</string>
+  <string name="notifications_empty_search_message">Отстранете %s за да видите уште известувања</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d филтер</item>
+    <item quantity="other">%d филтри</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Избери ги сите филтри</string>
+  <string name="notifications_tab_filter_all">Сите</string>
+  <string name="notifications_tab_filter_mentions">Спомнувања</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_search_bar_hint">Пребарај или фитрирај известувања</string>
+  <string name="notifications_search_bar_filter_hint">Филтер на известувања</string>
+  <string name="notifications_menu_mark_as_read">Означи како прочитано</string>
+  <string name="notifications_menu_mark_as_unread">Означи како непрочитано</string>
+  <string name="notifications_swipe_action_read">Прочитано</string>
+  <string name="notifications_swipe_action_unread">Непрочитано</string>
+  <string name="notifications_menu_check_all">Штиклирај ги сите</string>
+  <string name="notifications_menu_uncheck_all">Отштиклирај ги сите</string>
+  <string name="notifications_wiki_filter_header">Викифилтер</string>
+  <string name="notifications_type_filter_header">Типски филтер</string>
+  <string name="notifications_all_wikis_text">Сите „вики“</string>
+  <string name="notifications_all_types_text">Сите „типски“</string>
+  <string name="notifications_menu_user_talk_page">Разговорна страница на %s</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
   <string name="view_random_article_card_title">Случајна статија</string>
@@ -987,6 +1032,8 @@
   <string name="talk_response_submitted">Одговорот е објавен.</string>
   <string name="talk_snackbar_undo">Врати</string>
   <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
+  <string name="talk_snackbar_survey_text">Ви благодариме што ги користите разговорните страници. Дали би можеле да ни помогнете да ја подобриме алаткава со тоа што ќе пополните една анкета?</string>
+  <string name="talk_snackbar_survey_action_text">Започни</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
   <string name="menu_option_user_profile">Профил на %s</string>
   <string name="menu_option_user_contributions">Придонеси на %s</string>

@@ -38,6 +38,7 @@
 * Viztor
 * VulpesVulpes825
 * WQL
+* Wsxy162
 * XinuGod
 * Xiplus
 * Xxoopiggy
@@ -216,7 +217,7 @@
   <string name="wikipedia_app_faq">维基百科应用FAQ</string>
   <string name="send_feedback">发送应用反馈</string>
   <string name="create_account_account_created_toast">账户已创建！</string>
-  <string name="preferences_heading_syncing">正在同步</string>
+  <string name="preferences_heading_syncing">同步</string>
   <string name="preferences_heading_data_usage">数据使用</string>
   <string name="preferences_heading_experimental">实验性</string>
   <string name="preference_title_sync_reading_lists_from_account">阅读列表同步</string>
@@ -654,6 +655,8 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">来自维基百科的通知</string>
   <string name="notifications_channel_group_other_title">其他</string>
   <string name="notifications_channel_group_other_description">来自应用程序的其他通知</string>
+  <string name="notifications_filter_label">过滤通知</string>
+  <string name="notifications_swipe_action_read">已读</string>
   <string name="view_because_you_read_card_title">因你而读</string>
   <string name="view_random_card_title">随机条目</string>
   <string name="view_random_article_card_title">随机条目</string>

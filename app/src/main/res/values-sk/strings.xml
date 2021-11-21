@@ -53,6 +53,8 @@
   <string name="search_tab_tooltip">Pre zadanie hľadaného výrazu stlačte toto tlačítko.</string>
   <string name="history_list_title">História</string>
   <string name="image_content_description">Obrázok: %s</string>
+  <string name="wikimedia_commons">Wikimédia Commons</string>
+  <string name="wikidata">Wikiúdaje</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
   <string name="dialog_message_clear_history">Toto odstráni celú Vašu históriu prehliadania a zavrie všetky otvorené karty. Pokračovať?</string>
   <string name="dialog_message_clear_history_yes">Áno</string>
@@ -252,6 +254,7 @@
   <string name="edit_summary_tag_other_hint">Iné spôsoby, ako ste vylepšili túto stránku</string>
   <string name="edit_conflict_title">Konflikt pri upravovaní</string>
   <string name="edit_conflict_message">Táto stránka bola upravená iným používateľom a jeho úprava je v konflikte s tou vašou. Prosím, skopírujte svoju úpravu, obnovte článok a skúste to znova.</string>
+  <string name="edit_notices">Editačné poznámky</string>
   <string name="find_next">Nájsť ďalšie</string>
   <string name="find_previous">Nájsť predchádzajúce</string>
   <string name="find_first_occurence">Toto je prvý výskyt</string>
@@ -618,6 +621,9 @@
   <string name="notification_preferences_title">Nastavenia notifikácií</string>
   <string name="notifications_mark_unread">Označiť ako neprečítané</string>
   <string name="notifications_mark_all_as_read">Označiť všetko ako prečítané</string>
+  <string name="notifications_direct_reply_action">Odpovedať</string>
+  <string name="notifications_direct_reply_progress">Odosielanie odpovede pre %s...</string>
+  <string name="notifications_direct_reply_success">Odpoveď zverejnená.</string>
   <string name="watchlist_title">Zoznam sledovaných</string>
   <string name="preference_title_notification_poll">Kontrola nových notifikácií</string>
   <string name="preference_summary_notification_poll">Povoliť aplikácii používanie dát ku kontrole nových notifikácií na pozadí.</string>
@@ -1054,6 +1060,8 @@
   <string name="talk_response_submitted">Odpoveď zverejnená.</string>
   <string name="talk_snackbar_undo">Vrátiť</string>
   <string name="talk_last_modified">&lt;b&gt;Naposledy upravil/a %1$s&lt;/b&gt; %2$s</string>
+  <string name="talk_snackbar_survey_text">Ďakujeme za používanie tejto aplikácie. Mohli by ste nám pomôcť zlepšiť aplikáciu a odpovedať na niekoľko otázok v našom prieskume?</string>
+  <string name="talk_snackbar_survey_action_text">Začať</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
   <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>

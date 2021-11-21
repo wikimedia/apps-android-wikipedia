@@ -25,7 +25,7 @@ def computeVersionName(label) {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     compileOptions {
         sourceCompatibility = JAVA_VERSION
@@ -39,8 +39,8 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 50377
+        targetSdkVersion 31
+        versionCode 50386
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -181,10 +181,10 @@ dependencies {
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
     String mockitoVersion = '3.4.0'
-    String leakCanaryVersion = '2.5'
+    String leakCanaryVersion = '2.7'
     String kotlinCoroutinesVersion = '1.3.9'
-    String firebaseMessagingVersion = '22.0.0'
-    String mlKitVersion = '17.0.0'
+    String firebaseMessagingVersion = '23.0.0'
+    String mlKitVersion = '17.0.1'
     String roomVersion = "2.3.0"
     String espressoVersion = '3.4.0'
     String serialization_version = '1.2.1'
@@ -195,9 +195,10 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
 
     implementation "com.google.android.material:material:1.4.0"
-    implementation "androidx.core:core-ktx:1.6.0"
-    implementation "androidx.browser:browser:1.3.0"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation "androidx.core:core-ktx:1.7.0"
+    implementation "androidx.browser:browser:1.4.0"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     implementation "androidx.fragment:fragment-ktx:1.3.6"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "androidx.preference:preference-ktx:1.1.1"

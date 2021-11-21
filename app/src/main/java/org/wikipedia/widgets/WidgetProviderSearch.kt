@@ -9,6 +9,7 @@ import android.widget.RemoteViews
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.log.L
 
 class WidgetProviderSearch : AppWidgetProvider() {
@@ -20,7 +21,7 @@ class WidgetProviderSearch : AppWidgetProvider() {
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_search)
             val pendingIntent = PendingIntent.getActivity(context, 0,
                     SearchActivity.newIntent(context, InvokeSource.WIDGET, null),
-                    PendingIntent.FLAG_UPDATE_CURRENT)
+                    PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
             remoteViews.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
             appWidgetManager.updateAppWidget(widgetId, remoteViews)
         }

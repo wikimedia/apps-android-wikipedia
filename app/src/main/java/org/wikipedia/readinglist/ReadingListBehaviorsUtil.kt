@@ -228,7 +228,7 @@ object ReadingListBehaviorsUtil {
 
     fun toggleOffline(activity: Activity, page: ReadingListPage, callback: Callback) {
         resetPageProgress(page)
-        if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi) {
+        if (Prefs.isDownloadOnlyOverWiFiEnabled && !DeviceUtil.isOnWiFi && !page.offline) {
             showMobileDataWarningDialog(activity) { _, _ ->
                 toggleOffline(activity, page, true)
                 callback.onCompleted()

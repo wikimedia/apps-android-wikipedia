@@ -37,6 +37,9 @@
   <string name="app_settings">Приложене оттамаш</string>
   <string name="search_tab_tooltip">Юха а тоӀабе иконка тӀа, хье лаха лаьрхӀа волаш дола хӀама Ӏочуязде дӀаволалургволаш.</string>
   <string name="history_list_title">Тархьар</string>
+  <string name="image_content_description">Сурт: %s</string>
+  <string name="wikimedia_commons">Викиларма</string>
+  <string name="wikidata">Викидараш</string>
   <string name="dialog_title_clear_history">ЦIенде хьалха даь хьажараш</string>
   <string name="dialog_message_clear_history">Iа хьалха хьа мел йийла хинна оагIонаш дIяргья исторе чура, еррига вкладкаш а дIакъовлалургья. ДIахо дIаяхийтта вай?</string>
   <string name="dialog_message_clear_history_yes">XӀаъу</string>
@@ -190,6 +193,7 @@
   <string name="page_protected_can_not_edit_title">Ер оагӀув лораеш я</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Зем беш йолча оагӀонашта юкъеяккха</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Хьай хьашт долча оагӀонаш тӀа фу хул зем баккха. ОагӀона тӀа хургдолча хувцамашка хьажа аьттув хургболаш &lt;b&gt;ТӀатоха зем-мугӀамá&lt;/b&gt; яздаьча тоӀабе.</string>
+  <string name="page_notification_tooltip">Хьога доагӀа хоамаш хӀанз укхаза да</string>
   <string name="settings_item_preferences">Оттамаш</string>
   <string name="settings_activity_title">Оттамаш</string>
   <string name="about_description">«Википеди» приложенех лаьца</string>
@@ -523,10 +527,12 @@
   <string name="reading_list_split_dialog_ok_button_text">ХӀАЪА</string>
   <string name="user_option_sync_label">Оттамаш</string>
   <string name="notification_reverted_title">Юхадаьккха тоадар</string>
+  <string name="notification_channel_title">Статьяш хьачуяхар</string>
   <string name="notification_channel_description">Чудаккхара прогресс</string>
   <string name="notification_syncing_pause_button">Пауза</string>
   <string name="notification_syncing_resume_button">ДӀахо дӀаяхийта</string>
   <string name="notification_syncing_cancel_button">Эшац</string>
+  <string name="notification_syncing_reading_list_channel_title">Ешаргйолаш дӀаехкача статьяй мугӀамий синхронизаци</string>
   <string name="notification_syncing_reading_list_channel_description">Дешара мугӀамашта еш йолча синхронизацен статус</string>
   <string name="notification_many_unread">Бийша боацаш %d хоам ба</string>
   <plurals name="notification_channel_name">
@@ -586,6 +592,21 @@
   <string name="notifications_view_archived_button_text">Хоамбара архивага хьажар</string>
   <string name="notification_preferences_title">Хоамбара оттамаш</string>
   <string name="notifications_mark_unread">Цадийшар морг белгалде</string>
+  <string name="notifications_mark_all_as_read">Дийшар морг белгалде</string>
+  <string name="notifications_direct_reply_action">Жоп ле</string>
+  <string name="notifications_direct_reply_progress">Жоп далар → %s…</string>
+  <string name="notifications_direct_reply_success">Жоп кепатехад.</string>
+  <string name="notifications_direct_reply_error">Жоп ши-шегӀа дӀадахийта вӀаштехьа даьланзар</string>
+  <string name="notifications_mark_all_as_read_message">%d белгалбаьб дийшар морг</string>
+  <string name="notifications_mark_all_as_unread_message">%d белгалбаьб цабийшар морг</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 белгалбаьб бийшар морг</item>
+    <item quantity="other">%d белгалбаьккхаб бийшар морг</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 белгалбаьб цабийшар морг</item>
+    <item quantity="other">%d белгалбаьб цабийшар морг</item>
+  </plurals>
   <string name="watchlist_title">Зем</string>
   <string name="preference_title_notification_poll">Хоаттамех дола хоамаш</string>
   <string name="preference_summary_notification_poll">Приложенега дарех пайда эца йиш хулийт, керда хоам бáр фона тӀа тохкаргдолаш.</string>
@@ -603,7 +624,7 @@
   <string name="preference_title_notification_mention">Хьо хьоахавар</string>
   <string name="preference_summary_notification_mention">Цхьане оагӀона тӀа хьоахаваьв(-яьй) хьо</string>
   <string name="preference_title_notification_user_talk">Къамаьла оагӀонаш тӀа</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Къамаьла оагӀонаш тӀара дола хоамбар</string>
+  <string name="preference_summary_notification_user_talk">Къамаьла оагӀонаш тӀара дола хоамаши жопаши</string>
   <string name="view_because_you_read_card_title">Хьалха дийшачунга хьажжá</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_article_card_title">Ца ховш нийсъенна статья</string>

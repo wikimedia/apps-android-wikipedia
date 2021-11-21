@@ -90,6 +90,7 @@
     <string name="preference_key_suggested_edits_survey_clicked">suggestedEditsSurveyClicked</string>
     <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
     <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
+    <string name="preference_key_show_talk_page_survey_attempts">showTalkPageSurveyAttempts</string>
     <string name="preference_key_visited_article_page">hasVisitedArticlePage</string>
     <string name="preference_key_match_system_theme">matchSystemTheme</string>
     <string name="preference_key_image_zoom_tooltip_shown">imageZoomTooltipShown</string>
@@ -119,5 +120,9 @@
     <string name="preference_key_watchlist_disabled_langs">watchlistDisabledLangs</string>
     <string name="preference_key_watchlist_page_onboarding_tooltip_shown">watchlistPageOnboardingTooltipShown</string>
     <string name="preference_key_watchlist_main_onboarding_tooltip_shown">watchlistMainOnboardingTooltipShown</string>
+    <string name="preference_key_excluded_wiki_codes_notification">filterNotificationExcludedWikiCodes</string>
+    <string name="preference_key_excluded_type_codes_notification">filterNotificationExcludedTypeCodes</string>
     <string name="preference_key_page_notification_tooltip_shown">pageNotificationTooltipShown</string>
+    <string name="preference_key_auto_show_edit_notices">autoShowEditNotices</string>
+    <string name="preference_key_edit_notices_tooltip_shown">editNoticesTooltipShown</string>
 </resources>

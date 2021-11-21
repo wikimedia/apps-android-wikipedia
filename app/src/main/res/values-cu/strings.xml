@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* NR Deblocked
 * Илья Драконов
 * ОйЛ
 -->
@@ -53,4 +54,6 @@
   <string name="about_translators_heading" fuzzy="true">тльци</string>
   <string name="edit_done" fuzzy="true">съхранѥниѥ</string>
   <string name="color_theme_select">ѳєма</string>
+  <string name="talk_snackbar_survey_text">​Спасибо​ за использованїе ​страницъ​ ѻбсꙋжденїѧ. ​не​ моглѝ ​бы​ ​вывы​ ​помочь​ на́мъ ᲂулꙋчшить приложе́нїе принѧ́въ ᲂу҆ча́стїе ​въ​ ѻпросе?</string>
+  <string name="talk_snackbar_survey_action_text">​Ⱀⰰⱍⰰⱅⱐ</string>
 </resources>
