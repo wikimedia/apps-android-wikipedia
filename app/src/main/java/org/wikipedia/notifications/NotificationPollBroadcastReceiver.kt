@@ -225,8 +225,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     NotificationInteractionFunnel(WikipediaApp.instance, n).logIncoming()
                     NotificationInteractionEvent.logIncoming(n, null)
                     NotificationPresenter.showNotification(context, n,
-                            (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki)) DBNAME_WIKI_NAME_MAP[n.wiki] else n.wiki)!!,
-                            (if (DBNAME_WIKI_SITE_MAP.containsKey(n.wiki)) DBNAME_WIKI_SITE_MAP[n.wiki] else WikipediaApp.instance.wikiSite)!!.languageCode)
+                        DBNAME_WIKI_NAME_MAP.getOrElse(n.wiki) { n.wiki },
+                        DBNAME_WIKI_SITE_MAP.getOrElse(n.wiki) { WikipediaApp.instance.wikiSite }.languageCode)
                 }
             }
             if (locallyKnownModified) {
