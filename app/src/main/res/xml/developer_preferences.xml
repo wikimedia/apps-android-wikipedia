@@ -198,6 +198,11 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
+            android:key="@string/preference_key_logged_in_page_activity_visit_count"
+            android:title="@string/preference_key_logged_in_page_activity_visit_count" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
             android:key="@string/preference_key_explore_feed_visit_count"
             android:title="@string/preference_key_explore_feed_visit_count" />
 
