@@ -475,6 +475,10 @@ object Prefs {
     val exploreFeedVisitCount
         get() = PrefsIoUtil.getInt(R.string.preference_key_explore_feed_visit_count, 0)
 
+    var loggedInPageActivityVisitCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_logged_in_page_activity_visit_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_logged_in_page_activity_visit_count, value)
+
     var selectedLanguagePositionInSearch
         get() = PrefsIoUtil.getInt(R.string.preference_key_selected_language_position_in_search, 0)
         set(position) = PrefsIoUtil.setInt(R.string.preference_key_selected_language_position_in_search, position)
