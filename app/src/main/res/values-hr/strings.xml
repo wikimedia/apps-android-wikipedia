@@ -84,7 +84,7 @@
   <string name="language_count_link_text">Dostupan na drugim jezicima (%d)</string>
   <string name="content_license_cc_by_sa">Imenovanje-Dijeli pod istim uvjetima 3.0</string>
   <string name="edit_save_action_license_logged_in">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Uređivanja bit će pripisana IP adresi Vašeg uređaja. Ako ćete se &lt;a href=\"https://#login\"&gt;prijaviti&lt;/a&gt;, imat ćete veću privatnost.</string>
+  <string name="edit_save_action_license_anon">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete svoje doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Uređivanja će biti pripisana IP adresi Vašeg uređaja. &lt;a href=\"https://#login\"&gt;Prijavite&lt;/a&gt; li se, imat ćete veću privatnost.</string>
   <string name="preference_title_language">Jezici Wikipedije</string>
   <string name="langlinks_filter_hint">Pretraži</string>
   <string name="langlinks_empty">Ova stranica nije dostupna na drugim jezicima.</string>
