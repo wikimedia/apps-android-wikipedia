@@ -1094,4 +1094,8 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
+  <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
+  <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
+  <string name="talk_share_discussion_subject">Subject text while sharing a talk topic discussion. %s represents the topic subject.</string>
+  <string name="talk_share_talk_page">Subject text while sharing a talk page</string>
 </resources>
