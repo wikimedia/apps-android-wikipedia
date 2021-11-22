@@ -19,6 +19,7 @@
 * SupaplexTW
 * Wehwei
 * Willy1018
+* Winston Sung
 * Wwycheuk
 * Xiplus
 * 沈澄心
@@ -33,7 +34,7 @@
   <string name="nav_item_back">上一頁</string>
   <string name="page_tabs_back">返回</string>
   <string name="nav_item_forward">下一頁</string>
-  <string name="search_hint">搜尋維基百科</string>
+  <string name="search_hint">在維基百科搜尋</string>
   <string name="search_hint_voice_search">語音輸入搜尋</string>
   <string name="search_hint_search_languages">搜尋語言</string>
   <string name="filter_hint_filter_my_lists_and_articles">篩選我的清單</string>
