@@ -355,7 +355,7 @@
   <string name="error_message_generic">Се појави грешка</string>
   <string name="view_link_preview_error_button_dismiss">Тргни</string>
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">Википедија нема &lt;a href=\"%1$s/wiki/%2$s\"&gt;корисничка страница&lt;/a&gt; со тоа име. Начелно, оваа страница треба да се создаде и уреди од &lt;b&gt;%2$s&lt;/b&gt;. Ако не сте сигурни, проверете дали постои „%3$s“.</string>
+  <string name="error_user_page_does_not_exist" fuzzy="true">Википедија нема &lt;a href=\"%1$s\"&gt;корисничка страница&lt;/a&gt; со тоа име. Начелно, оваа страница треба да се создаде и уреди од &lt;b&gt;%2$s&lt;/b&gt;. Ако не сте сигурни, проверете дали постои „%3$s“.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
   <string name="view_wiki_error_message_timeout">Не можам да се поврзам со Википедија. Проверете си ја мрежната врска или обидете се подоцна</string>
   <string name="reference_title">Навод %s</string>

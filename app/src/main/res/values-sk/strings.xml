@@ -372,7 +372,7 @@
   <string name="error_message_generic">Nastala chyba</string>
   <string name="view_link_preview_error_button_dismiss">Zrušiť</string>
   <string name="error_page_does_not_exist">Táto stránka neexistuje</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">Na Wikipédii nie je &lt;a href=\"%1$s/wiki/%2$s\"&gt;používateľská stránka&lt;/a&gt; s presne takýmto menom. Všeobecne by táto stránka mala byť vytvorená a upravená používateľom &lt;b&gt;%2$s&lt;/b&gt;. Ak sa Vám to nepozdáva overte si či používateľ \"%3$s\" existuje.</string>
+  <string name="error_user_page_does_not_exist" fuzzy="true">Na Wikipédii nie je &lt;a href=\"%1$s\"&gt;používateľská stránka&lt;/a&gt; s presne takýmto menom. Všeobecne by táto stránka mala byť vytvorená a upravená používateľom &lt;b&gt;%2$s&lt;/b&gt;. Ak sa Vám to nepozdáva overte si či používateľ \"%3$s\" existuje.</string>
   <string name="view_wiki_error_message_offline">Nebolo možné pripojiť sa na internet</string>
   <string name="view_wiki_error_message_timeout">Nedá sa pripojiť k Wikipédii. Skontrolujte svoje sieťové pripojenie alebo to skúste neskôr</string>
   <string name="reference_title">Referencia %s</string>
@@ -635,13 +635,13 @@
     <item quantity="one">Jedna označená ako prečítaná</item>
     <item quantity="few">%d označené ako prečítané</item>
     <item quantity="many">%d označených ako prečítané</item>
-    <item quantity="other"/>
+    <item quantity="other">%d označených ako prečítané</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
     <item quantity="one">Jedna označená ako neprečítaná</item>
     <item quantity="few">%d označené ako neprečítané</item>
     <item quantity="many">%d označených ako neprečítané</item>
-    <item quantity="other"/>
+    <item quantity="other">%d označených ako neprečítané</item>
   </plurals>
   <string name="watchlist_title">Zoznam sledovaných</string>
   <string name="preference_title_notification_poll">Kontrola nových notifikácií</string>
@@ -683,7 +683,7 @@
     <item quantity="one">%d filter</item>
     <item quantity="few">%d filtre</item>
     <item quantity="many">%d filtrov</item>
-    <item quantity="other"/>
+    <item quantity="other">%d filtrov</item>
   </plurals>
   <string name="notifications_select_all_filters">Vybrať všetky filtre</string>
   <string name="notifications_tab_filter_all">Všetky</string>

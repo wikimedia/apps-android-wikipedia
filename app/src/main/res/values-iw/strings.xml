@@ -375,7 +375,7 @@
   <string name="error_message_generic">אירעה שגיאה</string>
   <string name="view_link_preview_error_button_dismiss">סגירה</string>
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">בוויקיפדיה אין &lt;a href=\"%1$s/wiki/%2$s\"&gt;דף משתמש&lt;/a&gt; בעל שם כזה בדיוק. באופן כללי, הדף הזה צריך להיווצר ולהיערך על־ידי &lt;b&gt;%2$s&lt;/b&gt;. אם יש לך ספק, נא לוודא ששם המשתמש \"%3$s\" קיים.</string>
+  <string name="error_user_page_does_not_exist" fuzzy="true">בוויקיפדיה אין &lt;a href=\"%1$s\"&gt;דף משתמש&lt;/a&gt; בעל שם כזה בדיוק. באופן כללי, הדף הזה צריך להיווצר ולהיערך על־ידי &lt;b&gt;%2$s&lt;/b&gt;. אם יש לך ספק, נא לוודא ששם המשתמש \"%3$s\" קיים.</string>
   <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
   <string name="view_wiki_error_message_timeout">לא ניתן להתחבר לוויקיפדיה. יש לבדוק את החיבור שלך לרשת או לנסות שוב מאוחר יותר</string>
   <string name="reference_title">הערת שוליים %s</string>
