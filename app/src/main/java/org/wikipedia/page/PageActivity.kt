@@ -629,15 +629,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun modifyMenu(mode: ActionMode) {
         val menu = mode.menu
-        val menuItemsList = ArrayList<MenuItem>()
-        menu.forEach {
+        val menuItemsList = menu.children.filter {
             val title = it.title.toString()
-            if (!title.contains(getString(R.string.search_hint)) &&
-                !(title.contains(getString(R.string.menu_text_select_define)) &&
-                        pageFragment.shareHandler.shouldEnableWiktionaryDialog())) {
-                menuItemsList.add(it)
-            }
-        }
+            !title.contains(getString(R.string.search_hint)) &&
+                    !(title.contains(getString(R.string.menu_text_select_define)) &&
+                            pageFragment.shareHandler.shouldEnableWiktionaryDialog())
+        }.toList()
         menu.clear()
         mode.menuInflater.inflate(R.menu.menu_text_select, menu)
         menuItemsList.forEach {
