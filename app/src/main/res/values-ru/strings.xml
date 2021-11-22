@@ -299,6 +299,7 @@
   <string name="edit_summary_tag_other_hint">Другие способы, которыми вы улучшили страницу</string>
   <string name="edit_conflict_title">Конфликт редактирования</string>
   <string name="edit_conflict_message">Возник конфликт редактирования, так как страница уже была изменена другим участником. Скопируйте свои изменения, вернитесь и обновите страницу, а затем повторите попытку редактирования.</string>
+  <string name="edit_notices_please_read">Пожалуйста, прочтите перед редактированием</string>
   <string name="find_next">Найти далее</string>
   <string name="find_previous">Найти ранее</string>
   <string name="find_first_occurence">Это первое совпадение</string>
@@ -722,7 +723,9 @@
   <string name="notifications_select_all_filters">Выбрать все фильтры</string>
   <string name="notifications_tab_filter_all">Все</string>
   <string name="notifications_tab_filter_mentions">Упоминания</string>
+  <string name="notifications_search_bar_filter_hint">Фильтр уведомлений</string>
   <string name="notifications_menu_mark_as_read">Пометить как прочитанное</string>
+  <string name="notifications_menu_mark_as_unread">Пометить как непрочитанное</string>
   <string name="notifications_wiki_filter_header">Вики фильтр</string>
   <string name="notifications_all_wikis_text">Все \"вики\"</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
