@@ -97,19 +97,21 @@ enum class NotificationCategory constructor(val id: String,
             notificationManagerCompat.deleteNotificationChannel("READING_LIST_SYNCING_CHANNEL")
             notificationManagerCompat.deleteNotificationChannel("SYNCING_CHANNEL")
 
-            MAP.valueIterator().forEach {
-                var notificationChannelCompat = notificationManagerCompat.getNotificationChannelCompat(it.id)
+            val notificationChannels = MAP.valueIterator().asSequence().toList().mapNotNull {
+                val notificationChannelCompat = notificationManagerCompat.getNotificationChannelCompat(it.id)
                 if (notificationChannelCompat == null) {
-                    notificationChannelCompat = NotificationChannelCompat.Builder(it.id, it.importance)
+                    NotificationChannelCompat.Builder(it.id, it.importance)
                         .setName(context.getString(it.title))
                         .setDescription(context.getString(it.description))
                         .setGroup(it.group)
                         .setLightColor(ContextCompat.getColor(context, R.color.accent50))
                         .setVibrationEnabled(true)
                         .build()
-                    notificationManagerCompat.createNotificationChannel(notificationChannelCompat)
+                } else {
+                    null
                 }
             }
+            notificationManagerCompat.createNotificationChannelsCompat(notificationChannels)
         }
     }
 }
