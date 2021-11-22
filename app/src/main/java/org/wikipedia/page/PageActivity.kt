@@ -156,6 +156,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             loadMainPage(TabPosition.EXISTING_TAB)
         }
 
+        if (AccountUtil.isLoggedIn) {
+            Prefs.loggedInPageActivityVisitCount++
+        }
+
         if (savedInstanceState == null) {
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
             // then we must have been launched with an Intent, so... handle it!
@@ -681,7 +685,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun maybeShowWatchlistTooltip() {
         pageFragment.historyEntry?.let {
-            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
+            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn &&
+                    it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS &&
+                    Prefs.loggedInPageActivityVisitCount >= 3) {
                 enqueueTooltip {
                     watchlistFunnel.logShowTooltip()
                     Prefs.isWatchlistPageOnboardingTooltipShown = true
@@ -693,10 +699,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     // TODO: remove on March 2022.
-    private fun maybeShowNotificationTooltip(targetView: View) {
-        if (!Prefs.isPageNotificationTooltipShown && AccountUtil.isLoggedIn) {
+    private fun maybeShowNotificationTooltip() {
+        if (!Prefs.isPageNotificationTooltipShown && AccountUtil.isLoggedIn &&
+                Prefs.loggedInPageActivityVisitCount >= 1) {
             enqueueTooltip {
-                FeedbackUtil.showTooltip(this, targetView, getString(R.string.page_notification_tooltip),
+                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonNotifications, getString(R.string.page_notification_tooltip),
                     aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
                     Prefs.isPageNotificationTooltipShown = true
                 }
@@ -749,7 +756,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         } else {
             binding.pageToolbarButtonNotifications.isVisible = false
         }
-        maybeShowNotificationTooltip(binding.pageToolbarButtonNotifications)
+        maybeShowNotificationTooltip()
     }
 
     fun clearActionBarTitle() {
