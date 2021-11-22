@@ -373,6 +373,7 @@
   <string name="error_message_generic">Сталася помилка</string>
   <string name="view_link_preview_error_button_dismiss">Відхилити</string>
   <string name="error_page_does_not_exist">Ця сторінка не існує</string>
+  <string name="error_user_page_does_not_exist" fuzzy="true">У Вікіпедії немає &lt;a href=\"%1$s\"&gt;сторінки користувача&lt;/a&gt; з такою точною назвою. Загалом, цю сторінку має створити та відредагувати \'\'\'%2$s\'\'\'. Якщо ви сумніваєтеся, будь ласка, переконайтеся, що «%3$s» існує.</string>
   <string name="view_wiki_error_message_offline">Не вдається підключитися до інтернету.</string>
   <string name="view_wiki_error_message_timeout">Немає зв\'язку із Вікіпедією. Будь ласка, перевірте ваше мережеве підключення чи спробуйте пізніше</string>
   <string name="reference_title">Виноски %s</string>
@@ -702,6 +703,7 @@
   <string name="notifications_all_wikis_text">Усі «вікі»</string>
   <string name="notifications_all_types_text">Всі «тип»</string>
   <string name="notifications_menu_user_talk_page">сторінка обговорення %s</string>
+  <string name="notifications_offline_disable_message">Функція недоступна в автономному режимі.</string>
   <string name="view_because_you_read_card_title">Оскільки Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>
   <string name="view_random_article_card_title">Випадкова стаття</string>
