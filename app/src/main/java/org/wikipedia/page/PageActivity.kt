@@ -151,7 +151,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             loadMainPage(TabPosition.EXISTING_TAB)
         }
 
-        Prefs.loggedInPageActivityVisitCount++
+        if (AccountUtil.isLoggedIn) {
+            Prefs.loggedInPageActivityVisitCount++
+        }
 
         if (savedInstanceState == null) {
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
