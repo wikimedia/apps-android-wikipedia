@@ -218,6 +218,10 @@ class TalkTopicsActivity : BaseActivity() {
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
                 return true
             }
+            R.id.menu_talk_topic_share -> {
+                ShareUtil.shareText(this, getString(R.string.talk_share_talk_page), pageTitle.uri)
+                return true
+            }
             else -> return super.onOptionsItemSelected(item)
         }
     }
