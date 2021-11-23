@@ -18,7 +18,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.views.DefaultViewHolder
 
-class NotificationsFilterActivity : BaseActivity() {
+class NotificationFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNotificationsFiltersBinding
 
@@ -85,7 +85,7 @@ class NotificationsFilterActivity : BaseActivity() {
         }
 
         override fun onCheckedChanged(filter: Filter?) {
-            startActivityForResult(WikipediaLanguagesActivity.newIntent(this@NotificationsFilterActivity, Constants.InvokeSource.NOTIFICATION), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
+            startActivityForResult(WikipediaLanguagesActivity.newIntent(this@NotificationFilterActivity, Constants.InvokeSource.NOTIFICATION), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
         }
     }
 
@@ -198,7 +198,7 @@ class NotificationsFilterActivity : BaseActivity() {
         }
 
         fun newIntent(context: Context): Intent {
-            return Intent(context, NotificationsFilterActivity::class.java)
+            return Intent(context, NotificationFilterActivity::class.java)
         }
     }
 }
