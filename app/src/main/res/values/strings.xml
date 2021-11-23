@@ -1120,7 +1120,7 @@
     <string name="watchlist_details_next_edit">Next edit</string>
     <string name="watchlist_details_prev_edit">Previous edit</string>
     <string name="thank_label">Thank</string>
-    <string name="go_to_user_page">Go to user page</string>
+    <string name="view_user_page">View user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
     <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\’s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
     <string name="thank_dialog_positive_button_text">Send thanks</string>

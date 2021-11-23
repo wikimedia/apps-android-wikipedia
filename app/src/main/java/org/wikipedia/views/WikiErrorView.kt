@@ -11,11 +11,14 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikiErrorBinding
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil.is404
 import org.wikipedia.util.ThrowableUtil.isEmptyException
 import org.wikipedia.util.ThrowableUtil.isOffline
 import org.wikipedia.util.ThrowableUtil.isTimeout
+import org.wikipedia.views.WikiErrorView.ErrorType.USER_PAGE_MISSING
 
 class WikiErrorView : LinearLayout {
 
@@ -36,14 +39,19 @@ class WikiErrorView : LinearLayout {
         binding.viewWikiErrorFooterText.movementMethod = movementMethod
     }
 
-    fun setError(caught: Throwable?) {
+    fun setError(caught: Throwable?, pageTitle: PageTitle? = null) {
         val resources = context.resources
-        val errorType = getErrorType(caught)
+        val errorType = getErrorType(caught, pageTitle)
         binding.viewWikiErrorIcon.setImageDrawable(AppCompatResources.getDrawable(context, errorType.icon))
         if (caught is MwException) {
             binding.viewWikiErrorText.text = StringUtil.fromHtml(caught.message)
         } else {
-            binding.viewWikiErrorText.text = resources.getString(errorType.text)
+            if (errorType == USER_PAGE_MISSING && pageTitle != null) {
+                binding.viewWikiErrorText.text = StringUtil.fromHtml(context.getString(errorType.text, pageTitle.uri, pageTitle.displayText, StringUtil.removeNamespace(pageTitle.displayText)))
+                binding.viewWikiErrorText.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+            } else {
+                binding.viewWikiErrorText.text = resources.getString(errorType.text)
+            }
         }
         binding.viewWikiErrorButton.text = resources.getString(errorType.buttonText)
         binding.viewWikiErrorButton.setOnClickListener(errorType.buttonClickListener(this))
@@ -70,11 +78,12 @@ class WikiErrorView : LinearLayout {
         binding.viewWikiErrorText.setTextColor(color)
     }
 
-    private fun getErrorType(caught: Throwable?): ErrorType {
+    private fun getErrorType(caught: Throwable?, pageTitle: PageTitle?): ErrorType {
         caught?.let {
             when {
                 is404(it) -> {
-                    return ErrorType.PAGE_MISSING
+                    return if (pageTitle?.namespace() == Namespace.USER) USER_PAGE_MISSING
+                    else ErrorType.PAGE_MISSING
                 }
                 isTimeout(it) -> {
                     return ErrorType.TIMEOUT
@@ -96,6 +105,12 @@ class WikiErrorView : LinearLayout {
                          @StringRes val buttonText: Int,
                          @StringRes val footerText: Int = 0) {
 
+        USER_PAGE_MISSING(R.drawable.ic_userpage_error_icon, R.string.error_user_page_does_not_exist,
+                R.string.page_error_back_to_main) {
+            override fun buttonClickListener(errorView: WikiErrorView): OnClickListener? {
+                return errorView.backClickListener
+            }
+        },
         PAGE_MISSING(R.drawable.ic_error_black_24dp, R.string.error_page_does_not_exist,
                 R.string.page_error_back_to_main) {
             override fun buttonClickListener(errorView: WikiErrorView): OnClickListener? {
