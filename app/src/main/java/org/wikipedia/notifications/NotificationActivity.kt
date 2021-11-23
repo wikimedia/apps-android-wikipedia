@@ -69,7 +69,7 @@ class NotificationActivity : BaseActivity() {
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
     // TODO: maybe making the result observable and put into ViewModel class?
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == NotificationsFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
+        if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
             beginUpdateList()
         } else {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
@@ -124,7 +124,7 @@ class NotificationActivity : BaseActivity() {
         })
 
         binding.notificationsSearchEmptyContainer.setOnClickListener {
-            resultLauncher.launch(NotificationsFilterActivity.newIntent(it.context))
+            resultLauncher.launch(NotificationFilterActivity.newIntent(it.context))
         }
 
         Prefs.notificationUnreadCount = 0
@@ -517,7 +517,7 @@ class NotificationActivity : BaseActivity() {
 
             notificationFilterButton.setOnClickListener {
                 funnel.logFilterClick()
-                resultLauncher.launch(NotificationsFilterActivity.newIntent(it.context))
+                resultLauncher.launch(NotificationFilterActivity.newIntent(it.context))
             }
 
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
