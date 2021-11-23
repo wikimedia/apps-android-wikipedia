@@ -127,9 +127,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonNotifications.setOnClickListener {
             if (AccountUtil.isLoggedIn) {
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
-            } else if (AnonymousNotificationHelper.isWithinAnonNotificationTime() && pageFragment.title != null) {
+            } else if (AnonymousNotificationHelper.isWithinAnonNotificationTime() && !Prefs.lastAnonNotificationLang.isNullOrEmpty()) {
+                val wikiSite = WikiSite.forLanguageCode(Prefs.lastAnonNotificationLang!!)
                 startActivity(TalkTopicsActivity.newIntent(this@PageActivity,
-                PageTitle(UserTalkAliasData.valueFor(pageFragment.title!!.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages, pageFragment.title!!.wikiSite), InvokeSource.PAGE_ACTIVITY))
+                PageTitle(UserTalkAliasData.valueFor(wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages, wikiSite), InvokeSource.PAGE_ACTIVITY))
             }
         }
 

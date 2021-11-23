@@ -161,6 +161,11 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
+            android:key="@string/preference_key_last_anon_notification_lang"
+            android:title="@string/preference_key_last_anon_notification_lang" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
             android:key="@string/preference_key_last_anon_user_with_messages"
             android:title="@string/preference_key_last_anon_user_with_messages" />
 

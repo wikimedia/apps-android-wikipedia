@@ -272,6 +272,10 @@ object Prefs {
         get() = PrefsIoUtil.getLong(R.string.preference_key_last_anon_notification_time, 0)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_notification_time, value)
 
+    var lastAnonNotificationLang
+        get() = PrefsIoUtil.getString(R.string.preference_key_last_anon_notification_lang, "")
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_last_anon_notification_lang, value)
+
     fun preferOfflineContent(): Boolean {
         return PrefsIoUtil.getBoolean(R.string.preference_key_prefer_offline_content, false)
     }

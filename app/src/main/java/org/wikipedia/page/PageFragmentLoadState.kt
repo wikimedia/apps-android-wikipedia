@@ -196,7 +196,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(it)) {
+                    if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(it, title)) {
                         fragment.showAnonNotification()
                     }
                 }, { L.e(it) })
