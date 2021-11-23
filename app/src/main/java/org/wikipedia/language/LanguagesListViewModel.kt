@@ -19,7 +19,6 @@ import java.util.*
 
 class LanguagesListViewModel : ViewModel() {
 
-    val siteListData = MutableLiveData<Resource<List<SiteMatrix.SiteInfo>>>()
     private val suggestedLanguageCodes = WikipediaApp.getInstance().language().remainingAvailableLanguageCodes
     private val nonSuggestedLanguageCodes = WikipediaApp.getInstance().language()
         .appMruLanguageCodes.toMutableList().also {
@@ -30,6 +29,8 @@ class LanguagesListViewModel : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
     }
+
+    val siteListData = MutableLiveData<Resource<List<SiteMatrix.SiteInfo>>>()
 
     init {
         fetchData()
@@ -77,11 +78,8 @@ class LanguagesListViewModel : ViewModel() {
     }
 
     fun getCanonicalName(code: String): String? {
-        var canonicalName = siteListData.value?.data?.find { it.code == code }?.localname
-        if (canonicalName.isNullOrEmpty()) {
-            canonicalName = WikipediaApp.getInstance().language().getAppLanguageCanonicalName(code)
-        }
-        return canonicalName
+        return siteListData.value?.data?.find { it.code == code }?.localname.orEmpty()
+                .ifEmpty { WikipediaApp.getInstance().language().getAppLanguageCanonicalName(code) }
     }
 
     class LanguageListItem(val code: String, val isHeader: Boolean = false)
