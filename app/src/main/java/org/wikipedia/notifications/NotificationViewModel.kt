@@ -29,7 +29,8 @@ class NotificationViewModel : ViewModel() {
     private var dbNameMap = mapOf<String, WikiSite>()
     private var selectedFilterTab: Int = 0
     private var currentContinueStr: String? = null
-    private var currentSearchQuery: String? = null
+    var currentSearchQuery: String? = null
+        private set
     var mentionsUnreadCount: Int = 0
     var allUnreadCount: Int = 0
 
@@ -133,10 +134,16 @@ class NotificationViewModel : ViewModel() {
         viewModelScope.launch(handler) {
             if (WikipediaApp.getInstance().isOnline) {
                 withContext(Dispatchers.IO) {
-                    // TODO: fetch "all" wikis - update after the changes merging to the main branch.
                     currentContinueStr = notificationRepository.fetchAndSave(delimitedWikiList(), "read|!read", currentContinueStr)
                 }
             }
+            collectionNotifications()
+        }
+    }
+
+    fun updateSearchQuery(query: String?) {
+        currentSearchQuery = query
+        viewModelScope.launch(handler) {
             collectionNotifications()
         }
     }
