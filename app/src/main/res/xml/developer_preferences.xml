@@ -386,21 +386,6 @@
             android:key="ab_test_notificationIcons"
             android:title="Test group for in-app Notification icons (0, 1, or 2)" />
 
-        <Preference
-            android:key="@string/preference_developer_show_talk_page_survey"
-            android:title="@string/preference_developer_show_talk_page_survey"
-            android:summary="Show Talk Page survey" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_show_talk_page_survey_attempts"
-            android:title="@string/preference_key_show_talk_page_survey_attempts" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_developer_override_talk_page_survey"
-            android:title="@string/preference_developer_override_talk_page_survey"
-            android:summary="Override Talk Page survey country flags" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
