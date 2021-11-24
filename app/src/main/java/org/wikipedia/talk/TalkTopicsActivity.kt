@@ -11,8 +11,6 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -115,7 +113,6 @@ class TalkTopicsActivity : BaseActivity() {
     public override fun onResume() {
         super.onResume()
         loadTopics()
-        TalkPageSurvey.maybeShowSurvey(this@TalkTopicsActivity, editSubmitted = false)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -155,12 +152,6 @@ class TalkTopicsActivity : BaseActivity() {
                         binding.talkProgressBar.visibility = View.VISIBLE
                         undoSave(newRevisionId, topic, undoneSubject, undoneText)
                     }
-                    .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
-                        override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
-                            super.onDismissed(transientBottomBar, event)
-                            TalkPageSurvey.maybeShowSurvey(this@TalkTopicsActivity, editSubmitted = true)
-                        }
-                    })
                     .show()
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_BACK_FROM_TOPIC) {
@@ -215,6 +206,10 @@ class TalkTopicsActivity : BaseActivity() {
             R.id.menu_view_user_page -> {
                 val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+                return true
+            }
+            R.id.menu_talk_topic_share -> {
+                ShareUtil.shareText(this, getString(R.string.talk_share_talk_page), pageTitle.uri)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)

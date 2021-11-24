@@ -359,6 +359,7 @@
     <string name="error_message_generic">An error occurred</string>
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
+    <string name="error_user_page_does_not_exist"><![CDATA[Wikipedia does not have a <a href="%1$s">user page</a> with this exact name. In general, this page should be created and edited by <b>%2$s</b>. If in doubt, please verify that \"%3$s\" exists.]]></string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
     <string name="view_wiki_error_message_timeout">Cannot connect to Wikipedia. Check your network connection, or try again later</string>
     <string name="reference_title">Reference %s</string>
@@ -674,6 +675,7 @@
     <string name="notifications_all_wikis_text">All \"wiki\"</string>
     <string name="notifications_all_types_text">All \"type\"</string>
     <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
+    <string name="notifications_offline_disable_message">The function is not available while offline.</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
@@ -1105,6 +1107,10 @@
     <string name="talk_last_modified"><![CDATA[<b>Last edited %1$s</b> by %2$s]]></string>
     <string name="talk_snackbar_survey_text">Thanks for using talk pages. Could you help us improve the app by participating in a survey?</string>
     <string name="talk_snackbar_survey_action_text">Get started</string>
+    <string name="talk_share_discussion_subject">Wikipedia - discussion on talk page topic \"%s\"</string>
+    <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
+    <string name="menu_option_share_talk_discussion">Share discussion</string>
+    <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>

@@ -254,6 +254,10 @@
   <string name="edit_summary_tag_other_hint">Iné spôsoby, ako ste vylepšili túto stránku</string>
   <string name="edit_conflict_title">Konflikt pri upravovaní</string>
   <string name="edit_conflict_message">Táto stránka bola upravená iným používateľom a jeho úprava je v konflikte s tou vašou. Prosím, skopírujte svoju úpravu, obnovte článok a skúste to znova.</string>
+  <string name="edit_notices">Editačné poznámky</string>
+  <string name="edit_notices_please_read">Pred upravovaním prosím čítajte</string>
+  <string name="edit_notices_show_auto">Zobraziť poznámky o úpravách automaticky</string>
+  <string name="edit_notices_tooltip">Pre zobrazenie poznámok o úpravách pre tento článok stlačte toto tlačítko.</string>
   <string name="find_next">Nájsť ďalšie</string>
   <string name="find_previous">Nájsť predchádzajúce</string>
   <string name="find_first_occurence">Toto je prvý výskyt</string>
@@ -368,6 +372,7 @@
   <string name="error_message_generic">Nastala chyba</string>
   <string name="view_link_preview_error_button_dismiss">Zrušiť</string>
   <string name="error_page_does_not_exist">Táto stránka neexistuje</string>
+  <string name="error_user_page_does_not_exist" fuzzy="true">Na Wikipédii nie je &lt;a href=\"%1$s\"&gt;používateľská stránka&lt;/a&gt; s presne takýmto menom. Všeobecne by táto stránka mala byť vytvorená a upravená používateľom &lt;b&gt;%2$s&lt;/b&gt;. Ak sa Vám to nepozdáva overte si či používateľ \"%3$s\" existuje.</string>
   <string name="view_wiki_error_message_offline">Nebolo možné pripojiť sa na internet</string>
   <string name="view_wiki_error_message_timeout">Nedá sa pripojiť k Wikipédii. Skontrolujte svoje sieťové pripojenie alebo to skúste neskôr</string>
   <string name="reference_title">Referencia %s</string>
@@ -623,6 +628,21 @@
   <string name="notifications_direct_reply_action">Odpovedať</string>
   <string name="notifications_direct_reply_progress">Odosielanie odpovede pre %s...</string>
   <string name="notifications_direct_reply_success">Odpoveď zverejnená.</string>
+  <string name="notifications_direct_reply_error">Príspevok sa nepodarilo automaticky zverejniť.</string>
+  <string name="notifications_mark_all_as_read_message">%d označené ako prečítané</string>
+  <string name="notifications_mark_all_as_unread_message">%d označené ako neprečítané</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">Jedna označená ako prečítaná</item>
+    <item quantity="few">%d označené ako prečítané</item>
+    <item quantity="many">%d označených ako prečítané</item>
+    <item quantity="other">%d označených ako prečítané</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">Jedna označená ako neprečítaná</item>
+    <item quantity="few">%d označené ako neprečítané</item>
+    <item quantity="many">%d označených ako neprečítané</item>
+    <item quantity="other">%d označených ako neprečítané</item>
+  </plurals>
   <string name="watchlist_title">Zoznam sledovaných</string>
   <string name="preference_title_notification_poll">Kontrola nových notifikácií</string>
   <string name="preference_summary_notification_poll">Povoliť aplikácii používanie dát ku kontrole nových notifikácií na pozadí.</string>
@@ -655,6 +675,33 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Notifikácie z Wikipédie</string>
   <string name="notifications_channel_group_other_title">Iné</string>
   <string name="notifications_channel_group_other_description">Iné notifikácie z aplikácie</string>
+  <string name="notifications_filter_label">Filtrovať notifikácie</string>
+  <string name="notifications_filter_icon_content_description">Filtrovať notifikácie</string>
+  <string name="notifications_filter_add_app_languages">Pridať alebo upraviť jazyky</string>
+  <string name="notifications_empty_search_message">Pre zobrazenia viac notifikácií skúste odstrániť %s</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filter</item>
+    <item quantity="few">%d filtre</item>
+    <item quantity="many">%d filtrov</item>
+    <item quantity="other">%d filtrov</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Vybrať všetky filtre</string>
+  <string name="notifications_tab_filter_all">Všetky</string>
+  <string name="notifications_tab_filter_mentions">Zmienky</string>
+  <string name="notifications_search_bar_hint">Vyhľadať alebo filtrovať notifikácie</string>
+  <string name="notifications_search_bar_filter_hint">Filter notifikácií</string>
+  <string name="notifications_menu_mark_as_read">Označiť ako prečítané</string>
+  <string name="notifications_menu_mark_as_unread">Označiť ako neprečítané</string>
+  <string name="notifications_swipe_action_read">Prečítané</string>
+  <string name="notifications_swipe_action_unread">Neprečítané</string>
+  <string name="notifications_menu_check_all">Vybrať všetky položky</string>
+  <string name="notifications_menu_uncheck_all">Odobrať všetky položky</string>
+  <string name="notifications_wiki_filter_header">Wiki filter</string>
+  <string name="notifications_type_filter_header">Type filter</string>
+  <string name="notifications_all_wikis_text">Všetky \"wiki\"</string>
+  <string name="notifications_all_types_text">Všetky \"type\"</string>
+  <string name="notifications_menu_user_talk_page">Diskusná stránka používateľa %s</string>
+  <string name="notifications_offline_disable_message">Funkcia nie je dostupná offline.</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
   <string name="view_random_card_title">Náhodný článok</string>
   <string name="view_random_article_card_title">Náhodný článok</string>

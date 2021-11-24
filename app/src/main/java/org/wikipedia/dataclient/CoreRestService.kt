@@ -14,6 +14,6 @@ interface CoreRestService {
     ): Observable<DiffResponse>
 
     companion object {
-        const val CORE_REST_API_PREFIX = "/w/rest.php/v1/"
+        const val CORE_REST_API_PREFIX = "w/rest.php/v1/"
     }
 }
