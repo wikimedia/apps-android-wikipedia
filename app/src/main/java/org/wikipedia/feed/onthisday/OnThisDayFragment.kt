@@ -27,6 +27,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.OnThisDayFunnel
 import org.wikipedia.databinding.FragmentOnThisDayBinding
+import org.wikipedia.databinding.ViewOnThisDayEventBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -207,8 +208,8 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                     .inflate(R.layout.view_on_this_day_footer, viewGroup, false)
                 FooterViewHolder(itemView)
             } else {
-                val itemView = LayoutInflater.from(viewGroup.context)
-                    .inflate(R.layout.view_events_layout, viewGroup, false)
+                val itemView = ViewOnThisDayEventBinding.inflate(LayoutInflater.from(viewGroup.context),
+                    viewGroup,false)
                 EventsViewHolder(itemView, wiki)
             }
         }
@@ -236,14 +237,14 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         }
     }
 
-    private inner class EventsViewHolder(v: View, private val wiki: WikiSite) : RecyclerView.ViewHolder(v) {
+    private inner class EventsViewHolder(v: ViewOnThisDayEventBinding, private val wiki: WikiSite) : RecyclerView.ViewHolder(v.root) {
 
-        private val descTextView: TextView = v.findViewById(R.id.text)
-        private val yearTextView: TextView = v.findViewById(R.id.year)
-        private val yearsInfoTextView: TextView = v.findViewById(R.id.years_text)
-        private val pagesViewPager: ViewPager2 = v.findViewById(R.id.pages_pager)
-        private val pagesIndicator: TabLayout = v.findViewById(R.id.pages_indicator)
-        private val radioButtonImageView: ImageView = v.findViewById(R.id.radio_image_view)
+        private val descTextView: TextView = v.text
+        private val yearTextView: TextView = v.year
+        private val yearsInfoTextView: TextView = v.yearsText
+        private val pagesViewPager: ViewPager2 = v.pagesPager
+        private val pagesIndicator: TabLayout = v.pagesIndicator
+        private val radioButtonImageView: ImageView = v.radioImageView
 
         init {
             descTextView.setTextIsSelectable(true)
