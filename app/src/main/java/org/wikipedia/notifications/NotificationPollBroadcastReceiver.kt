@@ -169,13 +169,12 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             DBNAME_WIKI_SITE_MAP.clear()
             DBNAME_WIKI_NAME_MAP.clear()
             val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unreadNotificationWikis()
-            val wikiMap = response.query!!.unreadNotificationWikis
-            val wikis = mutableListOf<String>()
-            wikis.addAll(wikiMap!!.keys)
-            for (dbName in wikiMap.keys) {
-                if (wikiMap[dbName]!!.source != null) {
-                    DBNAME_WIKI_SITE_MAP[dbName] = WikiSite(wikiMap[dbName]!!.source!!.base)
-                    DBNAME_WIKI_NAME_MAP[dbName] = wikiMap[dbName]!!.source!!.title
+            val wikiMap = response.query!!.unreadNotificationWikis!!
+            val wikis = wikiMap.keys.toList()
+            for ((dbName, wiki) in wikiMap) {
+                if (wiki.source != null) {
+                    DBNAME_WIKI_SITE_MAP[dbName] = WikiSite(wiki.source.base)
+                    DBNAME_WIKI_NAME_MAP[dbName] = wiki.source.title
                 }
             }
             getFullNotifications(context, wikis)
@@ -243,8 +242,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 val wiki = DBNAME_WIKI_SITE_MAP.getOrElse(item.wiki) { WikipediaApp.getInstance().wikiSite }
                 notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(item)
             }
-            for (wiki in notificationsPerWiki.keys) {
-                markRead(wiki, notificationsPerWiki[wiki]!!, false)
+            for ((wiki, notifications) in notificationsPerWiki) {
+                markRead(wiki, notifications, false)
             }
         }
 
