@@ -5,6 +5,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -121,6 +123,22 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         updateEditLicenseText()
 
         onInitialLoad()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_talk_topic, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.menu_talk_topic_share -> {
+                ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), pageTitle.uri + "#" + StringUtil.addUnderscores(topic?.html))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun replyClicked() {
@@ -298,6 +316,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             // TODO
         }
 
+        override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
+            // TODO
+        }
+
         override lateinit var wikiSite: WikiSite
 
         override fun onPageLinkClicked(anchor: String, linkText: String) {
@@ -325,14 +347,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             return
         }
 
-        // if the message is not signed, then sign it explicitly
-        if (!body.endsWith("~~~~")) {
-            body += " ~~~~"
-        }
-        if (!isNewTopic()) {
-            // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
-            body = "\n\n" + body
-        }
+        val topicDepth = topic?.replies?.lastOrNull()?.depth ?: 0
+
+        body = addDefaultFormatting(body, topicDepth, isNewTopic())
 
         binding.talkProgressBar.visibility = View.VISIBLE
         binding.replySaveButton.isEnabled = false
@@ -426,6 +443,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
         binding.talkProgressBar.visibility = View.GONE
+        binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)
     }
 
@@ -488,6 +506,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         if (replyActive && !isNewTopic()) {
             onInitialLoad()
         } else {
+            setResult(RESULT_BACK_FROM_TOPIC)
             super.onBackPressed()
         }
     }
@@ -498,6 +517,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
         const val RESULT_EDIT_SUCCESS = 1
+        const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource, undoneSubject: String? = null, undoneBody: String? = null): Intent {
@@ -507,6 +527,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
                     .putExtra(EXTRA_BODY, undoneBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+        }
+
+        fun addDefaultFormatting(text: String, topicDepth: Int, newTopic: Boolean = false): String {
+            var body = ":".repeat(if (newTopic) 0 else topicDepth + 1) + text
+            // if the message is not signed, then sign it explicitly
+            if (!body.endsWith("~~~~")) {
+                body += " ~~~~"
+            }
+            if (!newTopic) {
+                // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
+                body = "\n\n" + body
+            }
+            return body
         }
     }
 }

@@ -18,7 +18,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.setupLeakCanary
-import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider.getNextArticleWithMissingDescription
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.StringUtil.fromHtml
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -68,7 +68,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_key_missing_description_test).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            getNextArticleWithMissingDescription(WikipediaApp.getInstance().wikiSite, 10)
+            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.getInstance().wikiSite, 10)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ summary: PageSummary ->
@@ -91,7 +91,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_key_missing_description_test2).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            getNextArticleWithMissingDescription(WikipediaApp.getInstance().wikiSite,
+            EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikipediaApp.getInstance().wikiSite,
                     WikipediaApp.getInstance().language().appLanguageCodes[1], true, 10)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

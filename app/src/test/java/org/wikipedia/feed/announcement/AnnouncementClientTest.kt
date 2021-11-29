@@ -109,6 +109,8 @@ class AnnouncementClientTest : MockRetrofitTest() {
         val announcement = announcementList.items[ANNOUNCEMENT_BETA_WITH_VERSION]
         val dateDuring = dateFormat.parse("2016-11-20")!!
         MatcherAssert.assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), Matchers.`is`(true))
+        MatcherAssert.assertThat(announcement.minVersion(), Matchers.`is`(200))
+        MatcherAssert.assertThat(announcement.maxVersion(), Matchers.`is`(10000))
     }
 
     @Test

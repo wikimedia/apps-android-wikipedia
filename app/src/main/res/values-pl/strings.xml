@@ -79,6 +79,7 @@
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
   <string name="menu_page_find_in_page">Znajdź w artykule</string>
   <string name="menu_page_add_to_watchlist">Dodaj do listy obserwowanych</string>
+  <string name="menu_page_remove_from_watchlist">Usuń z listy obserwowanych</string>
   <string name="edit_section_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
@@ -175,7 +176,7 @@
   <string name="create_account_passwords_mismatch_error">Hasła nie są identyczne</string>
   <string name="create_account_email_error">Nieprawidłowy adres e-mail</string>
   <string name="create_account_username_error">Nieprawidłowe znaki w nazwie użytkownika</string>
-  <string name="create_account_password_error" fuzzy="true">Hasło jest nieprawidłowe</string>
+  <string name="create_account_password_error">Hasło musi mieć co najmniej 8 znaków</string>
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_next">Dalej</string>
   <string name="email_recommendation_dialog_title">Założyć konto bez adresu e-mail?</string>
@@ -189,6 +190,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Szczegóły</string>
   <string name="preferences_general_heading">Ogólne</string>
+  <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
@@ -509,6 +511,7 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_reverted_title">Wycofana edycja</string>
+  <string name="notification_channel_title">Pobieranie artykułów</string>
   <string name="notification_channel_description">Postęp pobierania</string>
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Wznów</string>
@@ -558,6 +561,7 @@
   <string name="notifications_view_archived_button_text">Zobacz powiadomienia zarchiwizowane</string>
   <string name="notification_preferences_title">Preferencje powiadomień</string>
   <string name="notifications_mark_unread">Oznacz jako nieprzeczytane</string>
+  <string name="notifications_mark_all_as_read">Oznacz wszystko jako przeczytane</string>
   <string name="watchlist_title">Obserwowane</string>
   <string name="preference_title_notification_poll">Poll notifications</string>
   <string name="preference_summary_notification_poll">Pozwól aplikacji używać danych do sprawdzania nowych powiadomień w tle.</string>
@@ -576,6 +580,8 @@
   <string name="preference_summary_notification_mention">Ktoś wspomniał o Tobie na stronie</string>
   <string name="preference_title_notification_user_talk">Strona dyskusji</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">Wiadomości ze stron dyskusji</string>
+  <string name="preference_category_display_settings">Ustawienia wyświetlania</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
   <string name="view_random_article_card_title">Losowy artykuł</string>
@@ -891,6 +897,7 @@
   <string name="talk_message_hint">Utwórz wiadomość</string>
   <string name="talk_message_empty">Wiadomość nie może być pusta.</string>
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
+  <string name="talk_snackbar_undo">Cofnij</string>
   <string name="watchlist_details_watch_label">Obserwuj</string>
   <string name="go_to_user_page">Przejdź do strony użytkownika</string>
   <string name="thank_dialog_positive_button_text">Wyślij podziękowanie</string>

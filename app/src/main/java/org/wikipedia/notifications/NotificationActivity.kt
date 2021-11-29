@@ -2,86 +2,102 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.Typeface
+import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.format.DateUtils
+import android.text.style.ForegroundColorSpan
+import android.view.*
 import android.view.View
-import android.view.View.OnLongClickListener
-import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import androidx.annotation.PluralsRes
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
+import androidx.core.widget.ImageViewCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import com.google.android.material.tabs.TabLayout
+import kotlinx.coroutines.flow.collect
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.NotificationInteractionFunnel
-import org.wikipedia.analytics.NotificationsABCTestFunnel
+import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ActivityNotificationsBinding
-import org.wikipedia.dataclient.Service
-import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.PageActivity
-import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil.getFeedCardDateString
+import org.wikipedia.util.*
 import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.DrawableItemDecoration
-import org.wikipedia.views.MultiSelectActionModeCallback
-import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.*
 import java.util.*
-import java.util.concurrent.TimeUnit
 
-class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callback {
+class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
+    private val viewModel: NotificationViewModel by viewModels()
 
-    private val notificationList = mutableListOf<Notification>()
+    private lateinit var externalLinkIcon: Drawable
     private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
-    private val disposables = CompositeDisposable()
-    private val dbNameMap = mutableMapOf<String, WikiSite>()
-    private var currentContinueStr: String? = null
+    private var fromContinuation: Boolean = false
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private var displayArchived = false
-    var currentSearchQuery: String? = null
-
-    override val isShowingArchived get() = displayArchived
+    private var linkHandler = NotificationLinkHandler(this)
+    private var notificationActionOverflowView: NotificationActionsOverflowView? = null
+    private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
+    // TODO: maybe making the result observable and put into ViewModel class?
+    private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
+            beginUpdateList()
+        } else {
+            viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
+        }
+    }
+    var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.notificationsToolbar)
+        supportActionBar?.title = getString(R.string.notifications_activity_title)
 
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable))
+        binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
+        binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, skipSearchBar = true))
+
+        externalLinkIcon = ContextCompat.getDrawable(this, R.drawable.ic_open_in_new_black_24px)?.apply {
+            setBounds(0, 0, DimenUtil.roundedDpToPx(16f), DimenUtil.roundedDpToPx(16f))
+        }!!
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
-                ResourceUtil.getThemedAttributeId(this, R.attr.chart_shade5),
-                R.drawable.ic_archive_white_24dp,
-                ResourceUtil.getThemedAttributeId(this, R.attr.secondary_text_color),
-                binding.notificationsRefreshView)
+                ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
+                R.drawable.ic_outline_drafts_24, android.R.color.white, true, binding.notificationsRefreshView)
 
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
@@ -89,20 +105,56 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
         binding.notificationsRefreshView.setOnRefreshListener {
             binding.notificationsRefreshView.isRefreshing = false
+            finishActionMode()
             beginUpdateList()
         }
 
-        binding.notificationsViewArchivedButton.setOnClickListener { onViewArchivedClick() }
+        binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                viewModel.updateTabSelection(tab.position)
+                finishActionMode()
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab) {
+            }
+        })
+
+        binding.notificationsSearchEmptyContainer.setOnClickListener {
+            resultLauncher.launch(NotificationFilterActivity.newIntent(it.context))
+        }
 
         Prefs.notificationUnreadCount = 0
-        NotificationsABCTestFunnel().logSelect()
 
         beginUpdateList()
+
+        // TODO: use repeatOnLifecycle if the it is stable
+        lifecycleScope.launchWhenStarted {
+            viewModel.uiState.collect {
+                when (it) {
+                    is NotificationViewModel.UiState.Success -> onNotificationsComplete(it.notifications, it.fromContinuation)
+                    is NotificationViewModel.UiState.Error -> setErrorState(it.throwable)
+                }
+            }
+        }
     }
 
-    public override fun onDestroy() {
-        disposables.clear()
-        super.onDestroy()
+    override fun onResume() {
+        super.onResume()
+        actionMode?.let {
+            postprocessAndDisplay()
+            if (SearchActionModeCallback.`is`(it)) {
+                searchActionModeCallback.refreshProvider()
+            }
+        }
+    }
+
+    override fun onStop() {
+        binding.root.requestFocus()
+        notificationActionOverflowView?.dismiss()
+        super.onStop()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -111,181 +163,148 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-        val itemArchived = menu.findItem(R.id.menu_notifications_view_archived)
-        val itemUnread = menu.findItem(R.id.menu_notifications_view_unread)
-        itemArchived.isVisible = !displayArchived
-        itemUnread.isVisible = displayArchived
+        menu.findItem(R.id.menu_notifications_mark_all_as_read).isVisible = viewModel.allUnreadCount > 0
         return super.onPrepareOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_notifications_mark_all_as_read -> {
-                // TODO: implement mark all as read
-                true
-            }
-            R.id.menu_notifications_view_archived -> {
-                onViewArchivedClick()
-                true
-            }
-            R.id.menu_notifications_view_unread -> {
-                displayArchived = false
-                beginUpdateList()
+                if (notificationContainerList.isNotEmpty()) {
+                    markReadItems(notificationContainerList
+                        .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
+                        .filter { it.notification?.isUnread == true }, false)
+                }
                 true
             }
             R.id.menu_notifications_prefs -> {
-                startActivity(NotificationSettingsActivity.newIntent(this))
-                true
-            }
-            R.id.menu_notifications_search -> {
-                startSupportActionMode(searchActionModeCallback)
+                resultLauncher.launch(NotificationSettingsActivity.newIntent(this))
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    override fun onBackPressed() {
-        if (displayArchived) {
-            displayArchived = false
-            beginUpdateList()
-            return
-        }
-        super.onBackPressed()
-    }
-
-    private fun onViewArchivedClick() {
-        displayArchived = true
-        beginUpdateList()
-    }
-
     private fun beginUpdateList() {
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
+        binding.notificationsSearchEmptyContainer.visibility = View.GONE
         binding.notificationsProgressBar.visibility = View.VISIBLE
-        supportActionBar?.setTitle(if (displayArchived) R.string.notifications_activity_title_archived else R.string.notifications_activity_title)
-        currentContinueStr = null
-        disposables.clear()
-
-        // if we're not checking for unread notifications, then short-circuit straight to fetching them.
-        if (displayArchived) {
-            orContinueNotifications
-            return
-        }
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).unreadNotificationWikis
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    val wikiMap = response.query?.unreadNotificationWikis
-                    dbNameMap.clear()
-                    for (key in wikiMap!!.keys) {
-                        if (wikiMap[key]!!.source != null) {
-                            dbNameMap[key] = WikiSite(wikiMap[key]!!.source!!.base)
-                        }
-                    }
-                    orContinueNotifications
-                }) { t -> setErrorState(t) })
-    }
-
-    private val orContinueNotifications: Unit
-        get() {
-            binding.notificationsProgressBar.visibility = View.VISIBLE
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications("*", if (displayArchived) "read" else "!read", currentContinueStr)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        onNotificationsComplete(response.query?.notifications!!.list!!, !currentContinueStr.isNullOrEmpty())
-                        currentContinueStr = response.query?.notifications!!.continueStr
-                    }) { t -> setErrorState(t) })
-        }
-
-    private fun setErrorState(t: Throwable) {
-        L.e(t)
-        binding.notificationsProgressBar.visibility = View.GONE
-        binding.notificationsRecyclerView.visibility = View.GONE
-        binding.notificationsEmptyContainer.visibility = View.GONE
-        binding.notificationsErrorView.setError(t)
-        binding.notificationsErrorView.visibility = View.VISIBLE
+        binding.notificationTabLayout.visibility = View.GONE
+        supportActionBar?.setTitle(R.string.notifications_activity_title)
+        viewModel.fetchAndSave()
     }
 
     private fun setSuccessState() {
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.VISIBLE
+        binding.notificationTabLayout.visibility = View.VISIBLE
     }
 
-    private fun onNotificationsComplete(notifications: List<Notification>, fromContinuation: Boolean) {
+    private fun setErrorState(throwable: Throwable) {
+        L.e(throwable)
+        binding.notificationsProgressBar.visibility = View.GONE
+        binding.notificationsRecyclerView.visibility = View.GONE
+        binding.notificationsEmptyContainer.visibility = View.GONE
+        binding.notificationsSearchEmptyContainer.visibility = View.GONE
+        binding.notificationsErrorView.setError(throwable)
+        binding.notificationsErrorView.visibility = View.VISIBLE
+    }
+
+    private fun onNotificationsComplete(notifications: List<NotificationListItemContainer>,
+                                        fromContinuation: Boolean) {
         setSuccessState()
-        if (!fromContinuation) {
-            notificationList.clear()
-            binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
-        }
-        for (n in notifications) {
-            if (notificationList.none { it.id == n.id }) {
-                notificationList.add(n)
-            }
-        }
+        this.fromContinuation = fromContinuation
+
+        notificationContainerList.clear()
+        notificationContainerList.addAll(notifications)
         postprocessAndDisplay()
     }
 
-    private fun postprocessAndDisplay() {
-        // Sort them by descending date...
-        notificationList.sortWith { n1: Notification, n2: Notification -> n2.getTimestamp().compareTo(n1.getTimestamp()) }
-
-        // Build the container list, and punctuate it by date granularity, while also applying the
-        // current search query.
-        notificationContainerList.clear()
-        var millis = Long.MAX_VALUE
-        for (n in notificationList) {
-            if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents.header.contains(currentSearchQuery!!)) {
-                continue
-            }
-            if (millis - n.getTimestamp().time > TimeUnit.DAYS.toMillis(1)) {
-                notificationContainerList.add(NotificationListItemContainer(n.getTimestamp()))
-                millis = n.getTimestamp().time
-            }
-            notificationContainerList.add(NotificationListItemContainer(n))
+    private fun postprocessAndDisplay(position: Int? = null) {
+        val allTab = binding.notificationTabLayout.getTabAt(0)!!
+        val allUnreadCount = viewModel.allUnreadCount
+        if (allUnreadCount > 0) {
+            allTab.text = getString(R.string.notifications_tab_filter_all) + " " +
+                    getString(R.string.notifications_tab_filter_unread, allUnreadCount.toString())
+        } else {
+            allTab.text = getString(R.string.notifications_tab_filter_all)
         }
-        binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
-        if (notificationContainerList.isEmpty()) {
-            binding.notificationsEmptyContainer.visibility = View.VISIBLE
-            binding.notificationsViewArchivedButton.visibility = if (displayArchived) View.GONE else View.VISIBLE
+
+        val mentionsTab = binding.notificationTabLayout.getTabAt(1)!!
+        val mentionsUnreadCount = viewModel.mentionsUnreadCount
+        if (mentionsUnreadCount > 0) {
+            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions) + " " +
+                    getString(R.string.notifications_tab_filter_unread, mentionsUnreadCount.toString())
+        } else {
+            mentionsTab.text = getString(R.string.notifications_tab_filter_mentions)
+        }
+
+        // Handle search bar and TabLayout visibility
+        binding.notificationTabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
+        if (actionMode != null) {
+            if (notificationContainerList.any { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }) {
+                notificationContainerList.removeAt(0)
+            }
+        } else {
+            if (notificationContainerList.none { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }) {
+                notificationContainerList.add(0, NotificationListItemContainer())
+            }
+        }
+
+        if (notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.isEmpty()) {
+            binding.notificationsEmptyContainer.visibility = if (actionMode == null && viewModel.excludedFiltersCount() == 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = if (viewModel.excludedFiltersCount() != 0) View.VISIBLE else View.GONE
+            binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
+            binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
+            binding.notificationsSearchEmptyContainer.visibility = View.GONE
+            binding.notificationsSearchEmptyText.visibility = View.GONE
+        }
+
+        invalidateOptionsMenu()
+        if (position != null) {
+            binding.notificationsRecyclerView.adapter?.notifyItemChanged(position)
+        } else {
+            binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
         }
     }
 
-    private fun deleteItems(items: List<NotificationListItemContainer>, markUnread: Boolean) {
-        val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
-        val selectionKey = if (items.size > 1) Random().nextLong() else null
-        for (item in items) {
-            val notification = item.notification!!
-            val wiki = dbNameMap.getOrElse(notification.wiki) { WikipediaApp.getInstance().wikiSite }
-            notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
-            if (markUnread && !displayArchived) {
-                notificationList.add(notification)
-            } else {
-                notificationList.remove(notification)
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
-                NotificationInteractionEvent.logMarkRead(notification, selectionKey)
-            }
-        }
-        for (wiki in notificationsPerWiki.keys) {
-            if (markUnread) {
-                NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, true)
-            } else {
-                NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, false)
-                showDeleteItemsUndoSnackbar(items)
-            }
-        }
-        postprocessAndDisplay()
+    private fun getSpannedEmptySearchMessage(): Spannable {
+        val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, viewModel.excludedFiltersCount(), viewModel.excludedFiltersCount())
+        val emptySearchMessage = getString(R.string.notifications_empty_search_message, filtersStr)
+        val spannable = SpannableString(emptySearchMessage)
+        val prefixStringLength = 13
+        spannable.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(this, R.attr.colorAccent)), prefixStringLength, prefixStringLength + filtersStr.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        return spannable
     }
 
-    private fun showDeleteItemsUndoSnackbar(items: List<NotificationListItemContainer>) {
-        val snackbar = FeedbackUtil.makeSnackbar(this, resources.getQuantityString(R.plurals.notification_archive_message, items.size, items.size), FeedbackUtil.LENGTH_DEFAULT)
-        snackbar.setAction(R.string.notification_archive_undo) { deleteItems(items, true) }
-        snackbar.show()
+    private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false, position: Int? = null) {
+        if (!WikipediaApp.getInstance().isOnline) {
+            if (fromUndoOrClick && position != null) {
+                // Skip if the action is from onClick.
+                return
+            }
+            Toast.makeText(this, R.string.notifications_offline_disable_message, Toast.LENGTH_SHORT).show()
+        } else {
+            viewModel.markItemsAsRead(items, markUnread)
+            if (!fromUndoOrClick) {
+                showMarkReadItemsUndoSnackbar(items, markUnread)
+            }
+        }
+
+        finishActionMode()
+        postprocessAndDisplay(position)
+    }
+
+    private fun showMarkReadItemsUndoSnackbar(items: List<NotificationListItemContainer>, markUnread: Boolean) {
+        @PluralsRes val snackbarStringRes = if (markUnread) R.plurals.notifications_mark_as_unread_plural else R.plurals.notifications_mark_as_read_plural
+        FeedbackUtil.makeSnackbar(this, resources.getQuantityString(snackbarStringRes, items.size, items.size), FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.notification_archive_undo) { markReadItems(items, !markUnread, true) }
+                .show()
     }
 
     private fun finishActionMode() {
@@ -301,57 +320,24 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
     }
 
-    private fun toggleSelectItem(container: NotificationListItemContainer) {
+    private fun toggleSelectItem(container: NotificationListItemContainer, position: Int) {
         container.selected = !container.selected
-        val selectedCount = selectedItemCount
-        if (selectedCount == 0) {
+        if (selectedItemCount == 0) {
             finishActionMode()
-        } else if (actionMode != null) {
-            actionMode!!.title = resources.getQuantityString(R.plurals.multi_items_selected, selectedCount, selectedCount)
         }
-        binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
+        actionMode?.invalidate()
+        binding.notificationsRecyclerView.adapter?.notifyItemChanged(position)
     }
 
     private val selectedItemCount get() = notificationContainerList.count { it.selected }
 
-    private val selectedItems get() = notificationContainerList.filter { it.selected }
+    private val selectedItems get() = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.filter { it.selected }
 
-    private fun unselectAllItems() {
-        for (item in notificationContainerList) {
-            item.selected = false
-        }
-        binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
-    }
+    private inner class NotificationItemHolder constructor(val binding: ItemNotificationBinding) :
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener, SwipeableItemTouchHelperCallback.Callback {
 
-    override fun onArchive(notification: Notification) {
-        bottomSheetPresenter.dismiss(supportFragmentManager)
-        for (c in notificationContainerList) {
-            if (c.notification != null && c.notification!!.key() == notification.key()) {
-                deleteItems(listOf(c), displayArchived)
-                break
-            }
-        }
-    }
-
-    override fun onActionPageTitle(pageTitle: PageTitle) {
-        startActivity(PageActivity.newIntentForCurrentTab(this,
-                HistoryEntry(pageTitle, HistoryEntry.SOURCE_NOTIFICATION), pageTitle))
-    }
-
-    @Suppress("LeakingThis")
-    private open inner class NotificationItemHolder constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener, OnLongClickListener {
-        private val titleView = view.findViewById<TextView>(R.id.notification_item_title)
-        private val descriptionView = view.findViewById<TextView>(R.id.notification_item_description)
-        private val secondaryActionHintView = view.findViewById<TextView>(R.id.notification_item_secondary_action_hint)
-        private val tertiaryActionHintView = view.findViewById<TextView>(R.id.notification_item_tertiary_action_hint)
-        private val wikiCodeView = view.findViewById<TextView>(R.id.notification_wiki_code)
-        private val wikiCodeImageView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_image)
-        private val wikiCodeBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_background)
-        private val imageContainerView = view.findViewById<View>(R.id.notification_item_image_container)
-        private val imageBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_item_image_background)
-        private val imageSelectedView = view.findViewById<View>(R.id.notification_item_selected_image)
-        private val imageView = view.findViewById<AppCompatImageView>(R.id.notification_item_image)
         lateinit var container: NotificationListItemContainer
+        var itemPosition = -1
 
         init {
             itemView.setOnClickListener(this)
@@ -359,93 +345,197 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             setContextClickAsLongClick(itemView)
         }
 
-        fun bindItem(container: NotificationListItemContainer) {
+        fun bindItem(container: NotificationListItemContainer, pos: Int) {
             this.container = container
+            this.itemPosition = pos
             val n = container.notification!!
             val notificationCategory = NotificationCategory.find(n.category)
-            imageView.setImageResource(notificationCategory.iconResId)
-            imageBackgroundView.drawable.setTint(ContextCompat.getColor(this@NotificationActivity, notificationCategory.iconColor))
-            secondaryActionHintView.isVisible = false
-            tertiaryActionHintView.isVisible = false
+            val notificationColor = ContextCompat.getColor(this@NotificationActivity,
+                ResourceUtil.getThemedAttributeId(this@NotificationActivity, notificationCategory.iconColor))
+            val primaryColor = ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.primary_text_color)
+
+            binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
+            binding.notificationItemImage.setColorFilter(if (n.isUnread) notificationColor else
+                ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN)
             n.contents?.let {
-                titleView.text = StringUtil.fromHtml(it.header)
-                if (it.body.trim().isNotEmpty()) {
-                    descriptionView.text = StringUtil.fromHtml(it.body)
-                    descriptionView.visibility = View.VISIBLE
+                binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
+                StringUtil.highlightAndBoldenText(binding.notificationSubtitle, viewModel.currentSearchQuery, true, Color.YELLOW)
+                if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
+                    binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
+                    StringUtil.highlightAndBoldenText(binding.notificationDescription, viewModel.currentSearchQuery, true, Color.YELLOW)
+                    binding.notificationDescription.visibility = View.VISIBLE
                 } else {
-                    descriptionView.visibility = View.GONE
+                    binding.notificationDescription.visibility = View.GONE
                 }
-                it.links?.secondary?.let { secondary ->
-                    if (secondary.size > 0) {
-                        secondaryActionHintView.text = secondary[0].label
-                        secondaryActionHintView.visibility = View.VISIBLE
-                        if (secondary.size > 1) {
-                            tertiaryActionHintView.text = secondary[1].label
-                            tertiaryActionHintView.visibility = View.VISIBLE
-                        }
+                it.links?.secondary?.firstOrNull()?.let { link ->
+                    binding.notificationTitle.text = link.label
+                    StringUtil.highlightAndBoldenText(binding.notificationTitle, viewModel.currentSearchQuery, true, Color.YELLOW)
+                } ?: run {
+                    binding.notificationTitle.text = getString(notificationCategory.title)
+                }
+            }
+
+            // TODO: use better diff date method
+            binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.date().time, System.currentTimeMillis(), 0L)
+
+            binding.notificationTitle.typeface = if (n.isUnread) typefaceSansSerifBold else Typeface.DEFAULT
+            binding.notificationTitle.setTextColor(if (n.isUnread) notificationColor else primaryColor)
+            binding.notificationSubtitle.typeface = if (n.isUnread) typefaceSansSerifBold else Typeface.DEFAULT
+
+            val langCode = StringUtil.dbNameToLangCode(n.wiki)
+            L10nUtil.setConditionalLayoutDirection(itemView, langCode)
+
+            n.title?.let { title ->
+                binding.notificationSource.text = title.full
+                StringUtil.highlightAndBoldenText(binding.notificationSource, viewModel.currentSearchQuery, true, Color.YELLOW)
+                n.contents?.links?.getPrimary()?.url?.let {
+                    binding.notificationSource.setCompoundDrawables(null, null,
+                            if (UriUtil.isAppSupportedLink(Uri.parse(it))) null else externalLinkIcon, null)
+                }
+                val params = binding.notificationSource.layoutParams as ConstraintLayout.LayoutParams
+                params.setMargins(DimenUtil.roundedDpToPx(8f), 0, 0, 0)
+                binding.notificationSource.layoutParams = params
+
+                when {
+                    langCode == Constants.WIKI_CODE_WIKIDATA -> {
+                        binding.notificationWikiCode.visibility = View.GONE
+                        binding.notificationWikiCodeImage.visibility = View.VISIBLE
+                        binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_wikidata_logo)
+                        binding.notificationWikiCodeContainer.isVisible = true
+                    }
+                    langCode == Constants.WIKI_CODE_COMMONS -> {
+                        binding.notificationWikiCode.visibility = View.GONE
+                        binding.notificationWikiCodeImage.visibility = View.VISIBLE
+                        binding.notificationWikiCodeImage.setImageResource(R.drawable.ic_commons_logo)
+                        binding.notificationWikiCodeContainer.isVisible = true
+                    }
+                    isValidAppLanguageCode(langCode) -> {
+                        binding.notificationWikiCode.visibility = View.VISIBLE
+                        binding.notificationWikiCodeImage.visibility = View.GONE
+                        binding.notificationWikiCodeContainer.isVisible = true
+                        binding.notificationWikiCode.text = langCode
+                        ViewUtil.formatLangButton(binding.notificationWikiCode, langCode,
+                            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_MEDIUM)
+                    }
+                    else -> {
+                        params.setMargins(0, DimenUtil.roundedDpToPx(12f), 0, 0)
+                        binding.notificationSource.layoutParams = params
+                        binding.notificationWikiCodeContainer.isVisible = false
                     }
                 }
+                binding.notificationSource.isVisible = true
+            } ?: run {
+                binding.notificationSource.isVisible = false
+                binding.notificationSource.setCompoundDrawables(null, null, null, null)
+                binding.notificationWikiCodeContainer.isVisible = false
             }
-            val wikiCode = n.wiki
-            when {
-                wikiCode.contains("wikidata") -> {
-                    wikiCodeView.visibility = View.GONE
-                    wikiCodeBackgroundView.visibility = View.GONE
-                    wikiCodeImageView.visibility = View.VISIBLE
-                    wikiCodeImageView.setImageResource(R.drawable.ic_wikidata_logo)
-                }
-                wikiCode.contains("commons") -> {
-                    wikiCodeView.visibility = View.GONE
-                    wikiCodeBackgroundView.visibility = View.GONE
-                    wikiCodeImageView.visibility = View.VISIBLE
-                    wikiCodeImageView.setImageResource(R.drawable.ic_commons_logo)
-                }
-                else -> {
-                    wikiCodeBackgroundView.visibility = View.VISIBLE
-                    wikiCodeView.visibility = View.VISIBLE
-                    wikiCodeImageView.visibility = View.GONE
-                    val langCode = n.wiki.replace("wiki", "")
-                    wikiCodeView.text = langCode
-                    L10nUtil.setConditionalLayoutDirection(itemView, langCode)
-                }
-            }
+
             if (container.selected) {
-                imageSelectedView.visibility = View.VISIBLE
-                imageContainerView.visibility = View.INVISIBLE
+                binding.notificationItemSelectedImage.visibility = View.VISIBLE
+                binding.notificationItemImage.visibility = View.INVISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
+                if (WikipediaApp.getInstance().currentTheme.isDark) {
+                    binding.notificationTitle.setTextColor(Color.WHITE)
+                }
             } else {
-                imageSelectedView.visibility = View.INVISIBLE
-                imageContainerView.visibility = View.VISIBLE
+                binding.notificationItemSelectedImage.visibility = View.INVISIBLE
+                binding.notificationItemImage.visibility = View.VISIBLE
                 itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.paper_color))
             }
+
+            // setting tag for swipe action text
+            if (n.isUnread) {
+                itemView.setTag(R.string.tag_text_key, getString(R.string.notifications_swipe_action_read))
+                itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_drafts_24)
+            } else {
+                itemView.setTag(R.string.tag_text_key, getString(R.string.notifications_swipe_action_unread))
+                itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_email_24)
+            }
+
+            binding.notificationOverflowMenu.setOnClickListener {
+                showOverflowMenu(it)
+            }
+        }
+
+        private fun isValidAppLanguageCode(langCode: String): Boolean {
+            return WikipediaApp.getInstance().language().getLanguageCodeIndex(langCode) >= 0 ||
+                    WikipediaApp.getInstance().language().getLanguageVariants(langCode) != null
         }
 
         override fun onClick(v: View) {
             if (MultiSelectActionModeCallback.isTagType(actionMode)) {
-                toggleSelectItem(container)
+                toggleSelectItem(container, itemPosition)
             } else {
-                bottomSheetPresenter.show(supportFragmentManager,
-                        NotificationItemActionsDialog.newInstance(container.notification!!))
+                val n = container.notification!!
+                markReadItems(listOf(container), markUnread = false, fromUndoOrClick = true, position = itemPosition)
+                n.contents?.links?.getPrimary()?.let { link ->
+                    val url = link.url
+                    if (url.isNotEmpty()) {
+                        NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logAction(NotificationInteractionEvent.ACTION_PRIMARY, link)
+                        NotificationInteractionEvent.logAction(n, NotificationInteractionEvent.ACTION_PRIMARY, link)
+                        linkHandler.wikiSite = WikiSite(url)
+                        linkHandler.onUrlClick(url, null, "")
+                    }
+                }
             }
         }
 
         override fun onLongClick(v: View): Boolean {
             beginMultiSelect()
-            toggleSelectItem(container)
+            toggleSelectItem(container, itemPosition)
             return true
         }
-    }
 
-    private inner class NotificationItemHolderSwipeable constructor(v: View) : NotificationItemHolder(v), SwipeableItemTouchHelperCallback.Callback {
         override fun onSwipe() {
-            deleteItems(listOf(container), false)
+            container.notification?.let {
+                markReadItems(listOf(container), !it.isUnread, position = itemPosition)
+            }
+        }
+
+        private fun showOverflowMenu(anchorView: View) {
+            notificationActionOverflowView = NotificationActionsOverflowView(this@NotificationActivity)
+            notificationActionOverflowView?.show(anchorView, container) {
+                    container, markRead -> markReadItems(listOf(container), !markRead, position = itemPosition)
+            }
         }
     }
 
-    private inner class NotificationDateHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-        private val dateView: TextView = view.findViewById(R.id.notification_date_text)
-        fun bindItem(date: Date?) {
-            dateView.text = getFeedCardDateString(date!!)
+    private inner class NotificationSearchBarHolder constructor(view: View) :
+        RecyclerView.ViewHolder(view) {
+        val notificationFilterButton: AppCompatImageView = itemView.findViewById(R.id.notification_filter_button)
+        val notificationFilterCountView: TextView = itemView.findViewById(R.id.notification_filter_count)
+
+        init {
+            (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
+
+            itemView.setOnClickListener {
+                if (actionMode == null) {
+                    funnel.logSearchClick()
+                    actionMode = startSupportActionMode(searchActionModeCallback)
+                    postprocessAndDisplay()
+                }
+            }
+
+            notificationFilterButton.setOnClickListener {
+                funnel.logFilterClick()
+                resultLauncher.launch(NotificationFilterActivity.newIntent(it.context))
+            }
+
+            FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
+        }
+
+        fun updateFilterIconAndCount() {
+            val excludedFilters = viewModel.excludedFiltersCount()
+            if (excludedFilters == 0) {
+                notificationFilterCountView.visibility = View.GONE
+                ImageViewCompat.setImageTintList(notificationFilterButton,
+                    ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.chip_text_color)))
+            } else {
+                notificationFilterCountView.visibility = View.VISIBLE
+                notificationFilterCountView.text = excludedFilters.toString()
+                ImageViewCompat.setImageTintList(notificationFilterButton,
+                    ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.colorAccent)))
+            }
         }
     }
 
@@ -459,45 +549,60 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
-            if (type == NotificationListItemContainer.ITEM_DATE_HEADER) {
-                return NotificationDateHolder(layoutInflater.inflate(R.layout.item_notification_date, parent, false))
+            if (type == NotificationListItemContainer.ITEM_SEARCH_BAR) {
+                return NotificationSearchBarHolder(layoutInflater.inflate(R.layout.view_notification_search_bar, parent, false))
             }
-            return if (displayArchived) {
-                NotificationItemHolder(layoutInflater.inflate(R.layout.item_notification, parent, false))
-            } else {
-                NotificationItemHolderSwipeable(layoutInflater.inflate(R.layout.item_notification, parent, false))
-            }
+            return NotificationItemHolder(ItemNotificationBinding.inflate(layoutInflater, parent, false))
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             when (holder) {
-                is NotificationDateHolder -> holder.bindItem(notificationContainerList[pos].date)
-                is NotificationItemHolderSwipeable -> holder.bindItem(notificationContainerList[pos])
-                is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos])
+                is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos], pos)
+                is NotificationSearchBarHolder -> holder.updateFilterIconAndCount()
             }
 
             // if we're at the bottom of the list, and we have a continuation string, then execute it.
-            if (pos == notificationContainerList.size - 1 && !currentContinueStr.isNullOrEmpty()) {
-                orContinueNotifications
+            if (pos == notificationContainerList.size - 1 && fromContinuation) {
+                viewModel.fetchAndSave()
             }
         }
     }
 
     private inner class SearchCallback : SearchActionModeCallback() {
+
+        var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@NotificationActivity, searchHintString,
+                object : SearchAndFilterActionProvider.Callback {
+                    override fun onQueryTextChange(s: String) {
+                        onQueryChange(s)
+                    }
+
+                    override fun onQueryTextFocusChange() {
+                    }
+
+                    override fun getExcludedFilterCount(): Int {
+                        return viewModel.excludedFiltersCount()
+                    }
+                })
+
+            val menuItem = menu.add(searchHintString)
+
+            MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
+
             actionMode = mode
             return super.onCreateActionMode(mode, menu)
         }
 
         override fun onQueryChange(s: String) {
-            currentSearchQuery = s.trim()
+            viewModel.updateSearchQuery(s.trim())
             postprocessAndDisplay()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
-            currentSearchQuery = null
+            viewModel.updateSearchQuery(null)
             postprocessAndDisplay()
         }
 
@@ -508,22 +613,48 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         override fun getParentContext(): Context {
             return this@NotificationActivity
         }
+
+        fun refreshProvider() {
+            searchAndFilterActionProvider?.updateFilterIconAndText()
+        }
     }
 
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
             mode.menuInflater.inflate(R.menu.menu_action_mode_notifications, menu)
-            menu.findItem(R.id.menu_delete_selected).isVisible = !displayArchived
-            menu.findItem(R.id.menu_unarchive_selected).isVisible = displayArchived
             actionMode = mode
             return true
         }
 
+        override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
+            mode.title = selectedItemCount.toString()
+            val isFirstItemUnread = selectedItems.firstOrNull()?.notification?.isUnread
+            menu.findItem(R.id.menu_mark_as_read).isVisible = isFirstItemUnread == true
+            menu.findItem(R.id.menu_mark_as_unread).isVisible = isFirstItemUnread == false
+            menu.findItem(R.id.menu_check_all).isVisible = true
+            menu.findItem(R.id.menu_uncheck_all).isVisible = false
+            return super.onPrepareActionMode(mode, menu)
+        }
+
         override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
             when (menuItem.itemId) {
-                R.id.menu_delete_selected, R.id.menu_unarchive_selected -> {
-                    onDeleteSelected()
+                R.id.menu_mark_as_read -> {
+                    markReadItems(selectedItems, false)
+                    finishActionMode()
+                    return true
+                }
+                R.id.menu_mark_as_unread -> {
+                    markReadItems(selectedItems, true)
+                    finishActionMode()
+                    return true
+                }
+                R.id.menu_check_all -> {
+                    checkAllItems(mode, true)
+                    return true
+                }
+                R.id.menu_uncheck_all -> {
+                    checkAllItems(mode, false)
                     finishActionMode()
                     return true
                 }
@@ -532,35 +663,23 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
 
         override fun onDeleteSelected() {
-            deleteItems(selectedItems, displayArchived)
+            // ignore
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
-            unselectAllItems()
+            checkAllItems(mode, false)
             actionMode = null
             super.onDestroyActionMode(mode)
         }
-    }
 
-    private class NotificationListItemContainer {
-        val type: Int
-        var notification: Notification? = null
-        var date: Date? = null
-        var selected = false
-
-        constructor(date: Date) {
-            this.date = date
-            type = ITEM_DATE_HEADER
-        }
-
-        constructor(notification: Notification) {
-            this.notification = notification
-            type = ITEM_NOTIFICATION
-        }
-
-        companion object {
-            const val ITEM_DATE_HEADER = 0
-            const val ITEM_NOTIFICATION = 1
+        private fun checkAllItems(mode: ActionMode, check: Boolean) {
+            notificationContainerList
+                .filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }
+                .map { it.selected = check }
+            mode.title = selectedItemCount.toString()
+            mode.menu.findItem(R.id.menu_check_all).isVisible = !check
+            mode.menu.findItem(R.id.menu_uncheck_all).isVisible = check
+            binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
         }
     }
 

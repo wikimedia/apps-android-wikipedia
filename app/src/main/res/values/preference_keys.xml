@@ -105,6 +105,7 @@
     <string name="preference_key_temporary_wikitext_storage">temporaryWikitextStorage</string>
     <string name="preference_key_suggested_edits_highest_priority_enabled">SEHighestPriorityEnabled</string>
     <string name="preference_key_explore_feed_visit_count">exploreFeedVisitCount</string>
+    <string name="preference_key_logged_in_page_activity_visit_count">loggedInPageActivityVisitCount</string>
     <string name="preference_key_selected_language_position_in_search">selectedLanguagePositionInSearch</string>
     <string name="preference_key_show_sequential_user_stats_tooltip">showSequentialUserStatsTooltip</string>
     <string name="preference_key_show_search_tab_tooltip">showSearchTabTooltip</string>
@@ -119,5 +120,9 @@
     <string name="preference_key_watchlist_disabled_langs">watchlistDisabledLangs</string>
     <string name="preference_key_watchlist_page_onboarding_tooltip_shown">watchlistPageOnboardingTooltipShown</string>
     <string name="preference_key_watchlist_main_onboarding_tooltip_shown">watchlistMainOnboardingTooltipShown</string>
+    <string name="preference_key_excluded_wiki_codes_notification">filterNotificationExcludedWikiCodes</string>
+    <string name="preference_key_excluded_type_codes_notification">filterNotificationExcludedTypeCodes</string>
     <string name="preference_key_page_notification_tooltip_shown">pageNotificationTooltipShown</string>
+    <string name="preference_key_auto_show_edit_notices">autoShowEditNotices</string>
+    <string name="preference_key_edit_notices_tooltip_shown">editNoticesTooltipShown</string>
 </resources>

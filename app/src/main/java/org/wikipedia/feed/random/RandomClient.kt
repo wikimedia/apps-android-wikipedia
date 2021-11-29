@@ -27,7 +27,7 @@ class RandomClient : FeedClient {
                 .observeOn(AndroidSchedulers.mainThread())
                 .toList()
                 .subscribe({ pairs ->
-                    val list = pairs.filter { it.second != null }.map { RandomCard(it.second!!, age, WikiSite.forLanguageCode(it.first)) }
+                    val list = pairs.map { RandomCard(it.second, age, WikiSite.forLanguageCode(it.first)) }
                     FeedCoordinator.postCardsToCallback(cb, list)
                 }) { t ->
                     L.v(t)
@@ -35,7 +35,7 @@ class RandomClient : FeedClient {
                 })
     }
 
-    private fun getRandomSummaryObservable(lang: String): Observable<PageSummary?> {
+    private fun getRandomSummaryObservable(lang: String): Observable<PageSummary> {
         return ServiceFactory.getRest(WikiSite.forLanguageCode(lang))
             .randomSummary
             .subscribeOn(Schedulers.io())

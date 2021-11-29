@@ -34,6 +34,8 @@
     <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
     <string name="history_list_title">History</string>
     <string name="image_content_description">Image: %s</string>
+    <string name="wikimedia_commons">Wikimedia Commons</string>
+    <string name="wikidata">Wikidata</string>
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
@@ -242,6 +244,10 @@
     <string name="edit_summary_tag_other_hint">Other ways you improved the page</string>
     <string name="edit_conflict_title">Edit conflict</string>
     <string name="edit_conflict_message">The page has already been modified by a different user, and is conflicting with your edit. Please copy your edits, go back and refresh the page, then try editing again.</string>
+    <string name="edit_notices">Edit notices</string>
+    <string name="edit_notices_please_read">Please read before editing</string>
+    <string name="edit_notices_show_auto">Show edit notices automatically</string>
+    <string name="edit_notices_tooltip">Tap this button to view edit notices for this article.</string>
     <string name="find_next">Find next</string>
     <string name="find_previous">Find previous</string>
     <string name="find_first_occurence">This is the first occurrence</string>
@@ -353,6 +359,7 @@
     <string name="error_message_generic">An error occurred</string>
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
+    <string name="error_user_page_does_not_exist"><![CDATA[Wikipedia does not have a <a href="%1$s">user page</a> with this exact name. In general, this page should be created and edited by <b>%2$s</b>. If in doubt, please verify that \"%3$s\" exists.]]></string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
     <string name="view_wiki_error_message_timeout">Cannot connect to Wikipedia. Check your network connection, or try again later</string>
     <string name="reference_title">Reference %s</string>
@@ -597,6 +604,20 @@
     <string name="notification_preferences_title">Notification preferences</string>
     <string name="notifications_mark_unread">Mark as unread</string>
     <string name="notifications_mark_all_as_read">Mark all as read</string>
+    <string name="notifications_direct_reply_action">Reply</string>
+    <string name="notifications_direct_reply_progress">Posting reply to %s…</string>
+    <string name="notifications_direct_reply_success">Reply posted.</string>
+    <string name="notifications_direct_reply_error">Could not post reply automatically.</string>
+    <string name="notifications_mark_all_as_read_message">%d marked as read</string>
+    <string name="notifications_mark_all_as_unread_message">%d marked as unread</string>
+    <plurals name="notifications_mark_as_read_plural">
+        <item quantity="one">1 marked as read</item>
+        <item quantity="other">%d marked as read</item>
+    </plurals>
+    <plurals name="notifications_mark_as_unread_plural">
+        <item quantity="one">1 marked as unread</item>
+        <item quantity="other">%d marked as unread</item>
+    </plurals>
     <string name="watchlist_title">Watchlist</string>
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
@@ -629,6 +650,32 @@
     <string name="notifications_channel_group_wikipedia_notifications_description">Notifications from Wikipedia</string>
     <string name="notifications_channel_group_other_title">Other</string>
     <string name="notifications_channel_group_other_description">Other notifications from the app</string>
+    <string name="notifications_filter_label">Filter notifications</string>
+    <string name="notifications_filter_icon_content_description">Filter notifications</string>
+    <string name="notifications_filter_add_app_languages">Add or edit app languages</string>
+    <string name="notifications_empty_search_message">Try removing %s to see more notifications</string>
+    <plurals name="notifications_number_of_filters">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filters</item>
+    </plurals>
+    <string name="notifications_select_all_filters">Select all filters</string>
+    <string name="notifications_tab_filter_all">All</string>
+    <string name="notifications_tab_filter_mentions">Mentions</string>
+    <string name="notifications_tab_filter_unread">(%s)</string>
+    <string name="notifications_search_bar_hint">Search or filter notifications</string>
+    <string name="notifications_search_bar_filter_hint">Notification filter</string>
+    <string name="notifications_menu_mark_as_read">Mark as read</string>
+    <string name="notifications_menu_mark_as_unread">Mark as unread</string>
+    <string name="notifications_swipe_action_read">Read</string>
+    <string name="notifications_swipe_action_unread">Unread</string>
+    <string name="notifications_menu_check_all">Check all items</string>
+    <string name="notifications_menu_uncheck_all">Uncheck all items</string>
+    <string name="notifications_wiki_filter_header">Wiki filter</string>
+    <string name="notifications_type_filter_header">Type filter</string>
+    <string name="notifications_all_wikis_text">All \"wiki\"</string>
+    <string name="notifications_all_types_text">All \"type\"</string>
+    <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
+    <string name="notifications_offline_disable_message">The function is not available while offline.</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
@@ -1058,6 +1105,12 @@
     <string name="talk_response_submitted">Reply posted.</string>
     <string name="talk_snackbar_undo">Undo</string>
     <string name="talk_last_modified"><![CDATA[<b>Last edited %1$s</b> by %2$s]]></string>
+    <string name="talk_snackbar_survey_text">Thanks for using talk pages. Could you help us improve the app by participating in a survey?</string>
+    <string name="talk_snackbar_survey_action_text">Get started</string>
+    <string name="talk_share_discussion_subject">Wikipedia - discussion on talk page topic \"%s\"</string>
+    <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
+    <string name="menu_option_share_talk_discussion">Share discussion</string>
+    <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>
@@ -1096,4 +1149,5 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+
 </resources>

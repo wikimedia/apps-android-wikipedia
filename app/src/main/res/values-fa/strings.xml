@@ -228,6 +228,7 @@
   <string name="page_protected_can_not_edit_title">این صفحه محافظت شده‌ است</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">افزودن به فهرست پی‌گیری</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">از آنچه بر مقاله‌های مورد علاقهٔ شما می‌گذرد باخبر بمانید. منوی پایین‌رونده را باز کنید و &lt;b&gt;افزودن به فهرست پی‌گیری‌ها&lt;/b&gt; را انتخاب کنید تا تغییرات در مقاله را ببینید.</string>
+  <string name="page_notification_tooltip">اکنون اعلان‌های شما در اینجا قرار دارند.</string>
   <string name="settings_item_preferences">تنظیمات</string>
   <string name="settings_activity_title">تنظیمات</string>
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
@@ -273,6 +274,10 @@
   <string name="edit_summary_tag_other_hint">راه‌های دیگر برای بهبود صفحه</string>
   <string name="edit_conflict_title">تعارض ویرایشی</string>
   <string name="edit_conflict_message">هم‌اکنون کاربر دیگری این صفحه را ویرایش کرده و تغییرات شما با ویرایش‌های او تعارض دارد. خواهشمندیم ابتدا تغییرات خود را در حافظه کپی کرده سپس به عقب برگشته و بار دیگر صفحه را ویرایش کنید.</string>
+  <string name="edit_notices">اعلامیه‌های ویرایش</string>
+  <string name="edit_notices_please_read">لطفاً پیش از ویرایش، مطالعه کنید</string>
+  <string name="edit_notices_show_auto">نمایش اعلامیه‌های ویرایش به‌طور خودکار</string>
+  <string name="edit_notices_tooltip">برای مشاهدهٔ اعلامیه‌های ویرایش این مقاله، این دکمه را لمس کنید.</string>
   <string name="find_next">یافتن بعدی</string>
   <string name="find_previous">یافتن قبلی</string>
   <string name="find_first_occurence">این نخستین مورد است</string>
@@ -603,6 +608,7 @@
   <string name="notification_preferences_title">ترجیحات اعلان‌ها</string>
   <string name="notifications_mark_unread">نشانه‌گذاری به‌عنوان خوانده‌نشده</string>
   <string name="notifications_mark_all_as_read">نشان‌گذاری همه به عنوان خوانده‌شده</string>
+  <string name="notifications_direct_reply_success">پاسخ ارسال شد.</string>
   <string name="watchlist_title">فهرست پی‌گیری</string>
   <string name="preference_title_notification_poll">سرشماری اعلان‌ها</string>
   <string name="preference_summary_notification_poll">به نرم‌افزار اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی اعلان‌های جدید استفاده کند.</string>
@@ -631,10 +637,11 @@
   <string name="preference_title_customize_push_notifications">شخصی‌سازی اعلان‌ها</string>
   <string name="preference_category_display_settings">تنظیمات نمایش</string>
   <string name="preference_title_hide_read_notifications">نهفتن اعلان‌های خوانده‌شده</string>
-  <string name="notifications_channel_group_wikipedia_notifications_title" fuzzy="true">اعلان‌های ویکی‌پدیا</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ویکی‌پدیا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">اعلان‌های ویکی‌پدیا</string>
   <string name="notifications_channel_group_other_title">سایر</string>
   <string name="notifications_channel_group_other_description">سایر اعلان‌های برنامه</string>
+  <string name="notifications_filter_add_app_languages">افزودن یا ویرایش زبان‌های نرم‌افزار</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه کرده‌اید</string>
   <string name="view_random_card_title">تصادفی</string>
   <string name="view_random_article_card_title">مقالهٔ تصادفی</string>
@@ -1014,6 +1021,8 @@
   <string name="talk_response_submitted">پاسخ ارسال شد.</string>
   <string name="talk_snackbar_undo">واگردانی</string>
   <string name="talk_last_modified">&lt;b&gt;آخرین ویرایش در %1$s&lt;/b&gt; توسط %2$s</string>
+  <string name="talk_snackbar_survey_text">از شما برای استفاده از صفحه‌های بحث سپاسگزاریم. آیا مایل هستید با شرکت در یک نظرسنجی به ما در بهبود نرم‌افزار کمک کنید؟</string>
+  <string name="talk_snackbar_survey_action_text">آغاز</string>
   <string name="menu_option_share_edit">اشتراک‌گذاری ویرایش</string>
   <string name="menu_option_user_profile">رخ‌نمای %s</string>
   <string name="menu_option_user_contributions">مشارکت‌های %s</string>

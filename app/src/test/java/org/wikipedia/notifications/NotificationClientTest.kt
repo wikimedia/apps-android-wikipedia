@@ -1,35 +1,42 @@
 package org.wikipedia.notifications
 
-import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
 import org.junit.Test
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.test.MockRetrofitTest
 import org.wikipedia.test.TestFileUtil
 
 class NotificationClientTest : MockRetrofitTest() {
+
     @Test
     @Throws(Throwable::class)
     fun testRequestSuccess() {
         enqueueFromFile("notifications.json")
-        observable.test().await()
-            .assertComplete().assertNoErrors()
-            .assertValue {
-                val firstNotification = it.query?.notifications?.list?.first()!!
-                firstNotification.category == NotificationCategory.EDIT_THANK.id &&
-                        firstNotification.title?.full == "PageTitle" &&
-                        firstNotification.agent?.name == "User1"
-            }
+        runBlocking {
+            allNotification()
+        }.run {
+            val firstNotification = query?.notifications?.list?.first()!!
+            MatcherAssert.assertThat(firstNotification.category, Matchers.`is`(NotificationCategory.EDIT_THANK.id))
+            MatcherAssert.assertThat(firstNotification.title?.full, Matchers.`is`("PageTitle"))
+            MatcherAssert.assertThat(firstNotification.agent?.name, Matchers.`is`("User1"))
+        }
     }
 
     @Test
     @Throws(Throwable::class)
     fun testRequestMalformed() {
         enqueueMalformed()
-        observable.test().await()
-            .assertError(Exception::class.java)
+        runBlocking {
+            try {
+                allNotification()
+            } catch (e: Exception) {
+                MatcherAssert.assertThat(e, Matchers.notNullValue())
+            }
+        }
     }
 
     @Test
@@ -47,16 +54,18 @@ class NotificationClientTest : MockRetrofitTest() {
     @Throws(Throwable::class)
     fun testNotificationMention() {
         enqueueFromFile("notification_mention.json")
-        observable.test().await()
-            .assertComplete().assertNoErrors()
-            .assertValue {
-                val notifications = it.query?.notifications?.list
-                notifications?.get(0)?.category?.startsWith(NotificationCategory.MENTION.id) == true &&
-                        notifications[1].category.startsWith(NotificationCategory.MENTION.id) &&
-                        notifications[2].category.startsWith(NotificationCategory.MENTION.id)
-            }
+
+        runBlocking {
+            allNotification()
+        }.run {
+            val notifications = query?.notifications?.list
+            MatcherAssert.assertThat(notifications?.get(0)?.category, Matchers.startsWith(NotificationCategory.MENTION.id))
+            MatcherAssert.assertThat(notifications?.get(1)?.category, Matchers.startsWith(NotificationCategory.MENTION.id))
+            MatcherAssert.assertThat(notifications?.get(2)?.category, Matchers.startsWith(NotificationCategory.MENTION.id))
+        }
     }
 
-    private val observable: Observable<MwQueryResponse>
-        get() = apiService.getAllNotifications("*", "!read", null)
+    private suspend fun allNotification(): MwQueryResponse {
+        return apiService.getAllNotifications("*", "!read", null)
+    }
 }

@@ -68,6 +68,8 @@
   <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
   <string name="history_list_title">Label text for history items list.</string>
   <string name="image_content_description">Content description for an image. The \"%s\" symbol is replaced with the name of the subject.</string>
+  <string name="wikimedia_commons">Label text for Wikimedia Commons.</string>
+  <string name="wikidata">Label text for Wikidata.</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
   <string name="dialog_message_clear_history_yes">Affirmative answer to clear the browsing history, as well close any tabs that are open.\n{{Identical|Yes}}</string>
@@ -267,6 +269,10 @@
   <string name="edit_summary_tag_other_hint">Hint (input field placeholder) for the user to write a custom summary of edits</string>
   <string name="edit_conflict_title">Title for dialog box that warns the user about \'\'\'an\'\'\' edit conflict.\n\nThis is not the verb \"to edit/modify some conflict\", but the name for a \"conflict occuring while editing/modifying a page and trying to save the changes\".</string>
   <string name="edit_conflict_message">Message explaining to the user that the edit they are submitting is conflicting with the current state of the article, and instructs the user to go back and reload the page before trying to edit again.</string>
+  <string name="edit_notices">Title for popup dialog that contains edit notices for the current article.</string>
+  <string name="edit_notices_please_read">Instructional text encouraging the user to read the edit notices for this article.</string>
+  <string name="edit_notices_show_auto">Label for checkbox that enables showing edit notices automatically when entering the editing workflow.\n\nThe words \"edit notices\" must be translated consistently with {{msg-wm|Wikipedia-android-strings-edit notices}}.</string>
+  <string name="edit_notices_tooltip">Text for a tooltip that points to the button for displaying edit notices.</string>
   <string name="find_next">Text for button that finds the next occurrence of a search term.\n{{Identical|Find next}}</string>
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_first_occurence">Text that shows up in hint when user tries to get to first occurence when he is already on it.</string>
@@ -377,6 +383,7 @@
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
   <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview\n{{Identical|Dismiss}}</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
+  <string name="error_user_page_does_not_exist">Error message text shown when the user page does not yet exist. %1$s represents the full URL that points to the user page, %2$s represents the username and %3$s represents username without namespace.</string>
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
   <string name="view_wiki_error_message_timeout">Error message shown when a network operation takes too long and times out.</string>
   <string name="reference_title">Title shown on the popup dialog for a reference clicked by the user. The %s symbol is replaced with the link text of the clicked reference.</string>
@@ -603,6 +610,20 @@
   <string name="notification_preferences_title">Title of activity where the notification preferences are managed.</string>
   <string name="notifications_mark_unread">Menu label for marking the selected notifications as unread.</string>
   <string name="notifications_mark_all_as_read">Menu label for marking all notifications as read.</string>
+  <string name="notifications_direct_reply_action">Button label for creating a direct reply to a message. Should be identical to {{msg-mw|Discussiontools-replylink}}.</string>
+  <string name="notifications_direct_reply_progress">Label for message indicating that a reply is being posted. The %s symbol is replaced with the username to whom the reply is made.</string>
+  <string name="notifications_direct_reply_success">Message shown when a reply was posted successfully.</string>
+  <string name="notifications_direct_reply_error">Message shown when there was an error while posting a reply.</string>
+  <string name="notifications_mark_all_as_read_message">Message shown when notifications are marked as read. The %d is replaced with the number of notifications.</string>
+  <string name="notifications_mark_all_as_unread_message">Message shown when notifications are marked as unread. The %d is replaced with the number of notifications.</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">Message shown when a single notification is marked as read.</item>
+    <item quantity="other">Message shown when multiple notifications are marked as read. The %d is replaced with the number of notifications.</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">Message shown when a single notification is marked as unread.</item>
+    <item quantity="other">Message shown when multiple notifications are marked as unread. The %d is replaced with the number of notifications.</item>
+  </plurals>
   <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>
   <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.\n\n{{doc-important|\"Poll\" is a verb here. This is about the polling of notifications, not about notifications of polls.}}</string>
   <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
@@ -635,6 +656,32 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Description for the Wikipedia notifications group.</string>
   <string name="notifications_channel_group_other_title">Title for the other notifications group.</string>
   <string name="notifications_channel_group_other_description">Description for the other notifications group.</string>
+  <string name="notifications_filter_label">Label text for filter notifications activity.</string>
+  <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
+  <string name="notifications_filter_add_app_languages">Label text to add or edit app languages list.</string>
+  <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters string.</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
+    <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Menu item label for selecting all notification filters at once.</string>
+  <string name="notifications_tab_filter_all">Label for the tab button in the notification screen that shows all types of notification.\n{{identical|All}}</string>
+  <string name="notifications_tab_filter_mentions">Label for the tab button in the notification screen that shows mention types of notification.</string>
+  <string name="notifications_tab_filter_unread">Additional text for the tab button label in the notification screen that indicates how many unread notifications are in this type of notification. %s will be replaced by the unread number.</string>
+  <string name="notifications_search_bar_hint">Hint text for the notifications search bar.</string>
+  <string name="notifications_search_bar_filter_hint">Hint text for the notifications filter icon.</string>
+  <string name="notifications_menu_mark_as_read">Menu item used for marking selected items as read.</string>
+  <string name="notifications_menu_mark_as_unread">Menu item used for marking selected items as unread.</string>
+  <string name="notifications_swipe_action_read">Text for swipe action on notifications list item to mark it as read.\n{{identical|Read}}</string>
+  <string name="notifications_swipe_action_unread">Text for swipe action on notifications list item to mark it as unread.</string>
+  <string name="notifications_menu_check_all">Menu item used for selecting all items in the list.</string>
+  <string name="notifications_menu_uncheck_all">Menu item used for unselecting all items in the list.</string>
+  <string name="notifications_wiki_filter_header">Header text for notification wikis filters</string>
+  <string name="notifications_type_filter_header">Header text for notification types filters</string>
+  <string name="notifications_all_wikis_text">Label text for button to enable all wikis for notifications.</string>
+  <string name="notifications_all_types_text">Label text for button to enable all types for notifications.</string>
+  <string name="notifications_menu_user_talk_page">Menu item used for heading to the user\'s talk page. %s will be replaced by the user name.</string>
+  <string name="notifications_offline_disable_message">Message to inform the user that the function is disabled while offline.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
@@ -734,7 +781,7 @@
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen\n{{Identical|Done}}</string>
   <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app\n{{Identical|Did you know}}</string>
   <string name="description_edit_success_article_edit_hint">A message informing the user about how to edit articles in the app.  The \"^1\" symbol is replaced with an edit pencil icon.</string>
-  <string name="description_edit_tutorial_title_descriptions">Heading for a tutorial about editing page article descriptions.</string>
+  <string name="description_edit_tutorial_title_descriptions">Heading for a tutorial about editing page article descriptions.\n\nAppears in a box above {{msg-wm|Wikipedia-android-strings-suggested edits add descriptions task detail}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags}}</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Summary of what page title descriptions are for.</string>
   <string name="description_edit_tutorial_keep_it_short">An instruction for the user to keep descriptions short.</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
@@ -804,14 +851,14 @@
   <string name="suggested_edits_snackbar_survey_action_text">Button label on the snackbar shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
   <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action</string>
   <string name="suggested_edits_task_action_text_translate">Button label for suggested edits task translate action</string>
-  <string name="suggested_edits_image_captions">Suggested Edits image captions task title</string>
-  <string name="suggested_edits_image_tags">Suggested Edits image tags task title</string>
+  <string name="suggested_edits_image_captions">Suggested Edits image captions task title.\n\nAppears in a box above {{msg-wm|Wikipedia-android-strings-suggested edits image captions task detail}}.\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags}}</string>
+  <string name="suggested_edits_image_tags">Suggested Edits image tags task title.\n\nAppears in a box above {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions}}\n* {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}</string>
   <string name="suggested_edits_image_tags_publishing">Status when the selected image tags are being published.</string>
   <string name="suggested_edits_image_tags_published">Status when the selected image tags have been published.</string>
   <string name="suggested_edits_image_tags_onboarding_title">Title shown on the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Body text of the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Footnote shown on the onboarding screen for adding tags to images.</string>
-  <string name="suggested_edits_image_tags_task_detail">Explanation for the task of adding tags to images.</string>
+  <string name="suggested_edits_image_tags_task_detail">Explanation for the task of adding tags to images.\n\nAppears in a box under {{msg-wm|Wikipedia-android-strings-suggested edits image tags}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions task detail}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits add descriptions task detail}}</string>
   <string name="suggested_edits_image_tags_choose">Short text asking the user to choose the tags that match the image.</string>
   <string name="suggested_edits_image_tags_published_list">Title for list of tags that have been published.</string>
   <string name="suggested_edits_image_tags_search">Hint for text field used for searching image tags.</string>
@@ -821,8 +868,8 @@
   <string name="suggested_edits_image_zoom_tooltip">Short message telling the user that they can pinch to zoom the image that is shown.</string>
   <string name="suggested_edits_encouragement_message">Message text shown to users to encourage them to continue and increase editing.%s represents the user\'s name.</string>
   <string name="suggested_edits_onboarding_message">Message text shown to users who havent yet used the suggested edits features, to encourage them to start editing.%s represents the user\'s name</string>
-  <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Article descriptions detail text explaining the task of adding article descriptions.</string>
+  <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.\n\nAppears in a box under {{msg-wm|Wikipedia-android-strings-suggested edits image captions}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits add descriptions task detail}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Article descriptions detail text explaining the task of adding article descriptions.\n\nAppears in a box under {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions task detail}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}</string>
   <string name="suggested_edits_contributions_stat_tooltip">Tool tip text explaining the contributions statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Tool tip text explaining the edit streak statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Tool tip text explaining the page views statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
@@ -1009,6 +1056,8 @@
   <string name="talk_response_submitted">Message shown when the response has been submitted.</string>
   <string name="talk_snackbar_undo">Button label to undo the operation of submitting the response.</string>
   <string name="talk_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.\n\nShould be similar to this MediaWiki messages such as this: {{msg-mw|Mobile-frontend-last-modified-with-user-hours}}</string>
+  <string name="talk_snackbar_survey_text">One-time text shown to users after they submit a talk page message, requesting them to take a survey.</string>
+  <string name="talk_snackbar_survey_action_text">Button label for navigating to a survey page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
   <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
   <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
@@ -1045,4 +1094,8 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
+  <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
+  <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
+  <string name="talk_share_discussion_subject">Subject text while sharing a talk topic discussion. %s represents the topic subject.</string>
+  <string name="talk_share_talk_page">Subject text while sharing a talk page</string>
 </resources>

@@ -2,12 +2,20 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/menu_delete_selected"
-        android:icon="@drawable/ic_archive_themed_24dp"
-        android:title="@string/delete_selected_items"
+    <item android:id="@+id/menu_mark_as_read"
+        android:icon="@drawable/ic_outline_drafts_24"
+        android:title="@string/notifications_menu_mark_as_read"
         app:showAsAction="always" />
-    <item android:id="@+id/menu_unarchive_selected"
-        android:icon="@drawable/ic_unarchive_themed_24dp"
+    <item android:id="@+id/menu_mark_as_unread"
+        android:icon="@drawable/ic_outline_markunread_24"
         android:title="@string/notifications_mark_unread"
+        app:showAsAction="always" />
+    <item android:id="@+id/menu_check_all"
+        android:icon="@drawable/ic_outline_library_add_check_24"
+        android:title="@string/notifications_menu_check_all"
+        app:showAsAction="always" />
+    <item android:id="@+id/menu_uncheck_all"
+        android:icon="@drawable/ic_deselect_all"
+        android:title="@string/notifications_menu_uncheck_all"
         app:showAsAction="always" />
 </menu>
