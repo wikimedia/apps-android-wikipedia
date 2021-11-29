@@ -19,7 +19,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
-import org.wikipedia.talk.TalkPageSurvey
 import org.wikipedia.util.StringUtil.fromHtml
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -145,10 +144,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
         findPreference(R.string.preference_key_send_event_platform_test_event).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             UserContributionEvent.logOpen()
-            true
-        }
-        findPreference(R.string.preference_developer_show_talk_page_survey).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            TalkPageSurvey.showSurveyDialog(activity, Prefs.showTalkPageSurveyAttempts)
             true
         }
     }

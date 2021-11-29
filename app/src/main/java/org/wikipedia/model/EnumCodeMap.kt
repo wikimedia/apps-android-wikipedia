@@ -1,6 +1,7 @@
 package org.wikipedia.model
 
 import android.util.SparseArray
+import androidx.core.util.valueIterator
 
 class EnumCodeMap<T>(enumeration: Class<T>) where T : Enum<T>, T : EnumCode {
     private val map: SparseArray<T>
@@ -23,5 +24,9 @@ class EnumCodeMap<T>(enumeration: Class<T>) where T : Enum<T>, T : EnumCode {
 
     fun size(): Int {
         return map.size()
+    }
+
+    fun valueIterator(): Iterator<T> {
+        return map.valueIterator()
     }
 }

@@ -13,7 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.ViewSearchAndFilterBinding
-import org.wikipedia.notifications.NotificationsFilterActivity
+import org.wikipedia.notifications.NotificationFilterActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -58,7 +58,7 @@ class SearchAndFilterActionProvider(context: Context,
         binding.notificationFilterIcon.setOnClickListener {
             NotificationPreferencesFunnel(WikipediaApp.instance).logFilterClick()
             DeviceUtil.hideSoftKeyboard(it)
-            context.startActivity(NotificationsFilterActivity.newIntent(context))
+            context.startActivity(NotificationFilterActivity.newIntent(context))
         }
         FeedbackUtil.setButtonLongPressToast(binding.notificationFilterIcon)
 

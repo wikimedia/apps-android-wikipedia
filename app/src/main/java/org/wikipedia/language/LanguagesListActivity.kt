@@ -5,28 +5,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.AppLanguageSearchingFunnel
 import org.wikipedia.databinding.ActivityLanguagesListBinding
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.log.L
+import org.wikipedia.util.Resource
 import java.util.*
 
 class LanguagesListActivity : BaseActivity() {
     private lateinit var binding: ActivityLanguagesListBinding
+    private lateinit var languageAdapter: LanguagesListAdapter
     private lateinit var searchActionModeCallback: LanguageSearchCallback
     private lateinit var searchingFunnel: AppLanguageSearchingFunnel
 
@@ -35,8 +32,8 @@ class LanguagesListActivity : BaseActivity() {
     private var actionMode: ActionMode? = null
     private var interactionsCount = 0
     private var isLanguageSearched = false
-    private val disposables = CompositeDisposable()
-    private var siteInfoList: List<SiteMatrix.SiteInfo>? = null
+
+    private val viewModel: LanguagesListViewModel by viewModels()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,18 +42,20 @@ class LanguagesListActivity : BaseActivity() {
 
         binding.languagesListEmptyView.setEmptyText(R.string.langlinks_no_match)
         binding.languagesListEmptyView.visibility = View.GONE
-        binding.languagesListRecycler.adapter = LanguagesListAdapter(app.appLanguageState.appMruLanguageCodes, app.appLanguageState.remainingAvailableLanguageCodes)
+        languageAdapter = LanguagesListAdapter()
+        binding.languagesListRecycler.adapter = languageAdapter
         binding.languagesListRecycler.layoutManager = LinearLayoutManager(this)
         binding.languagesListLoadProgress.visibility = View.VISIBLE
         searchActionModeCallback = LanguageSearchCallback()
 
         searchingFunnel = AppLanguageSearchingFunnel(intent.getStringExtra(WikipediaLanguagesFragment.SESSION_TOKEN).orEmpty())
-        requestLanguages()
-    }
 
-    public override fun onDestroy() {
-        disposables.clear()
-        super.onDestroy()
+        viewModel.siteListData.observe(this, {
+            if (it is Resource.Success) {
+                binding.languagesListLoadProgress.visibility = View.INVISIBLE
+                languageAdapter.notifyItemRangeChanged(0, languageAdapter.itemCount)
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -86,8 +85,6 @@ class LanguagesListActivity : BaseActivity() {
     }
 
     private inner class LanguageSearchCallback : SearchActionModeCallback() {
-        private val languageAdapter = binding.languagesListRecycler.adapter as LanguagesListAdapter
-
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             // currentSearchQuery is cleared here, instead of onDestroyActionMode
             // in order to make the most recent search string available to analytics
@@ -110,7 +107,7 @@ class LanguagesListActivity : BaseActivity() {
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             binding.languagesListEmptyView.visibility = View.GONE
-            languageAdapter.reset()
+            languageAdapter.setFilterText(null)
             actionMode = null
         }
 
@@ -123,134 +120,99 @@ class LanguagesListActivity : BaseActivity() {
         }
     }
 
-    private inner class LanguagesListAdapter(languageCodes: List<String>, private val suggestedLanguageCodes: List<String>) : RecyclerView.Adapter<DefaultViewHolder>() {
-        private val originalLanguageCodes = languageCodes.toMutableList()
-        private val languageCodes = mutableListOf<String>()
-        private var isSearching = false
-
-        // To remove the already selected languages and suggested languages from all languages list
-        private val nonDuplicateLanguageCodesList
-            get() = originalLanguageCodes.toMutableList().apply {
-                    removeAll(app.appLanguageState.appLanguageCodes)
-                    removeAll(suggestedLanguageCodes)
-                }
+    private inner class LanguagesListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), View.OnClickListener {
+        var listItems = listOf<LanguagesListViewModel.LanguageListItem>()
 
         init {
-            reset()
+            setFilterText(null)
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (shouldShowSectionHeader(position)) Companion.VIEW_TYPE_HEADER else Companion.VIEW_TYPE_ITEM
+            return if (listItems[position].isHeader) Companion.VIEW_TYPE_HEADER else Companion.VIEW_TYPE_ITEM
         }
 
         override fun getItemCount(): Int {
-            return languageCodes.size
+            return listItems.size
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             return if (viewType == Companion.VIEW_TYPE_HEADER) {
-                val view = inflater.inflate(R.layout.view_section_header, parent, false)
-                DefaultViewHolder(languageCodes, view)
+                HeaderViewHolder(inflater.inflate(R.layout.view_section_header, parent, false))
             } else {
-                val view = inflater.inflate(R.layout.item_language_list_entry, parent, false)
-                LanguagesListItemHolder(languageCodes, view)
+                LanguagesListItemHolder(inflater.inflate(R.layout.item_language_list_entry, parent, false))
             }
         }
 
-        override fun onBindViewHolder(holder: DefaultViewHolder, pos: Int) {
-            holder.bindItem(pos)
-            (holder as? LanguagesListItemHolder)?.itemView?.setOnClickListener {
-                val lang = languageCodes[pos]
-                if (lang != app.appOrSystemLanguageCode) {
-                    app.appLanguageState.addAppLanguageCode(lang)
-                }
-                interactionsCount++
-                searchingFunnel.logLanguageAdded(true, lang, currentSearchQuery)
-                DeviceUtil.hideSoftKeyboard(this@LanguagesListActivity)
-                val returnIntent = Intent()
-                returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, interactionsCount)
-                returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
-                setResult(RESULT_OK, returnIntent)
-                finish()
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
+            if (holder is HeaderViewHolder) {
+                holder.bindItem(listItems[pos])
+            } else if (holder is LanguagesListItemHolder) {
+                holder.bindItem(listItems[pos])
+                holder.itemView.setOnClickListener(this)
             }
-        }
-
-        fun shouldShowSectionHeader(position: Int): Boolean {
-            return !isSearching && (position == 0 || (suggestedLanguageCodes.isNotEmpty() &&
-                            position == suggestedLanguageCodes.size + 1))
+            holder.itemView.tag = pos
         }
 
         fun setFilterText(filterText: String?) {
-            isSearching = true
-            languageCodes.clear()
-            val filter = StringUtils.stripAccents(filterText).lowercase(Locale.getDefault())
-            for (code in originalLanguageCodes) {
-                val localizedName = StringUtils.stripAccents(app.appLanguageState.getAppLanguageLocalizedName(code).orEmpty())
-                val canonicalName = StringUtils.stripAccents(getCanonicalName(code).orEmpty())
-                if (code.contains(filter) ||
-                        localizedName.lowercase(Locale.getDefault()).contains(filter) ||
-                        canonicalName.lowercase(Locale.getDefault()).contains(filter)) {
-                    languageCodes.add(code)
+            val newListItems = viewModel.getListBySearchTerm(this@LanguagesListActivity, filterText)
+            val diff = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
+                override fun getOldListSize(): Int {
+                    return listItems.size
                 }
+
+                override fun getNewListSize(): Int {
+                    return newListItems.size
+                }
+
+                override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                    if (listItems.size <= oldItemPosition || newListItems.size <= newItemPosition) {
+                        return false
+                    }
+                    return listItems[oldItemPosition] == newListItems[newItemPosition]
+                }
+
+                override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                    return true
+                }
+            })
+            listItems = newListItems
+            diff.dispatchUpdatesTo(this)
+        }
+
+        override fun onClick(v: View) {
+            val item = listItems[v.tag as Int]
+            if (item.code != app.appOrSystemLanguageCode) {
+                app.appLanguageState.addAppLanguageCode(item.code)
             }
-            notifyDataSetChanged()
-        }
-
-        fun reset() {
-            isSearching = false
-            languageCodes.clear()
-            if (suggestedLanguageCodes.isNotEmpty()) {
-                languageCodes.add(getString(R.string.languages_list_suggested_text))
-                languageCodes.addAll(suggestedLanguageCodes)
-            }
-            languageCodes.add(getString(R.string.languages_list_all_text))
-            languageCodes.addAll(nonDuplicateLanguageCodesList)
-            // should not be able to be searched while the languages are selected
-            originalLanguageCodes.removeAll(app.appLanguageState.appLanguageCodes)
-            notifyDataSetChanged()
+            interactionsCount++
+            searchingFunnel.logLanguageAdded(true, item.code, currentSearchQuery)
+            DeviceUtil.hideSoftKeyboard(this@LanguagesListActivity)
+            val returnIntent = Intent()
+            returnIntent.putExtra(WikipediaLanguagesFragment.ADD_LANGUAGE_INTERACTIONS, interactionsCount)
+            returnIntent.putExtra(LANGUAGE_SEARCHED, isLanguageSearched)
+            setResult(RESULT_OK, returnIntent)
+            finish()
         }
     }
 
-    private fun getCanonicalName(code: String): String? {
-        var canonicalName = siteInfoList?.find { it.code == code }?.localname
-        if (canonicalName.isNullOrEmpty()) {
-            canonicalName = app.appLanguageState.getAppLanguageCanonicalName(code)
-        }
-        return canonicalName
-    }
-
-    // TODO: optimize and reuse the header view holder?
-    private open inner class DefaultViewHolder constructor(private val languageCodes: List<String>, itemView: View) : RecyclerView.ViewHolder(itemView) {
-        open fun bindItem(position: Int) {
-            itemView.findViewById<TextView>(R.id.section_header_text).text = languageCodes[position]
+    private inner class HeaderViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindItem(listItem: LanguagesListViewModel.LanguageListItem) {
+            itemView.findViewById<TextView>(R.id.section_header_text).text = listItem.code
         }
     }
 
-    private inner class LanguagesListItemHolder constructor(private val languageCodes: List<String>, itemView: View) : DefaultViewHolder(languageCodes, itemView) {
-        private val localizedNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
-        private val canonicalNameTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
-
-        override fun bindItem(position: Int) {
-            val languageCode = languageCodes[position]
-            localizedNameTextView.text = app.appLanguageState.getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
-            val canonicalName = getCanonicalName(languageCode)
+    private inner class LanguagesListItemHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindItem(listItem: LanguagesListViewModel.LanguageListItem) {
+            val languageCode = listItem.code
+            itemView.findViewById<TextView>(R.id.localized_language_name).text =
+                app.appLanguageState.getAppLanguageLocalizedName(languageCode).orEmpty().capitalize(Locale.getDefault())
+            val canonicalName = viewModel.getCanonicalName(languageCode)
             if (binding.languagesListLoadProgress.visibility != View.VISIBLE) {
-                canonicalNameTextView.text = if (canonicalName.isNullOrEmpty()) app.appLanguageState.getAppLanguageCanonicalName(languageCode) else canonicalName
+                itemView.findViewById<TextView>(R.id.language_subtitle).text =
+                    if (canonicalName.isNullOrEmpty()) app.appLanguageState.getAppLanguageCanonicalName(languageCode) else canonicalName
             }
         }
-    }
-
-    private fun requestLanguages() {
-        disposables.add(ServiceFactory.get(app.wikiSite).siteMatrix
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map { siteMatrix -> SiteMatrix.getSites(siteMatrix) }
-                .doAfterTerminate {
-                    binding.languagesListLoadProgress.visibility = View.INVISIBLE
-                    binding.languagesListRecycler.adapter?.notifyDataSetChanged()
-                }
-                .subscribe({ sites -> siteInfoList = sites }) { t -> L.e(t) })
     }
 
     companion object {
