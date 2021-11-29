@@ -144,12 +144,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 L.e(t)
             }) {
                 val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification()
-                var lastNotificationTime = ""
-                for (n in response.query?.notifications?.list.orEmpty()) {
-                    if (n.utcIso8601 > lastNotificationTime) {
-                        lastNotificationTime = n.utcIso8601
-                    }
-                }
+                val lastNotificationTime = response.query?.notifications?.list?.maxOfOrNull { it.utcIso8601 }
+                    .orEmpty()
                 if (lastNotificationTime > Prefs.remoteNotificationsSeenTime) {
                     Prefs.remoteNotificationsSeenTime = lastNotificationTime
                     retrieveNotifications(context)
