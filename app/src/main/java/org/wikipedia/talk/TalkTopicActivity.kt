@@ -33,6 +33,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -390,6 +391,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     showUndoSnackbar = true
+                    AnonymousNotificationHelper.onEditSubmitted()
                     waitForUpdatedRevision(it.edit!!.newRevId)
                 }, {
                     onSaveError(it)
