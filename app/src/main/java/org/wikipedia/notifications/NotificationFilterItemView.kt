@@ -18,7 +18,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemNotificationFilterBinding
-import org.wikipedia.notifications.NotificationsFilterActivity.Filter
+import org.wikipedia.notifications.NotificationFilterActivity.Filter
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil

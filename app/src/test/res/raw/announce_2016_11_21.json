@@ -18,7 +18,9 @@
         "US",
         "CA",
         "GB"
-      ]
+      ],
+      "min_version": "5.8.0",
+      "max_version": "6.1.0"
     },
     {
       "id": "EN11116SURVEYANDROID",

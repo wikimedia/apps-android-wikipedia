@@ -383,6 +383,7 @@
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
   <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview\n{{Identical|Dismiss}}</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
+  <string name="error_user_page_does_not_exist">Error message text shown when the user page does not yet exist. %1$s represents the full URL that points to the user page, %2$s represents the username and %3$s represents username without namespace.</string>
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
   <string name="view_wiki_error_message_timeout">Error message shown when a network operation takes too long and times out.</string>
   <string name="reference_title">Title shown on the popup dialog for a reference clicked by the user. The %s symbol is replaced with the link text of the clicked reference.</string>
@@ -1093,5 +1094,8 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
-  <string name="error_user_page_does_not_exist">Error message text shown when the user page does not yet exist. %1$s represents the full URL that points to the user page, %2$s represents the username and %3$s represents username without namespace.</string>
+  <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
+  <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
+  <string name="talk_share_discussion_subject">Subject text while sharing a talk topic discussion. %s represents the topic subject.</string>
+  <string name="talk_share_talk_page">Subject text while sharing a talk page</string>
 </resources>

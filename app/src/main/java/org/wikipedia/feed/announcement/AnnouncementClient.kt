@@ -67,7 +67,7 @@ class AnnouncementClient : FeedClient {
             return (announcement != null && !announcement.platforms.isNullOrEmpty() && (announcement.platforms.contains(PLATFORM_CODE) ||
                     announcement.platforms.contains(PLATFORM_CODE_NEW)) &&
                     matchesCountryCode(announcement, country) && matchesDate(announcement, date) &&
-                    matchesVersionCodes(announcement.minVersion, announcement.maxVersion) && matchesConditions(announcement))
+                    matchesVersionCodes(announcement.minVersion(), announcement.maxVersion()) && matchesConditions(announcement))
         }
 
         private fun matchesCountryCode(announcement: Announcement, country: String?): Boolean {
