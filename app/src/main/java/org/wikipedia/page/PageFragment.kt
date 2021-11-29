@@ -1187,6 +1187,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
+    fun showAnonNotification() {
+        (requireActivity() as PageActivity).onAnonNotification()
+    }
+
     private inner class PageActionTabCallback : PageActionTab.Callback {
         override fun onAddToReadingListTabSelected() {
             if (model.isInReadingList) {

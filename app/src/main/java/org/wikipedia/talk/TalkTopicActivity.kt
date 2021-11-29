@@ -13,8 +13,6 @@ import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -35,6 +33,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -392,6 +391,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     showUndoSnackbar = true
+                    AnonymousNotificationHelper.onEditSubmitted()
                     waitForUpdatedRevision(it.edit!!.newRevId)
                 }, {
                     onSaveError(it)
@@ -465,12 +465,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     binding.talkProgressBar.visibility = View.VISIBLE
                     undoSave()
                 }
-                .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
-                    override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
-                        super.onDismissed(transientBottomBar, event)
-                        TalkPageSurvey.maybeShowSurvey(this@TalkTopicActivity, editSubmitted = true)
-                    }
-                })
                 .show()
             showUndoSnackbar = false
         }
