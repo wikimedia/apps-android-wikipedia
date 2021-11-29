@@ -373,6 +373,7 @@
   <string name="error_message_generic">오류가 발생했습니다</string>
   <string name="view_link_preview_error_button_dismiss">숨기기</string>
   <string name="error_page_does_not_exist">이 문서가 존재하지 않습니다</string>
+  <string name="error_user_page_does_not_exist">위키백과에 이 이름의 &lt;a href=\"%1$s\"&gt;사용자 문서&lt;/a&gt;가 없습니다. 일반적으로 이 문서는 &lt;b&gt;%2$s&lt;/b&gt;님이 만들고 편집해야 합니다. 의심이 들면 \"%3$s\" 문서가 존재하는지 확인해 주십시오.</string>
   <string name="view_wiki_error_message_offline">인터넷에 연결할 수 없습니다</string>
   <string name="view_wiki_error_message_timeout">위키백과에 연결할 수 없습니다. 네트워크 연결을 확인하고 나중에 다시 시도하십시오</string>
   <string name="reference_title">각주 %s</string>
@@ -660,6 +661,7 @@
   <string name="notifications_all_wikis_text">모든 \"위키\"</string>
   <string name="notifications_all_types_text">모든 \"종류\"</string>
   <string name="notifications_menu_user_talk_page">%s님의 토론 문서</string>
+  <string name="notifications_offline_disable_message">이 기능은 오프라인 상태에서 사용할 수 없습니다.</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의의 문서 보기</string>
   <string name="view_random_article_card_title">임의 문서</string>
@@ -1031,6 +1033,10 @@
   <string name="talk_last_modified">%2$s님이 &lt;b&gt;%1$s에 마지막으로 편집함&lt;/b&gt;</string>
   <string name="talk_snackbar_survey_text">토론 문서를 이용해 주셔서 고맙습니다. 설문조사에 참여하여 앱 개선을 지원해 주시겠습니까?</string>
   <string name="talk_snackbar_survey_action_text">시작하기</string>
+  <string name="talk_share_discussion_subject">위키백과 - 토론 문서 주제 \"%s\"의 토론</string>
+  <string name="talk_share_talk_page">위키백과 - 토론 문서의 토론</string>
+  <string name="menu_option_share_talk_discussion">토론 공유하기</string>
+  <string name="menu_option_share_talk_page">토론 문서 공유</string>
   <string name="menu_option_share_edit">편집 공유</string>
   <string name="menu_option_user_profile">%s님의 정보</string>
   <string name="menu_option_user_contributions">%s님의 기여</string>
