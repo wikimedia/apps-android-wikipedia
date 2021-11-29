@@ -375,7 +375,7 @@
   <string name="error_message_generic">אירעה שגיאה</string>
   <string name="view_link_preview_error_button_dismiss">סגירה</string>
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">בוויקיפדיה אין &lt;a href=\"%1$s\"&gt;דף משתמש&lt;/a&gt; בעל שם כזה בדיוק. באופן כללי, הדף הזה צריך להיווצר ולהיערך על־ידי &lt;b&gt;%2$s&lt;/b&gt;. אם יש לך ספק, נא לוודא ששם המשתמש \"%3$s\" קיים.</string>
+  <string name="error_user_page_does_not_exist">בוויקיפדיה אין &lt;a href=\"%1$s\"&gt;דף משתמש&lt;/a&gt; בעל שם כזה בדיוק. באופן כללי, הדף הזה צריך להיווצר ולהיערך על־ידי &lt;b&gt;%2$s&lt;/b&gt;. אם יש לך ספק, נא לוודא ששם המשתמש \"%3$s\" קיים.</string>
   <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
   <string name="view_wiki_error_message_timeout">לא ניתן להתחבר לוויקיפדיה. יש לבדוק את החיבור שלך לרשת או לנסות שוב מאוחר יותר</string>
   <string name="reference_title">הערת שוליים %s</string>
@@ -1111,6 +1111,10 @@
   <string name="talk_last_modified">&lt;b&gt;נערך לאחרונה ב־%1$s&lt;/b&gt; על־ידי %2$s</string>
   <string name="talk_snackbar_survey_text">תודה על השימוש בדפי שיחה. אפשר לבקש ממך לעזור לנו לשפר את היישום באמצעות השתתפות בסקר?</string>
   <string name="talk_snackbar_survey_action_text">להתחיל</string>
+  <string name="talk_share_discussion_subject">ויקיפדיה – דיון בדף שיחה בנושא \"%s\"</string>
+  <string name="talk_share_talk_page">ויקיפדיה – דיונים בדף שיחה</string>
+  <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
+  <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
   <string name="menu_option_user_profile">הפרופיל של %s</string>
   <string name="menu_option_user_contributions">התרומות של %s</string>

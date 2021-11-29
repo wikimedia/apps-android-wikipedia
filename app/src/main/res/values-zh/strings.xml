@@ -1034,6 +1034,10 @@
   <string name="talk_response_submitted">回复已发布。</string>
   <string name="talk_snackbar_undo">撤销</string>
   <string name="talk_last_modified">由%2$s在&lt;b&gt;%1$s&lt;/b&gt;做出的最后一次编辑</string>
+  <string name="talk_share_discussion_subject">维基百科 - 讨论页上“%s”主题的讨论</string>
+  <string name="talk_share_talk_page">维基百科 - 讨论页上的讨论</string>
+  <string name="menu_option_share_talk_discussion">分享讨论</string>
+  <string name="menu_option_share_talk_page">分享讨论页</string>
   <string name="menu_option_share_edit">分享编辑</string>
   <string name="menu_option_user_profile">%s的个人资料</string>
   <string name="menu_option_user_contributions">%s的贡献</string>

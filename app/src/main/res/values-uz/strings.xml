@@ -244,6 +244,10 @@
   <string name="edit_summary_tag_other_hint">Sahifani takomillashtirishning boshqa usullari</string>
   <string name="edit_conflict_title">Kamchiliklarni tahrirlamoq</string>
   <string name="edit_conflict_message">Sahifa allaqachon boshqa foydalanuvchi tomonidan oʻzgartirilgan va sizning tahriringizga zid keladi. Iltimos, tahrirlaringizdan nusxa oling, orqaga qayting va sahifani yangilang, keyin yana tahrir qilib koʻring.</string>
+  <string name="edit_notices">Qaydlarni tahrirlamoq</string>
+  <string name="edit_notices_please_read">Tahrirlashdan oldin oʻqib chiqish soʻraladi</string>
+  <string name="edit_notices_show_auto">Qaydlarni tahrirlashni avtomatik koʻrsatmoq</string>
+  <string name="edit_notices_tooltip">Ushbu maqoladagi qaydlarni tahrirlashni koʻrish uchun bu tugmani bosing.</string>
   <string name="find_next">Keyingisini topish</string>
   <string name="find_previous">Oldingisini topish</string>
   <string name="find_first_occurence">Bu birinchi hodisa</string>
@@ -354,6 +358,7 @@
   <string name="error_message_generic">Xatolik ro‘y berdi</string>
   <string name="view_link_preview_error_button_dismiss">Rad etmoq</string>
   <string name="error_page_does_not_exist">Ushbu sahifa mavjud emas</string>
+  <string name="error_user_page_does_not_exist">Vikipediyada aynan shunday &lt;a href=\"%1$s\"&gt; nomga ega foydalanuvchi sahifasi yo‘q.&lt;/a&gt;Umuman olganda, bu sahifa &lt;b&gt;%2$s&lt;/b&gt; tomonidan tuzilishi hamda tahrirlanishi lozim. Agar shubhangiz boʻlsa, “%3$s” mavjudligini tekshiring.</string>
   <string name="view_wiki_error_message_offline">Internetga bog‘lanib bo‘lmadi</string>
   <string name="view_wiki_error_message_timeout">Vikipediyaga ulanib bo‘lmadi. Tarmoq ulanishingizni tekshiring yoki keyinroq qayta urinib ko‘ring</string>
   <string name="reference_title">Izohlar %s</string>
@@ -582,10 +587,18 @@
   <string name="notifications_mark_all_as_read">Barchasini oʻqilgan deb belgilash</string>
   <string name="notifications_direct_reply_action">Javob bermoq</string>
   <string name="notifications_direct_reply_progress">%sʼga javob yuborilmoqda…</string>
-  <string name="notifications_direct_reply_success" fuzzy="true">Javob muvaffaqiyatli joʻnatildi.</string>
+  <string name="notifications_direct_reply_success">Javob eʼlon qilindi.</string>
   <string name="notifications_direct_reply_error">Avtomatik javob berib boʻlmadi.</string>
   <string name="notifications_mark_all_as_read_message">%d tasi oʻqilgan tarzida belgilandi</string>
   <string name="notifications_mark_all_as_unread_message">%d tasi oʻqilmagan</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 ta oʻqilgan kabi belgilandi</item>
+    <item quantity="other">%d tasi oʻqilgan kabi belgilandi</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 tasi oʻqilmagan</item>
+    <item quantity="other">%d tasi oʻqilmagan</item>
+  </plurals>
   <string name="watchlist_title">Kuzatuv roʻyxati</string>
   <string name="preference_title_notification_poll">Bildirishnomalarga ovoz bermoq</string>
   <string name="preference_summary_notification_poll">Orqa fonda yangi bildirishnomalarni tekshirish uchun ilovaga trafikdan foydalanishga ruxsat bering.</string>
@@ -620,6 +633,7 @@
   <string name="notifications_channel_group_other_description">Ilovadan boshqa bildirishnomalar</string>
   <string name="notifications_filter_label">Bildirishnomalar filtri</string>
   <string name="notifications_filter_icon_content_description">Bildirishnomalar filtri</string>
+  <string name="notifications_filter_add_app_languages">Tillarni qoʻshmoq yoki tahrirlamoq</string>
   <string name="notifications_empty_search_message">Koʻproq bildirishnomalarni koʻrish uchun %sʼni oʻchirib koʻring</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d ta filtr</item>
@@ -641,6 +655,7 @@
   <string name="notifications_all_wikis_text">Barcha “wiki”</string>
   <string name="notifications_all_types_text">Barcha “tur”</string>
   <string name="notifications_menu_user_talk_page">%sʼning suhbat sahifasi</string>
+  <string name="notifications_offline_disable_message">Ushbu funksiya oflayn boʻlganda mavjud boʻlmaydi.</string>
   <string name="view_because_you_read_card_title">Oʻqiganingiz uchun tavsiya etildi</string>
   <string name="view_random_card_title">Tasodifiy tartibda</string>
   <string name="view_random_article_card_title">Tasodifiy maqola</string>
@@ -1022,6 +1037,10 @@
   <string name="talk_last_modified">&lt;b&gt;Soʻnggi oʻzgarish %1$s da&lt;/b&gt; %2$s tomonidan bajarilgan.</string>
   <string name="talk_snackbar_survey_text">Suhbat sahifalaridan foydalanganingiz uchun tashakkur. Soʻrovnomada qatnashib, ilovani yaxshilashga yordam bera olasizmi?</string>
   <string name="talk_snackbar_survey_action_text">Boshladik</string>
+  <string name="talk_share_discussion_subject">Vikipediya - munozara sahifasidagi \"%s\" mavzusidagi muhokama</string>
+  <string name="talk_share_talk_page">Vikipediya - munozaralar sahifasi</string>
+  <string name="menu_option_share_talk_discussion">Munozarani ulashmoq</string>
+  <string name="menu_option_share_talk_page">Muhokama sahifasini ulashmoq</string>
   <string name="menu_option_share_edit">Tahrirlashni ulashmoq</string>
   <string name="menu_option_user_profile">%sʼning profili</string>
   <string name="menu_option_user_contributions">%sning hissalari</string>
