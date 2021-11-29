@@ -188,7 +188,7 @@
   <string name="preference_summary_sync_reading_lists">Уҡыу исемлектәрен ҡулайламалар аша Википедия аккаунтына һаҡлап синхронлаштыра</string>
   <string name="preference_summary_sync_reading_lists_from_account">Уҡыу исемлектәрен ҡулайламалар аша Википедия аккаунтығыҙға «%s» һаҡлап синхронлаштыра</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">«%s» синхрон уҡыу исемлектәрен юйырғамы?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Был элек синхрон уҡыу исемлектәрен алыҫтағы һаҡлағыстан тулыһынса алып ташлай. Бөтә синхрон исемлектәрҙе үҙегеҙҙең \"%\" аккаунтығыҙҙан юйырғамы?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Был элек синхрон уҡыу исемлектәрен алыҫтағы һаҡлағыстан тулыһынса алып ташлай. Бөтә синхрон исемлектәрҙе үҙегеҙҙең \"%s\" аккаунтығыҙҙан юйырғамы?</string>
   <string name="preferences_privacy_settings_heading">Сер һаҡлау</string>
   <string name="preference_title_eventlogging_opt_in">Файҙаланыу тураһында отчет ебәреү</string>
   <string name="preference_summary_eventlogging_opt_in">Викимедиаға һеҙҙең ҡушымтаны нисек файҙаланыуығыҙ тураһында мәғлүмәт бирергә рөхсәт итеү. Был уны тағы ла яҡшыраҡ итергә мөмкинселек бирәсәк</string>
