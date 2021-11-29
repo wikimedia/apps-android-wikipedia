@@ -50,6 +50,8 @@
   <string name="search_tab_tooltip">Эҙләү һорауын яҙа башлау өсөн тағы бер тапҡып тамғаға баҫығыҙ.</string>
   <string name="history_list_title">Тарих</string>
   <string name="image_content_description">Рәсем: %s</string>
+  <string name="wikimedia_commons">Викимилек</string>
+  <string name="wikidata">Викидата</string>
   <string name="dialog_title_clear_history">Тарихты таҙартырға</string>
   <string name="dialog_message_clear_history">Ҡараған биттәр тарихы һәм ҡушымталар юйыласаҡ. Дауам итергәме?</string>
   <string name="dialog_message_clear_history_yes">Эйе</string>
@@ -184,11 +186,14 @@
   <string name="preference_title_sync_reading_lists_from_account">Уҡыу исемлектәрен синхронизациялау</string>
   <string name="preference_title_download_reading_list_articles">Уҡыу исемлектәренән мәҡәләләп йөкләү</string>
   <string name="preference_summary_sync_reading_lists">Уҡыу исемлектәрен ҡулайламалар аша Википедия аккаунтына һаҡлап синхронлаштыра</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Уҡыу исемлектәрен ҡулайламалар аша Википедия аккаунтығыҙға «%s» һаҡлап синхронлаштыра</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">«%s» синхрон уҡыу исемлектәрен юйырғамы?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Был элек синхрон уҡыу исемлектәрен алыҫтағы һаҡлағыстан тулыһынса алып ташлай. Бөтә синхрон исемлектәрҙе үҙегеҙҙең \"%\" аккаунтығыҙҙан юйырғамы?</string>
   <string name="preferences_privacy_settings_heading">Сер һаҡлау</string>
   <string name="preference_title_eventlogging_opt_in">Файҙаланыу тураһында отчет ебәреү</string>
   <string name="preference_summary_eventlogging_opt_in">Викимедиаға һеҙҙең ҡушымтаны нисек файҙаланыуығыҙ тураһында мәғлүмәт бирергә рөхсәт итеү. Был уны тағы ла яҡшыраҡ итергә мөмкинселек бирәсәк</string>
   <string name="preference_title_auto_upload_crash_reports">Өҙөклөк тураһында отчет ебәрергә</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Беҙгә авария тураһындағы мәғлүмәтте ҡарап сығыу өсөн, HockeyApp/ сит сервис-провайдерҙа хаталар тураһындағы отчеттарҙы автоматик ебәреүҙе рөхсәт итергәме? Был хаталарҙы тиҙ һәм еңел төҙәтергә ярҙам итә.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Ҡушымтаға авария тураһында отчеттарҙы автоматик рәүештә тышҡы хеҙмәткә ебәрергә рөхсәт итегеҙ, шулай итеп беҙ аварияға килтергән проблеманы тикшереп, хатаны тиҙерәк һәм еңелерәк төҙәтә алабыҙ.</string>
   <string name="editing_error_spamblacklist">Бикләнгән домендарға (%s) һылтанмалар барлығы асыҡланды. Уларҙы юҡ итегеҙ һәм яңынан эшләп ҡарағыҙ.</string>
   <string name="history_filter_list_hint">Фильтр тарихы</string>
   <string name="error_can_not_process_link">Был һылтанманы күрһәтеп булманы</string>
@@ -198,6 +203,9 @@
   <string name="page_protected_can_not_edit">Ҡыҙғанысҡа ҡаршы, һеҙҙең иҫәп яҙмаһының хәҙерге ваҡытта был битте мөхәррирләү өсөн етәрлек хоҡуҡтары юҡ.</string>
   <string name="page_protected_can_not_edit_anon">Ҡыҙғанысҡа ҡаршы, хәҙерге ваҡытта был битте аноним рәүештә мөхәррирләп булмай.</string>
   <string name="page_protected_can_not_edit_title">Был бит һаҡланған</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Күҙәтеү исемлегенә өҫтәргә</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Үҙегеҙҙе ҡыҙыҡһындырған мәҡәләләргә нимә булғанын күҙ уңында тотоғоҙ. Менюға баҫығыҙ һәм мәҡәләләге үҙгәрештәрҙе күреү өсөн Watchlist-ҡа баҫығыҙ&lt;b&gt;Add-ты һайлағыҙ&lt;/b&gt;.</string>
+  <string name="page_notification_tooltip">Һеҙҙең белдереүҙәрегеҙ хәҙер бында.</string>
   <string name="settings_item_preferences">Көйләүҙәр</string>
   <string name="settings_activity_title">Көйләүҙәр</string>
   <string name="about_description"> «Википедия» ҡушымтаһы тураһында</string>
@@ -241,10 +249,14 @@
   <string name="edit_summary_tag_other_hint">Битте яҡшыртҡан башҡа төрлө алымдар</string>
   <string name="edit_conflict_title">Мөхәррирләү конфликты</string>
   <string name="edit_conflict_message">Мөхәррирләү конфликты килеп сыҡты, сөнки был башҡа ҡулланыусы тарафынан үҙгәртелгән. Үҙгәрештәрегеҙҙе күсерегеҙ, кире ҡайтығыҙ һәм битте яңыртығыҙ, ә һуңынан мөхәррирләп ҡарағыҙ.</string>
+  <string name="edit_notices">Мөхәррирләү билдәләре</string>
+  <string name="edit_notices_please_read">Зинһар, төҙәтер алдынан уҡығыҙ</string>
+  <string name="edit_notices_tooltip">Был мәҡәлә өсөн төҙәтелгән белдереүҙәрҙе ҡарау өсөн ошо төймәгә баҫырға.</string>
   <string name="find_next">Артабан эҙләп табырға</string>
   <string name="find_previous">Тәүгеләрҙе эҙләү</string>
   <string name="find_first_occurence">Был беренсе тап килеү</string>
   <string name="find_last_occurence">Был һуңғы тап килеү</string>
+  <string name="article_opened_in_background_tab">Мәҡәлә артҡы таблицала асылды.</string>
   <string name="abusefilter_title_warn">Был төҙәтеү хаталы булыуы мөмкин. Һеҙ ысынлап та уны һаҡларға теләйһегеҙме?</string>
   <string name="abusefilter_title_disallow">Һеҙ был публикацияны һаҡлай алмайһығыҙ. Зинһар, кире ҡайтығыҙ һәм уны үҙгәртегеҙ.</string>
   <string name="abusefilter_text_warn">Автоматлаштырылған фильтр был төҙәтеүҙе конструктив түгел тип һанай. Ул түбәндәге бер нисә ғәмәлде үҙ эсенә ала: :&lt;br /&gt;&lt;br /&gt;·Баш хәреф менән баҫырға. Мәҡәләләрҙе мисәтләү йәки спам&lt;br /&gt;· Тура килмәгән тышҡы һылтанмалар йәки һүрәттәр&lt;br /&gt;· Ҡабатланған символдар</string>

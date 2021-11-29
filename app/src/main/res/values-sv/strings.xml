@@ -253,6 +253,10 @@
   <string name="edit_summary_tag_other_hint">Andra sätt på vilka du förbättrat sidan</string>
   <string name="edit_conflict_title">Redigeringskonflikt</string>
   <string name="edit_conflict_message">Sidan har redan modifierats av en annan användare och är i konflikt med din redigering. Var god kopiera dina ändringar, gå tillbaka och uppdatera sidan samt försök sedan att redigera igen.</string>
+  <string name="edit_notices">Redigeringsnotiser</string>
+  <string name="edit_notices_please_read">Var god läs detta innan du redigerar</string>
+  <string name="edit_notices_show_auto">Visa redigeringsnotiser automatiskt</string>
+  <string name="edit_notices_tooltip">Tryck på denna knapp för att visa redigeringsnotiser för denna artikel.</string>
   <string name="find_next">Sök nästa</string>
   <string name="find_previous">Sök föregående</string>
   <string name="find_first_occurence">Detta är den första förekomsten</string>
@@ -363,6 +367,7 @@
   <string name="error_message_generic">Ett fel inträffade</string>
   <string name="view_link_preview_error_button_dismiss">Stäng</string>
   <string name="error_page_does_not_exist">Denna sida finns inte</string>
+  <string name="error_user_page_does_not_exist">Wikipedia har inte en &lt;a href=\"%1$s\"&gt;användarsida&lt;/a&gt; med exakt detta namn. I allmänhet bör denna sida ha skapats och redigerats av &lt;b&gt;%2$s&lt;/b&gt;. Om du är osäker bör du verifiera att \"%3$s\" finns.</string>
   <string name="view_wiki_error_message_offline">Kan inte ansluta till Internet</string>
   <string name="view_wiki_error_message_timeout">Kan inte ansluta till Wikipedia. Kontrollera din nätverksanslutning eller försök igen senare.</string>
   <string name="reference_title">Referens %s</string>
@@ -637,6 +642,7 @@
   <string name="notifications_channel_group_other_description">Andra aviseringar från appen</string>
   <string name="notifications_filter_label">Filtrera aviseringar</string>
   <string name="notifications_filter_icon_content_description">Filtrera aviseringar</string>
+  <string name="notifications_filter_add_app_languages">Lägg till eller redigera appspråk</string>
   <string name="notifications_empty_search_message">Försök att ta bort %s för att se fler aviseringar</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filter</item>
@@ -658,6 +664,7 @@
   <string name="notifications_all_wikis_text">Alla \"wikier\"</string>
   <string name="notifications_all_types_text">Alla \"typer\"</string>
   <string name="notifications_menu_user_talk_page">%ss diskussionssida</string>
+  <string name="notifications_offline_disable_message">Funktionen är inte tillgänglig när du saknar uppkoppling.</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Slumpartikel</string>
   <string name="view_random_article_card_title">Slumpartikel</string>
@@ -1040,6 +1047,10 @@
   <string name="talk_last_modified">&lt;b&gt;Senast redigerad %1$s&lt;/b&gt; av %2$s</string>
   <string name="talk_snackbar_survey_text">Tack för att du använder diskussionssidor. Kan du hjälpa oss att förbättra appen genom att delta i en enkät?</string>
   <string name="talk_snackbar_survey_action_text">Kom igång</string>
+  <string name="talk_share_discussion_subject">Wikipedia - diskussion på diskussionssidans ämne \"%s\"</string>
+  <string name="talk_share_talk_page">Wikipedia - diskussion på diskussionssida</string>
+  <string name="menu_option_share_talk_discussion">Dela diskussion</string>
+  <string name="menu_option_share_talk_page">Dela diskussionssida</string>
   <string name="menu_option_share_edit">Dela redigering</string>
   <string name="menu_option_user_profile">%ss profil</string>
   <string name="menu_option_user_contributions">%ss bidrag</string>
