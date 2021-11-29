@@ -658,7 +658,6 @@
   <string name="notifications_channel_group_other_description">Description for the other notifications group.</string>
   <string name="notifications_filter_label">Label text for filter notifications activity.</string>
   <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
-  <string name="notifications_filter_add_app_languages">Label text to add or edit app languages list.</string>
   <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters string.</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
@@ -1098,4 +1097,5 @@
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="talk_share_discussion_subject">Subject text while sharing a talk topic discussion. %s represents the topic subject.</string>
   <string name="talk_share_talk_page">Subject text while sharing a talk page</string>
+  <string name="notifications_filter_update_app_languages">Label text to update app languages list.</string>
 </resources>
