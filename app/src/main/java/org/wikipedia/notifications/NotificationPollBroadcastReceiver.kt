@@ -1,6 +1,5 @@
 package org.wikipedia.notifications
 
-import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
@@ -9,8 +8,11 @@ import android.content.Intent
 import android.os.SystemClock
 import androidx.annotation.StringRes
 import androidx.core.app.RemoteInput
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -18,14 +20,17 @@ import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.main.MainActivity
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
@@ -89,6 +94,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private const val MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
+        private val notificationRepository = NotificationRepository(AppDatabase.getAppDatabase().notificationDao())
         private val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>()
         private val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
         private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
@@ -118,7 +124,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun getAlarmPendingIntent(context: Context): PendingIntent {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             intent.action = ACTION_POLL
-            return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+            return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
         }
 
         fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent {
@@ -126,34 +132,29 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .setAction(ACTION_CANCEL)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type)
-            return PendingIntent.getBroadcast(context, id.toInt(), intent, 0)
+            return PendingIntent.getBroadcast(context, id.toInt(), intent, DeviceUtil.pendingIntentFlags)
         }
 
-        @SuppressLint("CheckResult")
         @JvmStatic
         fun pollNotifications(context: Context) {
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        var lastNotificationTime = ""
-                        for (n in response.query?.notifications?.list.orEmpty()) {
-                            if (n.utcIso8601 > lastNotificationTime) {
-                                lastNotificationTime = n.utcIso8601
-                            }
-                        }
-                        if (lastNotificationTime <= Prefs.remoteNotificationsSeenTime) {
-                            // we're in sync!
-                            return@subscribe
-                        }
-                        Prefs.remoteNotificationsSeenTime = lastNotificationTime
-                        retrieveNotifications(context)
-                    }) { t ->
-                        if (t is MwException && t.error.title == "login-required") {
-                            assertLoggedIn()
-                        }
-                        L.e(t)
+            CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, t ->
+                if (t is MwException && t.error.title == "login-required") {
+                    assertLoggedIn()
+                }
+                L.e(t)
+            }) {
+                val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification()
+                var lastNotificationTime = ""
+                for (n in response.query?.notifications?.list.orEmpty()) {
+                    if (n.utcIso8601 > lastNotificationTime) {
+                        lastNotificationTime = n.utcIso8601
                     }
+                }
+                if (lastNotificationTime > Prefs.remoteNotificationsSeenTime) {
+                    Prefs.remoteNotificationsSeenTime = lastNotificationTime
+                    retrieveNotifications(context)
+                }
+            }
         }
 
         private fun assertLoggedIn() {
@@ -164,36 +165,33 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .subscribe()
         }
 
-        @SuppressLint("CheckResult")
-        private fun retrieveNotifications(context: Context) {
+        private suspend fun retrieveNotifications(context: Context) {
             DBNAME_WIKI_SITE_MAP.clear()
             DBNAME_WIKI_NAME_MAP.clear()
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unreadNotificationWikis
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        val wikiMap = response.query!!.unreadNotificationWikis
-                        val wikis = mutableListOf<String>()
-                        wikis.addAll(wikiMap!!.keys)
-                        for (dbName in wikiMap.keys) {
-                            if (wikiMap[dbName]!!.source != null) {
-                                DBNAME_WIKI_SITE_MAP[dbName] = WikiSite(wikiMap[dbName]!!.source!!.base)
-                                DBNAME_WIKI_NAME_MAP[dbName] = wikiMap[dbName]!!.source!!.title
-                            }
-                        }
-                        getFullNotifications(context, wikis)
-                    }) { t -> L.e(t) }
+            val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unreadNotificationWikis()
+            val wikiMap = response.query!!.unreadNotificationWikis
+            val wikis = mutableListOf<String>()
+            wikis.addAll(wikiMap!!.keys)
+            for (dbName in wikiMap.keys) {
+                if (wikiMap[dbName]!!.source != null) {
+                    DBNAME_WIKI_SITE_MAP[dbName] = WikiSite(wikiMap[dbName]!!.source!!.base)
+                    DBNAME_WIKI_NAME_MAP[dbName] = wikiMap[dbName]!!.source!!.title
+                }
+            }
+            getFullNotifications(context, wikis)
         }
 
-        private fun getFullNotifications(context: Context, foreignWikis: List<String?>) {
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response -> onNotificationsComplete(context, response.query?.notifications?.list) }) { t -> L.e(t) }
+        private suspend fun getFullNotifications(context: Context, foreignWikis: List<String?>) {
+            val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite)
+                .getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
+            response.query?.notifications?.list?.let {
+                notificationRepository.insertNotifications(it)
+                onNotificationsComplete(context, it)
+            }
         }
 
-        private fun onNotificationsComplete(context: Context, notifications: List<Notification>?) {
-            if (notifications.isNullOrEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled) {
+        private fun onNotificationsComplete(context: Context, notifications: List<Notification>) {
+            if (Prefs.isSuggestedEditsHighestPriorityEnabled) {
                 return
             }
             var locallyKnownModified = false
@@ -227,8 +225,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                     NotificationInteractionEvent.logIncoming(n, null)
                     NotificationPresenter.showNotification(context, n,
-                            (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki)) DBNAME_WIKI_NAME_MAP[n.wiki] else n.wiki)!!,
-                            (if (DBNAME_WIKI_SITE_MAP.containsKey(n.wiki)) DBNAME_WIKI_SITE_MAP[n.wiki] else WikipediaApp.getInstance().wikiSite)!!.languageCode)
+                        DBNAME_WIKI_NAME_MAP.getOrElse(n.wiki) { n.wiki },
+                        DBNAME_WIKI_SITE_MAP.getOrElse(n.wiki) { WikipediaApp.getInstance().wikiSite }.languageCode)
                 }
             }
             if (locallyKnownModified) {

@@ -7,6 +7,9 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewLinkPreviewErrorBinding
+import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageTitle
+import org.wikipedia.util.StringUtil
 
 class LinkPreviewErrorView : LinearLayout {
     interface Callback {
@@ -23,17 +26,22 @@ class LinkPreviewErrorView : LinearLayout {
     val addToListCallback = OverlayViewAddToListCallback()
     val dismissCallback = OverlayViewDismissCallback()
 
-    fun setError(caught: Throwable?) {
-        val errorType = LinkPreviewErrorType[caught]
+    fun setError(caught: Throwable?, pageTitle: PageTitle) {
+        val errorType = LinkPreviewErrorType[caught, pageTitle]
         binding.viewLinkPreviewErrorIcon.setImageDrawable(AppCompatResources.getDrawable(context, errorType.icon))
 
         if (errorType === LinkPreviewErrorType.OFFLINE) {
-            val message = (resources.getString(R.string.page_offline_notice_cannot_load_while_offline) +
+            val message = (context.getString(R.string.page_offline_notice_cannot_load_while_offline) +
                     "\n" +
-                    resources.getString(R.string.page_offline_notice_add_to_reading_list)).trimIndent()
+                    context.getString(R.string.page_offline_notice_add_to_reading_list)).trimIndent()
             binding.viewLinkPreviewErrorText.text = message
         } else {
-            binding.viewLinkPreviewErrorText.text = context.resources.getString(errorType.text)
+            if (errorType == LinkPreviewErrorType.USER_PAGE_MISSING) {
+                binding.viewLinkPreviewErrorText.text = StringUtil.fromHtml(context.getString(errorType.text,
+                        pageTitle.uri, pageTitle.displayText, StringUtil.removeNamespace(pageTitle.displayText)))
+                binding.viewLinkPreviewErrorText.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+            } else
+                binding.viewLinkPreviewErrorText.text = context.getString(errorType.text)
         }
     }
 

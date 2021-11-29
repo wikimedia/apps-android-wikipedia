@@ -101,7 +101,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         summaryTags.clear()
         for (i in summaryTagStrings) {
             val tag = EditSummaryTag(requireActivity())
-            tag.text = strings[i]
+            tag.text = strings.get(i)
             tag.tag = i
             tag.setOnClickListener { view ->
                 funnel.logEditSummaryTap(view.tag as Int)

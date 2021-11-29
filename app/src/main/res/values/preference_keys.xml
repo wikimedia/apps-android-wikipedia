@@ -90,7 +90,6 @@
     <string name="preference_key_suggested_edits_survey_clicked">suggestedEditsSurveyClicked</string>
     <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
     <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
-    <string name="preference_key_show_talk_page_survey_attempts">showTalkPageSurveyAttempts</string>
     <string name="preference_key_visited_article_page">hasVisitedArticlePage</string>
     <string name="preference_key_match_system_theme">matchSystemTheme</string>
     <string name="preference_key_image_zoom_tooltip_shown">imageZoomTooltipShown</string>
@@ -106,6 +105,7 @@
     <string name="preference_key_temporary_wikitext_storage">temporaryWikitextStorage</string>
     <string name="preference_key_suggested_edits_highest_priority_enabled">SEHighestPriorityEnabled</string>
     <string name="preference_key_explore_feed_visit_count">exploreFeedVisitCount</string>
+    <string name="preference_key_logged_in_page_activity_visit_count">loggedInPageActivityVisitCount</string>
     <string name="preference_key_selected_language_position_in_search">selectedLanguagePositionInSearch</string>
     <string name="preference_key_show_sequential_user_stats_tooltip">showSequentialUserStatsTooltip</string>
     <string name="preference_key_show_search_tab_tooltip">showSearchTabTooltip</string>
@@ -123,4 +123,6 @@
     <string name="preference_key_excluded_wiki_codes_notification">filterNotificationExcludedWikiCodes</string>
     <string name="preference_key_excluded_type_codes_notification">filterNotificationExcludedTypeCodes</string>
     <string name="preference_key_page_notification_tooltip_shown">pageNotificationTooltipShown</string>
+    <string name="preference_key_auto_show_edit_notices">autoShowEditNotices</string>
+    <string name="preference_key_edit_notices_tooltip_shown">editNoticesTooltipShown</string>
 </resources>
