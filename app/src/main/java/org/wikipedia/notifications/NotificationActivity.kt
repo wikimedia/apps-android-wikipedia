@@ -75,7 +75,7 @@ class NotificationActivity : BaseActivity() {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
     }
-    var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
+    var funnel = NotificationPreferencesFunnel(WikipediaApp.instance)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

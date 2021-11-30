@@ -355,7 +355,7 @@
   <string name="error_message_generic">Се појави грешка</string>
   <string name="view_link_preview_error_button_dismiss">Тргни</string>
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">Википедија нема &lt;a href=\"%1$s\"&gt;корисничка страница&lt;/a&gt; со тоа име. Начелно, оваа страница треба да се создаде и уреди од &lt;b&gt;%2$s&lt;/b&gt;. Ако не сте сигурни, проверете дали постои „%3$s“.</string>
+  <string name="error_user_page_does_not_exist">Википедија нема &lt;a href=\"%1$s\"&gt;корисничка страница&lt;/a&gt; со точно тоа име. Начелно, оваа страница треба да се создаде и уреди од &lt;b&gt;%2$s&lt;/b&gt;. Ако не сте сигурни, проверете дали постои „%3$s“.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
   <string name="view_wiki_error_message_timeout">Не можам да се поврзам со Википедија. Проверете си ја мрежната врска или обидете се подоцна</string>
   <string name="reference_title">Навод %s</string>
@@ -1036,6 +1036,10 @@
   <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
   <string name="talk_snackbar_survey_text">Ви благодариме што ги користите разговорните страници. Дали би можеле да ни помогнете да ја подобриме алаткава со тоа што ќе пополните една анкета?</string>
   <string name="talk_snackbar_survey_action_text">Започни</string>
+  <string name="talk_share_discussion_subject">Википедија — разговор на темата „%s“ на разговорна страница</string>
+  <string name="talk_share_talk_page">Википедија — разговори на разговорна страница</string>
+  <string name="menu_option_share_talk_discussion">Сподели разговор</string>
+  <string name="menu_option_share_talk_page">Сподели разговорна страница</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
   <string name="menu_option_user_profile">Профил на %s</string>
   <string name="menu_option_user_contributions">Придонеси на %s</string>

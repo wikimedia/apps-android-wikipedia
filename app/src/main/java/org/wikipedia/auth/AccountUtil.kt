@@ -101,15 +101,12 @@ object AccountUtil {
 
     @JvmStatic
     fun account(): Account? {
-        try {
-            val accounts = accountManager().getAccountsByType(accountType())
-            if (accounts.isNotEmpty()) {
-                return accounts[0]
-            }
+        return try {
+            accountManager().getAccountsByType(accountType()).firstOrNull()
         } catch (e: SecurityException) {
             logRemoteErrorIfProd(e)
+            null
         }
-        return null
     }
 
     @JvmStatic

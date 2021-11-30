@@ -17,9 +17,12 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.pageimages.db.PageImage
+import org.wikipedia.settings.Prefs
+import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -155,7 +158,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     .getSummaryResponse(title.prefixedText, null, model.cacheControl.toString(),
                             if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
                             title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText)),
-                    if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText) else Observable.just(MwQueryResponse()), { first, second -> Pair(first, second) })
+                    if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText)
+                    else if (app.isOnline && !AccountUtil.isLoggedIn) AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
+                    else Observable.just(MwQueryResponse()), { first, second -> Pair(first, second) })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
@@ -174,12 +179,28 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             bridge.resetHtml(title)
                         }
                         fragment.onPageMetadataLoaded()
+
+                        if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
+                            checkAnonNotifications(title)
+                        }
                     }) {
                         L.e("Page details network response error: ", it)
                         commonSectionFetchOnCatch(it)
                     }
             )
         }
+    }
+
+    private fun checkAnonNotifications(title: PageTitle) {
+        disposables.add(ServiceFactory.get(title.wikiSite).getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(it, title)) {
+                        fragment.showAnonNotification()
+                    }
+                }, { L.e(it) })
+        )
     }
 
     private fun showPageOfflineMessage(dateHeader: String?) {

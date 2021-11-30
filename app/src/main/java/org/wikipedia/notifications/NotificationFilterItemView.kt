@@ -79,7 +79,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         binding.notificationFilterLanguageCode.visibility = View.GONE
         binding.notificationFilterWikiLogo.visibility = View.VISIBLE
         ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo, ColorStateList.valueOf(accentColor))
-        binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_add_gray_themed_24dp))
+        binding.notificationFilterWikiLogo.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_mode_edit_themed_24dp))
         binding.notificationFilterCheck.visibility = View.GONE
         binding.notificationFilterTitle.setTextColor(accentColor)
         binding.notificationFilterTitle.text = text.uppercase()

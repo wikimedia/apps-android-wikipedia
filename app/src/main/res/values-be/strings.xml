@@ -11,6 +11,7 @@
 * MuratTheTurkish
 * SimondR
 * Unomano
+* ZlyiLev
 -->
 <resources>
   <string name="app_name_prod">Вікіпедыя</string>
@@ -226,7 +227,7 @@
   <string name="clear_recent_searches_confirm">Вы ўпэўненыя, што жадаеце сцерці гісторыю пошукавых запытаў?</string>
   <string name="clear_recent_searches_confirm_yes">Так</string>
   <string name="clear_recent_searches_confirm_no">Не</string>
-  <string name="error_browser_not_found">Не атрымалася адкрыць вэб-старонку (дадатак браўзэра не знойдзена).</string>
+  <string name="error_browser_not_found">Не атрымалася адкрыць вэб-старонку (дадатак браўзера не знойдзена).</string>
   <string name="table_infobox">Сціслыя факты</string>
   <string name="table_other">Дадатковая інфармацыя</string>
   <string name="table_close">Закрыць</string>

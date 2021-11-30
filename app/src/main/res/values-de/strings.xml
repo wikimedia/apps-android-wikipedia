@@ -383,6 +383,7 @@
   <string name="error_message_generic">Es ist ein Fehler aufgetreten</string>
   <string name="view_link_preview_error_button_dismiss">Ausblenden</string>
   <string name="error_page_does_not_exist">Diese Seite ist nicht vorhanden</string>
+  <string name="error_user_page_does_not_exist">Wikipedia hat keine &lt;a href=\"%1$s\"&gt;Benutzerseite&lt;/a&gt; mit genau diesem Namen. Im Allgemeinen sollte diese Seite von &lt;b&gt;%2$s&lt;/b&gt; erstellt und bearbeitet werden. Im Zweifelsfall überprüfe bitte, ob „%3$s“ existiert.</string>
   <string name="view_wiki_error_message_offline">Es konnte keine Verbindung mit dem Internet hergestellt werden</string>
   <string name="view_wiki_error_message_timeout">Verbindung zu Wikipedia kann nicht hergestellt werden. Überprüfen Sie Ihre Netzwerkverbindung oder versuchen Sie es später erneut.</string>
   <string name="reference_title">Einzelnachweis %s</string>
@@ -679,6 +680,7 @@
   <string name="notifications_all_wikis_text">Alle Wikis</string>
   <string name="notifications_all_types_text">Alle Typen</string>
   <string name="notifications_menu_user_talk_page">%ss Diskussionsseite</string>
+  <string name="notifications_offline_disable_message">Die Funktion ist im Offline-Modus nicht verfügbar.</string>
   <string name="view_because_you_read_card_title">Weil du das gelesen hast</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
   <string name="view_random_article_card_title">Zufälliger Artikel</string>
@@ -1061,6 +1063,10 @@
   <string name="talk_last_modified">&lt;b&gt;Zuletzt bearbeitet %1$s&lt;/b&gt; von %2$s</string>
   <string name="talk_snackbar_survey_text">Vielen Dank für die Nutzung der Diskussionsseiten. Könntest du uns helfen, die App zu verbessern, indem du an einer Umfrage teilnimmst?</string>
   <string name="talk_snackbar_survey_action_text">Anfangen</string>
+  <string name="talk_share_discussion_subject">Wikipedia - Diskussion zum Thema auf der Diskussionsseite „%s“</string>
+  <string name="talk_share_talk_page">Wikipedia - Diskussion zum Thema auf der Diskussionsseite</string>
+  <string name="menu_option_share_talk_discussion">Diskussion teilen</string>
+  <string name="menu_option_share_talk_page">Diskussionsseite teilen</string>
   <string name="menu_option_share_edit">Bearbeitung teilen</string>
   <string name="menu_option_user_profile">Profil von %s</string>
   <string name="menu_option_user_contributions">Beiträge von %s</string>
