@@ -6,7 +6,7 @@
     tools:ignore="AlwaysShowAction">
     <item
         android:id="@+id/menu_change_language"
-        android:icon="@drawable/ic_translate_themed_24dp"
+        android:icon="@drawable/ic_translate_toolbar_icon_color_themed"
         android:title="@string/langlinks_activity_title"
         app:showAsAction="always" />
     <item
