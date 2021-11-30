@@ -1047,7 +1047,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             hidePageContent()
             bridge.onMetadataReady()
             if (binding.pageError.visibility != View.VISIBLE) {
-                binding.pageError.setError(caught)
+                binding.pageError.setError(caught, it)
             }
             binding.pageError.visibility = View.VISIBLE
             binding.pageError.contentTopOffset.layoutParams = getContentTopOffsetParams(requireContext())
