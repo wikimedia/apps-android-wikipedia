@@ -35,7 +35,7 @@
             <item
                 android:id="@+id/menu_talk_edit"
                 android:icon="@drawable/ic_mode_edit_material_secondary_themed"
-                android:title="@string/menu_option_edit_this_page"
+                android:title="@string/menu_option_edit_source"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_talk_topic_share"
