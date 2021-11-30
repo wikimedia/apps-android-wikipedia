@@ -15,7 +15,6 @@
                 android:icon="@drawable/ic_share_material_secondary_themed"
                 android:title="@string/menu_option_share_talk_discussion"
                 app:showAsAction="never" />
-
         </menu>
     </item>
 </menu>
