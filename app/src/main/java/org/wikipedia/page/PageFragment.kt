@@ -1047,7 +1047,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             hidePageContent()
             bridge.onMetadataReady()
             if (binding.pageError.visibility != View.VISIBLE) {
-                binding.pageError.setError(caught)
+                binding.pageError.setError(caught, it)
             }
             binding.pageError.visibility = View.VISIBLE
             binding.pageError.contentTopOffset.layoutParams = getContentTopOffsetParams(requireContext())
@@ -1185,6 +1185,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     }
                 }) { caught -> L.d(caught) })
         }
+    }
+
+    fun showAnonNotification() {
+        (requireActivity() as PageActivity).onAnonNotification()
     }
 
     private inner class PageActionTabCallback : PageActionTab.Callback {

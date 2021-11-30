@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Ajeje Brazorf
 * Amire80
 * Anders Feder
 * BaRaN6161 TURK
@@ -40,7 +41,7 @@
   <string name="app_name_beta">Name of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
   <string name="app_name_alpha">Name of the alpha version of the application.</string>
   <string name="wikimedia">Wikimedia\'s name.\n{{Identical|Wikimedia}}</string>
-  <string name="nav_item_back">Button label for navigating to the previous page.</string>
+  <string name="nav_item_back">Button label for navigating to the previous page.\n\n{{Identical|Back}}</string>
   <string name="page_tabs_back">Back button description when exiting tabs of an article.\n{{Identical|Back}}</string>
   <string name="nav_item_forward">Button label for navigating to the next page.</string>
   <string name="search_hint">Hint text for the search box</string>
@@ -49,7 +50,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
-  <string name="nav_item_search">Navigation menu item label for search.</string>
+  <string name="nav_item_search">Navigation menu item label for search.\n\n{{Identical|Search}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
@@ -66,7 +67,7 @@
   <string name="notification_archive_undo">Button label to undo the operation of archiving a notification.\n{{Identical|Undo}}</string>
   <string name="app_settings">Button text to take user to app settings screen</string>
   <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
-  <string name="history_list_title">Label text for history items list.</string>
+  <string name="history_list_title">Label text for history items list.\n\n{{Identical|History}}</string>
   <string name="image_content_description">Content description for an image. The \"%s\" symbol is replaced with the name of the subject.</string>
   <string name="page_content_description">Content description for a page. The \"%s\" symbol is replaced with the name of the subject.</string>
   <string name="wikimedia_commons">Label text for Wikimedia Commons.</string>
@@ -631,7 +632,7 @@
   <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.\n\n{{doc-important|\"Poll\" is a verb here. This is about the polling of notifications, not about notifications of polls.}}</string>
   <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
   <string name="preference_category_notification_types">Label for the settings category that contains the types of notifications that are shown in the app.</string>
-  <string name="preference_title_notification_system">Label for settings switch that enables or disables System notifications.</string>
+  <string name="preference_title_notification_system">Label for settings switch that enables or disables System notifications.\n\n{{Identical|System}}</string>
   <string name="preference_summary_notification_system">Short summary explaining what System notifications are.</string>
   <string name="preference_title_notification_milestone">Label for settings switch that enables or disables Milestone notifications.</string>
   <string name="preference_summary_notification_milestone">Short summary explaining what Milestone notifications are.</string>
@@ -657,11 +658,10 @@
   <string name="preference_title_hide_read_notifications">Label for settings switch that shows or hides the read notifications.</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Title for the Wikipedia notifications group.</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Description for the Wikipedia notifications group.</string>
-  <string name="notifications_channel_group_other_title">Title for the other notifications group.</string>
+  <string name="notifications_channel_group_other_title">Title for the other notifications group.\n\n{{Identical|Other}}</string>
   <string name="notifications_channel_group_other_description">Description for the other notifications group.</string>
   <string name="notifications_filter_label">Label text for filter notifications activity.</string>
   <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
-  <string name="notifications_filter_add_app_languages">Label text to add or edit app languages list.</string>
   <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters string.</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
@@ -822,7 +822,7 @@
   <string name="suggested_edits_image_caption_summary_title_image">Label to show the artifact type shown in suggested edit card</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artist title text of the file summary shown in suggested edit card.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Author title text of the file summary shown in suggested edit card.\n{{Identical|Author}}</string>
-  <string name="suggested_edits_image_caption_summary_title_source">Source title text of the file summary shown in suggested edit card.</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Source title text of the file summary shown in suggested edit card.\n\n{{Identical|Source}}</string>
   <string name="suggested_edits_image_caption_summary_title_license">License title text of the file summary shown in suggested edit card.\n{{Identical|Licence}}</string>
   <string name="suggested_edits_image_caption_summary_title_date">Date title text of the file summary shown in suggested edit card.\n{{Identical|Date}}</string>
   <plurals name="suggested_edits_contribution_count">
@@ -853,8 +853,8 @@
   <string name="suggested_edits_feed_card_add_image_tags">Suggested edits feed card call-to-action text for adding image depicts.</string>
   <string name="suggested_edits_snackbar_survey_text">One-time text shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Button label on the snackbar shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
-  <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action</string>
-  <string name="suggested_edits_task_action_text_translate">Button label for suggested edits task translate action</string>
+  <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action\n\n{{Identical|Add}}</string>
+  <string name="suggested_edits_task_action_text_translate">Button label for suggested edits task translate action\n\n{{Identical|Translate}}</string>
   <string name="suggested_edits_image_captions">Suggested Edits image captions task title.\n\nAppears in a box above {{msg-wm|Wikipedia-android-strings-suggested edits image captions task detail}}.\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}\n* {{msg-wm|Wikipedia-android-strings-suggested edits image tags}}</string>
   <string name="suggested_edits_image_tags">Suggested Edits image tags task title.\n\nAppears in a box above {{msg-wm|Wikipedia-android-strings-suggested edits image tags task detail}}\n\nAppears in the same screen as and formatted similarly to:\n* {{msg-wm|Wikipedia-android-strings-suggested edits image captions}}\n* {{msg-wm|Wikipedia-android-strings-description edit tutorial title descriptions}}</string>
   <string name="suggested_edits_image_tags_publishing">Status when the selected image tags are being published.</string>
@@ -910,8 +910,8 @@
   <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.</string>
   <string name="suggested_edits_ip_blocked_title">Title for card that explains that the IP address of the user is blocked.</string>
   <string name="suggested_edits_last_edited">This refers to the date when the user made their last edit.</string>
-  <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.</string>
-  <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase in languages that support it).\n\nShould be translated as a kind of advertising, referring to somthing like a \"new (feature)\" or a \"new (thing)\".</string>
+  <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.\n\n{{Identical|Never}}</string>
+  <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase in languages that support it).\n\nShould be translated as a kind of advertising, referring to somthing like a \"new (feature)\" or a \"new (thing)\".\n\n{{Identical|New}}</string>
   <string name="suggested_edits_cc0_notice">Disclaimer that specifies the Terms of Use and CC license that applies to publishing these types of edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_reactivation_notification_title">Title of notification when the user has not edited for days.</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Text of notification when the user has not edited for days (first stage).</string>
@@ -933,7 +933,7 @@
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
   <string name="suggested_edits_contribution_type_title">Dropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
-  <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday\n\n{{Identical|Yesterday}}</string>
   <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
@@ -1046,8 +1046,8 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="talk_title">Title of menu item that leads to the talk page of the user.</string>
-  <string name="talk_user_title">Title of screen that shows the talk page topics of the user. The %s symbol is replaced with the user name.</string>
+  <string name="talk_title">Title of menu item that leads to the talk page of the user.\n\n{{Identical|Talk}}</string>
+  <string name="talk_user_title">Title of screen that shows the talk page topics of the user. The %s symbol is replaced with the user name.\n\n{{Identical|Talk}}</string>
   <string name="talk_new_topic">Button label for creating a new talk topic.</string>
   <string name="talk_new_topic_submitted">Message shown when a new talk topic has been submitted.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
@@ -1059,26 +1059,29 @@
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
   <string name="talk_response_submitted">Message shown when the response has been submitted.</string>
-  <string name="talk_snackbar_undo">Button label to undo the operation of submitting the response.</string>
+  <string name="talk_snackbar_undo">Button label to undo the operation of submitting the response.\n\n{{Identical|Undo}}</string>
   <string name="talk_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.\n\nShould be similar to this MediaWiki messages such as this: {{msg-mw|Mobile-frontend-last-modified-with-user-hours}}</string>
   <string name="talk_snackbar_survey_text">One-time text shown to users after they submit a talk page message, requesting them to take a survey.</string>
   <string name="talk_snackbar_survey_action_text">Button label for navigating to a survey page.</string>
+  <string name="talk_share_discussion_subject">Subject text while sharing a talk topic discussion. %s represents the topic subject.</string>
+  <string name="talk_share_talk_page">Subject text while sharing a talk page</string>
+  <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
+  <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
   <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
   <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
   <string name="watchlist_details_watching_label">Label indicating that user is watching the article.</string>
-  <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.</string>
+  <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.\n\n{{Identical|Watch}}</string>
   <string name="watchlist_details_next_edit">Content description for the button that goes to the next edit history.</string>
   <string name="watchlist_details_prev_edit">Content description for the button that goes to the previous edit history.</string>
   <string name="thank_label">Label on the button suggesting the user to thank the edit.</string>
-  <string name="go_to_user_page">Menu item label for going to the user page of the selected user.</string>
   <string name="thank_dialog_title_text">Title text on the thank dialog</string>
   <string name="thank_dialog_text">Dialog text for the thank dialog</string>
   <string name="thank_dialog_positive_button_text">Positive button label on the thank dialog.</string>
   <string name="thank_dialog_negative_button_text">Negative button label on the thank dialog.\n{{identical|Cancel}}</string>
   <string name="thank_success_message">Message shown to user after thanking an edit in the diff screen. %s is the contributing user\'s username.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.\n\n{{Identical|Change}}</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">Text for the time period that exists for 1 week.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">Text for the time period that exists for 1 month.</string>
@@ -1092,11 +1095,14 @@
   <string name="watchlist_expiry_dialog_three_months">Label for the time period that exists for 3 months.</string>
   <string name="watchlist_expiry_dialog_six_months">Label for the time period that exists for 6 months.</string>
   <string name="watchlist_empty">Message shown when the user\'s watchlist is empty.</string>
-  <string name="watchlist_filter_all">Filter selection to show all items in the watchlist</string>
-  <string name="watchlist_filter_talk">Filter selection to show only Talk pages in the watchlist</string>
+  <string name="watchlist_filter_all">Filter selection to show all items in the watchlist\n\n{{Identical|All}}</string>
+  <string name="watchlist_filter_talk">Filter selection to show only Talk pages in the watchlist\n\n{{Identical|Talk}}</string>
   <string name="watchlist_filter_pages">Filter selection to show only main-namespace pages in the watchlist</string>
   <string name="watchlist_filter_other">Filter selection to show only non-main and non-talk pages in the watchlist</string>
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
-  <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
+  <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
+  <string name="notifications_filter_update_app_languages">Label text to update app languages list.</string>
+  <string name="menu_article_share">Menu item text for sharing the current article the user is reading.</string>
+  <string name="view_user_page">Menu item label for going to the user page of the selected user.</string>
 </resources>

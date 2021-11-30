@@ -278,6 +278,10 @@
   <string name="edit_summary_tag_other_hint">Sayfayı geliştirdiğiniz diğer yönler</string>
   <string name="edit_conflict_title">Düzenleme çakışması</string>
   <string name="edit_conflict_message">Sayfa zaten farklı bir kullanıcı tarafından değiştirilmiş ve düzenlemenizle çakışıyor. Lütfen, düzenlemelerinizi kopyalayın; geri dönün ve sayfayı yenileyip yeniden düzenlemeyi deneyin.</string>
+  <string name="edit_notices">Düzenleme bildirimleri</string>
+  <string name="edit_notices_please_read">Lütfen düzenlemeden önce okuyun</string>
+  <string name="edit_notices_show_auto">Düzenleme bildirimlerini kendiliğinden göster</string>
+  <string name="edit_notices_tooltip">Bu sayfanın düzenleme bildirimlerini görmek için bu düğmeye tıklayın.</string>
   <string name="find_next">Sonrakini bul</string>
   <string name="find_previous">Öncekini bul</string>
   <string name="find_first_occurence">Bu, ilk olay</string>
@@ -388,6 +392,7 @@
   <string name="error_message_generic">Bir hata oluştu</string>
   <string name="view_link_preview_error_button_dismiss">Reddet</string>
   <string name="error_page_does_not_exist">Bu sayfa mevcut değil</string>
+  <string name="error_user_page_does_not_exist">Vikipedi\'de bu isimde bir &lt;a href=\"%1$s\"&gt;kullanıcı sayfası&lt;/a&gt; yok. Genellikle, bu sayfa &lt;b&gt;%2$s&lt;/b&gt; tarafından oluşturulup düzenlenmelidir. Kuşku duyarsanız, \"%3$s\" sayfasının var olduğundan emin olun.</string>
   <string name="view_wiki_error_message_offline">İnternete bağlanılamıyor.</string>
   <string name="view_wiki_error_message_timeout">Vikipedi\'ye bağlanılamıyor. Ağ bağlantınızı kontrol edin veya daha sonra tekrar deneyin</string>
   <string name="reference_title">%s kaynağı</string>
@@ -615,10 +620,19 @@
   <string name="notifications_mark_unread">Okunmamış olarak işaretle</string>
   <string name="notifications_mark_all_as_read">Tümünü okundu olarak işaretle</string>
   <string name="notifications_direct_reply_action">Yanıtla</string>
-  <string name="notifications_direct_reply_success" fuzzy="true">Yanıt başarıyla gönderildi.</string>
+  <string name="notifications_direct_reply_progress">%s kullanıcısına cevap gönderiliyor…</string>
+  <string name="notifications_direct_reply_success">Yanıt gönderildi.</string>
   <string name="notifications_direct_reply_error">Yanıt otomatik olarak gönderilemiyor.</string>
   <string name="notifications_mark_all_as_read_message">%d okundu olarak işaretlendi</string>
   <string name="notifications_mark_all_as_unread_message">%d okunmadı olarak işaretlendi</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 okunmuş olarak işaretlendi</item>
+    <item quantity="other">%d okunmuş olarak işaretlendi</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 okunmamış olarak işaretlendi</item>
+    <item quantity="other">%d okunmamış olarak işaretlendi</item>
+  </plurals>
   <string name="watchlist_title">İzleme listesi</string>
   <string name="preference_title_notification_poll">Anket bildirimleri</string>
   <string name="preference_summary_notification_poll">Uygulamanın, arka planda yeni bildirimleri kontrol etmek için veri kullanmasına izin verin.</string>
@@ -651,6 +665,31 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Vikipedi\'den bildirimler</string>
   <string name="notifications_channel_group_other_title">Diğer</string>
   <string name="notifications_channel_group_other_description">Uygulamadan diğer bildirimler</string>
+  <string name="notifications_filter_label">Bildirimleri filtrele</string>
+  <string name="notifications_filter_icon_content_description">Bildirimleri filtrele</string>
+  <string name="notifications_filter_add_app_languages">Uygulama dili ekle veya düzenle</string>
+  <string name="notifications_empty_search_message">Daha fazla bildirim görmek için %s çıkarmayı deneyin</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filtre</item>
+    <item quantity="other">%d filtre</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Tüm filtreleri seç</string>
+  <string name="notifications_tab_filter_all">Hepsi</string>
+  <string name="notifications_tab_filter_mentions">Bahsetmeler</string>
+  <string name="notifications_search_bar_hint">Bildirimleri filtrele ya da ara</string>
+  <string name="notifications_search_bar_filter_hint">Bildirim filtresi</string>
+  <string name="notifications_menu_mark_as_read">Okunmuş olarak işaretle</string>
+  <string name="notifications_menu_mark_as_unread">Okunmamış olarak işaretle</string>
+  <string name="notifications_swipe_action_read">Okundu</string>
+  <string name="notifications_swipe_action_unread">Okunmadı</string>
+  <string name="notifications_menu_check_all">Tüm ögeleri seç</string>
+  <string name="notifications_menu_uncheck_all">Tüm ögelerin seçimini kaldır</string>
+  <string name="notifications_wiki_filter_header">Viki filtresi</string>
+  <string name="notifications_type_filter_header">Tür filtresi</string>
+  <string name="notifications_all_wikis_text">Tüm \"viki\"</string>
+  <string name="notifications_all_types_text">Tüm \"tür\"</string>
+  <string name="notifications_menu_user_talk_page">%s tartışma sayfası</string>
+  <string name="notifications_offline_disable_message">Bu işlev çevrimdışıyken kullanılamaz.</string>
   <string name="view_because_you_read_card_title">Okuduğun için</string>
   <string name="view_random_card_title">Rastgele</string>
   <string name="view_random_article_card_title">Rastgele madde</string>
