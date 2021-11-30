@@ -242,10 +242,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun markItemsAsRead(items: List<Notification>) {
-            val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
-            for (item in items) {
-                val wiki = DBNAME_WIKI_SITE_MAP.getOrElse(item.wiki) { WikipediaApp.getInstance().wikiSite }
-                notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(item)
+            val notificationsPerWiki = items.groupBy {
+                DBNAME_WIKI_SITE_MAP.getOrElse(it.wiki) { WikipediaApp.getInstance().wikiSite }
             }
             for (wiki in notificationsPerWiki.keys) {
                 markRead(wiki, notificationsPerWiki[wiki]!!, false)
