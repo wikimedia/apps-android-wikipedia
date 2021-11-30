@@ -397,6 +397,7 @@
   <string name="error_message_generic">Une erreur s’est produite</string>
   <string name="view_link_preview_error_button_dismiss">Fermer</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
+  <string name="error_user_page_does_not_exist">Wikipédia n’a pas de &lt;a href=\"%1$s\"&gt;page utilisateur&lt;/a&gt; avec ce nom exact. En général, cette page devrait être créée et éditée par &lt;b&gt;%2$s&lt;/b&gt;. En cs de doute, veuillez vérifier que « %3$s » existe.</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
   <string name="view_wiki_error_message_timeout">Impossible de se connecter à Wikipédia. Vérifiez votre connexion réseau, ou réessayez ultérieurement.</string>
   <string name="reference_title">Référence %s</string>
@@ -693,6 +694,7 @@
   <string name="notifications_all_wikis_text">Tous les « wikis »</string>
   <string name="notifications_all_types_text">Tous les « types »</string>
   <string name="notifications_menu_user_talk_page">page de discussion de %s</string>
+  <string name="notifications_offline_disable_message">Cette fonction n’est pas disponible hors ligne.</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Au hasard</string>
   <string name="view_random_article_card_title">Article au hasard</string>
@@ -1075,6 +1077,10 @@
   <string name="talk_last_modified">&lt;b&gt;Dernière modification le %1$s&lt;/b&gt; par %2$s</string>
   <string name="talk_snackbar_survey_text">Merci d\'utiliser les pages de discussion. Pourriez-vous nous aider à améliorer l\'application en participant à une enquête ?</string>
   <string name="talk_snackbar_survey_action_text">Démarrer</string>
+  <string name="talk_share_discussion_subject">Wikipédia — discussion sur le sujet « %s » de la page de discussion</string>
+  <string name="talk_share_talk_page">Wikipédia — discussions sur la page de discussion</string>
+  <string name="menu_option_share_talk_discussion">Partager la discussion</string>
+  <string name="menu_option_share_talk_page">Partager la page de discussion</string>
   <string name="menu_option_share_edit">Partager la modification</string>
   <string name="menu_option_user_profile">Profil de %s</string>
   <string name="menu_option_user_contributions">Contributions de %s</string>
