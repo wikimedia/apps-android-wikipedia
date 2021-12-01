@@ -1,5 +1,6 @@
 package org.wikipedia.edit
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -639,5 +640,13 @@ class EditSectionActivity : BaseActivity() {
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
+
+        fun newIntent(context: Context, sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String? = null): Intent {
+            return Intent(context, EditSectionActivity::class.java)
+                .putExtra(EXTRA_SECTION_ID, sectionId)
+                .putExtra(EXTRA_SECTION_ANCHOR, sectionAnchor)
+                .putExtra(EXTRA_TITLE, title)
+                .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
+        }
     }
 }
