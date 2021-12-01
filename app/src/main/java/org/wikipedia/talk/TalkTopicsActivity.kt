@@ -30,7 +30,6 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.edit.EditHandler
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.Namespace
@@ -220,7 +219,6 @@ class TalkTopicsActivity : BaseActivity() {
                 return true
             }
             R.id.menu_edit_source -> {
-                EditHandler.startEditingSection(this, pageSummary.toPage(pageTitle), 0, null)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
