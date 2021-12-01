@@ -1,5 +1,6 @@
 package org.wikipedia.edit
 
+import android.app.Activity
 import android.content.Intent
 import android.view.MenuItem
 import android.view.View
@@ -69,26 +70,13 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
         }
     }
 
+    fun startEditingSection(sectionID: Int, highlightText: String?) {
+        startEditingSection(fragment.requireActivity(), currentPage, sectionID, highlightText)
+    }
+
     fun setPage(page: Page?) {
         page?.let {
             currentPage = it
-        }
-    }
-
-    fun startEditingSection(sectionID: Int, highlightText: String?) {
-        currentPage?.let {
-            if (sectionID < 0 || sectionID >= it.sections.size) {
-                L.w("Attempting to edit a mismatched section ID.")
-                return
-            }
-            val section = it.sections[sectionID]
-            val intent = Intent(fragment.requireActivity(), EditSectionActivity::class.java)
-            intent.putExtra(EditSectionActivity.EXTRA_SECTION_ID, section.id)
-            intent.putExtra(EditSectionActivity.EXTRA_SECTION_ANCHOR, section.anchor)
-            intent.putExtra(EditSectionActivity.EXTRA_TITLE, it.title)
-            intent.putExtra(EditSectionActivity.EXTRA_PAGE_PROPS, it.pageProperties)
-            intent.putExtra(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT, highlightText)
-            fragment.startActivityForResult(intent, Constants.ACTIVITY_REQUEST_EDIT_SECTION)
         }
     }
 
@@ -97,5 +85,23 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
         private const val TYPE_ADD_TITLE_DESCRIPTION = "add_title_description"
         private const val PAYLOAD_SECTION_ID = "sectionId"
         const val RESULT_REFRESH_PAGE = 1
+
+        fun startEditingSection(activity: Activity, page: Page?, sectionID: Int, highlightText: String?) {
+            page?.let {
+                if (sectionID < 0 || sectionID >= it.sections.size) {
+                    L.d("it.sections " + it.sections)
+                    L.w("Attempting to edit a mismatched section ID.")
+                    return
+                }
+                val section = it.sections[sectionID]
+                val intent = Intent(activity, EditSectionActivity::class.java)
+                intent.putExtra(EditSectionActivity.EXTRA_SECTION_ID, section.id)
+                intent.putExtra(EditSectionActivity.EXTRA_SECTION_ANCHOR, section.anchor)
+                intent.putExtra(EditSectionActivity.EXTRA_TITLE, it.title)
+                intent.putExtra(EditSectionActivity.EXTRA_PAGE_PROPS, it.pageProperties)
+                intent.putExtra(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT, highlightText)
+                activity.startActivityForResult(intent, Constants.ACTIVITY_REQUEST_EDIT_SECTION)
+            }
+        }
     }
 }

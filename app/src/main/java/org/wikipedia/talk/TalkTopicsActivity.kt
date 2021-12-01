@@ -27,8 +27,10 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.edit.EditHandler
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.Namespace
@@ -53,6 +55,7 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var funnel: TalkFunnel
     private lateinit var notificationButtonView: NotificationButtonView
+    private lateinit var pageSummary: PageSummary
     private val disposables = CompositeDisposable()
     private val topics = mutableListOf<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
@@ -172,8 +175,10 @@ class TalkTopicsActivity : BaseActivity() {
             menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
             menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
             val notificationMenuItem = menu.findItem(R.id.menu_notifications)
+            val editSourceMenuItem = menu.findItem(R.id.menu_edit_source)
             if (AccountUtil.isLoggedIn) {
                 notificationMenuItem.isVisible = true
+                editSourceMenuItem.isVisible = !binding.talkEmptyContainer.isVisible
                 notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
                 notificationButtonView.setOnClickListener {
                     if (AccountUtil.isLoggedIn) {
@@ -187,6 +192,7 @@ class TalkTopicsActivity : BaseActivity() {
                 FeedbackUtil.setButtonLongPressToast(notificationButtonView)
             } else {
                 notificationMenuItem.isVisible = false
+                editSourceMenuItem.isVisible = false
             }
             updateNotificationDot(false)
         }
@@ -211,6 +217,10 @@ class TalkTopicsActivity : BaseActivity() {
             }
             R.id.menu_talk_topic_share -> {
                 ShareUtil.shareText(this, getString(R.string.talk_share_talk_page), pageTitle.uri)
+                return true
+            }
+            R.id.menu_edit_source -> {
+                EditHandler.startEditingSection(this, pageSummary.toPage(pageTitle), 0, null)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
@@ -283,6 +293,7 @@ class TalkTopicsActivity : BaseActivity() {
         if (topics.isEmpty()) {
             updateOnEmpty()
         } else {
+            loadSummary()
             binding.talkErrorView.visibility = View.GONE
             binding.talkNewTopicButton.show()
             binding.talkNewTopicButton.isEnabled = true
@@ -293,6 +304,17 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
+    private fun loadSummary() {
+        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getSummary(null, pageTitle.prefixedText)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                pageSummary = it
+            }, {
+                L.e(it)
+            }))
+    }
+
     private fun updateOnError(t: Throwable) {
         topics.clear()
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
@@ -301,6 +323,7 @@ class TalkTopicsActivity : BaseActivity() {
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code == 404) {
             updateOnEmpty()
+            invalidateOptionsMenu()
         } else {
             binding.talkNewTopicButton.hide()
             binding.talkLastModified.visibility = View.GONE
