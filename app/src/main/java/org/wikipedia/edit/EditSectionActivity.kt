@@ -63,7 +63,6 @@ class EditSectionActivity : BaseActivity() {
 
     private var sectionID = 0
     private var sectionAnchor: String? = null
-    private var pageProps: PageProperties? = null
     private var textToHighlight: String? = null
     private var sectionWikitext: String? = null
     private val editNotices = mutableListOf<String>()
@@ -99,7 +98,6 @@ class EditSectionActivity : BaseActivity() {
         pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, 0)
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
-        pageProps = intent.getParcelableExtra(EXTRA_PAGE_PROPS)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
         supportActionBar?.title = ""
         syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText)
@@ -640,7 +638,6 @@ class EditSectionActivity : BaseActivity() {
         const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
-        const val EXTRA_PAGE_PROPS = "org.wikipedia.edit_section.pageprops"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
     }
 }
