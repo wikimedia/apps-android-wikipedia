@@ -516,6 +516,7 @@ class EditSectionActivity : BaseActivity() {
                             FeedbackUtil.showError(this, MwException(error))
                         }
                         displaySectionText()
+                        maybeShowEditSourceDialog()
                     }) { throwable ->
                         showProgressBar(false)
                         showError(throwable)
@@ -562,6 +563,19 @@ class EditSectionActivity : BaseActivity() {
         }
         EditNoticesDialog(pageTitle.wikiSite, editNotices, this)
                 .show()
+    }
+
+    private fun maybeShowEditSourceDialog() {
+        L.d("maybeShowEditSourceDialog " + pageTitle.namespace)
+        L.d("maybeShowEditSourceDialog " + pageTitle.namespace())
+        L.d("maybeShowEditSourceDialog " + (pageTitle.namespace() === Namespace.USER) + " => " + (pageTitle.namespace() === Namespace.USER_TALK))
+        if (pageTitle.namespace() !== Namespace.USER && pageTitle.namespace() !== Namespace.USER_TALK) {
+            return
+        }
+        AlertDialog.Builder(this@EditSectionActivity)
+            .setMessage(R.string.talk_edit_disclaimer)
+            .setPositiveButton(R.string.onboarding_got_it) { dialog, _ -> dialog.dismiss() }
+            .show()
     }
 
     private fun displaySectionText() {
