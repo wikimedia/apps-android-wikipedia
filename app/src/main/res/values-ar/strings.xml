@@ -27,6 +27,7 @@
 * Shbib Al-Subaie
 * Sonic N800
 * Tala Ali
+* Ulhvulgv
 * Youssef
 * بدارين
 * ديفيد
@@ -89,6 +90,7 @@
   <string name="feed_card_add_to_list">أضف إلى قائمة القراءة</string>
   <string name="feed_card_add_to_default_list">احفظ</string>
   <string name="menu_page_share">شارك الوصلة</string>
+  <string name="menu_article_share">شن</string>
   <string name="menu_page_open_a_new_tab">افتح تبويبا جديدًا</string>
   <string name="menu_page_new_tab">تبويب جديد</string>
   <string name="menu_page_reading_lists">قوائم القراءة</string>
@@ -1000,7 +1002,7 @@
   <string name="watchlist_details_next_edit">التعديل التالي</string>
   <string name="watchlist_details_prev_edit">التعديل السابق</string>
   <string name="thank_label">شكر</string>
-  <string name="go_to_user_page">اذهب لصفحة المستخدم</string>
+  <string name="view_user_page">View user page</string>
   <string name="thank_dialog_title_text">إرسال الشكر علنًا</string>
   <string name="thank_dialog_text">\"الشكر\" هي طريقةٌ سهلةٌ لإظهار التقدير لعمل أحد المحررين في ويكيبيديا. لا يمكن التراجع عن \"الشكر\" وهي معروضةٌ علنًا.</string>
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>

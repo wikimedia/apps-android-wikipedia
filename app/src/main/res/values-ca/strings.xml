@@ -647,7 +647,6 @@
   <string name="notifications_channel_group_other_description">Altres notificacions de l\'aplicació</string>
   <string name="notifications_filter_label">Filtra les notificacions</string>
   <string name="notifications_filter_icon_content_description">Filtra les notificacions</string>
-  <string name="notifications_filter_add_app_languages">Afegeix o modifica les llengües de l\'aplicació</string>
   <string name="notifications_empty_search_message">Proveu de suprimir %s per a veure més notificacions</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtre</item>
@@ -1063,7 +1062,6 @@
   <string name="watchlist_details_next_edit">Edició següent</string>
   <string name="watchlist_details_prev_edit">Edició anterior</string>
   <string name="thank_label">Agraeix</string>
-  <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
   <string name="thank_dialog_title_text">Envia \'agraïments\' públicament</string>
   <string name="thank_dialog_text">Els \'agraïments\' són una forma fàcil de mostrar apreciació pel treball d\'un editor a la Viquipèdia. Els \'agraïments\' no es poden desfer i són visibles públicament</string>
   <string name="thank_dialog_positive_button_text">Envia agraïments</string>

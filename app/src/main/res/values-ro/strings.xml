@@ -644,7 +644,6 @@
   <string name="notifications_channel_group_other_description">Alte notificări din aplicație</string>
   <string name="notifications_filter_label">Filtrează notificările</string>
   <string name="notifications_filter_icon_content_description">Filtrează notificările</string>
-  <string name="notifications_filter_add_app_languages">Adăugați sau editați limbile aplicației</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
   <string name="view_random_card_title">Aleatoriu</string>
   <string name="view_random_article_card_title">Articol aleatoriu</string>
@@ -1045,7 +1044,6 @@
   <string name="watchlist_details_next_edit">Următoarea modificare</string>
   <string name="watchlist_details_prev_edit">Modificare anterioară</string>
   <string name="thank_label">Mulțumiți</string>
-  <string name="go_to_user_page">Du-te la pagina de utilizator</string>
   <string name="thank_dialog_title_text">Trimiteți public „Mulțumiri”</string>
   <string name="thank_dialog_text">„Mulțumirile” sunt o modalitate ușoară de a arăta aprecieri pentru munca unui editor pe Wikipedia. „Mulțumirile” nu pot fi anulate și pot fi vizualizate public.</string>
   <string name="thank_dialog_positive_button_text">Trimite mulțumiri</string>
