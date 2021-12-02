@@ -8,6 +8,7 @@
 * Areee
 * BriskyBlizzard
 * Cxz
+* Dbrant
 * ElmA
 * Envlh
 * Jack Phoenix
@@ -89,6 +90,7 @@
   <string name="feed_card_add_to_list">Lisää lukulistaan</string>
   <string name="feed_card_add_to_default_list">Tallenna</string>
   <string name="menu_page_share">Jaa linkki</string>
+  <string name="menu_article_share">Jaa artikkeli</string>
   <string name="menu_page_open_a_new_tab">Avaa uusi välilehti</string>
   <string name="menu_page_new_tab">Uusi välilehti</string>
   <string name="menu_page_reading_lists">Lukulistat</string>
@@ -654,7 +656,7 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Ilmoitukset Wikipediasta</string>
   <string name="notifications_channel_group_other_title">Muu</string>
   <string name="notifications_channel_group_other_description">Muut ilmoitukset sovelluksesta</string>
-  <string name="notifications_filter_add_app_languages">Lisää tai muokkaa sovelluksen kieliä</string>
+  <string name="notifications_filter_update_app_languages">Päivitä sovelluksen kielet</string>
   <string name="notifications_empty_search_message">Kokeile poistaa %s nähdäksesi lisää ilmoituksia</string>
   <string name="notifications_select_all_filters">Valitse kaikki suodattimet</string>
   <string name="notifications_tab_filter_all">Kaikki</string>
@@ -1051,6 +1053,9 @@
   <string name="talk_last_modified">&lt;b&gt;Sivua muokkasi viimeksi %1$s&lt;/b&gt; %2$s</string>
   <string name="talk_snackbar_survey_text">Kiitos keskustelusivujen käyttämisestä. Voitko auttaa meitä parantamaan sovellusta osallistumalla kyselyyn?</string>
   <string name="talk_snackbar_survey_action_text">Aloita</string>
+  <string name="talk_share_talk_page">Wikipedia - keskustelut keskustelusivulla</string>
+  <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
+  <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
   <string name="menu_option_user_profile">Käyttäjän %s profiili</string>
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
@@ -1059,7 +1064,7 @@
   <string name="watchlist_details_next_edit">Seuraava muokkaus</string>
   <string name="watchlist_details_prev_edit">Edellinen muokkaus</string>
   <string name="thank_label">Kiitä</string>
-  <string name="go_to_user_page">Siirry käyttäjäsivulle</string>
+  <string name="view_user_page">Näytä käyttäjäsivu</string>
   <string name="thank_dialog_title_text">Julkinen kiitos lähetetty</string>
   <string name="thank_dialog_text">Kiitoksen lähettäminen on helppo tapa arvostaa toisen käyttäjän panosta Wikipedian kehittämiseen. Kiitoksia ei voi perua, ja ne ovat julkisesti nähtävillä.</string>
   <string name="thank_dialog_positive_button_text">Lähetä kiitokset</string>

@@ -373,7 +373,7 @@
   <string name="error_message_generic">Сталася помилка</string>
   <string name="view_link_preview_error_button_dismiss">Відхилити</string>
   <string name="error_page_does_not_exist">Ця сторінка не існує</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">У Вікіпедії немає &lt;a href=\"%1$s\"&gt;сторінки користувача&lt;/a&gt; з такою точною назвою. Загалом, цю сторінку має створити та відредагувати \'\'\'%2$s\'\'\'. Якщо ви сумніваєтеся, будь ласка, переконайтеся, що «%3$s» існує.</string>
+  <string name="error_user_page_does_not_exist">У Вікіпедії немає &lt;a href=\"%1$s\"&gt;сторінки користувача&lt;/a&gt; з такою точною назвою. Загалом, цю сторінку має створити та відредагувати \'\'\'%2$s\'\'\'. Якщо ви сумніваєтеся, будь ласка, переконайтеся, що «%3$s» існує.</string>
   <string name="view_wiki_error_message_offline">Не вдається підключитися до інтернету.</string>
   <string name="view_wiki_error_message_timeout">Немає зв\'язку із Вікіпедією. Будь ласка, перевірте ваше мережеве підключення чи спробуйте пізніше</string>
   <string name="reference_title">Виноски %s</string>
@@ -678,7 +678,6 @@
   <string name="notifications_channel_group_other_description">Інші сповіщення від програми</string>
   <string name="notifications_filter_label">Фільтр сповіщень</string>
   <string name="notifications_filter_icon_content_description">Фільтр сповіщень</string>
-  <string name="notifications_filter_add_app_languages">Додайте або відредагуйте мови програми</string>
   <string name="notifications_empty_search_message">Спробуйте видалити %s, щоб побачити більше сповіщень</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d фільтр</item>
@@ -1110,6 +1109,10 @@
   <string name="talk_last_modified">&lt;b&gt;Останнє редагування %1$s&lt;/b&gt; за %2$s</string>
   <string name="talk_snackbar_survey_text">Дякуємо, що користуєтесь сторінками обговорень. Чи можете ви допомогти нам покращити додаток, взявши участь у опитуванні?</string>
   <string name="talk_snackbar_survey_action_text">Розпочати</string>
+  <string name="talk_share_discussion_subject">Вікіпедія — обговорення на сторінці обговорення «%s»</string>
+  <string name="talk_share_talk_page">Вікіпедія — обговорення на сторінці обговорення</string>
+  <string name="menu_option_share_talk_discussion">Поділіться обговоренням</string>
+  <string name="menu_option_share_talk_page">Поділіться сторінкою обговорення</string>
   <string name="menu_option_share_edit">Поділитися редагуванням</string>
   <string name="menu_option_user_profile">Профіль %s</string>
   <string name="menu_option_user_contributions">Внесок %s</string>
@@ -1118,7 +1121,6 @@
   <string name="watchlist_details_next_edit">Наступне редагування</string>
   <string name="watchlist_details_prev_edit">Попереднє редагування</string>
   <string name="thank_label">Подякувати</string>
-  <string name="go_to_user_page">Перейти на сторінку користувача</string>
   <string name="thank_dialog_title_text">Публічно відправити подяку</string>
   <string name="thank_dialog_text">«Подяка» — це легкий спосіб висловити вдячність за внесок редактора у Вікіпедії. Вона не може бути відкликана і є видимою публічно</string>
   <string name="thank_dialog_positive_button_text">Надіслати подяку</string>

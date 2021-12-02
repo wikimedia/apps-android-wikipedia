@@ -592,7 +592,7 @@
   <string name="preference_title_notification_mention">Említés</string>
   <string name="preference_summary_notification_mention">Valaki megemlített egy lapon</string>
   <string name="preference_title_notification_user_talk">Vitalap</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Üzenetek vitalapokról</string>
+  <string name="preference_summary_notification_user_talk">Üzenetek és válaszok a beszélgetési oldalakról</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipédia</string>
   <string name="notifications_channel_group_other_title">Egyéb</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
@@ -970,13 +970,16 @@
   <string name="talk_message_empty">Az üzenet nem lehet üres.</string>
   <string name="talk_subject_empty">A tárgy nem lehet üres.</string>
   <string name="talk_snackbar_undo">Visszavonás</string>
+  <string name="talk_share_discussion_subject">Wikipédia - vita a vitalap \"%s\" témájáról</string>
+  <string name="talk_share_talk_page">Wikipédia – beszélgetések a vitalapon</string>
+  <string name="menu_option_share_talk_discussion">Oszd meg a vitát</string>
+  <string name="menu_option_share_talk_page">Beszélgetési oldal megosztása</string>
   <string name="menu_option_share_edit">Szerkesztés megosztása</string>
   <string name="menu_option_user_profile">%s profilja</string>
   <string name="menu_option_user_contributions">%s közreműködései</string>
   <string name="watchlist_details_watching_label">Figyelve</string>
   <string name="watchlist_details_watch_label">Lap figyelése</string>
   <string name="thank_label">Köszönet</string>
-  <string name="go_to_user_page">Ugrás a szerkesztői lapra</string>
   <string name="thank_dialog_title_text">Nyilvános köszönetküldés</string>
   <string name="thank_dialog_text">A köszönetküldés egy egyszerű mód arra, hogy jelezd egy szerkesztőnek, hogy örülsz a wikipédiás munkásságának. A köszöneteket nem lehet visszavonni, és nyilvánosan láthatóak.</string>
   <string name="thank_dialog_positive_button_text">Köszönet elküldése</string>

@@ -16,6 +16,7 @@
 * Hydra
 * Hzy980512
 * ITsu
+* Interestinghe
 * Irati
 * Josephine W.
 * LNDDYL
@@ -110,6 +111,7 @@
   <string name="feed_card_add_to_list">添加至阅读列表</string>
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">分享链接</string>
+  <string name="menu_article_share">分享文章</string>
   <string name="menu_page_open_a_new_tab">打开新标签页</string>
   <string name="menu_page_new_tab">新标签页</string>
   <string name="menu_page_reading_lists">阅读列表</string>
@@ -656,6 +658,7 @@
   <string name="notifications_channel_group_other_title">其他</string>
   <string name="notifications_channel_group_other_description">来自应用程序的其他通知</string>
   <string name="notifications_filter_label">过滤通知</string>
+  <string name="notifications_filter_update_app_languages">更新应用程序语言</string>
   <string name="notifications_swipe_action_read">已读</string>
   <string name="view_because_you_read_card_title">因你而读</string>
   <string name="view_random_card_title">随机条目</string>
@@ -1034,6 +1037,10 @@
   <string name="talk_response_submitted">回复已发布。</string>
   <string name="talk_snackbar_undo">撤销</string>
   <string name="talk_last_modified">由%2$s在&lt;b&gt;%1$s&lt;/b&gt;做出的最后一次编辑</string>
+  <string name="talk_share_discussion_subject">维基百科 - 讨论页上“%s”主题的讨论</string>
+  <string name="talk_share_talk_page">维基百科 - 讨论页上的讨论</string>
+  <string name="menu_option_share_talk_discussion">分享讨论</string>
+  <string name="menu_option_share_talk_page">分享讨论页</string>
   <string name="menu_option_share_edit">分享编辑</string>
   <string name="menu_option_user_profile">%s的个人资料</string>
   <string name="menu_option_user_contributions">%s的贡献</string>
@@ -1042,7 +1049,7 @@
   <string name="watchlist_details_next_edit">下一编辑</string>
   <string name="watchlist_details_prev_edit">上一编辑</string>
   <string name="thank_label">感谢</string>
-  <string name="go_to_user_page">转至用户页</string>
+  <string name="view_user_page">查看用户页面</string>
   <string name="thank_dialog_title_text">公开发送“感谢”</string>
   <string name="thank_dialog_text">“感谢”是对维基百科上的编辑工作表示谢意的一种简单方式。“感谢”无法撤销，且可公开查看。</string>
   <string name="thank_dialog_positive_button_text">发送感谢</string>

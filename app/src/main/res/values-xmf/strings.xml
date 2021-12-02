@@ -37,6 +37,9 @@
   <string name="app_settings">აპლიკაციაშ პარამეტრეფი</string>
   <string name="search_tab_tooltip">ხეახალო ქეგუწკანტეთ ხანტურიას ოგორალი ტერმინიშ ეკორობუაშ ბონ დაჭყაფალო.</string>
   <string name="history_list_title">ისტორია</string>
+  <string name="image_content_description">სურათი: %s</string>
+  <string name="wikimedia_commons">ვიკიოწკარუე</string>
+  <string name="wikidata">ვიკიმუნაჩემეფი</string>
   <string name="dialog_title_clear_history">მიშნაველი სტატიეფიშ ისტორიაშ ლასუა</string>
   <string name="dialog_message_clear_history">თენა დოლასუნს თქვან გორუაშ ისტორიას დო დოკილანს გონწყუმილჷ ხასჷლეფს. დობლასათო?</string>
   <string name="dialog_message_clear_history_yes">ქო</string>

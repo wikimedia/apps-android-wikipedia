@@ -231,6 +231,7 @@
   <string name="edit_summary_tag_other_hint">ߌ ߣߊ߬ ߞߐߜߍ ߡߊߛߐ߫ ߟߊ߫ ߛߌߟߊ߫ ߜߘߍ ߡߍ߲ ߝߍ߬</string>
   <string name="edit_conflict_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߝߐߢߐ߲߯ߞߐ</string>
   <string name="edit_conflict_message">ߞߐߜߍ ߓߘߊ߫ ߓߊ߲߫ ߡߊߦߟߍ߬ߡߊ߲߫ ߠߊ߫ ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ߫ ߜߘߍ߫ ߓߟߏ߫߸ ߏ߬ ߘߏ߲߬ ߦߴߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߝߐ߲ߞߐߢߐ߲߯ߦߊ߫ ߟߊ߫. ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߓߊߓߌ߬ߟߊ߫ ߖߊ߰ߣߌ߲߫߸ ߞߵߌ ߞߐߛߊ߬ߦߌ߬ ߞߊ߬ ߞߐߜߍ ߟߊߛߎߡߊ߫߸ ߞߵߊ߬ ߡߊߝߍߣߍ߲߫ ߌߞߐߕߎ߲߯.</string>
+  <string name="edit_notices_please_read">ߊ߬ ߘߐߞߊ߬ߙߊ߲߫ ߖߊ߰ߣߌ߲߫߸ ߦߊ߬ߣߴߊ߬ ߡߊߦߟߍ߬ߡߊ߲߬ ߕߐ߫</string>
   <string name="find_next">ߢߍߕߊ ߢߌߣߌ߲߫</string>
   <string name="find_previous">ߟߊ߬ߕߎ߲߰ߠߊ ߢߌߣߌ߲߫</string>
   <string name="find_first_occurence">ߓߐߢߟߊߟߌ߫ ߝߟߐ ߟߋ߬ ߦߋ߫ ߣߌ߲߬</string>
@@ -846,6 +847,7 @@
   <string name="talk_title">ߞߎߡߊ߫</string>
   <string name="talk_user_title">ߞߎߡߊ߫: %s</string>
   <string name="talk_new_topic">ߛߟߊ߫ ߞߎߘߊ</string>
+  <string name="talk_new_topic_submitted">ߝߐߡߊ߫ ߗߋߣߍ߲.</string>
   <string name="talk_page_empty">ߞߎߡߊ߫ ߞߐߜߍ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߠߋ߬.</string>
   <string name="talk_add_reply">ߖߋ߬ߓߌ߬ߟߌ</string>
   <string name="talk_no_subject">(ߝߐߡߊ߫ ߕߴߦߋ߲߬)</string>
@@ -859,13 +861,17 @@
   <string name="talk_last_modified">&lt;b&gt;ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߣߍ߲ ߞߐ߯ߟߕߊ %1$s&lt;/b&gt;߸ %2$s ߓߟߏ߫</string>
   <string name="talk_snackbar_survey_text">ߌ ߣߌ߫ ߗߋ߫ ߞߎߡߊ߫ ߞߐߜߍ ߟߊߓߊ߯ߙߊ ߟߊ߫. ߌ ߘߌ߫ ߛߴߊ߲ ߡߊߘߍ߬ߡߍ߲߫ ߠߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊߢߊ߭ ߟߊ߫ ߕߍ߬ߘߍ ߘߐ߫ ߘߐ߬ߛߏ߰ߙߋ߬ߟߌ (ߛߐ߲ߘߊߗ߭\\ߛߐ߯ߝ߭ߋ߬) ߘߐ߫؟</string>
   <string name="talk_snackbar_survey_action_text">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫</string>
+  <string name="talk_share_discussion_subject">ߥߞߌߔߋߘߌߦߊ – ߘߊߘߐߖߊߥߏ ߞߎߡߊ߫ ߞߐߜߍ ߝߐߡߊ %s ߟߊ߫</string>
+  <string name="talk_share_talk_page">ߥߞߌߔߋߘߌߦߊ - ߘߊߘߐߖߊߥߏ ߞߎߡߊ߫ ߞߐߜߍ ߟߊ߫</string>
+  <string name="menu_option_share_talk_discussion">ߘߊߘߐߖߊߥߏ ߟߊߖߍ߲ߛߍ߲߫</string>
+  <string name="menu_option_share_talk_page">ߞߎߡߊ߫ ߞߐߜߍ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_share_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_user_contributions">%s ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
   <string name="watchlist_details_watching_label">ߘߐߜߍߟߌ ߦߴߌ ߘߐ߫</string>
   <string name="watchlist_details_watch_label">ߊ߬ ߘߐߜߍ߫</string>
   <string name="watchlist_details_next_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߢߍߕߊ</string>
+  <string name="watchlist_details_prev_edit">ߞߐ߲߬ߞߐ߲߬ߢߍ߬ ߡߊߦߟߍߡߊ߲ߠߌ߲</string>
   <string name="thank_label">ߌ ߞߎߟߎ߲ߖߋ߫</string>
-  <string name="go_to_user_page">ߕߊ߯ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߞߐߜߍ ߘߐ߫</string>
   <string name="thank_dialog_title_text">\'ߌ ߣߌ߫ ߗߋ\' ߗߋߟߌ ߖߊ߬ߡߊ ߡߊ߬</string>
   <string name="thank_dialog_text">\'ߌ ߣߌ߫ ߗߋ߫ ߓߌߟߊ\' ߦߋ߫ ߛߌߟߊ߫ ߣߐ߲߯ ߠߋ߬ ߘߌ߫ ߞߊ߬ ߛߋ߫ ߞߎߟߎ߲ߖߋߟߌ ߦߌ߬ߘߊ߬ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߊ ߟߎ߬ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬. \'ߌ ߣߌ߫ ߗߋ\' ߕߍ߫ ߛߐ߲߬ ߘߐߛߊ߬ ߟߊ߫ ߊ߬ ߘߏ߲߬ ߦߋ߫ ߦߋ߫ ߟߊ߫ ߖߊ߬ߡߊ ߟߋ߬ ߓߟߏ߫.</string>
   <string name="thank_dialog_positive_button_text">\'ߌ ߣߌ߫ ߗߋ\' ߗߋ߫</string>

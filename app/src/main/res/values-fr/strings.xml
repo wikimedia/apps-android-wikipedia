@@ -105,6 +105,7 @@
   <string name="feed_card_add_to_list">Ajouter à la liste de lecture</string>
   <string name="feed_card_add_to_default_list">Enregistrer</string>
   <string name="menu_page_share">Partager le lien</string>
+  <string name="menu_article_share">Partager l’article</string>
   <string name="menu_page_open_a_new_tab">Ouvrir un nouvel onglet</string>
   <string name="menu_page_new_tab">Nouvel onglet</string>
   <string name="menu_page_reading_lists">Listes de lecture</string>
@@ -397,6 +398,7 @@
   <string name="error_message_generic">Une erreur s’est produite</string>
   <string name="view_link_preview_error_button_dismiss">Fermer</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
+  <string name="error_user_page_does_not_exist">Wikipédia n’a pas de &lt;a href=\"%1$s\"&gt;page utilisateur&lt;/a&gt; avec ce nom exact. En général, cette page devrait être créée et éditée par &lt;b&gt;%2$s&lt;/b&gt;. En cs de doute, veuillez vérifier que « %3$s » existe.</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
   <string name="view_wiki_error_message_timeout">Impossible de se connecter à Wikipédia. Vérifiez votre connexion réseau, ou réessayez ultérieurement.</string>
   <string name="reference_title">Référence %s</string>
@@ -671,7 +673,7 @@
   <string name="notifications_channel_group_other_description">Autres notifications de l’application</string>
   <string name="notifications_filter_label">Filtrer les notifications</string>
   <string name="notifications_filter_icon_content_description">Filtrer les notifications</string>
-  <string name="notifications_filter_add_app_languages">Ajouter ou modifier des langues d’application</string>
+  <string name="notifications_filter_update_app_languages">Mettre à jour les langues de l’application</string>
   <string name="notifications_empty_search_message">Essayer de supprimer %s pour voir plus de notifications</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtre</item>
@@ -693,6 +695,7 @@
   <string name="notifications_all_wikis_text">Tous les « wikis »</string>
   <string name="notifications_all_types_text">Tous les « types »</string>
   <string name="notifications_menu_user_talk_page">page de discussion de %s</string>
+  <string name="notifications_offline_disable_message">Cette fonction n’est pas disponible hors ligne.</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Au hasard</string>
   <string name="view_random_article_card_title">Article au hasard</string>
@@ -1075,6 +1078,10 @@
   <string name="talk_last_modified">&lt;b&gt;Dernière modification le %1$s&lt;/b&gt; par %2$s</string>
   <string name="talk_snackbar_survey_text">Merci d\'utiliser les pages de discussion. Pourriez-vous nous aider à améliorer l\'application en participant à une enquête ?</string>
   <string name="talk_snackbar_survey_action_text">Démarrer</string>
+  <string name="talk_share_discussion_subject">Wikipédia — discussion sur le sujet « %s » de la page de discussion</string>
+  <string name="talk_share_talk_page">Wikipédia — discussions sur la page de discussion</string>
+  <string name="menu_option_share_talk_discussion">Partager la discussion</string>
+  <string name="menu_option_share_talk_page">Partager la page de discussion</string>
   <string name="menu_option_share_edit">Partager la modification</string>
   <string name="menu_option_user_profile">Profil de %s</string>
   <string name="menu_option_user_contributions">Contributions de %s</string>
@@ -1083,7 +1090,7 @@
   <string name="watchlist_details_next_edit">Modification suivante</string>
   <string name="watchlist_details_prev_edit">Modification précédente</string>
   <string name="thank_label">Remercier</string>
-  <string name="go_to_user_page">Aller à la page utilisateur</string>
+  <string name="view_user_page">Afficher la page utilisateur</string>
   <string name="thank_dialog_title_text">Envoyer « merci » publiquement</string>
   <string name="thank_dialog_text">Dire « Merci » est une manière facile de montrer son appréciation du travail d’un éditeur sur Wikipédia. Les « Merci » ne peuvent être annulés et sont publiquement visibles.</string>
   <string name="thank_dialog_positive_button_text">Envoyer des remerciements</string>

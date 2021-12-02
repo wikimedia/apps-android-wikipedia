@@ -372,7 +372,7 @@
   <string name="error_message_generic">Nastala chyba</string>
   <string name="view_link_preview_error_button_dismiss">Zrušiť</string>
   <string name="error_page_does_not_exist">Táto stránka neexistuje</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">Na Wikipédii nie je &lt;a href=\"%1$s\"&gt;používateľská stránka&lt;/a&gt; s presne takýmto menom. Všeobecne by táto stránka mala byť vytvorená a upravená používateľom &lt;b&gt;%2$s&lt;/b&gt;. Ak sa Vám to nepozdáva overte si či používateľ \"%3$s\" existuje.</string>
+  <string name="error_user_page_does_not_exist">Na Wikipédii nie je &lt;a href=\"%1$s\"&gt;používateľská stránka&lt;/a&gt; s presne takýmto menom. Všeobecne by táto stránka mala byť vytvorená a upravená používateľom &lt;b&gt;%2$s&lt;/b&gt;. Ak sa Vám to nepozdáva overte si či používateľ \"%3$s\" existuje.</string>
   <string name="view_wiki_error_message_offline">Nebolo možné pripojiť sa na internet</string>
   <string name="view_wiki_error_message_timeout">Nedá sa pripojiť k Wikipédii. Skontrolujte svoje sieťové pripojenie alebo to skúste neskôr</string>
   <string name="reference_title">Referencia %s</string>
@@ -677,7 +677,6 @@
   <string name="notifications_channel_group_other_description">Iné notifikácie z aplikácie</string>
   <string name="notifications_filter_label">Filtrovať notifikácie</string>
   <string name="notifications_filter_icon_content_description">Filtrovať notifikácie</string>
-  <string name="notifications_filter_add_app_languages">Pridať alebo upraviť jazyky</string>
   <string name="notifications_empty_search_message">Pre zobrazenia viac notifikácií skúste odstrániť %s</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filter</item>
@@ -1108,6 +1107,10 @@
   <string name="talk_last_modified">&lt;b&gt;Naposledy upravil/a %1$s&lt;/b&gt; %2$s</string>
   <string name="talk_snackbar_survey_text">Ďakujeme za používanie tejto aplikácie. Mohli by ste nám pomôcť zlepšiť aplikáciu a odpovedať na niekoľko otázok v našom prieskume?</string>
   <string name="talk_snackbar_survey_action_text">Začať</string>
+  <string name="talk_share_discussion_subject">Wikipédia - diskusia na stránke témy \"%s\"</string>
+  <string name="talk_share_talk_page">Wikipédia - diskusie na diskusných stránkach</string>
+  <string name="menu_option_share_talk_discussion">Zdieľať diskusiu</string>
+  <string name="menu_option_share_talk_page">Zdieľať diskusnú stránku</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
   <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>
@@ -1116,7 +1119,6 @@
   <string name="watchlist_details_next_edit">Ďalšia úprava</string>
   <string name="watchlist_details_prev_edit">Predošlá úprava</string>
   <string name="thank_label">Poďakovať</string>
-  <string name="go_to_user_page">Prejsť na stránku používateľa</string>
   <string name="thank_dialog_title_text">Verejne poslať poďakovanie</string>
   <string name="thank_dialog_text">Poďakovania sú jednoduchý spôsob ako ukázať ocenenie práce redaktorov na Wikipédii. Poďakovanie sa nedá vrátiť a sú verejné</string>
   <string name="thank_dialog_positive_button_text">Poslať poďakovanie</string>
