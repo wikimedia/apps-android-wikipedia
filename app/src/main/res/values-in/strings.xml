@@ -640,7 +640,6 @@
   <string name="notifications_channel_group_other_description">Pemberitahuan lain dari aplikasi</string>
   <string name="notifications_filter_label">Saring pemberitahuan</string>
   <string name="notifications_filter_icon_content_description">Saring pemberitahuan</string>
-  <string name="notifications_filter_add_app_languages">Tambah atau sunting bahasa aplikasi</string>
   <string name="notifications_empty_search_message">Coba menghapus %s untuk melihat lebih banyak notifikasi</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="other">%d penyaring</item>
@@ -1029,7 +1028,6 @@
   <string name="watchlist_details_next_edit">Suntingan selanjutnya</string>
   <string name="watchlist_details_prev_edit">Suntingan sebelumnya</string>
   <string name="thank_label">Berterimakasih</string>
-  <string name="go_to_user_page">Kunjungi halaman pengguna</string>
   <string name="thank_dialog_title_text">Kirim \'Terima kasih\' secara publik</string>
   <string name="thank_dialog_text">\'Terima kasih\' adalah cara mudah untuk menunjukkan penghargaan atas karya penyunting di Wikipedia. Pemberian \'Terima kasih\' tidak dapat diurungkan dan dapat dilihat secara publik.</string>
   <string name="thank_dialog_positive_button_text">Kirim ucapan terima kasih</string>

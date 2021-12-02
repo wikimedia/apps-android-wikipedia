@@ -968,7 +968,6 @@
   <string name="watchlist_details_watching_label">Đang theo dõi</string>
   <string name="watchlist_details_watch_label">Theo dõi</string>
   <string name="thank_label">Cảm ơn</string>
-  <string name="go_to_user_page">Đi đến trang thành viên</string>
   <string name="thank_dialog_title_text">Gửi lời \'Cảm ơn\'</string>
   <string name="thank_dialog_text">\'Cảm ơn\' là một cách dễ dàng để thể hiện sự đánh giá cao đối với công việc của một biên tập viên trên Wikipedia. Không thể hoàn tác \'Cảm ơn\' và có thể xem công khai</string>
   <string name="thank_dialog_positive_button_text">Gửi lời cảm ơn</string>

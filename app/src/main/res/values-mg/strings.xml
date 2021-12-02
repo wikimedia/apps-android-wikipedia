@@ -201,7 +201,6 @@
   <string name="format_reading_list_statistical_summary_singular">Lahatsoratra iray, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">Lahatosratra %1$d, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d ny lahatsoratra 1 no azo vakiana, %2$.2f MB</string>
-  <string name="notifications_filter_add_app_languages">Hanampy na hanova fiteny amin\'ny fampiharana</string>
   <string name="description_edit_text_hint" fuzzy="true">Visavisan\'ilay lohateny</string>
   <string name="description_edit_add_description" fuzzy="true">Hanampy visavisan-dohateny</string>
 </resources>
