@@ -25,6 +25,7 @@
   <string name="menu_page_view_edit_history">Talìa la crunuluggìa dî canciamenti</string>
   <string name="menu_page_add_to_default_list">Sarva</string>
   <string name="feed_card_add_to_default_list">Sarva</string>
+  <string name="menu_article_share">Cunnividi vuci</string>
   <string name="menu_text_select_edit_here">Cancia ccà</string>
   <string name="talk_page_link_text">Talìa la pàggina di discussioni</string>
   <string name="edit_history_link_text">Talìa la crunuluggìa dî canciamenti</string>
@@ -307,6 +308,7 @@
   <string name="menu_option_user_profile">Prufilu di %s</string>
   <string name="menu_option_user_contributions">Cuntribbuti di %s</string>
   <string name="watchlist_details_watch_label">Talìa</string>
+  <string name="view_user_page">Talìa la pàggina di l\'utenti</string>
   <string name="thank_dialog_negative_button_text">Annulla</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cancia</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pi 1 simana</string>

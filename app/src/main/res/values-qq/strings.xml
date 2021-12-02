@@ -92,6 +92,7 @@
   <string name="feed_card_add_to_list">Menu item for adding the a card from the feed to a reading list.</string>
   <string name="feed_card_add_to_default_list">Menu item for adding the a card from the feed to a default reading list.</string>
   <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.\n{{Identical|Share}}</string>
+  <string name="menu_article_share">Menu item text for sharing the current article the user is reading.</string>
   <string name="menu_page_open_a_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>
@@ -659,6 +660,7 @@
   <string name="notifications_channel_group_other_description">Description for the other notifications group.</string>
   <string name="notifications_filter_label">Label text for filter notifications activity.</string>
   <string name="notifications_filter_icon_content_description">Description text for the filter notifications icon, to assit with accessibility settings.</string>
+  <string name="notifications_filter_update_app_languages">Label text to update app languages list.</string>
   <string name="notifications_empty_search_message">Empty message text hinting the user to remove filters to see notifications. %s indicates the number of filters string.</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
@@ -1072,6 +1074,7 @@
   <string name="watchlist_details_next_edit">Content description for the button that goes to the next edit history.</string>
   <string name="watchlist_details_prev_edit">Content description for the button that goes to the previous edit history.</string>
   <string name="thank_label">Label on the button suggesting the user to thank the edit.</string>
+  <string name="view_user_page">Menu item label for going to the user page of the selected user.</string>
   <string name="thank_dialog_title_text">Title text on the thank dialog</string>
   <string name="thank_dialog_text">Dialog text for the thank dialog</string>
   <string name="thank_dialog_positive_button_text">Positive button label on the thank dialog.</string>
@@ -1099,7 +1102,4 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
-  <string name="notifications_filter_update_app_languages">Label text to update app languages list.</string>
-  <string name="menu_article_share">Menu item text for sharing the current article the user is reading.</string>
-  <string name="view_user_page">Menu item label for going to the user page of the selected user.</string>
 </resources>
