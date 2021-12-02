@@ -641,7 +641,6 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">اعلان‌های ویکی‌پدیا</string>
   <string name="notifications_channel_group_other_title">سایر</string>
   <string name="notifications_channel_group_other_description">سایر اعلان‌های برنامه</string>
-  <string name="notifications_filter_add_app_languages">افزودن یا ویرایش زبان‌های نرم‌افزار</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه کرده‌اید</string>
   <string name="view_random_card_title">تصادفی</string>
   <string name="view_random_article_card_title">مقالهٔ تصادفی</string>
@@ -1031,7 +1030,6 @@
   <string name="watchlist_details_next_edit">ویرایش بعدی</string>
   <string name="watchlist_details_prev_edit">ویرایش قبلی</string>
   <string name="thank_label">سپاس</string>
-  <string name="go_to_user_page">رفتن به صفحه کاربر</string>
   <string name="thank_dialog_title_text">ارسال «تشکر» به‌صورت عمومی</string>
   <string name="thank_dialog_text">«تشکر» راهی آسان برای نشان دادن قدردانی از کار یک ویرایشگر در ویکی‌پدیا است. «تشکر» قابل واگرد نیست و به‌صورت عمومی قابل مشاهده است</string>
   <string name="thank_dialog_positive_button_text">ارسال تشکر</string>

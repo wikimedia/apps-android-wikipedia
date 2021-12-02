@@ -105,6 +105,7 @@
   <string name="feed_card_add_to_list">Ajouter à la liste de lecture</string>
   <string name="feed_card_add_to_default_list">Enregistrer</string>
   <string name="menu_page_share">Partager le lien</string>
+  <string name="menu_article_share">Partager l’article</string>
   <string name="menu_page_open_a_new_tab">Ouvrir un nouvel onglet</string>
   <string name="menu_page_new_tab">Nouvel onglet</string>
   <string name="menu_page_reading_lists">Listes de lecture</string>
@@ -672,7 +673,7 @@
   <string name="notifications_channel_group_other_description">Autres notifications de l’application</string>
   <string name="notifications_filter_label">Filtrer les notifications</string>
   <string name="notifications_filter_icon_content_description">Filtrer les notifications</string>
-  <string name="notifications_filter_add_app_languages">Ajouter ou modifier des langues d’application</string>
+  <string name="notifications_filter_update_app_languages">Mettre à jour les langues de l’application</string>
   <string name="notifications_empty_search_message">Essayer de supprimer %s pour voir plus de notifications</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtre</item>
@@ -1089,7 +1090,7 @@
   <string name="watchlist_details_next_edit">Modification suivante</string>
   <string name="watchlist_details_prev_edit">Modification précédente</string>
   <string name="thank_label">Remercier</string>
-  <string name="go_to_user_page">Aller à la page utilisateur</string>
+  <string name="view_user_page">Afficher la page utilisateur</string>
   <string name="thank_dialog_title_text">Envoyer « merci » publiquement</string>
   <string name="thank_dialog_text">Dire « Merci » est une manière facile de montrer son appréciation du travail d’un éditeur sur Wikipédia. Les « Merci » ne peuvent être annulés et sont publiquement visibles.</string>
   <string name="thank_dialog_positive_button_text">Envoyer des remerciements</string>

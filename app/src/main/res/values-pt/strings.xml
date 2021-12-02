@@ -1011,7 +1011,6 @@
   <string name="watchlist_details_next_edit">Próxima edição</string>
   <string name="watchlist_details_prev_edit">Edição anterior</string>
   <string name="thank_label">Agradecer</string>
-  <string name="go_to_user_page">Ir para a página do utilizador</string>
   <string name="thank_dialog_title_text">Enviar um agradecimento público</string>
   <string name="thank_dialog_text">Agradecimentos são uma maneira fácil de mostrar apreço pelo trabalho de um editor na Wikipédia. Os agradecimentos não podem ser retirados e são públicos.</string>
   <string name="thank_dialog_positive_button_text">Enviar agradecimento</string>

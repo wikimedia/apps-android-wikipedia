@@ -1072,7 +1072,6 @@
   <string name="watchlist_details_next_edit">Siguiente edición</string>
   <string name="watchlist_details_prev_edit">Edición anterior</string>
   <string name="thank_label">Agradecer</string>
-  <string name="go_to_user_page">Ir a la página de usuario</string>
   <string name="thank_dialog_title_text">Enviar agradecimiento públicamente</string>
   <string name="thank_dialog_text">\'Gracias\' es una manera fácil de mostrar agradecimiento por el trabajo de un editor en Wikipedia. Dar las \'Gracias\' no se puede deshacer y es públicamente visible.</string>
   <string name="thank_dialog_positive_button_text">Agradecer</string>

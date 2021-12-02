@@ -667,7 +667,6 @@
   <string name="notifications_channel_group_other_description">Uygulamadan diğer bildirimler</string>
   <string name="notifications_filter_label">Bildirimleri filtrele</string>
   <string name="notifications_filter_icon_content_description">Bildirimleri filtrele</string>
-  <string name="notifications_filter_add_app_languages">Uygulama dili ekle veya düzenle</string>
   <string name="notifications_empty_search_message">Daha fazla bildirim görmek için %s çıkarmayı deneyin</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtre</item>
@@ -1077,7 +1076,6 @@
   <string name="watchlist_details_next_edit">Sonraki düzenleme</string>
   <string name="watchlist_details_prev_edit">Önceki düzenleme</string>
   <string name="thank_label">Teşekkür et</string>
-  <string name="go_to_user_page">Kullanıcı sayfasına gidin</string>
   <string name="thank_dialog_title_text">Açık olarak \'Teşekkür\' gönder</string>
   <string name="thank_dialog_text">\'Teşekkür\', bir editörün Vikipedi\'deki çalışmalarını takdir etmenin kolay bir yoludur. \'Teşekkür\' geri alınamaz ve herkes tarafından görülebilir.</string>
   <string name="thank_dialog_positive_button_text">Teşekkür gönder</string>

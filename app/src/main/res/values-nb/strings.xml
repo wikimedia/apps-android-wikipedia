@@ -963,7 +963,6 @@
   <string name="watchlist_details_watching_label">Overvåker</string>
   <string name="watchlist_details_watch_label">Overvåk</string>
   <string name="thank_label">Takk</string>
-  <string name="go_to_user_page">Gå til brukerside</string>
   <string name="thank_dialog_title_text">Send en offentlig takk</string>
   <string name="thank_dialog_text">«Takk» er en enkel måte å vise takknemlighet for bidragene til en annen bruker på Wikipedia. Merk at takking er offentlig og ikke kan angres.</string>
   <string name="thank_dialog_positive_button_text">Send takk</string>
