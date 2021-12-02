@@ -5,6 +5,7 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.SystemClock
 import androidx.annotation.StringRes
 import androidx.core.app.RemoteInput
@@ -144,12 +145,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 L.e(t)
             }) {
                 val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification()
-                var lastNotificationTime = ""
-                for (n in response.query?.notifications?.list.orEmpty()) {
-                    if (n.utcIso8601 > lastNotificationTime) {
-                        lastNotificationTime = n.utcIso8601
-                    }
-                }
+                val lastNotificationTime = response.query?.notifications?.list?.maxOfOrNull { it.utcIso8601 }
+                    .orEmpty()
                 if (lastNotificationTime > Prefs.remoteNotificationsSeenTime) {
                     Prefs.remoteNotificationsSeenTime = lastNotificationTime
                     retrieveNotifications(context)
@@ -214,7 +211,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 WikipediaApp.getInstance().bus.post(UnreadNotificationsEvent())
             }
 
-            if (notificationsToDisplay.size > 2) {
+            // Android 7.0 and above performs automatic grouping of multiple notifications, in case
+            // there are significantly more than one. But in the case of Android 6.0 and below,
+            // we show our own custom "grouped" notification.
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N && notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
                 NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki, TYPE_MULTIPLE).logIncoming()
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)

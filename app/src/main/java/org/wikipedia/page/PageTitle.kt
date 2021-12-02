@@ -121,7 +121,7 @@ data class PageTitle(
 
         // Split off any fragment (#...) from the title
         var parts = text.split("#".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-        text = if (parts.isNotEmpty()) parts[0] else ""
+        text = parts.firstOrNull().orEmpty()
         fragment = if (parts.size > 1) {
             StringUtil.addUnderscores(UriUtil.decodeURL(parts[1]))
         } else {
