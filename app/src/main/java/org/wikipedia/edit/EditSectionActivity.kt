@@ -566,9 +566,6 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun maybeShowEditSourceDialog() {
-        L.d("maybeShowEditSourceDialog " + pageTitle.namespace)
-        L.d("maybeShowEditSourceDialog " + pageTitle.namespace())
-        L.d("maybeShowEditSourceDialog " + (pageTitle.namespace() === Namespace.USER) + " => " + (pageTitle.namespace() === Namespace.USER_TALK))
         if (pageTitle.namespace() !== Namespace.USER && pageTitle.namespace() !== Namespace.USER_TALK) {
             return
         }
