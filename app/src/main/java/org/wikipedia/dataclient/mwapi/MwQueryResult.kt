@@ -37,9 +37,7 @@ class MwQueryResult {
     }
 
     fun firstPage(): MwQueryPage? {
-        return if (pages != null && pages.size > 0) {
-            pages[0]
-        } else null
+        return pages?.firstOrNull()
     }
 
     fun csrfToken(): String? {

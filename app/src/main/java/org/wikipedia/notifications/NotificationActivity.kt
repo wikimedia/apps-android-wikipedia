@@ -23,6 +23,7 @@ import androidx.annotation.PluralsRes
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
@@ -31,6 +32,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.flow.collect
 import org.wikipedia.Constants
@@ -329,6 +331,13 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsRecyclerView.adapter?.notifyItemChanged(position)
     }
 
+    private fun adjustRefreshViewLayoutParams(removeLayoutBehavior: Boolean) {
+        (binding.notificationsRefreshView.layoutParams as CoordinatorLayout.LayoutParams).apply {
+            behavior = if (removeLayoutBehavior) null else AppBarLayout.ScrollingViewBehavior()
+            topMargin = if (removeLayoutBehavior) DimenUtil.getToolbarHeightPx(this@NotificationActivity) else 0
+        }
+    }
+
     private val selectedItemCount get() = notificationContainerList.count { it.selected }
 
     private val selectedItems get() = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.filter { it.selected }
@@ -572,6 +581,7 @@ class NotificationActivity : BaseActivity() {
 
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            adjustRefreshViewLayoutParams(true)
             searchAndFilterActionProvider = SearchAndFilterActionProvider(this@NotificationActivity, searchHintString,
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
@@ -601,6 +611,7 @@ class NotificationActivity : BaseActivity() {
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
+            adjustRefreshViewLayoutParams(false)
             actionMode = null
             viewModel.updateSearchQuery(null)
             postprocessAndDisplay()
