@@ -63,6 +63,7 @@
   <string name="feed_card_add_to_list">Додај во список за читање</string>
   <string name="feed_card_add_to_default_list">Зачувај</string>
   <string name="menu_page_share">Сподели врска</string>
+  <string name="menu_article_share">Сподели статија</string>
   <string name="menu_page_open_a_new_tab">Отвори ново јазиче</string>
   <string name="menu_page_new_tab">Ново јазиче</string>
   <string name="menu_page_reading_lists">Списоци за читање</string>
@@ -630,7 +631,7 @@
   <string name="notifications_channel_group_other_description">Други известувања од прилогот</string>
   <string name="notifications_filter_label">Филтрирање на известувања</string>
   <string name="notifications_filter_icon_content_description">Филтрирање на известувања</string>
-  <string name="notifications_filter_add_app_languages">Додај или измени јазици на прилогот</string>
+  <string name="notifications_filter_update_app_languages">Поднови јазици на прилогот</string>
   <string name="notifications_empty_search_message">Отстранете %s за да видите уште известувања</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d филтер</item>
@@ -1048,7 +1049,7 @@
   <string name="watchlist_details_next_edit">Следно уредување</string>
   <string name="watchlist_details_prev_edit">Претходно уредување</string>
   <string name="thank_label">Благодарност</string>
-  <string name="go_to_user_page">Оди на корисничката страница</string>
+  <string name="view_user_page">Преглед на корисничката страница</string>
   <string name="thank_dialog_title_text">Јавно испрати благодарница</string>
   <string name="thank_dialog_text">Благодарниците се лесен начин да му кажете на некој уредник дека го цените неговиот труд на Википедија. Тие се неотповикливи и се јавно видливи.</string>
   <string name="thank_dialog_positive_button_text">Испрати благодарница</string>

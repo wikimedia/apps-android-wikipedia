@@ -742,7 +742,6 @@
   <string name="talk_no_subject">(কোনো বিষয় নাই)</string>
   <string name="talk_reply_subject">বিষয়</string>
   <string name="thank_label">ধন্যবাদ জনাওক</string>
-  <string name="go_to_user_page">সদস্য পৃষ্ঠালৈ যাওক</string>
   <string name="thank_dialog_title_text">ৰাজহুৱাকৈ \'ধন্যবাদ\' জ্ঞাপন কৰক</string>
   <string name="thank_dialog_positive_button_text">ধন্যবাদ জ্ঞাপন কৰক</string>
   <string name="thank_dialog_negative_button_text">বাতিল কৰক</string>
