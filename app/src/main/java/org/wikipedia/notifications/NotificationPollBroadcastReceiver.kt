@@ -145,12 +145,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 L.e(t)
             }) {
                 val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification()
-                var lastNotificationTime = ""
-                for (n in response.query?.notifications?.list.orEmpty()) {
-                    if (n.utcIso8601 > lastNotificationTime) {
-                        lastNotificationTime = n.utcIso8601
-                    }
-                }
+                val lastNotificationTime = response.query?.notifications?.list?.maxOfOrNull { it.utcIso8601 }
+                    .orEmpty()
                 if (lastNotificationTime > Prefs.remoteNotificationsSeenTime) {
                     Prefs.remoteNotificationsSeenTime = lastNotificationTime
                     retrieveNotifications(context)
@@ -242,10 +238,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun markItemsAsRead(items: List<Notification>) {
-            val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
-            for (item in items) {
-                val wiki = DBNAME_WIKI_SITE_MAP.getOrElse(item.wiki) { WikipediaApp.getInstance().wikiSite }
-                notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(item)
+            val notificationsPerWiki = items.groupBy {
+                DBNAME_WIKI_SITE_MAP.getOrElse(it.wiki) { WikipediaApp.getInstance().wikiSite }
             }
             for (wiki in notificationsPerWiki.keys) {
                 markRead(wiki, notificationsPerWiki[wiki]!!, false)

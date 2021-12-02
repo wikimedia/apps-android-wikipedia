@@ -899,7 +899,6 @@
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
   <string name="talk_snackbar_undo">Cofnij</string>
   <string name="watchlist_details_watch_label">Obserwuj</string>
-  <string name="go_to_user_page">Przejdź do strony użytkownika</string>
   <string name="thank_dialog_positive_button_text">Wyślij podziękowanie</string>
   <string name="thank_dialog_negative_button_text">Anuluj</string>
   <string name="thank_success_message">Twoje podziękowanie zostało wysłane do %s 👍</string>
