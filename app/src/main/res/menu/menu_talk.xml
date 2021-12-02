@@ -4,22 +4,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
-    <item android:id="@+id/menu_change_language"
-        android:icon="@drawable/ic_translate_themed_24dp"
+    <item
+        android:id="@+id/menu_change_language"
+        android:icon="@drawable/ic_translate_toolbar_icon_color_themed"
         android:title="@string/langlinks_activity_title"
         app:showAsAction="always" />
-    <item android:id="@+id/menu_notifications"
-        android:title="@string/notifications_activity_title"
-        app:showAsAction="always"/>
-    <item android:id="@+id/menu_view_user_page"
-        android:title="@string/go_to_user_page"
-        app:showAsAction="never" />
-    <item android:id="@+id/menu_view_in_browser"
-        android:title="@string/page_view_in_browser"
-        app:showAsAction="never" />
     <item
-        android:id="@+id/menu_talk_topic_share"
-        android:icon="@drawable/ic_share_material_secondary_themed"
-        android:title="@string/menu_option_share_talk_page"
-        app:showAsAction="never" />
+        android:id="@+id/menu_notifications"
+        android:title="@string/notifications_activity_title"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/menu_notifications_group"
+        android:icon="@drawable/ic_more_vert_themed_24dp"
+        android:title="@string/nav_item_more"
+        app:showAsAction="always">
+        <menu>
+
+            <item
+                android:id="@+id/menu_view_user_page"
+                android:icon="@drawable/ic_user_avatar_material_secondary_themed"
+                android:title="@string/view_user_page"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/menu_view_in_browser"
+                android:icon="@drawable/ic_open_in_new_material_secondary_themed"
+                android:title="@string/page_view_in_browser"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/menu_talk_topic_share"
+                android:icon="@drawable/ic_share_material_secondary_themed"
+                android:title="@string/menu_option_share_talk_page"
+                app:showAsAction="never" />
+        </menu>
+    </item>
 </menu>
