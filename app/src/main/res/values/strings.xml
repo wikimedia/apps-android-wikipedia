@@ -805,6 +805,7 @@
     <string name="customize_favorites_category_favorites">Favorites</string>
     <string name="customize_favorites_category_menu">Menu</string>
     <string name="customize_favorites_drag_and_drop_placeholder">Drag and drop your favorite items here 👋</string>
+    <string name="customize_favorites_reset_to_default_button">Reset to default</string>
     <!-- /Customize favorites -->
 
     <!-- Suggested edits -->

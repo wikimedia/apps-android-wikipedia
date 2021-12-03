@@ -5,16 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import org.wikipedia.databinding.FragmentCustomizeToolbarBinding
+import org.wikipedia.databinding.FragmentCustomizeFavoritesBinding
 
 class CustomizeFavoritesFragment : Fragment() {
-    private var _binding: FragmentCustomizeToolbarBinding? = null
+    private var _binding: FragmentCustomizeFavoritesBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentCustomizeToolbarBinding.inflate(LayoutInflater.from(context), container, false)
+        _binding = FragmentCustomizeFavoritesBinding.inflate(LayoutInflater.from(context), container, false)
         return binding.root
     }
 

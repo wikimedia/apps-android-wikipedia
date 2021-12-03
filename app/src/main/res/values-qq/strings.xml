@@ -1105,4 +1105,5 @@
   <string name="customize_favorites_category_favorites">Category of favorites in the customize favorites page.</string>
   <string name="customize_favorites_category_menu">Category of menu in the customize favorites page.</string>
   <string name="customize_favorites_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize favorites page.</string>
+  <string name="customize_favorites_reset_to_default_button">Button label for resetting the configuration of customize favorites to default.</string>
 </resources>

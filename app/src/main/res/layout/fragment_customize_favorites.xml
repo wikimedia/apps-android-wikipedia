@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/customize_toolbar_description"/>
+            android:text="@string/customize_favorites_description"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
