@@ -561,18 +561,14 @@ class EditSectionActivity : BaseActivity() {
         if (editNotices.isEmpty()) {
             return
         }
-        EditNoticesDialog(pageTitle.wikiSite, editNotices, this)
-                .show()
+        EditNoticesDialog(pageTitle.wikiSite, editNotices, true, this).show()
     }
 
     private fun maybeShowEditSourceDialog() {
         if (pageTitle.namespace() !== Namespace.USER && pageTitle.namespace() !== Namespace.USER_TALK) {
             return
         }
-        AlertDialog.Builder(this@EditSectionActivity)
-            .setMessage(R.string.talk_edit_disclaimer)
-            .setPositiveButton(R.string.onboarding_got_it) { dialog, _ -> dialog.dismiss() }
-            .show()
+        EditNoticesDialog(pageTitle.wikiSite, listOf(getString(R.string.talk_edit_disclaimer)), false, this).show()
     }
 
     private fun displaySectionText() {

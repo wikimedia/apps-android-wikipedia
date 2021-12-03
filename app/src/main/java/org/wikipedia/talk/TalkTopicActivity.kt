@@ -32,6 +32,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
@@ -67,8 +68,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler.onUrlClick(url, null, "")
     }
-    private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+    private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             updateEditLicenseText()
             editFunnel.logLoginSuccess()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
@@ -77,8 +78,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
     private val requestEditSource = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        // TODO: maybe add funnel?
-        loadTopic()
+        if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
+            // TODO: maybe add funnel?
+            loadTopic()
+        }
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
