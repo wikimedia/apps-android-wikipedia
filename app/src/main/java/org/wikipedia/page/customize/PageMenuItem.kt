@@ -5,9 +5,8 @@ import androidx.annotation.StringRes
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
 
-
 @Suppress("unused")
-enum class NotificationCategory constructor(val id: Int,
+enum class PageMenuItem constructor(val id: Int,
                                             @StringRes val title: Int,
                                             @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
                                             val isExternalLink: Boolean = false) : EnumCode {

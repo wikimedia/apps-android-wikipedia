@@ -26,13 +26,11 @@ class CustomizeFavoritesItemView : LinearLayout {
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
-
     fun setContents(@DrawableRes iconRes: Int, @StringRes titleRes: Int, position: Int) {
         this.position = position
         binding.listItem.text = context.getString(titleRes)
         binding.listItem.setCompoundDrawablesWithIntrinsicBounds(iconRes, 0, 0, 0)
     }
-
 
     fun setDragHandleEnabled(enabled: Boolean) {
         binding.dragHandle.visibility = if (enabled) VISIBLE else GONE
