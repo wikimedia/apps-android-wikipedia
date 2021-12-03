@@ -844,7 +844,6 @@
   <string name="menu_option_user_contributions">Sumbangan %s</string>
   <string name="watchlist_details_watch_label">Pantau</string>
   <string name="thank_label">Terima kasih</string>
-  <string name="go_to_user_page">Pergi ke laman pengguna</string>
   <string name="thank_dialog_positive_button_text">Ucap terima kasih</string>
   <string name="thank_dialog_negative_button_text">Batalkan</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">untuk 1 minggu</string>

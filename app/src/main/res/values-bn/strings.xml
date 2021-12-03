@@ -367,7 +367,7 @@
   <string name="error_message_generic">একটি ত্রুটি দেখা দিয়েছে</string>
   <string name="view_link_preview_error_button_dismiss">খারিজ</string>
   <string name="error_page_does_not_exist">এই পাতার অস্তিত্ব নেই</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">উইকিপিডিয়ায় হুবহু এই নামে কোনো &lt;a href=\"%1$s\"&gt;ব্যবহারকারী পাতা&lt;/a&gt; নেই। সাধারণত, এই পাতা তৈরি ও সম্পাদনা করতে পারেন &lt;b&gt;%2$s&lt;/b&gt;। যদি নিশ্চিত না হোন, তবে যাচাই করুন যে \"%3$s\"-এর অস্তিত্ব রয়েছে।</string>
+  <string name="error_user_page_does_not_exist">উইকিপিডিয়ায় হুবহু এই নামে কোনও &lt;a href=\"%1$s\"&gt;ব্যবহারকারী পাতা&lt;/a&gt; নেই। সাধারণত, এই পাতাটি &lt;b&gt;%2$s&lt;/b&gt; কর্তৃক তৈরি ও সম্পাদনা করা উচিত। যদি নিশ্চিত না হোন, তবে যাচাই করুন যে \"%3$s\"-এর অস্তিত্ব রয়েছে।</string>
   <string name="view_wiki_error_message_offline">ইন্টারনেটে সংযোগ করা যাবে না</string>
   <string name="reference_title">তথ্যসূত্র %s</string>
   <string name="reference_list_title">তথ্যসূত্র</string>
@@ -528,7 +528,6 @@
   <string name="notifications_channel_group_wikipedia_notifications_title">উইকিপিডিয়া</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">উইকিপিডিয়া থেকে বিজ্ঞপ্তি</string>
   <string name="notifications_filter_label">বিজ্ঞপ্তি ছাঁকুন</string>
-  <string name="notifications_filter_add_app_languages">ভাষা যোগ বা সম্পাদনা করুন</string>
   <string name="notifications_tab_filter_all">সকল</string>
   <string name="notifications_menu_user_talk_page">%s-এর আলাপ পাতা</string>
   <string name="notifications_offline_disable_message">অফলাইনে এই ফাংশনটি কার্যকর নয়।</string>

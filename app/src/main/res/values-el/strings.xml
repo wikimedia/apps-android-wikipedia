@@ -840,5 +840,4 @@
   <string name="text_input_dialog_cancel_button_text">Ακύρωση</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Ακύρωση</string>
   <string name="talk_title">Συζήτηση</string>
-  <string name="go_to_user_page">Πήγαινε στην σελίδα χρήστη</string>
 </resources>

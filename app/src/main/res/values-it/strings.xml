@@ -97,6 +97,7 @@
   <string name="feed_card_add_to_list">Aggiungi all\'elenco di lettura</string>
   <string name="feed_card_add_to_default_list">Salva</string>
   <string name="menu_page_share">Condividi collegamento</string>
+  <string name="menu_article_share">Condividi voce</string>
   <string name="menu_page_open_a_new_tab">Apri una nuova scheda</string>
   <string name="menu_page_new_tab">Nuova scheda</string>
   <string name="menu_page_reading_lists">Elenchi di lettura</string>
@@ -664,7 +665,6 @@
   <string name="notifications_channel_group_other_description">Altre notifiche dall\'applicazione</string>
   <string name="notifications_filter_label">Filtra notifiche</string>
   <string name="notifications_filter_icon_content_description">Filtra notifiche</string>
-  <string name="notifications_filter_add_app_languages">Aggiungi o modifica lingue</string>
   <string name="notifications_empty_search_message">Prova a rimuovere %s per vedere più notifiche</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtro</item>
@@ -1082,7 +1082,7 @@
   <string name="watchlist_details_next_edit">Prossima modifica</string>
   <string name="watchlist_details_prev_edit">Modifica precedente</string>
   <string name="thank_label">Ringrazia</string>
-  <string name="go_to_user_page">Vai alla pagina utente</string>
+  <string name="view_user_page">Vedi pagina utente</string>
   <string name="thank_dialog_title_text">Invia pubblicamente un \'ringraziamento\'</string>
   <string name="thank_dialog_text">\'Ringrazia\' è un modo semplice per mostrare apprezzamento per il lavoro di un editore su Wikipedia. I \'Ringrazia\' non possono essere annullati e sono visibili pubblicamente</string>
   <string name="thank_dialog_positive_button_text">Invia ringraziamento</string>

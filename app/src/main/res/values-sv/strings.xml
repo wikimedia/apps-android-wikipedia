@@ -642,7 +642,6 @@
   <string name="notifications_channel_group_other_description">Andra aviseringar från appen</string>
   <string name="notifications_filter_label">Filtrera aviseringar</string>
   <string name="notifications_filter_icon_content_description">Filtrera aviseringar</string>
-  <string name="notifications_filter_add_app_languages">Lägg till eller redigera appspråk</string>
   <string name="notifications_empty_search_message">Försök att ta bort %s för att se fler aviseringar</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filter</item>
@@ -1059,7 +1058,6 @@
   <string name="watchlist_details_next_edit">Nästa redigering</string>
   <string name="watchlist_details_prev_edit">Föregående redigering</string>
   <string name="thank_label">Tacka</string>
-  <string name="go_to_user_page">Gå till användarsidan</string>
   <string name="thank_dialog_title_text">Skicka offentligt tack</string>
   <string name="thank_dialog_text">\"Tack\" är ett enkelt sätt att visa sin uppskattning för en redigerares arbete på Wikipedia. Man kan inte ångra ett tack och de är offentliga.</string>
   <string name="thank_dialog_positive_button_text">Skicka tack</string>
