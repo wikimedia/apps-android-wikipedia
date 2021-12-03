@@ -799,6 +799,13 @@
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
     <!-- /Description editing tutorial -->
 
+    <!-- Customize toolbar -->
+    <string name="customize_toolbar_title">Customize toolbar</string>
+    <string name="customize_toolbar_description">Customize your bottom bar links to your favorite Wikipedia actions and destinations.</string>
+    <string name="customize_toolbar_category_favorites">Favorites</string>
+    <string name="customize_toolbar_category_menu">Menu</string>
+    <!-- /Customize toolbar -->
+
     <!-- Suggested edits -->
     <string name="suggested_edits_describe_articles">Describe articles</string>
     <string name="suggested_edits_caption_images">Caption images</string>

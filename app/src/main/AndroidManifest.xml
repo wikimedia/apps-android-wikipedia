@@ -285,6 +285,11 @@
             android:theme="@style/AppTheme.ActionBar"  />
 
         <activity
+            android:name=".page.customize.CustomizeToolbarActivity"
+            android:label="@string/customize_toolbar_title"
+            android:theme="@style/AppTheme.ActionBar"/>
+
+        <activity
             android:name=".notifications.NotificationFilterActivity"
             android:label="@string/notifications_filter_label"
             android:theme="@style/AppTheme.ActionBar"
