@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="@dimen/list_item_default_height"
+    tools:layout_width="match_parent"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/listItem"
+        style="@style/OverflowMenuItem"
+        android:drawablePadding="16dp"
+        android:text="@string/menu_page_view_edit_history"
+        app:drawableStartCompat="@drawable/ic_icon_revision_history_apps"
+        app:drawableTint="?attr/material_theme_de_emphasised_color" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/dragHandle"
+        android:layout_width="56dp"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_draggable"
+        app:tint="?attr/material_theme_de_emphasised_color" />
+
+</merge>
