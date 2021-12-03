@@ -1100,8 +1100,9 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
-  <string name="customize_toolbar_title">Title text of the customize toolbar page.</string>
-  <string name="customize_toolbar_description">Description of the customize toolbar page.</string>
-  <string name="customize_toolbar_category_favorites">Category of favorites in the customize toolbar page.</string>
-  <string name="customize_toolbar_category_menu">Category of menu in the customize toolbar page.</string>
+  <string name="customize_favorites_title">Title text of the customize favorites page.</string>
+  <string name="customize_favorites_description">Description of the customize favorites page.</string>
+  <string name="customize_favorites_category_favorites">Category of favorites in the customize favorites page.</string>
+  <string name="customize_favorites_category_menu">Category of menu in the customize favorites page.</string>
+  <string name="customize_favorites_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize favorites page.</string>
 </resources>

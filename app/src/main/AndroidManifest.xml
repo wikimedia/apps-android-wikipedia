@@ -285,7 +285,7 @@
             android:theme="@style/AppTheme.ActionBar"  />
 
         <activity
-            android:name=".page.customize.CustomizeToolbarActivity"
+            android:name=".page.customize.CustomizeFavoritesActivity"
             android:label="@string/customize_toolbar_title"
             android:theme="@style/AppTheme.ActionBar"/>
 

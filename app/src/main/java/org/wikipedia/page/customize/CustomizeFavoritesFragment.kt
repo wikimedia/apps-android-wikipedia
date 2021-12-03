@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import org.wikipedia.databinding.FragmentCustomizeToolbarBinding
 
-class CustomizeToolbarFragment : Fragment() {
+class CustomizeFavoritesFragment : Fragment() {
     private var _binding: FragmentCustomizeToolbarBinding? = null
     private val binding get() = _binding!!
 
@@ -31,8 +31,8 @@ class CustomizeToolbarFragment : Fragment() {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
 
-        fun newInstance(): CustomizeToolbarFragment {
-            return CustomizeToolbarFragment()
+        fun newInstance(): CustomizeFavoritesFragment {
+            return CustomizeFavoritesFragment()
         }
     }
 }
