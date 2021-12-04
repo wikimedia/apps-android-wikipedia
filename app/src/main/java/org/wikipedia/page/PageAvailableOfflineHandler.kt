@@ -8,6 +8,10 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.log.L
 
 object PageAvailableOfflineHandler {
+
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val scope = CoroutineScope(Dispatchers.Main)
+
     fun interface Callback {
         fun onFinish(available: Boolean)
     }
@@ -22,13 +26,13 @@ object PageAvailableOfflineHandler {
             callback.onFinish(true)
             return
         }
-        CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, exception ->
+        scope.launch(CoroutineExceptionHandler { _, exception ->
             run {
                 callback.onFinish(false)
                 L.w(exception)
             }
         }) {
-            val readingListPage = withContext(Dispatchers.IO) { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(pageTitle) }
+            val readingListPage = withContext(dispatcher) { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(pageTitle) }
             callback.onFinish(readingListPage != null && readingListPage.offline && !readingListPage.saving)
         }
     }
