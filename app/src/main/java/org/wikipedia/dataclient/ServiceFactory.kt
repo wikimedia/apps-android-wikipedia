@@ -19,7 +19,9 @@ import java.io.IOException
 
 object ServiceFactory {
 
-    private const val SERVICE_CACHE_SIZE = 8
+    private val maxMemory:Int=(Runtime.getRuntime().maxMemory() / 1024).toInt()
+
+    private var SERVICE_CACHE_SIZE = maxMemory/8
 
     private val SERVICE_CACHE = lruCache<WikiSite, Service>(SERVICE_CACHE_SIZE, create = {
         // This method is called in the get() method if a value does not already exist.
