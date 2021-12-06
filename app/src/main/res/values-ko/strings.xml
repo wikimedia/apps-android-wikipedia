@@ -87,6 +87,7 @@
   <string name="feed_card_add_to_list">읽기 목록에 추가</string>
   <string name="feed_card_add_to_default_list">저장</string>
   <string name="menu_page_share">링크 공유</string>
+  <string name="menu_article_share">문서 공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
   <string name="menu_page_new_tab">새 탭</string>
   <string name="menu_page_reading_lists">읽기 목록</string>
@@ -263,6 +264,10 @@
   <string name="edit_summary_tag_other_hint">문서를 개선하는 다른 방법</string>
   <string name="edit_conflict_title">편집 충돌</string>
   <string name="edit_conflict_message">이 문서는 이미 다른 사용자에 의해 수정되었으며 편집과 충돌합니다. 편집을 복사하고 뒤로 돌아가서 문서를 새로 고친 다음 다시 편집을 시도하십시오.</string>
+  <string name="edit_notices">편집 알림</string>
+  <string name="edit_notices_please_read">편집하기 전에 읽어 주십시오</string>
+  <string name="edit_notices_show_auto">자동으로 편집 알림 표시</string>
+  <string name="edit_notices_tooltip">이 문서의 편집 알림을 보려면 이 버튼을 탭하십시오.</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="find_first_occurence">이것이 처음 항목입니다</string>
@@ -373,6 +378,7 @@
   <string name="error_message_generic">오류가 발생했습니다</string>
   <string name="view_link_preview_error_button_dismiss">숨기기</string>
   <string name="error_page_does_not_exist">이 문서가 존재하지 않습니다</string>
+  <string name="error_user_page_does_not_exist">위키백과에 이 이름의 &lt;a href=\"%1$s\"&gt;사용자 문서&lt;/a&gt;가 없습니다. 일반적으로 이 문서는 &lt;b&gt;%2$s&lt;/b&gt;님이 만들고 편집해야 합니다. 의심이 들면 \"%3$s\" 문서가 존재하는지 확인해 주십시오.</string>
   <string name="view_wiki_error_message_offline">인터넷에 연결할 수 없습니다</string>
   <string name="view_wiki_error_message_timeout">위키백과에 연결할 수 없습니다. 네트워크 연결을 확인하고 나중에 다시 시도하십시오</string>
   <string name="reference_title">각주 %s</string>
@@ -639,7 +645,8 @@
   <string name="notifications_channel_group_other_description">앱의 기타 알림</string>
   <string name="notifications_filter_label">필터 알림</string>
   <string name="notifications_filter_icon_content_description">필터 알림</string>
-  <string name="notifications_filter_add_app_languages">앱 언어 추가 또는 편집</string>
+  <string name="notifications_filter_update_app_languages">앱 언어 업데이트</string>
+  <string name="notifications_empty_search_message">더 많은 알림을 보려면 %s을 제거해 보십시오.</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="other">%d개 필터</item>
   </plurals>
@@ -660,6 +667,7 @@
   <string name="notifications_all_wikis_text">모든 \"위키\"</string>
   <string name="notifications_all_types_text">모든 \"종류\"</string>
   <string name="notifications_menu_user_talk_page">%s님의 토론 문서</string>
+  <string name="notifications_offline_disable_message">이 기능은 오프라인 상태에서 사용할 수 없습니다.</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의의 문서 보기</string>
   <string name="view_random_article_card_title">임의 문서</string>
@@ -1031,6 +1039,10 @@
   <string name="talk_last_modified">%2$s님이 &lt;b&gt;%1$s에 마지막으로 편집함&lt;/b&gt;</string>
   <string name="talk_snackbar_survey_text">토론 문서를 이용해 주셔서 고맙습니다. 설문조사에 참여하여 앱 개선을 지원해 주시겠습니까?</string>
   <string name="talk_snackbar_survey_action_text">시작하기</string>
+  <string name="talk_share_discussion_subject">위키백과 - 토론 문서 주제 \"%s\"의 토론</string>
+  <string name="talk_share_talk_page">위키백과 - 토론 문서의 토론</string>
+  <string name="menu_option_share_talk_discussion">토론 공유하기</string>
+  <string name="menu_option_share_talk_page">토론 문서 공유</string>
   <string name="menu_option_share_edit">편집 공유</string>
   <string name="menu_option_user_profile">%s님의 정보</string>
   <string name="menu_option_user_contributions">%s님의 기여</string>
@@ -1039,7 +1051,7 @@
   <string name="watchlist_details_next_edit">다음 편집</string>
   <string name="watchlist_details_prev_edit">이전 편집</string>
   <string name="thank_label">감사 표현</string>
-  <string name="go_to_user_page">사용자 문서로 이동하기</string>
+  <string name="view_user_page">사용자 문서 보기</string>
   <string name="thank_dialog_title_text">공개적으로 감사 표하기</string>
   <string name="thank_dialog_text">\'감사 표현\'은 위키백과에서 편집자의 기여에 감사를 표하는 쉬운 방법입니다. \'감사 표현\'은 취소할 수 없으며 공개되지 않습니다.</string>
   <string name="thank_dialog_positive_button_text">감사 표현하기</string>

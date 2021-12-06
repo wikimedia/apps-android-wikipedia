@@ -2,8 +2,10 @@
 <!-- Authors:
 * Aftabuzzaman
 * Al Riaz Uddin Ripon
+* Ankan
 * Bellayet
 * Bodhisattwa
+* Dbrant
 * Elias Ahmmad
 * Greatder
 * Masumrezarock100
@@ -262,6 +264,7 @@
   <string name="edit_notices">সম্পাদনা বিজ্ঞপ্তি</string>
   <string name="edit_notices_please_read">সম্পাদনা করার আগে অনুগ্রহ করে পড়ুন</string>
   <string name="edit_notices_show_auto">স্বয়ংক্রিয়ভাবে সম্পাদনা বিজ্ঞপ্তি দেখান</string>
+  <string name="edit_notices_tooltip">এই বাটনে ক্লিক করে এই নিবন্ধের সম্পাদনা বিজ্ঞপ্তি দেখুন।</string>
   <string name="find_next">পরবর্তী খুঁজুন</string>
   <string name="find_previous">পূর্বেরটি খুঁজুন</string>
   <string name="find_first_occurence">এটি প্রথম ঘটনা</string>
@@ -364,6 +367,7 @@
   <string name="error_message_generic">একটি ত্রুটি দেখা দিয়েছে</string>
   <string name="view_link_preview_error_button_dismiss">খারিজ</string>
   <string name="error_page_does_not_exist">এই পাতার অস্তিত্ব নেই</string>
+  <string name="error_user_page_does_not_exist">উইকিপিডিয়ায় হুবহু এই নামে কোনও &lt;a href=\"%1$s\"&gt;ব্যবহারকারী পাতা&lt;/a&gt; নেই। সাধারণত, এই পাতাটি &lt;b&gt;%2$s&lt;/b&gt; কর্তৃক তৈরি ও সম্পাদনা করা উচিত। যদি নিশ্চিত না হোন, তবে যাচাই করুন যে \"%3$s\"-এর অস্তিত্ব রয়েছে।</string>
   <string name="view_wiki_error_message_offline">ইন্টারনেটে সংযোগ করা যাবে না</string>
   <string name="reference_title">তথ্যসূত্র %s</string>
   <string name="reference_list_title">তথ্যসূত্র</string>
@@ -526,6 +530,7 @@
   <string name="notifications_filter_label">বিজ্ঞপ্তি ছাঁকুন</string>
   <string name="notifications_tab_filter_all">সকল</string>
   <string name="notifications_menu_user_talk_page">%s-এর আলাপ পাতা</string>
+  <string name="notifications_offline_disable_message">অফলাইনে এই ফাংশনটি কার্যকর নয়।</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
   <string name="view_random_article_card_title">অজানা নিবন্ধ</string>

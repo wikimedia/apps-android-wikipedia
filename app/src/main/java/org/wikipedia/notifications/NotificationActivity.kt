@@ -23,6 +23,7 @@ import androidx.annotation.PluralsRes
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
@@ -31,6 +32,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.flow.collect
 import org.wikipedia.Constants
@@ -69,13 +71,12 @@ class NotificationActivity : BaseActivity() {
     private val typefaceSansSerifBold = Typeface.create("sans-serif", Typeface.BOLD)
     // TODO: maybe making the result observable and put into ViewModel class?
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == NotificationsFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
+        if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
             beginUpdateList()
         } else {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
     }
-    var currentSearchQuery: String? = null
     var funnel = NotificationPreferencesFunnel(WikipediaApp.getInstance())
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -124,7 +125,7 @@ class NotificationActivity : BaseActivity() {
         })
 
         binding.notificationsSearchEmptyContainer.setOnClickListener {
-            resultLauncher.launch(NotificationsFilterActivity.newIntent(it.context))
+            resultLauncher.launch(NotificationFilterActivity.newIntent(it.context))
         }
 
         Prefs.notificationUnreadCount = 0
@@ -246,7 +247,9 @@ class NotificationActivity : BaseActivity() {
         // Handle search bar and TabLayout visibility
         binding.notificationTabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
         if (actionMode != null) {
-            notificationContainerList.removeAt(0)
+            if (notificationContainerList.any { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }) {
+                notificationContainerList.removeAt(0)
+            }
         } else {
             if (notificationContainerList.none { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }) {
                 notificationContainerList.add(0, NotificationListItemContainer())
@@ -328,6 +331,13 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsRecyclerView.adapter?.notifyItemChanged(position)
     }
 
+    private fun adjustRefreshViewLayoutParams(removeLayoutBehavior: Boolean) {
+        (binding.notificationsRefreshView.layoutParams as CoordinatorLayout.LayoutParams).apply {
+            behavior = if (removeLayoutBehavior) null else AppBarLayout.ScrollingViewBehavior()
+            topMargin = if (removeLayoutBehavior) DimenUtil.getToolbarHeightPx(this@NotificationActivity) else 0
+        }
+    }
+
     private val selectedItemCount get() = notificationContainerList.count { it.selected }
 
     private val selectedItems get() = notificationContainerList.filterNot { it.type == NotificationListItemContainer.ITEM_SEARCH_BAR }.filter { it.selected }
@@ -358,17 +368,17 @@ class NotificationActivity : BaseActivity() {
                 ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN)
             n.contents?.let {
                 binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
-                StringUtil.highlightAndBoldenText(binding.notificationSubtitle, currentSearchQuery, true, Color.YELLOW)
+                StringUtil.highlightAndBoldenText(binding.notificationSubtitle, viewModel.currentSearchQuery, true, Color.YELLOW)
                 if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
                     binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
-                    StringUtil.highlightAndBoldenText(binding.notificationDescription, currentSearchQuery, true, Color.YELLOW)
+                    StringUtil.highlightAndBoldenText(binding.notificationDescription, viewModel.currentSearchQuery, true, Color.YELLOW)
                     binding.notificationDescription.visibility = View.VISIBLE
                 } else {
                     binding.notificationDescription.visibility = View.GONE
                 }
                 it.links?.secondary?.firstOrNull()?.let { link ->
                     binding.notificationTitle.text = link.label
-                    StringUtil.highlightAndBoldenText(binding.notificationTitle, currentSearchQuery, true, Color.YELLOW)
+                    StringUtil.highlightAndBoldenText(binding.notificationTitle, viewModel.currentSearchQuery, true, Color.YELLOW)
                 } ?: run {
                     binding.notificationTitle.text = getString(notificationCategory.title)
                 }
@@ -386,7 +396,7 @@ class NotificationActivity : BaseActivity() {
 
             n.title?.let { title ->
                 binding.notificationSource.text = title.full
-                StringUtil.highlightAndBoldenText(binding.notificationSource, currentSearchQuery, true, Color.YELLOW)
+                StringUtil.highlightAndBoldenText(binding.notificationSource, viewModel.currentSearchQuery, true, Color.YELLOW)
                 n.contents?.links?.getPrimary()?.url?.let {
                     binding.notificationSource.setCompoundDrawables(null, null,
                             if (UriUtil.isAppSupportedLink(Uri.parse(it))) null else externalLinkIcon, null)
@@ -517,7 +527,7 @@ class NotificationActivity : BaseActivity() {
 
             notificationFilterButton.setOnClickListener {
                 funnel.logFilterClick()
-                resultLauncher.launch(NotificationsFilterActivity.newIntent(it.context))
+                resultLauncher.launch(NotificationFilterActivity.newIntent(it.context))
             }
 
             FeedbackUtil.setButtonLongPressToast(notificationFilterButton)
@@ -571,6 +581,7 @@ class NotificationActivity : BaseActivity() {
 
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            adjustRefreshViewLayoutParams(true)
             searchAndFilterActionProvider = SearchAndFilterActionProvider(this@NotificationActivity, searchHintString,
                 object : SearchAndFilterActionProvider.Callback {
                     override fun onQueryTextChange(s: String) {
@@ -594,14 +605,15 @@ class NotificationActivity : BaseActivity() {
         }
 
         override fun onQueryChange(s: String) {
-            currentSearchQuery = s.trim()
+            viewModel.updateSearchQuery(s.trim())
             postprocessAndDisplay()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
+            adjustRefreshViewLayoutParams(false)
             actionMode = null
-            currentSearchQuery = null
+            viewModel.updateSearchQuery(null)
             postprocessAndDisplay()
         }
 

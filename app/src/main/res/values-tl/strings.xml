@@ -958,7 +958,6 @@
   <string name="watchlist_details_watching_label">Binabantayan</string>
   <string name="watchlist_details_watch_label">Bantayán</string>
   <string name="thank_label">Magpasalamat</string>
-  <string name="go_to_user_page">Pumunta sa pahina ng tagagamit</string>
   <string name="thank_dialog_title_text">Hayagang magpasalamat</string>
   <string name="thank_dialog_text">Ang Magpasalamat ay isang madaling paraan para ipakita ang iyong pasasalamat sa isang gawa ng nag-edit sa Wikipedia. Hindi matatanggal ang pasasalamat at makikita ito ng lahat</string>
   <string name="thank_dialog_positive_button_text">Magpasalamat</string>

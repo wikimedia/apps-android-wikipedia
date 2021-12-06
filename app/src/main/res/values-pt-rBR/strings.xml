@@ -647,7 +647,6 @@
   <string name="notifications_channel_group_other_description">Outras notificações do aplicativo</string>
   <string name="notifications_filter_label">Filtrar notificações</string>
   <string name="notifications_filter_icon_content_description">Filtrar notificações</string>
-  <string name="notifications_filter_add_app_languages">Adicionar ou editar idiomas do aplicativo</string>
   <string name="notifications_empty_search_message">Tente remover %s para ver mais notificações</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtro</item>
@@ -1060,7 +1059,6 @@
   <string name="watchlist_details_next_edit">Próxima edição</string>
   <string name="watchlist_details_prev_edit">Edição anterior</string>
   <string name="thank_label">Obrigado</string>
-  <string name="go_to_user_page">Vá para a página do usuário</string>
   <string name="thank_dialog_title_text">Envie publicamente \"Obrigado\"</string>
   <string name="thank_dialog_text">\'Obrigado\' é uma maneira fácil de mostrar apreço pelo trabalho de um editor na Wikipédia. \'Obrigado\' não pode ser desfeito e pode ser visto publicamente</string>
   <string name="thank_dialog_positive_button_text">Enviar agradecimento</string>

@@ -2,6 +2,9 @@ package org.wikipedia.feed.announcement
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.intOrNull
+import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.util.DateUtil
 import java.util.*
 
@@ -19,8 +22,10 @@ class Announcement(val id: String = "",
                    @SerialName("image_height") val imageHeight: String? = "",
                    @SerialName("logged_in") val loggedIn: Boolean? = null,
                    @SerialName("reading_list_sync_enabled") val readingListSyncEnabled: Boolean? = null,
-                   @SerialName("min_version") val minVersion: Int = -1,
-                   @SerialName("max_version") val maxVersion: Int = -1,
+                   // The Min and Max version could be an integer for Android versions, or a string
+                   // for iOS versions, so these need to be serialized manually.
+                   @SerialName("min_version") private val minVersion: JsonElement? = null,
+                   @SerialName("max_version") private val maxVersion: JsonElement? = null,
                    val border: Boolean? = null,
                    val beta: Boolean? = null,
                    val placement: String = PLACEMENT_FEED,
@@ -52,6 +57,14 @@ class Announcement(val id: String = "",
 
     fun hasImageUrl(): Boolean {
         return !imageUrl.isNullOrEmpty()
+    }
+
+    fun minVersion(): Int {
+        return minVersion?.jsonPrimitive?.intOrNull ?: -1
+    }
+
+    fun maxVersion(): Int {
+        return maxVersion?.jsonPrimitive?.intOrNull ?: -1
     }
 
     @Serializable

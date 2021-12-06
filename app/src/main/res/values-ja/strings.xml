@@ -1020,7 +1020,6 @@
   <string name="menu_option_user_contributions">%s の投稿記録</string>
   <string name="watchlist_details_watch_label">ウォッチ</string>
   <string name="thank_label">感謝</string>
-  <string name="go_to_user_page">利用者ページに移動</string>
   <string name="thank_dialog_title_text">感謝を公に示す</string>
   <string name="thank_dialog_text">\'感謝\' はウィキペディアを編集する編集者へ感謝を示す簡単な方法です。\'感謝\' は元に戻すことはできず、誰でも見ることができます。</string>
   <string name="thank_dialog_positive_button_text">感謝を示す</string>

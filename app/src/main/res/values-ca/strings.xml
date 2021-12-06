@@ -259,6 +259,10 @@
   <string name="edit_summary_tag_other_hint">Altres formes com heu millorat la pàgina</string>
   <string name="edit_conflict_title">Conflicte d\'edició</string>
   <string name="edit_conflict_message">Un altre usuari diferent ja havia modificat la pàgina i entra en conflicte amb la vostra modificació. Copieu les modificacions que heu fet, aneu enrere, refresqueu la pàgina i torneu a modificar la pàgina llavors.</string>
+  <string name="edit_notices">Avisos de modificació</string>
+  <string name="edit_notices_please_read">Llegiu abans de modificar res</string>
+  <string name="edit_notices_show_auto">Mostra els avisos de modificació automàticament</string>
+  <string name="edit_notices_tooltip">Toqueu aquest botó per a mostrar els avisos de notificació d\'aquest article.</string>
   <string name="find_next">Cercar el següent</string>
   <string name="find_previous">Cercar l\'anterior</string>
   <string name="find_first_occurence">Aquesta és la primera ocurrència</string>
@@ -665,6 +669,7 @@
   <string name="notifications_all_wikis_text">Totes les de «wiki»</string>
   <string name="notifications_all_types_text">Totes les de «tipus»</string>
   <string name="notifications_menu_user_talk_page">Pàgina de discussió de %s</string>
+  <string name="notifications_offline_disable_message">La funció no és disponible fora de línia.</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>
   <string name="view_random_article_card_title">Article a l\'atzar</string>
@@ -1047,6 +1052,8 @@
   <string name="talk_last_modified">&lt;b&gt;Editat per última vegada %1$s&lt;/b&gt; per %2$s</string>
   <string name="talk_snackbar_survey_text">Gràcies per utilitzar les pàgines de discussió. Que podríeu ajudar-nos a millor l\'aplicació participant en una enquesta?</string>
   <string name="talk_snackbar_survey_action_text">Primers passos</string>
+  <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
+  <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribucions de %s</string>
@@ -1055,7 +1062,6 @@
   <string name="watchlist_details_next_edit">Edició següent</string>
   <string name="watchlist_details_prev_edit">Edició anterior</string>
   <string name="thank_label">Agraeix</string>
-  <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
   <string name="thank_dialog_title_text">Envia \'agraïments\' públicament</string>
   <string name="thank_dialog_text">Els \'agraïments\' són una forma fàcil de mostrar apreciació pel treball d\'un editor a la Viquipèdia. Els \'agraïments\' no es poden desfer i són visibles públicament</string>
   <string name="thank_dialog_positive_button_text">Envia agraïments</string>
