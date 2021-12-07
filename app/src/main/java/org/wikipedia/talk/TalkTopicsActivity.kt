@@ -254,6 +254,11 @@ class TalkTopicsActivity : BaseActivity() {
                     resolveTitleRequired = false
                     response.query?.namespaces?.let { namespaces ->
                         response.query?.firstPage()?.let { page ->
+                            // In MediaWiki, namespaces that are even-numbered are "regular" pages,
+                            // and namespaces that are odd-numbered are the "Talk" versions of the
+                            // corresponding even-numbered namespace. For example, "User"=2, "User talk"=3.
+                            // So then, if the namespace of our pageTitle is even (i.e. not a Talk page),
+                            // then increment the namespace by 1, and update the pageTitle with it.
                             val newNs = namespaces.values.find { it.id == page.namespace().code() + 1 }
                             if (page.namespace().code() % 2 == 0 && newNs != null) {
                                 pageTitle.namespace = newNs.name
