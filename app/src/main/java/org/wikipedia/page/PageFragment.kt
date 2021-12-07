@@ -548,7 +548,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun startTalkTopicActivity(pageTitle: PageTitle) {
-        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle.pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY))
+        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle, InvokeSource.PAGE_ACTIVITY))
     }
 
     private fun startGalleryActivity(fileName: String) {

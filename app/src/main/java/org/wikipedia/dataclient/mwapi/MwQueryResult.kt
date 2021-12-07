@@ -30,6 +30,7 @@ class MwQueryResult {
     val echomarkseen: MarkReadResponse? = null
     val notifications: NotificationList? = null
     val watchlist: List<WatchlistItem> = emptyList()
+    val namespaces: Map<String, Namespace>? = null
 
     init {
         resolveConvertedTitles()
@@ -168,5 +169,11 @@ class MwQueryResult {
         @SerialName("parsedcomment") val parsedComment: String = ""
         val date: Date
             get() = DateUtil.iso8601DateParse(timestamp.orEmpty())
+    }
+
+    @Serializable
+    class Namespace {
+        val id: Int = 0
+        val name: String = ""
     }
 }

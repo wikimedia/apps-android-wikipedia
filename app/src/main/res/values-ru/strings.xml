@@ -1134,6 +1134,8 @@
   <string name="talk_last_modified">&lt;b&gt;Последняя правка сделана %1$s&lt;/b&gt; участником %2$s</string>
   <string name="talk_snackbar_survey_text">Спасибо за использование страниц обсуждения. Не могли бы вы помочь нам улучшить приложение, приняв участие в опросе?</string>
   <string name="talk_snackbar_survey_action_text">Начать</string>
+  <string name="talk_share_discussion_subject">Википедия — обсуждение в теме «%s»</string>
+  <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
   <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
   <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
