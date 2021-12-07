@@ -2,6 +2,7 @@ package org.wikipedia.edit
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.text.TextUtils
@@ -89,6 +90,10 @@ class EditSectionActivity : BaseActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ doSave(it) }) { showError(it) })
         }
+
+    private val movementMethod = LinkMovementMethodExt { urlStr ->
+        UriUtil.visitInExternalBrowser(this, Uri.parse(UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, urlStr)))
+    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -561,14 +566,18 @@ class EditSectionActivity : BaseActivity() {
         if (editNotices.isEmpty()) {
             return
         }
-        EditNoticesDialog(pageTitle.wikiSite, editNotices, true, this).show()
+        EditNoticesDialog(pageTitle.wikiSite, editNotices, this).show()
     }
 
     private fun maybeShowEditSourceDialog() {
         if (pageTitle.namespace() !== Namespace.USER && pageTitle.namespace() !== Namespace.USER_TALK) {
             return
         }
-        EditNoticesDialog(pageTitle.wikiSite, listOf(getString(R.string.talk_edit_disclaimer)), false, this).show()
+        AlertDialog.Builder(this@EditSectionActivity)
+            .setMessage(R.string.talk_edit_disclaimer)
+            .setPositiveButton(R.string.onboarding_got_it) { dialog, _ -> dialog.dismiss() }
+            .show()
+            .findViewById<TextView>(android.R.id.message)?.movementMethod = movementMethod
     }
 
     private fun displaySectionText() {

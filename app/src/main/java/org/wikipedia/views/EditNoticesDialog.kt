@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
@@ -24,7 +23,6 @@ import org.wikipedia.util.log.L
 class EditNoticesDialog constructor(
         val wikiSite: WikiSite,
         val editNotices: List<String>,
-        showCheckbox: Boolean = true,
         context: Context
 ) : AlertDialog(context) {
 
@@ -43,7 +41,6 @@ class EditNoticesDialog constructor(
         binding.editNoticeRecycler.layoutManager = LinearLayoutManager(context)
         binding.editNoticeRecycler.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true))
 
-        binding.editNoticeCheckbox.isVisible = showCheckbox
         binding.editNoticeCheckbox.isChecked = Prefs.autoShowEditNotices
         binding.editNoticeCheckbox.setOnCheckedChangeListener { _, isChecked -> Prefs.autoShowEditNotices = isChecked }
     }
