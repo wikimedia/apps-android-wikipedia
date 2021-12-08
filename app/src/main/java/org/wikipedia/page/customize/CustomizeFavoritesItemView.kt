@@ -6,8 +6,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemCustomizeFavoritesBinding
 import org.wikipedia.util.ResourceUtil
@@ -26,10 +24,10 @@ class CustomizeFavoritesItemView : LinearLayout {
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
-    fun setContents(@DrawableRes iconRes: Int, @StringRes titleRes: Int, position: Int) {
+    fun setContents(pageMenuItem: PageMenuItem, position: Int) {
         this.position = position
-        binding.listItem.text = context.getString(titleRes)
-        binding.listItem.setCompoundDrawablesWithIntrinsicBounds(iconRes, 0, 0, 0)
+        binding.listItem.text = context.getString(pageMenuItem.titleResId)
+        binding.listItem.setCompoundDrawablesWithIntrinsicBounds(pageMenuItem.iconResId, 0, 0, 0)
     }
 
     fun setDragHandleEnabled(enabled: Boolean) {

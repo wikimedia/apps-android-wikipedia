@@ -4,10 +4,11 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
+import org.wikipedia.model.EnumCodeMap
 
 @Suppress("unused")
 enum class PageMenuItem constructor(val id: Int,
-                                            @StringRes val title: Int,
+                                            @StringRes val titleResId: Int,
                                             @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
                                             val isExternalLink: Boolean = false) : EnumCode {
     SAVE(0, R.string.article_menu_bar_save_button, R.drawable.ic_bookmark_border_white_24dp),
@@ -26,5 +27,21 @@ enum class PageMenuItem constructor(val id: Int,
         // This enumeration is not marshalled so tying declaration order to presentation order is
         // convenient and consistent.
         return ordinal
+    }
+
+    companion object {
+        val MAP = EnumCodeMap(PageMenuItem::class.java)
+
+        fun size(): Int {
+            return MAP.size()
+        }
+
+        private fun findOrNull(id: Int): PageMenuItem? {
+            return MAP.valueIterator().asSequence().firstOrNull { id == it.id }
+        }
+
+        fun find(id: Int): PageMenuItem {
+            return findOrNull(id) ?: MAP[0]
+        }
     }
 }
