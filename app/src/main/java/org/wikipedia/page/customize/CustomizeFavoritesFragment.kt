@@ -1,43 +1,56 @@
 package org.wikipedia.page.customize
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentCustomizeFavoritesBinding
-import org.wikipedia.language.LanguagesListActivity
-import org.wikipedia.settings.languages.WikipediaLanguagesFragment
-import org.wikipedia.settings.languages.WikipediaLanguagesItemView
+import org.wikipedia.settings.Prefs
 import org.wikipedia.views.DefaultViewHolder
-import java.util.*
 
 class CustomizeFavoritesFragment : Fragment() {
     private var _binding: FragmentCustomizeFavoritesBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: CustomizeFavoritesViewModel by viewModels()
+
+    private lateinit var itemTouchHelper: ItemTouchHelper
+    private lateinit var adapter: RecyclerItemAdapter
+    private var menuOrder = mutableListOf<Int>()
+    private var quickActionsOrder = mutableListOf<Int>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentCustomizeFavoritesBinding.inflate(LayoutInflater.from(context), container, false)
+        menuOrder = Prefs.customizeFavoritesMenuOrder as MutableList<Int>
+        quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder as MutableList<Int>
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setupRecyclerView()
         super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
+    }
+
+    private fun setupRecyclerView() {
+        binding.recyclerView.setHasFixedSize(true)
+        adapter = RecyclerItemAdapter()
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
+        itemTouchHelper.attachToRecyclerView(binding.recyclerView)
     }
 
     private inner class RecyclerItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
@@ -48,7 +61,7 @@ class CustomizeFavoritesFragment : Fragment() {
         }
 
         override fun getItemCount(): Int {
-            return PageMenuItem.size() + LIST_OF_CATEGORY.size
+            return viewModel.fullList.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
@@ -76,7 +89,6 @@ class CustomizeFavoritesFragment : Fragment() {
 
         override fun onViewDetachedFromWindow(holder: DefaultViewHolder<*>) {
             if (holder is ItemHolder) {
-                holder.view.callback = null
                 holder.view.setDragHandleTouchListener(null)
             }
             super.onViewDetachedFromWindow(holder)
@@ -125,7 +137,7 @@ class CustomizeFavoritesFragment : Fragment() {
 
     private inner class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         fun bindItem(position: Int) {
-            itemView.findViewById<TextView>(R.id.headerTitle).setText(LIST_OF_CATEGORY[position])
+            itemView.findViewById<TextView>(R.id.headerTitle).setText(viewModel.listOfCategory[position])
         }
     }
 
@@ -141,7 +153,6 @@ class CustomizeFavoritesFragment : Fragment() {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
         private const val VIEW_TYPE_EMPTY_PLACEHOLDER = 2
-        private val LIST_OF_CATEGORY = listOf(R.string.customize_favorites_category_quick_actions, R.string.customize_favorites_category_menu)
 
         fun newInstance(): CustomizeFavoritesFragment {
             return CustomizeFavoritesFragment()
