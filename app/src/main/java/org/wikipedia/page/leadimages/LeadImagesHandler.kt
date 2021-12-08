@@ -94,7 +94,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
 
     private fun updateCallToAction() {
         dispose()
-        pageHeaderView.setUpCallToAction(null)
+        pageHeaderView.callToActionText = null
         if (!AccountUtil.isLoggedIn || leadImageUrl == null || !leadImageUrl!!.contains(Service.URL_FRAGMENT_FROM_COMMONS) || page == null) {
             return
         }
@@ -143,7 +143,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
             return
         }
         when (imageEditType) {
-            ImageEditType.ADD_TAGS -> pageHeaderView.setUpCallToAction(parentFragment.getString(R.string.suggested_edits_article_cta_image_tags))
+            ImageEditType.ADD_TAGS -> pageHeaderView.callToActionText = parentFragment.getString(R.string.suggested_edits_article_cta_image_tags)
             ImageEditType.ADD_CAPTION_TRANSLATION -> {
                 callToActionIsTranslation = true
                 captionSourcePageTitle?.run {
@@ -151,14 +151,14 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
                 captionTargetPageTitle?.run {
                     callToActionTargetSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, null, leadImageUrl)
-                    pageHeaderView.setUpCallToAction(parentFragment.getString(R.string.suggested_edits_article_cta_image_caption_in_language, WikipediaApp.getInstance().language().getAppLanguageLocalizedName(wikiSite.languageCode)))
+                    pageHeaderView.callToActionText = parentFragment.getString(R.string.suggested_edits_article_cta_image_caption_in_language, WikipediaApp.getInstance().language().getAppLanguageLocalizedName(wikiSite.languageCode))
                 }
             }
             else -> {
                 captionSourcePageTitle?.run {
                     title?.let {
                         callToActionSourceSummary = PageSummaryForEdit(prefixedText, it.wikiSite.languageCode, this, displayText, StringUtil.fromHtml(imagePage?.imageInfo()?.metadata?.imageDescription().orEmpty()).toString(), imagePage?.imageInfo()?.thumbUrl)
-                        pageHeaderView.setUpCallToAction(parentFragment.getString(R.string.suggested_edits_article_cta_image_caption))
+                        pageHeaderView.callToActionText = parentFragment.getString(R.string.suggested_edits_article_cta_image_caption)
                     }
                 }
             }
@@ -198,6 +198,10 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
 
     fun hide() {
         pageHeaderView.hide()
+    }
+
+    fun refreshCallToActionVisibility() {
+        pageHeaderView.refreshCallToActionVisibility()
     }
 
     fun loadLeadImage() {

@@ -121,6 +121,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private lateinit var bridge: CommunicationBridge
     private lateinit var leadImagesHandler: LeadImagesHandler
     private lateinit var pageFragmentLoadState: PageFragmentLoadState
+    private lateinit var bottomBarHideHandler: ViewHideHandler
     private var pageScrollFunnel: PageScrollFunnel? = null
     private var pageRefreshed = false
     private var errorState = false
@@ -194,6 +195,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 callback()?.onPageLoadErrorBackPressed()
             }
         }
+
+        bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabLayout, null, Gravity.BOTTOM, updateElevation = false)
+        bottomBarHideHandler.setScrollView(webView)
+        bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
         editHandler = EditHandler(this, bridge)
         tocHandler = ToCHandler(this, ActivityCompat.requireViewById(activity, R.id.navigation_drawer),
@@ -294,6 +299,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onToggleDimImages() {
         ActivityCompat.recreate(requireActivity())
+    }
+
+    override fun onToggleReadingFocusMode() {
+        bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
+        leadImagesHandler.refreshCallToActionVisibility()
+        page?.let {
+            bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !it.pageProperties.canEdit))
+        }
     }
 
     override fun onCancelThemeChooser() {
@@ -409,7 +422,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             model.page?.let { page ->
                 page.pageProperties.protection = JsonUtil.decodeFromString(value)
-                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit))
+                bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !page.pageProperties.canEdit))
             }
         }
     }
@@ -523,7 +536,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         model.curEntry?.let {
             Completable.fromCallable { AppDatabase.getAppDatabase().historyEntryDao().upsertWithTimeSpent(it, timeSpentSec) }
                 .subscribeOn(Schedulers.io())
-                .subscribe({}) { caught -> L.e(caught) }
+                .subscribe({}) { L.e(it) }
         }
     }
 

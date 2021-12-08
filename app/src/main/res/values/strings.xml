@@ -414,6 +414,9 @@
     <string name="text_size_decrease">Decrease text size</string>
     <string name="text_size_percent_default">%s (Default)</string>
     <string name="text_style_title">Font</string>
+    <string name="theme_category_reading">Reading</string>
+    <string name="reading_focus_mode">Reading focus mode</string>
+    <string name="reading_focus_mode_detail">Hides edit features and bottom toolbar on scroll</string>
     <!-- /Theme -->
 
     <!-- Reading lists -->

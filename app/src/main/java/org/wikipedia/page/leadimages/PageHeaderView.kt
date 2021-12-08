@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewPageHeaderBinding
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.views.FaceAndColorDetectImageView
@@ -22,6 +23,12 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
+    var callToActionText: String? = null
+        set(value) {
+            field = value
+            refreshCallToActionVisibility()
+        }
+
     var callback: Callback? = null
 
     constructor(context: Context) : super(context)
@@ -65,8 +72,8 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
         return binding.viewPageHeaderImage
     }
 
-    fun setUpCallToAction(callToActionText: String?) {
-        if (callToActionText != null) {
+    fun refreshCallToActionVisibility() {
+        if (callToActionText != null && !Prefs.readingFocusModeEnabled) {
             binding.callToActionContainer.visibility = VISIBLE
             binding.callToActionText.text = callToActionText
             binding.viewPageHeaderImageGradientBottom.visibility = VISIBLE

@@ -430,6 +430,9 @@
   <string name="text_size_decrease">Button hint for decreasing the text size used in articles.</string>
   <string name="text_size_percent_default">Label indicating that the current text size is the default size. The %s symbol is replaced with the percentage of the size.</string>
   <string name="text_style_title">Label that describes text style selection\n{{Identical|Font}}</string>
+  <string name="theme_category_reading">Label for theme category that contains settings related to reading.</string>
+  <string name="reading_focus_mode">Label for checkbox that enables reading focus mode.</string>
+  <string name="reading_focus_mode_detail">Detailed label for checkbox that enables reading focus mode.</string>
   <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
