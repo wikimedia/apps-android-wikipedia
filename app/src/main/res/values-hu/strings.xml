@@ -980,7 +980,6 @@
   <string name="watchlist_details_watching_label">Figyelve</string>
   <string name="watchlist_details_watch_label">Lap figyelése</string>
   <string name="thank_label">Köszönet</string>
-  <string name="go_to_user_page">Ugrás a szerkesztői lapra</string>
   <string name="thank_dialog_title_text">Nyilvános köszönetküldés</string>
   <string name="thank_dialog_text">A köszönetküldés egy egyszerű mód arra, hogy jelezd egy szerkesztőnek, hogy örülsz a wikipédiás munkásságának. A köszöneteket nem lehet visszavonni, és nyilvánosan láthatóak.</string>
   <string name="thank_dialog_positive_button_text">Köszönet elküldése</string>

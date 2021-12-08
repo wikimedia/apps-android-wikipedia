@@ -76,6 +76,7 @@
   <string name="feed_card_add_to_list">Pridať do zoznamu na prečítanie</string>
   <string name="feed_card_add_to_default_list">Uložiť</string>
   <string name="menu_page_share">Zdieľať odkaz</string>
+  <string name="menu_article_share">Zdieľať článok</string>
   <string name="menu_page_open_a_new_tab">Otvoriť novú kartu</string>
   <string name="menu_page_new_tab">Nová karta</string>
   <string name="menu_page_reading_lists">Zoznamy na prečítanie</string>
@@ -677,7 +678,7 @@
   <string name="notifications_channel_group_other_description">Iné notifikácie z aplikácie</string>
   <string name="notifications_filter_label">Filtrovať notifikácie</string>
   <string name="notifications_filter_icon_content_description">Filtrovať notifikácie</string>
-  <string name="notifications_filter_add_app_languages">Pridať alebo upraviť jazyky</string>
+  <string name="notifications_filter_update_app_languages">Aktualizovať jazyky aplikácie</string>
   <string name="notifications_empty_search_message">Pre zobrazenia viac notifikácií skúste odstrániť %s</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filter</item>
@@ -1120,7 +1121,7 @@
   <string name="watchlist_details_next_edit">Ďalšia úprava</string>
   <string name="watchlist_details_prev_edit">Predošlá úprava</string>
   <string name="thank_label">Poďakovať</string>
-  <string name="go_to_user_page">Prejsť na stránku používateľa</string>
+  <string name="view_user_page">Zobraziť stránku používateľa</string>
   <string name="thank_dialog_title_text">Verejne poslať poďakovanie</string>
   <string name="thank_dialog_text">Poďakovania sú jednoduchý spôsob ako ukázať ocenenie práce redaktorov na Wikipédii. Poďakovanie sa nedá vrátiť a sú verejné</string>
   <string name="thank_dialog_positive_button_text">Poslať poďakovanie</string>

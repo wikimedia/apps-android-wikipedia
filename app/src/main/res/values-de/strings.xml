@@ -91,6 +91,7 @@
   <string name="feed_card_add_to_list">Zu Leseliste hinzufügen</string>
   <string name="feed_card_add_to_default_list">Speichern</string>
   <string name="menu_page_share">Link teilen</string>
+  <string name="menu_article_share">Artikel teilen</string>
   <string name="menu_page_open_a_new_tab">Eine neue Registerkarte öffnen</string>
   <string name="menu_page_new_tab">Neue Registerkarte</string>
   <string name="menu_page_reading_lists">Leselisten</string>
@@ -658,7 +659,7 @@
   <string name="notifications_channel_group_other_description">Andere Benachrichtigungen von der App</string>
   <string name="notifications_filter_label">Benachrichtigungen filtern</string>
   <string name="notifications_filter_icon_content_description">Benachrichtigungen filtern</string>
-  <string name="notifications_filter_add_app_languages">Sprachen in der App hinzufügen oder bearbeiten</string>
+  <string name="notifications_filter_update_app_languages">App-Sprachen aktualisieren</string>
   <string name="notifications_empty_search_message">Versuche %s zu entfernen, um mehr Benachrichtigungen zu sehen</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d Filter</item>
@@ -1075,7 +1076,7 @@
   <string name="watchlist_details_next_edit">Nächste Bearbeitung</string>
   <string name="watchlist_details_prev_edit">Vorherige Bearbeitung</string>
   <string name="thank_label">Danken</string>
-  <string name="go_to_user_page">Zur Benutzerseite</string>
+  <string name="view_user_page">Benutzerseite ansehen</string>
   <string name="thank_dialog_title_text">Öffentlich das Danke senden</string>
   <string name="thank_dialog_text">Danken ist eine einfache Möglichkeit, einem Benutzer seine Wertschätzung für seine Arbeit in der Wikipedia zu zeigen. Danken  kann nicht rückgängig gemacht werden und ist öffentlich einsehbar</string>
   <string name="thank_dialog_positive_button_text">Danke senden</string>

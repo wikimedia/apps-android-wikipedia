@@ -121,6 +121,7 @@
   <string name="feed_card_add_to_list">Добавить в список для чтения</string>
   <string name="feed_card_add_to_default_list">Сохранить</string>
   <string name="menu_page_share">Поделиться ссылкой</string>
+  <string name="menu_article_share">Поделиться статьёй</string>
   <string name="menu_page_open_a_new_tab">Открыть новую вкладку</string>
   <string name="menu_page_new_tab">Новая вкладка</string>
   <string name="menu_page_reading_lists">Списки для чтения</string>
@@ -1133,6 +1134,10 @@
   <string name="talk_last_modified">&lt;b&gt;Последняя правка сделана %1$s&lt;/b&gt; участником %2$s</string>
   <string name="talk_snackbar_survey_text">Спасибо за использование страниц обсуждения. Не могли бы вы помочь нам улучшить приложение, приняв участие в опросе?</string>
   <string name="talk_snackbar_survey_action_text">Начать</string>
+  <string name="talk_share_discussion_subject">Википедия — обсуждение в теме «%s»</string>
+  <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
+  <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
+  <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
   <string name="menu_option_user_profile">Профиль %s</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>
@@ -1141,7 +1146,6 @@
   <string name="watchlist_details_next_edit">Следующая правка</string>
   <string name="watchlist_details_prev_edit">Предыдущая правка</string>
   <string name="thank_label">Благодарность</string>
-  <string name="go_to_user_page">Перейти на страницу пользователя</string>
   <string name="thank_dialog_title_text">Публично отправить \'Спасибо\'</string>
   <string name="thank_dialog_text">\'Спасибо\' - это простой способ выразить признательность редактору Википедии за его работу. \'Спасибо\' нельзя отменить и оно отображается публично.</string>
   <string name="thank_dialog_positive_button_text">Отправить благодарность</string>

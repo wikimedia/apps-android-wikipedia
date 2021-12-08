@@ -993,13 +993,14 @@
   <string name="talk_response_submitted">Odpověď zveřejněna.</string>
   <string name="talk_snackbar_undo">Zpět</string>
   <string name="talk_last_modified">&lt;b&gt;Naposledy upravil(a) %1$s&lt;/b&gt; %2$s</string>
+  <string name="talk_share_discussion_subject">Wikipedie - diskuse na diskusní stránce k tématu „%s“</string>
+  <string name="talk_share_talk_page">Wikipedie - diskuse na diskusní stránce</string>
   <string name="menu_option_share_edit">Sdílet editaci</string>
   <string name="menu_option_user_profile">Profil uživatele %s</string>
   <string name="menu_option_user_contributions">Příspěvky uživatele/uživatelky %s</string>
   <string name="watchlist_details_watching_label">Sledujete</string>
   <string name="watchlist_details_watch_label">Sledovat</string>
   <string name="thank_label">Poděkovat</string>
-  <string name="go_to_user_page">Přejít na uživatelskou stránku</string>
   <string name="thank_dialog_title_text">Veřejně poslat poděkování</string>
   <string name="thank_dialog_text">Poděkování jsou jednoduchým způsobem, jak wikipedistovi můžete poděkovat za práci na Wikipedii. Poděkování nelze vzít zpět a jsou veřejně viditelná.</string>
   <string name="thank_dialog_positive_button_text">Odeslat poděkování</string>

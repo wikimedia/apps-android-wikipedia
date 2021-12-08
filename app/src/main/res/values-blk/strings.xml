@@ -63,6 +63,7 @@
   <string name="feed_card_add_to_list">ထဲမ်သော့ꩻ ဟော်ꩻလိတ်စာႏရင်ꩻကို</string>
   <string name="feed_card_add_to_default_list">သိမ်ꩻ</string>
   <string name="menu_page_share">ဖန်းဖြယ်လိဉ့်</string>
+  <string name="menu_article_share">ဖန်းဖြယ်ရောမ်ဖြုဲင်ꩻ</string>
   <string name="menu_page_open_a_new_tab">ဗွောင် tab တသာ</string>
   <string name="menu_page_new_tab">tab တသာ</string>
   <string name="menu_page_reading_lists">အဝ်ႏဟော်ꩻဒျာႏစာႏရင်ꩻဖိုင်ႏသွူ။</string>
@@ -600,7 +601,7 @@
   <string name="notifications_channel_group_other_description">အဲပ် ဖေႏသေချက်အလင်ဖိုင်ႏ</string>
   <string name="notifications_filter_label">စဲစ်ထွားမုꩻ ဖေႏသေချက်ဖိုင်ႏ</string>
   <string name="notifications_filter_icon_content_description">စဲစ်ထွားမုꩻ ဖေႏသေချက်ဖိုင်ႏ</string>
-  <string name="notifications_filter_add_app_languages">ထဲမ်သော့ꩻ မွေးတဝ်းလဲ့ မွဉ်းဖျင် အဲပ်ဘာႏသာႏငဝ်းငွါဖိုင်ႏ</string>
+  <string name="notifications_filter_update_app_languages">ဒင်ႏထို အဲပ်ဘာႏသာႏငဝ်းငွါ</string>
   <string name="notifications_empty_search_message">ဖေႏကထီႏလꩻ ဖေႏသေချက်အထဲင်းဖိုင်ႏတာႏ ကျိုꩻစာꩻဖုဲင်းထန်ႏထိုꩻ %s</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">စဲစ်ထွားမုꩻ %d</item>
@@ -920,7 +921,7 @@
   <string name="watchlist_details_next_edit">မွဉ်းဖျင်ထဲင်း</string>
   <string name="watchlist_details_prev_edit">မွဉ်းဖျင်မုꩻကရီးခါ</string>
   <string name="thank_label">ကေꩻဇူꩻတင်ႏငါႏ</string>
-  <string name="go_to_user_page">လွေꩻကေားသုင်ꩻသားလိတ်မဲ့ငါထျꩻ</string>
+  <string name="view_user_page">ထွား ကေားသုင်ꩻသားလိတ်မဲ့ငါ</string>
   <string name="thank_dialog_title_text">ပသာ \'ငဝ်းကေꩻဇူꩻတင်ႏ\' လိုꩻအာငါ</string>
   <string name="thank_dialog_positive_button_text">ပသာ ငဝ်းကေꩻဇူꩻတင်ႏ</string>
   <string name="thank_dialog_negative_button_text">မာꩻတဝ်းဒွုမ်</string>

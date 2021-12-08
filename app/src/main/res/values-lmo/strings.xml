@@ -53,6 +53,7 @@
   <string name="feed_card_add_to_list">Sgionta a la lista di robe de leger</string>
   <string name="feed_card_add_to_default_list">Manten i cambiament</string>
   <string name="menu_page_share">Spartiss el conligament cont un quaivun</string>
+  <string name="menu_article_share">Compartiss articoi</string>
   <string name="menu_page_open_a_new_tab">Derva una scheda noeuva</string>
   <string name="menu_page_new_tab">Noeuva scheda</string>
   <string name="menu_page_reading_lists">Liste di robe de leger</string>
@@ -256,5 +257,6 @@
   <string name="menu_option_share_edit">Scompartiss modifega</string>
   <string name="watchlist_details_watch_label">Varda</string>
   <string name="thank_label">Grazzia</string>
+  <string name="view_user_page">Varda la pagina de l\'utenza</string>
   <string name="thank_dialog_positive_button_text">RENGRAZZIA</string>
 </resources>
