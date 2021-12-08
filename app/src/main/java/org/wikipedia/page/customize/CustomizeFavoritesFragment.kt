@@ -30,6 +30,7 @@ class CustomizeFavoritesFragment : Fragment() {
     companion object {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
+        private const val VIEW_TYPE_EMPTY_PLACEHOLDER = 2
 
         fun newInstance(): CustomizeFavoritesFragment {
             return CustomizeFavoritesFragment()

@@ -1102,7 +1102,7 @@
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
   <string name="customize_favorites_title">Title text of the customize favorites page.</string>
   <string name="customize_favorites_description">Description of the customize favorites page.</string>
-  <string name="customize_favorites_category_favorites">Category of favorites in the customize favorites page.</string>
+  <string name="customize_favorites_category_quick_actions">Category of quick actions in the customize favorites page.</string>
   <string name="customize_favorites_category_menu">Category of menu in the customize favorites page.</string>
   <string name="customize_favorites_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize favorites page.</string>
   <string name="customize_favorites_reset_to_default_button">Button label for resetting the configuration of customize favorites to default.</string>

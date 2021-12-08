@@ -802,7 +802,7 @@
     <!-- Customize favorites -->
     <string name="customize_favorites_title">Customize favorites</string>
     <string name="customize_favorites_description">Customize your bottom toolbar links to your favorite Wikipedia actions and destinations.</string>
-    <string name="customize_favorites_category_favorites">Favorites</string>
+    <string name="customize_favorites_category_quick_actions">Quick actions</string>
     <string name="customize_favorites_category_menu">Menu</string>
     <string name="customize_favorites_drag_and_drop_placeholder">Drag and drop your favorite items here 👋</string>
     <string name="customize_favorites_reset_to_default_button">Reset to default</string>

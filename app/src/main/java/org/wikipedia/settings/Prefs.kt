@@ -552,4 +552,14 @@ object Prefs {
 
     val hideReadNotificationsEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notification_hide_read, false)
+
+    var customizeFavoritesQuickActionsOrder
+        get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_favorites_quick_actions_order, null))
+            ?: emptyList()
+        set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_favorites_quick_actions_order, JsonUtil.encodeToString(orderList))
+
+    var customizeFavoritesMenuOrder
+        get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_favorites_menu_order, null))
+            ?: emptyList()
+        set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_favorites_menu_order, JsonUtil.encodeToString(orderList))
 }
