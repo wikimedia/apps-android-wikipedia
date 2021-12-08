@@ -15,8 +15,8 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.JobsUtil
 import org.wikipedia.util.log.L
 
 class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
@@ -25,7 +25,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         L.d("Message from: ${remoteMessage.from}")
 
         if (remoteMessage.data.containsValue(MESSAGE_TYPE_CHECK_ECHO)) {
-            NotificationPollBroadcastReceiver.pollNotifications(this)
+            JobsUtil.schedulePollNotificationJob(this)
         }
 
         // The message could also contain a notification payload, but that's not how we're using it.
