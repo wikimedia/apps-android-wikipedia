@@ -8,13 +8,30 @@ class CustomizeFavoritesViewModel : ViewModel() {
 
     private var menuOrder = mutableListOf<Int>()
     private var quickActionsOrder = mutableListOf<Int>()
-    val listOfCategory = listOf(R.string.customize_favorites_category_quick_actions, R.string.customize_favorites_category_menu)
+
     // List that contains header, empty placeholder and actual items.
-    var fullList = mutableListOf<Any>()
+    var fullList = mutableListOf<Pair<Int, Any>>()
 
     init {
         menuOrder = Prefs.customizeFavoritesMenuOrder as MutableList<Int>
         quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder as MutableList<Int>
+        processList()
     }
 
+    private fun processList() {
+        // Quick actions
+        fullList.add(CustomizeFavoritesFragment.VIEW_TYPE_HEADER to R.string.customize_favorites_category_quick_actions)
+        fullList.addAll(addItemsOrEmptyPlaceholder(quickActionsOrder))
+        // Menu
+        fullList.add(CustomizeFavoritesFragment.VIEW_TYPE_HEADER to R.string.customize_favorites_category_menu)
+        fullList.addAll(addItemsOrEmptyPlaceholder(menuOrder))
+    }
+
+    private fun addItemsOrEmptyPlaceholder(list: List<Int>): List<Pair<Int, Any>> {
+        return if (list.isEmpty()) {
+            listOf(CustomizeFavoritesFragment.VIEW_TYPE_EMPTY_PLACEHOLDER to "")
+        } else {
+            quickActionsOrder.map { CustomizeFavoritesFragment.VIEW_TYPE_ITEM to PageMenuItem.find(it) }
+        }
+    }
 }

@@ -2,9 +2,11 @@ package org.wikipedia.page.customize
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -14,6 +16,7 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentCustomizeFavoritesBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.views.DefaultViewHolder
+import java.util.*
 
 class CustomizeFavoritesFragment : Fragment() {
     private var _binding: FragmentCustomizeFavoritesBinding? = null
@@ -54,10 +57,9 @@ class CustomizeFavoritesFragment : Fragment() {
     }
 
     private inner class RecyclerItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
-        private var checkboxEnabled = false
+
         override fun getItemViewType(position: Int): Int {
-            // TODO: set up type
-            return 0
+            return viewModel.fullList[position].first
         }
 
         override fun getItemCount(): Int {
@@ -79,12 +81,31 @@ class CustomizeFavoritesFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
-            // TODO
+            when (holder) {
+                is ItemHolder -> {
+                    holder.bindItem(viewModel.fullList[pos].second as PageMenuItem, pos)
+                    holder.view.setDragHandleEnabled(true)
+                }
+                is HeaderViewHolder -> {
+                    holder.bindItem(viewModel.fullList[pos].second as Int)
+                }
+            }
         }
 
         override fun onViewAttachedToWindow(holder: DefaultViewHolder<*>) {
             super.onViewAttachedToWindow(holder)
-            // TODO
+            if (holder is ItemHolder) {
+                holder.view.setDragHandleTouchListener { v: View, event: MotionEvent ->
+                    when (event.actionMasked) {
+                        MotionEvent.ACTION_DOWN -> {
+                            itemTouchHelper.startDrag(holder)
+                        }
+                        MotionEvent.ACTION_UP -> v.performClick()
+                        else -> { }
+                    }
+                    false
+                }
+            }
         }
 
         override fun onViewDetachedFromWindow(holder: DefaultViewHolder<*>) {
@@ -95,12 +116,8 @@ class CustomizeFavoritesFragment : Fragment() {
         }
 
         fun onMoveItem(oldPosition: Int, newPosition: Int) {
-//            Collections.swap(wikipediaLanguages, oldPosition - WikipediaLanguagesFragment.NUM_HEADERS, newPosition - WikipediaLanguagesFragment.NUM_FOOTERS)
+            Collections.swap(viewModel.fullList, oldPosition, newPosition)
             notifyItemMoved(oldPosition, newPosition)
-        }
-
-        fun onCheckboxEnabled(enabled: Boolean) {
-            checkboxEnabled = enabled
         }
     }
 
@@ -136,23 +153,23 @@ class CustomizeFavoritesFragment : Fragment() {
     }
 
     private inner class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
-        fun bindItem(position: Int) {
-            itemView.findViewById<TextView>(R.id.headerTitle).setText(viewModel.listOfCategory[position])
+        fun bindItem(@StringRes stringRes: Int) {
+            itemView.findViewById<TextView>(R.id.headerTitle).setText(stringRes)
         }
     }
 
     private inner class ItemHolder constructor(itemView: CustomizeFavoritesItemView) : DefaultViewHolder<CustomizeFavoritesItemView>(itemView) {
-        fun bindItem(id: Int, position: Int) {
-            view.setContents(PageMenuItem.find(id), position)
+        fun bindItem(pageMenuItem: PageMenuItem, position: Int) {
+            view.setContents(pageMenuItem, position)
         }
     }
 
     private inner class EmptyPlaceholderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView)
 
     companion object {
-        private const val VIEW_TYPE_HEADER = 0
-        private const val VIEW_TYPE_ITEM = 1
-        private const val VIEW_TYPE_EMPTY_PLACEHOLDER = 2
+        const val VIEW_TYPE_HEADER = 0
+        const val VIEW_TYPE_ITEM = 1
+        const val VIEW_TYPE_EMPTY_PLACEHOLDER = 2
 
         fun newInstance(): CustomizeFavoritesFragment {
             return CustomizeFavoritesFragment()
