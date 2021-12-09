@@ -24,6 +24,7 @@ import org.wikipedia.analytics.AppearanceChangeFunnel
 import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.page.customize.CustomizeFavoritesActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil.getDimension
@@ -85,6 +86,11 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         disableBackgroundDim()
         requireDialog().window?.let {
             DeviceUtil.setNavigationBarColor(it, getThemedColor(requireContext(), R.attr.paper_color))
+        }
+
+        // TODO: test only
+        binding.customizeFavorites.setOnClickListener {
+            startActivity(CustomizeFavoritesActivity.newIntent(requireContext()))
         }
 
         disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))

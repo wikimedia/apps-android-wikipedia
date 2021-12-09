@@ -208,6 +208,13 @@
                 android:text="@string/theme_chooser_dialog_image_dimming_switch_label"
                 android:textColor="?attr/section_title_color" />
 
+            <!-- TODO: test only -->
+            <Button
+                android:id="@+id/customizeFavorites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customize favorites"/>
+
         </LinearLayout>
 
     </ScrollView>
