@@ -77,6 +77,7 @@
   <string name="feed_card_add_to_list">Додати до читального списку</string>
   <string name="feed_card_add_to_default_list">Зберегти</string>
   <string name="menu_page_share">Поділитися посиланням</string>
+  <string name="menu_article_share">Поділитися статтею</string>
   <string name="menu_page_open_a_new_tab">Відкрити нову вкладинку</string>
   <string name="menu_page_new_tab">Нова вкладка</string>
   <string name="menu_page_reading_lists">Читальні списки</string>
@@ -678,6 +679,7 @@
   <string name="notifications_channel_group_other_description">Інші сповіщення від програми</string>
   <string name="notifications_filter_label">Фільтр сповіщень</string>
   <string name="notifications_filter_icon_content_description">Фільтр сповіщень</string>
+  <string name="notifications_filter_update_app_languages">Оновити мови програми</string>
   <string name="notifications_empty_search_message">Спробуйте видалити %s, щоб побачити більше сповіщень</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d фільтр</item>
@@ -1121,6 +1123,7 @@
   <string name="watchlist_details_next_edit">Наступне редагування</string>
   <string name="watchlist_details_prev_edit">Попереднє редагування</string>
   <string name="thank_label">Подякувати</string>
+  <string name="view_user_page">Переглянути сторінку користувача</string>
   <string name="thank_dialog_title_text">Публічно відправити подяку</string>
   <string name="thank_dialog_text">«Подяка» — це легкий спосіб висловити вдячність за внесок редактора у Вікіпедії. Вона не може бути відкликана і є видимою публічно</string>
   <string name="thank_dialog_positive_button_text">Надіслати подяку</string>
