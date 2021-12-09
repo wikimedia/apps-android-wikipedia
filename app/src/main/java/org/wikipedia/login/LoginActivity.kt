@@ -18,13 +18,13 @@ import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
 import org.wikipedia.login.LoginClient.LoginFailedException
+import org.wikipedia.notifications.PollNotificationService
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.updateSubscription
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.JobsUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
@@ -172,7 +172,7 @@ class LoginActivity : BaseActivity() {
         Prefs.readingListPagesDeletedIds = emptySet()
         Prefs.readingListsDeletedIds = emptySet()
         ReadingListSyncAdapter.manualSyncWithForce()
-        JobsUtil.schedulePollNotificationJob(this)
+        PollNotificationService.schedulePollNotificationJob(this)
         updateSubscription()
         finish()
     }

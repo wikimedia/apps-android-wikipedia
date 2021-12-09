@@ -26,7 +26,6 @@ import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.JobsUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
@@ -54,7 +53,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     return
                 }
                 LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
-                JobsUtil.schedulePollNotificationJob(context)
+                PollNotificationService.schedulePollNotificationJob(context)
             }
             ACTION_CANCEL == intent.action -> {
                 NotificationInteractionFunnel.processIntent(intent)
@@ -130,14 +129,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             return PendingIntent.getBroadcast(context, id.toInt(), intent, DeviceUtil.pendingIntentFlags)
         }
 
-        fun assertLoggedIn() {
-            // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
-            // and should automatically log us out if the credentials are no longer valid.
-            CsrfTokenClient(WikipediaApp.getInstance().wikiSite).token
-                    .subscribeOn(Schedulers.io())
-                    .subscribe()
-        }
-
          fun onNotificationsComplete(context: Context, notifications: List<Notification>) {
             if (Prefs.isSuggestedEditsHighestPriorityEnabled) {
                 return
@@ -186,6 +177,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             if (knownNotifications.size > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
                 markItemsAsRead(knownNotifications.subList(0, knownNotifications.size - MAX_LOCALLY_KNOWN_NOTIFICATIONS))
             }
+PollNotificationService.pollNotificationJobFinished()
         }
 
         private fun markItemsAsRead(items: List<Notification>) {
