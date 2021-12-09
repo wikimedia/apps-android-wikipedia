@@ -2,6 +2,7 @@
 <!-- Authors:
 * AVSmalnad77
 * Ananth subray
+* MSG17
 * MuratTheTurkish
 * Nayvik
 * Omshivaprakash
@@ -379,7 +380,7 @@
   <string name="onboarding_continue">ಮುಂದುವರೆಸು</string>
   <string name="onboarding_got_it">ಗೊತ್ತಾಯಿತು</string>
   <string name="onboarding_multilingual_add_language_text">ಭಾಷೆಗಳನ್ನು ಸೇರಿಸಿ ಅಥವಾ ಸಂಪಾದಿಸಿ</string>
-  <string name="onboarding_welcome_title_v2">ಒಂದು ಉಚಿತ ವಿಶ್ವಕೋಶ\n...೩೦೦ಕ್ಕೂ ಹೆಚ್ಚು ಭಾಷೆಗಳಲ್ಲಿ</string>
+  <string name="onboarding_welcome_title_v2">ಒಂದು ಸ್ವತಂತ್ರ ವಿಶ್ವಕೋಶ\n...೩೦೦ಕ್ಕೂ ಹೆಚ್ಚು ಭಾಷೆಗಳಲ್ಲಿ</string>
   <string name="app_shortcuts_search">ಹುಡುಕು</string>
   <string name="on_this_day_card_title">ಈ ದಿನದಂದು</string>
   <string name="this_year">ಈ ವರ್ಷ</string>
