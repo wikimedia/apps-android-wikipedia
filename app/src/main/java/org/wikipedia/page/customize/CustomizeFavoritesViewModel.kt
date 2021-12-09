@@ -13,9 +13,17 @@ class CustomizeFavoritesViewModel : ViewModel() {
     var fullList = mutableListOf<Pair<Int, Any>>()
 
     init {
+        setupDefaultOrder()
         menuOrder = Prefs.customizeFavoritesMenuOrder
         quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder
         processList()
+    }
+
+    private fun setupDefaultOrder() {
+        if (Prefs.customizeFavoritesMenuOrder.isEmpty() && Prefs.customizeFavoritesQuickActionsOrder.isEmpty()) {
+            Prefs.customizeFavoritesMenuOrder = listOf(0, 1, 2, 3, 4)
+            Prefs.customizeFavoritesQuickActionsOrder = listOf(5, 6, 7, 8, 9, 10)
+        }
     }
 
     private fun processList() {
