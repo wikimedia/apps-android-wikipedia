@@ -25,15 +25,11 @@ class CustomizeFavoritesFragment : Fragment() {
 
     private lateinit var itemTouchHelper: ItemTouchHelper
     private lateinit var adapter: RecyclerItemAdapter
-    private var menuOrder = mutableListOf<Int>()
-    private var quickActionsOrder = mutableListOf<Int>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentCustomizeFavoritesBinding.inflate(LayoutInflater.from(context), container, false)
-        menuOrder = Prefs.customizeFavoritesMenuOrder as MutableList<Int>
-        quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder as MutableList<Int>
         return binding.root
     }
 

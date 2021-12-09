@@ -6,15 +6,15 @@ import org.wikipedia.settings.Prefs
 
 class CustomizeFavoritesViewModel : ViewModel() {
 
-    private var menuOrder = mutableListOf<Int>()
-    private var quickActionsOrder = mutableListOf<Int>()
+    private var menuOrder = listOf<Int>()
+    private var quickActionsOrder = listOf<Int>()
 
     // List that contains header, empty placeholder and actual items.
     var fullList = mutableListOf<Pair<Int, Any>>()
 
     init {
-        menuOrder = Prefs.customizeFavoritesMenuOrder as MutableList<Int>
-        quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder as MutableList<Int>
+        menuOrder = Prefs.customizeFavoritesMenuOrder
+        quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder
         processList()
     }
 
