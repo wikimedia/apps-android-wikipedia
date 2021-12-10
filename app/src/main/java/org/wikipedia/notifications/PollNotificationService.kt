@@ -40,6 +40,7 @@ class PollNotificationService : JobService() {
                 assertLoggedIn()
             }
             L.e(t)
+            pollNotificationJobFinished()
         }) {
             val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification()
             val lastNotificationTime =
