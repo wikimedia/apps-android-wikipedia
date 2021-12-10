@@ -177,7 +177,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             if (knownNotifications.size > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
                 markItemsAsRead(knownNotifications.subList(0, knownNotifications.size - MAX_LOCALLY_KNOWN_NOTIFICATIONS))
             }
-PollNotificationService.pollNotificationJobFinished()
         }
 
         private fun markItemsAsRead(items: List<Notification>) {

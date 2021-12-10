@@ -22,25 +22,22 @@ import org.wikipedia.util.log.L
 
 class PollNotificationService : JobService() {
 
-    private var jobParameters: JobParameters? = null
-
     override fun onStartJob(jobParameters: JobParameters?): Boolean {
-        pollNotifications(this)
+        pollNotifications(this, jobParameters)
         return true
     }
 
     override fun onStopJob(p0: JobParameters?): Boolean {
-        jobParameters = p0
         return true
     }
 
-    private fun pollNotifications(context: Context) {
+    private fun pollNotifications(context: Context, jobParameters: JobParameters?) {
         CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, t ->
             if (t is MwException && t.error.title == "login-required") {
                 assertLoggedIn()
             }
             L.e(t)
-            pollNotificationJobFinished()
+            jobFinished(jobParameters, false)
         }) {
             val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification()
             val lastNotificationTime =
@@ -49,14 +46,14 @@ class PollNotificationService : JobService() {
                 Prefs.remoteNotificationsSeenTime = lastNotificationTime
                 retrieveNotifications(context)
             }
+            jobFinished(jobParameters, false)
         }
     }
 
     private suspend fun retrieveNotifications(context: Context) {
         NotificationPollBroadcastReceiver.DBNAME_WIKI_SITE_MAP.clear()
         NotificationPollBroadcastReceiver.DBNAME_WIKI_NAME_MAP.clear()
-        val response =
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unreadNotificationWikis()
+        val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unreadNotificationWikis()
         val wikiMap = response.query!!.unreadNotificationWikis
         val wikis = mutableListOf<String>()
         wikis.addAll(wikiMap!!.keys)
@@ -91,16 +88,12 @@ class PollNotificationService : JobService() {
     }
 
     companion object {
-        var pollNotificationService = PollNotificationService()
 
         fun schedulePollNotificationJob(context: Context) {
-            val serviceComponent = ComponentName(context, pollNotificationService.javaClass)
+            val serviceComponent = ComponentName(context, PollNotificationService::class.java)
             val builder = JobInfo.Builder(0, serviceComponent)
             val jobScheduler = context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
             jobScheduler.schedule(builder.build())
-        }
-         fun pollNotificationJobFinished() {
-            pollNotificationService.jobFinished(pollNotificationService.jobParameters, false)
         }
     }
 }
