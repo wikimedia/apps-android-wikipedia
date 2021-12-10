@@ -3,6 +3,7 @@ package org.wikipedia.page.customize
 import androidx.lifecycle.ViewModel
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.log.L
 import java.util.*
 
 class CustomizeFavoritesViewModel : ViewModel() {
@@ -60,6 +61,7 @@ class CustomizeFavoritesViewModel : ViewModel() {
             fullList.add(1, emptyPlaceholderPair(true))
         }
         // Last category is empty
+        L.d("fullList.last() " + fullList.last())
         if (fullList.last().first == CustomizeFavoritesFragment.VIEW_TYPE_HEADER) {
             fullList.add(emptyPlaceholderPair(false))
         }
@@ -67,11 +69,12 @@ class CustomizeFavoritesViewModel : ViewModel() {
 
     fun removePlaceholder() {
         // TODO: fix the crash
-//        if (fullList.indexOf(headerPair(true)) > 2) {
+//        if (fullList.indexOf(headerPair(false)) > 2) {
 //            fullList.remove(emptyPlaceholderPair(true))
 //        }
-//        if (fullList.indexOf(headerPair(false)) < fullList.size - 1) {
-//            fullList.remove(emptyPlaceholderPair(false))
-//        }
+        if (fullList.indexOf(headerPair(false)) < fullList.size - 2) {
+            L.d("removePlaceholder bottom")
+            fullList.remove(emptyPlaceholderPair(false))
+        }
     }
 }
