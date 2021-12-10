@@ -14,9 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentCustomizeFavoritesBinding
-import org.wikipedia.settings.Prefs
 import org.wikipedia.views.DefaultViewHolder
-import java.util.*
 
 class CustomizeFavoritesFragment : Fragment() {
     private var _binding: FragmentCustomizeFavoritesBinding? = null
@@ -91,7 +89,7 @@ class CustomizeFavoritesFragment : Fragment() {
         override fun onViewAttachedToWindow(holder: DefaultViewHolder<*>) {
             super.onViewAttachedToWindow(holder)
             if (holder is ItemHolder) {
-                holder.view.setDragHandleTouchListener { v: View, event: MotionEvent ->
+                holder.view.setDragHandleTouchListener { v, event ->
                     when (event.actionMasked) {
                         MotionEvent.ACTION_DOWN -> {
                             itemTouchHelper.startDrag(holder)
@@ -112,8 +110,12 @@ class CustomizeFavoritesFragment : Fragment() {
         }
 
         fun onMoveItem(oldPosition: Int, newPosition: Int) {
-            Collections.swap(viewModel.fullList, oldPosition, newPosition)
             notifyItemMoved(oldPosition, newPosition)
+            viewModel.swapList(oldPosition, newPosition)
+        }
+
+        fun removePlaceholder() {
+            viewModel.removePlaceholder()
         }
     }
 
@@ -132,10 +134,15 @@ class CustomizeFavoritesFragment : Fragment() {
         }
 
         override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-            if (target is ItemHolder) {
-                adapter.onMoveItem(source.adapterPosition, target.getAdapterPosition())
+            if (target is ItemHolder || target is HeaderViewHolder) {
+                adapter.onMoveItem(source.absoluteAdapterPosition, target.absoluteAdapterPosition)
             }
             return true
+        }
+
+        override fun onMoved(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, fromPos: Int, target: RecyclerView.ViewHolder, toPos: Int, x: Int, y: Int) {
+            super.onMoved(recyclerView, viewHolder, fromPos, target, toPos, x, y)
+            adapter.removePlaceholder()
         }
 
         override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
