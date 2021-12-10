@@ -66,11 +66,12 @@ class CustomizeFavoritesViewModel : ViewModel() {
     }
 
     fun removePlaceholder() {
-        if (fullList.indexOf(headerPair(true)) > 2) {
-            fullList.remove(emptyPlaceholderPair(true))
-        }
-        if (fullList.indexOf(headerPair(false)) < fullList.size - 1) {
-            fullList.remove(emptyPlaceholderPair(false))
-        }
+        // TODO: fix the crash
+//        if (fullList.indexOf(headerPair(true)) > 2) {
+//            fullList.remove(emptyPlaceholderPair(true))
+//        }
+//        if (fullList.indexOf(headerPair(false)) < fullList.size - 1) {
+//            fullList.remove(emptyPlaceholderPair(false))
+//        }
     }
 }
