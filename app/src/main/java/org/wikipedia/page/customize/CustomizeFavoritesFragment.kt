@@ -110,12 +110,19 @@ class CustomizeFavoritesFragment : Fragment() {
         }
 
         fun onMoveItem(oldPosition: Int, newPosition: Int) {
-            notifyItemMoved(oldPosition, newPosition)
             viewModel.swapList(oldPosition, newPosition)
+            notifyItemMoved(oldPosition, newPosition)
         }
 
-        fun removePlaceholder() {
-            viewModel.removePlaceholder()
+        fun onItemMoved() {
+            val removePosition = viewModel.removeEmptyPlaceholder()
+            if (removePosition >= 0) {
+                notifyItemRemoved(removePosition)
+            }
+            val addPosition = viewModel.addEmptyPlaceholder()
+            if (addPosition >= 0) {
+                notifyItemChanged(addPosition)
+            }
         }
     }
 
@@ -134,23 +141,18 @@ class CustomizeFavoritesFragment : Fragment() {
         }
 
         override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-            if (target is ItemHolder || (target is HeaderViewHolder &&
-                        target.itemView.findViewById<TextView>(R.id.headerTitle).text == getString(R.string.customize_favorites_category_menu))) {
+            if (!(target is HeaderViewHolder && target.itemView.findViewById<TextView>(R.id.headerTitle).text == getString(R.string.customize_favorites_category_quick_actions))) {
                 adapter.onMoveItem(source.absoluteAdapterPosition, target.absoluteAdapterPosition)
             }
             return true
-        }
-
-        override fun onMoved(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, fromPos: Int, target: RecyclerView.ViewHolder, toPos: Int, x: Int, y: Int) {
-            super.onMoved(recyclerView, viewHolder, fromPos, target, toPos, x, y)
-            adapter.removePlaceholder()
         }
 
         override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
             super.clearView(recyclerView, viewHolder)
             recyclerView.post {
                 if (isAdded) {
-                    // TODO
+                    viewModel.saveChanges()
+                    adapter.onItemMoved()
                 }
             }
         }

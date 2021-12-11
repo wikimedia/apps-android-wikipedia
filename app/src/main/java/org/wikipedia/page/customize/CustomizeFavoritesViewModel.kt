@@ -3,22 +3,21 @@ package org.wikipedia.page.customize
 import androidx.lifecycle.ViewModel
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.log.L
 import java.util.*
 
 class CustomizeFavoritesViewModel : ViewModel() {
 
-    private var menuOrder = listOf<Int>()
-    private var quickActionsOrder = listOf<Int>()
+    private var quickActionsOrder = mutableListOf<Int>()
+    private var menuOrder = mutableListOf<Int>()
 
     // List that contains header, empty placeholder and actual items.
     var fullList = mutableListOf<Pair<Int, Any>>()
 
     init {
         setupDefaultOrder()
-        menuOrder = Prefs.customizeFavoritesMenuOrder
-        quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder
-        processList()
+        quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder.toMutableList()
+        menuOrder = Prefs.customizeFavoritesMenuOrder.toMutableList()
+        preProcessList()
     }
 
     private fun setupDefaultOrder() {
@@ -28,7 +27,7 @@ class CustomizeFavoritesViewModel : ViewModel() {
         }
     }
 
-    private fun processList() {
+    private fun preProcessList() {
         // Quick actions
         fullList.add(headerPair(true))
         fullList.addAll(addItemsOrEmptyPlaceholder(quickActionsOrder, true))
@@ -54,27 +53,52 @@ class CustomizeFavoritesViewModel : ViewModel() {
         return CustomizeFavoritesFragment.VIEW_TYPE_EMPTY_PLACEHOLDER to quickActions
     }
 
-    fun swapList(oldPosition: Int, newPosition: Int) {
-        Collections.swap(fullList, oldPosition, newPosition)
-        // First category is empty
-        if (fullList[1].first == CustomizeFavoritesFragment.VIEW_TYPE_HEADER) {
-            fullList.add(1, emptyPlaceholderPair(true))
+    fun saveChanges() {
+        var saveIntoQuickActions = true
+        quickActionsOrder.clear()
+        menuOrder.clear()
+        fullList.filterNot { it.first == CustomizeFavoritesFragment.VIEW_TYPE_EMPTY_PLACEHOLDER }.forEach {
+            if (it == headerPair(false)) {
+                saveIntoQuickActions = false
+            }
+            if (it.first == CustomizeFavoritesFragment.VIEW_TYPE_ITEM) {
+                if (saveIntoQuickActions) {
+                    quickActionsOrder.add((it.second as PageMenuItem).id)
+                } else {
+                    menuOrder.add((it.second as PageMenuItem).id)
+                }
+            }
         }
-        // Last category is empty
-        L.d("fullList.last() " + fullList.last())
-        if (fullList.last().first == CustomizeFavoritesFragment.VIEW_TYPE_HEADER) {
-            fullList.add(emptyPlaceholderPair(false))
-        }
+
     }
 
-    fun removePlaceholder() {
-        // TODO: fix the crash
-//        if (fullList.indexOf(headerPair(false)) > 2) {
-//            fullList.remove(emptyPlaceholderPair(true))
-//        }
-        if (fullList.indexOf(headerPair(false)) < fullList.size - 2) {
-            L.d("removePlaceholder bottom")
-            fullList.remove(emptyPlaceholderPair(false))
+    fun swapList(oldPosition: Int, newPosition: Int) {
+        Collections.swap(fullList, oldPosition, newPosition)
+    }
+
+    fun addEmptyPlaceholder(): Int {
+        if (quickActionsOrder.isEmpty() && !fullList.contains(emptyPlaceholderPair(true))) {
+            fullList.add(1, emptyPlaceholderPair(true))
+            return 1
         }
+        if (menuOrder.isEmpty() && !fullList.contains(emptyPlaceholderPair(false))) {
+            fullList.add(emptyPlaceholderPair(false))
+            return fullList.size - 1
+        }
+        return -1
+    }
+
+    fun removeEmptyPlaceholder(): Int {
+        if (quickActionsOrder.isNotEmpty() && fullList.contains(emptyPlaceholderPair(true))) {
+            val index = fullList.indexOf(emptyPlaceholderPair(true))
+            fullList.removeAt(index)
+            return index
+        }
+        if (menuOrder.isNotEmpty() && fullList.contains(emptyPlaceholderPair(false))) {
+            val index = fullList.indexOf(emptyPlaceholderPair(false))
+            fullList.removeAt(index)
+            return index
+        }
+        return -1
     }
 }
