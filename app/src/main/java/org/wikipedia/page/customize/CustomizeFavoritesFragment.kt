@@ -141,7 +141,7 @@ class CustomizeFavoritesFragment : Fragment() {
         }
 
         override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-            if (!(target is HeaderViewHolder && target.itemView.findViewById<TextView>(R.id.headerTitle).text == getString(R.string.customize_favorites_category_quick_actions))) {
+            if (target is ItemHolder || (target is HeaderViewHolder && target.itemView.findViewById<TextView>(R.id.headerTitle).text == getString(R.string.customize_favorites_category_menu))) {
                 adapter.onMoveItem(source.absoluteAdapterPosition, target.absoluteAdapterPosition)
             }
             return true
