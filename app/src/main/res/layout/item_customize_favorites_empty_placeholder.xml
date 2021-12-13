@@ -7,5 +7,5 @@
     android:textColor="?secondary_text_color"
     android:layout_gravity="center"
     android:background="@drawable/toc_dotted_line"
-    android:layout_margin="16dp"
-    android:padding="16dp"/>
+    android:padding="16dp"
+    android:layout_marginHorizontal="16dp"/>
