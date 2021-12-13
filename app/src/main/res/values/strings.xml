@@ -1110,7 +1110,7 @@
     <string name="talk_snackbar_survey_action_text">Get started</string>
     <string name="talk_share_discussion_subject">Wikipedia - discussion on talk page topic \"%s\"</string>
     <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
-    <string name="talk_edit_disclaimer">This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.\n\n<a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a></string>
+    <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a>]]></string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>

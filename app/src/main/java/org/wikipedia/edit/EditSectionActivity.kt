@@ -31,6 +31,7 @@ import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.ActivityEditSectionBinding
+import org.wikipedia.databinding.DialogWithCheckboxBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwException
@@ -570,14 +571,19 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun maybeShowEditSourceDialog() {
-        if (pageTitle.namespace() !== Namespace.USER && pageTitle.namespace() !== Namespace.USER_TALK) {
+        if (!Prefs.showEditTalkPageSourcePrompt || (pageTitle.namespace() !== Namespace.TALK && pageTitle.namespace() !== Namespace.USER_TALK)) {
             return
         }
+        val binding = DialogWithCheckboxBinding.inflate(layoutInflater)
+        binding.dialogMessage.text = StringUtil.fromHtml(getString(R.string.talk_edit_disclaimer))
+        binding.dialogMessage.movementMethod = movementMethod
         AlertDialog.Builder(this@EditSectionActivity)
-            .setMessage(R.string.talk_edit_disclaimer)
+            .setView(binding.root)
             .setPositiveButton(R.string.onboarding_got_it) { dialog, _ -> dialog.dismiss() }
+            .setOnDismissListener {
+                Prefs.showEditTalkPageSourcePrompt = !binding.dialogCheckbox.isChecked
+            }
             .show()
-            .findViewById<TextView>(android.R.id.message)?.movementMethod = movementMethod
     }
 
     private fun displaySectionText() {
