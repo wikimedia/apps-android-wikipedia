@@ -3,6 +3,7 @@ package org.wikipedia.page.customize
 import androidx.lifecycle.ViewModel
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.log.L
 import java.util.*
 
 class CustomizeFavoritesViewModel : ViewModel() {
@@ -74,15 +75,18 @@ class CustomizeFavoritesViewModel : ViewModel() {
 
     fun swapList(oldPosition: Int, newPosition: Int) {
         Collections.swap(fullList, oldPosition, newPosition)
+        L.d("fullList " + fullList)
     }
 
     fun addEmptyPlaceholder(): Int {
         if (quickActionsOrder.isEmpty() && !fullList.contains(emptyPlaceholderPair(true))) {
             fullList.add(1, emptyPlaceholderPair(true))
+            L.d("fullList " + fullList)
             return 1
         }
         if (menuOrder.isEmpty() && !fullList.contains(emptyPlaceholderPair(false))) {
             fullList.add(emptyPlaceholderPair(false))
+            L.d("fullList " + fullList)
             return fullList.size - 1
         }
         return -1

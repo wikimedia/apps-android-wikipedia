@@ -121,7 +121,7 @@ class CustomizeFavoritesFragment : Fragment() {
             }
             val addPosition = viewModel.addEmptyPlaceholder()
             if (addPosition >= 0) {
-                notifyItemChanged(addPosition)
+                notifyItemRangeChanged(addPosition, viewModel.fullList.size - addPosition)
             }
         }
     }
