@@ -383,7 +383,7 @@
   <string name="error_message_generic">Tapahtui virhe</string>
   <string name="view_link_preview_error_button_dismiss">Hylkää</string>
   <string name="error_page_does_not_exist">Tätä sivua ei ole olemassa</string>
-  <string name="error_user_page_does_not_exist">Wikipediassa ei ole tämän nimistä &lt;a href=\"%1$s/wiki/%2$s\"&gt;käyttäjäsivua&lt;/a&gt;. Useimmiten vain käyttäjän &lt;b&gt;%2$s&lt;/b&gt; tulisi luoda tämä sivu ja muokata sitä. Mikäli et ole varma, varmista että käyttäjä \"%3$s\" on olemassa.</string>
+  <string name="error_user_page_does_not_exist">Wikipediassa ei ole tämän nimistä &lt;a href=\"%1$s\"&gt;käyttäjäsivua&lt;/a&gt;. Useimmiten vain käyttäjän &lt;b&gt;%2$s&lt;/b&gt; tulisi luoda tämä sivu ja muokata sitä. Mikäli et ole varma, varmista että käyttäjä \"%3$s\" on olemassa.</string>
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
   <string name="view_wiki_error_message_timeout">Wikipediaan ei saada yhteyttä. Tarkista verkkoyhteytesi tai yritä myöhemmin uudelleen.</string>
   <string name="reference_title">Viite %s</string>
