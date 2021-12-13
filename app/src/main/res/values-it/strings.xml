@@ -665,6 +665,7 @@
   <string name="notifications_channel_group_other_description">Altre notifiche dall\'applicazione</string>
   <string name="notifications_filter_label">Filtra notifiche</string>
   <string name="notifications_filter_icon_content_description">Filtra notifiche</string>
+  <string name="notifications_filter_update_app_languages">Aggiorna lingue dell\'applicazione</string>
   <string name="notifications_empty_search_message">Prova a rimuovere %s per vedere più notifiche</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtro</item>
