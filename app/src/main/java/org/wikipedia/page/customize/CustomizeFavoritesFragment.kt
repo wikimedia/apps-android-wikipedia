@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentCustomizeFavoritesBinding
+import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 
 class CustomizeFavoritesFragment : Fragment() {
@@ -33,6 +34,10 @@ class CustomizeFavoritesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupRecyclerView()
+        binding.resetToDefaultButton.setOnClickListener {
+            viewModel.resetToDefault()
+            setupRecyclerView()
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 

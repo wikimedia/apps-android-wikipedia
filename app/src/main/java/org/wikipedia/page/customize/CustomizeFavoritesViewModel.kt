@@ -3,7 +3,6 @@ package org.wikipedia.page.customize
 import androidx.lifecycle.ViewModel
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.log.L
 import java.util.*
 
 class CustomizeFavoritesViewModel : ViewModel() {
@@ -15,20 +14,21 @@ class CustomizeFavoritesViewModel : ViewModel() {
     var fullList = mutableListOf<Pair<Int, Any>>()
 
     init {
-        setupDefaultOrder()
-        quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder.toMutableList()
-        menuOrder = Prefs.customizeFavoritesMenuOrder.toMutableList()
+        setupDefaultOrder(Prefs.customizeFavoritesMenuOrder.isEmpty() && Prefs.customizeFavoritesQuickActionsOrder.isEmpty())
         preProcessList()
     }
 
-    private fun setupDefaultOrder() {
-        if (Prefs.customizeFavoritesMenuOrder.isEmpty() && Prefs.customizeFavoritesQuickActionsOrder.isEmpty()) {
+    private fun setupDefaultOrder(default: Boolean) {
+        if (default) {
             Prefs.customizeFavoritesQuickActionsOrder = listOf(0, 1, 2, 3, 4)
             Prefs.customizeFavoritesMenuOrder = listOf(5, 6, 7, 8, 9, 10)
         }
+        quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder.toMutableList()
+        menuOrder = Prefs.customizeFavoritesMenuOrder.toMutableList()
     }
 
     private fun preProcessList() {
+        fullList.clear()
         // Quick actions
         fullList.add(headerPair(true))
         fullList.addAll(addItemsOrEmptyPlaceholder(quickActionsOrder, true))
@@ -54,6 +54,12 @@ class CustomizeFavoritesViewModel : ViewModel() {
         return CustomizeFavoritesFragment.VIEW_TYPE_EMPTY_PLACEHOLDER to quickActions
     }
 
+    fun resetToDefault() {
+        setupDefaultOrder(true)
+        preProcessList()
+        saveChanges()
+    }
+
     fun saveChanges() {
         var saveIntoQuickActions = true
         quickActionsOrder.clear()
@@ -70,23 +76,21 @@ class CustomizeFavoritesViewModel : ViewModel() {
                 }
             }
         }
-
+        Prefs.customizeFavoritesQuickActionsOrder = quickActionsOrder
+        Prefs.customizeFavoritesMenuOrder = menuOrder
     }
 
     fun swapList(oldPosition: Int, newPosition: Int) {
         Collections.swap(fullList, oldPosition, newPosition)
-        L.d("fullList " + fullList)
     }
 
     fun addEmptyPlaceholder(): Int {
         if (quickActionsOrder.isEmpty() && !fullList.contains(emptyPlaceholderPair(true))) {
             fullList.add(1, emptyPlaceholderPair(true))
-            L.d("fullList " + fullList)
             return 1
         }
         if (menuOrder.isEmpty() && !fullList.contains(emptyPlaceholderPair(false))) {
             fullList.add(emptyPlaceholderPair(false))
-            L.d("fullList " + fullList)
             return fullList.size - 1
         }
         return -1
