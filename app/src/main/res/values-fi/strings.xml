@@ -383,7 +383,7 @@
   <string name="error_message_generic">Tapahtui virhe</string>
   <string name="view_link_preview_error_button_dismiss">Hylkää</string>
   <string name="error_page_does_not_exist">Tätä sivua ei ole olemassa</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">Wikipediassa ei ole tämän nimistä &lt;a href=\"%1$s\"&gt;käyttäjäsivua&lt;/a&gt;. Useimmiten vain käyttäjän &lt;b&gt;%2$s&lt;/b&gt; tulisi luoda tämä sivu ja muokata sitä. Mikäli et ole varma, varmista että käyttäjä \"%3$s\" on olemassa.</string>
+  <string name="error_user_page_does_not_exist">Wikipediassa ei ole tämän nimistä &lt;a href=\"%1$s\"&gt;käyttäjäsivua&lt;/a&gt;. Useimmiten vain käyttäjän &lt;b&gt;%2$s&lt;/b&gt; tulisi luoda tämä sivu ja muokata sitä. Mikäli et ole varma, varmista että käyttäjä \"%3$s\" on olemassa.</string>
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
   <string name="view_wiki_error_message_timeout">Wikipediaan ei saada yhteyttä. Tarkista verkkoyhteytesi tai yritä myöhemmin uudelleen.</string>
   <string name="reference_title">Viite %s</string>
@@ -656,8 +656,14 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Ilmoitukset Wikipediasta</string>
   <string name="notifications_channel_group_other_title">Muu</string>
   <string name="notifications_channel_group_other_description">Muut ilmoitukset sovelluksesta</string>
+  <string name="notifications_filter_label">Suodata ilmoituksia</string>
+  <string name="notifications_filter_icon_content_description">Suodata ilmoituksia</string>
   <string name="notifications_filter_update_app_languages">Päivitä sovelluksen kielet</string>
   <string name="notifications_empty_search_message">Kokeile poistaa %s nähdäksesi lisää ilmoituksia</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d suodatin</item>
+    <item quantity="other">%d suodatinta</item>
+  </plurals>
   <string name="notifications_select_all_filters">Valitse kaikki suodattimet</string>
   <string name="notifications_tab_filter_all">Kaikki</string>
   <string name="notifications_tab_filter_mentions">Maininnat</string>
@@ -670,6 +676,8 @@
   <string name="notifications_menu_check_all">Tarkista kaikki kohteet</string>
   <string name="notifications_menu_uncheck_all">Poista valinta kaikista</string>
   <string name="notifications_wiki_filter_header">Wikisuodatin</string>
+  <string name="notifications_all_wikis_text">Kaikki \"wikit\"</string>
+  <string name="notifications_all_types_text">Kaikki \"tyypit\"</string>
   <string name="notifications_menu_user_talk_page">Käyttäjän %s keskustelusivu</string>
   <string name="notifications_offline_disable_message">Tämä toiminto ei ole käytettävissä ilman verkkoyhteyttä.</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
