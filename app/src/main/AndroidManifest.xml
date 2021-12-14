@@ -368,9 +368,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".notifications.PollNotificationService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
 
     </application>
 </manifest>
