@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentCustomizeFavoritesBinding
-import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 
 class CustomizeFavoritesFragment : Fragment() {
