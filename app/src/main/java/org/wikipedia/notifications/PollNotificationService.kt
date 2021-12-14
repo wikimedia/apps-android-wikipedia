@@ -54,15 +54,12 @@ class PollNotificationService : JobService() {
         NotificationPollBroadcastReceiver.DBNAME_WIKI_SITE_MAP.clear()
         NotificationPollBroadcastReceiver.DBNAME_WIKI_NAME_MAP.clear()
         val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unreadNotificationWikis()
-        val wikiMap = response.query!!.unreadNotificationWikis
-        val wikis = mutableListOf<String>()
-        wikis.addAll(wikiMap!!.keys)
-        for (dbName in wikiMap.keys) {
-            if (wikiMap[dbName]!!.source != null) {
-                NotificationPollBroadcastReceiver.DBNAME_WIKI_SITE_MAP[dbName] =
-                    WikiSite(wikiMap[dbName]!!.source!!.base)
-                NotificationPollBroadcastReceiver.DBNAME_WIKI_NAME_MAP[dbName] =
-                    wikiMap[dbName]!!.source!!.title
+        val wikiMap = response.query!!.unreadNotificationWikis.orEmpty()
+        val wikis = wikiMap.keys.toList()
+        for ((dbName, wiki) in wikiMap) {
+            if (wiki.source != null) {
+                NotificationPollBroadcastReceiver.DBNAME_WIKI_SITE_MAP[dbName] = WikiSite(wiki.source.base)
+                NotificationPollBroadcastReceiver.DBNAME_WIKI_NAME_MAP[dbName] = wiki.source.title
             }
         }
         getFullNotifications(context, wikis)
