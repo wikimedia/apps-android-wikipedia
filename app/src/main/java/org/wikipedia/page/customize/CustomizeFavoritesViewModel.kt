@@ -7,11 +7,14 @@ import java.util.*
 
 class CustomizeFavoritesViewModel : ViewModel() {
 
-    private var quickActionsOrder = mutableListOf<Int>()
-    private var menuOrder = mutableListOf<Int>()
+    var quickActionsOrder = mutableListOf<Int>()
+        private set
+    var menuOrder = mutableListOf<Int>()
+        private set
 
     // List that contains header, empty placeholder and actual items.
     var fullList = mutableListOf<Pair<Int, Any>>()
+        private set
 
     init {
         setupDefaultOrder(Prefs.customizeFavoritesMenuOrder.isEmpty() && Prefs.customizeFavoritesQuickActionsOrder.isEmpty())
@@ -54,30 +57,53 @@ class CustomizeFavoritesViewModel : ViewModel() {
         return CustomizeFavoritesFragment.VIEW_TYPE_EMPTY_PLACEHOLDER to quickActions
     }
 
-    fun resetToDefault() {
-        setupDefaultOrder(true)
-        preProcessList()
-        saveChanges()
-    }
-
-    fun saveChanges() {
+    private fun handleCategoriesItems(): Pair<MutableList<Int>, MutableList<Int>> {
         var saveIntoQuickActions = true
-        quickActionsOrder.clear()
-        menuOrder.clear()
+        val quickActionsItems = mutableListOf<Int>()
+        val menuItems = mutableListOf<Int>()
         fullList.filterNot { it.first == CustomizeFavoritesFragment.VIEW_TYPE_EMPTY_PLACEHOLDER }.forEach {
             if (it == headerPair(false)) {
                 saveIntoQuickActions = false
             }
             if (it.first == CustomizeFavoritesFragment.VIEW_TYPE_ITEM) {
                 if (saveIntoQuickActions) {
-                    quickActionsOrder.add((it.second as PageMenuItem).id)
+                    quickActionsItems.add((it.second as PageMenuItem).id)
                 } else {
-                    menuOrder.add((it.second as PageMenuItem).id)
+                    menuItems.add((it.second as PageMenuItem).id)
                 }
             }
         }
+        return quickActionsItems to menuItems
+    }
+
+    private fun handleCategoryLimitation(pair: Pair<MutableList<Int>, MutableList<Int>>): Pair<MutableList<Int>, MutableList<Int>> {
+        // Manually move the last item in Quick actions to the top of Menu.
+        Collections.swap(fullList, CustomizeFavoritesFragment.QUICK_ACTIONS_LIMIT + 1, CustomizeFavoritesFragment.QUICK_ACTIONS_LIMIT + 2)
+        pair.second.add(0, pair.first.removeLast())
+        return pair
+    }
+
+    fun resetToDefault() {
+        setupDefaultOrder(true)
+        preProcessList()
+        saveChanges()
+    }
+
+    fun saveChanges(): Boolean {
+        val pair = handleCategoriesItems()
+
+        val shouldHandleLimitation = pair.first.size > CustomizeFavoritesFragment.QUICK_ACTIONS_LIMIT
+
+        if (shouldHandleLimitation) {
+            handleCategoryLimitation(pair)
+        }
+
+        quickActionsOrder = pair.first
+        menuOrder = pair.second
         Prefs.customizeFavoritesQuickActionsOrder = quickActionsOrder
         Prefs.customizeFavoritesMenuOrder = menuOrder
+
+        return shouldHandleLimitation
     }
 
     fun swapList(oldPosition: Int, newPosition: Int) {

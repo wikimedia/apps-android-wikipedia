@@ -41,6 +41,8 @@ class CustomizeFavoritesFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        // Save changes again to avoid UI bug that happens on swapping items.
+        viewModel.saveChanges()
         _binding = null
         super.onDestroyView()
     }
@@ -115,10 +117,11 @@ class CustomizeFavoritesFragment : Fragment() {
 
         fun onMoveItem(oldPosition: Int, newPosition: Int) {
             viewModel.swapList(oldPosition, newPosition)
+            // General item moved
             notifyItemMoved(oldPosition, newPosition)
         }
 
-        fun onItemMoved() {
+        fun onItemMoved(shouldHandleLimitation: Boolean) {
             val removePosition = viewModel.removeEmptyPlaceholder()
             if (removePosition >= 0) {
                 notifyItemRemoved(removePosition)
@@ -126,6 +129,10 @@ class CustomizeFavoritesFragment : Fragment() {
             val addPosition = viewModel.addEmptyPlaceholder()
             if (addPosition >= 0) {
                 notifyItemRangeChanged(addPosition, viewModel.fullList.size - addPosition)
+            }
+            // Manual swapped, for the item that reaches the limitation
+            if (shouldHandleLimitation) {
+                notifyItemMoved(QUICK_ACTIONS_LIMIT + 1, QUICK_ACTIONS_LIMIT + 2)
             }
         }
     }
@@ -145,7 +152,7 @@ class CustomizeFavoritesFragment : Fragment() {
         }
 
         override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-            if (target is ItemHolder || (target is HeaderViewHolder && target.itemView.findViewById<TextView>(R.id.headerTitle).text == getString(R.string.customize_favorites_category_menu))) {
+            if (movableItems(target)) {
                 adapter.onMoveItem(source.absoluteAdapterPosition, target.absoluteAdapterPosition)
             }
             return true
@@ -155,10 +162,14 @@ class CustomizeFavoritesFragment : Fragment() {
             super.clearView(recyclerView, viewHolder)
             recyclerView.post {
                 if (isAdded) {
-                    viewModel.saveChanges()
-                    adapter.onItemMoved()
+                    adapter.onItemMoved(viewModel.saveChanges())
                 }
             }
+        }
+
+        private fun movableItems(target: RecyclerView.ViewHolder): Boolean {
+            return target is ItemHolder ||
+                    (target is HeaderViewHolder && target.itemView.findViewById<TextView>(R.id.headerTitle).text == getString(R.string.customize_favorites_category_menu))
         }
     }
 
@@ -180,6 +191,7 @@ class CustomizeFavoritesFragment : Fragment() {
         const val VIEW_TYPE_HEADER = 0
         const val VIEW_TYPE_ITEM = 1
         const val VIEW_TYPE_EMPTY_PLACEHOLDER = 2
+        const val QUICK_ACTIONS_LIMIT = 5
 
         fun newInstance(): CustomizeFavoritesFragment {
             return CustomizeFavoritesFragment()
