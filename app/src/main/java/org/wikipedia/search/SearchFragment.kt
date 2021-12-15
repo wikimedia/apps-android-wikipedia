@@ -319,7 +319,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
         binding.searchCabView.setOnCloseListener(searchCloseListener)
         binding.searchCabView.setSearchHintTextColor(getThemedColor(requireContext(),
-                R.attr.material_theme_de_emphasised_color))
+                R.attr.color_group_63))
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchCabView
