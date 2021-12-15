@@ -207,6 +207,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
 
         override fun onViewDetachedFromWindow(holder: DefaultViewHolder<*>) {
             if (holder is WikipediaLanguageItemHolder) {
+                holder.view.callback = null
                 holder.view.setDragHandleTouchListener(null)
             }
             super.onViewDetachedFromWindow(holder)
