@@ -76,6 +76,7 @@ class CustomizeFavoritesViewModel : ViewModel() {
     // First: Quick actions; Second: Menu
     private fun handleCategoryLimitation(pair: Pair<MutableList<Int>, MutableList<Int>>): List<Int> {
         val list = mutableListOf<Int>()
+        // To avoid seeing the bug from the library, we have to use a while loop to manually swap items.
         while (pair.first.size > CustomizeFavoritesFragment.QUICK_ACTIONS_LIMIT) {
             // Last item swap with "Menu" header
             swapList(pair.first.size, pair.first.size + 1)
