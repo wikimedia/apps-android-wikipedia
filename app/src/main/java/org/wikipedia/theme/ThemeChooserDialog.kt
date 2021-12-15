@@ -146,6 +146,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun onToggleReadingFocusMode(enabled: Boolean) {
         Prefs.readingFocusModeEnabled = enabled
+        funnel.logReadingFocusMode(enabled)
         callback()?.onToggleReadingFocusMode()
     }
 
