@@ -3,6 +3,7 @@ package org.wikipedia.analytics
 import org.json.JSONObject
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.theme.Theme
 
@@ -44,6 +45,7 @@ class AppearanceChangeFunnel(app: WikipediaApp, wiki: WikiSite, private val sour
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "invoke_source", source.ordinal)
+        preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
         return super.preprocessData(eventData)
     }
 }
