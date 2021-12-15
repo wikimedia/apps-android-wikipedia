@@ -348,6 +348,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         undoneBody = body
         undoneSubject = subject
 
+        editFunnel.logSaveAttempt()
+
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
             binding.replySubjectLayout.requestFocus()
