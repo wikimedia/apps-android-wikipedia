@@ -60,7 +60,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.media.AvPlayer
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.notifications.PollNotificationService
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionTab
 import org.wikipedia.page.leadimages.LeadImagesHandler
@@ -913,7 +913,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         if (AccountUtil.isLoggedIn) {
             // explicitly check notifications for the current user
-            NotificationPollBroadcastReceiver.pollNotifications(requireActivity())
+            PollNotificationService.schedulePollNotificationJob(requireContext())
         }
 
         // update the time spent reading of the current page, before loading the new one

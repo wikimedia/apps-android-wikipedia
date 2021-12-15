@@ -109,7 +109,7 @@
   <string name="title_captcha">ထဲမ်သော့ꩻ CAPTCHA</string>
   <string name="edit_section_captcha_reload">ခွိုန်းသွူ CAPTCHA တဲင် ထူႏထဲင်းသွော့အတသာတဗာႏဩ</string>
   <string name="nav_item_login">နွို့ ဝီခီပီးဒီးယားအကောက်</string>
-  <string name="login_username_hint">သွုံꩻသားမိဉ်ꩻ</string>
+  <string name="login_username_hint">သုင်ꩻသားမိဥ်ꩻ</string>
   <string name="login_password_hint">ငဝ်းဗိဥ်ႏပလို့ꩻ</string>
   <string name="account_creation_password_hint">ငဝ်းဗိဥ်ႏပလို့ꩻ</string>
   <string name="login_2fa_hint">ငဝ်းဗိဉ်ႏပလို့ꩻကိုဒ် ၂ ရန်းစား</string>
@@ -141,7 +141,7 @@
   <string name="search_empty_message_multilingual_upgrade">ဝီခီပီးဒီးယားယို ထိုမ်ႏထွားအီတောမ်ႏ ဘာႏသာႏငဝ်းငွါအလင်ဖိုင်ႏ</string>
   <string name="delete_selected_items">ယားကုဲင် ကလွိုက်ခါꩻဒါႏ အကျောင်ꩻခရာႏဖိုင်ႏ</string>
   <string name="wp_stylized">&lt;big&gt;ဝီ&lt;/big&gt;ခီပီးဒီး&lt;big&gt;ယား&lt;/big&gt;</string>
-  <string name="create_account_username_hint">သွုံꩻသားမိဉ်ꩻ</string>
+  <string name="create_account_username_hint">သုင်ꩻသားမိဥ်ꩻ</string>
   <string name="login_dont_have_account">အကောက် အဝ်ႏတဝ်းနဲ့?</string>
   <string name="login_join_wikipedia">နွို့ဝီခီပီးဒီးယား</string>
   <string name="login_forgot_password">အွဥ်ႏဖေင်ꩻထိုꩻ ငဝ်းဗိဥ်ႏပလို့ꩻနဲ့</string>
@@ -187,7 +187,7 @@
   <string name="preference_summary_auto_upload_crash_reports">ယမ်ဖေႏကမာꩻဟောဝ်လꩻယိုꩻယိုꩻ ထာꩻကုဲင်ကွꩻနောဝ်ꩻတာႏတဲင် ခမ်ႏစွꩻဖေႏ အဲပ် ကအီးပသာသဲင်ꩻချာသေ ထာꩻကုဲင်ထိုꩻခရာႏ ကေားမာꩻဖေႏအခါႏကိုသားထျꩻယို၊ နောဝ်ꩻမꩻ နီအီးထွားမာꩻဖေႏဒါႏ နာꩻထာꩻကုဲင်ကွꩻ။</string>
   <string name="editing_error_spamblacklist">ဖေႏသေ ကမော့ꩻခါꩻဒါႏ ကပေ့ꩻထိုꩻခါꩻလဲန်း ဒိုမိန်း \"%s\" လဉ့်ခ်ဖုံႏ။ ကြုဲင်းညာꩻထိုꩻခါꩻ နောဝ်ꩻစားဖုံႏမꩻ ကွဲးလွေꩻထဲင်းဖျင်သော့ꩻဩ။</string>
   <string name="history_filter_list_hint">ရွီꩻထန်ႏဟောဝ် ထာꩻကထွာဖိုခြောင်ꩻ</string>
-  <string name="error_can_not_process_link">ထေနယ်လဉ့်ခ်ယိုဗာႏ လꩻတောဝ်းဩ။</string>
+  <string name="error_can_not_process_link">ထေနယ်လိဉ့်ယိုဗာႏ လꩻတောဝ်းဩ။</string>
   <string name="page_protected_autoconfirmed">လိတ်မဲ့ငါယိုဗာႏနောဝ်ꩻ အောဝ်ႏရဲးခါꩻသေꩻလဲန်း တခူးတခေါဝ်။</string>
   <string name="page_protected_sysop">လိတ်မဲ့ငါယိုဗာႏနောဝ်ꩻ အောဝ်ႏရဲးဗဉ်ႏခါꩻလဲန်း။</string>
   <string name="page_protected_other">လိတ်မဲ့ငါယိုဗာႏနောဝ်ꩻ အောဝ်ႏရဲးခါꩻသေꩻ ဗꩻလဲန်းအရန်းဖုံႏနုဲင်းယို: %s</string>
