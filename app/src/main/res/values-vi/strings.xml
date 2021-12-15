@@ -44,6 +44,7 @@
   <string name="offline_load_error_retry">Thử lại</string>
   <string name="page_error_back_to_main">Quay lại</string>
   <string name="error_back">Quay lại</string>
+  <string name="error_next">Tiếp</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
   <string name="history_item_deleted">%s đã được xóa khỏi lịch sử</string>
   <string name="history_items_deleted">%d bài viết đã được xóa khỏi lịch sử</string>
@@ -52,6 +53,9 @@
   <string name="app_settings">Tùy chọn</string>
   <string name="search_tab_tooltip">Nhấn lại vào biểu tượng để bắt đầu nhập cụm từ tìm kiếm.</string>
   <string name="history_list_title">Lịch sử</string>
+  <string name="image_content_description">Hình ảnh: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Xóa lịch sử duyệt trang</string>
   <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang và đóng các thẻ đang mở.</string>
   <string name="dialog_message_clear_history_yes">Có</string>
@@ -73,6 +77,7 @@
   <string name="feed_card_add_to_list">Thêm vào danh sách đọc</string>
   <string name="feed_card_add_to_default_list">Lưu</string>
   <string name="menu_page_share">Chia sẻ liên kết</string>
+  <string name="menu_article_share">Chia sẻ bài</string>
   <string name="menu_page_open_a_new_tab">Mở một thẻ mới</string>
   <string name="menu_page_new_tab">Tab mới</string>
   <string name="menu_page_reading_lists">Danh sách đọc</string>
@@ -176,6 +181,7 @@
   <string name="create_account_ip_block_help_url">https://vi.wikipedia.org/wiki/Trợ_giúp:Tôi_đã_bị_cấm</string>
   <string name="create_account_ip_block_details">Chi tiết</string>
   <string name="preferences_general_heading">Tổng quát</string>
+  <string name="preferences_account_heading">Tài khoản</string>
   <string name="wikipedia_app_faq">Câu hỏi thường gặp về ứng dụng Wikipedia</string>
   <string name="send_feedback">Gửi phản hồi về ứng dụng</string>
   <string name="create_account_account_created_toast">Đã mở tài khoản thành công!</string>
@@ -204,6 +210,7 @@
   <string name="page_protected_can_not_edit_title">Trang này bị khóa</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Thêm vào danh sách theo dõi</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Theo dõi những gì đang xảy ra với các trang mà bạn quan tâm. Nhấn vào menu mục bổ sung và chọn &lt;b&gt;Thêm vào danh sách theo dõi&lt;/b&gt; để xem các thay đổi đối với một bài viết.</string>
+  <string name="page_notification_tooltip">Các thông báo được di chuyển sang đây.</string>
   <string name="settings_item_preferences">Tùy chọn</string>
   <string name="settings_activity_title">Tùy chọn</string>
   <string name="about_description">Giới thiệu về ứng dụng Wikipedia</string>
@@ -225,7 +232,7 @@
   <string name="about_translators_heading">Biên dịch viên</string>
   <string name="about_translators_translatewiki">Ứng dụng này được biên dịch bởi những người tình nguyện tại &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Giấy phép</string>
-  <string name="about_app_license" fuzzy="true">Mã nguồn có sẵn tại &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; và &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; theo &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Giấy phép Apache 2.0&lt;/a&gt;. Trừ khi được chỉ rõ, toàn bộ nội dung được phát hành theo &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Nguyên_văn_Giấy_phép_Creative_Commons_Ghi_công–Chia_sẻ_tương_tự_phiên_bản_3.0_Chưa_chuyển_đổi\"&gt;Giấy phép Creative Commons Ghi công–Chia sẻ tương tự&lt;/a&gt;.</string>
+  <string name="about_app_license">Mã nguồn có sẵn tại &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; và &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; theo &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Giấy phép Apache 2.0&lt;/a&gt;. Trừ khi được chỉ rõ, toàn bộ nội dung được phát hành theo &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Nguyên_văn_Giấy_phép_Creative_Commons_Ghi_công–Chia_sẻ_tương_tự_phiên_bản_3.0_Chưa_chuyển_đổi\"&gt;Giấy phép Creative Commons Ghi công–Chia sẻ tương tự&lt;/a&gt;.</string>
   <string name="about_wmf">Một sản phẩm của &lt;a href=\"https://wikimediafoundation.org\"&gt;Quỹ Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Giới thiệu</string>
   <string name="edit_abandon_confirm">Trang đã được sửa đổi. Bạn có chắc chắn muốn thoát mà không lưu các thay đổi của bạn?</string>
@@ -249,6 +256,10 @@
   <string name="edit_summary_tag_other_hint">Những cách khác để cải thiện trang</string>
   <string name="edit_conflict_title">Mâu thuẫn trong sửa đổi</string>
   <string name="edit_conflict_message">Trang này dã bị sửa đổi bởi một người dùng khác, và sửa đổi này có mâu thuẫn với sửa đổi của bạn. Xin hãy sao chép sửa đổi của bạn, quay lại và tải lại trang, và thử sửa đổi lại xem sao.</string>
+  <string name="edit_notices">Thông báo sửa đổi</string>
+  <string name="edit_notices_please_read">Vui lòng đọc trước khi sửa đổi</string>
+  <string name="edit_notices_show_auto">Tự động hiển thị thông báo sửa đổi</string>
+  <string name="edit_notices_tooltip">Chạm vào nút này để xem các thông báo sửa đổi của bài viết.</string>
   <string name="find_next">Tìm tiếp</string>
   <string name="find_previous">Tìm trước</string>
   <string name="find_first_occurence">Đây là lần đầu tiên</string>
@@ -359,6 +370,7 @@
   <string name="error_message_generic">Đã xảy ra lỗi</string>
   <string name="view_link_preview_error_button_dismiss">Bỏ qua</string>
   <string name="error_page_does_not_exist">Trang này không tồn tại</string>
+  <string name="error_user_page_does_not_exist">Wikipedia không có &lt;a href=\"%1$s\"&gt;trang thành viên&lt;/a&gt; đúng tên này. Nói chung, trang này nên được &lt;b&gt;%2$s&lt;/b&gt; tạo và sửa đổi. Nếu không chắc chắn, xin hãy kiểm tra rằng “%3$s” đã tồn tại.</string>
   <string name="view_wiki_error_message_offline">Không thể kết nối với Internet</string>
   <string name="view_wiki_error_message_timeout">Không thể kết nối với Wikipedia.  Kiểm tra kết nối mạng của bạn hoặc thử lại sau.</string>
   <string name="reference_title">Chú thích %s</string>
@@ -370,6 +382,12 @@
   <string name="page_footer_license_text">Nội dung được phát hành theo $1, trừ khi có ghi chú khác.</string>
   <string name="empty_tab_title">Thẻ mới</string>
   <string name="menu_save_all_tabs">Lưu tất cả các thẻ</string>
+  <string name="error_blocked_title">Tên người dùng hoặc địa chỉ IP của bạn đã bị cấm.</string>
+  <string name="error_blocked_by">Tác vụ cấm được thực hiện bởi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Lý do: %s</string>
+  <string name="error_blocked_start">Ngày bắt đầu cấm: %s</string>
+  <string name="error_blocked_expiry">Ngày hạn tác vụ cấm: %s</string>
+  <string name="error_blocked_id">Số tác vụ cấm: %s</string>
   <string name="crash_report_activity_title">Lỗi ứng dụng</string>
   <string name="crash_report_relaunch_or_quit">Bạn muốn bắt đầu lại hay thoát?</string>
   <string name="crash_report_relaunch">Bắt đầu lại</string>
@@ -520,10 +538,12 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Tùy chọn</string>
   <string name="notification_reverted_title">Sửa đổi bị lùi lại</string>
+  <string name="notification_channel_title">Đang tải bài viết về…</string>
   <string name="notification_channel_description">Tiến trình tải về</string>
   <string name="notification_syncing_pause_button">Tạm ngừng</string>
   <string name="notification_syncing_resume_button">Tiếp tục</string>
   <string name="notification_syncing_cancel_button">Hủy bỏ</string>
+  <string name="notification_syncing_reading_list_channel_title">Đang đồng bộ hóa các danh sách đọc</string>
   <string name="notification_syncing_reading_list_channel_description">Tiến trình đồng bộ hóa danh sách đọc</string>
   <string name="notification_many_unread">Bạn có %d thông báo chưa đọc</string>
   <plurals name="notification_channel_name">
@@ -569,6 +589,13 @@
   <string name="notifications_view_archived_button_text">Xem thông báo đã lưu trữ</string>
   <string name="notification_preferences_title">Tùy chọn thông báo</string>
   <string name="notifications_mark_unread">Đánh dấu là chưa đọc</string>
+  <string name="notifications_mark_all_as_read">Đánh dấu tất cả là đã đọc</string>
+  <string name="notifications_direct_reply_action">Trả lời</string>
+  <string name="notifications_direct_reply_progress">Đang đăng trả lời cho %s…</string>
+  <string name="notifications_direct_reply_success">Đã đăng trả lời.</string>
+  <string name="notifications_direct_reply_error">Không thể tự động đăng trả lời.</string>
+  <string name="notifications_mark_all_as_read_message">Đã đánh dấu %d là đã đọc</string>
+  <string name="notifications_mark_all_as_unread_message">Đã đánh dấu %d là chưa đọc</string>
   <string name="watchlist_title">Danh sách theo dõi</string>
   <string name="preference_title_notification_poll">Tự động kiểm tra thông báo</string>
   <string name="preference_summary_notification_poll">Cho phép ứng dụng sử dụng dữ liệu di động để tự động kiểm tra thông báo mới trong nền.</string>
@@ -583,10 +610,45 @@
   <string name="preference_summary_notification_revert">Một trong những đóng góp của bạn đã được lùi lại</string>
   <string name="preference_title_notification_login_fail">Đăng nhập</string>
   <string name="preference_summary_notification_login_fail">Hoạt động đăng nhập của bạn</string>
-  <string name="preference_title_notification_mention">Đề cập</string>
+  <string name="preference_title_notification_mention">Lời nhắc đến</string>
   <string name="preference_summary_notification_mention">Ai đó đề cập bạn trong một trang</string>
   <string name="preference_title_notification_user_talk">Trang thảo luận</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Tin nhắn từ trang thảo luận</string>
+  <string name="preference_summary_notification_user_talk">Tin nhắn và hồi âm từ trang thảo luận</string>
+  <string name="preference_title_notification_email_user">Đã nhận thư điện tử</string>
+  <string name="preference_summary_notification_email_user">Ai đó gửi bạn thư điện tử qua wiki</string>
+  <string name="preference_title_notification_user_rights">Thay đổi quyền người dùng</string>
+  <string name="preference_summary_notification_user_rights">Nhận khi các quyền người dùng của bạn được thay đổi</string>
+  <string name="preference_title_notification_article_linked">Liên kết đến các bài do bạn tạo ra</string>
+  <string name="preference_summary_notification_article_linked">Nhận khi đặt liên kết đến trang do bạn tạo ra</string>
+  <string name="preference_category_push_notifications">Thông báo đẩy</string>
+  <string name="preference_title_customize_push_notifications">Tùy biến các thông báo đẩy</string>
+  <string name="preference_category_display_settings">Tùy chọn hiển thị</string>
+  <string name="preference_title_hide_read_notifications">Ẩn thông báo đã đọc</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Thông báo từ Wikipedia</string>
+  <string name="notifications_channel_group_other_title">Khác</string>
+  <string name="notifications_channel_group_other_description">Thông báo khác từ ứng dụng</string>
+  <string name="notifications_filter_label">Lọc thông báo</string>
+  <string name="notifications_filter_icon_content_description">Lọc thông báo</string>
+  <string name="notifications_filter_update_app_languages">Cập nhật các ngôn ngữ ứng dụng</string>
+  <string name="notifications_empty_search_message">Thử xóa %s để xem thêm thông báo</string>
+  <string name="notifications_select_all_filters">Chọn tất cả các bộ lọc</string>
+  <string name="notifications_tab_filter_all">Tất cả</string>
+  <string name="notifications_tab_filter_mentions">Lời nhắc đến</string>
+  <string name="notifications_search_bar_hint">Tìm hoặc lọc thông báo</string>
+  <string name="notifications_search_bar_filter_hint">Bộ lọc thông báo</string>
+  <string name="notifications_menu_mark_as_read">Đánh dấu là đã đọc</string>
+  <string name="notifications_menu_mark_as_unread">Đánh dấu là chưa đọc</string>
+  <string name="notifications_swipe_action_read">Đã đọc</string>
+  <string name="notifications_swipe_action_unread">Chưa đọc</string>
+  <string name="notifications_menu_check_all">Đánh dấu tất cả các mục</string>
+  <string name="notifications_menu_uncheck_all">Bỏ đánh dấu tất cả các mục</string>
+  <string name="notifications_wiki_filter_header">Bộ lọc theo wiki</string>
+  <string name="notifications_type_filter_header">Bộ lọc theo kiểu</string>
+  <string name="notifications_all_wikis_text">Tất cả các “wiki”</string>
+  <string name="notifications_all_types_text">Tất cả các “kiểu”</string>
+  <string name="notifications_menu_user_talk_page">Trang thảo luận của %s</string>
+  <string name="notifications_offline_disable_message">Chức năng này không có sẵn trong khi ngoại tuyến.</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
   <string name="view_random_card_title">Ngẫu nhiên</string>
   <string name="view_random_article_card_title">Bài viết ngẫu nhiên</string>
@@ -673,6 +735,7 @@
   <string name="description_ends_with_punctuation">Văn bản không được kết thúc bằng dấu chấm câu.</string>
   <string name="description_starts_with_article">Không bắt đầu với các bài viết bằng \"a\" hoặc \"the\".</string>
   <string name="description_starts_with_uppercase">Bắt đầu bằng một chữ cái thường trừ khi từ đầu tiên là danh từ riêng.</string>
+  <string name="description_starts_with_lowercase">Tránh chữ hoa ở đầu lời tóm lược.</string>
   <string name="description_is_in_different_language">Văn bản có vẻ bằng một ngôn ngữ sai. Ngôn ngữ phải là %s.</string>
   <string name="description_edit_success_saved">Đã đăng miêu tả bài viết!</string>
   <string name="description_edit_success_saved_snackbar">Đã đăng mô tả bài viết!</string>
@@ -735,6 +798,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Bắt đầu</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Chú thích hình ảnh (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Tập tin</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Tập tin từ Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Họa sĩ</string>
   <string name="suggested_edits_image_preview_dialog_tags">Thẻ</string>
   <string name="suggested_edits_image_preview_dialog_date">Ngày tháng</string>
@@ -858,6 +922,7 @@
   <string name="file_page_activity_title">Trang tập tin</string>
   <string name="file_page_add_image_caption_button">Thêm chú thích hình ảnh</string>
   <string name="file_page_add_image_tags_button">Thêm thẻ quyền cho hình ảnh</string>
+  <string name="file_page_suggestion_reason">Lý do gợi ý</string>
   <string name="description_edit_revert_subtitle">Cảm ơn bạn đã sửa đổi Wikipedia.</string>
   <string name="description_edit_revert_intro">Rất tiếc, bạn đã cố gắng sửa đổi một cách chính xác, nhưng một người xem lại đã nhận thấy vấn đề. Họ đã lùi lại sửa đổi của bạn, có thể do một lý do sau:</string>
   <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>
@@ -962,12 +1027,22 @@
   <string name="talk_message_empty">Tin nhắn này không trống</string>
   <string name="talk_subject_empty">Không thể để trống tiêu đề.</string>
   <string name="talk_response_submitted">Đã đăng phản hồi.</string>
+  <string name="talk_snackbar_undo">Hoàn tác</string>
+  <string name="talk_last_modified">&lt;b&gt;Sửa đổi lần cuối cùng vào %1$s&lt;/b&gt; bởi %2$s</string>
+  <string name="talk_snackbar_survey_action_text">Bắt đầu</string>
+  <string name="talk_share_discussion_subject">Wikipedia – thảo luận về chủ đề “%s” tại trang thảo luận</string>
+  <string name="talk_share_talk_page">Wikipedia – thảo luận tại trang thảo luận</string>
+  <string name="menu_option_share_talk_discussion">Chia sẻ thảo luận</string>
+  <string name="menu_option_share_talk_page">Chia sẻ trang thảo luận</string>
   <string name="menu_option_share_edit">Chia sẻ sửa đổi</string>
   <string name="menu_option_user_profile">%s\'s trang cá nhân</string>
   <string name="menu_option_user_contributions">%s\'s đóng góp</string>
   <string name="watchlist_details_watching_label">Đang theo dõi</string>
   <string name="watchlist_details_watch_label">Theo dõi</string>
+  <string name="watchlist_details_next_edit">Sửa đổi sau</string>
+  <string name="watchlist_details_prev_edit">Sửa đổi trước</string>
   <string name="thank_label">Cảm ơn</string>
+  <string name="view_user_page">Xem trang thành viên</string>
   <string name="thank_dialog_title_text">Gửi lời \'Cảm ơn\'</string>
   <string name="thank_dialog_text">\'Cảm ơn\' là một cách dễ dàng để thể hiện sự đánh giá cao đối với công việc của một biên tập viên trên Wikipedia. Không thể hoàn tác \'Cảm ơn\' và có thể xem công khai</string>
   <string name="thank_dialog_positive_button_text">Gửi lời cảm ơn</string>
