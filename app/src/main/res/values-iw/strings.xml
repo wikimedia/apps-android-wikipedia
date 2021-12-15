@@ -79,6 +79,7 @@
   <string name="feed_card_add_to_list">הוספה לרשימת קריאה</string>
   <string name="feed_card_add_to_default_list">שמירה</string>
   <string name="menu_page_share">שיתוף קישור</string>
+  <string name="menu_article_share">שיתוף ערך</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
   <string name="menu_page_new_tab">לשונית חדשה</string>
   <string name="menu_page_reading_lists">רשימות קריאה</string>
@@ -680,6 +681,7 @@
   <string name="notifications_channel_group_other_description">התראות אחרות מהיישום</string>
   <string name="notifications_filter_label">סינון התראות</string>
   <string name="notifications_filter_icon_content_description">סינון התראות</string>
+  <string name="notifications_filter_update_app_languages">עדכון שפות היישום</string>
   <string name="notifications_empty_search_message">נא לנסות להסיר את %s כדי לראות עוד התראות</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">מסנן אחד</item>
@@ -1122,6 +1124,7 @@
   <string name="watchlist_details_next_edit">העריכה הבאה</string>
   <string name="watchlist_details_prev_edit">העריכה הקודמת</string>
   <string name="thank_label">תודה</string>
+  <string name="view_user_page">הצגת דף המשתמש</string>
   <string name="thank_dialog_title_text">שליחת \"תודה\" באופן ציבורי</string>
   <string name="thank_dialog_text">\"תודה\" היא דרך קלה להראות הערכה לעבודה של עורך בוויקיפדיה. לא ניתן לבטל פעולות שליחת \"תודה\" והן מוצגות באופן ציבורי.</string>
   <string name="thank_dialog_positive_button_text">לשלוח תודה</string>

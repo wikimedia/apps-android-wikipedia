@@ -87,6 +87,7 @@
   <string name="feed_card_add_to_list">읽기 목록에 추가</string>
   <string name="feed_card_add_to_default_list">저장</string>
   <string name="menu_page_share">링크 공유</string>
+  <string name="menu_article_share">문서 공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
   <string name="menu_page_new_tab">새 탭</string>
   <string name="menu_page_reading_lists">읽기 목록</string>
@@ -263,6 +264,10 @@
   <string name="edit_summary_tag_other_hint">문서를 개선하는 다른 방법</string>
   <string name="edit_conflict_title">편집 충돌</string>
   <string name="edit_conflict_message">이 문서는 이미 다른 사용자에 의해 수정되었으며 편집과 충돌합니다. 편집을 복사하고 뒤로 돌아가서 문서를 새로 고친 다음 다시 편집을 시도하십시오.</string>
+  <string name="edit_notices">편집 알림</string>
+  <string name="edit_notices_please_read">편집하기 전에 읽어 주십시오</string>
+  <string name="edit_notices_show_auto">자동으로 편집 알림 표시</string>
+  <string name="edit_notices_tooltip">이 문서의 편집 알림을 보려면 이 버튼을 탭하십시오.</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="find_first_occurence">이것이 처음 항목입니다</string>
@@ -640,6 +645,8 @@
   <string name="notifications_channel_group_other_description">앱의 기타 알림</string>
   <string name="notifications_filter_label">필터 알림</string>
   <string name="notifications_filter_icon_content_description">필터 알림</string>
+  <string name="notifications_filter_update_app_languages">앱 언어 업데이트</string>
+  <string name="notifications_empty_search_message">더 많은 알림을 보려면 %s을 제거해 보십시오.</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="other">%d개 필터</item>
   </plurals>
@@ -1044,6 +1051,7 @@
   <string name="watchlist_details_next_edit">다음 편집</string>
   <string name="watchlist_details_prev_edit">이전 편집</string>
   <string name="thank_label">감사 표현</string>
+  <string name="view_user_page">사용자 문서 보기</string>
   <string name="thank_dialog_title_text">공개적으로 감사 표하기</string>
   <string name="thank_dialog_text">\'감사 표현\'은 위키백과에서 편집자의 기여에 감사를 표하는 쉬운 방법입니다. \'감사 표현\'은 취소할 수 없으며 공개되지 않습니다.</string>
   <string name="thank_dialog_positive_button_text">감사 표현하기</string>

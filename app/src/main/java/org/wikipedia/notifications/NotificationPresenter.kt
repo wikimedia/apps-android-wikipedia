@@ -43,7 +43,7 @@ object NotificationPresenter {
                 if (NotificationCategory.EDIT_USER_TALK.id == n.category) {
                     val talkWiki = WikiSite(primary.url)
                     val talkTitle = talkWiki.titleForUri(Uri.parse(primary.url))
-                    activityIntent = addIntentExtras(TalkTopicsActivity.newIntent(context, talkTitle.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id, n.type)
+                    activityIntent = addIntentExtras(TalkTopicsActivity.newIntent(context, talkTitle, Constants.InvokeSource.NOTIFICATION), n.id, n.type)
                     addActionForTalkPage(context, builder, primary, n)
                 } else {
                     addAction(context, builder, primary, n)
@@ -117,7 +117,7 @@ object NotificationPresenter {
         val wiki = WikiSite(link.url)
         val title = wiki.titleForUri(Uri.parse(link.url))
         val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(TalkTopicsActivity.newIntent(context, title.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT)
+                addIntentExtras(TalkTopicsActivity.newIntent(context, title, Constants.InvokeSource.NOTIFICATION), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT)
         builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 
