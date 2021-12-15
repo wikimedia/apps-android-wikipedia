@@ -142,6 +142,16 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
+            android:key="@string/preference_key_customize_favorites_quick_actions_order"
+            android:title="@string/preference_key_customize_favorites_quick_actions_order" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_customize_favorites_menu_order"
+            android:title="@string/preference_key_customize_favorites_menu_order" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
             android:key="@string/preference_key_remote_notifications_seen_time"
             android:title="@string/preference_key_remote_notifications_seen_time" />
 

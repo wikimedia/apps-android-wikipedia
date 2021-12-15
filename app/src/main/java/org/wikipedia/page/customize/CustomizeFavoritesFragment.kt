@@ -115,7 +115,6 @@ class CustomizeFavoritesFragment : Fragment() {
 
         fun onMoveItem(oldPosition: Int, newPosition: Int) {
             viewModel.swapList(oldPosition, newPosition)
-            // General item moved
             notifyItemMoved(oldPosition, newPosition)
         }
 
@@ -128,7 +127,7 @@ class CustomizeFavoritesFragment : Fragment() {
             if (addPosition >= 0) {
                 notifyItemRangeChanged(addPosition, viewModel.fullList.size - addPosition)
             }
-            // Manual swapped, for the item that reaches the limitation
+            // Notify recycler view adapter that some items in the list have been manually swapped.
             rearrangedItems.forEach {
                 notifyItemMoved(it, it + 1)
             }

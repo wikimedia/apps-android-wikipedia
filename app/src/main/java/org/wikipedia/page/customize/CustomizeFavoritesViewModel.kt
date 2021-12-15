@@ -9,6 +9,7 @@ class CustomizeFavoritesViewModel : ViewModel() {
 
     private var quickActionsOrder = mutableListOf<Int>()
     private var menuOrder = mutableListOf<Int>()
+
     // List that contains header, empty placeholder and actual items.
     var fullList = mutableListOf<Pair<Int, Any>>()
         private set
