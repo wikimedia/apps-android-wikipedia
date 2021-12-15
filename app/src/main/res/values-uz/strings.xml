@@ -66,6 +66,7 @@
   <string name="feed_card_add_to_list">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="feed_card_add_to_default_list">Saqlamoq</string>
   <string name="menu_page_share">Havolani ulashmoq</string>
+  <string name="menu_article_share">Maqolani ulashmoq</string>
   <string name="menu_page_open_a_new_tab">Yangi xatcho‘p ochmoq</string>
   <string name="menu_page_new_tab">Yangi varaqa</string>
   <string name="menu_page_reading_lists">O‘qilganlar ro‘yxati</string>
@@ -633,6 +634,7 @@
   <string name="notifications_channel_group_other_description">Ilovadan boshqa bildirishnomalar</string>
   <string name="notifications_filter_label">Bildirishnomalar filtri</string>
   <string name="notifications_filter_icon_content_description">Bildirishnomalar filtri</string>
+  <string name="notifications_filter_update_app_languages">Ilova tilini yangilamoq</string>
   <string name="notifications_empty_search_message">Koʻproq bildirishnomalarni koʻrish uchun %sʼni oʻchirib koʻring</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d ta filtr</item>
@@ -1048,6 +1050,7 @@
   <string name="watchlist_details_next_edit">Keyingi tahrir</string>
   <string name="watchlist_details_prev_edit">Oldingi tahrir</string>
   <string name="thank_label">Tashakkur</string>
+  <string name="view_user_page">Foydalanuvchi sahifasini koʻrish</string>
   <string name="thank_dialog_title_text">«Tashakkur» bildirmoq</string>
   <string name="thank_dialog_text">«Tashakkur» - Vikipediyada muharrirning ishiga minnatdorchilik bildirishning oson usuli. «Tashakkur» bekor qilinmaydi va hammaga koʻra oladi</string>
   <string name="thank_dialog_positive_button_text">Tashakkur bildirmoq</string>
