@@ -41,8 +41,6 @@ class CustomizeFavoritesFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        // Save changes again to avoid UI bug that happens on swapping items.
-        viewModel.saveChanges()
         _binding = null
         super.onDestroyView()
     }
@@ -121,7 +119,7 @@ class CustomizeFavoritesFragment : Fragment() {
             notifyItemMoved(oldPosition, newPosition)
         }
 
-        fun onItemMoved(shouldHandleLimitation: Boolean) {
+        fun onItemMoved(rearrangedItems: List<Int>) {
             val removePosition = viewModel.removeEmptyPlaceholder()
             if (removePosition >= 0) {
                 notifyItemRemoved(removePosition)
@@ -131,8 +129,8 @@ class CustomizeFavoritesFragment : Fragment() {
                 notifyItemRangeChanged(addPosition, viewModel.fullList.size - addPosition)
             }
             // Manual swapped, for the item that reaches the limitation
-            if (shouldHandleLimitation) {
-                notifyItemMoved(QUICK_ACTIONS_LIMIT + 1, QUICK_ACTIONS_LIMIT + 2)
+            rearrangedItems.forEach {
+                notifyItemMoved(it, it + 1)
             }
         }
     }

@@ -7,11 +7,8 @@ import java.util.*
 
 class CustomizeFavoritesViewModel : ViewModel() {
 
-    var quickActionsOrder = mutableListOf<Int>()
-        private set
-    var menuOrder = mutableListOf<Int>()
-        private set
-
+    private var quickActionsOrder = mutableListOf<Int>()
+    private var menuOrder = mutableListOf<Int>()
     // List that contains header, empty placeholder and actual items.
     var fullList = mutableListOf<Pair<Int, Any>>()
         private set
@@ -57,7 +54,7 @@ class CustomizeFavoritesViewModel : ViewModel() {
         return CustomizeFavoritesFragment.VIEW_TYPE_EMPTY_PLACEHOLDER to quickActions
     }
 
-    private fun handleCategoriesItems(): Pair<MutableList<Int>, MutableList<Int>> {
+    private fun collectCategoriesItems(): Pair<MutableList<Int>, MutableList<Int>> {
         var saveIntoQuickActions = true
         val quickActionsItems = mutableListOf<Int>()
         val menuItems = mutableListOf<Int>()
@@ -76,11 +73,18 @@ class CustomizeFavoritesViewModel : ViewModel() {
         return quickActionsItems to menuItems
     }
 
-    private fun handleCategoryLimitation(pair: Pair<MutableList<Int>, MutableList<Int>>): Pair<MutableList<Int>, MutableList<Int>> {
-        // Manually move the last item in Quick actions to the top of Menu.
-        Collections.swap(fullList, CustomizeFavoritesFragment.QUICK_ACTIONS_LIMIT + 1, CustomizeFavoritesFragment.QUICK_ACTIONS_LIMIT + 2)
-        pair.second.add(0, pair.first.removeLast())
-        return pair
+    // First: Quick actions; Second: Menu
+    private fun handleCategoryLimitation(pair: Pair<MutableList<Int>, MutableList<Int>>): List<Int> {
+        val list = mutableListOf<Int>()
+        while (pair.first.size > CustomizeFavoritesFragment.QUICK_ACTIONS_LIMIT) {
+            // Last item swap with "Menu" header
+            swapList(pair.first.size, pair.first.size + 1)
+            // Add swapped item to list
+            list.add(pair.first.size)
+            // Add to "Menu" order list and remove the last item of Quick actions
+            pair.second.add(0, pair.first.removeLast())
+        }
+        return list
     }
 
     fun resetToDefault() {
@@ -89,21 +93,16 @@ class CustomizeFavoritesViewModel : ViewModel() {
         saveChanges()
     }
 
-    fun saveChanges(): Boolean {
-        val pair = handleCategoriesItems()
-
-        val shouldHandleLimitation = pair.first.size > CustomizeFavoritesFragment.QUICK_ACTIONS_LIMIT
-
-        if (shouldHandleLimitation) {
-            handleCategoryLimitation(pair)
-        }
+    fun saveChanges(): List<Int> {
+        val pair = collectCategoriesItems()
+        val rearrangedItems = handleCategoryLimitation(pair)
 
         quickActionsOrder = pair.first
         menuOrder = pair.second
         Prefs.customizeFavoritesQuickActionsOrder = quickActionsOrder
         Prefs.customizeFavoritesMenuOrder = menuOrder
 
-        return shouldHandleLimitation
+        return rearrangedItems
     }
 
     fun swapList(oldPosition: Int, newPosition: Int) {
