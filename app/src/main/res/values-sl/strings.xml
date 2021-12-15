@@ -163,13 +163,14 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Podrobnosti</string>
   <string name="preferences_general_heading">Splošno</string>
+  <string name="preferences_account_heading">Račun</string>
   <string name="wikipedia_app_faq">Pogosta vprašanja o aplikaciji Wikipedija</string>
   <string name="send_feedback">Sporočite svoje mnenje</string>
   <string name="create_account_account_created_toast">Račun ustvarjen!</string>
   <string name="preferences_heading_syncing">Sinhronizacija</string>
   <string name="preferences_heading_data_usage">Uporaba podatkov</string>
   <string name="preferences_heading_experimental">Preizkusno</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sinhronizacija bralnega seznama</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sinhronizacija bralnih seznamov</string>
   <string name="preference_title_download_reading_list_articles">Prenesi članke na bralnem seznamu</string>
   <string name="preference_summary_sync_reading_lists">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v mojem računu v Wikipediji.</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v računu »%s« v Wikipediji.</string>
@@ -265,7 +266,7 @@
   <string name="widget_title_featured_page">Današnji izbrani članek:</string>
   <string name="widget_name_search">Iskanje v Wikipediji</string>
   <string name="wiktionary_no_definitions_found">Najdena ni bila nobena opredelitev.</string>
-  <string name="alpha_update_notification_title">Na voljo je nova alfa posodobitev.</string>
+  <string name="alpha_update_notification_title">Nova alfa posodobitev</string>
   <string name="alpha_update_notification_text">Tapni za prenos</string>
   <string name="dialog_close_description">Zapri</string>
   <string name="preference_title_show_images">Prikazuj slike</string>
@@ -525,10 +526,12 @@
   <string name="reading_list_split_dialog_ok_button_text">V redu</string>
   <string name="user_option_sync_label">Nastavitve</string>
   <string name="notification_reverted_title">Vrnjeno urejanje</string>
+  <string name="notification_channel_title">Prenos člankov</string>
   <string name="notification_channel_description">Napredek prenosa</string>
   <string name="notification_syncing_pause_button">Premor</string>
   <string name="notification_syncing_resume_button">Nadaljuj</string>
   <string name="notification_syncing_cancel_button">Prekliči</string>
+  <string name="notification_syncing_reading_list_channel_title">Sinhronizacija bralnih seznamov</string>
   <string name="notification_syncing_reading_list_channel_description">Napredek sinhronizacije bralnih seznamov</string>
   <string name="notification_many_unread">Imate %d neprebranih obvestil</string>
   <plurals name="notification_channel_name">
@@ -588,6 +591,14 @@
   <string name="notifications_view_archived_button_text">Prikaži arhivirana obvestila</string>
   <string name="notification_preferences_title">Nastavitve obveščanja</string>
   <string name="notifications_mark_unread">Označi kot neprebrano</string>
+  <string name="notifications_mark_all_as_read">Označi vse kot prebrane</string>
+  <string name="notifications_mark_all_as_unread_message">%d označenih kot neprebrana</string>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 označeno kot neprebrano</item>
+    <item quantity="two">2 označeni kot neprebrani</item>
+    <item quantity="few">%d označenih kot neprebrana</item>
+    <item quantity="other">%d označenih kot neprebrana</item>
+  </plurals>
   <string name="watchlist_title">Spisek nadzorov</string>
   <string name="preference_title_notification_poll">Preveri obvestila</string>
   <string name="preference_summary_notification_poll">Omogoči aplikaciji uporabo podatkov za preverjanje novih obvestil v ozadju.</string>
@@ -606,6 +617,19 @@
   <string name="preference_summary_notification_mention">Nekdo vas je omenil na eni od strani</string>
   <string name="preference_title_notification_user_talk">Pogovorna stran</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">Sporočila s pogovornih strani</string>
+  <string name="preference_title_notification_email_user">Prejeta e-pošta</string>
+  <string name="preference_title_notification_user_rights">Spremembe pravic uporabnikov</string>
+  <string name="preference_title_notification_article_linked">Povezave na članke, ki ste jih ustvarili sami</string>
+  <string name="preference_title_customize_push_notifications">Prilagodi potisna obvestila</string>
+  <string name="preference_category_display_settings">Nastavitve prikaza</string>
+  <string name="preference_title_hide_read_notifications">Skrij prebrana obvestila</string>
+  <string name="notifications_channel_group_other_title">Drugo</string>
+  <string name="notifications_filter_label">Filtriranje obvestil</string>
+  <string name="notifications_tab_filter_all">Vse</string>
+  <string name="notifications_tab_filter_mentions">Omembe</string>
+  <string name="notifications_search_bar_hint">Preiščite ali filtrirajte obvestila</string>
+  <string name="notifications_wiki_filter_header">Filter vikijev</string>
+  <string name="notifications_type_filter_header">Filter tipov</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
   <string name="view_random_card_title">Randomizator</string>
   <string name="view_random_article_card_title">Naključni članek</string>
@@ -1004,6 +1028,7 @@
   <string name="talk_message_hint">Sestavite sporočilo</string>
   <string name="talk_message_empty">Sporočilo ne sme biti prazno.</string>
   <string name="talk_subject_empty">Predmet ne sme biti prazen.</string>
+  <string name="menu_option_share_talk_discussion">Deli pogovor</string>
   <string name="menu_option_share_edit">Deli urejanje</string>
   <string name="menu_option_user_profile">Profil uporabnika/ce %s</string>
   <string name="menu_option_user_contributions">Prispevki uporabnika/ce %s</string>

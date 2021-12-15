@@ -155,6 +155,7 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annulla</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Prifirenzi</string>
+  <string name="notification_syncing_pause_button">Pàusa</string>
   <string name="notification_syncing_cancel_button">Annulla</string>
   <string name="notification_echo_channel_description">Nutìfichi di Wikipedia</string>
   <string name="notifications_activity_title">Nutìfichi</string>
@@ -263,7 +264,11 @@
   <string name="onboarding_welcome_title_v2">La nciclupidìa lìbbira\n...n cchiù di 300 lingui</string>
   <string name="on_this_day_card_title">N stu jornu</string>
   <string name="more_events_text">Àutru n stu jornu</string>
-  <string name="this_year">Stu annu</string>
+  <string name="this_year">Ovannu</string>
+  <plurals name="diff_years">
+    <item quantity="one">Oggiallannu</item>
+    <item quantity="other">%d anni fa</item>
+  </plurals>
   <string name="languages_list_activity_title">Agghiunci na lingua</string>
   <string name="languages_list_suggested_text">Cunzigghiatu</string>
   <string name="languages_list_all_text">Tutti li lingui</string>
