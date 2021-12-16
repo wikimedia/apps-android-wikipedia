@@ -20,26 +20,15 @@ import org.wikipedia.settings.Prefs
 
 class PageActionOverflowView(context: Context) : FrameLayout(context) {
 
-    interface Callback {
-        fun forwardClick()
-        fun watchlistClick(isWatched: Boolean)
-        fun talkClick()
-        fun editHistoryClick()
-        fun shareClick()
-        fun newTabClick()
-        fun feedClick()
-    }
-
     private var binding = ViewPageActionOverflowBinding.inflate(LayoutInflater.from(context), this, true)
-    private var callback: Callback? = null
     private var popupWindowHost: PopupWindow? = null
     private var isWatched = false
-    val actionCallback: PageActionItem.Callback? = null
+    lateinit var callback: PageActionItem.Callback
 
     init {
         binding.overflowForward.setOnClickListener {
             dismissPopupWindowHost()
-            callback?.forwardClick()
+            callback.forwardClick()
         }
         Prefs.customizeFavoritesMenuOrder.forEach {
             val view = ItemQuickActionsMenuBinding.inflate(LayoutInflater.from(context)).root
@@ -47,16 +36,14 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             view.text = context.getString(item.titleResId)
             view.setCompoundDrawablesWithIntrinsicBounds(item.iconResId, 0, 0, 0)
             view.setOnClickListener {
-                if (actionCallback != null) {
-                    dismissPopupWindowHost()
-                    item.select(actionCallback)
-                }
+                dismissPopupWindowHost()
+                item.select(callback)
             }
             binding.overflowList.addView(view)
         }
     }
 
-    fun show(anchorView: View, callback: Callback?, currentTab: Tab, isMobileWeb: Boolean,
+    fun show(anchorView: View, callback: PageActionItem.Callback, currentTab: Tab, isMobileWeb: Boolean,
              isWatched: Boolean, hasWatchlistExpiry: Boolean) {
         this.callback = callback
         this.isWatched = isWatched

@@ -59,10 +59,13 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.main.MainActivity
 import org.wikipedia.media.AvPlayer
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.PollNotificationService
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionTab
+import org.wikipedia.page.customize.PageActionItem
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
@@ -78,6 +81,7 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
+import org.wikipedia.views.PageActionOverflowView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
@@ -116,7 +120,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val tabFunnel = TabFunnel()
     private val watchlistFunnel = WatchlistFunnel()
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
-    private val pageActionTabsCallback = PageActionTabCallback()
 
     private lateinit var bridge: CommunicationBridge
     private lateinit var leadImagesHandler: LeadImagesHandler
@@ -157,6 +160,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val headerView get() = binding.pageHeaderView
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
+    val pageActionItemCallback = PageActionItemCallback()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
@@ -167,7 +171,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.setOnRefreshListener(pageRefreshListener)
         val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET
         binding.pageRefreshContainer.setProgressViewOffset(false, -swipeOffset, swipeOffset)
-//        binding.pageActionsTabLayout.setPageActionTabsCallback(pageActionTabsCallback)
+        binding.pageActionsTabLayout.callback = pageActionItemCallback
         savedInstanceState?.let {
             scrolledUpForThemeChange = it.getBoolean(ARG_THEME_CHANGE_SCROLLED, false)
         }
@@ -949,7 +953,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (!isAdded) {
             return
         }
-        pageActionTabsCallback.updateBookmark(model.isInReadingList)
+        pageActionItemCallback.updateBookmark(model.isInReadingList)
         val buttonsEnabled = model.page != null && !model.shouldLoadAsMobileWeb
         setBottomBarButtonEnabled(PageActionTab.ADD_TO_READING_LIST, buttonsEnabled)
         setBottomBarButtonEnabled(PageActionTab.CHOOSE_LANGUAGE, buttonsEnabled)
@@ -966,7 +970,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate {
-                        pageActionTabsCallback.updateBookmark(model.readingListPage != null)
+                        pageActionItemCallback.updateBookmark(model.readingListPage != null)
                         requireActivity().invalidateOptionsMenu()
                     }
                     .subscribe())
@@ -1191,70 +1195,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         (requireActivity() as PageActivity).onAnonNotification()
     }
 
-    private inner class PageActionTabCallback : PageActionTab.Callback {
-        override fun onAddToReadingListTabSelected() {
-            if (model.isInReadingList) {
-                LongPressMenu(binding.pageActionsTabLayout, object : LongPressMenu.Callback {
-                    override fun onOpenLink(entry: HistoryEntry) { }
+    fun showOverflowMenu(anchor: View) {
+        PageActionOverflowView(requireContext()).show(anchor, pageActionItemCallback, currentTab,
+            model.shouldLoadAsMobileWeb, model.isWatched, model.hasWatchlistExpiry
+        )
+    }
 
-                    override fun onOpenInNewTab(entry: HistoryEntry) { }
-
-                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                        title?.run {
-                            addToReadingList(this, InvokeSource.BOOKMARK_BUTTON, addToDefault)
-                        }
-                    }
-
-                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                        page?.let { readingListPage ->
-                            title?.run {
-                                moveToReadingList(readingListPage.listId, this, InvokeSource.BOOKMARK_BUTTON, true)
-                            }
-                        }
-                    }
-                }).show(historyEntry)
-            } else {
-                title?.run {
-                    addToReadingList(this, InvokeSource.BOOKMARK_BUTTON, true)
-                }
-            }
-        }
-
-        override fun onFindInPageTabSelected() {
-            showFindInPage()
-        }
-
-        override fun onChooseLangTabSelected() {
-            startLangLinksActivity()
-        }
-
-        override fun onFontAndThemeTabSelected() {
-            // If we're looking at the top of the article, then scroll down a bit so that at least
-            // some of the text is shown.
-            if (webView.scrollY < DimenUtil.leadImageHeightForDevice(requireActivity())) {
-                scrolledUpForThemeChange = true
-                val animDuration = 250
-                val anim = ObjectAnimator.ofInt(webView, "scrollY", webView.scrollY, DimenUtil.leadImageHeightForDevice(requireActivity()))
-                anim.setDuration(animDuration.toLong()).addListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator) {
-                        super.onAnimationEnd(animation)
-                        showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB))
-                    }
-                })
-                anim.start()
-            } else {
-                scrolledUpForThemeChange = false
-                showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB))
-            }
-        }
-
-        override fun onViewToCTabSelected() {
-            tocHandler.show()
-        }
-
-        override fun updateBookmark(pageSaved: Boolean) {
-            setBookmarkIconForPageSavedState(pageSaved)
-        }
+    fun goToMainTab() {
+        startActivity(MainActivity.newIntent(requireContext())
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+            .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
+        requireActivity().finish()
     }
 
     private inner class AvCallback : AvPlayer.Callback {
@@ -1330,6 +1282,116 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 bridge.execute(JavaScriptActionHandler.prepareToScrollTo(it, true))
             }
         }
+    }
+
+    inner class PageActionItemCallback : PageActionItem.Callback {
+        override fun onSaveSelected() {
+            if (model.isInReadingList) {
+                LongPressMenu(binding.pageActionsTabLayout, object : LongPressMenu.Callback {
+                    override fun onOpenLink(entry: HistoryEntry) { }
+
+                    override fun onOpenInNewTab(entry: HistoryEntry) { }
+
+                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                        title?.run {
+                            addToReadingList(this, InvokeSource.BOOKMARK_BUTTON, addToDefault)
+                        }
+                    }
+
+                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                        page?.let { readingListPage ->
+                            title?.run {
+                                moveToReadingList(readingListPage.listId, this, InvokeSource.BOOKMARK_BUTTON, true)
+                            }
+                        }
+                    }
+                }).show(historyEntry)
+            } else {
+                title?.run {
+                    addToReadingList(this, InvokeSource.BOOKMARK_BUTTON, true)
+                }
+            }
+        }
+
+        override fun onLanguageSelected() {
+            startLangLinksActivity()
+        }
+
+        override fun onFindInArticleSelected() {
+            showFindInPage()
+        }
+
+        override fun onThemeSelected() {
+            // If we're looking at the top of the article, then scroll down a bit so that at least
+            // some of the text is shown.
+            if (webView.scrollY < DimenUtil.leadImageHeightForDevice(requireActivity())) {
+                scrolledUpForThemeChange = true
+                val animDuration = 250
+                val anim = ObjectAnimator.ofInt(webView, "scrollY", webView.scrollY, DimenUtil.leadImageHeightForDevice(requireActivity()))
+                anim.setDuration(animDuration.toLong()).addListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        super.onAnimationEnd(animation)
+                        showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB))
+                    }
+                })
+                anim.start()
+            } else {
+                scrolledUpForThemeChange = false
+                showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB))
+            }
+        }
+
+        override fun onContentsSelected() {
+            tocHandler.show()
+        }
+
+        override fun onShareSelected() {
+            sharePageLink()
+        }
+
+        override fun onAddToWatchlistSelected() {
+            if (model.isWatched) {
+                watchlistFunnel.logRemoveArticle()
+            } else {
+                watchlistFunnel.logAddArticle()
+            }
+            updateWatchlist(WatchlistExpiry.NEVER, model.isWatched)
+        }
+
+        override fun onViewTalkPageSelected() {
+            title?.let {
+                startActivity(TalkTopicsActivity.newIntent(requireContext(), it, InvokeSource.PAGE_ACTIVITY))
+            }
+        }
+
+        override fun onViewEditHistorySelected() {
+            title?.run {
+                UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getWebApiUrl("action=history")))
+            }
+        }
+
+        override fun onNewTabSelected() {
+            startActivity(PageActivity.newIntentForNewTab(requireContext()))
+        }
+
+        override fun onExploreSelected() {
+            goToMainTab()
+        }
+
+        override fun updateBookmark(pageSaved: Boolean) {
+            // TODO: need to update Quick actions and menu
+            setBookmarkIconForPageSavedState(pageSaved)
+        }
+
+        override fun updateWatchlist(pageWatched: Boolean) {
+            // TODO: need to update Quick actions and menu
+            TODO("Not yet implemented")
+        }
+
+        override fun forwardClick() {
+            goForward()
+        }
+
     }
 
     companion object {

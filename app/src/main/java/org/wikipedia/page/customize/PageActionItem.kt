@@ -89,6 +89,7 @@ enum class PageActionItem constructor(val id: Int,
         fun onExploreSelected()
         fun updateBookmark(pageSaved: Boolean)
         fun updateWatchlist(pageWatched: Boolean)
+        fun forwardClick()
     }
 
     companion object {

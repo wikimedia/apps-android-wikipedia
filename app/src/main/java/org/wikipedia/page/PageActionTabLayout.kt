@@ -10,7 +10,7 @@ import org.wikipedia.views.ConfigurableTabLayout
 
 class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = null) : ConfigurableTabLayout(context, attrs) {
 
-    val callback: PageActionItem.Callback? = null
+    lateinit var callback: PageActionItem.Callback
 
     init {
         Prefs.customizeFavoritesQuickActionsOrder.forEach {
@@ -20,7 +20,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.text = context.getString(item.titleResId)
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
             view.setOnClickListener { v ->
-                if (isEnabled(v) && callback != null) {
+                if (isEnabled(v)) {
                     item.select(callback)
                 }
             }
