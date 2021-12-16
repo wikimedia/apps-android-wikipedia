@@ -16,52 +16,52 @@ enum class PageActionItem constructor(val id: Int,
             cb.onSaveSelected()
         }
     },
-    LANGUAGE(1, R.string.article_menu_bar_language_button, R.drawable.ic_translate_white_24dp){
+    LANGUAGE(1, R.string.article_menu_bar_language_button, R.drawable.ic_translate_white_24dp) {
         override fun select(cb: Callback) {
             cb.onLanguageSelected()
         }
     },
-    FIND_IN_ARTICLE(2, R.string.menu_page_find_in_page, R.drawable.ic_find_in_page_24px){
+    FIND_IN_ARTICLE(2, R.string.menu_page_find_in_page, R.drawable.ic_find_in_page_24px) {
         override fun select(cb: Callback) {
             cb.onFindInArticleSelected()
         }
     },
-    THEME(3, R.string.article_menu_bar_theme_button, R.drawable.ic_icon_format_size){
+    THEME(3, R.string.article_menu_bar_theme_button, R.drawable.ic_icon_format_size) {
         override fun select(cb: Callback) {
             cb.onThemeSelected()
         }
     },
-    CONTENTS(4, R.string.article_menu_bar_contents_button, R.drawable.ic_icon_list){
+    CONTENTS(4, R.string.article_menu_bar_contents_button, R.drawable.ic_icon_list) {
         override fun select(cb: Callback) {
             cb.onContentsSelected()
         }
     },
-    SHARE(5, R.string.menu_article_share, R.drawable.ic_share){
+    SHARE(5, R.string.menu_article_share, R.drawable.ic_share) {
         override fun select(cb: Callback) {
             cb.onShareSelected()
         }
     },
-    ADD_TO_WATCHLIST(6, R.string.menu_page_add_to_watchlist, R.drawable.ic_baseline_star_outline_24){
+    ADD_TO_WATCHLIST(6, R.string.menu_page_add_to_watchlist, R.drawable.ic_baseline_star_outline_24) {
         override fun select(cb: Callback) {
             cb.onAddToWatchlistSelected()
         }
     },
-    VIEW_TALK_PAGE(7, R.string.menu_page_view_talk, R.drawable.ic_icon_speech_bubbles_ooui_ltr){
+    VIEW_TALK_PAGE(7, R.string.menu_page_view_talk, R.drawable.ic_icon_speech_bubbles_ooui_ltr) {
         override fun select(cb: Callback) {
             cb.onViewTalkPageSelected()
         }
     },
-    VIEW_EDIT_HISTORY(8, R.string.menu_page_view_edit_history, R.drawable.ic_icon_revision_history_apps, true){
+    VIEW_EDIT_HISTORY(8, R.string.menu_page_view_edit_history, R.drawable.ic_icon_revision_history_apps, true) {
         override fun select(cb: Callback) {
             cb.onViewEditHistorySelected()
         }
     },
-    NEW_TAB(9, R.string.menu_new_tab, R.drawable.ic_add_gray_white_24dp){
+    NEW_TAB(9, R.string.menu_new_tab, R.drawable.ic_add_gray_white_24dp) {
         override fun select(cb: Callback) {
             cb.onNewTabSelected()
         }
     },
-    EXPLORE(10, R.string.feed, R.drawable.ic_globe){
+    EXPLORE(10, R.string.feed, R.drawable.ic_globe) {
         override fun select(cb: Callback) {
             cb.onExploreSelected()
         }
