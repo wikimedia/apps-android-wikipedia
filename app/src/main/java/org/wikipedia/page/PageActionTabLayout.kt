@@ -17,7 +17,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
     init {
         orientation = HORIZONTAL
         Prefs.customizeFavoritesQuickActionsOrder.forEach {
-            val view = ItemQuickActionTabBinding.inflate(LayoutInflater.from(context), this, true).root
+            val view = ItemQuickActionTabBinding.inflate(LayoutInflater.from(context)).root
             val item = QuickActionItem.find(it)
             view.text = context.getString(item.titleResId)
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
