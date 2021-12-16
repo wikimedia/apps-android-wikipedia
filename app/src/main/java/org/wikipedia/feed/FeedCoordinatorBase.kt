@@ -171,7 +171,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
         }
     }
 
-    private val lastCard get() = if (cards.size > 1) cards[cards.size - 1] else null
+    private val lastCard get() = cards.lastOrNull()
 
     private fun requestProgressCard() {
         if (lastCard !is ProgressCard) {
@@ -191,7 +191,6 @@ abstract class FeedCoordinatorBase(private val context: Context) {
     private fun removeAccessibilityCard() {
         if (lastCard is AccessibilityCard) {
             removeCard(lastCard as AccessibilityCard, cards.indexOf(lastCard))
-            (lastCard as AccessibilityCard).onDismiss()
             // TODO: possible on optimization if automatically scroll up to the next card.
         }
     }

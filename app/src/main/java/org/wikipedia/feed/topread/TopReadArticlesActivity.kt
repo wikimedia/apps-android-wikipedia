@@ -2,21 +2,27 @@ package org.wikipedia.feed.topread
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
+import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.feed.topread.TopReadFragment.Companion.newInstance
 
 class TopReadArticlesActivity : SingleFragmentActivity<TopReadFragment>() {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        title = getString(R.string.top_read_activity_title, intent.getParcelableExtra<TopReadListCard>(TOP_READ_CARD)?.subtitle().orEmpty())
+    }
+
     public override fun createFragment(): TopReadFragment {
-        return newInstance(intent.getParcelableExtra(MOST_READ_CARD)!!)
+        return TopReadFragment.newInstance(intent.getParcelableExtra(TOP_READ_CARD)!!)
     }
 
     companion object {
-        const val MOST_READ_CARD = "item"
+        const val TOP_READ_CARD = "item"
         @JvmStatic
         fun newIntent(context: Context, card: TopReadListCard): Intent {
             return Intent(context, TopReadArticlesActivity::class.java)
-                .putExtra(MOST_READ_CARD, card)
+                .putExtra(TOP_READ_CARD, card)
         }
     }
 }

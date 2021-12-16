@@ -12,7 +12,6 @@ import org.wikipedia.databinding.ViewPageHeaderBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.GradientUtil
-import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.LinearLayoutOverWebView
 import org.wikipedia.views.ObservableWebView
 
@@ -30,6 +29,7 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
         }
 
     var callback: Callback? = null
+    val imageView get() = binding.viewPageHeaderImage
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -66,10 +66,6 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
     fun show() {
         layoutParams = CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context))
         visibility = VISIBLE
-    }
-
-    fun getImageView(): FaceAndColorDetectImageView {
-        return binding.viewPageHeaderImage
     }
 
     fun refreshCallToActionVisibility() {

@@ -183,7 +183,8 @@
         </activity>
 
         <activity
-            android:name=".feed.news.NewsActivity" />
+            android:name=".feed.news.NewsActivity"
+            android:label="@string/view_card_news_title"/>
 
         <activity
             android:name=".descriptions.DescriptionEditActivity"
@@ -240,16 +241,20 @@
 
         <activity
             android:name=".notifications.NotificationActivity"
+            android:label="@string/notifications_activity_title"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:theme="@style/AppTheme.Notification" />
 
         <activity
             android:name=".page.tabs.TabActivity"
+            android:label="@string/tabs_activity_title"
             android:theme="@style/AppTheme" />
 
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
-        <activity android:name=".watchlist.WatchlistActivity"
+        <activity
+            android:name=".watchlist.WatchlistActivity"
+            android:label="@string/watchlist_title"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
