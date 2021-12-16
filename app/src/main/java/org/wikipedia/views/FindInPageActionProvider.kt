@@ -111,7 +111,7 @@ open class FindInPageActionProvider(private val context: Context) : ActionProvid
         if (numberOfMatches > 0) {
             binding.findInPageMatch.text = context.getString(R.string.find_in_page_result,
                     activeMatchOrdinal + 1, numberOfMatches)
-            binding.findInPageMatch.setTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color))
+            binding.findInPageMatch.setTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_63))
             setFindInPageChevronsEnabled(true)
             isFirstOccurrence = activeMatchOrdinal == 0
             isLastOccurrence = activeMatchOrdinal + 1 == numberOfMatches

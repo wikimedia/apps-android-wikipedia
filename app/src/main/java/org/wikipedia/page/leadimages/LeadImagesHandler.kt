@@ -49,8 +49,8 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     private val disposables = CompositeDisposable()
 
     private val isLeadImageEnabled get() = Prefs.isImageDownloadEnabled && !DimenUtil.isLandscape(activity) && displayHeightDp >= MIN_SCREEN_HEIGHT_DP && !isMainPage && !leadImageUrl.isNullOrEmpty()
-    private val leadImageWidth get() = page?.run { pageProperties.leadImageWidth } ?: pageHeaderView.getImageView().width
-    private val leadImageHeight get() = page?.run { pageProperties.leadImageHeight } ?: pageHeaderView.getImageView().height
+    private val leadImageWidth get() = page?.run { pageProperties.leadImageWidth } ?: pageHeaderView.imageView.width
+    private val leadImageHeight get() = page?.run { pageProperties.leadImageHeight } ?: pageHeaderView.imageView.height
 
     // Conditionally add the PageTitle's URL scheme and authority if these are missing from the
     // PageProperties' URL.
@@ -129,12 +129,13 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { imageTagsResult ->
-                    if (imageEditType != ImageEditType.ADD_CAPTION && imageTagsResult != null && imageTagsResult.isEmpty()) {
+                    if (imageEditType != ImageEditType.ADD_CAPTION && imageTagsResult.isEmpty()) {
                         imageEditType = ImageEditType.ADD_TAGS
                     }
                     finalizeCallToAction()
                 }
             )
+            pageHeaderView.imageView.contentDescription = parentFragment.getString(R.string.image_content_description, it.displayText)
         }
     }
 
@@ -218,11 +219,11 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 title?.let {
                     val filename = "File:$imageName"
                     val wiki = language?.run { WikiSite.forLanguageCode(this) } ?: it.wikiSite
-                    val hitInfo = JavaScriptActionHandler.ImageHitInfo(pageHeaderView.getImageView().left.toFloat(),
-                        pageHeaderView.getImageView().top.toFloat(), leadImageWidth.toFloat(), leadImageHeight.toFloat(),
+                    val hitInfo = JavaScriptActionHandler.ImageHitInfo(pageHeaderView.imageView.left.toFloat(),
+                        pageHeaderView.imageView.top.toFloat(), leadImageWidth.toFloat(), leadImageHeight.toFloat(),
                         leadImageUrl!!, true)
                     GalleryActivity.setTransitionInfo(hitInfo)
-                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pageHeaderView.getImageView(), activity.getString(R.string.transition_page_gallery))
+                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pageHeaderView.imageView, activity.getString(R.string.transition_page_gallery))
                     activity.startActivityForResult(GalleryActivity.newIntent(activity,
                         parentFragment.title, filename, wiki, parentFragment.revision, GalleryFunnel.SOURCE_LEAD_IMAGE),
                         Constants.ACTIVITY_REQUEST_GALLERY, options.toBundle())

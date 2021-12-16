@@ -41,6 +41,7 @@
   <string name="offline_load_error_retry">Προσπαθήστε πάλι</string>
   <string name="page_error_back_to_main">Επιστροφή</string>
   <string name="error_back">Επιστροφή</string>
+  <string name="error_next">Επόμενο</string>
   <string name="menu_clear_all_history">Εκκαθάριση ιστορικού</string>
   <string name="history_item_deleted">το %s έχει αφαιρεθεί από το ιστορικό</string>
   <string name="history_items_deleted">Τα %d λήμματα έχουν αφαιρεθεί από το ιστορικό</string>
@@ -49,6 +50,9 @@
   <string name="app_settings">Ρυθμίσεις εφαρμογής</string>
   <string name="search_tab_tooltip">Πατήστε ξανά το εικονίδιο για να ξεκινήσετε άμεσα να πληκτρολογείτε τον όρο αναζήτησης.</string>
   <string name="history_list_title">Ιστορικό</string>
+  <string name="image_content_description">Εικόνα %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Εκκαθάριση ιστορικού περιήγησης</string>
   <string name="dialog_message_clear_history">Αυτό θα διαγράψει όλο το ιστορικό περιήγησής σας και θα κλείσει οποιεσδήποτε ανοικτές καρτέλες. Είστε σίγουροι;</string>
   <string name="dialog_message_clear_history_yes">Ναι</string>
@@ -59,6 +63,10 @@
   <string name="menu_page_show_tabs">Εμφάνιση καρτελών</string>
   <string name="menu_page_other_languages">Αλλαγή γλώσσας</string>
   <string name="menu_page_find_in_page">Βρείτε στο λήμμα</string>
+  <string name="menu_page_add_to_watchlist">Προσθήκη στη Λίστα Παρακολούθησης</string>
+  <string name="menu_page_view_talk">Προβολή σελίδας συζήτησης</string>
+  <string name="menu_page_view_edit_history">Προβολή ιστορικού επεξεργασίας</string>
+  <string name="menu_page_remove_from_watchlist">Αφαίρεση από τη λίστα παρακολούθησης</string>
   <string name="edit_section_find_in_page">Βρείτε στην σελίδα</string>
   <string name="menu_page_font_and_theme">Γραμματοσειρά και θέμα</string>
   <string name="menu_page_add_to_list">Προσθήκη στη λίστα ανάγνωσης</string>
@@ -66,6 +74,7 @@
   <string name="feed_card_add_to_list">Προσθήκη στην λίστα ανάγνωσης</string>
   <string name="feed_card_add_to_default_list">Αποθήκευση</string>
   <string name="menu_page_share">Σύνδεσμος διαμοιρασμού</string>
+  <string name="menu_article_share">Μοίρασμα λήμματος</string>
   <string name="menu_page_open_a_new_tab">Άνοιγμα νέας καρτέλας</string>
   <string name="menu_page_new_tab">Νέα καρτέλα</string>
   <string name="menu_page_reading_lists">Λίστες ανάγνωσης</string>
@@ -155,7 +164,7 @@
   <string name="create_account_passwords_mismatch_error">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
   <string name="create_account_email_error">Άκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου</string>
   <string name="create_account_username_error">Μη έγκυροι χαρακτήρες στο όνομα χρήστη</string>
-  <string name="create_account_password_error" fuzzy="true">Ο κωδικός δεν είναι σωστός</string>
+  <string name="create_account_password_error">Ο κωδικός πρέπει να έχει τουλάχιστον 8 χαρακτήρες</string>
   <string name="create_account_generic_error">Δεν ήταν δυνατή η δημιουργία λογαριασμού</string>
   <string name="create_account_next">Επόμενο</string>
   <string name="email_recommendation_dialog_title">Δημιουργία λογαριασμού χωρίς διεύθυνση ηλεκτρονικού ταχυδρομείου;</string>
@@ -169,6 +178,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Λεπτομέρειες</string>
   <string name="preferences_general_heading">Γενικά</string>
+  <string name="preferences_account_heading">Λογαριασμός</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Αποστολή σχολίων για την εφαρμογή</string>
   <string name="create_account_account_created_toast">Ο λογαριασμός δημιουργήθηκε!</string>
@@ -195,6 +205,7 @@
   <string name="page_protected_can_not_edit">Δεν έχετε τα δικαιώματα για να επεξεργαστείτε αυτή τη σελίδα</string>
   <string name="page_protected_can_not_edit_anon">Λυπούμαστε, σε αυτή η σελίδα δεν μπορεί να γίνει ανώνυμη επεξεργασία επί του παρόντος.</string>
   <string name="page_protected_can_not_edit_title">Αυτή η σελίδα είναι προστατευμένη</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Προσθήκη στη Λίστα Παρακολούθησης</string>
   <string name="settings_item_preferences">Ρυθμίσεις</string>
   <string name="settings_activity_title">Ρυθμίσεις</string>
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
