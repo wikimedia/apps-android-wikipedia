@@ -12,9 +12,11 @@ import android.widget.PopupWindow
 import androidx.annotation.DrawableRes
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
-import org.wikipedia.auth.AccountUtil
+import org.wikipedia.databinding.ItemQuickActionsMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
+import org.wikipedia.page.customize.PageActionItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.settings.Prefs
 
 class PageActionOverflowView(context: Context) : FrameLayout(context) {
 
@@ -32,9 +34,26 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
     private var callback: Callback? = null
     private var popupWindowHost: PopupWindow? = null
     private var isWatched = false
+    val actionCallback: PageActionItem.Callback? = null
 
     init {
-        setButtonsListener()
+        binding.overflowForward.setOnClickListener {
+            dismissPopupWindowHost()
+            callback?.forwardClick()
+        }
+        Prefs.customizeFavoritesMenuOrder.forEach {
+            val view = ItemQuickActionsMenuBinding.inflate(LayoutInflater.from(context)).root
+            val item = PageActionItem.find(it)
+            view.text = context.getString(item.titleResId)
+            view.setCompoundDrawablesWithIntrinsicBounds(item.iconResId, 0, 0, 0)
+            view.setOnClickListener {
+                if (actionCallback != null) {
+                    dismissPopupWindowHost()
+                    item.select(actionCallback)
+                }
+            }
+            binding.overflowList.addView(view)
+        }
     }
 
     fun show(anchorView: View, callback: Callback?, currentTab: Tab, isMobileWeb: Boolean,
@@ -49,9 +68,10 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             it.showAsDropDown(anchorView, 0, 0, Gravity.END)
         }
         binding.overflowForward.visibility = if (currentTab.canGoForward()) VISIBLE else GONE
-        binding.overflowWatchlist.setText(if (isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
-        binding.overflowWatchlist.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(isWatched, hasWatchlistExpiry), 0, 0, 0)
-        binding.overflowWatchlist.visibility = if (!isMobileWeb && AccountUtil.isLoggedIn) VISIBLE else GONE
+        // TODO: should handle the following on both Quick Actions and Menu
+//        binding.overflowWatchlist.setText(if (isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
+//        binding.overflowWatchlist.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(isWatched, hasWatchlistExpiry), 0, 0, 0)
+//        binding.overflowWatchlist.visibility = if (!isMobileWeb && AccountUtil.isLoggedIn) VISIBLE else GONE
     }
 
     @DrawableRes
@@ -69,37 +89,6 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         popupWindowHost?.let {
             it.dismiss()
             popupWindowHost = null
-        }
-    }
-
-    private fun setButtonsListener() {
-        binding.overflowForward.setOnClickListener {
-            dismissPopupWindowHost()
-            callback?.forwardClick()
-        }
-        binding.overflowShare.setOnClickListener {
-            dismissPopupWindowHost()
-            callback?.shareClick()
-        }
-        binding.overflowWatchlist.setOnClickListener {
-            dismissPopupWindowHost()
-            callback?.watchlistClick(isWatched)
-        }
-        binding.overflowTalk.setOnClickListener {
-            dismissPopupWindowHost()
-            callback?.talkClick()
-        }
-        binding.overflowEditHistory.setOnClickListener {
-            dismissPopupWindowHost()
-            callback?.editHistoryClick()
-        }
-        binding.overflowFeed.setOnClickListener {
-            dismissPopupWindowHost()
-            callback?.feedClick()
-        }
-        binding.overflowNewTab.setOnClickListener {
-            dismissPopupWindowHost()
-            callback?.newTabClick()
         }
     }
 }

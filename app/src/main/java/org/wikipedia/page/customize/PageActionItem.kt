@@ -7,10 +7,10 @@ import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 
 @Suppress("unused")
-enum class QuickActionItem constructor(val id: Int,
-                                       @StringRes val titleResId: Int,
-                                       @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
-                                       val isExternalLink: Boolean = false) : EnumCode {
+enum class PageActionItem constructor(val id: Int,
+                                      @StringRes val titleResId: Int,
+                                      @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
+                                      val isExternalLink: Boolean = false) : EnumCode {
     SAVE(0, R.string.article_menu_bar_save_button, R.drawable.ic_bookmark_border_white_24dp) {
         override fun select(cb: Callback) {
             cb.onSaveSelected()
@@ -92,17 +92,17 @@ enum class QuickActionItem constructor(val id: Int,
     }
 
     companion object {
-        val MAP = EnumCodeMap(QuickActionItem::class.java)
+        val MAP = EnumCodeMap(PageActionItem::class.java)
 
         fun size(): Int {
             return MAP.size()
         }
 
-        private fun findOrNull(id: Int): QuickActionItem? {
+        private fun findOrNull(id: Int): PageActionItem? {
             return MAP.valueIterator().asSequence().firstOrNull { id == it.id }
         }
 
-        fun find(id: Int): QuickActionItem {
+        fun find(id: Int): PageActionItem {
             return findOrNull(id) ?: MAP[0]
         }
     }

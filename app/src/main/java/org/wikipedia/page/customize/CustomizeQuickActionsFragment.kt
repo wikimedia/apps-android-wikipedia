@@ -81,7 +81,7 @@ class CustomizeQuickActionsFragment : Fragment() {
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
             when (holder) {
                 is ItemHolder -> {
-                    holder.bindItem(viewModel.fullList[pos].second as QuickActionItem, pos)
+                    holder.bindItem(viewModel.fullList[pos].second as PageActionItem, pos)
                     holder.view.setDragHandleEnabled(true)
                 }
                 is HeaderViewHolder -> {
@@ -177,8 +177,8 @@ class CustomizeQuickActionsFragment : Fragment() {
     }
 
     private inner class ItemHolder constructor(itemView: CustomizeQuickActionsItemView) : DefaultViewHolder<CustomizeQuickActionsItemView>(itemView) {
-        fun bindItem(quickActionItem: QuickActionItem, position: Int) {
-            view.setContents(quickActionItem, position)
+        fun bindItem(pageActionItem: PageActionItem, position: Int) {
+            view.setContents(pageActionItem, position)
         }
     }
 

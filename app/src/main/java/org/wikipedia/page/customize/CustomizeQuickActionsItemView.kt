@@ -24,10 +24,10 @@ class CustomizeQuickActionsItemView : LinearLayout {
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
-    fun setContents(quickActionItem: QuickActionItem, position: Int) {
+    fun setContents(pageActionItem: PageActionItem, position: Int) {
         this.position = position
-        binding.listItem.text = context.getString(quickActionItem.titleResId)
-        binding.listItem.setCompoundDrawablesWithIntrinsicBounds(quickActionItem.iconResId, 0, 0, 0)
+        binding.listItem.text = context.getString(pageActionItem.titleResId)
+        binding.listItem.setCompoundDrawablesWithIntrinsicBounds(pageActionItem.iconResId, 0, 0, 0)
     }
 
     fun setDragHandleEnabled(enabled: Boolean) {

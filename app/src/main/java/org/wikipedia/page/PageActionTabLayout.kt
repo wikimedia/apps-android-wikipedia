@@ -3,22 +3,20 @@ package org.wikipedia.page
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.core.view.forEach
-import org.wikipedia.databinding.ItemQuickActionTabBinding
-import org.wikipedia.page.action.PageActionTab
-import org.wikipedia.page.customize.QuickActionItem
+import org.wikipedia.databinding.ItemQuickActionsTabBinding
+import org.wikipedia.page.customize.PageActionItem
 import org.wikipedia.settings.Prefs
 import org.wikipedia.views.ConfigurableTabLayout
 
 class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = null) : ConfigurableTabLayout(context, attrs) {
 
-    val callback: QuickActionItem.Callback? = null
+    val callback: PageActionItem.Callback? = null
 
     init {
-        orientation = HORIZONTAL
         Prefs.customizeFavoritesQuickActionsOrder.forEach {
-            val view = ItemQuickActionTabBinding.inflate(LayoutInflater.from(context)).root
-            val item = QuickActionItem.find(it)
+            val view = ItemQuickActionsTabBinding.inflate(LayoutInflater.from(context)).root
+            val item = PageActionItem.find(it)
+            val param = LayoutParams(0, LayoutParams.MATCH_PARENT, 1.0f)
             view.text = context.getString(item.titleResId)
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
             view.setOnClickListener { v ->
@@ -27,21 +25,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
                 }
             }
             view.isFocusable = true
-            addView(view)
-        }
-    }
-
-    fun setPageActionTabsCallback(pageActionTabsCallback: PageActionTab.Callback) {
-        forEach {
-            it.tag?.let { tag ->
-                val tabPosition = tag.toString().toInt()
-                it.isFocusable = true
-                it.setOnClickListener { v ->
-                    if (isEnabled(v)) {
-                        PageActionTab.of(tabPosition).select(pageActionTabsCallback)
-                    }
-                }
-            }
+            addView(view, param)
         }
     }
 }

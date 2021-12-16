@@ -42,7 +42,7 @@ class CustomizeQuickActionsViewModel : ViewModel() {
         return if (list.isEmpty()) {
             listOf(emptyPlaceholderPair(quickActions))
         } else {
-            list.map { CustomizeQuickActionsFragment.VIEW_TYPE_ITEM to QuickActionItem.find(it) }
+            list.map { CustomizeQuickActionsFragment.VIEW_TYPE_ITEM to PageActionItem.find(it) }
         }
     }
 
@@ -65,9 +65,9 @@ class CustomizeQuickActionsViewModel : ViewModel() {
             }
             if (it.first == CustomizeQuickActionsFragment.VIEW_TYPE_ITEM) {
                 if (saveIntoQuickActions) {
-                    quickActionsItems.add((it.second as QuickActionItem).id)
+                    quickActionsItems.add((it.second as PageActionItem).id)
                 } else {
-                    menuItems.add((it.second as QuickActionItem).id)
+                    menuItems.add((it.second as PageActionItem).id)
                 }
             }
         }
