@@ -165,7 +165,7 @@ class CustomizeQuickActionsFragment : Fragment() {
         }
 
         private fun movableItems(target: RecyclerView.ViewHolder): Boolean {
-            // TODO: add (target is HeaderViewHolder) with matching title string to make them swappable between categories
+            // TODO: Add (target is HeaderViewHolder) with matching title string to make them swappable between categories
             return target is ItemHolder
         }
     }
