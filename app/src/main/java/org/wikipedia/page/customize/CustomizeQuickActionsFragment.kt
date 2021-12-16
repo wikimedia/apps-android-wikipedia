@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
-import org.wikipedia.databinding.FragmentCustomizeFavoritesBinding
+import org.wikipedia.databinding.FragmentCustomizeQuickActionsBinding
 import org.wikipedia.views.DefaultViewHolder
 
 class CustomizeQuickActionsFragment : Fragment() {
-    private var _binding: FragmentCustomizeFavoritesBinding? = null
+    private var _binding: FragmentCustomizeQuickActionsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: CustomizeQuickActionsViewModel by viewModels()
 
@@ -27,7 +27,7 @@ class CustomizeQuickActionsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentCustomizeFavoritesBinding.inflate(LayoutInflater.from(context), container, false)
+        _binding = FragmentCustomizeQuickActionsBinding.inflate(LayoutInflater.from(context), container, false)
         return binding.root
     }
 
@@ -67,10 +67,10 @@ class CustomizeQuickActionsFragment : Fragment() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
             return when (viewType) {
                 VIEW_TYPE_HEADER -> {
-                    HeaderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_favorites_header, parent, false))
+                    HeaderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_quick_actions_header, parent, false))
                 }
                 VIEW_TYPE_EMPTY_PLACEHOLDER -> {
-                    EmptyPlaceholderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_favorites_empty_placeholder, parent, false))
+                    EmptyPlaceholderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_quick_actions_empty_placeholder, parent, false))
                 }
                 else -> {
                     ItemHolder(CustomizeQuickActionsItemView(parent.context))
@@ -166,7 +166,7 @@ class CustomizeQuickActionsFragment : Fragment() {
 
         private fun movableItems(target: RecyclerView.ViewHolder): Boolean {
             return target is ItemHolder ||
-                    (target is HeaderViewHolder && target.itemView.findViewById<TextView>(R.id.headerTitle).text == getString(R.string.customize_favorites_category_menu))
+                    (target is HeaderViewHolder && target.itemView.findViewById<TextView>(R.id.headerTitle).text == getString(R.string.customize_quick_actions_category_menu))
         }
     }
 

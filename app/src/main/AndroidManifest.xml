@@ -286,7 +286,7 @@
 
         <activity
             android:name=".page.customize.CustomizeQuickActionsActivity"
-            android:label="@string/customize_favorites_title"
+            android:label="@string/customize_quick_actions_title"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity

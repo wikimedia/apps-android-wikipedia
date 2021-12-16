@@ -48,7 +48,7 @@ class CustomizeQuickActionsViewModel : ViewModel() {
 
     private fun headerPair(quickActions: Boolean): Pair<Int, Any> {
         return CustomizeQuickActionsFragment.VIEW_TYPE_HEADER to
-                if (quickActions) R.string.customize_favorites_category_quick_actions else R.string.customize_favorites_category_menu
+                if (quickActions) R.string.customize_quick_actions_category_quick_actions else R.string.customize_quick_actions_category_menu
     }
 
     private fun emptyPlaceholderPair(quickActions: Boolean): Pair<Int, Any> {
