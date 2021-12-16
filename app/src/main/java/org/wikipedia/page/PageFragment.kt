@@ -61,7 +61,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.media.AvPlayer
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.notifications.PollNotificationService
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionTab
 import org.wikipedia.page.leadimages.LeadImagesHandler
@@ -554,7 +554,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun startTalkTopicActivity(pageTitle: PageTitle) {
-        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle.pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY))
+        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle, InvokeSource.PAGE_ACTIVITY))
     }
 
     private fun startGalleryActivity(fileName: String) {
@@ -919,7 +919,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         if (AccountUtil.isLoggedIn) {
             // explicitly check notifications for the current user
-            NotificationPollBroadcastReceiver.pollNotifications(requireActivity())
+            PollNotificationService.schedulePollNotificationJob(requireContext())
         }
 
         // update the time spent reading of the current page, before loading the new one
@@ -1053,7 +1053,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             hidePageContent()
             bridge.onMetadataReady()
             if (binding.pageError.visibility != View.VISIBLE) {
-                binding.pageError.setError(caught)
+                binding.pageError.setError(caught, it)
             }
             binding.pageError.visibility = View.VISIBLE
             binding.pageError.contentTopOffset.layoutParams = getContentTopOffsetParams(requireContext())
@@ -1137,8 +1137,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun addToReadingList(title: PageTitle, source: InvokeSource, addToDefault: Boolean) {
         if (addToDefault) {
-            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), title, source) { readingListId ->
-                moveToReadingList(readingListId, title, source, false) }
+            var finalPageTitle = title
+            // Make sure handle redirected title before saving into database
+            disposables.add(ServiceFactory.getRest(title.wikiSite).getSummary(null, title.prefixedText)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate {
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), finalPageTitle, source) { readingListId ->
+                        moveToReadingList(readingListId, finalPageTitle, source, false) }
+                }
+                .subscribe({
+                    finalPageTitle = it.getPageTitle(title.wikiSite)
+                }, {
+                    L.e(it)
+                }))
         } else {
             callback()?.onPageAddToReadingList(title, source)
         }
@@ -1179,6 +1191,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     }
                 }) { caught -> L.d(caught) })
         }
+    }
+
+    fun showAnonNotification() {
+        (requireActivity() as PageActivity).onAnonNotification()
     }
 
     private inner class PageActionTabCallback : PageActionTab.Callback {

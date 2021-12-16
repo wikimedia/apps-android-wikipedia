@@ -121,6 +121,7 @@
   <string name="feed_card_add_to_list">Добавить в список для чтения</string>
   <string name="feed_card_add_to_default_list">Сохранить</string>
   <string name="menu_page_share">Поделиться ссылкой</string>
+  <string name="menu_article_share">Поделиться статьёй</string>
   <string name="menu_page_open_a_new_tab">Открыть новую вкладку</string>
   <string name="menu_page_new_tab">Новая вкладка</string>
   <string name="menu_page_reading_lists">Списки для чтения</string>
@@ -299,6 +300,7 @@
   <string name="edit_summary_tag_other_hint">Другие способы, которыми вы улучшили страницу</string>
   <string name="edit_conflict_title">Конфликт редактирования</string>
   <string name="edit_conflict_message">Возник конфликт редактирования, так как страница уже была изменена другим участником. Скопируйте свои изменения, вернитесь и обновите страницу, а затем повторите попытку редактирования.</string>
+  <string name="edit_notices_please_read">Пожалуйста, прочтите перед редактированием</string>
   <string name="find_next">Найти далее</string>
   <string name="find_previous">Найти ранее</string>
   <string name="find_first_occurence">Это первое совпадение</string>
@@ -665,6 +667,7 @@
   <string name="notification_preferences_title">Настройки уведомлений</string>
   <string name="notifications_mark_unread">Отметить как непрочитанное</string>
   <string name="notifications_mark_all_as_read">Отметить все как прочитанные</string>
+  <string name="notifications_direct_reply_action">Ответить</string>
   <string name="notifications_direct_reply_success">Ответ опубликован.</string>
   <plurals name="notifications_mark_as_read_plural">
     <item quantity="one">%d отмечено как прочитанное</item>
@@ -710,9 +713,22 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Уведомления из Википедии</string>
   <string name="notifications_channel_group_other_title">Прочие</string>
   <string name="notifications_channel_group_other_description">Другие уведомления от приложения</string>
+  <string name="notifications_filter_label">Фильтровать уведомления</string>
+  <string name="notifications_filter_icon_content_description">Фильтровать уведомления</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d фильтр</item>
+    <item quantity="few">%d фильтра</item>
+    <item quantity="many">%d фильтров</item>
+    <item quantity="other">%d фильтров</item>
+  </plurals>
   <string name="notifications_select_all_filters">Выбрать все фильтры</string>
+  <string name="notifications_tab_filter_all">Все</string>
+  <string name="notifications_tab_filter_mentions">Упоминания</string>
+  <string name="notifications_search_bar_filter_hint">Фильтр уведомлений</string>
   <string name="notifications_menu_mark_as_read">Пометить как прочитанное</string>
+  <string name="notifications_menu_mark_as_unread">Пометить как непрочитанное</string>
   <string name="notifications_wiki_filter_header">Вики фильтр</string>
+  <string name="notifications_all_wikis_text">Все \"вики\"</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_article_card_title">Случайная статья</string>
@@ -1118,6 +1134,10 @@
   <string name="talk_last_modified">&lt;b&gt;Последняя правка сделана %1$s&lt;/b&gt; участником %2$s</string>
   <string name="talk_snackbar_survey_text">Спасибо за использование страниц обсуждения. Не могли бы вы помочь нам улучшить приложение, приняв участие в опросе?</string>
   <string name="talk_snackbar_survey_action_text">Начать</string>
+  <string name="talk_share_discussion_subject">Википедия — обсуждение в теме «%s»</string>
+  <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
+  <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
+  <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
   <string name="menu_option_user_profile">Профиль %s</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>
@@ -1126,7 +1146,7 @@
   <string name="watchlist_details_next_edit">Следующая правка</string>
   <string name="watchlist_details_prev_edit">Предыдущая правка</string>
   <string name="thank_label">Благодарность</string>
-  <string name="go_to_user_page">Перейти на страницу пользователя</string>
+  <string name="view_user_page">Просмотреть страницу участника</string>
   <string name="thank_dialog_title_text">Публично отправить \'Спасибо\'</string>
   <string name="thank_dialog_text">\'Спасибо\' - это простой способ выразить признательность редактору Википедии за его работу. \'Спасибо\' нельзя отменить и оно отображается публично.</string>
   <string name="thank_dialog_positive_button_text">Отправить благодарность</string>

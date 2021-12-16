@@ -5,14 +5,14 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -33,6 +33,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -123,6 +124,22 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         updateEditLicenseText()
 
         onInitialLoad()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_talk_topic, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.menu_talk_topic_share -> {
+                ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), pageTitle.uri + "#" + StringUtil.addUnderscores(topic?.html))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun replyClicked() {
@@ -251,7 +268,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun showLinkPreviewOrNavigate(title: PageTitle) {
         if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
-            startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage(), Constants.InvokeSource.TALK_ACTIVITY))
+            startActivity(TalkTopicsActivity.newIntent(this, title, Constants.InvokeSource.TALK_ACTIVITY))
         } else {
             bottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
@@ -321,6 +338,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         undoneBody = body
         undoneSubject = subject
 
+        editFunnel.logSaveAttempt()
+
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
             binding.replySubjectLayout.requestFocus()
@@ -374,6 +393,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     showUndoSnackbar = true
+                    AnonymousNotificationHelper.onEditSubmitted()
                     waitForUpdatedRevision(it.edit!!.newRevId)
                 }, {
                     onSaveError(it)
@@ -427,6 +447,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
         binding.talkProgressBar.visibility = View.GONE
+        binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)
     }
 
@@ -446,12 +467,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     binding.talkProgressBar.visibility = View.VISIBLE
                     undoSave()
                 }
-                .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
-                    override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
-                        super.onDismissed(transientBottomBar, event)
-                        TalkPageSurvey.maybeShowSurvey(this@TalkTopicActivity, editSubmitted = true)
-                    }
-                })
                 .show()
             showUndoSnackbar = false
         }

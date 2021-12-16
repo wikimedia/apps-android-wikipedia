@@ -274,6 +274,10 @@
   <string name="edit_summary_tag_other_hint">راه‌های دیگر برای بهبود صفحه</string>
   <string name="edit_conflict_title">تعارض ویرایشی</string>
   <string name="edit_conflict_message">هم‌اکنون کاربر دیگری این صفحه را ویرایش کرده و تغییرات شما با ویرایش‌های او تعارض دارد. خواهشمندیم ابتدا تغییرات خود را در حافظه کپی کرده سپس به عقب برگشته و بار دیگر صفحه را ویرایش کنید.</string>
+  <string name="edit_notices">اعلامیه‌های ویرایش</string>
+  <string name="edit_notices_please_read">لطفاً پیش از ویرایش، مطالعه کنید</string>
+  <string name="edit_notices_show_auto">نمایش اعلامیه‌های ویرایش به‌طور خودکار</string>
+  <string name="edit_notices_tooltip">برای مشاهدهٔ اعلامیه‌های ویرایش این مقاله، این دکمه را لمس کنید.</string>
   <string name="find_next">یافتن بعدی</string>
   <string name="find_previous">یافتن قبلی</string>
   <string name="find_first_occurence">این نخستین مورد است</string>
@@ -604,6 +608,7 @@
   <string name="notification_preferences_title">ترجیحات اعلان‌ها</string>
   <string name="notifications_mark_unread">نشانه‌گذاری به‌عنوان خوانده‌نشده</string>
   <string name="notifications_mark_all_as_read">نشان‌گذاری همه به عنوان خوانده‌شده</string>
+  <string name="notifications_direct_reply_success">پاسخ ارسال شد.</string>
   <string name="watchlist_title">فهرست پی‌گیری</string>
   <string name="preference_title_notification_poll">سرشماری اعلان‌ها</string>
   <string name="preference_summary_notification_poll">به نرم‌افزار اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی اعلان‌های جدید استفاده کند.</string>
@@ -1025,7 +1030,6 @@
   <string name="watchlist_details_next_edit">ویرایش بعدی</string>
   <string name="watchlist_details_prev_edit">ویرایش قبلی</string>
   <string name="thank_label">سپاس</string>
-  <string name="go_to_user_page">رفتن به صفحه کاربر</string>
   <string name="thank_dialog_title_text">ارسال «تشکر» به‌صورت عمومی</string>
   <string name="thank_dialog_text">«تشکر» راهی آسان برای نشان دادن قدردانی از کار یک ویرایشگر در ویکی‌پدیا است. «تشکر» قابل واگرد نیست و به‌صورت عمومی قابل مشاهده است</string>
   <string name="thank_dialog_positive_button_text">ارسال تشکر</string>

@@ -125,7 +125,7 @@
   <string name="reset_password_button">محفوظ ڪريو ۽ داخل ٿيو</string>
   <string name="preference_title_logout">ٻاھر نڪرو</string>
   <string name="toast_logout_complete">نڪري چڪا</string>
-  <string name="logout_prompt">ھي توھان کي سڀني اوزان تان خارج ڪري ڇڏيندو جتي توھان داخل ٿيل آھيو. ڇا توھان جاري رکڻ گھرو ٿا؟</string>
+  <string name="logout_prompt">ھي توھان کي سڀني اوزان تان ٻاھر ڪري ڇڏيندو جتي توھان داخل ٿيل آھيو. ڇا توھان جاري رکڻ گهرو ٿا؟</string>
   <string name="logout_dialog_cancel_button_text">رد</string>
   <string name="logged_out_in_background_title">نڪري چڪا</string>
   <string name="logged_out_in_background_dialog">توھان وڪيپيڊيا مان خارج ٿي چڪا آھيو. ڇا توھان ٻيھر داخل ٿيڻ پسند ڪندا؟</string>
@@ -944,7 +944,6 @@
   <string name="watchlist_details_next_edit">اڳين سنوار</string>
   <string name="watchlist_details_prev_edit">پوئين سنوار</string>
   <string name="thank_label">مھرباني چئو</string>
-  <string name="go_to_user_page">واپرائيندڙ جي صفحي ڏانھن وڃو</string>
   <string name="thank_dialog_title_text">عوامي طور \'مھرباني\' چئو</string>
   <string name="thank_dialog_text">\'مھربانيون\' وڪيپيڊيا تي ڪنھن سنواريندڙ جي ڪم جي تعريف ڪرڻ جو آسان طريقو آھن. \'مھربانيون\' واپس موٽائي نٿيون سگهجن ۽ عوامي طور ڏسي سگهجندڙ آھن.</string>
   <string name="thank_dialog_positive_button_text">مھرباني چئو</string>

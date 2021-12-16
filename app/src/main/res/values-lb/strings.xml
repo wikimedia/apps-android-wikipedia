@@ -213,6 +213,7 @@
   <string name="edit_summary_tag_other">Anerer</string>
   <string name="edit_summary_tag_other_hint">Aner Manéier wéi Dir d\'Säit verbessert hutt</string>
   <string name="edit_conflict_title">Ännerungskonflikt</string>
+  <string name="edit_notices_please_read">Liest wgl. virum Änneren</string>
   <string name="find_next">Den nächste fannen</string>
   <string name="find_previous">Vireg fannen</string>
   <string name="find_first_occurence">Dëst ass déi éischte Kéier</string>
@@ -466,6 +467,7 @@
   <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
   <string name="notifications_mark_unread">Als net gelies markéieren</string>
   <string name="notifications_direct_reply_action">Äntweren</string>
+  <string name="notifications_direct_reply_success">Äntwert publizéiert.</string>
   <string name="notifications_mark_all_as_read_message">%d markéiert als geliest</string>
   <string name="notifications_mark_all_as_unread_message">%d markéiert als net geliest</string>
   <string name="watchlist_title">Iwwerwaachungslëscht</string>
@@ -704,11 +706,11 @@
   <string name="talk_no_subject">(Kee Sujet)</string>
   <string name="talk_reply_subject">Sujet</string>
   <string name="talk_snackbar_survey_action_text">Fir unzefänken</string>
+  <string name="menu_option_share_talk_discussion">Diskussioun deelen</string>
   <string name="menu_option_user_contributions">Kontributioune vum %s</string>
   <string name="watchlist_details_watching_label">Iwwerwaacht</string>
   <string name="watchlist_details_watch_label">Iwwerwaachen</string>
   <string name="thank_label">Merci soen</string>
-  <string name="go_to_user_page">Op d\'Benotzersäit goen</string>
   <string name="thank_dialog_positive_button_text">Merci soen</string>
   <string name="thank_dialog_negative_button_text">Ofbriechen</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>

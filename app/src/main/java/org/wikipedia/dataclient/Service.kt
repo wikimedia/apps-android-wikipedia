@@ -87,6 +87,12 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteMatrix: Observable<SiteMatrix>
 
+    @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
+    suspend fun getSiteMatrix(): SiteMatrix
+
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=namespaces")
+    fun getPageNamespaceWithSiteInfo(@Query("titles") title: String): Observable<MwQueryResponse>
+
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>
 
@@ -190,7 +196,7 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     val authManagerInfo: Observable<MwQueryResponse>
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
+    @get:GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg")
     val userInfo: Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
@@ -200,11 +206,20 @@ interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
-    fun getAllNotifications(
+    suspend fun getAllNotifications(
         @Query("notwikis") wikiList: String?,
         @Query("notfilter") filter: String?,
         @Query("notcontinue") continueStr: String?
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
+
+    // TODO: remove "KT" if we remove the Observable one.
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
+    suspend fun getAllNotificationsKT(
+        @Query("notwikis") wikiList: String?,
+        @Query("notfilter") filter: String?,
+        @Query("notcontinue") continueStr: String?
+    ): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echomarkread")
@@ -214,13 +229,18 @@ interface Service {
         @Field("unreadlist") unreadList: String?
     ): Observable<MwQueryResponse>
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=notifications&notwikis=*&notprop=list&notfilter=!read&notlimit=1")
-    @get:Headers("Cache-Control: no-cache")
-    val lastUnreadNotification: Observable<MwQueryResponse>
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&meta=notifications&notwikis=*&notprop=list&notfilter=!read&notlimit=1")
+    suspend fun lastUnreadNotification(): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
-    @get:Headers("Cache-Control: no-cache")
-    val unreadNotificationWikis: Observable<MwQueryResponse>
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
+    suspend fun unreadNotificationWikis(): MwQueryResponse
+
+    // TODO: remove "KT" if we remove the Observable one.
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
+    suspend fun unreadNotificationWikisKT(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=create&provider=fcm")
@@ -378,6 +398,9 @@ interface Service {
         @Field("token") token: String,
         @Field("batch") batchLabels: String
     ): Observable<MwPostResponse>
+
+    @GET(MW_API_PREFIX + "action=visualeditor&paction=metadata")
+    fun getVisualEditorMetadata(@Query("page") page: String): Observable<MwVisualEditorResponse>
 
     // ------- Watchlist -------
 

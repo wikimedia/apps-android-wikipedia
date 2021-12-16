@@ -63,6 +63,7 @@
   <string name="feed_card_add_to_list">Додај во список за читање</string>
   <string name="feed_card_add_to_default_list">Зачувај</string>
   <string name="menu_page_share">Сподели врска</string>
+  <string name="menu_article_share">Сподели статија</string>
   <string name="menu_page_open_a_new_tab">Отвори ново јазиче</string>
   <string name="menu_page_new_tab">Ново јазиче</string>
   <string name="menu_page_reading_lists">Списоци за читање</string>
@@ -241,6 +242,10 @@
   <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
   <string name="edit_conflict_title">Спротиставеност во уредувањето</string>
   <string name="edit_conflict_message">Оваа страница е веќе изменета од друг корисник, и се коси со вашето уредување. Прекопирајте ги вашите уредувања, превчитајте ја страницата и обидете се повторно.</string>
+  <string name="edit_notices">Белешки за уредување</string>
+  <string name="edit_notices_please_read">Прочитајте пред да уредувате</string>
+  <string name="edit_notices_show_auto">Автоматски прикажувај белешки за уредување</string>
+  <string name="edit_notices_tooltip">Допрете на копчево за да ги видите белешките за уредувањето на оваа статија.</string>
   <string name="find_next">Најди следно</string>
   <string name="find_previous">Најди претходно</string>
   <string name="find_first_occurence">Ова е првото јавување</string>
@@ -351,6 +356,7 @@
   <string name="error_message_generic">Се појави грешка</string>
   <string name="view_link_preview_error_button_dismiss">Тргни</string>
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
+  <string name="error_user_page_does_not_exist">Википедија нема &lt;a href=\"%1$s\"&gt;корисничка страница&lt;/a&gt; со точно тоа име. Начелно, оваа страница треба да се создаде и уреди од &lt;b&gt;%2$s&lt;/b&gt;. Ако не сте сигурни, проверете дали постои „%3$s“.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
   <string name="view_wiki_error_message_timeout">Не можам да се поврзам со Википедија. Проверете си ја мрежната врска или обидете се подоцна</string>
   <string name="reference_title">Навод %s</string>
@@ -625,6 +631,7 @@
   <string name="notifications_channel_group_other_description">Други известувања од прилогот</string>
   <string name="notifications_filter_label">Филтрирање на известувања</string>
   <string name="notifications_filter_icon_content_description">Филтрирање на известувања</string>
+  <string name="notifications_filter_update_app_languages">Поднови јазици на прилогот</string>
   <string name="notifications_empty_search_message">Отстранете %s за да видите уште известувања</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d филтер</item>
@@ -647,6 +654,7 @@
   <string name="notifications_all_wikis_text">Сите „вики“</string>
   <string name="notifications_all_types_text">Сите „типски“</string>
   <string name="notifications_menu_user_talk_page">Разговорна страница на %s</string>
+  <string name="notifications_offline_disable_message">Функцијата е недостапна вонмрежно.</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
   <string name="view_random_article_card_title">Случајна статија</string>
@@ -1029,6 +1037,10 @@
   <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
   <string name="talk_snackbar_survey_text">Ви благодариме што ги користите разговорните страници. Дали би можеле да ни помогнете да ја подобриме алаткава со тоа што ќе пополните една анкета?</string>
   <string name="talk_snackbar_survey_action_text">Започни</string>
+  <string name="talk_share_discussion_subject">Википедија — разговор на темата „%s“ на разговорна страница</string>
+  <string name="talk_share_talk_page">Википедија — разговори на разговорна страница</string>
+  <string name="menu_option_share_talk_discussion">Сподели разговор</string>
+  <string name="menu_option_share_talk_page">Сподели разговорна страница</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
   <string name="menu_option_user_profile">Профил на %s</string>
   <string name="menu_option_user_contributions">Придонеси на %s</string>
@@ -1037,7 +1049,7 @@
   <string name="watchlist_details_next_edit">Следно уредување</string>
   <string name="watchlist_details_prev_edit">Претходно уредување</string>
   <string name="thank_label">Благодарност</string>
-  <string name="go_to_user_page">Оди на корисничката страница</string>
+  <string name="view_user_page">Преглед на корисничката страница</string>
   <string name="thank_dialog_title_text">Јавно испрати благодарница</string>
   <string name="thank_dialog_text">Благодарниците се лесен начин да му кажете на некој уредник дека го цените неговиот труд на Википедија. Тие се неотповикливи и се јавно видливи.</string>
   <string name="thank_dialog_positive_button_text">Испрати благодарница</string>

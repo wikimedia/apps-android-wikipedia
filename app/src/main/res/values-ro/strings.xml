@@ -51,6 +51,8 @@
   <string name="search_tab_tooltip">Apăsați pictograma din nou pentru a începe direct să scrieți un termen de căutare.</string>
   <string name="history_list_title">Istoric</string>
   <string name="image_content_description">Imagine: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
   <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
@@ -250,6 +252,10 @@
   <string name="edit_summary_tag_other_hint">Alte modalități prin care ați îmbunătățit pagina</string>
   <string name="edit_conflict_title">Conflict de editare</string>
   <string name="edit_conflict_message">Pagina a fost deja modificată de un alt utilizator și este în conflict cu modificarea dumneavoastră. Copiați modificările, reveniți și actualizați pagina, apoi încercați din nou să editați.</string>
+  <string name="edit_notices">Înștiințări de editare</string>
+  <string name="edit_notices_please_read">Vă rugăm să citiți înainte de a edita</string>
+  <string name="edit_notices_show_auto">Arată automat înștiințările de editare</string>
+  <string name="edit_notices_tooltip">Apăsați acest buton pentru a vedea înștiințările de editare pentru acest articol.</string>
   <string name="find_next">Găsește următorul</string>
   <string name="find_previous">Găsește precedentul</string>
   <string name="find_first_occurence">Aceasta este prima întâmplare</string>
@@ -601,6 +607,9 @@
   <string name="notification_preferences_title">Preferințe notificare</string>
   <string name="notifications_mark_unread">Marchează ca necitit</string>
   <string name="notifications_mark_all_as_read">Marchează toate ca citite</string>
+  <string name="notifications_direct_reply_action">Răspunde</string>
+  <string name="notifications_direct_reply_progress">Publicare răspuns lui %s…</string>
+  <string name="notifications_direct_reply_success">Răspuns publicat.</string>
   <string name="watchlist_title">Pagini urmărite</string>
   <string name="preference_title_notification_poll">Activează notificările</string>
   <string name="preference_summary_notification_poll">Permite aplicației să verifice în fundal dacă apar notificări noi.</string>
@@ -633,6 +642,8 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Notificări de pe Wikipedia</string>
   <string name="notifications_channel_group_other_title">Altceva</string>
   <string name="notifications_channel_group_other_description">Alte notificări din aplicație</string>
+  <string name="notifications_filter_label">Filtrează notificările</string>
+  <string name="notifications_filter_icon_content_description">Filtrează notificările</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
   <string name="view_random_card_title">Aleatoriu</string>
   <string name="view_random_article_card_title">Articol aleatoriu</string>
@@ -1020,7 +1031,7 @@
   <string name="talk_message_hint">Compune mesaj</string>
   <string name="talk_message_empty">Mesajul nu poate fi gol.</string>
   <string name="talk_subject_empty">Subiectul nu poate fi gol.</string>
-  <string name="talk_response_submitted">Răspuns postat.</string>
+  <string name="talk_response_submitted">Răspuns publicat.</string>
   <string name="talk_snackbar_undo">Anulează</string>
   <string name="talk_last_modified">&lt;b&gt;Ultima modificare %1$s&lt;/b&gt; de %2$s</string>
   <string name="talk_snackbar_survey_text">Vă mulțumim pentru că utilizați pagini de discuție. Ne-ați putea ajuta să îmbunătățim aplicația participând la un sondaj?</string>
@@ -1033,7 +1044,6 @@
   <string name="watchlist_details_next_edit">Următoarea modificare</string>
   <string name="watchlist_details_prev_edit">Modificare anterioară</string>
   <string name="thank_label">Mulțumiți</string>
-  <string name="go_to_user_page">Du-te la pagina de utilizator</string>
   <string name="thank_dialog_title_text">Trimiteți public „Mulțumiri”</string>
   <string name="thank_dialog_text">„Mulțumirile” sunt o modalitate ușoară de a arăta aprecieri pentru munca unui editor pe Wikipedia. „Mulțumirile” nu pot fi anulate și pot fi vizualizate public.</string>
   <string name="thank_dialog_positive_button_text">Trimite mulțumiri</string>

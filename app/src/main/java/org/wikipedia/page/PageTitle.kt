@@ -7,8 +7,6 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.settings.SiteInfoClient
-import org.wikipedia.staticdata.TalkAliasData
-import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import java.util.*
@@ -49,8 +47,9 @@ data class PageTitle(
     val prefixedText: String
         get() = if (namespace.isEmpty()) text else StringUtil.addUnderscores(namespace) + ":" + text
 
-    val namespace: String
+    var namespace: String
         get() = _namespace.orEmpty()
+        set(value) { _namespace = value; _displayText = null }
 
     val isFilePage: Boolean
         get() = namespace().file()
@@ -124,7 +123,7 @@ data class PageTitle(
 
         // Split off any fragment (#...) from the title
         var parts = text.split("#".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-        text = if (parts.isNotEmpty()) parts[0] else ""
+        text = parts.firstOrNull().orEmpty()
         fragment = if (parts.size > 1) {
             StringUtil.addUnderscores(UriUtil.decodeURL(parts[1]))
         } else {
@@ -172,15 +171,6 @@ data class PageTitle(
             UriUtil.encodeURL(prefixedText),
             fragment
         )
-    }
-
-    fun pageTitleForTalkPage(): PageTitle {
-        val talkNamespace = if (namespace().user() || namespace().userTalk()) UserTalkAliasData.valueFor(wikiSite.languageCode) else TalkAliasData.valueFor(wikiSite.languageCode)
-        val pageTitle = PageTitle(talkNamespace, text, wikiSite)
-        pageTitle.displayText = "$talkNamespace:" +
-                if (namespace.isNotEmpty() && (displayText.startsWith(namespace) || displayText.startsWith(StringUtil.removeUnderscores(namespace)))) StringUtil.removeNamespace(displayText) else displayText
-        pageTitle.fragment = fragment
-        return pageTitle
     }
 
     override fun toString(): String {

@@ -19,7 +19,9 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -33,7 +35,7 @@ object NotificationPresenter {
         val notificationCategory = NotificationCategory.find(n.category)
         var activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id, n.type)
         val builder = getDefaultBuilder(context, n.id, n.type, notificationCategory)
-        val title: String = StringUtil.fromHtml(if (n.contents != null) n.contents.header else "").toString()
+        val title = RichTextUtil.stripHtml(n.contents?.header.orEmpty())
         val id = n.key().toInt()
 
         n.contents?.links?.let {
@@ -41,7 +43,7 @@ object NotificationPresenter {
                 if (NotificationCategory.EDIT_USER_TALK.id == n.category) {
                     val talkWiki = WikiSite(primary.url)
                     val talkTitle = talkWiki.titleForUri(Uri.parse(primary.url))
-                    activityIntent = addIntentExtras(TalkTopicsActivity.newIntent(context, talkTitle.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id, n.type)
+                    activityIntent = addIntentExtras(TalkTopicsActivity.newIntent(context, talkTitle, Constants.InvokeSource.NOTIFICATION), n.id, n.type)
                     addActionForTalkPage(context, builder, primary, n)
                 } else {
                     addAction(context, builder, primary, n)
@@ -115,7 +117,7 @@ object NotificationPresenter {
         val wiki = WikiSite(link.url)
         val title = wiki.titleForUri(Uri.parse(link.url))
         val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(TalkTopicsActivity.newIntent(context, title.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT)
+                addIntentExtras(TalkTopicsActivity.newIntent(context, title, Constants.InvokeSource.NOTIFICATION), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT)
         builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 

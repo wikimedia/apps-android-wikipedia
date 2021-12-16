@@ -40,17 +40,13 @@ import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.page.PageProperties
-import org.wikipedia.page.PageTitle
+import org.wikipedia.notifications.AnonymousNotificationHelper
+import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
-import org.wikipedia.views.ViewAnimations
-import org.wikipedia.views.ViewUtil
-import org.wikipedia.views.WikiTextKeyboardView
+import org.wikipedia.views.*
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
@@ -67,9 +63,9 @@ class EditSectionActivity : BaseActivity() {
 
     private var sectionID = 0
     private var sectionAnchor: String? = null
-    private var pageProps: PageProperties? = null
     private var textToHighlight: String? = null
     private var sectionWikitext: String? = null
+    private val editNotices = mutableListOf<String>()
 
     private var sectionTextModified = false
     private var sectionTextFirstLoad = true
@@ -102,7 +98,6 @@ class EditSectionActivity : BaseActivity() {
         pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, 0)
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
-        pageProps = intent.getParcelableExtra(EXTRA_PAGE_PROPS)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
         supportActionBar?.title = ""
         syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText)
@@ -243,6 +238,7 @@ class EditSectionActivity : BaseActivity() {
 
     @Suppress("SameParameterValue")
     private fun waitForUpdatedRevision(newRevision: Long) {
+        AnonymousNotificationHelper.onEditSubmitted()
         disposables.add(ServiceFactory.getRest(pageTitle.wikiSite)
             .getSummaryResponse(pageTitle.prefixedText, null, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(), null, null, null)
             .delay(2, TimeUnit.SECONDS)
@@ -392,6 +388,10 @@ class EditSectionActivity : BaseActivity() {
                 showFindInEditor()
                 true
             }
+            R.id.menu_edit_notices -> {
+                showEditNotices()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -399,6 +399,8 @@ class EditSectionActivity : BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_edit_section, menu)
         val item = menu.findItem(R.id.menu_save_section)
+
+        menu.findItem(R.id.menu_edit_notices).isVisible = editNotices.isNotEmpty() && !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_in).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_zoom_out).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_find_in_editor).isVisible = !editPreviewFragment.isActive
@@ -518,9 +520,47 @@ class EditSectionActivity : BaseActivity() {
                         showError(throwable)
                         L.e(throwable)
                     })
+            disposables.add(ServiceFactory.get(pageTitle.wikiSite).getVisualEditorMetadata(pageTitle.prefixedText)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        editNotices.clear()
+                        // Populate edit notices, but filter out anonymous edit warnings, since
+                        // we show that type of warning ourselves when previewing.
+                        editNotices.addAll(it.visualeditor?.notices.orEmpty()
+                                .filterKeys { key -> key != "anoneditwarning" }.values)
+                        invalidateOptionsMenu()
+                        if (Prefs.autoShowEditNotices) {
+                            showEditNotices()
+                        } else {
+                            maybeShowEditNoticesTooltip()
+                        }
+                    }, {
+                        L.e(it)
+                    }))
         } else {
             displaySectionText()
         }
+    }
+
+    private fun maybeShowEditNoticesTooltip() {
+        if (!Prefs.autoShowEditNotices && !Prefs.isEditNoticesTooltipShown) {
+            Prefs.isEditNoticesTooltipShown = true
+            binding.root.postDelayed({
+                val anchorView = findViewById<View>(R.id.menu_edit_notices)
+                if (!isDestroyed && anchorView != null) {
+                    FeedbackUtil.showTooltip(this, anchorView, getString(R.string.edit_notices_tooltip), aboveOrBelow = false, autoDismiss = false)
+                }
+            }, 100)
+        }
+    }
+
+    private fun showEditNotices() {
+        if (editNotices.isEmpty()) {
+            return
+        }
+        EditNoticesDialog(pageTitle.wikiSite, editNotices, this)
+                .show()
     }
 
     private fun displaySectionText() {
@@ -598,7 +638,6 @@ class EditSectionActivity : BaseActivity() {
         const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
-        const val EXTRA_PAGE_PROPS = "org.wikipedia.edit_section.pageprops"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
     }
 }

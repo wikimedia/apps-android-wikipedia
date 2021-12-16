@@ -10,7 +10,7 @@ class Entities : MwResponse() {
     var entities: Map<String, Entity> = emptyMap()
         private set
     val first: Entity?
-        get() = if (entities.isEmpty()) null else entities.values.first()
+        get() = entities.values.firstOrNull()
 
     init {
         entities = entities.filter { it.key != "-1" && it.value.missing == null }

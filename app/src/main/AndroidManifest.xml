@@ -289,7 +289,7 @@
             android:theme="@style/AppTheme.ActionBar"  />
 
         <activity
-            android:name=".notifications.NotificationsFilterActivity"
+            android:name=".notifications.NotificationFilterActivity"
             android:label="@string/notifications_filter_label"
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
@@ -372,6 +372,9 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <service
+            android:name=".notifications.PollNotificationService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
     </application>
 </manifest>

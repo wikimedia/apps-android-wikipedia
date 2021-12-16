@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * A2093064
+* Chubit
 * Cwlin0416
 * Dbrant
 * Eric850130
@@ -18,6 +19,7 @@
 * SupaplexTW
 * Wehwei
 * Willy1018
+* Winston Sung
 * Wwycheuk
 * Xiplus
 * 沈澄心
@@ -32,7 +34,7 @@
   <string name="nav_item_back">上一頁</string>
   <string name="page_tabs_back">返回</string>
   <string name="nav_item_forward">下一頁</string>
-  <string name="search_hint">搜尋維基百科</string>
+  <string name="search_hint">在維基百科搜尋</string>
   <string name="search_hint_voice_search">語音輸入搜尋</string>
   <string name="search_hint_search_languages">搜尋語言</string>
   <string name="filter_hint_filter_my_lists_and_articles">篩選我的清單</string>
@@ -80,6 +82,7 @@
   <string name="feed_card_add_to_list">新增至閱讀清單</string>
   <string name="feed_card_add_to_default_list">儲存</string>
   <string name="menu_page_share">分享連結</string>
+  <string name="menu_article_share">分享條目</string>
   <string name="menu_page_open_a_new_tab">開啟新分頁</string>
   <string name="menu_page_new_tab">新分頁</string>
   <string name="menu_page_reading_lists">閱讀清單</string>
@@ -92,7 +95,7 @@
   <string name="reading_list_page_share">分享</string>
   <string name="menu_text_select_edit_here">在此編輯</string>
   <string name="last_updated_text">最後更新時間：%s</string>
-  <string name="talk_page_link_text">檢視對話頁</string>
+  <string name="talk_page_link_text">檢視討論頁</string>
   <string name="edit_history_link_text">檢視編輯歷史</string>
   <string name="map_view_link_text">在地圖上檢視</string>
   <string name="other_languages_indication_text">以其它語言閱讀</string>
@@ -258,6 +261,10 @@
   <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
   <string name="edit_conflict_title">編輯衝突</string>
   <string name="edit_conflict_message">頁面已被不同的使用者給變動，並且有與您的編輯產生衝突。請複製您的編輯並返回來重整頁面，然後再重試編輯。</string>
+  <string name="edit_notices">編輯說明</string>
+  <string name="edit_notices_please_read">編輯前請閱讀</string>
+  <string name="edit_notices_show_auto">自動顯示編輯通知</string>
+  <string name="edit_notices_tooltip">點按此按鈕可查看此條目的編輯通知。</string>
   <string name="find_next">尋找下一筆</string>
   <string name="find_previous">尋找上一筆</string>
   <string name="find_first_occurence">這是首次出現</string>
@@ -368,6 +375,7 @@
   <string name="error_message_generic">發生錯誤</string>
   <string name="view_link_preview_error_button_dismiss">關閉</string>
   <string name="error_page_does_not_exist">此頁面不存在</string>
+  <string name="error_user_page_does_not_exist">維基百科上沒有此確切名稱的&lt;a href=\"%1$s\"&gt;使用者頁面&lt;/a&gt;。在一般情況下，此頁面應是由&lt;b&gt;%2$s&lt;/b&gt;建立與編輯。如有疑問，請確認「%3$s」是否存在。</string>
   <string name="view_wiki_error_message_offline">無法連接網路</string>
   <string name="view_wiki_error_message_timeout">無法連接到維基百科。請檢查您的網路連線，或稍後再試</string>
   <string name="reference_title">參考資料 %s</string>
@@ -624,8 +632,8 @@
   <string name="preference_summary_notification_login_fail">您的登入活動</string>
   <string name="preference_title_notification_mention">提及</string>
   <string name="preference_summary_notification_mention">有人在頁面裡提及您</string>
-  <string name="preference_title_notification_user_talk">對話頁</string>
-  <string name="preference_summary_notification_user_talk">來自對話頁的訊息與回覆</string>
+  <string name="preference_title_notification_user_talk">討論頁</string>
+  <string name="preference_summary_notification_user_talk">來自討論頁的訊息與回覆</string>
   <string name="preference_title_notification_email_user">已接收電子郵件</string>
   <string name="preference_summary_notification_email_user">某人透過 wiki 發送電子郵件給您</string>
   <string name="preference_title_notification_user_rights">使用者權限更改</string>
@@ -642,6 +650,7 @@
   <string name="notifications_channel_group_other_description">來自應用程式的其它通知</string>
   <string name="notifications_filter_label">篩選通知</string>
   <string name="notifications_filter_icon_content_description">篩選通知</string>
+  <string name="notifications_filter_update_app_languages">更新應用程式語言</string>
   <string name="notifications_empty_search_message">嘗試移除篩選字串%s來查看更多通知</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d 個篩選</item>
@@ -662,7 +671,8 @@
   <string name="notifications_type_filter_header">類型篩選</string>
   <string name="notifications_all_wikis_text">所有「wiki」</string>
   <string name="notifications_all_types_text">所有「類型」</string>
-  <string name="notifications_menu_user_talk_page">%s的對話頁</string>
+  <string name="notifications_menu_user_talk_page">%s的討論頁</string>
+  <string name="notifications_offline_disable_message">該功能在離線時不可使用。</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_article_card_title">隨機條目</string>
@@ -1045,6 +1055,10 @@
   <string name="talk_last_modified">由%2$s在&lt;b&gt; %1$s &lt;/b&gt;所做的最後一次編輯</string>
   <string name="talk_snackbar_survey_text">感謝使用討論頁。您願意透過參與調查來協助我們改善此應用程式嗎？</string>
   <string name="talk_snackbar_survey_action_text">入門</string>
+  <string name="talk_share_discussion_subject">維基百科 - 討論頁話題「%s」的討論</string>
+  <string name="talk_share_talk_page">維基百科 - 討論頁上的討論</string>
+  <string name="menu_option_share_talk_discussion">分享討論</string>
+  <string name="menu_option_share_talk_page">分享討論頁</string>
   <string name="menu_option_share_edit">分享編輯</string>
   <string name="menu_option_user_profile">%s基本資料</string>
   <string name="menu_option_user_contributions">%s的貢獻</string>
@@ -1053,7 +1067,7 @@
   <string name="watchlist_details_next_edit">下一個編輯</string>
   <string name="watchlist_details_prev_edit">上一個編輯</string>
   <string name="thank_label">感謝</string>
-  <string name="go_to_user_page">前往使用者頁面</string>
+  <string name="view_user_page">檢視使用者頁面</string>
   <string name="thank_dialog_title_text">公開發送感謝</string>
   <string name="thank_dialog_text">「感謝」是在維基百科上向其他編者所修改出內容表達讚賞的簡易方式。請留意感謝無法撤回發送，並且是公開可見的</string>
   <string name="thank_dialog_positive_button_text">發送感謝</string>

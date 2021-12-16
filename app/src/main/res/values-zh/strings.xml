@@ -16,6 +16,7 @@
 * Hydra
 * Hzy980512
 * ITsu
+* Interestinghe
 * Irati
 * Josephine W.
 * LNDDYL
@@ -38,6 +39,7 @@
 * Viztor
 * VulpesVulpes825
 * WQL
+* Wsxy162
 * XinuGod
 * Xiplus
 * Xxoopiggy
@@ -88,6 +90,8 @@
   <string name="search_tab_tooltip">再次点按图标可直接开始输入搜索词。</string>
   <string name="history_list_title">历史</string>
   <string name="image_content_description">图像：%s</string>
+  <string name="wikimedia_commons">维基共享资源</string>
+  <string name="wikidata">维基数据</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
   <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签。你确定吗？</string>
   <string name="dialog_message_clear_history_yes">是</string>
@@ -109,6 +113,7 @@
   <string name="feed_card_add_to_list">添加至阅读列表</string>
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">分享链接</string>
+  <string name="menu_article_share">分享文章</string>
   <string name="menu_page_open_a_new_tab">打开新标签页</string>
   <string name="menu_page_new_tab">新标签页</string>
   <string name="menu_page_reading_lists">阅读列表</string>
@@ -216,7 +221,7 @@
   <string name="wikipedia_app_faq">维基百科应用FAQ</string>
   <string name="send_feedback">发送应用反馈</string>
   <string name="create_account_account_created_toast">账户已创建！</string>
-  <string name="preferences_heading_syncing">正在同步</string>
+  <string name="preferences_heading_syncing">同步</string>
   <string name="preferences_heading_data_usage">数据使用</string>
   <string name="preferences_heading_experimental">实验性</string>
   <string name="preference_title_sync_reading_lists_from_account">阅读列表同步</string>
@@ -287,6 +292,10 @@
   <string name="edit_summary_tag_other_hint">您改善该页面的其他方式</string>
   <string name="edit_conflict_title">编辑冲突</string>
   <string name="edit_conflict_message">页面已被不同的用户修改过，并且与您的编辑冲突。请复制您的编辑，返回并刷新页面，然后重试编辑。</string>
+  <string name="edit_notices">编辑通知</string>
+  <string name="edit_notices_please_read">请在编辑前阅读</string>
+  <string name="edit_notices_show_auto">自动展示编辑通知</string>
+  <string name="edit_notices_tooltip">点击此按钮来显示此条目的编辑通知。</string>
   <string name="find_next">查找下一个</string>
   <string name="find_previous">查找上一个</string>
   <string name="find_first_occurence">这是首次出现</string>
@@ -397,6 +406,7 @@
   <string name="error_message_generic">发生错误</string>
   <string name="view_link_preview_error_button_dismiss">关闭</string>
   <string name="error_page_does_not_exist">该页面不存在</string>
+  <string name="error_user_page_does_not_exist">维基百科没有具有此确切名称的&lt;a href=\"%1$s\"&gt;用户页&lt;/a&gt;。通常来说，此页面只应由&lt;b&gt;%2$s&lt;/b&gt;来创建和编辑。如果您对此抱有疑惑，请验证“%3$s”是否存在。</string>
   <string name="view_wiki_error_message_offline">无法连接至互联网</string>
   <string name="view_wiki_error_message_timeout">无法连接到维基百科。请检查您的网络连接，或稍后再试</string>
   <string name="reference_title">参考文献%s</string>
@@ -622,6 +632,18 @@
   <string name="notification_preferences_title">通知参数设置</string>
   <string name="notifications_mark_unread">标记为未读</string>
   <string name="notifications_mark_all_as_read">标记所有为已读</string>
+  <string name="notifications_direct_reply_action">回复</string>
+  <string name="notifications_direct_reply_progress">正在向%s发送回复……</string>
+  <string name="notifications_direct_reply_success">回复已发布。</string>
+  <string name="notifications_direct_reply_error">无法自动发布回复。</string>
+  <string name="notifications_mark_all_as_read_message">%d条标记为已读</string>
+  <string name="notifications_mark_all_as_unread_message">%d条标记为未读</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="other">%d条标记为已读</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="other">%d条标记为未读</item>
+  </plurals>
   <string name="watchlist_title">监视列表</string>
   <string name="preference_title_notification_poll">投票通知</string>
   <string name="preference_summary_notification_poll">允许应用使用数据在后台检查新通知。</string>
@@ -655,7 +677,29 @@
   <string name="notifications_channel_group_other_title">其他</string>
   <string name="notifications_channel_group_other_description">来自应用程序的其他通知</string>
   <string name="notifications_filter_label">过滤通知</string>
+  <string name="notifications_filter_icon_content_description">过滤通知</string>
+  <string name="notifications_filter_update_app_languages">更新应用程序语言</string>
+  <string name="notifications_empty_search_message">请移除%s来查看更多通知</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="other">%d项过滤</item>
+  </plurals>
+  <string name="notifications_select_all_filters">选择所有过滤器</string>
+  <string name="notifications_tab_filter_all">全部</string>
+  <string name="notifications_tab_filter_mentions">提及</string>
+  <string name="notifications_search_bar_hint">搜索或过滤通知</string>
+  <string name="notifications_search_bar_filter_hint">通知过滤器</string>
+  <string name="notifications_menu_mark_as_read">标记为已读</string>
+  <string name="notifications_menu_mark_as_unread">标记为未读</string>
   <string name="notifications_swipe_action_read">已读</string>
+  <string name="notifications_swipe_action_unread">未读</string>
+  <string name="notifications_menu_check_all">选择所有项目</string>
+  <string name="notifications_menu_uncheck_all">取消选择所有项目</string>
+  <string name="notifications_wiki_filter_header">维基过滤器</string>
+  <string name="notifications_type_filter_header">类型过滤器</string>
+  <string name="notifications_all_wikis_text">所有“wiki”</string>
+  <string name="notifications_all_types_text">所有“类型”</string>
+  <string name="notifications_menu_user_talk_page">%s的讨论页</string>
+  <string name="notifications_offline_disable_message">此功能离线时不可用。</string>
   <string name="view_because_you_read_card_title">因你而读</string>
   <string name="view_random_card_title">随机条目</string>
   <string name="view_random_article_card_title">随机条目</string>
@@ -1033,6 +1077,12 @@
   <string name="talk_response_submitted">回复已发布。</string>
   <string name="talk_snackbar_undo">撤销</string>
   <string name="talk_last_modified">由%2$s在&lt;b&gt;%1$s&lt;/b&gt;做出的最后一次编辑</string>
+  <string name="talk_snackbar_survey_text">感谢使用讨论页。您原意参与一项调查来帮助我们改进此应用吗？</string>
+  <string name="talk_snackbar_survey_action_text">开始吧</string>
+  <string name="talk_share_discussion_subject">维基百科 - 讨论页上“%s”主题的讨论</string>
+  <string name="talk_share_talk_page">维基百科 - 讨论页上的讨论</string>
+  <string name="menu_option_share_talk_discussion">分享讨论</string>
+  <string name="menu_option_share_talk_page">分享讨论页</string>
   <string name="menu_option_share_edit">分享编辑</string>
   <string name="menu_option_user_profile">%s的个人资料</string>
   <string name="menu_option_user_contributions">%s的贡献</string>
@@ -1041,7 +1091,7 @@
   <string name="watchlist_details_next_edit">下一编辑</string>
   <string name="watchlist_details_prev_edit">上一编辑</string>
   <string name="thank_label">感谢</string>
-  <string name="go_to_user_page">转至用户页</string>
+  <string name="view_user_page">查看用户页面</string>
   <string name="thank_dialog_title_text">公开发送“感谢”</string>
   <string name="thank_dialog_text">“感谢”是对维基百科上的编辑工作表示谢意的一种简单方式。“感谢”无法撤销，且可公开查看。</string>
   <string name="thank_dialog_positive_button_text">发送感谢</string>

@@ -5,6 +5,7 @@
 * Albe Albe460
 * Beta16
 * Bsitzmann
+* Ciampix
 * Dbrant
 * Elitre
 * Emmanuel Fernandess
@@ -96,6 +97,7 @@
   <string name="feed_card_add_to_list">Aggiungi all\'elenco di lettura</string>
   <string name="feed_card_add_to_default_list">Salva</string>
   <string name="menu_page_share">Condividi collegamento</string>
+  <string name="menu_article_share">Condividi voce</string>
   <string name="menu_page_open_a_new_tab">Apri una nuova scheda</string>
   <string name="menu_page_new_tab">Nuova scheda</string>
   <string name="menu_page_reading_lists">Elenchi di lettura</string>
@@ -274,6 +276,10 @@
   <string name="edit_summary_tag_other_hint">Altri modi nei quali hai migliorato la pagina</string>
   <string name="edit_conflict_title">Conflitto di edizione</string>
   <string name="edit_conflict_message">La pagina è già stata modificata da un altro utente ed è in conflitto con la tua modifica. Copia le modifiche, torna indietro e aggiorna la pagina, quindi prova a modificare di nuovo.</string>
+  <string name="edit_notices">Editnotice</string>
+  <string name="edit_notices_please_read">Per favore leggi prima di modificare</string>
+  <string name="edit_notices_show_auto">Mostra gli editnotice automaticamente</string>
+  <string name="edit_notices_tooltip">Premi questo bottone per vedere l\'editnotice per questa voce.</string>
   <string name="find_next">Trova successivo</string>
   <string name="find_previous">Trova precedente</string>
   <string name="find_first_occurence">Questo è il primo evento</string>
@@ -384,6 +390,7 @@
   <string name="error_message_generic">Si è verificato un errore</string>
   <string name="view_link_preview_error_button_dismiss">Nascondi</string>
   <string name="error_page_does_not_exist">Questa pagina non esiste</string>
+  <string name="error_user_page_does_not_exist">Wikipedia non ha una &lt;a href=\"%1$s\"&gt;pagina utente&lt;/a&gt; con questo esatto nome. In generale, questa pagina dovrebbe essere creata e modificata da &lt;b&gt;%2$s&lt;/b&gt;. Se sei in dubbio, per favore verifica se \"%3$s\" esiste.</string>
   <string name="view_wiki_error_message_offline">Non è possibile connettersi ad internet</string>
   <string name="view_wiki_error_message_timeout">Impossibile connettersi a Wikipedia. Controlla la connessione di rete o riprova più tardi</string>
   <string name="reference_title">Riferimento %s</string>
@@ -396,10 +403,13 @@
   <string name="empty_tab_title">Nuova scheda</string>
   <string name="menu_save_all_tabs">Salva tutte le schede</string>
   <string name="error_blocked_title">Il tuo nome di utente o indirizzo IP è stato bloccato.</string>
+  <string name="error_blocked_by">Il blocco è stato effettuato da &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">La motivazione data è: %s</string>
   <string name="error_blocked_start">Inizio del blocco: %s</string>
   <string name="error_blocked_expiry">Scadenza del blocco: %s</string>
   <string name="error_blocked_id">ID blocco: %s</string>
   <string name="error_blocked_footer">Puoi contattare &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altro &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Amministratori\"&gt;amministratore&lt;/a&gt; per discutere del blocco.</string>
+  <string name="error_blocked_footer_no_blocker">Puoi contattare un\'&lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Amministratori\"&gt;amministratore&lt;/a&gt; per discutere del blocco.</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
@@ -555,10 +565,12 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_reverted_title">Modifica annullata</string>
+  <string name="notification_channel_title">Download delle voci</string>
   <string name="notification_channel_description">Progresso dello scaricamento</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Riprendi</string>
   <string name="notification_syncing_cancel_button">Annulla</string>
+  <string name="notification_syncing_reading_list_channel_title">Sincronizzazione degli elenchi di lettura</string>
   <string name="notification_syncing_reading_list_channel_description">Sincronizzazione dei progressi degli elenchi di lettura</string>
   <string name="notification_many_unread">Hai %d notifiche non lette</string>
   <plurals name="notification_channel_name">
@@ -604,6 +616,21 @@
   <string name="notifications_view_archived_button_text">Vedi notifiche archiviate</string>
   <string name="notification_preferences_title">Preferenze sulle notifiche</string>
   <string name="notifications_mark_unread">Segna come non letto</string>
+  <string name="notifications_mark_all_as_read">Segna tutti come letti</string>
+  <string name="notifications_direct_reply_action">Rispondi</string>
+  <string name="notifications_direct_reply_progress">Invio risposta a %s...</string>
+  <string name="notifications_direct_reply_success">Risposta pubblicata.</string>
+  <string name="notifications_direct_reply_error">Impossibile pubblicare la risposta automaticamente.</string>
+  <string name="notifications_mark_all_as_read_message">%d segnata come letta</string>
+  <string name="notifications_mark_all_as_unread_message">%d segnata come non letta</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 segnata come letta</item>
+    <item quantity="other">%d segnate come lette</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 segnata come non letta</item>
+    <item quantity="other">%d segnate come non lette</item>
+  </plurals>
   <string name="watchlist_title">Osservati speciali</string>
   <string name="preference_title_notification_poll">Verifica notifiche</string>
   <string name="preference_summary_notification_poll">Consenti all\'applicazione di utilizzare i dati per verificare nuove notifiche in background.</string>
@@ -622,19 +649,46 @@
   <string name="preference_summary_notification_mention">Qualcuno ti menziona in una pagina</string>
   <string name="preference_title_notification_user_talk">Pagina di discussione</string>
   <string name="preference_summary_notification_user_talk">Messaggi e risposte dalle pagine di discussione</string>
+  <string name="preference_title_notification_email_user">Email ricevute</string>
+  <string name="preference_summary_notification_email_user">Qualcuno ti ha inviato un\'email tramite la wiki</string>
+  <string name="preference_title_notification_user_rights">Modifica diritto utente</string>
+  <string name="preference_summary_notification_user_rights">Ricevuti quando i tuoi diritti utente cambiano</string>
+  <string name="preference_title_notification_article_linked">Collegamenti a voci che hai creato</string>
+  <string name="preference_summary_notification_article_linked">Ricevuti quando un nuovo collegamento viene effettuato a una voce che hai creato</string>
   <string name="preference_category_push_notifications">Notifiche push</string>
+  <string name="preference_title_customize_push_notifications">Personalizza notifiche push</string>
+  <string name="preference_category_display_settings">Impostazioni di visualizzazione</string>
+  <string name="preference_title_hide_read_notifications">Nascondi notifiche già lette</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Notifiche da Wikipedia</string>
   <string name="notifications_channel_group_other_title">Altro</string>
+  <string name="notifications_channel_group_other_description">Altre notifiche dall\'applicazione</string>
   <string name="notifications_filter_label">Filtra notifiche</string>
+  <string name="notifications_filter_icon_content_description">Filtra notifiche</string>
+  <string name="notifications_filter_update_app_languages">Aggiorna lingue dell\'applicazione</string>
+  <string name="notifications_empty_search_message">Prova a rimuovere %s per vedere più notifiche</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtri</item>
   </plurals>
-  <string name="notifications_tab_filter_all">Tutto</string>
-  <string name="notifications_tab_filter_mentions">Menziona</string>
+  <string name="notifications_select_all_filters">Seleziona tutti i filtri</string>
+  <string name="notifications_tab_filter_all">Tutte</string>
+  <string name="notifications_tab_filter_mentions">Menzioni</string>
   <string name="notifications_tab_filter_unread">(%s)</string>
+  <string name="notifications_search_bar_hint">Cerca o filtra le notifiche</string>
+  <string name="notifications_search_bar_filter_hint">Filtro notifiche</string>
   <string name="notifications_menu_mark_as_read">Segna come già letto</string>
+  <string name="notifications_menu_mark_as_unread">Segna come non letto</string>
+  <string name="notifications_swipe_action_read">Letto</string>
+  <string name="notifications_swipe_action_unread">Non letto</string>
+  <string name="notifications_menu_check_all">Seleziona tutti gli elementi</string>
+  <string name="notifications_menu_uncheck_all">Deseleziona tutti gli elementi</string>
+  <string name="notifications_wiki_filter_header">Filtri Wiki</string>
+  <string name="notifications_type_filter_header">Tipo di filtro</string>
+  <string name="notifications_all_wikis_text">Tutte le \"wiki\"</string>
+  <string name="notifications_all_types_text">Tutti i \"tipi\"</string>
   <string name="notifications_menu_user_talk_page">Pagina di discussione di %s</string>
+  <string name="notifications_offline_disable_message">La funzione non è disponibile quando si è offline.</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
   <string name="view_random_article_card_title">Voce a caso</string>
@@ -1014,7 +1068,13 @@
   <string name="talk_subject_empty">L\'oggetto non può essere vuoto.</string>
   <string name="talk_response_submitted">Risposta pubblicata.</string>
   <string name="talk_snackbar_undo">Annulla</string>
-  <string name="talk_last_modified">&lt;b&gt;Ultima modifica alle %1$s&lt;/b&gt; da %2$s</string>
+  <string name="talk_last_modified">&lt;b&gt;Ultima modifica alle %1$s&lt;/b&gt; di %2$s</string>
+  <string name="talk_snackbar_survey_text">Grazie per aver usato le pagine di discussione. Potresti aiutarci a migliorare l\'applicazione partecipando a un sondaggio?</string>
+  <string name="talk_snackbar_survey_action_text">Inizia</string>
+  <string name="talk_share_discussion_subject">Wikipedia - discussione nella sezione \"%s\" della pagina di discussione</string>
+  <string name="talk_share_talk_page">Wikipedia - discussione nella pagina di discussione</string>
+  <string name="menu_option_share_talk_discussion">Condividi discussione</string>
+  <string name="menu_option_share_talk_page">Condividi pagina di discussione</string>
   <string name="menu_option_share_edit">Condividi modifica</string>
   <string name="menu_option_user_profile">Profilo di %s</string>
   <string name="menu_option_user_contributions">Contributi di %s</string>
@@ -1023,7 +1083,7 @@
   <string name="watchlist_details_next_edit">Prossima modifica</string>
   <string name="watchlist_details_prev_edit">Modifica precedente</string>
   <string name="thank_label">Ringrazia</string>
-  <string name="go_to_user_page">Vai alla pagina utente</string>
+  <string name="view_user_page">Vedi pagina utente</string>
   <string name="thank_dialog_title_text">Invia pubblicamente un \'ringraziamento\'</string>
   <string name="thank_dialog_text">\'Ringrazia\' è un modo semplice per mostrare apprezzamento per il lavoro di un editore su Wikipedia. I \'Ringrazia\' non possono essere annullati e sono visibili pubblicamente</string>
   <string name="thank_dialog_positive_button_text">Invia ringraziamento</string>

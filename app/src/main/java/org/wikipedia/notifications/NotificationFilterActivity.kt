@@ -18,13 +18,14 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.views.DefaultViewHolder
 
-class NotificationsFilterActivity : BaseActivity() {
+class NotificationFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityNotificationsFiltersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsFiltersBinding.inflate(layoutInflater)
+        setResult(RESULT_OK)
         setUpRecyclerView()
         setContentView(binding.root)
     }
@@ -51,7 +52,7 @@ class NotificationsFilterActivity : BaseActivity() {
         }
         filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, Constants.WIKI_CODE_COMMONS, R.drawable.ic_commons_logo))
         filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, Constants.WIKI_CODE_WIKIDATA, R.drawable.ic_wikidata_logo))
-        filterListWithHeaders.add(getString(R.string.onboarding_multilingual_add_language_text))
+        filterListWithHeaders.add(getString(R.string.notifications_filter_update_app_languages))
         filterListWithHeaders.add(getString(R.string.notifications_type_filter_header))
         filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, getString(R.string.notifications_all_types_text)))
         NotificationCategory.FILTERS_GROUP.forEach {
@@ -84,7 +85,7 @@ class NotificationsFilterActivity : BaseActivity() {
         }
 
         override fun onCheckedChanged(filter: Filter?) {
-            startActivityForResult(WikipediaLanguagesActivity.newIntent(this@NotificationsFilterActivity, Constants.InvokeSource.NOTIFICATION), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
+            startActivityForResult(WikipediaLanguagesActivity.newIntent(this@NotificationFilterActivity, Constants.InvokeSource.NOTIFICATION), Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
         }
     }
 
@@ -114,7 +115,7 @@ class NotificationsFilterActivity : BaseActivity() {
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (filtersList[position] is String && filtersList[position] == getString(R.string.onboarding_multilingual_add_language_text)) VIEW_TYPE_ADD_LANGUAGE
+            return if (filtersList[position] is String && filtersList[position] == getString(R.string.notifications_filter_update_app_languages)) VIEW_TYPE_ADD_LANGUAGE
             else if (filtersList[position] is String) VIEW_TYPE_HEADER
             else VIEW_TYPE_ITEM
         }
@@ -197,7 +198,7 @@ class NotificationsFilterActivity : BaseActivity() {
         }
 
         fun newIntent(context: Context): Intent {
-            return Intent(context, NotificationsFilterActivity::class.java)
+            return Intent(context, NotificationFilterActivity::class.java)
         }
     }
 }
