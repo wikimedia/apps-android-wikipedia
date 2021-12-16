@@ -29,12 +29,16 @@ class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetrie
                     if (emitter.isDisposed) {
                         return@create
                     }
+                    var lastError: Throwable? = null
                     for (retry in 0 until numRetries) {
                         if (retry > 0) {
                             // Log in explicitly
                             LoginClient().loginBlocking(loginWikiSite, AccountUtil.userName!!, AccountUtil.password!!, "")
                                     .subscribeOn(Schedulers.io())
-                                    .blockingSubscribe({ }) { L.e(it) }
+                                    .blockingSubscribe({ }) {
+                                        L.e(it)
+                                        lastError = it
+                                    }
                         }
                         if (emitter.isDisposed) {
                             return@create
@@ -53,6 +57,7 @@ class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetrie
                                     }
                                 }, {
                                     L.e(it)
+                                    lastError = it
                                 })
                         if (emitter.isDisposed) {
                             return@create
@@ -67,7 +72,7 @@ class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetrie
                         if (token == ANON_TOKEN) {
                             bailWithLogout()
                         }
-                        throw IOException("Invalid token, or login failure.")
+                        throw lastError ?: IOException("Invalid token, or login failure.")
                     }
                 } catch (t: Throwable) {
                     emitter.onError(t)

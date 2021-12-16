@@ -27,6 +27,7 @@
 * Shbib Al-Subaie
 * Sonic N800
 * Tala Ali
+* Ulhvulgv
 * Youssef
 * بدارين
 * ديفيد
@@ -67,6 +68,8 @@
   <string name="search_tab_tooltip">انقر فوق الرمز مرة أخرى لبدء كتابة مصطلح البحث مباشرةً.</string>
   <string name="history_list_title">التاريخ</string>
   <string name="image_content_description">صورة: %s</string>
+  <string name="wikimedia_commons">ويكيميديا كومنز</string>
+  <string name="wikidata">ويكي بيانات</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
   <string name="dialog_message_clear_history">هذا سيحذف تاريخ تصفحك كاملا، وسيغلق أي تبويبات مفتوحة. هل أنت متأكد؟</string>
   <string name="dialog_message_clear_history_yes">نعم</string>
@@ -88,6 +91,7 @@
   <string name="feed_card_add_to_list">أضف إلى قائمة القراءة</string>
   <string name="feed_card_add_to_default_list">احفظ</string>
   <string name="menu_page_share">شارك الوصلة</string>
+  <string name="menu_article_share">شن</string>
   <string name="menu_page_open_a_new_tab">افتح تبويبا جديدًا</string>
   <string name="menu_page_new_tab">تبويب جديد</string>
   <string name="menu_page_reading_lists">قوائم القراءة</string>
@@ -177,7 +181,7 @@
   <string name="create_account_passwords_mismatch_error">كلمتا السر لا تتطابقان</string>
   <string name="create_account_email_error">عنوان البريد الإلكتروني غير صحيح</string>
   <string name="create_account_username_error">أحرف غير صالحة في اسم المستخدم</string>
-  <string name="create_account_password_error" fuzzy="true">كلمة المرور غير صالحة</string>
+  <string name="create_account_password_error">كلمة المرور يجب أن تكون من 8 أحرف على الأقل</string>
   <string name="create_account_generic_error">تعذّر إنشاء الحساب</string>
   <string name="create_account_next">التالي</string>
   <string name="email_recommendation_dialog_title">إنشاء حساب بدون عنوان بريد إلكتروني؟</string>
@@ -999,7 +1003,7 @@
   <string name="watchlist_details_next_edit">التعديل التالي</string>
   <string name="watchlist_details_prev_edit">التعديل السابق</string>
   <string name="thank_label">شكر</string>
-  <string name="go_to_user_page">اذهب لصفحة المستخدم</string>
+  <string name="view_user_page">View user page</string>
   <string name="thank_dialog_title_text">إرسال الشكر علنًا</string>
   <string name="thank_dialog_text">\"الشكر\" هي طريقةٌ سهلةٌ لإظهار التقدير لعمل أحد المحررين في ويكيبيديا. لا يمكن التراجع عن \"الشكر\" وهي معروضةٌ علنًا.</string>
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>

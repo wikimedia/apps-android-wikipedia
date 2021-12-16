@@ -52,6 +52,8 @@
   <string name="search_tab_tooltip">Tryck på ikonen igen för att börja skriva en sökterm.</string>
   <string name="history_list_title">Historik</string>
   <string name="image_content_description">Bild: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Rensa läsarhistoriken</string>
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -251,6 +253,10 @@
   <string name="edit_summary_tag_other_hint">Andra sätt på vilka du förbättrat sidan</string>
   <string name="edit_conflict_title">Redigeringskonflikt</string>
   <string name="edit_conflict_message">Sidan har redan modifierats av en annan användare och är i konflikt med din redigering. Var god kopiera dina ändringar, gå tillbaka och uppdatera sidan samt försök sedan att redigera igen.</string>
+  <string name="edit_notices">Redigeringsnotiser</string>
+  <string name="edit_notices_please_read">Var god läs detta innan du redigerar</string>
+  <string name="edit_notices_show_auto">Visa redigeringsnotiser automatiskt</string>
+  <string name="edit_notices_tooltip">Tryck på denna knapp för att visa redigeringsnotiser för denna artikel.</string>
   <string name="find_next">Sök nästa</string>
   <string name="find_previous">Sök föregående</string>
   <string name="find_first_occurence">Detta är den första förekomsten</string>
@@ -361,6 +367,7 @@
   <string name="error_message_generic">Ett fel inträffade</string>
   <string name="view_link_preview_error_button_dismiss">Stäng</string>
   <string name="error_page_does_not_exist">Denna sida finns inte</string>
+  <string name="error_user_page_does_not_exist">Wikipedia har inte en &lt;a href=\"%1$s\"&gt;användarsida&lt;/a&gt; med exakt detta namn. I allmänhet bör denna sida ha skapats och redigerats av &lt;b&gt;%2$s&lt;/b&gt;. Om du är osäker bör du verifiera att \"%3$s\" finns.</string>
   <string name="view_wiki_error_message_offline">Kan inte ansluta till Internet</string>
   <string name="view_wiki_error_message_timeout">Kan inte ansluta till Wikipedia. Kontrollera din nätverksanslutning eller försök igen senare.</string>
   <string name="reference_title">Referens %s</string>
@@ -587,6 +594,20 @@
   <string name="notification_preferences_title">Aviseringsinställningar</string>
   <string name="notifications_mark_unread">Markera som oläst</string>
   <string name="notifications_mark_all_as_read">Markera alla som lästa</string>
+  <string name="notifications_direct_reply_action">Svara</string>
+  <string name="notifications_direct_reply_progress">Skickar svar till %s…</string>
+  <string name="notifications_direct_reply_success">Svar skickades.</string>
+  <string name="notifications_direct_reply_error">Kunde inte automatiskt skicka svaret.</string>
+  <string name="notifications_mark_all_as_read_message">%d markerades som läst</string>
+  <string name="notifications_mark_all_as_unread_message">%d markerades som oläst</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 markerades som läst</item>
+    <item quantity="other">%d markerades som lästa</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 markerades som oläst</item>
+    <item quantity="other">%d markerades som olästa</item>
+  </plurals>
   <string name="watchlist_title">Bevakningslista</string>
   <string name="preference_title_notification_poll">Aktivera aviseringar</string>
   <string name="preference_summary_notification_poll">Tillåt appen att använda data för att leta efter nya aviseringar i bakgrunden.</string>
@@ -619,6 +640,30 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Aviseringar från Wikipedia</string>
   <string name="notifications_channel_group_other_title">Övrigt</string>
   <string name="notifications_channel_group_other_description">Andra aviseringar från appen</string>
+  <string name="notifications_filter_label">Filtrera aviseringar</string>
+  <string name="notifications_filter_icon_content_description">Filtrera aviseringar</string>
+  <string name="notifications_empty_search_message">Försök att ta bort %s för att se fler aviseringar</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filter</item>
+    <item quantity="other">%d filter</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Markera alla filter</string>
+  <string name="notifications_tab_filter_all">Alla</string>
+  <string name="notifications_tab_filter_mentions">Omnämnanden</string>
+  <string name="notifications_search_bar_hint">Sök eller filtrera aviseringar</string>
+  <string name="notifications_search_bar_filter_hint">Aviseringsfilter</string>
+  <string name="notifications_menu_mark_as_read">Markera som läst</string>
+  <string name="notifications_menu_mark_as_unread">Markera som oläst</string>
+  <string name="notifications_swipe_action_read">Läst</string>
+  <string name="notifications_swipe_action_unread">Oläst</string>
+  <string name="notifications_menu_check_all">Markera alla objekt</string>
+  <string name="notifications_menu_uncheck_all">Avmarkera alla objekt</string>
+  <string name="notifications_wiki_filter_header">Wikifilter</string>
+  <string name="notifications_type_filter_header">Typfilter</string>
+  <string name="notifications_all_wikis_text">Alla \"wikier\"</string>
+  <string name="notifications_all_types_text">Alla \"typer\"</string>
+  <string name="notifications_menu_user_talk_page">%ss diskussionssida</string>
+  <string name="notifications_offline_disable_message">Funktionen är inte tillgänglig när du saknar uppkoppling.</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Slumpartikel</string>
   <string name="view_random_article_card_title">Slumpartikel</string>
@@ -999,6 +1044,12 @@
   <string name="talk_response_submitted">Svaret skickades.</string>
   <string name="talk_snackbar_undo">Ångra</string>
   <string name="talk_last_modified">&lt;b&gt;Senast redigerad %1$s&lt;/b&gt; av %2$s</string>
+  <string name="talk_snackbar_survey_text">Tack för att du använder diskussionssidor. Kan du hjälpa oss att förbättra appen genom att delta i en enkät?</string>
+  <string name="talk_snackbar_survey_action_text">Kom igång</string>
+  <string name="talk_share_discussion_subject">Wikipedia - diskussion på diskussionssidans ämne \"%s\"</string>
+  <string name="talk_share_talk_page">Wikipedia - diskussion på diskussionssida</string>
+  <string name="menu_option_share_talk_discussion">Dela diskussion</string>
+  <string name="menu_option_share_talk_page">Dela diskussionssida</string>
   <string name="menu_option_share_edit">Dela redigering</string>
   <string name="menu_option_user_profile">%ss profil</string>
   <string name="menu_option_user_contributions">%ss bidrag</string>
@@ -1007,7 +1058,6 @@
   <string name="watchlist_details_next_edit">Nästa redigering</string>
   <string name="watchlist_details_prev_edit">Föregående redigering</string>
   <string name="thank_label">Tacka</string>
-  <string name="go_to_user_page">Gå till användarsidan</string>
   <string name="thank_dialog_title_text">Skicka offentligt tack</string>
   <string name="thank_dialog_text">\"Tack\" är ett enkelt sätt att visa sin uppskattning för en redigerares arbete på Wikipedia. Man kan inte ångra ett tack och de är offentliga.</string>
   <string name="thank_dialog_positive_button_text">Skicka tack</string>

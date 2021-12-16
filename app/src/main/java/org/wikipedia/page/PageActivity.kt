@@ -39,6 +39,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
@@ -46,6 +47,7 @@ import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
@@ -125,6 +127,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonNotifications.setOnClickListener {
             if (AccountUtil.isLoggedIn) {
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
+            } else if (AnonymousNotificationHelper.isWithinAnonNotificationTime() && !Prefs.lastAnonNotificationLang.isNullOrEmpty()) {
+                val wikiSite = WikiSite.forLanguageCode(Prefs.lastAnonNotificationLang!!)
+                startActivity(TalkTopicsActivity.newIntent(this@PageActivity,
+                PageTitle(UserTalkAliasData.valueFor(wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages, wikiSite), InvokeSource.PAGE_ACTIVITY))
             }
         }
 
@@ -149,6 +155,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (languageChanged) {
             app.resetWikiSite()
             loadMainPage(TabPosition.EXISTING_TAB)
+        }
+
+        if (AccountUtil.isLoggedIn) {
+            Prefs.loggedInPageActivityVisitCount++
         }
 
         if (savedInstanceState == null) {
@@ -536,7 +546,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 finish()
                 return true
             } else if (title.namespace() === Namespace.USER_TALK || title.namespace() === Namespace.TALK) {
-                startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY))
+                startActivity(TalkTopicsActivity.newIntent(this, title, InvokeSource.PAGE_ACTIVITY))
                 finish()
                 return true
             }
@@ -611,8 +621,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
 
         override fun talkClick() {
-            pageFragment.title?.run {
-                startActivity(TalkTopicsActivity.newIntent(this@PageActivity, pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY))
+            pageFragment.title?.let {
+                startActivity(TalkTopicsActivity.newIntent(this@PageActivity, it, InvokeSource.PAGE_ACTIVITY))
             }
         }
 
@@ -625,15 +635,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun modifyMenu(mode: ActionMode) {
         val menu = mode.menu
-        val menuItemsList = ArrayList<MenuItem>()
-        menu.forEach {
+        val menuItemsList = menu.children.filter {
             val title = it.title.toString()
-            if (!title.contains(getString(R.string.search_hint)) &&
-                !(title.contains(getString(R.string.menu_text_select_define)) &&
-                        pageFragment.shareHandler.shouldEnableWiktionaryDialog())) {
-                menuItemsList.add(it)
-            }
-        }
+            !title.contains(getString(R.string.search_hint)) &&
+                    !(title.contains(getString(R.string.menu_text_select_define)) &&
+                            pageFragment.shareHandler.shouldEnableWiktionaryDialog())
+        }.toList()
         menu.clear()
         mode.menuInflater.inflate(R.menu.menu_text_select, menu)
         menuItemsList.forEach {
@@ -679,7 +686,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun maybeShowWatchlistTooltip() {
         pageFragment.historyEntry?.let {
-            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
+            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn &&
+                    it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS &&
+                    Prefs.loggedInPageActivityVisitCount >= 3) {
                 enqueueTooltip {
                     watchlistFunnel.logShowTooltip()
                     Prefs.isWatchlistPageOnboardingTooltipShown = true
@@ -691,10 +700,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     // TODO: remove on March 2022.
-    private fun maybeShowNotificationTooltip(targetView: View) {
-        if (!Prefs.isPageNotificationTooltipShown && AccountUtil.isLoggedIn) {
+    private fun maybeShowNotificationTooltip() {
+        if (!Prefs.isPageNotificationTooltipShown && AccountUtil.isLoggedIn &&
+                Prefs.loggedInPageActivityVisitCount >= 1) {
             enqueueTooltip {
-                FeedbackUtil.showTooltip(this, targetView, getString(R.string.page_notification_tooltip),
+                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonNotifications, getString(R.string.page_notification_tooltip),
                     aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
                     Prefs.isPageNotificationTooltipShown = true
                 }
@@ -733,10 +743,21 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             } else {
                 binding.pageToolbarButtonNotifications.setUnreadCount(0)
             }
+        } else if (!AccountUtil.isLoggedIn && AnonymousNotificationHelper.isWithinAnonNotificationTime()) {
+            binding.pageToolbarButtonNotifications.isVisible = true
+            if (Prefs.hasAnonymousNotification) {
+                binding.pageToolbarButtonNotifications.setUnreadCount(1)
+                if (animate) {
+                    toolbarHideHandler.ensureDisplayed()
+                    binding.pageToolbarButtonNotifications.runAnimation()
+                }
+            } else {
+                binding.pageToolbarButtonNotifications.setUnreadCount(0)
+            }
         } else {
             binding.pageToolbarButtonNotifications.isVisible = false
         }
-        maybeShowNotificationTooltip(binding.pageToolbarButtonNotifications)
+        maybeShowNotificationTooltip()
     }
 
     fun clearActionBarTitle() {
@@ -748,6 +769,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onUnreadNotification() {
+        updateNotificationsButton(true)
+    }
+
+    fun onAnonNotification() {
         updateNotificationsButton(true)
     }
 

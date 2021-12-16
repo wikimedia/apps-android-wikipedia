@@ -79,6 +79,7 @@
   <string name="feed_card_add_to_list">הוספה לרשימת קריאה</string>
   <string name="feed_card_add_to_default_list">שמירה</string>
   <string name="menu_page_share">שיתוף קישור</string>
+  <string name="menu_article_share">שיתוף ערך</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
   <string name="menu_page_new_tab">לשונית חדשה</string>
   <string name="menu_page_reading_lists">רשימות קריאה</string>
@@ -257,6 +258,10 @@
   <string name="edit_summary_tag_other_hint">איך עוד שיפרת את הדף</string>
   <string name="edit_conflict_title">התנגשות עריכה</string>
   <string name="edit_conflict_message">הדף כבר שוּנה על־ידי משתמש אחר, וזה מתנגש עם העריכה שלך. נא להעתיק את העריכות שלך, לחזור, לרענן את הדף, ולנסות לערוך שוב.</string>
+  <string name="edit_notices">הודעות לעורכים</string>
+  <string name="edit_notices_please_read">נא לקרוא לפני עריכה</string>
+  <string name="edit_notices_show_auto">להציג אוטומטית את ההודעות לעורכים</string>
+  <string name="edit_notices_tooltip">יש ללחוץ על הכפתור הזה כדי לצפות בהודעות לעורכים עבור הערך הזה.</string>
   <string name="find_next">חיפוש הבא</string>
   <string name="find_previous">חיפוש הקודם</string>
   <string name="find_first_occurence">זה המופע הראשון</string>
@@ -371,6 +376,7 @@
   <string name="error_message_generic">אירעה שגיאה</string>
   <string name="view_link_preview_error_button_dismiss">סגירה</string>
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
+  <string name="error_user_page_does_not_exist">בוויקיפדיה אין &lt;a href=\"%1$s\"&gt;דף משתמש&lt;/a&gt; בעל שם כזה בדיוק. באופן כללי, הדף הזה צריך להיווצר ולהיערך על־ידי &lt;b&gt;%2$s&lt;/b&gt;. אם יש לך ספק, נא לוודא ששם המשתמש \"%3$s\" קיים.</string>
   <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
   <string name="view_wiki_error_message_timeout">לא ניתן להתחבר לוויקיפדיה. יש לבדוק את החיבור שלך לרשת או לנסות שוב מאוחר יותר</string>
   <string name="reference_title">הערת שוליים %s</string>
@@ -675,6 +681,7 @@
   <string name="notifications_channel_group_other_description">התראות אחרות מהיישום</string>
   <string name="notifications_filter_label">סינון התראות</string>
   <string name="notifications_filter_icon_content_description">סינון התראות</string>
+  <string name="notifications_filter_update_app_languages">עדכון שפות היישום</string>
   <string name="notifications_empty_search_message">נא לנסות להסיר את %s כדי לראות עוד התראות</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">מסנן אחד</item>
@@ -699,6 +706,7 @@
   <string name="notifications_all_wikis_text">כל סימוני \"ויקי\"</string>
   <string name="notifications_all_types_text">כל סימוני \"סוג\"</string>
   <string name="notifications_menu_user_talk_page">דף השיחה של %s</string>
+  <string name="notifications_offline_disable_message">האפשרות הזאת אינה זמינה כשאין חיבור לרשת.</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_article_card_title">ערך אקראי</string>
@@ -927,7 +935,7 @@
   <string name="suggested_edits_what_is_text">עריכות מוצעות מציגות הזדמנויות לתרומות קטנות, אבל מועילות לוויקיפדיה.</string>
   <string name="suggested_edits_learn_more">מידע נוסף</string>
   <string name="suggested_edits_paused_title">מושהה</string>
-  <string name="suggested_edits_disabled_title">מבוטל</string>
+  <string name="suggested_edits_disabled_title">כבוי</string>
   <string name="suggested_edits_ip_blocked_title">כתובת ה־IP חסומה</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
@@ -1104,6 +1112,10 @@
   <string name="talk_last_modified">&lt;b&gt;נערך לאחרונה ב־%1$s&lt;/b&gt; על־ידי %2$s</string>
   <string name="talk_snackbar_survey_text">תודה על השימוש בדפי שיחה. אפשר לבקש ממך לעזור לנו לשפר את היישום באמצעות השתתפות בסקר?</string>
   <string name="talk_snackbar_survey_action_text">להתחיל</string>
+  <string name="talk_share_discussion_subject">ויקיפדיה – דיון בדף שיחה בנושא \"%s\"</string>
+  <string name="talk_share_talk_page">ויקיפדיה – דיונים בדף שיחה</string>
+  <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
+  <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
   <string name="menu_option_user_profile">הפרופיל של %s</string>
   <string name="menu_option_user_contributions">התרומות של %s</string>
@@ -1112,7 +1124,7 @@
   <string name="watchlist_details_next_edit">העריכה הבאה</string>
   <string name="watchlist_details_prev_edit">העריכה הקודמת</string>
   <string name="thank_label">תודה</string>
-  <string name="go_to_user_page">מעבר לדף משתמש</string>
+  <string name="view_user_page">הצגת דף המשתמש</string>
   <string name="thank_dialog_title_text">שליחת \"תודה\" באופן ציבורי</string>
   <string name="thank_dialog_text">\"תודה\" היא דרך קלה להראות הערכה לעבודה של עורך בוויקיפדיה. לא ניתן לבטל פעולות שליחת \"תודה\" והן מוצגות באופן ציבורי.</string>
   <string name="thank_dialog_positive_button_text">לשלוח תודה</string>

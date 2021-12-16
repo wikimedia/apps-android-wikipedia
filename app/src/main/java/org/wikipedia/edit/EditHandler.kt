@@ -86,7 +86,6 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
             intent.putExtra(EditSectionActivity.EXTRA_SECTION_ID, section.id)
             intent.putExtra(EditSectionActivity.EXTRA_SECTION_ANCHOR, section.anchor)
             intent.putExtra(EditSectionActivity.EXTRA_TITLE, it.title)
-            intent.putExtra(EditSectionActivity.EXTRA_PAGE_PROPS, it.pageProperties)
             intent.putExtra(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT, highlightText)
             fragment.startActivityForResult(intent, Constants.ACTIVITY_REQUEST_EDIT_SECTION)
         }

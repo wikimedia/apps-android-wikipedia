@@ -13,6 +13,8 @@ class UserInfo : BlockInfo() {
     @SerialName("latestcontrib") private val latestContrib: String? = null
     @SerialName("editcount") val editCount = 0
     val name: String = ""
+    val anon: Boolean = false
+    val messages: Boolean = false
 
     fun groups(): Set<String> {
         return groups?.toSet() ?: emptySet()
