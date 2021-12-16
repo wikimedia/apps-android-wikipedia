@@ -1146,6 +1146,7 @@
   <string name="watchlist_details_next_edit">Следующая правка</string>
   <string name="watchlist_details_prev_edit">Предыдущая правка</string>
   <string name="thank_label">Благодарность</string>
+  <string name="view_user_page">Просмотреть страницу участника</string>
   <string name="thank_dialog_title_text">Публично отправить \'Спасибо\'</string>
   <string name="thank_dialog_text">\'Спасибо\' - это простой способ выразить признательность редактору Википедии за его работу. \'Спасибо\' нельзя отменить и оно отображается публично.</string>
   <string name="thank_dialog_positive_button_text">Отправить благодарность</string>
