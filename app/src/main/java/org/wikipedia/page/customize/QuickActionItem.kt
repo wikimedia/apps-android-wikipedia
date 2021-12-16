@@ -7,10 +7,10 @@ import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 
 @Suppress("unused")
-enum class PageMenuItem constructor(val id: Int,
-                                            @StringRes val titleResId: Int,
-                                            @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
-                                            val isExternalLink: Boolean = false) : EnumCode {
+enum class QuickActionItem constructor(val id: Int,
+                                       @StringRes val titleResId: Int,
+                                       @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
+                                       val isExternalLink: Boolean = false) : EnumCode {
     SAVE(0, R.string.article_menu_bar_save_button, R.drawable.ic_bookmark_border_white_24dp),
     LANGUAGE(1, R.string.article_menu_bar_language_button, R.drawable.ic_translate_white_24dp),
     FIND_IN_ARTICLE(2, R.string.menu_page_find_in_page, R.drawable.ic_find_in_page_24px),
@@ -30,17 +30,17 @@ enum class PageMenuItem constructor(val id: Int,
     }
 
     companion object {
-        val MAP = EnumCodeMap(PageMenuItem::class.java)
+        val MAP = EnumCodeMap(QuickActionItem::class.java)
 
         fun size(): Int {
             return MAP.size()
         }
 
-        private fun findOrNull(id: Int): PageMenuItem? {
+        private fun findOrNull(id: Int): QuickActionItem? {
             return MAP.valueIterator().asSequence().firstOrNull { id == it.id }
         }
 
-        fun find(id: Int): PageMenuItem {
+        fun find(id: Int): QuickActionItem {
             return findOrNull(id) ?: MAP[0]
         }
     }

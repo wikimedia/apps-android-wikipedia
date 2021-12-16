@@ -10,7 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ItemCustomizeFavoritesBinding
 import org.wikipedia.util.ResourceUtil
 
-class CustomizeFavoritesItemView : LinearLayout {
+class CustomizeQuickActionsItemView : LinearLayout {
     private var binding = ItemCustomizeFavoritesBinding.inflate(LayoutInflater.from(context), this)
     private var position = 0
 
@@ -24,10 +24,10 @@ class CustomizeFavoritesItemView : LinearLayout {
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
-    fun setContents(pageMenuItem: PageMenuItem, position: Int) {
+    fun setContents(quickActionItem: QuickActionItem, position: Int) {
         this.position = position
-        binding.listItem.text = context.getString(pageMenuItem.titleResId)
-        binding.listItem.setCompoundDrawablesWithIntrinsicBounds(pageMenuItem.iconResId, 0, 0, 0)
+        binding.listItem.text = context.getString(quickActionItem.titleResId)
+        binding.listItem.setCompoundDrawablesWithIntrinsicBounds(quickActionItem.iconResId, 0, 0, 0)
     }
 
     fun setDragHandleEnabled(enabled: Boolean) {

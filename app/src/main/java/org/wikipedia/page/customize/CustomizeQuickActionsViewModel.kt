@@ -5,7 +5,7 @@ import org.wikipedia.R
 import org.wikipedia.settings.Prefs
 import java.util.*
 
-class CustomizeFavoritesViewModel : ViewModel() {
+class CustomizeQuickActionsViewModel : ViewModel() {
 
     private var quickActionsOrder = mutableListOf<Int>()
     private var menuOrder = mutableListOf<Int>()
@@ -42,32 +42,32 @@ class CustomizeFavoritesViewModel : ViewModel() {
         return if (list.isEmpty()) {
             listOf(emptyPlaceholderPair(quickActions))
         } else {
-            list.map { CustomizeFavoritesFragment.VIEW_TYPE_ITEM to PageMenuItem.find(it) }
+            list.map { CustomizeQuickActionsFragment.VIEW_TYPE_ITEM to QuickActionItem.find(it) }
         }
     }
 
     private fun headerPair(quickActions: Boolean): Pair<Int, Any> {
-        return CustomizeFavoritesFragment.VIEW_TYPE_HEADER to
+        return CustomizeQuickActionsFragment.VIEW_TYPE_HEADER to
                 if (quickActions) R.string.customize_favorites_category_quick_actions else R.string.customize_favorites_category_menu
     }
 
     private fun emptyPlaceholderPair(quickActions: Boolean): Pair<Int, Any> {
-        return CustomizeFavoritesFragment.VIEW_TYPE_EMPTY_PLACEHOLDER to quickActions
+        return CustomizeQuickActionsFragment.VIEW_TYPE_EMPTY_PLACEHOLDER to quickActions
     }
 
     private fun collectCategoriesItems(): Pair<MutableList<Int>, MutableList<Int>> {
         var saveIntoQuickActions = true
         val quickActionsItems = mutableListOf<Int>()
         val menuItems = mutableListOf<Int>()
-        fullList.filterNot { it.first == CustomizeFavoritesFragment.VIEW_TYPE_EMPTY_PLACEHOLDER }.forEach {
+        fullList.filterNot { it.first == CustomizeQuickActionsFragment.VIEW_TYPE_EMPTY_PLACEHOLDER }.forEach {
             if (it == headerPair(false)) {
                 saveIntoQuickActions = false
             }
-            if (it.first == CustomizeFavoritesFragment.VIEW_TYPE_ITEM) {
+            if (it.first == CustomizeQuickActionsFragment.VIEW_TYPE_ITEM) {
                 if (saveIntoQuickActions) {
-                    quickActionsItems.add((it.second as PageMenuItem).id)
+                    quickActionsItems.add((it.second as QuickActionItem).id)
                 } else {
-                    menuItems.add((it.second as PageMenuItem).id)
+                    menuItems.add((it.second as QuickActionItem).id)
                 }
             }
         }
@@ -78,7 +78,7 @@ class CustomizeFavoritesViewModel : ViewModel() {
     private fun handleCategoryLimitation(pair: Pair<MutableList<Int>, MutableList<Int>>): List<Int> {
         val list = mutableListOf<Int>()
         // To avoid seeing the bug from the library, we have to use a while loop to manually swap items.
-        while (pair.first.size > CustomizeFavoritesFragment.QUICK_ACTIONS_LIMIT) {
+        while (pair.first.size > CustomizeQuickActionsFragment.QUICK_ACTIONS_LIMIT) {
             // Last item swap with "Menu" header
             swapList(pair.first.size, pair.first.size + 1)
             // Add swapped item to list

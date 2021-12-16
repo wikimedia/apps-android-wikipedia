@@ -5,15 +5,15 @@ import android.content.Intent
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 
-class CustomizeFavoritesActivity : SingleFragmentActivity<CustomizeFavoritesFragment>() {
-    public override fun createFragment(): CustomizeFavoritesFragment {
-        return CustomizeFavoritesFragment.newInstance()
+class CustomizeQuickActionsActivity : SingleFragmentActivity<CustomizeQuickActionsFragment>() {
+    public override fun createFragment(): CustomizeQuickActionsFragment {
+        return CustomizeQuickActionsFragment.newInstance()
     }
 
     companion object {
         fun newIntent(context: Context): Intent {
             SuggestedEditsFunnel.get().contributionsOpened()
-            return Intent(context, CustomizeFavoritesActivity::class.java)
+            return Intent(context, CustomizeQuickActionsActivity::class.java)
         }
     }
 }

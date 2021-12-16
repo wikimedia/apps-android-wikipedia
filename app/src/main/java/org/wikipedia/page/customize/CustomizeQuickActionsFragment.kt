@@ -16,10 +16,10 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentCustomizeFavoritesBinding
 import org.wikipedia.views.DefaultViewHolder
 
-class CustomizeFavoritesFragment : Fragment() {
+class CustomizeQuickActionsFragment : Fragment() {
     private var _binding: FragmentCustomizeFavoritesBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: CustomizeFavoritesViewModel by viewModels()
+    private val viewModel: CustomizeQuickActionsViewModel by viewModels()
 
     private lateinit var itemTouchHelper: ItemTouchHelper
     private lateinit var adapter: RecyclerItemAdapter
@@ -73,7 +73,7 @@ class CustomizeFavoritesFragment : Fragment() {
                     EmptyPlaceholderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_favorites_empty_placeholder, parent, false))
                 }
                 else -> {
-                    ItemHolder(CustomizeFavoritesItemView(parent.context))
+                    ItemHolder(CustomizeQuickActionsItemView(parent.context))
                 }
             }
         }
@@ -81,7 +81,7 @@ class CustomizeFavoritesFragment : Fragment() {
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
             when (holder) {
                 is ItemHolder -> {
-                    holder.bindItem(viewModel.fullList[pos].second as PageMenuItem, pos)
+                    holder.bindItem(viewModel.fullList[pos].second as QuickActionItem, pos)
                     holder.view.setDragHandleEnabled(true)
                 }
                 is HeaderViewHolder -> {
@@ -176,9 +176,9 @@ class CustomizeFavoritesFragment : Fragment() {
         }
     }
 
-    private inner class ItemHolder constructor(itemView: CustomizeFavoritesItemView) : DefaultViewHolder<CustomizeFavoritesItemView>(itemView) {
-        fun bindItem(pageMenuItem: PageMenuItem, position: Int) {
-            view.setContents(pageMenuItem, position)
+    private inner class ItemHolder constructor(itemView: CustomizeQuickActionsItemView) : DefaultViewHolder<CustomizeQuickActionsItemView>(itemView) {
+        fun bindItem(quickActionItem: QuickActionItem, position: Int) {
+            view.setContents(quickActionItem, position)
         }
     }
 
@@ -190,8 +190,8 @@ class CustomizeFavoritesFragment : Fragment() {
         const val VIEW_TYPE_EMPTY_PLACEHOLDER = 2
         const val QUICK_ACTIONS_LIMIT = 5
 
-        fun newInstance(): CustomizeFavoritesFragment {
-            return CustomizeFavoritesFragment()
+        fun newInstance(): CustomizeQuickActionsFragment {
+            return CustomizeQuickActionsFragment()
         }
     }
 }
