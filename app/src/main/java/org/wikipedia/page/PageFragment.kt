@@ -20,6 +20,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
+import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -481,12 +482,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             pageFragmentLoadState.setTab(currentTab)
             currentTab.backStack.add(PageBackStackItem(title, entry))
         }
-    }
-
-    private fun setBottomBarButtonEnabled(button: PageActionTab, enabled: Boolean) {
-        val view = binding.pageActionsTabLayout.getChildAt(button.code())
-        view.isEnabled = enabled
-        view.alpha = if (enabled) 1f else 0.5f
     }
 
     private fun closePageScrollFunnel() {
@@ -954,11 +949,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return
         }
         pageActionItemCallback.updateBookmark(model.isInReadingList)
-        val buttonsEnabled = model.page != null && !model.shouldLoadAsMobileWeb
-        setBottomBarButtonEnabled(PageActionTab.ADD_TO_READING_LIST, buttonsEnabled)
-        setBottomBarButtonEnabled(PageActionTab.CHOOSE_LANGUAGE, buttonsEnabled)
-        setBottomBarButtonEnabled(PageActionTab.FONT_AND_THEME, buttonsEnabled)
-        setBottomBarButtonEnabled(PageActionTab.VIEW_TOC, buttonsEnabled)
+        binding.pageActionsTabLayout.children.iterator().forEach { it as MaterialTextView
+            L.d("it.tag 1 " + it.tag)
+            val enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && it.tag as? Boolean == true))
+            it.isEnabled = enabled
+            it.alpha = if (enabled) 1f else 0.5f
+        }
         tocHandler.setEnabled(false)
         requireActivity().invalidateOptionsMenu()
     }

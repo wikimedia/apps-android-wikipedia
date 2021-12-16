@@ -28,4 +28,9 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             addView(view, param)
         }
     }
+
+    companion object {
+        const val TAG_AVAILABLE_IN_MOBILE_WEB = 100
+        const val TAG_EXTERNAL_LINK = 200
+    }
 }

@@ -555,11 +555,11 @@ object Prefs {
 
     var customizeFavoritesQuickActionsOrder
         get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_favorites_quick_actions_order, null))
-            ?: emptyList()
+            ?: listOf(0, 1, 2, 3, 4)
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_favorites_quick_actions_order, JsonUtil.encodeToString(orderList))
 
     var customizeFavoritesMenuOrder
         get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_favorites_menu_order, null))
-            ?: emptyList()
+            ?: listOf(5, 6, 7, 8, 9, 10)
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_favorites_menu_order, JsonUtil.encodeToString(orderList))
 }

@@ -10,13 +10,14 @@ import org.wikipedia.model.EnumCodeMap
 enum class PageActionItem constructor(val id: Int,
                                       @StringRes val titleResId: Int,
                                       @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
+                                      val isAvailableForMobileWeb: Boolean = true,
                                       val isExternalLink: Boolean = false) : EnumCode {
-    SAVE(0, R.string.article_menu_bar_save_button, R.drawable.ic_bookmark_border_white_24dp) {
+    SAVE(0, R.string.article_menu_bar_save_button, R.drawable.ic_bookmark_border_white_24dp, false) {
         override fun select(cb: Callback) {
             cb.onSaveSelected()
         }
     },
-    LANGUAGE(1, R.string.article_menu_bar_language_button, R.drawable.ic_translate_white_24dp) {
+    LANGUAGE(1, R.string.article_menu_bar_language_button, R.drawable.ic_translate_white_24dp, false) {
         override fun select(cb: Callback) {
             cb.onLanguageSelected()
         }
@@ -26,12 +27,12 @@ enum class PageActionItem constructor(val id: Int,
             cb.onFindInArticleSelected()
         }
     },
-    THEME(3, R.string.article_menu_bar_theme_button, R.drawable.ic_icon_format_size) {
+    THEME(3, R.string.article_menu_bar_theme_button, R.drawable.ic_icon_format_size, false) {
         override fun select(cb: Callback) {
             cb.onThemeSelected()
         }
     },
-    CONTENTS(4, R.string.article_menu_bar_contents_button, R.drawable.ic_icon_list) {
+    CONTENTS(4, R.string.article_menu_bar_contents_button, R.drawable.ic_icon_list, false) {
         override fun select(cb: Callback) {
             cb.onContentsSelected()
         }
@@ -41,7 +42,7 @@ enum class PageActionItem constructor(val id: Int,
             cb.onShareSelected()
         }
     },
-    ADD_TO_WATCHLIST(6, R.string.menu_page_add_to_watchlist, R.drawable.ic_baseline_star_outline_24) {
+    ADD_TO_WATCHLIST(6, R.string.menu_page_add_to_watchlist, R.drawable.ic_baseline_star_outline_24, false) {
         override fun select(cb: Callback) {
             cb.onAddToWatchlistSelected()
         }
