@@ -1391,7 +1391,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         override fun forwardClick() {
             goForward()
         }
-
     }
 
     companion object {
