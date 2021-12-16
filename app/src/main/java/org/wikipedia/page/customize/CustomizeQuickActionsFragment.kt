@@ -165,8 +165,8 @@ class CustomizeQuickActionsFragment : Fragment() {
         }
 
         private fun movableItems(target: RecyclerView.ViewHolder): Boolean {
-            return target is ItemHolder ||
-                    (target is HeaderViewHolder && target.itemView.findViewById<TextView>(R.id.headerTitle).text == getString(R.string.customize_quick_actions_category_menu))
+            // TODO: add (target is HeaderViewHolder) with matching title string to make them swappable between categories
+            return target is ItemHolder
         }
     }
 
