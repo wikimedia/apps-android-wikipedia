@@ -167,7 +167,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.setOnRefreshListener(pageRefreshListener)
         val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET
         binding.pageRefreshContainer.setProgressViewOffset(false, -swipeOffset, swipeOffset)
-        binding.pageActionsTabLayout.setPageActionTabsCallback(pageActionTabsCallback)
+//        binding.pageActionsTabLayout.setPageActionTabsCallback(pageActionTabsCallback)
         savedInstanceState?.let {
             scrolledUpForThemeChange = it.getBoolean(ARG_THEME_CHANGE_SCROLLED, false)
         }
