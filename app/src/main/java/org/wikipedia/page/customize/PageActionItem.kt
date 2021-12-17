@@ -3,6 +3,7 @@ package org.wikipedia.page.customize
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 
@@ -10,7 +11,7 @@ import org.wikipedia.model.EnumCodeMap
 enum class PageActionItem constructor(val id: Int,
                                       @StringRes val titleResId: Int,
                                       @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
-                                      val isAvailableForMobileWeb: Boolean = true,
+                                      val isAvailableOnMobileWeb: Boolean = true,
                                       val isExternalLink: Boolean = false) : EnumCode {
     SAVE(0, R.string.article_menu_bar_save_button, R.drawable.ic_bookmark_border_white_24dp, false) {
         override fun select(cb: Callback) {
@@ -88,8 +89,6 @@ enum class PageActionItem constructor(val id: Int,
         fun onViewEditHistorySelected()
         fun onNewTabSelected()
         fun onExploreSelected()
-        fun updateBookmark(pageSaved: Boolean)
-        fun updateWatchlist(pageWatched: Boolean)
         fun forwardClick()
     }
 
@@ -100,12 +99,32 @@ enum class PageActionItem constructor(val id: Int,
             return MAP.size()
         }
 
-        private fun findOrNull(id: Int): PageActionItem? {
-            return MAP.valueIterator().asSequence().firstOrNull { id == it.id }
+        private fun findOrNull(id: Int? = -1, titleString: String? = null): PageActionItem? {
+            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || titleString == WikipediaApp.getInstance().getString(it.titleResId)}
         }
 
         fun find(id: Int): PageActionItem {
-            return findOrNull(id) ?: MAP[0]
+            return findOrNull(id = id) ?: MAP[0]
+        }
+
+        fun find(titleString: String): PageActionItem {
+            return findOrNull(titleString = titleString) ?: MAP[0]
+        }
+
+        @DrawableRes
+        fun watchlistIcon(isWatched: Boolean, hasWatchlistExpiry: Boolean): Int {
+            return if (isWatched && !hasWatchlistExpiry) {
+                R.drawable.ic_star_24
+            } else if (!isWatched) {
+                R.drawable.ic_baseline_star_outline_24
+            } else {
+                R.drawable.ic_baseline_star_half_24
+            }
+        }
+
+        @DrawableRes
+        fun readingListIcon(pageSaved: Boolean): Int {
+            return if (pageSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
         }
     }
 }

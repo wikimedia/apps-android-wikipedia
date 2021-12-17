@@ -15,12 +15,11 @@ import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
-import androidx.core.view.children
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -65,7 +64,6 @@ import org.wikipedia.media.AvPlayer
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.PollNotificationService
 import org.wikipedia.page.PageCacher.loadIntoCache
-import org.wikipedia.page.action.PageActionTab
 import org.wikipedia.page.customize.PageActionItem
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.references.PageReferences
@@ -121,6 +119,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val tabFunnel = TabFunnel()
     private val watchlistFunnel = WatchlistFunnel()
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
+    private val pageActionItemCallback = PageActionItemCallback()
 
     private lateinit var bridge: CommunicationBridge
     private lateinit var leadImagesHandler: LeadImagesHandler
@@ -161,7 +160,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     val headerView get() = binding.pageHeaderView
     val isLoading get() = bridge.isLoading
     val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
-    val pageActionItemCallback = PageActionItemCallback()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
@@ -533,16 +531,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun disableActionTabs(caught: Throwable?) {
         val offline = ThrowableUtil.isOffline(caught)
         for (i in 0 until binding.pageActionsTabLayout.childCount) {
-            if (!(offline && PageActionTab.of(i) == PageActionTab.ADD_TO_READING_LIST)) {
+            if (!offline) {
                 binding.pageActionsTabLayout.disableTab(i)
             }
         }
     }
 
     private fun setBookmarkIconForPageSavedState(pageSaved: Boolean) {
-        binding.pageActionsTabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code())?.let { tab ->
-            (tab as MaterialTextView).setCompoundDrawablesWithIntrinsicBounds(null, AppCompatResources.getDrawable(requireContext(),
-                if (pageSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp), null, null)
+        binding.pageActionsTabLayout.forEach {  it as MaterialTextView
+            val pageActionItem = PageActionItem.find(it.text.toString())
+            if (pageActionItem == PageActionItem.SAVE) {
+                it.setCompoundDrawablesRelativeWithIntrinsicBounds(0, PageActionItem.readingListIcon(pageSaved), 0, 0)
+            }
         }
     }
 
@@ -831,7 +831,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun onPageMetadataLoaded() {
-        updateBookmarkAndMenuOptions()
+        updateQuickActionsAndMenuOptions()
         if (model.page == null) {
             return
         }
@@ -944,16 +944,24 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         webView.settings.defaultFontSize = app.getFontSize(requireActivity().window).toInt()
     }
 
-    fun updateBookmarkAndMenuOptions() {
+    fun updateQuickActionsAndMenuOptions() {
         if (!isAdded) {
             return
         }
-        pageActionItemCallback.updateBookmark(model.isInReadingList)
-        binding.pageActionsTabLayout.children.iterator().forEach { it as MaterialTextView
-            L.d("it.tag 1 " + it.tag)
-            val enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && it.tag as? Boolean == true))
+        binding.pageActionsTabLayout.forEach { it as MaterialTextView
+            val pageActionItem = PageActionItem.find(it.text.toString())
+            val enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
             it.isEnabled = enabled
             it.alpha = if (enabled) 1f else 0.5f
+
+            if (pageActionItem == PageActionItem.SAVE) {
+                it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.readingListIcon(model.isInReadingList), 0, 0)
+            } else if (pageActionItem == PageActionItem.ADD_TO_WATCHLIST) {
+                it.setText(if (model.isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
+                it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.watchlistIcon(model.isWatched, model.hasWatchlistExpiry), 0, 0)
+                it.isEnabled = enabled && AccountUtil.isLoggedIn
+                it.alpha = if (it.isEnabled) 1f else 0.5f
+            }
         }
         tocHandler.setEnabled(false)
         requireActivity().invalidateOptionsMenu()
@@ -966,7 +974,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate {
-                        pageActionItemCallback.updateBookmark(model.readingListPage != null)
+                        updateQuickActionsAndMenuOptions()
                         requireActivity().invalidateOptionsMenu()
                     }
                     .subscribe())
@@ -1192,9 +1200,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun showOverflowMenu(anchor: View) {
-        PageActionOverflowView(requireContext()).show(anchor, pageActionItemCallback, currentTab,
-            model.shouldLoadAsMobileWeb, model.isWatched, model.hasWatchlistExpiry
-        )
+        PageActionOverflowView(requireContext()).show(anchor, pageActionItemCallback, currentTab, model)
     }
 
     fun goToMainTab() {
@@ -1372,16 +1378,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onExploreSelected() {
             goToMainTab()
-        }
-
-        override fun updateBookmark(pageSaved: Boolean) {
-            // TODO: need to update Quick actions and menu
-            setBookmarkIconForPageSavedState(pageSaved)
-        }
-
-        override fun updateWatchlist(pageWatched: Boolean) {
-            // TODO: need to update Quick actions and menu
-            TODO("Not yet implemented")
         }
 
         override fun forwardClick() {
