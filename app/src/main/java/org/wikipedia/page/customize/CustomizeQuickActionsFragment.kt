@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentCustomizeQuickActionsBinding
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.views.DefaultViewHolder
 
 class CustomizeQuickActionsFragment : Fragment() {

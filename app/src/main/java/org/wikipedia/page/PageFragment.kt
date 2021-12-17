@@ -64,7 +64,7 @@ import org.wikipedia.media.AvPlayer
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.PollNotificationService
 import org.wikipedia.page.PageCacher.loadIntoCache
-import org.wikipedia.page.customize.PageActionItem
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
@@ -268,6 +268,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         val params = CoordinatorLayout.LayoutParams(1, 1)
         binding.pageImageTransitionHolder.layoutParams = params
         binding.pageImageTransitionHolder.visibility = View.GONE
+        binding.pageActionsTabLayout.update()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -533,15 +534,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         for (i in 0 until binding.pageActionsTabLayout.childCount) {
             if (!offline) {
                 binding.pageActionsTabLayout.disableTab(i)
-            }
-        }
-    }
-
-    private fun setBookmarkIconForPageSavedState(pageSaved: Boolean) {
-        binding.pageActionsTabLayout.forEach {  it as MaterialTextView
-            val pageActionItem = PageActionItem.find(it.text.toString())
-            if (pageActionItem == PageActionItem.SAVE) {
-                it.setCompoundDrawablesRelativeWithIntrinsicBounds(0, PageActionItem.readingListIcon(pageSaved), 0, 0)
             }
         }
     }
@@ -1190,6 +1182,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             watchlistFunnel.logAddSuccess()
                         }
                         showWatchlistSnackbar(expiry, watch)
+                        // TODO: need to update watchlist icon status
                     }
                 }) { caught -> L.d(caught) })
         }

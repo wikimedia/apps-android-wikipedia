@@ -1,4 +1,4 @@
-package org.wikipedia.page.customize
+package org.wikipedia.page.action
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

@@ -2,6 +2,7 @@ package org.wikipedia.page.customize
 
 import androidx.lifecycle.ViewModel
 import org.wikipedia.R
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.settings.Prefs
 import java.util.*
 

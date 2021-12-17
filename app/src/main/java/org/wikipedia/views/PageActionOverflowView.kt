@@ -16,7 +16,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemQuickActionsMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
 import org.wikipedia.page.PageViewModel
-import org.wikipedia.page.customize.PageActionItem
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
 

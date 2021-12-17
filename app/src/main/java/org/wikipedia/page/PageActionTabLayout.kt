@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import org.wikipedia.databinding.ItemQuickActionsTabBinding
-import org.wikipedia.page.customize.PageActionItem
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.settings.Prefs
 import org.wikipedia.views.ConfigurableTabLayout
 
@@ -13,6 +13,11 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
     lateinit var callback: PageActionItem.Callback
 
     init {
+        update()
+    }
+
+    fun update() {
+        removeAllViews()
         Prefs.customizeFavoritesQuickActionsOrder.forEach {
             val view = ItemQuickActionsTabBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemCustomizeQuickActionsBinding
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.util.ResourceUtil
 
 class CustomizeQuickActionsItemView : LinearLayout {
