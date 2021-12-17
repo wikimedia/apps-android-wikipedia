@@ -22,6 +22,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             val view = ItemQuickActionsTabBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
             val param = LayoutParams(0, LayoutParams.MATCH_PARENT, 1.0f)
+            view.id = item.hashCode()
             view.text = context.getString(item.titleResId)
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
             view.setOnClickListener { v ->
