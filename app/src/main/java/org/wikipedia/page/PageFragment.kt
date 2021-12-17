@@ -941,7 +941,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return
         }
         binding.pageActionsTabLayout.forEach { it as MaterialTextView
-            val pageActionItem = PageActionItem.find(it.text.toString())
+            val pageActionItem = PageActionItem.find(it.id)
             val enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
             it.isEnabled = enabled
             it.alpha = if (enabled) 1f else 0.5f
@@ -1170,6 +1170,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     ServiceFactory.get(it.wikiSite).postWatch(if (unwatch) 1 else null, null, it.prefixedText, expiry.expiry, watchToken)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate { updateQuickActionsAndMenuOptions() }
                 .subscribe({ watchPostResponse ->
                     watchPostResponse.getFirst()?.let { watch ->
                         // Reset to make the "Change" button visible.
@@ -1182,7 +1183,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             watchlistFunnel.logAddSuccess()
                         }
                         showWatchlistSnackbar(expiry, watch)
-                        // TODO: need to update watchlist icon status
                     }
                 }) { caught -> L.d(caught) })
         }

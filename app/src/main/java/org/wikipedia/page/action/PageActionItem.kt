@@ -3,7 +3,6 @@ package org.wikipedia.page.action
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 
@@ -99,16 +98,12 @@ enum class PageActionItem constructor(val id: Int,
             return MAP.size()
         }
 
-        private fun findOrNull(id: Int? = -1, titleString: String? = null): PageActionItem? {
-            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || titleString == WikipediaApp.getInstance().getString(it.titleResId)}
+        private fun findOrNull(id: Int): PageActionItem? {
+            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id == it.hashCode() }
         }
 
         fun find(id: Int): PageActionItem {
             return findOrNull(id = id) ?: MAP[0]
-        }
-
-        fun find(titleString: String): PageActionItem {
-            return findOrNull(titleString = titleString) ?: MAP[0]
         }
 
         @DrawableRes

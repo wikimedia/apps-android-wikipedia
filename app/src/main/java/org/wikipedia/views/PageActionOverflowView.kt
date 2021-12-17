@@ -34,6 +34,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         Prefs.customizeFavoritesMenuOrder.forEach {
             val view = ItemQuickActionsMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
+            view.id = item.hashCode()
             view.text = context.getString(item.titleResId)
             view.setCompoundDrawablesWithIntrinsicBounds(item.iconResId, 0, 0, 0)
             view.setOnClickListener {
@@ -57,7 +58,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
 
         for (i in 1 until binding.overflowList.childCount) {
             val view = binding.overflowList.getChildAt(i) as MaterialTextView
-            val pageActionItem = PageActionItem.find(view.text.toString())
+            val pageActionItem = PageActionItem.find(view.id)
             val enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
             when (pageActionItem) {
                 PageActionItem.ADD_TO_WATCHLIST -> {
