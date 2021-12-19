@@ -1,6 +1,7 @@
 package org.wikipedia.feed.view
 
 import android.content.Context
+import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.*
 import org.wikipedia.views.ViewUtil
+import java.util.*
 import kotlin.math.roundToInt
 
 class ListCardItemView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
@@ -148,8 +150,21 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
     }
 
     private fun getPageViewText(pageViews: Long): String {
+        var isCJK = false
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            val primaryLocale = context.resources.configuration.locales.get(0).language
+            isCJK = primaryLocale == Locale.CHINESE.language ||
+                    primaryLocale == Locale.JAPANESE.language ||
+                    primaryLocale == Locale.KOREAN.language
+        }
         return when {
             pageViews < 1000 -> pageViews.toString()
+            pageViews < 10000000 && isCJK -> {
+                context.getString(
+                        R.string.view_top_read_card_pageviews_10k_suffix,
+                        (pageViews / 10000f).roundToInt()
+                )
+            }
             pageViews < 1000000 -> {
                 context.getString(
                     R.string.view_top_read_card_pageviews_k_suffix,

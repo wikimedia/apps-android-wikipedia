@@ -690,6 +690,7 @@
     <string name="view_top_read_card_title">Top read</string>
     <string name="view_top_read_card_action">More top read</string>
     <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+    <string name="view_top_read_card_pageviews_10k_suffix">%d ten thousand</string>
     <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
     <string name="view_next_random_article">Load another random article</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
