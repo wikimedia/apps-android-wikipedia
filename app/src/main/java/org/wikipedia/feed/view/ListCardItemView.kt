@@ -159,7 +159,7 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
         }
         return when {
             pageViews < 1000 -> pageViews.toString()
-            pageViews < 10000000 && isCJK -> {
+            pageViews < 100000000 && isCJK -> {
                 context.getString(
                         R.string.view_top_read_card_pageviews_10k_suffix,
                         (pageViews / 10000f).roundToInt()
