@@ -14,6 +14,7 @@
   <string name="notification_archive_undo">Annulla</string>
   <string name="history_list_title">Crunuluggìa</string>
   <string name="image_content_description">Mmàggini: %s</string>
+  <string name="page_content_description">Pàggina: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
@@ -53,7 +54,7 @@
   <string name="menu_login">Trasi</string>
   <string name="login_activity_title">Trasi</string>
   <string name="login_success_toast">Trasuta rinisciuta!</string>
-  <string name="reset_password_title">Mpusta la tò password</string>
+  <string name="reset_password_title">Mposta la tò password</string>
   <string name="reset_password_hint">Password nova</string>
   <string name="reset_password_button">Sarva e trasi</string>
   <string name="preference_title_logout">Nesci</string>
@@ -255,6 +256,7 @@
   <string name="suggested_edits_contribution_article_label">Vuci</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Aieri</string>
+  <string name="file_page_edit_button_content_description">Cancia %s</string>
   <string name="description_edit_revert_subtitle">Grazzi pi aviri canciatu Wikipedia!</string>
   <string name="description_edit_login_cancel_button_text">Annulla</string>
   <string name="size_gb">%.2f GB</string>
