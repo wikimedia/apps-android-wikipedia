@@ -62,6 +62,7 @@
   <string name="search_tab_tooltip">সরাসরি অনুসন্ধানের শব্দ টাইপ করা শুরু করতে আইকনটিতে আবার টিপ দিন।</string>
   <string name="history_list_title">ইতিহাস</string>
   <string name="image_content_description">চিত্র: %s</string>
+  <string name="page_content_description">পাতা: %s</string>
   <string name="wikimedia_commons">উইকিমিডিয়া কমন্স</string>
   <string name="wikidata">উইকিউপাত্ত</string>
   <string name="dialog_title_clear_history">ব্রাউজ করার ইতিহাস অপসারণ করবেন</string>
@@ -313,6 +314,7 @@
   <string name="gallery_save_success">ফাইল সংরক্ষিত হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন।</string>
+  <string name="gallery_edit_button_content_description">ছবির ক্যাপশন সম্পাদনা করুন</string>
   <string name="gallery_add_image_caption_button">ছবির ক্যাপশন যোগ করুন</string>
   <string name="gallery_add_image_caption_in_language_button">ছবির ক্যাপশন যোগ করুন (%s)</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
@@ -583,6 +585,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="feed_accessibility_card_load_more_button">আরও লোড করুন</string>
   <string name="top_read_activity_title">%s-এ শীর্ষ পঠিত</string>
+  <string name="tabs_activity_title">ট্যাব</string>
   <string name="description_edit_text_hint">নিবন্ধের বিবরণ</string>
   <string name="description_edit_article_description_label">নিবন্ধ</string>
   <string name="description_edit_translate_article_description_label_per_language">নিবন্ধের বিবরণ (%s)</string>
@@ -663,6 +666,7 @@
     <item quantity="one">%1$sটি অক্ষর</item>
     <item quantity="other">%1$sটি অক্ষর</item>
   </plurals>
+  <string name="file_page_edit_button_content_description">%s সম্পাদনা করুন</string>
   <string name="description_edit_revert_subtitle">উইকিপিডিয়ায় সম্পাদনা করার জন্য ধন্যবাদ!</string>
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
