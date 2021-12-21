@@ -675,7 +675,6 @@
   <string name="view_top_read_card_title">가장 많이 읽은 글</string>
   <string name="view_top_read_card_action">가장 많이 읽은 글 더 보기</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
-  <string name="view_top_read_card_pageviews_10k_suffix">%d 만</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">무작위로 다른 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>

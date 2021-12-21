@@ -644,7 +644,6 @@
   <string name="view_random_article_card_action">おまかせ表示をもっと見る</string>
   <string name="view_top_read_card_title">よく読まれている記事</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d千</string>
-  <string name="view_top_read_card_pageviews_10k_suffix">%d万</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d百</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>

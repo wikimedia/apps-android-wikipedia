@@ -707,7 +707,6 @@
   <string name="view_top_read_card_title">热门阅读</string>
   <string name="view_top_read_card_action">更多热门阅读</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
-  <string name="view_top_read_card_pageviews_10k_suffix">%d 万</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">加载另一个随机条目</string>
   <string name="view_main_page_card_title">维基百科今日</string>

@@ -680,7 +680,6 @@
   <string name="view_top_read_card_title">被閱讀最多次</string>
   <string name="view_top_read_card_action">更多被閱讀最多次的條目</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
-  <string name="view_top_read_card_pageviews_10k_suffix">%d 萬</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">載入另一個隨機條目</string>
   <string name="view_main_page_card_title">維基百科今日</string>
