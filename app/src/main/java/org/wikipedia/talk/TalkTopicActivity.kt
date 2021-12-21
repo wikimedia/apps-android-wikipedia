@@ -23,6 +23,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.TalkFunnel
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
@@ -97,6 +98,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkReplyButton.setOnClickListener {
             talkFunnel.logReplyClick()
             editFunnel.logStart()
+            EditAttemptStepEvent.logInit()
             replyClicked()
         }
 
@@ -199,6 +201,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
             editFunnel.logStart()
+            EditAttemptStepEvent.logInit()
         } else {
             replyActive = false
             binding.replyEditText.setText("")
@@ -339,6 +342,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         undoneSubject = subject
 
         editFunnel.logSaveAttempt()
+        EditAttemptStepEvent.logSaveAttempt()
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
@@ -429,6 +433,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
+        EditAttemptStepEvent.logSaveSuccess()
 
         if (isNewTopic()) {
             Intent().let {
@@ -446,6 +451,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
+        EditAttemptStepEvent.logSaveFailure()
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)
