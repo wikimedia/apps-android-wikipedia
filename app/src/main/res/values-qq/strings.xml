@@ -69,7 +69,7 @@
   <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
   <string name="history_list_title">Label text for history items list.\n\n{{Identical|History}}</string>
   <string name="image_content_description">Content description for an image. The \"%s\" symbol is replaced with the name of the subject.</string>
-  <string name="page_content_description">Content description for a page. The \"%s\" symbol is replaced with the name of the subject.</string>
+  <string name="page_content_description">Content description for a page. The \"%s\" symbol is replaced with the name of the subject.\n\n{{Identical|Page}}</string>
   <string name="wikimedia_commons">Label text for Wikimedia Commons.</string>
   <string name="wikidata">Label text for Wikidata.</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
@@ -956,7 +956,7 @@
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
   <string name="file_page_suggestion_reason">Suggestion reason title text of the file summary shown in the file page.</string>
-  <string name="file_page_edit_button_content_description">Content description for the edit button in file page. The \"%s\" symbol is replaced with the name of the description type.</string>
+  <string name="file_page_edit_button_content_description">Content description for the edit button in file page. The \"%s\" symbol is replaced with the name of the description type.\n\n{{Identical|Edit}}</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>

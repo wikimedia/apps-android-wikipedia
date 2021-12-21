@@ -98,6 +98,7 @@
   <string name="search_tab_tooltip">Нажмите на иконку снова, чтобы начать ввод поискового запроса.</string>
   <string name="history_list_title">История</string>
   <string name="image_content_description">Изображение: %s</string>
+  <string name="page_content_description">Страница: %s</string>
   <string name="wikimedia_commons">Викисклад</string>
   <string name="wikidata">Викиданные</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
