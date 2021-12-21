@@ -102,9 +102,9 @@ public final class EventPlatformClient {
      * @param event event
      */
     static void addEventMetadata(Event event) {
-        if (event instanceof AnalyticsEvent) {
-            ((AnalyticsEvent) event).setSessionId(AssociationController.getSessionId());
-            ((AnalyticsEvent) event).setAppInstallId(Prefs.INSTANCE.getAppInstallId());
+        if (event instanceof AppsEvent) {
+            ((AppsEvent) event).setSessionId(AssociationController.getSessionId());
+            ((AppsEvent) event).setAppInstallId(Prefs.INSTANCE.getAppInstallId());
         }
         event.setDt(DateUtil.iso8601DateFormat(new Date()));
     }

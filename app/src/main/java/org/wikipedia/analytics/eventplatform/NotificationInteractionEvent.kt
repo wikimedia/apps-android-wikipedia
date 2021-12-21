@@ -21,7 +21,7 @@ class NotificationInteractionEvent(
     private val selection_token: String,
     private val incoming_only: Boolean,
     private val device_level_enabled: Boolean
-) : AnalyticsEvent(STREAM_NAME) {
+) : AppsEvent(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "android.notification_interaction"
