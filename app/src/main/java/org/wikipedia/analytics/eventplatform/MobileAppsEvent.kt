@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 
 @Serializable
-sealed class AppsEvent(@Transient val streamName: String = "") : Event(streamName) {
+sealed class MobileAppsEvent(@Transient val streamName: String = "") : Event(streamName) {
 
     @SerialName("app_session_id")
     var sessionId: String? = null
