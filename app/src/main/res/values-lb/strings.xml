@@ -35,6 +35,7 @@
   <string name="notification_archive_undo">Réckgängeg maachen</string>
   <string name="app_settings">Astellunge vun der App</string>
   <string name="history_list_title">Versiounen</string>
+  <string name="page_content_description">Säit: %s</string>
   <string name="wikimedia_commons">Wikimedia-Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
@@ -420,6 +421,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Ofbriechen</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Ofbriechen</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Lieslëscht: %s</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_reverted_title">Zréckgesaten Ännerung</string>
   <string name="notification_channel_description">Fortschrëtt vum Eroflueden</string>
@@ -626,6 +628,7 @@
   <string name="suggested_edits_encourage_account_creation_title">Wousst Dir datt jidderee Wikipedia ännere kann?</string>
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
   <string name="file_page_suggestion_reason">Grond fir d\'Propos</string>
+  <string name="file_page_edit_button_content_description">%s änneren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -707,10 +710,12 @@
   <string name="talk_reply_subject">Sujet</string>
   <string name="talk_snackbar_survey_action_text">Fir unzefänken</string>
   <string name="menu_option_share_talk_discussion">Diskussioun deelen</string>
+  <string name="menu_option_share_talk_page">Diskussiounssäit deelen</string>
   <string name="menu_option_user_contributions">Kontributioune vum %s</string>
   <string name="watchlist_details_watching_label">Iwwerwaacht</string>
   <string name="watchlist_details_watch_label">Iwwerwaachen</string>
   <string name="thank_label">Merci soen</string>
+  <string name="view_user_page">Benotzersäit weisen</string>
   <string name="thank_dialog_positive_button_text">Merci soen</string>
   <string name="thank_dialog_negative_button_text">Ofbriechen</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>

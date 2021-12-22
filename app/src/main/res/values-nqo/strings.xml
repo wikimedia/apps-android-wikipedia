@@ -62,6 +62,7 @@
   <string name="feed_card_add_to_list">ߊ߬ ߟߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="feed_card_add_to_default_list">ߊ߬ ߟߊ߬߬ߞߎ߲߬ߘߎ</string>
   <string name="menu_page_share">ߛߘߌ߬ߜߋ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
+  <string name="menu_article_share">ߞߎߡߘߊ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_page_open_a_new_tab">ߘߎ߲ߛߓߍ߫ ߞߎߘߊ߫ ߟߊߞߊ߬</string>
   <string name="menu_page_new_tab">ߘߎ߲ߛߓߍ߫ ߞߎߘߊ߫</string>
   <string name="menu_page_reading_lists">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
@@ -231,7 +232,10 @@
   <string name="edit_summary_tag_other_hint">ߌ ߣߊ߬ ߞߐߜߍ ߡߊߛߐ߫ ߟߊ߫ ߛߌߟߊ߫ ߜߘߍ ߡߍ߲ ߝߍ߬</string>
   <string name="edit_conflict_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߝߐߢߐ߲߯ߞߐ</string>
   <string name="edit_conflict_message">ߞߐߜߍ ߓߘߊ߫ ߓߊ߲߫ ߡߊߦߟߍ߬ߡߊ߲߫ ߠߊ߫ ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ߫ ߜߘߍ߫ ߓߟߏ߫߸ ߏ߬ ߘߏ߲߬ ߦߴߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߝߐ߲ߞߐߢߐ߲߯ߦߊ߫ ߟߊ߫. ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߓߊߓߌ߬ߟߊ߫ ߖߊ߰ߣߌ߲߫߸ ߞߵߌ ߞߐߛߊ߬ߦߌ߬ ߞߊ߬ ߞߐߜߍ ߟߊߛߎߡߊ߫߸ ߞߵߊ߬ ߡߊߝߍߣߍ߲߫ ߌߞߐߕߎ߲߯.</string>
+  <string name="edit_notices">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߫</string>
   <string name="edit_notices_please_read">ߊ߬ ߘߐߞߊ߬ߙߊ߲߫ ߖߊ߰ߣߌ߲߫߸ ߦߊ߬ߣߴߊ߬ ߡߊߦߟߍ߬ߡߊ߲߬ ߕߐ߫</string>
+  <string name="edit_notices_show_auto">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߦߌ߬ߘߊ߬ ߞߍߒߖߘߍߦߋ߫ ߓߟߏߡߊ߬.</string>
+  <string name="edit_notices_tooltip">ߞߎ߲߬ߘߎ ߣߌ߲߬ ߕߐߘߐ߲߫ ߞߊ߬ ߞߎߡߘߊ ߣߌ߲߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߦߌ߬ߘߊ߬.</string>
   <string name="find_next">ߢߍߕߊ ߢߌߣߌ߲߫</string>
   <string name="find_previous">ߟߊ߬ߕߎ߲߰ߠߊ ߢߌߣߌ߲߫</string>
   <string name="find_first_occurence">ߓߐߢߟߊߟߌ߫ ߝߟߐ ߟߋ߬ ߦߋ߫ ߣߌ߲߬</string>
@@ -507,6 +511,7 @@
   <string name="notifications_poll_enable_title">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_positive">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_negative">ߌߞߘߐߣߌ߲߬ ߕߴߏ ߘߌ߫</string>
+  <string name="notifications_empty_message">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߞߎߘߊ߫ ߕߴߌ ߓߟߏ߫ ߕߊ߲߬߹</string>
   <string name="notifications_view_archived_button_text">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߞߘߐ߬ߡߊ߲ ߠߎ߬ ߦߌ߬ߘߊ߬</string>
   <string name="notification_preferences_title">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߞߊ߬ߣߌ߲߬ߣߍ߲ ߠߎ߬</string>
   <string name="notifications_mark_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
@@ -518,6 +523,7 @@
   <string name="notifications_mark_all_as_read_message">%d ߖߊ߬ߕߋ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߣߍ߲ ߘߌ߫</string>
   <string name="notifications_mark_all_as_unread_message">%d ߖߊ߬ߕߋ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
   <string name="watchlist_title">ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
+  <string name="preference_title_notification_poll">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="preference_category_notification_types">ߟߥߊ߬ߟߌ߬ߟߊ߲-ߠߊ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߛߎ߯ߦߊ ߟߎ߬</string>
   <string name="preference_title_notification_system">ߞߊ߲ߞߋ</string>
   <string name="preference_summary_notification_system">ߗߋߛߓߍ ߞߊ߬ ߝߘߊ߫ ߞߊ߲ߞߋ ߟߊ߫</string>
@@ -791,6 +797,7 @@
   <string name="app_shortcuts_search">ߢߌߣߌ߲ߣߌ߲</string>
   <string name="on_this_day_card_title">ߟߏ߲ ߣߌ߲߬ ߡߊ߬</string>
   <string name="more_events_text">ߛߌߦߊߡߊ߲߫ ߜߘߍ߫ ߟߎ߫ ߟߏ߲ ߣߌ߲߬ ߡߊ߬</string>
+  <string name="events_count_text">ߖߊ߲߬ߖߏ߲ %1$s ߠߎ߬ ߞߵߊ߬ ߕߊ߬ %2$s-%3$d</string>
   <string name="this_year">ߢߌ߬ߣߊ߲߬</string>
   <string name="on_this_day_dialog_next_month">ߞߊߙߏ߫ ߣߊ߬ߕߐ</string>
   <string name="on_this_day_dialog_previous_month">ߞߊߙߏ߫ ߛߊ߬ߣߍ߲</string>
@@ -866,12 +873,14 @@
   <string name="menu_option_share_talk_discussion">ߘߊߘߐߖߊߥߏ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_share_talk_page">ߞߎߡߊ߫ ߞߐߜߍ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_share_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
+  <string name="menu_option_user_profile">%s ߢߊߞߙߍ</string>
   <string name="menu_option_user_contributions">%s ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
   <string name="watchlist_details_watching_label">ߘߐߜߍߟߌ ߦߴߌ ߘߐ߫</string>
   <string name="watchlist_details_watch_label">ߊ߬ ߘߐߜߍ߫</string>
   <string name="watchlist_details_next_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߢߍߕߊ</string>
   <string name="watchlist_details_prev_edit">ߞߐ߲߬ߞߐ߲߬ߢߍ߬ ߡߊߦߟߍߡߊ߲ߠߌ߲</string>
   <string name="thank_label">ߌ ߞߎߟߎ߲ߖߋ߫</string>
+  <string name="view_user_page">ߞߐߜߍ߫ ߟߊߓߊ߯ߙߕߊ ߘߐߜߍ߫</string>
   <string name="thank_dialog_title_text">\'ߌ ߣߌ߫ ߗߋ\' ߗߋߟߌ ߖߊ߬ߡߊ ߡߊ߬</string>
   <string name="thank_dialog_text">\'ߌ ߣߌ߫ ߗߋ߫ ߓߌߟߊ\' ߦߋ߫ ߛߌߟߊ߫ ߣߐ߲߯ ߠߋ߬ ߘߌ߫ ߞߊ߬ ߛߋ߫ ߞߎߟߎ߲ߖߋߟߌ ߦߌ߬ߘߊ߬ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߊ ߟߎ߬ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬. \'ߌ ߣߌ߫ ߗߋ\' ߕߍ߫ ߛߐ߲߬ ߘߐߛߊ߬ ߟߊ߫ ߊ߬ ߘߏ߲߬ ߦߋ߫ ߦߋ߫ ߟߊ߫ ߖߊ߬ߡߊ ߟߋ߬ ߓߟߏ߫.</string>
   <string name="thank_dialog_positive_button_text">\'ߌ ߣߌ߫ ߗߋ\' ߗߋ߫</string>

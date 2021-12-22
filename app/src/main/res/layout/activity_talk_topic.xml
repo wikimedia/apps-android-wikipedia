@@ -89,7 +89,7 @@
                     app:drawableTint="?attr/material_theme_de_emphasised_color"
                     android:drawablePadding="8dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="?attr/material_theme_de_emphasised_color"
+                    android:textColor="?attr/color_group_63"
                     tools:text="Sample license text" />
 
             </LinearLayout>

@@ -23,6 +23,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.TalkFunnel
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
@@ -97,6 +98,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkReplyButton.setOnClickListener {
             talkFunnel.logReplyClick()
             editFunnel.logStart()
+            EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
             replyClicked()
         }
 
@@ -199,6 +201,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
             editFunnel.logStart()
+            EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
         } else {
             replyActive = false
             binding.replyEditText.setText("")
@@ -268,7 +271,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun showLinkPreviewOrNavigate(title: PageTitle) {
         if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
-            startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage(), Constants.InvokeSource.TALK_ACTIVITY))
+            startActivity(TalkTopicsActivity.newIntent(this, title, Constants.InvokeSource.TALK_ACTIVITY))
         } else {
             bottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
@@ -337,6 +340,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         var body = binding.replyEditText.text.toString().trim()
         undoneBody = body
         undoneSubject = subject
+
+        editFunnel.logSaveAttempt()
+        EditAttemptStepEvent.logSaveAttempt(pageTitle.wikiSite.languageCode)
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
@@ -427,6 +433,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
+        EditAttemptStepEvent.logSaveSuccess(pageTitle.wikiSite.languageCode)
 
         if (isNewTopic()) {
             Intent().let {
@@ -444,6 +451,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
+        EditAttemptStepEvent.logSaveFailure(pageTitle.wikiSite.languageCode)
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)

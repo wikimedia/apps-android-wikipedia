@@ -68,6 +68,7 @@
   <string name="feed_card_add_to_list">Tambahkan ke senarai bacaan</string>
   <string name="feed_card_add_to_default_list">Simpan</string>
   <string name="menu_page_share">Kongsikan pautan</string>
+  <string name="menu_article_share">Kongsi rencana</string>
   <string name="menu_page_open_a_new_tab">Buka tab baru</string>
   <string name="menu_page_new_tab">Tab baru</string>
   <string name="menu_page_reading_lists">Senarai bacaan</string>
@@ -576,6 +577,7 @@
   <string name="preference_summary_notification_mention">Seseorang menyebut nama anda dalam sebuah halaman</string>
   <string name="preference_title_notification_user_talk">Laman perbincangan</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">Pesanan dari halaman perbincangan</string>
+  <string name="notifications_filter_update_app_languages">Kemas kini bahasa aplikasi</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>
   <string name="view_random_article_card_title">Rencana rawak</string>
@@ -844,6 +846,7 @@
   <string name="menu_option_user_contributions">Sumbangan %s</string>
   <string name="watchlist_details_watch_label">Pantau</string>
   <string name="thank_label">Terima kasih</string>
+  <string name="view_user_page">Lihat laman pengguna</string>
   <string name="thank_dialog_positive_button_text">Ucap terima kasih</string>
   <string name="thank_dialog_negative_button_text">Batalkan</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">untuk 1 minggu</string>

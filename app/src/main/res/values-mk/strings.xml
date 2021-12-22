@@ -40,6 +40,7 @@
   <string name="search_tab_tooltip">Повторно допрете ја иконата за да почнете со непосредно внесување на саканото пребарување.</string>
   <string name="history_list_title">Историја</string>
   <string name="image_content_description">Слика: %s</string>
+  <string name="page_content_description">Страница: %s</string>
   <string name="wikimedia_commons">Ризница</string>
   <string name="wikidata">Википодатоци</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
@@ -295,6 +296,7 @@
   <string name="gallery_save_success">Податотеката е зачувана.</string>
   <string name="gallery_error_video_failed">Не можам да го пуштам видеото.</string>
   <string name="gallery_save_image_write_permission_rationale">Се бара дозвола за зачувување слики на вашиот уред.</string>
+  <string name="gallery_edit_button_content_description">Измени опис на сликата</string>
   <string name="gallery_add_image_caption_button">Додај толкување на сликата</string>
   <string name="gallery_add_image_caption_in_language_button">Додај опис на сликата (%s)</string>
   <string name="err_cannot_save_file">Не можам да ја зачувам податотеката</string>
@@ -529,6 +531,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Откажи</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Откажи</string>
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
+  <string name="reading_list_activity_title">Список за читање: %s</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_channel_title">Преземање на статии</string>
@@ -712,6 +715,7 @@
   <string name="feed_accessibility_card_text">Дојдовте до дното на доводот.</string>
   <string name="feed_accessibility_card_load_more_button">Вчитај уште</string>
   <string name="top_read_activity_title">Најчитани на %s</string>
+  <string name="tabs_activity_title">Јазичиња</string>
   <string name="description_edit_text_hint">Опис на статијата</string>
   <string name="description_edit_article_description_label">Статија</string>
   <string name="description_edit_translate_article_description_label_per_language">Опис на статијата (%s)</string>
@@ -929,6 +933,7 @@
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
   <string name="file_page_suggestion_reason">Причина за предлагање</string>
+  <string name="file_page_edit_button_content_description">Уреди %s</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

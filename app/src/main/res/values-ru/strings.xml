@@ -98,6 +98,7 @@
   <string name="search_tab_tooltip">Нажмите на иконку снова, чтобы начать ввод поискового запроса.</string>
   <string name="history_list_title">История</string>
   <string name="image_content_description">Изображение: %s</string>
+  <string name="page_content_description">Страница: %s</string>
   <string name="wikimedia_commons">Викисклад</string>
   <string name="wikidata">Викиданные</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
@@ -1134,6 +1135,8 @@
   <string name="talk_last_modified">&lt;b&gt;Последняя правка сделана %1$s&lt;/b&gt; участником %2$s</string>
   <string name="talk_snackbar_survey_text">Спасибо за использование страниц обсуждения. Не могли бы вы помочь нам улучшить приложение, приняв участие в опросе?</string>
   <string name="talk_snackbar_survey_action_text">Начать</string>
+  <string name="talk_share_discussion_subject">Википедия — обсуждение в теме «%s»</string>
+  <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
   <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
   <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
@@ -1144,6 +1147,7 @@
   <string name="watchlist_details_next_edit">Следующая правка</string>
   <string name="watchlist_details_prev_edit">Предыдущая правка</string>
   <string name="thank_label">Благодарность</string>
+  <string name="view_user_page">Просмотреть страницу участника</string>
   <string name="thank_dialog_title_text">Публично отправить \'Спасибо\'</string>
   <string name="thank_dialog_text">\'Спасибо\' - это простой способ выразить признательность редактору Википедии за его работу. \'Спасибо\' нельзя отменить и оно отображается публично.</string>
   <string name="thank_dialog_positive_button_text">Отправить благодарность</string>
