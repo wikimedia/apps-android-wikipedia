@@ -12,6 +12,10 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
 
     companion object {
 
+        private const val STREAM_NAME = "eventlogging_EditAttemptStep"
+        private const val INTEGRATION_ID = "app-android"
+        private val PLATFORM = WikipediaApp.getInstance().getString(R.string.device_type).lowercase()
+
         fun logInit() {
             submitEditAttemptEvent(ActionType.INIT)
         }
@@ -36,10 +40,6 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
             EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action.valueString, "example",
                 OTHER.valueString, INTEGRATION_ID, "example", PLATFORM, 0, 1, 1)))
         }
-
-        private const val STREAM_NAME = "eventlogging_EditAttemptStep"
-        private const val INTEGRATION_ID = "app-android"
-        private val PLATFORM = WikipediaApp.getInstance().getString(R.string.device_type).lowercase()
     }
 }
 
