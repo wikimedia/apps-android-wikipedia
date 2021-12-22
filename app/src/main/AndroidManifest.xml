@@ -295,6 +295,11 @@
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
+        <activity
+            android:name=".topics.TopicsActivity"
+            android:label="Topics"
+            android:theme="@style/AppTheme.ActionBar"/>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
