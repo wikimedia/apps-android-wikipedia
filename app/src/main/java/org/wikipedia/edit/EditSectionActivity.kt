@@ -113,7 +113,7 @@ class EditSectionActivity : BaseActivity() {
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
             funnel.logStart()
-            EditAttemptStepEvent.logInit()
+            EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
         }
         if (savedInstanceState != null) {
             if (savedInstanceState.containsKey(EXTRA_KEY_TEMPORARY_WIKITEXT_STORED)) {
@@ -264,7 +264,7 @@ class EditSectionActivity : BaseActivity() {
     private fun onEditSuccess(result: EditResult) {
         if (result is EditSuccessResult) {
             funnel.logSaved(result.revID)
-            EditAttemptStepEvent.logSaveSuccess()
+            EditAttemptStepEvent.logSaveSuccess(pageTitle.wikiSite.languageCode)
             // TODO: remove the artificial delay and use the new revision
             // ID returned to request the updated version of the page once
             // revision support for mobile-sections is added to RESTBase
@@ -292,7 +292,7 @@ class EditSectionActivity : BaseActivity() {
             funnel.logCaptchaShown()
         } else {
             funnel.logError(result.result)
-            EditAttemptStepEvent.logSaveFailure()
+            EditAttemptStepEvent.logSaveFailure(pageTitle.wikiSite.languageCode)
             // Expand to do everything.
             onEditFailure(Throwable())
         }
@@ -362,14 +362,14 @@ class EditSectionActivity : BaseActivity() {
                 // we're showing the Preview window, which means that the next step is to save it!
                 editTokenThenSave
                 funnel.logSaveAttempt()
-                EditAttemptStepEvent.logSaveAttempt()
+                EditAttemptStepEvent.logSaveAttempt(pageTitle.wikiSite.languageCode)
             }
             else -> {
                 // we must be showing the editing window, so show the Preview.
                 DeviceUtil.hideSoftKeyboard(this)
                 editPreviewFragment.showPreview(pageTitle, binding.editSectionText.text.toString())
                 funnel.logPreview()
-                EditAttemptStepEvent.logSaveIntent()
+                EditAttemptStepEvent.logSaveIntent(pageTitle.wikiSite.languageCode)
             }
         }
     }

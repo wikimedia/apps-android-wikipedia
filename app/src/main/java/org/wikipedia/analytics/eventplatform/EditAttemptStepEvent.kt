@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EditorInterfaceType.OTHER
+import org.wikipedia.auth.AccountUtil
 
 @Serializable
 @SerialName("/analytics/legacy/editattemptstep/1.2.0")
@@ -16,29 +17,29 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
         private const val INTEGRATION_ID = "app-android"
         private val PLATFORM = WikipediaApp.getInstance().getString(R.string.device_type).lowercase()
 
-        fun logInit() {
-            submitEditAttemptEvent(ActionType.INIT)
+        fun logInit(wikiCode: String) {
+            submitEditAttemptEvent(ActionType.INIT, wikiCode)
         }
 
-        fun logSaveIntent() {
-            submitEditAttemptEvent(ActionType.SAVE_INTENT)
+        fun logSaveIntent(wikiCode: String) {
+            submitEditAttemptEvent(ActionType.SAVE_INTENT, wikiCode)
         }
 
-        fun logSaveAttempt() {
-            submitEditAttemptEvent(ActionType.SAVE_ATTEMPT)
+        fun logSaveAttempt(wikiCode: String) {
+            submitEditAttemptEvent(ActionType.SAVE_ATTEMPT, wikiCode)
         }
 
-        fun logSaveSuccess() {
-            submitEditAttemptEvent(ActionType.SAVE_SUCCESS)
+        fun logSaveSuccess(wikiCode: String) {
+            submitEditAttemptEvent(ActionType.SAVE_SUCCESS, wikiCode)
         }
 
-        fun logSaveFailure() {
-            submitEditAttemptEvent(ActionType.SAVE_FAILURE)
+        fun logSaveFailure(wikiCode: String) {
+            submitEditAttemptEvent(ActionType.SAVE_FAILURE, wikiCode)
         }
 
-        private fun submitEditAttemptEvent(action: ActionType) {
-            EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action.valueString, "example",
-                OTHER.valueString, INTEGRATION_ID, "example", PLATFORM, 0, 1, 1)))
+        private fun submitEditAttemptEvent(action: ActionType, wikiCode: String) {
+            EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action.valueString, "", OTHER.valueString,
+                INTEGRATION_ID, "", PLATFORM, 0, if (AccountUtil.isLoggedIn) AccountUtil.getUserIdForLanguage(wikiCode) else 0, 1)))
         }
     }
 }
