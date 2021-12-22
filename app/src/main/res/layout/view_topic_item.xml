@@ -3,15 +3,15 @@
     android:layout_height="60dp"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    android:background="?attr/selectableItemBackgroundBorderless"
     android:gravity="center_vertical">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:background="?attr/selectableItemBackground"
         android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:textColor="?attr/primary_text_color"
         android:textSize="20sp" />
 </FrameLayout>

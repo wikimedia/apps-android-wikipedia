@@ -552,4 +552,8 @@ object Prefs {
 
     val hideReadNotificationsEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notification_hide_read, false)
+    var selectedTopics
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_topics_selected, null))
+            ?: emptySet()
+        set(set) = PrefsIoUtil.setString(R.string.preference_key_topics_selected, JsonUtil.encodeToString(set))
 }

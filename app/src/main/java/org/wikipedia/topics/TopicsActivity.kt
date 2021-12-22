@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityTopicsBinding
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ResourceUtil
 
 class TopicsActivity : BaseActivity() {
@@ -27,23 +27,33 @@ class TopicsActivity : BaseActivity() {
 
     class CustomAdapter(val context: Context) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
         val dataSet: Array<String> = context.resources.getStringArray(R.array.topics)
+        var topics = Prefs.selectedTopics.toMutableSet()
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val textView: TextView = view.findViewById(R.id.textView)
         }
 
-        // Create new views (invoked by the layout manager)
         override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-            // Create a new view, which defines the UI of the list item
             val view =
                 LayoutInflater.from(viewGroup.context).inflate(R.layout.view_topic_item, viewGroup, false)
-
             return ViewHolder(view)
         }
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
             viewHolder.textView.text = dataSet[position]
-            viewHolder.textView.background = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+            if (topics.contains(dataSet[position])) {
+                viewHolder.textView.setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.color_group_70))
+            }
+            viewHolder.textView.setOnClickListener {
+                val topic = (it as TextView).text.toString()
+                if (topics.contains(topic)) {
+                    topics.remove(topic)
+                } else {
+                    topics.add(topic)
+                }
+                notifyDataSetChanged()
+                Prefs.selectedTopics = topics
+            }
         }
 
         override fun getItemCount() = dataSet.size
