@@ -92,6 +92,7 @@ class PollNotificationService : JobService() {
         fun schedulePollNotificationJob(context: Context) {
             val serviceComponent = ComponentName(context, PollNotificationService::class.java)
             val builder = JobInfo.Builder(0, serviceComponent)
+                    .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
             val jobScheduler = context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
             jobScheduler.schedule(builder.build())
         }
