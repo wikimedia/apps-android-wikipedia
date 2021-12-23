@@ -51,8 +51,8 @@ class TopicsActivity : BaseActivity() {
                 } else {
                     topics.add(topic)
                 }
-                notifyDataSetChanged()
                 Prefs.selectedTopics = topics
+                notifyDataSetChanged()
             }
         }
 

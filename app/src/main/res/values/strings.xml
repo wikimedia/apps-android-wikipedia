@@ -1156,5 +1156,7 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+    <string name="featured_topic">Featured Topic</string>
+    <string name="featured_topic_subtitle">Articles based on topic of your choice</string>
 
 </resources>
