@@ -56,6 +56,7 @@
   <string name="search_tab_tooltip">לחץ על הסמל שוב כדי להתחיל ישר להקליד את מילת החיפוש.</string>
   <string name="history_list_title">היסטוריה</string>
   <string name="image_content_description">תמונה: %s</string>
+  <string name="page_content_description">דף: %s</string>
   <string name="wikimedia_commons">ויקישיתוף</string>
   <string name="wikidata">ויקינתונים</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
@@ -313,6 +314,7 @@
   <string name="gallery_save_success">הקובץ נשמר.</string>
   <string name="gallery_error_video_failed">לא היה אפשר לנגן את הסרטון.</string>
   <string name="gallery_save_image_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה לשמירת תמונות.</string>
+  <string name="gallery_edit_button_content_description">עריכת כיתוב תמונה</string>
   <string name="gallery_add_image_caption_button">הוספת כיתוב לתמונה</string>
   <string name="gallery_add_image_caption_in_language_button">הוספת כיתוב תמונה (%s)</string>
   <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
@@ -561,6 +563,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">ביטול</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ביטול</string>
   <string name="reading_list_split_dialog_ok_button_text">אישור</string>
+  <string name="reading_list_activity_title">רשימת קריאה: %s</string>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_reverted_title">עריכה משוחזרת</string>
   <string name="notification_channel_title">הורדת ערכים</string>
@@ -766,6 +769,7 @@
   <string name="feed_accessibility_card_text">הגעת לסוף ההזנה.</string>
   <string name="feed_accessibility_card_load_more_button">לטעון עוד</string>
   <string name="top_read_activity_title">ערכים מובילים ב%s</string>
+  <string name="tabs_activity_title">לשוניות</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
   <string name="description_edit_article_description_label">ערך</string>
   <string name="description_edit_translate_article_description_label_per_language">תיאור הערך (%s)</string>
@@ -1000,6 +1004,7 @@
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
   <string name="file_page_suggestion_reason">הסיבה להצעה</string>
+  <string name="file_page_edit_button_content_description">עריכת %s</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים היה חשד. סיבות אפשריות לכך שהעריכה שלך בוטלה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>

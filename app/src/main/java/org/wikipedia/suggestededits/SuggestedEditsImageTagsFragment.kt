@@ -24,6 +24,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
 import org.wikipedia.dataclient.Service
@@ -325,6 +326,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishSuccess = false
 
         funnel?.logSaveAttempt()
+        EditAttemptStepEvent.logSaveAttempt(callback().getLangCode())
 
         binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         binding.publishProgressCheck.visibility = GONE
@@ -372,6 +374,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             .subscribe({
                                 if (it.entity != null) {
                                     funnel?.logSaved(it.entity.lastRevId, invokeSource.value)
+                                    EditAttemptStepEvent.logSaveSuccess(callback().getLangCode())
                                 }
                                 publishSuccess = true
                                 onSuccess()
@@ -424,6 +427,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         // TODO: expand this a bit.
         SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
+        EditAttemptStepEvent.logSaveFailure(callback().getLangCode())
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
     }

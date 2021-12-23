@@ -292,10 +292,10 @@
   <string name="edit_summary_tag_other_hint">您改善该页面的其他方式</string>
   <string name="edit_conflict_title">编辑冲突</string>
   <string name="edit_conflict_message">页面已被不同的用户修改过，并且与您的编辑冲突。请复制您的编辑，返回并刷新页面，然后重试编辑。</string>
-  <string name="edit_notices">编辑通知</string>
+  <string name="edit_notices">编辑提示</string>
   <string name="edit_notices_please_read">请在编辑前阅读</string>
-  <string name="edit_notices_show_auto">自动展示编辑通知</string>
-  <string name="edit_notices_tooltip">点击此按钮来显示此条目的编辑通知。</string>
+  <string name="edit_notices_show_auto">自动展示编辑提示</string>
+  <string name="edit_notices_tooltip">点击此按钮来显示此条目的编辑提示。</string>
   <string name="find_next">查找下一个</string>
   <string name="find_previous">查找上一个</string>
   <string name="find_first_occurence">这是首次出现</string>

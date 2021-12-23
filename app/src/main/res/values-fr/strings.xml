@@ -82,6 +82,7 @@
   <string name="search_tab_tooltip">Taper de nouveau sur l’icône pour commencer directement à saisir un terme de recherche.</string>
   <string name="history_list_title">Historique</string>
   <string name="image_content_description">Image : %s</string>
+  <string name="page_content_description">Page : %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
@@ -337,6 +338,7 @@
   <string name="gallery_save_success">Fichier enregistré.</string>
   <string name="gallery_error_video_failed">Impossible de jouer la vidéo.</string>
   <string name="gallery_save_image_write_permission_rationale">Le droit d’écrire dans l\'espace de stockage de votre appareil est nécessaire pour enregistrer des images.</string>
+  <string name="gallery_edit_button_content_description">Modifier la légende de l’image</string>
   <string name="gallery_add_image_caption_button">Ajouter la légende de l’image</string>
   <string name="gallery_add_image_caption_in_language_button">Ajouter la légende de l’image (%s)</string>
   <string name="err_cannot_save_file">Impossible d’enregistrer le fichier</string>
@@ -571,6 +573,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annuler</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annuler</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Liste de lecture : %s</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_reverted_title">Modification annulée</string>
   <string name="notification_channel_title">Téléchargement des articles</string>
@@ -753,6 +756,7 @@
   <string name="feed_accessibility_card_text">Vous avez atteint la fin du flux.</string>
   <string name="feed_accessibility_card_load_more_button">Charger davantage</string>
   <string name="top_read_activity_title">Les plus lus sur %s</string>
+  <string name="tabs_activity_title">Onglets</string>
   <string name="description_edit_text_hint">Description de l’article</string>
   <string name="description_edit_article_description_label">Article</string>
   <string name="description_edit_translate_article_description_label_per_language">Description de l’article (%s)</string>
@@ -970,6 +974,7 @@
   <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
   <string name="file_page_add_image_tags_button">Ajouter des balises d’image</string>
   <string name="file_page_suggestion_reason">Raison de la suggestion</string>
+  <string name="file_page_edit_button_content_description">Modifier %s</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
