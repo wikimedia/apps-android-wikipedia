@@ -79,6 +79,9 @@
   <string name="search_tab_tooltip">再度アイコンをタップして直接検索ワードを入力することができます。</string>
   <string name="history_list_title">履歴</string>
   <string name="image_content_description">画像 %s</string>
+  <string name="page_content_description">ページ: %s</string>
+  <string name="wikimedia_commons">ウィキメディア・コモンズ</string>
+  <string name="wikidata">ウィキデータ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
   <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか?</string>
   <string name="dialog_message_clear_history_yes">はい</string>
@@ -100,6 +103,7 @@
   <string name="feed_card_add_to_list">あとで読むリストに追加</string>
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">リンクを共有</string>
+  <string name="menu_article_share">記事を共有</string>
   <string name="menu_page_open_a_new_tab">新しいタブを開く</string>
   <string name="menu_page_new_tab">新しいタブ</string>
   <string name="menu_page_reading_lists">あとで読むリスト</string>
@@ -638,6 +642,8 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">ウィキペディアからの通知</string>
   <string name="notifications_channel_group_other_title">その他</string>
   <string name="notifications_channel_group_other_description">アプリからのその他の通知</string>
+  <string name="notifications_tab_filter_all">すべて</string>
+  <string name="notifications_tab_filter_mentions">メンション</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
   <string name="view_random_article_card_title">ランダム記事</string>
