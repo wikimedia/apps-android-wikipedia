@@ -162,6 +162,8 @@
   <string name="notifications_activity_title">Nutìfichi</string>
   <string name="notifications_poll_enable_negative">Nun ora</string>
   <string name="watchlist_title">Lista taliata</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Missaggi dû sistema</string>
   <string name="preference_title_notification_thanks">Grazzi</string>
   <string name="preference_title_notification_login_fail">Trasi</string>
   <string name="preference_title_notification_user_talk">Pàggina di discussioni</string>

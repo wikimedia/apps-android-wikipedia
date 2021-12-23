@@ -22,6 +22,7 @@
 * Winston Sung
 * Wwycheuk
 * Xiplus
+* 人工知能
 * 沈澄心
 * 漢黑玉
 * 烈羽
@@ -56,7 +57,7 @@
   <string name="history_item_delete_undo">還原</string>
   <string name="notification_archive_undo">還原</string>
   <string name="app_settings">應用程式設定</string>
-  <string name="search_tab_tooltip">再次輕觸圖標可直接開始輸入搜尋項。</string>
+  <string name="search_tab_tooltip">再次輕觸圖示可直接開始輸入搜尋項。</string>
   <string name="history_list_title">歷史</string>
   <string name="image_content_description">圖片：%s</string>
   <string name="page_content_description">頁面：%s</string>

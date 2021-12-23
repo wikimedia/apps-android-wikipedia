@@ -40,6 +40,7 @@
   <string name="search_tab_tooltip">ကအီႏထိုမ်ႏဖြွောန်စ ထာꩻတဗာႏတာႏ နျꩻထဲင်းယင်းသွော့ အုဲင်ကွန်</string>
   <string name="history_list_title">ရာႏဇာႏဝင်ႏ</string>
   <string name="image_content_description">ဓာတ်ပုင်ႏ: %s</string>
+  <string name="page_content_description">လိတ်မဲ့ငါ: %s</string>
   <string name="wikimedia_commons">ဝီခီမီဒီယာ ကောင်မွဥ်း</string>
   <string name="wikidata">ဝီခီဒေတာ</string>
   <string name="dialog_title_clear_history">သျင်ꩻထိုꩻ ထူႏသုင်ꩻမုဲင်တန်ꩻ</string>
@@ -287,6 +288,7 @@
   <string name="gallery_save_progress">ဒေါင်းထူႏဖုဲင်ကျာꩻ...</string>
   <string name="gallery_save_success">သဲမ်ထွူလဲဉ်းဖုဲင်။</string>
   <string name="gallery_error_video_failed">ဗွောင်နွောင်ꩻတဝ်းဗီဒီယို။</string>
+  <string name="gallery_edit_button_content_description">မွဉ်းဖျင် ရုက်ပုင်ႏလိတ်</string>
   <string name="gallery_add_image_caption_button">ထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ်</string>
   <string name="gallery_add_image_caption_in_language_button">ထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ် (%s)</string>
   <string name="err_cannot_save_file">သဲမ်နွောင်ꩻတဝ်းဖုဲင်</string>
@@ -500,6 +502,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">မာꩻတဝ်းဒွုမ်</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">မာꩻတဝ်းဒွုမ်</string>
   <string name="reading_list_split_dialog_ok_button_text">မွေးသွူ</string>
+  <string name="reading_list_activity_title">ဟော်ꩻထွားစာႏရင်ꩻ: %s</string>
   <string name="user_option_sync_label">လွိုက်ရွေꩻခရာႏဖုံႏ</string>
   <string name="notification_reverted_title">သဲင်ꩻဖျင်ချာ မွဉ်းဖျင်မုꩻ</string>
   <string name="notification_channel_title">အဝ်ႏဒေါင်းထူႏ ရောမ်ဖြုဲင်ꩻဖိုင်ႏ</string>
@@ -830,6 +833,7 @@
   <string name="file_page_add_image_caption_button">ထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ်</string>
   <string name="file_page_add_image_tags_button">ထဲမ်သော့ꩻ ရုက်ပုင်ႏtag</string>
   <string name="file_page_suggestion_reason">ဖေႏကျံႏညဏ်ႏခါꩻဒါႏ အကျောင်ꩻပျꩻချက်ဖိုင်ႏ</string>
+  <string name="file_page_edit_button_content_description">မွဉ်းဖျင် %s</string>
   <string name="description_edit_revert_subtitle">မွဉ်းဖျင်ဖေႏဒါႏ ဝီခီပီးဒီးယားတာႏ ကေꩻဇူꩻတန်ငါႏသြ!</string>
   <string name="description_edit_login_cancel_button_text">မာꩻတဝ်းဒွုမ်</string>
   <string name="size_gb">%.2f GB</string>
