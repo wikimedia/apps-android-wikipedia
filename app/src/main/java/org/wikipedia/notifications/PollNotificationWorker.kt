@@ -1,10 +1,7 @@
 package org.wikipedia.notifications
 
 import android.content.Context
-import androidx.work.CoroutineWorker
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
-import androidx.work.WorkerParameters
+import androidx.work.*
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.csrf.CsrfTokenClient
@@ -73,7 +70,12 @@ class PollNotificationWorker(
 
     companion object {
         fun schedulePollNotificationJob(context: Context) {
-            val workRequest = OneTimeWorkRequestBuilder<PollNotificationWorker>().build()
+            val constraints = Constraints.Builder()
+                .setRequiredNetworkType(NetworkType.CONNECTED)
+                .build()
+            val workRequest = OneTimeWorkRequestBuilder<PollNotificationWorker>()
+                .setConstraints(constraints)
+                .build()
             WorkManager.getInstance(context).enqueue(workRequest)
         }
     }
