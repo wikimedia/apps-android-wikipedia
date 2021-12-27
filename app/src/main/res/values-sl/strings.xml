@@ -535,7 +535,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Prekliči</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Prekliči</string>
   <string name="reading_list_split_dialog_ok_button_text">V redu</string>
-  <string name="reading_list_activity_title" fuzzy="true">Bralni seznam: $s</string>
+  <string name="reading_list_activity_title">Bralni seznam: %s</string>
   <string name="user_option_sync_label">Nastavitve</string>
   <string name="notification_reverted_title">Vrnjeno urejanje</string>
   <string name="notification_channel_title">Prenos člankov</string>
