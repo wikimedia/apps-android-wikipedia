@@ -40,6 +40,7 @@
   <string name="search_tab_tooltip">ߛߌ߲ߞߐ߲ ߛߐ߲߬ߞߌ߲߬ ߕߎ߲߯ ߞߵߌ ߟߊߞߎ߲߬ߛߌ߲߫ ߢߌߣߌ߲ߠߌ߲ ߘߊߡߌ߬ߣߊ ߛߙߊߕߌ ߡߊ߬</string>
   <string name="history_list_title">ߘߐ߬ߝߐ</string>
   <string name="image_content_description">ߖߌ߬ߦߊ߬ߓߍ: %s</string>
+  <string name="page_content_description">ߞߐߜߍ: %s</string>
   <string name="wikimedia_commons">ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ߛ</string>
   <string name="wikidata">ߥߞߌߘߕߊ</string>
   <string name="dialog_title_clear_history">ߛߏ߲߯ߓߊߟߌ ߘߐ߬ߝߐ ߖߏ߬ߛߌ߬</string>
@@ -278,6 +279,7 @@
   <string name="gallery_save_success">ߞߐߕߐ߮ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߫.</string>
   <string name="gallery_error_video_failed">ߊ߬ ߕߴߛߋ߫ ߖߌ߬ߦߊ߬ߖߟߎ ߟߊߞߊ߬ߛߌ߬ ߟߊ߫.</string>
   <string name="gallery_save_image_write_permission_rationale">ߛߓߍߟߌ ߞߍߟߌ ߌ ߟߊ߫ ߞߍߟߊ߲ ߡߣߐ߬ߘߐ ߘߐ߫߸ ߏ߬ ߡߊߢߌ߬ߣߌ߲߬ߞߊ߬ ߣߍ߲߫ ߖߌ߬ߦߊ߬ߓߍ ߟߊߡߙߊ߬ ߞߏ ߘߐ߫.</string>
+  <string name="gallery_edit_button_content_description">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="gallery_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="gallery_add_image_caption_in_language_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="err_cannot_save_file">ߊ߬߫ ߕߴߛߋ߫ ߞߐߕߐ߮ ߟߊߞߎ߲߬ߘߎ߬ ߟߊ߫</string>
@@ -472,6 +474,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="reading_list_split_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
+  <string name="reading_list_activity_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ: %s</string>
   <string name="user_option_sync_label">ߝߌ߬ߛߊ߬ߡߊ߲߬ߕߋ</string>
   <string name="notification_reverted_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߟߊߞߐߛߊ߬ߦߌ߬ߣߍ߲</string>
   <string name="notification_channel_title">ߞߎߡߘߊ ߟߊߖߌ߱ ߦߴߌ ߘߐ߫ ߌ ߞߎ߲߬...</string>
@@ -544,12 +547,17 @@
   <string name="preference_summary_notification_user_rights">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߦߴߌ ߟߊ߫ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߤߊߞߍ ߡߊߦߟߍ߬ߡߊ߲ ߠߋ߬ ߝߍ߬</string>
   <string name="preference_title_notification_article_linked">ߌ ߟߊ߫ ߞߎߡߘߊ߫ ߛߌ߲ߘߌߣߍ߲ ߠߎ߬ ߛߘߌ߬ߜߋ߲</string>
   <string name="preference_summary_notification_article_linked">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߦߋ߫ ߟߋ߬ ߓߊߏ߬ ߛߘߌ߬ߜߋ߲ ߘߏ߫ ߓߘߊ߫ ߝߙߊ߬ ߌ ߟߊ߫ ߞߐߜߍ߫ ߛߌ߲ߘߌߣߍ߲ ߠߊ߫</string>
+  <string name="preference_category_push_notifications">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߘߌ߯</string>
   <string name="preference_category_display_settings">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߟߎ߫</string>
   <string name="preference_title_hide_read_notifications">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߬ ߘߐߞߊ߬ߙߊ߲߬ߣߍ߲ ߠߎ߬ ߢߡߊߘߏ߲߰</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ߥߞߌߔߋߘߌߦߊ</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߡߍ߲ ߝߘߊߣߍ߲߫ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫</string>
   <string name="notifications_channel_group_other_title">ߘߏ߫ ߜߘߍ߫</string>
   <string name="notifications_channel_group_other_description">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߬ ߜߘߍ ߟߎ߬ ߞߊ߬ ߝߘߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊ߫</string>
+  <string name="notifications_filter_label">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߥߣߊ߬ߙߌ߫</string>
+  <string name="notifications_filter_icon_content_description">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߥߣߊ߬ߙߌ߫</string>
+  <string name="notifications_filter_update_app_languages">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߞߊ߲ ߠߎ߬ ߟߊߞߎߘߦߊ߫</string>
+  <string name="notifications_empty_search_message">ߌ ߞߊߘߊ߲߫ ߞߊ߬ %s ߓߐ߫ ߦߋ߲߬ ߛߴߌ ߘߌ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߜߘߍ߫ ߟߎ߫ ߦߋ߫</string>
   <string name="notifications_tab_filter_all">ߊ߬ ߓߍ߯</string>
   <string name="notifications_menu_mark_as_read">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
   <string name="notifications_menu_mark_as_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
@@ -770,6 +778,7 @@
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
+  <string name="file_page_edit_button_content_description">%s ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="description_edit_revert_subtitle">ߌ ߞߎߟߎ߲ߖߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫߹</string>
   <string name="description_edit_revert_intro">ߊ߲ ߞߵߊ߬ ߟߐ߲߫ ߞߴߌ ߦߴߌ ߛߋߞߏ ߞߍ߫ ߟߊ߫߸ ߒ߬ߞߊ߬ ߡߊ߬ߝߟߍ߬ߟߌ߬ߟߊ ߘߏ߫ ߟߎ߫ ߞߎߛߎ߲ߣߍ߲߫ ߦߋ߫. ߏ߭ ߞߎ߲߭ ߘߌ߫ ߛߋ߫ ߞߍ߫ ߟߊ߫ ߡߍ߲ ߘߌ߫߸ ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߟߊߕߊ߲߬ߞߊ߬ߣߍ߲߫ ߘߌ߫ ߞߵߊ߬ ߡߊߛߐ߬ߘߐ߲߬:</string>
   <string name="description_edit_revert_reason1">ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߮ߞߊ߲ ߟߎ߬ ߡߊ߫ &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt; ߘߏ߫ ߘߐ߫ ߞߋߟߋ߲߫ ߠߊߓߊ߬ߕߏ߬.</string>
