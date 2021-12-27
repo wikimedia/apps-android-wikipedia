@@ -39,6 +39,10 @@
   <string name="app_settings">Nastavitve aplikacije</string>
   <string name="search_tab_tooltip">Za neposredni vpis iskalnega izraza še enkrat tapnite ikono.</string>
   <string name="history_list_title">Zgodovina</string>
+  <string name="image_content_description">Slika: %s</string>
+  <string name="page_content_description">Stran: %s</string>
+  <string name="wikimedia_commons">Wikimedijina zbirka</string>
+  <string name="wikidata">Wikipodatki</string>
   <string name="dialog_title_clear_history">Izbriši zgodovino brskanja</string>
   <string name="dialog_message_clear_history">To bo izbrisalo vso zgodovino brskanja in zaprlo vse trenutno odprte zavihke. Ste prepričani?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
@@ -60,6 +64,7 @@
   <string name="feed_card_add_to_list">Dodaj na bralni seznam</string>
   <string name="feed_card_add_to_default_list">Shrani</string>
   <string name="menu_page_share">Deli povezavo</string>
+  <string name="menu_article_share">Deli članek</string>
   <string name="menu_page_open_a_new_tab">Odpri na novem zavihku</string>
   <string name="menu_page_new_tab">Nov zavihek</string>
   <string name="menu_page_reading_lists">Bralni seznami</string>
@@ -149,7 +154,7 @@
   <string name="create_account_passwords_mismatch_error">Gesli se ne ujemata</string>
   <string name="create_account_email_error">Neveljaven e-poštni naslov</string>
   <string name="create_account_username_error">Neveljaven znak v uporabniškem imenu</string>
-  <string name="create_account_password_error" fuzzy="true">Geslo ni veljavno</string>
+  <string name="create_account_password_error">Geslo mora vsebovati vsaj 8 znakov</string>
   <string name="create_account_generic_error">Računa ni bilo mogoče ustvariti</string>
   <string name="create_account_next">Naprej</string>
   <string name="email_recommendation_dialog_title">Ustvarim račun brez e-poštnega naslova?</string>
@@ -192,6 +197,7 @@
   <string name="page_protected_can_not_edit_title">Stran je zaščitena</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj na spisek nadzorov</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Sledite spremembe člankov, ki vas zanimajo. Tapnite prelivni meni in izberite &lt;b&gt;Dodaj na spisek nadzorov&lt;/b&gt;, da si ogledate spremembe članka.</string>
+  <string name="page_notification_tooltip">Vaša obvestila so zdaj tukaj.</string>
   <string name="settings_item_preferences">Nastavitve</string>
   <string name="settings_activity_title">Nastavitve</string>
   <string name="about_description">O aplikaciji Wikipedija</string>
@@ -235,6 +241,10 @@
   <string name="edit_summary_tag_other_hint">Drug način, s katerim ste izboljšali stran</string>
   <string name="edit_conflict_title">Navzkrižje urejanj</string>
   <string name="edit_conflict_message">Stran je že spremenil drug uporabnik, katerega urejanje je v navzkrižju z vašim urejanjem. Skopirajte svoja urejanja, pojdite nazaj in osvežite stran, nato poskusite znova.</string>
+  <string name="edit_notices">Urejanje obvestil</string>
+  <string name="edit_notices_please_read">Prosimo, preberite pred urejanjem</string>
+  <string name="edit_notices_show_auto">Prikazuj obvestila o urejanju samodejno</string>
+  <string name="edit_notices_tooltip">Za ogled obvestil o urejanju tega članka tapnite ta gumb.</string>
   <string name="find_next">Najdi naslednje</string>
   <string name="find_previous">Najdi prejšnje</string>
   <string name="find_first_occurence">To je prva pojavitev</string>
@@ -286,6 +296,7 @@
   <string name="gallery_save_success">Datoteka shranjena.</string>
   <string name="gallery_error_video_failed">Videa ni mogoče predvajati.</string>
   <string name="gallery_save_image_write_permission_rationale">Za shranjevanje slik je potrebno dovoljenje za shranjevanje v vaši napravi.</string>
+  <string name="gallery_edit_button_content_description">Uredi napis k sliki</string>
   <string name="gallery_add_image_caption_button">Dodaj napis k sliki</string>
   <string name="gallery_add_image_caption_in_language_button">Dodaj napis k sliki (%s)</string>
   <string name="err_cannot_save_file">Datoteke ni mogoče shraniti</string>
@@ -524,6 +535,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Prekliči</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Prekliči</string>
   <string name="reading_list_split_dialog_ok_button_text">V redu</string>
+  <string name="reading_list_activity_title">Bralni seznam: %s</string>
   <string name="user_option_sync_label">Nastavitve</string>
   <string name="notification_reverted_title">Vrnjeno urejanje</string>
   <string name="notification_channel_title">Prenos člankov</string>
@@ -591,7 +603,11 @@
   <string name="notifications_view_archived_button_text">Prikaži arhivirana obvestila</string>
   <string name="notification_preferences_title">Nastavitve obveščanja</string>
   <string name="notifications_mark_unread">Označi kot neprebrano</string>
-  <string name="notifications_mark_all_as_read">Označi vse kot prebrane</string>
+  <string name="notifications_mark_all_as_read">Označi vse kot prebrano</string>
+  <string name="notifications_direct_reply_action">Odgovor</string>
+  <string name="notifications_direct_reply_success">Odgovor objavljen.</string>
+  <string name="notifications_direct_reply_error">Odgovora ni bilo mogoče objaviti samodejno.</string>
+  <string name="notifications_mark_all_as_read_message">%d označenih kot prebrana</string>
   <string name="notifications_mark_all_as_unread_message">%d označenih kot neprebrana</string>
   <plurals name="notifications_mark_as_unread_plural">
     <item quantity="one">1 označeno kot neprebrano</item>
@@ -616,7 +632,7 @@
   <string name="preference_title_notification_mention">Omemba</string>
   <string name="preference_summary_notification_mention">Nekdo vas je omenil na eni od strani</string>
   <string name="preference_title_notification_user_talk">Pogovorna stran</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Sporočila s pogovornih strani</string>
+  <string name="preference_summary_notification_user_talk">Sporočila in odgovori s pogovornih strani</string>
   <string name="preference_title_notification_email_user">Prejeta e-pošta</string>
   <string name="preference_title_notification_user_rights">Spremembe pravic uporabnikov</string>
   <string name="preference_title_notification_article_linked">Povezave na članke, ki ste jih ustvarili sami</string>
@@ -689,6 +705,7 @@
   <string name="feed_accessibility_card_text">Dosegli ste dno vira.</string>
   <string name="feed_accessibility_card_load_more_button">Naloži več</string>
   <string name="top_read_activity_title">Najbolj brano: %s</string>
+  <string name="tabs_activity_title">Zavihki</string>
   <string name="description_edit_text_hint">Opis članka</string>
   <string name="description_edit_article_description_label">Članek</string>
   <string name="description_edit_translate_article_description_label_per_language">Opis članka (%s)</string>
@@ -922,6 +939,7 @@
   <string name="file_page_add_image_caption_button">Dodaj napis k sliki</string>
   <string name="file_page_add_image_tags_button">Dodajte sliki oznake</string>
   <string name="file_page_suggestion_reason">Razlog za predlog</string>
+  <string name="file_page_edit_button_content_description">Uredi %s</string>
   <string name="description_edit_revert_subtitle">Hvala za urejanje Wikipedije!</string>
   <string name="description_edit_revert_intro">Vemo, da ste se potrudili po najboljših močeh, vendar je eden od pregledovalcev imel pomisleke. Možni razlogi za vrnitev vašega urejanja so:</string>
   <string name="description_edit_revert_reason1">vaš prispevek ni bil v skladu z eno od &lt;a href=\"%1$s\"&gt;smernic&lt;/a&gt;.</string>
@@ -1020,6 +1038,7 @@
   <string name="talk_title">Pogovor</string>
   <string name="talk_user_title">Pogovor: %s</string>
   <string name="talk_new_topic">Nova tema</string>
+  <string name="talk_new_topic_submitted">Tema objavljena.</string>
   <string name="talk_page_empty">Ta pogovorna stran je prazna.</string>
   <string name="talk_add_reply">Odgovori</string>
   <string name="talk_no_subject">(Brez predmeta)</string>
@@ -1028,6 +1047,8 @@
   <string name="talk_message_hint">Sestavite sporočilo</string>
   <string name="talk_message_empty">Sporočilo ne sme biti prazno.</string>
   <string name="talk_subject_empty">Predmet ne sme biti prazen.</string>
+  <string name="talk_response_submitted">Odgovor objavljen.</string>
+  <string name="talk_snackbar_undo">Razveljavi</string>
   <string name="menu_option_share_talk_discussion">Deli pogovor</string>
   <string name="menu_option_share_edit">Deli urejanje</string>
   <string name="menu_option_user_profile">Profil uporabnika/ce %s</string>

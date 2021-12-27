@@ -68,6 +68,7 @@
   <string name="search_tab_tooltip">انقر فوق الرمز مرة أخرى لبدء كتابة مصطلح البحث مباشرةً.</string>
   <string name="history_list_title">التاريخ</string>
   <string name="image_content_description">صورة: %s</string>
+  <string name="page_content_description">الصفحة: %s</string>
   <string name="wikimedia_commons">ويكيميديا كومنز</string>
   <string name="wikidata">ويكي بيانات</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
@@ -323,6 +324,7 @@
   <string name="gallery_save_success">حُفظ الملف بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="gallery_save_image_write_permission_rationale">صلاحية الكتابة في ذاكرة التخزين على جهازك مطلوبة لحفظ الصور.</string>
+  <string name="gallery_edit_button_content_description">عدل تعليق الصورة</string>
   <string name="gallery_add_image_caption_button">إضافة شرح الصورة</string>
   <string name="gallery_add_image_caption_in_language_button">إضافة تسمية توضيحية للصورة (%s)</string>
   <string name="err_cannot_save_file">تعذّر حفظ الملف</string>
@@ -887,6 +889,7 @@
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
   <string name="file_page_suggestion_reason">سبب الاقتراح</string>
+  <string name="file_page_edit_button_content_description">عدل %s</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
