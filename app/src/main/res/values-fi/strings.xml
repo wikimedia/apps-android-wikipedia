@@ -672,6 +672,7 @@
   <string name="notifications_tab_filter_mentions">Maininnat</string>
   <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_search_bar_hint">Etsi tai suodata ilmoituksia</string>
+  <string name="notifications_search_bar_filter_hint">Ilmoitussuodatin</string>
   <string name="notifications_menu_mark_as_read">Merkitse luetuksi</string>
   <string name="notifications_menu_mark_as_unread">Merkitse lukemattomaksi</string>
   <string name="notifications_swipe_action_read">Luettu</string>
@@ -679,6 +680,7 @@
   <string name="notifications_menu_check_all">Tarkista kaikki kohteet</string>
   <string name="notifications_menu_uncheck_all">Poista valinta kaikista</string>
   <string name="notifications_wiki_filter_header">Wikisuodatin</string>
+  <string name="notifications_type_filter_header">Tyyppisuodatin</string>
   <string name="notifications_all_wikis_text">Kaikki \"wikit\"</string>
   <string name="notifications_all_types_text">Kaikki \"tyypit\"</string>
   <string name="notifications_menu_user_talk_page">Käyttäjän %s keskustelusivu</string>
@@ -1066,6 +1068,7 @@
   <string name="talk_last_modified">&lt;b&gt;Sivua muokkasi viimeksi %1$s&lt;/b&gt; %2$s</string>
   <string name="talk_snackbar_survey_text">Kiitos keskustelusivujen käyttämisestä. Voitko auttaa meitä parantamaan sovellusta osallistumalla kyselyyn?</string>
   <string name="talk_snackbar_survey_action_text">Aloita</string>
+  <string name="talk_share_discussion_subject">Wikipedia - keskustelu aiheesta \"%s\" keskustelusivulla</string>
   <string name="talk_share_talk_page">Wikipedia - keskustelut keskustelusivulla</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
