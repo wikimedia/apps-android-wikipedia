@@ -51,6 +51,8 @@
   <string name="app_settings">Innstillinger for appen</string>
   <string name="search_tab_tooltip">Trykk på ikonet igjen for å begynne å skrive et søkeord.</string>
   <string name="history_list_title">Historikk</string>
+  <string name="image_content_description">Bilde: %s</string>
+  <string name="page_content_description">Side: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Tøm besøkslogg</string>
@@ -74,6 +76,7 @@
   <string name="feed_card_add_to_list">Legg til i leseliste</string>
   <string name="feed_card_add_to_default_list">Lagre</string>
   <string name="menu_page_share">Del lenke</string>
+  <string name="menu_article_share">Del artikkel</string>
   <string name="menu_page_open_a_new_tab">Åpne en ny fane</string>
   <string name="menu_page_new_tab">Ny fane</string>
   <string name="menu_page_reading_lists">Leselister</string>
@@ -163,7 +166,7 @@
   <string name="create_account_passwords_mismatch_error">Passordene stemmer ikke overens</string>
   <string name="create_account_email_error">Ugyldig epostadresse</string>
   <string name="create_account_username_error">Ugyldige tegn i brukernavnet</string>
-  <string name="create_account_password_error" fuzzy="true">Passordet er ugyldig</string>
+  <string name="create_account_password_error">Passordet må være minst 8 tegn langt</string>
   <string name="create_account_generic_error">Kunne ikke opprette konto</string>
   <string name="create_account_next">Neste</string>
   <string name="email_recommendation_dialog_title">Opprett konto uten e-postadresse?</string>
@@ -177,6 +180,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
+  <string name="preferences_account_heading">Konto</string>
   <string name="wikipedia_app_faq">Ofte stilte spørsmål om Wikipedia-appen</string>
   <string name="send_feedback">Gi oss tilbakemelding</string>
   <string name="create_account_account_created_toast">Opprettet konto!</string>
@@ -204,6 +208,7 @@
   <string name="page_protected_can_not_edit_anon">Beklager, denne siden kan ikke redigeres uten pålogging.</string>
   <string name="page_protected_can_not_edit_title">Denne siden er beskyttet</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Legg til i overvåkningsliste</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Følg med på hva som skjer med artikler du er interessert i. Trykk på overløpsmenyen og velg &lt;b&gt;Legg til i overvåkningsliste&lt;/b&gt; for å se hvordan artikkelen endrer seg.</string>
   <string name="settings_item_preferences">Innstillinger</string>
   <string name="settings_activity_title">Innstillinger</string>
   <string name="about_description">Om Wikipedia-appen</string>
