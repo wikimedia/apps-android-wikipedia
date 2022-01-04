@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Gazimagomedov
+* Omarov M.
 * Patriccck
 * Patrik L.
 * Аль-Гимравий
@@ -12,6 +13,7 @@
   <string name="error_network_error" fuzzy="true">Связь батизабизе кӀвечӀо :(</string>
   <string name="page_error_retry">Такрар гьабизе.</string>
   <string name="menu_clear_all_history">Тарих бацӀцӀине</string>
+  <string name="page_content_description">Гьумер: %s</string>
   <string name="dialog_title_clear_history" fuzzy="true">Тарих бацӀцӀилищ?</string>
   <string name="share_via">Сундалъун рехселе?</string>
   <string name="menu_page_other_languages" fuzzy="true">Цоги мацӀалда цӀализе</string>
@@ -60,4 +62,6 @@
   <string name="edit_done" fuzzy="true">ЦIунизе</string>
   <string name="edit_preview">Цебесеб</string>
   <string name="edit_summary_tag_other">Цоги</string>
+  <string name="gallery_edit_button_content_description">Сураталъул гъоркьхъвай хисизабизе</string>
+  <string name="file_page_edit_button_content_description">%s редактинабизе</string>
 </resources>
