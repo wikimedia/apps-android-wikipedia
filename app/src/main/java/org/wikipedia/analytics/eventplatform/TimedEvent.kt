@@ -16,7 +16,7 @@ open class TimedEvent(@Transient private val streamName: String = "") : Event(st
     val duration = System.currentTimeMillis() - startTime
 
     fun start() {
-        pauseTime = System.currentTimeMillis()
+        startTime = System.currentTimeMillis()
     }
 
     fun pause() {
