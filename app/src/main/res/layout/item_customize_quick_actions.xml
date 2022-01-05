@@ -13,7 +13,7 @@
         android:text="@string/menu_page_view_edit_history"
         android:layout_weight="1"
         app:drawableStartCompat="@drawable/ic_icon_revision_history_apps"
-        app:drawableTint="?attr/material_theme_de_emphasised_color" />
+        app:drawableTint="?attr/material_theme_secondary_color" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/dragHandle"
