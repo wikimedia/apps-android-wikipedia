@@ -27,7 +27,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.customize.CustomizeQuickActionsActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil.getDimension
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.getFloat
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
@@ -99,7 +99,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        BottomSheetBehavior.from(requireView().parent as View).peekHeight = roundedDpToPx(getDimension(R.dimen.themeChooserSheetPeekHeight))
+        BottomSheetBehavior.from(requireView().parent as View).peekHeight = (DimenUtil.displayHeightPx * 0.33).toInt()
+        val bottomSheet: View = requireDialog().findViewById<ViewGroup>(R.id.design_bottom_sheet)
+        // BottomSheet expand height is restricted to 2/3 of the displayHeight
+        bottomSheet.layoutParams.height = (DimenUtil.displayHeightPx * 0.7).toInt()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
