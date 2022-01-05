@@ -14,12 +14,12 @@ class CustomizeToolbarEvent(private var is_anon: Boolean,
                             private var menu_order: List<Int>,
                             private var time_spent_ms: Int) : TimedEvent(STREAM_NAME) {
 
-    fun logCustomization(source: String, favorites_order: List<Int>, menu_order: List<Int>, is_rfm_enabled: Boolean) {
+    fun logCustomization(source: String, favoritesOrder: List<Int>, menuOrder: List<Int>, isRfmEnabled: Boolean) {
         this.is_anon = AccountUtil.isLoggedIn
-        this.is_rfm_enabled = is_rfm_enabled
+        this.is_rfm_enabled = isRfmEnabled
         this.source = source
-        this.favorites_order = favorites_order
-        this.menu_order = menu_order
+        this.favorites_order = favoritesOrder
+        this.menu_order = menuOrder
         time_spent_ms = duration.toInt()
         EventPlatformClient.submit(this)
     }
