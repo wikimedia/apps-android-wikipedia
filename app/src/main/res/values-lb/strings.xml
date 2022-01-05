@@ -256,6 +256,7 @@
   <string name="gallery_save_progress">Fichier gëtt erofgelueden…</string>
   <string name="gallery_save_success">Fichier gespäichert.</string>
   <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>
+  <string name="gallery_edit_button_content_description">Bildbeschreiwung änneren</string>
   <string name="err_cannot_save_file">Fichier kann net gespäichert ginn</string>
   <string name="expand_refs">Tippe fir opzeklappen</string>
   <string name="cc_logo">Creative-Commons-Lizenz</string>
