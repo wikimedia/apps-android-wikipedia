@@ -53,7 +53,7 @@ class WikimediaAuthenticator(private val context: Context) : AbstractAccountAuth
 
     private fun addAccount(response: AccountAuthenticatorResponse): Bundle {
         val intent = LoginActivity.newIntent(context, LoginFunnel.SOURCE_SYSTEM)
-        intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response)
+                .putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response)
         return bundleOf(AccountManager.KEY_INTENT to intent)
     }
 
