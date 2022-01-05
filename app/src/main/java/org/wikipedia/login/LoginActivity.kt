@@ -61,8 +61,9 @@ class LoginActivity : BaseActivity() {
             Prefs.isSuggestedEditsHighestPriorityEnabled = true
         }
 
-        // always go to account creation before logging in
-        if (savedInstanceState == null) {
+        // always go to account creation before logging in, unless we arrived here through the
+        // system account creation workflow
+        if (savedInstanceState == null && !intent.hasExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)) {
             startCreateAccountActivity()
         }
 
@@ -154,10 +155,7 @@ class LoginActivity : BaseActivity() {
 
     private fun startCreateAccountActivity() {
         funnel.logCreateAccountAttempt()
-        val intent = Intent(this, CreateAccountActivity::class.java)
-        intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.sessionToken)
-        intent.putExtra(CreateAccountActivity.LOGIN_REQUEST_SOURCE, loginSource)
-        startActivityForResult(intent, Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT)
+        startActivityForResult(CreateAccountActivity.newIntent(this, funnel.sessionToken, loginSource), Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT)
     }
 
     private fun onLoginSuccess() {
@@ -245,11 +243,7 @@ class LoginActivity : BaseActivity() {
         const val LOGIN_REQUEST_SOURCE = "login_request_source"
         const val EDIT_SESSION_TOKEN = "edit_session_token"
 
-        @JvmStatic
-        @JvmOverloads
-        fun newIntent(context: Context,
-                      source: String,
-                      token: String? = null): Intent {
+        fun newIntent(context: Context, source: String, token: String? = null): Intent {
             return Intent(context, LoginActivity::class.java)
                     .putExtra(LOGIN_REQUEST_SOURCE, source)
                     .putExtra(EDIT_SESSION_TOKEN, token)
