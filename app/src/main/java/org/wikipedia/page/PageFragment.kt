@@ -62,7 +62,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.media.AvPlayer
 import org.wikipedia.navtab.NavTab
-import org.wikipedia.notifications.PollNotificationService
+import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.leadimages.LeadImagesHandler
@@ -904,7 +904,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         if (AccountUtil.isLoggedIn) {
             // explicitly check notifications for the current user
-            PollNotificationService.schedulePollNotificationJob(requireContext())
+            PollNotificationWorker.schedulePollNotificationJob(requireContext())
         }
 
         // update the time spent reading of the current page, before loading the new one
