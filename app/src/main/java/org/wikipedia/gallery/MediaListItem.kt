@@ -34,11 +34,10 @@ class MediaListItem constructor(val title: String = "",
 
     @Serializable
     @Parcelize
-    class ImageSrcSet : Parcelable {
-
-        @SerialName("scale")
-        private val _scale: String? = null
-        val src: String = ""
+    class ImageSrcSet(
+            @SerialName("scale") private val _scale: String? = null,
+            val src: String = ""
+    ) : Parcelable {
         val scale get() = _scale?.replace("x", "")?.toFloat() ?: 0f
     }
 }
