@@ -183,7 +183,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ယိုနဝ်ꩻ အဝ်ႏ remote storage  မာꩻခါꩻဒါႏ sync နဝ်ꩻဟွောန်ႏ ဟော်ꩻလိတ်စာႏရင်ꩻဖိုင်ႏကားကအဝ်ႏယို အီႏယားကုဲင်ထိုꩻလို့သွူသြ။ အီႏဖုဲင်းထန်ႏထိုꩻလို့ နာꩻအကောက် \"%s\" မာꩻခါꩻဒါႏ sync စာႏရင်ꩻဖိုင်ႏနဲ့ဟောင်း။</string>
   <string name="preferences_privacy_settings_heading">နမ်းတဲမ်းမူဝါဒ</string>
   <string name="preference_title_eventlogging_opt_in">ပသာ ထူႏသုင်ꩻခါꩻခရာႏဖိုင်ႏ</string>
-  <string name="preference_summary_eventlogging_opt_in">ယမ်မာꩻဟောဝ်ဒါႏခြာ အဲပ်တဲင် ခမ်ႏစွꩻဖေႏ ဝီကီပီဒီယာ အကအီးထူႏဗူႏ ထာꩻလီလာ နာꩻခုမ်စမ်ႏအဲပ်နုဲင်းမုဲင်ꩻအလောင်းတာႏ</string>
+  <string name="preference_summary_eventlogging_opt_in">ယမ်မာꩻဟောဝ်ဒါႏခြာ အဲပ်တဲင် ခမ်ႏစွꩻဖေႏ ဝီခီမီဒီယာ အကအီးထူႏဗူႏ ထာꩻလီလာ နာꩻခုမ်စမ်ႏအဲပ်နုဲင်းမုဲင်ꩻအလောင်းတာႏ</string>
   <string name="preference_title_auto_upload_crash_reports">ပသာ ထာꩻကုဲင်ထိုꩻ ခရာႏဖိုင်ႏ</string>
   <string name="preference_summary_auto_upload_crash_reports">ယမ်ဖေႏကမာꩻဟောဝ်လꩻယိုꩻယိုꩻ ထာꩻကုဲင်ကွꩻနောဝ်ꩻတာႏတဲင် ခမ်ႏစွꩻဖေႏ အဲပ် ကအီးပသာသဲင်ꩻချာသေ ထာꩻကုဲင်ထိုꩻခရာႏ ကေားမာꩻဖေႏအခါႏကိုသားထျꩻယို၊ နောဝ်ꩻမꩻ နီအီးထွားမာꩻဖေႏဒါႏ နာꩻထာꩻကုဲင်ကွꩻ။</string>
   <string name="editing_error_spamblacklist">ဖေႏသေ ကမော့ꩻခါꩻဒါႏ ကပေ့ꩻထိုꩻခါꩻလဲန်း ဒိုမိန်း \"%s\" လဉ့်ခ်ဖုံႏ။ ကြုဲင်းညာꩻထိုꩻခါꩻ နောဝ်ꩻစားဖုံႏမꩻ ကွဲးလွေꩻထဲင်းဖျင်သော့ꩻဩ။</string>
@@ -742,7 +742,7 @@
   <string name="suggested_edits_image_caption_summary_title_image">ရုက်ပုင်ႏ</string>
   <string name="suggested_edits_image_caption_summary_title_artist">အနုပညာႏသျင်ႏ</string>
   <string name="suggested_edits_image_caption_summary_title_author">တဲမ်းလိတ်သား</string>
-  <string name="suggested_edits_image_caption_summary_title_source">ရွီႏခိုႏ</string>
+  <string name="suggested_edits_image_caption_summary_title_source">ရွီးခိုႏ</string>
   <string name="suggested_edits_image_caption_summary_title_license">လုဲင်သိဉ်</string>
   <string name="suggested_edits_image_caption_summary_title_date">မွူးနီꩻ</string>
   <plurals name="suggested_edits_contribution_count">
