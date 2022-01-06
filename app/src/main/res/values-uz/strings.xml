@@ -43,6 +43,7 @@
   <string name="search_tab_tooltip">Qidiruv so‘zini to‘g‘ridan-to‘g‘ri yozishni boshlash uchun ikonkaga yana bir marta bosing.</string>
   <string name="history_list_title">Tarix</string>
   <string name="image_content_description">Surat: %s</string>
+  <string name="page_content_description">%s sahifasi</string>
   <string name="wikimedia_commons">Vikiombor</string>
   <string name="wikidata">Vikimaʼlumot</string>
   <string name="dialog_title_clear_history">Ko‘rish tarixini o‘chirasizmi?</string>
@@ -298,6 +299,7 @@
   <string name="gallery_save_success">Fayl saqlandi.</string>
   <string name="gallery_error_video_failed">Videoni ijro etib bo‘lmadi.</string>
   <string name="gallery_save_image_write_permission_rationale">Rasmlarni saqlash uchun qurilmangiz xotirasiga kirish uchun ruxsat zarur.</string>
+  <string name="gallery_edit_button_content_description">Rasm sarlavhasini oʻzgartirmoq</string>
   <string name="gallery_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="gallery_add_image_caption_in_language_button">Rasmga sarlavha qo‘shmoq (%s)</string>
   <string name="err_cannot_save_file">Faylni saqlab bo‘lmadi</string>
@@ -532,6 +534,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Bekor qilmoq</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Bekor qilmoq</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">%s oʻqilganlar roʻyxati</string>
   <string name="user_option_sync_label">Tanlovlar</string>
   <string name="notification_reverted_title">Qayta tahrir</string>
   <string name="notification_channel_title">Fayl yuklanmoqda...</string>
@@ -714,6 +717,7 @@
   <string name="feed_accessibility_card_text">Siz tasmaning eng pastki qismiga yetdingiz.</string>
   <string name="feed_accessibility_card_load_more_button">Batafsil</string>
   <string name="top_read_activity_title">%sda eng koʻp oʻqilgan</string>
+  <string name="tabs_activity_title">Xatchoʻplar</string>
   <string name="description_edit_text_hint">Maqola tavsifi</string>
   <string name="description_edit_article_description_label">Maqola</string>
   <string name="description_edit_translate_article_description_label_per_language">Maqola tavsifi (%s)</string>
@@ -930,6 +934,7 @@
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
   <string name="file_page_suggestion_reason">Taklif sababi</string>
+  <string name="file_page_edit_button_content_description">%sʼni tahrirlamoq</string>
   <string name="description_edit_revert_subtitle">Vikipediyaga hissa qoʻshnagingiz uchun tashakkur!</string>
   <string name="description_edit_revert_intro">Biz sizning qo\'lingizdan kelganicha harakat qilganingizni bilamiz, ammo sharhlovchilardan biri tashvishga tushdi. Tahriringiz qaytarilgan bo\'lishi mumkin bo\'lgan sabablarga quyidagilar kiradi:</string>
   <string name="description_edit_revert_reason1">sizning hissangiz quyidagi &lt;a href=\"%1$s\"&gt;yoʻriqnoma&lt;/a&gt;ga mos emas</string>
