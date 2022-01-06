@@ -1111,4 +1111,5 @@
   <string name="customize_quick_actions_category_menu">Category of menu in the customize quick actions page.</string>
   <string name="customize_quick_actions_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize quick actions page.</string>
   <string name="customize_quick_actions_reset_to_default_button">Button label for resetting the configuration of customize quick actions to default.</string>
+  <string name="theme_chooser_menu_item_tooltip">Tooltip message text for customizing menu options on article screen.></string>
 </resources>

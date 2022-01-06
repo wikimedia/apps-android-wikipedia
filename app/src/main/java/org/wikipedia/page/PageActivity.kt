@@ -20,6 +20,7 @@ import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.R.string
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.*
@@ -38,6 +39,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -161,6 +163,32 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(intent)
+        }
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        maybeShowThemeToolTip()
+    }
+
+    private fun maybeShowThemeToolTip() {
+        if (Prefs.showOneTimeCustomizeToolbarTooltip) {
+            var anchorView: View? = null
+            var aboveOrBelow = true
+            if (Prefs.customizeFavoritesMenuOrder.contains(PageActionItem.THEME.id)) {
+                anchorView = binding.pageToolbarButtonShowOverflowMenu
+                aboveOrBelow = false
+            } else {
+                pageFragment.getPageActionsTabLayoutViews().forEach {
+                    if (it.text == getString(PageActionItem.THEME.titleResId) && Prefs.showOneTimeCustomizeToolbarTooltip) {
+                        anchorView = it
+                    }
+                }
+            }
+            anchorView?.postDelayed({
+                FeedbackUtil.showTooltip(this, anchorView!!, StringUtil.fromHtml(getString(string.theme_chooser_menu_item_tooltip)), aboveOrBelow = aboveOrBelow, autoDismiss = false)
+            }, 2000)
+            Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
     }
 

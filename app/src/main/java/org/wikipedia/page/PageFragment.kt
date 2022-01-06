@@ -14,6 +14,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
@@ -269,6 +270,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageImageTransitionHolder.layoutParams = params
         binding.pageImageTransitionHolder.visibility = View.GONE
         binding.pageActionsTabLayout.update()
+    }
+
+    fun getPageActionsTabLayoutViews(): List<TextView> {
+        return binding.pageActionsTabLayout.tabViewsList
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
