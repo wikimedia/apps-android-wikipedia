@@ -1,6 +1,8 @@
 package org.wikipedia.feed.view
 
 import android.content.Context
+import android.icu.text.CompactDecimalFormat
+import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +11,6 @@ import androidx.annotation.VisibleForTesting
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.util.Pair
-import com.ibm.icu.text.CompactDecimalFormat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewListCardItemBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -148,9 +149,12 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
     }
 
     private fun getPageViewText(pageViews: Long): String {
-        val primaryLocale = context.resources.configuration.locale
-        val decimalFormat = CompactDecimalFormat.getInstance(primaryLocale, CompactDecimalFormat.CompactStyle.SHORT)
-        return decimalFormat.format(pageViews)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            val primaryLocale = context.resources.configuration.locales[0]
+            val decimalFormat = CompactDecimalFormat.getInstance(primaryLocale, CompactDecimalFormat.CompactStyle.SHORT)
+            return decimalFormat.format(pageViews)
+        }
+        return pageViews.toString()
     }
 
     private fun setViewsGreyedOut(greyedOut: Boolean) {
