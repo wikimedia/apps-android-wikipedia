@@ -135,8 +135,13 @@ class ObservableWebView : WebView {
             MotionEvent.ACTION_UP -> {
                 if (abs(event.x - touchStartX) <= touchSlop &&
                         abs(event.y - touchStartY) <= touchSlop) {
-                    if (onClickListeners.any { it.onClick(event.x, event.y) }) {
-                        return true
+                    // Fire a click event, but only if the hit test doesn't land on a hyperlink
+                    // (i.e. only if the user clicks on whitespace or plain text in the WebView),
+                    // since link clicks will already be passed to the LinkHandler separately.
+                    if (hitTestResult.type == HitTestResult.UNKNOWN_TYPE) {
+                        if (onClickListeners.any { it.onClick(event.x, event.y) }) {
+                            return true
+                        }
                     }
                 }
                 drawEventsWhileSwiping = 0
