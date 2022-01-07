@@ -133,5 +133,4 @@
     <string name="preference_key_customize_favorites_quick_actions_order">customizeFavoritesQuickActionsOrder</string>
     <string name="preference_key_customize_favorites_menu_order">customizeFavoritesMenuOrder</string>
     <string name="preference_key_reading_focus_mode">reading_focus_mode</string>
->>>>>>> main
 </resources>
