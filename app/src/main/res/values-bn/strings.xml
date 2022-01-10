@@ -86,6 +86,7 @@
   <string name="feed_card_add_to_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="feed_card_add_to_default_list">সংরক্ষণ</string>
   <string name="menu_page_share">লিঙ্ক শেয়ার</string>
+  <string name="menu_article_share">নিবন্ধ ভাগ করুন</string>
   <string name="menu_page_open_a_new_tab">নতুন ট্যাব খুলুন</string>
   <string name="menu_page_new_tab">নতুন ট্যাব</string>
   <string name="menu_page_reading_lists">পড়ার তালিকা</string>
@@ -377,6 +378,10 @@
   <string name="preference_title_prefer_offline_content">অফলাইন সামগ্রীর পছন্দ</string>
   <string name="preference_summary_prefer_offline_content">সর্বদা নিবন্ধের সর্বশেষ সংস্করণ লোড করার পরিবর্তে অফলাইনে উপলব্ধ নিবন্ধগুলি লোড করে ডেটা খরচ বাঁচান</string>
   <string name="empty_tab_title">নতুন ট্যাব</string>
+  <string name="menu_save_all_tabs">সকল ট্যাব সংরক্ষণ করুন</string>
+  <string name="error_blocked_title">আপনার ব্যবহারকারী নাম বা আইপি ঠিকানাকে বাধা দেওয়া হয়েছে।</string>
+  <string name="error_blocked_by">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; বাধাটি দিয়েছেন</string>
+  <string name="error_blocked_reason">কারণ হিসেবে বলা হয়েছে: %s</string>
   <string name="crash_report_activity_title">অ্যাপ্লিকেশন ত্রুটি</string>
   <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।\n\nআপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
@@ -431,6 +436,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">অফলাইন থেকে সব সরান</string>
   <string name="reading_list_action_menu_save_all_for_offline">অফলাইনের জন্য সব সংরক্ষণ করুন</string>
   <string name="reading_list_action_menu_add_to_another_list">আরেকটি তালিকায় যোগ করুন</string>
+  <string name="reading_list_action_menu_move_to_another_list">আরেকটি তালিকায় যোগ সরান</string>
   <string name="reading_list_name_sample">আমার পড়ার তালিকা</string>
   <string name="reading_list_name_hint">এই তালিকার নাম</string>
   <string name="reading_list_description_hint">বিবরণ (ঐচ্ছিক)</string>
@@ -516,6 +522,7 @@
   <string name="notifications_view_archived_button_text">সংরক্ষণাগারভুক্ত বিজ্ঞপ্তিগুলি দেখুন</string>
   <string name="notification_preferences_title">বিজ্ঞপ্তির পছন্দসমূহ</string>
   <string name="notifications_mark_unread">অপঠিত হিসেবে চিহ্নিত করুন</string>
+  <string name="notifications_mark_all_as_read">সব পঠিত হিসেবে চিহ্নিত করুন</string>
   <string name="notifications_direct_reply_action">উত্তর দিন</string>
   <string name="watchlist_title">নজরতালিকা</string>
   <string name="preference_title_notification_system">সিস্টেম</string>
@@ -526,11 +533,22 @@
   <string name="preference_title_notification_login_fail">প্রবেশ</string>
   <string name="preference_title_notification_mention">উল্লেখ</string>
   <string name="preference_title_notification_user_talk">আলাপ পাতা</string>
+  <string name="preference_title_notification_email_user">ইমেইল পেয়েছেন</string>
+  <string name="preference_summary_notification_email_user">কেউ আপনাকে উইকির মাধ্যমে একটি ইমেল পাঠিয়েছে</string>
+  <string name="preference_title_notification_user_rights">ব্যবহারকারী অধিকারের পরিবর্তন</string>
   <string name="preference_category_display_settings">প্রদর্শন সেটিং</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">উইকিপিডিয়া</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">উইকিপিডিয়া থেকে বিজ্ঞপ্তি</string>
+  <string name="notifications_channel_group_other_title">অন্যান্য</string>
+  <string name="notifications_channel_group_other_description">অ্যাপ থেকে অন্যান্য বিজ্ঞপ্তি</string>
   <string name="notifications_filter_label">বিজ্ঞপ্তি ছাঁকুন</string>
+  <string name="notifications_filter_icon_content_description">বিজ্ঞপ্তি ছাঁকুন</string>
+  <string name="notifications_filter_update_app_languages">অ্যাপের ভাষা হালনাগাদ করুন</string>
   <string name="notifications_tab_filter_all">সকল</string>
+  <string name="notifications_tab_filter_mentions">উল্লেখ</string>
+  <string name="notifications_swipe_action_read">পঠিত</string>
+  <string name="notifications_swipe_action_unread">অপঠিত</string>
+  <string name="notifications_menu_check_all">সকল আইটেম চিহ্নিত করুন</string>
   <string name="notifications_menu_user_talk_page">%s-এর আলাপ পাতা</string>
   <string name="notifications_offline_disable_message">অফলাইনে এই ফাংশনটি কার্যকর নয়।</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>

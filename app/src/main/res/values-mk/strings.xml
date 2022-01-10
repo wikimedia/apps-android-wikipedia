@@ -403,6 +403,9 @@
   <string name="text_size_decrease">Намали текст</string>
   <string name="text_size_percent_default">%s (по основно)</string>
   <string name="text_style_title">Фонт</string>
+  <string name="theme_category_reading">Читање</string>
+  <string name="reading_focus_mode">Режим на внимателно читање</string>
+  <string name="reading_focus_mode_detail">Ги скрива можностите за уредување и алатникот најдолу при пролизгување</string>
   <string name="nav_item_saved">Зачувано</string>
   <string name="reading_list_save_to">Зачувај во списокот за читање</string>
   <string name="reading_list_move_to">Премести во списокот за читање</string>
