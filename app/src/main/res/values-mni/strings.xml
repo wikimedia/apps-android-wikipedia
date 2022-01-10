@@ -125,6 +125,7 @@
   <string name="create_account_button">ꯑꯩꯒꯤ ꯑꯣꯏꯕꯥ ꯑꯃꯥ ꯁꯦꯝꯕꯥ</string>
   <string name="create_account_ip_block_help_url">https://mni.wikipedia.org/wiki/ꯃꯇꯦꯡ:ꯑꯩꯒꯤꯗꯨ_ꯊꯤꯡꯖꯤꯟꯈꯔꯦ</string>
   <string name="create_account_ip_block_details">ꯑꯀꯨꯞꯄ ꯋꯥꯔꯝ</string>
+  <string name="preferences_account_heading">ꯑꯩꯒꯤ ꯑꯣꯏꯕ ꯱</string>
   <string name="wikipedia_app_faq">ꯋꯤꯀꯤꯄꯦꯗꯤꯌꯥ ꯑꯦꯞꯁꯇ ꯇ•ꯍ•ꯋ</string>
   <string name="preferences_heading_data_usage">ꯗꯥꯇꯥ ꯁꯤꯖꯤꯟꯅꯐꯝ</string>
   <string name="page_protected_can_not_edit_title">ꯃꯁꯤꯒꯤ ꯂꯃꯥꯏꯁꯤ ꯉꯥꯛꯊꯣꯛꯂꯦ</string>
@@ -170,6 +171,8 @@
   <string name="search_did_you_mean">ꯅꯍꯥꯛꯅ ꯍꯥꯏꯅꯤꯡꯂꯤꯕ ꯑꯁꯤ \"%s\" ꯑꯣꯏꯗꯣꯏꯔꯥ?</string>
   <string name="search_recent_header">ꯀꯨꯏꯗ꯭ꯔꯤꯕ ꯑꯍꯣꯡꯕꯁꯤꯡ:</string>
   <string name="clear_recent_searches_confirm_yes">ꯍꯣꯏ</string>
+  <string name="clear_recent_searches_confirm_no">ꯅꯠꯇꯦ</string>
+  <string name="table_other">ꯑꯍꯦꯟꯕ ꯑꯀꯨꯞꯄ ꯃꯔꯣꯜ</string>
   <string name="table_close">ꯈꯨꯝꯖꯤꯟꯂꯨ</string>
   <string name="widget_name_featured_page">ꯋꯤꯀꯤꯄꯦꯗꯤꯌꯥ ꯋꯥꯔꯦꯡ ꯃꯑꯣꯡ ꯃꯇꯧ</string>
   <string name="widget_title_featured_page">ꯉꯁꯤꯒꯤ ꯋꯥꯔꯦꯡ ꯃꯑꯣꯡ</string>
@@ -184,6 +187,7 @@
   <string name="gallery_save_success">ꯐꯥꯏꯜ ꯇꯨꯡꯁꯤꯟꯂꯦ ꯫</string>
   <string name="gallery_add_image_caption_button">ꯃꯤꯔꯦꯜ ꯋꯥꯍꯩ ꯍꯥꯞꯄꯨ</string>
   <string name="close_all_tabs_confirm_yes">ꯍꯣꯏ</string>
+  <string name="close_all_tabs_confirm_no">ꯅꯠꯇꯦ</string>
   <string name="error_unknown">ꯃꯁꯛ ꯈꯪꯗꯕ ꯑꯔꯥꯟꯕ ꯊꯦꯡꯅꯔꯦ ꯫</string>
   <string name="button_continue_to_article">ꯋꯥꯔꯦꯡ ꯄꯥꯑꯣ</string>
   <string name="crash_report_relaunch">ꯍꯧꯔꯛꯑꯣ</string>
