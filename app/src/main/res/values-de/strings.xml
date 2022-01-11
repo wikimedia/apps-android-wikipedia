@@ -325,6 +325,7 @@
   <string name="gallery_save_success">Datei gespeichert.</string>
   <string name="gallery_error_video_failed">Das Video konnte nicht abgespielt werden.</string>
   <string name="gallery_save_image_write_permission_rationale">Zum Speichern von Bildern ist eine Berechtigung zum Schreiben auf den Speicher deines Gerätes erforderlich.</string>
+  <string name="gallery_edit_button_content_description">Bildunterschrift bearbeiten</string>
   <string name="gallery_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="gallery_add_image_caption_in_language_button">Bildunterschrift hinzufügen (%s)</string>
   <string name="err_cannot_save_file">Datei konnte nicht gespeichert werden</string>
@@ -559,6 +560,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Abbrechen</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Abbrechen</string>
   <string name="reading_list_split_dialog_ok_button_text">Okay</string>
+  <string name="reading_list_activity_title">Leseliste: %s</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_reverted_title">Zurückgesetzte Bearbeitung</string>
   <string name="notification_channel_title">Artikel herunterladen</string>
@@ -741,6 +743,7 @@
   <string name="feed_accessibility_card_text">Sie haben das Ende des Feeds erreicht.</string>
   <string name="feed_accessibility_card_load_more_button">Mehr laden</string>
   <string name="top_read_activity_title">Meistgelesen am %s</string>
+  <string name="tabs_activity_title">Tabs</string>
   <string name="description_edit_text_hint">Artikelbeschreibung</string>
   <string name="description_edit_article_description_label">Artikel</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikelbeschreibung (%s)</string>
@@ -958,6 +961,7 @@
   <string name="file_page_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="file_page_add_image_tags_button">Bilder-Tags hinzufügen</string>
   <string name="file_page_suggestion_reason">Vorschlagsgrund</string>
+  <string name="file_page_edit_button_content_description">%s bearbeiten</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>

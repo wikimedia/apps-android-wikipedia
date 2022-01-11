@@ -34,6 +34,7 @@
   <string name="app_settings">Impostazzion de l\'aplicazzion</string>
   <string name="search_tab_tooltip">Clica anmò l\'imagin per comenzà direttament una ricerca.</string>
   <string name="history_list_title">Cronologia</string>
+  <string name="page_content_description">Pagina: %s</string>
   <string name="dialog_title_clear_history">Netta via la cronologia del programa de navigazzion</string>
   <string name="dialog_message_clear_history">Chesschì el scancelarà tuta la cronologia ne navigazzion e \'l sararà su tucc i schede adee averte. Te see sicur?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
@@ -240,11 +241,14 @@
   <string name="gallery_menu_share">Spartiss con di alter person</string>
   <string name="gallery_save_progress">Adrée a descaregà el fail...</string>
   <string name="gallery_save_success">Fail salvad.</string>
+  <string name="gallery_edit_button_content_description">Modifega l\'insegna de l\'imagin</string>
   <string name="close_all_tabs_confirm_yes">Sì</string>
   <string name="close_all_tabs_confirm_no">Nò</string>
   <string name="button_close_tab">Sara su la scheda</string>
   <string name="error_blocked_reason">La reson fornida l\'è: %s</string>
   <string name="text_style_title">Tipo de caratter</string>
+  <string name="theme_category_reading">Letura</string>
+  <string name="reading_list_activity_title">Lista de letura: %s</string>
   <string name="notifications_mark_unread">Insegna come nananmò leggiud</string>
   <string name="preference_title_notification_poll">Verifica notifiche</string>
   <string name="preference_title_notification_system">Sistema</string>
@@ -253,7 +257,9 @@
   <string name="notifications_swipe_action_read">Lènsg</string>
   <string name="notifications_wiki_filter_header">Wiki-filter</string>
   <string name="feed_accessibility_card_load_more_button">Caregenn anmò</string>
+  <string name="tabs_activity_title">Schede</string>
   <string name="suggested_edits_my_contributions">I me contrbuzzion</string>
+  <string name="file_page_edit_button_content_description">Modifega %s</string>
   <string name="menu_option_share_edit">Scompartiss modifega</string>
   <string name="watchlist_details_watch_label">Varda</string>
   <string name="thank_label">Grazzia</string>

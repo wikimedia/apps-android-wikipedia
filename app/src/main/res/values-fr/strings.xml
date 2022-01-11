@@ -445,6 +445,9 @@
   <string name="text_size_decrease">Réduire la taille du texte</string>
   <string name="text_size_percent_default">%s (par défaut)</string>
   <string name="text_style_title">Police</string>
+  <string name="theme_category_reading">Lecture</string>
+  <string name="reading_focus_mode">Mode de focalisation sur la lecture</string>
+  <string name="reading_focus_mode_detail">Masque les fonctionnalités de modification et la barre d’outil en bas lors du défilement</string>
   <string name="nav_item_saved">Enregistré</string>
   <string name="reading_list_save_to">Enregistrer dans la liste de lecture</string>
   <string name="reading_list_move_to">Déplacer vers la liste de lecture</string>
