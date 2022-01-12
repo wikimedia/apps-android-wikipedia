@@ -21,12 +21,14 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
-import org.hamcrest.Matchers.*
+import org.hamcrest.Matchers.`is`
+import org.hamcrest.Matchers.allOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.R
 import org.wikipedia.TestUtil
+import org.wikipedia.auth.AccountUtil
 import java.util.concurrent.TimeUnit
 
 @LargeTest
@@ -372,8 +374,69 @@ class SmokeTests {
 
         TestUtil.delay(4)
 
+        // Click on the second topic of the talk page
+        onView(allOf(withId(R.id.topicTitleText), withText(TALK_TOPIC_TITLE), isDisplayed()))
+            .check(matches(withText(TALK_TOPIC_TITLE)))
+
+        // Click on the 3rd topic
+        onView(withId(R.id.talkRecyclerView))
+            .perform(actionOnItemAtPosition<ViewHolder>(2, click()))
+
+        // Give the page plenty of time to load fully
+        TestUtil.delay(5)
+
         // Go back out of the Talk interface
         pressBack()
+
+        if (AccountUtil.isLoggedIn) {
+            // Click on the 5th topic
+            onView(withId(R.id.menu_notifications)).perform(click())
+
+            // Give the page plenty of time to load fully
+            TestUtil.delay(5)
+
+            // Click on the search bar
+            onView(withId(R.id.notifications_recycler_view))
+                .perform(actionOnItemAtPosition<ViewHolder>(0, click()))
+
+            // Make the keyboard disappear
+            pressBack()
+            TestUtil.delay(1)
+
+            // Get out of search action mode
+            pressBack()
+
+            TestUtil.delay(1)
+
+            // Go back out of notification
+            pressBack()
+        }
+
+        // Go back out of the article page
+        pressBack()
+
+        TestUtil.delay(1)
+
+        // TODO: update the following actions when the customizable toolbar feature is released
+        // Click on the Save button to add article to reading list
+        onView(withId(R.id.article_menu_bookmark)).perform(click())
+
+        TestUtil.delay(1)
+
+        // Click on the overflow menu to go back to Explore
+        onView(withId(R.id.page_toolbar_button_show_overflow_menu)).perform(click())
+
+        TestUtil.delay(1)
+
+        // Go back to Explore
+        onView(withId(R.id.overflow_feed)).perform(click())
+
+        TestUtil.delay(1)
+
+        // Go to Saved tab
+        onView(withText("Saved")).perform(click())
+
+        TestUtil.delay(1)
 
         TestUtil.delay(2)
     }
@@ -381,5 +444,6 @@ class SmokeTests {
     companion object {
         private val SEARCH_TERM = "hopf fibration"
         private val ARTICLE_TITLE = "Hopf fibration"
+        private val TALK_TOPIC_TITLE = "natural metric?"
     }
 }
