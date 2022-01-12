@@ -207,7 +207,9 @@ class EditSectionActivity : BaseActivity() {
 
     private fun doSave(token: String) {
         val sectionAnchor = StringUtil.addUnderscores(StringUtil.removeHTMLTags(sectionAnchor.orEmpty()))
-        var summaryText = if (sectionAnchor.isEmpty() || sectionAnchor == pageTitle.prefixedText) "/* top */"
+        var summaryText = if (sectionAnchor.isEmpty() || sectionAnchor == pageTitle.prefixedText) {
+            if (pageTitle.wikiSite.languageCode == "en") "/* top */" else ""
+        }
         else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
         summaryText += editPreviewFragment.summary
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
