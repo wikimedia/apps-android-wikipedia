@@ -4,6 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.settings.Prefs
 
 @Suppress("unused")
 @Serializable
@@ -18,7 +19,7 @@ class CustomizeToolbarEvent() : TimedEvent(STREAM_NAME) {
 
     fun logCustomization(favoritesOrder: List<Int>, menuOrder: List<Int>) {
         this.is_anon = !AccountUtil.isLoggedIn
-        this.is_rfm_enabled = false // Todo: Read from preference
+        this.is_rfm_enabled = Prefs.readingFocusModeEnabled
         this.source = InvokeSource.PAGE_ACTIVITY.value
         this.favorites_order = favoritesOrder
         this.menu_order = menuOrder
