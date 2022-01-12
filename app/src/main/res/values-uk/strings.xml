@@ -421,6 +421,9 @@
   <string name="text_size_decrease">Зменшити розмір тексту</string>
   <string name="text_size_percent_default">%s (за замовчуванням)</string>
   <string name="text_style_title">Шрифт</string>
+  <string name="theme_category_reading">Читання</string>
+  <string name="reading_focus_mode">Режим фокусування читання</string>
+  <string name="reading_focus_mode_detail">Приховує функції редагування та нижню панель інструментів під час прокручування</string>
   <string name="nav_item_saved">Збережено</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
   <string name="reading_list_move_to">Перенести до читального списку</string>

@@ -423,6 +423,9 @@
   <string name="text_size_decrease">הקטנת הטקסט</string>
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
   <string name="text_style_title">גופן</string>
+  <string name="theme_category_reading">קריאה</string>
+  <string name="reading_focus_mode">קריאה במצב ריכוז</string>
+  <string name="reading_focus_mode_detail">הסתרת אפשרויות עריכה וסרגל הכלים התחתון בגלילה</string>
   <string name="nav_item_saved">נשמר</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>

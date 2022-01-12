@@ -421,6 +421,7 @@
   <string name="text_size_decrease">Redueix la mida del text</string>
   <string name="text_size_percent_default">%s (per defecte)</string>
   <string name="text_style_title">Tipus de lletra</string>
+  <string name="theme_category_reading">Lectura</string>
   <string name="nav_item_saved">Desat</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_move_to">Mou a la llista de lectura</string>
