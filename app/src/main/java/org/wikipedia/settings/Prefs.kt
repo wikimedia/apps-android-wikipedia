@@ -566,4 +566,8 @@ object Prefs {
         get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_favorites_menu_order, null))
             ?: listOf(5, 6, 7, 8, 9, 10)
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_favorites_menu_order, JsonUtil.encodeToString(orderList))
+
+    var showEditTalkPageSourcePrompt
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_edit_talk_page_source_prompt, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_edit_talk_page_source_prompt, value)
 }

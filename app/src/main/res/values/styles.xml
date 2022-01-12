@@ -459,6 +459,12 @@
         <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
+    <style name="EditSectionTextInputLayoutStyle" parent="TextInputLayoutStyle">
+        <item name="android:textColorHighlight">@color/find_in_page_active</item>
+        <item name="android:textColor">?attr/primary_text_color</item>
+        <item name="strokeColor">@android:color/transparent</item>
+    </style>
+
     <style name="PagePopupMenu" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
         <item name="android:dropDownHorizontalOffset">@dimen/popup_menu_drop_down_horizontal_offset</item>
         <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>
