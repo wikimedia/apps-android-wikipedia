@@ -15,6 +15,11 @@
                 android:icon="@drawable/ic_share_material_secondary_themed"
                 android:title="@string/menu_option_share_talk_discussion"
                 app:showAsAction="never" />
+            <item
+                android:id="@+id/menu_edit_source"
+                android:icon="@drawable/ic_mode_edit_material_secondary_themed"
+                android:title="@string/menu_option_edit_source"
+                app:showAsAction="never" />
         </menu>
     </item>
 </menu>
