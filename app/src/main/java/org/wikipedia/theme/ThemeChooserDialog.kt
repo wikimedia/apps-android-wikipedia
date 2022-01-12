@@ -39,6 +39,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     interface Callback {
         fun onToggleDimImages()
+        fun onToggleReadingFocusMode()
         fun onCancelThemeChooser()
     }
 
@@ -65,6 +66,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.buttonFontFamilySerif.setOnClickListener(FontFamilyListener())
         binding.themeChooserDarkModeDimImagesSwitch.setOnCheckedChangeListener { _, b -> onToggleDimImages(b) }
         binding.themeChooserMatchSystemThemeSwitch.setOnCheckedChangeListener { _, b -> onToggleMatchSystemTheme(b) }
+        binding.themeChooserReadingFocusModeSwitch.setOnCheckedChangeListener { _, b -> onToggleReadingFocusMode(b) }
         binding.textSizeSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, value: Int, fromUser: Boolean) {
                 if (!fromUser) {
@@ -151,6 +153,12 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         conditionallyDisableThemeButtons()
     }
 
+    private fun onToggleReadingFocusMode(enabled: Boolean) {
+        Prefs.readingFocusModeEnabled = enabled
+        funnel.logReadingFocusMode(enabled)
+        callback()?.onToggleReadingFocusMode()
+    }
+
     private fun conditionallyDisableThemeButtons() {
         binding.buttonThemeLight.alpha = if (isMatchingSystemThemeEnabled && app.currentTheme.isDark) 0.2f else 1.0f
         binding.buttonThemeSepia.alpha = if (isMatchingSystemThemeEnabled && app.currentTheme.isDark) 0.2f else 1.0f
@@ -171,6 +179,8 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         updateThemeButtons()
         updateDimImagesSwitch()
         updateMatchSystemThemeSwitch()
+
+        binding.themeChooserReadingFocusModeSwitch.isChecked = Prefs.readingFocusModeEnabled
     }
 
     private fun updateMatchSystemThemeSwitch() {

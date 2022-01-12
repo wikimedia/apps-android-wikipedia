@@ -31,12 +31,19 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
+            <View
+                android:layout_width="24dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_2dp_fill" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_vertical"
-                android:text="@string/text_style_title"
+                android:text="@string/theme_category_reading"
                 android:textColor="?attr/primary_text_color"
                 android:textStyle="bold"/>
 
@@ -138,6 +145,22 @@
 
             </LinearLayout>
 
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/theme_chooser_reading_focus_mode_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/reading_focus_mode"
+                android:textColor="?attr/primary_text_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:text="@string/reading_focus_mode_detail"
+                android:textSize="11sp"
+                android:textColor="?attr/primary_text_color"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
@@ -153,15 +176,6 @@
                 android:text="@string/color_theme_select"
                 android:textColor="?attr/primary_text_color"
                 android:textStyle="bold"/>
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/theme_chooser_match_system_theme_switch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center_vertical"
-                android:text="@string/theme_chooser_dialog_match_system_theme_switch_label"
-                android:textColor="?attr/primary_text_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -198,6 +212,14 @@
                     android:backgroundTint="@color/color_state_black" />
 
             </LinearLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/theme_chooser_match_system_theme_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/theme_chooser_dialog_match_system_theme_switch_label"
+                android:textColor="?attr/primary_text_color" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/theme_chooser_dark_mode_dim_images_switch"
