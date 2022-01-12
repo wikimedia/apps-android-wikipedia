@@ -1,6 +1,8 @@
 package org.wikipedia.edit
 
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.text.TextUtils
@@ -30,6 +32,7 @@ import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.ActivityEditSectionBinding
+import org.wikipedia.databinding.DialogWithCheckboxBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwException
@@ -89,6 +92,10 @@ class EditSectionActivity : BaseActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ doSave(it) }) { showError(it) })
         }
+
+    private val movementMethod = LinkMovementMethodExt { urlStr ->
+        UriUtil.visitInExternalBrowser(this, Uri.parse(UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, urlStr)))
+    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -522,6 +529,7 @@ class EditSectionActivity : BaseActivity() {
                             FeedbackUtil.showError(this, MwException(error))
                         }
                         displaySectionText()
+                        maybeShowEditSourceDialog()
                     }) { throwable ->
                         showProgressBar(false)
                         showError(throwable)
@@ -566,8 +574,23 @@ class EditSectionActivity : BaseActivity() {
         if (editNotices.isEmpty()) {
             return
         }
-        EditNoticesDialog(pageTitle.wikiSite, editNotices, this)
-                .show()
+        EditNoticesDialog(pageTitle.wikiSite, editNotices, this).show()
+    }
+
+    private fun maybeShowEditSourceDialog() {
+        if (!Prefs.showEditTalkPageSourcePrompt || (pageTitle.namespace() !== Namespace.TALK && pageTitle.namespace() !== Namespace.USER_TALK)) {
+            return
+        }
+        val binding = DialogWithCheckboxBinding.inflate(layoutInflater)
+        binding.dialogMessage.text = StringUtil.fromHtml(getString(R.string.talk_edit_disclaimer))
+        binding.dialogMessage.movementMethod = movementMethod
+        AlertDialog.Builder(this@EditSectionActivity)
+            .setView(binding.root)
+            .setPositiveButton(R.string.onboarding_got_it) { dialog, _ -> dialog.dismiss() }
+            .setOnDismissListener {
+                Prefs.showEditTalkPageSourcePrompt = !binding.dialogCheckbox.isChecked
+            }
+            .show()
     }
 
     private fun displaySectionText() {
@@ -646,5 +669,13 @@ class EditSectionActivity : BaseActivity() {
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
+
+        fun newIntent(context: Context, sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String? = null): Intent {
+            return Intent(context, EditSectionActivity::class.java)
+                .putExtra(EXTRA_SECTION_ID, sectionId)
+                .putExtra(EXTRA_SECTION_ANCHOR, sectionAnchor)
+                .putExtra(EXTRA_TITLE, title)
+                .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
+        }
     }
 }
