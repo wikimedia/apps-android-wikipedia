@@ -1047,11 +1047,13 @@
   <string name="talk_snackbar_survey_action_text">Започни</string>
   <string name="talk_share_discussion_subject">Википедија — разговор на темата „%s“ на разговорна страница</string>
   <string name="talk_share_talk_page">Википедија — разговори на разговорна страница</string>
+  <string name="talk_edit_disclaimer">Ова е разговорна страница. Почитувајте ги напатствијата и не заборавајте да се потпишувате со четири тилди: ~~~~ кога пишувате со викитекст.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Напатствија за разговорни страници&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">Сподели разговор</string>
   <string name="menu_option_share_talk_page">Сподели разговорна страница</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
   <string name="menu_option_user_profile">Профил на %s</string>
   <string name="menu_option_user_contributions">Придонеси на %s</string>
+  <string name="menu_option_edit_source">Уреди извор</string>
   <string name="watchlist_details_watching_label">Набљудувана</string>
   <string name="watchlist_details_watch_label">Набљудувај</string>
   <string name="watchlist_details_next_edit">Следно уредување</string>

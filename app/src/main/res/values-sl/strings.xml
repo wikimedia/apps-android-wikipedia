@@ -1050,7 +1050,9 @@
   <string name="talk_subject_empty">Predmet ne sme biti prazen.</string>
   <string name="talk_response_submitted">Odgovor objavljen.</string>
   <string name="talk_snackbar_undo">Razveljavi</string>
+  <string name="talk_share_talk_page">Wikipedija – pogovori na pogovorni strani</string>
   <string name="menu_option_share_talk_discussion">Deli pogovor</string>
+  <string name="menu_option_share_talk_page">Deli pogovorno stran</string>
   <string name="menu_option_share_edit">Deli urejanje</string>
   <string name="menu_option_user_profile">Profil uporabnika/ce %s</string>
   <string name="menu_option_user_contributions">Prispevki uporabnika/ce %s</string>
