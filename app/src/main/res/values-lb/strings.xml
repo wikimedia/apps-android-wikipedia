@@ -326,6 +326,7 @@
   <string name="text_size_increase">Gréisst vum Text méi grouss maachen</string>
   <string name="text_size_decrease">Gréisst vum Text méi kleng maachen</string>
   <string name="text_size_percent_default">%s (Standard)</string>
+  <string name="theme_category_reading">Liesen</string>
   <string name="nav_item_saved">Gespäichert</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
   <string name="reading_list_move_to">Op d\'Lieslëscht réckelen</string>
@@ -713,6 +714,7 @@
   <string name="menu_option_share_talk_discussion">Diskussioun deelen</string>
   <string name="menu_option_share_talk_page">Diskussiounssäit deelen</string>
   <string name="menu_option_user_contributions">Kontributioune vum %s</string>
+  <string name="menu_option_edit_source">Quelltext änneren</string>
   <string name="watchlist_details_watching_label">Iwwerwaacht</string>
   <string name="watchlist_details_watch_label">Iwwerwaachen</string>
   <string name="thank_label">Merci soen</string>

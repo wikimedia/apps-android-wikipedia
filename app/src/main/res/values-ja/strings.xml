@@ -1024,6 +1024,7 @@
   <string name="menu_option_share_edit">編集をシェア</string>
   <string name="menu_option_user_profile">%s のプロフィール</string>
   <string name="menu_option_user_contributions">%s の投稿記録</string>
+  <string name="menu_option_edit_source">ソースを編集</string>
   <string name="watchlist_details_watch_label">ウォッチ</string>
   <string name="thank_label">感謝</string>
   <string name="thank_dialog_title_text">感謝を公に示す</string>
