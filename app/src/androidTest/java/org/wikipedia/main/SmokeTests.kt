@@ -29,6 +29,7 @@ import org.junit.runner.RunWith
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.navtab.NavTab
 import java.util.concurrent.TimeUnit
 
 @LargeTest
@@ -437,7 +438,7 @@ class SmokeTests {
         TestUtil.delay(1)
 
         // Go to Saved tab
-        onView(withText("Saved")).perform(click())
+        onView(withId(NavTab.READING_LISTS.id())).perform(click())
 
         TestUtil.delay(1)
 
