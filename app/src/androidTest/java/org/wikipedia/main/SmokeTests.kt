@@ -461,7 +461,7 @@ class SmokeTests {
         onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
             .perform(click())
 
-        TestUtil.delay(10)
+        TestUtil.delay(5)
 
         // Click on bookmark icon and open the menu
         onView(withId(R.id.article_menu_bookmark)).perform(click())
@@ -470,6 +470,11 @@ class SmokeTests {
 
         // Remove article from reading list
         onView(withText("Remove from Saved")).perform(click())
+
+        TestUtil.delay(2)
+
+        // Turn device to offline
+        TestUtil.setAirplaneMode(false)
 
         TestUtil.delay(2)
     }
