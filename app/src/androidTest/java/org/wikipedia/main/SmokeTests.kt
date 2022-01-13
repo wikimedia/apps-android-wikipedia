@@ -423,13 +423,16 @@ class SmokeTests {
 
         TestUtil.delay(1)
 
-        // Click on the overflow menu to go back to Explore
+        // Click anywhere to show the toolbar
+        device.click(screenWidth / 2, screenHeight * 10 / 100)
+
+        TestUtil.delay(1)
+
         onView(withId(R.id.page_toolbar_button_show_overflow_menu)).perform(click())
 
         TestUtil.delay(1)
 
-        // Go back to Explore
-        onView(withId(R.id.overflow_feed)).perform(click())
+        onView(withText("Explore")).perform(click())
 
         TestUtil.delay(1)
 
@@ -437,6 +440,35 @@ class SmokeTests {
         onView(withText("Saved")).perform(click())
 
         TestUtil.delay(1)
+
+        // Click on first item in the list
+        onView(withId(R.id.recycler_view))
+            .perform(actionOnItemAtPosition<ViewHolder>(0, click()))
+
+        // Waiting for the article to be saved to the database
+        TestUtil.delay(5)
+
+        // Make sure one of the list item matches the title that we expect
+        onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
+            .check(matches(withText(ARTICLE_TITLE)))
+
+        // Turn device to offline
+        TestUtil.setAirplaneMode(true)
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(10)
+
+        // Click on bookmark icon and open the menu
+        onView(withId(R.id.article_menu_bookmark)).perform(click())
+
+        TestUtil.delay(2)
+
+        // Remove article from reading list
+        onView(withText("Remove from Saved")).perform(click())
 
         TestUtil.delay(2)
     }
