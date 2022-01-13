@@ -348,7 +348,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
-        var body = binding.replyInputView.editText.text.toString().trim()
+        var body = binding.replyInputView.editText.getParsedText(pageTitle.wikiSite).trim()
         undoneBody = body
         undoneSubject = subject
 

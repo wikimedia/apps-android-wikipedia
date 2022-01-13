@@ -7,15 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.forEach
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ViewUserMentionInputBinding
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.search.db.RecentSearch
+import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.util.StringUtil
 
 class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
 
@@ -59,12 +65,35 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
             userNamePrefix = userNamePrefix.substring(1)
         }
         if (userNamePrefix.length > 1) {
-            
+            searchForUserName(UserAliasData.valueFor(wikiSite.languageCode) + ":" + userNamePrefix)
         }
     }
 
-    private fun searchForUserName(userNamePrefix: String) {
+    private fun searchForUserName(prefix: String) {
+        disposables.clear()
+        disposables.add(ServiceFactory.get(wikiSite).prefixSearch(prefix, 10, prefix)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    userNameList.clear()
+                    response.query?.pages?.forEach {
+                        userNameList.add(StringUtil.removeNamespace(it.title))
+                    }
+                    onSearchResults()
+                }, {
+                    onSearchError(it)
+                })
+        )
+    }
 
+    private fun onSearchResults() {
+        binding.userListRecycler.isVisible = true
+        binding.userListRecycler.adapter?.notifyDataSetChanged()
+    }
+
+    private fun onSearchError(t: Throwable) {
+        t.printStackTrace()
+        binding.userListRecycler.isVisible = false
     }
 
     private inner class UserNameViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), OnClickListener {
