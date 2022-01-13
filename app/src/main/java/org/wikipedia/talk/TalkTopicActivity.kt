@@ -45,9 +45,10 @@ import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.UserMentionInputView
 import java.util.concurrent.TimeUnit
 
-class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
+class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
     private lateinit var binding: ActivityTalkTopicBinding
     private lateinit var pageTitle: PageTitle
     private lateinit var talkFunnel: TalkFunnel
@@ -137,6 +138,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkReplyButton.visibility = View.GONE
 
         binding.replyInputView.wikiSite = pageTitle.wikiSite
+        binding.replyInputView.listener = this
 
         talkFunnel = TalkFunnel(pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
         talkFunnel.logOpenTopic()
@@ -530,6 +532,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             setResult(RESULT_BACK_FROM_TOPIC)
             super.onBackPressed()
         }
+    }
+
+    override fun onUserMentionListUpdate() {
+        binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height)
     }
 
     companion object {

@@ -56,7 +56,6 @@ class UserMentionEditText : PlainPasteEditText {
                 }
             }
         }
-
     }
 
     override fun onSelectionChanged(selStart: Int, selEnd: Int) {
@@ -112,7 +111,7 @@ class UserMentionEditText : PlainPasteEditText {
                 sb.append(text!!.subSequence(userNameEndPos, text!!.length - 1))
             }
 
-            val span = UserColorSpan(ResourceUtil.getThemedColor(context, R.attr.colorAccent), spanStart, spanEnd)
+            val span = UserColorSpan(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
             sb.setSpan(span, spanStart, spanEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             text = sb
             setSelection(spanEnd)
@@ -132,7 +131,9 @@ class UserMentionEditText : PlainPasteEditText {
         if (spans.isNotEmpty()) {
 
             val pairs = mutableListOf<MutablePair<Int, Int>>()
-            spans.forEach { pairs.add(MutablePair(it.start, it.end)) }
+            spans.forEach {
+                pairs.add(MutablePair(text!!.getSpanStart(it), text!!.getSpanEnd(it)))
+            }
             pairs.sortBy { it.first }
 
             for (i in 0 until pairs.size) {
@@ -155,5 +156,5 @@ class UserMentionEditText : PlainPasteEditText {
 
     data class MutablePair<T, U>(var first: T, var second: U)
 
-    private class UserColorSpan(@ColorInt foreColor: Int, val start: Int, val end: Int) : ForegroundColorSpan(foreColor)
+    private class UserColorSpan(@ColorInt foreColor: Int) : ForegroundColorSpan(foreColor)
 }

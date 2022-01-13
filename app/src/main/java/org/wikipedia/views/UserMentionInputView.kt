@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.view.forEach
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,14 +15,15 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ViewUserMentionInputBinding
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.StringUtil
 
 class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
+    interface Listener {
+        fun onUserMentionListUpdate()
+    }
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -32,6 +32,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     val editText get() = binding.inputEditText
     val textInputLayout get() = binding.inputTextLayout
     var wikiSite = WikipediaApp.getInstance().wikiSite
+    var listener: Listener? = null
 
     private val binding = ViewUserMentionInputBinding.inflate(LayoutInflater.from(context), this)
     private val disposables = CompositeDisposable()
@@ -89,6 +90,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     private fun onSearchResults() {
         binding.userListRecycler.isVisible = true
         binding.userListRecycler.adapter?.notifyDataSetChanged()
+        listener?.onUserMentionListUpdate()
     }
 
     private fun onSearchError(t: Throwable) {
