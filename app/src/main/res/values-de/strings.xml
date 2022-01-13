@@ -432,6 +432,9 @@
   <string name="text_size_decrease">Text verkleinern</string>
   <string name="text_size_percent_default">%s (Standard)</string>
   <string name="text_style_title">Schriftart</string>
+  <string name="theme_category_reading">Lesen</string>
+  <string name="reading_focus_mode">Modus Lesefokus</string>
+  <string name="reading_focus_mode_detail">Blendet Bearbeitungsfunktionen und untere Symbolleiste beim Scrollen aus</string>
   <string name="nav_item_saved">Gespeichert</string>
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
   <string name="reading_list_move_to">In Leseliste verschieben</string>

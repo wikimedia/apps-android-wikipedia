@@ -426,6 +426,7 @@
   <string name="text_style_title">字型</string>
   <string name="theme_category_reading">閱讀</string>
   <string name="reading_focus_mode">專注閱讀模式</string>
+  <string name="reading_focus_mode_detail">隱藏編輯功能與在滾軸的底端工具列</string>
   <string name="nav_item_saved">已儲存</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
   <string name="reading_list_move_to">移動至閱讀清單</string>
