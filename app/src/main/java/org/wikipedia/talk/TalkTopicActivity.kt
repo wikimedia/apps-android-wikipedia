@@ -122,9 +122,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
             binding.replySubjectLayout.error = null
-            binding.replyTextLayout.error = null
+            binding.replyInputView.textInputLayout.error = null
         }
-        binding.replyEditText.addTextChangedListener(textWatcher)
         binding.replySaveButton.setOnClickListener {
             onSaveClicked()
         }
@@ -136,6 +135,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         binding.talkReplyButton.visibility = View.GONE
+
+        binding.replyInputView.wikiSite = pageTitle.wikiSite
 
         talkFunnel = TalkFunnel(pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
         talkFunnel.logOpenTopic()
@@ -172,26 +173,26 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
         binding.replySaveButton.visibility = View.VISIBLE
-        binding.replyTextLayout.visibility = View.VISIBLE
+        binding.replyInputView.visibility = View.VISIBLE
         binding.licenseText.visibility = View.VISIBLE
         binding.talkScrollContainer.postDelayed({
             if (!isDestroyed) {
                 binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-                DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
-                binding.replyTextLayout.requestFocus()
+                DeviceUtil.showSoftKeyboard(binding.replyInputView.textInputLayout)
+                binding.replyInputView.textInputLayout.requestFocus()
             }
         }, 500)
         binding.talkReplyButton.hide()
         if (undone) {
-            binding.replyEditText.setText(undoneBody)
-            binding.replyEditText.setSelection(binding.replyEditText.text.toString().length)
+            binding.replyInputView.editText.setText(undoneBody)
+            binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
         }
     }
 
     public override fun onDestroy() {
         disposables.clear()
         binding.replySubjectText.removeTextChangedListener(textWatcher)
-        binding.replyEditText.removeTextChangedListener(textWatcher)
+        binding.replyInputView.editText.removeTextChangedListener(textWatcher)
         super.onDestroy()
     }
 
@@ -204,21 +205,21 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.talkErrorView.visibility = View.GONE
             binding.replySaveButton.visibility = View.VISIBLE
             binding.replySubjectLayout.visibility = View.VISIBLE
-            binding.replyTextLayout.hint = getString(R.string.talk_message_hint)
+            binding.replyInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
             binding.replySubjectText.setText(undoneSubject)
-            binding.replyEditText.setText(undoneBody)
-            binding.replyTextLayout.visibility = View.VISIBLE
+            binding.replyInputView.editText.setText(undoneBody)
+            binding.replyInputView.visibility = View.VISIBLE
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
             editFunnel.logStart()
             EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
         } else {
             replyActive = false
-            binding.replyEditText.setText("")
+            binding.replyInputView.editText.setText("")
             binding.replySaveButton.visibility = View.GONE
             binding.replySubjectLayout.visibility = View.GONE
-            binding.replyTextLayout.visibility = View.GONE
-            binding.replyTextLayout.hint = getString(R.string.talk_reply_hint)
+            binding.replyInputView.visibility = View.GONE
+            binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.licenseText.visibility = View.GONE
             DeviceUtil.hideSoftKeyboard(this)
             loadTopic()
@@ -347,7 +348,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
-        var body = binding.replyEditText.text.toString().trim()
+        var body = binding.replyInputView.editText.text.toString().trim()
         undoneBody = body
         undoneSubject = subject
 
@@ -359,8 +360,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.replySubjectLayout.requestFocus()
             return
         } else if (body.isEmpty()) {
-            binding.replyTextLayout.error = getString(R.string.talk_message_empty)
-            binding.replyTextLayout.requestFocus()
+            binding.replyInputView.textInputLayout.error = getString(R.string.talk_message_empty)
+            binding.replyInputView.textInputLayout.requestFocus()
             return
         }
 
