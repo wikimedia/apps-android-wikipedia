@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 
 @Serializable
-sealed class TimedEvent(@Transient private val streamName: String = "") : Event(streamName) {
+sealed class TimedEvent(@Transient private val streamNameStr: String = "") : MobileAppsEvent(streamNameStr) {
 
     @Transient
     private var startTime = 0L

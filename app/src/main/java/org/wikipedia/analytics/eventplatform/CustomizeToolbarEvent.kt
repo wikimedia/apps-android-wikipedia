@@ -4,23 +4,25 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.settings.Prefs
 
 @Suppress("unused")
 @Serializable
 @SerialName("/analytics/mobile_apps/android_customize_toolbar_interaction/1.0.0")
-class CustomizeToolbarEvent() : TimedEvent(STREAM_NAME) {
-    private var is_anon: Boolean = false
-    private var is_rfm_enabled: Boolean = false
+class CustomizeToolbarEvent : TimedEvent(STREAM_NAME) {
+    private var is_anon: Boolean? = null
+    private var is_rfm_enabled: Boolean? = null
     private var source: String = ""
     private var favorites_order: List<Int> = emptyList()
     private var menu_order: List<Int> = emptyList()
     private var time_spent_ms: Int = 0
 
     fun logCustomization(favoritesOrder: List<Int>, menuOrder: List<Int>) {
-        this.is_anon = !AccountUtil.isLoggedIn
-        this.is_rfm_enabled = Prefs.readingFocusModeEnabled
-        this.source = InvokeSource.PAGE_ACTIVITY.value
+        is_anon = !AccountUtil.isLoggedIn
+        is_rfm_enabled = Prefs.readingFocusModeEnabled
+        this.source = if (Prefs.customizeFavoritesMenuOrder.contains(PageActionItem.THEME.id))
+            InvokeSource.PAGE_OVERFLOW_MENU.value else InvokeSource.PAGE_ACTION_TAB.value
         this.favorites_order = favoritesOrder
         this.menu_order = menuOrder
         time_spent_ms = duration.toInt()
