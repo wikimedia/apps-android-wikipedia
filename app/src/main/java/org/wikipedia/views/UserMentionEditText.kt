@@ -54,6 +54,9 @@ class UserMentionEditText : PlainPasteEditText {
                 } else {
                     userNameEndPos += (count - before)
                 }
+                if (userNameEndPos <= userNameStartPos) {
+                    onCancelUserNameEntry()
+                }
             }
         }
     }
