@@ -715,6 +715,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         return binding.pageToolbarContainer.height
     }
 
+    fun getOverflowMenu(): View {
+        return binding.pageToolbarButtonShowOverflowMenu
+    }
+
     override fun onUnreadNotification() {
         updateNotificationsButton(true)
     }
