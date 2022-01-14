@@ -180,13 +180,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.replyInputView.maybePrepopulateUserName()
 
         binding.licenseText.visibility = View.VISIBLE
-        binding.talkScrollContainer.postDelayed({
+        binding.talkScrollContainer.post {
             if (!isDestroyed) {
-                binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-                DeviceUtil.showSoftKeyboard(binding.replyInputView.textInputLayout)
                 binding.replyInputView.textInputLayout.requestFocus()
+                DeviceUtil.showSoftKeyboard(binding.replyInputView.textInputLayout)
+                binding.talkScrollContainer.postDelayed({
+                    binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
+                }, 500)
             }
-        }, 500)
+        }
         binding.talkReplyButton.hide()
         if (undone) {
             binding.replyInputView.editText.setText(undoneBody)
