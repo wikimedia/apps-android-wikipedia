@@ -75,6 +75,7 @@ class UserMentionEditText : PlainPasteEditText {
                 userNameStartPos = text!!.getSpanStart(spans[0])
                 userNameEndPos = text!!.getSpanEnd(spans[0])
                 onStartUserNameEntry()
+                onUserNameChanged(text!!.substring(userNameStartPos, userNameEndPos))
             }
         }
     }
