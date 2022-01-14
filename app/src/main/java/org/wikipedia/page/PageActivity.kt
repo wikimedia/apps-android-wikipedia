@@ -166,32 +166,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
     }
 
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-        maybeShowThemeToolTip()
-    }
-
-    private fun maybeShowThemeToolTip() {
-        if (Prefs.showOneTimeCustomizeToolbarTooltip) {
-            var anchorView: View? = null
-            var aboveOrBelow = true
-            if (Prefs.customizeFavoritesMenuOrder.contains(PageActionItem.THEME.id)) {
-                anchorView = binding.pageToolbarButtonShowOverflowMenu
-                aboveOrBelow = false
-            } else {
-                pageFragment.getPageActionsTabLayoutViews().forEach {
-                    if (it.text == getString(PageActionItem.THEME.titleResId) && Prefs.showOneTimeCustomizeToolbarTooltip) {
-                        anchorView = it
-                    }
-                }
-            }
-            anchorView?.postDelayed({
-                FeedbackUtil.showTooltip(this, anchorView!!, StringUtil.fromHtml(getString(string.theme_chooser_menu_item_tooltip)), aboveOrBelow = aboveOrBelow, autoDismiss = false)
-            }, 2000)
-            Prefs.showOneTimeCustomizeToolbarTooltip = false
-        }
-    }
-
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         if (!isDestroyed) {
             binding.pageToolbarButtonTabs.updateTabCount(false)
@@ -670,7 +644,32 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
                 }
+            } else {
+                maybeShowThemeToolTip()
             }
+        }
+    }
+
+    private fun maybeShowThemeToolTip() {
+        if (Prefs.showOneTimeCustomizeToolbarTooltip) {
+            var anchorView: View? = null
+            var aboveOrBelow = true
+            if (Prefs.customizeFavoritesMenuOrder.contains(PageActionItem.THEME.id)) {
+                anchorView = binding.pageToolbarButtonShowOverflowMenu
+                aboveOrBelow = false
+            } else {
+                pageFragment.getPageActionsTabLayoutViews().forEach {
+                    if (it.text == getString(PageActionItem.THEME.titleResId) && Prefs.showOneTimeCustomizeToolbarTooltip) {
+                        anchorView = it
+                    }
+                }
+            }
+            anchorView?.let {
+                it.postDelayed({
+                    FeedbackUtil.showTooltip(this, anchorView!!, StringUtil.fromHtml(getString(string.theme_chooser_menu_item_tooltip)), aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
+                }, 2000)
+            }
+            Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
     }
 
