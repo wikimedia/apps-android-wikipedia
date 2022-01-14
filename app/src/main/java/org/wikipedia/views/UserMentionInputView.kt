@@ -19,7 +19,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewUserMentionInputBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.Namespace
-import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.StringUtil
 import java.util.concurrent.TimeUnit
 
@@ -70,8 +69,8 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
         if (userNamePrefix.startsWith("@") && userNamePrefix.length > 1) {
             userNamePrefix = userNamePrefix.substring(1)
         }
-        if (userNamePrefix.length > 1) {
-            searchForUserName(UserAliasData.valueFor(wikiSite.languageCode) + ":" + userNamePrefix)
+        if (userNamePrefix.isNotEmpty()) {
+            searchForUserName(userNamePrefix)
         }
     }
 
@@ -89,11 +88,21 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
                     userNameList.clear()
+
+                    userNameHints.forEach {
+                        if (it.startsWith(prefix, ignoreCase = true)) {
+                            userNameList.add(it)
+                        }
+                    }
+
                     response.query?.pages?.sortBy { it.index }
                     response.query?.pages?.forEach {
                         // ignore subpages of user pages
                         if (!it.title.contains('/')) {
-                            userNameList.add(StringUtil.removeNamespace(it.title))
+                            val name = StringUtil.removeNamespace(it.title)
+                            if (!userNameList.contains(name)) {
+                                userNameList.add(name)
+                            }
                         }
                     }
                     onSearchResults()

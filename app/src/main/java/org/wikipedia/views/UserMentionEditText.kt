@@ -67,7 +67,8 @@ class UserMentionEditText : PlainPasteEditText {
             return
         }
         if (isEnteringUserName) {
-            if (selStart < userNameStartPos || selEnd > userNameEndPos) {
+            if ((selStart < userNameStartPos || selEnd > userNameEndPos) ||
+                    (userNameEndPos > text!!.length)) {
                 onCancelUserNameEntry()
                 return
             }
