@@ -535,7 +535,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     override fun onUserMentionListUpdate() {
-        binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height)
+        binding.talkScrollContainer.post {
+            if (!isDestroyed) {
+                binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height)
+            }
+        }
     }
 
     companion object {
