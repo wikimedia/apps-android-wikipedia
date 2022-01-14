@@ -67,6 +67,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
     private var revisionForUndo: Long = 0
+    private var userMentionScrolled = false
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler.onUrlClick(url, null, "")
     }
@@ -536,10 +537,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onUserMentionListUpdate() {
         binding.talkScrollContainer.post {
-            if (!isDestroyed) {
-                binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height)
+            if (!isDestroyed && !userMentionScrolled) {
+                binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 2)
+                userMentionScrolled = true
             }
         }
+    }
+
+    override fun onUserMentionComplete() {
+        userMentionScrolled = false
     }
 
     companion object {
