@@ -55,6 +55,13 @@ interface Service {
         @Query("gsroffset") gsrOffset: String?
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&generator=prefixsearch&")
+    fun prefixSearchMinimal(
+            @Query("gpssearch") title: String?,
+            @Query("gpsnamespace") namespace: Int,
+            @Query("gpslimit") maxResults: Int
+    ): Observable<PrefixSearchResponse>
+
     // ------- Miscellaneous -------
 
     @get:GET(MW_API_PREFIX + "action=fancycaptchareload")
