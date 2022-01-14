@@ -809,7 +809,7 @@
 
     <!-- Customize quick actions -->
     <string name="customize_quick_actions_title">Customize quick actions</string>
-    <string name="customize_quick_actions_description">Customize your bottom toolbar links to your favorite Wikipedia actions and destinations.</string>
+    <string name="customize_quick_actions_description">Customize your bottom navigation toolbar with the actions and destinations you find most helpful.</string>
     <string name="customize_quick_actions_category_quick_actions">Quick actions</string>
     <string name="customize_quick_actions_category_menu">Menu</string>
     <string name="customize_quick_actions_drag_and_drop_placeholder">Drag and drop your favorite items here 👋</string>
@@ -1128,11 +1128,13 @@
     <string name="talk_snackbar_survey_action_text">Get started</string>
     <string name="talk_share_discussion_subject">Wikipedia - discussion on talk page topic \"%s\"</string>
     <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
+    <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a>]]></string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>
+    <string name="menu_option_edit_source">Edit source</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
     <string name="watchlist_details_next_edit">Next edit</string>

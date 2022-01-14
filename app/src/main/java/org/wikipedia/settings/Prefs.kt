@@ -570,4 +570,8 @@ object Prefs {
     var showOneTimeCustomizeToolbarTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_customize_toolbar_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_customize_toolbar_tooltip, value)
+
+    var showEditTalkPageSourcePrompt
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_edit_talk_page_source_prompt, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_edit_talk_page_source_prompt, value)
 }
