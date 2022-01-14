@@ -11,21 +11,21 @@ import org.wikipedia.settings.Prefs
 @Serializable
 @SerialName("/analytics/mobile_apps/android_customize_toolbar_interaction/1.0.0")
 class CustomizeToolbarEvent : TimedEvent(STREAM_NAME) {
-    private var is_anon: Boolean? = null
-    private var is_rfm_enabled: Boolean? = null
+    @SerialName("is_anon") private var isAnon: Boolean? = null
+    @SerialName("is_rfm_enabled") private var isRfmEnabled: Boolean? = null
+    @SerialName("favorites_order") private var favoritesOrder: List<Int> = emptyList()
+    @SerialName("menu_order") private var menuOrder: List<Int> = emptyList()
+    @SerialName("time_spent_ms") private var timeSpentMs: Int = 0
     private var source: String = ""
-    private var favorites_order: List<Int> = emptyList()
-    private var menu_order: List<Int> = emptyList()
-    private var time_spent_ms: Int = 0
 
     fun logCustomization(favoritesOrder: List<Int>, menuOrder: List<Int>) {
-        is_anon = !AccountUtil.isLoggedIn
-        is_rfm_enabled = Prefs.readingFocusModeEnabled
+        this.isAnon = !AccountUtil.isLoggedIn
+        this.isRfmEnabled = Prefs.readingFocusModeEnabled
         this.source = if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id))
             InvokeSource.PAGE_OVERFLOW_MENU.value else InvokeSource.PAGE_ACTION_TAB.value
-        this.favorites_order = favoritesOrder
-        this.menu_order = menuOrder
-        time_spent_ms = duration.toInt()
+        this.favoritesOrder = favoritesOrder
+        this.menuOrder = menuOrder
+        this.timeSpentMs = duration.toInt()
         EventPlatformClient.submit(this)
     }
 
