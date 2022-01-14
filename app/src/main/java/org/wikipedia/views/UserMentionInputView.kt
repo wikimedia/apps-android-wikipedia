@@ -11,18 +11,22 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewUserMentionInputBinding
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.page.Namespace
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.StringUtil
+import java.util.concurrent.TimeUnit
 
 class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     interface Listener {
         fun onUserMentionListUpdate()
+        fun onUserMentionComplete()
     }
 
     constructor(context: Context) : super(context)
@@ -37,6 +41,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     private val binding = ViewUserMentionInputBinding.inflate(LayoutInflater.from(context), this)
     private val disposables = CompositeDisposable()
     private val userNameList = mutableListOf<String>()
+    private var lastSearchTerm = ""
 
     init {
         orientation = VERTICAL
@@ -72,14 +77,23 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
 
     private fun searchForUserName(prefix: String) {
         disposables.clear()
-        disposables.add(ServiceFactory.get(wikiSite).prefixSearch(prefix, 10, prefix)
+        if (prefix == lastSearchTerm) {
+            return
+        }
+        disposables.add(Observable.timer(250, TimeUnit.MILLISECONDS)
+                .flatMap { ServiceFactory.get(wikiSite).prefixSearchMinimal(prefix, Namespace.USER.code(), 10) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
                     userNameList.clear()
+                    response.query?.pages?.sortBy { it.index }
                     response.query?.pages?.forEach {
-                        userNameList.add(StringUtil.removeNamespace(it.title))
+                        // ignore subpages of user pages
+                        if (!it.title.contains('/')) {
+                            userNameList.add(StringUtil.removeNamespace(it.title))
+                        }
                     }
+                    lastSearchTerm = prefix
                     onSearchResults()
                 }, {
                     onSearchError(it)
@@ -109,6 +123,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
 
         override fun onClick(v: View) {
             binding.inputEditText.onCommitUserName(userName)
+            listener?.onUserMentionComplete()
         }
     }
 
