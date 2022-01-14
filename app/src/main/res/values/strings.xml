@@ -382,7 +382,7 @@
     <string name="error_blocked_expiry">Expiration of block: %s</string>
     <string name="error_blocked_id">Block ID: %s</string>
     <string name="error_blocked_footer"><![CDATA[You can contact <a href="%2$s">%1$s</a> or another <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
-    <string name="theme_chooser_menu_item_tooltip"><![CDATA[<b>See what\'s new!</b> \n\n Customize favorites bar and Reading focus mode are now available.]]></string>
+    <string name="theme_chooser_menu_item_tooltip">Customize your toolbar and try reading focus mode</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>

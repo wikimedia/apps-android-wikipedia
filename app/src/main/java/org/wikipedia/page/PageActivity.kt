@@ -666,7 +666,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             }
             anchorView?.let {
                 it.postDelayed({
-                    FeedbackUtil.showTooltip(this, anchorView!!, StringUtil.fromHtml(getString(string.theme_chooser_menu_item_tooltip)), aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
+                    FeedbackUtil.showTooltip(this, anchorView!!, getString(string.theme_chooser_menu_item_tooltip),
+                        aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
                 }, 2000)
             }
             Prefs.showOneTimeCustomizeToolbarTooltip = false
