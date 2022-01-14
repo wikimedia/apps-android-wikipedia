@@ -37,6 +37,7 @@ class CustomizeToolbarItemView : LinearLayout {
 
     @SuppressLint("ClickableViewAccessibility")
     fun setDragHandleTouchListener(listener: OnTouchListener?) {
+        binding.listItem.setOnTouchListener(listener)
         binding.dragHandle.setOnTouchListener(listener)
     }
 }
