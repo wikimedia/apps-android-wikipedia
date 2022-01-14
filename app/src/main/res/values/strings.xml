@@ -419,6 +419,8 @@
     <string name="theme_category_reading">Reading</string>
     <string name="reading_focus_mode">Reading focus mode</string>
     <string name="reading_focus_mode_detail">Hides edit features and bottom toolbar on scroll</string>
+    <string name="theme_category_quick_actions">Quick action</string>
+    <string name="theme_customize_quick_actions">Customize quick action</string>
     <!-- /Theme -->
 
     <!-- Reading lists -->

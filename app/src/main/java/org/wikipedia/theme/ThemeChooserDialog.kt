@@ -90,7 +90,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             DeviceUtil.setNavigationBarColor(it, getThemedColor(requireContext(), R.attr.paper_color))
         }
 
-        // TODO: test only
         binding.customizeFavorites.setOnClickListener {
             startActivity(CustomizeQuickActionsActivity.newIntent(requireContext()))
         }

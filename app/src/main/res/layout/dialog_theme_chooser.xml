@@ -230,13 +230,25 @@
                 android:text="@string/theme_chooser_dialog_image_dimming_switch_label"
                 android:textColor="?attr/section_title_color" />
 
-            <!-- TODO: test only -->
-            <Button
-                android:id="@+id/customizeFavorites"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Customize favorites"/>
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/theme_category_quick_actions"
+                android:textColor="?attr/primary_text_color"
+                android:textStyle="bold" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/customizeFavorites"
+                style="@style/ThemeChooserButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/theme_customize_quick_actions"
+                android:textStyle="normal"
+                app:icon="@drawable/ic_chevron_forward_gray"
+                app:iconGravity="end"
+                app:iconTint="?attr/colorAccent" />
         </LinearLayout>
 
     </ScrollView>
