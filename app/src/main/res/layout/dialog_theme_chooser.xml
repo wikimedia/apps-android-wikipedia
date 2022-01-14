@@ -235,7 +235,7 @@
                 android:id="@+id/customizeFavorites"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Customize favorites"/>
+                android:text="Customize toolbar"/>
 
         </LinearLayout>
 

@@ -21,7 +21,7 @@ class CustomizeToolbarEvent : TimedEvent(STREAM_NAME) {
     fun logCustomization(favoritesOrder: List<Int>, menuOrder: List<Int>) {
         is_anon = !AccountUtil.isLoggedIn
         is_rfm_enabled = Prefs.readingFocusModeEnabled
-        this.source = if (Prefs.customizeFavoritesMenuOrder.contains(PageActionItem.THEME.id))
+        this.source = if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id))
             InvokeSource.PAGE_OVERFLOW_MENU.value else InvokeSource.PAGE_ACTION_TAB.value
         this.favorites_order = favoritesOrder
         this.menu_order = menuOrder

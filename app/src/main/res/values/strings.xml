@@ -807,14 +807,14 @@
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
     <!-- /Description editing tutorial -->
 
-    <!-- Customize quick actions -->
-    <string name="customize_quick_actions_title">Customize quick actions</string>
-    <string name="customize_quick_actions_description">Customize your bottom navigation toolbar with the actions and destinations you find most helpful.</string>
-    <string name="customize_quick_actions_category_quick_actions">Quick actions</string>
-    <string name="customize_quick_actions_category_menu">Menu</string>
-    <string name="customize_quick_actions_drag_and_drop_placeholder">Drag and drop your favorite items here 👋</string>
-    <string name="customize_quick_actions_reset_to_default_button">Reset to default</string>
-    <!-- /Customize quick actions -->
+    <!-- Customize toolbar -->
+    <string name="customize_toolbar_title">Customize toolbar</string>
+    <string name="customize_toolbar_description">Customize your bottom navigation toolbar with the actions and destinations you find most helpful.</string>
+    <string name="customize_toolbar_category_toolbar">Toolbar</string>
+    <string name="customize_toolbar_category_menu">Menu</string>
+    <string name="customize_toolbar_drag_and_drop_placeholder">Drag and drop your favorite items here 👋</string>
+    <string name="customize_toolbar_reset_to_default_button">Reset to default</string>
+    <!-- /Customize toolbar -->
 
     <!-- Suggested edits -->
     <string name="suggested_edits_describe_articles">Describe articles</string>

@@ -24,7 +24,7 @@ import org.wikipedia.analytics.AppearanceChangeFunnel
 import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.page.customize.CustomizeQuickActionsActivity
+import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil.getDimension
@@ -92,7 +92,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
         // TODO: test only
         binding.customizeFavorites.setOnClickListener {
-            startActivity(CustomizeQuickActionsActivity.newIntent(requireContext()))
+            startActivity(CustomizeToolbarActivity.newIntent(requireContext()))
         }
 
         disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))

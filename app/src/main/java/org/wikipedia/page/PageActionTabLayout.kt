@@ -18,7 +18,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
 
     fun update() {
         removeAllViews()
-        Prefs.customizeFavoritesQuickActionsOrder.forEach {
+        Prefs.customizeToolbarOrder.forEach {
             val view = ItemQuickActionsTabBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
             val param = LayoutParams(0, LayoutParams.MATCH_PARENT, 1.0f)

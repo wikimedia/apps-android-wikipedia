@@ -14,15 +14,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.CustomizeToolbarEvent
-import org.wikipedia.databinding.FragmentCustomizeQuickActionsBinding
+import org.wikipedia.databinding.FragmentCustomizeToolbarBinding
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.settings.Prefs
 import org.wikipedia.views.DefaultViewHolder
 
-class CustomizeQuickActionsFragment : Fragment() {
-    private var _binding: FragmentCustomizeQuickActionsBinding? = null
+class CustomizeToolbarFragment : Fragment() {
+    private var _binding: FragmentCustomizeToolbarBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: CustomizeQuickActionsViewModel by viewModels()
+    private val viewModel: CustomizeToolbarViewModel by viewModels()
 
     private lateinit var itemTouchHelper: ItemTouchHelper
     private lateinit var adapter: RecyclerItemAdapter
@@ -33,7 +33,7 @@ class CustomizeQuickActionsFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         customizeToolbarEvent = CustomizeToolbarEvent()
         customizeToolbarEvent.start()
-        _binding = FragmentCustomizeQuickActionsBinding.inflate(LayoutInflater.from(context), container, false)
+        _binding = FragmentCustomizeToolbarBinding.inflate(LayoutInflater.from(context), container, false)
         return binding.root
     }
 
@@ -57,7 +57,7 @@ class CustomizeQuickActionsFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        customizeToolbarEvent.logCustomization(Prefs.customizeFavoritesQuickActionsOrder.toMutableList(), Prefs.customizeFavoritesMenuOrder.toMutableList())
+        customizeToolbarEvent.logCustomization(Prefs.customizeToolbarOrder.toMutableList(), Prefs.customizeToolbarMenuOrder.toMutableList())
         _binding = null
         super.onDestroyView()
     }
@@ -84,13 +84,13 @@ class CustomizeQuickActionsFragment : Fragment() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
             return when (viewType) {
                 VIEW_TYPE_HEADER -> {
-                    HeaderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_quick_actions_header, parent, false))
+                    HeaderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_toolbar_header, parent, false))
                 }
                 VIEW_TYPE_EMPTY_PLACEHOLDER -> {
-                    EmptyPlaceholderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_quick_actions_empty_placeholder, parent, false))
+                    EmptyPlaceholderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_toolbar_empty_placeholder, parent, false))
                 }
                 else -> {
-                    ItemHolder(CustomizeQuickActionsItemView(parent.context))
+                    ItemHolder(CustomizeToolbarItemView(parent.context))
                 }
             }
         }
@@ -193,7 +193,7 @@ class CustomizeQuickActionsFragment : Fragment() {
         }
     }
 
-    private inner class ItemHolder constructor(itemView: CustomizeQuickActionsItemView) : DefaultViewHolder<CustomizeQuickActionsItemView>(itemView) {
+    private inner class ItemHolder constructor(itemView: CustomizeToolbarItemView) : DefaultViewHolder<CustomizeToolbarItemView>(itemView) {
         fun bindItem(pageActionItem: PageActionItem, position: Int) {
             view.setContents(pageActionItem, position)
         }
@@ -205,10 +205,10 @@ class CustomizeQuickActionsFragment : Fragment() {
         const val VIEW_TYPE_HEADER = 0
         const val VIEW_TYPE_ITEM = 1
         const val VIEW_TYPE_EMPTY_PLACEHOLDER = 2
-        const val QUICK_ACTIONS_LIMIT = 5
+        const val TOOLBAR_ITEMS_LIMIT = 5
 
-        fun newInstance(): CustomizeQuickActionsFragment {
-            return CustomizeQuickActionsFragment()
+        fun newInstance(): CustomizeToolbarFragment {
+            return CustomizeToolbarFragment()
         }
     }
 }
