@@ -177,6 +177,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
         binding.replySaveButton.visibility = View.VISIBLE
         binding.replyInputView.visibility = View.VISIBLE
+        binding.replyInputView.maybePrepopulateUserName()
+
         binding.licenseText.visibility = View.VISIBLE
         binding.talkScrollContainer.postDelayed({
             if (!isDestroyed) {
@@ -271,6 +273,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkSubjectView.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
         binding.talkSubjectView.visibility = View.VISIBLE
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+        binding.replyInputView.userNameHints = parseUserNamesFromTopic()
 
         maybeShowUndoSnackbar()
     }
@@ -546,6 +549,34 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onUserMentionComplete() {
         userMentionScrolled = false
+    }
+
+    private fun parseUserNamesFromTopic(): Set<String> {
+        val userNames = mutableSetOf<String>()
+        topic?.replies?.forEach {
+            var start = 0
+            val userList = mutableListOf<String>()
+            while (true) {
+                val searchStr = "title=\""
+                start = it.html!!.indexOf(searchStr, startIndex = start)
+                if (start < 0) {
+                    break
+                }
+                start += searchStr.length
+                val end = it.html!!.indexOf("\"", startIndex = start)
+                if (end <= start) {
+                    break
+                }
+                val name = it.html!!.substring(start, end)
+                val title = PageTitle(name, pageTitle.wikiSite)
+                if (title.namespace() == Namespace.USER || title.namespace() == Namespace.USER_TALK) {
+                    userList.add(0, StringUtil.removeUnderscores(title.text))
+                }
+                start = end
+            }
+            userList.forEach { userNames.add(it) }
+        }
+        return userNames
     }
 
     companion object {

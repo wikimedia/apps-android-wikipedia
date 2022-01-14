@@ -37,6 +37,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     val textInputLayout get() = binding.inputTextLayout
     var wikiSite = WikipediaApp.getInstance().wikiSite
     var listener: Listener? = null
+    var userNameHints: Set<String> = emptySet()
 
     private val binding = ViewUserMentionInputBinding.inflate(LayoutInflater.from(context), this)
     private val disposables = CompositeDisposable()
@@ -71,6 +72,12 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
         }
         if (userNamePrefix.length > 1) {
             searchForUserName(UserAliasData.valueFor(wikiSite.languageCode) + ":" + userNamePrefix)
+        }
+    }
+
+    fun maybePrepopulateUserName() {
+        if (binding.inputEditText.text.isNullOrEmpty() && userNameHints.isNotEmpty()) {
+            binding.inputEditText.prepopulateUserName(userNameHints.first())
         }
     }
 

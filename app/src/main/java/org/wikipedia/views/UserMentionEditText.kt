@@ -98,6 +98,18 @@ class UserMentionEditText : PlainPasteEditText {
         listener?.onUserNameChanged(userName)
     }
 
+    fun prepopulateUserName(userName: String) {
+        val sb = SpannableStringBuilder()
+        sb.append("@$userName")
+        val spanEnd = sb.length
+        sb.append(" ")
+        createUserNameSpan(sb, 0, spanEnd)
+        isUserNameCommitting = true
+        text = sb
+        isUserNameCommitting = false
+        setSelection(sb.length)
+    }
+
     fun onCommitUserName(userName: String) {
         try {
             isUserNameCommitting = true
@@ -115,14 +127,18 @@ class UserMentionEditText : PlainPasteEditText {
                 sb.append(text!!.subSequence(userNameEndPos, text!!.length - 1))
             }
 
-            val span = UserColorSpan(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
-            sb.setSpan(span, spanStart, spanEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            createUserNameSpan(sb, spanStart, spanEnd)
             text = sb
             setSelection(spanEnd)
             onCancelUserNameEntry()
         } finally {
             isUserNameCommitting = false
         }
+    }
+
+    private fun createUserNameSpan(spannable: Spannable, start: Int, end: Int) {
+        val span = UserColorSpan(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+        spannable.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
     }
 
     fun getParsedText(wikiSite: WikiSite): String {
