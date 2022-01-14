@@ -41,7 +41,6 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     private val binding = ViewUserMentionInputBinding.inflate(LayoutInflater.from(context), this)
     private val disposables = CompositeDisposable()
     private val userNameList = mutableListOf<String>()
-    private var lastSearchTerm = ""
 
     init {
         orientation = VERTICAL
@@ -77,10 +76,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
 
     private fun searchForUserName(prefix: String) {
         disposables.clear()
-        if (prefix == lastSearchTerm) {
-            return
-        }
-        disposables.add(Observable.timer(250, TimeUnit.MILLISECONDS)
+        disposables.add(Observable.timer(200, TimeUnit.MILLISECONDS)
                 .flatMap { ServiceFactory.get(wikiSite).prefixSearchMinimal(prefix, Namespace.USER.code(), 10) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -93,7 +89,6 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
                             userNameList.add(StringUtil.removeNamespace(it.title))
                         }
                     }
-                    lastSearchTerm = prefix
                     onSearchResults()
                 }, {
                     onSearchError(it)
