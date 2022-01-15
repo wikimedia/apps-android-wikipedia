@@ -8,6 +8,9 @@ import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.*
 import android.widget.TextView
+import androidx.appcompat.view.ActionMode
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,6 +35,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
@@ -45,9 +49,7 @@ import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
-import org.wikipedia.views.DrawableItemDecoration
-import org.wikipedia.views.FooterMarginItemDecoration
-import org.wikipedia.views.NotificationButtonView
+import org.wikipedia.views.*
 import java.util.*
 
 class TalkTopicsActivity : BaseActivity() {
@@ -56,6 +58,8 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var funnel: TalkFunnel
     private lateinit var notificationButtonView: NotificationButtonView
+    private var actionMode: ActionMode? = null
+    private val searchActionModeCallback = SearchCallback()
     private val disposables = CompositeDisposable()
     private val topics = mutableListOf<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
@@ -72,7 +76,7 @@ class TalkTopicsActivity : BaseActivity() {
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
-        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true))
         binding.talkRecyclerView.adapter = TalkTopicItemAdapter()
 
         binding.talkErrorView.backClickListener = View.OnClickListener {
@@ -410,21 +414,92 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<TalkTopicHolder>() {
+    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         override fun getItemCount(): Int {
-            return topics.size
+            return topics.size + 1
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
+        override fun getItemViewType(position: Int): Int {
+            return if (position == 0) ITEM_SEARCH_BAR else ITEM_TOPIC
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
+            if (type == ITEM_SEARCH_BAR) {
+                return TalkTopicSearcherHolder(layoutInflater.inflate(R.layout.view_talk_topic_search_bar, parent, false))
+            }
             return TalkTopicHolder(layoutInflater.inflate(R.layout.item_talk_topic, parent, false))
         }
 
-        override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
-            holder.bindItem(topics[pos])
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
+            if (holder is TalkTopicHolder) {
+                holder.bindItem(topics[pos - 1])
+            }
+        }
+    }
+
+    private inner class TalkTopicSearcherHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+        val talkSortButton: AppCompatImageView = itemView.findViewById(R.id.talk_sort_button)
+
+        init {
+            (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity, R.attr.color_group_22))
+
+            itemView.setOnClickListener {
+                if (actionMode == null) {
+                    actionMode = startSupportActionMode(searchActionModeCallback)
+                }
+            }
+
+            talkSortButton.setOnClickListener {
+                // TODO: show overflow menu
+            }
+
+            FeedbackUtil.setButtonLongPressToast(talkSortButton)
+        }
+    }
+
+    private inner class SearchCallback : SearchActionModeCallback() {
+
+        var searchActionProvider: SearchActionProvider? = null
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            searchActionProvider = SearchActionProvider(this@TalkTopicsActivity, searchHintString,
+                object : SearchActionProvider.Callback {
+                    override fun onQueryTextChange(s: String) {
+                        onQueryChange(s)
+                    }
+
+                    override fun onQueryTextFocusChange() {
+                    }
+                })
+
+            val menuItem = menu.add(searchHintString)
+
+            MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
+
+            actionMode = mode
+            return super.onCreateActionMode(mode, menu)
+        }
+
+        override fun onQueryChange(s: String) {
+            // TODO: update list
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode) {
+            super.onDestroyActionMode(mode)
+            actionMode = null
+        }
+
+        override fun getSearchHintString(): String {
+            return getString(R.string.notifications_search)
+        }
+
+        override fun getParentContext(): Context {
+            return this@TalkTopicsActivity
         }
     }
 
     companion object {
+        private const val ITEM_SEARCH_BAR = 0
+        private const val ITEM_TOPIC = 1
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
         private const val MAX_CHARS_NO_SUBJECT = 100
