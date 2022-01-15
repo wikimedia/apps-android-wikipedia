@@ -1300,7 +1300,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     inner class PageActionItemCallback : PageActionItem.Callback {
         override fun onSaveSelected() {
             if (model.isInReadingList) {
-                val anchor = if (Prefs.customizeFavoritesQuickActionsOrder.contains(PageActionItem.SAVE.id))
+                val anchor = if (Prefs.customizeToolbarOrder.contains(PageActionItem.SAVE.id))
                     binding.pageActionsTabLayout else (requireActivity() as PageActivity).getOverflowMenu()
                 LongPressMenu(anchor, object : LongPressMenu.Callback {
                     override fun onOpenLink(entry: HistoryEntry) { }

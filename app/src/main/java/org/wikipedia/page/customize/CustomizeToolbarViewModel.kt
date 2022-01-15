@@ -6,9 +6,9 @@ import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.settings.Prefs
 import java.util.*
 
-class CustomizeQuickActionsViewModel : ViewModel() {
+class CustomizeToolbarViewModel : ViewModel() {
 
-    private var quickActionsOrder = mutableListOf<Int>()
+    private var toolbarOrder = mutableListOf<Int>()
     private var menuOrder = mutableListOf<Int>()
 
     // List that contains header, empty placeholder and actual items.
@@ -16,75 +16,75 @@ class CustomizeQuickActionsViewModel : ViewModel() {
         private set
 
     init {
-        setupDefaultOrder(Prefs.customizeFavoritesMenuOrder.isEmpty() && Prefs.customizeFavoritesQuickActionsOrder.isEmpty())
+        setupDefaultOrder(Prefs.customizeToolbarMenuOrder.isEmpty() && Prefs.customizeToolbarOrder.isEmpty())
         preProcessList()
     }
 
     private fun setupDefaultOrder(default: Boolean) {
         if (default) {
-            Prefs.customizeFavoritesQuickActionsOrder = listOf(0, 1, 2, 3, 4)
-            Prefs.customizeFavoritesMenuOrder = listOf(5, 6, 7, 8, 9, 10)
+            Prefs.customizeToolbarOrder = listOf(0, 1, 2, 3, 4)
+            Prefs.customizeToolbarMenuOrder = listOf(5, 6, 7, 8, 9, 10)
         }
-        quickActionsOrder = Prefs.customizeFavoritesQuickActionsOrder.toMutableList()
-        menuOrder = Prefs.customizeFavoritesMenuOrder.toMutableList()
+        toolbarOrder = Prefs.customizeToolbarOrder.toMutableList()
+        menuOrder = Prefs.customizeToolbarMenuOrder.toMutableList()
     }
 
     private fun preProcessList() {
         fullList.clear()
-        // Quick actions
+        // Toolbar
         fullList.add(headerPair(true))
-        fullList.addAll(addItemsOrEmptyPlaceholder(quickActionsOrder, true))
+        fullList.addAll(addItemsOrEmptyPlaceholder(toolbarOrder, true))
         // Menu
         fullList.add(headerPair(false))
         fullList.addAll(addItemsOrEmptyPlaceholder(menuOrder, false))
     }
 
-    private fun addItemsOrEmptyPlaceholder(list: List<Int>, quickActions: Boolean): List<Pair<Int, Any>> {
+    private fun addItemsOrEmptyPlaceholder(list: List<Int>, toolbar: Boolean): List<Pair<Int, Any>> {
         return if (list.isEmpty()) {
-            listOf(emptyPlaceholderPair(quickActions))
+            listOf(emptyPlaceholderPair(toolbar))
         } else {
-            list.map { CustomizeQuickActionsFragment.VIEW_TYPE_ITEM to PageActionItem.find(it) }
+            list.map { CustomizeToolbarFragment.VIEW_TYPE_ITEM to PageActionItem.find(it) }
         }
     }
 
-    private fun headerPair(quickActions: Boolean): Pair<Int, Any> {
-        return CustomizeQuickActionsFragment.VIEW_TYPE_HEADER to
-                if (quickActions) R.string.customize_quick_actions_category_quick_actions else R.string.customize_quick_actions_category_menu
+    private fun headerPair(isToolbar: Boolean): Pair<Int, Any> {
+        return CustomizeToolbarFragment.VIEW_TYPE_HEADER to
+                if (isToolbar) R.string.customize_toolbar_category_toolbar else R.string.customize_toolbar_category_menu
     }
 
-    private fun emptyPlaceholderPair(quickActions: Boolean): Pair<Int, Any> {
-        return CustomizeQuickActionsFragment.VIEW_TYPE_EMPTY_PLACEHOLDER to quickActions
+    private fun emptyPlaceholderPair(isToolbar: Boolean): Pair<Int, Any> {
+        return CustomizeToolbarFragment.VIEW_TYPE_EMPTY_PLACEHOLDER to isToolbar
     }
 
     private fun collectCategoriesItems(): Pair<MutableList<Int>, MutableList<Int>> {
-        var saveIntoQuickActions = true
-        val quickActionsItems = mutableListOf<Int>()
+        var saveIntoToolbar = true
+        val toolbarItems = mutableListOf<Int>()
         val menuItems = mutableListOf<Int>()
-        fullList.filterNot { it.first == CustomizeQuickActionsFragment.VIEW_TYPE_EMPTY_PLACEHOLDER }.forEach {
+        fullList.filterNot { it.first == CustomizeToolbarFragment.VIEW_TYPE_EMPTY_PLACEHOLDER }.forEach {
             if (it == headerPair(false)) {
-                saveIntoQuickActions = false
+                saveIntoToolbar = false
             }
-            if (it.first == CustomizeQuickActionsFragment.VIEW_TYPE_ITEM) {
-                if (saveIntoQuickActions) {
-                    quickActionsItems.add((it.second as PageActionItem).id)
+            if (it.first == CustomizeToolbarFragment.VIEW_TYPE_ITEM) {
+                if (saveIntoToolbar) {
+                    toolbarItems.add((it.second as PageActionItem).id)
                 } else {
                     menuItems.add((it.second as PageActionItem).id)
                 }
             }
         }
-        return quickActionsItems to menuItems
+        return toolbarItems to menuItems
     }
 
-    // First: Quick actions; Second: Menu
+    // First: toolbar; Second: Menu
     private fun handleCategoryLimitation(pair: Pair<MutableList<Int>, MutableList<Int>>): List<Int> {
         val list = mutableListOf<Int>()
         // To avoid seeing the bug from the library, we have to use a while loop to manually swap items.
-        while (pair.first.size > CustomizeQuickActionsFragment.QUICK_ACTIONS_LIMIT) {
+        while (pair.first.size > CustomizeToolbarFragment.TOOLBAR_ITEMS_LIMIT) {
             // Last item swap with "Menu" header
             swapList(pair.first.size, pair.first.size + 1)
             // Add swapped item to list
             list.add(pair.first.size)
-            // Add to "Menu" order list and remove the last item of Quick actions
+            // Add to "Menu" order list and remove the last item of toolbar
             pair.second.add(0, pair.first.removeLast())
         }
         return list
@@ -100,10 +100,10 @@ class CustomizeQuickActionsViewModel : ViewModel() {
         val pair = collectCategoriesItems()
         val rearrangedItems = handleCategoryLimitation(pair)
 
-        quickActionsOrder = pair.first
+        toolbarOrder = pair.first
         menuOrder = pair.second
-        Prefs.customizeFavoritesQuickActionsOrder = quickActionsOrder
-        Prefs.customizeFavoritesMenuOrder = menuOrder
+        Prefs.customizeToolbarOrder = toolbarOrder
+        Prefs.customizeToolbarMenuOrder = menuOrder
 
         return rearrangedItems
     }
@@ -113,7 +113,7 @@ class CustomizeQuickActionsViewModel : ViewModel() {
     }
 
     fun addEmptyPlaceholder(): Int {
-        if (quickActionsOrder.isEmpty() && !fullList.contains(emptyPlaceholderPair(true))) {
+        if (toolbarOrder.isEmpty() && !fullList.contains(emptyPlaceholderPair(true))) {
             fullList.add(1, emptyPlaceholderPair(true))
             return 1
         }
@@ -125,7 +125,7 @@ class CustomizeQuickActionsViewModel : ViewModel() {
     }
 
     fun removeEmptyPlaceholder(): Int {
-        if (quickActionsOrder.isNotEmpty() && fullList.contains(emptyPlaceholderPair(true))) {
+        if (toolbarOrder.isNotEmpty() && fullList.contains(emptyPlaceholderPair(true))) {
             val index = fullList.indexOf(emptyPlaceholderPair(true))
             fullList.removeAt(index)
             return index

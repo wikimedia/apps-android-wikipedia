@@ -290,8 +290,8 @@
             android:theme="@style/AppTheme.ActionBar"  />
 
         <activity
-            android:name=".page.customize.CustomizeQuickActionsActivity"
-            android:label="@string/customize_quick_actions_title"
+            android:name=".page.customize.CustomizeToolbarActivity"
+            android:label="@string/customize_toolbar_title"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity

@@ -31,7 +31,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             dismissPopupWindowHost()
             callback.forwardClick()
         }
-        Prefs.customizeFavoritesMenuOrder.forEach {
+        Prefs.customizeToolbarMenuOrder.forEach {
             val view = ItemQuickActionsMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
             view.id = item.hashCode()

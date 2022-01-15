@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="@string/customize_quick_actions_description"
+            android:text="@string/customize_toolbar_description"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
             android:lineSpacingMultiplier="1.12"/>
@@ -32,7 +32,7 @@
             android:lineSpacingExtra="8sp"
             android:letterSpacing="0.04"
             android:padding="16dp"
-            android:text="@string/customize_quick_actions_reset_to_default_button"
+            android:text="@string/customize_toolbar_reset_to_default_button"
             android:textAllCaps="true"
             android:textColor="?colorAccent"
             android:textSize="14sp"
