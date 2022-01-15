@@ -654,7 +654,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (Prefs.showOneTimeCustomizeToolbarTooltip) {
             var anchorView: View? = null
             var aboveOrBelow = true
-            if (Prefs.customizeFavoritesMenuOrder.contains(PageActionItem.THEME.id)) {
+            if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
                 anchorView = binding.pageToolbarButtonShowOverflowMenu
                 aboveOrBelow = false
             } else {
