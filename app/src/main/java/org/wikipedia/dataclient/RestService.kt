@@ -36,6 +36,22 @@ interface RestService {
         @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
     ): Observable<Response<PageSummary>>
 
+    /**
+     * Gets a page summary for a given title -- for link previews
+     *
+     * @param title the page title to be used including prefix
+     */
+    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
+    @GET("page/summary/{title}")
+    suspend fun getSummaryResponseSuspend(
+        @Path("title") title: String,
+        @Header("Referer") referrerUrl: String?,
+        @Header("Cache-Control") cacheControl: String?,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
+    ): Response<PageSummary>
+
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
     fun getSummary(
@@ -69,14 +85,14 @@ interface RestService {
     ): Observable<MediaList>
 
     @GET("page/media-list/{title}/{revision}")
-    fun getMediaListResponse(
+    suspend fun getMediaListResponse(
         @Path("title") title: String?,
         @Path("revision") revision: Long,
         @Header("Cache-Control") cacheControl: String?,
         @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
         @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
         @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
-    ): Observable<Response<MediaList>>
+    ): Response<MediaList>
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     fun getOnThisDay(@Path("mm") month: Int, @Path("dd") day: Int): Observable<OnThisDay>

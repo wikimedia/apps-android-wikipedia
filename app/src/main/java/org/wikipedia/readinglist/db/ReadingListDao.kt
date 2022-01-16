@@ -15,10 +15,10 @@ interface ReadingListDao {
     fun insertReadingList(list: ReadingList): Long
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateReadingList(list: ReadingList)
+    suspend fun updateReadingList(list: ReadingList)
 
     @Delete
-    fun deleteReadingList(list: ReadingList)
+    suspend fun deleteReadingList(list: ReadingList)
 
     @Query("SELECT * FROM ReadingList")
     fun getListsWithoutContents(): List<ReadingList>
@@ -54,11 +54,11 @@ interface ReadingListDao {
         return lists
     }
 
-    fun updateList(list: ReadingList, queueForSync: Boolean) {
+    suspend fun updateList(list: ReadingList, queueForSync: Boolean) {
         updateLists(listOf(list), queueForSync)
     }
 
-    fun updateLists(lists: List<ReadingList>, queueForSync: Boolean) {
+    suspend fun updateLists(lists: List<ReadingList>, queueForSync: Boolean) {
         for (list in lists) {
             if (queueForSync) {
                 list.dirty = true
@@ -71,7 +71,7 @@ interface ReadingListDao {
         }
     }
 
-    fun deleteList(list: ReadingList, queueForSync: Boolean = true) {
+    suspend fun deleteList(list: ReadingList, queueForSync: Boolean = true) {
         if (list.isDefault) {
             L.w("Attempted to delete the default list.")
             return
@@ -105,6 +105,13 @@ interface ReadingListDao {
             return defaultList
         }
         return createNewList(title, description)
+    }
+
+    suspend fun getDefaultList(): ReadingList {
+        return getListsWithoutContents().find { it.isDefault } ?: run {
+            L.w("(Re)creating default list.")
+            createNewList("", WikipediaApp.getInstance().getString(R.string.default_reading_list_description))
+        }
     }
 
     val defaultList: ReadingList

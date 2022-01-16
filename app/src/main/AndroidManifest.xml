@@ -359,10 +359,6 @@
 
         </service>
 
-        <service
-            android:name=".savedpages.SavedPageSyncService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-
         <receiver android:name=".savedpages.SavedPageSyncNotification" />
 
         <service

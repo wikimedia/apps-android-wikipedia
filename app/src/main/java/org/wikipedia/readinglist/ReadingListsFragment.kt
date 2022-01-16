@@ -8,14 +8,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -427,10 +428,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 val title = ReadingListPage.toPageTitle(it)
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 it.touch()
-                Completable.fromAction {
+                lifecycleScope.launch(Dispatchers.IO) {
                     AppDatabase.getAppDatabase().readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
                     AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(it)
-                }.subscribeOn(Schedulers.io()).subscribe()
+                }
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
         }

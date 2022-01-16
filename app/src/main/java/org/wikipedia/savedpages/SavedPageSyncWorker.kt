@@ -1,10 +1,9 @@
 package org.wikipedia.savedpages
 
-import android.content.Intent
-import androidx.core.app.JobIntentService
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import android.content.Context
+import androidx.work.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import okhttp3.Request
 import okio.Buffer
 import okio.Sink
@@ -16,8 +15,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
-import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK
-import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.gallery.MediaList
@@ -32,23 +30,35 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar
 import retrofit2.Response
 import java.io.IOException
+import java.util.concurrent.TimeUnit
 
-class SavedPageSyncService : JobIntentService() {
+class SavedPageSyncWorker(
+    appContext: Context,
+    params: WorkerParameters
+) : CoroutineWorker(appContext, params) {
     private val savedPageSyncNotification = SavedPageSyncNotification.instance
-    val app: WikipediaApp = WikipediaApp.getInstance()
+    private val app = appContext as WikipediaApp
 
-    override fun onHandleWork(intent: Intent) {
+    override suspend fun doWork(): Result {
         if (ReadingListSyncAdapter.inProgress()) {
             // Reading list sync was started in the meantime, so bail.
-            return
+            return Result.failure()
         }
-        val pagesToSave = AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeForcedSave.toMutableList()
-        if ((!Prefs.isDownloadOnlyOverWiFiEnabled || DeviceUtil.isOnWiFi) &&
-                Prefs.isDownloadingReadingListArticlesEnabled) {
-            pagesToSave.addAll(AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeSaved)
+        val pagesToSave = withContext(Dispatchers.IO) {
+            AppDatabase.getAppDatabase().readingListPageDao().getAllPagesToBeForcedSave().toMutableList()
         }
-        val pagesToUnSave = AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeUnsaved
-        val pagesToDelete = AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeDeleted
+        if ((!Prefs.isDownloadOnlyOverWiFiEnabled || DeviceUtil.isOnWiFi) && Prefs.isDownloadingReadingListArticlesEnabled) {
+            val pagesToBeSaved = withContext(Dispatchers.IO) {
+                AppDatabase.getAppDatabase().readingListPageDao().getAllPagesToBeSaved()
+            }
+            pagesToSave.addAll(pagesToBeSaved)
+        }
+        val pagesToUnSave = withContext(Dispatchers.IO) {
+            AppDatabase.getAppDatabase().readingListPageDao().getAllPagesToBeUnsaved()
+        }
+        val pagesToDelete = withContext(Dispatchers.IO) {
+            AppDatabase.getAppDatabase().readingListPageDao().getAllPagesToBeDeleted()
+        }
         var shouldSendSyncEvent = false
         try {
             for (page in pagesToDelete) {
@@ -61,11 +71,15 @@ class SavedPageSyncService : JobIntentService() {
             L.e("Error while deleting page: " + e.message)
         } finally {
             if (pagesToDelete.isNotEmpty()) {
-                AppDatabase.getAppDatabase().readingListPageDao().purgeDeletedPages()
+                withContext(Dispatchers.IO) {
+                    AppDatabase.getAppDatabase().readingListPageDao().purgeDeletedPages()
+                }
                 shouldSendSyncEvent = true
             }
             if (pagesToUnSave.isNotEmpty()) {
-                AppDatabase.getAppDatabase().readingListPageDao().resetUnsavedPageStatus()
+                withContext(Dispatchers.IO) {
+                    AppDatabase.getAppDatabase().readingListPageDao().resetUnsavedPageStatus()
+                }
                 shouldSendSyncEvent = true
             }
         }
@@ -87,18 +101,23 @@ class SavedPageSyncService : JobIntentService() {
                 }
             }
         }.also { itemsSaved = it }
+        return Result.success()
     }
 
-    private fun deletePageContents(page: ReadingListPage) {
-        Completable.fromAction { AppDatabase.getAppDatabase().offlineObjectDao().deleteObjectsForPageId(page.id) }.subscribeOn(Schedulers.io())
-                .subscribe({}) { obj -> L.e(obj) }
+    private suspend fun deletePageContents(page: ReadingListPage) {
+        try {
+            withContext(Dispatchers.IO) {
+                AppDatabase.getAppDatabase().offlineObjectDao().deleteObjectsForPageId(page.id)
+            }
+        } catch (t: Throwable) {
+            L.e(t)
+        }
     }
 
-    private fun savePages(queue: MutableList<ReadingListPage>): Int {
+    private suspend fun savePages(queue: MutableList<ReadingListPage>): Int {
         val itemsTotal = queue.size
         var itemsSaved = 0
         while (queue.isNotEmpty()) {
-
             // Pick off the DB row that we'll be working on...
             val page = queue.removeAt(0)
             if (savedPageSyncNotification.isSyncPaused()) {
@@ -107,7 +126,10 @@ class SavedPageSyncService : JobIntentService() {
             } else if (savedPageSyncNotification.isSyncCanceled()) {
                 // Mark remaining pages as online-only!
                 queue.add(page)
-                AppDatabase.getAppDatabase().readingListPageDao().markPagesForOffline(queue, offline = false, forcedSave = false)
+                withContext(Dispatchers.IO) {
+                    AppDatabase.getAppDatabase().readingListPageDao()
+                        .markPagesForOffline(queue, offline = false, forcedSave = false)
+                }
                 break
             }
             savedPageSyncNotification.setNotificationProgress(applicationContext, itemsTotal, itemsSaved)
@@ -115,7 +137,7 @@ class SavedPageSyncService : JobIntentService() {
             var totalSize = 0L
             try {
                 // Lengthy operation during which the db state may change...
-                totalSize = savePageFor(page)
+                totalSize = withContext(Dispatchers.IO) { savePageFor(page) }
                 success = true
             } catch (e: InterruptedException) {
                 // fall through
@@ -144,7 +166,9 @@ class SavedPageSyncService : JobIntentService() {
             if (success) {
                 page.status = ReadingListPage.STATUS_SAVED
                 page.sizeBytes = totalSize
-                AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(page)
+                withContext(Dispatchers.IO) {
+                    AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(page)
+                }
                 itemsSaved++
                 sendSyncEvent()
             }
@@ -153,99 +177,87 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     @Throws(Exception::class)
-    private fun savePageFor(page: ReadingListPage): Long {
+    private suspend fun savePageFor(page: ReadingListPage): Long {
         val pageTitle = ReadingListPage.toPageTitle(page)
-        var pageSize = 0L
-        var exception: Exception? = null
-        reqPageSummary(pageTitle)
-                .flatMap { rsp ->
-                    val revision = if (rsp.body() != null) rsp.body()!!.revision else 0
-                    Observable.zip(Observable.just(rsp),
-                            reqMediaList(pageTitle, revision),
-                            reqMobileHTML(pageTitle)) { summaryRsp, mediaListRsp, mobileHTMLRsp ->
-                        page.downloadProgress = SUMMARY_PROGRESS
-                        app.bus.post(PageDownloadEvent(page))
-                        page.downloadProgress = MOBILE_HTML_SECTION_PROGRESS
-                        app.bus.post(PageDownloadEvent(page))
-                        page.downloadProgress = MEDIA_LIST_PROGRESS
-                        app.bus.post(PageDownloadEvent(page))
-                        val fileUrls = mutableSetOf<String>()
 
-                        // download css and javascript assets
-                        mobileHTMLRsp.body?.let {
-                            fileUrls.addAll(PageComponentsUrlParser.parse(it.string(),
-                                    pageTitle.wikiSite).filter { url -> url.isNotEmpty() })
-                        }
-                        if (Prefs.isImageDownloadEnabled) {
-                            // download thumbnail and lead image
-                            if (!summaryRsp.body()!!.thumbnailUrl.isNullOrEmpty()) {
-                                page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite,
-                                        summaryRsp.body()!!.thumbnailUrl!!)
-                                persistPageThumbnail(pageTitle, page.thumbUrl!!)
-                                fileUrls.add(UriUtil.resolveProtocolRelativeUrl(
-                                        ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl!!, DimenUtil.calculateLeadImageWidth())))
-                            }
+        try {
+            val summaryRsp = reqPageSummary(pageTitle)
+            val revision = summaryRsp.body()?.revision ?: 0
+            val mediaListRsp = reqMediaList(pageTitle, revision)
+            val mobileHTMLRsp = reqMobileHTML(pageTitle)
 
-                            // download article images
-                            for (item in mediaListRsp.body()!!.getItems("image")) {
-                                item.srcSets.let {
-                                    fileUrls.add(item.getImageUrl(DimenUtil.densityScalar))
-                                }
-                            }
-                        }
-                        page.displayTitle = summaryRsp.body()!!.displayTitle
-                        page.description = summaryRsp.body()!!.description
-                        reqSaveFiles(page, pageTitle, fileUrls)
-                        val totalSize = AppDatabase.getAppDatabase().offlineObjectDao().getTotalBytesForPageId(page.id)
-                        L.i("Saved page " + pageTitle.prefixedText + " (" + totalSize + ")")
-                        totalSize
+            page.downloadProgress = SUMMARY_PROGRESS
+            app.bus.post(PageDownloadEvent(page))
+            page.downloadProgress = MOBILE_HTML_SECTION_PROGRESS
+            app.bus.post(PageDownloadEvent(page))
+            page.downloadProgress = MEDIA_LIST_PROGRESS
+            app.bus.post(PageDownloadEvent(page))
+            val fileUrls = mutableSetOf<String>()
+
+            // download css and javascript assets
+            mobileHTMLRsp.body?.let {
+                fileUrls.addAll(
+                    PageComponentsUrlParser.parse(it.string(), pageTitle.wikiSite).filter { url -> url.isNotEmpty() }
+                )
+            }
+            if (Prefs.isImageDownloadEnabled) {
+                // download thumbnail and lead image
+                val thumbnailUrl = summaryRsp.body()!!.thumbnailUrl
+                if (!thumbnailUrl.isNullOrEmpty()) {
+                    page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, thumbnailUrl)
+                    AppDatabase.getAppDatabase().pageImagesDao().insertPageImage(PageImage(pageTitle, page.thumbUrl!!))
+                    fileUrls.add(
+                        UriUtil.resolveProtocolRelativeUrl(
+                            ImageUrlUtil.getUrlForPreferredSize(
+                                page.thumbUrl!!,
+                                DimenUtil.calculateLeadImageWidth()
+                            )
+                        )
+                    )
+                }
+
+                // download article images
+                for (item in mediaListRsp.body()!!.getItems("image")) {
+                    item.srcSets.let {
+                        fileUrls.add(item.getImageUrl(DimenUtil.densityScalar))
                     }
                 }
-                .subscribeOn(Schedulers.io())
-                .blockingSubscribe({ size -> pageSize = size }) { t -> exception = t as Exception }
-
-        exception?.let {
-            throw it
-        }
-
-        return pageSize
-    }
-
-    private fun reqPageSummary(pageTitle: PageTitle): Observable<Response<PageSummary>> {
-        return ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText,
-                null, CACHE_CONTROL_FORCE_NETWORK.toString(),
-                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,
-                UriUtil.encodeURL(pageTitle.prefixedText))
-    }
-
-    private fun reqMediaList(pageTitle: PageTitle, revision: Long): Observable<Response<MediaList>> {
-        return ServiceFactory.getRest(pageTitle.wikiSite).getMediaListResponse(pageTitle.prefixedText,
-                revision, CACHE_CONTROL_FORCE_NETWORK.toString(),
-                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,
-                UriUtil.encodeURL(pageTitle.prefixedText))
-    }
-
-    private fun reqMobileHTML(pageTitle: PageTitle): Observable<okhttp3.Response> {
-        val request: Request = makeUrlRequest(pageTitle.wikiSite,
-                ServiceFactory.getRestBasePath(pageTitle.wikiSite) +
-                        RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText),
-                pageTitle).build()
-        return Observable.create { emitter ->
-            try {
-                if (!emitter.isDisposed) {
-                    emitter.onNext(client.newCall(request).execute())
-                    emitter.onComplete()
-                }
-            } catch (e: Exception) {
-                if (!emitter.isDisposed) {
-                    emitter.onError(e)
-                }
             }
+            page.displayTitle = summaryRsp.body()!!.displayTitle
+            page.description = summaryRsp.body()!!.description
+            reqSaveFiles(page, pageTitle, fileUrls)
+            val totalSize = AppDatabase.getAppDatabase().offlineObjectDao().getTotalBytesForPageId(page.id)
+            L.i("Saved page " + pageTitle.prefixedText + " ($totalSize)")
+            return totalSize
+        } catch (t: Throwable) {
+            throw t
         }
+    }
+
+    private suspend fun reqPageSummary(pageTitle: PageTitle): Response<PageSummary> {
+        return ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponseSuspend(pageTitle.prefixedText,
+            null, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(),
+            OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,
+            UriUtil.encodeURL(pageTitle.prefixedText))
+    }
+
+    private suspend fun reqMediaList(pageTitle: PageTitle, revision: Long): Response<MediaList> {
+        return ServiceFactory.getRest(pageTitle.wikiSite).getMediaListResponse(pageTitle.prefixedText,
+            revision, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(),
+            OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,
+            UriUtil.encodeURL(pageTitle.prefixedText))
+    }
+
+    private suspend fun reqMobileHTML(pageTitle: PageTitle) = withContext(Dispatchers.IO) {
+        val request = makeUrlRequest(pageTitle.wikiSite,
+            ServiceFactory.getRestBasePath(pageTitle.wikiSite) +
+                    RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText),
+            pageTitle).build()
+        OkHttpConnectionFactory.client.newCall(request).execute()
     }
 
     @Throws(IOException::class, InterruptedException::class)
-    private fun reqSaveFiles(page: ReadingListPage, pageTitle: PageTitle, urls: Set<String>) {
+    private suspend fun reqSaveFiles(page: ReadingListPage, pageTitle: PageTitle, urls: Set<String>) {
         val numOfImages = urls.size
         var percentage = MEDIA_LIST_PROGRESS.toFloat()
         val updateRate = (CircularProgressBar.MAX_PROGRESS - percentage) / numOfImages
@@ -269,9 +281,9 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     @Throws(IOException::class)
-    private fun reqSaveUrl(pageTitle: PageTitle, wiki: WikiSite, url: String) {
+    private suspend fun reqSaveUrl(pageTitle: PageTitle, wiki: WikiSite, url: String) = withContext(Dispatchers.IO) {
         val request = makeUrlRequest(wiki, url, pageTitle).build()
-        val rsp = client.newCall(request).execute()
+        val rsp = OkHttpConnectionFactory.client.newCall(request).execute()
 
         // Read the entirety of the response, so that it's written to cache by the interceptor.
         rsp.body!!.source().readAll(object : Sink {
@@ -287,15 +299,12 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     private fun makeUrlRequest(wiki: WikiSite, url: String, pageTitle: PageTitle): Request.Builder {
-        return Request.Builder().cacheControl(CACHE_CONTROL_FORCE_NETWORK).url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
-                .addHeader("Accept-Language", app.getAcceptLanguage(pageTitle.wikiSite))
-                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
-                .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.wikiSite.languageCode)
-                .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.prefixedText))
-    }
-
-    private fun persistPageThumbnail(title: PageTitle, url: String) {
-        AppDatabase.getAppDatabase().pageImagesDao().insertPageImage(PageImage(title, url))
+        return Request.Builder().cacheControl(OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK).url(
+            UriUtil.resolveProtocolRelativeUrl(wiki, url))
+            .addHeader("Accept-Language", app.getAcceptLanguage(pageTitle.wikiSite))
+            .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
+            .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.wikiSite.languageCode)
+            .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.prefixedText))
     }
 
     private fun isRetryable(t: Throwable): Boolean {
@@ -310,29 +319,24 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     companion object {
-        // Unique job ID for this service (do not duplicate).
-        private const val JOB_ID = 1000
-        private const val ENQUEUE_DELAY_MILLIS = 2000
+        private const val WORK_NAME = "saved_page_sync"
         const val SUMMARY_PROGRESS = 10
         const val MOBILE_HTML_SECTION_PROGRESS = 20
         const val MEDIA_LIST_PROGRESS = 30
-
-        private val ENQUEUE_RUNNABLE = Runnable {
-            enqueueWork(WikipediaApp.getInstance(),
-                    SavedPageSyncService::class.java, JOB_ID, Intent(WikipediaApp.getInstance(), SavedPageSyncService::class.java))
-        }
 
         @JvmStatic
         fun enqueue() {
             if (ReadingListSyncAdapter.inProgress()) {
                 return
             }
-            WikipediaApp.getInstance().mainThreadHandler.removeCallbacks(ENQUEUE_RUNNABLE)
-            WikipediaApp.getInstance().mainThreadHandler.postDelayed(ENQUEUE_RUNNABLE, ENQUEUE_DELAY_MILLIS.toLong())
+            val workRequest = OneTimeWorkRequestBuilder<SavedPageSyncWorker>()
+                .setInitialDelay(2, TimeUnit.SECONDS)
+                .build()
+            WorkManager.getInstance(WikipediaApp.getInstance())
+                .enqueueUniqueWork(WORK_NAME, ExistingWorkPolicy.REPLACE, workRequest)
         }
 
         @JvmStatic
-        @JvmOverloads
         fun sendSyncEvent(showMessage: Boolean = false) {
             // Note: this method posts from a background thread but subscribers expect events to be
             // received on the main thread.

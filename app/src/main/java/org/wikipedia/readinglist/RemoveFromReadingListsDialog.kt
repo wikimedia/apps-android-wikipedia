@@ -3,6 +3,8 @@ package org.wikipedia.readinglist
 import android.content.Context
 import android.content.DialogInterface
 import androidx.appcompat.app.AlertDialog
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
@@ -24,7 +26,9 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
             return
         }
         if (listsContainingPage.size == 1 && listsContainingPage[0].pages.isNotEmpty()) {
-            AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(listsContainingPage[0], listOf(listsContainingPage[0].pages[0]))
+            runBlocking(Dispatchers.IO) {
+                AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(listsContainingPage[0], listOf(listsContainingPage[0].pages[0]))
+            }
             callback?.onDeleted(listsContainingPage, listsContainingPage[0].pages[0])
             return
         }
@@ -46,7 +50,9 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
                         for (i in listNames.indices) {
                             if (selected[i]) {
                                 atLeastOneSelected = true
-                                AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(it[i], listOf(it[i].pages[0]))
+                                runBlocking(Dispatchers.IO) {
+                                    AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(it[i], listOf(it[i].pages[0]))
+                                }
                                 newLists.add(it[i])
                             }
                         }

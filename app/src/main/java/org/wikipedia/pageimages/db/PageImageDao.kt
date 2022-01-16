@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface PageImageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPageImage(pageImage: PageImage)
+    suspend fun insertPageImage(pageImage: PageImage)
 
     @Query("SELECT * FROM PageImage")
     fun getAllPageImages(): List<PageImage>

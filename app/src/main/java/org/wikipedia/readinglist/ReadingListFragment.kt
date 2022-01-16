@@ -13,6 +13,7 @@ import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,11 +21,12 @@ import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -364,7 +366,9 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         readingList?.let {
             val pages = selectedPages
             if (pages.isNotEmpty()) {
-                AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(it, pages)
+                lifecycleScope.launch(Dispatchers.IO) {
+                    AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(it, pages)
+                }
                 it.pages.removeAll(pages)
                 funnel.logDeleteItem(it, 0)
                 ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, pages) { updateReadingListData() }
@@ -645,10 +649,10 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 val title = ReadingListPage.toPageTitle(item)
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
-                Completable.fromAction {
+                lifecycleScope.launch(Dispatchers.IO) {
                     AppDatabase.getAppDatabase().readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
                     AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(item)
-                }.subscribeOn(Schedulers.io()).subscribe()
+                }
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
         }

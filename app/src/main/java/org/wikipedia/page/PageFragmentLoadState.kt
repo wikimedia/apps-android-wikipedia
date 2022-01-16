@@ -6,6 +6,8 @@ import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -256,7 +258,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
             // Save the thumbnail URL to the DB
             val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
-            Completable.fromAction { AppDatabase.getAppDatabase().pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
+            runBlocking(Dispatchers.IO) {
+                AppDatabase.getAppDatabase().pageImagesDao().insertPageImage(pageImage)
+            }
             title.thumbUrl = pageImage.imageName
         }
     }

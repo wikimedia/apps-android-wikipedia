@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -14,6 +15,9 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -31,6 +35,7 @@ import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.FeedbackUtil.makeSnackbar
 import org.wikipedia.util.log.L
+import org.wikipedia.util.log.WARNING_HANDLER
 import java.util.*
 
 open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
@@ -139,20 +144,22 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     open fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
-        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().addPagesToListIfNotExist(readingList, titles) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ addedTitlesList ->
-                    val message: String
-                    if (addedTitlesList.isEmpty()) {
-                        message = if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title, titles[0].displayText) else getString(R.string.reading_list_articles_already_exist_message, readingList.title)
-                    } else {
-                        message = if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title)
-                        ReadingListsFunnel().logAddToList(readingList, readingLists.size, invokeSource)
-                    }
-                    showViewListSnackBar(readingList, message)
-                    dismiss()
-                }) { obj -> L.w(obj) })
+        lifecycleScope.launch(WARNING_HANDLER) {
+            val addedTitlesList = withContext(Dispatchers.IO) {
+                AppDatabase.getAppDatabase().readingListPageDao().addPagesToListIfNotExist(readingList, titles)
+            }
+            val message: String
+            if (addedTitlesList.isEmpty()) {
+                message = if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title, titles[0].displayText)
+                else getString(R.string.reading_list_articles_already_exist_message, readingList.title)
+            } else {
+                message = if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title)
+                else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title)
+                ReadingListsFunnel().logAddToList(readingList, readingLists.size, invokeSource)
+            }
+            showViewListSnackBar(readingList, message)
+            dismiss()
+        }
     }
 
     fun showViewListSnackBar(list: ReadingList, message: String) {

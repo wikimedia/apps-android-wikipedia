@@ -6,6 +6,8 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
@@ -64,7 +66,9 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             val pages = (0 until numberOfArticles).map {
                 ReadingListPage(PageTitle("Malformed page $it", WikiSite.forLanguageCode("foo")))
             }
-            AppDatabase.getAppDatabase().readingListPageDao().addPagesToList(AppDatabase.getAppDatabase().readingListDao().defaultList, pages, true)
+            runBlocking(Dispatchers.IO) {
+                AppDatabase.getAppDatabase().readingListPageDao().addPagesToList(AppDatabase.getAppDatabase().readingListDao().defaultList, pages, true)
+            }
             true
         }
         findPreference(R.string.preference_key_missing_description_test).onPreferenceClickListener = Preference.OnPreferenceClickListener {
@@ -172,7 +176,9 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             val pages = (0 until numOfArticles).map {
                 ReadingListPage(PageTitle("${it + 1}", WikipediaApp.getInstance().wikiSite))
             }
-            AppDatabase.getAppDatabase().readingListPageDao().addPagesToList(list, pages, true)
+            runBlocking(Dispatchers.IO) {
+                AppDatabase.getAppDatabase().readingListPageDao().addPagesToList(list, pages, true)
+            }
         }
     }
 
@@ -180,7 +186,9 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         var remainingNumOfLists = numOfLists
         AppDatabase.getAppDatabase().readingListDao().getAllLists().forEach {
             if (it.title.contains(listName) && remainingNumOfLists > 0) {
-                AppDatabase.getAppDatabase().readingListDao().deleteList(it)
+                runBlocking(Dispatchers.IO) {
+                    AppDatabase.getAppDatabase().readingListDao().deleteList(it)
+                }
                 remainingNumOfLists--
             }
         }

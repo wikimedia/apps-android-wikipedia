@@ -10,30 +10,30 @@ import java.io.File
 @Dao
 interface OfflineObjectDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertOfflineObject(obj: OfflineObject)
+    suspend fun insertOfflineObject(obj: OfflineObject)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateOfflineObject(obj: OfflineObject)
+    suspend fun updateOfflineObject(obj: OfflineObject)
 
     @Query("SELECT * FROM OfflineObject WHERE url = :url AND lang = :lang LIMIT 1")
-    fun getOfflineObject(url: String, lang: String): OfflineObject?
+    suspend fun getOfflineObject(url: String, lang: String): OfflineObject?
 
     @Query("SELECT * FROM OfflineObject WHERE url = :url LIMIT 1")
-    fun getOfflineObject(url: String): OfflineObject?
+    suspend fun getOfflineObject(url: String): OfflineObject?
 
     @Query("SELECT * FROM OfflineObject WHERE url LIKE '%/' || :urlFragment || '/%' LIMIT 1")
-    fun searchForOfflineObject(urlFragment: String): OfflineObject?
+    suspend fun searchForOfflineObject(urlFragment: String): OfflineObject?
 
     @Query("SELECT * FROM OfflineObject WHERE usedByStr LIKE '%|' || :id || '|%'")
-    fun getFromUsedById(id: Long): List<OfflineObject>
+    suspend fun getFromUsedById(id: Long): List<OfflineObject>
 
     @Delete
-    fun deleteOfflineObject(obj: OfflineObject)
+    suspend fun deleteOfflineObject(obj: OfflineObject)
 
     @Query("DELETE FROM OfflineObject")
     fun deleteAll()
 
-    fun findObject(url: String, lang: String?): OfflineObject? {
+    suspend fun findObject(url: String, lang: String?): OfflineObject? {
         var obj = if (lang.isNullOrEmpty()) getOfflineObject(url) else getOfflineObject(url, lang)
 
         // Couldn't find an exact match, so...
@@ -48,7 +48,7 @@ interface OfflineObjectDao {
         return obj
     }
 
-    fun addObject(url: String, lang: String, path: String, pageTitle: String) {
+    suspend fun addObject(url: String, lang: String, path: String, pageTitle: String) {
         // first find this item if it already exists in the db
         var obj = getOfflineObject(url, lang)
 
@@ -75,7 +75,7 @@ interface OfflineObjectDao {
         }
     }
 
-    fun deleteObjectsForPageId(id: Long) {
+    suspend fun deleteObjectsForPageId(id: Long) {
         val objects = mutableListOf<OfflineObject>()
         val objUsedBy = getFromUsedById(id)
 
@@ -97,7 +97,7 @@ interface OfflineObjectDao {
         }
     }
 
-    fun getTotalBytesForPageId(id: Long): Long {
+    suspend fun getTotalBytesForPageId(id: Long): Long {
         var totalBytes: Long = 0
         try {
             totalBytes = getFromUsedById(id).sumOf { File("${it.path}.1").length() }

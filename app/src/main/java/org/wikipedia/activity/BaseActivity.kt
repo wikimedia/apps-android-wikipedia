@@ -34,7 +34,7 @@ import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.recurring.RecurringTasksExecutor
-import org.wikipedia.savedpages.SavedPageSyncService
+import org.wikipedia.savedpages.SavedPageSyncWorker
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.DeviceUtil
@@ -210,7 +210,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 if (!previousNetworkState) {
                     onGoOnline()
                 }
-                SavedPageSyncService.enqueue()
+                SavedPageSyncWorker.enqueue()
             } else {
                 onGoOffline()
             }
@@ -274,7 +274,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private inner class ExclusiveBusConsumer : Consumer<Any> {
         override fun accept(event: Any) {
             if (event is NetworkConnectEvent) {
-                SavedPageSyncService.enqueue()
+                SavedPageSyncWorker.enqueue()
             } else if (event is SplitLargeListsEvent) {
                 AlertDialog.Builder(this@BaseActivity)
                         .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.maxPagesPerReadingList))

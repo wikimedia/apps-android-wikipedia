@@ -24,7 +24,7 @@ class SavedPageSyncNotification : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.getBooleanExtra(Constants.INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL, false)) {
             if (instance.isSyncPaused()) {
-                SavedPageSyncService.enqueue()
+                SavedPageSyncWorker.enqueue()
             }
             instance.setSyncCanceled(true)
             instance.setSyncPaused(false)
@@ -32,7 +32,7 @@ class SavedPageSyncNotification : BroadcastReceiver() {
             instance.setSyncCanceled(false)
             if (instance.isSyncPaused()) {
                 instance.setSyncPaused(false)
-                SavedPageSyncService.enqueue()
+                SavedPageSyncWorker.enqueue()
             } else {
                 instance.setSyncPaused(true)
             }
