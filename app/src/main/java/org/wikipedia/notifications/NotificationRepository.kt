@@ -10,15 +10,15 @@ class NotificationRepository constructor(private val notificationDao: Notificati
 
     fun getAllNotifications() = notificationDao.getAllNotifications()
 
-    fun insertNotifications(notifications: List<Notification>) {
+    suspend fun insertNotifications(notifications: List<Notification>) {
         notificationDao.insertNotifications(notifications)
     }
 
-    fun updateNotification(notification: Notification) {
+    suspend fun updateNotification(notification: Notification) {
         notificationDao.updateNotification(notification)
     }
 
-    fun deleteNotification(notification: Notification) {
+    suspend fun deleteNotification(notification: Notification) {
         notificationDao.deleteNotification(notification)
     }
 
