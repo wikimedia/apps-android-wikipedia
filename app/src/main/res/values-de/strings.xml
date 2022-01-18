@@ -1075,11 +1075,13 @@
   <string name="talk_snackbar_survey_action_text">Anfangen</string>
   <string name="talk_share_discussion_subject">Wikipedia - Diskussion zum Thema auf der Diskussionsseite „%s“</string>
   <string name="talk_share_talk_page">Wikipedia - Diskussion zum Thema auf der Diskussionsseite</string>
+  <string name="talk_edit_disclaimer">Dies ist eine Diskussionsseite. Bitte respektiere die Richtlinien der Diskussionsseite und denke daran, deine Beiträge zu unterschreiben, indem du vier Tilden eingibst: ~~~~, wenn du Wikitext verwendest.&lt;br&gt;&lt;br&gt;&lt;a href=https://de.wikipedia.org/wiki/Wikipedia:Diskussionsseiten\"&gt;Wikipedia:Diskussionsseiten&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">Diskussion teilen</string>
   <string name="menu_option_share_talk_page">Diskussionsseite teilen</string>
   <string name="menu_option_share_edit">Bearbeitung teilen</string>
   <string name="menu_option_user_profile">Profil von %s</string>
   <string name="menu_option_user_contributions">Beiträge von %s</string>
+  <string name="menu_option_edit_source">Quelltext bearbeiten</string>
   <string name="watchlist_details_watching_label">Beobachtet</string>
   <string name="watchlist_details_watch_label">Beobachten</string>
   <string name="watchlist_details_next_edit">Nächste Bearbeitung</string>
