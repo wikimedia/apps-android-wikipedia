@@ -295,6 +295,12 @@
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
+        <activity
+            android:name=".page.EditHistoryActivity"
+            android:label="@string/notifications_filter_label"
+            android:theme="@style/AppTheme.ActionBar"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

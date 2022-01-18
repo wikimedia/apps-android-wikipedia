@@ -802,7 +802,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {
-                            loadPage(PageTitle("Special:History/$prefixedText", wikiSite), HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK))
+                            EditHistoryActivity.newIntent(requireContext())
                         }
                     }
                     "coordinate" -> {

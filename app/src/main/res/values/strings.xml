@@ -47,6 +47,9 @@
     <string name="image_share_via">Share via</string>
     <string name="search_redirect_from">Redirected from %s</string>
 
+    <!-- Page Edit History -->
+    <string name="page_edit_history_activity_label">Page history</string>
+
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
