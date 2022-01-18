@@ -617,7 +617,7 @@
   <string name="notifications_search_bar_filter_hint">ဖေႏသေချက် စဲစ်ထွားမုꩻ</string>
   <string name="notifications_menu_mark_as_read">မာꩻနုဲင်းဟော်ꩻထွူလဲဉ်း</string>
   <string name="notifications_menu_mark_as_unread">မာꩻနုဲင်းဟော်ꩻဗာႏဒွိုန်း</string>
-  <string name="notifications_swipe_action_read">ဟော်ꩻတာႏ</string>
+  <string name="notifications_swipe_action_read">ဟော်ꩻ</string>
   <string name="notifications_swipe_action_unread">ဟော်ꩻဗာႏတဝ်းဒွိုန်း</string>
   <string name="notifications_menu_check_all">စဲစ်ထွားလို့ တခြိုꩻဖိုင်ႏ</string>
   <string name="notifications_menu_uncheck_all">စဲစ်ထွားတဝ်းဒွုမ် တခြိုꩻကားကအဝ်ႏ</string>
