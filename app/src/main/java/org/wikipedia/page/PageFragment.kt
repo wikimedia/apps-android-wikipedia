@@ -274,6 +274,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageImageTransitionHolder.layoutParams = params
         binding.pageImageTransitionHolder.visibility = View.GONE
         binding.pageActionsTabLayout.update()
+        updateQuickActionsAndMenuOptions()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
