@@ -422,6 +422,8 @@
   <string name="text_size_percent_default">%s (per defecte)</string>
   <string name="text_style_title">Tipus de lletra</string>
   <string name="theme_category_reading">Lectura</string>
+  <string name="reading_focus_mode">Mode de focalització en lectura</string>
+  <string name="reading_focus_mode_detail">Amaga les funcionalitats d\'edició i la barra d\'eines inferior en desplaçar-se</string>
   <string name="nav_item_saved">Desat</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_move_to">Mou a la llista de lectura</string>
@@ -1063,11 +1065,13 @@
   <string name="talk_snackbar_survey_action_text">Primers passos</string>
   <string name="talk_share_discussion_subject">Viquipèdia - debat en el tema «%s» de la pàgina de discussió</string>
   <string name="talk_share_talk_page">Viquipèdia - debats a la pàgina de discussió</string>
+  <string name="talk_edit_disclaimer">Aquesta és una pàgina de discussió. Respecteu les recomanacions de les pàgines de discussió i recordeu signar els vostres apunts amb quatre titlles: ~~~~ en enviar utilitzant wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://ca.wikipedia.org/wiki/Viquip%C3%A8dia:P%C3%A0gines_de_discussi%C3%B3\"&gt;Recomanacions de les pàgines de discussió&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
   <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribucions de %s</string>
+  <string name="menu_option_edit_source">Modifica el codi</string>
   <string name="watchlist_details_watching_label">En seguiment</string>
   <string name="watchlist_details_watch_label">Segueix</string>
   <string name="watchlist_details_next_edit">Edició següent</string>
