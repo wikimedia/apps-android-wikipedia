@@ -3,11 +3,13 @@ package org.wikipedia.page
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 
-class EditHistoryActivity : AppCompatActivity() {
+class EditHistoryListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditHistoryBinding
+    private val viewModel: EditHistoryListModelView by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +19,7 @@ class EditHistoryActivity : AppCompatActivity() {
 
     companion object {
         fun newIntent(context: Context): Intent {
-            return Intent(context, EditHistoryActivity::class.java)
+            return Intent(context, EditHistoryListActivity::class.java)
         }
     }
 }

@@ -418,6 +418,11 @@ interface Service {
         @Query("rvstartid") revisionStartId: Long
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=500&rvdir=older")
+    fun getEditHistoryDetails(
+        @Query("titles") titles: String
+    ): Observable<MwQueryResponse>
+
     @POST(MW_API_PREFIX + "action=thank")
     @FormUrlEncoded
     fun postThanksToRevision(

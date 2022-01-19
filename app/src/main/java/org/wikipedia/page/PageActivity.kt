@@ -631,7 +631,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
         override fun editHistoryClick() {
             pageFragment.title?.run {
-                EditHistoryActivity.newIntent(this@PageActivity)
+                EditHistoryListActivity.newIntent(this@PageActivity)
             }
         }
     }

@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page.EditHistoryActivity">
+    tools:context=".page.EditHistoryListActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
