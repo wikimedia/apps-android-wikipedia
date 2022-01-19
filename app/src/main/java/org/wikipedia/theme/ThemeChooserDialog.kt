@@ -50,6 +50,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     private var app = WikipediaApp.getInstance()
     private lateinit var funnel: AppearanceChangeFunnel
     private lateinit var invokeSource: InvokeSource
+    private var isMobileWeb: Boolean = false
     private val disposables = CompositeDisposable()
     private var updatingFont = false
 
@@ -109,6 +110,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+        isMobileWeb = requireArguments().getBoolean(EXTRA_IS_MOBILE_WEB)
         funnel = AppearanceChangeFunnel(app, app.wikiSite, invokeSource)
     }
 
@@ -121,6 +123,33 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCancel(dialog: DialogInterface) {
         super.onCancel(dialog)
         callback()?.onCancelThemeChooser()
+    }
+
+    private fun disableButtonsOnMobileWeb() {
+        binding.textSizeSeekBar.isEnabled = !isMobileWeb
+        binding.buttonDecreaseTextSize.isEnabled = !isMobileWeb
+        binding.buttonIncreaseTextSize.isEnabled = !isMobileWeb
+        binding.buttonFontFamilySerif.isEnabled = !isMobileWeb
+        binding.buttonFontFamilySansSerif.isEnabled = !isMobileWeb
+        binding.themeChooserMatchSystemThemeSwitch.isEnabled = !isMobileWeb
+        binding.themeChooserDarkModeDimImagesSwitch.isEnabled = !isMobileWeb
+        binding.themeChooserReadingFocusModeSwitch.isEnabled = !isMobileWeb
+        binding.buttonThemeBlack.isEnabled = !isMobileWeb
+        binding.buttonThemeDark.isEnabled = !isMobileWeb
+        binding.buttonThemeLight.isEnabled = !isMobileWeb
+        binding.buttonThemeSepia.isEnabled = !isMobileWeb
+
+        if (isMobileWeb) {
+            val textColor = ContextCompat.getColor(requireContext(), R.color.black26)
+            binding.buttonDecreaseTextSize.setTextColor(textColor)
+            binding.buttonIncreaseTextSize.setTextColor(textColor)
+            binding.buttonFontFamilySerif.setTextColor(textColor)
+            binding.buttonFontFamilySerif.setTextColor(textColor)
+            binding.themeChooserMatchSystemThemeSwitch.setTextColor(textColor)
+            binding.themeChooserDarkModeDimImagesSwitch.setTextColor(textColor)
+            binding.themeChooserReadingFocusModeSwitch.setTextColor(textColor)
+            binding.themeChooserReadingFocusModeDescription.setTextColor(textColor)
+        }
     }
 
     private fun onToggleDimImages(enabled: Boolean) {
@@ -178,6 +207,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         updateThemeButtons()
         updateDimImagesSwitch()
         updateMatchSystemThemeSwitch()
+        disableButtonsOnMobileWeb()
 
         binding.themeChooserReadingFocusModeSwitch.isChecked = Prefs.readingFocusModeEnabled
     }
@@ -284,12 +314,13 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     companion object {
+        private const val EXTRA_IS_MOBILE_WEB = "isMobileWeb"
         private val BUTTON_STROKE_WIDTH = roundedDpToPx(2f)
 
-        @JvmStatic
-        fun newInstance(source: InvokeSource): ThemeChooserDialog {
+        fun newInstance(source: InvokeSource, isMobileWeb: Boolean = false): ThemeChooserDialog {
             return ThemeChooserDialog().apply {
-                arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to source)
+                arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
+                    EXTRA_IS_MOBILE_WEB to isMobileWeb)
             }
         }
     }

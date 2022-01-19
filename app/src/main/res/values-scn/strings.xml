@@ -316,6 +316,7 @@
   <string name="menu_option_share_edit">Cunnividi canciamentu</string>
   <string name="menu_option_user_profile">Prufilu di %s</string>
   <string name="menu_option_user_contributions">Cuntribbuti di %s</string>
+  <string name="menu_option_edit_source">Cancia surgenti</string>
   <string name="watchlist_details_watch_label">Talìa</string>
   <string name="view_user_page">Talìa la pàggina di l\'utenti</string>
   <string name="thank_dialog_negative_button_text">Annulla</string>

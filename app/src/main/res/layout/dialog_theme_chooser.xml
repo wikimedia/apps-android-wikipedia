@@ -165,6 +165,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/theme_chooser_reading_focus_mode_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-8dp"
