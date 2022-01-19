@@ -5,6 +5,7 @@
 * Alidemirtas
 * BaRaN6161 TURK
 * Bulgu
+* Can
 * Cobija
 * Cooltey
 * Dbrant
@@ -441,6 +442,7 @@
   <string name="text_size_decrease">Metin boyutunu küçült</string>
   <string name="text_size_percent_default">%s (Varsayılan)</string>
   <string name="text_style_title">Yazı tipi</string>
+  <string name="theme_category_reading">Okuma</string>
   <string name="nav_item_saved">Kaydedildi</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_move_to">Okuma listesine taşı</string>
