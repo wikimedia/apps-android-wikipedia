@@ -13,7 +13,7 @@ import androidx.core.widget.PopupWindowCompat
 import com.google.android.material.textview.MaterialTextView
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.databinding.ItemQuickActionsMenuBinding
+import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.action.PageActionItem
@@ -32,7 +32,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             callback.forwardClick()
         }
         Prefs.customizeToolbarMenuOrder.forEach {
-            val view = ItemQuickActionsMenuBinding.inflate(LayoutInflater.from(context)).root
+            val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
             view.id = item.hashCode()
             view.text = context.getString(item.titleResId)
