@@ -124,28 +124,30 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun disableButtonsOnMobileWeb() {
-        val textColor = if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled)
-            getThemedColor(requireContext(), R.attr.section_title_color) else ContextCompat.getColor(requireContext(), R.color.black26)
         binding.textSizeSeekBar.isEnabled = !isMobileWeb
         binding.buttonDecreaseTextSize.isEnabled = !isMobileWeb
-        binding.buttonDecreaseTextSize.setTextColor(textColor)
         binding.buttonIncreaseTextSize.isEnabled = !isMobileWeb
-        binding.buttonIncreaseTextSize.setTextColor(textColor)
         binding.buttonFontFamilySerif.isEnabled = !isMobileWeb
-        binding.buttonFontFamilySerif.setTextColor(textColor)
         binding.buttonFontFamilySansSerif.isEnabled = !isMobileWeb
-        binding.buttonFontFamilySerif.setTextColor(textColor)
         binding.themeChooserMatchSystemThemeSwitch.isEnabled = !isMobileWeb
-        binding.themeChooserMatchSystemThemeSwitch.setTextColor(textColor)
         binding.themeChooserDarkModeDimImagesSwitch.isEnabled = !isMobileWeb
-        binding.themeChooserDarkModeDimImagesSwitch.setTextColor(textColor)
         binding.themeChooserReadingFocusModeSwitch.isEnabled = !isMobileWeb
-        binding.themeChooserReadingFocusModeSwitch.setTextColor(textColor)
-        binding.themeChooserReadingFocusModeDescription.setTextColor(textColor)
         binding.buttonThemeBlack.isEnabled = !isMobileWeb
         binding.buttonThemeDark.isEnabled = !isMobileWeb
         binding.buttonThemeLight.isEnabled = !isMobileWeb
         binding.buttonThemeSepia.isEnabled = !isMobileWeb
+
+        if (isMobileWeb) {
+            val textColor = ContextCompat.getColor(requireContext(), R.color.black26)
+            binding.buttonDecreaseTextSize.setTextColor(textColor)
+            binding.buttonIncreaseTextSize.setTextColor(textColor)
+            binding.buttonFontFamilySerif.setTextColor(textColor)
+            binding.buttonFontFamilySerif.setTextColor(textColor)
+            binding.themeChooserMatchSystemThemeSwitch.setTextColor(textColor)
+            binding.themeChooserDarkModeDimImagesSwitch.setTextColor(textColor)
+            binding.themeChooserReadingFocusModeSwitch.setTextColor(textColor)
+            binding.themeChooserReadingFocusModeDescription.setTextColor(textColor)
+        }
     }
 
     private fun onToggleDimImages(enabled: Boolean) {
