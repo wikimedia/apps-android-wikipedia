@@ -302,11 +302,17 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     override fun onToggleReadingFocusMode() {
+        webView.scrollEventsEnabled = false
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
         leadImagesHandler.refreshCallToActionVisibility()
         page?.let {
             bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !it.pageProperties.canEdit))
         }
+        binding.root.postDelayed({
+            if (isAdded) {
+                webView.scrollEventsEnabled = true
+            }
+        }, 250)
     }
 
     override fun onCancelThemeChooser() {
