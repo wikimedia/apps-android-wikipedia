@@ -132,10 +132,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.themeChooserMatchSystemThemeSwitch.isEnabled = !isMobileWeb
         binding.themeChooserDarkModeDimImagesSwitch.isEnabled = !isMobileWeb
         binding.themeChooserReadingFocusModeSwitch.isEnabled = !isMobileWeb
-        binding.buttonThemeBlack.isEnabled = !isMobileWeb
-        binding.buttonThemeDark.isEnabled = !isMobileWeb
-        binding.buttonThemeLight.isEnabled = !isMobileWeb
-        binding.buttonThemeSepia.isEnabled = !isMobileWeb
+        binding.buttonThemeBlack.isEnabled = app.currentTheme == Theme.BLACK || !isMobileWeb
+        binding.buttonThemeDark.isEnabled = app.currentTheme == Theme.DARK || !isMobileWeb
+        binding.buttonThemeLight.isEnabled = app.currentTheme == Theme.LIGHT || !isMobileWeb
+        binding.buttonThemeSepia.isEnabled = app.currentTheme == Theme.SEPIA || !isMobileWeb
 
         if (isMobileWeb) {
             val textColor = ContextCompat.getColor(requireContext(), R.color.black26)
@@ -147,6 +147,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             binding.themeChooserDarkModeDimImagesSwitch.setTextColor(textColor)
             binding.themeChooserReadingFocusModeSwitch.setTextColor(textColor)
             binding.themeChooserReadingFocusModeDescription.setTextColor(textColor)
+            updateThemeButtonAlpha(binding.buttonThemeBlack, !binding.buttonThemeBlack.isEnabled)
+            updateThemeButtonAlpha(binding.buttonThemeDark, !binding.buttonThemeDark.isEnabled)
+            updateThemeButtonAlpha(binding.buttonThemeLight, !binding.buttonThemeLight.isEnabled)
+            updateThemeButtonAlpha(binding.buttonThemeSepia, !binding.buttonThemeSepia.isEnabled)
         }
     }
 
@@ -186,14 +190,18 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun conditionallyDisableThemeButtons() {
-        binding.buttonThemeLight.alpha = if (isMatchingSystemThemeEnabled && app.currentTheme.isDark) 0.2f else 1.0f
-        binding.buttonThemeSepia.alpha = if (isMatchingSystemThemeEnabled && app.currentTheme.isDark) 0.2f else 1.0f
-        binding.buttonThemeDark.alpha = if (isMatchingSystemThemeEnabled && !app.currentTheme.isDark) 0.2f else 1.0f
-        binding.buttonThemeBlack.alpha = if (isMatchingSystemThemeEnabled && !app.currentTheme.isDark) 0.2f else 1.0f
+        updateThemeButtonAlpha(binding.buttonThemeLight, isMatchingSystemThemeEnabled && app.currentTheme.isDark)
+        updateThemeButtonAlpha(binding.buttonThemeSepia, isMatchingSystemThemeEnabled && app.currentTheme.isDark)
+        updateThemeButtonAlpha(binding.buttonThemeDark, isMatchingSystemThemeEnabled && !app.currentTheme.isDark)
+        updateThemeButtonAlpha(binding.buttonThemeBlack, isMatchingSystemThemeEnabled && !app.currentTheme.isDark)
         binding.buttonThemeLight.isEnabled = !isMatchingSystemThemeEnabled || !app.currentTheme.isDark
         binding.buttonThemeSepia.isEnabled = !isMatchingSystemThemeEnabled || !app.currentTheme.isDark
         binding.buttonThemeDark.isEnabled = !isMatchingSystemThemeEnabled || app.currentTheme.isDark
         binding.buttonThemeBlack.isEnabled = !isMatchingSystemThemeEnabled || app.currentTheme.isDark
+    }
+
+    private fun updateThemeButtonAlpha(button: View, translucent: Boolean) {
+        button.alpha = if (translucent) 0.2f else 1.0f
     }
 
     private val isMatchingSystemThemeEnabled: Boolean
