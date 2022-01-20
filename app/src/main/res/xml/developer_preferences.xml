@@ -279,6 +279,10 @@
             android:key="@string/preference_key_edit_notices_tooltip_shown"
             android:title="@string/preference_key_edit_notices_tooltip_shown" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_show_edit_talk_page_source_prompt"
+            android:title="@string/preference_key_show_edit_talk_page_source_prompt" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_reading_list_category">

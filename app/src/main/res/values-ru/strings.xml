@@ -460,6 +460,7 @@
   <string name="text_size_decrease">Уменьшить размер шрифта</string>
   <string name="text_size_percent_default">%s (по умолчанию)</string>
   <string name="text_style_title">Шрифт</string>
+  <string name="theme_category_reading">Чтение</string>
   <string name="nav_item_saved">Сохранено</string>
   <string name="reading_list_save_to">Добавить в список для чтения</string>
   <string name="reading_list_move_to">Перенести в список для чтения</string>

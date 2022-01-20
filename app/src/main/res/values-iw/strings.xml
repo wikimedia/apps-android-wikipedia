@@ -802,7 +802,7 @@
   <string name="description_ends_with_punctuation">הטקסט לא צריך להסתיים בסימן פיסוק</string>
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
   <string name="description_starts_with_lowercase">נא להימנע מלהתחיל את התיאור מאות קטנה.</string>
-  <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי צפויה. השפה אמורה להיות %s.</string>
+  <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי־צפויה. השפה אמורה להיות %s.</string>
   <string name="description_edit_success_saved">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_snackbar">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
@@ -1122,11 +1122,13 @@
   <string name="talk_snackbar_survey_action_text">להתחיל</string>
   <string name="talk_share_discussion_subject">ויקיפדיה – דיון בדף שיחה בנושא \"%s\"</string>
   <string name="talk_share_talk_page">ויקיפדיה – דיונים בדף שיחה</string>
+  <string name="talk_edit_disclaimer">זהו דף שיחה. נא לכבד את ההנחיות לשימוש בדפי שיחה, ולזכור לחתום על ההודעות שלך בארבע טילדות בעת שימוש בקוד ויקי.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://he.wikipedia.org/wiki/ויקיפדיה:דף_שיחה\"&gt;ויקיפדיה:דף_שיחה&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
   <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
   <string name="menu_option_user_profile">הפרופיל של %s</string>
   <string name="menu_option_user_contributions">התרומות של %s</string>
+  <string name="menu_option_edit_source">עריכת קוד מקור</string>
   <string name="watchlist_details_watching_label">במעקב</string>
   <string name="watchlist_details_watch_label">לעקוב</string>
   <string name="watchlist_details_next_edit">העריכה הבאה</string>

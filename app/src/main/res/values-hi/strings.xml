@@ -304,6 +304,7 @@
   <string name="text_size_increase">टेक्स्ट साइज़ बढ़ाएं</string>
   <string name="text_size_decrease">टेक्स्ट साइज़ घटाएं</string>
   <string name="text_size_percent_default">%s (डिफ़ॉल्ट)</string>
+  <string name="theme_category_reading">पढ़ना</string>
   <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
   <string name="reading_list_title_exists">पढ़ने वाली सूची \"%s\" पहले से है।</string>

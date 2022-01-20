@@ -427,6 +427,9 @@
   <string name="text_size_decrease">Kurangi ukuran teks</string>
   <string name="text_size_percent_default">%s (Baku)</string>
   <string name="text_style_title">Jenis huruf</string>
+  <string name="theme_category_reading">Membaca</string>
+  <string name="reading_focus_mode">Mode fokus membaca</string>
+  <string name="reading_focus_mode_detail">Sembunyikan fitur penyuntingan dan bilah alat bawah ketika menggulir</string>
   <string name="nav_item_saved">Tersimpan</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_move_to">Pindahkan ke daftar bacaan</string>
@@ -1035,11 +1038,13 @@
   <string name="talk_snackbar_survey_action_text">Mulai</string>
   <string name="talk_share_discussion_subject">Wikipedia - diskusi di halaman pembicaraan dengan topik \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - diskusi di halaman pembicaraan</string>
+  <string name="talk_edit_disclaimer">Ini adalah halaman pembicaraan. Tolong hormati pedoman halaman pembicaraan, dan jangan lupa untuk menandatangani pesan Anda dengan mengetik empat tilda: ~~~~ ketika menggunakan teks wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">Bagikan diskusi</string>
   <string name="menu_option_share_talk_page">Bagikan halaman pembicaraan</string>
   <string name="menu_option_share_edit">Bagikan hasil suntingan</string>
   <string name="menu_option_user_profile">%s profil</string>
   <string name="menu_option_user_contributions">%s kontribusi</string>
+  <string name="menu_option_edit_source">Sunting sumber</string>
   <string name="watchlist_details_watching_label">Memantau</string>
   <string name="watchlist_details_watch_label">Pantau</string>
   <string name="watchlist_details_next_edit">Suntingan selanjutnya</string>

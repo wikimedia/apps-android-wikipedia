@@ -1070,11 +1070,13 @@
   <string name="talk_snackbar_survey_action_text">Button label for navigating to a survey page.</string>
   <string name="talk_share_discussion_subject">Subject text while sharing a talk topic discussion. %s represents the topic subject.</string>
   <string name="talk_share_talk_page">Subject text while sharing a talk page</string>
+  <string name="talk_edit_disclaimer">Disclaimer of editing a talk page. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
   <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
   <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
+  <string name="menu_option_edit_source">Menu option label for editing the page.</string>
   <string name="watchlist_details_watching_label">Label indicating that user is watching the article.</string>
   <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.\n\n{{Identical|Watch}}</string>
   <string name="watchlist_details_next_edit">Content description for the button that goes to the next edit history.</string>
