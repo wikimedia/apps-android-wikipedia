@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -632,7 +631,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
         override fun editHistoryClick() {
             pageFragment.title?.run {
-                UriUtil.visitInExternalBrowser(this@PageActivity, Uri.parse(getWebApiUrl("action=history")))
+                loadPage(PageTitle("Special:History/$prefixedText", wikiSite), HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), TabPosition.CURRENT_TAB)
             }
         }
     }

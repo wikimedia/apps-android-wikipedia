@@ -443,6 +443,8 @@
   <string name="text_size_percent_default">%s (Varsayılan)</string>
   <string name="text_style_title">Yazı tipi</string>
   <string name="theme_category_reading">Okuma</string>
+  <string name="reading_focus_mode">Odaklanma modunda okunuyor</string>
+  <string name="reading_focus_mode_detail">Kaydırma esnasındayken düzenleme özelliklerini ve alt araç çubuğunu gizler</string>
   <string name="nav_item_saved">Kaydedildi</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_move_to">Okuma listesine taşı</string>
@@ -1084,6 +1086,7 @@
   <string name="menu_option_share_edit">Değişikliği paylaş</string>
   <string name="menu_option_user_profile">%s kullanıcısının bilgileri</string>
   <string name="menu_option_user_contributions">%s kullanıcısının katkıları</string>
+  <string name="menu_option_edit_source">Kaynağı düzenle</string>
   <string name="watchlist_details_watching_label">İzleniyor</string>
   <string name="watchlist_details_watch_label">İzle</string>
   <string name="watchlist_details_next_edit">Sonraki düzenleme</string>
