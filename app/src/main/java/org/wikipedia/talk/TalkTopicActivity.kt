@@ -555,6 +555,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun parseUserNamesFromTopic(): Set<String> {
         val userNames = mutableSetOf<String>()
+        // Go through our list of replies under the current topic, and collect any links to user
+        // names, making sure to store them in reverse order, so that the last user name mentioned
+        // in a response will appear first in the list of hints when searching for mentions.
         topic?.replies?.forEach {
             var start = 0
             val userList = mutableListOf<String>()

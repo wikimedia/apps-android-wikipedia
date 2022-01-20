@@ -35,6 +35,17 @@ class UserMentionEditText : PlainPasteEditText {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
+
+        // This is a state machine that behaves roughly as follows:
+        // * When the "@" symbol is typed, it enters a state of inputting a username.
+        // * During the username input state, every subsequent keypress will send an event to the
+        //   listener, to give it a chance to show a dropdown selection for searching usernames.
+        // * If the user selects a final username from the dropdown selection, the input state is
+        //   finished, and the username is turned into a special Span that contains the username at
+        //   that position.
+        // * If a space " " character is pressed, without having selected a username from the
+        //   dropdown list, the input state is cancelled, and no special Span is added.
+        // * For all other keypresses, while not in the username input state, it behaves as usual.
         textWatcher = doOnTextChanged { text, start, before, count ->
             if (text == null) {
                 return@doOnTextChanged
@@ -142,6 +153,11 @@ class UserMentionEditText : PlainPasteEditText {
         spannable.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
     }
 
+    /**
+     * Returns the text of this field, with properly expanded user mentions.
+     * Each user mention (in th form of @{username}) will be expanded into a wiki link to the
+     * user page of that user, i.e. [[User:username|@username]]
+     */
     fun getParsedText(wikiSite: WikiSite): String {
         if (text == null) {
             return ""
