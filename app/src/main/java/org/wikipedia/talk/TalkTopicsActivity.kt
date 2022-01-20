@@ -415,12 +415,15 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+        private val listPlaceholder get() = if (actionMode == null) 1 else 0
+
         override fun getItemCount(): Int {
-            return topics.size + 1
+            return topics.size + listPlaceholder
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (position == 0) ITEM_SEARCH_BAR else ITEM_TOPIC
+            return if (position == 0 && listPlaceholder == 1) ITEM_SEARCH_BAR else ITEM_TOPIC
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
@@ -432,7 +435,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             if (holder is TalkTopicHolder) {
-                holder.bindItem(topics[pos - 1])
+                holder.bindItem(topics[pos - listPlaceholder])
             }
         }
     }
@@ -486,10 +489,11 @@ class TalkTopicsActivity : BaseActivity() {
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
+            binding.talkRecyclerView.adapter?.notifyItemRangeInserted(0, 1)
         }
 
         override fun getSearchHintString(): String {
-            return getString(R.string.notifications_search)
+            return getString(R.string.talk_search_or_sort_hint)
         }
 
         override fun getParentContext(): Context {
