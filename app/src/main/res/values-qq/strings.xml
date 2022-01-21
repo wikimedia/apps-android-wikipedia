@@ -1070,7 +1070,6 @@
   <string name="talk_snackbar_survey_action_text">Button label for navigating to a survey page.</string>
   <string name="talk_share_discussion_subject">Subject text while sharing a talk topic discussion. %s represents the topic subject.</string>
   <string name="talk_share_talk_page">Subject text while sharing a talk page</string>
-  <string name="talk_edit_disclaimer">Disclaimer of editing a talk page.</string>
   <string name="talk_search_or_sort_hint">Hint for the talk page search bar.</string>
   <string name="talk_overflow_sort_by">Header text of the sort menu.</string>
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
