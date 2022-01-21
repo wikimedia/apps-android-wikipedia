@@ -417,9 +417,11 @@ class TalkTopicsActivity : BaseActivity() {
     internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         private val listPlaceholder get() = if (actionMode == null) 1 else 0
+        private var searchQuery: String? = null
+        private val list get() = topics.filter { it.html.orEmpty().contains(searchQuery.orEmpty(), true) }
 
         override fun getItemCount(): Int {
-            return topics.size + listPlaceholder
+            return list.size + listPlaceholder
         }
 
         override fun getItemViewType(position: Int): Int {
@@ -435,8 +437,12 @@ class TalkTopicsActivity : BaseActivity() {
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             if (holder is TalkTopicHolder) {
-                holder.bindItem(topics[pos - listPlaceholder])
+                holder.bindItem(list[pos - listPlaceholder])
             }
+        }
+
+        fun setSearchQuery(query: String?) {
+            searchQuery = query
         }
     }
 
@@ -483,7 +489,8 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         override fun onQueryChange(s: String) {
-            // TODO: update list
+            (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSearchQuery(s)
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
