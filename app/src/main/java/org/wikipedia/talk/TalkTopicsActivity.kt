@@ -496,7 +496,8 @@ class TalkTopicsActivity : BaseActivity() {
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
-            binding.talkRecyclerView.adapter?.notifyItemRangeInserted(0, 1)
+            (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSearchQuery(null)
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
 
         override fun getSearchHintString(): String {
