@@ -436,7 +436,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             model.page?.let { page ->
                 page.pageProperties.protection = JsonUtil.decodeFromString(value)
-                bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !page.pageProperties.canEdit))
             }
         }
     }
