@@ -88,12 +88,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
                     userNameList.clear()
-
-                    userNameHints.forEach {
-                        if (it.startsWith(prefix, ignoreCase = true)) {
-                            userNameList.add(it)
-                        }
-                    }
+                    userNameList.addAll(userNameHints.filter { it.startsWith(prefix, ignoreCase = true) })
 
                     response.query?.pages?.sortBy { it.index }
                     response.query?.pages?.forEach {

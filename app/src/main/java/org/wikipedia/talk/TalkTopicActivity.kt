@@ -543,7 +543,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     override fun onUserMentionListUpdate() {
         binding.talkScrollContainer.post {
             if (!isDestroyed && !userMentionScrolled) {
-                binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 2)
+                binding.talkScrollContainer.smoothScrollTo(0, binding.root.height * 4)
                 userMentionScrolled = true
             }
         }
@@ -579,7 +579,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 }
                 start = end
             }
-            userList.forEach { userNames.add(it) }
+            userNames.addAll(userList)
         }
         return userNames
     }

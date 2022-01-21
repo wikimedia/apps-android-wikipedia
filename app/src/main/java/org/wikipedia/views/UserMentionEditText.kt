@@ -1,9 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.text.Spannable
-import android.text.SpannableStringBuilder
-import android.text.TextWatcher
+import android.text.*
 import android.text.style.ForegroundColorSpan
 import android.util.AttributeSet
 import androidx.annotation.ColorInt
@@ -29,6 +27,7 @@ class UserMentionEditText : PlainPasteEditText {
     private var userNameEndPos = -1
     private val isEnteringUserName get() = userNameStartPos >= 0
     private var isUserNameCommitting = false
+    private val editable get() = text ?: SpannableStringBuilder("")
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -79,18 +78,18 @@ class UserMentionEditText : PlainPasteEditText {
         }
         if (isEnteringUserName) {
             if ((selStart < userNameStartPos || selEnd > userNameEndPos) ||
-                    (userNameEndPos > text!!.length)) {
+                    (userNameEndPos > editable.length)) {
                 onCancelUserNameEntry()
                 return
             }
-            onUserNameChanged(text!!.substring(userNameStartPos, userNameEndPos))
+            onUserNameChanged(editable.substring(userNameStartPos, userNameEndPos))
         } else if (selStart == selEnd && !isEnteringUserName) {
-            val spans = text!!.getSpans(selStart, selEnd, UserColorSpan::class.java)
+            val spans = editable.getSpans(selStart, selEnd, UserColorSpan::class.java)
             if (spans.isNotEmpty()) {
-                userNameStartPos = text!!.getSpanStart(spans[0])
-                userNameEndPos = text!!.getSpanEnd(spans[0])
+                userNameStartPos = editable.getSpanStart(spans[0])
+                userNameEndPos = editable.getSpanEnd(spans[0])
                 onStartUserNameEntry()
-                onUserNameChanged(text!!.substring(userNameStartPos, userNameEndPos))
+                onUserNameChanged(editable.substring(userNameStartPos, userNameEndPos))
             }
         }
     }
@@ -131,12 +130,12 @@ class UserMentionEditText : PlainPasteEditText {
             }
 
             val sb = SpannableStringBuilder()
-            sb.append(text!!.subSequence(0, userNameStartPos))
+            sb.append(editable.subSequence(0, userNameStartPos))
             val spanStart = sb.length
             sb.append("@$userName")
             val spanEnd = sb.length
-            if (userNameEndPos < text!!.length) {
-                sb.append(text!!.subSequence(userNameEndPos, text!!.length - 1))
+            if (userNameEndPos < editable.length) {
+                sb.append(editable.subSequence(userNameEndPos, editable.length - 1))
             }
 
             createUserNameSpan(sb, spanStart, spanEnd)
@@ -159,17 +158,14 @@ class UserMentionEditText : PlainPasteEditText {
      * user page of that user, i.e. [[User:username|@username]]
      */
     fun getParsedText(wikiSite: WikiSite): String {
-        if (text == null) {
-            return ""
-        }
-        var str = text!!.toString()
+        var str = editable.toString()
 
-        val spans = text!!.getSpans(0, text!!.length, UserColorSpan::class.java)
+        val spans = editable.getSpans(0, editable.length, UserColorSpan::class.java)
         if (spans.isNotEmpty()) {
 
             val pairs = mutableListOf<MutablePair<Int, Int>>()
             spans.forEach {
-                pairs.add(MutablePair(text!!.getSpanStart(it), text!!.getSpanEnd(it)))
+                pairs.add(MutablePair(editable.getSpanStart(it), editable.getSpanEnd(it)))
             }
             pairs.sortBy { it.first }
 
