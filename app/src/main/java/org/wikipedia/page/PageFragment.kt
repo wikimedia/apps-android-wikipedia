@@ -302,11 +302,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     override fun onToggleReadingFocusMode() {
+        webView.scrollEventsEnabled = false
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
         leadImagesHandler.refreshCallToActionVisibility()
         page?.let {
             bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !it.pageProperties.canEdit))
         }
+        // We disable and then re-enable scroll events coming from the WebView, because toggling
+        // reading focus mode within the article could actually change the dimensions of the page,
+        // which will cause extraneous scroll events to be sent.
+        binding.root.postDelayed({
+            if (isAdded) {
+                webView.scrollEventsEnabled = true
+            }
+        }, 250)
     }
 
     override fun onCancelThemeChooser() {
@@ -422,7 +431,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             model.page?.let { page ->
                 page.pageProperties.protection = JsonUtil.decodeFromString(value)
-                bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !page.pageProperties.canEdit))
             }
         }
     }
