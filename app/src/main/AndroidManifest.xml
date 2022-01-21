@@ -73,6 +73,7 @@
             android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
+            android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -127,7 +128,8 @@
             android:theme="@style/AppTheme.ActionBar" />
         <activity android:name=".settings.languages.WikipediaLanguagesActivity"
             android:label="@string/wikipedia_languages_title"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:theme="@style/AppTheme.ActionBar"
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".language.LangLinksActivity"
             android:label="@string/langlinks_activity_title"
