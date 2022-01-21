@@ -111,7 +111,8 @@ object JavaScriptActionHandler {
                 "   \"areTablesInitiallyExpanded\": ${!Prefs.isCollapseTablesEnabled}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled}," +
-                "   \"userGroups\": \"${AccountUtil.groups}\"" +
+                "   \"userGroups\": \"${AccountUtil.groups}\"," +
+                "   \"isEditable\": ${!Prefs.readingFocusModeEnabled}" +
                 "}", topMargin, 16, 48, 16, leadImageHeight)
     }
 
