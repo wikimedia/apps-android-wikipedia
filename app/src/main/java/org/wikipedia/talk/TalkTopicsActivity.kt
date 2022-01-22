@@ -66,6 +66,7 @@ class TalkTopicsActivity : BaseActivity() {
     private var revisionForLastEdit: MwQueryPage.Revision? = null
     private var resolveTitleRequired = false
     private var goToTopic = false
+    private var currentSortBy = TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -418,7 +419,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         private val listPlaceholder get() = if (actionMode == null) 1 else 0
         private var searchQuery: String? = null
-        private val list get() = topics.filter { it.html.orEmpty().contains(searchQuery.orEmpty(), true) }
+        private var sortBy = TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING
 
         override fun getItemCount(): Int {
             return list.size + listPlaceholder
@@ -441,8 +442,30 @@ class TalkTopicsActivity : BaseActivity() {
             }
         }
 
+        private val list get(): List<TalkPage.Topic> {
+            when (sortBy) {
+                TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
+                    topics.sortByDescending { it.id }
+                }
+                TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING -> {
+                    topics.sortBy { it.id }
+                }
+                TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
+                    topics.sortByDescending { it.html }
+                }
+                TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING -> {
+                    topics.sortBy { it.html }
+                }
+            }
+            return topics.filter { it.html.orEmpty().contains(searchQuery.orEmpty(), true) }
+        }
+
         fun setSearchQuery(query: String?) {
             searchQuery = query
+        }
+
+        fun setSortBy(sort: Int) {
+            sortBy = sort
         }
     }
 
@@ -460,12 +483,14 @@ class TalkTopicsActivity : BaseActivity() {
 
             talkSortButton.setOnClickListener {
                 TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, 0, object : TalkTopicsSortOverflowView.Callback {
-                    override fun datePublishedClick() {
-                        TODO("Not yet implemented")
+                    override fun datePublishedClick(isAscending: Boolean) {
+                        // TODO: update this
+                        (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSortBy(TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING)
                     }
 
-                    override fun topicNameClicked() {
-                        TODO("Not yet implemented")
+                    override fun topicNameClicked(isAscending: Boolean) {
+                        // TODO: update this
+                        (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSortBy(TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING)
                     }
 
                 })

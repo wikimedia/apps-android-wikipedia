@@ -11,19 +11,19 @@ import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
-import org.wikipedia.R
 import org.wikipedia.databinding.ViewTalkTopicsSortOverflowBinding
 
 class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
 
     interface Callback {
-        fun datePublishedClick()
-        fun topicNameClicked()
+        fun datePublishedClick(isAscending: Boolean)
+        fun topicNameClicked(isAscending: Boolean)
     }
 
     private var binding = ViewTalkTopicsSortOverflowBinding.inflate(LayoutInflater.from(context), this, true)
     private var callback: Callback? = null
     private var popupWindowHost: PopupWindow? = null
+    private var isAscending: Boolean = false
 
     init {
         setButtonsListener()
@@ -39,27 +39,30 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
             it.showAsDropDown(anchorView, 0, 0, Gravity.END)
         }
 
-        val checkIconDrawable = R.drawable.ic_check_black_24dp
         when (sortByMode) {
             SORT_BY_DATE_PUBLISHED_DESCENDING -> {
                 binding.sortByDatePublishedSelected.isVisible = true
                 binding.sortByDatePublishedOrder.isVisible = true
                 binding.sortByDatePublishedOrder.rotation = 90f
+                isAscending = false
             }
             SORT_BY_DATE_PUBLISHED_ASCENDING -> {
                 binding.sortByDatePublishedSelected.isVisible = true
                 binding.sortByDatePublishedOrder.isVisible = true
                 binding.sortByDatePublishedOrder.rotation = 270f
+                isAscending = true
             }
             SORT_BY_TOPIC_NAME_DESCENDING -> {
                 binding.sortByTopicNameSelected.isVisible = true
                 binding.sortByTopicNameOrder.isVisible = true
                 binding.sortByTopicNameOrder.rotation = 90f
+                isAscending = false
             }
             SORT_BY_TOPIC_NAME_ASCENDING -> {
                 binding.sortByTopicNameSelected.isVisible = true
                 binding.sortByTopicNameOrder.isVisible = true
                 binding.sortByTopicNameOrder.rotation = 270f
+                isAscending = true
             }
         }
     }
@@ -74,11 +77,11 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
     private fun setButtonsListener() {
         binding.sortByDatePublishedButton.setOnClickListener {
             dismissPopupWindowHost()
-            callback?.datePublishedClick()
+            callback?.datePublishedClick(isAscending)
         }
         binding.sortByTopicNameButton.setOnClickListener {
             dismissPopupWindowHost()
-            callback?.topicNameClicked()
+            callback?.topicNameClicked(isAscending)
         }
     }
 
