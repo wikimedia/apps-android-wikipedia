@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/overflowContainer"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="-2dp"
+    android:layout_marginEnd="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/paper_color"
+        android:minWidth="200dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="@string/talk_overflow_sort_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="13dp"
+            android:textColor="?attr/material_theme_primary_color"/>
+
+        <LinearLayout
+            android:id="@+id/sortByDatePublishedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="13dp"
+            android:background="?android:selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/sortByDatePublishedSelected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_black_24dp"
+                android:contentDescription="@null"
+                android:visibility="invisible"
+                android:layout_marginEnd="16dp"
+                app:tint="?attr/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/sortByDatePublished"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:text="@string/talk_overflow_sort_date_published"
+                android:textColor="?attr/material_theme_primary_color" />
+
+            <ImageView
+                android:id="@+id/sortByDatePublishedOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_alt_24px"
+                android:rotation="90"
+                android:contentDescription="@null"
+                android:visibility="gone"
+                app:tint="?attr/material_theme_primary_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sortByTopicNameButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="13dp"
+            android:background="?android:selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/sortByTopicNameSelected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_black_24dp"
+                android:contentDescription="@null"
+                android:visibility="invisible"
+                android:layout_marginEnd="16dp"
+                app:tint="?attr/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/sortByTopicName"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:text="@string/talk_overflow_sort_topic_name"
+                android:textColor="?attr/material_theme_primary_color" />
+
+            <ImageView
+                android:id="@+id/sortByTopicNameOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_alt_24px"
+                android:rotation="90"
+                android:contentDescription="@null"
+                android:visibility="gone"
+                app:tint="?attr/material_theme_primary_color"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</org.wikipedia.views.WikiCardView>

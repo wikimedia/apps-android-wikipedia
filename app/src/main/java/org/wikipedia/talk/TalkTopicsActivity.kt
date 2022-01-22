@@ -459,7 +459,16 @@ class TalkTopicsActivity : BaseActivity() {
             }
 
             talkSortButton.setOnClickListener {
-                // TODO: show overflow menu
+                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, 0, object : TalkTopicsSortOverflowView.Callback {
+                    override fun datePublishedClick() {
+                        TODO("Not yet implemented")
+                    }
+
+                    override fun topicNameClicked() {
+                        TODO("Not yet implemented")
+                    }
+
+                })
             }
 
             FeedbackUtil.setButtonLongPressToast(talkSortButton)
