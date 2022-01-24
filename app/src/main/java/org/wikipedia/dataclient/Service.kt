@@ -419,9 +419,9 @@ interface Service {
     ): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=500&rvdir=older")
-    fun getEditHistoryDetails(
+    suspend fun getEditHistoryDetails(
         @Query("titles") titles: String
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @POST(MW_API_PREFIX + "action=thank")
     @FormUrlEncoded
