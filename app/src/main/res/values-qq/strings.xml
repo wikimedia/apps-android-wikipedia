@@ -897,7 +897,7 @@
   <string name="suggested_edits_quality_good_text">Suggested edits label text indicating that the edit quality of the user is good</string>
   <string name="suggested_edits_quality_okay_text">Suggested edits label text indicating that the edit quality of the user is okay</string>
   <string name="suggested_edits_quality_sufficient_text">Suggested edits label text indicating that the edit quality of the user is sufficient</string>
-  <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor</string>
+  <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor\n\n{{Identical|Poor}}</string>
   <string name="suggested_edits_quality_bad_text">Suggested edits label text indicating that the edit quality of the user is bad</string>
   <string name="suggested_edits_label">Label text for suggested edits.</string>
   <plurals name="suggested_edits_contribution">
