@@ -13,20 +13,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
 
 class EditHistoryListActivity : BaseActivity() {
     private lateinit var binding: ActivityEditHistoryBinding
     private lateinit var editHistoryListAdapter: EditHistoryListAdapter
+    private lateinit var pageTitle: PageTitle
     private val viewModel: EditHistoryListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        pageTitle = intent.getParcelableExtra(INTENT_EXTRA_PAGE_TITLE)!!
+        viewModel.fetchData(pageTitle)
         binding.editHistoryLoadProgress.visibility = View.VISIBLE
         viewModel.editHistoryListData.observe(this, {
             if (it is Resource.Success) {
@@ -90,6 +95,10 @@ class EditHistoryListActivity : BaseActivity() {
 
         override fun onClick(v: View) {
             val item = listItems[v.tag as Int]
+            if (item is Revision) {
+                startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
+                    pageTitle.prefixedText, item.revId, pageTitle.wikiSite.languageCode))
+            }
         }
     }
 
@@ -112,10 +121,13 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     companion object {
+
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
-        fun newIntent(context: Context): Intent {
-            return Intent(context, EditHistoryListActivity::class.java)
+        const val INTENT_EXTRA_PAGE_TITLE = "pageTitle"
+
+        fun newIntent(context: Context, pageTitle: PageTitle): Intent {
+            return Intent(context, EditHistoryListActivity::class.java).putExtra(FilePageActivity.INTENT_EXTRA_PAGE_TITLE, pageTitle)
         }
     }
 }

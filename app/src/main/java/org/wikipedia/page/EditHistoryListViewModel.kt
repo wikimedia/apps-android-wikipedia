@@ -22,14 +22,11 @@ class EditHistoryListViewModel : ViewModel() {
         L.e(throwable)
     }
 
-    init {
-        fetchData()
-    }
-
-    private fun fetchData() {
+    fun fetchData(pageTitle: PageTitle) {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
-                val response = ServiceFactory.get(WikiSite.forLanguageCode("en")).getEditHistoryDetails("Earth")
+                val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
+                    .getEditHistoryDetails(pageTitle.prefixedText)
                 val revisions = response.query!!.pages?.get(0)?.revisions
                 editHistoryListData.postValue(Success(revisions!!))
             }

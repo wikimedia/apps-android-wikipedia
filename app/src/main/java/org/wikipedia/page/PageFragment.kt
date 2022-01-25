@@ -810,7 +810,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {
-                            EditHistoryListActivity.newIntent(requireContext())
+                            EditHistoryListActivity.newIntent(requireContext(), this)
                         }
                     }
                     "coordinate" -> {
