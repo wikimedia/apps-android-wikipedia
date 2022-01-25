@@ -6,7 +6,10 @@ import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateUtils
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
@@ -50,7 +53,6 @@ import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
-import java.util.*
 
 class TalkTopicsActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicsBinding
@@ -483,16 +485,10 @@ class TalkTopicsActivity : BaseActivity() {
 
             talkSortButton.setOnClickListener {
                 TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, 0, object : TalkTopicsSortOverflowView.Callback {
-                    override fun datePublishedClick(isAscending: Boolean) {
-                        // TODO: update this
-                        (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSortBy(TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING)
+                    override fun sortByClicked(sortByMode: Int) {
+                        (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSortBy(sortByMode)
+                        binding.talkRecyclerView.adapter?.notifyDataSetChanged()
                     }
-
-                    override fun topicNameClicked(isAscending: Boolean) {
-                        // TODO: update this
-                        (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSortBy(TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING)
-                    }
-
                 })
             }
 
