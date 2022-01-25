@@ -101,10 +101,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        BottomSheetBehavior.from(requireView().parent as View).peekHeight = (DimenUtil.displayHeightPx * 0.33).toInt()
-        val bottomSheet: View = requireDialog().findViewById<ViewGroup>(R.id.design_bottom_sheet)
-        // BottomSheet expand height is restricted to 2/3 of the displayHeight
-        bottomSheet.layoutParams.height = (DimenUtil.displayHeightPx * 0.7).toInt()
+        BottomSheetBehavior.from(requireView().parent as View).peekHeight = (DimenUtil.displayHeightPx * 0.75).toInt()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
