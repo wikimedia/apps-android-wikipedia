@@ -484,13 +484,11 @@ class TalkTopicsActivity : BaseActivity() {
             }
 
             talkSortButton.setOnClickListener {
-                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, currentSortBy, object : TalkTopicsSortOverflowView.Callback {
-                    override fun sortByClicked(sortByMode: Int) {
-                        currentSortBy = sortByMode
-                        (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSortBy(sortByMode)
-                        binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-                    }
-                })
+                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, currentSortBy) { sortByMode ->
+                    currentSortBy = sortByMode
+                    (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSortBy(sortByMode)
+                    binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+                }
             }
 
             FeedbackUtil.setButtonLongPressToast(talkSortButton)

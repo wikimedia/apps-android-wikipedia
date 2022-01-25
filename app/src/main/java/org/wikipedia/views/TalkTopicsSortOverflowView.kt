@@ -15,7 +15,7 @@ import org.wikipedia.databinding.ViewTalkTopicsSortOverflowBinding
 
 class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
 
-    interface Callback {
+    fun interface Callback {
         fun sortByClicked(sortByMode: Int)
     }
 
