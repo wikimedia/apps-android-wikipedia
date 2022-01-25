@@ -10,6 +10,12 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_suggested_edits">Canciamenti</string>
   <string name="nav_item_more">Àutri cosi</string>
+  <string name="page_error_retry">Ripruva</string>
+  <string name="card_offline_error_retry">Ripruva</string>
+  <string name="storage_access_error_retry">Ripruva</string>
+  <string name="article_load_error_retry">Ripruva</string>
+  <string name="offline_load_error_retry">Ripruva</string>
+  <string name="menu_clear_all_history">Cancella la crunuluggìa</string>
   <string name="history_item_delete_undo">Annulla</string>
   <string name="notification_archive_undo">Annulla</string>
   <string name="history_list_title">Crunuluggìa</string>
