@@ -897,7 +897,7 @@
   <string name="suggested_edits_quality_good_text">Suggested edits label text indicating that the edit quality of the user is good</string>
   <string name="suggested_edits_quality_okay_text">Suggested edits label text indicating that the edit quality of the user is okay</string>
   <string name="suggested_edits_quality_sufficient_text">Suggested edits label text indicating that the edit quality of the user is sufficient</string>
-  <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor</string>
+  <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor\n\n{{Identical|Poor}}</string>
   <string name="suggested_edits_quality_bad_text">Suggested edits label text indicating that the edit quality of the user is bad</string>
   <string name="suggested_edits_label">Label text for suggested edits.</string>
   <plurals name="suggested_edits_contribution">
@@ -1070,7 +1070,7 @@
   <string name="talk_snackbar_survey_action_text">Button label for navigating to a survey page.</string>
   <string name="talk_share_discussion_subject">Subject text while sharing a talk topic discussion. %s represents the topic subject.</string>
   <string name="talk_share_talk_page">Subject text while sharing a talk page</string>
-  <string name="talk_edit_disclaimer">Disclaimer of editing a talk page.</string>
+  <string name="talk_edit_disclaimer">Disclaimer of editing a talk page. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>

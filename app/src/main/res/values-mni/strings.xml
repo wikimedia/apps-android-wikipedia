@@ -37,6 +37,7 @@
   <string name="app_settings">ꯑꯦꯞꯁ ꯁꯦꯝꯐꯝ</string>
   <string name="history_list_title">ꯄꯨꯋꯥꯔꯤ</string>
   <string name="image_content_description">ꯁꯛꯇꯝ: %s</string>
+  <string name="page_content_description">ꯂꯃꯥꯏ: %s</string>
   <string name="wikimedia_commons">ꯋꯤꯀꯤꯃꯦꯗꯤꯌꯥ ꯀꯃꯣꯟꯁ</string>
   <string name="wikidata">ꯋꯤꯀꯤꯗꯥꯇꯥ</string>
   <string name="dialog_title_clear_history">ꯊꯤꯕꯒꯤ ꯄꯨꯋꯥꯔꯤ ꯃꯥꯡꯍꯟꯕ</string>
@@ -104,6 +105,7 @@
   <string name="logged_out_in_background_title">ꯃꯄꯥꯟ ꯊꯣꯛꯂꯛꯈꯔꯦ</string>
   <string name="logged_out_in_background_login">ꯃꯅꯨꯡ ꯆꯪ-ꯁꯤꯟꯕ</string>
   <string name="logged_out_in_background_cancel">ꯇꯣꯛꯄ</string>
+  <string name="search_empty_message_multilingual_upgrade">ꯋꯤꯀꯤꯄꯦꯗꯤꯌꯥ ꯊꯤꯌꯨ ꯑꯇꯩ ꯂꯣꯟꯁꯤꯡꯗ</string>
   <string name="delete_selected_items">ꯈꯟꯒꯠꯂꯕ ꯄꯣꯠꯂꯝ ꯀꯛꯊꯠꯂꯨ</string>
   <string name="create_account_username_hint">ꯁꯤꯖꯤꯟꯅꯔꯤꯕ-ꯃꯃꯤꯡ</string>
   <string name="login_dont_have_account">ꯑꯦꯀꯥꯎꯅ ꯂꯩꯇꯕ?</string>
@@ -176,6 +178,7 @@
   <string name="table_close">ꯈꯨꯝꯖꯤꯟꯂꯨ</string>
   <string name="widget_name_featured_page">ꯋꯤꯀꯤꯄꯦꯗꯤꯌꯥ ꯋꯥꯔꯦꯡ ꯃꯑꯣꯡ ꯃꯇꯧ</string>
   <string name="widget_title_featured_page">ꯉꯁꯤꯒꯤ ꯋꯥꯔꯦꯡ ꯃꯑꯣꯡ</string>
+  <string name="widget_name_search">ꯋꯤꯀꯤꯄꯦꯗꯤꯌꯥ ꯊꯤꯕꯥ</string>
   <string name="alpha_update_notification_text">ꯆꯤꯡꯊꯅꯕ ꯅꯝꯃꯨ</string>
   <string name="dialog_close_description">ꯈꯨꯝꯖꯤꯟꯂꯨ</string>
   <string name="preference_title_show_images">ꯁꯛꯇꯝꯁꯤꯡ ꯎꯠꯂꯨ</string>
@@ -190,6 +193,9 @@
   <string name="close_all_tabs_confirm_no">ꯅꯠꯇꯦ</string>
   <string name="error_unknown">ꯃꯁꯛ ꯈꯪꯗꯕ ꯑꯔꯥꯟꯕ ꯊꯦꯡꯅꯔꯦ ꯫</string>
   <string name="button_continue_to_article">ꯋꯥꯔꯦꯡ ꯄꯥꯑꯣ</string>
+  <string name="button_continue_to_talk_page">ꯋꯥ ꯍꯥꯏꯐꯝ ꯂꯃꯥꯏ ꯍꯥꯡꯗꯣꯛꯎ</string>
+  <string name="button_continue_to_disambiguation">ꯃꯥꯟꯅꯕ ꯂꯃꯥꯏꯁꯤ ꯎꯠꯂꯨ</string>
+  <string name="enable_location_service">ꯌꯥꯍꯟꯕ</string>
   <string name="crash_report_relaunch">ꯍꯧꯔꯛꯑꯣ</string>
   <string name="crash_report_quit">ꯇꯣꯛꯄ</string>
   <string name="article_menu_bar_save_button">ꯇꯨꯡꯁꯤꯟꯂꯨ</string>
