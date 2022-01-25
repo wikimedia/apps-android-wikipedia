@@ -145,7 +145,7 @@
   <string name="create_account_username_hint">သုင်ꩻသားမိဥ်ꩻ</string>
   <string name="login_dont_have_account">အကောက် အဝ်ႏတဝ်းနဲ့?</string>
   <string name="login_join_wikipedia">နွို့ဝီခီပီးဒီးယား</string>
-  <string name="login_forgot_password">အွဥ်ႏဖေင်ꩻထိုꩻ ငဝ်းဗိဥ်ႏပလို့ꩻနဲ့</string>
+  <string name="login_forgot_password">အွောန်ႏဖေင်ꩻထိုꩻ ငဝ်းဗိဉ်ႏပလို့ꩻနဲ့</string>
   <string name="create_account_already_have">အကောက်အဝ်ႏထွူလဲဉ်းနဲ့ဩ?</string>
   <string name="create_account_activity_title">ဖန်ဆင်ꩻအကောက်</string>
   <string name="dialog_create_account_checking_progress">အဝ်ႏစဲစ်ထွား</string>

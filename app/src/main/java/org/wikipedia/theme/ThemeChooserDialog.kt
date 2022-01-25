@@ -28,10 +28,8 @@ import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.DimenUtil.getFloat
-import org.wikipedia.util.DimenUtil.roundedDpToPx
-import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
-import org.wikipedia.util.ResourceUtil.getThemedColor
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 
 class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: DialogThemeChooserBinding? = null
@@ -58,7 +56,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         _binding = DialogThemeChooserBinding.inflate(inflater, container, false)
         binding.buttonDecreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.DECREASE))
         binding.buttonIncreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.INCREASE))
-        setButtonLongPressToast(binding.buttonDecreaseTextSize, binding.buttonIncreaseTextSize)
+        FeedbackUtil.setButtonLongPressToast(binding.buttonDecreaseTextSize, binding.buttonIncreaseTextSize)
         binding.buttonThemeLight.setOnClickListener(ThemeButtonListener(Theme.LIGHT))
         binding.buttonThemeDark.setOnClickListener(ThemeButtonListener(Theme.DARK))
         binding.buttonThemeBlack.setOnClickListener(ThemeButtonListener(Theme.BLACK))
@@ -88,7 +86,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         updateComponents()
         disableBackgroundDim()
         requireDialog().window?.let {
-            DeviceUtil.setNavigationBarColor(it, getThemedColor(requireContext(), R.attr.paper_color))
+            DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
 
         binding.customizeFavorites.setOnClickListener {
@@ -131,13 +129,13 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.themeChooserMatchSystemThemeSwitch.isEnabled = !isMobileWeb
         binding.themeChooserDarkModeDimImagesSwitch.isEnabled = !isMobileWeb
         binding.themeChooserReadingFocusModeSwitch.isEnabled = !isMobileWeb
-        binding.buttonThemeBlack.isEnabled = !isMobileWeb
-        binding.buttonThemeDark.isEnabled = !isMobileWeb
-        binding.buttonThemeLight.isEnabled = !isMobileWeb
-        binding.buttonThemeSepia.isEnabled = !isMobileWeb
+        binding.buttonThemeBlack.isEnabled = app.currentTheme == Theme.BLACK || !isMobileWeb
+        binding.buttonThemeDark.isEnabled = app.currentTheme == Theme.DARK || !isMobileWeb
+        binding.buttonThemeLight.isEnabled = app.currentTheme == Theme.LIGHT || !isMobileWeb
+        binding.buttonThemeSepia.isEnabled = app.currentTheme == Theme.SEPIA || !isMobileWeb
 
         if (isMobileWeb) {
-            val textColor = ContextCompat.getColor(requireContext(), R.color.black26)
+            val textColor = ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_61)
             binding.buttonDecreaseTextSize.setTextColor(textColor)
             binding.buttonIncreaseTextSize.setTextColor(textColor)
             binding.buttonFontFamilySerif.setTextColor(textColor)
@@ -146,6 +144,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             binding.themeChooserDarkModeDimImagesSwitch.setTextColor(textColor)
             binding.themeChooserReadingFocusModeSwitch.setTextColor(textColor)
             binding.themeChooserReadingFocusModeDescription.setTextColor(textColor)
+            updateThemeButtonAlpha(binding.buttonThemeBlack, !binding.buttonThemeBlack.isEnabled)
+            updateThemeButtonAlpha(binding.buttonThemeDark, !binding.buttonThemeDark.isEnabled)
+            updateThemeButtonAlpha(binding.buttonThemeLight, !binding.buttonThemeLight.isEnabled)
+            updateThemeButtonAlpha(binding.buttonThemeSepia, !binding.buttonThemeSepia.isEnabled)
         }
     }
 
@@ -185,14 +187,18 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun conditionallyDisableThemeButtons() {
-        binding.buttonThemeLight.alpha = if (isMatchingSystemThemeEnabled && app.currentTheme.isDark) 0.2f else 1.0f
-        binding.buttonThemeSepia.alpha = if (isMatchingSystemThemeEnabled && app.currentTheme.isDark) 0.2f else 1.0f
-        binding.buttonThemeDark.alpha = if (isMatchingSystemThemeEnabled && !app.currentTheme.isDark) 0.2f else 1.0f
-        binding.buttonThemeBlack.alpha = if (isMatchingSystemThemeEnabled && !app.currentTheme.isDark) 0.2f else 1.0f
+        updateThemeButtonAlpha(binding.buttonThemeLight, isMatchingSystemThemeEnabled && app.currentTheme.isDark)
+        updateThemeButtonAlpha(binding.buttonThemeSepia, isMatchingSystemThemeEnabled && app.currentTheme.isDark)
+        updateThemeButtonAlpha(binding.buttonThemeDark, isMatchingSystemThemeEnabled && !app.currentTheme.isDark)
+        updateThemeButtonAlpha(binding.buttonThemeBlack, isMatchingSystemThemeEnabled && !app.currentTheme.isDark)
         binding.buttonThemeLight.isEnabled = !isMatchingSystemThemeEnabled || !app.currentTheme.isDark
         binding.buttonThemeSepia.isEnabled = !isMatchingSystemThemeEnabled || !app.currentTheme.isDark
         binding.buttonThemeDark.isEnabled = !isMatchingSystemThemeEnabled || app.currentTheme.isDark
         binding.buttonThemeBlack.isEnabled = !isMatchingSystemThemeEnabled || app.currentTheme.isDark
+    }
+
+    private fun updateThemeButtonAlpha(button: View, translucent: Boolean) {
+        button.alpha = if (translucent) 0.2f else 1.0f
     }
 
     private val isMatchingSystemThemeEnabled: Boolean
@@ -223,7 +229,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         val multiplier = Prefs.textSizeMultiplier
         binding.textSizeSeekBar.value = multiplier
         val percentStr = getString(R.string.text_size_percent,
-                (100 * (1 + multiplier * getFloat(R.dimen.textSizeMultiplierFactor))).toInt())
+                (100 * (1 + multiplier * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))).toInt())
         binding.textSizePercent.text = if (multiplier == 0) getString(R.string.text_size_percent_default, percentStr) else percentStr
         if (updatingFont) {
             binding.fontChangeProgressBar.visibility = View.VISIBLE
@@ -253,7 +259,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.themeChooserDarkModeDimImagesSwitch.isChecked = Prefs.dimDarkModeImages
         binding.themeChooserDarkModeDimImagesSwitch.isEnabled = app.currentTheme.isDark
         binding.themeChooserDarkModeDimImagesSwitch.setTextColor(if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled)
-            getThemedColor(requireContext(), R.attr.section_title_color) else ContextCompat.getColor(requireContext(), R.color.black26))
+            ResourceUtil.getThemedColor(requireContext(), R.attr.section_title_color) else ContextCompat.getColor(requireContext(), R.color.black26))
     }
 
     private inner class ThemeButtonListener(private val theme: Theme) : View.OnClickListener {
@@ -312,7 +318,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     companion object {
         private const val EXTRA_IS_MOBILE_WEB = "isMobileWeb"
-        private val BUTTON_STROKE_WIDTH = roundedDpToPx(2f)
+        private val BUTTON_STROKE_WIDTH = DimenUtil.roundedDpToPx(2f)
 
         fun newInstance(source: InvokeSource, isMobileWeb: Boolean = false): ThemeChooserDialog {
             return ThemeChooserDialog().apply {
