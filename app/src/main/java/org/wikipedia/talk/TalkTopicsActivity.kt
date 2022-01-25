@@ -498,7 +498,6 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private inner class SearchCallback : SearchActionModeCallback() {
-
         var searchActionProvider: SearchActionProvider? = null
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             searchActionProvider = SearchActionProvider(this@TalkTopicsActivity, searchHintString,
@@ -516,6 +515,9 @@ class TalkTopicsActivity : BaseActivity() {
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
 
             actionMode = mode
+            binding.talkUsernameView.isVisible = false
+            binding.talkNewTopicButton.isVisible = false
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
         }
 
@@ -529,6 +531,8 @@ class TalkTopicsActivity : BaseActivity() {
             actionMode = null
             (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSearchQuery(null)
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            binding.talkUsernameView.isVisible = true
+            binding.talkNewTopicButton.isVisible = true
         }
 
         override fun getSearchHintString(): String {
