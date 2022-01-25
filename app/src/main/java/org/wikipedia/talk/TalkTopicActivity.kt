@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -182,8 +183,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.licenseText.visibility = View.VISIBLE
         binding.talkScrollContainer.post {
             if (!isDestroyed) {
-                binding.replyInputView.textInputLayout.requestFocus()
-                DeviceUtil.showSoftKeyboard(binding.replyInputView.textInputLayout)
+                binding.replyInputView.editText.requestFocus()
+                DeviceUtil.showSoftKeyboard(binding.replyInputView.editText)
                 binding.talkScrollContainer.postDelayed({
                     binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
                 }, 500)
@@ -541,6 +542,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     override fun onUserMentionListUpdate() {
+        binding.licenseText.isVisible = false
         binding.talkScrollContainer.post {
             if (!isDestroyed && !userMentionScrolled) {
                 binding.talkScrollContainer.smoothScrollTo(0, binding.root.height * 4)
@@ -551,6 +553,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onUserMentionComplete() {
         userMentionScrolled = false
+        binding.licenseText.isVisible = true
     }
 
     private fun parseUserNamesFromTopic(): Set<String> {

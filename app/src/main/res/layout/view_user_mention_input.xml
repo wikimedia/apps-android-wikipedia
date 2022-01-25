@@ -27,7 +27,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userListRecycler"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        android:layout_height="144dp"
         android:layout_marginTop="8dp"
         android:scrollbars="vertical"
         android:visibility="gone"/>

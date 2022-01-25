@@ -62,15 +62,16 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     override fun onCancelUserNameEntry() {
         disposables.clear()
         binding.userListRecycler.isVisible = false
+        listener?.onUserMentionComplete()
     }
 
     override fun onUserNameChanged(userName: String) {
         var userNamePrefix = userName
         if (userNamePrefix.startsWith("@") && userNamePrefix.length > 1) {
             userNamePrefix = userNamePrefix.substring(1)
-        }
-        if (userNamePrefix.isNotEmpty()) {
-            searchForUserName(userNamePrefix)
+            if (userNamePrefix.isNotEmpty()) {
+                searchForUserName(userNamePrefix)
+            }
         }
     }
 
