@@ -18,8 +18,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewUserMentionInputBinding
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.page.Namespace
-import org.wikipedia.util.StringUtil
 import java.util.concurrent.TimeUnit
 
 class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
@@ -84,21 +82,16 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     private fun searchForUserName(prefix: String) {
         disposables.clear()
         disposables.add(Observable.timer(200, TimeUnit.MILLISECONDS)
-                .flatMap { ServiceFactory.get(wikiSite).prefixSearchMinimal(prefix, Namespace.USER.code(), 10) }
+                .flatMap { ServiceFactory.get(wikiSite).prefixSearchUsers(prefix, 10) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
                     userNameList.clear()
                     userNameList.addAll(userNameHints.filter { it.startsWith(prefix, ignoreCase = true) })
 
-                    response.query?.pages?.sortBy { it.index }
-                    response.query?.pages?.forEach {
-                        // ignore subpages of user pages
-                        if (!it.title.contains('/')) {
-                            val name = StringUtil.removeNamespace(it.title)
-                            if (!userNameList.contains(name)) {
-                                userNameList.add(name)
-                            }
+                    response.query?.allUsers?.forEach {
+                        if (!userNameList.contains(it.name)) {
+                            userNameList.add(it.name)
                         }
                     }
                     onSearchResults()
