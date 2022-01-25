@@ -74,6 +74,8 @@ class TalkTopicsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkTopicsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
@@ -246,8 +248,10 @@ class TalkTopicsActivity : BaseActivity() {
     private fun loadTopics() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
-        binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
-        binding.talkUsernameView.isVisible = !goToTopic
+        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
+        binding.toolbarTitle.isVisible = !goToTopic
+        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
 
         disposables.clear()
         binding.talkProgressBar.isVisible = true
@@ -272,7 +276,7 @@ class TalkTopicsActivity : BaseActivity() {
                             }
                         }
                     }
-                    binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
+                    binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
                     ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
@@ -288,7 +292,7 @@ class TalkTopicsActivity : BaseActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     invalidateOptionsMenu()
-                    binding.talkUsernameView.isVisible = !goToTopic
+                    binding.toolbarTitle.isVisible = !goToTopic
                     binding.talkProgressBar.isVisible = !goToTopic
                     binding.talkProgressBar.visibility = View.GONE
                     binding.talkRefreshView.isRefreshing = false
@@ -513,7 +517,6 @@ class TalkTopicsActivity : BaseActivity() {
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
 
             actionMode = mode
-            binding.talkUsernameView.isVisible = false
             binding.talkNewTopicButton.isVisible = false
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
@@ -529,7 +532,6 @@ class TalkTopicsActivity : BaseActivity() {
             actionMode = null
             (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSearchQuery(null)
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-            binding.talkUsernameView.isVisible = true
             binding.talkNewTopicButton.isVisible = true
         }
 
