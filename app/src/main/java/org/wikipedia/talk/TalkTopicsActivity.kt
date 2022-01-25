@@ -484,8 +484,9 @@ class TalkTopicsActivity : BaseActivity() {
             }
 
             talkSortButton.setOnClickListener {
-                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, 0, object : TalkTopicsSortOverflowView.Callback {
+                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, currentSortBy, object : TalkTopicsSortOverflowView.Callback {
                     override fun sortByClicked(sortByMode: Int) {
+                        currentSortBy = sortByMode
                         (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSortBy(sortByMode)
                         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
                     }
