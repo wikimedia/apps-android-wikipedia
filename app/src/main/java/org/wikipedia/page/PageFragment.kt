@@ -60,7 +60,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.media.AvPlayer
-import org.wikipedia.notifications.PollNotificationService
+import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionTab
 import org.wikipedia.page.leadimages.LeadImagesHandler
@@ -121,6 +121,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private lateinit var bridge: CommunicationBridge
     private lateinit var leadImagesHandler: LeadImagesHandler
     private lateinit var pageFragmentLoadState: PageFragmentLoadState
+    private lateinit var bottomBarHideHandler: ViewHideHandler
     private var pageScrollFunnel: PageScrollFunnel? = null
     private var pageRefreshed = false
     private var errorState = false
@@ -194,6 +195,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 callback()?.onPageLoadErrorBackPressed()
             }
         }
+
+        bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabLayout, null, Gravity.BOTTOM, updateElevation = false)
+        bottomBarHideHandler.setScrollView(webView)
+        bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
         editHandler = EditHandler(this, bridge)
         tocHandler = ToCHandler(this, ActivityCompat.requireViewById(activity, R.id.navigation_drawer),
@@ -294,6 +299,23 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onToggleDimImages() {
         ActivityCompat.recreate(requireActivity())
+    }
+
+    override fun onToggleReadingFocusMode() {
+        webView.scrollEventsEnabled = false
+        bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
+        leadImagesHandler.refreshCallToActionVisibility()
+        page?.let {
+            bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !it.pageProperties.canEdit))
+        }
+        // We disable and then re-enable scroll events coming from the WebView, because toggling
+        // reading focus mode within the article could actually change the dimensions of the page,
+        // which will cause extraneous scroll events to be sent.
+        binding.root.postDelayed({
+            if (isAdded) {
+                webView.scrollEventsEnabled = true
+            }
+        }, 250)
     }
 
     override fun onCancelThemeChooser() {
@@ -409,7 +431,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             model.page?.let { page ->
                 page.pageProperties.protection = JsonUtil.decodeFromString(value)
-                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.pageProperties.canEdit))
             }
         }
     }
@@ -523,7 +544,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         model.curEntry?.let {
             Completable.fromCallable { AppDatabase.getAppDatabase().historyEntryDao().upsertWithTimeSpent(it, timeSpentSec) }
                 .subscribeOn(Schedulers.io())
-                .subscribe({}) { caught -> L.e(caught) }
+                .subscribe({}) { L.e(it) }
         }
     }
 
@@ -913,7 +934,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         if (AccountUtil.isLoggedIn) {
             // explicitly check notifications for the current user
-            PollNotificationService.schedulePollNotificationJob(requireContext())
+            PollNotificationWorker.schedulePollNotificationJob(requireContext())
         }
 
         // update the time spent reading of the current page, before loading the new one

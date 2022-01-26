@@ -54,8 +54,8 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
             currentTask = SyntaxHighlightTask(textBox.text)
             searchTask = SyntaxHighlightSearchMatchesTask(textBox.text, searchText, selectedMatchResultPosition)
             disposables.clear()
-            disposables.add(Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentTask),
-                    Observable.fromCallable(searchTask), { f, s ->
+            disposables.add(Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentTask!!),
+                    Observable.fromCallable(searchTask!!), { f, s ->
                         f.addAll(s)
                         f
                     })

@@ -12,10 +12,18 @@ import org.wikipedia.views.ViewAnimations.ensureTranslationY
 
 class ViewHideHandler(private val hideableView: View,
                       private val anchoredView: View?,
-                      private val gravity: Int) :
+                      private val gravity: Int,
+                      private val updateElevation: Boolean = true) :
         ObservableWebView.OnScrollChangeListener, OnUpOrCancelMotionEventListener, OnDownMotionEventListener, ObservableWebView.OnClickListener {
 
     private var webView: ObservableWebView? = null
+    var enabled = true
+        set(value) {
+            field = value
+            if (!enabled) {
+                ensureDisplayed()
+            }
+        }
 
     fun setScrollView(webView: ObservableWebView?) {
         this.webView = webView
@@ -28,7 +36,7 @@ class ViewHideHandler(private val hideableView: View,
     }
 
     override fun onScrollChanged(oldScrollY: Int, scrollY: Int, isHumanScroll: Boolean) {
-        if (webView == null) {
+        if (webView == null || !enabled) {
             return
         }
         var animMargin = 0
@@ -53,13 +61,18 @@ class ViewHideHandler(private val hideableView: View,
         hideableView.translationY = animMargin.toFloat()
         anchoredView?.translationY = animMargin.toFloat()
 
-        val elevation = if (scrollY == 0 && oldScrollY != 0) 0F else dpToPx(getDimension(R.dimen.toolbar_default_elevation))
-        if (elevation != hideableView.elevation) {
-            hideableView.elevation = elevation
+        if (updateElevation) {
+            val elevation = if (scrollY == 0 && oldScrollY != 0) 0F else dpToPx(getDimension(R.dimen.toolbar_default_elevation))
+            if (elevation != hideableView.elevation) {
+                hideableView.elevation = elevation
+            }
         }
     }
 
     override fun onUpOrCancelMotionEvent() {
+        if (!enabled) {
+            return
+        }
         val transY = hideableView.translationY.toInt()
         val height = hideableView.height
         if (gravity == Gravity.BOTTOM && transY != 0 && transY < height) {
@@ -82,7 +95,13 @@ class ViewHideHandler(private val hideableView: View,
     }
 
     override fun onClick(x: Float, y: Float): Boolean {
-        ensureDisplayed()
+        if (enabled) {
+            if (hideableView.translationY != 0f) {
+                ensureDisplayed()
+            } else {
+                ensureHidden()
+            }
+        }
         return false
     }
 

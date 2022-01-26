@@ -75,6 +75,7 @@
   <string name="search_tab_tooltip">برای تایپ عبارت جستجو، دوباره روی آیکون ضربه بزنید.</string>
   <string name="history_list_title">تاریخچه</string>
   <string name="image_content_description">تصویر: %s</string>
+  <string name="page_content_description">صفحه: %s</string>
   <string name="dialog_title_clear_history">پاک‌کردن تاریخچهٔ جستجو</string>
   <string name="dialog_message_clear_history">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
   <string name="dialog_message_clear_history_yes">بله</string>
@@ -324,6 +325,7 @@
   <string name="gallery_save_success">پرونده ذخیره شد.</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
   <string name="gallery_save_image_write_permission_rationale">برای ذخیره تصاویر، به اجازهٔ ذخیره بر روی دستگاهتان نیاز است.</string>
+  <string name="gallery_edit_button_content_description">ویرایش توضیح تصویر</string>
   <string name="gallery_add_image_caption_button">افزودن توضیح تصویر</string>
   <string name="gallery_add_image_caption_in_language_button">افزودن توضیح تصویر (%s)</string>
   <string name="err_cannot_save_file">ذخیرهٔ پرونده ممکن نیست</string>
@@ -554,6 +556,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">لغو</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">لغو</string>
   <string name="reading_list_split_dialog_ok_button_text">تأیید</string>
+  <string name="reading_list_activity_title">فهرست مطالعه: %s</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_reverted_title">ویرایش واگردانی‌شده</string>
   <string name="notification_channel_title">در حال دانلود مقاله‌ها</string>
@@ -698,6 +701,7 @@
   <string name="feed_accessibility_card_text">شما به انتهای محتوا رسیدید.</string>
   <string name="feed_accessibility_card_load_more_button">بارگیری بیشتر</string>
   <string name="top_read_activity_title">پربازدیدها در %s</string>
+  <string name="tabs_activity_title">زبانه‌ها</string>
   <string name="description_edit_text_hint">توضیحات مقاله</string>
   <string name="description_edit_article_description_label">مقاله</string>
   <string name="description_edit_translate_article_description_label_per_language">توضیحات مقاله (%s)</string>
@@ -914,6 +918,7 @@
   <string name="file_page_add_image_caption_button">افزودن توضیح تصویر</string>
   <string name="file_page_add_image_tags_button">افزودن برچسب‌های تصویر</string>
   <string name="file_page_suggestion_reason">دلیل پیشنهاد</string>
+  <string name="file_page_edit_button_content_description">ویرایش %s</string>
   <string name="description_edit_revert_subtitle">سپاس بابت ویرایش ویکی‌پدیا!</string>
   <string name="description_edit_revert_intro">با وجودی که شما همهٔ تلاشتان را کردید، یکی از ویرایشگران با ویرایش شما مخالف است و آن را واگردانی کرده‌است که دلیل آن:</string>
   <string name="description_edit_revert_reason1">ویرایش شما با یکی از &lt;a href=\"%1$s\"&gt;رهنمودها&lt;/a&gt; مطابقت ندارد.</string>

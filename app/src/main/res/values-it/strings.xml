@@ -23,6 +23,7 @@
 * LACLARETTA
 * Lorelai87
 * Macofe
+* Mannivu
 * Nastoshka
 * Nemo bis
 * Nivit
@@ -74,6 +75,7 @@
   <string name="search_tab_tooltip">Clicca di nuovo l\'icona per iniziare direttamente una ricerca.</string>
   <string name="history_list_title">Cronologia</string>
   <string name="image_content_description">Immagine: %s</string>
+  <string name="page_content_description">Pagina: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
@@ -329,6 +331,7 @@
   <string name="gallery_save_success">File salvato.</string>
   <string name="gallery_error_video_failed">Impossibile riprodurre il video.</string>
   <string name="gallery_save_image_write_permission_rationale">Il permesso di scrittura sul dispositivo è necessario per il salvataggio delle immagini.</string>
+  <string name="gallery_edit_button_content_description">Modifica didascalia immagine</string>
   <string name="gallery_add_image_caption_button">Aggiungi didascalia all\'immagine</string>
   <string name="gallery_add_image_caption_in_language_button">Aggiungi didascalia all\'immagine (%s)</string>
   <string name="err_cannot_save_file">Impossibile salvare il file</string>
@@ -563,6 +566,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annulla</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annulla</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Elenco di lettura: %s</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_reverted_title">Modifica annullata</string>
   <string name="notification_channel_title">Download delle voci</string>
@@ -746,6 +750,7 @@
   <string name="feed_accessibility_card_text">Hai raggiunto la fine del feed.</string>
   <string name="feed_accessibility_card_load_more_button">Carica di più</string>
   <string name="top_read_activity_title">Tendenze del %s</string>
+  <string name="tabs_activity_title">Schede</string>
   <string name="description_edit_text_hint">Descrizione della voce</string>
   <string name="description_edit_article_description_label">Voce</string>
   <string name="description_edit_translate_article_description_label_per_language">Descrizione voce (%s)</string>
@@ -963,6 +968,7 @@
   <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>
   <string name="file_page_suggestion_reason">Motivo del suggerimento</string>
+  <string name="file_page_edit_button_content_description">Modifica %s</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>

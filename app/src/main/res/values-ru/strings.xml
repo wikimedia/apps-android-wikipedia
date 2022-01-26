@@ -98,6 +98,7 @@
   <string name="search_tab_tooltip">Нажмите на иконку снова, чтобы начать ввод поискового запроса.</string>
   <string name="history_list_title">История</string>
   <string name="image_content_description">Изображение: %s</string>
+  <string name="page_content_description">Страница: %s</string>
   <string name="wikimedia_commons">Викисклад</string>
   <string name="wikidata">Викиданные</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
@@ -459,6 +460,7 @@
   <string name="text_size_decrease">Уменьшить размер шрифта</string>
   <string name="text_size_percent_default">%s (по умолчанию)</string>
   <string name="text_style_title">Шрифт</string>
+  <string name="theme_category_reading">Чтение</string>
   <string name="nav_item_saved">Сохранено</string>
   <string name="reading_list_save_to">Добавить в список для чтения</string>
   <string name="reading_list_move_to">Перенести в список для чтения</string>

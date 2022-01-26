@@ -1,6 +1,5 @@
 package org.wikipedia.edit
 
-import android.content.Intent
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -81,13 +80,8 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                 L.w("Attempting to edit a mismatched section ID.")
                 return
             }
-            val section = it.sections[sectionID]
-            val intent = Intent(fragment.requireActivity(), EditSectionActivity::class.java)
-            intent.putExtra(EditSectionActivity.EXTRA_SECTION_ID, section.id)
-            intent.putExtra(EditSectionActivity.EXTRA_SECTION_ANCHOR, section.anchor)
-            intent.putExtra(EditSectionActivity.EXTRA_TITLE, it.title)
-            intent.putExtra(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT, highlightText)
-            fragment.startActivityForResult(intent, Constants.ACTIVITY_REQUEST_EDIT_SECTION)
+            fragment.startActivityForResult(EditSectionActivity.newIntent(fragment.requireContext(),
+                it.sections[sectionID].id, it.sections[sectionID].anchor, it.title, highlightText), Constants.ACTIVITY_REQUEST_EDIT_SECTION)
         }
     }
 

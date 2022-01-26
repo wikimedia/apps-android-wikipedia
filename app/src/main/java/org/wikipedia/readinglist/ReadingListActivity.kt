@@ -13,6 +13,7 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.statusBarColor = Color.TRANSPARENT
+        title = getString(R.string.reading_list_activity_title, intent.getStringExtra(EXTRA_READING_LIST_TITLE))
     }
 
     public override fun createFragment(): ReadingListFragment {
@@ -24,9 +25,11 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
     }
 
     companion object {
+        private const val EXTRA_READING_LIST_TITLE = "readingListTitle"
         const val EXTRA_READING_LIST_ID = "readingListId"
         fun newIntent(context: Context, list: ReadingList): Intent {
             return Intent(context, ReadingListActivity::class.java)
+                    .putExtra(EXTRA_READING_LIST_TITLE, list.title)
                     .putExtra(EXTRA_READING_LIST_ID, list.id)
         }
     }

@@ -22,6 +22,8 @@
 * Winston Sung
 * Wwycheuk
 * Xiplus
+* 人工知能
+* 列维劳德
 * 沈澄心
 * 漢黑玉
 * 烈羽
@@ -56,9 +58,10 @@
   <string name="history_item_delete_undo">還原</string>
   <string name="notification_archive_undo">還原</string>
   <string name="app_settings">應用程式設定</string>
-  <string name="search_tab_tooltip">再次輕觸圖標可直接開始輸入搜尋項。</string>
+  <string name="search_tab_tooltip">再次輕觸圖示可直接開始輸入搜尋項。</string>
   <string name="history_list_title">歷史</string>
   <string name="image_content_description">圖片：%s</string>
+  <string name="page_content_description">頁面：%s</string>
   <string name="wikimedia_commons">維基共享資源</string>
   <string name="wikidata">維基數據</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
@@ -314,6 +317,7 @@
   <string name="gallery_save_success">已儲存檔案。</string>
   <string name="gallery_error_video_failed">無法播放影片</string>
   <string name="gallery_save_image_write_permission_rationale">需要寫入您的裝置儲存庫的權限方能儲存圖片。</string>
+  <string name="gallery_edit_button_content_description">編輯圖片說明</string>
   <string name="gallery_add_image_caption_button">新增圖片說明</string>
   <string name="gallery_add_image_caption_in_language_button">新增圖片說明（%s）</string>
   <string name="err_cannot_save_file">無法儲存檔案</string>
@@ -334,11 +338,11 @@
   <string name="tab_item_closed">已關閉%s。</string>
   <string name="all_tab_items_closed">所有分頁已關閉</string>
   <string name="tool_tip_bookmark_icon_title">新增至閱讀清單</string>
-  <string name="tool_tip_bookmark_icon_text">輕觸書籤圖標來儲存條目至閱讀清單裡。</string>
+  <string name="tool_tip_bookmark_icon_text">輕觸書籤圖示以儲存條目至閱讀清單。</string>
   <string name="page_view_in_browser">在瀏覽器檢視頁面</string>
   <string name="tool_tip_toc_title">內容快速存取表格</string>
   <string name="tool_tip_toc_text">您現在可以往左滑動來開啟內容表格，並可以輕觸拖拉到此滾動按鈕來快速跳至條目的不同段落。</string>
-  <string name="tool_tip_lang_button">您現在可以在應用程式裡搜尋及閱讀多個維基百科語言版本。\n\n\n輕觸圖標來添加更多語言。</string>
+  <string name="tool_tip_lang_button">您現在可以在應用程式裡搜尋及閱讀多個維基百科語言版本。\n\n\n輕觸圖示以新增更多語言。</string>
   <string name="error_response_malformed">來自伺服器的回應格式不正確。</string>
   <string name="error_unknown">發生不明錯誤。</string>
   <string name="format_error_server_message">訊息：\"%s\"</string>
@@ -366,12 +370,12 @@
   <string name="enable_location_service">啟用</string>
   <string name="location_permissions_enable_prompt">啟用位置許可權限來查看靠近您所在的地點。</string>
   <string name="location_permissions_enable_action">啟動</string>
-  <string name="error_webview_updating">Android系統的WebView正在更新。請稍候再試。</string>
+  <string name="error_webview_updating">Android 作業系統的 WebView 正在更新。請稍候再試。</string>
   <plurals name="multi_items_selected">
     <item quantity="one">已選 %d 個</item>
     <item quantity="other">已選 %d 個</item>
   </plurals>
-  <string name="multi_select_items_selected">%d個已選擇</string>
+  <string name="multi_select_items_selected">%d 個已選擇</string>
   <string name="error_message_generic">發生錯誤</string>
   <string name="view_link_preview_error_button_dismiss">關閉</string>
   <string name="error_page_does_not_exist">此頁面不存在</string>
@@ -420,6 +424,9 @@
   <string name="text_size_decrease">增少文字大小</string>
   <string name="text_size_percent_default">%s（預設）</string>
   <string name="text_style_title">字型</string>
+  <string name="theme_category_reading">閱讀</string>
+  <string name="reading_focus_mode">專注閱讀模式</string>
+  <string name="reading_focus_mode_detail">隱藏編輯功能與在滾軸的底端工具列</string>
   <string name="nav_item_saved">已儲存</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
   <string name="reading_list_move_to">移動至閱讀清單</string>
@@ -448,10 +455,10 @@
   <string name="reading_list_sort_ellipsis">排序依…</string>
   <string name="reading_list_sort_by_name">依名稱排序</string>
   <string name="reading_list_sort_by_name_desc">依名稱排序 (反向)</string>
-  <string name="reading_list_sort_by_recent">依所增加日期排序（最新）</string>
-  <string name="reading_list_sort_by_recent_desc">依所增加日期排序（最早）</string>
-  <string name="reading_list_sort_by_created">依所建立日期排序（最新）</string>
-  <string name="reading_list_sort_by_created_desc">依所建立日期排序（最早）</string>
+  <string name="reading_list_sort_by_recent">按加入日期排序 (最新)</string>
+  <string name="reading_list_sort_by_recent_desc">按加入日期排序 (最舊)</string>
+  <string name="reading_list_sort_by_created">按建立日期排序 (最新)</string>
+  <string name="reading_list_sort_by_created_desc">按建立日期排序 (最舊)</string>
   <string name="reading_list_menu_delete">刪除清單</string>
   <string name="reading_list_menu_rename">編輯名稱/描述</string>
   <string name="reading_list_action_menu_remove_from_offline">從離線移除</string>
@@ -462,7 +469,7 @@
   <string name="reading_list_action_menu_move_to_another_list">移動至別的清單</string>
   <string name="reading_list_name_sample">我的閱讀清單</string>
   <string name="reading_list_name_hint">此清單的名稱</string>
-  <string name="reading_list_description_hint">描述（可選）</string>
+  <string name="reading_list_description_hint">描述 (選填)</string>
   <string name="reading_list_item_deleted">%s已從清單之中移除</string>
   <string name="reading_list_item_deleted_from_list">已從%2$s移除%1$s</string>
   <plurals name="reading_list_articles_deleted">
@@ -522,7 +529,7 @@
   <string name="default_reading_list_description">您的已儲存條目之預設清單</string>
   <string name="no_user_lists_title">組織條目至清單</string>
   <string name="no_user_lists_msg">建立前往旅行的地點、喜愛的主題，以及更多其它事物的清單</string>
-  <string name="reading_list_saved_list_rename">%1$s（使用者已建立）</string>
+  <string name="reading_list_saved_list_rename">%1$s (使用者已建立)</string>
   <string name="split_reading_list_message">在各閱讀清單裡含有 %d 個條目的上限限制。現有清單在超過此限制時，會被拆分成多個清單。</string>
   <string name="reading_list_move_article_limit_message">無法添加至此清單。您已達到在「%1$s」方面各清單的最多 %2$d 個條目上限。</string>
   <string name="reading_list_article_limit_message">無法添加至此清單。您已達到在「%1$s」方面各清單的最多 %2$d 個條目上限。</string>
@@ -548,6 +555,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">取消</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">取消</string>
   <string name="reading_list_split_dialog_ok_button_text">確認</string>
+  <string name="reading_list_activity_title">閱讀清單：%s</string>
   <string name="user_option_sync_label">偏好設定</string>
   <string name="notification_reverted_title">回退的編輯</string>
   <string name="notification_channel_title">正在下載條目</string>
@@ -730,6 +738,7 @@
   <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
   <string name="feed_accessibility_card_load_more_button">載入更多</string>
   <string name="top_read_activity_title">在 %s 的熱門條目</string>
+  <string name="tabs_activity_title">分頁</string>
   <string name="description_edit_text_hint">條目描述</string>
   <string name="description_edit_article_description_label">條目</string>
   <string name="description_edit_translate_article_description_label_per_language">條目描述（%s）</string>
@@ -947,6 +956,7 @@
   <string name="file_page_add_image_caption_button">新增圖片說明</string>
   <string name="file_page_add_image_tags_button">新增圖片標籤</string>
   <string name="file_page_suggestion_reason">推薦原因</string>
+  <string name="file_page_edit_button_content_description">編輯%s</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>

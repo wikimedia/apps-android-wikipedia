@@ -54,6 +54,7 @@
   <string name="search_tab_tooltip">Торкніться іконки знову щоб почати вводити пошуковий запит напряму.</string>
   <string name="history_list_title">Історія</string>
   <string name="image_content_description">Зображення: %s</string>
+  <string name="page_content_description">Сторінка: %s</string>
   <string name="wikimedia_commons">Вікісховище</string>
   <string name="wikidata">Вікідані</string>
   <string name="dialog_title_clear_history">Очистити історію перегляду</string>
@@ -311,6 +312,7 @@
   <string name="gallery_save_success">Файл збережено.</string>
   <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>
   <string name="gallery_save_image_write_permission_rationale">Для збереження зображень потрібен дозвіл на запис у сховищі вашого пристрою.</string>
+  <string name="gallery_edit_button_content_description">Редагувати підпис зображення</string>
   <string name="gallery_add_image_caption_button">Додати підпис зображення</string>
   <string name="gallery_add_image_caption_in_language_button">Додати підпис зображення (%s)</string>
   <string name="err_cannot_save_file">Не вдається зберегти файл</string>
@@ -419,6 +421,9 @@
   <string name="text_size_decrease">Зменшити розмір тексту</string>
   <string name="text_size_percent_default">%s (за замовчуванням)</string>
   <string name="text_style_title">Шрифт</string>
+  <string name="theme_category_reading">Читання</string>
+  <string name="reading_focus_mode">Режим фокусування читання</string>
+  <string name="reading_focus_mode_detail">Приховує функції редагування та нижню панель інструментів під час прокручування</string>
   <string name="nav_item_saved">Збережено</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
   <string name="reading_list_move_to">Перенести до читального списку</string>
@@ -559,6 +564,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Скасувати</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Скасувати</string>
   <string name="reading_list_split_dialog_ok_button_text">Гаразд</string>
+  <string name="reading_list_activity_title">Список читання: %s</string>
   <string name="user_option_sync_label">Налаштування</string>
   <string name="notification_reverted_title">Скасоване редагування</string>
   <string name="notification_channel_title">Завантаження сторінок</string>
@@ -764,6 +770,7 @@
   <string name="feed_accessibility_card_text">Ви досягли кінця стрічки.</string>
   <string name="feed_accessibility_card_load_more_button">Завантажити ще</string>
   <string name="top_read_activity_title">Найчитаніше за %s</string>
+  <string name="tabs_activity_title">Вкладки</string>
   <string name="description_edit_text_hint">Опис статті</string>
   <string name="description_edit_article_description_label">Стаття</string>
   <string name="description_edit_translate_article_description_label_per_language">Опис статті (%s)</string>
@@ -999,6 +1006,7 @@
   <string name="file_page_add_image_caption_button">Додати підпис зображення</string>
   <string name="file_page_add_image_tags_button">Додайте теги зображень</string>
   <string name="file_page_suggestion_reason">Причина пропозиції</string>
+  <string name="file_page_edit_button_content_description">Редагувати %s</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>
@@ -1113,11 +1121,13 @@
   <string name="talk_snackbar_survey_action_text">Розпочати</string>
   <string name="talk_share_discussion_subject">Вікіпедія — обговорення на сторінці обговорення «%s»</string>
   <string name="talk_share_talk_page">Вікіпедія — обговорення на сторінці обговорення</string>
+  <string name="talk_edit_disclaimer">Це сторінка обговорення. Будь ласка, дотримуйтесь інструкцій щодо сторінки обговорення та не забудьте підписувати свої повідомлення, вводячи чотири тильди: ~~~~ під час публікації з використанням вікітексту.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Вікіпедія:Рекомендації щодо сторінок обговорення&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">Поділіться обговоренням</string>
   <string name="menu_option_share_talk_page">Поділіться сторінкою обговорення</string>
   <string name="menu_option_share_edit">Поділитися редагуванням</string>
   <string name="menu_option_user_profile">Профіль %s</string>
   <string name="menu_option_user_contributions">Внесок %s</string>
+  <string name="menu_option_edit_source">Редагувати код</string>
   <string name="watchlist_details_watching_label">Спостерігаю</string>
   <string name="watchlist_details_watch_label">Спостерігати</string>
   <string name="watchlist_details_next_edit">Наступне редагування</string>

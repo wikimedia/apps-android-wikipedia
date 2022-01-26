@@ -20,8 +20,13 @@ class LinkMovementMethodExt : LinkMovementMethod {
         fun onUrlClick(url: String, titleString: String?, linkText: String)
     }
 
+    fun interface UrlHandlerWithTextAndCoords {
+        fun onUrlClick(url: String, titleString: String?, linkText: String, x: Int, y: Int)
+    }
+
     private var handler: UrlHandler? = null
     private var handlerWithText: UrlHandlerWithText? = null
+    private var handlerWithTextAndCoords: UrlHandlerWithTextAndCoords? = null
 
     constructor(handler: UrlHandler?) {
         this.handler = handler
@@ -29,6 +34,10 @@ class LinkMovementMethodExt : LinkMovementMethod {
 
     constructor(handler: UrlHandlerWithText?) {
         handlerWithText = handler
+    }
+
+    constructor(handler: UrlHandlerWithTextAndCoords?) {
+        handlerWithTextAndCoords = handler
     }
 
     override fun onTouchEvent(widget: TextView, buffer: Spannable, event: MotionEvent): Boolean {
@@ -56,6 +65,10 @@ class LinkMovementMethodExt : LinkMovementMethod {
 
                 handlerWithText?.run {
                     onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText)
+                }
+
+                handlerWithTextAndCoords?.run {
+                    onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText, event.rawX.toInt(), event.rawY.toInt())
                 }
 
                 return true
