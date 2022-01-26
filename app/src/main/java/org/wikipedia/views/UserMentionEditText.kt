@@ -26,6 +26,7 @@ class UserMentionEditText : PlainPasteEditText {
     private var userNameStartPos = -1
     private var userNameEndPos = -1
     private val isEnteringUserName get() = userNameStartPos >= 0
+    private var spacesPressedCount = 0
     private var isUserNameCommitting = false
     private val editable get() = text ?: SpannableStringBuilder("")
 
@@ -58,8 +59,13 @@ class UserMentionEditText : PlainPasteEditText {
             }
 
             if (isEnteringUserName) {
-                if (count - before == 1 && start + count - 1 < text.length && start + count - 1 >= 0 &&
-                        text[start + count - 1] == ' ') {
+                val spacePressed = count - before == 1 && start + count - 1 < text.length && start + count - 1 >= 0 &&
+                        text[start + count - 1] == ' '
+                if (spacePressed) {
+                    spacesPressedCount++
+                }
+
+                if (spacePressed && spacesPressedCount > 1) {
                     onCancelUserNameEntry()
                 } else {
                     userNameEndPos += (count - before)
@@ -96,11 +102,13 @@ class UserMentionEditText : PlainPasteEditText {
 
     private fun onStartUserNameEntry() {
         listener?.onStartUserNameEntry()
+        spacesPressedCount = 0
     }
 
     private fun onCancelUserNameEntry() {
         userNameStartPos = -1
         userNameEndPos = -1
+        spacesPressedCount = 0
         listener?.onCancelUserNameEntry()
     }
 
