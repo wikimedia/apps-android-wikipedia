@@ -14,7 +14,6 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
@@ -278,8 +277,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         updateQuickActionsAndMenuOptions()
     }
 
-    fun getPageActionsTabLayoutViews(): List<TextView> {
-        return binding.pageActionsTabLayout.tabViewsList
+    fun getPageActionsTabLayoutViews(): PageActionTabLayout {
+        return binding.pageActionsTabLayout
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

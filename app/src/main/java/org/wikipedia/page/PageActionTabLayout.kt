@@ -3,7 +3,6 @@ package org.wikipedia.page
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.TextView
 import org.wikipedia.databinding.ItemCustomizeToolbarTabBinding
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.settings.Prefs
@@ -12,7 +11,6 @@ import org.wikipedia.views.ConfigurableTabLayout
 class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = null) : ConfigurableTabLayout(context, attrs) {
 
     lateinit var callback: PageActionItem.Callback
-    var tabViewsList = mutableListOf<TextView>()
 
     init {
         update()
@@ -20,7 +18,6 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
 
     fun update() {
         removeAllViews()
-        tabViewsList.clear()
         Prefs.customizeToolbarOrder.forEach {
             val view = ItemCustomizeToolbarTabBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
@@ -35,7 +32,6 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             }
             view.isFocusable = true
             addView(view, param)
-            tabViewsList.add(view)
         }
     }
 }

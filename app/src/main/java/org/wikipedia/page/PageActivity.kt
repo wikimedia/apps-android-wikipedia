@@ -659,7 +659,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 aboveOrBelow = false
             } else {
                 pageFragment.getPageActionsTabLayoutViews().forEach {
-                    if (it.text == getString(PageActionItem.THEME.titleResId) && Prefs.showOneTimeCustomizeToolbarTooltip) {
+                    if (it.id == PageActionItem.THEME.hashCode() && Prefs.showOneTimeCustomizeToolbarTooltip) {
                         anchorView = it
                     }
                 }
