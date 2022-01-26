@@ -156,6 +156,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         menu?.findItem(R.id.menu_talk_topic_group)?.isVisible = !replyActive
         menu?.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
+        binding.talkRefreshView.isEnabled = !replyActive
         return super.onPrepareOptionsMenu(menu)
     }
 
