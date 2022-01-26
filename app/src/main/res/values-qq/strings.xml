@@ -1119,4 +1119,6 @@
   <string name="customize_toolbar_reset_to_default_button">Button label for resetting the configuration of customize toolbar to default.</string>
   <string name="theme_customize_toolbar">Button label for customizing toolbar options.</string>
   <string name="theme_category_toolbar">Button label for customizing toolbar category.</string>
+  <string name="menu_option_view_user_profile">Menu label to navigate to the user page of the selected user.</string>
+  <string name="menu_option_view_user_talk">Menu label to navigate to the talk page of the selected user.</string>
 </resources>
