@@ -9,6 +9,7 @@ import android.view.*
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
+import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -134,6 +135,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             loadTopic()
         }
 
+        binding.talkScrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, _, _, _ ->
+            if (binding.talkSubjectView.isVisible) {
+                binding.talkToolbarSubjectView.visibility = if (binding.talkScrollContainer.scrollY >
+                        binding.talkSubjectView.height) View.VISIBLE else View.INVISIBLE
+            }
+        })
+
         binding.talkReplyButton.visibility = View.GONE
 
         binding.replyInputView.wikiSite = pageTitle.wikiSite
@@ -213,6 +221,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             replyActive = true
             title = getString(R.string.talk_new_topic)
             binding.talkSubjectView.visibility = View.GONE
+            binding.talkToolbarSubjectView.visibility = View.GONE
             binding.talkProgressBar.visibility = View.GONE
             binding.talkErrorView.visibility = View.GONE
             binding.replySaveButton.visibility = View.VISIBLE
@@ -280,6 +289,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
         binding.talkSubjectView.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
         binding.talkSubjectView.visibility = View.VISIBLE
+        binding.talkToolbarSubjectView.text = binding.talkSubjectView.text
+        binding.talkToolbarSubjectView.visibility = View.INVISIBLE
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         binding.replyInputView.userNameHints = parseUserNamesFromTopic()
 
