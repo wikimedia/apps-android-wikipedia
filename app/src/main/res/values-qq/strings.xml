@@ -1116,4 +1116,6 @@
   <string name="customize_toolbar_category_menu">Category of menu in the customize toolbar page.</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize toolbar page.</string>
   <string name="customize_toolbar_reset_to_default_button">Button label for resetting the configuration of customize toolbar to default.</string>
+  <string name="menu_option_view_user_profile">Menu label to navigate to the user page of the selected user.</string>
+  <string name="menu_option_view_user_talk">Menu label to navigate to the talk page of the selected user.</string>
 </resources>
