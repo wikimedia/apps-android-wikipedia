@@ -128,7 +128,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.buttonFontFamilySerif.isEnabled = !isMobileWeb
         binding.buttonFontFamilySansSerif.isEnabled = !isMobileWeb
         binding.themeChooserMatchSystemThemeSwitch.isEnabled = !isMobileWeb
-        binding.themeChooserDarkModeDimImagesSwitch.isEnabled = !isMobileWeb
+        binding.themeChooserDarkModeDimImagesSwitch.isEnabled = !isMobileWeb && binding.themeChooserDarkModeDimImagesSwitch.isEnabled
         binding.themeChooserReadingFocusModeSwitch.isEnabled = !isMobileWeb
         binding.buttonThemeBlack.isEnabled = app.currentTheme == Theme.BLACK || !isMobileWeb
         binding.buttonThemeDark.isEnabled = app.currentTheme == Theme.DARK || !isMobileWeb
