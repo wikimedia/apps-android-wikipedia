@@ -5,10 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
@@ -69,8 +66,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private var currentRevision: Long = 0
     private var revisionForUndo: Long = 0
     private var userMentionScrolled = false
-    private val linkMovementMethod = LinkMovementMethodExt { url: String ->
-        linkHandler.onUrlClick(url, null, "")
+    private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
+        linkHandler.onUrlClick(url, title, linkText, x, y)
     }
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
@@ -289,15 +286,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkErrorView.setError(t)
     }
 
-    private fun showLinkPreviewOrNavigate(title: PageTitle) {
-        if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
-            startActivity(TalkTopicsActivity.newIntent(this, title, Constants.InvokeSource.TALK_ACTIVITY))
-        } else {
-            bottomSheetPresenter.show(supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
-        }
-    }
-
     private fun isNewTopic(): Boolean {
         return topicId == TalkTopicsActivity.NEW_TOPIC_ID
     }
@@ -336,6 +324,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
+        private var lastX: Int = 0
+        private var lastY: Int = 0
+
+        fun onUrlClick(url: String, title: String?, linkText: String, x: Int, y: Int) {
+            lastX = x
+            lastY = y
+            super.onUrlClick(url, title, linkText)
+        }
+
         override fun onMediaLinkClicked(title: PageTitle) {
             // TODO
         }
@@ -351,7 +348,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-           showLinkPreviewOrNavigate(title)
+            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter, title, lastX, lastY)
         }
     }
 
