@@ -150,8 +150,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_talk_topic, menu)
-        menu.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
         return true
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        menu?.findItem(R.id.menu_talk_topic_group)?.isVisible = !replyActive
+        menu?.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
+        return super.onPrepareOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -192,6 +197,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.replyInputView.editText.setText(undoneBody)
             binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
         }
+        invalidateOptionsMenu()
     }
 
     public override fun onDestroy() {
@@ -229,6 +235,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             DeviceUtil.hideSoftKeyboard(this)
             loadTopic()
         }
+        invalidateOptionsMenu()
     }
 
     private fun loadTopic() {
