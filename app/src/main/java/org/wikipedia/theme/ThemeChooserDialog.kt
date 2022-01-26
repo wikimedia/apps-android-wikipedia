@@ -130,8 +130,8 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.themeChooserMatchSystemThemeSwitch.isEnabled = !isMobileWeb
         binding.themeChooserDarkModeDimImagesSwitch.isEnabled = !isMobileWeb && binding.themeChooserDarkModeDimImagesSwitch.isEnabled
         binding.themeChooserReadingFocusModeSwitch.isEnabled = !isMobileWeb
-        binding.buttonThemeBlack.isEnabled = app.currentTheme == Theme.BLACK || !isMobileWeb
-        binding.buttonThemeDark.isEnabled = app.currentTheme == Theme.DARK || !isMobileWeb
+        binding.buttonThemeBlack.isEnabled = binding.buttonThemeBlack.isEnabled && (app.currentTheme == Theme.BLACK || !isMobileWeb)
+        binding.buttonThemeDark.isEnabled = binding.buttonThemeDark.isEnabled && (app.currentTheme == Theme.DARK || !isMobileWeb)
         binding.buttonThemeLight.isEnabled = app.currentTheme == Theme.LIGHT || !isMobileWeb
         binding.buttonThemeSepia.isEnabled = app.currentTheme == Theme.SEPIA || !isMobileWeb
 
