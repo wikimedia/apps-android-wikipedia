@@ -2,6 +2,7 @@
 <!-- Authors:
 * 1233qwer1234qwer4
 * Bergrübe
+* Brettchenweber
 * Bxalber
 * Chronist
 * Cooltey
@@ -1093,6 +1094,8 @@
   <string name="thank_dialog_positive_button_text">Danke senden</string>
   <string name="thank_dialog_negative_button_text">Abbrechen</string>
   <string name="thank_success_message">Dein Danke wurde an %s gesendet 👍</string>
+  <string name="menu_option_view_user_profile">Benutzerprofil anzeigen</string>
+  <string name="menu_option_view_user_talk">Diskussionsseite anzeigen</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s und die Diskussionsseite wurde deiner Beobachtungsliste %2$s hinzugefügt.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändern</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">dauerhaft</string>

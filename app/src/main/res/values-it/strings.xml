@@ -254,7 +254,7 @@
   <string name="about_translators_heading">Traduttori</string>
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Testo_della_Creative_Commons_Attribuzione-Condividi_allo_stesso_modo_3.0_Unported\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
+  <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Testo_della_Creative_Commons_Attribuzione-Condividi_allo_stesso_modo_3.0_Unported\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodotto della &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>
   <string name="edit_abandon_confirm">La pagina è stata modificata. Sei sicuro di voler uscire senza salvare le modifiche?</string>
@@ -689,7 +689,7 @@
   <string name="notifications_menu_uncheck_all">Deseleziona tutti gli elementi</string>
   <string name="notifications_wiki_filter_header">Filtri Wiki</string>
   <string name="notifications_type_filter_header">Tipo di filtro</string>
-  <string name="notifications_all_wikis_text">Tutte le \"wiki\"</string>
+  <string name="notifications_all_wikis_text">Tutti gli \"wiki\"</string>
   <string name="notifications_all_types_text">Tutti i \"tipi\"</string>
   <string name="notifications_menu_user_talk_page">Pagina di discussione di %s</string>
   <string name="notifications_offline_disable_message">La funzione non è disponibile quando si è offline.</string>
@@ -1095,6 +1095,7 @@
   <string name="thank_dialog_positive_button_text">Invia ringraziamento</string>
   <string name="thank_dialog_negative_button_text">Annulla</string>
   <string name="thank_success_message">Il tuo \'ringraziamento\' è stato inviato a %s 👍</string>
+  <string name="menu_option_view_user_talk">Vedi la pagina di discussione</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e la sua pagina di discussione sono state aggiunte alla tua lista degli osservati speciali %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifica</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
