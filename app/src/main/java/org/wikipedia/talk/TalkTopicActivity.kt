@@ -221,7 +221,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             replyActive = true
             title = getString(R.string.talk_new_topic)
             binding.talkSubjectView.visibility = View.GONE
-            binding.talkToolbarSubjectView.visibility = View.GONE
+            binding.talkToolbarSubjectView.visibility = View.INVISIBLE
             binding.talkProgressBar.visibility = View.GONE
             binding.talkErrorView.visibility = View.GONE
             binding.replySaveButton.visibility = View.VISIBLE

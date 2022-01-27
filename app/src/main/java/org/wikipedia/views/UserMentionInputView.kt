@@ -16,6 +16,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewUserMentionInputBinding
 import org.wikipedia.dataclient.ServiceFactory
 import java.util.concurrent.TimeUnit
@@ -75,7 +76,10 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
 
     fun maybePrepopulateUserName() {
         if (binding.inputEditText.text.isNullOrEmpty() && userNameHints.isNotEmpty()) {
-            binding.inputEditText.prepopulateUserName(userNameHints.first())
+            val candidateName = userNameHints.first()
+            if (candidateName != AccountUtil.userName) {
+                binding.inputEditText.prepopulateUserName(candidateName)
+            }
         }
     }
 
