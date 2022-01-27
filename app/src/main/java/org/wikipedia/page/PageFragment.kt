@@ -277,7 +277,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         updateQuickActionsAndMenuOptions()
     }
 
-    fun getPageActionsTabLayoutViews(): PageActionTabLayout {
+    fun getPageActionTabLayout(): PageActionTabLayout {
         return binding.pageActionsTabLayout
     }
 

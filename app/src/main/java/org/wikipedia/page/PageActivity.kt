@@ -658,7 +658,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 anchorView = binding.pageToolbarButtonShowOverflowMenu
                 aboveOrBelow = false
             } else {
-                pageFragment.getPageActionsTabLayoutViews().forEach {
+                pageFragment.getPageActionTabLayout().forEach {
                     if (it.id == PageActionItem.THEME.hashCode() && Prefs.showOneTimeCustomizeToolbarTooltip) {
                         anchorView = it
                     }
