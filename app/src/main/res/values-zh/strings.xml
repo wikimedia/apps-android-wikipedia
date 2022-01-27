@@ -1097,6 +1097,7 @@
   <string name="thank_dialog_positive_button_text">发送感谢</string>
   <string name="thank_dialog_negative_button_text">取消</string>
   <string name="thank_success_message">您的“感谢”已发给%s 👍</string>
+  <string name="menu_option_view_user_talk">查看讨论页</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s及其讨论页已添加到您的监视列表，持续时间%2$s。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>

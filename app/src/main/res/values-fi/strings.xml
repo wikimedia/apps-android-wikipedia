@@ -1086,6 +1086,7 @@
   <string name="thank_dialog_positive_button_text">Lähetä kiitokset</string>
   <string name="thank_dialog_negative_button_text">Peruuta</string>
   <string name="thank_success_message">Kiitoksesi lähetettiin käyttäjälle %s 👍</string>
+  <string name="menu_option_view_user_talk">Näytä keskustelusivu</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s keskustelusivuineen on lisätty tarkkailulistallesi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Vaihda</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">pysyvästi</string>
