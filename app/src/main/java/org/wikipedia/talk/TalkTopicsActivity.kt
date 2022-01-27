@@ -457,10 +457,10 @@ class TalkTopicsActivity : BaseActivity() {
                     topics.sortBy { it.id }
                 }
                 TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
-                    topics.sortByDescending { it.html }
+                    topics.sortByDescending { RichTextUtil.stripHtml(it.html) }
                 }
                 TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING -> {
-                    topics.sortBy { it.html }
+                    topics.sortBy { RichTextUtil.stripHtml(it.html) }
                 }
             }
             return topics.filter { it.html.orEmpty().contains(searchQuery.orEmpty(), true) }
@@ -536,7 +536,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         override fun getSearchHintString(): String {
-            return getString(R.string.talk_search_or_sort_hint)
+            return getString(R.string.talk_search_hint)
         }
 
         override fun getParentContext(): Context {

@@ -61,7 +61,7 @@
                 android:rotation="90"
                 android:contentDescription="@null"
                 android:visibility="gone"
-                app:tint="?attr/material_theme_primary_color"/>
+                app:tint="?android:attr/textColorSecondary"/>
 
         </LinearLayout>
 
@@ -100,7 +100,7 @@
                 android:rotation="90"
                 android:contentDescription="@null"
                 android:visibility="gone"
-                app:tint="?attr/material_theme_primary_color"/>
+                app:tint="?android:attr/textColorSecondary"/>
 
         </LinearLayout>
 

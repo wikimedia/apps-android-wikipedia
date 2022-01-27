@@ -13,7 +13,7 @@
     <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:contentDescription="@string/talk_search_or_sort_hint"
+        android:contentDescription="@string/talk_search_hint"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_search_white_24dp"
         app:tint="?attr/material_theme_de_emphasised_color" />
@@ -24,7 +24,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
-        android:text="@string/talk_search_or_sort_hint"
+        android:text="@string/talk_search_hint"
         android:textColor="?attr/material_theme_secondary_color"/>
 
     <ImageView
