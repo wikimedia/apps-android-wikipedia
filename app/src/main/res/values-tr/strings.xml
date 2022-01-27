@@ -1098,6 +1098,8 @@
   <string name="thank_dialog_positive_button_text">Teşekkür gönder</string>
   <string name="thank_dialog_negative_button_text">İptal</string>
   <string name="thank_success_message">\'Teşekkür\'ün %s kullanıcısına gönderildi</string>
+  <string name="menu_option_view_user_profile">Kullanıcı profili sayfasını görüntüle</string>
+  <string name="menu_option_view_user_talk">Tartışma sayfasını görüntüle</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ve onun tartışma sayfası %2$s izleme listenize eklendi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Değiştir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">kalıcı olarak</string>

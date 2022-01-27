@@ -1106,6 +1106,8 @@
   <string name="thank_dialog_positive_button_text">Envoyer des remerciements</string>
   <string name="thank_dialog_negative_button_text">Annuler</string>
   <string name="thank_success_message">Votre remerciement a été envoyé à %s 👍</string>
+  <string name="menu_option_view_user_profile">Afficher la page du profil utilisateur</string>
+  <string name="menu_option_view_user_talk">Afficher la page de discussion</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s et sa page de discussion ont été ajoutés à votre liste de suivi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifier</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">de façon permanente</string>

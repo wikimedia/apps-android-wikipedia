@@ -271,6 +271,7 @@
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
   <string name="edit_conflict_title">تضارب تحرير</string>
   <string name="edit_conflict_message">تم تعديل الصفحة بالفعل من قبل مستخدم مختلف، وتتعارض مع تعديلك; الرجاء نسخ التعديلات، والعودة وتحديث الصفحة، ثم حاول التعديل مرة أخرى.</string>
+  <string name="edit_notices">تبصرات التحرير</string>
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
   <string name="find_first_occurence">هذه هي أول فرصة</string>
@@ -1001,6 +1002,7 @@
   <string name="menu_option_share_edit">شارك التعديل</string>
   <string name="menu_option_user_profile">ملف %s</string>
   <string name="menu_option_user_contributions">مساهمات %s</string>
+  <string name="menu_option_edit_source">عدل المصدر</string>
   <string name="watchlist_details_watching_label">تُراقب</string>
   <string name="watchlist_details_watch_label">راقب</string>
   <string name="watchlist_details_next_edit">التعديل التالي</string>
