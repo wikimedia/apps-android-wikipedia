@@ -49,10 +49,6 @@ class CustomizeToolbarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupRecyclerView()
-        binding.resetToDefaultButton.setOnClickListener {
-            viewModel.resetToDefault()
-            setupRecyclerView()
-        }
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -88,6 +84,12 @@ class CustomizeToolbarFragment : Fragment() {
                 }
                 VIEW_TYPE_EMPTY_PLACEHOLDER -> {
                     EmptyPlaceholderViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_toolbar_empty_placeholder, parent, false))
+                }
+                VIEW_TYPE_DESCRIPTION -> {
+                    DescriptionViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_toolbar_description, parent, false))
+                }
+                VIEW_TYPE_SET_TO_DEFAULT -> {
+                    SetToDefaultViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_customize_toolbar_set_to_default, parent, false))
                 }
                 else -> {
                     ItemHolder(CustomizeToolbarItemView(parent.context))
@@ -199,12 +201,25 @@ class CustomizeToolbarFragment : Fragment() {
         }
     }
 
+    private inner class DescriptionViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView)
+
+    private inner class SetToDefaultViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
+        init {
+            itemView.findViewById<TextView>(R.id.resetToDefaultButton).setOnClickListener {
+                viewModel.resetToDefault()
+                setupRecyclerView()
+            }
+        }
+    }
+
     private inner class EmptyPlaceholderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView)
 
     companion object {
-        const val VIEW_TYPE_HEADER = 0
-        const val VIEW_TYPE_ITEM = 1
-        const val VIEW_TYPE_EMPTY_PLACEHOLDER = 2
+        const val VIEW_TYPE_DESCRIPTION = 0
+        const val VIEW_TYPE_HEADER = 1
+        const val VIEW_TYPE_ITEM = 2
+        const val VIEW_TYPE_SET_TO_DEFAULT = 3
+        const val VIEW_TYPE_EMPTY_PLACEHOLDER = 4
         const val TOOLBAR_ITEMS_LIMIT = 5
 
         fun newInstance(): CustomizeToolbarFragment {

@@ -31,12 +31,16 @@ class CustomizeToolbarViewModel : ViewModel() {
 
     private fun preProcessList() {
         fullList.clear()
+        // Description
+        fullList.add(CustomizeToolbarFragment.VIEW_TYPE_DESCRIPTION to "")
         // Toolbar
         fullList.add(headerPair(true))
         fullList.addAll(addItemsOrEmptyPlaceholder(toolbarOrder, true))
         // Menu
         fullList.add(headerPair(false))
         fullList.addAll(addItemsOrEmptyPlaceholder(menuOrder, false))
+        // Set to default
+        fullList.add(CustomizeToolbarFragment.VIEW_TYPE_SET_TO_DEFAULT to "")
     }
 
     private fun addItemsOrEmptyPlaceholder(list: List<Int>, toolbar: Boolean): List<Pair<Int, Any>> {
