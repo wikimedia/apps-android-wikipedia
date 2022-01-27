@@ -131,5 +131,5 @@
     <string name="preference_key_auto_show_edit_notices">autoShowEditNotices</string>
     <string name="preference_key_edit_notices_tooltip_shown">editNoticesTooltipShown</string>
     <string name="preference_key_show_edit_talk_page_source_prompt">showEditTalkPageSourcePrompt</string>
-    <string name="preference_key_reading_focus_mode">reading_focus_mode</string>
+    <string name="preference_key_reading_focus_mode">readingFocusMode</string>
 </resources>
