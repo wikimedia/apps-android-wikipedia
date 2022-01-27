@@ -558,6 +558,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     override fun onUserMentionListUpdate() {
+        if (!replyActive) {
+            return
+        }
         binding.licenseText.isVisible = false
         binding.talkScrollContainer.post {
             if (!isDestroyed && !userMentionScrolled) {
@@ -568,6 +571,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     override fun onUserMentionComplete() {
+        if (!replyActive) {
+            return
+        }
         userMentionScrolled = false
         binding.licenseText.isVisible = true
     }
