@@ -39,6 +39,7 @@
   <string name="app_settings">ايپ جون ترتيبون</string>
   <string name="history_list_title">سوانح</string>
   <string name="image_content_description">عڪس: %s</string>
+  <string name="page_content_description">صفحو: %s</string>
   <string name="wikimedia_commons">وڪيميڊيا العام</string>
   <string name="wikidata">وڪيڊيٽا</string>
   <string name="dialog_title_clear_history">ڳولا جي سوانح مٽايو</string>
@@ -62,6 +63,7 @@
   <string name="feed_card_add_to_list">پڙھڻ جي فھرست ۾ شامل ڪريو</string>
   <string name="feed_card_add_to_default_list">سانڍيو</string>
   <string name="menu_page_share">ڳنڍڻو ونڊيو</string>
+  <string name="menu_article_share">مضمون ونڊيو</string>
   <string name="menu_page_open_a_new_tab">نئين ٽيب کوليو</string>
   <string name="menu_page_new_tab">نئين ٽيب</string>
   <string name="menu_page_reading_lists">پڙھڻ جون فھرستون</string>
@@ -226,6 +228,10 @@
   <string name="edit_summary_tag_other">ٻيو</string>
   <string name="edit_summary_tag_other_hint">هن صفحي کي توهان ٻين ڪهڙن طريقن سان سڌاريو</string>
   <string name="edit_conflict_title">سنوار ۾ تضاد</string>
+  <string name="edit_notices">سنوار جا اطلاع</string>
+  <string name="edit_notices_please_read">مھرباني ڪري سنوارڻ کان اڳ پڙھو</string>
+  <string name="edit_notices_show_auto">سنوار جا اطلاع پاڻمرادو ڏيکاريو</string>
+  <string name="edit_notices_tooltip">ھن مضمون لاءِ سنوار جا اطلاع ڏسڻ لاءِ ھن بٽڻ کي ڇھو.</string>
   <string name="find_next">اڳيون لھو</string>
   <string name="find_previous">پويون لھو</string>
   <string name="find_first_occurence">ھي پھرين ظاھريت آھي</string>
@@ -275,6 +281,7 @@
   <string name="gallery_save_success">فائيل سانڍجي ويو.</string>
   <string name="gallery_error_video_failed">وڊيو هلائي نہ سگھيو.</string>
   <string name="gallery_save_image_write_permission_rationale">تصويرون سانڍڻ لاءِ توھان ڊوائيس جي اسٽوريج تي ڪم ڪرڻ جي اجازت گهربل آھي.</string>
+  <string name="gallery_edit_button_content_description">عڪس جو عنوان سنواريو</string>
   <string name="gallery_add_image_caption_button">عڪس کي عنوان ڏيو</string>
   <string name="gallery_add_image_caption_in_language_button">(%s) ۾ عڪس کي عنوان ڏيو</string>
   <string name="err_cannot_save_file">فائيل سانڍي نٿو سگهجي</string>
@@ -345,6 +352,7 @@
   <string name="page_footer_license_text">مواد $1 ھيٺ موجود آھي جيسيتائين ٻي صورت واضع نہ ڪئي وڃي</string>
   <string name="empty_tab_title">نئين ٽيب</string>
   <string name="menu_save_all_tabs">سڀ ٽيبس سانڍيو</string>
+  <string name="error_blocked_title">توھان جس واپرائيندڙنانءَ يا آئپي پتي بندش پيل آھي.</string>
   <string name="error_blocked_by">ھي بندش &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; پاران وڌي وئي</string>
   <string name="error_blocked_reason">ڄاڻايل سبب آھي: %s</string>
   <string name="error_blocked_start">بندش جي شروعات: %s</string>
@@ -374,6 +382,8 @@
   <string name="text_size_decrease">متن جي ماپ گھٽايو</string>
   <string name="text_size_percent_default">%s (ڏنل)</string>
   <string name="text_style_title">فونٽ</string>
+  <string name="theme_category_reading">پڙھڻ</string>
+  <string name="reading_focus_mode">پڙھڻ تي ڌيان جو موڊ</string>
   <string name="nav_item_saved">سانڍيل</string>
   <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>
   <string name="reading_list_move_to">پڙھڻ جي فھرست ڏانھن چوريو</string>
@@ -836,6 +846,7 @@
   <string name="file_page_add_image_caption_button">عڪس کي عنوان ڏيو</string>
   <string name="file_page_add_image_tags_button">عڪس جا ٽيگ وجهو</string>
   <string name="file_page_suggestion_reason">مشوري جو سبب</string>
+  <string name="file_page_edit_button_content_description">%s کي سنواريو</string>
   <string name="description_edit_revert_subtitle">وڪيپيڊيا کي سنوارڻ لاءِ مھرباني!</string>
   <string name="description_edit_revert_intro">اسان ڄاڻون ٿا توھان ڀرپور ڪوشش ڪئي، پر ھڪ جائزيڪار کي ڪو شڪ آھي. توھان جي سنوار ورائي وڃڻ جي سببن ۾ شامل آھن:</string>
   <string name="description_edit_revert_reason1">توھان جي ڀاڱيداريءَ &lt;a href=\"%1$s\"&gt;ھدايتن&lt;/a&gt; مان ڪنھن ھڪ جي پيروي نہ ڪئي.</string>
@@ -936,19 +947,25 @@
   <string name="talk_snackbar_undo">اڻڪريو</string>
   <string name="talk_last_modified">&lt;b&gt;%1$s کي آخري ڀيرو&lt;/b&gt; %2$s سنواريو</string>
   <string name="talk_snackbar_survey_action_text">شروع ڪريو</string>
+  <string name="menu_option_share_talk_discussion">بحث ونڊيو</string>
+  <string name="menu_option_share_talk_page">بحث صفحو ونڊيو</string>
   <string name="menu_option_share_edit">سنوار ونڊيو</string>
   <string name="menu_option_user_profile">%s جو پروفائيل</string>
   <string name="menu_option_user_contributions">%s جون ڀاڱيداريون</string>
+  <string name="menu_option_edit_source">ذريعو سنواريو</string>
   <string name="watchlist_details_watching_label">نظر۾رکندي</string>
   <string name="watchlist_details_watch_label">نظر۾رکو</string>
   <string name="watchlist_details_next_edit">اڳين سنوار</string>
   <string name="watchlist_details_prev_edit">پوئين سنوار</string>
   <string name="thank_label">مھرباني چئو</string>
+  <string name="view_user_page">واپرائيندڙ جو صفحو ڏسو</string>
   <string name="thank_dialog_title_text">عوامي طور \'مھرباني\' چئو</string>
   <string name="thank_dialog_text">\'مھربانيون\' وڪيپيڊيا تي ڪنھن سنواريندڙ جي ڪم جي تعريف ڪرڻ جو آسان طريقو آھن. \'مھربانيون\' واپس موٽائي نٿيون سگهجن ۽ عوامي طور ڏسي سگهجندڙ آھن.</string>
   <string name="thank_dialog_positive_button_text">مھرباني چئو</string>
   <string name="thank_dialog_negative_button_text">رد ڪريو</string>
   <string name="thank_success_message">توھان جي \'مھرباني\' %s ڏانھن موڪلي وئي 👍</string>
+  <string name="menu_option_view_user_profile">واپرائيندڙ جو پروفائيل صفحو ڏسو</string>
+  <string name="menu_option_view_user_talk">بحث صفحو ڏسو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ۽ ان جو بحث صفحو توھان جي %2$s نظر۾فھرست ۾ وڌا ويا آھن.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بدلايو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل طور</string>

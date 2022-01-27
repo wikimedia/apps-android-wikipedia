@@ -1032,6 +1032,7 @@
   <string name="thank_dialog_positive_button_text">感謝を示す</string>
   <string name="thank_dialog_negative_button_text">キャンセル</string>
   <string name="thank_success_message">あなたの感謝は %s に送られました 👍</string>
+  <string name="menu_option_view_user_talk">トークページを見る</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
   <string name="watchlist_page_removed_from_watchlist_snackbar">%s とそのトークぺーj比は正常にウォッチリストから削除されました。</string>
   <string name="watchlist_expiry_dialog_one_week">1週間</string>
