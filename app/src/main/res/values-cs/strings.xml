@@ -1006,6 +1006,7 @@
   <string name="thank_dialog_positive_button_text">Odeslat poděkování</string>
   <string name="thank_dialog_negative_button_text">Storno</string>
   <string name="thank_success_message">Poděkování bylo odesláno uživateli/uživatelce %s 👍</string>
+  <string name="menu_option_view_user_talk">Zobrazit diskusní stránku</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Stránka „%1$s“ a její diskusní stránka byly přidány do sledovaných stránek %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Změnit</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trvale</string>

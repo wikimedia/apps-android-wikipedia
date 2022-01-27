@@ -110,6 +110,7 @@
   <string name="table_close">Chiudi</string>
   <string name="dialog_close_description">Chiudi</string>
   <string name="preference_title_show_images">Ammustra mmàggini</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Cunsenti</string>
   <string name="read_more_section">Pi sapìrinni cchiossai</string>
   <string name="about_article_section">Nfurmazzioni supra sta vuci</string>
   <string name="gallery_menu_share">Cunnividi</string>
