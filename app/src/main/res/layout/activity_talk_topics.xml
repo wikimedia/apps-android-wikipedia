@@ -52,6 +52,16 @@
                         android:layout_marginEnd="16dp"
                         android:scrollbars="vertical" />
 
+                    <TextView
+                        android:id="@+id/talkSearchNoResult"
+                        style="@style/MaterialMediumSecondaryCaption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/search_results_count_zero"
+                        android:visibility="gone" />
+
                 </LinearLayout>
 
             </androidx.core.widget.NestedScrollView>

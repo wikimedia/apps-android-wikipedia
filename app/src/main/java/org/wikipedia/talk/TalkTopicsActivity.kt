@@ -510,6 +510,7 @@ class TalkTopicsActivity : BaseActivity() {
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
 
             actionMode = mode
+            binding.talkLastModified.isVisible = false
             binding.talkNewTopicButton.isVisible = false
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
@@ -518,6 +519,7 @@ class TalkTopicsActivity : BaseActivity() {
         override fun onQueryChange(s: String) {
             currentSearchQuery = s
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            binding.talkSearchNoResult.isVisible = binding.talkRecyclerView.adapter?.itemCount == 0
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
@@ -526,6 +528,8 @@ class TalkTopicsActivity : BaseActivity() {
             currentSearchQuery = null
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             binding.talkNewTopicButton.isVisible = true
+            binding.talkLastModified.isVisible = true
+            binding.talkSearchNoResult.isVisible = false
         }
 
         override fun getSearchHintString(): String {
