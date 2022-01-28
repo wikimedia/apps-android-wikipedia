@@ -277,6 +277,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         updateQuickActionsAndMenuOptions()
     }
 
+    fun getPageActionTabLayout(): PageActionTabLayout {
+        return binding.pageActionsTabLayout
+    }
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         // if the screen orientation changes, then re-layout the lead image container,

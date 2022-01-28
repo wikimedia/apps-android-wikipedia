@@ -89,7 +89,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
 
-        // TODO: test only
         binding.customizeFavorites.setOnClickListener {
             startActivity(CustomizeToolbarActivity.newIntent(requireContext()))
         }
@@ -100,7 +99,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.themeChooserSheetPeekHeight))
+        BottomSheetBehavior.from(requireView().parent as View).peekHeight = (DimenUtil.displayHeightPx * 0.75).toInt()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

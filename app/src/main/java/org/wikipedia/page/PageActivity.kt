@@ -20,6 +20,7 @@ import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.R.string
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.*
@@ -38,6 +39,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -642,7 +644,33 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
                 }
+            } else {
+                maybeShowThemeToolTip()
             }
+        }
+    }
+
+    private fun maybeShowThemeToolTip() {
+        if (Prefs.showOneTimeCustomizeToolbarTooltip) {
+            var anchorView: View? = null
+            var aboveOrBelow = true
+            if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
+                anchorView = binding.pageToolbarButtonShowOverflowMenu
+                aboveOrBelow = false
+            } else {
+                pageFragment.getPageActionTabLayout().forEach {
+                    if (it.id == PageActionItem.THEME.hashCode() && Prefs.showOneTimeCustomizeToolbarTooltip) {
+                        anchorView = it
+                    }
+                }
+            }
+            anchorView?.let {
+                it.postDelayed({
+                    FeedbackUtil.showTooltip(this, anchorView!!, getString(string.theme_chooser_menu_item_tooltip),
+                        aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
+                }, 2000)
+            }
+            Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
     }
 
