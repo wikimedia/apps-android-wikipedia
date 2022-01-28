@@ -40,6 +40,7 @@
   <string name="search_tab_tooltip">ကအီႏထိုမ်ႏဖြွောန်စ ထာꩻတဗာႏတာႏ နျꩻထဲင်းယင်းသွော့ အုဲင်ကွန်</string>
   <string name="history_list_title">ရာႏဇာႏဝင်ႏ</string>
   <string name="image_content_description">ဓာတ်ပုင်ႏ: %s</string>
+  <string name="page_content_description">လိတ်မဲ့ငါ: %s</string>
   <string name="wikimedia_commons">ဝီခီမီဒီယာ ကောင်မွဥ်း</string>
   <string name="wikidata">ဝီခီဒေတာ</string>
   <string name="dialog_title_clear_history">သျင်ꩻထိုꩻ ထူႏသုင်ꩻမုဲင်တန်ꩻ</string>
@@ -144,7 +145,7 @@
   <string name="create_account_username_hint">သုင်ꩻသားမိဥ်ꩻ</string>
   <string name="login_dont_have_account">အကောက် အဝ်ႏတဝ်းနဲ့?</string>
   <string name="login_join_wikipedia">နွို့ဝီခီပီးဒီးယား</string>
-  <string name="login_forgot_password">အွဥ်ႏဖေင်ꩻထိုꩻ ငဝ်းဗိဥ်ႏပလို့ꩻနဲ့</string>
+  <string name="login_forgot_password">အွောန်ႏဖေင်ꩻထိုꩻ ငဝ်းဗိဉ်ႏပလို့ꩻနဲ့</string>
   <string name="create_account_already_have">အကောက်အဝ်ႏထွူလဲဉ်းနဲ့ဩ?</string>
   <string name="create_account_activity_title">ဖန်ဆင်ꩻအကောက်</string>
   <string name="dialog_create_account_checking_progress">အဝ်ႏစဲစ်ထွား</string>
@@ -182,7 +183,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ယိုနဝ်ꩻ အဝ်ႏ remote storage  မာꩻခါꩻဒါႏ sync နဝ်ꩻဟွောန်ႏ ဟော်ꩻလိတ်စာႏရင်ꩻဖိုင်ႏကားကအဝ်ႏယို အီႏယားကုဲင်ထိုꩻလို့သွူသြ။ အီႏဖုဲင်းထန်ႏထိုꩻလို့ နာꩻအကောက် \"%s\" မာꩻခါꩻဒါႏ sync စာႏရင်ꩻဖိုင်ႏနဲ့ဟောင်း။</string>
   <string name="preferences_privacy_settings_heading">နမ်းတဲမ်းမူဝါဒ</string>
   <string name="preference_title_eventlogging_opt_in">ပသာ ထူႏသုင်ꩻခါꩻခရာႏဖိုင်ႏ</string>
-  <string name="preference_summary_eventlogging_opt_in">ယမ်မာꩻဟောဝ်ဒါႏခြာ အဲပ်တဲင် ခမ်ႏစွꩻဖေႏ ဝီကီပီဒီယာ အကအီးထူႏဗူႏ ထာꩻလီလာ နာꩻခုမ်စမ်ႏအဲပ်နုဲင်းမုဲင်ꩻအလောင်းတာႏ</string>
+  <string name="preference_summary_eventlogging_opt_in">ယမ်မာꩻဟောဝ်ဒါႏခြာ အဲပ်တဲင် ခမ်ႏစွꩻဖေႏ ဝီခီမီဒီယာ အကအီးထူႏဗူႏ ထာꩻလီလာ နာꩻခုမ်စမ်ႏအဲပ်နုဲင်းမုဲင်ꩻအလောင်းတာႏ</string>
   <string name="preference_title_auto_upload_crash_reports">ပသာ ထာꩻကုဲင်ထိုꩻ ခရာႏဖိုင်ႏ</string>
   <string name="preference_summary_auto_upload_crash_reports">ယမ်ဖေႏကမာꩻဟောဝ်လꩻယိုꩻယိုꩻ ထာꩻကုဲင်ကွꩻနောဝ်ꩻတာႏတဲင် ခမ်ႏစွꩻဖေႏ အဲပ် ကအီးပသာသဲင်ꩻချာသေ ထာꩻကုဲင်ထိုꩻခရာႏ ကေားမာꩻဖေႏအခါႏကိုသားထျꩻယို၊ နောဝ်ꩻမꩻ နီအီးထွားမာꩻဖေႏဒါႏ နာꩻထာꩻကုဲင်ကွꩻ။</string>
   <string name="editing_error_spamblacklist">ဖေႏသေ ကမော့ꩻခါꩻဒါႏ ကပေ့ꩻထိုꩻခါꩻလဲန်း ဒိုမိန်း \"%s\" လဉ့်ခ်ဖုံႏ။ ကြုဲင်းညာꩻထိုꩻခါꩻ နောဝ်ꩻစားဖုံႏမꩻ ကွဲးလွေꩻထဲင်းဖျင်သော့ꩻဩ။</string>
@@ -287,6 +288,7 @@
   <string name="gallery_save_progress">ဒေါင်းထူႏဖုဲင်ကျာꩻ...</string>
   <string name="gallery_save_success">သဲမ်ထွူလဲဉ်းဖုဲင်။</string>
   <string name="gallery_error_video_failed">ဗွောင်နွောင်ꩻတဝ်းဗီဒီယို။</string>
+  <string name="gallery_edit_button_content_description">မွဉ်းဖျင် ရုက်ပုင်ႏလိတ်</string>
   <string name="gallery_add_image_caption_button">ထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ်</string>
   <string name="gallery_add_image_caption_in_language_button">ထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ် (%s)</string>
   <string name="err_cannot_save_file">သဲမ်နွောင်ꩻတဝ်းဖုဲင်</string>
@@ -500,6 +502,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">မာꩻတဝ်းဒွုမ်</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">မာꩻတဝ်းဒွုမ်</string>
   <string name="reading_list_split_dialog_ok_button_text">မွေးသွူ</string>
+  <string name="reading_list_activity_title">ဟော်ꩻထွားစာႏရင်ꩻ: %s</string>
   <string name="user_option_sync_label">လွိုက်ရွေꩻခရာႏဖုံႏ</string>
   <string name="notification_reverted_title">သဲင်ꩻဖျင်ချာ မွဉ်းဖျင်မုꩻ</string>
   <string name="notification_channel_title">အဝ်ႏဒေါင်းထူႏ ရောမ်ဖြုဲင်ꩻဖိုင်ႏ</string>
@@ -614,7 +617,7 @@
   <string name="notifications_search_bar_filter_hint">ဖေႏသေချက် စဲစ်ထွားမုꩻ</string>
   <string name="notifications_menu_mark_as_read">မာꩻနုဲင်းဟော်ꩻထွူလဲဉ်း</string>
   <string name="notifications_menu_mark_as_unread">မာꩻနုဲင်းဟော်ꩻဗာႏဒွိုန်း</string>
-  <string name="notifications_swipe_action_read">ဟော်ꩻတာႏ</string>
+  <string name="notifications_swipe_action_read">ဟော်ꩻ</string>
   <string name="notifications_swipe_action_unread">ဟော်ꩻဗာႏတဝ်းဒွိုန်း</string>
   <string name="notifications_menu_check_all">စဲစ်ထွားလို့ တခြိုꩻဖိုင်ႏ</string>
   <string name="notifications_menu_uncheck_all">စဲစ်ထွားတဝ်းဒွုမ် တခြိုꩻကားကအဝ်ႏ</string>
@@ -739,7 +742,7 @@
   <string name="suggested_edits_image_caption_summary_title_image">ရုက်ပုင်ႏ</string>
   <string name="suggested_edits_image_caption_summary_title_artist">အနုပညာႏသျင်ႏ</string>
   <string name="suggested_edits_image_caption_summary_title_author">တဲမ်းလိတ်သား</string>
-  <string name="suggested_edits_image_caption_summary_title_source">ရွီႏခိုႏ</string>
+  <string name="suggested_edits_image_caption_summary_title_source">ရွီးခိုႏ</string>
   <string name="suggested_edits_image_caption_summary_title_license">လုဲင်သိဉ်</string>
   <string name="suggested_edits_image_caption_summary_title_date">မွူးနီꩻ</string>
   <plurals name="suggested_edits_contribution_count">
@@ -830,6 +833,7 @@
   <string name="file_page_add_image_caption_button">ထဲမ်သော့ꩻ ရုက်ပုင်ႏလိတ်</string>
   <string name="file_page_add_image_tags_button">ထဲမ်သော့ꩻ ရုက်ပုင်ႏtag</string>
   <string name="file_page_suggestion_reason">ဖေႏကျံႏညဏ်ႏခါꩻဒါႏ အကျောင်ꩻပျꩻချက်ဖိုင်ႏ</string>
+  <string name="file_page_edit_button_content_description">မွဉ်းဖျင် %s</string>
   <string name="description_edit_revert_subtitle">မွဉ်းဖျင်ဖေႏဒါႏ ဝီခီပီးဒီးယားတာႏ ကေꩻဇူꩻတန်ငါႏသြ!</string>
   <string name="description_edit_login_cancel_button_text">မာꩻတဝ်းဒွုမ်</string>
   <string name="size_gb">%.2f GB</string>

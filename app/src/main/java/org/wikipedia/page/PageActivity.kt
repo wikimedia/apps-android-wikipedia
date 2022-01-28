@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -477,28 +476,32 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     /**
      * Load a new page, and put it on top of the backstack, optionally allowing state loss of the
      * fragment manager. Useful for when this function is called from an AsyncTask result.
-     * @param title Title of the page to load.
+     * @param pageTitle Title of the page to load.
      * @param entry HistoryEntry associated with this page.
      * @param position Whether to open this page in the current tab, a new background tab, or new
      * foreground tab.
      */
-    private fun loadPage(title: PageTitle?, entry: HistoryEntry?, position: TabPosition) {
-        if (isDestroyed || title == null || entry == null) {
+    private fun loadPage(pageTitle: PageTitle?, entry: HistoryEntry?, position: TabPosition) {
+        if (isDestroyed || pageTitle == null || entry == null) {
             return
         }
         if (hasTransitionAnimation && !wasTransitionShown) {
             binding.pageFragment.visibility = View.GONE
-            binding.wikiArticleCardView.prepareForTransition(title)
+            binding.wikiArticleCardView.prepareForTransition(pageTitle)
             wasTransitionShown = true
         }
         if (entry.source != HistoryEntry.SOURCE_INTERNAL_LINK || !Prefs.isLinkPreviewEnabled) {
             LinkPreviewFunnel(app, entry.source).logNavigate()
         }
-        app.putCrashReportProperty("api", title.wikiSite.authority())
-        app.putCrashReportProperty("title", title.toString())
-        if (loadNonArticlePageIfNeeded(title)) {
+        app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
+        app.putCrashReportProperty("title", pageTitle.toString())
+        if (loadNonArticlePageIfNeeded(pageTitle)) {
             return
         }
+
+        // Accessibility
+        title = getString(R.string.page_content_description, pageTitle.displayText)
+
         binding.pageToolbarContainer.post {
             if (!pageFragment.isAdded) {
                 return@post
@@ -508,11 +511,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             hideLinkPreview()
             onPageCloseActionMode()
             when (position) {
-                TabPosition.CURRENT_TAB -> pageFragment.loadPage(title, entry, pushBackStack = true, squashBackstack = false)
-                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(title, entry, pushBackStack = true, squashBackstack = true)
-                TabPosition.NEW_TAB_BACKGROUND -> pageFragment.openInNewBackgroundTab(title, entry)
-                TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(title, entry)
-                else -> pageFragment.openFromExistingTab(title, entry)
+                TabPosition.CURRENT_TAB -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = false)
+                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(pageTitle, entry, pushBackStack = true, squashBackstack = true)
+                TabPosition.NEW_TAB_BACKGROUND -> pageFragment.openInNewBackgroundTab(pageTitle, entry)
+                TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(pageTitle, entry)
+                else -> pageFragment.openFromExistingTab(pageTitle, entry)
             }
             app.sessionFunnel.pageViewed(entry)
         }
@@ -628,7 +631,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
         override fun editHistoryClick() {
             pageFragment.title?.run {
-                UriUtil.visitInExternalBrowser(this@PageActivity, Uri.parse(getWebApiUrl("action=history")))
+                loadPage(PageTitle("Special:History/$prefixedText", wikiSite), HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), TabPosition.CURRENT_TAB)
             }
         }
     }

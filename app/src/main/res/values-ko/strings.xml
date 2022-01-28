@@ -64,6 +64,7 @@
   <string name="search_tab_tooltip">검색 항목 입력을 바로 시작하려면 아이콘을 다시 탭하십시오.</string>
   <string name="history_list_title">역사</string>
   <string name="image_content_description">이미지: %s</string>
+  <string name="page_content_description">문서: %s</string>
   <string name="wikimedia_commons">위키미디어 공용</string>
   <string name="wikidata">위키데이터</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
@@ -317,6 +318,7 @@
   <string name="gallery_save_success">파일을 저장했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
   <string name="gallery_save_image_write_permission_rationale">장치에서 저장소의 쓰기 권한은 그림 저장에 필요합니다.</string>
+  <string name="gallery_edit_button_content_description">이미지 캡션 편집</string>
   <string name="gallery_add_image_caption_button">이미지 캡션 추가</string>
   <string name="gallery_add_image_caption_in_language_button">이미지 설명 추가 (%s)</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
@@ -551,6 +553,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">취소</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">취소</string>
   <string name="reading_list_split_dialog_ok_button_text">확인</string>
+  <string name="reading_list_activity_title">읽기 목록: %s</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_reverted_title">되돌려진 편집</string>
   <string name="notification_channel_title">문서를 다운로드하는 중</string>
@@ -725,6 +728,7 @@
   <string name="feed_accessibility_card_text">피드의 끝에 도달했습니다.</string>
   <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
   <string name="top_read_activity_title">%s의 가장 많이 읽은 글</string>
+  <string name="tabs_activity_title">탭</string>
   <string name="description_edit_text_hint">문서 설명</string>
   <string name="description_edit_article_description_label">문서</string>
   <string name="description_edit_translate_article_description_label_per_language">문서 설명 (%s)</string>
@@ -932,6 +936,7 @@
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
   <string name="file_page_suggestion_reason">제안 이유</string>
+  <string name="file_page_edit_button_content_description">%s 편집</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>

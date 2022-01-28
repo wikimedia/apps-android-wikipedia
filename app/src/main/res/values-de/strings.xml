@@ -2,6 +2,7 @@
 <!-- Authors:
 * 1233qwer1234qwer4
 * Bergrübe
+* Brettchenweber
 * Bxalber
 * Chronist
 * Cooltey
@@ -31,6 +32,7 @@
 * TMg
 * Tobi 406
 * Umherirrender
+* Umlaut
 * Vogone
 * Wolfdietmann
 * Xqt
@@ -68,6 +70,7 @@
   <string name="search_tab_tooltip">Berühre das Symbol noch einmal, um direkt mit der Eingabe zu beginnen.</string>
   <string name="history_list_title">Historie</string>
   <string name="image_content_description">Bild: %s</string>
+  <string name="page_content_description">Seite: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
@@ -323,6 +326,7 @@
   <string name="gallery_save_success">Datei gespeichert.</string>
   <string name="gallery_error_video_failed">Das Video konnte nicht abgespielt werden.</string>
   <string name="gallery_save_image_write_permission_rationale">Zum Speichern von Bildern ist eine Berechtigung zum Schreiben auf den Speicher deines Gerätes erforderlich.</string>
+  <string name="gallery_edit_button_content_description">Bildunterschrift bearbeiten</string>
   <string name="gallery_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="gallery_add_image_caption_in_language_button">Bildunterschrift hinzufügen (%s)</string>
   <string name="err_cannot_save_file">Datei konnte nicht gespeichert werden</string>
@@ -429,6 +433,9 @@
   <string name="text_size_decrease">Text verkleinern</string>
   <string name="text_size_percent_default">%s (Standard)</string>
   <string name="text_style_title">Schriftart</string>
+  <string name="theme_category_reading">Lesen</string>
+  <string name="reading_focus_mode">Modus Lesefokus</string>
+  <string name="reading_focus_mode_detail">Blendet Bearbeitungsfunktionen und untere Symbolleiste beim Scrollen aus</string>
   <string name="nav_item_saved">Gespeichert</string>
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
   <string name="reading_list_move_to">In Leseliste verschieben</string>
@@ -557,6 +564,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Abbrechen</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Abbrechen</string>
   <string name="reading_list_split_dialog_ok_button_text">Okay</string>
+  <string name="reading_list_activity_title">Leseliste: %s</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_reverted_title">Zurückgesetzte Bearbeitung</string>
   <string name="notification_channel_title">Artikel herunterladen</string>
@@ -739,6 +747,7 @@
   <string name="feed_accessibility_card_text">Sie haben das Ende des Feeds erreicht.</string>
   <string name="feed_accessibility_card_load_more_button">Mehr laden</string>
   <string name="top_read_activity_title">Meistgelesen am %s</string>
+  <string name="tabs_activity_title">Tabs</string>
   <string name="description_edit_text_hint">Artikelbeschreibung</string>
   <string name="description_edit_article_description_label">Artikel</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikelbeschreibung (%s)</string>
@@ -956,6 +965,7 @@
   <string name="file_page_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="file_page_add_image_tags_button">Bilder-Tags hinzufügen</string>
   <string name="file_page_suggestion_reason">Vorschlagsgrund</string>
+  <string name="file_page_edit_button_content_description">%s bearbeiten</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>
@@ -1066,11 +1076,13 @@
   <string name="talk_snackbar_survey_action_text">Anfangen</string>
   <string name="talk_share_discussion_subject">Wikipedia - Diskussion zum Thema auf der Diskussionsseite „%s“</string>
   <string name="talk_share_talk_page">Wikipedia - Diskussion zum Thema auf der Diskussionsseite</string>
+  <string name="talk_edit_disclaimer">Dies ist eine Diskussionsseite. Bitte respektiere die Richtlinien der Diskussionsseite und denke daran, deine Beiträge zu unterschreiben, indem du vier Tilden eingibst: ~~~~, wenn du Wikitext verwendest.&lt;br&gt;&lt;br&gt;&lt;a href=https://de.wikipedia.org/wiki/Wikipedia:Diskussionsseiten\"&gt;Wikipedia:Diskussionsseiten&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">Diskussion teilen</string>
   <string name="menu_option_share_talk_page">Diskussionsseite teilen</string>
   <string name="menu_option_share_edit">Bearbeitung teilen</string>
   <string name="menu_option_user_profile">Profil von %s</string>
   <string name="menu_option_user_contributions">Beiträge von %s</string>
+  <string name="menu_option_edit_source">Quelltext bearbeiten</string>
   <string name="watchlist_details_watching_label">Beobachtet</string>
   <string name="watchlist_details_watch_label">Beobachten</string>
   <string name="watchlist_details_next_edit">Nächste Bearbeitung</string>
@@ -1082,6 +1094,8 @@
   <string name="thank_dialog_positive_button_text">Danke senden</string>
   <string name="thank_dialog_negative_button_text">Abbrechen</string>
   <string name="thank_success_message">Dein Danke wurde an %s gesendet 👍</string>
+  <string name="menu_option_view_user_profile">Benutzerprofil anzeigen</string>
+  <string name="menu_option_view_user_talk">Diskussionsseite anzeigen</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s und die Diskussionsseite wurde deiner Beobachtungsliste %2$s hinzugefügt.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändern</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">dauerhaft</string>

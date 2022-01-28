@@ -67,6 +67,7 @@
   <string name="search_tab_tooltip">Napauta kuvaketta uudelleen aloittaaksesi hakutermin kirjoittamisen suoraan.</string>
   <string name="history_list_title">Historia</string>
   <string name="image_content_description">Kuva: %s</string>
+  <string name="page_content_description">Sivu: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
@@ -322,6 +323,7 @@
   <string name="gallery_save_success">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
   <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten.</string>
+  <string name="gallery_edit_button_content_description">Muokkaa kuvatekstiä</string>
   <string name="gallery_add_image_caption_button">Lisää kuvateksti</string>
   <string name="gallery_add_image_caption_in_language_button">Lisää kuvateksti (%s)</string>
   <string name="err_cannot_save_file">Tiedostoa ei voitu tallentaa</string>
@@ -556,6 +558,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Peruuta</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Peruuta</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Lukulista: %s</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
   <string name="notification_channel_title">Artikkelien lataaminen</string>
@@ -669,6 +672,7 @@
   <string name="notifications_tab_filter_mentions">Maininnat</string>
   <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_search_bar_hint">Etsi tai suodata ilmoituksia</string>
+  <string name="notifications_search_bar_filter_hint">Ilmoitussuodatin</string>
   <string name="notifications_menu_mark_as_read">Merkitse luetuksi</string>
   <string name="notifications_menu_mark_as_unread">Merkitse lukemattomaksi</string>
   <string name="notifications_swipe_action_read">Luettu</string>
@@ -676,6 +680,7 @@
   <string name="notifications_menu_check_all">Tarkista kaikki kohteet</string>
   <string name="notifications_menu_uncheck_all">Poista valinta kaikista</string>
   <string name="notifications_wiki_filter_header">Wikisuodatin</string>
+  <string name="notifications_type_filter_header">Tyyppisuodatin</string>
   <string name="notifications_all_wikis_text">Kaikki \"wikit\"</string>
   <string name="notifications_all_types_text">Kaikki \"tyypit\"</string>
   <string name="notifications_menu_user_talk_page">Käyttäjän %s keskustelusivu</string>
@@ -737,6 +742,7 @@
   <string name="feed_accessibility_card_text">Olet päässyt syötteen loppuun.</string>
   <string name="feed_accessibility_card_load_more_button">Lataa enemmän</string>
   <string name="top_read_activity_title">Luetuimmat %s</string>
+  <string name="tabs_activity_title">Välilehdet</string>
   <string name="description_edit_text_hint">Artikkelin kuvaus</string>
   <string name="description_edit_article_description_label">Artikkeli</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikkelin kuvaus (%s)</string>
@@ -953,6 +959,7 @@
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
   <string name="file_page_add_image_tags_button">Lisää kuvamerkintöjä</string>
   <string name="file_page_suggestion_reason">Ehdotuksen syy</string>
+  <string name="file_page_edit_button_content_description">Muokkaa %s</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
@@ -1061,6 +1068,7 @@
   <string name="talk_last_modified">&lt;b&gt;Sivua muokkasi viimeksi %1$s&lt;/b&gt; %2$s</string>
   <string name="talk_snackbar_survey_text">Kiitos keskustelusivujen käyttämisestä. Voitko auttaa meitä parantamaan sovellusta osallistumalla kyselyyn?</string>
   <string name="talk_snackbar_survey_action_text">Aloita</string>
+  <string name="talk_share_discussion_subject">Wikipedia - keskustelu aiheesta \"%s\" keskustelusivulla</string>
   <string name="talk_share_talk_page">Wikipedia - keskustelut keskustelusivulla</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
@@ -1078,6 +1086,7 @@
   <string name="thank_dialog_positive_button_text">Lähetä kiitokset</string>
   <string name="thank_dialog_negative_button_text">Peruuta</string>
   <string name="thank_success_message">Kiitoksesi lähetettiin käyttäjälle %s 👍</string>
+  <string name="menu_option_view_user_talk">Näytä keskustelusivu</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s keskustelusivuineen on lisätty tarkkailulistallesi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Vaihda</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">pysyvästi</string>

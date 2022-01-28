@@ -5,11 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +21,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.TalkFunnel
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
@@ -31,6 +30,8 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.edit.EditHandler
+import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -62,8 +63,23 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
     private var revisionForUndo: Long = 0
-    private val linkMovementMethod = LinkMovementMethodExt { url: String ->
-        linkHandler.onUrlClick(url, null, "")
+    private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
+        linkHandler.onUrlClick(url, title, linkText, x, y)
+    }
+    private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            updateEditLicenseText()
+            editFunnel.logLoginSuccess()
+            FeedbackUtil.showMessage(this, R.string.login_success_toast)
+        } else {
+            editFunnel.logLoginFailure()
+        }
+    }
+    private val requestEditSource = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
+            // TODO: maybe add funnel?
+            loadTopic()
+        }
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -97,6 +113,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkReplyButton.setOnClickListener {
             talkFunnel.logReplyClick()
             editFunnel.logStart()
+            EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
             replyClicked()
         }
 
@@ -128,6 +145,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_talk_topic, menu)
+        menu.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
         return true
     }
 
@@ -136,6 +154,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         return when (item.itemId) {
             R.id.menu_talk_topic_share -> {
                 ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), pageTitle.uri + "#" + StringUtil.addUnderscores(topic?.html))
+                true
+            }
+            R.id.menu_edit_source -> {
+                requestEditSource.launch(EditSectionActivity.newIntent(this, topicId, undoneSubject, pageTitle))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -170,19 +192,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         super.onDestroy()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN) {
-            if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-                updateEditLicenseText()
-                editFunnel.logLoginSuccess()
-                FeedbackUtil.showMessage(this, R.string.login_success_toast)
-            } else {
-                editFunnel.logLoginFailure()
-            }
-        }
-    }
-
     private fun onInitialLoad() {
         if (isNewTopic()) {
             replyActive = true
@@ -199,6 +208,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
             editFunnel.logStart()
+            EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
         } else {
             replyActive = false
             binding.replyEditText.setText("")
@@ -266,15 +276,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkErrorView.setError(t)
     }
 
-    private fun showLinkPreviewOrNavigate(title: PageTitle) {
-        if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
-            startActivity(TalkTopicsActivity.newIntent(this, title, Constants.InvokeSource.TALK_ACTIVITY))
-        } else {
-            bottomSheetPresenter.show(supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
-        }
-    }
-
     private fun isNewTopic(): Boolean {
         return topicId == TalkTopicsActivity.NEW_TOPIC_ID
     }
@@ -313,6 +314,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
+        private var lastX: Int = 0
+        private var lastY: Int = 0
+
+        fun onUrlClick(url: String, title: String?, linkText: String, x: Int, y: Int) {
+            lastX = x
+            lastY = y
+            super.onUrlClick(url, title, linkText)
+        }
+
         override fun onMediaLinkClicked(title: PageTitle) {
             // TODO
         }
@@ -328,7 +338,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-           showLinkPreviewOrNavigate(title)
+            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter, title, lastX, lastY)
         }
     }
 
@@ -337,6 +347,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         var body = binding.replyEditText.text.toString().trim()
         undoneBody = body
         undoneSubject = subject
+
+        editFunnel.logSaveAttempt()
+        EditAttemptStepEvent.logSaveAttempt(pageTitle.wikiSite.languageCode)
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
@@ -427,6 +440,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
+        EditAttemptStepEvent.logSaveSuccess(pageTitle.wikiSite.languageCode)
 
         if (isNewTopic()) {
             Intent().let {
@@ -444,6 +458,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
+        EditAttemptStepEvent.logSaveFailure(pageTitle.wikiSite.languageCode)
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)
@@ -478,7 +493,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (url == "https://#login") {
                 val loginIntent = LoginActivity.newIntent(this,
                         LoginFunnel.SOURCE_EDIT, editFunnel.sessionToken)
-                startActivityForResult(loginIntent, Constants.ACTIVITY_REQUEST_LOGIN)
+                requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this, Uri.parse(url))
             }

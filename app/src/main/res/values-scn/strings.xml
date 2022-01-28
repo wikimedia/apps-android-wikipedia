@@ -10,10 +10,17 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_suggested_edits">Canciamenti</string>
   <string name="nav_item_more">Àutri cosi</string>
+  <string name="page_error_retry">Ripruva</string>
+  <string name="card_offline_error_retry">Ripruva</string>
+  <string name="storage_access_error_retry">Ripruva</string>
+  <string name="article_load_error_retry">Ripruva</string>
+  <string name="offline_load_error_retry">Ripruva</string>
+  <string name="menu_clear_all_history">Cancella la crunuluggìa</string>
   <string name="history_item_delete_undo">Annulla</string>
   <string name="notification_archive_undo">Annulla</string>
   <string name="history_list_title">Crunuluggìa</string>
   <string name="image_content_description">Mmàggini: %s</string>
+  <string name="page_content_description">Pàggina: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
@@ -53,7 +60,7 @@
   <string name="menu_login">Trasi</string>
   <string name="login_activity_title">Trasi</string>
   <string name="login_success_toast">Trasuta rinisciuta!</string>
-  <string name="reset_password_title">Mpusta la tò password</string>
+  <string name="reset_password_title">Mposta la tò password</string>
   <string name="reset_password_hint">Password nova</string>
   <string name="reset_password_button">Sarva e trasi</string>
   <string name="preference_title_logout">Nesci</string>
@@ -103,6 +110,7 @@
   <string name="table_close">Chiudi</string>
   <string name="dialog_close_description">Chiudi</string>
   <string name="preference_title_show_images">Ammustra mmàggini</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Cunsenti</string>
   <string name="read_more_section">Pi sapìrinni cchiossai</string>
   <string name="about_article_section">Nfurmazzioni supra sta vuci</string>
   <string name="gallery_menu_share">Cunnividi</string>
@@ -161,6 +169,8 @@
   <string name="notifications_activity_title">Nutìfichi</string>
   <string name="notifications_poll_enable_negative">Nun ora</string>
   <string name="watchlist_title">Lista taliata</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Missaggi dû sistema</string>
   <string name="preference_title_notification_thanks">Grazzi</string>
   <string name="preference_title_notification_login_fail">Trasi</string>
   <string name="preference_title_notification_user_talk">Pàggina di discussioni</string>
@@ -255,6 +265,7 @@
   <string name="suggested_edits_contribution_article_label">Vuci</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Aieri</string>
+  <string name="file_page_edit_button_content_description">Cancia %s</string>
   <string name="description_edit_revert_subtitle">Grazzi pi aviri canciatu Wikipedia!</string>
   <string name="description_edit_login_cancel_button_text">Annulla</string>
   <string name="size_gb">%.2f GB</string>
@@ -312,6 +323,7 @@
   <string name="menu_option_share_edit">Cunnividi canciamentu</string>
   <string name="menu_option_user_profile">Prufilu di %s</string>
   <string name="menu_option_user_contributions">Cuntribbuti di %s</string>
+  <string name="menu_option_edit_source">Cancia surgenti</string>
   <string name="watchlist_details_watch_label">Talìa</string>
   <string name="view_user_page">Talìa la pàggina di l\'utenti</string>
   <string name="thank_dialog_negative_button_text">Annulla</string>

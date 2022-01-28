@@ -34,6 +34,7 @@
     <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
     <string name="history_list_title">History</string>
     <string name="image_content_description">Image: %s</string>
+    <string name="page_content_description">Page: %s</string>
     <string name="wikimedia_commons">Wikimedia Commons</string>
     <string name="wikidata">Wikidata</string>
 
@@ -299,6 +300,7 @@
     <string name="gallery_save_success">File saved.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="gallery_save_image_write_permission_rationale">Permission to write to storage on your device is required for saving images.</string>
+    <string name="gallery_edit_button_content_description">Edit image caption</string>
     <string name="gallery_add_image_caption_button">Add image caption</string>
     <string name="gallery_add_image_caption_in_language_button">Add image caption (%s)</string>
     <string name="err_cannot_save_file">Cannot save file</string>
@@ -414,6 +416,9 @@
     <string name="text_size_decrease">Decrease text size</string>
     <string name="text_size_percent_default">%s (Default)</string>
     <string name="text_style_title">Font</string>
+    <string name="theme_category_reading">Reading</string>
+    <string name="reading_focus_mode">Reading focus mode</string>
+    <string name="reading_focus_mode_detail">Hides edit features and bottom toolbar on scroll</string>
     <!-- /Theme -->
 
     <!-- Reading lists -->
@@ -545,6 +550,7 @@
     <string name="reading_list_remove_from_offline_cancel_button_text">Cancel</string>
     <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel</string>
     <string name="reading_list_split_dialog_ok_button_text">OK</string>
+    <string name="reading_list_activity_title">Reading list: %s</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
@@ -740,6 +746,8 @@
     <!-- /The Feed -->
 
     <string name="top_read_activity_title">Top read on %s</string>
+
+    <string name="tabs_activity_title">Tabs</string>
 
     <!-- Description editing -->
     <string name="description_edit_text_hint">Article description</string>
@@ -972,6 +980,7 @@
     <string name="file_page_add_image_caption_button">Add image caption</string>
     <string name="file_page_add_image_tags_button">Add image tags</string>
     <string name="file_page_suggestion_reason">Suggestion reason</string>
+    <string name="file_page_edit_button_content_description">Edit %s</string>
     <!-- /File page -->
 
     <!-- Description editing revert help -->
@@ -1110,11 +1119,13 @@
     <string name="talk_snackbar_survey_action_text">Get started</string>
     <string name="talk_share_discussion_subject">Wikipedia - discussion on talk page topic \"%s\"</string>
     <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
+    <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a>]]></string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>
+    <string name="menu_option_edit_source">Edit source</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
     <string name="watchlist_details_next_edit">Next edit</string>
@@ -1126,6 +1137,8 @@
     <string name="thank_dialog_positive_button_text">Send thanks</string>
     <string name="thank_dialog_negative_button_text">Cancel</string>
     <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
+    <string name="menu_option_view_user_profile">View user profile page</string>
+    <string name="menu_option_view_user_talk">View talk page</string>
 
     <!-- Watchlist -->
     <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>
