@@ -1088,6 +1088,8 @@
   <string name="thank_dialog_positive_button_text">Positive button label on the thank dialog.</string>
   <string name="thank_dialog_negative_button_text">Negative button label on the thank dialog.\n{{identical|Cancel}}</string>
   <string name="thank_success_message">Message shown to user after thanking an edit in the diff screen. %s is the contributing user\'s username.</string>
+  <string name="menu_option_view_user_profile">Menu label to navigate to the user page of the selected user.</string>
+  <string name="menu_option_view_user_talk">Menu label to navigate to the talk page of the selected user.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.\n\n{{Identical|Change}}</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>

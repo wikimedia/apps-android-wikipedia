@@ -1065,6 +1065,8 @@
   <string name="thank_dialog_positive_button_text">Испрати благодарница</string>
   <string name="thank_dialog_negative_button_text">Откажи</string>
   <string name="thank_success_message">Вашата благодарница е испратена на %s 👍</string>
+  <string name="menu_option_view_user_profile">Погл. кориснички профил</string>
+  <string name="menu_option_view_user_talk">Погл. разговорна страница</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и нејзината разговорна страница се додадени во вашите набљудувања %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Смени</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
