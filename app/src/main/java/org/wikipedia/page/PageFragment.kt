@@ -255,7 +255,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override fun onPause() {
         super.onPause()
         bridge.execute(JavaScriptActionHandler.pauseAllMedia())
-        webView.onPause()
         if (avPlayer?.isPlaying == true) {
             avPlayer?.stop()
         }
@@ -272,7 +271,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         super.onResume()
         initPageScrollFunnel()
         activeTimer.resume()
-        webView.onResume()
         val params = CoordinatorLayout.LayoutParams(1, 1)
         binding.pageImageTransitionHolder.layoutParams = params
         binding.pageImageTransitionHolder.visibility = View.GONE
