@@ -22,13 +22,13 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
     private var binding = ViewTalkTopicsSortOverflowBinding.inflate(LayoutInflater.from(context), this, true)
     private var callback: Callback? = null
     private var popupWindowHost: PopupWindow? = null
-    private var currentSortByMode = SORT_BY_DATE_PUBLISHED_DESCENDING
+    private var currentSortMode = SORT_BY_DATE_PUBLISHED_DESCENDING
 
     init {
         setButtonsListener()
     }
 
-    fun show(anchorView: View, sortByMode: Int, callback: Callback?) {
+    fun show(anchorView: View, sortMode: Int, callback: Callback?) {
         this.callback = callback
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
@@ -38,9 +38,9 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
             it.showAsDropDown(anchorView, 0, 0, Gravity.END)
         }
 
-        currentSortByMode = sortByMode
+        currentSortMode = sortMode
 
-        when (sortByMode) {
+        when (sortMode) {
             SORT_BY_DATE_PUBLISHED_DESCENDING -> {
                 binding.sortByDatePublishedSelected.isVisible = true
                 binding.sortByDatePublishedOrder.isVisible = true
@@ -84,9 +84,9 @@ class TalkTopicsSortOverflowView(context: Context) : FrameLayout(context) {
 
     private fun getNewSortByMode(isDatePublishedClicked: Boolean): Int {
         return if (isDatePublishedClicked) {
-            if (currentSortByMode == SORT_BY_DATE_PUBLISHED_DESCENDING) SORT_BY_DATE_PUBLISHED_ASCENDING else SORT_BY_DATE_PUBLISHED_DESCENDING
+            if (currentSortMode == SORT_BY_DATE_PUBLISHED_DESCENDING) SORT_BY_DATE_PUBLISHED_ASCENDING else SORT_BY_DATE_PUBLISHED_DESCENDING
         } else {
-            if (currentSortByMode == SORT_BY_TOPIC_NAME_DESCENDING) SORT_BY_TOPIC_NAME_ASCENDING else SORT_BY_TOPIC_NAME_DESCENDING
+            if (currentSortMode == SORT_BY_TOPIC_NAME_DESCENDING) SORT_BY_TOPIC_NAME_ASCENDING else SORT_BY_TOPIC_NAME_DESCENDING
         }
     }
 

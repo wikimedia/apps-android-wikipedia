@@ -2,6 +2,7 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
@@ -68,7 +69,8 @@ class TalkTopicsActivity : BaseActivity() {
     private var revisionForLastEdit: MwQueryPage.Revision? = null
     private var resolveTitleRequired = false
     private var goToTopic = false
-    private var currentSortBy = TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING
+    private var currentSearchQuery: String? = null
+    private var currentSortMode = Prefs.talkTopicsSortMode
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -413,6 +415,7 @@ class TalkTopicsActivity : BaseActivity() {
             title.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface
             title.setTextColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity,
                     if (seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
+            StringUtil.highlightAndBoldenText(title, currentSearchQuery, true, Color.YELLOW)
             itemView.setOnClickListener(this)
         }
 
@@ -424,8 +427,6 @@ class TalkTopicsActivity : BaseActivity() {
     internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         private val listPlaceholder get() = if (actionMode == null) 1 else 0
-        private var searchQuery: String? = null
-        private var sortBy = TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING
 
         override fun getItemCount(): Int {
             return list.size + listPlaceholder
@@ -449,7 +450,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         private val list get(): List<TalkPage.Topic> {
-            when (sortBy) {
+            when (currentSortMode) {
                 TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
                     topics.sortByDescending { it.id }
                 }
@@ -463,15 +464,7 @@ class TalkTopicsActivity : BaseActivity() {
                     topics.sortBy { RichTextUtil.stripHtml(it.html) }
                 }
             }
-            return topics.filter { it.html.orEmpty().contains(searchQuery.orEmpty(), true) }
-        }
-
-        fun setSearchQuery(query: String?) {
-            searchQuery = query
-        }
-
-        fun setSortBy(sort: Int) {
-            sortBy = sort
+            return topics.filter { it.html.orEmpty().contains(currentSearchQuery.orEmpty(), true) }
         }
     }
 
@@ -488,9 +481,9 @@ class TalkTopicsActivity : BaseActivity() {
             }
 
             talkSortButton.setOnClickListener {
-                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, currentSortBy) { sortByMode ->
-                    currentSortBy = sortByMode
-                    (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSortBy(sortByMode)
+                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, currentSortMode) {
+                    currentSortMode = it
+                    Prefs.talkTopicsSortMode = it
                     binding.talkRecyclerView.adapter?.notifyDataSetChanged()
                 }
             }
@@ -523,14 +516,14 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         override fun onQueryChange(s: String) {
-            (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSearchQuery(s)
+            currentSearchQuery = s
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
-            (binding.talkRecyclerView.adapter as TalkTopicItemAdapter).setSearchQuery(null)
+            currentSearchQuery = null
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             binding.talkNewTopicButton.isVisible = true
         }
