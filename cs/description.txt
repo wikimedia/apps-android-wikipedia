@@ -4,6 +4,36 @@ Funkce:
 
 Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu, můžete forkovat! https://github.com/wikimedia/apps-android-wikipedia.
 
+Hlasové vyhledávání - Jednoduše najděte to co hledáte s viditelným vyhledávacím polem na vrchu aplikace, také umožňující hlasové vyhledávání na vašem zařízení.
+
+Nablízku - Zjistěte více o tom, co je kolem vás vybíráním bodů na interaktivní mapě, což vám umožní vidět články související s vaší aktuální polohou a jejím okolí.
+
+Jazyková podpora - Plynule přecházejte na jiné jazyky, buď změnou jazyka aktuálního článku, nebo změnou upřednostňovaného jazyka při vyhledávání.
+
+Náhledy odkazů - Nahlédněte na článek kliknutím, bez toho aby jste ztratili místo v tom, co jste dosud četli. Podržte na chvíli odkaz, aby jste jej otevřeli na nové kartě, což vám umožní dočíst dosavadní článek a následně přepnout na ten druhý až budete připraveni.
+
+Obsah článku - Potáhněte vlevo na jakémkoli článku, aby jste otevřeli jeho obsah, který vám umožní rychle přeskakovat mezi částmi článku.
+
+Seznam četby - Seřaďte články, které čtete do seznamů četby přístupných i bez internetu. Utvořte kolik seznamů chcete, dejte jim jména a popisy a zaplňte je články z jakékoliv Wikipedie jakéhokoli jazyka.
+
+Obrázková galerie - Klikněte na obrázek, aby jste jej viděli v režimu celé obrazovky ve vysokém rozlišení, s možností potažení prstu pro zobrazení dalších obrázků.
+
+Definice z Wikislovníku - Klikněte a držte pro označení slova, pak stiskněte tlačítko "Definovat", aby jste viděli význam toho slova z Wikislovníku.
+
+Wikipedia Zero - Přistupujte k Wikipedii pro Android bez platby za data u vybraných mobilních operátorů.
+
+Pošlete nám svoji zpětnou vazbu ohledně této aplikace! V nabídce stiskněte "Nastavení", dále "O aplikaci Wikipedie", následně "Poslat zpětnou vazbu".
+
+Kód je 100% svobodný, pokud máte zkušenosti s Javou a Androidovým SDK, zapojte se do vývoje! https://github.com/wikimedia/apps-android-wikipedia
+
+Užíváním této aplikace souhlasíte s automatickým přenosem záznamů spadnutí poskytovateli služeb třetí strany. Pokud chcete tuto funkci zakázat, jděte do "Nastavení" a vypněte "Odesílat zprávy o využití" pod sekcí "Soukromí". Vysvětlení oprávnění, které aplikace vyžaduje: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Zásady ochrany osobních údajů: https://foundation.wikimedia.org/wiki/Privacy_policy
+
+Zásady ochrany osobních údajů služby poskytující sběr informací o spadnutí: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
 Podmínky používání: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 
 O nadaci Wikimedia
+
+Wikimedia Foundation je nezisková organizace, která podporuje Wikipedii a jiné její projekty. Je to charitativní organizace převážně financovaná příspěvky. Pro více informací navštivte naši webovou stránku: https://wikimediafoundation.org/

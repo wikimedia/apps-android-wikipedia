@@ -1,0 +1,5 @@
+- Podstatné zlepšení rozhraní seznamů četby
+- Nyní můžete vybrat více článků v seznamu četby
+- Jednotlivé články v seznamu četby se nyní dají přepnout on/offline
+- Obrázky jsou nyní ukládány do mezipaměti pro offline dostupnost
+

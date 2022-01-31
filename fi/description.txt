@@ -34,6 +34,6 @@ Kaatumisilmoituksia käsittelevän kolmannen osapuolen palveluntarjoajan tietosu
 
 Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 
-Tietoa Wikimedia-säätiöstä.
+Tietoa Wikimedia-säätiöstä
 
 Wikimedia Foundation on voittoa tavoittelematon säätiö, joka tukee Wikipediaa ja muita Wikimedia-projekteja. Wikimedia Foundation on lahjoituskelpoinen säätiö ja sitä rahoitetaan pääasiassa lahjoituksilla. Lisätietoja verkkosivuilta: https://wikimediafoundation.org/wiki/Home.
