@@ -14,7 +14,9 @@
   <string name="page_tabs_back">Siar</string>
   <string name="nav_item_forward">Anonn</string>
   <string name="search_hint">Cuardaigh Vicipéid</string>
+  <string name="search_hint_voice_search">Cuardaigh le hionchur gutha</string>
   <string name="search_hint_search_languages">Cuardaigh ar thóir teanga</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Scag mo chuid liostaí</string>
   <string name="nav_item_suggested_edits">Athruithe</string>
   <string name="nav_item_more">Tuilleadh</string>
   <string name="nav_item_search">Cuardaigh</string>
@@ -26,13 +28,19 @@
   <string name="offline_load_error_retry">Atriail</string>
   <string name="page_error_back_to_main">Gabh siar</string>
   <string name="error_back">Gabh siar</string>
+  <string name="error_next">Ar aghaidh</string>
   <string name="menu_clear_all_history">Glan stair</string>
   <string name="history_item_deleted">Baineadh %s ón stair</string>
   <string name="history_items_deleted">Baineadh %d alt amach ón stair</string>
   <string name="history_item_delete_undo">Cealaigh</string>
   <string name="notification_archive_undo">Cealaigh</string>
   <string name="app_settings">Socruithe aipe</string>
+  <string name="search_tab_tooltip">Tapáil an t-íocón arís le tosú caol díreach ag clóscríobh téarma cuardaigh.</string>
   <string name="history_list_title">Stair</string>
+  <string name="image_content_description">Íomhá: %s</string>
+  <string name="page_content_description">Leathanach: %s</string>
+  <string name="wikimedia_commons">Cómhaoin Wikimedia</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Glan stair bhrabhsála</string>
   <string name="dialog_message_clear_history">Scriosfar do chuid stair bhrabhsála uile, agus dúnfar na táib uile atá oscailte agat. An bhfuil tú cinnte?</string>
   <string name="dialog_message_clear_history_yes">Tá</string>
@@ -43,6 +51,10 @@
   <string name="menu_page_show_tabs">Taispeáin táib</string>
   <string name="menu_page_other_languages">Athraigh teanga</string>
   <string name="menu_page_find_in_page">Aimsigh sa leathanach</string>
+  <string name="menu_page_add_to_watchlist">Cuir ar Liosta Faire</string>
+  <string name="menu_page_view_talk">Féach ar leathanach plé</string>
+  <string name="menu_page_view_edit_history">Féach ar stair eagarthóireachta</string>
+  <string name="menu_page_remove_from_watchlist">Bain ó Liosta Faire</string>
   <string name="edit_section_find_in_page">Aimsigh sa leathanach</string>
   <string name="menu_page_font_and_theme">Cló agus téama</string>
   <string name="menu_page_add_to_list">Cuir ar liosta léitheoireachta</string>
@@ -50,6 +62,7 @@
   <string name="feed_card_add_to_list">Cuir ar liosta léitheoireachta</string>
   <string name="feed_card_add_to_default_list">Sábháil</string>
   <string name="menu_page_share">Comhroinn nasc</string>
+  <string name="menu_article_share">Roinn alt</string>
   <string name="menu_page_open_a_new_tab">Oscail táb nua</string>
   <string name="menu_page_new_tab">Táb nua</string>
   <string name="menu_page_reading_lists">Liostaí léitheoireachta</string>
@@ -138,7 +151,7 @@
   <string name="create_account_passwords_mismatch_error">Ní mar a chéile na pasfhocail</string>
   <string name="create_account_email_error">Seoladh ríomhphoist neamhbhailí</string>
   <string name="create_account_username_error">Carachtair neamhbhailí san ainm úsáideora</string>
-  <string name="create_account_password_error" fuzzy="true">Tá an pasfhocal neamhbhailí</string>
+  <string name="create_account_password_error">Ní mór 8 gcarachtar ar a laghad a bheith i do phasfhocal</string>
   <string name="create_account_generic_error">Níorbh fhéidir cuntas a chruthú</string>
   <string name="create_account_next">Ar aghaidh</string>
   <string name="email_recommendation_dialog_title">Cruthaigh cuntas gan seoladh ríomhphoist?</string>
@@ -152,6 +165,7 @@
   <string name="create_account_ip_block_help_url">\nhttps://ga.wikipedia.org/wiki/Cabhair:Bacadh mé</string>
   <string name="create_account_ip_block_details">Sonraí</string>
   <string name="preferences_general_heading">Ginearálta</string>
+  <string name="preferences_account_heading">Cuntas</string>
   <string name="wikipedia_app_faq">CCanna an Aip Vicipéide</string>
   <string name="send_feedback">Seol aiseolas maidir leis an aip</string>
   <string name="create_account_account_created_toast">Cruthaíodh cuntas!</string>
@@ -168,13 +182,17 @@
   <string name="preference_title_eventlogging_opt_in">Seol tuairiscí úsáide</string>
   <string name="preference_summary_eventlogging_opt_in">Ceadaigh do Wikimedia eolas a bhailiú ar conas mar a úsáideann tú an aip chun an aip a fheabhsú</string>
   <string name="preference_title_auto_upload_crash_reports">Seol tuairiscí ar tuairteanna</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Ceadaigh don aip tuairiscí ar thuairteanna a sheoladh go huathoibríoch chuig HockeyApp / soláthraí seirbhíse tríú páirtí chun go bhféadfaimid do thuairt a athbhreithniú agus an fabht a réitiú níos tapúla agus níos éasca.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Ceadaigh don aip tuairiscí ar clistí a sheoladh go huathoibríoch chuig soláthraí seirbhíse tríú páirtí, chun go bhféadfaimid do chliseadh a athbhreithniú agus an fabht a dheisiú níos tapúla agus níos éasca.</string>
+  <string name="editing_error_spamblacklist">Braitheadh naisc chuig fearainn bhactha (%s). Bain amach iad agus triail arís.</string>
+  <string name="history_filter_list_hint">Scag stair</string>
   <string name="error_can_not_process_link">Níorbh fhéidir an nasc seo a thaispeáint</string>
   <string name="page_protected_autoconfirmed">Tá an leathanach seo leath-chosanta.</string>
   <string name="page_protected_sysop">Tá an leathanach seo cosanta go hiomlán.</string>
   <string name="page_protected_can_not_edit">Tá brón orainn, níl a sháith pribhléidí ag do chuntas le haghaidh an leathanach seo ar chur in eagar faoi láthair.</string>
   <string name="page_protected_can_not_edit_anon">Tá brón orainn, ní féidir an leathanach seo a chur in eagar gan ainm faoi láthair.</string>
   <string name="page_protected_can_not_edit_title">Tá an leathanach seo cosanta</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Cuir ar Liosta Faire</string>
+  <string name="page_notification_tooltip">Anseo a aimseoidh tú do chuid fógraí.</string>
   <string name="settings_item_preferences">Socruithe</string>
   <string name="settings_activity_title">Socruithe</string>
   <string name="about_description">Maidir leis an aip Vicipéide</string>
@@ -256,12 +274,16 @@
   <string name="gallery_save_success">Sábháladh an comhad.</string>
   <string name="gallery_error_video_failed">Níorbh fhéidir an físeán a sheinm.</string>
   <string name="gallery_save_image_write_permission_rationale">Le híomhánna a shábháil, éilítear cead sonraí a chur i stóras ar do ghléas.</string>
+  <string name="gallery_edit_button_content_description">Cuir foscríbhinn íomhá in eagar</string>
+  <string name="gallery_add_image_caption_button">Cuir foscríbhinn íomhá leis</string>
+  <string name="gallery_add_image_caption_in_language_button">Cuir foscríbhinn íomhá leis (%s)</string>
   <string name="err_cannot_save_file">Ní féidir an comhad a shábháil</string>
   <string name="expand_refs">Tapáil le fairsingiú</string>
   <string name="cc_logo">Ceadúnas Creative Commons</string>
   <string name="captcha_image">Íomhá captcha</string>
   <string name="gallery_fair_use_license">Úsáid chóir</string>
   <string name="gallery_uploader_unknown">Ní fios cé a uaslódáil é</string>
+  <string name="gallery_not_available_offline_snackbar">Níl an t-amharc gailearaí ar fáil as líne.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Ruaig</string>
   <string name="menu_new_tab">Táb nua</string>
   <string name="menu_close_all_tabs">Dún na táib uile</string>
@@ -306,15 +328,24 @@
   <string name="location_permissions_enable_prompt">Cumasaigh ceadanna shuímh le háiteanna in aice leat a fhéachaint.</string>
   <string name="location_permissions_enable_action">Cas air</string>
   <string name="error_webview_updating">Tá Android System WebView á nuashonrú faoi láthair. Triail arís ar ball beag.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d roghnaithe</item>
+    <item quantity="two">%d roghnaithe</item>
+    <item quantity="few">%d roghnaithe</item>
+    <item quantity="many">%d roghnaithe</item>
+    <item quantity="other">%d selected</item>
+  </plurals>
   <string name="multi_select_items_selected">%d roghnaithe</string>
   <string name="error_message_generic">Tharla earráid</string>
   <string name="view_link_preview_error_button_dismiss">Ruaig</string>
   <string name="error_page_does_not_exist">Níl an leathanach seo ann</string>
   <string name="view_wiki_error_message_offline">Ní féidir nascadh leis an idirlíon</string>
   <string name="reference_title">Tagairt %s</string>
+  <string name="reference_list_title">Tagairtí</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Maolú íomhánna (sa téama Dorcha)</string>
   <string name="preference_title_prefer_offline_content">Úsáid ábhar as líne más féidir</string>
   <string name="preference_summary_prefer_offline_content">Coigil úsáid sonraí trí bhealach ailt atá ar fáil as líne a lódáil seachas an leagan is deireanaí den alt a lódáil gach uair</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Ag teacht le téama an chórais</string>
   <string name="empty_tab_title">Táb nua</string>
   <string name="menu_save_all_tabs">Sábháil na táib go léir</string>
   <string name="crash_report_activity_title">Earráid aipe</string>
@@ -342,12 +373,16 @@
   <string name="text_size_decrease">Laghdaigh méid an téacs</string>
   <string name="text_size_percent_default">%s (Réamhshocrú)</string>
   <string name="text_style_title">Cló</string>
+  <string name="theme_category_reading">Léitheoireacht</string>
+  <string name="reading_focus_mode">Mód fócas léimh</string>
   <string name="nav_item_saved">Sábháilte</string>
   <string name="reading_list_save_to">Sábháil ar liosta léitheoireachta</string>
   <string name="reading_list_move_to">Bog chuig liosta léitheoireachta</string>
   <string name="reading_list_create_new">Cruthaigh nua</string>
   <string name="reading_list_title_exists">Tá liosta \"%s\" ann cheana féin.</string>
+  <string name="reading_list_article_added_to_default_list">Sábháladh %s. Ar mhaith leat é a chur ar liosta?</string>
   <string name="reading_list_added_view_button">Féach ar liosta</string>
+  <string name="reading_list_add_to_list_button">Cuir ar liosta</string>
   <string name="format_reading_list_statistical_summary_singular">1 alt amháin, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d alt, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d de 1 alt ar fáil as líne, %2$.2f MB</string>
@@ -494,6 +529,8 @@
   <string name="notifications_view_archived_button_text">Féach ar fógraí sa chartlann</string>
   <string name="notification_preferences_title">Sainroghanna fógraí</string>
   <string name="notifications_mark_unread">Marcáil neamhléite</string>
+  <string name="notifications_direct_reply_action">Freagair</string>
+  <string name="watchlist_title">Liosta Faire</string>
   <string name="preference_title_notification_poll">Déan faireachán ar fógraí</string>
   <string name="preference_summary_notification_poll">Ceadaigh don aip sonraí a úsáid le seiceáil sa chúlra an bhfuil fógraí nua ann.</string>
   <string name="preference_title_notification_system">Córas</string>
@@ -501,7 +538,34 @@
   <string name="preference_summary_notification_milestone">Sroichtear líonta athruithe áirithe</string>
   <string name="preference_title_notification_thanks">Buíochas</string>
   <string name="preference_summary_notification_thanks">Gabhálann duine éigin buíochas leat as athrú a chur in eagar</string>
+  <string name="preference_title_notification_mention">Lua</string>
+  <string name="preference_summary_notification_mention">Luann duine éigin tú ar leathanach</string>
   <string name="preference_title_notification_user_talk">Leathanach plé</string>
+  <string name="preference_category_push_notifications">Brúfhógraí</string>
+  <string name="preference_title_customize_push_notifications">Oiriúnaigh brúfhógraí</string>
+  <string name="preference_category_display_settings">Socruithe taispeána</string>
+  <string name="preference_title_hide_read_notifications">Cuir fógraí léimh i bhfolach</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Vicipéid</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Fógraí ó Vicipéid</string>
+  <string name="notifications_channel_group_other_title">Eile</string>
+  <string name="notifications_channel_group_other_description">Fógraí eile ón aip</string>
+  <string name="notifications_filter_label">Scag fógraí</string>
+  <string name="notifications_filter_icon_content_description">Scag fógraí</string>
+  <string name="notifications_filter_update_app_languages">Nuashonraigh teangacha na haipe</string>
+  <string name="notifications_empty_search_message">Triail %s a bhaint amach chun níos mó fógraí a fhéachaint</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d scagaire</item>
+    <item quantity="two">%d scagaire</item>
+    <item quantity="few">%d scagaire</item>
+    <item quantity="many">%d scagaire</item>
+    <item quantity="other">%d scagairí</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Roghnaigh gach scagaire</string>
+  <string name="notifications_tab_filter_all">Uile</string>
+  <string name="notifications_tab_filter_mentions">Luanna</string>
+  <string name="notifications_search_bar_hint">Cuardaigh nó scag fógraí</string>
+  <string name="notifications_swipe_action_read">Léite</string>
+  <string name="notifications_swipe_action_unread">Neamhléite</string>
   <string name="view_because_you_read_card_title">De bharr gur léigh tú</string>
   <string name="view_random_card_title">Randamóir</string>
   <string name="view_random_article_card_title">Alt randamach</string>
@@ -510,6 +574,7 @@
   <string name="view_main_page_card_action">Féach ar príomhleathanach</string>
   <string name="view_featured_image_card_title">Pictiúr an lae</string>
   <string name="view_featured_image_card_download">Íoslódáil</string>
+  <string name="view_featured_image_card_share">Roinn</string>
   <string name="menu_feed_card_dismiss">Folaigh an cárta seo</string>
   <string name="menu_feed_card_dismissed">Folaíodh cárta.</string>
   <string name="menu_feed_card_edit_card_languages">Cuir teangacha an chárta in eagar</string>
@@ -547,33 +612,48 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Cealaigh</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Cuir d\'fhotha Taiscéal in oiriúint&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anois is féidir roghnú cad a thaispeántar ar d\'fhotha, agus is féidir tús áite a thabhairt don cineál ábhair is fearr leat, leis.</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cealaigh</string>
+  <string name="tabs_activity_title">Táib</string>
   <string name="description_edit_text_hint" fuzzy="true">Sainchuntas teidil</string>
   <string name="description_edit_article_description_label">Alt</string>
+  <string name="description_edit_add_caption_hint">Foscríbhinn íomhá</string>
+  <string name="description_edit_translate_caption_label_per_language">Foscríbhinn íomhá (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Foscríbhinn íomhá (%s)</string>
   <string name="description_edit_save">Foilsigh</string>
   <string name="description_edit_read">Léigh</string>
   <string name="description_edit_add_description" fuzzy="true">Cuir sainchuntas teidil leis</string>
   <string name="description_edit_edit_description" fuzzy="true">Cuir sainchuntas in eagar</string>
+  <string name="description_edit_add_image_caption">Cuir foscríbhinn íomhá leis</string>
+  <string name="description_edit_edit_image_caption">Cuir foscríbhinn íomhá in eagar</string>
+  <string name="description_edit_translate_image_caption">Aistrigh foscríbhinn íomhá</string>
   <string name="description_edit_cancel_hint">Cealaigh</string>
   <string name="description_edit_help_title" fuzzy="true">Cabhair: sainchuntais theideal</string>
   <string name="description_edit_help_about_wikidata">Maidir le Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Treoirleabhar ó Wikidata ar conas sainchuntais a scríobh</string>
   <string name="description_edit_anon_limit" fuzzy="true">Go raibh maith agat as do spéis leanúnach i sainchuntais a chur in eagar! Logáil isteach chuig do chuntas Vicipéide le tuilleadh athruithe a dhéanamh.</string>
   <string name="description_edit_license_notice" fuzzy="true">Ach an sainchuntas teidil a athrú, glacaim leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le mo chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_voice_input_description">Ionchur gutha</string>
   <string name="description_edit_success_saved" fuzzy="true">Foilsíodh an sainchuntas!</string>
   <string name="description_edit_success_encouragement">Tá tú díreach tar éis Vicipéid a fheabhsú do gach duine</string>
   <string name="description_edit_success_done">Déanta</string>
   <string name="description_edit_success_did_you_know">An raibh a fhios agat?</string>
   <string name="description_edit_success_article_edit_hint">Is féidir ailt a chur in eagar laistigh den aip seo, leis. Bain triail as earráidí cló agus abairtí gearra a dheisiú le cliceáil ar an deilbhín ^1 an chéad uair eile</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Sainchuntais theideal</string>
+  <string name="description_edit_tutorial_title_descriptions">Cur síos ar ailt</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Coimrítear alt chun cabhrú le léitheoirí an t-ábhar a thuiscint ar an bpointe</string>
   <string name="description_edit_tutorial_keep_it_short">Coinnigh gairid é</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag</string>
   <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
+  <string name="suggested_edits_describe_articles">Dean cur síos ar ailt</string>
   <string name="suggested_edits_caption_images">Fotheidealaigh íomhánna</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Athbhreithnigh sainchuntas teidil</string>
+  <string name="suggested_edits_review_description">Athbhreithnigh cur síos an ailt</string>
   <string name="suggested_edits_add_description_button">Cuir sainchuntas leis</string>
+  <string name="suggested_edits_edit_description_button">Cuir cur síos in eagar</string>
+  <string name="suggested_edits_add_translation_button">Cuir aistriúchán leis</string>
+  <string name="suggested_edits_edit_translation_button">Cuir aistriúchán in eagar</string>
   <string name="suggested_edits_add_caption_button">Cuir fotheideal leis</string>
+  <string name="suggested_edits_edit_caption_button">Cuir fhoscríbhinn in eagar</string>
+  <string name="suggested_edits_review_image_caption">Athbhreithnigh foscríbhinn íomhá</string>
+  <string name="suggested_edits_menu_info">Eolas</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Cuir sainchuntais theideal leis</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Fotheidil íomhánna</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Cuir fotheidil le híomhánna</string>
@@ -582,12 +662,14 @@
   <string name="suggested_edits_task_multilingual_positive">Cuir teangacha leis</string>
   <string name="suggested_edits_image_caption_summary_title_image">Íomhá</string>
   <string name="suggested_edits_image_caption_summary_title_author">Údar</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Foinse</string>
   <string name="suggested_edits_image_caption_summary_title_license">Ceadúnas</string>
   <string name="suggested_edits_image_caption_summary_title_date">Dáta</string>
   <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">dréacht san aip</item>
     <item quantity="other">%d dréachtaí san aip</item>
   </plurals>
+  <string name="suggested_edits_tasks_onboarding_get_started">Tosaigh</string>
   <string name="suggested_edits_image_preview_dialog_tags">Clibeanna</string>
   <string name="suggested_edits_image_preview_dialog_date">Dáta</string>
   <string name="suggested_edits_image_preview_dialog_source">Foinse/Grianghrafadóir</string>
@@ -595,6 +677,8 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Tuilleadh Eolais</string>
   <string name="suggested_edits_task_action_text_add">Cuir leis</string>
   <string name="suggested_edits_task_action_text_translate">Aistrigh</string>
+  <string name="suggested_edits_views_label_text">Amhairc</string>
+  <string name="suggested_edits_quality_label_text">Cáilíocht an ionchuir</string>
   <string name="suggested_edits_quality_perfect_text">Foirfe</string>
   <string name="suggested_edits_quality_excellent_text">Thar barr</string>
   <string name="suggested_edits_quality_very_good_text">Go han-mhaith</string>
@@ -603,6 +687,7 @@
   <string name="suggested_edits_quality_sufficient_text">Sásúil</string>
   <string name="suggested_edits_quality_poor_text">Go holc</string>
   <string name="suggested_edits_quality_bad_text">Go dona</string>
+  <string name="suggested_edits_last_edited">Ionchur is deireanaí</string>
   <string name="suggested_edits_task_new">nua</string>
   <string name="suggested_edits_contributions_screen_title">Dréachtaí le %s</string>
   <string name="suggested_edits_contribution_language_label">Teanga</string>
@@ -610,6 +695,7 @@
   <string name="suggested_edits_contribution_type_label">Cineál dréachta</string>
   <string name="suggested_edits_contribution_image_label">Íomhá</string>
   <string name="suggested_edits_contribution_article_label">Alt</string>
+  <string name="suggested_edits_contribution_views">%s amharc</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Inné</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Logáil isteach / cláraigh le Vicipéid</string>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
@@ -670,9 +756,34 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Cuir teangacha in eagar</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ní dhéanfaidh mé é</string>
   <string name="remove_language_dialog_cancel_button_text">Cealaigh</string>
+  <string name="remove_language_dialog_ok_button_text">Bain</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">Scrios</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cealaigh</string>
+  <string name="wikitext_bold">Trom</string>
+  <string name="wikitext_italic">Iodálach</string>
+  <string name="wikitext_link">Nasc</string>
+  <string name="wikitext_bulleted_list">Liosta le hurchair</string>
+  <string name="wikitext_numbered_list">Liosta le huimhreacha</string>
+  <string name="wikitext_template">Teimpléad</string>
+  <string name="wikitext_reference">Tagairt</string>
+  <string name="wikitext_preview_link">Tabhair réamhamharc ar nasc</string>
   <string name="main_drawer_help">Cabhair</string>
   <string name="main_drawer_login">Logáil isteach / cláraigh le Vicipéid</string>
+  <string name="main_tooltip_text">Haigh %s, an bhfios duit go bhfuil gach duine in ann Vicipéid a chur in eaga?</string>
+  <string name="main_tooltip_text_v2">An bhfios duit go bhfuil gach duine in ann Vicipéid a chur in eagar?</string>
+  <string name="main_tooltip_action_button">Tosaigh</string>
+  <string name="main_tooltip_watchlist_title">Liosta Faire</string>
   <string name="text_input_dialog_cancel_button_text">Cealaigh</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Cealaigh</string>
+  <string name="talk_title">Plé</string>
+  <string name="talk_user_title">Plé: %s</string>
+  <string name="talk_new_topic">Ábhar nua</string>
+  <string name="talk_new_topic_submitted">Postáladh ábhar.</string>
+  <string name="talk_page_empty">Tá an leathanach plé seo folamh.</string>
+  <string name="talk_add_reply">Freagair</string>
+  <string name="thank_dialog_positive_button_text">Seol buíochas</string>
+  <string name="thank_dialog_negative_button_text">Cealaigh</string>
+  <string name="menu_option_view_user_talk">Féach ar leathanach plé</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Athraigh</string>
+  <string name="watchlist_filter_all">Uile</string>
 </resources>
