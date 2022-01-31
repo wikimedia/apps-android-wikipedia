@@ -567,6 +567,11 @@ object Prefs {
             ?: listOf(5, 6, 7, 8, 9, 10)
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_menu_order, JsonUtil.encodeToString(orderList))
 
+    fun resetToolbarAndMenuOrder() {
+        PrefsIoUtil.remove(R.string.preference_key_customize_toolbar_order)
+        PrefsIoUtil.remove(R.string.preference_key_customize_toolbar_menu_order)
+    }
+
     var showOneTimeCustomizeToolbarTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_customize_toolbar_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_customize_toolbar_tooltip, value)
