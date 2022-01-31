@@ -145,18 +145,31 @@
 
             </LinearLayout>
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/theme_chooser_reading_focus_mode_switch"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/reading_focus_mode"
-                android:textColor="?attr/primary_text_color" />
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="12dp"
+                    app:srcCompat="@drawable/ic_icon_reading_focus_mode" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/theme_chooser_reading_focus_mode_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/reading_focus_mode"
+                    android:textColor="?attr/primary_text_color" />
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/theme_chooser_reading_focus_mode_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-8dp"
+                android:layout_marginStart="36dp"
                 android:text="@string/reading_focus_mode_detail"
                 android:textSize="11sp"
                 android:textColor="?attr/primary_text_color"/>
@@ -230,6 +243,25 @@
                 android:text="@string/theme_chooser_dialog_image_dimming_switch_label"
                 android:textColor="?attr/section_title_color" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/theme_category_toolbar"
+                android:textColor="?attr/primary_text_color"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/customizeFavorites"
+                style="@style/ThemeChooserButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/theme_customize_toolbar"
+                android:textStyle="normal"
+                app:icon="@drawable/ic_chevron_forward_gray"
+                app:iconGravity="end"
+                app:iconTint="?attr/colorAccent" />
         </LinearLayout>
 
     </ScrollView>
