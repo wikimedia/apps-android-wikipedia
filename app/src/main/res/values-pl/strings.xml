@@ -10,6 +10,7 @@
 * Debeet
 * Devwebtel
 * Expert3222
+* IOIOI
 * InternerowyGołąb
 * Kareyac
 * Lantuszka
@@ -60,6 +61,7 @@
   <string name="offline_load_error_retry">Ponów próbę</string>
   <string name="page_error_back_to_main">Wróć</string>
   <string name="error_back">Wróć</string>
+  <string name="error_next">Dalej</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
   <string name="history_item_deleted">Usunięto %s z historii</string>
   <string name="history_items_deleted">%d artykułów usunięto z historii</string>
@@ -68,6 +70,10 @@
   <string name="app_settings">Ustawienia aplikacji</string>
   <string name="search_tab_tooltip">Stuknij ikonę ponownie, aby bezpośrednio rozpocząć wyszukiwanie frazy.</string>
   <string name="history_list_title">Historia</string>
+  <string name="image_content_description">Grafika %s</string>
+  <string name="page_content_description">Strona: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidane</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
   <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
@@ -79,6 +85,8 @@
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
   <string name="menu_page_find_in_page">Znajdź w artykule</string>
   <string name="menu_page_add_to_watchlist">Dodaj do listy obserwowanych</string>
+  <string name="menu_page_view_talk">Zobacz stronę dyskusji</string>
+  <string name="menu_page_view_edit_history">Zobacz historię edycji</string>
   <string name="menu_page_remove_from_watchlist">Usuń z listy obserwowanych</string>
   <string name="edit_section_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
@@ -87,6 +95,7 @@
   <string name="feed_card_add_to_list">Dodaj do listy czytanych</string>
   <string name="feed_card_add_to_default_list">Zapisz</string>
   <string name="menu_page_share">Udostępnij łącze</string>
+  <string name="menu_article_share">Udostępnij artykuł</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
   <string name="menu_page_new_tab">Nowa karta</string>
   <string name="menu_page_reading_lists">Listy do przeczytania</string>
