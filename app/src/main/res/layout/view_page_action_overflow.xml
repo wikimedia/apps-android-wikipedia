@@ -53,7 +53,6 @@
             style="@style/OverflowMenuItem"
             android:drawablePadding="16dp"
             android:text="@string/menu_page_view_edit_history"
-            app:drawableEndCompat="@drawable/ic_open_in_new_black_24px"
             app:drawableStartCompat="@drawable/ic_icon_revision_history_apps"
             app:drawableTint="?attr/material_theme_secondary_color" />
 
