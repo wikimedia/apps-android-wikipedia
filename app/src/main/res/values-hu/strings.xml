@@ -210,6 +210,7 @@
   <string name="page_protected_can_not_edit_anon">Sajnáljuk, ez a lap jelenleg nem szerkeszthető névtelenül.</string>
   <string name="page_protected_can_not_edit_title">Ez a lap védett</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Hozzáadás a figyelőlistához</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Kövesse nyomon, mi történik az Önt érdeklő cikkekkel. Érintse meg a menüt, és válassza a &lt;b&gt;Hozzáadás a figyelőlistához&lt;/b&gt; lehetőséget, hogy később is láthassa a cikkhez kapcsolódó változásokat.</string>
   <string name="settings_item_preferences">Beállítások</string>
   <string name="settings_activity_title">Beállítások</string>
   <string name="about_description">A Wikipédia alkalmazás névjegye</string>
@@ -589,6 +590,15 @@
   <string name="notifications_direct_reply_action">Válasz</string>
   <string name="notifications_direct_reply_success">Válasz elküldve</string>
   <string name="notifications_mark_all_as_read_message">%d megjelölve olvasottnak</string>
+  <string name="notifications_mark_all_as_unread_message">%d nem olvasottnak jelölve</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 olvasottnak jelölve</item>
+    <item quantity="other">%d olvasottnak jelölve</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 nem olvasottnak jelölve</item>
+    <item quantity="other">%d nem olvasottnak jelölve</item>
+  </plurals>
   <string name="watchlist_title">Figyelőlista</string>
   <string name="preference_title_notification_poll">Értesítések megjelenítése</string>
   <string name="preference_summary_notification_poll">Adatforgalom engedélyezése az alkalmazás számára, új értesítések háttérben történő kereséséhez.</string>
@@ -610,13 +620,17 @@
   <string name="preference_title_notification_email_user">email érkezett</string>
   <string name="preference_summary_notification_email_user">Email érkezett wikin keresztül</string>
   <string name="preference_title_notification_user_rights">Szerkesztői jog módosulása</string>
+  <string name="preference_summary_notification_user_rights">Értesítés a saját felhasználói jogok változásakor</string>
   <string name="preference_title_notification_article_linked">Általad készített szócikkre hivatkoztak</string>
+  <string name="preference_summary_notification_article_linked">Amikor egy új link mutat az Ön által létrehozott oldalra</string>
   <string name="preference_category_push_notifications">Push üzenetek</string>
   <string name="preference_title_customize_push_notifications">Push üzenetek beállításai</string>
   <string name="preference_category_display_settings">Megjelenítési beállítások</string>
   <string name="preference_title_hide_read_notifications">Megnézett üzenetek elrejtése</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipédia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Értesítések a Wikipédiától</string>
   <string name="notifications_channel_group_other_title">Egyéb</string>
+  <string name="notifications_channel_group_other_description">Az app értesítései</string>
   <string name="notifications_filter_label">Értesítések szűrése</string>
   <string name="notifications_filter_icon_content_description">Értesítések szűrése</string>
   <string name="notifications_filter_update_app_languages">Nyelvek listájának frissítése</string>
@@ -790,6 +804,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Kezdés</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Képaláírás (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Kép</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Fájl a Wikimedia Commons oldalról</string>
   <string name="suggested_edits_image_preview_dialog_artist">Művész</string>
   <string name="suggested_edits_image_preview_dialog_tags">Címkék</string>
   <string name="suggested_edits_image_preview_dialog_date">Dátum</string>

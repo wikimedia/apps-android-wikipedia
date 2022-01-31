@@ -1067,11 +1067,13 @@
   <string name="talk_snackbar_survey_action_text">入門</string>
   <string name="talk_share_discussion_subject">維基百科 - 討論頁話題「%s」的討論</string>
   <string name="talk_share_talk_page">維基百科 - 討論頁上的討論</string>
+  <string name="talk_edit_disclaimer">這是一個討論頁。請遵守討論頁的指引，並記得在使用 wikitext 發布內容時藉由輸入四個波浪號：~~~~ ，來在您發布的內容裡產生您的簽名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:討論頁指引\"&gt;維基百科:討論頁指引&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">分享討論</string>
   <string name="menu_option_share_talk_page">分享討論頁</string>
   <string name="menu_option_share_edit">分享編輯</string>
   <string name="menu_option_user_profile">%s基本資料</string>
   <string name="menu_option_user_contributions">%s的貢獻</string>
+  <string name="menu_option_edit_source">編輯原始碼</string>
   <string name="watchlist_details_watching_label">已監視</string>
   <string name="watchlist_details_watch_label">監視</string>
   <string name="watchlist_details_next_edit">下一個編輯</string>
@@ -1083,6 +1085,8 @@
   <string name="thank_dialog_positive_button_text">發送感謝</string>
   <string name="thank_dialog_negative_button_text">取消</string>
   <string name="thank_success_message">您的感謝已發送給%s 👍</string>
+  <string name="menu_option_view_user_profile">檢視使用者個人檔案頁面</string>
+  <string name="menu_option_view_user_talk">檢視討論頁</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s與該討論頁已新增到您的監視清單%2$s。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>
