@@ -1065,7 +1065,7 @@
   <string name="talk_snackbar_survey_action_text">Primers passos</string>
   <string name="talk_share_discussion_subject">Viquipèdia - debat en el tema «%s» de la pàgina de discussió</string>
   <string name="talk_share_talk_page">Viquipèdia - debats a la pàgina de discussió</string>
-  <string name="talk_edit_disclaimer">Aquesta és una pàgina de discussió. Respecteu les recomanacions de les pàgines de discussió i recordeu signar els vostres apunts amb quatre titlles: ~~~~ en enviar utilitzant wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://ca.wikipedia.org/wiki/Viquip%C3%A8dia:P%C3%A0gines_de_discussi%C3%B3\"&gt;Recomanacions de les pàgines de discussió&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Aquesta és una pàgina de discussió. Respecteu les recomanacions de les pàgines de discussió i recordeu signar els vostres apunts amb quatre titlles: ~~~~ en enviar utilitzant wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Pàgines de discussió\"&gt;Recomanacions de les pàgines de discussió&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
   <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>
