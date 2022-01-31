@@ -215,7 +215,7 @@
   <string name="create_account_button">创建账户</string>
   <string name="create_account_name_unavailable">用户名“%s”不可用。请选择不同的用户名。</string>
   <string name="create_account_ip_block_message">对不起，您的IP地址当前被封禁，不能创建新账户。</string>
-  <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:%E6%88%91%E8%A2%AB%E5%B0%81%E7%A6%81%E4%BA%86</string>
+  <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">详情</string>
   <string name="preferences_general_heading">通用</string>
   <string name="preferences_account_heading">账户</string>
@@ -253,16 +253,16 @@
   <string name="about_description">关于维基百科应用</string>
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
-  <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:%E5%85%B3%E4%BA%8E</string>
+  <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:关于</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
-  <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:%E8%B4%A6%E5%8F%B7%E8%AF%B7%E6%B1%82</string>
+  <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#图片标签</string>
   <string name="about_libraries_heading">使用的库</string>
   <string name="about_contributors_heading">贡献者</string>
   <string name="about_contributors">&lt;a href=“https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android”&gt;团队页面&lt;/a&gt;</string>
@@ -1089,7 +1089,7 @@
   <string name="talk_snackbar_survey_action_text">开始吧</string>
   <string name="talk_share_discussion_subject">维基百科 - 讨论页上“%s”主题的讨论</string>
   <string name="talk_share_talk_page">维基百科 - 讨论页上的讨论</string>
-  <string name="talk_edit_disclaimer">这是一个讨论页。请遵守讨论页指引，并记得在使用 wikitext 发布内容时通过输入四个波浪线：~~~~，来在您发布的内容里产生您的签名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:%E8%A8%8E%E8%AB%96%E9%A0%81%E6%8C%87%E5%BC%95\"&gt;维基百科:讨论页指引&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">这是一个讨论页。请遵守讨论页指引，并记得在使用 wikitext 发布内容时通过输入四个波浪线：~~~~，来在您发布的内容里产生您的签名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:討論頁指引\"&gt;维基百科:讨论页指引&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">分享讨论</string>
   <string name="menu_option_share_talk_page">分享讨论页</string>
   <string name="menu_option_share_edit">分享编辑</string>

@@ -558,7 +558,7 @@
     <item quantity="two">%d scagaire</item>
     <item quantity="few">%d scagaire</item>
     <item quantity="many">%d scagaire</item>
-    <item quantity="other">scagairí</item>
+    <item quantity="other">%d scagairí</item>
   </plurals>
   <string name="notifications_select_all_filters">Roghnaigh gach scagaire</string>
   <string name="notifications_tab_filter_all">Uile</string>

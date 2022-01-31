@@ -1067,7 +1067,7 @@
   <string name="talk_snackbar_survey_action_text">入門</string>
   <string name="talk_share_discussion_subject">維基百科 - 討論頁話題「%s」的討論</string>
   <string name="talk_share_talk_page">維基百科 - 討論頁上的討論</string>
-  <string name="talk_edit_disclaimer">這是一個討論頁。請遵守討論頁的指引，並記得在使用 wikitext 發布內容時藉由輸入四個波浪號：~~~~ ，來在您發布的內容裡產生您的簽名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:%E8%A8%8E%E8%AB%96%E9%A0%81%E6%8C%87%E5%BC%95\"&gt;維基百科:討論頁指引&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">這是一個討論頁。請遵守討論頁的指引，並記得在使用 wikitext 發布內容時藉由輸入四個波浪號：~~~~ ，來在您發布的內容裡產生您的簽名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:討論頁指引\"&gt;維基百科:討論頁指引&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">分享討論</string>
   <string name="menu_option_share_talk_page">分享討論頁</string>
   <string name="menu_option_share_edit">分享編輯</string>
