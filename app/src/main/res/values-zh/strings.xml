@@ -90,6 +90,7 @@
   <string name="search_tab_tooltip">再次点按图标可直接开始输入搜索词。</string>
   <string name="history_list_title">历史</string>
   <string name="image_content_description">图像：%s</string>
+  <string name="page_content_description">页面：%s</string>
   <string name="wikimedia_commons">维基共享资源</string>
   <string name="wikidata">维基数据</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
@@ -345,6 +346,7 @@
   <string name="gallery_save_success">文件保存成功。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>
   <string name="gallery_save_image_write_permission_rationale">保存图像需要有写入设备存储的权限。</string>
+  <string name="gallery_edit_button_content_description">编辑图像说明</string>
   <string name="gallery_add_image_caption_button">添加图像说明</string>
   <string name="gallery_add_image_caption_in_language_button">添加图像说明（%s）</string>
   <string name="err_cannot_save_file">无法保存文件</string>
@@ -451,6 +453,9 @@
   <string name="text_size_decrease">缩小文字大小</string>
   <string name="text_size_percent_default">%s（默认）</string>
   <string name="text_style_title">字体</string>
+  <string name="theme_category_reading">阅读</string>
+  <string name="reading_focus_mode">专注阅读模式</string>
+  <string name="reading_focus_mode_detail">滚动时隐藏编辑功能和底部工具栏</string>
   <string name="nav_item_saved">已保存</string>
   <string name="reading_list_save_to">保存至阅读列表</string>
   <string name="reading_list_move_to">移动至阅读列表</string>
@@ -578,6 +583,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">取消</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">取消</string>
   <string name="reading_list_split_dialog_ok_button_text">确定</string>
+  <string name="reading_list_activity_title">阅读列表：%s</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_reverted_title">已回退的编辑</string>
   <string name="notification_channel_title">正在下载条目</string>
@@ -757,6 +763,7 @@
   <string name="feed_accessibility_card_text">您已到达信息流的底部。</string>
   <string name="feed_accessibility_card_load_more_button">加载更多</string>
   <string name="top_read_activity_title">%s的热门阅读</string>
+  <string name="tabs_activity_title">分页</string>
   <string name="description_edit_text_hint">条目描述</string>
   <string name="description_edit_article_description_label">条目</string>
   <string name="description_edit_translate_article_description_label_per_language">条目描述（%s）</string>
@@ -971,6 +978,7 @@
   <string name="file_page_add_image_caption_button">添加图像说明</string>
   <string name="file_page_add_image_tags_button">添加图像标签</string>
   <string name="file_page_suggestion_reason">建议理由</string>
+  <string name="file_page_edit_button_content_description">编辑%s</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您已尽力而为，但某位审阅者对此表示关注。您的修改被回退的可能原因包括：</string>
   <string name="description_edit_revert_reason1">您的贡献没有遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
@@ -1081,11 +1089,13 @@
   <string name="talk_snackbar_survey_action_text">开始吧</string>
   <string name="talk_share_discussion_subject">维基百科 - 讨论页上“%s”主题的讨论</string>
   <string name="talk_share_talk_page">维基百科 - 讨论页上的讨论</string>
+  <string name="talk_edit_disclaimer">这是一个讨论页。请遵守讨论页指引，并记得在使用 wikitext 发布内容时通过输入四个波浪线：~~~~，来在您发布的内容里产生您的签名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:%E8%A8%8E%E8%AB%96%E9%A0%81%E6%8C%87%E5%BC%95\"&gt;维基百科:讨论页指引&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">分享讨论</string>
   <string name="menu_option_share_talk_page">分享讨论页</string>
   <string name="menu_option_share_edit">分享编辑</string>
   <string name="menu_option_user_profile">%s的个人资料</string>
   <string name="menu_option_user_contributions">%s的贡献</string>
+  <string name="menu_option_edit_source">编辑源代码</string>
   <string name="watchlist_details_watching_label">已监视</string>
   <string name="watchlist_details_watch_label">监视</string>
   <string name="watchlist_details_next_edit">下一编辑</string>
@@ -1097,6 +1107,7 @@
   <string name="thank_dialog_positive_button_text">发送感谢</string>
   <string name="thank_dialog_negative_button_text">取消</string>
   <string name="thank_success_message">您的“感谢”已发给%s 👍</string>
+  <string name="menu_option_view_user_profile">查看用户个人资料页面</string>
   <string name="menu_option_view_user_talk">查看讨论页</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s及其讨论页已添加到您的监视列表，持续时间%2$s。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
