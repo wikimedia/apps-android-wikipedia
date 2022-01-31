@@ -209,6 +209,7 @@
   <string name="page_protected_can_not_edit_title">Denne siden er beskyttet</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Legg til i overvåkningsliste</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Følg med på hva som skjer med artikler du er interessert i. Trykk på overløpsmenyen og velg &lt;b&gt;Legg til i overvåkningsliste&lt;/b&gt; for å se hvordan artikkelen endrer seg.</string>
+  <string name="page_notification_tooltip">Varslene dine vises nå her.</string>
   <string name="settings_item_preferences">Innstillinger</string>
   <string name="settings_activity_title">Innstillinger</string>
   <string name="about_description">Om Wikipedia-appen</string>
