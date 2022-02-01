@@ -62,7 +62,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             val enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
             when (pageActionItem) {
                 PageActionItem.ADD_TO_WATCHLIST -> {
-                    view.setText(if (model.isWatched) R.string.menu_page_remove_from_watchlist_v2 else R.string.menu_page_add_to_watchlist_v2)
+                    view.setText(if (model.isWatched) R.string.menu_page_watched else R.string.menu_page_watch)
                     view.setCompoundDrawablesWithIntrinsicBounds(PageActionItem.watchlistIcon(model.isWatched, model.hasWatchlistExpiry), 0, 0, 0)
                     view.visibility = if (enabled && AccountUtil.isLoggedIn) VISIBLE else GONE
                 }
