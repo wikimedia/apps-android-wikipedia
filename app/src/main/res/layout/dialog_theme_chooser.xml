@@ -149,10 +149,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginTop="12dp"
+                    android:contentDescription="@null"
                     app:srcCompat="@drawable/ic_icon_reading_focus_mode" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -251,7 +252,7 @@
                 android:textColor="?attr/primary_text_color"
                 android:textStyle="bold" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/customizeFavorites"
                 style="@style/ThemeChooserButton"
                 android:layout_width="match_parent"

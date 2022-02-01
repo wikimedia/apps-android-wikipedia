@@ -6,7 +6,7 @@
     tools:layout_width="match_parent"
     tools:parentTag="android.widget.LinearLayout">
 
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:id="@+id/listItem"
         style="@style/OverflowMenuItem"
         android:drawablePadding="16dp"
@@ -15,7 +15,7 @@
         app:drawableStartCompat="@drawable/ic_icon_revision_history_apps"
         app:drawableTint="?attr/material_theme_secondary_color" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/dragHandle"
         android:layout_width="56dp"
         android:layout_height="match_parent"

@@ -22,8 +22,7 @@ class CustomizeToolbarViewModel : ViewModel() {
 
     private fun setupDefaultOrder(default: Boolean) {
         if (default) {
-            Prefs.customizeToolbarOrder = listOf(0, 1, 2, 3, 4)
-            Prefs.customizeToolbarMenuOrder = listOf(5, 6, 7, 8, 9, 10)
+            Prefs.resetToolbarAndMenuOrder()
         }
         toolbarOrder = Prefs.customizeToolbarOrder.toMutableList()
         menuOrder = Prefs.customizeToolbarMenuOrder.toMutableList()
