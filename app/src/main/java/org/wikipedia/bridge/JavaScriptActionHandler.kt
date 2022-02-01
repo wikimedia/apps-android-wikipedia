@@ -20,37 +20,30 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
-    @JvmStatic
     fun setTopMargin(top: Int): String {
         return String.format(Locale.ROOT, "pcs.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
     }
 
-    @JvmStatic
     fun getTextSelection(): String {
         return "pcs.c1.InteractionHandling.getSelectionInfo()"
     }
 
-    @JvmStatic
     fun getOffsets(): String {
         return "pcs.c1.Sections.getOffsets(document.body);"
     }
 
-    @JvmStatic
     fun getSections(): String {
         return "pcs.c1.Page.getTableOfContents()"
     }
 
-    @JvmStatic
     fun getProtection(): String {
         return "pcs.c1.Page.getProtection()"
     }
 
-    @JvmStatic
     fun getRevision(): String {
         return "pcs.c1.Page.getRevision();"
     }
 
-    @JvmStatic
     fun expandCollapsedTables(expand: Boolean): String {
         return "pcs.c1.Page.expandOrCollapseTables($expand);" +
                 "var hideableSections = document.getElementsByClassName('pcs-section-hideable-header'); " +
@@ -59,12 +52,10 @@ object JavaScriptActionHandler {
                 "}"
     }
 
-    @JvmStatic
     fun scrollToFooter(context: Context): String {
         return "window.scrollTo(0, document.getElementById('pcs-footer-container-menu').offsetTop - ${DimenUtil.getNavigationBarHeight(context)});"
     }
 
-    @JvmStatic
     fun scrollToAnchor(anchorLink: String): String {
         val anchor = if (anchorLink.contains("#")) anchorLink.substring(anchorLink.indexOf("#") + 1) else anchorLink
         return "var el = document.getElementById('$anchor');" +
@@ -74,12 +65,10 @@ object JavaScriptActionHandler {
                 "}, 250);"
     }
 
-    @JvmStatic
     fun prepareToScrollTo(anchorLink: String, highlight: Boolean): String {
         return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink.replace("\"", "\\\"")}\", { highlight: $highlight } )"
     }
 
-    @JvmStatic
     fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         val topActionBarHeight = if (isPreview) 0 else DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
@@ -116,12 +105,10 @@ object JavaScriptActionHandler {
                 "}", topMargin, 16, 48, 16, leadImageHeight)
     }
 
-    @JvmStatic
     fun setUpEditButtons(isEditable: Boolean, isProtected: Boolean): String {
         return "pcs.c1.Page.setEditButtons($isEditable, $isProtected)"
     }
 
-    @JvmStatic
     fun setFooter(model: PageViewModel): String {
         if (model.page == null) {
             return ""
@@ -154,7 +141,6 @@ object JavaScriptActionHandler {
                 "})"
     }
 
-    @JvmStatic
     fun mobileWebChromeShim(): String {
         return "(function() {" +
                 "let style = document.createElement('style');" +
@@ -163,7 +149,6 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
-    @JvmStatic
     fun getElementAtPosition(x: Int, y: Int): String {
         return "(function() {" +
                 "  let element = document.elementFromPoint($x, $y);" +
@@ -174,6 +159,13 @@ object JavaScriptActionHandler {
                 "  result.height = element.clientHeight;" +
                 "  result.src = element.src;" +
                 "  return result;" +
+                "})();"
+    }
+
+    fun pauseAllMedia(): String {
+        return "(function() {" +
+                "var elements = document.getElementsByTagName('audio');" +
+                "for(i=0; i<elements.length; i++) elements[i].pause();" +
                 "})();"
     }
 
