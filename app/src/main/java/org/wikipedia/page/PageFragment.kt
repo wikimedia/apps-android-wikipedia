@@ -257,6 +257,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onPause() {
         super.onPause()
+        bridge.execute(JavaScriptActionHandler.pauseAllMedia())
+        if (avPlayer?.isPlaying == true) {
+            avPlayer?.stop()
+        }
         activeTimer.pause()
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()

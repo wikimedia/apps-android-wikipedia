@@ -16,7 +16,7 @@ class ViewHideHandler(private val hideableView: View,
                       private val updateElevation: Boolean = true) :
         ObservableWebView.OnScrollChangeListener, OnUpOrCancelMotionEventListener, OnDownMotionEventListener, ObservableWebView.OnClickListener {
 
-    private var webView: ObservableWebView? = null
+    private lateinit var webView: ObservableWebView
     var enabled = true
         set(value) {
             field = value
@@ -25,18 +25,16 @@ class ViewHideHandler(private val hideableView: View,
             }
         }
 
-    fun setScrollView(webView: ObservableWebView?) {
+    fun setScrollView(webView: ObservableWebView) {
         this.webView = webView
-        webView?.let {
-            it.addOnScrollChangeListener(this)
-            it.addOnDownMotionEventListener(this)
-            it.addOnUpOrCancelMotionEventListener(this)
-            it.addOnClickListener(this)
-        }
+        webView.addOnScrollChangeListener(this)
+        webView.addOnDownMotionEventListener(this)
+        webView.addOnUpOrCancelMotionEventListener(this)
+        webView.addOnClickListener(this)
     }
 
     override fun onScrollChanged(oldScrollY: Int, scrollY: Int, isHumanScroll: Boolean) {
-        if (webView == null || !enabled) {
+        if (!enabled) {
             return
         }
         var animMargin = 0
@@ -82,10 +80,10 @@ class ViewHideHandler(private val hideableView: View,
                 ensureDisplayed()
             }
         } else if (gravity == Gravity.TOP && transY != 0 && transY > -height) {
-            if (transY > -height / 2) {
-                ensureDisplayed()
-            } else {
+            if (transY <= -height / 2 && webView.scrollY > hideableView.height) {
                 ensureHidden()
+            } else {
+                ensureDisplayed()
             }
         }
     }
@@ -98,7 +96,8 @@ class ViewHideHandler(private val hideableView: View,
         if (enabled) {
             if (hideableView.translationY != 0f) {
                 ensureDisplayed()
-            } else {
+            } else if (gravity == Gravity.BOTTOM ||
+                    (gravity == Gravity.TOP && webView.scrollY > hideableView.height)) {
                 ensureHidden()
             }
         }
