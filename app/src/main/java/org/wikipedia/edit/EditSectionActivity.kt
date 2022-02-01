@@ -543,7 +543,8 @@ class EditSectionActivity : BaseActivity() {
                         // Populate edit notices, but filter out anonymous edit warnings, since
                         // we show that type of warning ourselves when previewing.
                         editNotices.addAll(it.visualeditor?.notices.orEmpty()
-                                .filterKeys { key -> key != "anoneditwarning" }.values)
+                                .filterKeys { key -> key != "anoneditwarning" }
+                                .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
                         invalidateOptionsMenu()
                         if (Prefs.autoShowEditNotices) {
                             showEditNotices()
