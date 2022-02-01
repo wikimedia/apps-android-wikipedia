@@ -155,7 +155,7 @@ class CustomizeToolbarFragment : Fragment() {
 
     private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: RecyclerItemAdapter) : ItemTouchHelper.Callback() {
         override fun isLongPressDragEnabled(): Boolean {
-            return false
+            return true
         }
 
         override fun isItemViewSwipeEnabled(): Boolean {
@@ -163,12 +163,13 @@ class CustomizeToolbarFragment : Fragment() {
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
+
         override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
-            return if (viewHolder is ItemHolder) makeMovementFlags(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) else -1
+            return if (isMovable(viewHolder)) makeMovementFlags(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) else 0
         }
 
         override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-            if (movableItems(target)) {
+            if (isMovable(target)) {
                 adapter.onMoveItem(source.absoluteAdapterPosition, target.absoluteAdapterPosition)
             }
             return true
@@ -183,7 +184,7 @@ class CustomizeToolbarFragment : Fragment() {
             }
         }
 
-        private fun movableItems(target: RecyclerView.ViewHolder): Boolean {
+        private fun isMovable(target: RecyclerView.ViewHolder): Boolean {
             // TODO: Add (target is HeaderViewHolder) with matching title string to make them swappable between categories
             return target is ItemHolder
         }
