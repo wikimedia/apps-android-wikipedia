@@ -979,7 +979,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (pageActionItem == PageActionItem.SAVE) {
                 it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.readingListIcon(model.isInReadingList), 0, 0)
             } else if (pageActionItem == PageActionItem.ADD_TO_WATCHLIST) {
-                it.setText(if (model.isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
+                it.setText(if (model.isWatched) R.string.menu_page_remove_from_watchlist_v2 else R.string.menu_page_add_to_watchlist_v2)
                 it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.watchlistIcon(model.isWatched, model.hasWatchlistExpiry), 0, 0)
                 it.isEnabled = enabled && AccountUtil.isLoggedIn
                 it.alpha = if (it.isEnabled) 1f else 0.5f

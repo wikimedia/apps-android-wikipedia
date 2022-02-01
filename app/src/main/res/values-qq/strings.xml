@@ -83,9 +83,13 @@
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="menu_page_add_to_watchlist">Menu item for adding the current page to the Watchlist.</string>
+  <string name="menu_page_add_to_watchlist_v2">Menu item for adding the current page to the Watchlist.</string>
+  <string name="menu_page_view_talk_v2">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_view_talk">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_view_edit_history">Menu item text for accessing the article edit history.</string>
+  <string name="menu_page_view_edit_history_v2">Menu item text for accessing the article edit history.</string>
   <string name="menu_page_remove_from_watchlist">Menu item for removing the current page from the Watchlist.</string>
+  <string name="menu_page_remove_from_watchlist_v2">Menu item for removing the current page from the Watchlist.</string>
   <string name="edit_section_find_in_page">Menu item for invoking Find in page on a page in edit mode.</string>
   <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
   <string name="menu_page_add_to_list">Menu item for adding the current page to a reading list.</string>
@@ -94,6 +98,7 @@
   <string name="feed_card_add_to_default_list">Menu item for adding the a card from the feed to a default reading list.</string>
   <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.\n{{Identical|Share}}</string>
   <string name="menu_article_share">Menu item text for sharing the current article the user is reading.</string>
+  <string name="menu_article_share_v2">Menu item text for sharing the current article the user is reading.</string>
   <string name="menu_page_open_a_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>

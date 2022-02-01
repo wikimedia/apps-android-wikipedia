@@ -52,9 +52,13 @@
     <string name="menu_page_other_languages">Change language</string>
     <string name="menu_page_find_in_page">Find in article</string>
     <string name="menu_page_add_to_watchlist">Add to Watchlist</string>
+    <string name="menu_page_add_to_watchlist_v2">Watch</string>
     <string name="menu_page_view_talk">View talk page</string>
+    <string name="menu_page_view_talk_v2">Talk page</string>
     <string name="menu_page_view_edit_history">View edit history</string>
+    <string name="menu_page_view_edit_history_v2">Edit history</string>
     <string name="menu_page_remove_from_watchlist">Remove from Watchlist</string>
+    <string name="menu_page_remove_from_watchlist_v2">Watched</string>
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
@@ -63,6 +67,7 @@
     <string name="feed_card_add_to_default_list">Save</string>
     <string name="menu_page_share">Share link</string>
     <string name="menu_article_share">Share article</string>
+    <string name="menu_article_share_v2">Share</string>
     <string name="menu_page_open_a_new_tab">Open a new tab</string>
     <string name="menu_page_new_tab">New tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
