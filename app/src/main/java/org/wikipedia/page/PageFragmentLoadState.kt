@@ -132,7 +132,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     private fun pageLoadFromNetwork(errorCallback: ErrorCallback) {
         model.title?.let { title ->
-            fragment.updateBookmarkAndMenuOptions()
+            fragment.updateQuickActionsAndMenuOptions()
             networkErrorCallback = errorCallback
             if (!fragment.isAdded) {
                 return

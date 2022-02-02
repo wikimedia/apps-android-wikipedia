@@ -1014,6 +1014,8 @@
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>
   <string name="thank_dialog_negative_button_text">ألغ</string>
   <string name="thank_success_message">أُرسل \"شكرك\" إلى %s 👍</string>
+  <string name="menu_option_view_user_profile">اعرض صفحة المستخدم</string>
+  <string name="menu_option_view_user_talk">اعرض صفحة النقاش</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">أُضيفت %1$s وصفحة نقاشها إلى قائمة مراقبتك %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">غيّر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">بشكلٍ دائمٍ</string>
