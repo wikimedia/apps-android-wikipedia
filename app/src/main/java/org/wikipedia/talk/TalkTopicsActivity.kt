@@ -421,6 +421,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         override fun onClick(v: View?) {
             startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id, invokeSource))
+            actionMode?.finish()
         }
     }
 

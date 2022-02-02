@@ -1132,7 +1132,7 @@
     <string name="talk_share_discussion_subject">Wikipedia - discussion on talk page topic \"%s\"</string>
     <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
     <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a>]]></string>
-    <string name="talk_search_hint">Search message</string>
+    <string name="talk_search_hint">Search messages</string>
     <string name="talk_overflow_sort_by">Sort by</string>
     <string name="talk_overflow_sort_date_published">Date published</string>
     <string name="talk_overflow_sort_topic_name">Topic name</string>
