@@ -37,22 +37,22 @@ enum class PageActionItem constructor(val id: Int,
             cb.onContentsSelected()
         }
     },
-    SHARE(5, R.string.menu_article_share, R.drawable.ic_share) {
+    SHARE(5, R.string.menu_page_article_share, R.drawable.ic_share) {
         override fun select(cb: Callback) {
             cb.onShareSelected()
         }
     },
-    ADD_TO_WATCHLIST(6, R.string.menu_page_add_to_watchlist, R.drawable.ic_baseline_star_outline_24, false) {
+    ADD_TO_WATCHLIST(6, R.string.menu_page_watch, R.drawable.ic_baseline_star_outline_24, false) {
         override fun select(cb: Callback) {
             cb.onAddToWatchlistSelected()
         }
     },
-    VIEW_TALK_PAGE(7, R.string.menu_page_view_talk, R.drawable.ic_icon_speech_bubbles_ooui_ltr) {
+    VIEW_TALK_PAGE(7, R.string.menu_page_talk_page, R.drawable.ic_icon_speech_bubbles_ooui_ltr) {
         override fun select(cb: Callback) {
             cb.onViewTalkPageSelected()
         }
     },
-    VIEW_EDIT_HISTORY(8, R.string.menu_page_view_edit_history, R.drawable.ic_icon_revision_history_apps, true) {
+    VIEW_EDIT_HISTORY(8, R.string.menu_page_edit_history, R.drawable.ic_icon_revision_history_apps, true) {
         override fun select(cb: Callback) {
             cb.onViewEditHistorySelected()
         }

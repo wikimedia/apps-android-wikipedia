@@ -10,7 +10,7 @@
         android:id="@+id/listItem"
         style="@style/OverflowMenuItem"
         android:drawablePadding="16dp"
-        android:text="@string/menu_page_view_edit_history"
+        android:text="@string/menu_page_share"
         android:layout_weight="1"
         app:drawableStartCompat="@drawable/ic_icon_revision_history_apps"
         app:drawableTint="?attr/material_theme_secondary_color" />
@@ -22,6 +22,6 @@
         android:contentDescription="@null"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_draggable"
-        app:tint="?attr/material_theme_de_emphasised_color" />
+        app:tint="?attr/chart_shade4" />
 
 </merge>
