@@ -93,7 +93,9 @@
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
   <string name="menu_page_add_to_watchlist">ウォッチリストに追加</string>
+  <string name="menu_page_watch">ウォッチ</string>
   <string name="menu_page_view_talk">ノートを表示</string>
+  <string name="menu_page_talk_page">トークページ</string>
   <string name="menu_page_view_edit_history">編集履歴を表示</string>
   <string name="menu_page_remove_from_watchlist">ウォッチリストから除去</string>
   <string name="edit_section_find_in_page">ページ内検索</string>
@@ -104,6 +106,7 @@
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">リンクを共有</string>
   <string name="menu_article_share">記事を共有</string>
+  <string name="menu_page_article_share">共有</string>
   <string name="menu_page_open_a_new_tab">新しいタブを開く</string>
   <string name="menu_page_new_tab">新しいタブ</string>
   <string name="menu_page_reading_lists">あとで読むリスト</string>
@@ -435,6 +438,7 @@
   <string name="text_size_decrease">テキストサイズを縮小します</string>
   <string name="text_size_percent_default">%s (既定)</string>
   <string name="text_style_title">フォント</string>
+  <string name="theme_category_toolbar">ツールバー</string>
   <string name="nav_item_saved">保存済み</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
   <string name="reading_list_move_to">あとで読むリストに保存</string>
@@ -745,6 +749,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">説明は1行のみで、30文字程度で書いてください</string>
   <string name="description_edit_tutorial_button_label_start_editing">編集を開始</string>
   <string name="description_edit_tutorial_promise">この機能を悪用しないことを約束して、スタートする。</string>
+  <string name="customize_toolbar_category_toolbar">ツールバー</string>
+  <string name="customize_toolbar_category_menu">メニュー</string>
+  <string name="customize_toolbar_reset_to_default_button">初期状態にリセットする</string>
   <string name="suggested_edits_describe_articles">記事の説明</string>
   <string name="suggested_edits_caption_images">画像キャプション</string>
   <string name="suggested_edits_tag_images">画像にタグを付ける</string>
