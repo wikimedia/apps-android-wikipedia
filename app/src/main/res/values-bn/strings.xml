@@ -27,6 +27,7 @@
 * Yahya
 * আজিজ
 * আফতাবুজ্জামান
+* খাত্তাব হাসান
 * ফাহাদ কাজমী
 -->
 <resources>
@@ -76,9 +77,13 @@
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
   <string name="menu_page_add_to_watchlist">নজরতালিকায় যোগ করুন</string>
+  <string name="menu_page_watch">নজর রাখুন</string>
   <string name="menu_page_view_talk">আলাপ পাতা দেখুন</string>
+  <string name="menu_page_talk_page">আলাপ পাতা</string>
   <string name="menu_page_view_edit_history">সম্পাদনার ইতিহাস দেখুন</string>
+  <string name="menu_page_edit_history">সম্পাদনা ইতিহাস</string>
   <string name="menu_page_remove_from_watchlist">নজরতালিকা থেকে সরান</string>
+  <string name="menu_page_watched">নজরে রাখা হয়েছে</string>
   <string name="edit_section_find_in_page">পাতায় খুঁজুন</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
   <string name="menu_page_add_to_list">পড়ার তালিকায় যোগ করুন</string>
@@ -87,6 +92,7 @@
   <string name="feed_card_add_to_default_list">সংরক্ষণ</string>
   <string name="menu_page_share">লিঙ্ক শেয়ার</string>
   <string name="menu_article_share">নিবন্ধ ভাগ করুন</string>
+  <string name="menu_page_article_share">শেয়ার</string>
   <string name="menu_page_open_a_new_tab">নতুন ট্যাব খুলুন</string>
   <string name="menu_page_new_tab">নতুন ট্যাব</string>
   <string name="menu_page_reading_lists">পড়ার তালিকা</string>

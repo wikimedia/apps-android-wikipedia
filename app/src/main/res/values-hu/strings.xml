@@ -70,6 +70,7 @@
   <string name="menu_page_add_to_watchlist">Hozzáadás a figyelőlistához</string>
   <string name="menu_page_view_talk">Vitalap megtekintése</string>
   <string name="menu_page_view_edit_history">Laptörténet megtekintése</string>
+  <string name="menu_page_edit_history">Szerkesztések története</string>
   <string name="menu_page_remove_from_watchlist">Eltávolítás a figyelőlistáról</string>
   <string name="edit_section_find_in_page">Keresés a lapon</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>

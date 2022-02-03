@@ -27,6 +27,7 @@
 * SHaran (WMF)
 * Stojex
 * Strebski
+* Szymonel
 * Tar Lócesilion
 * The Polish
 * Thoji
@@ -227,6 +228,7 @@
   <string name="page_protected_can_not_edit_anon">Niestety, tej strony nie można obecnie edytować anonimowo.</string>
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj do listy obserwowanych</string>
+  <string name="page_notification_tooltip">Twoje powiadomienia znajdują się tutaj.</string>
   <string name="settings_item_preferences">Ustawienia</string>
   <string name="settings_activity_title">Ustawienia</string>
   <string name="about_description">O aplikacji Wikipedia</string>
@@ -384,6 +386,7 @@
   <string name="page_footer_license_text">O ile nie zaznaczono inaczej, treść dostępna jest na licencji $1</string>
   <string name="empty_tab_title">Nowa karta</string>
   <string name="menu_save_all_tabs">Zapisz wszystkie karty</string>
+  <string name="error_blocked_title">Twoja nazwa użytkownika lub adres IP został zablokowany.</string>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
@@ -409,6 +412,8 @@
   <string name="text_size_decrease">Zmniejsz rozmiar tekstu</string>
   <string name="text_size_percent_default">%s (domyślnie)</string>
   <string name="text_style_title">Czcionka</string>
+  <string name="theme_category_toolbar">Pasek narzędzi</string>
+  <string name="theme_customize_toolbar">Personalizuj pasek narzędzi</string>
   <string name="nav_item_saved">Zapisane</string>
   <string name="reading_list_save_to">Zapisz do przeczytania</string>
   <string name="reading_list_move_to">Przejdź do listy lektur</string>
@@ -571,6 +576,9 @@
   <string name="notification_preferences_title">Preferencje powiadomień</string>
   <string name="notifications_mark_unread">Oznacz jako nieprzeczytane</string>
   <string name="notifications_mark_all_as_read">Oznacz wszystko jako przeczytane</string>
+  <string name="notifications_direct_reply_action">Odpowiedz</string>
+  <string name="notifications_direct_reply_progress">Zamieszczanie odpowiedzi do%s…</string>
+  <string name="notifications_direct_reply_success">Zamieszczono odpowiedź.</string>
   <string name="watchlist_title">Obserwowane</string>
   <string name="preference_title_notification_poll">Poll notifications</string>
   <string name="preference_summary_notification_poll">Pozwól aplikacji używać danych do sprawdzania nowych powiadomień w tle.</string>

@@ -790,6 +790,7 @@
     <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
     <string name="description_starts_with_lowercase">Avoid starting with a lowercase letter.</string>
     <string name="description_is_in_different_language">The text appears to be in an unexpected language. The language should be %s.</string>
+    <string name="description_verification_notice">Please verify your description is in %1$s. Feel free to dismiss this notification if the description you\'ve written is in %2$s.</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->

@@ -53,9 +53,13 @@
   <string name="menu_page_other_languages">ٻولي مَٽايو</string>
   <string name="menu_page_find_in_page">مضمون ۾ ڳوليو</string>
   <string name="menu_page_add_to_watchlist">نظر۾فھرست ۾ رکو</string>
+  <string name="menu_page_watch">نظر۾رکو</string>
   <string name="menu_page_view_talk">بحث صفحو ڏسو</string>
+  <string name="menu_page_talk_page">بحث صفحو</string>
   <string name="menu_page_view_edit_history">سنوار جي سوانح ڏسو</string>
+  <string name="menu_page_edit_history">سنوار سوانح</string>
   <string name="menu_page_remove_from_watchlist">نظر۾فھرست مان ڪڍو</string>
+  <string name="menu_page_watched">هن نظر۾رکيل</string>
   <string name="edit_section_find_in_page">صفحي ۾ لھو</string>
   <string name="menu_page_font_and_theme">اکر ۽ نظارو</string>
   <string name="menu_page_add_to_list">پڙھڻ جي فھرست ۾ شامل ڪريو</string>
@@ -64,6 +68,7 @@
   <string name="feed_card_add_to_default_list">سانڍيو</string>
   <string name="menu_page_share">ڳنڍڻو ونڊيو</string>
   <string name="menu_article_share">مضمون ونڊيو</string>
+  <string name="menu_page_article_share">ونڊيو</string>
   <string name="menu_page_open_a_new_tab">نئين ٽيب کوليو</string>
   <string name="menu_page_new_tab">نئين ٽيب</string>
   <string name="menu_page_reading_lists">پڙھڻ جون فھرستون</string>
@@ -384,6 +389,8 @@
   <string name="text_style_title">فونٽ</string>
   <string name="theme_category_reading">پڙھڻ</string>
   <string name="reading_focus_mode">پڙھڻ تي ڌيان جو موڊ</string>
+  <string name="theme_category_toolbar">اوزارپٽي</string>
+  <string name="theme_customize_toolbar">اوزارپٽي مرضي مطابق بڻايو</string>
   <string name="nav_item_saved">سانڍيل</string>
   <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>
   <string name="reading_list_move_to">پڙھڻ جي فھرست ڏانھن چوريو</string>
@@ -653,6 +660,7 @@
   <string name="feed_accessibility_card_text">توھان رسد جي تري تائين پھچي چڪا آھيو.</string>
   <string name="feed_accessibility_card_load_more_button">وڌيڪ لاھيو</string>
   <string name="top_read_activity_title">%s تي گهڻو پڙھيل</string>
+  <string name="tabs_activity_title">ٽيبون</string>
   <string name="description_edit_text_hint">مضمون جي تشريح</string>
   <string name="description_edit_article_description_label">مضمون</string>
   <string name="description_edit_translate_article_description_label_per_language">مضمون تشريح (%s)</string>
@@ -700,6 +708,10 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">خيالي ھڪ سٽ، ٻن کان ٻارھن اکرن جي وچ ۾</string>
   <string name="description_edit_tutorial_button_label_start_editing">سنوارڻ شروع ڪريو</string>
   <string name="description_edit_tutorial_promise">شروع ڪرڻ سان، مان واعدو ٿو ڪريان مان ھن خصوصيت جو غلط استعمال نہ ڪندس.</string>
+  <string name="customize_toolbar_title">اوزارپٽي مرضي مطابق بڻايو</string>
+  <string name="customize_toolbar_category_toolbar">اوزارپٽي</string>
+  <string name="customize_toolbar_category_menu">مينيو</string>
+  <string name="customize_toolbar_reset_to_default_button">پاڻمرادو-ڏنل طرف ٻيھر مرتب ڪريو</string>
   <string name="suggested_edits_describe_articles">مضمونن کي بيان ڪريو</string>
   <string name="suggested_edits_caption_images">عڪسن کي عنوان ڏيو</string>
   <string name="suggested_edits_tag_images">عڪسن کي ٽيگ ھڻو</string>

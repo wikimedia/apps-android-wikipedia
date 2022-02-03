@@ -91,6 +91,7 @@
   <string name="menu_page_add_to_watchlist">Aggiungi agli osservati speciali</string>
   <string name="menu_page_view_talk">Vedi la pagina di discussione</string>
   <string name="menu_page_view_edit_history">Vedi cronologia delle modifiche</string>
+  <string name="menu_page_edit_history">Cronologia delle modifiche</string>
   <string name="menu_page_remove_from_watchlist">Rimuovi dagli osservati speciali</string>
   <string name="edit_section_find_in_page">Trova nella pagina</string>
   <string name="menu_page_font_and_theme">Carattere e tema</string>
