@@ -68,6 +68,7 @@
   <string name="menu_page_add_to_watchlist">Lägg till i bevakningslistan</string>
   <string name="menu_page_view_talk">Visa diskussionssida</string>
   <string name="menu_page_view_edit_history">Visa redigeringshistorik</string>
+  <string name="menu_page_edit_history">Redigeringshistorik</string>
   <string name="menu_page_remove_from_watchlist">Ta bort från bevakningslistan</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>

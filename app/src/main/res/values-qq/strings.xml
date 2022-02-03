@@ -84,8 +84,8 @@
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="menu_page_add_to_watchlist">Menu item for adding the current page to the Watchlist.</string>
   <string name="menu_page_watch">Menu item for adding the current page to the Watchlist.</string>
-  <string name="menu_page_talk_page">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_view_talk">Menu item text for accessing the article talk page.</string>
+  <string name="menu_page_talk_page">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_view_edit_history">Menu item text for accessing the article edit history.</string>
   <string name="menu_page_edit_history">Menu item text for accessing the article edit history.</string>
   <string name="menu_page_remove_from_watchlist">Menu item for removing the current page from the Watchlist.</string>
@@ -411,6 +411,7 @@
   <string name="error_blocked_expiry">Label stating the expiry date of the block. The %s symbol is replaced by the date.</string>
   <string name="error_blocked_id">Label stating the ID of the block. The %s symbol is replaced by the ID.</string>
   <string name="error_blocked_footer">Text that explains how to get in touch with the user or administrator that created the block. The %1$s symbol is replaced by the username of the blocker, and %2$s is replaced by a URL that leads to the user page of the blocker.</string>
+  <string name="theme_chooser_menu_item_tooltip">Tooltip message text for customizing menu options on article screen.\n\n\"Reading focus mode\" is {{msg-wm|Wikipedia-android-strings-reading focus mode}}.</string>
   <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
@@ -440,6 +441,8 @@
   <string name="theme_category_reading">Label for theme category that contains settings related to reading.</string>
   <string name="reading_focus_mode">Label for checkbox that enables reading focus mode.</string>
   <string name="reading_focus_mode_detail">Detailed label for checkbox that enables reading focus mode.</string>
+  <string name="theme_category_toolbar">Button label for customizing toolbar category.</string>
+  <string name="theme_customize_toolbar">Button label for customizing toolbar options.</string>
   <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
@@ -801,6 +804,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
+  <string name="customize_toolbar_title">Title text of the customize toolbar page.</string>
+  <string name="customize_toolbar_description">Description of the customize toolbar page.</string>
+  <string name="customize_toolbar_category_toolbar">Category of toolbar in the customize toolbar page.</string>
+  <string name="customize_toolbar_category_menu">Category of menu in the customize toolbar page.\n\n{{Identical|Menu}}</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize toolbar page.</string>
+  <string name="customize_toolbar_reset_to_default_button">Button label for resetting the configuration of customize toolbar to default.</string>
   <string name="suggested_edits_describe_articles">Title of screen where the user chooses articles that are missing article descriptions to be described.</string>
   <string name="suggested_edits_caption_images">Title of screen where the user chooses images that are missing captions to be captioned.</string>
   <string name="suggested_edits_tag_images">Title of screen where the user chooses tags that represent an image.</string>
@@ -1117,13 +1126,4 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
-  <string name="theme_chooser_menu_item_tooltip">Tooltip message text for customizing menu options on article screen.></string>
-  <string name="customize_toolbar_title">Title text of the customize toolbar page.</string>
-  <string name="customize_toolbar_description">Description of the customize toolbar page.</string>
-  <string name="customize_toolbar_category_toolbar">Category of toolbar in the customize toolbar page.</string>
-  <string name="customize_toolbar_category_menu">Category of menu in the customize toolbar page.</string>
-  <string name="customize_toolbar_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize toolbar page.</string>
-  <string name="customize_toolbar_reset_to_default_button">Button label for resetting the configuration of customize toolbar to default.</string>
-  <string name="theme_customize_toolbar">Button label for customizing toolbar options.</string>
-  <string name="theme_category_toolbar">Button label for customizing toolbar category.</string>
 </resources>
