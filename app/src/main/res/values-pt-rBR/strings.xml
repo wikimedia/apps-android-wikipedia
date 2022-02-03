@@ -86,6 +86,7 @@
   <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
   <string name="menu_page_view_talk">Ver página de discussão</string>
   <string name="menu_page_view_edit_history">Ver histórico de edições</string>
+  <string name="menu_page_edit_history">Histórico de edições</string>
   <string name="menu_page_remove_from_watchlist">Remover das páginas vigiadas</string>
   <string name="edit_section_find_in_page">Encontrar na página</string>
   <string name="menu_page_font_and_theme">Fonte e tema</string>

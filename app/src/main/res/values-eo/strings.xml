@@ -53,11 +53,13 @@
   <string name="menu_page_show_tabs">Montri langetojn</string>
   <string name="menu_page_other_languages">Ŝanĝi lingvon</string>
   <string name="menu_page_find_in_page" fuzzy="true">Trovi en la paĝo</string>
+  <string name="menu_page_edit_history">Historio de redaktoj</string>
   <string name="edit_section_find_in_page">Trovi en la paĝo</string>
   <string name="menu_page_font_and_theme">Fonto kaj etoso</string>
   <string name="menu_page_add_to_list">Aldoni al legolisto</string>
   <string name="feed_card_add_to_list">Aldoni al legolisto</string>
   <string name="menu_page_share">Konigi ligilon</string>
+  <string name="menu_page_article_share">Konigi</string>
   <string name="menu_page_open_a_new_tab">Malfermi en nova langeto</string>
   <string name="menu_page_reading_lists">Legolistoj</string>
   <string name="menu_page_recently_viewed">Ĵus vidita</string>
@@ -578,6 +580,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideale unu linio, inter du kaj dek du vortoj</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ekredakti</string>
   <string name="description_edit_tutorial_promise">Ekante, mi promesas ne misuzi ĉi tiun eblon</string>
+  <string name="customize_toolbar_category_menu">Menuo</string>
   <string name="suggested_edits_review_description">Revizii priskribon de artikolo</string>
   <string name="suggested_edits_add_description_button">Aldoni priskribon</string>
   <string name="suggested_edits_edit_description_button">Redakti priskribon</string>

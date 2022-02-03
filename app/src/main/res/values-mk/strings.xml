@@ -54,9 +54,13 @@
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди во статијата</string>
   <string name="menu_page_add_to_watchlist">Додај во набљудувани</string>
+  <string name="menu_page_watch">Набљудувај</string>
   <string name="menu_page_view_talk">Разговорна страница</string>
+  <string name="menu_page_talk_page">Разговорна страница</string>
   <string name="menu_page_view_edit_history">Историја на уредувања</string>
+  <string name="menu_page_edit_history">Историја на уредувања</string>
   <string name="menu_page_remove_from_watchlist">Отстрани набљудуваните</string>
+  <string name="menu_page_watched">Набљудувани</string>
   <string name="edit_section_find_in_page">Најди на страницата</string>
   <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
   <string name="menu_page_add_to_list">Додај во список за читање</string>
@@ -65,6 +69,7 @@
   <string name="feed_card_add_to_default_list">Зачувај</string>
   <string name="menu_page_share">Сподели врска</string>
   <string name="menu_article_share">Сподели статија</string>
+  <string name="menu_page_article_share">Сподели</string>
   <string name="menu_page_open_a_new_tab">Отвори ново јазиче</string>
   <string name="menu_page_new_tab">Ново јазиче</string>
   <string name="menu_page_reading_lists">Списоци за читање</string>
@@ -377,6 +382,7 @@
   <string name="error_blocked_expiry">Истек на блокот: %s</string>
   <string name="error_blocked_id">Назнака на блокот: %s</string>
   <string name="error_blocked_footer">Можете да се обратите кај &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или некој друг &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; ако сакате да поразговарате за блокот.</string>
+  <string name="theme_chooser_menu_item_tooltip">Прилагодете си го алатникот и пробајте го режимот на посветено читање</string>
   <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
@@ -404,8 +410,10 @@
   <string name="text_size_percent_default">%s (по основно)</string>
   <string name="text_style_title">Фонт</string>
   <string name="theme_category_reading">Читање</string>
-  <string name="reading_focus_mode">Режим на внимателно читање</string>
+  <string name="reading_focus_mode">Режим на посветено читање</string>
   <string name="reading_focus_mode_detail">Ги скрива можностите за уредување и алатникот најдолу при пролизгување</string>
+  <string name="theme_category_toolbar">Алатник</string>
+  <string name="theme_customize_toolbar">Прилагоди го алатникот</string>
   <string name="nav_item_saved">Зачувано</string>
   <string name="reading_list_save_to">Зачувај во списокот за читање</string>
   <string name="reading_list_move_to">Премести во списокот за читање</string>
@@ -767,6 +775,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По можност еден ред, од два до дванаесет збора</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
+  <string name="customize_toolbar_title">Прилагодување на алатникот</string>
+  <string name="customize_toolbar_description">Прилагодете го прегледничкиот алатник најдолу со дејства и одредници кои ви се најкорисни.</string>
+  <string name="customize_toolbar_category_toolbar">Алатник</string>
+  <string name="customize_toolbar_category_menu">Мени</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Тука довлекувајте ги омилените ставки 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Врати по основно</string>
   <string name="suggested_edits_describe_articles">Опишување на статии</string>
   <string name="suggested_edits_caption_images">Толкување на слики</string>
   <string name="suggested_edits_tag_images">Означување на слики</string>
