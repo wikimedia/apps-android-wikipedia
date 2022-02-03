@@ -140,6 +140,7 @@ class TalkTopicsActivity : BaseActivity() {
     public override fun onResume() {
         super.onResume()
         loadTopics()
+        searchActionModeCallback.searchActionProvider?.selectAllQueryTexts()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -421,7 +422,6 @@ class TalkTopicsActivity : BaseActivity() {
 
         override fun onClick(v: View?) {
             startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id, invokeSource))
-            actionMode?.finish()
         }
     }
 
