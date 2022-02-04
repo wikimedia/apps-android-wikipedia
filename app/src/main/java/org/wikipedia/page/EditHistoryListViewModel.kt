@@ -42,13 +42,13 @@ class EditHistoryListViewModel : ViewModel() {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 val response: DiffResponse = ServiceFactory.getCoreRest(WikiSite.forLanguageCode(languageCode)).getEditDiff(olderRevisionId, revisionId)
-                createSpannable(response.diff)
+                updateDiffSizeAndText(response.diff)
                 editSizeDetailsData.postValue(Success(EditSizeDetails(diffSize, diffText)))
             }
         }
     }
 
-    private fun createSpannable(diffs: List<DiffResponse.DiffItem>) {
+    private fun updateDiffSizeAndText(diffs: List<DiffResponse.DiffItem>) {
         val spannableString = SpannableStringBuilder()
         diffSize = 0
         for (diff in diffs) {
