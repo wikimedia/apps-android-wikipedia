@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
@@ -17,8 +18,10 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.page.EditHistoryListViewModel.EditSizeDetails
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
 
 class EditHistoryListActivity : BaseActivity() {
     private lateinit var binding: ActivityEditHistoryBinding
@@ -76,16 +79,22 @@ class EditHistoryListActivity : BaseActivity() {
             if (holder is HeaderViewHolder) {
                 holder.bindItem(listItems[pos] as String)
             } else if (holder is EditHistoryListItemHolder) {
-                holder.bindItem(listItems[pos] as Revision)
+                holder.bindItem(getOldRevision(pos), listItems[pos] as Revision)
                 holder.itemView.setOnClickListener(this)
             }
             holder.itemView.tag = pos
         }
 
+        private fun getOldRevision(position: Int): Revision? {
+            return if (position < listItems.size - 1) {
+                if (listItems[position + 1] is Revision) listItems[position + 1] as Revision
+                else listItems[position + 2] as Revision
+            } else null
+        }
+
         fun setUpList() {
             editHistoryList.forEach {
-                val dateStr =
-                    DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(it.timeStamp))
+                val dateStr = DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(it.timeStamp))
                 if (!listItems.contains(dateStr)) {
                     listItems.add(dateStr)
                 }
@@ -111,12 +120,26 @@ class EditHistoryListActivity : BaseActivity() {
 
     private inner class EditHistoryListItemHolder constructor(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-        fun bindItem(listItem: Revision) {
-            itemView.findViewById<TextView>(R.id.editHistoryTitle).text = listItem.comment
-            itemView.findViewById<MaterialButton>(R.id.diffText).text = listItem.revId.toString()
+        fun bindItem(oldRevision: Revision?, listItem: Revision) {
+            viewModel.fetchEditDetails(pageTitle.wikiSite.languageCode, oldRevision?.revId ?: 0, listItem.revId)
+            viewModel.editSizeDetailsData.observe(this@EditHistoryListActivity) {
+                if (it is Resource.Success) {
+                    val editSizeDetails: EditSizeDetails = viewModel.editSizeDetailsData.value?.data!!
+                    val diffTextView: MaterialButton = itemView.findViewById(R.id.diffText)
+                    itemView.findViewById<TextView>(R.id.editHistoryTitle).text =
+                        if (listItem.comment.isEmpty()) editSizeDetails.text else listItem.comment
+                    diffTextView.text = editSizeDetails.diffSize.toString()
+                    diffTextView.text =
+                        String.format(if (editSizeDetails.diffSize != 0) "%+d" else "%d", editSizeDetails.diffSize)
+                    if (editSizeDetails.diffSize >= 0) {
+                        diffTextView.setTextColor(if (editSizeDetails.diffSize > 0) ContextCompat.getColor(this@EditHistoryListActivity, R.color.green50) else ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.material_theme_secondary_color))
+                    } else {
+                        diffTextView.setTextColor(ContextCompat.getColor(this@EditHistoryListActivity, R.color.red50))
+                    }
+                }
+            }
             itemView.findViewById<MaterialButton>(R.id.userNameText).text = listItem.user
-            itemView.findViewById<TextView>(R.id.editHistoryTimeText).text =
-                DateUtil.getTimeString(DateUtil.iso8601DateParse(listItem.timeStamp))
+            itemView.findViewById<TextView>(R.id.editHistoryTimeText).text = DateUtil.getTimeString(DateUtil.iso8601DateParse(listItem.timeStamp))
         }
     }
 
