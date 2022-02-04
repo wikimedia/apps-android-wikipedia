@@ -16,7 +16,7 @@ import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.richtext.SyntaxHighlighter.OnSyntaxHighlightListener
 import java.util.*
 
-class PlainPasteEditText : TextInputEditText {
+open class PlainPasteEditText : TextInputEditText {
     interface FindListener {
         fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean)
     }
