@@ -67,11 +67,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        retainInstance = true
         revisionId = requireArguments().getLong(EXTRA_EDIT_REVISION_ID, 0)
         languageCode = requireArguments().getString(EXTRA_EDIT_LANGUAGE_CODE, AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)
         wikiSite = WikiSite.forLanguageCode(languageCode)
         articlePageTitle = PageTitle(requireArguments().getString(EXTRA_ARTICLE_TITLE, ""), wikiSite)
+        viewModel.setup(articlePageTitle, revisionId)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -85,6 +85,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         setHasOptionsMenu(true)
         setUpInitialUI()
         setUpListeners()
+        setLoadingState()
 
         viewModel.watchedStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
@@ -98,14 +99,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.revisionDetails.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                val firstPage = it.data.query?.firstPage()!!
-                currentRevision = firstPage.revisions[0]
+                currentRevision = it.data[0]
                 revisionId = currentRevision!!.revId
                 username = currentRevision!!.user
-                newerRevisionId = if (firstPage.revisions.size < 2) {
+                newerRevisionId = if (it.data.size < 2) {
                     -1
                 } else {
-                    firstPage.revisions[1].revId
+                    it.data[1].revId
                 }
                 olderRevisionId = currentRevision!!.parentRevId
                 updateUI()
@@ -154,9 +154,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
 
-        viewModel.getWatchedStatus(articlePageTitle)
-        beginFetchEditDetails()
-
         L10nUtil.setConditionalLayoutDirection(requireView(), languageCode)
     }
 
@@ -176,11 +173,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
         binding.newerIdButton.setOnClickListener {
             revisionId = newerRevisionId
-            beginFetchEditDetails()
+            setLoadingState()
+            viewModel.getRevisionDetails(articlePageTitle, revisionId)
         }
         binding.olderIdButton.setOnClickListener {
             revisionId = olderRevisionId
-            beginFetchEditDetails()
+            setLoadingState()
+            viewModel.getRevisionDetails(articlePageTitle, revisionId)
         }
         binding.watchButton.setOnClickListener {
             binding.watchButton.isCheckable = false
@@ -221,25 +220,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
     }
 
-    private fun beginFetchEditDetails() {
-        hideOrShowViews(true)
-        viewModel.getRevisionDetails(articlePageTitle, revisionId)
-    }
-
-    private fun hideOrShowViews(isLoading: Boolean) {
-        if (isLoading) {
-            binding.progressBar.visibility = VISIBLE
-            binding.usernameButton.visibility = INVISIBLE
-            binding.thankButton.visibility = INVISIBLE
-            binding.editComment.visibility = INVISIBLE
-            binding.diffText.visibility = INVISIBLE
-            binding.diffCharacterCountView.visibility = INVISIBLE
-        } else {
-            binding.usernameButton.visibility = VISIBLE
-            binding.thankButton.visibility = VISIBLE
-            binding.editComment.visibility = VISIBLE
-            binding.diffText.visibility = VISIBLE
-        }
+    private fun setLoadingState() {
+        binding.progressBar.visibility = VISIBLE
+        binding.usernameButton.visibility = INVISIBLE
+        binding.thankButton.visibility = INVISIBLE
+        binding.editComment.visibility = INVISIBLE
+        binding.diffText.visibility = INVISIBLE
+        binding.diffCharacterCountView.visibility = INVISIBLE
     }
 
     private fun updateUI() {
@@ -256,7 +243,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.thankButton.isClickable = true
         requireActivity().invalidateOptionsMenu()
         maybeHideThankButton()
-        hideOrShowViews(false)
+
+        binding.usernameButton.visibility = VISIBLE
+        binding.thankButton.visibility = VISIBLE
+        binding.editComment.visibility = VISIBLE
+        binding.diffText.visibility = VISIBLE
     }
 
     private fun maybeHideThankButton() {

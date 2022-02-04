@@ -10,25 +10,38 @@ import kotlinx.coroutines.withContext
 import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
+import org.wikipedia.util.SingleLiveData
 import org.wikipedia.watchlist.WatchlistExpiry
 
 class ArticleEditDetailsViewModel : ViewModel() {
 
     val watchedStatus = MutableLiveData<Resource<MwQueryResponse>>()
-    val revisionDetails = MutableLiveData<Resource<MwQueryResponse>>()
+    val revisionDetails = MutableLiveData<Resource<List<MwQueryPage.Revision>>>()
     val diffText = MutableLiveData<Resource<DiffResponse>>()
-    val thankStatus = MutableLiveData<Resource<EntityPostResponse>>()
-    val watchResponse = MutableLiveData<Resource<WatchPostResponse>>()
+    val thankStatus = SingleLiveData<Resource<EntityPostResponse>>()
+    val watchResponse = SingleLiveData<Resource<WatchPostResponse>>()
+
     var watchlistExpiryChanged = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
+    var curTitle: PageTitle? = null
+    var diffRevisionId = 0L
 
     private val watchlistFunnel = WatchlistFunnel()
+
+    fun setup(pageTitle: PageTitle, revisionId: Long) {
+        if (curTitle == null) {
+            curTitle = pageTitle
+            getWatchedStatus(pageTitle)
+            getRevisionDetails(pageTitle, revisionId)
+        }
+    }
 
     fun getWatchedStatus(title: PageTitle) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -45,17 +58,25 @@ class ArticleEditDetailsViewModel : ViewModel() {
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                revisionDetails.postValue(Resource.Success(ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionId)))
+                val response = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionId)
+                val revisions = response.query?.firstPage()!!.revisions
+                if (revisions.isNotEmpty()) {
+                    revisionDetails.postValue(Resource.Success(revisions))
+                }
             }
         }
     }
 
     fun getDiffText(wikiSite: WikiSite, oldRevisionId: Long, newRevisionId: Long) {
+        if (diffRevisionId == newRevisionId) {
+            return
+        }
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             diffText.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
                 diffText.postValue(Resource.Success(ServiceFactory.getCoreRest(wikiSite).getDiff(oldRevisionId, newRevisionId)))
+                diffRevisionId = newRevisionId
             }
         }
     }
