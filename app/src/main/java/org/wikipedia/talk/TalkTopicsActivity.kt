@@ -332,10 +332,15 @@ class TalkTopicsActivity : BaseActivity() {
             updateOnEmpty()
         } else {
             binding.talkErrorView.visibility = View.GONE
-            binding.talkNewTopicButton.show()
-            binding.talkNewTopicButton.isEnabled = true
-            binding.talkNewTopicButton.alpha = 1.0f
-            binding.talkLastModified.visibility = View.VISIBLE
+            if (actionMode != null) {
+                binding.talkNewTopicButton.hide()
+                binding.talkLastModified.visibility = View.GONE
+            } else {
+                binding.talkNewTopicButton.show()
+                binding.talkNewTopicButton.isEnabled = true
+                binding.talkNewTopicButton.alpha = 1.0f
+                binding.talkLastModified.visibility = View.VISIBLE
+            }
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
@@ -512,7 +517,7 @@ class TalkTopicsActivity : BaseActivity() {
 
             actionMode = mode
             binding.talkLastModified.isVisible = false
-            binding.talkNewTopicButton.isVisible = false
+            binding.talkNewTopicButton.hide()
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
         }
@@ -528,7 +533,7 @@ class TalkTopicsActivity : BaseActivity() {
             actionMode = null
             currentSearchQuery = null
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-            binding.talkNewTopicButton.isVisible = true
+            binding.talkNewTopicButton.show()
             binding.talkLastModified.isVisible = true
             binding.talkSearchNoResult.isVisible = false
         }
