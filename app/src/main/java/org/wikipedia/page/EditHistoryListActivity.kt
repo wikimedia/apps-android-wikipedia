@@ -12,6 +12,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.commons.FilePageActivity
@@ -22,6 +26,7 @@ import org.wikipedia.page.EditHistoryListViewModel.EditSizeDetails
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
 
 class EditHistoryListActivity : BaseActivity() {
     private lateinit var binding: ActivityEditHistoryBinding
@@ -36,12 +41,12 @@ class EditHistoryListActivity : BaseActivity() {
         pageTitle = intent.getParcelableExtra(INTENT_EXTRA_PAGE_TITLE)!!
         viewModel.fetchData(pageTitle)
         binding.editHistoryLoadProgress.visibility = View.VISIBLE
-        viewModel.editHistoryListData.observe(this, {
+        viewModel.editHistoryListData.observe(this) {
             if (it is Resource.Success) {
                 binding.editHistoryLoadProgress.visibility = View.INVISIBLE
                 setUpRecyclerView(viewModel.editHistoryListData.value?.data!!)
             }
-        })
+        }
     }
 
     private fun setUpRecyclerView(editHistoryList: List<Revision>) {
@@ -121,22 +126,19 @@ class EditHistoryListActivity : BaseActivity() {
     private inner class EditHistoryListItemHolder constructor(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
         fun bindItem(oldRevision: Revision?, listItem: Revision) {
-            viewModel.fetchEditDetails(pageTitle.wikiSite.languageCode, oldRevision?.revId ?: 0, listItem.revId)
-            viewModel.editSizeDetailsData.observe(this@EditHistoryListActivity) {
-                if (it is Resource.Success) {
-                    val editSizeDetails: EditSizeDetails = viewModel.editSizeDetailsData.value?.data!!
+            CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
+                val editSizeDetails: EditSizeDetails = viewModel.fetchEditDetails(pageTitle.wikiSite.languageCode, oldRevision?.revId ?: 0, listItem.revId)
+                runOnUiThread {
                     val diffTextView: MaterialButton = itemView.findViewById(R.id.diffText)
-                    itemView.findViewById<TextView>(R.id.editHistoryTitle).text =
-                        if (listItem.comment.isEmpty()) editSizeDetails.text else listItem.comment
-                    diffTextView.text = editSizeDetails.diffSize.toString()
-                    diffTextView.text =
-                        String.format(if (editSizeDetails.diffSize != 0) "%+d" else "%d", editSizeDetails.diffSize)
+                    itemView.findViewById<TextView>(R.id.editHistoryTitle).text = listItem.comment.ifEmpty { editSizeDetails.text }
+                    diffTextView.text = String.format(if (editSizeDetails.diffSize != 0) "%+d" else "%d", editSizeDetails.diffSize)
                     if (editSizeDetails.diffSize >= 0) {
                         diffTextView.setTextColor(if (editSizeDetails.diffSize > 0) ContextCompat.getColor(this@EditHistoryListActivity, R.color.green50) else ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.material_theme_secondary_color))
                     } else {
                         diffTextView.setTextColor(ContextCompat.getColor(this@EditHistoryListActivity, R.color.red50))
                     }
                 }
+
             }
             itemView.findViewById<MaterialButton>(R.id.userNameText).text = listItem.user
             itemView.findViewById<TextView>(R.id.editHistoryTimeText).text = DateUtil.getTimeString(DateUtil.iso8601DateParse(listItem.timeStamp))

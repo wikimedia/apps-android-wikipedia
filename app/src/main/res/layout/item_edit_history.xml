@@ -27,7 +27,7 @@
             android:layout_marginTop="6dp"
             android:ellipsize="end"
             android:lineSpacingExtra="4sp"
-            android:maxLines="4"
+            android:maxLines="2"
             android:textColor="?attr/primary_text_color"
             android:textColorLink="?attr/primary_text_color"
             android:textSize="16sp"
