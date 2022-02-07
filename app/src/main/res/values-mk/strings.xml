@@ -758,6 +758,7 @@
   <string name="description_starts_with_uppercase">Почнете со мала буква освен ако зборот е лична именка.</string>
   <string name="description_starts_with_lowercase">Избегнувајте да почнувате со мала буква.</string>
   <string name="description_is_in_different_language">Се чини дека текстот е напишан на неочекуван јазик. Јазикот треба да биде %s.</string>
+  <string name="description_verification_notice">Потврдете дека вашиот опис е на %1$s. Слободно занемарете ја напоменава ако напишаниот опис ви е на %2$s.</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описот на статијата е објавен! (%s)</string>

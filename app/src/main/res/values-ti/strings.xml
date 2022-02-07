@@ -52,6 +52,7 @@
   <string name="feed_card_add_to_default_list">ኣቐምጥ</string>
   <string name="menu_page_share">መጋጠሚ ኣካፍል</string>
   <string name="menu_article_share">ጽሑፍ ኣካፍል</string>
+  <string name="menu_page_article_share">ኣካፍል</string>
   <string name="menu_page_open_a_new_tab">ሓድሽ ጽላት ክፈት</string>
   <string name="menu_page_new_tab">ሓድሽ ጽላት</string>
   <string name="menu_long_press_open_page">ክፈት</string>
@@ -196,10 +197,12 @@
   </plurals>
   <string name="multi_select_items_selected">%d ዝተመርጹ</string>
   <string name="view_link_preview_error_button_dismiss">ስጎግ</string>
+  <string name="view_wiki_error_message_offline">ምስ ኢንተርነት ክራኸብ ኣይክእልን እዩ</string>
   <string name="reference_title">መወከሲ %s</string>
   <string name="reference_list_title">መወከሲታት</string>
   <string name="empty_tab_title">ሓድሽ ጽላት</string>
   <string name="menu_save_all_tabs">ኩሎም ጽላታት ኣቐምጥ</string>
+  <string name="crash_report_activity_title">ጌጋ መተግበሪ</string>
   <string name="crash_report_quit">ዕጸው</string>
   <string name="article_menu_bar_save_button">ኣቐምጥ</string>
   <string name="article_menu_bar_language_button">ቋንቋ</string>
@@ -270,22 +273,41 @@
   </plurals>
   <string name="notification_echo_channel_description">መፍለጢታት ዊኪፐድያ</string>
   <string name="notifications_activity_title">መፍለጢታት</string>
+  <string name="notifications_activity_title_archived">መፍለጢታት (ዝተኸዘኑ)</string>
   <string name="notifications_search">መፍለጢታት ድለይ</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">መፍለጢ ተኸዚኑ</item>
+    <item quantity="other">%d መፍለጢታት ተኸዚኖም</item>
+  </plurals>
   <string name="notifications_poll_enable_title">መፍለጢታት ኣኽእል</string>
   <string name="notifications_poll_enable_positive">ኣኽእል</string>
   <string name="notifications_poll_enable_negative">ሕጂ ዘይኮነ</string>
+  <string name="notifications_view_archived_button_text">ዝተኸዘኑ መፍለጢታት ርኣይ</string>
   <string name="notifications_mark_unread">ከም ዘይተነበበ ኣመልክት</string>
   <string name="notifications_direct_reply_action">መልስ</string>
   <string name="preference_title_notification_system">ስርዓት</string>
+  <string name="preference_summary_notification_system">መልእኽትታት ካብ ስርዓት</string>
   <string name="preference_title_notification_login_fail">ብመንነት እተው</string>
   <string name="preference_title_notification_user_talk">ገጽ ምይይጥ</string>
+  <string name="preference_title_notification_email_user">ዝተቐበለ ኢመይል</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ዊኪፐድያ</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">መፍለጢታት ካብ ዊኪፐድያ</string>
   <string name="notifications_channel_group_other_title">ካልእ</string>
+  <string name="notifications_filter_label">መፍለጢታት ኣጻርይ</string>
+  <string name="notifications_filter_icon_content_description">መፍለጢታት ኣጻርይ</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d መጻረዪ</item>
+    <item quantity="other">%d መጻረዪታት</item>
+  </plurals>
+  <string name="notifications_select_all_filters">ኩሎም መጻረዪታት ምረጽ</string>
+  <string name="notifications_tab_filter_all">ኩሎም</string>
   <string name="notifications_search_bar_hint">መፍለጢታት ድለይ ወይ ኣጸርይ</string>
   <string name="notifications_type_filter_header">ዓይነት መጻረዪ</string>
+  <string name="view_because_you_read_card_title">ስለ ኣንቢብካ</string>
   <string name="view_random_card_title">ሃውራዊ</string>
   <string name="view_random_article_card_title">ሃውራዊ ጽሑፍ</string>
   <string name="view_random_article_card_action">ተወሰኽቲ ሃውራዊ ጽሑፋት</string>
+  <string name="view_top_read_card_title">ብብዝሒ ዝንበቡ</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d ሽሕ</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d ሚልዮን</string>
   <string name="view_main_page_card_title">ሎሚ ኣብ ዊኪፐድያ</string>
@@ -314,6 +336,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ሕራይ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ኣትርፍ</string>
   <string name="feed_accessibility_card_load_more_button">ተወሳኺ ጸዓን</string>
+  <string name="top_read_activity_title">ብብዝሒ ዝንበቡ ብ%s</string>
+  <string name="tabs_activity_title">ጽላታት</string>
   <string name="description_edit_text_hint">ናይ ጽሑፍ መግለጺ</string>
   <string name="description_edit_article_description_label">ጽሑፍ</string>
   <string name="description_edit_translate_article_description_label_per_language">ናይ ጽሑፍ መግለጺ (%s)</string>
@@ -375,6 +399,7 @@
   <string name="suggested_edits_image_preview_dialog_artist">ስነ ጥበባዊ</string>
   <string name="suggested_edits_image_preview_dialog_tags">መፈለጥታታት</string>
   <string name="suggested_edits_image_preview_dialog_date">ዕለት</string>
+  <string name="suggested_edits_image_preview_dialog_source">ምንጪ/ሰኣሊ</string>
   <string name="suggested_edits_image_preview_dialog_licensing">ፍቓድ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">ተወሳኺ ሓበሬታ</string>
   <string name="suggested_edits_article_cta_image_caption">ናይ ምስሊ መግለጺ ጽሑፍ ወስኽ</string>
@@ -416,6 +441,7 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ትማሊ</string>
   <string name="suggested_edits_encourage_account_creation_title">ኩሉ ሰብ ንዊኪፐድያ ከርትዕ ከም ዝኽእል ትፈልጥ ዶ?</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">ብመንነት እተው / ናብ ዊኪፐድያ ተጸንበር</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s ፊደል</item>
     <item quantity="other">%1$s ፊደላት</item>
