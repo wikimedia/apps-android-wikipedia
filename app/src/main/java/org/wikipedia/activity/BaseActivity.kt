@@ -153,8 +153,8 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        if (event.actionMasked == MotionEvent.ACTION_DOWN
-                || event.actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
+        if (event.actionMasked == MotionEvent.ACTION_DOWN ||
+                event.actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
             dismissCurrentTooltip()
         }
 
