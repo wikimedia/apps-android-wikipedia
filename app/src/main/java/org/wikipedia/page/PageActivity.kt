@@ -20,7 +20,6 @@ import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.R.string
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.*
@@ -645,33 +644,32 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
                 }
             } else {
-                maybeShowThemeToolTip()
+                maybeShowThemeTooltip()
             }
         }
     }
 
-    private fun maybeShowThemeToolTip() {
-        if (Prefs.showOneTimeCustomizeToolbarTooltip) {
-            var anchorView: View? = null
-            var aboveOrBelow = true
-            if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
-                anchorView = binding.pageToolbarButtonShowOverflowMenu
-                aboveOrBelow = false
-            } else {
-                pageFragment.getPageActionTabLayout().forEach {
-                    if (it.id == PageActionItem.THEME.hashCode() && Prefs.showOneTimeCustomizeToolbarTooltip) {
-                        anchorView = it
-                    }
-                }
-            }
-            anchorView?.let {
-                it.postDelayed({
-                    FeedbackUtil.showTooltip(this, anchorView!!, getString(string.theme_chooser_menu_item_tooltip),
-                        aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
-                }, 2000)
-            }
-            Prefs.showOneTimeCustomizeToolbarTooltip = false
+    private fun maybeShowThemeTooltip() {
+        if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
+            return
         }
+        val anchorView: View?
+        var aboveOrBelow = true
+        if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
+            anchorView = binding.pageToolbarButtonShowOverflowMenu
+            aboveOrBelow = false
+        } else {
+            anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
+        }
+        anchorView?.let {
+            it.postDelayed({
+                if (!isDestroyed) {
+                    FeedbackUtil.showTooltip(this, it, getString(R.string.theme_chooser_menu_item_tooltip),
+                            aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
+                }
+            }, 2000)
+        }
+        Prefs.showOneTimeCustomizeToolbarTooltip = false
     }
 
     // TODO: remove on March 2022.
