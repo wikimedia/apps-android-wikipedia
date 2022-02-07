@@ -70,9 +70,13 @@
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
   <string name="menu_page_add_to_watchlist">הוספה לרשימת המעקב</string>
+  <string name="menu_page_watch">לעקוב</string>
   <string name="menu_page_view_talk">הצגת דף השיחה</string>
+  <string name="menu_page_talk_page">דף שיחה</string>
   <string name="menu_page_view_edit_history">הצגת היסטוריית עריכות</string>
+  <string name="menu_page_edit_history">היסטוריית עריכות</string>
   <string name="menu_page_remove_from_watchlist">הסרה מרשימת המעקב</string>
+  <string name="menu_page_watched">במעקב</string>
   <string name="edit_section_find_in_page">איתור בעמוד</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
@@ -81,6 +85,7 @@
   <string name="feed_card_add_to_default_list">שמירה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_article_share">שיתוף ערך</string>
+  <string name="menu_page_article_share">לשתף</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
   <string name="menu_page_new_tab">לשונית חדשה</string>
   <string name="menu_page_reading_lists">רשימות קריאה</string>
@@ -397,6 +402,7 @@
   <string name="error_blocked_expiry">פקיעת החסימה: %s</string>
   <string name="error_blocked_id">מזהה החסימה: %s</string>
   <string name="error_blocked_footer">באפשרותך ליצור קשר עם &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; או עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt;</string>
+  <string name="theme_chooser_menu_item_tooltip">אפשר להתאים אישים את סרגל הכלים שלך ולנסות מצב הקריאה המרוכזת</string>
   <string name="error_blocked_footer_no_blocker">באפשרותך ליצור קשר עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt; כדי לדון בחסימה.</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
@@ -424,8 +430,10 @@
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
   <string name="text_style_title">גופן</string>
   <string name="theme_category_reading">קריאה</string>
-  <string name="reading_focus_mode">קריאה במצב ריכוז</string>
+  <string name="reading_focus_mode">מצב קריאה מרוכזת</string>
   <string name="reading_focus_mode_detail">הסתרת אפשרויות עריכה וסרגל הכלים התחתון בגלילה</string>
+  <string name="theme_category_toolbar">סרגל כלים</string>
+  <string name="theme_customize_toolbar">התאמת סרגל כלים</string>
   <string name="nav_item_saved">נשמר</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>
@@ -803,6 +811,7 @@
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
   <string name="description_starts_with_lowercase">נא להימנע מלהתחיל את התיאור מאות קטנה.</string>
   <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי־צפויה. השפה אמורה להיות %s.</string>
+  <string name="description_verification_notice">נא לוודא שהשפה של התיאור שלך היא %1$s. אין בעיה לסגור את ההודעה הזאת אם השפה שכתבת בה היא %2$s.</string>
   <string name="description_edit_success_saved">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_snackbar">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
@@ -820,6 +829,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
+  <string name="customize_toolbar_title">התאמת סרגל כלים</string>
+  <string name="customize_toolbar_description">האתמה אישים של סרגל הניווט התחתון שלך עם הפעולות והיעדים השימושיים לך.</string>
+  <string name="customize_toolbar_category_toolbar">סרגל כלים</string>
+  <string name="customize_toolbar_category_menu">תפריט</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">אפשר לגרור ולשחרר את הפריטים האהובים עליהם כאן 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">איפוס</string>
   <string name="suggested_edits_describe_articles">הוספת תיאור לערכים</string>
   <string name="suggested_edits_caption_images">הוספת כיתוב לתמונות</string>
   <string name="suggested_edits_tag_images">לתייג תמונות</string>

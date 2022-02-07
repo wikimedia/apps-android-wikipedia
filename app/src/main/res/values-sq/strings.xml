@@ -26,6 +26,7 @@
   <string name="menu_page_find_in_page" fuzzy="true">Gjej në faqe</string>
   <string name="menu_page_view_talk">Shikoni faqen e diskutimit</string>
   <string name="menu_page_view_edit_history">Shikoni historikun e redaktimeve</string>
+  <string name="menu_page_edit_history">Historiku i redaktimeve</string>
   <string name="menu_page_font_and_theme">Shkrimi dhe tema</string>
   <string name="menu_page_add_to_list">Shtoni në listën e leximit</string>
   <string name="menu_page_share">Shpërndaj lidhjen</string>

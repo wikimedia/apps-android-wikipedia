@@ -77,6 +77,7 @@
   <string name="menu_page_add_to_watchlist">新增至監視清單</string>
   <string name="menu_page_view_talk">檢視討論頁</string>
   <string name="menu_page_view_edit_history">檢視編輯歷史</string>
+  <string name="menu_page_edit_history">編輯歷史</string>
   <string name="menu_page_remove_from_watchlist">從監視清單中移除</string>
   <string name="edit_section_find_in_page">於頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與佈景主題</string>
@@ -398,6 +399,7 @@
   <string name="error_blocked_expiry">封鎖期滿：%s</string>
   <string name="error_blocked_id">封鎖 ID：%s</string>
   <string name="error_blocked_footer">您可以向&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或是其他&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;聯絡來商量該封鎖操作。</string>
+  <string name="theme_chooser_menu_item_tooltip">自訂您的工具列並嘗試專注閱讀模式</string>
   <string name="error_blocked_footer_no_blocker">您可以聯絡&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;來商量該封鎖操作。</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
@@ -427,6 +429,8 @@
   <string name="theme_category_reading">閱讀</string>
   <string name="reading_focus_mode">專注閱讀模式</string>
   <string name="reading_focus_mode_detail">隱藏編輯功能與在滾軸的底端工具列</string>
+  <string name="theme_category_toolbar">工具列</string>
+  <string name="theme_customize_toolbar">自訂工具列</string>
   <string name="nav_item_saved">已儲存</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
   <string name="reading_list_move_to">移動至閱讀清單</string>
@@ -787,6 +791,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">原則上為一行，介於 2 至 12 個字之間</string>
   <string name="description_edit_tutorial_button_label_start_editing">開始編輯</string>
   <string name="description_edit_tutorial_promise">首先，我保證不會濫用此功能。</string>
+  <string name="customize_toolbar_title">自訂工具列</string>
+  <string name="customize_toolbar_description">自訂出具備最有用的操作與目的位置的底端導覽工具列。</string>
+  <string name="customize_toolbar_category_toolbar">工具列</string>
+  <string name="customize_toolbar_category_menu">選單</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">拖放您喜愛的項目到這裡👋</string>
+  <string name="customize_toolbar_reset_to_default_button">重設成預設值</string>
   <string name="suggested_edits_describe_articles">描述條目</string>
   <string name="suggested_edits_caption_images">說明圖片</string>
   <string name="suggested_edits_tag_images">標記圖片</string>
@@ -1067,11 +1077,13 @@
   <string name="talk_snackbar_survey_action_text">入門</string>
   <string name="talk_share_discussion_subject">維基百科 - 討論頁話題「%s」的討論</string>
   <string name="talk_share_talk_page">維基百科 - 討論頁上的討論</string>
+  <string name="talk_edit_disclaimer">這是一個討論頁。請遵守討論頁的指引，並記得在使用 wikitext 發布內容時藉由輸入四個波浪號：~~~~ ，來在您發布的內容裡產生您的簽名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:討論頁指引\"&gt;維基百科:討論頁指引&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">分享討論</string>
   <string name="menu_option_share_talk_page">分享討論頁</string>
   <string name="menu_option_share_edit">分享編輯</string>
   <string name="menu_option_user_profile">%s基本資料</string>
   <string name="menu_option_user_contributions">%s的貢獻</string>
+  <string name="menu_option_edit_source">編輯原始碼</string>
   <string name="watchlist_details_watching_label">已監視</string>
   <string name="watchlist_details_watch_label">監視</string>
   <string name="watchlist_details_next_edit">下一個編輯</string>
@@ -1083,6 +1095,8 @@
   <string name="thank_dialog_positive_button_text">發送感謝</string>
   <string name="thank_dialog_negative_button_text">取消</string>
   <string name="thank_success_message">您的感謝已發送給%s 👍</string>
+  <string name="menu_option_view_user_profile">檢視使用者個人檔案頁面</string>
+  <string name="menu_option_view_user_talk">檢視討論頁</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s與該討論頁已新增到您的監視清單%2$s。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>

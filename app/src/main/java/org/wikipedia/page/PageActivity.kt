@@ -36,10 +36,9 @@ import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
-import org.wikipedia.main.MainActivity
-import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -69,7 +68,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
     private val disposables = CompositeDisposable()
-    private val overflowCallback = OverflowCallback()
     private val watchlistFunnel = WatchlistFunnel()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
@@ -118,7 +116,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP)
         FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
-            showOverflowMenu(it)
+            pageFragment.showOverflowMenu(it)
         }
 
         binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
@@ -180,7 +178,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 if (app.haveMainActivity()) {
                     onBackPressed()
                 } else {
-                    goToMainTab()
+                    pageFragment.goToMainTab()
                 }
                 true
             } else -> super.onOptionsItemSelected(item)
@@ -521,14 +519,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
     }
 
-    private fun goToMainTab() {
-        startActivity(MainActivity.newIntent(this)
-            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-            .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
-        finish()
-    }
-
     private fun loadMainPage(position: TabPosition) {
         val title = PageTitle(SiteInfoClient.getMainPageForLang(app.appOrSystemLanguageCode), app.wikiSite)
         val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE)
@@ -589,51 +579,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun showCopySuccessMessage() {
         FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    private fun showOverflowMenu(anchor: View) {
-        PageActionOverflowView(this).show(anchor, overflowCallback, pageFragment.currentTab,
-            pageFragment.model.shouldLoadAsMobileWeb, pageFragment.model.isWatched, pageFragment.model.hasWatchlistExpiry
-        )
-    }
-
-    private inner class OverflowCallback : PageActionOverflowView.Callback {
-        override fun forwardClick() {
-            pageFragment.goForward()
-        }
-
-        override fun watchlistClick(isWatched: Boolean) {
-            if (isWatched) {
-                watchlistFunnel.logRemoveArticle()
-            } else {
-                watchlistFunnel.logAddArticle()
-            }
-            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, isWatched)
-        }
-
-        override fun shareClick() {
-            pageFragment.sharePageLink()
-        }
-
-        override fun newTabClick() {
-            startActivity(newIntentForNewTab(this@PageActivity))
-        }
-
-        override fun feedClick() {
-            goToMainTab()
-        }
-
-        override fun talkClick() {
-            pageFragment.title?.let {
-                startActivity(TalkTopicsActivity.newIntent(this@PageActivity, it, InvokeSource.PAGE_ACTIVITY))
-            }
-        }
-
-        override fun editHistoryClick() {
-            pageFragment.title?.run {
-                loadPage(PageTitle("Special:History/$prefixedText", wikiSite), HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), TabPosition.CURRENT_TAB)
-            }
-        }
     }
 
     private fun modifyMenu(mode: ActionMode) {
@@ -698,8 +643,33 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
                 }
+            } else {
+                maybeShowThemeTooltip()
             }
         }
+    }
+
+    private fun maybeShowThemeTooltip() {
+        if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
+            return
+        }
+        val anchorView: View?
+        var aboveOrBelow = true
+        if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
+            anchorView = binding.pageToolbarButtonShowOverflowMenu
+            aboveOrBelow = false
+        } else {
+            anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
+        }
+        anchorView?.let {
+            it.postDelayed({
+                if (!isDestroyed) {
+                    FeedbackUtil.showTooltip(this, it, getString(R.string.theme_chooser_menu_item_tooltip),
+                            aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
+                }
+            }, 2000)
+        }
+        Prefs.showOneTimeCustomizeToolbarTooltip = false
     }
 
     // TODO: remove on March 2022.
@@ -769,6 +739,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     fun getToolbarMargin(): Int {
         return binding.pageToolbarContainer.height
+    }
+
+    fun getOverflowMenu(): View {
+        return binding.pageToolbarButtonShowOverflowMenu
     }
 
     override fun onUnreadNotification() {
