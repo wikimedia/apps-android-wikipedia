@@ -96,9 +96,13 @@
   <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Trouver dans l’article</string>
   <string name="menu_page_add_to_watchlist">Ajouter à la liste de suivi</string>
+  <string name="menu_page_watch">Suivre</string>
   <string name="menu_page_view_talk">Afficher la page de discussion</string>
+  <string name="menu_page_talk_page">Page de discussion</string>
   <string name="menu_page_view_edit_history">Afficher l’historique des modifications</string>
+  <string name="menu_page_edit_history">Modifier l’historique</string>
   <string name="menu_page_remove_from_watchlist">Supprimer de la liste de suivi</string>
+  <string name="menu_page_watched">Suivi</string>
   <string name="edit_section_find_in_page">Trouver dans la page</string>
   <string name="menu_page_font_and_theme">Police et thème</string>
   <string name="menu_page_add_to_list">Ajouter à la liste de lecture</string>
@@ -107,6 +111,7 @@
   <string name="feed_card_add_to_default_list">Enregistrer</string>
   <string name="menu_page_share">Partager le lien</string>
   <string name="menu_article_share">Partager l’article</string>
+  <string name="menu_page_article_share">Partager</string>
   <string name="menu_page_open_a_new_tab">Ouvrir un nouvel onglet</string>
   <string name="menu_page_new_tab">Nouvel onglet</string>
   <string name="menu_page_reading_lists">Listes de lecture</string>
@@ -419,6 +424,7 @@
   <string name="error_blocked_expiry">Expiration du bloc: %s</string>
   <string name="error_blocked_id">ID du blocage : %s</string>
   <string name="error_blocked_footer">Vous pouvez contacter &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou un autre &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
+  <string name="theme_chooser_menu_item_tooltip">Personnaliser votre barre d’outils et essayer de lire en mode focalisé</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="crash_report_activity_title">Erreur de l’application</string>
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
@@ -448,6 +454,8 @@
   <string name="theme_category_reading">Lecture</string>
   <string name="reading_focus_mode">Mode de focalisation sur la lecture</string>
   <string name="reading_focus_mode_detail">Masque les fonctionnalités de modification et la barre d’outil en bas lors du défilement</string>
+  <string name="theme_category_toolbar">Barre d’outils</string>
+  <string name="theme_customize_toolbar">Personnaliser la barre d’outils</string>
   <string name="nav_item_saved">Enregistré</string>
   <string name="reading_list_save_to">Enregistrer dans la liste de lecture</string>
   <string name="reading_list_move_to">Déplacer vers la liste de lecture</string>
@@ -808,6 +816,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idéalement une ligne, entre deux et douze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Commencez à éditer</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
+  <string name="customize_toolbar_title">Personnaliser la barre d’outils</string>
+  <string name="customize_toolbar_description">Personnaliser votre barre d’outils de navigation en bas avec les actions et les destinations que vous trouvez les plus utiles.</string>
+  <string name="customize_toolbar_category_toolbar">Barre d’outils</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Prendre et tirer vos éléments favoris ici 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Réinitialiser aux valeurs par défaut</string>
   <string name="suggested_edits_describe_articles">Décrire les articles</string>
   <string name="suggested_edits_caption_images">Légende d’images</string>
   <string name="suggested_edits_tag_images">Marquer les images</string>
@@ -1106,6 +1120,8 @@
   <string name="thank_dialog_positive_button_text">Envoyer des remerciements</string>
   <string name="thank_dialog_negative_button_text">Annuler</string>
   <string name="thank_success_message">Votre remerciement a été envoyé à %s 👍</string>
+  <string name="menu_option_view_user_profile">Afficher la page du profil utilisateur</string>
+  <string name="menu_option_view_user_talk">Afficher la page de discussion</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s et sa page de discussion ont été ajoutés à votre liste de suivi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifier</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">de façon permanente</string>

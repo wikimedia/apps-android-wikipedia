@@ -30,6 +30,7 @@
 * Riemogerz
 * Rizkiahmadz
 * Sonic Speedy
+* Syman51
 * Ulinfaizah
 * Veracious
 * WongKentir
@@ -1056,6 +1057,8 @@
   <string name="thank_dialog_positive_button_text">Kirim ucapan terima kasih</string>
   <string name="thank_dialog_negative_button_text">Batalkan</string>
   <string name="thank_success_message">\'Terima kasih\' anda telah dikirim kepada %s</string>
+  <string name="menu_option_view_user_profile">Lihat halaman profil pengguna</string>
+  <string name="menu_option_view_user_talk">Lihat halaman pembicaraan</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s dan halaman pembicaraannya telah ditambahkan ke daftar pantauan Anda %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ubah</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">selamanya</string>

@@ -271,6 +271,7 @@
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
   <string name="edit_conflict_title">تضارب تحرير</string>
   <string name="edit_conflict_message">تم تعديل الصفحة بالفعل من قبل مستخدم مختلف، وتتعارض مع تعديلك; الرجاء نسخ التعديلات، والعودة وتحديث الصفحة، ثم حاول التعديل مرة أخرى.</string>
+  <string name="edit_notices">تبصرات التحرير</string>
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
   <string name="find_first_occurence">هذه هي أول فرصة</string>
@@ -1001,6 +1002,7 @@
   <string name="menu_option_share_edit">شارك التعديل</string>
   <string name="menu_option_user_profile">ملف %s</string>
   <string name="menu_option_user_contributions">مساهمات %s</string>
+  <string name="menu_option_edit_source">عدل المصدر</string>
   <string name="watchlist_details_watching_label">تُراقب</string>
   <string name="watchlist_details_watch_label">راقب</string>
   <string name="watchlist_details_next_edit">التعديل التالي</string>
@@ -1012,6 +1014,8 @@
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>
   <string name="thank_dialog_negative_button_text">ألغ</string>
   <string name="thank_success_message">أُرسل \"شكرك\" إلى %s 👍</string>
+  <string name="menu_option_view_user_profile">اعرض صفحة المستخدم</string>
+  <string name="menu_option_view_user_talk">اعرض صفحة النقاش</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">أُضيفت %1$s وصفحة نقاشها إلى قائمة مراقبتك %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">غيّر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">بشكلٍ دائمٍ</string>

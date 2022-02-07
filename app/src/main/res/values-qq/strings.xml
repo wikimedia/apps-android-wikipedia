@@ -83,9 +83,13 @@
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="menu_page_add_to_watchlist">Menu item for adding the current page to the Watchlist.</string>
+  <string name="menu_page_watch">Menu item for adding the current page to the Watchlist.</string>
   <string name="menu_page_view_talk">Menu item text for accessing the article talk page.</string>
+  <string name="menu_page_talk_page">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_view_edit_history">Menu item text for accessing the article edit history.</string>
+  <string name="menu_page_edit_history">Menu item text for accessing the article edit history.</string>
   <string name="menu_page_remove_from_watchlist">Menu item for removing the current page from the Watchlist.</string>
+  <string name="menu_page_watched">Menu item for removing the current page from the Watchlist.</string>
   <string name="edit_section_find_in_page">Menu item for invoking Find in page on a page in edit mode.</string>
   <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
   <string name="menu_page_add_to_list">Menu item for adding the current page to a reading list.</string>
@@ -94,6 +98,7 @@
   <string name="feed_card_add_to_default_list">Menu item for adding the a card from the feed to a default reading list.</string>
   <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.\n{{Identical|Share}}</string>
   <string name="menu_article_share">Menu item text for sharing the current article the user is reading.</string>
+  <string name="menu_page_article_share">Menu item text for sharing the current article the user is reading.</string>
   <string name="menu_page_open_a_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>
@@ -406,6 +411,7 @@
   <string name="error_blocked_expiry">Label stating the expiry date of the block. The %s symbol is replaced by the date.</string>
   <string name="error_blocked_id">Label stating the ID of the block. The %s symbol is replaced by the ID.</string>
   <string name="error_blocked_footer">Text that explains how to get in touch with the user or administrator that created the block. The %1$s symbol is replaced by the username of the blocker, and %2$s is replaced by a URL that leads to the user page of the blocker.</string>
+  <string name="theme_chooser_menu_item_tooltip">Tooltip message text for customizing menu options on article screen.\n\n\"Reading focus mode\" is {{msg-wm|Wikipedia-android-strings-reading focus mode}}.</string>
   <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
@@ -435,6 +441,8 @@
   <string name="theme_category_reading">Label for theme category that contains settings related to reading.</string>
   <string name="reading_focus_mode">Label for checkbox that enables reading focus mode.</string>
   <string name="reading_focus_mode_detail">Detailed label for checkbox that enables reading focus mode.</string>
+  <string name="theme_category_toolbar">Button label for customizing toolbar category.</string>
+  <string name="theme_customize_toolbar">Button label for customizing toolbar options.</string>
   <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
@@ -779,6 +787,7 @@
   <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
   <string name="description_starts_with_lowercase">Warning text shown when a description starts with a lowercase character.</string>
   <string name="description_is_in_different_language">Warning message shown to users when their editing language is different form their keyboard language.%s represents the expected language.</string>
+  <string name="description_verification_notice">Warning message shown to users when their editing language is not recognized by the machine learning service. %1$s and %2$s represent the language of the editing description.</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Message shown on a snackbar that the article description the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
@@ -796,6 +805,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
+  <string name="customize_toolbar_title">Title text of the customize toolbar page.</string>
+  <string name="customize_toolbar_description">Description of the customize toolbar page.</string>
+  <string name="customize_toolbar_category_toolbar">Category of toolbar in the customize toolbar page.</string>
+  <string name="customize_toolbar_category_menu">Category of menu in the customize toolbar page.\n\n{{Identical|Menu}}</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize toolbar page.</string>
+  <string name="customize_toolbar_reset_to_default_button">Button label for resetting the configuration of customize toolbar to default.</string>
   <string name="suggested_edits_describe_articles">Title of screen where the user chooses articles that are missing article descriptions to be described.</string>
   <string name="suggested_edits_caption_images">Title of screen where the user chooses images that are missing captions to be captioned.</string>
   <string name="suggested_edits_tag_images">Title of screen where the user chooses tags that represent an image.</string>
@@ -1088,6 +1103,8 @@
   <string name="thank_dialog_positive_button_text">Positive button label on the thank dialog.</string>
   <string name="thank_dialog_negative_button_text">Negative button label on the thank dialog.\n{{identical|Cancel}}</string>
   <string name="thank_success_message">Message shown to user after thanking an edit in the diff screen. %s is the contributing user\'s username.</string>
+  <string name="menu_option_view_user_profile">Menu label to navigate to the user page of the selected user.</string>
+  <string name="menu_option_view_user_talk">Menu label to navigate to the talk page of the selected user.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.\n\n{{Identical|Change}}</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>

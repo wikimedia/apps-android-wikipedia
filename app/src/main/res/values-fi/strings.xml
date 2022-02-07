@@ -81,7 +81,9 @@
   <string name="menu_page_other_languages">Vaihda kieli</string>
   <string name="menu_page_find_in_page">Etsi artikkelista</string>
   <string name="menu_page_add_to_watchlist">Lisää tarkkailulistalle</string>
+  <string name="menu_page_watch">Tarkkaile</string>
   <string name="menu_page_view_talk">Näytä keskustelusivu</string>
+  <string name="menu_page_talk_page">Keskustelusivu</string>
   <string name="menu_page_view_edit_history">Näytä muokkaushistoria</string>
   <string name="menu_page_remove_from_watchlist">Poista tarkkailulistalta</string>
   <string name="edit_section_find_in_page">Etsi sivulta</string>
@@ -92,6 +94,7 @@
   <string name="feed_card_add_to_default_list">Tallenna</string>
   <string name="menu_page_share">Jaa linkki</string>
   <string name="menu_article_share">Jaa artikkeli</string>
+  <string name="menu_page_article_share">Jaa</string>
   <string name="menu_page_open_a_new_tab">Avaa uusi välilehti</string>
   <string name="menu_page_new_tab">Uusi välilehti</string>
   <string name="menu_page_reading_lists">Lukulistat</string>
@@ -430,6 +433,8 @@
   <string name="text_size_decrease">Kasvata tekstin kokoa</string>
   <string name="text_size_percent_default">%s (oletus)</string>
   <string name="text_style_title">Kirjasin</string>
+  <string name="theme_category_toolbar">Työkalupalkki</string>
+  <string name="theme_customize_toolbar">Kustomoi työkalupalkki</string>
   <string name="nav_item_saved">Tallennettu</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_move_to">Siirrä lukulistaan</string>
@@ -790,6 +795,11 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
+  <string name="customize_toolbar_title">Kustomoi työkalupalkki</string>
+  <string name="customize_toolbar_category_toolbar">Työkalupalkki</string>
+  <string name="customize_toolbar_category_menu">Valikko</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Raahaa ja pudota suosikkikohteesi tähän 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Nollaa oletukseksi</string>
   <string name="suggested_edits_describe_articles">Kuvaile artikkeleita</string>
   <string name="suggested_edits_caption_images">Kuvatekstit</string>
   <string name="suggested_edits_tag_images">Merkitse kuvia</string>
@@ -1086,6 +1096,7 @@
   <string name="thank_dialog_positive_button_text">Lähetä kiitokset</string>
   <string name="thank_dialog_negative_button_text">Peruuta</string>
   <string name="thank_success_message">Kiitoksesi lähetettiin käyttäjälle %s 👍</string>
+  <string name="menu_option_view_user_talk">Näytä keskustelusivu</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s keskustelusivuineen on lisätty tarkkailulistallesi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Vaihda</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">pysyvästi</string>

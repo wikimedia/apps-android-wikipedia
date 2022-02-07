@@ -55,6 +55,12 @@ interface Service {
         @Query("gsroffset") gsrOffset: String?
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
+    fun prefixSearchUsers(
+            @Query("auprefix") prefix: String,
+            @Query("aulimit") maxResults: Int
+    ): Observable<MwQueryResponse>
+
     // ------- Miscellaneous -------
 
     @get:GET(MW_API_PREFIX + "action=fancycaptchareload")
