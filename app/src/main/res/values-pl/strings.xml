@@ -86,9 +86,13 @@
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
   <string name="menu_page_find_in_page">Znajdź w artykule</string>
   <string name="menu_page_add_to_watchlist">Dodaj do listy obserwowanych</string>
+  <string name="menu_page_watch">Obserwuj</string>
   <string name="menu_page_view_talk">Zobacz stronę dyskusji</string>
+  <string name="menu_page_talk_page">Strona dyskusji</string>
   <string name="menu_page_view_edit_history">Zobacz historię edycji</string>
+  <string name="menu_page_edit_history">Historia edycji</string>
   <string name="menu_page_remove_from_watchlist">Usuń z listy obserwowanych</string>
+  <string name="menu_page_watched">Obserwowane</string>
   <string name="edit_section_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
@@ -97,6 +101,7 @@
   <string name="feed_card_add_to_default_list">Zapisz</string>
   <string name="menu_page_share">Udostępnij łącze</string>
   <string name="menu_article_share">Udostępnij artykuł</string>
+  <string name="menu_page_article_share">Udostępnij</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
   <string name="menu_page_new_tab">Nowa karta</string>
   <string name="menu_page_reading_lists">Listy do przeczytania</string>
@@ -228,6 +233,7 @@
   <string name="page_protected_can_not_edit_anon">Niestety, tej strony nie można obecnie edytować anonimowo.</string>
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj do listy obserwowanych</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Śledź artykuły, które cię ciekawią. Kliknij w menu i wybierz &lt;b&gt;Dodaj do listy obserwowanych&lt;/b&gt;, aby widzieć zmiany w artykule.</string>
   <string name="page_notification_tooltip">Twoje powiadomienia znajdują się tutaj.</string>
   <string name="settings_item_preferences">Ustawienia</string>
   <string name="settings_activity_title">Ustawienia</string>
@@ -318,6 +324,7 @@
   <string name="gallery_save_success">Plik zapisany.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
   <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów.</string>
+  <string name="gallery_edit_button_content_description">Edytuj podpis obrazu</string>
   <string name="gallery_add_image_caption_button">Dodaj podpis obrazu</string>
   <string name="gallery_add_image_caption_in_language_button">Dodaj podpis obrazu (%s)</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
@@ -597,8 +604,10 @@
   <string name="preference_summary_notification_mention">Ktoś wspomniał o Tobie na stronie</string>
   <string name="preference_title_notification_user_talk">Strona dyskusji</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">Wiadomości ze stron dyskusji</string>
+  <string name="preference_category_push_notifications">Powiadomienia push</string>
   <string name="preference_category_display_settings">Ustawienia wyświetlania</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+  <string name="notifications_channel_group_other_title">Inne</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
   <string name="view_random_article_card_title">Losowy artykuł</string>

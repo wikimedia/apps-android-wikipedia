@@ -49,10 +49,13 @@
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Am Artikel sichen</string>
   <string name="menu_page_add_to_watchlist">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
+  <string name="menu_page_watch">Iwwerwaachen</string>
   <string name="menu_page_view_talk">Diskussiounssäit weisen</string>
+  <string name="menu_page_talk_page">Diskussiounssäit</string>
   <string name="menu_page_view_edit_history">All Versioune vun der Säit weisen</string>
   <string name="menu_page_edit_history">Historique vun den Ännerungen</string>
   <string name="menu_page_remove_from_watchlist">Vun der Iwwerwaachungslëscht erofhuelen</string>
+  <string name="menu_page_watched">Iwwerwaacht</string>
   <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
   <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
@@ -60,6 +63,7 @@
   <string name="feed_card_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="feed_card_add_to_default_list">Späicheren</string>
   <string name="menu_page_share">Link deelen</string>
+  <string name="menu_page_article_share">Deelen</string>
   <string name="menu_page_open_a_new_tab">En neien Tab opmaachen</string>
   <string name="menu_page_reading_lists">Lieslëschten</string>
   <string name="menu_page_recently_viewed">Rezent gekuckt</string>
@@ -572,6 +576,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
   <string name="description_edit_tutorial_promise">Ech verspriechen dës Funktioun net ze mëssbrauchen.</string>
   <string name="customize_toolbar_category_menu">Menü</string>
+  <string name="customize_toolbar_reset_to_default_button">Op de Standard zrécksetzen</string>
   <string name="suggested_edits_describe_articles">Artikele beschreiwen</string>
   <string name="suggested_edits_caption_images">Ënnertitel fir Biller</string>
   <string name="suggested_edits_review_description">Artikel-Beschreiwung iwwerliesen</string>

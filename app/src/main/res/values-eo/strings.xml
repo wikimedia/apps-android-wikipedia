@@ -14,6 +14,7 @@
 * Remux
 * Robin van der Vliet
 * SHaran (WMF)
+* Spenĉjo
 * Surfo
 * Wierzbowski
 * YvesNevelsteen
@@ -53,6 +54,7 @@
   <string name="menu_page_show_tabs">Montri langetojn</string>
   <string name="menu_page_other_languages">Ŝanĝi lingvon</string>
   <string name="menu_page_find_in_page" fuzzy="true">Trovi en la paĝo</string>
+  <string name="menu_page_talk_page">Diskutopaĝo</string>
   <string name="menu_page_edit_history">Historio de redaktoj</string>
   <string name="edit_section_find_in_page">Trovi en la paĝo</string>
   <string name="menu_page_font_and_theme">Fonto kaj etoso</string>
@@ -77,7 +79,7 @@
   <string name="other_languages_indication_text">Legi en alia lingvo</string>
   <string name="language_count_link_text">Disponebla en %d aliaj lingvoj</string>
   <string name="edit_save_action_license_logged_in">Per publikigo vi akceptas la &lt;a href=\"%1$s\"&gt;uzokondiĉojn&lt;/a&gt; kaj definitive liberigas vian kontribuon laŭ la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Konservante, vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;, kaj ne-malfareble liberigas viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutos&lt;/a&gt;, vi havos pli da privateco.</string>
+  <string name="edit_save_action_license_anon">Per publikigo de viaj ŝanĝoj vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;, kaj konsentas nemalfareble liberigi viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutos&lt;/a&gt;, vi havos pli da privateco.</string>
   <string name="preference_title_language">Vikipediaj lingvoj</string>
   <string name="langlinks_filter_hint">Serĉi</string>
   <string name="langlinks_empty">Ĉi tiu paĝo ne disponeblas en aliaj lingvoj</string>

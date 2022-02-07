@@ -70,10 +70,13 @@
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
   <string name="menu_page_add_to_watchlist">הוספה לרשימת המעקב</string>
+  <string name="menu_page_watch">לעקוב</string>
   <string name="menu_page_view_talk">הצגת דף השיחה</string>
+  <string name="menu_page_talk_page">דף שיחה</string>
   <string name="menu_page_view_edit_history">הצגת היסטוריית עריכות</string>
   <string name="menu_page_edit_history">היסטוריית עריכות</string>
   <string name="menu_page_remove_from_watchlist">הסרה מרשימת המעקב</string>
+  <string name="menu_page_watched">במעקב</string>
   <string name="edit_section_find_in_page">איתור בעמוד</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
@@ -82,6 +85,7 @@
   <string name="feed_card_add_to_default_list">שמירה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_article_share">שיתוף ערך</string>
+  <string name="menu_page_article_share">לשתף</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
   <string name="menu_page_new_tab">לשונית חדשה</string>
   <string name="menu_page_reading_lists">רשימות קריאה</string>
@@ -807,6 +811,7 @@
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
   <string name="description_starts_with_lowercase">נא להימנע מלהתחיל את התיאור מאות קטנה.</string>
   <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי־צפויה. השפה אמורה להיות %s.</string>
+  <string name="description_verification_notice">נא לוודא שהשפה של התיאור שלך היא %1$s. אין בעיה לסגור את ההודעה הזאת אם השפה שכתבת בה היא %2$s.</string>
   <string name="description_edit_success_saved">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_snackbar">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
