@@ -974,7 +974,7 @@
     <item quantity="one">Oʻtgan yili</item>
     <item quantity="other">%d yil oldin</item>
   </plurals>
-  <string name="on_this_day_end_of_scroll_message">You shuncha vaqtni bosib oʻtdingiz 🚀</string>
+  <string name="on_this_day_end_of_scroll_message">Siz shuncha vaqtni bosib oʻtdingiz 🚀</string>
   <string name="on_this_day_back_to_future">Kelajakka qaytmoq</string>
   <string name="languages_list_activity_title">Til qoʻshmoq</string>
   <string name="languages_list_suggested_text">Tavsiya etilgan</string>
