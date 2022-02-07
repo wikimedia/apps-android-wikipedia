@@ -31,7 +31,7 @@ class ArticleEditDetailsViewModel : ViewModel() {
     var watchlistExpiryChanged = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
     var curTitle: PageTitle? = null
-    var diffRevisionId = 0L
+    private var diffRevisionId = 0L
 
     private val watchlistFunnel = WatchlistFunnel()
 
@@ -43,7 +43,7 @@ class ArticleEditDetailsViewModel : ViewModel() {
         }
     }
 
-    fun getWatchedStatus(title: PageTitle) {
+    private fun getWatchedStatus(title: PageTitle) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             watchedStatus.postValue(Resource.Error(throwable))
         }) {

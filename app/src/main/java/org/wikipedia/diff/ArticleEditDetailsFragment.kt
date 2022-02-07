@@ -469,10 +469,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         const val EXTRA_EDIT_LANGUAGE_CODE = "languageCode"
 
         fun newInstance(articleTitle: String, revisionId: Long, languageCode: String): ArticleEditDetailsFragment {
-            val articleEditDetailsFragment = ArticleEditDetailsFragment()
-            articleEditDetailsFragment.arguments = bundleOf(EXTRA_ARTICLE_TITLE to articleTitle,
-                    EXTRA_EDIT_REVISION_ID to revisionId, EXTRA_EDIT_LANGUAGE_CODE to languageCode)
-            return articleEditDetailsFragment
+            return ArticleEditDetailsFragment().apply {
+                arguments = bundleOf(EXTRA_ARTICLE_TITLE to articleTitle,
+                        EXTRA_EDIT_REVISION_ID to revisionId,
+                        EXTRA_EDIT_LANGUAGE_CODE to languageCode)
+            }
         }
     }
 }
