@@ -66,10 +66,13 @@
   <string name="menu_page_other_languages">Byt språk</string>
   <string name="menu_page_find_in_page">Hitta i artikeln</string>
   <string name="menu_page_add_to_watchlist">Lägg till i bevakningslistan</string>
+  <string name="menu_page_watch">Bevaka</string>
   <string name="menu_page_view_talk">Visa diskussionssida</string>
+  <string name="menu_page_talk_page">Diskussionssida</string>
   <string name="menu_page_view_edit_history">Visa redigeringshistorik</string>
   <string name="menu_page_edit_history">Redigeringshistorik</string>
   <string name="menu_page_remove_from_watchlist">Ta bort från bevakningslistan</string>
+  <string name="menu_page_watched">Bevakas</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
   <string name="menu_page_add_to_list">Lägg till i läslista</string>
@@ -78,6 +81,7 @@
   <string name="feed_card_add_to_default_list">Spara</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_article_share">Dela artikel</string>
+  <string name="menu_page_article_share">Dela</string>
   <string name="menu_page_open_a_new_tab">Öppna en ny flik</string>
   <string name="menu_page_new_tab">Ny flik</string>
   <string name="menu_page_reading_lists">Läslistor</string>
@@ -390,6 +394,7 @@
   <string name="error_blocked_expiry">Blockeringens slut: %s</string>
   <string name="error_blocked_id">Blockerings-ID: %s</string>
   <string name="error_blocked_footer">Du kan kontakta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en annan &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
+  <string name="theme_chooser_menu_item_tooltip">Anpassa ditt verktygsfält och prova fokusläget för läsning</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakta en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
   <string name="crash_report_activity_title">Applikationsfel</string>
   <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.\n\nVill du starta om eller avsluta?</string>
@@ -419,6 +424,8 @@
   <string name="theme_category_reading">Läsning</string>
   <string name="reading_focus_mode">Fokusläge för läsning</string>
   <string name="reading_focus_mode_detail">Döljer redigeringsfunktioner och verktygsfältet längst ned vid rullning</string>
+  <string name="theme_category_toolbar">Verktygsfält</string>
+  <string name="theme_customize_toolbar">Anpassa verktygsfält</string>
   <string name="nav_item_saved">Sparade</string>
   <string name="reading_list_save_to">Spara i läslista</string>
   <string name="reading_list_move_to">Flytta till läslista</string>
@@ -762,6 +769,7 @@
   <string name="description_starts_with_uppercase">Börja med liten bokstav om det första ordet inte är ett egennamn.</string>
   <string name="description_starts_with_lowercase">Undvik att börja med en liten bokstav.</string>
   <string name="description_is_in_different_language">Texten verkar vara på ett oväntat språk. Språket bör vara %s.</string>
+  <string name="description_verification_notice">Var god verifiera att din beskrivning är på %1$s. Stäng gärna denna avisering om beskrivningen du skrev är på %2$s.</string>
   <string name="description_edit_success_saved">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeskrivningen har publicerats! (%s)</string>
@@ -779,6 +787,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst en rad, mellan två till tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Börja redigera</string>
   <string name="description_edit_tutorial_promise">Genom att börja, lovar jag att inte missbruka denna funktion.</string>
+  <string name="customize_toolbar_title">Anpassa verktygsfält</string>
+  <string name="customize_toolbar_description">Anpassa det nedre navigeringsfältet med åtgärder och destination du finner mest hjälpsamma.</string>
+  <string name="customize_toolbar_category_toolbar">Verktygsfält</string>
+  <string name="customize_toolbar_category_menu">Meny</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Dra och släpp dina favoritobjekt här 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Återställ till standardvärden</string>
   <string name="suggested_edits_describe_articles">Beskriv artiklar</string>
   <string name="suggested_edits_caption_images">Skriv bildtexter</string>
   <string name="suggested_edits_tag_images">Tagga bilder</string>

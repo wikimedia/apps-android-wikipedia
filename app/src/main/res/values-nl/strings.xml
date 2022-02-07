@@ -91,6 +91,7 @@
   <string name="menu_page_view_edit_history">Bewerkingsgeschiedenis bekijken</string>
   <string name="menu_page_edit_history">Bewerkingsgeschiedenis</string>
   <string name="menu_page_remove_from_watchlist">Verwijderen uit volglijst</string>
+  <string name="menu_page_watched">Gevolgd</string>
   <string name="edit_section_find_in_page">Zoeken in pagina</string>
   <string name="menu_page_font_and_theme">Lettertype en thema</string>
   <string name="menu_page_add_to_list">Aan leeslijst toevoegen</string>
@@ -393,6 +394,7 @@
   <string name="error_message_generic">Er is een fout opgetreden</string>
   <string name="view_link_preview_error_button_dismiss">Afwijzen</string>
   <string name="error_page_does_not_exist">Deze pagina bestaat niet</string>
+  <string name="error_user_page_does_not_exist">Wikipedia heeft geen &lt;a href=\"%1$s\"&gt;gebruikerspagina&lt;/a&gt; met deze exacte naam. Over het algemeen moet deze pagina worden gemaakt en bewerkt door &lt;b&gt;%2$s&lt;/b&gt;. Controleer bij twijfel of \"%3$s\" bestaat.</string>
   <string name="view_wiki_error_message_offline">Er kan geen verbinding gemaakt worden met het internet</string>
   <string name="view_wiki_error_message_timeout">Kan geen verbinding maken met Wikipedia. Controleer uw netwerkverbinding, of probeer het later opnieuw.</string>
   <string name="reference_title">Referentie %s</string>
@@ -411,6 +413,7 @@
   <string name="error_blocked_expiry">Vervaldatum van blokkering: %s</string>
   <string name="error_blocked_id">Blokkering ID: %s</string>
   <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="theme_chooser_menu_item_tooltip">Pas uw werkbalk aan en probeer de focusmodus te lezen</string>
   <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="crash_report_activity_title">Programmafout</string>
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u overnieuw beginnen of sluiten?</string>
@@ -437,6 +440,11 @@
   <string name="text_size_decrease">Tekstgrootte verkleinen</string>
   <string name="text_size_percent_default">%s (standaard)</string>
   <string name="text_style_title">Lettertype</string>
+  <string name="theme_category_reading">Lezen</string>
+  <string name="reading_focus_mode">Lezen in de focusmodus</string>
+  <string name="reading_focus_mode_detail">Verbergt bewerkingsfuncties en onderste werkbalk bij het scrollen</string>
+  <string name="theme_category_toolbar">Werkbalk</string>
+  <string name="theme_customize_toolbar">Pas de werkbalk aan</string>
   <string name="nav_item_saved">Opgeslagen</string>
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
@@ -565,6 +573,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annuleren</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annuleren</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Leeslijst: %s</string>
   <string name="user_option_sync_label">Voorkeuren</string>
   <string name="notification_reverted_title">Bewerking teruggedraaid</string>
   <string name="notification_channel_title">Bestanden downloaden</string>
@@ -684,6 +693,8 @@
   <string name="notifications_swipe_action_unread">Ongelezen</string>
   <string name="notifications_menu_check_all">Alle items selecteren</string>
   <string name="notifications_menu_uncheck_all">Alle items deselecteren</string>
+  <string name="notifications_wiki_filter_header">Wikifilter</string>
+  <string name="notifications_type_filter_header">Filter naar type</string>
   <string name="notifications_all_wikis_text">Alle \"wiki\'s\"</string>
   <string name="notifications_all_types_text">Alle \"types\"</string>
   <string name="notifications_menu_user_talk_page">%s\'s overlegpagina</string>
@@ -776,6 +787,7 @@
   <string name="description_starts_with_uppercase">Start met een kleine letter tenzij het eerste woord een eigennaam is.</string>
   <string name="description_starts_with_lowercase">Begin niet met een kleine letter.</string>
   <string name="description_is_in_different_language">De tekst lijkt in een onverwachte taal te zijn. De taal moet %s zijn.</string>
+  <string name="description_verification_notice">Controleer of uw beschrijving in %1$s staat. Voelt u zich vrij om deze melding te negeren als de beschrijving die u heeft geschreven in %2$s staat.</string>
   <string name="description_edit_success_saved">Artikelbeschrijving gepubliceerd!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeschrijving gepubliceerd!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeschrijving gepubliceerd! (%s)</string>
@@ -793,7 +805,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealiter één regel, tussen twee en twaalf woorden</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
+  <string name="customize_toolbar_title">Pas de werkbalk aan</string>
+  <string name="customize_toolbar_description">Pas uw onderste navigatiewerkbalk aan met de acties en bestemmingen die u het nuttigst vindt.</string>
+  <string name="customize_toolbar_category_toolbar">Werkbalk</string>
   <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Sleep je favoriete items hierheen 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Reset naar standaard</string>
   <string name="suggested_edits_describe_articles">Beschrijf artikelen</string>
   <string name="suggested_edits_caption_images">Bijschrift afbeeldingen</string>
   <string name="suggested_edits_tag_images">Afbeeldingen labelen</string>
@@ -963,6 +980,7 @@
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="file_page_add_image_tags_button">Afbeeldingslabel toevoegen</string>
   <string name="file_page_suggestion_reason">Reden voor suggestie</string>
+  <string name="file_page_edit_button_content_description">Bewerk %s</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
@@ -1071,6 +1089,9 @@
   <string name="talk_last_modified">&lt;b&gt;Laatst bewerkt %1$s&lt;/b&gt; door %2$s</string>
   <string name="talk_snackbar_survey_text">Bedankt voor het gebruiken van overlegpagina\'s. Zou je ons kunnen helpen de app te verbeteren, door deel te nemen aan een enquête?</string>
   <string name="talk_snackbar_survey_action_text">Aan de slag</string>
+  <string name="talk_share_discussion_subject">Wikipedia - discussie over overlegpagina-onderwerp \"%s\"</string>
+  <string name="talk_share_talk_page">Wikipedia - discussies op overlegpagina</string>
+  <string name="talk_edit_disclaimer">Dit is een overlegpagina. Respecteer de richtlijnen van de overlegpagina en vergeet niet om uw berichten te ondertekenen door vier tildes te typen: ~~~~ wanneer u een bericht plaatst met wikitekst.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/ Wikipedia:Talk_page_guidelines\"&gt;Richtlijnen voor overlegpagina\'s&lt;/a&gt; op de Engelstalige Wikipedia</string>
   <string name="menu_option_share_talk_discussion">Deel overleg</string>
   <string name="menu_option_share_talk_page">Overlegpagina delen</string>
   <string name="menu_option_share_edit">Bewerking delen</string>

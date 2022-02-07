@@ -78,7 +78,9 @@
   <string name="menu_page_other_languages">언어 변경</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
   <string name="menu_page_add_to_watchlist">주시문서 목록에 추가</string>
+  <string name="menu_page_watch">주시</string>
   <string name="menu_page_view_talk">토론 문서 보기</string>
+  <string name="menu_page_talk_page">토론 문서</string>
   <string name="menu_page_view_edit_history">편집 역사 보기</string>
   <string name="menu_page_edit_history">편집 역사</string>
   <string name="menu_page_remove_from_watchlist">주시문서 목록에서 제거</string>
@@ -90,6 +92,7 @@
   <string name="feed_card_add_to_default_list">저장</string>
   <string name="menu_page_share">링크 공유</string>
   <string name="menu_article_share">문서 공유</string>
+  <string name="menu_page_article_share">공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
   <string name="menu_page_new_tab">새 탭</string>
   <string name="menu_page_reading_lists">읽기 목록</string>
