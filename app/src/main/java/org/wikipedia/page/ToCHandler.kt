@@ -80,6 +80,14 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
         webView.addOnScrollChangeListener(this)
         webView.addOnContentHeightChangedListener(this)
         scrollerView.callback = ScrollerCallback()
+        drawerLayout.addDrawerListener(object : DrawerLayout.SimpleDrawerListener() {
+            override fun onDrawerStateChanged(newState: Int) {
+                super.onDrawerStateChanged(newState)
+                if (!isVisible && newState == DrawerLayout.STATE_DRAGGING) {
+                    onStartShow()
+                }
+            }
+        })
         setScrollerPosition()
     }
 
@@ -108,11 +116,15 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
         }
     }
 
-    fun show() {
-        drawerLayout.openDrawer(containerView)
+    private fun onStartShow() {
         currentItemSelected = -1
         onScrollerMoved(0f, false)
         funnel.scrollStart()
+    }
+
+    fun show() {
+        drawerLayout.openDrawer(containerView)
+        onStartShow()
     }
 
     fun hide() {
