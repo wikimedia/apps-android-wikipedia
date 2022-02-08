@@ -26,6 +26,7 @@ import org.wikipedia.page.EditHistoryListViewModel.EditSizeDetails
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class EditHistoryListActivity : BaseActivity() {
@@ -130,7 +131,10 @@ class EditHistoryListActivity : BaseActivity() {
                 val editSizeDetails: EditSizeDetails = viewModel.fetchEditDetails(pageTitle.wikiSite.languageCode, oldRevision?.revId ?: 0, listItem.revId)
                 runOnUiThread {
                     val diffTextView: MaterialButton = itemView.findViewById(R.id.diffText)
-                    itemView.findViewById<TextView>(R.id.editHistoryTitle).text = listItem.comment.ifEmpty { editSizeDetails.text }
+                    val editCommentTextView: TextView = itemView.findViewById(R.id.editHistoryTitle)
+                    editCommentTextView.text = listItem.comment.ifEmpty { editSizeDetails.text }
+                    editCommentTextView.text = if (listItem.minor) StringUtil.fromHtml(getString(R.string.page_edit_history_minor_edit, editCommentTextView.text))
+                    else editCommentTextView.text
                     diffTextView.text = String.format(if (editSizeDetails.diffSize != 0) "%+d" else "%d", editSizeDetails.diffSize)
                     if (editSizeDetails.diffSize >= 0) {
                         diffTextView.setTextColor(if (editSizeDetails.diffSize > 0) ContextCompat.getColor(this@EditHistoryListActivity, R.color.green50) else ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.material_theme_secondary_color))
