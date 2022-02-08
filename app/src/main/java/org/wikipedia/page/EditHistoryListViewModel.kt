@@ -12,6 +12,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.restbase.DiffResponse
+import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.util.Resource
 import org.wikipedia.util.Resource.Success
 import org.wikipedia.util.log.L
@@ -20,6 +21,9 @@ import java.nio.charset.StandardCharsets
 class EditHistoryListViewModel : ViewModel() {
 
     val editHistoryListData = MutableLiveData<Resource<List<Revision>>>()
+    val editCountsData = MutableLiveData<Resource<List<EditCount>>>()
+
+    private val typesOfEdits = listOf(EditCount.EDIT_TYPE_EDITS, EditCount.EDIT_TYPE_BOT, EditCount.EDIT_TYPE_ANONYMOUS)
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
@@ -103,6 +107,23 @@ class EditHistoryListViewModel : ViewModel() {
             }
         }
         return indices
+    }
+
+    fun fetchEditCounts(pageTitle: PageTitle) {
+        viewModelScope.launch(handler) {
+            withContext(Dispatchers.IO) {
+                val list = mutableListOf<EditCount>()
+                typesOfEdits.forEach {
+                    val response = ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, it)
+                    list.add(response)
+                }
+                editCountsData.postValue(Success(list))
+            }
+        }
+    }
+
+    fun fetchCreatedDate(pageTitle: PageTitle) {
+        // TODO: reduce API calls by getting the latest edit history from the API?
     }
 
     class EditSizeDetails(val diffSize: Int, val text: CharSequence)
