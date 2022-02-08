@@ -41,7 +41,7 @@ class EditHistoryListViewModel : ViewModel() {
 
     suspend fun fetchEditDetails(languageCode: String,
                                  olderRevisionId: Long,
-                                 revisionId: Long): EditSizeDetails {
+                                 revisionId: Long): EditDetails {
         val response: DiffResponse = ServiceFactory.getCoreRest(WikiSite.forLanguageCode(languageCode)).getEditDiff(olderRevisionId, revisionId)
         var diffSize = 0
         val spannableString = SpannableStringBuilder()
@@ -70,24 +70,22 @@ class EditHistoryListViewModel : ViewModel() {
                }
 
                if (diff.highlightRanges.isNotEmpty()) {
-                   for (highlightRange in diff.highlightRanges) {
+                   for (editRange in diff.highlightRanges) {
                        val indices = utf8Indices(diff.text)
-                       val highlightRangeStart = indices[highlightRange.start]
-                       val highlightRangeEnd = if (highlightRange.start + highlightRange.length < indices.size)
-                           indices[highlightRange.start + highlightRange.length] else indices[indices.size - 1]
-                       if (highlightRange.type == DiffResponse.HIGHLIGHT_TYPE_ADD) {
-                           diffSize += highlightRange.length
-                           changeText.append(spannableString.subSequence(prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd))
+                       val editRangeStart = indices[editRange.start]
+                       val editRangeEnd = if (editRange.start + editRange.length < indices.size) indices[editRange.start + editRange.length] else indices[indices.size - 1]
+                       if (editRange.type == DiffResponse.HIGHLIGHT_TYPE_ADD) {
+                           diffSize += editRange.length
                        } else {
-                           diffSize -= highlightRange.length
-                           changeText.append(spannableString.subSequence(prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd))
+                           diffSize -= editRange.length
                        }
+                       changeText.append(spannableString.subSequence(prefixLength + editRangeStart, prefixLength + editRangeEnd))
                    }
                }
                spannableString.append("\n")
            }
        }
-        return EditSizeDetails(diffSize, changeText)
+        return EditDetails(diffSize, changeText)
     }
 
     private fun utf8Indices(s: String): IntArray {
@@ -125,6 +123,6 @@ class EditHistoryListViewModel : ViewModel() {
     fun fetchCreatedDate(pageTitle: PageTitle) {
         // TODO: reduce API calls by getting the latest edit history from the API?
     }
-
-    class EditSizeDetails(val diffSize: Int, val text: CharSequence)
+    
+    class EditDetails(val diffSize: Int, val text: CharSequence)
 }
