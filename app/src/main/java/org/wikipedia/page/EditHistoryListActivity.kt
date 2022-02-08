@@ -44,7 +44,7 @@ class EditHistoryListActivity : BaseActivity() {
         viewModel.editHistoryListData.observe(this) {
             if (it is Resource.Success) {
                 binding.editHistoryLoadProgress.visibility = View.INVISIBLE
-                setUpRecyclerView(viewModel.editHistoryListData.value?.data!!)
+                setUpRecyclerView(it.data)
             }
         }
     }
@@ -138,7 +138,6 @@ class EditHistoryListActivity : BaseActivity() {
                         diffTextView.setTextColor(ContextCompat.getColor(this@EditHistoryListActivity, R.color.red50))
                     }
                 }
-
             }
             itemView.findViewById<MaterialButton>(R.id.userNameText).text = listItem.user
             itemView.findViewById<TextView>(R.id.editHistoryTimeText).text = DateUtil.getTimeString(DateUtil.iso8601DateParse(listItem.timeStamp))

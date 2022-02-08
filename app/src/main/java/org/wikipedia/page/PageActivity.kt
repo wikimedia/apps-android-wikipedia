@@ -581,51 +581,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
-    private fun showOverflowMenu(anchor: View) {
-        PageActionOverflowView(this).show(anchor, overflowCallback, pageFragment.currentTab,
-            pageFragment.model.shouldLoadAsMobileWeb, pageFragment.model.isWatched, pageFragment.model.hasWatchlistExpiry
-        )
-    }
-
-    private inner class OverflowCallback : PageActionOverflowView.Callback {
-        override fun forwardClick() {
-            pageFragment.goForward()
-        }
-
-        override fun watchlistClick(isWatched: Boolean) {
-            if (isWatched) {
-                watchlistFunnel.logRemoveArticle()
-            } else {
-                watchlistFunnel.logAddArticle()
-            }
-            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, isWatched)
-        }
-
-        override fun shareClick() {
-            pageFragment.sharePageLink()
-        }
-
-        override fun newTabClick() {
-            startActivity(newIntentForNewTab(this@PageActivity))
-        }
-
-        override fun feedClick() {
-            goToMainTab()
-        }
-
-        override fun talkClick() {
-            pageFragment.title?.let {
-                startActivity(TalkTopicsActivity.newIntent(this@PageActivity, it, InvokeSource.PAGE_ACTIVITY))
-            }
-        }
-
-        override fun editHistoryClick() {
-            pageFragment.title?.run {
-                startActivity(EditHistoryListActivity.newIntent(this@PageActivity, this))
-            }
-        }
-    }
-
     private fun modifyMenu(mode: ActionMode) {
         val menu = mode.menu
         val menuItemsList = menu.children.filter {

@@ -1128,4 +1128,5 @@
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
   <string name="page_edit_history_activity_label">Label text for the new edit history screen.</string>
+  <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit.</string>
 </resources>
