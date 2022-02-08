@@ -15,7 +15,7 @@ class DiffResponse {
     class DiffItem {
 
         val type = 0
-        private val lineNumber = 0
+        val lineNumber = 0
         val text: String = ""
         private val offset: DiffOffset? = null
         val highlightRanges: List<HighlightRange> = emptyList()
