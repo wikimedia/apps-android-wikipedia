@@ -24,9 +24,8 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.diff.ArticleEditDetailsActivity.Companion
 import org.wikipedia.page.EditHistoryListViewModel
-import org.wikipedia.page.EditHistoryListViewModel.EditSizeDetails
+import org.wikipedia.page.EditHistoryListViewModel.EditDetails
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource.Success
@@ -133,16 +132,16 @@ class EditHistoryListActivity : BaseActivity() {
         ViewHolder(itemView) {
         fun bindItem(oldRevision: Revision?, listItem: Revision) {
             CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
-                val editSizeDetails: EditSizeDetails = viewModel.fetchEditDetails(pageTitle.wikiSite.languageCode, oldRevision?.revId ?: 0, listItem.revId)
+                val editDetails: EditDetails = viewModel.fetchEditDetails(pageTitle.wikiSite.languageCode, oldRevision?.revId ?: 0, listItem.revId)
                 runOnUiThread {
                     val diffTextView: MaterialButton = itemView.findViewById(id.diffText)
                     val editCommentTextView: TextView = itemView.findViewById(id.editHistoryTitle)
-                    editCommentTextView.text = listItem.comment.ifEmpty { editSizeDetails.text }
+                    editCommentTextView.text = listItem.comment.ifEmpty { editDetails.text }
                     editCommentTextView.text = if (listItem.minor) StringUtil.fromHtml(getString(string.page_edit_history_minor_edit, editCommentTextView.text))
                     else editCommentTextView.text
-                    diffTextView.text = String.format(if (editSizeDetails.diffSize != 0) "%+d" else "%d", editSizeDetails.diffSize)
-                    if (editSizeDetails.diffSize >= 0) {
-                        diffTextView.setTextColor(if (editSizeDetails.diffSize > 0) ContextCompat.getColor(this@EditHistoryListActivity, color.green50) else ResourceUtil.getThemedColor(this@EditHistoryListActivity, attr.material_theme_secondary_color))
+                    diffTextView.text = String.format(if (editDetails.diffSize != 0) "%+d" else "%d", editDetails.diffSize)
+                    if (editDetails.diffSize >= 0) {
+                        diffTextView.setTextColor(if (editDetails.diffSize > 0) ContextCompat.getColor(this@EditHistoryListActivity, color.green50) else ResourceUtil.getThemedColor(this@EditHistoryListActivity, attr.material_theme_secondary_color))
                     } else {
                         diffTextView.setTextColor(ContextCompat.getColor(this@EditHistoryListActivity, color.red50))
                     }
