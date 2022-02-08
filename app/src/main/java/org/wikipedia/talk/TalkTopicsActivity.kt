@@ -11,9 +11,8 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -28,6 +27,7 @@ import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
@@ -40,6 +40,7 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
+import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
@@ -59,6 +60,7 @@ class TalkTopicsActivity : BaseActivity() {
     private val topics = mutableListOf<TalkPage.Topic>()
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var revisionForLastEdit: MwQueryPage.Revision? = null
+    private var resolveTitleRequired = false
     private var goToTopic = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -105,6 +107,18 @@ class TalkTopicsActivity : BaseActivity() {
             }
         }
         notificationButtonView = NotificationButtonView(this)
+        Prefs.hasAnonymousNotification = false
+
+        // Determine whether we need to resolve the PageTitle, since the calling activity might
+        // have given us a non-Talk page, and we need to prepend the correct namespace.
+        if (pageTitle.namespace.isEmpty()) {
+            pageTitle.namespace = TalkAliasData.valueFor(pageTitle.wikiSite.languageCode)
+        } else if (pageTitle.isUserPage) {
+            pageTitle.namespace = UserTalkAliasData.valueFor(pageTitle.wikiSite.languageCode)
+        } else if (pageTitle.namespace() != Namespace.TALK && pageTitle.namespace() != Namespace.USER_TALK) {
+            // defer resolution of Talk page title for an API call.
+            resolveTitleRequired = true
+        }
     }
 
     public override fun onDestroy() {
@@ -115,7 +129,6 @@ class TalkTopicsActivity : BaseActivity() {
     public override fun onResume() {
         super.onResume()
         loadTopics()
-        TalkPageSurvey.maybeShowSurvey(this@TalkTopicsActivity, editSubmitted = false)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -155,12 +168,6 @@ class TalkTopicsActivity : BaseActivity() {
                         binding.talkProgressBar.visibility = View.VISIBLE
                         undoSave(newRevisionId, topic, undoneSubject, undoneText)
                     }
-                    .addCallback(object : BaseTransientBottomBar.BaseCallback<Snackbar>() {
-                        override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
-                            super.onDismissed(transientBottomBar, event)
-                            TalkPageSurvey.maybeShowSurvey(this@TalkTopicsActivity, editSubmitted = true)
-                        }
-                    })
                     .show()
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY && resultCode == TalkTopicActivity.RESULT_BACK_FROM_TOPIC) {
@@ -217,6 +224,10 @@ class TalkTopicsActivity : BaseActivity() {
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
                 return true
             }
+            R.id.menu_talk_topic_share -> {
+                ShareUtil.shareText(this, getString(R.string.talk_share_talk_page), pageTitle.uri)
+                return true
+            }
             else -> return super.onOptionsItemSelected(item)
         }
     }
@@ -236,8 +247,27 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
 
-        disposables.add(ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText)
+        disposables.add(if (resolveTitleRequired) { ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText) } else { Observable.just(MwQueryResponse()) }
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap { response ->
+                    resolveTitleRequired = false
+                    response.query?.namespaces?.let { namespaces ->
+                        response.query?.firstPage()?.let { page ->
+                            // In MediaWiki, namespaces that are even-numbered are "regular" pages,
+                            // and namespaces that are odd-numbered are the "Talk" versions of the
+                            // corresponding even-numbered namespace. For example, "User"=2, "User talk"=3.
+                            // So then, if the namespace of our pageTitle is even (i.e. not a Talk page),
+                            // then increment the namespace by 1, and update the pageTitle with it.
+                            val newNs = namespaces.values.find { it.id == page.namespace().code() + 1 }
+                            if (page.namespace().code() % 2 == 0 && newNs != null) {
+                                pageTitle.namespace = newNs.name
+                            }
+                        }
+                    }
+                    binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
+                    ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText)
+                }
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap {
                     it.query?.firstPage()?.revisions?.getOrNull(0)?.let { revision ->
@@ -305,6 +335,7 @@ class TalkTopicsActivity : BaseActivity() {
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code == 404) {
             updateOnEmpty()
+            invalidateOptionsMenu()
         } else {
             binding.talkNewTopicButton.hide()
             binding.talkLastModified.visibility = View.GONE

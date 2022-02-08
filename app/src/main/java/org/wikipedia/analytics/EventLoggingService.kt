@@ -4,7 +4,7 @@ import android.net.Uri
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.Request
-import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
@@ -43,7 +43,7 @@ class EventLoggingService private constructor() {
 
         // https://github.com/wikimedia/mediawiki-extensions-EventLogging/blob/8b3cb1b/modules/ext.eventLogging.core.js#L57
         private const val MAX_URL_LEN = 2000
-        private val EMPTY_REQ = RequestBody.create(null, ByteArray(0))
+        private val EMPTY_REQ = ByteArray(0).toRequestBody(null, 0, 0)
         private val EVENTLOG_URL = if (ReleaseUtil.isDevRelease) EVENTLOG_URL_DEV else EVENTLOG_URL_PROD
         val instance = EventLoggingService()
     }

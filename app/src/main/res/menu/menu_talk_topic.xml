@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_talk_topic_group"
+        android:icon="@drawable/ic_more_vert_themed_24dp"
+        android:title="@string/nav_item_more"
+        app:showAsAction="always">
+        <menu>
+
+            <item
+                android:id="@+id/menu_talk_topic_share"
+                android:icon="@drawable/ic_share_material_secondary_themed"
+                android:title="@string/menu_option_share_talk_discussion"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/menu_edit_source"
+                android:icon="@drawable/ic_mode_edit_material_secondary_themed"
+                android:title="@string/menu_option_edit_source"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>

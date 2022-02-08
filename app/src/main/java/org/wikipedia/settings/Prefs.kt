@@ -40,6 +40,10 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_previous_color_theme, fallback.marshallingId)
         set(theme) = PrefsIoUtil.setInt(R.string.preference_key_previous_color_theme, theme)
 
+    var readingFocusModeEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_focus_mode, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_focus_mode, value)
+
     var fontFamily
         get() = PrefsIoUtil.getString(R.string.preference_key_font_family, "").orEmpty().ifEmpty { "sans-serif" }
         set(fontFamily) = PrefsIoUtil.setString(R.string.preference_key_font_family, fontFamily)
@@ -256,6 +260,26 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_notification_unread_count, 0)
         set(count) = PrefsIoUtil.setInt(R.string.preference_key_notification_unread_count, count)
 
+    var hasAnonymousNotification
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_anon_user_has_notification, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_anon_user_has_notification, value)
+
+    var lastAnonUserWithMessages
+        get() = PrefsIoUtil.getString(R.string.preference_key_last_anon_user_with_messages, "")
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_last_anon_user_with_messages, value)
+
+    var lastAnonEditTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_last_anon_edit_time, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_edit_time, value)
+
+    var lastAnonNotificationTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_last_anon_notification_time, 0)
+        set(value) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_notification_time, value)
+
+    var lastAnonNotificationLang
+        get() = PrefsIoUtil.getString(R.string.preference_key_last_anon_notification_lang, "")
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_last_anon_notification_lang, value)
+
     fun preferOfflineContent(): Boolean {
         return PrefsIoUtil.getBoolean(R.string.preference_key_prefer_offline_content, false)
     }
@@ -372,10 +396,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
 
-    var showTalkPageSurveyAttempts
-        get() = PrefsIoUtil.getInt(R.string.preference_key_show_talk_page_survey_attempts, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_show_talk_page_survey_attempts, value)
-
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visited_article_page, value)
@@ -475,6 +495,10 @@ object Prefs {
     val exploreFeedVisitCount
         get() = PrefsIoUtil.getInt(R.string.preference_key_explore_feed_visit_count, 0)
 
+    var loggedInPageActivityVisitCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_logged_in_page_activity_visit_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_logged_in_page_activity_visit_count, value)
+
     var selectedLanguagePositionInSearch
         get() = PrefsIoUtil.getInt(R.string.preference_key_selected_language_position_in_search, 0)
         set(position) = PrefsIoUtil.setInt(R.string.preference_key_selected_language_position_in_search, position)
@@ -530,9 +554,29 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_edit_notices_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_edit_notices_tooltip_shown, value)
 
-    val talkPageSurveyOverride
-        get() = PrefsIoUtil.getBoolean(R.string.preference_developer_override_talk_page_survey, false)
-
     val hideReadNotificationsEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notification_hide_read, false)
+
+    var customizeToolbarOrder
+        get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_order, null))
+            ?: listOf(0, 1, 2, 3, 4)
+        set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_order, JsonUtil.encodeToString(orderList))
+
+    var customizeToolbarMenuOrder
+        get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null))
+            ?: listOf(5, 6, 7, 8, 9, 10)
+        set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_menu_order, JsonUtil.encodeToString(orderList))
+
+    fun resetToolbarAndMenuOrder() {
+        PrefsIoUtil.remove(R.string.preference_key_customize_toolbar_order)
+        PrefsIoUtil.remove(R.string.preference_key_customize_toolbar_menu_order)
+    }
+
+    var showOneTimeCustomizeToolbarTooltip
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_customize_toolbar_tooltip, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_customize_toolbar_tooltip, value)
+
+    var showEditTalkPageSourcePrompt
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_edit_talk_page_source_prompt, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_edit_talk_page_source_prompt, value)
 }

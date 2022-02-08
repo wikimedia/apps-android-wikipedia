@@ -13,7 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.NotificationPreferencesFunnel
 import org.wikipedia.databinding.ViewSearchAndFilterBinding
-import org.wikipedia.notifications.NotificationsFilterActivity
+import org.wikipedia.notifications.NotificationFilterActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -37,7 +37,7 @@ class SearchAndFilterActionProvider(context: Context,
         binding.searchInput.inputType = EditorInfo.TYPE_CLASS_TEXT
         binding.searchInput.isSubmitButtonEnabled = false
         binding.searchInput.queryHint = searchHintString
-        binding.searchInput.setSearchHintTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color))
+        binding.searchInput.setSearchHintTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_63))
         updateFilterIconAndText()
         binding.searchInput.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(s: String): Boolean {
@@ -58,7 +58,7 @@ class SearchAndFilterActionProvider(context: Context,
         binding.notificationFilterIcon.setOnClickListener {
             NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
             DeviceUtil.hideSoftKeyboard(it)
-            context.startActivity(NotificationsFilterActivity.newIntent(context))
+            context.startActivity(NotificationFilterActivity.newIntent(context))
         }
         FeedbackUtil.setButtonLongPressToast(binding.notificationFilterIcon)
 

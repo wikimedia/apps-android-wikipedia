@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist
 
+import android.content.ContextWrapper
 import android.icu.text.ListFormatter
 import android.os.Build
 import android.view.Gravity
@@ -16,9 +17,9 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.ClipboardUtil.setPlainText
-import org.wikipedia.util.FeedbackUtil.showMessage
-import org.wikipedia.util.ShareUtil.shareText
+import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ShareUtil
 
 class LongPressMenu(private val anchorView: View, private val existsInAnyList: Boolean, private val callback: Callback?) {
     interface Callback {
@@ -56,14 +57,14 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
             return
         }
         listsContainingPage?.let {
-            PopupMenu(anchorView.context, anchorView).let { menu ->
+            PopupMenu(getActivity(), anchorView).let { menu ->
                 menu.menuInflater.inflate(menuRes, menu.menu)
                 menu.setOnMenuItemClickListener(PageSaveMenuClickListener())
                 if (it.size == 1) {
                     val removeItem = menu.menu.findItem(R.id.menu_long_press_remove_from_lists)
-                    removeItem.title = anchorView.context.getString(R.string.reading_list_remove_from_list, it[0].title)
+                    removeItem.title = getActivity().getString(R.string.reading_list_remove_from_list, it[0].title)
                     val moveItem = menu.menu.findItem(R.id.menu_long_press_move_from_list_to_another_list)
-                    moveItem.title = anchorView.context.getString(R.string.reading_list_move_from_to_other_list, it[0].title)
+                    moveItem.title = getActivity().getString(R.string.reading_list_move_from_to_other_list, it[0].title)
                     moveItem.isVisible = true
                     moveItem.isEnabled = true
                 }
@@ -86,7 +87,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
 
     private fun deleteOrShowDialog() {
         listsContainingPage?.let { list ->
-            RemoveFromReadingListsDialog(list).deleteOrShowDialog(anchorView.context) { readingLists, _ ->
+            RemoveFromReadingListsDialog(list).deleteOrShowDialog(getActivity()) { readingLists, _ ->
                 entry?.let {
                     if (anchorView.isAttachedToWindow) {
                         val readingListNames = readingLists.map { readingList -> readingList.title }.run {
@@ -96,13 +97,20 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                                 joinToString(separator = ", ")
                             }
                         }
-                        showMessage((anchorView.context as AppCompatActivity),
-                                anchorView.context.getString(R.string.reading_list_item_deleted_from_list,
+                        FeedbackUtil.showMessage(getActivity(), getActivity().getString(R.string.reading_list_item_deleted_from_list,
                                         it.title.displayText, readingListNames))
                     }
                 }
             }
         }
+    }
+
+    private fun getActivity(): AppCompatActivity {
+        return (if (anchorView.context !is AppCompatActivity && anchorView.context is ContextWrapper) {
+            (anchorView.context as ContextWrapper).baseContext
+        } else {
+            anchorView.context
+        }) as AppCompatActivity
     }
 
     private inner class PageSaveMenuClickListener : PopupMenu.OnMenuItemClickListener {
@@ -133,13 +141,13 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                     true
                 }
                 R.id.menu_long_press_share_page -> {
-                    entry?.let { shareText(anchorView.context, it.title) }
+                    entry?.let { ShareUtil.shareText(getActivity(), it.title) }
                     true
                 }
                 R.id.menu_long_press_copy_page -> {
                     entry?.let {
-                        setPlainText(anchorView.context, null, it.title.uri)
-                        showMessage((anchorView.context as AppCompatActivity), R.string.address_copied)
+                        ClipboardUtil.setPlainText(getActivity(), null, it.title.uri)
+                        FeedbackUtil.showMessage((getActivity() as AppCompatActivity), R.string.address_copied)
                     }
                     true
                 }

@@ -11,6 +11,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.Window
 import android.view.accessibility.AccessibilityManager
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -27,7 +28,8 @@ object DeviceUtil {
         get() = WindowCompat.getInsetsController(this, decorView)
 
     fun showSoftKeyboard(view: View) {
-        ViewCompat.getWindowInsetsController(view)?.show(WindowInsetsCompat.Type.ime())
+        (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+                .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
     }
 
     fun hideSoftKeyboard(activity: Activity) {

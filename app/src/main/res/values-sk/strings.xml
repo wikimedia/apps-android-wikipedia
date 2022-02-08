@@ -53,6 +53,7 @@
   <string name="search_tab_tooltip">Pre zadanie hľadaného výrazu stlačte toto tlačítko.</string>
   <string name="history_list_title">História</string>
   <string name="image_content_description">Obrázok: %s</string>
+  <string name="page_content_description">Stránka: %s</string>
   <string name="wikimedia_commons">Wikimédia Commons</string>
   <string name="wikidata">Wikiúdaje</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
@@ -76,6 +77,7 @@
   <string name="feed_card_add_to_list">Pridať do zoznamu na prečítanie</string>
   <string name="feed_card_add_to_default_list">Uložiť</string>
   <string name="menu_page_share">Zdieľať odkaz</string>
+  <string name="menu_article_share">Zdieľať článok</string>
   <string name="menu_page_open_a_new_tab">Otvoriť novú kartu</string>
   <string name="menu_page_new_tab">Nová karta</string>
   <string name="menu_page_reading_lists">Zoznamy na prečítanie</string>
@@ -255,6 +257,9 @@
   <string name="edit_conflict_title">Konflikt pri upravovaní</string>
   <string name="edit_conflict_message">Táto stránka bola upravená iným používateľom a jeho úprava je v konflikte s tou vašou. Prosím, skopírujte svoju úpravu, obnovte článok a skúste to znova.</string>
   <string name="edit_notices">Editačné poznámky</string>
+  <string name="edit_notices_please_read">Pred upravovaním prosím čítajte</string>
+  <string name="edit_notices_show_auto">Zobraziť poznámky o úpravách automaticky</string>
+  <string name="edit_notices_tooltip">Pre zobrazenie poznámok o úpravách pre tento článok stlačte toto tlačítko.</string>
   <string name="find_next">Nájsť ďalšie</string>
   <string name="find_previous">Nájsť predchádzajúce</string>
   <string name="find_first_occurence">Toto je prvý výskyt</string>
@@ -306,6 +311,7 @@
   <string name="gallery_save_success">Súbor bol uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="gallery_save_image_write_permission_rationale">Na uloženie obrázkov je nutné povolenie na zápis údajov do zariadenia.</string>
+  <string name="gallery_edit_button_content_description">Upraviť titulok obrázku</string>
   <string name="gallery_add_image_caption_button">Pridať titulok obrázku</string>
   <string name="gallery_add_image_caption_in_language_button">Pridať popis obrázka (%s)</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
@@ -369,6 +375,7 @@
   <string name="error_message_generic">Nastala chyba</string>
   <string name="view_link_preview_error_button_dismiss">Zrušiť</string>
   <string name="error_page_does_not_exist">Táto stránka neexistuje</string>
+  <string name="error_user_page_does_not_exist">Na Wikipédii nie je &lt;a href=\"%1$s\"&gt;používateľská stránka&lt;/a&gt; s presne takýmto menom. Všeobecne by táto stránka mala byť vytvorená a upravená používateľom &lt;b&gt;%2$s&lt;/b&gt;. Ak sa Vám to nepozdáva overte si či používateľ \"%3$s\" existuje.</string>
   <string name="view_wiki_error_message_offline">Nebolo možné pripojiť sa na internet</string>
   <string name="view_wiki_error_message_timeout">Nedá sa pripojiť k Wikipédii. Skontrolujte svoje sieťové pripojenie alebo to skúste neskôr</string>
   <string name="reference_title">Referencia %s</string>
@@ -553,6 +560,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Zrušiť</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Zrušiť</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Zoznam na čítanie: %s</string>
   <string name="user_option_sync_label">Nastavenia</string>
   <string name="notification_reverted_title">Vaša úprava bol vrátená</string>
   <string name="notification_channel_title">Sťahovanie článkov</string>
@@ -624,6 +632,21 @@
   <string name="notifications_direct_reply_action">Odpovedať</string>
   <string name="notifications_direct_reply_progress">Odosielanie odpovede pre %s...</string>
   <string name="notifications_direct_reply_success">Odpoveď zverejnená.</string>
+  <string name="notifications_direct_reply_error">Príspevok sa nepodarilo automaticky zverejniť.</string>
+  <string name="notifications_mark_all_as_read_message">%d označené ako prečítané</string>
+  <string name="notifications_mark_all_as_unread_message">%d označené ako neprečítané</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">Jedna označená ako prečítaná</item>
+    <item quantity="few">%d označené ako prečítané</item>
+    <item quantity="many">%d označených ako prečítané</item>
+    <item quantity="other">%d označených ako prečítané</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">Jedna označená ako neprečítaná</item>
+    <item quantity="few">%d označené ako neprečítané</item>
+    <item quantity="many">%d označených ako neprečítané</item>
+    <item quantity="other">%d označených ako neprečítané</item>
+  </plurals>
   <string name="watchlist_title">Zoznam sledovaných</string>
   <string name="preference_title_notification_poll">Kontrola nových notifikácií</string>
   <string name="preference_summary_notification_poll">Povoliť aplikácii používanie dát ku kontrole nových notifikácií na pozadí.</string>
@@ -656,6 +679,33 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Notifikácie z Wikipédie</string>
   <string name="notifications_channel_group_other_title">Iné</string>
   <string name="notifications_channel_group_other_description">Iné notifikácie z aplikácie</string>
+  <string name="notifications_filter_label">Filtrovať notifikácie</string>
+  <string name="notifications_filter_icon_content_description">Filtrovať notifikácie</string>
+  <string name="notifications_filter_update_app_languages">Aktualizovať jazyky aplikácie</string>
+  <string name="notifications_empty_search_message">Pre zobrazenia viac notifikácií skúste odstrániť %s</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filter</item>
+    <item quantity="few">%d filtre</item>
+    <item quantity="many">%d filtrov</item>
+    <item quantity="other">%d filtrov</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Vybrať všetky filtre</string>
+  <string name="notifications_tab_filter_all">Všetky</string>
+  <string name="notifications_tab_filter_mentions">Zmienky</string>
+  <string name="notifications_search_bar_hint">Vyhľadať alebo filtrovať notifikácie</string>
+  <string name="notifications_search_bar_filter_hint">Filter notifikácií</string>
+  <string name="notifications_menu_mark_as_read">Označiť ako prečítané</string>
+  <string name="notifications_menu_mark_as_unread">Označiť ako neprečítané</string>
+  <string name="notifications_swipe_action_read">Prečítané</string>
+  <string name="notifications_swipe_action_unread">Neprečítané</string>
+  <string name="notifications_menu_check_all">Vybrať všetky položky</string>
+  <string name="notifications_menu_uncheck_all">Odobrať všetky položky</string>
+  <string name="notifications_wiki_filter_header">Wiki filter</string>
+  <string name="notifications_type_filter_header">Type filter</string>
+  <string name="notifications_all_wikis_text">Všetky \"wiki\"</string>
+  <string name="notifications_all_types_text">Všetky \"type\"</string>
+  <string name="notifications_menu_user_talk_page">Diskusná stránka používateľa %s</string>
+  <string name="notifications_offline_disable_message">Funkcia nie je dostupná offline.</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
   <string name="view_random_card_title">Náhodný článok</string>
   <string name="view_random_article_card_title">Náhodný článok</string>
@@ -715,6 +765,7 @@
   <string name="feed_accessibility_card_text">Dostali ste sa na koniec kanálu Objaviť.</string>
   <string name="feed_accessibility_card_load_more_button">Načítať ďalšie</string>
   <string name="top_read_activity_title">Najviac čítaní dňa %s</string>
+  <string name="tabs_activity_title">Záložky</string>
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_article_description_label">Článok</string>
   <string name="description_edit_translate_article_description_label_per_language">Popis článku (%s)</string>
@@ -950,6 +1001,7 @@
   <string name="file_page_add_image_caption_button">Pridať obrázkové titulky</string>
   <string name="file_page_add_image_tags_button">Pridať obrázkové štítky</string>
   <string name="file_page_suggestion_reason">Dôvody návrhu</string>
+  <string name="file_page_edit_button_content_description">Upraviť %s</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
   <string name="description_edit_revert_reason1">Vaša úprava nespĺňa jednu z &lt;a href=\"%1$s\"&gt;požiadavok&lt;/a&gt;.</string>
@@ -1062,6 +1114,10 @@
   <string name="talk_last_modified">&lt;b&gt;Naposledy upravil/a %1$s&lt;/b&gt; %2$s</string>
   <string name="talk_snackbar_survey_text">Ďakujeme za používanie tejto aplikácie. Mohli by ste nám pomôcť zlepšiť aplikáciu a odpovedať na niekoľko otázok v našom prieskume?</string>
   <string name="talk_snackbar_survey_action_text">Začať</string>
+  <string name="talk_share_discussion_subject">Wikipédia - diskusia na stránke témy \"%s\"</string>
+  <string name="talk_share_talk_page">Wikipédia - diskusie na diskusných stránkach</string>
+  <string name="menu_option_share_talk_discussion">Zdieľať diskusiu</string>
+  <string name="menu_option_share_talk_page">Zdieľať diskusnú stránku</string>
   <string name="menu_option_share_edit">Zdieľať úpravu</string>
   <string name="menu_option_user_profile">Profil používateľa %s</string>
   <string name="menu_option_user_contributions">Príspevky používateľa %s</string>
@@ -1070,7 +1126,7 @@
   <string name="watchlist_details_next_edit">Ďalšia úprava</string>
   <string name="watchlist_details_prev_edit">Predošlá úprava</string>
   <string name="thank_label">Poďakovať</string>
-  <string name="go_to_user_page">Prejsť na stránku používateľa</string>
+  <string name="view_user_page">Zobraziť stránku používateľa</string>
   <string name="thank_dialog_title_text">Verejne poslať poďakovanie</string>
   <string name="thank_dialog_text">Poďakovania sú jednoduchý spôsob ako ukázať ocenenie práce redaktorov na Wikipédii. Poďakovanie sa nedá vrátiť a sú verejné</string>
   <string name="thank_dialog_positive_button_text">Poslať poďakovanie</string>

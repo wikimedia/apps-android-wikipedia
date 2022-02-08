@@ -8,6 +8,7 @@
 * Areee
 * BriskyBlizzard
 * Cxz
+* Dbrant
 * ElmA
 * Envlh
 * Jack Phoenix
@@ -31,6 +32,7 @@
 * Surjection
 * Tumm1
 * Valtlait
+* Veikk0.ma
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -65,6 +67,7 @@
   <string name="search_tab_tooltip">Napauta kuvaketta uudelleen aloittaaksesi hakutermin kirjoittamisen suoraan.</string>
   <string name="history_list_title">Historia</string>
   <string name="image_content_description">Kuva: %s</string>
+  <string name="page_content_description">Sivu: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
@@ -78,7 +81,9 @@
   <string name="menu_page_other_languages">Vaihda kieli</string>
   <string name="menu_page_find_in_page">Etsi artikkelista</string>
   <string name="menu_page_add_to_watchlist">Lisää tarkkailulistalle</string>
+  <string name="menu_page_watch">Tarkkaile</string>
   <string name="menu_page_view_talk">Näytä keskustelusivu</string>
+  <string name="menu_page_talk_page">Keskustelusivu</string>
   <string name="menu_page_view_edit_history">Näytä muokkaushistoria</string>
   <string name="menu_page_remove_from_watchlist">Poista tarkkailulistalta</string>
   <string name="edit_section_find_in_page">Etsi sivulta</string>
@@ -88,6 +93,8 @@
   <string name="feed_card_add_to_list">Lisää lukulistaan</string>
   <string name="feed_card_add_to_default_list">Tallenna</string>
   <string name="menu_page_share">Jaa linkki</string>
+  <string name="menu_article_share">Jaa artikkeli</string>
+  <string name="menu_page_article_share">Jaa</string>
   <string name="menu_page_open_a_new_tab">Avaa uusi välilehti</string>
   <string name="menu_page_new_tab">Uusi välilehti</string>
   <string name="menu_page_reading_lists">Lukulistat</string>
@@ -266,6 +273,10 @@
   <string name="edit_summary_tag_other_hint">Muita sivulle tehtyjä parannuksia</string>
   <string name="edit_conflict_title">Päällekkäinen muokkaus.</string>
   <string name="edit_conflict_message">Toinen käyttäjä on jo muokannut sivua, ja se on ristiriidassa muokkauksesi kanssa. Kopioi muokkauksesi, palaa takaisin ja päivitä sivu, yritä sitten muokata uudelleen.</string>
+  <string name="edit_notices">Muokkausilmoitukset</string>
+  <string name="edit_notices_please_read">Lue ennen muokkaamista</string>
+  <string name="edit_notices_show_auto">Näytä muokkausilmoitukset automaattisesti</string>
+  <string name="edit_notices_tooltip">Katso artikkelin muokkausilmoitukset painamalla tätä nappia.</string>
   <string name="find_next">Etsi seuraava</string>
   <string name="find_previous">Etsi edellinen</string>
   <string name="find_first_occurence">Tämä on ensimmäinen esiintyminen</string>
@@ -315,6 +326,7 @@
   <string name="gallery_save_success">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
   <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten.</string>
+  <string name="gallery_edit_button_content_description">Muokkaa kuvatekstiä</string>
   <string name="gallery_add_image_caption_button">Lisää kuvateksti</string>
   <string name="gallery_add_image_caption_in_language_button">Lisää kuvateksti (%s)</string>
   <string name="err_cannot_save_file">Tiedostoa ei voitu tallentaa</string>
@@ -376,6 +388,7 @@
   <string name="error_message_generic">Tapahtui virhe</string>
   <string name="view_link_preview_error_button_dismiss">Hylkää</string>
   <string name="error_page_does_not_exist">Tätä sivua ei ole olemassa</string>
+  <string name="error_user_page_does_not_exist">Wikipediassa ei ole tämän nimistä &lt;a href=\"%1$s\"&gt;käyttäjäsivua&lt;/a&gt;. Useimmiten vain käyttäjän &lt;b&gt;%2$s&lt;/b&gt; tulisi luoda tämä sivu ja muokata sitä. Mikäli et ole varma, varmista että käyttäjä \"%3$s\" on olemassa.</string>
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
   <string name="view_wiki_error_message_timeout">Wikipediaan ei saada yhteyttä. Tarkista verkkoyhteytesi tai yritä myöhemmin uudelleen.</string>
   <string name="reference_title">Viite %s</string>
@@ -420,6 +433,8 @@
   <string name="text_size_decrease">Kasvata tekstin kokoa</string>
   <string name="text_size_percent_default">%s (oletus)</string>
   <string name="text_style_title">Kirjasin</string>
+  <string name="theme_category_toolbar">Työkalupalkki</string>
+  <string name="theme_customize_toolbar">Kustomoi työkalupalkki</string>
   <string name="nav_item_saved">Tallennettu</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_move_to">Siirrä lukulistaan</string>
@@ -548,6 +563,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Peruuta</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Peruuta</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Lukulista: %s</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
   <string name="notification_channel_title">Artikkelien lataaminen</string>
@@ -603,6 +619,7 @@
   <string name="notifications_mark_unread">Merkitse lukemattomaksi</string>
   <string name="notifications_mark_all_as_read">Merkitse kaikki luetuiksi</string>
   <string name="notifications_direct_reply_action">Vastaa</string>
+  <string name="notifications_direct_reply_progress">Lähetetään vastausta käyttäjälle %s…</string>
   <string name="notifications_direct_reply_success">Vastaus lähetetty.</string>
   <string name="notifications_direct_reply_error">Vastausta ei voitu julkaista automaattisesti.</string>
   <string name="notifications_mark_all_as_read_message">%d merkitty luetuksi</string>
@@ -636,21 +653,31 @@
   <string name="preference_title_notification_email_user">Sähköposti vastaanotettu</string>
   <string name="preference_summary_notification_email_user">Joku lähetti sinulle sähköpostin wikistä</string>
   <string name="preference_title_notification_user_rights">Käyttäjäoikeuksien muutokset</string>
+  <string name="preference_summary_notification_user_rights">Ilmoitus, joka lähetetään käyttäjäoikeuksiesi muuttumisen yhteydessä</string>
   <string name="preference_title_notification_article_linked">Linkit luomiisi artikkeleihin</string>
+  <string name="preference_summary_notification_article_linked">Lähetetään kun luomallesi sivulle linkitetään</string>
   <string name="preference_category_push_notifications">Push-ilmoitukset</string>
   <string name="preference_title_customize_push_notifications">Kustomoi push-ilmoituksia</string>
   <string name="preference_category_display_settings">Näyttöasetukset</string>
+  <string name="preference_title_hide_read_notifications">Piilota luetut ilmoitukset</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Ilmoitukset Wikipediasta</string>
   <string name="notifications_channel_group_other_title">Muu</string>
   <string name="notifications_channel_group_other_description">Muut ilmoitukset sovelluksesta</string>
-  <string name="notifications_filter_add_app_languages">Lisää tai muokkaa sovelluksen kieliä</string>
+  <string name="notifications_filter_label">Suodata ilmoituksia</string>
+  <string name="notifications_filter_icon_content_description">Suodata ilmoituksia</string>
+  <string name="notifications_filter_update_app_languages">Päivitä sovelluksen kielet</string>
   <string name="notifications_empty_search_message">Kokeile poistaa %s nähdäksesi lisää ilmoituksia</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d suodatin</item>
+    <item quantity="other">%d suodatinta</item>
+  </plurals>
   <string name="notifications_select_all_filters">Valitse kaikki suodattimet</string>
   <string name="notifications_tab_filter_all">Kaikki</string>
   <string name="notifications_tab_filter_mentions">Maininnat</string>
   <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_search_bar_hint">Etsi tai suodata ilmoituksia</string>
+  <string name="notifications_search_bar_filter_hint">Ilmoitussuodatin</string>
   <string name="notifications_menu_mark_as_read">Merkitse luetuksi</string>
   <string name="notifications_menu_mark_as_unread">Merkitse lukemattomaksi</string>
   <string name="notifications_swipe_action_read">Luettu</string>
@@ -658,7 +685,11 @@
   <string name="notifications_menu_check_all">Tarkista kaikki kohteet</string>
   <string name="notifications_menu_uncheck_all">Poista valinta kaikista</string>
   <string name="notifications_wiki_filter_header">Wikisuodatin</string>
+  <string name="notifications_type_filter_header">Tyyppisuodatin</string>
+  <string name="notifications_all_wikis_text">Kaikki \"wikit\"</string>
+  <string name="notifications_all_types_text">Kaikki \"tyypit\"</string>
   <string name="notifications_menu_user_talk_page">Käyttäjän %s keskustelusivu</string>
+  <string name="notifications_offline_disable_message">Tämä toiminto ei ole käytettävissä ilman verkkoyhteyttä.</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
   <string name="view_random_article_card_title">Satunnainen artikkeli</string>
@@ -716,6 +747,7 @@
   <string name="feed_accessibility_card_text">Olet päässyt syötteen loppuun.</string>
   <string name="feed_accessibility_card_load_more_button">Lataa enemmän</string>
   <string name="top_read_activity_title">Luetuimmat %s</string>
+  <string name="tabs_activity_title">Välilehdet</string>
   <string name="description_edit_text_hint">Artikkelin kuvaus</string>
   <string name="description_edit_article_description_label">Artikkeli</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikkelin kuvaus (%s)</string>
@@ -763,6 +795,11 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
+  <string name="customize_toolbar_title">Kustomoi työkalupalkki</string>
+  <string name="customize_toolbar_category_toolbar">Työkalupalkki</string>
+  <string name="customize_toolbar_category_menu">Valikko</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Raahaa ja pudota suosikkikohteesi tähän 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Nollaa oletukseksi</string>
   <string name="suggested_edits_describe_articles">Kuvaile artikkeleita</string>
   <string name="suggested_edits_caption_images">Kuvatekstit</string>
   <string name="suggested_edits_tag_images">Merkitse kuvia</string>
@@ -932,6 +969,7 @@
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
   <string name="file_page_add_image_tags_button">Lisää kuvamerkintöjä</string>
   <string name="file_page_suggestion_reason">Ehdotuksen syy</string>
+  <string name="file_page_edit_button_content_description">Muokkaa %s</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
@@ -1040,6 +1078,10 @@
   <string name="talk_last_modified">&lt;b&gt;Sivua muokkasi viimeksi %1$s&lt;/b&gt; %2$s</string>
   <string name="talk_snackbar_survey_text">Kiitos keskustelusivujen käyttämisestä. Voitko auttaa meitä parantamaan sovellusta osallistumalla kyselyyn?</string>
   <string name="talk_snackbar_survey_action_text">Aloita</string>
+  <string name="talk_share_discussion_subject">Wikipedia - keskustelu aiheesta \"%s\" keskustelusivulla</string>
+  <string name="talk_share_talk_page">Wikipedia - keskustelut keskustelusivulla</string>
+  <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
+  <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
   <string name="menu_option_user_profile">Käyttäjän %s profiili</string>
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
@@ -1048,12 +1090,13 @@
   <string name="watchlist_details_next_edit">Seuraava muokkaus</string>
   <string name="watchlist_details_prev_edit">Edellinen muokkaus</string>
   <string name="thank_label">Kiitä</string>
-  <string name="go_to_user_page">Siirry käyttäjäsivulle</string>
+  <string name="view_user_page">Näytä käyttäjäsivu</string>
   <string name="thank_dialog_title_text">Julkinen kiitos lähetetty</string>
   <string name="thank_dialog_text">Kiitoksen lähettäminen on helppo tapa arvostaa toisen käyttäjän panosta Wikipedian kehittämiseen. Kiitoksia ei voi perua, ja ne ovat julkisesti nähtävillä.</string>
   <string name="thank_dialog_positive_button_text">Lähetä kiitokset</string>
   <string name="thank_dialog_negative_button_text">Peruuta</string>
   <string name="thank_success_message">Kiitoksesi lähetettiin käyttäjälle %s 👍</string>
+  <string name="menu_option_view_user_talk">Näytä keskustelusivu</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s keskustelusivuineen on lisätty tarkkailulistallesi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Vaihda</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">pysyvästi</string>

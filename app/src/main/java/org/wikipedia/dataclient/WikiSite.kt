@@ -38,7 +38,7 @@ import org.wikipedia.util.UriUtil
  */
 @Serializable
 @Parcelize
-class WikiSite(
+data class WikiSite(
     @SerialName("domain") @Serializable(with = UriSerializer::class) var uri: Uri,
     var languageCode: String = ""
 ) : Parcelable {
@@ -122,22 +122,6 @@ class WikiSite(
 
     fun dbName(): String {
         return subdomain().replace("-".toRegex(), "_") + "wiki"
-    }
-
-    // Necessary for building HashMaps based on WikiSites.
-    override fun hashCode(): Int {
-        var result = uri.hashCode()
-        result = 31 * result + languageCode.hashCode()
-        return result
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-        other as WikiSite
-        if (uri != other.uri) return false
-        if (languageCode != other.languageCode) return false
-        return true
     }
 
     companion object {

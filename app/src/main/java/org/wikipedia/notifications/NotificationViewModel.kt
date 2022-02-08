@@ -29,7 +29,8 @@ class NotificationViewModel : ViewModel() {
     private var dbNameMap = mapOf<String, WikiSite>()
     private var selectedFilterTab: Int = 0
     private var currentContinueStr: String? = null
-    private var currentSearchQuery: String? = null
+    var currentSearchQuery: String? = null
+        private set
     var mentionsUnreadCount: Int = 0
     var allUnreadCount: Int = 0
 
@@ -69,10 +70,10 @@ class NotificationViewModel : ViewModel() {
 
         val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
         val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
-        val includedWikiCodes = NotificationsFilterActivity.allWikisList().minus(excludedWikiCodes).map {
+        val includedWikiCodes = NotificationFilterActivity.allWikisList().minus(excludedWikiCodes).map {
             it.split("-")[0]
         }
-        val checkExcludedWikiCodes = NotificationsFilterActivity.allWikisList().size != includedWikiCodes.size
+        val checkExcludedWikiCodes = NotificationFilterActivity.allWikisList().size != includedWikiCodes.size
 
         val notificationContainerList = mutableListOf<NotificationListItemContainer>()
 
@@ -116,7 +117,7 @@ class NotificationViewModel : ViewModel() {
     }
 
     private fun delimitedWikiList(): String {
-        return dbNameMap.keys.union(NotificationsFilterActivity.allWikisList().map {
+        return dbNameMap.keys.union(NotificationFilterActivity.allWikisList().map {
             val defaultLangCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(it) ?: it
             "${defaultLangCode.replace("-", "_")}wiki"
         }).joinToString("|")
@@ -125,18 +126,24 @@ class NotificationViewModel : ViewModel() {
     fun excludedFiltersCount(): Int {
         val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
         val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
-        return NotificationsFilterActivity.allWikisList().count { excludedWikiCodes.contains(it) } +
-                NotificationsFilterActivity.allTypesIdList().count { excludedTypeCodes.contains(it) }
+        return NotificationFilterActivity.allWikisList().count { excludedWikiCodes.contains(it) } +
+                NotificationFilterActivity.allTypesIdList().count { excludedTypeCodes.contains(it) }
     }
 
     fun fetchAndSave() {
         viewModelScope.launch(handler) {
             if (WikipediaApp.getInstance().isOnline) {
                 withContext(Dispatchers.IO) {
-                    // TODO: fetch "all" wikis - update after the changes merging to the main branch.
                     currentContinueStr = notificationRepository.fetchAndSave(delimitedWikiList(), "read|!read", currentContinueStr)
                 }
             }
+            collectionNotifications()
+        }
+    }
+
+    fun updateSearchQuery(query: String?) {
+        currentSearchQuery = query
+        viewModelScope.launch(handler) {
             collectionNotifications()
         }
     }
