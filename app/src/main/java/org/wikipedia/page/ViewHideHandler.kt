@@ -12,23 +12,29 @@ import org.wikipedia.views.ViewAnimations.ensureTranslationY
 
 class ViewHideHandler(private val hideableView: View,
                       private val anchoredView: View?,
-                      private val gravity: Int) :
+                      private val gravity: Int,
+                      private val updateElevation: Boolean = true) :
         ObservableWebView.OnScrollChangeListener, OnUpOrCancelMotionEventListener, OnDownMotionEventListener, ObservableWebView.OnClickListener {
 
-    private var webView: ObservableWebView? = null
-
-    fun setScrollView(webView: ObservableWebView?) {
-        this.webView = webView
-        webView?.let {
-            it.addOnScrollChangeListener(this)
-            it.addOnDownMotionEventListener(this)
-            it.addOnUpOrCancelMotionEventListener(this)
-            it.addOnClickListener(this)
+    private lateinit var webView: ObservableWebView
+    var enabled = true
+        set(value) {
+            field = value
+            if (!enabled) {
+                ensureDisplayed()
+            }
         }
+
+    fun setScrollView(webView: ObservableWebView) {
+        this.webView = webView
+        webView.addOnScrollChangeListener(this)
+        webView.addOnDownMotionEventListener(this)
+        webView.addOnUpOrCancelMotionEventListener(this)
+        webView.addOnClickListener(this)
     }
 
     override fun onScrollChanged(oldScrollY: Int, scrollY: Int, isHumanScroll: Boolean) {
-        if (webView == null) {
+        if (!enabled) {
             return
         }
         var animMargin = 0
@@ -53,13 +59,18 @@ class ViewHideHandler(private val hideableView: View,
         hideableView.translationY = animMargin.toFloat()
         anchoredView?.translationY = animMargin.toFloat()
 
-        val elevation = if (scrollY == 0 && oldScrollY != 0) 0F else dpToPx(getDimension(R.dimen.toolbar_default_elevation))
-        if (elevation != hideableView.elevation) {
-            hideableView.elevation = elevation
+        if (updateElevation) {
+            val elevation = if (scrollY == 0 && oldScrollY != 0) 0F else dpToPx(getDimension(R.dimen.toolbar_default_elevation))
+            if (elevation != hideableView.elevation) {
+                hideableView.elevation = elevation
+            }
         }
     }
 
     override fun onUpOrCancelMotionEvent() {
+        if (!enabled) {
+            return
+        }
         val transY = hideableView.translationY.toInt()
         val height = hideableView.height
         if (gravity == Gravity.BOTTOM && transY != 0 && transY < height) {
@@ -69,10 +80,10 @@ class ViewHideHandler(private val hideableView: View,
                 ensureDisplayed()
             }
         } else if (gravity == Gravity.TOP && transY != 0 && transY > -height) {
-            if (transY > -height / 2) {
-                ensureDisplayed()
-            } else {
+            if (transY <= -height / 2 && webView.scrollY > hideableView.height) {
                 ensureHidden()
+            } else {
+                ensureDisplayed()
             }
         }
     }
@@ -82,7 +93,14 @@ class ViewHideHandler(private val hideableView: View,
     }
 
     override fun onClick(x: Float, y: Float): Boolean {
-        ensureDisplayed()
+        if (enabled) {
+            if (hideableView.translationY != 0f) {
+                ensureDisplayed()
+            } else if (gravity == Gravity.BOTTOM ||
+                    (gravity == Gravity.TOP && webView.scrollY > hideableView.height)) {
+                ensureHidden()
+            }
+        }
         return false
     }
 

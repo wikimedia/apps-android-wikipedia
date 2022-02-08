@@ -103,6 +103,9 @@
   <string name="search_tab_tooltip">Pulsar de nuevo el icono para realizar otra búsqueda.</string>
   <string name="history_list_title">Historial</string>
   <string name="image_content_description">Imagen: %s</string>
+  <string name="page_content_description">Página: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Borrar el historial de navegación</string>
   <string name="dialog_message_clear_history">¿Confirmas que quieres vaciar el historial de navegación y cerrar cualesquier pestañas abiertas?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -116,6 +119,7 @@
   <string name="menu_page_add_to_watchlist">Añadir a lista de seguimiento</string>
   <string name="menu_page_view_talk">Ver página de discusión</string>
   <string name="menu_page_view_edit_history">Ver historial de ediciones</string>
+  <string name="menu_page_edit_history">Historial de ediciones</string>
   <string name="menu_page_remove_from_watchlist">Quitar de lista de seguimiento</string>
   <string name="edit_section_find_in_page">Buscar en la página</string>
   <string name="menu_page_font_and_theme">Tipo de letra y tema</string>
@@ -124,6 +128,7 @@
   <string name="feed_card_add_to_list">Añadir a lista de lectura</string>
   <string name="feed_card_add_to_default_list">Guardar</string>
   <string name="menu_page_share">Compartir enlace</string>
+  <string name="menu_article_share">Compartir artículo</string>
   <string name="menu_page_open_a_new_tab">Abrir una pestaña nueva</string>
   <string name="menu_page_new_tab">Pestaña nueva</string>
   <string name="menu_page_reading_lists">Listas de lectura</string>
@@ -246,7 +251,7 @@
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitir a la aplicación enviar automáticamente informes de cierres súbitos a un proveedor de servicios externo para que podamos revisarlos y corregirlos con mayor rapidez y facilidad.</string>
   <string name="editing_error_spamblacklist">Se detectaron enlaces a dominios bloqueados (%s). Por favor elimínalos y vuelve a intentarlo.</string>
-  <string name="history_filter_list_hint">historial de filtros</string>
+  <string name="history_filter_list_hint">Filtrar historial</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>
   <string name="page_protected_autoconfirmed">Esta página está semiprotegida.</string>
   <string name="page_protected_sysop">Esta página está totalmente protegida.</string>
@@ -638,6 +643,7 @@
   <string name="notification_preferences_title">Ajustes de notificaciones</string>
   <string name="notifications_mark_unread">Marcar como no leído</string>
   <string name="notifications_mark_all_as_read">Marcar todo como leído</string>
+  <string name="notifications_direct_reply_action">Responder</string>
   <string name="notifications_direct_reply_success">Respuesta publicada.</string>
   <plurals name="notifications_mark_as_read_plural">
     <item quantity="one">1 marcado como no leído </item>
@@ -679,6 +685,21 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Notificaciones de Wikipedia</string>
   <string name="notifications_channel_group_other_title">Otro</string>
   <string name="notifications_channel_group_other_description">Otras notificaciones de la aplicación</string>
+  <string name="notifications_filter_label">Filtrar notificaciones</string>
+  <string name="notifications_filter_icon_content_description">Filtrar notificaciones</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filtro</item>
+    <item quantity="other">%d filtros</item>
+  </plurals>
+  <string name="notifications_tab_filter_all">Todas</string>
+  <string name="notifications_tab_filter_mentions">Menciones</string>
+  <string name="notifications_search_bar_hint">Buscar o filtrar notificaciones</string>
+  <string name="notifications_menu_mark_as_read">Marcar como leí­da</string>
+  <string name="notifications_menu_mark_as_unread">Marcar como no leída</string>
+  <string name="notifications_swipe_action_read">Leída</string>
+  <string name="notifications_swipe_action_unread">No leída</string>
+  <string name="notifications_menu_check_all">Marcar todas</string>
+  <string name="notifications_menu_uncheck_all">Desmarcar todas</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_article_card_title">Artículo aleatorio</string>
@@ -736,6 +757,7 @@
   <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar más</string>
   <string name="top_read_activity_title">Los más leídos el %s</string>
+  <string name="tabs_activity_title">Pestañas</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
   <string name="description_edit_article_description_label">Artículo</string>
   <string name="description_edit_translate_article_description_label_per_language">Descripción del artículo (%s)</string>
@@ -953,6 +975,7 @@
   <string name="file_page_add_image_caption_button">Añadir leyenda de imagen</string>
   <string name="file_page_add_image_tags_button">Añadir etiquetas de imagen</string>
   <string name="file_page_suggestion_reason">Motivo de la sugerencia</string>
+  <string name="file_page_edit_button_content_description">Editar %s</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -1067,11 +1090,13 @@
   <string name="menu_option_share_edit">Compartir edición</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuciones de %s</string>
+  <string name="menu_option_edit_source">Editar código</string>
   <string name="watchlist_details_watching_label">Vigilando</string>
   <string name="watchlist_details_watch_label">Vigilar</string>
   <string name="watchlist_details_next_edit">Siguiente edición</string>
   <string name="watchlist_details_prev_edit">Edición anterior</string>
   <string name="thank_label">Agradecer</string>
+  <string name="view_user_page">Ver página de usuario</string>
   <string name="thank_dialog_title_text">Enviar agradecimiento públicamente</string>
   <string name="thank_dialog_text">\'Gracias\' es una manera fácil de mostrar agradecimiento por el trabajo de un editor en Wikipedia. Dar las \'Gracias\' no se puede deshacer y es públicamente visible.</string>
   <string name="thank_dialog_positive_button_text">Agradecer</string>

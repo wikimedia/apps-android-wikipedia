@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
             android:textColor="?attr/material_theme_primary_color"
-            android:textColorHint="?attr/material_theme_de_emphasised_color"
+            android:textColorHint="?attr/color_group_63"
             android:textSize="16sp">
             <requestFocus />
         </org.wikipedia.views.PlainPasteEditText>
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
             android:textColor="?attr/material_theme_primary_color"
-            android:textColorHint="?attr/material_theme_de_emphasised_color"
+            android:textColorHint="?attr/color_group_63"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 

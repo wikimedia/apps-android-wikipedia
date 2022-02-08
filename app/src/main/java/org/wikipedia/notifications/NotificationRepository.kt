@@ -1,5 +1,6 @@
 package org.wikipedia.notifications
 
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -10,15 +11,15 @@ class NotificationRepository constructor(private val notificationDao: Notificati
 
     fun getAllNotifications() = notificationDao.getAllNotifications()
 
-    fun insertNotifications(notifications: List<Notification>) {
+    suspend fun insertNotifications(notifications: List<Notification>) {
         notificationDao.insertNotifications(notifications)
     }
 
-    fun updateNotification(notification: Notification) {
+    suspend fun updateNotification(notification: Notification) {
         notificationDao.updateNotification(notification)
     }
 
-    fun deleteNotification(notification: Notification) {
+    suspend fun deleteNotification(notification: Notification) {
         notificationDao.deleteNotification(notification)
     }
 
@@ -30,7 +31,7 @@ class NotificationRepository constructor(private val notificationDao: Notificati
 
     suspend fun fetchAndSave(wikiList: String?, filter: String?, continueStr: String? = null): String? {
         var newContinueStr: String? = null
-        val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications(wikiList, filter, continueStr)
+        val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getAllNotifications(wikiList, filter, continueStr)
         response.query?.notifications?.let {
             // TODO: maybe add a logic to avoid adding same data into database.
             insertNotifications(it.list.orEmpty())

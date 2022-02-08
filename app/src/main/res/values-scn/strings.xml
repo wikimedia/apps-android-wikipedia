@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Ajeje Brazorf
+* Dbrant
 * Statix64
 -->
 <resources>
@@ -10,10 +11,17 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_suggested_edits">Canciamenti</string>
   <string name="nav_item_more">Àutri cosi</string>
+  <string name="page_error_retry">Ripruva</string>
+  <string name="card_offline_error_retry">Ripruva</string>
+  <string name="storage_access_error_retry">Ripruva</string>
+  <string name="article_load_error_retry">Ripruva</string>
+  <string name="offline_load_error_retry">Ripruva</string>
+  <string name="menu_clear_all_history">Cancella la crunuluggìa</string>
   <string name="history_item_delete_undo">Annulla</string>
   <string name="notification_archive_undo">Annulla</string>
   <string name="history_list_title">Crunuluggìa</string>
   <string name="image_content_description">Mmàggini: %s</string>
+  <string name="page_content_description">Pàggina: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
@@ -21,11 +29,15 @@
   <string name="share_via">Cunnividi cu</string>
   <string name="menu_page_other_languages">Cancia lingua</string>
   <string name="menu_page_add_to_watchlist">Agghiunci â lista taliata</string>
+  <string name="menu_page_watch">Talìa</string>
   <string name="menu_page_view_talk">Talìa la pàggina di discussioni</string>
+  <string name="menu_page_talk_page">Pàggina di discussioni</string>
   <string name="menu_page_view_edit_history">Talìa la crunuluggìa dî canciamenti</string>
+  <string name="menu_page_watched">Talìata</string>
   <string name="menu_page_add_to_default_list">Sarva</string>
   <string name="feed_card_add_to_default_list">Sarva</string>
   <string name="menu_article_share">Cunnividi vuci</string>
+  <string name="menu_page_article_share">Cunnividi</string>
   <string name="menu_text_select_edit_here">Cancia ccà</string>
   <string name="talk_page_link_text">Talìa la pàggina di discussioni</string>
   <string name="edit_history_link_text">Talìa la crunuluggìa dî canciamenti</string>
@@ -53,7 +65,7 @@
   <string name="menu_login">Trasi</string>
   <string name="login_activity_title">Trasi</string>
   <string name="login_success_toast">Trasuta rinisciuta!</string>
-  <string name="reset_password_title">Mpusta la tò password</string>
+  <string name="reset_password_title">Mposta la tò password</string>
   <string name="reset_password_hint">Password nova</string>
   <string name="reset_password_button">Sarva e trasi</string>
   <string name="preference_title_logout">Nesci</string>
@@ -78,7 +90,7 @@
   <string name="settings_activity_title">Mpustazzioni</string>
   <string name="privacy_policy_description">Pulìtica supra la privacy</string>
   <string name="terms_of_use_description">Cunnizzioni d\'usu</string>
-  <string name="about_wikipedia_url">https://scn.wikipedia.org/wiki/Wikipedia:%C3%80utri_nfurmazzioni</string>
+  <string name="about_wikipedia_url">https://scn.wikipedia.org/wiki/Wikipedia:Àutri nfurmazzioni</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="about_contributors_heading">Cuntribbutura</string>
@@ -103,6 +115,7 @@
   <string name="table_close">Chiudi</string>
   <string name="dialog_close_description">Chiudi</string>
   <string name="preference_title_show_images">Ammustra mmàggini</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Cunsenti</string>
   <string name="read_more_section">Pi sapìrinni cchiossai</string>
   <string name="about_article_section">Nfurmazzioni supra sta vuci</string>
   <string name="gallery_menu_share">Cunnividi</string>
@@ -161,6 +174,8 @@
   <string name="notifications_activity_title">Nutìfichi</string>
   <string name="notifications_poll_enable_negative">Nun ora</string>
   <string name="watchlist_title">Lista taliata</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Missaggi dû sistema</string>
   <string name="preference_title_notification_thanks">Grazzi</string>
   <string name="preference_title_notification_login_fail">Trasi</string>
   <string name="preference_title_notification_user_talk">Pàggina di discussioni</string>
@@ -211,6 +226,7 @@
   <string name="description_edit_success_done">Fattu</string>
   <string name="description_edit_success_did_you_know">Lu sapivi?</string>
   <string name="description_edit_tutorial_title_descriptions">Discrizzioni dî vuci</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
   <string name="suggested_edits_add_description_button">Agghiunci discrizzioni</string>
   <string name="suggested_edits_edit_description_button">Cancia discrizzioni</string>
   <string name="suggested_edits_add_translation_button">Agghiunci traduzzioni</string>
@@ -255,6 +271,7 @@
   <string name="suggested_edits_contribution_article_label">Vuci</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Aieri</string>
+  <string name="file_page_edit_button_content_description">Cancia %s</string>
   <string name="description_edit_revert_subtitle">Grazzi pi aviri canciatu Wikipedia!</string>
   <string name="description_edit_login_cancel_button_text">Annulla</string>
   <string name="size_gb">%.2f GB</string>
@@ -312,9 +329,12 @@
   <string name="menu_option_share_edit">Cunnividi canciamentu</string>
   <string name="menu_option_user_profile">Prufilu di %s</string>
   <string name="menu_option_user_contributions">Cuntribbuti di %s</string>
+  <string name="menu_option_edit_source">Cancia surgenti</string>
   <string name="watchlist_details_watch_label">Talìa</string>
   <string name="view_user_page">Talìa la pàggina di l\'utenti</string>
   <string name="thank_dialog_negative_button_text">Annulla</string>
+  <string name="menu_option_view_user_profile">Talìa la pàggina prufilu di l\'utenti</string>
+  <string name="menu_option_view_user_talk">Talìa la pàggina di discussioni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cancia</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pi 1 simana</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pi 1 misi</string>

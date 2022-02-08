@@ -32,13 +32,10 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
     }
 
     fun logNotificationFilterPrefs() {
-        val fullFiltersList = mutableListOf<String>()
-        val toggleMap = mutableMapOf<String, Boolean>()
         val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
         val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
-        fullFiltersList.addAll(NotificationFilterActivity.allWikisList())
-        fullFiltersList.addAll(NotificationFilterActivity.allTypesIdList())
-        fullFiltersList.forEach { toggleMap[it] = !excludedWikiCodes.contains(it) && !excludedTypeCodes.contains(it) }
+        val fullFiltersList = NotificationFilterActivity.allWikisList() + NotificationFilterActivity.allTypesIdList()
+        val toggleMap = fullFiltersList.associateWith { !excludedWikiCodes.contains(it) && !excludedTypeCodes.contains(it) }
         log("type_toggles", JsonUtil.encodeToString(toggleMap))
     }
 

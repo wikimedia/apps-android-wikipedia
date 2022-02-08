@@ -6,6 +6,7 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 
 class ContributionsActivity : SingleFragmentActivity<ContributionsFragment>() {
+
     public override fun createFragment(): ContributionsFragment {
         return ContributionsFragment.newInstance(intent.getIntExtra(EXTRA_SOURCE_CONTRIBUTIONS, 0),
                 intent.getLongExtra(EXTRA_SOURCE_PAGEVIEWS, 0))
