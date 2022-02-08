@@ -5,14 +5,11 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.SystemClock
 import androidx.annotation.StringRes
 import androidx.core.app.RemoteInput
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -20,10 +17,8 @@ import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
@@ -58,7 +53,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     return
                 }
                 LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
-                pollNotifications(context)
+                PollNotificationWorker.schedulePollNotificationJob(context)
             }
             ACTION_CANCEL == intent.action -> {
                 NotificationInteractionFunnel.processIntent(intent)
@@ -94,9 +89,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private const val MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
-        private val notificationRepository = NotificationRepository(AppDatabase.getAppDatabase().notificationDao())
-        private val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>()
-        private val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
+        val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>()
+        val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
         private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
 
         @JvmStatic
@@ -135,62 +129,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             return PendingIntent.getBroadcast(context, id.toInt(), intent, DeviceUtil.pendingIntentFlags)
         }
 
-        @JvmStatic
-        fun pollNotifications(context: Context) {
-            CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, t ->
-                if (t is MwException && t.error.title == "login-required") {
-                    assertLoggedIn()
-                }
-                L.e(t)
-            }) {
-                val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification()
-                var lastNotificationTime = ""
-                for (n in response.query?.notifications?.list.orEmpty()) {
-                    if (n.utcIso8601 > lastNotificationTime) {
-                        lastNotificationTime = n.utcIso8601
-                    }
-                }
-                if (lastNotificationTime > Prefs.remoteNotificationsSeenTime) {
-                    Prefs.remoteNotificationsSeenTime = lastNotificationTime
-                    retrieveNotifications(context)
-                }
-            }
-        }
-
-        private fun assertLoggedIn() {
-            // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
-            // and should automatically log us out if the credentials are no longer valid.
-            CsrfTokenClient(WikipediaApp.getInstance().wikiSite).token
-                    .subscribeOn(Schedulers.io())
-                    .subscribe()
-        }
-
-        private suspend fun retrieveNotifications(context: Context) {
-            DBNAME_WIKI_SITE_MAP.clear()
-            DBNAME_WIKI_NAME_MAP.clear()
-            val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unreadNotificationWikis()
-            val wikiMap = response.query!!.unreadNotificationWikis
-            val wikis = mutableListOf<String>()
-            wikis.addAll(wikiMap!!.keys)
-            for (dbName in wikiMap.keys) {
-                if (wikiMap[dbName]!!.source != null) {
-                    DBNAME_WIKI_SITE_MAP[dbName] = WikiSite(wikiMap[dbName]!!.source!!.base)
-                    DBNAME_WIKI_NAME_MAP[dbName] = wikiMap[dbName]!!.source!!.title
-                }
-            }
-            getFullNotifications(context, wikis)
-        }
-
-        private suspend fun getFullNotifications(context: Context, foreignWikis: List<String?>) {
-            val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite)
-                .getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
-            response.query?.notifications?.list?.let {
-                notificationRepository.insertNotifications(it)
-                onNotificationsComplete(context, it)
-            }
-        }
-
-        private fun onNotificationsComplete(context: Context, notifications: List<Notification>) {
+         fun onNotificationsComplete(context: Context, notifications: List<Notification>) {
             if (Prefs.isSuggestedEditsHighestPriorityEnabled) {
                 return
             }
@@ -214,7 +153,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 WikipediaApp.getInstance().bus.post(UnreadNotificationsEvent())
             }
 
-            if (notificationsToDisplay.size > 2) {
+            // Android 7.0 and above performs automatic grouping of multiple notifications, in case
+            // there are significantly more than one. But in the case of Android 6.0 and below,
+            // we show our own custom "grouped" notification.
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N && notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
                 NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki, TYPE_MULTIPLE).logIncoming()
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
@@ -238,10 +180,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun markItemsAsRead(items: List<Notification>) {
-            val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
-            for (item in items) {
-                val wiki = DBNAME_WIKI_SITE_MAP.getOrElse(item.wiki) { WikipediaApp.getInstance().wikiSite }
-                notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(item)
+            val notificationsPerWiki = items.groupBy {
+                DBNAME_WIKI_SITE_MAP.getOrElse(it.wiki) { WikipediaApp.getInstance().wikiSite }
             }
             for (wiki in notificationsPerWiki.keys) {
                 markRead(wiki, notificationsPerWiki[wiki]!!, false)

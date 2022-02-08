@@ -32,8 +32,8 @@ open class EditTextAutoSummarizePreference @JvmOverloads constructor(context: Co
     }
 
     protected open fun updateAutoSummary(value: String?) {
-        if (autoSummarize) {
-            summary = if (shouldPersist() && sharedPreferences.contains(key)) value
+        if (autoSummarize && sharedPreferences != null) {
+            summary = if (shouldPersist() && sharedPreferences!!.contains(key)) value
             else context.getString(R.string.preference_summary_no_value)
         }
     }

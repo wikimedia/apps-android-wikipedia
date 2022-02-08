@@ -51,6 +51,7 @@
 * Soul Train
 * Staspotanin2
 * Stjn
+* Tanzun
 * Teretalexev
 * Thothsum
 * ToJack
@@ -98,6 +99,7 @@
   <string name="search_tab_tooltip">Нажмите на иконку снова, чтобы начать ввод поискового запроса.</string>
   <string name="history_list_title">История</string>
   <string name="image_content_description">Изображение: %s</string>
+  <string name="page_content_description">Страница: %s</string>
   <string name="wikimedia_commons">Викисклад</string>
   <string name="wikidata">Викиданные</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
@@ -111,8 +113,11 @@
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти в статье</string>
   <string name="menu_page_add_to_watchlist">Добавить в список наблюдения</string>
+  <string name="menu_page_watch">Следить</string>
   <string name="menu_page_view_talk">Смотреть страницу обсуждения</string>
+  <string name="menu_page_talk_page">Страница обсуждения</string>
   <string name="menu_page_view_edit_history">Смотреть историю изменений</string>
+  <string name="menu_page_edit_history">История правок</string>
   <string name="menu_page_remove_from_watchlist">Удалить из списка наблюдения</string>
   <string name="edit_section_find_in_page">Найти на странице</string>
   <string name="menu_page_font_and_theme">Шрифт и тема оформления</string>
@@ -121,6 +126,8 @@
   <string name="feed_card_add_to_list">Добавить в список для чтения</string>
   <string name="feed_card_add_to_default_list">Сохранить</string>
   <string name="menu_page_share">Поделиться ссылкой</string>
+  <string name="menu_article_share">Поделиться статьёй</string>
+  <string name="menu_page_article_share">Поделиться</string>
   <string name="menu_page_open_a_new_tab">Открыть новую вкладку</string>
   <string name="menu_page_new_tab">Новая вкладка</string>
   <string name="menu_page_reading_lists">Списки для чтения</string>
@@ -458,6 +465,9 @@
   <string name="text_size_decrease">Уменьшить размер шрифта</string>
   <string name="text_size_percent_default">%s (по умолчанию)</string>
   <string name="text_style_title">Шрифт</string>
+  <string name="theme_category_reading">Чтение</string>
+  <string name="theme_category_toolbar">Панель инструментов</string>
+  <string name="theme_customize_toolbar">Настроить панель инструментов</string>
   <string name="nav_item_saved">Сохранено</string>
   <string name="reading_list_save_to">Добавить в список для чтения</string>
   <string name="reading_list_move_to">Перенести в список для чтения</string>
@@ -787,6 +797,7 @@
   <string name="feed_accessibility_card_text">Вы достигли конца ленты.</string>
   <string name="feed_accessibility_card_load_more_button">Загрузить ещё</string>
   <string name="top_read_activity_title">Самое читаемое %s</string>
+  <string name="tabs_activity_title">Вкладки</string>
   <string name="description_edit_text_hint">Описание статьи</string>
   <string name="description_edit_article_description_label">Статья</string>
   <string name="description_edit_translate_article_description_label_per_language">Описание статьи (%s)</string>
@@ -834,6 +845,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна строка, от двух до двенадцати слов</string>
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
+  <string name="customize_toolbar_title">Настроить панель инструментов</string>
+  <string name="customize_toolbar_category_toolbar">Панель инструментов</string>
   <string name="suggested_edits_describe_articles">Описать статьи</string>
   <string name="suggested_edits_caption_images">Описание изображений</string>
   <string name="suggested_edits_tag_images">Тегирование изображений</string>
@@ -1133,6 +1146,10 @@
   <string name="talk_last_modified">&lt;b&gt;Последняя правка сделана %1$s&lt;/b&gt; участником %2$s</string>
   <string name="talk_snackbar_survey_text">Спасибо за использование страниц обсуждения. Не могли бы вы помочь нам улучшить приложение, приняв участие в опросе?</string>
   <string name="talk_snackbar_survey_action_text">Начать</string>
+  <string name="talk_share_discussion_subject">Википедия — обсуждение в теме «%s»</string>
+  <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
+  <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
+  <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
   <string name="menu_option_user_profile">Профиль %s</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>
@@ -1141,12 +1158,14 @@
   <string name="watchlist_details_next_edit">Следующая правка</string>
   <string name="watchlist_details_prev_edit">Предыдущая правка</string>
   <string name="thank_label">Благодарность</string>
-  <string name="go_to_user_page">Перейти на страницу пользователя</string>
+  <string name="view_user_page">Просмотреть страницу участника</string>
   <string name="thank_dialog_title_text">Публично отправить \'Спасибо\'</string>
   <string name="thank_dialog_text">\'Спасибо\' - это простой способ выразить признательность редактору Википедии за его работу. \'Спасибо\' нельзя отменить и оно отображается публично.</string>
   <string name="thank_dialog_positive_button_text">Отправить благодарность</string>
   <string name="thank_dialog_negative_button_text">Отмена</string>
   <string name="thank_success_message">Ваше \"Спасибо\" отправлено участнику %s 👍</string>
+  <string name="menu_option_view_user_profile">Посмотреть страницу профиля пользователя</string>
+  <string name="menu_option_view_user_talk">Смотрите страницу обсуждения</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Изменить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">постоянно</string>

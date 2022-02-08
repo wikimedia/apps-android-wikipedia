@@ -78,7 +78,11 @@ class LanguagesListViewModel : ViewModel() {
     }
 
     fun getCanonicalName(code: String): String? {
-        return siteListData.value?.data?.find { it.code == code }?.localname.orEmpty()
+        val value = siteListData.value
+        if (value !is Resource.Success) {
+            return null
+        }
+        return value.data.find { it.code == code }?.localname.orEmpty()
                 .ifEmpty { WikipediaApp.getInstance().language().getAppLanguageCanonicalName(code) }
     }
 

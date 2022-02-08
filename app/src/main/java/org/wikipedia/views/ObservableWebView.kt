@@ -51,6 +51,8 @@ class ObservableWebView : WebView {
     private var totalAmountScrolled = 0
     private var drawEventsWhileSwiping = 0
     private var touchSlop = ViewConfiguration.get(context).scaledTouchSlop
+
+    var scrollEventsEnabled = true
     var touchStartX = 0f
         private set
     var touchStartY = 0f
@@ -96,8 +98,10 @@ class ObservableWebView : WebView {
     override fun onScrollChanged(left: Int, top: Int, oldLeft: Int, oldTop: Int) {
         super.onScrollChanged(left, top, oldLeft, oldTop)
         val isHumanScroll = abs(top - oldTop) < MAX_HUMAN_SCROLL
-        onScrollChangeListeners.forEach {
-            it.onScrollChanged(oldTop, top, isHumanScroll)
+        if (scrollEventsEnabled) {
+            onScrollChangeListeners.forEach {
+                it.onScrollChanged(oldTop, top, isHumanScroll)
+            }
         }
         if (!isHumanScroll) {
             return
@@ -135,8 +139,13 @@ class ObservableWebView : WebView {
             MotionEvent.ACTION_UP -> {
                 if (abs(event.x - touchStartX) <= touchSlop &&
                         abs(event.y - touchStartY) <= touchSlop) {
-                    if (onClickListeners.any { it.onClick(event.x, event.y) }) {
-                        return true
+                    // Fire a click event, but only if the hit test doesn't land on a hyperlink
+                    // (i.e. only if the user clicks on whitespace or plain text in the WebView),
+                    // since link clicks will already be passed to the LinkHandler separately.
+                    if (hitTestResult.type == HitTestResult.UNKNOWN_TYPE) {
+                        if (onClickListeners.any { it.onClick(event.x, event.y) }) {
+                            return true
+                        }
                     }
                 }
                 drawEventsWhileSwiping = 0

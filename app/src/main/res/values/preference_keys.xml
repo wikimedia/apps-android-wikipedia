@@ -56,6 +56,11 @@
     <string name="preference_key_notification_customize_push">customizePushNotifications</string>
     <string name="preference_key_notification_hide_read">hideReadNotifications</string>
     <string name="preference_key_notification_unread_count">notificationUnreadCount</string>
+    <string name="preference_key_anon_user_has_notification">anonUserHasNotification</string>
+    <string name="preference_key_last_anon_user_with_messages">lastAnonUserWithMessages</string>
+    <string name="preference_key_last_anon_notification_lang">lastAnonNotificationLang</string>
+    <string name="preference_key_last_anon_edit_time">lastAnonEditTime</string>
+    <string name="preference_key_last_anon_notification_time">lastAnonNotificationTime</string>
     <string name="preference_key_empty_placeholder">emptyPlaceholder</string>
     <string name="preference_key_prefer_offline_content">preferOfflineContent</string>
     <string name="preference_key_editing_text_size_extra">editingTextSizeExtra</string>
@@ -125,4 +130,9 @@
     <string name="preference_key_page_notification_tooltip_shown">pageNotificationTooltipShown</string>
     <string name="preference_key_auto_show_edit_notices">autoShowEditNotices</string>
     <string name="preference_key_edit_notices_tooltip_shown">editNoticesTooltipShown</string>
+    <string name="preference_key_customize_toolbar_tooltip">showCustomizeToolbarTooltip</string>
+    <string name="preference_key_customize_toolbar_order">customizeToolbarOrder</string>
+    <string name="preference_key_customize_toolbar_menu_order">customizeToolbarMenuOrder</string>
+    <string name="preference_key_show_edit_talk_page_source_prompt">showEditTalkPageSourcePrompt</string>
+    <string name="preference_key_reading_focus_mode">readingFocusMode</string>
 </resources>

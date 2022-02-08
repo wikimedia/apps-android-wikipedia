@@ -35,6 +35,7 @@
   <string name="notification_archive_undo">Réckgängeg maachen</string>
   <string name="app_settings">Astellunge vun der App</string>
   <string name="history_list_title">Versiounen</string>
+  <string name="page_content_description">Säit: %s</string>
   <string name="wikimedia_commons">Wikimedia-Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
@@ -48,9 +49,13 @@
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Am Artikel sichen</string>
   <string name="menu_page_add_to_watchlist">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
+  <string name="menu_page_watch">Iwwerwaachen</string>
   <string name="menu_page_view_talk">Diskussiounssäit weisen</string>
+  <string name="menu_page_talk_page">Diskussiounssäit</string>
   <string name="menu_page_view_edit_history">All Versioune vun der Säit weisen</string>
+  <string name="menu_page_edit_history">Historique vun den Ännerungen</string>
   <string name="menu_page_remove_from_watchlist">Vun der Iwwerwaachungslëscht erofhuelen</string>
+  <string name="menu_page_watched">Iwwerwaacht</string>
   <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
   <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
@@ -58,6 +63,7 @@
   <string name="feed_card_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="feed_card_add_to_default_list">Späicheren</string>
   <string name="menu_page_share">Link deelen</string>
+  <string name="menu_page_article_share">Deelen</string>
   <string name="menu_page_open_a_new_tab">En neien Tab opmaachen</string>
   <string name="menu_page_reading_lists">Lieslëschten</string>
   <string name="menu_page_recently_viewed">Rezent gekuckt</string>
@@ -255,6 +261,7 @@
   <string name="gallery_save_progress">Fichier gëtt erofgelueden…</string>
   <string name="gallery_save_success">Fichier gespäichert.</string>
   <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>
+  <string name="gallery_edit_button_content_description">Bildbeschreiwung änneren</string>
   <string name="err_cannot_save_file">Fichier kann net gespäichert ginn</string>
   <string name="expand_refs">Tippe fir opzeklappen</string>
   <string name="cc_logo">Creative-Commons-Lizenz</string>
@@ -324,6 +331,7 @@
   <string name="text_size_increase">Gréisst vum Text méi grouss maachen</string>
   <string name="text_size_decrease">Gréisst vum Text méi kleng maachen</string>
   <string name="text_size_percent_default">%s (Standard)</string>
+  <string name="theme_category_reading">Liesen</string>
   <string name="nav_item_saved">Gespäichert</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
   <string name="reading_list_move_to">Op d\'Lieslëscht réckelen</string>
@@ -420,6 +428,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Ofbriechen</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Ofbriechen</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Lieslëscht: %s</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_reverted_title">Zréckgesaten Ännerung</string>
   <string name="notification_channel_description">Fortschrëtt vum Eroflueden</string>
@@ -566,6 +575,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweis eng Linn, mat tëscht zwee an zwielef Wierder</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
   <string name="description_edit_tutorial_promise">Ech verspriechen dës Funktioun net ze mëssbrauchen.</string>
+  <string name="customize_toolbar_category_menu">Menü</string>
+  <string name="customize_toolbar_reset_to_default_button">Op de Standard zrécksetzen</string>
   <string name="suggested_edits_describe_articles">Artikele beschreiwen</string>
   <string name="suggested_edits_caption_images">Ënnertitel fir Biller</string>
   <string name="suggested_edits_review_description">Artikel-Beschreiwung iwwerliesen</string>
@@ -626,6 +637,7 @@
   <string name="suggested_edits_encourage_account_creation_title">Wousst Dir datt jidderee Wikipedia ännere kann?</string>
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
   <string name="file_page_suggestion_reason">Grond fir d\'Propos</string>
+  <string name="file_page_edit_button_content_description">%s änneren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -706,13 +718,18 @@
   <string name="talk_no_subject">(Kee Sujet)</string>
   <string name="talk_reply_subject">Sujet</string>
   <string name="talk_snackbar_survey_action_text">Fir unzefänken</string>
+  <string name="menu_option_share_talk_discussion">Diskussioun deelen</string>
+  <string name="menu_option_share_talk_page">Diskussiounssäit deelen</string>
   <string name="menu_option_user_contributions">Kontributioune vum %s</string>
+  <string name="menu_option_edit_source">Quelltext änneren</string>
   <string name="watchlist_details_watching_label">Iwwerwaacht</string>
   <string name="watchlist_details_watch_label">Iwwerwaachen</string>
   <string name="thank_label">Merci soen</string>
-  <string name="go_to_user_page">Op d\'Benotzersäit goen</string>
+  <string name="view_user_page">Benotzersäit weisen</string>
   <string name="thank_dialog_positive_button_text">Merci soen</string>
   <string name="thank_dialog_negative_button_text">Ofbriechen</string>
+  <string name="menu_option_view_user_profile">Benotzerprofil weisen</string>
+  <string name="menu_option_view_user_talk">Diskussiounssäit weisen</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">fir 1 Woch</string>

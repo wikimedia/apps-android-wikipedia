@@ -23,6 +23,7 @@
 * Kourosh
 * Ladsgroup
 * Leyth
+* LordProfo
 * Mahdy Saffar
 * Mardetanha
 * Mehdi
@@ -75,6 +76,9 @@
   <string name="search_tab_tooltip">برای تایپ عبارت جستجو، دوباره روی آیکون ضربه بزنید.</string>
   <string name="history_list_title">تاریخچه</string>
   <string name="image_content_description">تصویر: %s</string>
+  <string name="page_content_description">صفحه: %s</string>
+  <string name="wikimedia_commons">ویکی‌انبار</string>
+  <string name="wikidata">ویکی‌داده</string>
   <string name="dialog_title_clear_history">پاک‌کردن تاریخچهٔ جستجو</string>
   <string name="dialog_message_clear_history">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
   <string name="dialog_message_clear_history_yes">بله</string>
@@ -86,9 +90,13 @@
   <string name="menu_page_other_languages">تغییر زبان</string>
   <string name="menu_page_find_in_page">جستجو در مقاله</string>
   <string name="menu_page_add_to_watchlist">افزودن به فهرست پی‌گیری</string>
+  <string name="menu_page_watch">پی‌گیری</string>
   <string name="menu_page_view_talk">مشاهدهٔ صفحهٔ بحث</string>
+  <string name="menu_page_talk_page">صفحهٔ بحث</string>
   <string name="menu_page_view_edit_history">مشاهده تاریخچه ویرایش</string>
+  <string name="menu_page_edit_history">ویرایش تاریخچه</string>
   <string name="menu_page_remove_from_watchlist">حذف از فهرست پی‌گیری</string>
+  <string name="menu_page_watched">پی‌گیری شده</string>
   <string name="edit_section_find_in_page">جستجو در صفحه</string>
   <string name="menu_page_font_and_theme">قلم و پوسته</string>
   <string name="menu_page_add_to_list">افزودن به فهرست مطالعه</string>
@@ -96,6 +104,8 @@
   <string name="feed_card_add_to_list">افزودن به فهرست مطالعه</string>
   <string name="feed_card_add_to_default_list">ذخیره</string>
   <string name="menu_page_share">اشتراک‌گذاری پیوند</string>
+  <string name="menu_article_share">اشتراک‌گذاری مقاله</string>
+  <string name="menu_page_article_share">اشتراک‌گذاری</string>
   <string name="menu_page_open_a_new_tab">بازکردن سربرگ تازه</string>
   <string name="menu_page_new_tab">زبانهٔ جدید</string>
   <string name="menu_page_reading_lists">فهرست‌های مطالعه</string>
@@ -324,6 +334,7 @@
   <string name="gallery_save_success">پرونده ذخیره شد.</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
   <string name="gallery_save_image_write_permission_rationale">برای ذخیره تصاویر، به اجازهٔ ذخیره بر روی دستگاهتان نیاز است.</string>
+  <string name="gallery_edit_button_content_description">ویرایش توضیح تصویر</string>
   <string name="gallery_add_image_caption_button">افزودن توضیح تصویر</string>
   <string name="gallery_add_image_caption_in_language_button">افزودن توضیح تصویر (%s)</string>
   <string name="err_cannot_save_file">ذخیرهٔ پرونده ممکن نیست</string>
@@ -382,6 +393,7 @@
   <string name="error_message_generic">خطایی رخ داد</string>
   <string name="view_link_preview_error_button_dismiss">نپذیرفتن</string>
   <string name="error_page_does_not_exist">این صفحه وجود ندارد</string>
+  <string name="error_user_page_does_not_exist">ویکی‌پدیا &lt;a href=\"%1$s\"&gt;صفحهٔ کاربری‌ای&lt;/a&gt; با این عنوان ندارد. به طور کلی، این صفحه باید توسط &lt;b&gt;%2$s&lt;/b&gt; ایجاد و ویرایش شود. اگر شک دارید، لطفاً بررسی کنید که آیا «%3$s» وجود دارد یا خیر.</string>
   <string name="view_wiki_error_message_offline">امکان اتصال به اینترنت وجود ندارد</string>
   <string name="view_wiki_error_message_timeout">نمی توان به ویکی‌پدیا متصل شد. لطفاً اتصال اینترنت خود را بررسی کنید یا بعدا تلاش کنید.</string>
   <string name="reference_title">منبع %s</string>
@@ -426,6 +438,7 @@
   <string name="text_size_decrease">کاهش اندازهٔ متن</string>
   <string name="text_size_percent_default">%s (پیش‌فرض)</string>
   <string name="text_style_title">قلم</string>
+  <string name="theme_category_reading">مطالعه</string>
   <string name="nav_item_saved">ذخیره شد</string>
   <string name="reading_list_save_to">ذخیره در فهرست مطالعه</string>
   <string name="reading_list_move_to">انتقال به فهرست مطالعه</string>
@@ -554,6 +567,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">لغو</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">لغو</string>
   <string name="reading_list_split_dialog_ok_button_text">تأیید</string>
+  <string name="reading_list_activity_title">فهرست مطالعه: %s</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_reverted_title">ویرایش واگردانی‌شده</string>
   <string name="notification_channel_title">در حال دانلود مقاله‌ها</string>
@@ -608,7 +622,12 @@
   <string name="notification_preferences_title">ترجیحات اعلان‌ها</string>
   <string name="notifications_mark_unread">نشانه‌گذاری به‌عنوان خوانده‌نشده</string>
   <string name="notifications_mark_all_as_read">نشان‌گذاری همه به عنوان خوانده‌شده</string>
+  <string name="notifications_direct_reply_action">پاسخ</string>
+  <string name="notifications_direct_reply_progress">درحال پاسخ به %s...</string>
   <string name="notifications_direct_reply_success">پاسخ ارسال شد.</string>
+  <string name="notifications_direct_reply_error">پاسخ به‌طور خودکار ارسال نشد.</string>
+  <string name="notifications_mark_all_as_read_message">%d به عنوان خوانده شده علامت‌گذاری شد</string>
+  <string name="notifications_mark_all_as_unread_message">%d به عنوان خوانده نشده علامت‌گذاری شد</string>
   <string name="watchlist_title">فهرست پی‌گیری</string>
   <string name="preference_title_notification_poll">سرشماری اعلان‌ها</string>
   <string name="preference_summary_notification_poll">به نرم‌افزار اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی اعلان‌های جدید استفاده کند.</string>
@@ -641,7 +660,10 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">اعلان‌های ویکی‌پدیا</string>
   <string name="notifications_channel_group_other_title">سایر</string>
   <string name="notifications_channel_group_other_description">سایر اعلان‌های برنامه</string>
-  <string name="notifications_filter_add_app_languages">افزودن یا ویرایش زبان‌های نرم‌افزار</string>
+  <string name="notifications_filter_label">پالایش آگاه‌سازی‌ها</string>
+  <string name="notifications_filter_icon_content_description">پالایش آگاه‌سازی‌ها</string>
+  <string name="notifications_filter_update_app_languages">به‌روزرسانی زبان‌های برنامه</string>
+  <string name="notifications_tab_filter_all">همه</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه کرده‌اید</string>
   <string name="view_random_card_title">تصادفی</string>
   <string name="view_random_article_card_title">مقالهٔ تصادفی</string>
@@ -699,6 +721,7 @@
   <string name="feed_accessibility_card_text">شما به انتهای محتوا رسیدید.</string>
   <string name="feed_accessibility_card_load_more_button">بارگیری بیشتر</string>
   <string name="top_read_activity_title">پربازدیدها در %s</string>
+  <string name="tabs_activity_title">زبانه‌ها</string>
   <string name="description_edit_text_hint">توضیحات مقاله</string>
   <string name="description_edit_article_description_label">مقاله</string>
   <string name="description_edit_translate_article_description_label_per_language">توضیحات مقاله (%s)</string>
@@ -746,6 +769,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">به طور ایده‌آل یک خط، بین دو تا دوازده کلمه</string>
   <string name="description_edit_tutorial_button_label_start_editing">آغاز ویرایش کردن</string>
   <string name="description_edit_tutorial_promise">پیش از استفاده، قول می‌دهم از این ویژگی سو‌ءاستفاده نکنم.</string>
+  <string name="customize_toolbar_category_menu">منو</string>
   <string name="suggested_edits_describe_articles">مقاله‌ها را توصیف کنید</string>
   <string name="suggested_edits_caption_images">به تصویرها توضیح بیفزایید</string>
   <string name="suggested_edits_tag_images">برچسب‌گذاری تصویرها</string>
@@ -915,6 +939,7 @@
   <string name="file_page_add_image_caption_button">افزودن توضیح تصویر</string>
   <string name="file_page_add_image_tags_button">افزودن برچسب‌های تصویر</string>
   <string name="file_page_suggestion_reason">دلیل پیشنهاد</string>
+  <string name="file_page_edit_button_content_description">ویرایش %s</string>
   <string name="description_edit_revert_subtitle">سپاس بابت ویرایش ویکی‌پدیا!</string>
   <string name="description_edit_revert_intro">با وجودی که شما همهٔ تلاشتان را کردید، یکی از ویرایشگران با ویرایش شما مخالف است و آن را واگردانی کرده‌است که دلیل آن:</string>
   <string name="description_edit_revert_reason1">ویرایش شما با یکی از &lt;a href=\"%1$s\"&gt;رهنمودها&lt;/a&gt; مطابقت ندارد.</string>
@@ -1026,12 +1051,13 @@
   <string name="menu_option_share_edit">اشتراک‌گذاری ویرایش</string>
   <string name="menu_option_user_profile">رخ‌نمای %s</string>
   <string name="menu_option_user_contributions">مشارکت‌های %s</string>
+  <string name="menu_option_edit_source">ویرایش مبدأ</string>
   <string name="watchlist_details_watching_label">پی‌گیری کردن</string>
   <string name="watchlist_details_watch_label">پی‌گیری</string>
   <string name="watchlist_details_next_edit">ویرایش بعدی</string>
   <string name="watchlist_details_prev_edit">ویرایش قبلی</string>
   <string name="thank_label">سپاس</string>
-  <string name="go_to_user_page">رفتن به صفحه کاربر</string>
+  <string name="view_user_page">نمایش صفحهٔ کاربر</string>
   <string name="thank_dialog_title_text">ارسال «تشکر» به‌صورت عمومی</string>
   <string name="thank_dialog_text">«تشکر» راهی آسان برای نشان دادن قدردانی از کار یک ویرایشگر در ویکی‌پدیا است. «تشکر» قابل واگرد نیست و به‌صورت عمومی قابل مشاهده است</string>
   <string name="thank_dialog_positive_button_text">ارسال تشکر</string>

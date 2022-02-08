@@ -5,6 +5,7 @@
 * Alidemirtas
 * BaRaN6161 TURK
 * Bulgu
+* Can
 * Cobija
 * Cooltey
 * Dbrant
@@ -78,6 +79,8 @@
   <string name="search_tab_tooltip">Doğrudan bir arama terimi yazmaya başlamak için simgeye tekrar dokunun.</string>
   <string name="history_list_title">Geçmiş</string>
   <string name="image_content_description">Resim: %s</string>
+  <string name="page_content_description">Sayfa: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Vikiveri</string>
   <string name="dialog_title_clear_history">Tarama geçmişini temizle</string>
   <string name="dialog_message_clear_history">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
@@ -90,9 +93,13 @@
   <string name="menu_page_other_languages">Dili değiştir</string>
   <string name="menu_page_find_in_page">Maddede bul</string>
   <string name="menu_page_add_to_watchlist">İzleme listesine ekle</string>
+  <string name="menu_page_watch">İzle</string>
   <string name="menu_page_view_talk">Tartışma sayfasını görüntüle</string>
+  <string name="menu_page_talk_page">Tartışma sayfası</string>
   <string name="menu_page_view_edit_history">Düzenleme geçmişini görüntüle</string>
+  <string name="menu_page_edit_history">Düzenleme geçmişi</string>
   <string name="menu_page_remove_from_watchlist">İzleme listesinden kaldır</string>
+  <string name="menu_page_watched">İzlenen</string>
   <string name="edit_section_find_in_page">Sayfada bul</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_page_add_to_list">Okuma listesine ekle</string>
@@ -100,6 +107,8 @@
   <string name="feed_card_add_to_list">Okuma listesine ekle</string>
   <string name="feed_card_add_to_default_list">Kaydet</string>
   <string name="menu_page_share">Bağlantıyı paylaş</string>
+  <string name="menu_article_share">Maddeyi paylaş</string>
+  <string name="menu_page_article_share">Paylaş</string>
   <string name="menu_page_open_a_new_tab">Yeni sekme aç</string>
   <string name="menu_page_new_tab">Yeni sekme</string>
   <string name="menu_page_reading_lists">Okuma listeleri</string>
@@ -278,6 +287,10 @@
   <string name="edit_summary_tag_other_hint">Sayfayı geliştirdiğiniz diğer yönler</string>
   <string name="edit_conflict_title">Düzenleme çakışması</string>
   <string name="edit_conflict_message">Sayfa zaten farklı bir kullanıcı tarafından değiştirilmiş ve düzenlemenizle çakışıyor. Lütfen, düzenlemelerinizi kopyalayın; geri dönün ve sayfayı yenileyip yeniden düzenlemeyi deneyin.</string>
+  <string name="edit_notices">Düzenleme bildirimleri</string>
+  <string name="edit_notices_please_read">Lütfen düzenlemeden önce okuyun</string>
+  <string name="edit_notices_show_auto">Düzenleme bildirimlerini kendiliğinden göster</string>
+  <string name="edit_notices_tooltip">Bu sayfanın düzenleme bildirimlerini görmek için bu düğmeye tıklayın.</string>
   <string name="find_next">Sonrakini bul</string>
   <string name="find_previous">Öncekini bul</string>
   <string name="find_first_occurence">Bu, ilk olay</string>
@@ -327,6 +340,7 @@
   <string name="gallery_save_success">Dosya kaydedildi.</string>
   <string name="gallery_error_video_failed">Video oynatılamadı.</string>
   <string name="gallery_save_image_write_permission_rationale">Görüntüleri kaydetmek için cihazınızın hafızasına yazma izni gerekiyor.</string>
+  <string name="gallery_edit_button_content_description">Resim altyazısını düzenle</string>
   <string name="gallery_add_image_caption_button">Resim yazısı ekle</string>
   <string name="gallery_add_image_caption_in_language_button">(%s) resim yazısı ekle</string>
   <string name="err_cannot_save_file">Dosya kaydedilemiyor</string>
@@ -388,6 +402,7 @@
   <string name="error_message_generic">Bir hata oluştu</string>
   <string name="view_link_preview_error_button_dismiss">Reddet</string>
   <string name="error_page_does_not_exist">Bu sayfa mevcut değil</string>
+  <string name="error_user_page_does_not_exist">Vikipedi\'de bu isimde bir &lt;a href=\"%1$s\"&gt;kullanıcı sayfası&lt;/a&gt; yok. Genellikle, bu sayfa &lt;b&gt;%2$s&lt;/b&gt; tarafından oluşturulup düzenlenmelidir. Kuşku duyarsanız, \"%3$s\" sayfasının var olduğundan emin olun.</string>
   <string name="view_wiki_error_message_offline">İnternete bağlanılamıyor.</string>
   <string name="view_wiki_error_message_timeout">Vikipedi\'ye bağlanılamıyor. Ağ bağlantınızı kontrol edin veya daha sonra tekrar deneyin</string>
   <string name="reference_title">%s kaynağı</string>
@@ -406,6 +421,7 @@
   <string name="error_blocked_expiry">Engel bitişi: %s</string>
   <string name="error_blocked_id">Engel kimliği: %s</string>
   <string name="error_blocked_footer">Engellemeyi görüşmek için &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ya da başka bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
+  <string name="theme_chooser_menu_item_tooltip">Araç çubuğunuzu özelleştirin ve odaklanma kipinde okumayı deneyin</string>
   <string name="error_blocked_footer_no_blocker">Engellemeyi görüşmek için bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
   <string name="crash_report_activity_title">Uygulama hatası</string>
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlatmak mı yoksa çıkmak mı istersiniz?</string>
@@ -432,6 +448,11 @@
   <string name="text_size_decrease">Metin boyutunu küçült</string>
   <string name="text_size_percent_default">%s (Varsayılan)</string>
   <string name="text_style_title">Yazı tipi</string>
+  <string name="theme_category_reading">Okuma</string>
+  <string name="reading_focus_mode">Odaklanma modunda okunuyor</string>
+  <string name="reading_focus_mode_detail">Kaydırma esnasındayken düzenleme özelliklerini ve alt araç çubuğunu gizler</string>
+  <string name="theme_category_toolbar">Araç çubuğu</string>
+  <string name="theme_customize_toolbar">Araç çubuğunu özelleştir</string>
   <string name="nav_item_saved">Kaydedildi</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_move_to">Okuma listesine taşı</string>
@@ -560,6 +581,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">İptal</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">İptal</string>
   <string name="reading_list_split_dialog_ok_button_text">Tamam</string>
+  <string name="reading_list_activity_title">Okuma listesi: %s</string>
   <string name="user_option_sync_label">Tercihler</string>
   <string name="notification_reverted_title">Geri alınan düzenleme</string>
   <string name="notification_channel_title">Makaleler indiriliyor</string>
@@ -615,10 +637,19 @@
   <string name="notifications_mark_unread">Okunmamış olarak işaretle</string>
   <string name="notifications_mark_all_as_read">Tümünü okundu olarak işaretle</string>
   <string name="notifications_direct_reply_action">Yanıtla</string>
-  <string name="notifications_direct_reply_success" fuzzy="true">Yanıt başarıyla gönderildi.</string>
+  <string name="notifications_direct_reply_progress">%s kullanıcısına cevap gönderiliyor…</string>
+  <string name="notifications_direct_reply_success">Yanıt gönderildi.</string>
   <string name="notifications_direct_reply_error">Yanıt otomatik olarak gönderilemiyor.</string>
   <string name="notifications_mark_all_as_read_message">%d okundu olarak işaretlendi</string>
   <string name="notifications_mark_all_as_unread_message">%d okunmadı olarak işaretlendi</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 okunmuş olarak işaretlendi</item>
+    <item quantity="other">%d okunmuş olarak işaretlendi</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 okunmamış olarak işaretlendi</item>
+    <item quantity="other">%d okunmamış olarak işaretlendi</item>
+  </plurals>
   <string name="watchlist_title">İzleme listesi</string>
   <string name="preference_title_notification_poll">Anket bildirimleri</string>
   <string name="preference_summary_notification_poll">Uygulamanın, arka planda yeni bildirimleri kontrol etmek için veri kullanmasına izin verin.</string>
@@ -651,6 +682,31 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">Vikipedi\'den bildirimler</string>
   <string name="notifications_channel_group_other_title">Diğer</string>
   <string name="notifications_channel_group_other_description">Uygulamadan diğer bildirimler</string>
+  <string name="notifications_filter_label">Bildirimleri filtrele</string>
+  <string name="notifications_filter_icon_content_description">Bildirimleri filtrele</string>
+  <string name="notifications_filter_update_app_languages">Uygulama dillerini güncelle</string>
+  <string name="notifications_empty_search_message">Daha fazla bildirim görmek için %s çıkarmayı deneyin</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filtre</item>
+    <item quantity="other">%d filtre</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Tüm filtreleri seç</string>
+  <string name="notifications_tab_filter_all">Hepsi</string>
+  <string name="notifications_tab_filter_mentions">Bahsetmeler</string>
+  <string name="notifications_search_bar_hint">Bildirimleri filtrele ya da ara</string>
+  <string name="notifications_search_bar_filter_hint">Bildirim filtresi</string>
+  <string name="notifications_menu_mark_as_read">Okunmuş olarak işaretle</string>
+  <string name="notifications_menu_mark_as_unread">Okunmamış olarak işaretle</string>
+  <string name="notifications_swipe_action_read">Okundu</string>
+  <string name="notifications_swipe_action_unread">Okunmadı</string>
+  <string name="notifications_menu_check_all">Tüm ögeleri seç</string>
+  <string name="notifications_menu_uncheck_all">Tüm ögelerin seçimini kaldır</string>
+  <string name="notifications_wiki_filter_header">Viki filtresi</string>
+  <string name="notifications_type_filter_header">Tür filtresi</string>
+  <string name="notifications_all_wikis_text">Tüm \"viki\"</string>
+  <string name="notifications_all_types_text">Tüm \"tür\"</string>
+  <string name="notifications_menu_user_talk_page">%s tartışma sayfası</string>
+  <string name="notifications_offline_disable_message">Bu işlev çevrimdışıyken kullanılamaz.</string>
   <string name="view_because_you_read_card_title">Okuduğun için</string>
   <string name="view_random_card_title">Rastgele</string>
   <string name="view_random_article_card_title">Rastgele madde</string>
@@ -708,6 +764,7 @@
   <string name="feed_accessibility_card_text">Yayının altına ulaştınız.</string>
   <string name="feed_accessibility_card_load_more_button">Daha fazla yükle</string>
   <string name="top_read_activity_title">%s tarihinde en çok okunanlar</string>
+  <string name="tabs_activity_title">Sekmeler</string>
   <string name="description_edit_text_hint">Madde tanımı</string>
   <string name="description_edit_article_description_label">Madde</string>
   <string name="description_edit_translate_article_description_label_per_language">Madde açıklaması (%s)</string>
@@ -739,6 +796,7 @@
   <string name="description_starts_with_uppercase">İlk kelime uygun bir isim değilse, küçük harfle başlayın.</string>
   <string name="description_starts_with_lowercase">Küçük harfle başlamaktan kaçının.</string>
   <string name="description_is_in_different_language">Metin beklenmedik bir dilde görünüyor. Dil %s olmalıdır.</string>
+  <string name="description_verification_notice">Lütfen, açıklamanızın %1$s olduğunu doğrulayın. Yazdığınız açıklama %2$s ise bu bildirimi kapamaktan çekinmeyin.</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
@@ -756,6 +814,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
+  <string name="customize_toolbar_title">Araç çubuğunu özelleştir</string>
+  <string name="customize_toolbar_description">En yararlı bulduğunuz eylemler ve hedeflerle alt gezinme araç çubuğunuzu özelleştirin.</string>
+  <string name="customize_toolbar_category_toolbar">Araç çubuğu</string>
+  <string name="customize_toolbar_category_menu">Menü</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Favori öğelerinizi buraya sürükleyip bırakın 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Varsayılana sıfırla</string>
   <string name="suggested_edits_describe_articles">Maddeleri tarif et</string>
   <string name="suggested_edits_caption_images">Başlık resimleri</string>
   <string name="suggested_edits_tag_images">Etiket resimleri</string>
@@ -922,6 +986,7 @@
   <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
   <string name="file_page_add_image_tags_button">Resim etiketlerini ekle</string>
   <string name="file_page_suggestion_reason">Öneri gerekçesi</string>
+  <string name="file_page_edit_button_content_description">%s kısmını düzenle</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden gelenin en iyisini yaptığınızı biliyoruz, ancak inceleyicilerden birinin bir endişesi vardı. Düzenlemenizin geri alınmasının olası nedenleri şunlardır:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
@@ -1030,20 +1095,28 @@
   <string name="talk_last_modified">&lt;b&gt;Son düzenleme %1$s tarihinde&lt;/b&gt; %2$s tarafından yapıldı</string>
   <string name="talk_snackbar_survey_text">Tartışma sayfalarını kullandığınız için teşekkürler. Bir ankete katılarak uygulamayı geliştirmemize yardımcı olur musunuz?</string>
   <string name="talk_snackbar_survey_action_text">Başla</string>
+  <string name="talk_share_discussion_subject">Vikipedi - tartışma sayfasındaki \"%s\" hakkındaki tartışma</string>
+  <string name="talk_share_talk_page">Vikipedi - tartışma sayfasındaki tartışmalar</string>
+  <string name="talk_edit_disclaimer">Bu bir tartışma sayfasıdır. Lütfen, tartışma sayfası yönergelerine uyun ve gönderilerinizi dört tilde yazarak imzalamayı unutmayın: vikimetni kullanırken gönderinin sonuna ~~~~ ekleyin.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Tartışma_sayfası\"&gt;Vikipedi:Tartışma sayfası&lt;/a&gt;</string>
+  <string name="menu_option_share_talk_discussion">Tartışmayı paylaş</string>
+  <string name="menu_option_share_talk_page">Tartışma sayfasını paylaş</string>
   <string name="menu_option_share_edit">Değişikliği paylaş</string>
   <string name="menu_option_user_profile">%s kullanıcısının bilgileri</string>
   <string name="menu_option_user_contributions">%s kullanıcısının katkıları</string>
+  <string name="menu_option_edit_source">Kaynağı düzenle</string>
   <string name="watchlist_details_watching_label">İzleniyor</string>
   <string name="watchlist_details_watch_label">İzle</string>
   <string name="watchlist_details_next_edit">Sonraki düzenleme</string>
   <string name="watchlist_details_prev_edit">Önceki düzenleme</string>
   <string name="thank_label">Teşekkür et</string>
-  <string name="go_to_user_page">Kullanıcı sayfasına gidin</string>
+  <string name="view_user_page">Kullanıcı sayfasını görüntüle</string>
   <string name="thank_dialog_title_text">Açık olarak \'Teşekkür\' gönder</string>
   <string name="thank_dialog_text">\'Teşekkür\', bir editörün Vikipedi\'deki çalışmalarını takdir etmenin kolay bir yoludur. \'Teşekkür\' geri alınamaz ve herkes tarafından görülebilir.</string>
   <string name="thank_dialog_positive_button_text">Teşekkür gönder</string>
   <string name="thank_dialog_negative_button_text">İptal</string>
   <string name="thank_success_message">\'Teşekkür\'ün %s kullanıcısına gönderildi</string>
+  <string name="menu_option_view_user_profile">Kullanıcı profili sayfasını görüntüle</string>
+  <string name="menu_option_view_user_talk">Tartışma sayfasını görüntüle</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ve onun tartışma sayfası %2$s izleme listenize eklendi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Değiştir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">kalıcı olarak</string>
