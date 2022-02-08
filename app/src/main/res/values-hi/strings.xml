@@ -57,9 +57,11 @@
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages">भाषा बदलें</string>
   <string name="menu_page_find_in_page" fuzzy="true">पृष्ठ में ढूंढें</string>
+  <string name="menu_page_watch">ध्यान दें</string>
   <string name="menu_page_font_and_theme">फॉन्ट और थीम</string>
   <string name="menu_page_add_to_list">पढ़ने वाली सूची में जोड़ें</string>
   <string name="menu_page_share">लिंक साझा करें</string>
+  <string name="menu_page_article_share">साझा करें</string>
   <string name="menu_long_press_open_page">खोलें</string>
   <string name="menu_long_press_open_in_new_tab">नये टैब में खोलें</string>
   <string name="menu_long_press_copy_page">लिंक एड्रेस को कॉपी करें</string>

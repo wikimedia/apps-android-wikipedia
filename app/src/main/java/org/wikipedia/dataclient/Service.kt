@@ -55,6 +55,12 @@ interface Service {
         @Query("gsroffset") gsrOffset: String?
     ): Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
+    fun prefixSearchUsers(
+            @Query("auprefix") prefix: String,
+            @Query("aulimit") maxResults: Int
+    ): Observable<MwQueryResponse>
+
     // ------- Miscellaneous -------
 
     @get:GET(MW_API_PREFIX + "action=fancycaptchareload")
@@ -148,6 +154,10 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
     @get:Headers("Cache-Control: no-cache")
     val csrfToken: Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
+    @Headers("Cache-Control: no-cache")
+    suspend fun getCsrfToken(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=createaccount&createmessageformat=html")
@@ -405,6 +415,10 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
     fun getWatchedInfo(@Query("titles") titles: String): Observable<MwQueryResponse>
 
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
+    suspend fun getWatchedStatus(@Query("titles") titles: String): MwQueryResponse
+
     @get:GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
     @get:Headers("Cache-Control: no-cache")
     val watchlist: Observable<MwQueryResponse>
@@ -413,10 +427,10 @@ interface Service {
     fun getLastModified(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
-    fun getRevisionDetails(
+    suspend fun getRevisionDetails(
         @Query("titles") titles: String,
         @Query("rvstartid") revisionStartId: Long
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
     suspend fun getEditDetails(
@@ -431,10 +445,10 @@ interface Service {
 
     @POST(MW_API_PREFIX + "action=thank")
     @FormUrlEncoded
-    fun postThanksToRevision(
+    suspend fun postThanksToRevision(
         @Field("rev") revisionId: Long,
         @Field("token") token: String
-    ): Observable<EntityPostResponse>
+    ): EntityPostResponse
 
     @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
     @FormUrlEncoded
@@ -446,9 +460,23 @@ interface Service {
         @Field("token") token: String
     ): Observable<WatchPostResponse>
 
+    @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
+    @FormUrlEncoded
+    suspend fun watch(
+            @Field("unwatch") unwatch: Int?,
+            @Field("pageids") pageIds: String?,
+            @Field("titles") titles: String?,
+            @Field("expiry") expiry: String?,
+            @Field("token") token: String
+    ): WatchPostResponse
+
     @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=watch")
     @get:Headers("Cache-Control: no-cache")
     val watchToken: Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=watch")
+    @Headers("Cache-Control: no-cache")
+    suspend fun getWatchToken(): MwQueryResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"

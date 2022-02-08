@@ -55,9 +55,13 @@
     <string name="menu_page_other_languages">Change language</string>
     <string name="menu_page_find_in_page">Find in article</string>
     <string name="menu_page_add_to_watchlist">Add to Watchlist</string>
+    <string name="menu_page_watch">Watch</string>
     <string name="menu_page_view_talk">View talk page</string>
+    <string name="menu_page_talk_page">Talk page</string>
     <string name="menu_page_view_edit_history">View edit history</string>
+    <string name="menu_page_edit_history">Edit history</string>
     <string name="menu_page_remove_from_watchlist">Remove from Watchlist</string>
+    <string name="menu_page_watched">Watched</string>
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
@@ -66,6 +70,7 @@
     <string name="feed_card_add_to_default_list">Save</string>
     <string name="menu_page_share">Share link</string>
     <string name="menu_article_share">Share article</string>
+    <string name="menu_page_article_share">Share</string>
     <string name="menu_page_open_a_new_tab">Open a new tab</string>
     <string name="menu_page_new_tab">New tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
@@ -385,6 +390,7 @@
     <string name="error_blocked_expiry">Expiration of block: %s</string>
     <string name="error_blocked_id">Block ID: %s</string>
     <string name="error_blocked_footer"><![CDATA[You can contact <a href="%2$s">%1$s</a> or another <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
+    <string name="theme_chooser_menu_item_tooltip">Customize your toolbar and try reading focus mode</string>
     <string name="error_blocked_footer_no_blocker"><![CDATA[You can contact an <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
 
     <!-- Crash reporter -->
@@ -422,6 +428,8 @@
     <string name="theme_category_reading">Reading</string>
     <string name="reading_focus_mode">Reading focus mode</string>
     <string name="reading_focus_mode_detail">Hides edit features and bottom toolbar on scroll</string>
+    <string name="theme_category_toolbar">Toolbar</string>
+    <string name="theme_customize_toolbar">Customize toolbar</string>
     <!-- /Theme -->
 
     <!-- Reading lists -->
@@ -785,6 +793,7 @@
     <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
     <string name="description_starts_with_lowercase">Avoid starting with a lowercase letter.</string>
     <string name="description_is_in_different_language">The text appears to be in an unexpected language. The language should be %s.</string>
+    <string name="description_verification_notice">Please verify your description is in %1$s. Feel free to dismiss this notification if the description you\'ve written is in %2$s.</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
@@ -809,6 +818,15 @@
     <string name="description_edit_tutorial_button_label_start_editing">Start editing</string>
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
     <!-- /Description editing tutorial -->
+
+    <!-- Customize toolbar -->
+    <string name="customize_toolbar_title">Customize toolbar</string>
+    <string name="customize_toolbar_description">Customize your bottom navigation toolbar with the actions and destinations you find most helpful.</string>
+    <string name="customize_toolbar_category_toolbar">Toolbar</string>
+    <string name="customize_toolbar_category_menu">Menu</string>
+    <string name="customize_toolbar_drag_and_drop_placeholder">Drag and drop your favorite items here 👋</string>
+    <string name="customize_toolbar_reset_to_default_button">Reset to default</string>
+    <!-- /Customize toolbar -->
 
     <!-- Suggested edits -->
     <string name="suggested_edits_describe_articles">Describe articles</string>
