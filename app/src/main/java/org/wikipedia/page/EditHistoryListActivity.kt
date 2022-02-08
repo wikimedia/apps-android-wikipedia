@@ -126,7 +126,7 @@ class EditHistoryListActivity : BaseActivity() {
     private inner class EditHistoryListItemHolder constructor(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
         fun bindItem(oldRevision: Revision?, listItem: Revision) {
-            CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
+            CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
                 val editSizeDetails: EditSizeDetails = viewModel.fetchEditDetails(pageTitle.wikiSite.languageCode, oldRevision?.revId ?: 0, listItem.revId)
                 runOnUiThread {
                     val diffTextView: MaterialButton = itemView.findViewById(R.id.diffText)
