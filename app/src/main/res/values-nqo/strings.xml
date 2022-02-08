@@ -40,6 +40,7 @@
   <string name="search_tab_tooltip">ߛߌ߲ߞߐ߲ ߛߐ߲߬ߞߌ߲߬ ߕߎ߲߯ ߞߵߌ ߟߊߞߎ߲߬ߛߌ߲߫ ߢߌߣߌ߲ߠߌ߲ ߘߊߡߌ߬ߣߊ ߛߙߊߕߌ ߡߊ߬</string>
   <string name="history_list_title">ߘߐ߬ߝߐ</string>
   <string name="image_content_description">ߖߌ߬ߦߊ߬ߓߍ: %s</string>
+  <string name="page_content_description">ߞߐߜߍ: %s</string>
   <string name="wikimedia_commons">ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ߛ</string>
   <string name="wikidata">ߥߞߌߘߕߊ</string>
   <string name="dialog_title_clear_history">ߛߏ߲߯ߓߊߟߌ ߘߐ߬ߝߐ ߖߏ߬ߛߌ߬</string>
@@ -62,6 +63,7 @@
   <string name="feed_card_add_to_list">ߊ߬ ߟߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="feed_card_add_to_default_list">ߊ߬ ߟߊ߬߬ߞߎ߲߬ߘߎ</string>
   <string name="menu_page_share">ߛߘߌ߬ߜߋ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
+  <string name="menu_article_share">ߞߎߡߘߊ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_page_open_a_new_tab">ߘߎ߲ߛߓߍ߫ ߞߎߘߊ߫ ߟߊߞߊ߬</string>
   <string name="menu_page_new_tab">ߘߎ߲ߛߓߍ߫ ߞߎߘߊ߫</string>
   <string name="menu_page_reading_lists">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
@@ -231,7 +233,10 @@
   <string name="edit_summary_tag_other_hint">ߌ ߣߊ߬ ߞߐߜߍ ߡߊߛߐ߫ ߟߊ߫ ߛߌߟߊ߫ ߜߘߍ ߡߍ߲ ߝߍ߬</string>
   <string name="edit_conflict_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߝߐߢߐ߲߯ߞߐ</string>
   <string name="edit_conflict_message">ߞߐߜߍ ߓߘߊ߫ ߓߊ߲߫ ߡߊߦߟߍ߬ߡߊ߲߫ ߠߊ߫ ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ߫ ߜߘߍ߫ ߓߟߏ߫߸ ߏ߬ ߘߏ߲߬ ߦߴߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߝߐ߲ߞߐߢߐ߲߯ߦߊ߫ ߟߊ߫. ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߓߊߓߌ߬ߟߊ߫ ߖߊ߰ߣߌ߲߫߸ ߞߵߌ ߞߐߛߊ߬ߦߌ߬ ߞߊ߬ ߞߐߜߍ ߟߊߛߎߡߊ߫߸ ߞߵߊ߬ ߡߊߝߍߣߍ߲߫ ߌߞߐߕߎ߲߯.</string>
+  <string name="edit_notices">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߫</string>
   <string name="edit_notices_please_read">ߊ߬ ߘߐߞߊ߬ߙߊ߲߫ ߖߊ߰ߣߌ߲߫߸ ߦߊ߬ߣߴߊ߬ ߡߊߦߟߍ߬ߡߊ߲߬ ߕߐ߫</string>
+  <string name="edit_notices_show_auto">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߦߌ߬ߘߊ߬ ߞߍߒߖߘߍߦߋ߫ ߓߟߏߡߊ߬.</string>
+  <string name="edit_notices_tooltip">ߞߎ߲߬ߘߎ ߣߌ߲߬ ߕߐߘߐ߲߫ ߞߊ߬ ߞߎߡߘߊ ߣߌ߲߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߦߌ߬ߘߊ߬.</string>
   <string name="find_next">ߢߍߕߊ ߢߌߣߌ߲߫</string>
   <string name="find_previous">ߟߊ߬ߕߎ߲߰ߠߊ ߢߌߣߌ߲߫</string>
   <string name="find_first_occurence">ߓߐߢߟߊߟߌ߫ ߝߟߐ ߟߋ߬ ߦߋ߫ ߣߌ߲߬</string>
@@ -274,6 +279,7 @@
   <string name="gallery_save_success">ߞߐߕߐ߮ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߫.</string>
   <string name="gallery_error_video_failed">ߊ߬ ߕߴߛߋ߫ ߖߌ߬ߦߊ߬ߖߟߎ ߟߊߞߊ߬ߛߌ߬ ߟߊ߫.</string>
   <string name="gallery_save_image_write_permission_rationale">ߛߓߍߟߌ ߞߍߟߌ ߌ ߟߊ߫ ߞߍߟߊ߲ ߡߣߐ߬ߘߐ ߘߐ߫߸ ߏ߬ ߡߊߢߌ߬ߣߌ߲߬ߞߊ߬ ߣߍ߲߫ ߖߌ߬ߦߊ߬ߓߍ ߟߊߡߙߊ߬ ߞߏ ߘߐ߫.</string>
+  <string name="gallery_edit_button_content_description">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="gallery_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="gallery_add_image_caption_in_language_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="err_cannot_save_file">ߊ߬߫ ߕߴߛߋ߫ ߞߐߕߐ߮ ߟߊߞߎ߲߬ߘߎ߬ ߟߊ߫</string>
@@ -363,6 +369,7 @@
   <string name="text_size_decrease">ߛߓߍߟߌ ߢߊ߲ߞߊ߲ ߡߊߖߌ߰</string>
   <string name="text_size_percent_default">(ߓߐߛߎ߲) %s</string>
   <string name="text_style_title">ߞߟߏߜߍ</string>
+  <string name="theme_category_reading">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲</string>
   <string name="nav_item_saved">ߊ߬ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="reading_list_save_to">ߊ߬ ߟߊߞߎ߲߬ߘߎ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_move_to">ߊ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
@@ -468,6 +475,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="reading_list_split_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
+  <string name="reading_list_activity_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ: %s</string>
   <string name="user_option_sync_label">ߝߌ߬ߛߊ߬ߡߊ߲߬ߕߋ</string>
   <string name="notification_reverted_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߟߊߞߐߛߊ߬ߦߌ߬ߣߍ߲</string>
   <string name="notification_channel_title">ߞߎߡߘߊ ߟߊߖߌ߱ ߦߴߌ ߘߐ߫ ߌ ߞߎ߲߬...</string>
@@ -507,6 +515,7 @@
   <string name="notifications_poll_enable_title">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_positive">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_negative">ߌߞߘߐߣߌ߲߬ ߕߴߏ ߘߌ߫</string>
+  <string name="notifications_empty_message">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߞߎߘߊ߫ ߕߴߌ ߓߟߏ߫ ߕߊ߲߬߹</string>
   <string name="notifications_view_archived_button_text">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߞߘߐ߬ߡߊ߲ ߠߎ߬ ߦߌ߬ߘߊ߬</string>
   <string name="notification_preferences_title">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߞߊ߬ߣߌ߲߬ߣߍ߲ ߠߎ߬</string>
   <string name="notifications_mark_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
@@ -518,6 +527,7 @@
   <string name="notifications_mark_all_as_read_message">%d ߖߊ߬ߕߋ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߣߍ߲ ߘߌ߫</string>
   <string name="notifications_mark_all_as_unread_message">%d ߖߊ߬ߕߋ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
   <string name="watchlist_title">ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
+  <string name="preference_title_notification_poll">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="preference_category_notification_types">ߟߥߊ߬ߟߌ߬ߟߊ߲-ߠߊ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߛߎ߯ߦߊ ߟߎ߬</string>
   <string name="preference_title_notification_system">ߞߊ߲ߞߋ</string>
   <string name="preference_summary_notification_system">ߗߋߛߓߍ ߞߊ߬ ߝߘߊ߫ ߞߊ߲ߞߋ ߟߊ߫</string>
@@ -538,22 +548,33 @@
   <string name="preference_summary_notification_user_rights">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߦߴߌ ߟߊ߫ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߤߊߞߍ ߡߊߦߟߍ߬ߡߊ߲ ߠߋ߬ ߝߍ߬</string>
   <string name="preference_title_notification_article_linked">ߌ ߟߊ߫ ߞߎߡߘߊ߫ ߛߌ߲ߘߌߣߍ߲ ߠߎ߬ ߛߘߌ߬ߜߋ߲</string>
   <string name="preference_summary_notification_article_linked">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߦߋ߫ ߟߋ߬ ߓߊߏ߬ ߛߘߌ߬ߜߋ߲ ߘߏ߫ ߓߘߊ߫ ߝߙߊ߬ ߌ ߟߊ߫ ߞߐߜߍ߫ ߛߌ߲ߘߌߣߍ߲ ߠߊ߫</string>
+  <string name="preference_category_push_notifications">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߘߌ߯</string>
   <string name="preference_category_display_settings">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߟߎ߫</string>
   <string name="preference_title_hide_read_notifications">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߬ ߘߐߞߊ߬ߙߊ߲߬ߣߍ߲ ߠߎ߬ ߢߡߊߘߏ߲߰</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ߥߞߌߔߋߘߌߦߊ</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߡߍ߲ ߝߘߊߣߍ߲߫ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫</string>
   <string name="notifications_channel_group_other_title">ߘߏ߫ ߜߘߍ߫</string>
   <string name="notifications_channel_group_other_description">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߬ ߜߘߍ ߟߎ߬ ߞߊ߬ ߝߘߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊ߫</string>
+  <string name="notifications_filter_label">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߥߣߊ߬ߙߌ߫</string>
+  <string name="notifications_filter_icon_content_description">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߥߣߊ߬ߙߌ߫</string>
+  <string name="notifications_filter_update_app_languages">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߞߊ߲ ߠߎ߬ ߟߊߞߎߘߦߊ߫</string>
+  <string name="notifications_empty_search_message">ߌ ߞߊߘߊ߲߫ ߞߊ߬ %s ߓߐ߫ ߦߋ߲߬ ߛߴߌ ߘߌ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ߫ ߜߘߍ߫ ߟߎ߫ ߦߋ߫</string>
+  <string name="notifications_select_all_filters">ߛߍ߲ߛߍ߲ߟߊ߲ ߠߎ߬ ߓߍ߯ ߓߊߕߐ߬ߡߐ߲߫</string>
   <string name="notifications_tab_filter_all">ߊ߬ ߓߍ߯</string>
+  <string name="notifications_search_bar_hint">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߎ߬ ߢߌߣߌ߲߫ ߥߟߊ߫ ߞߵߊ߬ߟߎ߫ ߛߍ߲ߛߍ߲߫</string>
+  <string name="notifications_search_bar_filter_hint">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߛߍ߲ߛߍ߲ߟߊ߲</string>
   <string name="notifications_menu_mark_as_read">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
   <string name="notifications_menu_mark_as_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
   <string name="notifications_swipe_action_read">ߘߐ߬ߞߊ߬ߙߊ߲߬ߣߍ߲</string>
   <string name="notifications_swipe_action_unread">ߘߐ߬ߞߊ߬ߙߊ߲߬ߓߊߟߌ</string>
   <string name="notifications_menu_check_all">ߝߌ߬ߛߌ ߟߎ߬ ߓߍ߯ ߘߐߜߍ߫</string>
+  <string name="notifications_menu_uncheck_all">ߞߐ߰ߛߌ ߓߐ߫ ߝߌ߬ߛߌ ߟߎ߬ ߓߍ߯ ߟߊ߫</string>
   <string name="notifications_wiki_filter_header">ߥߞߌ ߛߍ߲ߛߍ߲ߟߊ</string>
+  <string name="notifications_type_filter_header">ߛߎ߯ߦߊ ߛߍ߲ߛߍ߲ߟߊ߲</string>
   <string name="notifications_all_wikis_text">\"ߥߞߌ\" ߓߍ߯</string>
   <string name="notifications_all_types_text">\"ߛߎ߯ߦߊ\" ߓߍ߯</string>
   <string name="notifications_menu_user_talk_page">%s ߟߊ߫ ߞߎߡߊ߫ ߞߐߜߍ</string>
+  <string name="notifications_offline_disable_message">ߗߋߘߊ ߣߌ߲߬ ߕߍ߫ ߦߋ߲߬ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌߦߊ ߘߐ߫.</string>
   <string name="view_because_you_read_card_title">ߞߊ߬ߡߊߛߐ߬ߘߐ߲߬ ߌ ߓߘߊ߫ ߘߐ߬ߞߊ߲߬ߠߌ߲ ߞߍ߫</string>
   <string name="view_random_card_title">ߞߎ߲߬ߝߍ߬ߦߊ߬ߣߍ߲</string>
   <string name="view_random_article_card_title">ߓߍ߲߬ߛߋ߲߬ߡߊ߫ ߞߎߡߘߊ</string>
@@ -721,6 +742,7 @@
   <string name="suggested_edits_paused_message">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߟߊߟߐ߬ߣߍ߲߫ ߝߏ߫ %1$s߸ %2$s ߤߊߞߍ߬ߕߏ߫߸ ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߠߊߓߊ߲ ߘߏ߫ ߟߎ߫ ߓߘߊ߫ ߟߊߕߊ߲߬ߞߌ߫.</string>
   <string name="suggested_edits_disabled_message">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߓߘߊ߫ ߓߴߊ߬ ߟߊ߫. %s ߤߊߞߍ߬ߕߏ߫߸ ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߥߙߍߓߊߓߊ ߟߎ߬ ߓߘߊ߫ ߟߊߕߊ߲߬ߞߌ߫.</string>
   <string name="suggested_edits_ip_blocked_message">ߊ߬ ߞߍߣߍ߲߫ ߦߴߌ ߟߊ߫ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ (ߥߟߊ߫ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ ߛߙߍߘߍ) ߓߊ߬ߟߌ߬ߣߍ߲߫ ߦߋ߫ ߥߊ߯ߕߌ ߣߌ߲߬ ߠߊ߫ ߞߊ߬ ߓߐ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߡߊ߬.</string>
+  <string name="suggested_edits_edit_streak_label_text">ߜߋ߬ߙߋ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="suggested_edits_views_label_text">ߦߌ߬ߘߊ߬ߟߌ</string>
   <string name="suggested_edits_quality_label_text">ߛߎ߯ߦߊ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="suggested_edits_quality_perfect_text">ߝߍ߬ߒ߬ߕߊ߲</string>
@@ -764,6 +786,7 @@
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
+  <string name="file_page_edit_button_content_description">%s ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="description_edit_revert_subtitle">ߌ ߞߎߟߎ߲ߖߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫߹</string>
   <string name="description_edit_revert_intro">ߊ߲ ߞߵߊ߬ ߟߐ߲߫ ߞߴߌ ߦߴߌ ߛߋߞߏ ߞߍ߫ ߟߊ߫߸ ߒ߬ߞߊ߬ ߡߊ߬ߝߟߍ߬ߟߌ߬ߟߊ ߘߏ߫ ߟߎ߫ ߞߎߛߎ߲ߣߍ߲߫ ߦߋ߫. ߏ߭ ߞߎ߲߭ ߘߌ߫ ߛߋ߫ ߞߍ߫ ߟߊ߫ ߡߍ߲ ߘߌ߫߸ ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߟߊߕߊ߲߬ߞߊ߬ߣߍ߲߫ ߘߌ߫ ߞߵߊ߬ ߡߊߛߐ߬ߘߐ߲߬:</string>
   <string name="description_edit_revert_reason1">ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߮ߞߊ߲ ߟߎ߬ ߡߊ߫ &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt; ߘߏ߫ ߘߐ߫ ߞߋߟߋ߲߫ ߠߊߓߊ߬ߕߏ߬.</string>
@@ -791,6 +814,7 @@
   <string name="app_shortcuts_search">ߢߌߣߌ߲ߣߌ߲</string>
   <string name="on_this_day_card_title">ߟߏ߲ ߣߌ߲߬ ߡߊ߬</string>
   <string name="more_events_text">ߛߌߦߊߡߊ߲߫ ߜߘߍ߫ ߟߎ߫ ߟߏ߲ ߣߌ߲߬ ߡߊ߬</string>
+  <string name="events_count_text">ߖߊ߲߬ߖߏ߲ %1$s ߠߎ߬ ߞߵߊ߬ ߕߊ߬ %2$s-%3$d</string>
   <string name="this_year">ߢߌ߬ߣߊ߲߬</string>
   <string name="on_this_day_dialog_next_month">ߞߊߙߏ߫ ߣߊ߬ߕߐ</string>
   <string name="on_this_day_dialog_previous_month">ߞߊߙߏ߫ ߛߊ߬ߣߍ߲</string>
@@ -866,12 +890,14 @@
   <string name="menu_option_share_talk_discussion">ߘߊߘߐߖߊߥߏ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_share_talk_page">ߞߎߡߊ߫ ߞߐߜߍ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_option_share_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
+  <string name="menu_option_user_profile">%s ߢߊߞߙߍ</string>
   <string name="menu_option_user_contributions">%s ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
   <string name="watchlist_details_watching_label">ߘߐߜߍߟߌ ߦߴߌ ߘߐ߫</string>
   <string name="watchlist_details_watch_label">ߊ߬ ߘߐߜߍ߫</string>
   <string name="watchlist_details_next_edit">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߢߍߕߊ</string>
   <string name="watchlist_details_prev_edit">ߞߐ߲߬ߞߐ߲߬ߢߍ߬ ߡߊߦߟߍߡߊ߲ߠߌ߲</string>
   <string name="thank_label">ߌ ߞߎߟߎ߲ߖߋ߫</string>
+  <string name="view_user_page">ߞߐߜߍ߫ ߟߊߓߊ߯ߙߕߊ ߘߐߜߍ߫</string>
   <string name="thank_dialog_title_text">\'ߌ ߣߌ߫ ߗߋ\' ߗߋߟߌ ߖߊ߬ߡߊ ߡߊ߬</string>
   <string name="thank_dialog_text">\'ߌ ߣߌ߫ ߗߋ߫ ߓߌߟߊ\' ߦߋ߫ ߛߌߟߊ߫ ߣߐ߲߯ ߠߋ߬ ߘߌ߫ ߞߊ߬ ߛߋ߫ ߞߎߟߎ߲ߖߋߟߌ ߦߌ߬ߘߊ߬ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߊ ߟߎ߬ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬. \'ߌ ߣߌ߫ ߗߋ\' ߕߍ߫ ߛߐ߲߬ ߘߐߛߊ߬ ߟߊ߫ ߊ߬ ߘߏ߲߬ ߦߋ߫ ߦߋ߫ ߟߊ߫ ߖߊ߬ߡߊ ߟߋ߬ ߓߟߏ߫.</string>
   <string name="thank_dialog_positive_button_text">\'ߌ ߣߌ߫ ߗߋ\' ߗߋ߫</string>

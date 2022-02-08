@@ -99,6 +99,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">тахана</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">Харжа массо</string>
+  <string name="suggested_edits_edit_description_button">Нисбе хаам</string>
   <string name="suggested_edits_learn_more">Цул совнаха хаа</string>
   <string name="suggested_edits_ip_blocked_title">IP заблоктоьхна ду</string>
   <string name="suggested_edits_contribution_image_label">Сурт</string>

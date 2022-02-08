@@ -94,7 +94,7 @@ class CustomDatePicker : DialogFragment() {
                     selectedDay = selectedDay.withDayOfMonth(adapterPosition + 1)
                     callbackDay = LocalDate.of(LEAP_YEAR, selectedDay.month, adapterPosition + 1)
                     setDayString()
-                    notifyDataSetChanged()
+                    notifyItemRangeChanged(0, itemCount)
                 }
             }
 

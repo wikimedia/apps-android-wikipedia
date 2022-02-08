@@ -56,6 +56,7 @@
   <string name="search_tab_tooltip">לחץ על הסמל שוב כדי להתחיל ישר להקליד את מילת החיפוש.</string>
   <string name="history_list_title">היסטוריה</string>
   <string name="image_content_description">תמונה: %s</string>
+  <string name="page_content_description">דף: %s</string>
   <string name="wikimedia_commons">ויקישיתוף</string>
   <string name="wikidata">ויקינתונים</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
@@ -69,9 +70,13 @@
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
   <string name="menu_page_add_to_watchlist">הוספה לרשימת המעקב</string>
+  <string name="menu_page_watch">לעקוב</string>
   <string name="menu_page_view_talk">הצגת דף השיחה</string>
+  <string name="menu_page_talk_page">דף שיחה</string>
   <string name="menu_page_view_edit_history">הצגת היסטוריית עריכות</string>
+  <string name="menu_page_edit_history">היסטוריית עריכות</string>
   <string name="menu_page_remove_from_watchlist">הסרה מרשימת המעקב</string>
+  <string name="menu_page_watched">במעקב</string>
   <string name="edit_section_find_in_page">איתור בעמוד</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
@@ -80,6 +85,7 @@
   <string name="feed_card_add_to_default_list">שמירה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_article_share">שיתוף ערך</string>
+  <string name="menu_page_article_share">לשתף</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
   <string name="menu_page_new_tab">לשונית חדשה</string>
   <string name="menu_page_reading_lists">רשימות קריאה</string>
@@ -313,6 +319,7 @@
   <string name="gallery_save_success">הקובץ נשמר.</string>
   <string name="gallery_error_video_failed">לא היה אפשר לנגן את הסרטון.</string>
   <string name="gallery_save_image_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה לשמירת תמונות.</string>
+  <string name="gallery_edit_button_content_description">עריכת כיתוב תמונה</string>
   <string name="gallery_add_image_caption_button">הוספת כיתוב לתמונה</string>
   <string name="gallery_add_image_caption_in_language_button">הוספת כיתוב תמונה (%s)</string>
   <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
@@ -395,6 +402,7 @@
   <string name="error_blocked_expiry">פקיעת החסימה: %s</string>
   <string name="error_blocked_id">מזהה החסימה: %s</string>
   <string name="error_blocked_footer">באפשרותך ליצור קשר עם &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; או עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt;</string>
+  <string name="theme_chooser_menu_item_tooltip">אפשר להתאים אישים את סרגל הכלים שלך ולנסות מצב הקריאה המרוכזת</string>
   <string name="error_blocked_footer_no_blocker">באפשרותך ליצור קשר עם &lt;a href=\"https://he.wikipedia.org/wiki/WP:SYSOP\"&gt;מפעיל&lt;/a&gt; כדי לדון בחסימה.</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
@@ -421,6 +429,11 @@
   <string name="text_size_decrease">הקטנת הטקסט</string>
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
   <string name="text_style_title">גופן</string>
+  <string name="theme_category_reading">קריאה</string>
+  <string name="reading_focus_mode">מצב קריאה מרוכזת</string>
+  <string name="reading_focus_mode_detail">הסתרת אפשרויות עריכה וסרגל הכלים התחתון בגלילה</string>
+  <string name="theme_category_toolbar">סרגל כלים</string>
+  <string name="theme_customize_toolbar">התאמת סרגל כלים</string>
   <string name="nav_item_saved">נשמר</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>
@@ -561,6 +574,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">ביטול</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ביטול</string>
   <string name="reading_list_split_dialog_ok_button_text">אישור</string>
+  <string name="reading_list_activity_title">רשימת קריאה: %s</string>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_reverted_title">עריכה משוחזרת</string>
   <string name="notification_channel_title">הורדת ערכים</string>
@@ -766,6 +780,7 @@
   <string name="feed_accessibility_card_text">הגעת לסוף ההזנה.</string>
   <string name="feed_accessibility_card_load_more_button">לטעון עוד</string>
   <string name="top_read_activity_title">ערכים מובילים ב%s</string>
+  <string name="tabs_activity_title">לשוניות</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
   <string name="description_edit_article_description_label">ערך</string>
   <string name="description_edit_translate_article_description_label_per_language">תיאור הערך (%s)</string>
@@ -795,7 +810,8 @@
   <string name="description_ends_with_punctuation">הטקסט לא צריך להסתיים בסימן פיסוק</string>
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
   <string name="description_starts_with_lowercase">נא להימנע מלהתחיל את התיאור מאות קטנה.</string>
-  <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי צפויה. השפה אמורה להיות %s.</string>
+  <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי־צפויה. השפה אמורה להיות %s.</string>
+  <string name="description_verification_notice">נא לוודא שהשפה של התיאור שלך היא %1$s. אין בעיה לסגור את ההודעה הזאת אם השפה שכתבת בה היא %2$s.</string>
   <string name="description_edit_success_saved">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_snackbar">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
@@ -813,6 +829,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
+  <string name="customize_toolbar_title">התאמת סרגל כלים</string>
+  <string name="customize_toolbar_description">האתמה אישים של סרגל הניווט התחתון שלך עם הפעולות והיעדים השימושיים לך.</string>
+  <string name="customize_toolbar_category_toolbar">סרגל כלים</string>
+  <string name="customize_toolbar_category_menu">תפריט</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">אפשר לגרור ולשחרר את הפריטים האהובים עליהם כאן 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">איפוס</string>
   <string name="suggested_edits_describe_articles">הוספת תיאור לערכים</string>
   <string name="suggested_edits_caption_images">הוספת כיתוב לתמונות</string>
   <string name="suggested_edits_tag_images">לתייג תמונות</string>
@@ -967,7 +989,7 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
   <string name="suggested_edits_encourage_account_creation_title">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
-  <string name="suggested_edits_encourage_account_creation_message">’עריכות מוצעות’ היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה על מנת להתחיל.</string>
+  <string name="suggested_edits_encourage_account_creation_message">עריכות מוצעות היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה כדי להתחיל.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">כניסה / הצטרפות לוויקיפדיה</string>
   <string name="suggested_edits_contribution_type_image_tag">תג תמונה</string>
   <string name="suggested_edits_contribution_current_revision_text">העריכה שלך פורסמה כעת בוויקיפדיה</string>
@@ -1000,6 +1022,7 @@
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
   <string name="file_page_suggestion_reason">הסיבה להצעה</string>
+  <string name="file_page_edit_button_content_description">עריכת %s</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים היה חשד. סיבות אפשריות לכך שהעריכה שלך בוטלה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
@@ -1114,11 +1137,13 @@
   <string name="talk_snackbar_survey_action_text">להתחיל</string>
   <string name="talk_share_discussion_subject">ויקיפדיה – דיון בדף שיחה בנושא \"%s\"</string>
   <string name="talk_share_talk_page">ויקיפדיה – דיונים בדף שיחה</string>
+  <string name="talk_edit_disclaimer">זהו דף שיחה. נא לכבד את ההנחיות לשימוש בדפי שיחה, ולזכור לחתום על ההודעות שלך בארבע טילדות בעת שימוש בקוד ויקי.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://he.wikipedia.org/wiki/ויקיפדיה:דף_שיחה\"&gt;ויקיפדיה:דף_שיחה&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
   <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
   <string name="menu_option_user_profile">הפרופיל של %s</string>
   <string name="menu_option_user_contributions">התרומות של %s</string>
+  <string name="menu_option_edit_source">עריכת קוד מקור</string>
   <string name="watchlist_details_watching_label">במעקב</string>
   <string name="watchlist_details_watch_label">לעקוב</string>
   <string name="watchlist_details_next_edit">העריכה הבאה</string>
@@ -1130,6 +1155,8 @@
   <string name="thank_dialog_positive_button_text">לשלוח תודה</string>
   <string name="thank_dialog_negative_button_text">ביטול</string>
   <string name="thank_success_message">התודה שלך נשלחה למשתמש %s 👍</string>
+  <string name="menu_option_view_user_profile">הצגת דף פרופיל משתמש</string>
+  <string name="menu_option_view_user_talk">הצגת דף שיחה</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>

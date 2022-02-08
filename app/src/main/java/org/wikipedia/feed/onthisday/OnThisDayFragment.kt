@@ -24,7 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.OnThisDayFunnel
 import org.wikipedia.databinding.FragmentOnThisDayBinding
-import org.wikipedia.databinding.ViewOnThisDayEventBinding
+import org.wikipedia.databinding.ViewEventsLayoutBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -204,7 +204,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                     .inflate(R.layout.view_on_this_day_footer, viewGroup, false)
                 FooterViewHolder(itemView)
             } else {
-                val itemView = ViewOnThisDayEventBinding.inflate(LayoutInflater.from(viewGroup.context),
+                val itemView = ViewEventsLayoutBinding.inflate(LayoutInflater.from(viewGroup.context),
                     viewGroup, false)
                 EventsViewHolder(itemView, wiki)
             }
@@ -233,37 +233,39 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         }
     }
 
-    private inner class EventsViewHolder(private val otdEventBinding: ViewOnThisDayEventBinding, private val wiki: WikiSite) : RecyclerView.ViewHolder(otdEventBinding.root) {
+    private inner class EventsViewHolder(eventBinding: ViewEventsLayoutBinding, private val wiki: WikiSite) : RecyclerView.ViewHolder(eventBinding.root) {
+
+        private val otdEventLayout = eventBinding.otdEventLayout
 
         init {
-            otdEventBinding.text.setTextIsSelectable(true)
+            otdEventLayout.text.setTextIsSelectable(true)
         }
 
         fun setFields(event: OnThisDay.Event) {
-            otdEventBinding.text.text = event.text
-            otdEventBinding.text.visibility = if (event.text.isEmpty()) View.GONE else View.VISIBLE
-            otdEventBinding.year.text = DateUtil.yearToStringWithEra(event.year)
-            otdEventBinding.yearsText.text = DateUtil.getYearDifferenceString(event.year, wiki.languageCode)
+            otdEventLayout.text.text = event.text
+            otdEventLayout.text.visibility = if (event.text.isEmpty()) View.GONE else View.VISIBLE
+            otdEventLayout.year.text = DateUtil.yearToStringWithEra(event.year)
+            otdEventLayout.yearsText.text = DateUtil.getYearDifferenceString(event.year, wiki.languageCode)
             setPagesViewPager(event)
         }
 
         private fun setPagesViewPager(event: OnThisDay.Event) {
             event.pages()?.let {
                 val viewPagerAdapter = ViewPagerAdapter(childFragmentManager, it, wiki)
-                otdEventBinding.pagesPager.adapter = viewPagerAdapter
-                otdEventBinding.pagesPager.offscreenPageLimit = 2
-                TabLayoutMediator(otdEventBinding.pagesIndicator, otdEventBinding.pagesPager) { _, _ -> }.attach()
-                otdEventBinding.pagesPager.visibility = View.VISIBLE
-                otdEventBinding.pagesIndicator.visibility = if (it.size == 1) View.GONE else View.VISIBLE
+                otdEventLayout.pagesPager.adapter = viewPagerAdapter
+                otdEventLayout.pagesPager.offscreenPageLimit = 2
+                TabLayoutMediator(otdEventLayout.pagesIndicator, otdEventLayout.pagesPager) { _, _ -> }.attach()
+                otdEventLayout.pagesPager.visibility = View.VISIBLE
+                otdEventLayout.pagesIndicator.visibility = if (it.size == 1) View.GONE else View.VISIBLE
             } ?: run {
-                otdEventBinding.pagesPager.visibility = View.GONE
-                otdEventBinding.pagesIndicator.visibility = View.GONE
+                otdEventLayout.pagesPager.visibility = View.GONE
+                otdEventLayout.pagesIndicator.visibility = View.GONE
             }
         }
 
         fun animateRadioButton() {
             val pulse = AnimationUtils.loadAnimation(context, R.anim.pulse)
-            otdEventBinding.radioImageView.startAnimation(pulse)
+            otdEventLayout.radioImageView.startAnimation(pulse)
         }
     }
 

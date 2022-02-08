@@ -40,6 +40,10 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_previous_color_theme, fallback.marshallingId)
         set(theme) = PrefsIoUtil.setInt(R.string.preference_key_previous_color_theme, theme)
 
+    var readingFocusModeEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_focus_mode, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_focus_mode, value)
+
     var fontFamily
         get() = PrefsIoUtil.getString(R.string.preference_key_font_family, "").orEmpty().ifEmpty { "sans-serif" }
         set(fontFamily) = PrefsIoUtil.setString(R.string.preference_key_font_family, fontFamily)
@@ -552,4 +556,27 @@ object Prefs {
 
     val hideReadNotificationsEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notification_hide_read, false)
+
+    var customizeToolbarOrder
+        get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_order, null))
+            ?: listOf(0, 1, 2, 3, 4)
+        set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_order, JsonUtil.encodeToString(orderList))
+
+    var customizeToolbarMenuOrder
+        get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null))
+            ?: listOf(5, 6, 7, 8, 9, 10)
+        set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_menu_order, JsonUtil.encodeToString(orderList))
+
+    fun resetToolbarAndMenuOrder() {
+        PrefsIoUtil.remove(R.string.preference_key_customize_toolbar_order)
+        PrefsIoUtil.remove(R.string.preference_key_customize_toolbar_menu_order)
+    }
+
+    var showOneTimeCustomizeToolbarTooltip
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_customize_toolbar_tooltip, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_customize_toolbar_tooltip, value)
+
+    var showEditTalkPageSourcePrompt
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_edit_talk_page_source_prompt, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_edit_talk_page_source_prompt, value)
 }

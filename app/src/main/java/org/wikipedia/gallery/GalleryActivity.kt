@@ -538,7 +538,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     fun layOutGalleryDescription(callingFragment: GalleryItemFragment?) {
         val item = currentItem
-        if (item?.imageTitle == null || item.mediaInfo?.metadata == null || item != callingFragment) {
+        if (item != callingFragment) {
+            return
+        }
+        if (item?.imageTitle == null || item.mediaInfo?.metadata == null) {
             binding.infoContainer.visibility = View.GONE
             return
         }
@@ -555,8 +558,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pair ->
-                    updateGalleryDescription(pair.first, pair.second)
+                .subscribe({
+                    updateGalleryDescription(it.first, it.second)
                 }, {
                     L.e(it)
                     updateGalleryDescription(false, 0)

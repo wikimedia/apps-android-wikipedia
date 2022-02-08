@@ -20,6 +20,7 @@ class MwQueryResult {
     @SerialName("general") val siteInfo: SiteInfo? = null
     @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
     @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
+    @SerialName("allusers") val allUsers: List<User>? = null
 
     private val redirects: MutableList<Redirect>? = null
     private val converted: MutableList<ConvertedTitle>? = null
@@ -174,6 +175,12 @@ class MwQueryResult {
     @Serializable
     class Namespace {
         val id: Int = 0
+        val name: String = ""
+    }
+
+    @Serializable
+    class User {
+        val userid: Int = 0
         val name: String = ""
     }
 }

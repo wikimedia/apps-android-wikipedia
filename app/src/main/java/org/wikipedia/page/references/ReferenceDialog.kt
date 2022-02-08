@@ -53,10 +53,8 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
         if (callback()?.referencesGroup?.size == 1) {
             binding.pageIndicatorView.visibility = View.GONE
             binding.indicatorDivider.visibility = View.GONE
-        } else {
-            val behavior = BottomSheetBehavior.from(binding.root.parent as View)
-            behavior.setPeekHeight(DimenUtil.displayHeightPx / 2)
         }
+        BottomSheetBehavior.from(binding.root.parent as View).peekHeight = DimenUtil.displayHeightPx
     }
 
     override fun onDestroyView() {
@@ -95,7 +93,11 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
 
         fun bindItem(idText: CharSequence?, contents: CharSequence?) {
             binding.referenceId.text = idText
-            binding.referenceText.text = contents
+            binding.root.post {
+                if (isAdded) {
+                    binding.referenceText.text = contents
+                }
+            }
         }
     }
 

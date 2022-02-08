@@ -57,9 +57,11 @@
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages">भाषा बदलें</string>
   <string name="menu_page_find_in_page" fuzzy="true">पृष्ठ में ढूंढें</string>
+  <string name="menu_page_watch">ध्यान दें</string>
   <string name="menu_page_font_and_theme">फॉन्ट और थीम</string>
   <string name="menu_page_add_to_list">पढ़ने वाली सूची में जोड़ें</string>
   <string name="menu_page_share">लिंक साझा करें</string>
+  <string name="menu_page_article_share">साझा करें</string>
   <string name="menu_long_press_open_page">खोलें</string>
   <string name="menu_long_press_open_in_new_tab">नये टैब में खोलें</string>
   <string name="menu_long_press_copy_page">लिंक एड्रेस को कॉपी करें</string>
@@ -304,6 +306,7 @@
   <string name="text_size_increase">टेक्स्ट साइज़ बढ़ाएं</string>
   <string name="text_size_decrease">टेक्स्ट साइज़ घटाएं</string>
   <string name="text_size_percent_default">%s (डिफ़ॉल्ट)</string>
+  <string name="theme_category_reading">पढ़ना</string>
   <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
   <string name="reading_list_title_exists">पढ़ने वाली सूची \"%s\" पहले से है।</string>
