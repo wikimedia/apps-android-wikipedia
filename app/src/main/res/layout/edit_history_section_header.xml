@@ -7,7 +7,7 @@
     android:background="?attr/paper_color"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    tools:context=".page.EditHistoryListActivity">
+    tools:context=".page.edit_history.EditHistoryListActivity">
 
     <TextView
         android:id="@+id/section_header_text"
