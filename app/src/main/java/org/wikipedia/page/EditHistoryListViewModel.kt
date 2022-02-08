@@ -115,6 +115,6 @@ class EditHistoryListViewModel : ViewModel() {
             }
         }
     }
-    
+
     class EditDetails(val diffSize: Int, val text: CharSequence)
 }
