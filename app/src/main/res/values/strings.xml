@@ -34,6 +34,7 @@
     <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
     <string name="history_list_title">History</string>
     <string name="image_content_description">Image: %s</string>
+    <string name="page_content_description">Page: %s</string>
     <string name="wikimedia_commons">Wikimedia Commons</string>
     <string name="wikidata">Wikidata</string>
 
@@ -51,9 +52,13 @@
     <string name="menu_page_other_languages">Change language</string>
     <string name="menu_page_find_in_page">Find in article</string>
     <string name="menu_page_add_to_watchlist">Add to Watchlist</string>
+    <string name="menu_page_watch">Watch</string>
     <string name="menu_page_view_talk">View talk page</string>
+    <string name="menu_page_talk_page">Talk page</string>
     <string name="menu_page_view_edit_history">View edit history</string>
+    <string name="menu_page_edit_history">Edit history</string>
     <string name="menu_page_remove_from_watchlist">Remove from Watchlist</string>
+    <string name="menu_page_watched">Watched</string>
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
@@ -61,6 +66,8 @@
     <string name="feed_card_add_to_list">Add to reading list</string>
     <string name="feed_card_add_to_default_list">Save</string>
     <string name="menu_page_share">Share link</string>
+    <string name="menu_article_share">Share article</string>
+    <string name="menu_page_article_share">Share</string>
     <string name="menu_page_open_a_new_tab">Open a new tab</string>
     <string name="menu_page_new_tab">New tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
@@ -298,6 +305,7 @@
     <string name="gallery_save_success">File saved.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="gallery_save_image_write_permission_rationale">Permission to write to storage on your device is required for saving images.</string>
+    <string name="gallery_edit_button_content_description">Edit image caption</string>
     <string name="gallery_add_image_caption_button">Add image caption</string>
     <string name="gallery_add_image_caption_in_language_button">Add image caption (%s)</string>
     <string name="err_cannot_save_file">Cannot save file</string>
@@ -379,6 +387,7 @@
     <string name="error_blocked_expiry">Expiration of block: %s</string>
     <string name="error_blocked_id">Block ID: %s</string>
     <string name="error_blocked_footer"><![CDATA[You can contact <a href="%2$s">%1$s</a> or another <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
+    <string name="theme_chooser_menu_item_tooltip">Customize your toolbar and try reading focus mode</string>
     <string name="error_blocked_footer_no_blocker"><![CDATA[You can contact an <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
 
     <!-- Crash reporter -->
@@ -413,6 +422,11 @@
     <string name="text_size_decrease">Decrease text size</string>
     <string name="text_size_percent_default">%s (Default)</string>
     <string name="text_style_title">Font</string>
+    <string name="theme_category_reading">Reading</string>
+    <string name="reading_focus_mode">Reading focus mode</string>
+    <string name="reading_focus_mode_detail">Hides edit features and bottom toolbar on scroll</string>
+    <string name="theme_category_toolbar">Toolbar</string>
+    <string name="theme_customize_toolbar">Customize toolbar</string>
     <!-- /Theme -->
 
     <!-- Reading lists -->
@@ -544,6 +558,7 @@
     <string name="reading_list_remove_from_offline_cancel_button_text">Cancel</string>
     <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel</string>
     <string name="reading_list_split_dialog_ok_button_text">OK</string>
+    <string name="reading_list_activity_title">Reading list: %s</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
@@ -652,7 +667,7 @@
     <string name="notifications_channel_group_other_description">Other notifications from the app</string>
     <string name="notifications_filter_label">Filter notifications</string>
     <string name="notifications_filter_icon_content_description">Filter notifications</string>
-    <string name="notifications_filter_add_app_languages">Add or edit app languages</string>
+    <string name="notifications_filter_update_app_languages">Update app languages</string>
     <string name="notifications_empty_search_message">Try removing %s to see more notifications</string>
     <plurals name="notifications_number_of_filters">
         <item quantity="one">%d filter</item>
@@ -740,6 +755,8 @@
 
     <string name="top_read_activity_title">Top read on %s</string>
 
+    <string name="tabs_activity_title">Tabs</string>
+
     <!-- Description editing -->
     <string name="description_edit_text_hint">Article description</string>
     <string name="description_edit_article_description_label">Article</string>
@@ -773,6 +790,7 @@
     <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
     <string name="description_starts_with_lowercase">Avoid starting with a lowercase letter.</string>
     <string name="description_is_in_different_language">The text appears to be in an unexpected language. The language should be %s.</string>
+    <string name="description_verification_notice">Please verify your description is in %1$s. Feel free to dismiss this notification if the description you\'ve written is in %2$s.</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
@@ -797,6 +815,15 @@
     <string name="description_edit_tutorial_button_label_start_editing">Start editing</string>
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
     <!-- /Description editing tutorial -->
+
+    <!-- Customize toolbar -->
+    <string name="customize_toolbar_title">Customize toolbar</string>
+    <string name="customize_toolbar_description">Customize your bottom navigation toolbar with the actions and destinations you find most helpful.</string>
+    <string name="customize_toolbar_category_toolbar">Toolbar</string>
+    <string name="customize_toolbar_category_menu">Menu</string>
+    <string name="customize_toolbar_drag_and_drop_placeholder">Drag and drop your favorite items here 👋</string>
+    <string name="customize_toolbar_reset_to_default_button">Reset to default</string>
+    <!-- /Customize toolbar -->
 
     <!-- Suggested edits -->
     <string name="suggested_edits_describe_articles">Describe articles</string>
@@ -971,6 +998,7 @@
     <string name="file_page_add_image_caption_button">Add image caption</string>
     <string name="file_page_add_image_tags_button">Add image tags</string>
     <string name="file_page_suggestion_reason">Suggestion reason</string>
+    <string name="file_page_edit_button_content_description">Edit %s</string>
     <!-- /File page -->
 
     <!-- Description editing revert help -->
@@ -1109,22 +1137,26 @@
     <string name="talk_snackbar_survey_action_text">Get started</string>
     <string name="talk_share_discussion_subject">Wikipedia - discussion on talk page topic \"%s\"</string>
     <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
+    <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a>]]></string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>
+    <string name="menu_option_edit_source">Edit source</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
     <string name="watchlist_details_next_edit">Next edit</string>
     <string name="watchlist_details_prev_edit">Previous edit</string>
     <string name="thank_label">Thank</string>
-    <string name="go_to_user_page">Go to user page</string>
+    <string name="view_user_page">View user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
     <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\’s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
     <string name="thank_dialog_positive_button_text">Send thanks</string>
     <string name="thank_dialog_negative_button_text">Cancel</string>
     <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
+    <string name="menu_option_view_user_profile">View user profile page</string>
+    <string name="menu_option_view_user_talk">View talk page</string>
 
     <!-- Watchlist -->
     <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>

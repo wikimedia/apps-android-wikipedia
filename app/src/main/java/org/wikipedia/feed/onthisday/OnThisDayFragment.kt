@@ -6,17 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -27,6 +23,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.OnThisDayFunnel
 import org.wikipedia.databinding.FragmentOnThisDayBinding
+import org.wikipedia.databinding.ViewEventsLayoutBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -207,8 +204,8 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                     .inflate(R.layout.view_on_this_day_footer, viewGroup, false)
                 FooterViewHolder(itemView)
             } else {
-                val itemView = LayoutInflater.from(viewGroup.context)
-                    .inflate(R.layout.view_events_layout, viewGroup, false)
+                val itemView = ViewEventsLayoutBinding.inflate(LayoutInflater.from(viewGroup.context),
+                    viewGroup, false)
                 EventsViewHolder(itemView, wiki)
             }
         }
@@ -236,44 +233,39 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         }
     }
 
-    private inner class EventsViewHolder(v: View, private val wiki: WikiSite) : RecyclerView.ViewHolder(v) {
+    private inner class EventsViewHolder(eventBinding: ViewEventsLayoutBinding, private val wiki: WikiSite) : RecyclerView.ViewHolder(eventBinding.root) {
 
-        private val descTextView: TextView = v.findViewById(R.id.text)
-        private val yearTextView: TextView = v.findViewById(R.id.year)
-        private val yearsInfoTextView: TextView = v.findViewById(R.id.years_text)
-        private val pagesViewPager: ViewPager2 = v.findViewById(R.id.pages_pager)
-        private val pagesIndicator: TabLayout = v.findViewById(R.id.pages_indicator)
-        private val radioButtonImageView: ImageView = v.findViewById(R.id.radio_image_view)
+        private val otdEventLayout = eventBinding.otdEventLayout
 
         init {
-            descTextView.setTextIsSelectable(true)
+            otdEventLayout.text.setTextIsSelectable(true)
         }
 
         fun setFields(event: OnThisDay.Event) {
-            descTextView.text = event.text
-            descTextView.visibility = if (event.text.isEmpty()) View.GONE else View.VISIBLE
-            yearTextView.text = DateUtil.yearToStringWithEra(event.year)
-            yearsInfoTextView.text = DateUtil.getYearDifferenceString(event.year, wiki.languageCode)
+            otdEventLayout.text.text = event.text
+            otdEventLayout.text.visibility = if (event.text.isEmpty()) View.GONE else View.VISIBLE
+            otdEventLayout.year.text = DateUtil.yearToStringWithEra(event.year)
+            otdEventLayout.yearsText.text = DateUtil.getYearDifferenceString(event.year, wiki.languageCode)
             setPagesViewPager(event)
         }
 
         private fun setPagesViewPager(event: OnThisDay.Event) {
             event.pages()?.let {
                 val viewPagerAdapter = ViewPagerAdapter(childFragmentManager, it, wiki)
-                pagesViewPager.adapter = viewPagerAdapter
-                pagesViewPager.offscreenPageLimit = 2
-                TabLayoutMediator(pagesIndicator, pagesViewPager) { _, _ -> }.attach()
-                pagesViewPager.visibility = View.VISIBLE
-                pagesIndicator.visibility = if (it.size == 1) View.GONE else View.VISIBLE
+                otdEventLayout.pagesPager.adapter = viewPagerAdapter
+                otdEventLayout.pagesPager.offscreenPageLimit = 2
+                TabLayoutMediator(otdEventLayout.pagesIndicator, otdEventLayout.pagesPager) { _, _ -> }.attach()
+                otdEventLayout.pagesPager.visibility = View.VISIBLE
+                otdEventLayout.pagesIndicator.visibility = if (it.size == 1) View.GONE else View.VISIBLE
             } ?: run {
-                pagesViewPager.visibility = View.GONE
-                pagesIndicator.visibility = View.GONE
+                otdEventLayout.pagesPager.visibility = View.GONE
+                otdEventLayout.pagesIndicator.visibility = View.GONE
             }
         }
 
         fun animateRadioButton() {
             val pulse = AnimationUtils.loadAnimation(context, R.anim.pulse)
-            radioButtonImageView.startAnimation(pulse)
+            otdEventLayout.radioImageView.startAnimation(pulse)
         }
     }
 

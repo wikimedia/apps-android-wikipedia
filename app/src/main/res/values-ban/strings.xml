@@ -36,6 +36,7 @@
   <string name="search_tab_tooltip">Teken ikon malih antuk ngawitin ngetik paistilah parerehan</string>
   <string name="history_list_title">Lelintihan</string>
   <string name="image_content_description">Gambar: %s</string>
+  <string name="page_content_description">Kaca: %s</string>
   <string name="wikimedia_commons">Wikimédia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Apus leliltihan parerehan</string>
@@ -190,6 +191,7 @@
   <string name="page_protected_can_not_edit_anon">Ampura, kaca puniki tan prasida kauah sacara anonim sané mangkin.</string>
   <string name="page_protected_can_not_edit_title">Kaca puniki kasaibin</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Tambah nuju lis pangawasan</string>
+  <string name="page_notification_tooltip">Notifikasi Ida mangkin driki.</string>
   <string name="settings_item_preferences">Setélan</string>
   <string name="settings_activity_title">Setélan</string>
   <string name="about_description">Indik aplikasi Wikipédia</string>
@@ -212,6 +214,8 @@
   <string name="edit_abandon_confirm_yes">Inggih</string>
   <string name="edit_abandon_confirm_no">Nénten</string>
   <string name="user_blocked_from_editing_title">Kablokir</string>
+  <string name="user_anon_blocked_from_editing">Alamat IP ida sampun kablokir saking panguahan.</string>
+  <string name="edit_how_page_improved">Sapunapi ida ngembangang kaca?</string>
   <string name="edit_next">Selanturné</string>
   <string name="edit_done">Wedar</string>
   <string name="edit_preview">Pracingak</string>
@@ -381,6 +385,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Wangdé</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Wangdé</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Lis wacaan: %s</string>
   <string name="user_option_sync_label">Pustaka</string>
   <string name="notification_syncing_pause_button">Rérénang</string>
   <string name="notification_syncing_resume_button">Lanjutang</string>
@@ -432,6 +437,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Wangdé</string>
   <string name="feed_accessibility_card_load_more_button">Muat malih</string>
   <string name="top_read_activity_title">Wacénan pinih duur ring %s</string>
+  <string name="tabs_activity_title">Tab</string>
   <string name="description_edit_text_hint">Pidarta suratan</string>
   <string name="description_edit_article_description_label">Suratan</string>
   <string name="description_edit_translate_article_description_label_per_language">Pidarta suratan (%s)</string>
@@ -503,6 +509,7 @@
   <string name="suggested_edits_contribution_image_label">Gambar</string>
   <string name="suggested_edits_contribution_type_image_tag">Cihna gambar</string>
   <string name="file_page_add_image_caption_button">Wewehin sesirah gambar</string>
+  <string name="file_page_edit_button_content_description">Uah %s</string>
   <string name="description_edit_login_cancel_button_text">Wangdé</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
@@ -560,7 +567,6 @@
   <string name="watchlist_details_watching_label">Ngawasin</string>
   <string name="watchlist_details_watch_label">Awasin</string>
   <string name="thank_label">Suksma</string>
-  <string name="go_to_user_page">Nuju kaca sang anganggé</string>
   <string name="thank_dialog_title_text">Wedhar \'Matur Suksma\'</string>
   <string name="thank_dialog_positive_button_text">Kirim matur suksma</string>
   <string name="thank_dialog_negative_button_text">Wangdé</string>

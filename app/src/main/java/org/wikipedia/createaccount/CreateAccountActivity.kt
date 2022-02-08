@@ -1,5 +1,6 @@
 package org.wikipedia.createaccount
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
@@ -327,6 +328,12 @@ class CreateAccountActivity : BaseActivity() {
                 return ValidateResult.NO_EMAIL
             }
             return ValidateResult.SUCCESS
+        }
+
+        fun newIntent(context: Context, sessionToken: String, source: String): Intent {
+            return Intent(context, CreateAccountActivity::class.java)
+                    .putExtra(LOGIN_SESSION_TOKEN, sessionToken)
+                    .putExtra(LOGIN_REQUEST_SOURCE, source)
         }
     }
 }

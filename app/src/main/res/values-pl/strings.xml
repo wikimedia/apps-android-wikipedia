@@ -10,6 +10,7 @@
 * Debeet
 * Devwebtel
 * Expert3222
+* IOIOI
 * InternerowyGołąb
 * Kareyac
 * Lantuszka
@@ -26,6 +27,7 @@
 * SHaran (WMF)
 * Stojex
 * Strebski
+* Szymonel
 * Tar Lócesilion
 * The Polish
 * Thoji
@@ -60,6 +62,7 @@
   <string name="offline_load_error_retry">Ponów próbę</string>
   <string name="page_error_back_to_main">Wróć</string>
   <string name="error_back">Wróć</string>
+  <string name="error_next">Dalej</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
   <string name="history_item_deleted">Usunięto %s z historii</string>
   <string name="history_items_deleted">%d artykułów usunięto z historii</string>
@@ -68,6 +71,10 @@
   <string name="app_settings">Ustawienia aplikacji</string>
   <string name="search_tab_tooltip">Stuknij ikonę ponownie, aby bezpośrednio rozpocząć wyszukiwanie frazy.</string>
   <string name="history_list_title">Historia</string>
+  <string name="image_content_description">Grafika %s</string>
+  <string name="page_content_description">Strona: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidane</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
   <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
@@ -79,7 +86,13 @@
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
   <string name="menu_page_find_in_page">Znajdź w artykule</string>
   <string name="menu_page_add_to_watchlist">Dodaj do listy obserwowanych</string>
+  <string name="menu_page_watch">Obserwuj</string>
+  <string name="menu_page_view_talk">Zobacz stronę dyskusji</string>
+  <string name="menu_page_talk_page">Strona dyskusji</string>
+  <string name="menu_page_view_edit_history">Zobacz historię edycji</string>
+  <string name="menu_page_edit_history">Historia edycji</string>
   <string name="menu_page_remove_from_watchlist">Usuń z listy obserwowanych</string>
+  <string name="menu_page_watched">Obserwowane</string>
   <string name="edit_section_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
@@ -87,6 +100,8 @@
   <string name="feed_card_add_to_list">Dodaj do listy czytanych</string>
   <string name="feed_card_add_to_default_list">Zapisz</string>
   <string name="menu_page_share">Udostępnij łącze</string>
+  <string name="menu_article_share">Udostępnij artykuł</string>
+  <string name="menu_page_article_share">Udostępnij</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
   <string name="menu_page_new_tab">Nowa karta</string>
   <string name="menu_page_reading_lists">Listy do przeczytania</string>
@@ -218,6 +233,8 @@
   <string name="page_protected_can_not_edit_anon">Niestety, tej strony nie można obecnie edytować anonimowo.</string>
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj do listy obserwowanych</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Śledź artykuły, które cię ciekawią. Kliknij w menu i wybierz &lt;b&gt;Dodaj do listy obserwowanych&lt;/b&gt;, aby widzieć zmiany w artykule.</string>
+  <string name="page_notification_tooltip">Twoje powiadomienia znajdują się tutaj.</string>
   <string name="settings_item_preferences">Ustawienia</string>
   <string name="settings_activity_title">Ustawienia</string>
   <string name="about_description">O aplikacji Wikipedia</string>
@@ -307,6 +324,7 @@
   <string name="gallery_save_success">Plik zapisany.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
   <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów.</string>
+  <string name="gallery_edit_button_content_description">Edytuj podpis obrazu</string>
   <string name="gallery_add_image_caption_button">Dodaj podpis obrazu</string>
   <string name="gallery_add_image_caption_in_language_button">Dodaj podpis obrazu (%s)</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
@@ -375,6 +393,7 @@
   <string name="page_footer_license_text">O ile nie zaznaczono inaczej, treść dostępna jest na licencji $1</string>
   <string name="empty_tab_title">Nowa karta</string>
   <string name="menu_save_all_tabs">Zapisz wszystkie karty</string>
+  <string name="error_blocked_title">Twoja nazwa użytkownika lub adres IP został zablokowany.</string>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
@@ -400,6 +419,8 @@
   <string name="text_size_decrease">Zmniejsz rozmiar tekstu</string>
   <string name="text_size_percent_default">%s (domyślnie)</string>
   <string name="text_style_title">Czcionka</string>
+  <string name="theme_category_toolbar">Pasek narzędzi</string>
+  <string name="theme_customize_toolbar">Personalizuj pasek narzędzi</string>
   <string name="nav_item_saved">Zapisane</string>
   <string name="reading_list_save_to">Zapisz do przeczytania</string>
   <string name="reading_list_move_to">Przejdź do listy lektur</string>
@@ -562,6 +583,9 @@
   <string name="notification_preferences_title">Preferencje powiadomień</string>
   <string name="notifications_mark_unread">Oznacz jako nieprzeczytane</string>
   <string name="notifications_mark_all_as_read">Oznacz wszystko jako przeczytane</string>
+  <string name="notifications_direct_reply_action">Odpowiedz</string>
+  <string name="notifications_direct_reply_progress">Zamieszczanie odpowiedzi do%s…</string>
+  <string name="notifications_direct_reply_success">Zamieszczono odpowiedź.</string>
   <string name="watchlist_title">Obserwowane</string>
   <string name="preference_title_notification_poll">Poll notifications</string>
   <string name="preference_summary_notification_poll">Pozwól aplikacji używać danych do sprawdzania nowych powiadomień w tle.</string>
@@ -580,8 +604,10 @@
   <string name="preference_summary_notification_mention">Ktoś wspomniał o Tobie na stronie</string>
   <string name="preference_title_notification_user_talk">Strona dyskusji</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">Wiadomości ze stron dyskusji</string>
+  <string name="preference_category_push_notifications">Powiadomienia push</string>
   <string name="preference_category_display_settings">Ustawienia wyświetlania</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+  <string name="notifications_channel_group_other_title">Inne</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
   <string name="view_random_article_card_title">Losowy artykuł</string>
@@ -899,7 +925,6 @@
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
   <string name="talk_snackbar_undo">Cofnij</string>
   <string name="watchlist_details_watch_label">Obserwuj</string>
-  <string name="go_to_user_page">Przejdź do strony użytkownika</string>
   <string name="thank_dialog_positive_button_text">Wyślij podziękowanie</string>
   <string name="thank_dialog_negative_button_text">Anuluj</string>
   <string name="thank_success_message">Twoje podziękowanie zostało wysłane do %s 👍</string>

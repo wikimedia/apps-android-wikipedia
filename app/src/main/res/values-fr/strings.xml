@@ -82,6 +82,7 @@
   <string name="search_tab_tooltip">Taper de nouveau sur l’icône pour commencer directement à saisir un terme de recherche.</string>
   <string name="history_list_title">Historique</string>
   <string name="image_content_description">Image : %s</string>
+  <string name="page_content_description">Page : %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
@@ -95,9 +96,13 @@
   <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Trouver dans l’article</string>
   <string name="menu_page_add_to_watchlist">Ajouter à la liste de suivi</string>
+  <string name="menu_page_watch">Suivre</string>
   <string name="menu_page_view_talk">Afficher la page de discussion</string>
+  <string name="menu_page_talk_page">Page de discussion</string>
   <string name="menu_page_view_edit_history">Afficher l’historique des modifications</string>
+  <string name="menu_page_edit_history">Modifier l’historique</string>
   <string name="menu_page_remove_from_watchlist">Supprimer de la liste de suivi</string>
+  <string name="menu_page_watched">Suivi</string>
   <string name="edit_section_find_in_page">Trouver dans la page</string>
   <string name="menu_page_font_and_theme">Police et thème</string>
   <string name="menu_page_add_to_list">Ajouter à la liste de lecture</string>
@@ -105,6 +110,8 @@
   <string name="feed_card_add_to_list">Ajouter à la liste de lecture</string>
   <string name="feed_card_add_to_default_list">Enregistrer</string>
   <string name="menu_page_share">Partager le lien</string>
+  <string name="menu_article_share">Partager l’article</string>
+  <string name="menu_page_article_share">Partager</string>
   <string name="menu_page_open_a_new_tab">Ouvrir un nouvel onglet</string>
   <string name="menu_page_new_tab">Nouvel onglet</string>
   <string name="menu_page_reading_lists">Listes de lecture</string>
@@ -336,6 +343,7 @@
   <string name="gallery_save_success">Fichier enregistré.</string>
   <string name="gallery_error_video_failed">Impossible de jouer la vidéo.</string>
   <string name="gallery_save_image_write_permission_rationale">Le droit d’écrire dans l\'espace de stockage de votre appareil est nécessaire pour enregistrer des images.</string>
+  <string name="gallery_edit_button_content_description">Modifier la légende de l’image</string>
   <string name="gallery_add_image_caption_button">Ajouter la légende de l’image</string>
   <string name="gallery_add_image_caption_in_language_button">Ajouter la légende de l’image (%s)</string>
   <string name="err_cannot_save_file">Impossible d’enregistrer le fichier</string>
@@ -397,6 +405,7 @@
   <string name="error_message_generic">Une erreur s’est produite</string>
   <string name="view_link_preview_error_button_dismiss">Fermer</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
+  <string name="error_user_page_does_not_exist">Wikipédia n’a pas de &lt;a href=\"%1$s\"&gt;page utilisateur&lt;/a&gt; avec ce nom exact. En général, cette page devrait être créée et éditée par &lt;b&gt;%2$s&lt;/b&gt;. En cs de doute, veuillez vérifier que « %3$s » existe.</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
   <string name="view_wiki_error_message_timeout">Impossible de se connecter à Wikipédia. Vérifiez votre connexion réseau, ou réessayez ultérieurement.</string>
   <string name="reference_title">Référence %s</string>
@@ -415,6 +424,7 @@
   <string name="error_blocked_expiry">Expiration du bloc: %s</string>
   <string name="error_blocked_id">ID du blocage : %s</string>
   <string name="error_blocked_footer">Vous pouvez contacter &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou un autre &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
+  <string name="theme_chooser_menu_item_tooltip">Personnaliser votre barre d’outils et essayer de lire en mode focalisé</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="crash_report_activity_title">Erreur de l’application</string>
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
@@ -441,6 +451,11 @@
   <string name="text_size_decrease">Réduire la taille du texte</string>
   <string name="text_size_percent_default">%s (par défaut)</string>
   <string name="text_style_title">Police</string>
+  <string name="theme_category_reading">Lecture</string>
+  <string name="reading_focus_mode">Mode de focalisation sur la lecture</string>
+  <string name="reading_focus_mode_detail">Masque les fonctionnalités de modification et la barre d’outil en bas lors du défilement</string>
+  <string name="theme_category_toolbar">Barre d’outils</string>
+  <string name="theme_customize_toolbar">Personnaliser la barre d’outils</string>
   <string name="nav_item_saved">Enregistré</string>
   <string name="reading_list_save_to">Enregistrer dans la liste de lecture</string>
   <string name="reading_list_move_to">Déplacer vers la liste de lecture</string>
@@ -569,6 +584,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annuler</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annuler</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Liste de lecture : %s</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_reverted_title">Modification annulée</string>
   <string name="notification_channel_title">Téléchargement des articles</string>
@@ -671,7 +687,7 @@
   <string name="notifications_channel_group_other_description">Autres notifications de l’application</string>
   <string name="notifications_filter_label">Filtrer les notifications</string>
   <string name="notifications_filter_icon_content_description">Filtrer les notifications</string>
-  <string name="notifications_filter_add_app_languages">Ajouter ou modifier des langues d’application</string>
+  <string name="notifications_filter_update_app_languages">Mettre à jour les langues de l’application</string>
   <string name="notifications_empty_search_message">Essayer de supprimer %s pour voir plus de notifications</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtre</item>
@@ -693,6 +709,7 @@
   <string name="notifications_all_wikis_text">Tous les « wikis »</string>
   <string name="notifications_all_types_text">Tous les « types »</string>
   <string name="notifications_menu_user_talk_page">page de discussion de %s</string>
+  <string name="notifications_offline_disable_message">Cette fonction n’est pas disponible hors ligne.</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Au hasard</string>
   <string name="view_random_article_card_title">Article au hasard</string>
@@ -750,6 +767,7 @@
   <string name="feed_accessibility_card_text">Vous avez atteint la fin du flux.</string>
   <string name="feed_accessibility_card_load_more_button">Charger davantage</string>
   <string name="top_read_activity_title">Les plus lus sur %s</string>
+  <string name="tabs_activity_title">Onglets</string>
   <string name="description_edit_text_hint">Description de l’article</string>
   <string name="description_edit_article_description_label">Article</string>
   <string name="description_edit_translate_article_description_label_per_language">Description de l’article (%s)</string>
@@ -781,6 +799,7 @@
   <string name="description_starts_with_uppercase">Commencer avec une lettre minuscule, sauf si le premier mot est un nom propre.</string>
   <string name="description_starts_with_lowercase">Éviter de commencer par une lettre minuscule.</string>
   <string name="description_is_in_different_language">Le texte semble être dans une langue inattendue. La langue devrait être %s.</string>
+  <string name="description_verification_notice">Veuillez vérifier que votre description est en %1$s. Vous pouvez librement ignorer cette notification si votre description est écrite en %2$s.</string>
   <string name="description_edit_success_saved">Description de l’article publiée !</string>
   <string name="description_edit_success_saved_snackbar">Description d’article publiée !</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Description de l’article publiée ! (%s)</string>
@@ -798,6 +817,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idéalement une ligne, entre deux et douze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Commencez à éditer</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
+  <string name="customize_toolbar_title">Personnaliser la barre d’outils</string>
+  <string name="customize_toolbar_description">Personnaliser votre barre d’outils de navigation en bas avec les actions et les destinations que vous trouvez les plus utiles.</string>
+  <string name="customize_toolbar_category_toolbar">Barre d’outils</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Prendre et tirer vos éléments favoris ici 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Réinitialiser aux valeurs par défaut</string>
   <string name="suggested_edits_describe_articles">Décrire les articles</string>
   <string name="suggested_edits_caption_images">Légende d’images</string>
   <string name="suggested_edits_tag_images">Marquer les images</string>
@@ -967,6 +992,7 @@
   <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
   <string name="file_page_add_image_tags_button">Ajouter des balises d’image</string>
   <string name="file_page_suggestion_reason">Raison de la suggestion</string>
+  <string name="file_page_edit_button_content_description">Modifier %s</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
@@ -1075,20 +1101,28 @@
   <string name="talk_last_modified">&lt;b&gt;Dernière modification le %1$s&lt;/b&gt; par %2$s</string>
   <string name="talk_snackbar_survey_text">Merci d\'utiliser les pages de discussion. Pourriez-vous nous aider à améliorer l\'application en participant à une enquête ?</string>
   <string name="talk_snackbar_survey_action_text">Démarrer</string>
+  <string name="talk_share_discussion_subject">Wikipédia — discussion sur le sujet « %s » de la page de discussion</string>
+  <string name="talk_share_talk_page">Wikipédia — discussions sur la page de discussion</string>
+  <string name="talk_edit_disclaimer">Ceci est une page de discussion. Veuillez respecter les règles directrices de page de discussion, et vous souvenir de signer vos publications en tapant quatre tildes : ~~~~ en postant avec wikitexte.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
+  <string name="menu_option_share_talk_discussion">Partager la discussion</string>
+  <string name="menu_option_share_talk_page">Partager la page de discussion</string>
   <string name="menu_option_share_edit">Partager la modification</string>
   <string name="menu_option_user_profile">Profil de %s</string>
   <string name="menu_option_user_contributions">Contributions de %s</string>
+  <string name="menu_option_edit_source">Modifier la source</string>
   <string name="watchlist_details_watching_label">Suivi</string>
   <string name="watchlist_details_watch_label">Suivre</string>
   <string name="watchlist_details_next_edit">Modification suivante</string>
   <string name="watchlist_details_prev_edit">Modification précédente</string>
   <string name="thank_label">Remercier</string>
-  <string name="go_to_user_page">Aller à la page utilisateur</string>
+  <string name="view_user_page">Afficher la page utilisateur</string>
   <string name="thank_dialog_title_text">Envoyer « merci » publiquement</string>
   <string name="thank_dialog_text">Dire « Merci » est une manière facile de montrer son appréciation du travail d’un éditeur sur Wikipédia. Les « Merci » ne peuvent être annulés et sont publiquement visibles.</string>
   <string name="thank_dialog_positive_button_text">Envoyer des remerciements</string>
   <string name="thank_dialog_negative_button_text">Annuler</string>
   <string name="thank_success_message">Votre remerciement a été envoyé à %s 👍</string>
+  <string name="menu_option_view_user_profile">Afficher la page du profil utilisateur</string>
+  <string name="menu_option_view_user_talk">Afficher la page de discussion</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s et sa page de discussion ont été ajoutés à votre liste de suivi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifier</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">de façon permanente</string>

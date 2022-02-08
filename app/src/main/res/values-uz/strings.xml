@@ -43,6 +43,7 @@
   <string name="search_tab_tooltip">Qidiruv so‘zini to‘g‘ridan-to‘g‘ri yozishni boshlash uchun ikonkaga yana bir marta bosing.</string>
   <string name="history_list_title">Tarix</string>
   <string name="image_content_description">Surat: %s</string>
+  <string name="page_content_description">%s sahifasi</string>
   <string name="wikimedia_commons">Vikiombor</string>
   <string name="wikidata">Vikimaʼlumot</string>
   <string name="dialog_title_clear_history">Ko‘rish tarixini o‘chirasizmi?</string>
@@ -66,6 +67,7 @@
   <string name="feed_card_add_to_list">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="feed_card_add_to_default_list">Saqlamoq</string>
   <string name="menu_page_share">Havolani ulashmoq</string>
+  <string name="menu_article_share">Maqolani ulashmoq</string>
   <string name="menu_page_open_a_new_tab">Yangi xatcho‘p ochmoq</string>
   <string name="menu_page_new_tab">Yangi varaqa</string>
   <string name="menu_page_reading_lists">O‘qilganlar ro‘yxati</string>
@@ -244,6 +246,10 @@
   <string name="edit_summary_tag_other_hint">Sahifani takomillashtirishning boshqa usullari</string>
   <string name="edit_conflict_title">Kamchiliklarni tahrirlamoq</string>
   <string name="edit_conflict_message">Sahifa allaqachon boshqa foydalanuvchi tomonidan oʻzgartirilgan va sizning tahriringizga zid keladi. Iltimos, tahrirlaringizdan nusxa oling, orqaga qayting va sahifani yangilang, keyin yana tahrir qilib koʻring.</string>
+  <string name="edit_notices">Qaydlarni tahrirlamoq</string>
+  <string name="edit_notices_please_read">Tahrirlashdan oldin oʻqib chiqish soʻraladi</string>
+  <string name="edit_notices_show_auto">Qaydlarni tahrirlashni avtomatik koʻrsatmoq</string>
+  <string name="edit_notices_tooltip">Ushbu maqoladagi qaydlarni tahrirlashni koʻrish uchun bu tugmani bosing.</string>
   <string name="find_next">Keyingisini topish</string>
   <string name="find_previous">Oldingisini topish</string>
   <string name="find_first_occurence">Bu birinchi hodisa</string>
@@ -293,6 +299,7 @@
   <string name="gallery_save_success">Fayl saqlandi.</string>
   <string name="gallery_error_video_failed">Videoni ijro etib bo‘lmadi.</string>
   <string name="gallery_save_image_write_permission_rationale">Rasmlarni saqlash uchun qurilmangiz xotirasiga kirish uchun ruxsat zarur.</string>
+  <string name="gallery_edit_button_content_description">Rasm sarlavhasini oʻzgartirmoq</string>
   <string name="gallery_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="gallery_add_image_caption_in_language_button">Rasmga sarlavha qo‘shmoq (%s)</string>
   <string name="err_cannot_save_file">Faylni saqlab bo‘lmadi</string>
@@ -354,6 +361,7 @@
   <string name="error_message_generic">Xatolik ro‘y berdi</string>
   <string name="view_link_preview_error_button_dismiss">Rad etmoq</string>
   <string name="error_page_does_not_exist">Ushbu sahifa mavjud emas</string>
+  <string name="error_user_page_does_not_exist">Vikipediyada aynan shunday &lt;a href=\"%1$s\"&gt; nomga ega foydalanuvchi sahifasi yo‘q.&lt;/a&gt;Umuman olganda, bu sahifa &lt;b&gt;%2$s&lt;/b&gt; tomonidan tuzilishi hamda tahrirlanishi lozim. Agar shubhangiz boʻlsa, “%3$s” mavjudligini tekshiring.</string>
   <string name="view_wiki_error_message_offline">Internetga bog‘lanib bo‘lmadi</string>
   <string name="view_wiki_error_message_timeout">Vikipediyaga ulanib bo‘lmadi. Tarmoq ulanishingizni tekshiring yoki keyinroq qayta urinib ko‘ring</string>
   <string name="reference_title">Izohlar %s</string>
@@ -526,6 +534,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Bekor qilmoq</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Bekor qilmoq</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">%s oʻqilganlar roʻyxati</string>
   <string name="user_option_sync_label">Tanlovlar</string>
   <string name="notification_reverted_title">Qayta tahrir</string>
   <string name="notification_channel_title">Fayl yuklanmoqda...</string>
@@ -582,10 +591,18 @@
   <string name="notifications_mark_all_as_read">Barchasini oʻqilgan deb belgilash</string>
   <string name="notifications_direct_reply_action">Javob bermoq</string>
   <string name="notifications_direct_reply_progress">%sʼga javob yuborilmoqda…</string>
-  <string name="notifications_direct_reply_success" fuzzy="true">Javob muvaffaqiyatli joʻnatildi.</string>
+  <string name="notifications_direct_reply_success">Javob eʼlon qilindi.</string>
   <string name="notifications_direct_reply_error">Avtomatik javob berib boʻlmadi.</string>
   <string name="notifications_mark_all_as_read_message">%d tasi oʻqilgan tarzida belgilandi</string>
   <string name="notifications_mark_all_as_unread_message">%d tasi oʻqilmagan</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 ta oʻqilgan kabi belgilandi</item>
+    <item quantity="other">%d tasi oʻqilgan kabi belgilandi</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 tasi oʻqilmagan</item>
+    <item quantity="other">%d tasi oʻqilmagan</item>
+  </plurals>
   <string name="watchlist_title">Kuzatuv roʻyxati</string>
   <string name="preference_title_notification_poll">Bildirishnomalarga ovoz bermoq</string>
   <string name="preference_summary_notification_poll">Orqa fonda yangi bildirishnomalarni tekshirish uchun ilovaga trafikdan foydalanishga ruxsat bering.</string>
@@ -620,6 +637,7 @@
   <string name="notifications_channel_group_other_description">Ilovadan boshqa bildirishnomalar</string>
   <string name="notifications_filter_label">Bildirishnomalar filtri</string>
   <string name="notifications_filter_icon_content_description">Bildirishnomalar filtri</string>
+  <string name="notifications_filter_update_app_languages">Ilova tilini yangilamoq</string>
   <string name="notifications_empty_search_message">Koʻproq bildirishnomalarni koʻrish uchun %sʼni oʻchirib koʻring</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d ta filtr</item>
@@ -641,6 +659,7 @@
   <string name="notifications_all_wikis_text">Barcha “wiki”</string>
   <string name="notifications_all_types_text">Barcha “tur”</string>
   <string name="notifications_menu_user_talk_page">%sʼning suhbat sahifasi</string>
+  <string name="notifications_offline_disable_message">Ushbu funksiya oflayn boʻlganda mavjud boʻlmaydi.</string>
   <string name="view_because_you_read_card_title">Oʻqiganingiz uchun tavsiya etildi</string>
   <string name="view_random_card_title">Tasodifiy tartibda</string>
   <string name="view_random_article_card_title">Tasodifiy maqola</string>
@@ -698,6 +717,7 @@
   <string name="feed_accessibility_card_text">Siz tasmaning eng pastki qismiga yetdingiz.</string>
   <string name="feed_accessibility_card_load_more_button">Batafsil</string>
   <string name="top_read_activity_title">%sda eng koʻp oʻqilgan</string>
+  <string name="tabs_activity_title">Xatchoʻplar</string>
   <string name="description_edit_text_hint">Maqola tavsifi</string>
   <string name="description_edit_article_description_label">Maqola</string>
   <string name="description_edit_translate_article_description_label_per_language">Maqola tavsifi (%s)</string>
@@ -914,6 +934,7 @@
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
   <string name="file_page_suggestion_reason">Taklif sababi</string>
+  <string name="file_page_edit_button_content_description">%sʼni tahrirlamoq</string>
   <string name="description_edit_revert_subtitle">Vikipediyaga hissa qoʻshnagingiz uchun tashakkur!</string>
   <string name="description_edit_revert_intro">Biz sizning qo\'lingizdan kelganicha harakat qilganingizni bilamiz, ammo sharhlovchilardan biri tashvishga tushdi. Tahriringiz qaytarilgan bo\'lishi mumkin bo\'lgan sabablarga quyidagilar kiradi:</string>
   <string name="description_edit_revert_reason1">sizning hissangiz quyidagi &lt;a href=\"%1$s\"&gt;yoʻriqnoma&lt;/a&gt;ga mos emas</string>
@@ -953,7 +974,7 @@
     <item quantity="one">Oʻtgan yili</item>
     <item quantity="other">%d yil oldin</item>
   </plurals>
-  <string name="on_this_day_end_of_scroll_message">You shuncha vaqtni bosib oʻtdingiz 🚀</string>
+  <string name="on_this_day_end_of_scroll_message">Siz shuncha vaqtni bosib oʻtdingiz 🚀</string>
   <string name="on_this_day_back_to_future">Kelajakka qaytmoq</string>
   <string name="languages_list_activity_title">Til qoʻshmoq</string>
   <string name="languages_list_suggested_text">Tavsiya etilgan</string>
@@ -1022,6 +1043,10 @@
   <string name="talk_last_modified">&lt;b&gt;Soʻnggi oʻzgarish %1$s da&lt;/b&gt; %2$s tomonidan bajarilgan.</string>
   <string name="talk_snackbar_survey_text">Suhbat sahifalaridan foydalanganingiz uchun tashakkur. Soʻrovnomada qatnashib, ilovani yaxshilashga yordam bera olasizmi?</string>
   <string name="talk_snackbar_survey_action_text">Boshladik</string>
+  <string name="talk_share_discussion_subject">Vikipediya - munozara sahifasidagi \"%s\" mavzusidagi muhokama</string>
+  <string name="talk_share_talk_page">Vikipediya - munozaralar sahifasi</string>
+  <string name="menu_option_share_talk_discussion">Munozarani ulashmoq</string>
+  <string name="menu_option_share_talk_page">Muhokama sahifasini ulashmoq</string>
   <string name="menu_option_share_edit">Tahrirlashni ulashmoq</string>
   <string name="menu_option_user_profile">%sʼning profili</string>
   <string name="menu_option_user_contributions">%sning hissalari</string>
@@ -1030,7 +1055,7 @@
   <string name="watchlist_details_next_edit">Keyingi tahrir</string>
   <string name="watchlist_details_prev_edit">Oldingi tahrir</string>
   <string name="thank_label">Tashakkur</string>
-  <string name="go_to_user_page">Foydalanuvchi sahifasiga oʻtmoq</string>
+  <string name="view_user_page">Foydalanuvchi sahifasini koʻrish</string>
   <string name="thank_dialog_title_text">«Tashakkur» bildirmoq</string>
   <string name="thank_dialog_text">«Tashakkur» - Vikipediyada muharrirning ishiga minnatdorchilik bildirishning oson usuli. «Tashakkur» bekor qilinmaydi va hammaga koʻra oladi</string>
   <string name="thank_dialog_positive_button_text">Tashakkur bildirmoq</string>

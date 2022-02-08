@@ -79,6 +79,9 @@
   <string name="search_tab_tooltip">再度アイコンをタップして直接検索ワードを入力することができます。</string>
   <string name="history_list_title">履歴</string>
   <string name="image_content_description">画像 %s</string>
+  <string name="page_content_description">ページ: %s</string>
+  <string name="wikimedia_commons">ウィキメディア・コモンズ</string>
+  <string name="wikidata">ウィキデータ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
   <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか?</string>
   <string name="dialog_message_clear_history_yes">はい</string>
@@ -90,7 +93,9 @@
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
   <string name="menu_page_add_to_watchlist">ウォッチリストに追加</string>
+  <string name="menu_page_watch">ウォッチ</string>
   <string name="menu_page_view_talk">ノートを表示</string>
+  <string name="menu_page_talk_page">トークページ</string>
   <string name="menu_page_view_edit_history">編集履歴を表示</string>
   <string name="menu_page_remove_from_watchlist">ウォッチリストから除去</string>
   <string name="edit_section_find_in_page">ページ内検索</string>
@@ -100,6 +105,8 @@
   <string name="feed_card_add_to_list">あとで読むリストに追加</string>
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">リンクを共有</string>
+  <string name="menu_article_share">記事を共有</string>
+  <string name="menu_page_article_share">共有</string>
   <string name="menu_page_open_a_new_tab">新しいタブを開く</string>
   <string name="menu_page_new_tab">新しいタブ</string>
   <string name="menu_page_reading_lists">あとで読むリスト</string>
@@ -431,6 +438,8 @@
   <string name="text_size_decrease">テキストサイズを縮小します</string>
   <string name="text_size_percent_default">%s (既定)</string>
   <string name="text_style_title">フォント</string>
+  <string name="theme_category_toolbar">ツールバー</string>
+  <string name="theme_customize_toolbar">ツールバーをカスタマイズする</string>
   <string name="nav_item_saved">保存済み</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
   <string name="reading_list_move_to">あとで読むリストに保存</string>
@@ -638,6 +647,8 @@
   <string name="notifications_channel_group_wikipedia_notifications_description">ウィキペディアからの通知</string>
   <string name="notifications_channel_group_other_title">その他</string>
   <string name="notifications_channel_group_other_description">アプリからのその他の通知</string>
+  <string name="notifications_tab_filter_all">すべて</string>
+  <string name="notifications_tab_filter_mentions">メンション</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
   <string name="view_random_article_card_title">ランダム記事</string>
@@ -739,6 +750,10 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">説明は1行のみで、30文字程度で書いてください</string>
   <string name="description_edit_tutorial_button_label_start_editing">編集を開始</string>
   <string name="description_edit_tutorial_promise">この機能を悪用しないことを約束して、スタートする。</string>
+  <string name="customize_toolbar_title">ツールバーをカスタマイズする</string>
+  <string name="customize_toolbar_category_toolbar">ツールバー</string>
+  <string name="customize_toolbar_category_menu">メニュー</string>
+  <string name="customize_toolbar_reset_to_default_button">初期状態にリセットする</string>
   <string name="suggested_edits_describe_articles">記事の説明</string>
   <string name="suggested_edits_caption_images">画像キャプション</string>
   <string name="suggested_edits_tag_images">画像にタグを付ける</string>
@@ -1018,14 +1033,16 @@
   <string name="menu_option_share_edit">編集をシェア</string>
   <string name="menu_option_user_profile">%s のプロフィール</string>
   <string name="menu_option_user_contributions">%s の投稿記録</string>
+  <string name="menu_option_edit_source">ソースを編集</string>
   <string name="watchlist_details_watch_label">ウォッチ</string>
   <string name="thank_label">感謝</string>
-  <string name="go_to_user_page">利用者ページに移動</string>
   <string name="thank_dialog_title_text">感謝を公に示す</string>
   <string name="thank_dialog_text">\'感謝\' はウィキペディアを編集する編集者へ感謝を示す簡単な方法です。\'感謝\' は元に戻すことはできず、誰でも見ることができます。</string>
   <string name="thank_dialog_positive_button_text">感謝を示す</string>
   <string name="thank_dialog_negative_button_text">キャンセル</string>
   <string name="thank_success_message">あなたの感謝は %s に送られました 👍</string>
+  <string name="menu_option_view_user_profile">利用者プロフィールページを見る</string>
+  <string name="menu_option_view_user_talk">トークページを見る</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
   <string name="watchlist_page_removed_from_watchlist_snackbar">%s とそのトークぺーj比は正常にウォッチリストから削除されました。</string>
   <string name="watchlist_expiry_dialog_one_week">1週間</string>

@@ -15,6 +15,7 @@
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Наперад</string>
   <string name="search_hint">Пошук па Вікіпэдыі</string>
+  <string name="search_hint_voice_search">Галасавы пошук</string>
   <string name="search_hint_search_languages">Пошук мовы</string>
   <string name="filter_hint_filter_my_lists_and_articles">Фільтраваць мае сьпісы</string>
   <string name="nav_item_suggested_edits">Рэдагаваньні</string>
@@ -298,6 +299,16 @@
   <string name="color_theme_select">Афармленьне</string>
   <string name="color_theme_light">Сьветлае</string>
   <string name="color_theme_dark">Цёмнае</string>
+  <string name="text_size_percent_default">%s (дапомна)</string>
+  <string name="text_style_title">Шрыфт</string>
+  <string name="theme_category_reading">Чытаньне</string>
+  <string name="reading_focus_mode">Рэжым факусаваньня чытаньня</string>
+  <string name="reading_focus_mode_detail">Хавае функцыі рэдагаваньня і ніжнюю панэль інструмэнтаў падчас пракручваньня</string>
+  <string name="nav_item_saved">Захавана</string>
+  <string name="reading_list_save_to">Захавац у сьпіс чытаньня</string>
+  <string name="reading_list_move_to">Перанесьці ў сьпіс чытаньня</string>
+  <string name="reading_list_create_new">Стварыць новы</string>
+  <string name="reading_list_title_exists">Сьпіс чытаньня „%s“ ужо існуе.</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 артыкул, %2$.2f МБ</item>
     <item quantity="few">%1$d артыкулы, %2$.2f МБ</item>
