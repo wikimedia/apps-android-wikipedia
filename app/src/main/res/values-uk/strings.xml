@@ -68,9 +68,13 @@
   <string name="menu_page_other_languages">Змінити мову</string>
   <string name="menu_page_find_in_page">Знайти у статті</string>
   <string name="menu_page_add_to_watchlist">Додати до списку спостереження</string>
+  <string name="menu_page_watch">Спостерігати</string>
   <string name="menu_page_view_talk">Переглянути сторінку обговорення</string>
+  <string name="menu_page_talk_page">Сторінка обговорення</string>
   <string name="menu_page_view_edit_history">Переглянути історію редагувань</string>
+  <string name="menu_page_edit_history">Історія редагувань</string>
   <string name="menu_page_remove_from_watchlist">Прибрати зі списку спостереження</string>
+  <string name="menu_page_watched">Спостерігається</string>
   <string name="edit_section_find_in_page">Знайти на сторінці</string>
   <string name="menu_page_font_and_theme">Змінити шрифт і тему</string>
   <string name="menu_page_add_to_list">Додати до читального списку</string>
@@ -79,6 +83,7 @@
   <string name="feed_card_add_to_default_list">Зберегти</string>
   <string name="menu_page_share">Поділитися посиланням</string>
   <string name="menu_article_share">Поділитися статтею</string>
+  <string name="menu_page_article_share">Поділитися</string>
   <string name="menu_page_open_a_new_tab">Відкрити нову вкладинку</string>
   <string name="menu_page_new_tab">Нова вкладка</string>
   <string name="menu_page_reading_lists">Читальні списки</string>
@@ -424,6 +429,7 @@
   <string name="theme_category_reading">Читання</string>
   <string name="reading_focus_mode">Режим фокусування читання</string>
   <string name="reading_focus_mode_detail">Приховує функції редагування та нижню панель інструментів під час прокручування</string>
+  <string name="theme_category_toolbar">Панель інструменту</string>
   <string name="nav_item_saved">Збережено</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
   <string name="reading_list_move_to">Перенести до читального списку</string>

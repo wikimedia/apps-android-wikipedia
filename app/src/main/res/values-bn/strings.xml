@@ -10,6 +10,7 @@
 * Greatder
 * Masumrezarock100
 * Md. Golam Mukit Khan
+* MdsShakil
 * MuratTheTurkish
 * Nasir8891
 * R4356th
@@ -412,6 +413,7 @@
   <string name="text_size_decrease">পাঠ্যের আকার হ্রাস করুন</string>
   <string name="text_size_percent_default">%s (পূর্বনির্ধারিত)</string>
   <string name="text_style_title">ফন্ট</string>
+  <string name="theme_category_toolbar">টুলবার</string>
   <string name="nav_item_saved">সংরক্ষিত</string>
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="reading_list_create_new">নতুন তৈরি করুন</string>
@@ -644,6 +646,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
+  <string name="customize_toolbar_category_toolbar">টুলবার</string>
+  <string name="customize_toolbar_category_menu">মেনু</string>
   <string name="suggested_edits_review_description">নিবন্ধের বিবরণ পর্যালোচনা করুন</string>
   <string name="suggested_edits_add_description_button">বিবরণ যোগ করুন</string>
   <string name="suggested_edits_add_translation_button">অনুবাদ করুন</string>

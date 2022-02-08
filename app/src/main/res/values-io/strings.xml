@@ -31,6 +31,7 @@
   <string name="offline_load_error_retry">Riprobar</string>
   <string name="page_error_back_to_main">Retroirar</string>
   <string name="error_back">Retroirar</string>
+  <string name="error_next">Sequanta</string>
   <string name="menu_clear_all_history">Efacar historio</string>
   <string name="history_item_deleted">%s efacesis de la historio</string>
   <string name="history_items_deleted">%d artikli efacesis de la historio</string>
@@ -40,6 +41,7 @@
   <string name="search_tab_tooltip">Kliktez l\'ikono itere, por skribar vorto o texto por serchar.</string>
   <string name="history_list_title">Versionaro</string>
   <string name="image_content_description">Imajo: %s</string>
+  <string name="page_content_description">Pagino: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Eliminar la listo historiala dil retnavigilo</string>
@@ -53,9 +55,13 @@
   <string name="menu_page_other_languages">Chanjar linguo</string>
   <string name="menu_page_find_in_page">Trovar che artiklo</string>
   <string name="menu_page_add_to_watchlist">Adjuntez a surveyo-listo</string>
+  <string name="menu_page_watch">Surveyar</string>
   <string name="menu_page_view_talk">Vidar diskuto-pagino</string>
+  <string name="menu_page_talk_page">Diskuto-pagino</string>
   <string name="menu_page_view_edit_history">Vidar redakto-historio</string>
+  <string name="menu_page_edit_history">Historio di la redakturi</string>
   <string name="menu_page_remove_from_watchlist">Efacar de surveyo-listo</string>
+  <string name="menu_page_watched">Patroliita</string>
   <string name="edit_section_find_in_page">Serchar en la pagino</string>
   <string name="menu_page_font_and_theme">Fonto e temo</string>
   <string name="menu_page_add_to_list">Adjuntez a la lektebla listo</string>
@@ -63,6 +69,8 @@
   <string name="feed_card_add_to_list">Adjuntez a la lektebla listo</string>
   <string name="feed_card_add_to_default_list">Konservez</string>
   <string name="menu_page_share">Difuzar ligilo</string>
+  <string name="menu_article_share">Partigar artiklo</string>
+  <string name="menu_page_article_share">Partigar</string>
   <string name="menu_page_open_a_new_tab">Apertar nova etiketo</string>
   <string name="menu_page_new_tab">Nov etiketo</string>
   <string name="menu_page_reading_lists">Listo di lektado</string>
@@ -207,12 +215,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteki uzita</string>
   <string name="about_contributors_heading">Kontributeri</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagino dil esquado&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradukeri</string>
   <string name="about_translators_translatewiki">Ica \'app\' tradukesis da voluntara tradukeri en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenco</string>
-  <string name="about_app_license" fuzzy="true">Fonto-kodexo disponebla en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license">Fonto-kodexo disponebla che &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Produkturo del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ca pagino modifikesis. Ka tu fakte deziras ekirar sen salvar tua modifikuri?</string>
@@ -236,10 +247,13 @@
   <string name="edit_summary_tag_other_hint">Altra plubonigi facita en la pagino</string>
   <string name="edit_conflict_title">Konflikto di redakti.</string>
   <string name="edit_conflict_message">Ica pagino ja modifikesis da altra diferanta uzero, e to konfliktas kun vua redakto. Voluntez kopiar vua redakti, retroirez e rimontrez la pagino. Pose probez itere redaktar.</string>
+  <string name="edit_notices">Redakto-notici</string>
+  <string name="edit_notices_please_read">Voluntez lektar ante redaktar</string>
   <string name="find_next">Trovar la sequanta</string>
   <string name="find_previous">Trovar preiranta</string>
   <string name="find_first_occurence">To esas l\'unesma rezulto</string>
   <string name="find_last_occurence">To esas la lasta rezulto</string>
+  <string name="article_opened_in_background_tab">L\'artiklo apertesis en dopa etiketo.</string>
   <string name="abusefilter_title_warn">To semblas esar mala modifiko. Ka tu fakte deziras publikigar ol?</string>
   <string name="abusefilter_title_disallow">Tu ne povas publikigar ica modifiko. Voluntez korektar ol.</string>
   <string name="abusefilter_text_warn">Automatala verifiko judikis ca modifiko potenciale mala. Ol kontenas un o plura de la sequanta:&lt;br /&gt;&lt;br /&gt;· Tota literi en MAYUSKULA&lt;br /&gt;· Efaco di artikli o \'spamming\'&lt;br /&gt;· Ne-aplikebla ligili ad altra artikli od imaji&lt;br /&gt;· Iterado di literi o signi</string>
@@ -284,6 +298,7 @@
   <string name="gallery_save_success">Sucesoza deskargo dil arkivo.</string>
   <string name="gallery_error_video_failed">Ne povis montrar la video*.</string>
   <string name="gallery_save_image_write_permission_rationale">Permiso pri la deskargo (\'download\') di kopiuri di imaji en tua lokala aparato bezonesas.</string>
+  <string name="gallery_edit_button_content_description">Redaktar informo pri imajo</string>
   <string name="gallery_add_image_caption_button">Adjuntez informo pri l\'imajo</string>
   <string name="gallery_add_image_caption_in_language_button">Adjuntez informo pri l\'imajo (%s)</string>
   <string name="err_cannot_save_file">Ne povas konservar kopiuro dil arkivo</string>
@@ -292,6 +307,8 @@
   <string name="captcha_image">imajo CAPTCHA</string>
   <string name="gallery_fair_use_license">yusta uzo</string>
   <string name="gallery_uploader_unknown">Sendero dil arkivo nekonocata</string>
+  <string name="gallery_not_available_offline_snackbar">Vidado di la galerio ne disponebla \'\'offline\'\'.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Celar</string>
   <string name="menu_new_tab">Nov etiketo</string>
   <string name="menu_close_all_tabs">Klozar omna etiketi</string>
   <string name="close_all_tabs_confirm">Ka tu fakte deziras klozar omna etiketi?</string>
@@ -322,6 +339,7 @@
   <string name="page_offline_notice_last_date">Vu lektas versiono \'\'offline\'\' di ca artiklo, konservita che %s.</string>
   <string name="button_get_directions">Obtenar direcioni</string>
   <string name="error_no_maps_app">Nula \'\'app\'\' por montrar direcioni trovesis.</string>
+  <string name="preference_title_customize_explore_feed">Probar \'\'Feed\'\'</string>
   <string name="preference_title_show_link_previews">Montrez previdado di ligili</string>
   <string name="preference_title_collapse_tables">Rekoliar tabeli</string>
   <string name="nav_item_donate">Donacez</string>
@@ -331,12 +349,25 @@
   <string name="location_permissions_enable_prompt">Permisez acesar vua lokizo, por vidar loki proxim vu.</string>
   <string name="location_permissions_enable_action">enswichez</string>
   <string name="error_webview_updating">La sistemo WebView de Android aktualigesas nun. Voluntez riprobar balde.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d selektita</item>
+    <item quantity="other">%d selektita</item>
+  </plurals>
   <string name="multi_select_items_selected">%d selektita</string>
   <string name="error_message_generic">Eventis eroro</string>
   <string name="view_link_preview_error_button_dismiss">Celar</string>
   <string name="error_page_does_not_exist">Ica pagino ne existas</string>
+  <string name="error_user_page_does_not_exist">Wikipedia ne havas &lt;a href=\"%1$s\"&gt;uzero-pagino&lt;/a&gt; kun ca nomo. Ordinare, ca pagino mustos kreesar e redaktesar da &lt;b&gt;%2$s&lt;/b&gt;. Se vu havas dubi, voluntez verifikar se \"%3$s\" existas.</string>
   <string name="view_wiki_error_message_offline">Ne povas konektar a la interreto</string>
+  <string name="view_wiki_error_message_timeout">Ne povas konektar a Wikipedio. Verifikez vua interretala konektilo, o probez itere pĺu tarde</string>
   <string name="reference_title">Refero %s</string>
+  <string name="reference_list_title">Referi</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuo di imaji (en obskura temo)</string>
+  <string name="preference_title_prefer_offline_content">Preferar kontenajo \'\'offline\'\'</string>
+  <string name="preference_summary_prefer_offline_content">Diminutar uzo di dati, karganta artikli disponebla \'\'offline\'\', vice sempre kargar la maxim recenta versiono di ul artiklo</string>
+  <string name="empty_tab_title">Nov etiketo</string>
+  <string name="menu_save_all_tabs">Konservez omna etiketi</string>
+  <string name="error_blocked_start">Komenco di bloko: %s</string>
   <string name="error_blocked_footer_no_blocker">Vu povas kontaktar ul &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administranto&lt;/a&gt; por diskutar pri la blokuso.</string>
   <string name="crash_report_relaunch">Rikomencar</string>
   <string name="crash_report_quit">Ekirar</string>

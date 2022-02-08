@@ -153,7 +153,11 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        dismissCurrentTooltip()
+        if (event.actionMasked == MotionEvent.ACTION_DOWN ||
+                event.actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
+            dismissCurrentTooltip()
+        }
+
         imageZoomHelper?.let {
             return it.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
         }

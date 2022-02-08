@@ -14,11 +14,7 @@ object MediaHelper {
     fun getImageCaptions(fileName: String): Observable<Map<String, String>> {
         return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getEntitiesByTitle(fileName, COMMONS_DB_NAME)
                 .map { entities ->
-                    val captions = mutableMapOf<String, String>()
-                    entities.first?.labels?.values?.forEach {
-                        captions[it.language] = it.value
-                    }
-                    captions
+                    entities.first?.labels?.values?.associate { it.language to it.value }.orEmpty()
                 }
     }
 }
