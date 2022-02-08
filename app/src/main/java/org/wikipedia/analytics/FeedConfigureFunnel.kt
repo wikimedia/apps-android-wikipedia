@@ -6,7 +6,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedContentType
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
-import java.util.*
 
 class FeedConfigureFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: Int) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL, wiki) {
@@ -15,10 +14,8 @@ class FeedConfigureFunnel(app: WikipediaApp, wiki: WikiSite?, private val source
 
     fun done(orderedContentTypes: List<FeedContentType>) {
         val orderedList = orderedContentTypes.map { it.code() }
-        val enabledMap = HashMap<String, List<Int>>()
-        for (language in app.language().appLanguageCodes) {
-            enabledMap[language] = FeedContentType.values().map { if (it.isEnabled) 1 else 0 }
-        }
+        val enabledList = FeedContentType.values().map { if (it.isEnabled) 1 else 0 }
+        val enabledMap = app.language().appLanguageCodes.associateWith { enabledList }
         log(
                 "source", source,
                 "feed_views", Prefs.exploreFeedVisitCount,
