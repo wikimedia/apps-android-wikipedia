@@ -443,6 +443,11 @@ interface Service {
         @Query("titles") titles: String
     ): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=1&rvdir=newer")
+    suspend fun getArticleCreatedDate(
+        @Query("titles") titles: String
+    ): MwQueryResponse
+
     @POST(MW_API_PREFIX + "action=thank")
     @FormUrlEncoded
     suspend fun postThanksToRevision(

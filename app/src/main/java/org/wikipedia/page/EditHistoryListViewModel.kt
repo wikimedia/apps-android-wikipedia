@@ -21,9 +21,7 @@ import java.nio.charset.StandardCharsets
 class EditHistoryListViewModel : ViewModel() {
 
     val editHistoryListData = MutableLiveData<Resource<List<Revision>>>()
-    val editCountsData = MutableLiveData<Resource<List<EditCount>>>()
-
-    private val typesOfEdits = listOf(EditCount.EDIT_TYPE_EDITS, EditCount.EDIT_TYPE_BOT, EditCount.EDIT_TYPE_ANONYMOUS)
+    val articleEditDetailData = MutableLiveData<Resource<Pair<Revision, EditCount>>>()
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
@@ -110,18 +108,12 @@ class EditHistoryListViewModel : ViewModel() {
     fun fetchEditCounts(pageTitle: PageTitle) {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
-                val list = mutableListOf<EditCount>()
-                typesOfEdits.forEach {
-                    val response = ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, it)
-                    list.add(response)
-                }
-                editCountsData.postValue(Success(list))
+                val mwResponse = ServiceFactory.get(pageTitle.wikiSite).getArticleCreatedDate(pageTitle.prefixedText)
+                val editCountsResponse = ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS)
+                val pair = mwResponse.query?.pages?.first()?.revisions?.first()!! to editCountsResponse
+                articleEditDetailData.postValue(Success(pair))
             }
         }
-    }
-
-    fun fetchCreatedDate(pageTitle: PageTitle) {
-        // TODO: reduce API calls by getting the latest edit history from the API?
     }
     
     class EditDetails(val diffSize: Int, val text: CharSequence)
