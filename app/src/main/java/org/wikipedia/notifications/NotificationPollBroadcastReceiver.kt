@@ -53,7 +53,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     return
                 }
                 LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
-                PollNotificationService.schedulePollNotificationJob(context)
+                PollNotificationWorker.schedulePollNotificationJob(context)
             }
             ACTION_CANCEL == intent.action -> {
                 NotificationInteractionFunnel.processIntent(intent)

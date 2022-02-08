@@ -40,6 +40,7 @@
   <string name="search_tab_tooltip">Повторно допрете ја иконата за да почнете со непосредно внесување на саканото пребарување.</string>
   <string name="history_list_title">Историја</string>
   <string name="image_content_description">Слика: %s</string>
+  <string name="page_content_description">Страница: %s</string>
   <string name="wikimedia_commons">Ризница</string>
   <string name="wikidata">Википодатоци</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
@@ -53,9 +54,13 @@
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди во статијата</string>
   <string name="menu_page_add_to_watchlist">Додај во набљудувани</string>
+  <string name="menu_page_watch">Набљудувај</string>
   <string name="menu_page_view_talk">Разговорна страница</string>
+  <string name="menu_page_talk_page">Разговорна страница</string>
   <string name="menu_page_view_edit_history">Историја на уредувања</string>
+  <string name="menu_page_edit_history">Историја на уредувања</string>
   <string name="menu_page_remove_from_watchlist">Отстрани набљудуваните</string>
+  <string name="menu_page_watched">Набљудувани</string>
   <string name="edit_section_find_in_page">Најди на страницата</string>
   <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
   <string name="menu_page_add_to_list">Додај во список за читање</string>
@@ -64,6 +69,7 @@
   <string name="feed_card_add_to_default_list">Зачувај</string>
   <string name="menu_page_share">Сподели врска</string>
   <string name="menu_article_share">Сподели статија</string>
+  <string name="menu_page_article_share">Сподели</string>
   <string name="menu_page_open_a_new_tab">Отвори ново јазиче</string>
   <string name="menu_page_new_tab">Ново јазиче</string>
   <string name="menu_page_reading_lists">Списоци за читање</string>
@@ -295,6 +301,7 @@
   <string name="gallery_save_success">Податотеката е зачувана.</string>
   <string name="gallery_error_video_failed">Не можам да го пуштам видеото.</string>
   <string name="gallery_save_image_write_permission_rationale">Се бара дозвола за зачувување слики на вашиот уред.</string>
+  <string name="gallery_edit_button_content_description">Измени опис на сликата</string>
   <string name="gallery_add_image_caption_button">Додај толкување на сликата</string>
   <string name="gallery_add_image_caption_in_language_button">Додај опис на сликата (%s)</string>
   <string name="err_cannot_save_file">Не можам да ја зачувам податотеката</string>
@@ -375,6 +382,7 @@
   <string name="error_blocked_expiry">Истек на блокот: %s</string>
   <string name="error_blocked_id">Назнака на блокот: %s</string>
   <string name="error_blocked_footer">Можете да се обратите кај &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или некој друг &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; ако сакате да поразговарате за блокот.</string>
+  <string name="theme_chooser_menu_item_tooltip">Прилагодете си го алатникот и пробајте го режимот на посветено читање</string>
   <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
@@ -401,6 +409,11 @@
   <string name="text_size_decrease">Намали текст</string>
   <string name="text_size_percent_default">%s (по основно)</string>
   <string name="text_style_title">Фонт</string>
+  <string name="theme_category_reading">Читање</string>
+  <string name="reading_focus_mode">Режим на посветено читање</string>
+  <string name="reading_focus_mode_detail">Ги скрива можностите за уредување и алатникот најдолу при пролизгување</string>
+  <string name="theme_category_toolbar">Алатник</string>
+  <string name="theme_customize_toolbar">Прилагоди го алатникот</string>
   <string name="nav_item_saved">Зачувано</string>
   <string name="reading_list_save_to">Зачувај во списокот за читање</string>
   <string name="reading_list_move_to">Премести во списокот за читање</string>
@@ -529,6 +542,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Откажи</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Откажи</string>
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
+  <string name="reading_list_activity_title">Список за читање: %s</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_channel_title">Преземање на статии</string>
@@ -712,6 +726,7 @@
   <string name="feed_accessibility_card_text">Дојдовте до дното на доводот.</string>
   <string name="feed_accessibility_card_load_more_button">Вчитај уште</string>
   <string name="top_read_activity_title">Најчитани на %s</string>
+  <string name="tabs_activity_title">Јазичиња</string>
   <string name="description_edit_text_hint">Опис на статијата</string>
   <string name="description_edit_article_description_label">Статија</string>
   <string name="description_edit_translate_article_description_label_per_language">Опис на статијата (%s)</string>
@@ -743,6 +758,7 @@
   <string name="description_starts_with_uppercase">Почнете со мала буква освен ако зборот е лична именка.</string>
   <string name="description_starts_with_lowercase">Избегнувајте да почнувате со мала буква.</string>
   <string name="description_is_in_different_language">Се чини дека текстот е напишан на неочекуван јазик. Јазикот треба да биде %s.</string>
+  <string name="description_verification_notice">Потврдете дека вашиот опис е на %1$s. Слободно занемарете ја напоменава ако напишаниот опис ви е на %2$s.</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описот на статијата е објавен! (%s)</string>
@@ -760,6 +776,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По можност еден ред, од два до дванаесет збора</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
+  <string name="customize_toolbar_title">Прилагодување на алатникот</string>
+  <string name="customize_toolbar_description">Прилагодете го прегледничкиот алатник најдолу со дејства и одредници кои ви се најкорисни.</string>
+  <string name="customize_toolbar_category_toolbar">Алатник</string>
+  <string name="customize_toolbar_category_menu">Мени</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Тука довлекувајте ги омилените ставки 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Врати по основно</string>
   <string name="suggested_edits_describe_articles">Опишување на статии</string>
   <string name="suggested_edits_caption_images">Толкување на слики</string>
   <string name="suggested_edits_tag_images">Означување на слики</string>
@@ -929,6 +951,7 @@
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
   <string name="file_page_suggestion_reason">Причина за предлагање</string>
+  <string name="file_page_edit_button_content_description">Уреди %s</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
@@ -1039,11 +1062,13 @@
   <string name="talk_snackbar_survey_action_text">Започни</string>
   <string name="talk_share_discussion_subject">Википедија — разговор на темата „%s“ на разговорна страница</string>
   <string name="talk_share_talk_page">Википедија — разговори на разговорна страница</string>
+  <string name="talk_edit_disclaimer">Ова е разговорна страница. Почитувајте ги напатствијата и не заборавајте да се потпишувате со четири тилди: ~~~~ кога пишувате со викитекст.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Напатствија за разговорни страници&lt;/a&gt;</string>
   <string name="menu_option_share_talk_discussion">Сподели разговор</string>
   <string name="menu_option_share_talk_page">Сподели разговорна страница</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
   <string name="menu_option_user_profile">Профил на %s</string>
   <string name="menu_option_user_contributions">Придонеси на %s</string>
+  <string name="menu_option_edit_source">Уреди извор</string>
   <string name="watchlist_details_watching_label">Набљудувана</string>
   <string name="watchlist_details_watch_label">Набљудувај</string>
   <string name="watchlist_details_next_edit">Следно уредување</string>
@@ -1055,6 +1080,8 @@
   <string name="thank_dialog_positive_button_text">Испрати благодарница</string>
   <string name="thank_dialog_negative_button_text">Откажи</string>
   <string name="thank_success_message">Вашата благодарница е испратена на %s 👍</string>
+  <string name="menu_option_view_user_profile">Погл. кориснички профил</string>
+  <string name="menu_option_view_user_talk">Погл. разговорна страница</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и нејзината разговорна страница се додадени во вашите набљудувања %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Смени</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>

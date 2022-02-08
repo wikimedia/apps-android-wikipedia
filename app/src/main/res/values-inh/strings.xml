@@ -222,7 +222,7 @@
   <string name="user_blocked_from_editing_title">Блок техай</string>
   <string name="user_logged_in_blocked_from_editing">Хьа аккаунта блок техай укх вики-проекта чу хувцамаш дергдоацаш.</string>
   <string name="user_anon_blocked_from_editing">Хьа IP-цӀайца хувцамаш дергдоацаш блок техай.</string>
-  <string name="edit_how_page_improved">МалагIа хувцам а баь тоаяьй оаш оагIув?</string>
+  <string name="edit_how_page_improved">Лоацца язде мишта (малагIа хувцам а баь) тоайир Ӏа оагӀув?</string>
   <string name="edit_next">ДӀахо</string>
   <string name="edit_done">ДӀаязде</string>
   <string name="edit_preview">Хьалххе бӀаргтохар</string>
@@ -336,7 +336,7 @@
   <string name="preference_summary_collapse_tables">Таблични блокаш, масала инфобоксаши комментареши белгалдаккхари, ши-шегӀа хьоарчаялийта.</string>
   <string name="nav_item_donate">Donate</string>
   <string name="error_voice_search_not_available">Оазаца хьадеш дола къамаьл фуд хар болх беш дац.</string>
-  <string name="location_service_disabled">Геолокацен гӀулакх дӀадоадаь да.</string>
+  <string name="location_service_disabled">Геолокацен гӀулакх дӀадоадаьд.</string>
   <string name="enable_location_service">Хьалсага</string>
   <string name="location_permissions_enable_prompt">Хье вола моттиг малагӀа я хар могаде, хьона гаьна доаццаш йола моттигаш гургйолаш.</string>
   <string name="location_permissions_enable_action">Хьалсага</string>

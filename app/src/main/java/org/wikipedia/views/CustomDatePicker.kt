@@ -91,10 +91,10 @@ class CustomDatePicker : DialogFragment() {
 
             init {
                 binding.root.setOnClickListener {
-                    selectedDay[Calendar.DATE] = adapterPosition + 1
-                    callbackDay[LEAP_YEAR, selectedDay[Calendar.MONTH]] = adapterPosition + 1
+                    selectedDay[Calendar.DATE] = bindingAdapterPosition + 1
+                    callbackDay[LEAP_YEAR, selectedDay[Calendar.MONTH]] = bindingAdapterPosition + 1
                     setDayString()
-                    notifyDataSetChanged()
+                    notifyItemRangeChanged(0, itemCount)
                 }
             }
 

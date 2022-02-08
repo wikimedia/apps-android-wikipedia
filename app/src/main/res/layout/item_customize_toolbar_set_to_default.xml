@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/resetToDefaultButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fontFamily="sans-serif-medium"
+    android:lineSpacingExtra="8sp"
+    android:letterSpacing="0.04"
+    android:padding="16dp"
+    android:text="@string/customize_toolbar_reset_to_default_button"
+    android:textAllCaps="true"
+    android:textColor="?colorAccent"
+    android:textSize="14sp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?attr/selectableItemBackground"/>

@@ -68,6 +68,8 @@
   <string name="search_tab_tooltip">انقر فوق الرمز مرة أخرى لبدء كتابة مصطلح البحث مباشرةً.</string>
   <string name="history_list_title">التاريخ</string>
   <string name="image_content_description">صورة: %s</string>
+  <string name="page_content_description">الصفحة: %s</string>
+  <string name="wikimedia_commons">ويكيميديا كومنز</string>
   <string name="wikidata">ويكي بيانات</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
   <string name="dialog_message_clear_history">هذا سيحذف تاريخ تصفحك كاملا، وسيغلق أي تبويبات مفتوحة. هل أنت متأكد؟</string>
@@ -90,7 +92,7 @@
   <string name="feed_card_add_to_list">أضف إلى قائمة القراءة</string>
   <string name="feed_card_add_to_default_list">احفظ</string>
   <string name="menu_page_share">شارك الوصلة</string>
-  <string name="menu_article_share">شن</string>
+  <string name="menu_article_share">شارك المقالة</string>
   <string name="menu_page_open_a_new_tab">افتح تبويبا جديدًا</string>
   <string name="menu_page_new_tab">تبويب جديد</string>
   <string name="menu_page_reading_lists">قوائم القراءة</string>
@@ -180,7 +182,7 @@
   <string name="create_account_passwords_mismatch_error">كلمتا السر لا تتطابقان</string>
   <string name="create_account_email_error">عنوان البريد الإلكتروني غير صحيح</string>
   <string name="create_account_username_error">أحرف غير صالحة في اسم المستخدم</string>
-  <string name="create_account_password_error" fuzzy="true">كلمة المرور غير صالحة</string>
+  <string name="create_account_password_error">كلمة المرور يجب أن تكون من 8 أحرف على الأقل</string>
   <string name="create_account_generic_error">تعذّر إنشاء الحساب</string>
   <string name="create_account_next">التالي</string>
   <string name="email_recommendation_dialog_title">إنشاء حساب بدون عنوان بريد إلكتروني؟</string>
@@ -269,6 +271,10 @@
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
   <string name="edit_conflict_title">تضارب تحرير</string>
   <string name="edit_conflict_message">تم تعديل الصفحة بالفعل من قبل مستخدم مختلف، وتتعارض مع تعديلك; الرجاء نسخ التعديلات، والعودة وتحديث الصفحة، ثم حاول التعديل مرة أخرى.</string>
+  <string name="edit_notices">ملاحظات التحرير</string>
+  <string name="edit_notices_please_read">فضلًا اقرأ قبل التعديل</string>
+  <string name="edit_notices_show_auto">أظهر ملاحظات التعديل آليًّا</string>
+  <string name="edit_notices_tooltip">اضغط هذا الزر لمطالعة ملاحظات التحرير لهذه المقالة.</string>
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
   <string name="find_first_occurence">هذه هي أول فرصة</string>
@@ -322,6 +328,7 @@
   <string name="gallery_save_success">حُفظ الملف بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="gallery_save_image_write_permission_rationale">صلاحية الكتابة في ذاكرة التخزين على جهازك مطلوبة لحفظ الصور.</string>
+  <string name="gallery_edit_button_content_description">عدِّل تعليق الصورة</string>
   <string name="gallery_add_image_caption_button">إضافة شرح الصورة</string>
   <string name="gallery_add_image_caption_in_language_button">إضافة تسمية توضيحية للصورة (%s)</string>
   <string name="err_cannot_save_file">تعذّر حفظ الملف</string>
@@ -424,6 +431,11 @@
   <string name="text_size_decrease">تقليل حجم الخط</string>
   <string name="text_size_percent_default">%s (افتراضي)</string>
   <string name="text_style_title">الخط</string>
+  <string name="theme_category_reading">القراءة</string>
+  <string name="reading_focus_mode">وضع تركيز القراءة</string>
+  <string name="reading_focus_mode_detail">أخف ميزات التعديل وشريط الأدوات السفلي أثناء التمرير</string>
+  <string name="theme_category_toolbar">شريط الأدوات</string>
+  <string name="theme_customize_toolbar">تخصيص شريط الأدوات</string>
   <string name="nav_item_saved">محفوظة</string>
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
   <string name="reading_list_move_to">انتقل إلى قائمة القراءة</string>
@@ -437,7 +449,7 @@
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="reading_list_add_to_list_button">أضف إلى قائمة</string>
   <plurals name="format_reading_list_statistical_summary">
-    <item quantity="zero">...</item>
+    <item quantity="zero">لا مقالات</item>
     <item quantity="one">مقالة واحدة، %2$.2f ميغابايت</item>
     <item quantity="two">مقالتان، %2$.2f ميغابايت</item>
     <item quantity="few">%1$d مقالات، %2$.2f ميغابايت</item>
@@ -445,9 +457,9 @@
     <item quantity="other">%1$d مقالات، %2$.2f ميغابايت</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="zero">...</item>
-    <item quantity="one">%1$d من ١ مقالة متاحة بلا اتصال، %3$.2f ميغابايت</item>
-    <item quantity="two">...</item>
+    <item quantity="zero">لا مقالات</item>
+    <item quantity="one">%1$d من أصل مقالة واحدة متاحة بلا اتصال، %3$.2f ميغابايت</item>
+    <item quantity="two">%1$d من أصل مقالتين متاحة بلا اتصال، %3$.2f ميغابايت</item>
     <item quantity="few">...</item>
     <item quantity="many">...</item>
     <item quantity="other">%1$d من %2$d مقالات متاحة بلا اتصال، %3$.2f ميغابايت</item>
@@ -530,7 +542,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">لا تُرني هذا مجددا</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">تمكين المزامنة</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">لا شكرًا</string>
-  <string name="default_reading_list_name">تم الحفظ</string>
+  <string name="default_reading_list_name">المقالات المحفوظة</string>
   <string name="default_reading_list_description">قائمة افتراضية لمقالاتك المحفوظة</string>
   <string name="no_user_lists_title">نظّم المقالات في قوائم</string>
   <string name="no_user_lists_msg">أنشئ قوائم للأماكن التي تريد السفر إليها، والمواضيع المفضلة، وغير ذلك الكثير</string>
@@ -639,6 +651,22 @@
   <string name="preference_category_display_settings">إعدادات العرض</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ويكيبيديا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">إشعارات من ويكيبيديا</string>
+  <string name="notifications_tab_filter_all">الكل</string>
+  <string name="notifications_tab_filter_mentions">الإشارات</string>
+  <string name="notifications_search_bar_hint">ابحث أو رشّح الإشعارات</string>
+  <string name="notifications_search_bar_filter_hint">مُرشّح الإشعارات</string>
+  <string name="notifications_menu_mark_as_read">علّم كمقروءة</string>
+  <string name="notifications_menu_mark_as_unread">علّم كغير مقروءة</string>
+  <string name="notifications_swipe_action_read">مقروءة</string>
+  <string name="notifications_swipe_action_unread">غير مقروءة</string>
+  <string name="notifications_menu_check_all">حدّد كل العناصر</string>
+  <string name="notifications_menu_uncheck_all">ألغ تحديد كل العناصر</string>
+  <string name="notifications_wiki_filter_header">مرشّح الويكي</string>
+  <string name="notifications_type_filter_header">مرشّح النوع</string>
+  <string name="notifications_all_wikis_text">جميع \"مواقع الويكي\"</string>
+  <string name="notifications_all_types_text">جميع \"الأنواع\"</string>
+  <string name="notifications_menu_user_talk_page">صفحة نقاش %s</string>
+  <string name="notifications_offline_disable_message">هذه الميزة غير متوفرة دون اتصال.</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>
   <string name="view_random_article_card_title">مقالة عشوائية</string>
@@ -886,6 +914,7 @@
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
   <string name="file_page_suggestion_reason">سبب الاقتراح</string>
+  <string name="file_page_edit_button_content_description">عدِّل %s</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
@@ -997,6 +1026,7 @@
   <string name="menu_option_share_edit">شارك التعديل</string>
   <string name="menu_option_user_profile">ملف %s</string>
   <string name="menu_option_user_contributions">مساهمات %s</string>
+  <string name="menu_option_edit_source">عدل المصدر</string>
   <string name="watchlist_details_watching_label">تُراقب</string>
   <string name="watchlist_details_watch_label">راقب</string>
   <string name="watchlist_details_next_edit">التعديل التالي</string>
@@ -1008,6 +1038,8 @@
   <string name="thank_dialog_positive_button_text">إرسال شكر</string>
   <string name="thank_dialog_negative_button_text">ألغ</string>
   <string name="thank_success_message">أُرسل \"شكرك\" إلى %s 👍</string>
+  <string name="menu_option_view_user_profile">اعرض صفحة المستخدم</string>
+  <string name="menu_option_view_user_talk">اعرض صفحة النقاش</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">أُضيفت %1$s وصفحة نقاشها إلى قائمة مراقبتك %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">غيّر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">بشكلٍ دائمٍ</string>

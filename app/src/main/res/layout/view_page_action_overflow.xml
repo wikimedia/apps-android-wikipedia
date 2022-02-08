@@ -10,6 +10,7 @@
     app:cardUseCompatPadding="true">
 
     <LinearLayout
+        android:id="@+id/overflowList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/paper_color"
@@ -22,55 +23,6 @@
             android:drawablePadding="16dp"
             android:text="@string/nav_item_forward"
             app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
-            app:drawableTint="?attr/material_theme_secondary_color" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_share"
-            style="@style/OverflowMenuItem"
-            android:drawablePadding="16dp"
-            android:text="@string/menu_article_share"
-            app:drawableStartCompat="@drawable/ic_share"
-            app:drawableTint="?attr/material_theme_secondary_color" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_watchlist"
-            style="@style/OverflowMenuItem"
-            android:drawablePadding="16dp"
-            android:text="@string/menu_page_add_to_watchlist"
-            app:drawableStartCompat="@drawable/ic_baseline_star_outline_24"
-            app:drawableTint="?attr/material_theme_secondary_color" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_talk"
-            style="@style/OverflowMenuItem"
-            android:drawablePadding="16dp"
-            android:text="@string/menu_page_view_talk"
-            app:drawableStartCompat="@drawable/ic_icon_speech_bubbles_ooui_ltr"
-            app:drawableTint="?attr/material_theme_secondary_color" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_edit_history"
-            style="@style/OverflowMenuItem"
-            android:drawablePadding="16dp"
-            android:text="@string/menu_page_view_edit_history"
-            app:drawableEndCompat="@drawable/ic_open_in_new_black_24px"
-            app:drawableStartCompat="@drawable/ic_icon_revision_history_apps"
-            app:drawableTint="?attr/material_theme_secondary_color" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_new_tab"
-            style="@style/OverflowMenuItem"
-            android:drawablePadding="16dp"
-            android:text="@string/menu_new_tab"
-            app:drawableStartCompat="@drawable/ic_add_gray_white_24dp"
-            app:drawableTint="?attr/material_theme_secondary_color" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_feed"
-            style="@style/OverflowMenuItem"
-            android:drawablePadding="16dp"
-            android:text="@string/feed"
-            app:drawableStartCompat="@drawable/ic_globe"
             app:drawableTint="?attr/material_theme_secondary_color" />
 
     </LinearLayout>
