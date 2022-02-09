@@ -54,13 +54,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private lateinit var articlePageTitle: PageTitle
     private lateinit var languageCode: String
     private lateinit var wikiSite: WikiSite
-    private var revisionId: Long = 0
-    private var diffSize: Int = 0
-    private var username: String? = null
-    private var newerRevisionId: Long = 0
-    private var olderRevisionId: Long = 0
-    private var currentRevision: Revision? = null
 
+    private var revisionToId: Long = 0
+    private var revisionTo: Revision? = null
+    private var revisionFromId: Long = 0
+    private var revisionFrom: Revision? = null
+
+    private var canGoForward = false
     private var isWatched = false
     private var hasWatchlistExpiry = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
@@ -69,11 +69,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        revisionId = requireArguments().getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_ID, 0)
+        revisionToId = requireArguments().getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_ID, 0)
         languageCode = requireArguments().getString(ArticleEditDetailsActivity.EXTRA_EDIT_LANGUAGE_CODE, AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)
         wikiSite = WikiSite.forLanguageCode(languageCode)
         articlePageTitle = PageTitle(requireArguments().getString(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE, ""), wikiSite)
-        viewModel.setup(articlePageTitle, revisionId)
+        viewModel.setup(articlePageTitle, revisionToId)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -91,9 +91,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.articleTitleView.text = articlePageTitle.displayText
 
-        // TODO:
-        updateDiffCharCountView(diffSize)
-
         viewModel.watchedStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 isWatched = it.data.query?.firstPage()?.watched ?: false
@@ -106,18 +103,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.revisionDetails.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                currentRevision = it.data[0]
-                revisionId = currentRevision!!.revId
-                username = currentRevision!!.user
-                newerRevisionId = if (it.data.size < 2) {
-                    -1
-                } else {
-                    it.data[1].revId
-                }
-                olderRevisionId = currentRevision!!.parentRevId
+                revisionTo = it.data.revisionTo
+                revisionToId = revisionTo!!.revId
+                canGoForward = it.data.canGoForward
+
+                revisionFrom = it.data.revisionFrom
+                revisionFromId = if (it.data.revisionFrom != null) it.data.revisionFrom.revId else revisionTo!!.parentRevId
+
                 updateUI()
-                if (olderRevisionId > 0L) {
-                    viewModel.getDiffText(wikiSite, olderRevisionId, revisionId)
+                if (revisionFromId > 0L) {
+                    viewModel.getDiffText(wikiSite, revisionFromId, revisionToId)
                 }
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
@@ -127,7 +122,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         viewModel.diffText.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 buildDiffLinesList(it.data.diff)
-                updateDiffCharCountView(diffSize)
+
+                // TODO: updateDiffCharCountView(diffSize)
+
                 binding.progressBar.isVisible = false
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
@@ -136,7 +133,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.thankStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                FeedbackUtil.showMessage(requireActivity(), getString(R.string.thank_success_message, username))
+                FeedbackUtil.showMessage(requireActivity(), getString(R.string.thank_success_message,
+                        revisionTo?.user))
                 setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(),
                         R.attr.material_theme_de_emphasised_color))
                 binding.thankButton.isClickable = false
@@ -176,24 +174,23 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         binding.newerIdButton.setOnClickListener {
-            revisionId = newerRevisionId
             setLoadingState()
-            viewModel.getRevisionDetails(articlePageTitle, revisionId)
+            viewModel.getRevisionDetailsNewer(articlePageTitle, revisionToId)
         }
         binding.olderIdButton.setOnClickListener {
-            revisionId = olderRevisionId
+            revisionToId = revisionFromId
             setLoadingState()
-            viewModel.getRevisionDetails(articlePageTitle, revisionId)
+            viewModel.getRevisionDetails(articlePageTitle, revisionToId)
         }
         binding.watchButton.setOnClickListener {
             binding.watchButton.isCheckable = false
             viewModel.watchOrUnwatch(articlePageTitle, isWatched, WatchlistExpiry.NEVER, isWatched)
         }
         binding.usernameToButton.setOnClickListener {
-            if (AccountUtil.isLoggedIn && username != null) {
+            if (AccountUtil.isLoggedIn && revisionTo?.user != null) {
                 startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                         PageTitle(UserTalkAliasData.valueFor(languageCode),
-                                username!!, wikiSite), InvokeSource.DIFF_ACTIVITY))
+                                revisionTo?.user!!, wikiSite), InvokeSource.DIFF_ACTIVITY))
             }
         }
         binding.thankButton.setOnClickListener { showThankDialog() }
@@ -225,15 +222,24 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun updateUI() {
-        binding.usernameToButton.text = currentRevision!!.user
-        binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(currentRevision!!.timeStamp))
-        binding.revisionToEditComment.text = currentRevision!!.comment.trim()
-        binding.newerIdButton.isClickable = newerRevisionId != -1L
-        binding.olderIdButton.isClickable = olderRevisionId != 0L
-        setEnableDisableTint(binding.newerIdButton, newerRevisionId == -1L)
-        setEnableDisableTint(binding.olderIdButton, olderRevisionId == 0L)
+        if (revisionFrom != null) {
+            binding.usernameFromButton.text = revisionFrom!!.user
+            binding.revisionFromTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(revisionFrom!!.timeStamp))
+            binding.revisionFromEditComment.text = revisionFrom!!.comment.trim()
+        }
+
+        binding.usernameToButton.text = revisionTo!!.user
+        binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(revisionTo!!.timeStamp))
+        binding.revisionToEditComment.text = revisionTo!!.comment.trim()
+
+        binding.newerIdButton.isClickable = canGoForward
+        binding.olderIdButton.isClickable = revisionFromId != 0L
+        setEnableDisableTint(binding.newerIdButton, !canGoForward)
+        setEnableDisableTint(binding.olderIdButton, revisionFromId == 0L)
+
         setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         binding.thankButton.isClickable = true
+
         requireActivity().invalidateOptionsMenu()
         maybeHideThankButton()
 
@@ -242,7 +248,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun maybeHideThankButton() {
-        binding.thankButton.isVisible = !AccountUtil.userName.equals(currentRevision?.user)
+        binding.thankButton.isVisible = !AccountUtil.userName.equals(revisionTo?.user)
     }
 
     private fun setEnableDisableTint(view: ImageView, isDisabled: Boolean) {
@@ -301,7 +307,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val dialog: AlertDialog = AlertDialog.Builder(activity)
                 .setView(parent)
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
-                    viewModel.sendThanks(wikiSite, revisionId)
+                    viewModel.sendThanks(wikiSite, revisionToId)
                 }
                 .setNegativeButton(R.string.thank_dialog_negative_button_text, null)
                 .create()
@@ -315,7 +321,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun createSpannable(diff: DiffResponse.DiffItem): CharSequence {
         val spannableString = SpannableStringBuilder(diff.text.ifEmpty { "\n" })
-        diffSize = 0
+        var diffSize = 0
         when (diff.type) {
             DiffResponse.DIFF_TYPE_LINE_ADDED -> {
                 diffSize += diff.text.length + 1
@@ -384,7 +390,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
         val userProfileMenuItem = menu.findItem(R.id.menu_user_profile_page)
-        currentRevision?.let {
+        revisionTo?.let {
             if (it.isAnon) {
                 userProfileMenuItem.isVisible = false
             } else {
@@ -403,15 +409,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         return when (item.itemId) {
             R.id.menu_share_edit -> {
                 ShareUtil.shareText(requireContext(), PageTitle(articlePageTitle.prefixedText,
-                        wikiSite), revisionId, olderRevisionId)
+                        wikiSite), revisionToId, revisionFromId)
                 true
             }
             R.id.menu_user_profile_page -> {
-                FeedbackUtil.showUserProfilePage(requireContext(), username!!, languageCode)
+                FeedbackUtil.showUserProfilePage(requireContext(), revisionTo?.user!!, languageCode)
                 true
             }
             R.id.menu_user_contributions_page -> {
-                FeedbackUtil.showUserContributionsPage(requireContext(), username!!, languageCode)
+                FeedbackUtil.showUserContributionsPage(requireContext(), revisionTo?.user!!, languageCode)
                 true
             }
             else -> super.onOptionsItemSelected(item)

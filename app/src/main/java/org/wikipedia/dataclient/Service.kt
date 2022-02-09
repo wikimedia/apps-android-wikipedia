@@ -426,10 +426,11 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
     fun getLastModified(@Query("titles") titles: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2")
     suspend fun getRevisionDetails(
         @Query("titles") titles: String,
-        @Query("rvstartid") revisionStartId: Long
+        @Query("rvstartid") revisionStartId: Long,
+        @Query("rvdir") direction: String
     ): MwQueryResponse
 
     @POST(MW_API_PREFIX + "action=thank")

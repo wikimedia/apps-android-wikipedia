@@ -3,10 +3,7 @@ package org.wikipedia.diff
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -23,7 +20,7 @@ import org.wikipedia.watchlist.WatchlistExpiry
 class ArticleEditDetailsViewModel : ViewModel() {
 
     val watchedStatus = MutableLiveData<Resource<MwQueryResponse>>()
-    val revisionDetails = MutableLiveData<Resource<List<MwQueryPage.Revision>>>()
+    val revisionDetails = MutableLiveData<Resource<RevisionDiffContainer>>()
     val diffText = MutableLiveData<Resource<DiffResponse>>()
     val thankStatus = SingleLiveData<Resource<EntityPostResponse>>()
     val watchResponse = SingleLiveData<Resource<WatchPostResponse>>()
@@ -53,16 +50,54 @@ class ArticleEditDetailsViewModel : ViewModel() {
         }
     }
 
-    fun getRevisionDetails(title: PageTitle, revisionId: Long) {
+    fun getRevisionDetails(title: PageTitle, revisionIdTo: Long, revisionIdFrom: Long = -1) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                val response = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionId)
-                val revisions = response.query?.firstPage()!!.revisions
-                if (revisions.isNotEmpty()) {
-                    revisionDetails.postValue(Resource.Success(revisions))
+                val ret: RevisionDiffContainer
+                if (revisionIdFrom >= 0) {
+                    var responseFrom: MwQueryResponse? = null
+                    var responseTo: MwQueryResponse? = null
+                    coroutineScope {
+                        launch {
+                            responseFrom = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionIdFrom, "older")
+                        }
+                        launch {
+                            responseTo = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionIdTo, "older")
+                        }
+                    }
+                    ret = RevisionDiffContainer(responseFrom?.query?.firstPage()!!.revisions[0],
+                            responseTo?.query?.firstPage()!!.revisions[0], false, false)
+                } else {
+                    val response = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionIdTo, "older")
+                    val page = response.query?.firstPage()!!
+                    val revisions = page.revisions
+                    ret = if (revisions.size > 1) {
+                        RevisionDiffContainer(revisions[1], revisions[0], true, revisions[0].revId < page.lastrevid)
+                    } else {
+                        RevisionDiffContainer(null, revisions[0], false, revisions[0].revId < page.lastrevid)
+                    }
                 }
+                revisionDetails.postValue(Resource.Success(ret))
+            }
+        }
+    }
+
+    fun getRevisionDetailsNewer(title: PageTitle, revisionIdFrom: Long) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            revisionDetails.postValue(Resource.Error(throwable))
+        }) {
+            withContext(Dispatchers.IO) {
+                val response = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionIdFrom, "newer")
+                val page = response.query?.firstPage()!!
+                val revisions = page.revisions
+                val ret = if (revisions.size > 1) {
+                    RevisionDiffContainer(revisions[0], revisions[1], revisions[0].parentRevId > 0, revisions[1].revId < page.lastrevid)
+                } else {
+                    RevisionDiffContainer(revisions[0], revisions[0], revisions[0].parentRevId > 0, false)
+                }
+                revisionDetails.postValue(Resource.Success(ret))
             }
         }
     }
@@ -124,4 +159,11 @@ class ArticleEditDetailsViewModel : ViewModel() {
             }
         }
     }
+
+    class RevisionDiffContainer(
+            val revisionFrom: MwQueryPage.Revision?,
+            val revisionTo: MwQueryPage.Revision,
+            val canGoBack: Boolean,
+            val canGoForward: Boolean
+            )
 }
