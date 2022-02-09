@@ -5,18 +5,18 @@ import android.content.res.ColorStateList
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.SpannableStringBuilder
-import android.text.method.ScrollingMovementMethod
 import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.view.*
 import android.view.View.*
 import android.widget.FrameLayout
+import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -86,9 +86,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        setUpInitialUI()
         setUpListeners()
         setLoadingState()
+
+        binding.articleTitleView.text = articlePageTitle.displayText
+
+        // TODO:
+        updateDiffCharCountView(diffSize)
 
         viewModel.watchedStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
@@ -114,8 +118,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 updateUI()
                 if (olderRevisionId > 0L) {
                     viewModel.getDiffText(wikiSite, olderRevisionId, revisionId)
-                } else {
-                    binding.progressBar.visibility = INVISIBLE
                 }
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
@@ -126,8 +128,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 buildDiffLinesList(it.data.diff)
                 updateDiffCharCountView(diffSize)
-                binding.diffCharacterCountView.visibility = VISIBLE
-                binding.progressBar.visibility = INVISIBLE
+                binding.progressBar.isVisible = false
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -188,7 +189,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.watchButton.isCheckable = false
             viewModel.watchOrUnwatch(articlePageTitle, isWatched, WatchlistExpiry.NEVER, isWatched)
         }
-        binding.usernameButton.setOnClickListener {
+        binding.usernameToButton.setOnClickListener {
             if (AccountUtil.isLoggedIn && username != null) {
                 startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                         PageTitle(UserTalkAliasData.valueFor(languageCode),
@@ -202,15 +203,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun setErrorState(t: Throwable) {
         L.e(t)
         binding.errorView.setError(t)
-        binding.errorView.visibility = VISIBLE
-        binding.revisionDetailsView.visibility = GONE
-        binding.progressBar.visibility = INVISIBLE
-    }
-
-    private fun setUpInitialUI() {
-        binding.diffText.movementMethod = ScrollingMovementMethod()
-        binding.articleTitleView.text = articlePageTitle.displayText
-        updateDiffCharCountView(diffSize)
+        binding.errorView.isVisible = true
+        binding.revisionDetailsView.isVisible = false
+        binding.progressBar.isVisible = false
     }
 
     private fun updateDiffCharCountView(diffSize: Int) {
@@ -224,20 +219,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun setLoadingState() {
-        binding.progressBar.visibility = VISIBLE
-        binding.usernameButton.visibility = INVISIBLE
-        binding.thankButton.visibility = INVISIBLE
-        binding.editComment.visibility = INVISIBLE
-        binding.diffText.visibility = INVISIBLE
-        binding.diffCharacterCountView.visibility = INVISIBLE
+        binding.progressBar.isVisible = true
+        binding.revisionDetailsView.isVisible = false
+        binding.diffRecyclerView.isVisible = false
     }
 
     private fun updateUI() {
-        binding.diffText.scrollTo(0, 0)
-        binding.diffText.text = ""
-        binding.usernameButton.text = currentRevision!!.user
-        binding.editTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(currentRevision!!.timeStamp))
-        binding.editComment.text = currentRevision!!.comment.trim()
+        binding.usernameToButton.text = currentRevision!!.user
+        binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(currentRevision!!.timeStamp))
+        binding.revisionToEditComment.text = currentRevision!!.comment.trim()
         binding.newerIdButton.isClickable = newerRevisionId != -1L
         binding.olderIdButton.isClickable = olderRevisionId != 0L
         setEnableDisableTint(binding.newerIdButton, newerRevisionId == -1L)
@@ -247,17 +237,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         requireActivity().invalidateOptionsMenu()
         maybeHideThankButton()
 
-        binding.usernameButton.visibility = VISIBLE
-        binding.thankButton.visibility = VISIBLE
-        binding.editComment.visibility = VISIBLE
-        binding.diffText.visibility = VISIBLE
+        binding.revisionDetailsView.isVisible = true
+        binding.diffRecyclerView.isVisible = true
     }
 
     private fun maybeHideThankButton() {
-        binding.thankButton.visibility = if (AccountUtil.userName.equals(currentRevision?.user)) GONE else VISIBLE
+        binding.thankButton.isVisible = !AccountUtil.userName.equals(currentRevision?.user)
     }
 
-    private fun setEnableDisableTint(view: AppCompatImageView, isDisabled: Boolean) {
+    private fun setEnableDisableTint(view: ImageView, isDisabled: Boolean) {
         ImageViewCompat.setImageTintList(view, AppCompatResources.getColorStateList(requireContext(),
             ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
                 R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color)))

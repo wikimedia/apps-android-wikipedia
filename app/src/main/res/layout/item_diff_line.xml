@@ -6,45 +6,57 @@
     android:layout_height="wrap_content"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <TextView
-        android:id="@+id/diffLineNumText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/diffLineNumContainer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:textStyle="bold"
-        tools:text="Lorem ipsum" />
-
-    <ImageView
-        android:id="@+id/collapseExpandButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
         android:clickable="true"
         android:focusable="true"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:srcCompat="@drawable/ic_chevron_forward_gray"
-        app:tint="?attr/colorAccent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@null"/>
+        android:background="?attr/selectableItemBackground"
+        tools:ignore="UseCompoundDrawables">
+
+        <TextView
+            android:id="@+id/diffLineNumText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textStyle="bold"
+            tools:text="Lorem ipsum" />
+
+        <ImageView
+            android:id="@+id/collapseExpandButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            app:srcCompat="@drawable/ic_chevron_forward_gray"
+            app:tint="?attr/colorAccent"
+            android:contentDescription="@null"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/diffText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/diffLineNumText"
-        app:layout_constraintStart_toStartOf="@id/diffLineNumText"
+        android:paddingBottom="12dp"
+        app:layout_constraintTop_toBottomOf="@id/diffLineNumContainer"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="?attr/material_theme_primary_color"
         android:lineSpacingExtra="12sp"
         tools:text="Lorem ipsum" />
 
     <View
+        android:id="@+id/diffDivider"
         android:layout_width="0dp"
         android:layout_height="0.5dp"
         app:layout_constraintTop_toBottomOf="@id/diffText"
@@ -52,7 +64,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="12dp"
         android:background="?attr/color_group_60" />
 
 </merge>

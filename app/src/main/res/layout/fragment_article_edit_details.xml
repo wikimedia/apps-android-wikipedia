@@ -26,199 +26,311 @@
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/errorView"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:visibility="gone" />
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/revisionDetailsView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/articleTitleView"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:gravity="center_vertical"
-                    android:lineSpacingExtra="8sp"
-                    android:textColor="?attr/colorAccent"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/watchButton"
-                    style="@style/FlatButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="16dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:letterSpacing="0.04"
-                    android:text="@string/watchlist_details_watching_label"
-                    android:textSize="14sp"
-                    app:icon="@drawable/ic_icon_star"
-                    app:iconGravity="textStart"
-                    app:iconSize="20dp"
-                    app:iconTint="?attr/color_group_68" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="?attr/color_group_60" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="-4dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/editTimestamp"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:lineSpacingExtra="8sp"
-                    android:textColor="?attr/primary_text_color"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/olderIdButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:paddingTop="12dp"
-                    android:paddingEnd="24dp"
-                    android:paddingBottom="12dp"
-                    android:scaleX="-1"
-                    android:contentDescription="@string/watchlist_details_prev_edit"
-                    app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-                    app:tint="?attr/primary_text_color" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/newerIdButton"
-                    android:layout_width="60dp"
-                    android:layout_height="48dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:paddingStart="32dp"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp"
-                    android:contentDescription="@string/watchlist_details_next_edit"
-                    app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-                    app:tint="?attr/primary_text_color" />
-            </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.helper.widget.Flow
-                    android:id="@+id/userDetailsFlowView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:constraint_referenced_ids="usernameButton,thankButton,diffCharacterCountView"
-                    app:flow_horizontalBias="0"
-                    app:flow_horizontalGap="16dp"
-                    app:flow_horizontalStyle="packed"
-                    app:flow_wrapMode="chain"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/usernameButton"
-                    style="@style/FlatButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:fontFamily="sans-serif-medium"
-                    android:letterSpacing="0.04"
-                    android:textAllCaps="false"
-                    android:textColor="?attr/colorAccent"
-                    android:textSize="14sp"
-                    app:icon="@drawable/ic_user_talk"
-                    app:iconGravity="textStart"
-                    app:iconSize="20dp"
-                    app:iconTint="?attr/colorAccent" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/thankButton"
-                    style="@style/FlatButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:fontFamily="sans-serif-medium"
-                    android:letterSpacing="0.04"
-                    android:text="@string/thank_label"
-                    android:textAllCaps="false"
-                    android:textSize="14sp"
-                    app:icon="@drawable/ic_heart_24"
-                    app:iconGravity="textStart"
-                    app:iconSize="20dp"
-                    app:iconTint="?attr/colorAccent" />
-
-                <TextView
-                    android:id="@+id/diffCharacterCountView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="sans-serif-medium"
-                    android:gravity="center_vertical"
-                    android:letterSpacing="0.04"
-                    android:lineSpacingExtra="2sp"
-                    android:textColor="?attr/action_mode_green_background"
-                    android:textSize="14sp" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="?attr/color_group_60" />
-
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/editComment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="8sp"
-                android:textColor="?attr/primary_text_color"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/diffText"
+                android:id="@+id/activityTitleView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/olderIdButton"
+                android:layout_marginStart="16dp"
+                android:lineSpacingExtra="8sp"
+                android:textColor="?attr/colorAccent"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/olderIdButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/newerIdButton"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp"
+                android:scaleX="-1"
+                android:contentDescription="@string/watchlist_details_prev_edit"
+                app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+                app:tint="?attr/primary_text_color" />
+
+            <ImageView
+                android:id="@+id/newerIdButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp"
+                android:contentDescription="@string/watchlist_details_next_edit"
+                app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+                app:tint="?attr/primary_text_color" />
+
+            <TextView
+                android:id="@+id/articleTitleView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/watchButton"
+                app:layout_constraintStart_toStartOf="@id/activityTitleView"
+                app:layout_constraintEnd_toStartOf="@id/watchButton"
+                android:layout_marginTop="4dp"
+                android:lineSpacingExtra="8sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="?attr/colorAccent"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/watchButton"
+                style="@style/FlatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newerIdButton"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04"
+                android:text="@string/watchlist_details_watching_label"
+                android:textSize="14sp"
+                app:icon="@drawable/ic_icon_star"
+                app:iconGravity="textStart"
+                app:iconSize="20dp"
+                app:iconTint="?attr/color_group_68" />
+
+            <View
+                android:id="@+id/articleTitleDivider"
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                app:layout_constraintTop_toBottomOf="@id/articleTitleView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:lineSpacingExtra="12sp"
-                android:textColor="?attr/primary_text_color"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:background="?attr/color_group_60" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLineMiddle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"/>
+
+            <View
+                android:id="@+id/fromToDivider"
+                android:layout_width="0.5dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/articleTitleDivider"
+                app:layout_constraintBottom_toTopOf="@id/thanksDivider"
+                app:layout_constraintStart_toStartOf="@id/guideLineMiddle"
+                android:background="?attr/color_group_60" />
+
+            <TextView
+                android:id="@+id/revisionFromTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/articleTitleDivider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideLineMiddle"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="16sp"
+                android:textColor="?attr/material_theme_primary_color" />
+
+            <TextView
+                android:id="@+id/revisionFromTimestamp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/revisionFromTitleText"
+                app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
+                app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
+                android:layout_marginTop="4dp"
+                android:textColor="?attr/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Lorem ipsum"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/usernameFromButton"
+                style="@style/FlatButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
+                app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
+                app:layout_constraintTop_toBottomOf="@id/revisionFromTimestamp"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintWidth_default="wrap"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorAccent"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:letterSpacing="0.02"
+                app:icon="@drawable/ic_user_avatar"
+                app:iconGravity="textStart"
+                app:iconSize="20dp"
+                app:iconTint="?attr/colorAccent"
+                tools:text="Lorem ipsum"/>
+
+            <org.wikipedia.views.GoneIfEmptyTextView
+                android:id="@+id/revisionFromEditComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
+                app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
+                app:layout_constraintTop_toBottomOf="@id/usernameFromButton"
+                android:lineSpacingExtra="4sp"
+                android:textColor="?attr/material_theme_primary_color" />
+
+            <TextView
+                android:id="@+id/revisionToTitleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/articleTitleDivider"
+                app:layout_constraintStart_toEndOf="@id/guideLineMiddle"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="16sp"
+                android:textColor="?attr/material_theme_primary_color" />
+
+            <TextView
+                android:id="@+id/revisionToTimestamp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/revisionToTitleText"
+                app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
+                app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
+                android:layout_marginTop="4dp"
+                android:textColor="?attr/color_group_68"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Lorem ipsum"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/usernameToButton"
+                style="@style/FlatButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
+                app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
+                app:layout_constraintTop_toBottomOf="@id/revisionToTimestamp"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintWidth_default="wrap"
+                android:textAllCaps="false"
+                android:textColor="?attr/color_group_68"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:letterSpacing="0.02"
+                app:icon="@drawable/ic_user_avatar"
+                app:iconGravity="textStart"
+                app:iconSize="20dp"
+                app:iconTint="?attr/color_group_68"
+                tools:text="Lorem ipsum"/>
+
+            <org.wikipedia.views.GoneIfEmptyTextView
+                android:id="@+id/revisionToEditComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
+                app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
+                app:layout_constraintTop_toBottomOf="@id/usernameToButton"
+                android:lineSpacingExtra="4sp"
+                android:textColor="?attr/material_theme_primary_color" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/diffBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="revisionFromEditComment,revisionToEditComment"/>
+
+            <View
+                android:id="@+id/thanksDivider"
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                app:layout_constraintTop_toBottomOf="@id/diffBarrier"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                android:background="?attr/color_group_60" />
+
+            <TextView
+                android:id="@+id/diffCharacterCountView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/thankButton"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:textColor="?attr/action_mode_green_background" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/thankButton"
+                style="@style/FlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/thanksDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/thank_label"
+                android:textAllCaps="false"
+                android:letterSpacing="0.02"
+                app:icon="@drawable/ic_heart_24"
+                app:iconGravity="textStart"
+                app:iconSize="20dp"
+                app:iconTint="?attr/colorAccent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/undoButton"
+                style="@style/FlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/thankButton"
+                app:layout_constraintEnd_toStartOf="@id/thankButton"
+                android:layout_marginEnd="16dp"
+                android:text="Undo"
+                android:textColor="?attr/colorError"
+                android:textAllCaps="false"
+                android:letterSpacing="0.02"
+                app:icon="@drawable/ic_undo_themed_24dp"
+                app:iconGravity="textStart"
+                app:iconSize="20dp"
+                app:iconTint="?attr/colorError" />
+
+            <View
+                android:id="@+id/diffDivider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintTop_toBottomOf="@id/thankButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="4dp"
+                android:background="?attr/color_group_60" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/diffRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"/>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

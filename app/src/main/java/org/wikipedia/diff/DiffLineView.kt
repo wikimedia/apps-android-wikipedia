@@ -18,7 +18,7 @@ class DiffLineView constructor(context: Context, attrs: AttributeSet? = null) : 
     init {
         layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-        binding.collapseExpandButton.setOnClickListener {
+        binding.diffLineNumContainer.setOnClickListener {
             setExpanded(!diffLine.expanded)
         }
     }
