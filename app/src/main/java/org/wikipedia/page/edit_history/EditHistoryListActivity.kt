@@ -3,7 +3,6 @@ package org.wikipedia.page.edit_history
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
@@ -23,6 +22,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
+import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edit_history.EditHistoryListViewModel.EditDetails
@@ -31,6 +31,7 @@ import org.wikipedia.util.Resource.Success
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.EditHistoryStatsView
 
 class EditHistoryListActivity : BaseActivity() {
     private lateinit var binding: ActivityEditHistoryBinding
@@ -40,6 +41,7 @@ class EditHistoryListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = ""
         binding = ActivityEditHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         pageTitle = intent.getParcelableExtra(INTENT_EXTRA_PAGE_TITLE)!!
@@ -51,20 +53,15 @@ class EditHistoryListActivity : BaseActivity() {
                 setUpRecyclerView(it.data)
             }
         }
-        viewModel.articleEditDetailData.observe(this) {
-            if (it is Success) {
-                // TODO: show edits
-            }
-        }
     }
 
-    private fun setUpRecyclerView(editHistoryList: List<Revision>) {
+    private fun setUpRecyclerView(editHistoryList: List<Any>) {
         editHistoryListAdapter = EditHistoryListAdapter(editHistoryList)
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
     }
 
-    private inner class EditHistoryListAdapter(val editHistoryList: List<Revision>) :
+    private inner class EditHistoryListAdapter(val editHistoryList: List<Any>) :
         Adapter<ViewHolder>(), OnClickListener {
         var listItems = mutableListOf<Any>()
 
@@ -73,7 +70,11 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (listItems[position] is Revision) VIEW_TYPE_ITEM else VIEW_TYPE_HEADER
+            return when {
+                listItems[position] is Revision -> VIEW_TYPE_ITEM
+                listItems[position] is Pair<*, *> -> VIEW_TYPE_STATS
+                else -> VIEW_TYPE_HEADER
+            }
         }
 
         override fun getItemCount(): Int {
@@ -81,20 +82,32 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val inflater = LayoutInflater.from(this@EditHistoryListActivity)
-            return if (viewType == VIEW_TYPE_HEADER) {
-                HeaderViewHolder(inflater.inflate(layout.edit_history_section_header, parent, false))
-            } else {
-                EditHistoryListItemHolder(inflater.inflate(layout.item_edit_history, parent, false))
+            return when (viewType) {
+                VIEW_TYPE_HEADER -> {
+                    HeaderViewHolder(layoutInflater.inflate(layout.edit_history_section_header, parent, false))
+                }
+                VIEW_TYPE_STATS -> {
+                    StatsViewHolder(EditHistoryStatsView(this@EditHistoryListActivity))
+                }
+                else -> {
+                    EditHistoryListItemHolder(layoutInflater.inflate(layout.item_edit_history, parent, false))
+                }
             }
         }
 
+        @Suppress("UNCHECKED_CAST")
         override fun onBindViewHolder(holder: ViewHolder, pos: Int) {
-            if (holder is HeaderViewHolder) {
-                holder.bindItem(listItems[pos] as String)
-            } else if (holder is EditHistoryListItemHolder) {
-                holder.bindItem(getOldRevision(pos), listItems[pos] as Revision)
-                holder.itemView.setOnClickListener(this)
+            when (holder) {
+                is HeaderViewHolder -> {
+                    holder.bindItem(listItems[pos] as String)
+                }
+                is EditHistoryListItemHolder -> {
+                    holder.bindItem(getOldRevision(pos), listItems[pos] as Revision)
+                    holder.itemView.setOnClickListener(this)
+                }
+                is StatsViewHolder -> {
+                    holder.bindItem(listItems[pos] as Pair<Revision, EditCount>)
+                }
             }
             holder.itemView.tag = pos
         }
@@ -108,10 +121,11 @@ class EditHistoryListActivity : BaseActivity() {
 
         fun setUpList() {
             editHistoryList.forEach {
-                val dateStr =
-                    DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(it.timeStamp))
-                if (!listItems.contains(dateStr)) {
-                    listItems.add(dateStr)
+                if (it is Revision) {
+                    val dateStr = DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(it.timeStamp))
+                    if (!listItems.contains(dateStr)) {
+                        listItems.add(dateStr)
+                    }
                 }
                 listItems.add(it)
             }
@@ -125,8 +139,13 @@ class EditHistoryListActivity : BaseActivity() {
         }
     }
 
-    private inner class HeaderViewHolder constructor(itemView: View) :
-        ViewHolder(itemView) {
+    private inner class StatsViewHolder constructor(itemView: View) : ViewHolder(itemView) {
+        fun bindItem(pair: Pair<Revision, EditCount>) {
+            (itemView as EditHistoryStatsView).setup(pageTitle.displayText, pair)
+        }
+    }
+
+    private inner class HeaderViewHolder constructor(itemView: View) : ViewHolder(itemView) {
         fun bindItem(listItem: String) {
             itemView.findViewById<TextView>(id.section_header_text).text = listItem
         }
@@ -161,6 +180,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
+        private const val VIEW_TYPE_STATS = 2
         const val INTENT_EXTRA_PAGE_TITLE = "pageTitle"
 
         fun newIntent(context: Context, pageTitle: PageTitle): Intent {

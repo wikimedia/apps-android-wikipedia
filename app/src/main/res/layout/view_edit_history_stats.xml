@@ -13,7 +13,9 @@
         android:layout_marginEnd="16dp"
         android:text="@string/page_edit_history_activity_label"
         android:textSize="24sp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="?attr/primary_text_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -31,6 +33,7 @@
         android:id="@+id/editCountsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="16sp"
         android:textColor="?green_highlight_color"

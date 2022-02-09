@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.page.PageTitle
@@ -21,8 +20,7 @@ import java.nio.charset.StandardCharsets
 
 class EditHistoryListViewModel : ViewModel() {
 
-    val editHistoryListData = MutableLiveData<Resource<List<Revision>>>()
-    val articleEditDetailData = MutableLiveData<Resource<Pair<Revision, EditCount>>>()
+    val editHistoryListData = MutableLiveData<Resource<List<Any>>>()
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
@@ -31,9 +29,19 @@ class EditHistoryListViewModel : ViewModel() {
     fun fetchData(pageTitle: PageTitle) {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
+                val list = mutableListOf<Any>()
+
+                // Edit history stats
+                val mwResponse = ServiceFactory.get(pageTitle.wikiSite).getArticleCreatedDate(pageTitle.prefixedText)
+                val editCountsResponse = ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS)
+                val pair = mwResponse.query?.pages?.first()?.revisions?.first()!! to editCountsResponse
+                list.add(pair)
+
+                // Edit history
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).getEditHistoryDetails(pageTitle.prefixedText)
-                val revisions = response.query!!.pages?.get(0)?.revisions
-                editHistoryListData.postValue(Success(revisions!!))
+                val revisions = response.query!!.pages?.get(0)?.revisions!!
+                list.addAll(revisions)
+                editHistoryListData.postValue(Success(list))
             }
         }
     }
@@ -104,17 +112,6 @@ class EditHistoryListViewModel : ViewModel() {
             }
         }
         return indices
-    }
-
-    fun fetchArticleEditDetail(pageTitle: PageTitle) {
-        viewModelScope.launch(handler) {
-            withContext(Dispatchers.IO) {
-                val mwResponse = ServiceFactory.get(pageTitle.wikiSite).getArticleCreatedDate(pageTitle.prefixedText)
-                val editCountsResponse = ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS)
-                val pair = mwResponse.query?.pages?.first()?.revisions?.first()!! to editCountsResponse
-                articleEditDetailData.postValue(Success(pair))
-            }
-        }
     }
 
     class EditDetails(val diffSize: Int, val text: CharSequence)

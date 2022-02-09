@@ -87,6 +87,10 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMMM")
     }
 
+    fun getYearOnlyDateString(date: Date): String {
+        return getDateStringWithSkeletonPattern(date, "yyyy")
+    }
+
     private fun getExtraShortDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMM d")
     }
