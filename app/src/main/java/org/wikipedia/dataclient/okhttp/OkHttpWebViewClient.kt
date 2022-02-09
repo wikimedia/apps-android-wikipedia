@@ -79,13 +79,13 @@ abstract class OkHttpWebViewClient : WebViewClient() {
     @Throws(IOException::class)
     private fun request(request: WebResourceRequest): Response {
         val builder = Request.Builder().url(request.url.toString()).cacheControl(model.cacheControl)
-        for (header in request.requestHeaders.keys) {
+        for ((header, value) in request.requestHeaders) {
             if (header == "If-None-Match" || header == "If-Modified-Since") {
                 // Strip away conditional headers from the request coming from the WebView, since
                 // we want control of caching for ourselves (it can break OkHttp's caching internals).
                 continue
             }
-            request.requestHeaders[header]?.let {
+            value?.let {
                 builder.header(header, it)
             }
         }
