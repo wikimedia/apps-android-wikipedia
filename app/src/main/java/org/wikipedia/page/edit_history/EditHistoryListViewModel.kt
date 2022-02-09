@@ -1,4 +1,4 @@
-package org.wikipedia.page
+package org.wikipedia.page.edit_history
 
 import android.text.SpannableStringBuilder
 import androidx.lifecycle.MutableLiveData
@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.restbase.EditCount
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.Resource.Success
 import org.wikipedia.util.log.L
@@ -105,7 +106,7 @@ class EditHistoryListViewModel : ViewModel() {
         return indices
     }
 
-    fun fetchEditCounts(pageTitle: PageTitle) {
+    fun fetchArticleEditDetail(pageTitle: PageTitle) {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 val mwResponse = ServiceFactory.get(pageTitle.wikiSite).getArticleCreatedDate(pageTitle.prefixedText)

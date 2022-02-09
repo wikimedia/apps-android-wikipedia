@@ -24,9 +24,8 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.page.EditHistoryListViewModel
-import org.wikipedia.page.EditHistoryListViewModel.EditDetails
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.edit_history.EditHistoryListViewModel.EditDetails
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource.Success
 import org.wikipedia.util.ResourceUtil
@@ -50,6 +49,11 @@ class EditHistoryListActivity : BaseActivity() {
             if (it is Success) {
                 binding.editHistoryLoadProgress.visibility = View.INVISIBLE
                 setUpRecyclerView(it.data)
+            }
+        }
+        viewModel.articleEditDetailData.observe(this) {
+            if (it is Success) {
+                // TODO: show edits
             }
         }
     }
