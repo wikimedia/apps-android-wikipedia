@@ -79,7 +79,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
+
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
+
         return binding.root
     }
 
@@ -110,6 +113,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 revisionFrom = it.data.revisionFrom
                 revisionFromId = if (it.data.revisionFrom != null) it.data.revisionFrom.revId else revisionTo!!.parentRevId
 
+                val diffSize = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
+                updateDiffCharCountView(diffSize)
+
                 updateUI()
                 if (revisionFromId > 0L) {
                     viewModel.getDiffText(wikiSite, revisionFromId, revisionToId)
@@ -122,9 +128,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         viewModel.diffText.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 buildDiffLinesList(it.data.diff)
-
-                // TODO: updateDiffCharCountView(diffSize)
-
                 binding.progressBar.isVisible = false
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
@@ -321,22 +324,17 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun createSpannable(diff: DiffResponse.DiffItem): CharSequence {
         val spannableString = SpannableStringBuilder(diff.text.ifEmpty { "\n" })
-        var diffSize = 0
         when (diff.type) {
             DiffResponse.DIFF_TYPE_LINE_ADDED -> {
-                diffSize += diff.text.length + 1
                 updateDiffTextDecor(spannableString, true, 0, diff.text.length)
             }
             DiffResponse.DIFF_TYPE_LINE_REMOVED -> {
-                diffSize -= diff.text.length + 1
                 updateDiffTextDecor(spannableString, false, 0, diff.text.length)
             }
             DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
-                diffSize -= diff.text.length + 1
                 updateDiffTextDecor(spannableString, false, 0, diff.text.length)
             }
             DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_TO -> {
-                diffSize += diff.text.length + 1
                 updateDiffTextDecor(spannableString, true, 0, diff.text.length)
             }
         }
@@ -347,10 +345,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 val highlightRangeEnd = if (highlightRange.start + highlightRange.length < indices.size) indices[highlightRange.start + highlightRange.length] else indices[indices.size - 1]
 
                 if (highlightRange.type == DiffResponse.HIGHLIGHT_TYPE_ADD) {
-                    diffSize += highlightRange.length
                     updateDiffTextDecor(spannableString, true, highlightRangeStart, highlightRangeEnd)
                 } else {
-                    diffSize -= highlightRange.length
                     updateDiffTextDecor(spannableString, false, highlightRangeStart, highlightRangeEnd)
                 }
             }
