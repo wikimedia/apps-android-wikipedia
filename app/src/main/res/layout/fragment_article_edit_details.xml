@@ -30,28 +30,49 @@
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="-6.5dp"
                 android:indeterminate="true"
                 android:indeterminateTint="?attr/colorAccent"
                 android:progressBackgroundTint="@color/accent30"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:visibility="visible" />
 
             <TextView
-                android:id="@+id/activityTitleView"
+                android:id="@+id/articleTitleView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
                 android:lineSpacingExtra="8sp"
-                android:text="@string/revision_diff_compare"
-                android:textColor="?attr/material_theme_primary_color"
+                android:maxLines="3"
+                android:textColor="?attr/colorAccent"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/olderIdButton"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/watchButton"
+                style="@style/FlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/articleTitleView"
+                app:layout_constraintTop_toBottomOf="@id/articleTitleView"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04"
+                android:text="@string/watchlist_details_watching_label"
+                android:textSize="14sp"
+                app:icon="@drawable/ic_icon_star"
+                app:iconGravity="textStart"
+                app:iconSize="20dp"
+                app:iconTint="?attr/color_group_68" />
 
             <ImageView
                 android:id="@+id/olderIdButton"
@@ -65,7 +86,7 @@
                 android:padding="12dp"
                 android:scaleX="-1"
                 app:layout_constraintEnd_toStartOf="@id/newerIdButton"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/newerIdButton"
                 app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                 app:tint="?attr/primary_text_color" />
 
@@ -80,51 +101,18 @@
                 android:focusable="true"
                 android:padding="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/articleTitleView"
                 app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                 app:tint="?attr/primary_text_color" />
-
-            <TextView
-                android:id="@+id/articleTitleView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:ellipsize="end"
-                android:lineSpacingExtra="8sp"
-                android:maxLines="2"
-                android:textColor="?attr/colorAccent"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/watchButton"
-                app:layout_constraintStart_toStartOf="@id/activityTitleView"
-                app:layout_constraintTop_toTopOf="@id/watchButton" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/watchButton"
-                style="@style/FlatButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="sans-serif-medium"
-                android:letterSpacing="0.04"
-                android:text="@string/watchlist_details_watching_label"
-                android:textSize="14sp"
-                app:icon="@drawable/ic_icon_star"
-                app:iconGravity="textStart"
-                app:iconSize="20dp"
-                app:iconTint="?attr/color_group_68"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/newerIdButton" />
 
             <View
                 android:id="@+id/articleTitleDivider"
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:layout_marginTop="16dp"
                 android:background="?attr/color_group_60"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/articleTitleView" />
+                app:layout_constraintTop_toBottomOf="@id/newerIdButton" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideLineMiddle"
@@ -197,6 +185,7 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="4sp"
                 android:textColor="?attr/material_theme_primary_color"
+                android:textColorLink="?attr/material_theme_primary_color"
                 app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
                 app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
                 app:layout_constraintTop_toBottomOf="@id/usernameFromButton" />
@@ -256,6 +245,7 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="4sp"
                 android:textColor="?attr/material_theme_primary_color"
+                android:textColorLink="?attr/material_theme_primary_color"
                 app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
                 app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
                 app:layout_constraintTop_toBottomOf="@id/usernameToButton" />

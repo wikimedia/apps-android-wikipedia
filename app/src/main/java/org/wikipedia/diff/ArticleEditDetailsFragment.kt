@@ -73,6 +73,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         languageCode = requireArguments().getString(ArticleEditDetailsActivity.EXTRA_EDIT_LANGUAGE_CODE, AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)
         wikiSite = WikiSite.forLanguageCode(languageCode)
         articlePageTitle = PageTitle(requireArguments().getString(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE, ""), wikiSite)
+
+        requireActivity().title = getString(R.string.revision_diff_compare)
         viewModel.setup(articlePageTitle, revisionToId)
     }
 
@@ -228,12 +230,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         if (revisionFrom != null) {
             binding.usernameFromButton.text = revisionFrom!!.user
             binding.revisionFromTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(revisionFrom!!.timeStamp))
-            binding.revisionFromEditComment.text = revisionFrom!!.comment.trim()
+            binding.revisionFromEditComment.text = StringUtil.fromHtml(revisionFrom!!.parsedcomment.trim())
         }
 
         binding.usernameToButton.text = revisionTo!!.user
         binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(revisionTo!!.timeStamp))
-        binding.revisionToEditComment.text = revisionTo!!.comment.trim()
+        binding.revisionToEditComment.text = StringUtil.fromHtml(revisionTo!!.parsedcomment.trim())
 
         binding.newerIdButton.isClickable = canGoForward
         binding.olderIdButton.isClickable = revisionFromId != 0L

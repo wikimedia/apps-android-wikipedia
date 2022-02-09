@@ -93,6 +93,7 @@ class MwQueryPage {
         val user: String = ""
         val content: String = ""
         val comment: String = ""
+        val parsedcomment: String = ""
 
         fun getContentFromSlot(slot: String): String {
             return slots?.get(slot)?.content.orEmpty()
