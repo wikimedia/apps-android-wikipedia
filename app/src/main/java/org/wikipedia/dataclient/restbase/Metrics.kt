@@ -12,16 +12,16 @@ class Metrics {
 
     @Serializable
     class Items {
-        val project: String? = null
-        @SerialName("editor-type") val editorType: String? = null
-        @SerialName("page-title") val pageTitle: String? = null
-        val granularity: String? = null
+        val project: String = ""
+        @SerialName("editor-type") val editorType: String = ""
+        @SerialName("page-title") val pageTitle: String = ""
+        val granularity: String = ""
         val results: List<Results> = emptyList()
     }
 
     @Serializable
     class Results {
-        val timestamp: String? = null
-        val edits: Int? = null
+        val timestamp: String = ""
+        val edits: Int = 0
     }
 }
