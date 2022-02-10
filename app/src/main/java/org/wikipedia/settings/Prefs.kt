@@ -481,6 +481,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_push_notification_token_subscribed, false)
         set(subscribed) = PrefsIoUtil.setBoolean(R.string.preference_key_push_notification_token_subscribed, subscribed)
 
+    var isPushNotificationOptionsSet
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_push_notification_options_set, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_push_notification_options_set, value)
+
     val isSuggestedEditsReactivationTestEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false)
 
