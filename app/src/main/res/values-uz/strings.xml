@@ -57,8 +57,11 @@
   <string name="menu_page_other_languages">Boshqa tillarda o‘qish</string>
   <string name="menu_page_find_in_page">Maqoladan izlash</string>
   <string name="menu_page_add_to_watchlist">Kuzatuv roʻyxatiga qoʻshmoq</string>
+  <string name="menu_page_watch">Kuzatmoq</string>
   <string name="menu_page_view_talk">Munozara sahifani koʻrish</string>
+  <string name="menu_page_talk_page">Munozara sahifasi</string>
   <string name="menu_page_view_edit_history">Tahrirlash tarixini koʻrish</string>
+  <string name="menu_page_edit_history">Oʻzgarishlar tarixi</string>
   <string name="menu_page_remove_from_watchlist">Kuzatuv roʻyxatidan oʻchirmoq</string>
   <string name="edit_section_find_in_page">Sahifadan izlash</string>
   <string name="menu_page_font_and_theme">Shrift va tema</string>
@@ -68,6 +71,7 @@
   <string name="feed_card_add_to_default_list">Saqlamoq</string>
   <string name="menu_page_share">Havolani ulashmoq</string>
   <string name="menu_article_share">Maqolani ulashmoq</string>
+  <string name="menu_page_article_share">Ulashmoq</string>
   <string name="menu_page_open_a_new_tab">Yangi xatcho‘p ochmoq</string>
   <string name="menu_page_new_tab">Yangi varaqa</string>
   <string name="menu_page_reading_lists">O‘qilganlar ro‘yxati</string>
