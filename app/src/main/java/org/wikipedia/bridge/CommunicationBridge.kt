@@ -118,8 +118,8 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
             communicationBridgeListener.webView.loadUrl(jsString)
         }
         pendingJSMessages.clear()
-        for (key in pendingEvals.keys) {
-            communicationBridgeListener.webView.evaluateJavascript(key, pendingEvals[key])
+        for ((key, callback) in pendingEvals) {
+            communicationBridgeListener.webView.evaluateJavascript(key, callback)
         }
         pendingEvals.clear()
     }
