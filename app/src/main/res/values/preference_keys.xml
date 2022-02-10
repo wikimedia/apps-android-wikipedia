@@ -117,6 +117,7 @@
     <string name="preference_key_push_notification_token">pushNotificationToken</string>
     <string name="preference_key_push_notification_token_subscribed">pushNotificationTokenSubscribed</string>
     <string name="preference_key_push_notification_token_old">pushNotificationTokenOld</string>
+    <string name="preference_key_push_notification_options_set">pushNotificationOptionsSet</string>
     <string name="preference_key_event_platform_session_id">eventPlatformSessionId</string>
     <string name="preference_key_event_platform_intake_base_uri">eventPlatformIntakeBaseUri</string>
     <string name="preference_key_send_event_platform_test_event">sendEventPlatformTestEvent</string>
