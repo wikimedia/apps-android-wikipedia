@@ -12,14 +12,6 @@
                 android:id="@+id/menu_share_edit"
                 android:icon="@drawable/ic_share_material_secondary_themed"
                 android:title="@string/menu_option_share_edit" />
-            <item
-                android:id="@+id/menu_user_profile_page"
-                android:icon="@drawable/ic_baseline_person_themed"
-                android:title="@string/menu_option_user_profile" />
-            <item
-                android:id="@+id/menu_user_contributions_page"
-                android:icon="@drawable/ic_icon_user_contributions_ooui"
-                android:title="@string/menu_option_user_contributions" />
         </menu>
     </item>
 </menu>

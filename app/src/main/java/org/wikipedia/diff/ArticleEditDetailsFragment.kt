@@ -210,7 +210,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         revision?.let {
             UserTalkPopupHelper.show(requireActivity() as AppCompatActivity, bottomSheetPresenter,
                     PageTitle(UserAliasData.valueFor(articlePageTitle.wikiSite.languageCode),
-                            it.user, articlePageTitle.wikiSite), anchorView)
+                            it.user, articlePageTitle.wikiSite), it.isAnon, anchorView,
+                    InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)
         }
     }
 
@@ -397,19 +398,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         return indices
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
-        val userProfileMenuItem = menu.findItem(R.id.menu_user_profile_page)
-        revisionTo?.let {
-            if (it.isAnon) {
-                userProfileMenuItem.isVisible = false
-            } else {
-                userProfileMenuItem.title = getString(R.string.menu_option_user_profile, it.user)
-            }
-            menu.findItem(R.id.menu_user_contributions_page).title = getString(R.string.menu_option_user_contributions, it.user)
-        }
-    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_edit_details, menu)
     }
@@ -420,14 +408,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             R.id.menu_share_edit -> {
                 ShareUtil.shareText(requireContext(), PageTitle(articlePageTitle.prefixedText,
                         wikiSite), revisionToId, revisionFromId)
-                true
-            }
-            R.id.menu_user_profile_page -> {
-                FeedbackUtil.showUserProfilePage(requireContext(), revisionTo?.user!!, languageCode)
-                true
-            }
-            R.id.menu_user_contributions_page -> {
-                FeedbackUtil.showUserContributionsPage(requireContext(), revisionTo?.user!!, languageCode)
                 true
             }
             else -> super.onOptionsItemSelected(item)
