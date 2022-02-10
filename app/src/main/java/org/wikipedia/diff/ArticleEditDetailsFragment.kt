@@ -13,6 +13,7 @@ import android.view.View.*
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
@@ -39,8 +40,9 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.*
 import org.wikipedia.util.ClipboardUtil.setPlainText
 import org.wikipedia.util.log.L
@@ -191,15 +193,25 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.watchButton.isCheckable = false
             viewModel.watchOrUnwatch(articlePageTitle, isWatched, WatchlistExpiry.NEVER, isWatched)
         }
-        binding.usernameToButton.setOnClickListener {
-            if (AccountUtil.isLoggedIn && revisionTo?.user != null) {
-                startActivity(TalkTopicsActivity.newIntent(requireActivity(),
-                        PageTitle(UserTalkAliasData.valueFor(languageCode),
-                                revisionTo?.user!!, wikiSite), InvokeSource.DIFF_ACTIVITY))
-            }
+
+        binding.usernameFromButton.setOnClickListener {
+            showUserPopupMenu(revisionFrom, binding.usernameFromButton)
         }
+
+        binding.usernameToButton.setOnClickListener {
+            showUserPopupMenu(revisionTo, binding.usernameToButton)
+        }
+
         binding.thankButton.setOnClickListener { showThankDialog() }
         binding.errorView.backClickListener = OnClickListener { requireActivity().finish() }
+    }
+
+    private fun showUserPopupMenu(revision: Revision?, anchorView: View) {
+        revision?.let {
+            UserTalkPopupHelper.show(requireActivity() as AppCompatActivity, bottomSheetPresenter,
+                    PageTitle(UserAliasData.valueFor(articlePageTitle.wikiSite.languageCode),
+                            it.user, articlePageTitle.wikiSite), anchorView)
+        }
     }
 
     private fun setErrorState(t: Throwable) {

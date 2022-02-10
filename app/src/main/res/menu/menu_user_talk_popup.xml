@@ -12,4 +12,9 @@
         android:icon="@drawable/ic_user_talk"
         app:iconTint="?attr/secondary_text_color"
         android:title="@string/menu_option_view_user_talk" />
+    <item
+        android:id="@+id/menu_user_contributions_page"
+        android:icon="@drawable/ic_icon_user_contributions_ooui"
+        app:iconTint="?attr/secondary_text_color"
+        android:title="@string/menu_option_view_user_contributions" />
 </menu>

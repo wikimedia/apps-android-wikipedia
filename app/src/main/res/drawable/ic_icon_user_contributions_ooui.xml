@@ -5,13 +5,13 @@
     android:viewportHeight="24">
     <path
         android:fillAlpha="0"
-        android:fillColor="?attr/material_theme_secondary_color"
+        android:fillColor="#000"
         android:fillType="evenOdd"
         android:pathData="M0,0H24V24H0z" />
     <group>
         <clip-path android:pathData="M4,16c1.105,0 2,0.895 2,2s-0.895,2 -2,2 -2,-0.895 -2,-2 0.895,-2 2,-2zM17.5,15.556c3.33,0 4.5,1.667 4.5,2.777L22,20h-9v-1.667c0,-1.111 1.17,-2.777 4.5,-2.777zM11,17v2L8,19v-2h3zM17.5,10c1.38,0 2.5,1.12 2.5,2.5S18.88,15 17.5,15 15,13.88 15,12.5s1.12,-2.5 2.5,-2.5zM4,10c1.105,0 2,0.895 2,2s-0.895,2 -2,2 -2,-0.895 -2,-2 0.895,-2 2,-2zM13,11v2L8,13v-2h5zM4,4c1.105,0 2,0.895 2,2s-0.895,2 -2,2 -2,-0.895 -2,-2 0.895,-2 2,-2zM19,5v2L8,7L8,5h11z" />
         <path
-            android:fillColor="?attr/material_theme_secondary_color"
+            android:fillColor="#000"
             android:fillType="evenOdd"
             android:pathData="M0,0H24V24H0z" />
     </group>
