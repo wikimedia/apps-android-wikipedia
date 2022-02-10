@@ -767,6 +767,7 @@
   <string name="description_starts_with_uppercase">Begynn med liten bokstav med mindre det første ordet er et egennavn.</string>
   <string name="description_starts_with_lowercase">Unngå å starte med liten forbokstav.</string>
   <string name="description_is_in_different_language">Teksten ser ut til å være på et uventet språk. Språket bør være %s.</string>
+  <string name="description_verification_notice">Sjekk at beskrivelsen din er på %1$s. Lukk dette varselet hvis den faktisk er på %2$s.</string>
   <string name="description_edit_success_saved">Artikkelbeskrivelsen ble publisert!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelbeskrivelse publisert!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelbeskrivelse publisert! (%s)</string>
