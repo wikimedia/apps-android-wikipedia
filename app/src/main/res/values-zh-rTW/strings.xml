@@ -22,6 +22,7 @@
 * Winston Sung
 * Wwycheuk
 * Xiplus
+* 人人生來平等
 * 人工知能
 * 列维劳德
 * 沈澄心
@@ -774,6 +775,7 @@
   <string name="description_starts_with_uppercase">除非第一個單字是專有名詞，否則請以小寫字母開頭。</string>
   <string name="description_starts_with_lowercase">避免以小寫字母作為開頭。</string>
   <string name="description_is_in_different_language">文字似乎使用了非預期的語言。語言應為%s。</string>
+  <string name="description_verification_notice">請確認您的描述在%1$s中。若您撰寫的描述在%2$s中，請關閉此通知。</string>
   <string name="description_edit_success_saved">已發布條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發布！（%s）</string>
