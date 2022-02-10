@@ -142,7 +142,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                         revisionTo?.user))
                 setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(),
                         R.attr.material_theme_de_emphasised_color))
-                binding.thankButton.isClickable = false
+                binding.thankButton.isEnabled = false
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -237,13 +237,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(revisionTo!!.timeStamp))
         binding.revisionToEditComment.text = StringUtil.fromHtml(revisionTo!!.parsedcomment.trim())
 
-        binding.newerIdButton.isClickable = canGoForward
-        binding.olderIdButton.isClickable = revisionFromId != 0L
         setEnableDisableTint(binding.newerIdButton, !canGoForward)
         setEnableDisableTint(binding.olderIdButton, revisionFromId == 0L)
+        binding.newerIdButton.isEnabled = canGoForward
+        binding.olderIdButton.isEnabled = revisionFromId != 0L
 
         setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
-        binding.thankButton.isClickable = true
+        binding.thankButton.isEnabled = true
 
         requireActivity().invalidateOptionsMenu()
         maybeHideThankButton()
