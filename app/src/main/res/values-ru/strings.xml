@@ -847,6 +847,7 @@
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
   <string name="customize_toolbar_title">Настроить панель инструментов</string>
   <string name="customize_toolbar_category_toolbar">Панель инструментов</string>
+  <string name="customize_toolbar_category_menu">Меню</string>
   <string name="suggested_edits_describe_articles">Описать статьи</string>
   <string name="suggested_edits_caption_images">Описание изображений</string>
   <string name="suggested_edits_tag_images">Тегирование изображений</string>
