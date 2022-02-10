@@ -34,7 +34,7 @@ class SharedPreferenceCookieManager(
         for (cookie in cookies) {
             // Default to the URI's domain if cookie's domain is not explicitly set
             val domainSpec = cookie.domain.ifEmpty { url.toUri().authority }
-            val cookieList = cookieJar.getOrPut(domainSpec, { ArrayList() })
+            val cookieList = cookieJar.getOrPut(domainSpec) { ArrayList() }
             if (cookie.expiresAt < System.currentTimeMillis() || "deleted" == cookie.value) {
                 val i = cookieList.iterator()
                 while (i.hasNext()) {

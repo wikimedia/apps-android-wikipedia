@@ -1,33 +1,17 @@
 package org.wikipedia.language
 
 import android.content.Context
-import android.content.res.Resources
 import org.wikipedia.R
 import java.lang.ref.SoftReference
 import java.util.*
 
-/** Immutable look up table for all app supported languages. All article languages may not be
- * present in this table as it is statically bundled with the app.  */
 class AppLanguageLookUpTable(context: Context) {
-    private val resources: Resources = context.resources
-
-    // Language codes for all app supported languages in fixed order. The special code representing
-    // the dynamic system language is null.
+    private val resources = context.resources
     private var codesRef = SoftReference<List<String>>(null)
-
-    // English names for all app supported languages in fixed order.
     private var canonicalNamesRef = SoftReference<List<String>>(null)
-
-    // Native names for all app supported languages in fixed order.
     private var localizedNamesRef = SoftReference<List<String>>(null)
-
-    // Fallback language codes for language variants
     private var languagesVariantsRef = SoftReference<Map<String, List<String>>>(null)
 
-    /**
-     * @return Nonnull immutable list. The special code representing the dynamic system language is
-     * null.
-     */
     val codes: List<String>
         get() {
             var codes = codesRef.get()
@@ -107,20 +91,10 @@ class AppLanguageLookUpTable(context: Context) {
         return code in codes
     }
 
-    /**
-     * Searches #codes for the specified language code and returns the index for use in
-     * #canonicalNames and #localizedNames.
-     *
-     * @param code The language code to search for. The special code representing the dynamic system
-     * language is null.
-     * @return The index of the language code or -1 if the code is not supported.
-     */
     fun indexOfCode(code: String?): Int {
         return codes.indexOf(code)
     }
 
-    /** @return Nonnull immutable list.
-     */
     private fun getStringList(id: Int): List<String> {
         return resources.getStringArray(id).asList()
     }
