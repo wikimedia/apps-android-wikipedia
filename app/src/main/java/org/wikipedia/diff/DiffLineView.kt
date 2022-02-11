@@ -25,7 +25,19 @@ class DiffLineView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     fun setItem(item: ArticleEditDetailsFragment.DiffLine) {
         diffLine = item
-        binding.diffLineNumText.text = "Line " + diffLine.diff.lineNumber
+
+        if (diffLine.diff.type == DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_FROM) {
+            binding.diffLineNumText.text = context.getString(R.string.revision_diff_paragraph_removed)
+        } else if (diffLine.diff.type == DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_TO) {
+            binding.diffLineNumText.text = context.getString(R.string.revision_diff_paragraph_added)
+        } else if (diffLine.diff.lineNumber < 0 && diffLine.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED) {
+            binding.diffLineNumText.text = context.getString(R.string.revision_diff_line_added)
+        } else if (diffLine.diff.lineNumber < 0 && diffLine.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED) {
+            binding.diffLineNumText.text = context.getString(R.string.revision_diff_line_removed)
+        } else {
+            binding.diffLineNumText.text = context.getString(R.string.revision_diff_line_num, diffLine.diff.lineNumber)
+        }
+
         binding.diffText.text = diffLine.parsedText
 
         if (diffLine.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) {
