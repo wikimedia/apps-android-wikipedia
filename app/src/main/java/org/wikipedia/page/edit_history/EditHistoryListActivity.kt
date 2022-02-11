@@ -22,7 +22,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
-import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edit_history.EditHistoryListViewModel.EditDetails
@@ -72,7 +71,7 @@ class EditHistoryListActivity : BaseActivity() {
         override fun getItemViewType(position: Int): Int {
             return when {
                 listItems[position] is Revision -> VIEW_TYPE_ITEM
-                listItems[position] is Pair<*, *> -> VIEW_TYPE_STATS
+                listItems[position] is EditHistoryListViewModel.EditStats -> VIEW_TYPE_STATS
                 else -> VIEW_TYPE_HEADER
             }
         }
@@ -106,7 +105,7 @@ class EditHistoryListActivity : BaseActivity() {
                     holder.itemView.setOnClickListener(this)
                 }
                 is StatsViewHolder -> {
-                    holder.bindItem(listItems[pos] as Pair<Revision, EditCount>)
+                    holder.bindItem(listItems[pos] as EditHistoryListViewModel.EditStats)
                 }
             }
             holder.itemView.tag = pos
@@ -140,8 +139,8 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class StatsViewHolder constructor(itemView: View) : ViewHolder(itemView) {
-        fun bindItem(pair: Pair<Revision, EditCount>) {
-            (itemView as EditHistoryStatsView).setup(pageTitle.displayText, pair)
+        fun bindItem(editStats: EditHistoryListViewModel.EditStats) {
+            (itemView as EditHistoryStatsView).setup(pageTitle.displayText, editStats)
         }
     }
 

@@ -50,7 +50,7 @@
     <!-- Page Edit History -->
     <string name="page_edit_history_activity_label">Revision history</string>
     <string name="page_edit_history_minor_edit"><![CDATA[<b>m</b> %s]]></string>
-    <string name="page_edit_history_article_created_date">%1$s edits\nsince %2$s</string>
+    <string name="page_edit_history_article_created_date">%d edits\nsince %s</string>
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>

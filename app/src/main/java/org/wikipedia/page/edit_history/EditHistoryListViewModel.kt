@@ -10,13 +10,17 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.restbase.EditCount
+import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.Resource.Success
 import org.wikipedia.util.log.L
 import java.nio.charset.StandardCharsets
+import java.util.*
 
 class EditHistoryListViewModel : ViewModel() {
 
@@ -32,10 +36,16 @@ class EditHistoryListViewModel : ViewModel() {
                 val list = mutableListOf<Any>()
 
                 // Edit history stats
+                val calendar = Calendar.getInstance()
+                val today = DateUtil.getYMDDateString(calendar.time)
+                calendar.add(Calendar.YEAR, -1)
+                val lastYear = DateUtil.getYMDDateString(calendar.time)
+
                 val mwResponse = ServiceFactory.get(pageTitle.wikiSite).getArticleCreatedDate(pageTitle.prefixedText)
                 val editCountsResponse = ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS)
-                val pair = mwResponse.query?.pages?.first()?.revisions?.first()!! to editCountsResponse
-                list.add(pair)
+                val articleMetricsResponse = ServiceFactory.getRest(WikiSite("wikimedia.org"))
+                    .getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today)
+                list.add(EditStats(mwResponse.query?.pages?.first()?.revisions?.first()!!, editCountsResponse, articleMetricsResponse.firstItem.results))
 
                 // Edit history
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).getEditHistoryDetails(pageTitle.prefixedText)
@@ -115,4 +125,5 @@ class EditHistoryListViewModel : ViewModel() {
     }
 
     class EditDetails(val diffSize: Int, val text: CharSequence)
+    class EditStats(val revision: MwQueryPage.Revision, val editCount: EditCount, val metrics: List<Metrics.Results>)
 }
