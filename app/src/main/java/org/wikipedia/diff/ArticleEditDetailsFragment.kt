@@ -366,18 +366,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showUndoDialog() {
-        AlertDialog.Builder(requireActivity())
-                .setTitle("Undo edit")
-                .setMessage("This will undo the changes made by the revision(s) of the article shown here. Do you want to continue?")
-                .setPositiveButton(R.string.edit_undo) { _, _ ->
-                    revisionTo?.let {
-                        binding.progressBar.isVisible = true
-                        viewModel.undoEdit(articlePageTitle, it.user, "", revisionToId, 0)
-                    }
+        val dialog = UndoEditDialog(requireActivity())
+        dialog.callback = object : UndoEditDialog.Callback {
+            override fun onSuccess(text: CharSequence) {
+                revisionTo?.let {
+                    binding.progressBar.isVisible = true
+                    viewModel.undoEdit(articlePageTitle, it.user, text.toString(), revisionToId, 0)
                 }
-                .setNegativeButton(android.R.string.cancel, null)
-                .create()
-                .show()
+            }
+        }
+        dialog.show()
     }
 
     private fun createSpannable(diff: DiffResponse.DiffItem): CharSequence {

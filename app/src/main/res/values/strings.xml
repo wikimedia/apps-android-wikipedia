@@ -1166,6 +1166,9 @@
     <string name="revision_diff_line_removed">Line removed</string>
     <string name="revision_diff_paragraph_added">Paragraph added</string>
     <string name="revision_diff_paragraph_removed">Paragraph removed</string>
+    <string name="revision_undo_title">Undo edit</string>
+    <string name="revision_undo_message">This will undo the changes made by the revision(s) of the article shown here.</string>
+    <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>
     <string name="revision_undo_success">The revision was undone.</string>
 
     <!-- Watchlist -->
