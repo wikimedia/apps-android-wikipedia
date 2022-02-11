@@ -473,13 +473,30 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun buildDiffLinesList(diffList: List<DiffResponse.DiffItem>) {
-        val items = diffList.map { DiffLine(it) }.filter { it.parsedText.toString().trim().isNotEmpty() || it.diff.type != DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT }
+        val items = mutableListOf<DiffLine>()
+        var lastItem: DiffLine? = null
+        diffList.forEach {
+            val item = DiffLine(it)
+            // coalesce diff lines that occur on successive line numbers
+            if (lastItem != null &&
+                    ((item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED) ||
+                            (lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED))) {
+                val str = SpannableStringBuilder(lastItem!!.parsedText)
+                str.append("\n")
+                str.append(item.parsedText)
+                lastItem!!.parsedText = str
+            } else {
+                items.add(item)
+            }
+            lastItem = item
+        }
+        // val items = diffList.map { DiffLine(it) }.filter { it.parsedText.toString().trim().isNotEmpty() || it.diff.type != DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT }
         binding.diffRecyclerView.adapter = DiffLinesAdapter(items)
     }
 
     inner class DiffLine(diff: DiffResponse.DiffItem) {
         val diff: DiffResponse.DiffItem
-        val parsedText: CharSequence
+        var parsedText: CharSequence
         var expanded: Boolean
 
         init {

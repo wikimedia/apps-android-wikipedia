@@ -167,7 +167,7 @@ class ArticleEditDetailsViewModel : ViewModel() {
             undoEditResponse.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "${revisionId}|${user}")
+                val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
                 val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
                 val summary = if (undoMessage != null) "$undoMessage $comment" else comment
                 val token = ServiceFactory.get(title.wikiSite).getCsrfToken().query!!.csrfToken()!!
