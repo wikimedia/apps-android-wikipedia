@@ -19,9 +19,10 @@
             android:visibility="gone" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/revisionDetailsView"
+            android:id="@+id/articleTitleContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="4dp"
             android:background="?attr/paper_color"
             android:elevation="6dp">
 
@@ -105,6 +106,15 @@
                 app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                 app:tint="?attr/primary_text_color" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/revisionDetailsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/paper_color"
+            android:elevation="6dp">
+
             <View
                 android:id="@+id/articleTitleDivider"
                 android:layout_width="0dp"
@@ -112,7 +122,7 @@
                 android:background="?attr/color_group_60"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/newerIdButton" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideLineMiddle"
@@ -322,7 +332,7 @@
                 android:background="?attr/color_group_60"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/thankButton" />
+                app:layout_constraintTop_toBottomOf="@id/undoButton" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

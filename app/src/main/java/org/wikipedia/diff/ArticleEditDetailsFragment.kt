@@ -119,8 +119,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
                 val diffSize = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
                 updateDiffCharCountView(diffSize)
+                updateAfterRevisionFetchSuccess()
 
-                updateUI()
                 if (revisionFromId > 0L) {
                     viewModel.getDiffText(wikiSite, revisionFromId, revisionToId)
                 }
@@ -132,6 +132,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         viewModel.diffText.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 buildDiffLinesList(it.data.diff)
+                updateAfterDiffFetchSuccess()
                 binding.progressBar.isVisible = false
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
@@ -160,6 +161,19 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
                 binding.watchButton.isCheckable = true
+            }
+        }
+
+        viewModel.undoEditResponse.observe(viewLifecycleOwner) {
+            binding.progressBar.isVisible = false
+            if (it is Resource.Success) {
+                revisionToId = it.data.edit!!.newRevId
+                setLoadingState()
+                viewModel.getRevisionDetails(articlePageTitle, revisionToId)
+                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success), FeedbackUtil.LENGTH_DEFAULT).show()
+            } else if (it is Resource.Error) {
+                it.throwable.printStackTrace()
+                FeedbackUtil.showError(requireActivity(), it.throwable)
             }
         }
 
@@ -203,7 +217,24 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         binding.thankButton.setOnClickListener { showThankDialog() }
+        binding.undoButton.setOnClickListener { showUndoDialog() }
         binding.errorView.backClickListener = OnClickListener { requireActivity().finish() }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_edit_details, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.menu_share_edit -> {
+                ShareUtil.shareText(requireContext(), PageTitle(articlePageTitle.prefixedText,
+                        wikiSite), revisionToId, revisionFromId)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun showUserPopupMenu(revision: Revision?, anchorView: View) {
@@ -239,7 +270,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.diffRecyclerView.isVisible = false
     }
 
-    private fun updateUI() {
+    private fun updateAfterRevisionFetchSuccess() {
         if (revisionFrom != null) {
             binding.usernameFromButton.text = revisionFrom!!.user
             binding.revisionFromTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(revisionFrom!!.timeStamp))
@@ -256,17 +287,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.olderIdButton.isEnabled = revisionFromId != 0L
 
         setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+
         binding.thankButton.isEnabled = true
-
-        requireActivity().invalidateOptionsMenu()
-        maybeHideThankButton()
-
+        binding.thankButton.isVisible = !AccountUtil.userName.equals(revisionTo?.user)
         binding.revisionDetailsView.isVisible = true
-        binding.diffRecyclerView.isVisible = true
     }
 
-    private fun maybeHideThankButton() {
-        binding.thankButton.isVisible = !AccountUtil.userName.equals(revisionTo?.user)
+    private fun updateAfterDiffFetchSuccess() {
+        binding.diffRecyclerView.isVisible = true
     }
 
     private fun setEnableDisableTint(view: ImageView, isDisabled: Boolean) {
@@ -337,6 +365,21 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         dialog.show()
     }
 
+    private fun showUndoDialog() {
+        AlertDialog.Builder(requireActivity())
+                .setTitle("Undo edit")
+                .setMessage("This will undo the changes made by the revision(s) of the article shown here. Do you want to continue?")
+                .setPositiveButton(R.string.edit_undo) { _, _ ->
+                    revisionTo?.let {
+                        binding.progressBar.isVisible = true
+                        viewModel.undoEdit(articlePageTitle, it.user, "", revisionToId, 0)
+                    }
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .create()
+                .show()
+    }
+
     private fun createSpannable(diff: DiffResponse.DiffItem): CharSequence {
         val spannableString = SpannableStringBuilder(diff.text.ifEmpty { "\n" })
         when (diff.type) {
@@ -396,22 +439,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         return indices
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_edit_details, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        super.onOptionsItemSelected(item)
-        return when (item.itemId) {
-            R.id.menu_share_edit -> {
-                ShareUtil.shareText(requireContext(), PageTitle(articlePageTitle.prefixedText,
-                        wikiSite), revisionToId, revisionFromId)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {

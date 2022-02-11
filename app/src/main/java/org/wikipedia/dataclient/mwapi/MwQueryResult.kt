@@ -32,6 +32,7 @@ class MwQueryResult {
     val notifications: NotificationList? = null
     val watchlist: List<WatchlistItem> = emptyList()
     val namespaces: Map<String, Namespace>? = null
+    val allmessages: List<Message>? = null
 
     init {
         resolveConvertedTitles()
@@ -182,5 +183,11 @@ class MwQueryResult {
     class User {
         val userid: Int = 0
         val name: String = ""
+    }
+
+    @Serializable
+    class Message {
+        val name: String = ""
+        val content: String = ""
     }
 }

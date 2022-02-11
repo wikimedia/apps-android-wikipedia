@@ -1161,6 +1161,7 @@
     <string name="revision_diff_compare">Compare revisions</string>
     <string name="revision_diff_from">From:</string>
     <string name="revision_diff_to">To:</string>
+    <string name="revision_undo_success">The revision was undone.</string>
 
     <!-- Watchlist -->
     <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>

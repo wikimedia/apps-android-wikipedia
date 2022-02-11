@@ -145,6 +145,12 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
     val streamConfigs: Observable<MwStreamConfigsResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=allmessages")
+    suspend fun getMessages(
+            @Query("ammessages") messages: String,
+            @Query("amargs") args: String?
+    ): MwQueryResponse
+
     // ------- CSRF, Login, and Create Account -------
 
     @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
@@ -284,6 +290,17 @@ interface Service {
         @Field("undo") revision: Long,
         @Field("token") token: String
     ): Observable<Edit>
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=edit")
+    suspend fun postUndoEdit(
+            @Field("title") title: String,
+            @Field("summary") summary: String,
+            @Field("assert") user: String?,
+            @Field("token") token: String,
+            @Field("undo") undoRevId: Long,
+            @Field("undoafter") undoRevAfter: Long?,
+    ): Edit
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
