@@ -480,6 +480,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             // coalesce diff lines that occur on successive line numbers
             if (lastItem != null &&
                     ((item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED) ||
+                            (item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT && item.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) ||
                             (lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED))) {
                 val str = SpannableStringBuilder(lastItem!!.parsedText)
                 str.append("\n")
@@ -506,42 +507,20 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
     }
 
-    private inner class DiffLinesAdapter(val diffLines: List<DiffLine>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), OnClickListener {
-        // override fun getItemViewType(position: Int): Int {
-        // }
-
+    private inner class DiffLinesAdapter(val diffLines: List<DiffLine>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         override fun getItemCount(): Int {
             return diffLines.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            val inflater = LayoutInflater.from(requireContext())
-            // return if (viewType == LanguagesListActivity.VIEW_TYPE_HEADER) {
-            //    HeaderViewHolder(inflater.inflate(R.layout.view_section_header, parent, false))
-            // } else {
             return DiffLineHolder(DiffLineView(requireContext()))
-            // }
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            // if (holder is HeaderViewHolder) {
-            //    holder.bindItem(diffLines[pos])
-            // } else
             if (holder is DiffLineHolder) {
                 holder.bindItem(diffLines[pos])
-                holder.itemView.setOnClickListener(this)
             }
             holder.itemView.tag = pos
-        }
-
-        override fun onClick(v: View) {
-            // val item = listItems[v.tag as Int]
-        }
-    }
-
-    private inner class HeaderViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindItem(item: DiffLine) {
-            // itemView.findViewById<TextView>(R.id.section_header_text).text = ""
         }
     }
 
