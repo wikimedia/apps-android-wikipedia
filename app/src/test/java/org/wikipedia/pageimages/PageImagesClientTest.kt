@@ -78,10 +78,9 @@ class PageImagesClientTest : MockRetrofitTest() {
                     thumbnailSourcesMap[PageTitle(null, page.redirectFrom!!, wiki).prefixedText] = page.thumbUrl()
                 }
             }
-            for (key in titlesMap.keys) {
+            for ((key, title) in titlesMap) {
                 if (thumbnailSourcesMap.containsKey(key)) {
-                    val title = titlesMap[key]
-                    pageImagesMap[title] = PageImage(title!!, thumbnailSourcesMap[key])
+                    pageImagesMap[title] = PageImage(title, thumbnailSourcesMap[key])
                 }
             }
             return pageImagesMap

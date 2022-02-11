@@ -412,6 +412,8 @@
   <string name="text_size_decrease">Betűméret csökkentése</string>
   <string name="text_size_percent_default">%s (alapértelmezett)</string>
   <string name="text_style_title">Betűtípus</string>
+  <string name="theme_category_toolbar">Eszközsor</string>
+  <string name="theme_customize_toolbar">Eszközsor módosítása</string>
   <string name="nav_item_saved">Elmentve</string>
   <string name="reading_list_save_to">Mentés olvasólistára</string>
   <string name="reading_list_move_to">Mozgatás olvasólistára</string>
@@ -746,6 +748,7 @@
   <string name="description_starts_with_uppercase">Kis kezdőbetűvel kezdd a szócikkleírást, hacsak nem tulajdonnév az első szó.</string>
   <string name="description_starts_with_lowercase">Kerüld a kisbetűvel történő mondatkezdést</string>
   <string name="description_is_in_different_language">Úgy tűnik, a szöveg nem várt nyelven látható, miközben %s nyelven kéne megjelennie.</string>
+  <string name="description_verification_notice">Bizonyosodj meg róla, hogy a leírás ezen a nyelven van: %1$s. Hagyd figyelmen kívül ezt a megjegyzést, ha a nyelv %2$s.</string>
   <string name="description_edit_success_saved">Szócikkleírás közzétéve!</string>
   <string name="description_edit_success_saved_snackbar">Szócikkleírás közzétéve!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Szócikkleírás (%s) közzétéve!</string>
@@ -763,6 +766,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideális esetben egy sor, két-tizenkét szó között.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
+  <string name="customize_toolbar_title">Eszközsor módosítása</string>
   <string name="suggested_edits_describe_articles">Szócikkek leírása</string>
   <string name="suggested_edits_caption_images">Hiányzó képfeliratok</string>
   <string name="suggested_edits_tag_images">Képek címkézése</string>
