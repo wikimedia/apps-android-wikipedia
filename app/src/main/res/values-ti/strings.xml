@@ -307,7 +307,8 @@
   <string name="view_random_card_title">ሃውራዊ</string>
   <string name="view_random_article_card_title">ሃውራዊ ጽሑፍ</string>
   <string name="view_random_article_card_action">ተወሰኽቲ ሃውራዊ ጽሑፋት</string>
-  <string name="view_top_read_card_title">ብብዝሒ ዝንበቡ</string>
+  <string name="view_top_read_card_title">ብብዝሒ ዝተነበቡ</string>
+  <string name="view_top_read_card_action">ዝርዝር ናይ ዝበዝሑ ዝተነበቡ ጽሑፋት</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d ሽሕ</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d ሚልዮን</string>
   <string name="view_main_page_card_title">ሎሚ ኣብ ዊኪፐድያ</string>
@@ -336,7 +337,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ሕራይ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ኣትርፍ</string>
   <string name="feed_accessibility_card_load_more_button">ተወሳኺ ጸዓን</string>
-  <string name="top_read_activity_title">ብብዝሒ ዝንበቡ ብ%s</string>
+  <string name="top_read_activity_title">ብብዝሒ ዝተነበቡ ብ%s</string>
   <string name="tabs_activity_title">ጽላታት</string>
   <string name="description_edit_text_hint">ናይ ጽሑፍ መግለጺ</string>
   <string name="description_edit_article_description_label">ጽሑፍ</string>
