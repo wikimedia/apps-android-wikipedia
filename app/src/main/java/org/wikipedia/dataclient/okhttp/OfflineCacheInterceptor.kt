@@ -107,7 +107,7 @@ class OfflineCacheInterceptor : Interceptor {
         val metadataFile = File("$filePath.0")
         val contentsFile = File("$filePath.1")
         try {
-            OutputStreamWriter(FileOutputStream(metadataFile)).use { writer ->
+            metadataFile.outputStream().bufferedWriter().use { writer ->
                 writer.write(request.url.toString() + "\n")
                 writer.write(request.method + "\n")
                 writer.write(response.protocol.toString() + "\n")
