@@ -308,7 +308,6 @@ class CreateAccountActivity : BaseActivity() {
         const val CREATE_ACCOUNT_RESULT_USERNAME = "username"
         const val CREATE_ACCOUNT_RESULT_PASSWORD = "password"
 
-        @JvmField
         val USERNAME_PATTERN: Pattern = Pattern.compile("[^#<>\\[\\]|{}/@]*")
 
         @JvmStatic
