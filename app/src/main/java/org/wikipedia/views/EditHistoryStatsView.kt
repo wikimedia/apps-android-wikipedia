@@ -10,7 +10,9 @@ import org.wikipedia.databinding.ViewEditHistoryStatsBinding
 import org.wikipedia.page.edit_history.EditHistoryListViewModel
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
+import java.util.*
 
 class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
@@ -27,8 +29,14 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
         val timestamp = editStats.revision.timeStamp
         if (timestamp.isNotBlank()) {
             val createdYear = DateUtil.getYearOnlyDateString(DateUtil.iso8601DateParse(timestamp))
+            val calendar = Calendar.getInstance()
+            val today = DateUtil.getMDYDateString(calendar.time)
+            calendar.add(Calendar.YEAR, -1)
+            val lastYear = DateUtil.getMDYDateString(calendar.time)
             binding.editCountsView.text = context.getString(R.string.page_edit_history_article_created_date, editStats.editCount.count, createdYear)
             binding.statsGraphView.setData(editStats.metrics.map { it.edits.toFloat() })
+            binding.statsGraphView.contentDescription = context.getString(R.string.page_edit_history_metrics_content_description, today, lastYear)
+            FeedbackUtil.setButtonLongPressToast(binding.statsGraphView)
         }
     }
 }

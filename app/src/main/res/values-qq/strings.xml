@@ -1133,5 +1133,6 @@
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
   <string name="page_edit_history_activity_label">Label text for the new edit history screen.</string>
   <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit. %s represents the edit comment.</string>
-  <string name="page_edit_history_article_created_date">Text of showing the year since the article has been created and the total edit counts. The %d will be replaced by the total edit counts, and the %s will be replaced by the year. </string>
+  <string name="page_edit_history_article_created_date">Text of showing the year since the article has been created and the total edit counts. The %d will be replaced by the total edit counts, and the %s will be replaced by the year.</string>
+  <string name="page_edit_history_metrics_content_description">Content description of the metrics of edit history in the time range. The %1$s will be replaced by the start date and %2$s will be replaced by the end date of the time range.</string>
 </resources>
