@@ -81,8 +81,8 @@
   <string name="app_settings">Paramètres de l’application</string>
   <string name="search_tab_tooltip">Taper de nouveau sur l’icône pour commencer directement à saisir un terme de recherche.</string>
   <string name="history_list_title">Historique</string>
-  <string name="image_content_description">Image : %s</string>
-  <string name="page_content_description">Page : %s</string>
+  <string name="image_content_description">Image : %s</string>
+  <string name="page_content_description">Page : %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
@@ -266,7 +266,7 @@
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">À propos</string>
   <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
@@ -405,7 +405,7 @@
   <string name="error_message_generic">Une erreur s’est produite</string>
   <string name="view_link_preview_error_button_dismiss">Fermer</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
-  <string name="error_user_page_does_not_exist">Wikipédia n’a pas de &lt;a href=\"%1$s\"&gt;page utilisateur&lt;/a&gt; avec ce nom exact. En général, cette page devrait être créée et éditée par &lt;b&gt;%2$s&lt;/b&gt;. En cs de doute, veuillez vérifier que « %3$s » existe.</string>
+  <string name="error_user_page_does_not_exist">Wikipédia n’a pas de &lt;a href=\"%1$s\"&gt;page utilisateur&lt;/a&gt; avec ce nom exact. En général, cette page devrait être créée et modifiée par &lt;b&gt;%2$s&lt;/b&gt;. En cas de doute, veuillez vérifier que « %3$s » existe.</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
   <string name="view_wiki_error_message_timeout">Impossible de se connecter à Wikipédia. Vérifiez votre connexion réseau, ou réessayez ultérieurement.</string>
   <string name="reference_title">Référence %s</string>
@@ -419,10 +419,10 @@
   <string name="menu_save_all_tabs">Enregistrer tous les onglets</string>
   <string name="error_blocked_title">Votre nom d\'utilisateur ou adresse IP a été bloqué.</string>
   <string name="error_blocked_by">Le blocage a été fait par &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
-  <string name="error_blocked_reason">Le motif fourni est : %s</string>
-  <string name="error_blocked_start">Début du bloc: %s</string>
-  <string name="error_blocked_expiry">Expiration du bloc: %s</string>
-  <string name="error_blocked_id">ID du blocage : %s</string>
+  <string name="error_blocked_reason">Le motif fourni est : %s</string>
+  <string name="error_blocked_start">Début du blocage : %s</string>
+  <string name="error_blocked_expiry">Expiration du blocage : %s</string>
+  <string name="error_blocked_id">Identifiant du blocage : %s</string>
   <string name="error_blocked_footer">Vous pouvez contacter &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou un autre &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="theme_chooser_menu_item_tooltip">Personnaliser votre barre d’outils et essayer de lire en mode focalisé</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
@@ -584,7 +584,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Annuler</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Annuler</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
-  <string name="reading_list_activity_title">Liste de lecture : %s</string>
+  <string name="reading_list_activity_title">Liste de lecture : %s</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_reverted_title">Modification annulée</string>
   <string name="notification_channel_title">Téléchargement des articles</string>
@@ -643,8 +643,8 @@
   <string name="notifications_direct_reply_progress">Validation de la réponse à %s...</string>
   <string name="notifications_direct_reply_success">Réponse postée.</string>
   <string name="notifications_direct_reply_error">Impossible de poster automatiquement la réponse.</string>
-  <string name="notifications_mark_all_as_read_message">%d marqué comme lu</string>
-  <string name="notifications_mark_all_as_unread_message">%d marqué comme non lu</string>
+  <string name="notifications_mark_all_as_read_message">%d marqué(s) comme lu(s)</string>
+  <string name="notifications_mark_all_as_unread_message">%d marqué(s) comme non lu(s)</string>
   <plurals name="notifications_mark_as_read_plural">
     <item quantity="one">1 marqué comme lu</item>
     <item quantity="other">%d marqués comme lus</item>
@@ -675,11 +675,11 @@
   <string name="preference_summary_notification_email_user">Quelqu’un vous a envoyé un courriel via le wiki</string>
   <string name="preference_title_notification_user_rights">Modifications des droits utilisateur</string>
   <string name="preference_summary_notification_user_rights">Reçu quand vos droits utilisateur changent</string>
-  <string name="preference_title_notification_article_linked">Liens vers les articles que vous avez créé</string>
-  <string name="preference_summary_notification_article_linked">Reçu quand un nouveau lien est fait vers une page que vous avez créé</string>
-  <string name="preference_category_push_notifications">Pousser les notifications</string>
-  <string name="preference_title_customize_push_notifications">Personnaliser les poussées de notifications</string>
-  <string name="preference_category_display_settings">Afficher les paramètres</string>
+  <string name="preference_title_notification_article_linked">Liens vers les articles que vous avez créés</string>
+  <string name="preference_summary_notification_article_linked">Reçu quand un nouveau lien est établi vers une page que vous avez créée</string>
+  <string name="preference_category_push_notifications">Notifications envoyées</string>
+  <string name="preference_title_customize_push_notifications">Personnaliser les envois de notifications</string>
+  <string name="preference_category_display_settings">Paramètres d’affichage</string>
   <string name="preference_title_hide_read_notifications">Marquer les notifications lues</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipédia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notifications de Wikipédia</string>
@@ -688,7 +688,7 @@
   <string name="notifications_filter_label">Filtrer les notifications</string>
   <string name="notifications_filter_icon_content_description">Filtrer les notifications</string>
   <string name="notifications_filter_update_app_languages">Mettre à jour les langues de l’application</string>
-  <string name="notifications_empty_search_message">Essayer de supprimer %s pour voir plus de notifications</string>
+  <string name="notifications_empty_search_message">Essayez d’enlever %s pour voir plus de notifications</string>
   <plurals name="notifications_number_of_filters">
     <item quantity="one">%d filtre</item>
     <item quantity="other">%d filtres</item>
@@ -697,15 +697,15 @@
   <string name="notifications_tab_filter_all">Tous</string>
   <string name="notifications_tab_filter_mentions">Mentions</string>
   <string name="notifications_search_bar_hint">Rechercher ou filtrer les notifications</string>
-  <string name="notifications_search_bar_filter_hint">Filtre de notification</string>
+  <string name="notifications_search_bar_filter_hint">Filtre de notifications</string>
   <string name="notifications_menu_mark_as_read">Marquer comme lu</string>
   <string name="notifications_menu_mark_as_unread">Marquer comme non lu</string>
-  <string name="notifications_swipe_action_read">Lire</string>
+  <string name="notifications_swipe_action_read">Lu</string>
   <string name="notifications_swipe_action_unread">Non lu</string>
-  <string name="notifications_menu_check_all">Vérifier tous les éléments</string>
-  <string name="notifications_menu_uncheck_all">Décochez tous les éléments</string>
-  <string name="notifications_wiki_filter_header">Filtre wiki</string>
-  <string name="notifications_type_filter_header">Filtre de type</string>
+  <string name="notifications_menu_check_all">Cocher tous les éléments</string>
+  <string name="notifications_menu_uncheck_all">Décocher tous les éléments</string>
+  <string name="notifications_wiki_filter_header">Filtre de wikis</string>
+  <string name="notifications_type_filter_header">Filtre de types</string>
   <string name="notifications_all_wikis_text">Tous les « wikis »</string>
   <string name="notifications_all_types_text">Tous les « types »</string>
   <string name="notifications_menu_user_talk_page">page de discussion de %s</string>
@@ -821,7 +821,7 @@
   <string name="customize_toolbar_description">Personnaliser votre barre d’outils de navigation en bas avec les actions et les destinations que vous trouvez les plus utiles.</string>
   <string name="customize_toolbar_category_toolbar">Barre d’outils</string>
   <string name="customize_toolbar_category_menu">Menu</string>
-  <string name="customize_toolbar_drag_and_drop_placeholder">Prendre et tirer vos éléments favoris ici 👋</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Glisser et déposer vos éléments favoris ici 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Réinitialiser aux valeurs par défaut</string>
   <string name="suggested_edits_describe_articles">Décrire les articles</string>
   <string name="suggested_edits_caption_images">Légende d’images</string>
@@ -991,7 +991,7 @@
   <string name="file_page_activity_title">Page du fichier</string>
   <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
   <string name="file_page_add_image_tags_button">Ajouter des balises d’image</string>
-  <string name="file_page_suggestion_reason">Raison de la suggestion</string>
+  <string name="file_page_suggestion_reason">Motif de la suggestion</string>
   <string name="file_page_edit_button_content_description">Modifier %s</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
@@ -1099,11 +1099,15 @@
   <string name="talk_response_submitted">Réponse postée.</string>
   <string name="talk_snackbar_undo">Annuler</string>
   <string name="talk_last_modified">&lt;b&gt;Dernière modification le %1$s&lt;/b&gt; par %2$s</string>
-  <string name="talk_snackbar_survey_text">Merci d\'utiliser les pages de discussion. Pourriez-vous nous aider à améliorer l\'application en participant à une enquête ?</string>
+  <string name="talk_snackbar_survey_text">Merci d’avoir utilisé les pages de discussion. Pourriez-vous nous aider à améliorer l\'application en participant à une enquête ?</string>
   <string name="talk_snackbar_survey_action_text">Démarrer</string>
-  <string name="talk_share_discussion_subject">Wikipédia — discussion sur le sujet « %s » de la page de discussion</string>
-  <string name="talk_share_talk_page">Wikipédia — discussions sur la page de discussion</string>
-  <string name="talk_edit_disclaimer">Ceci est une page de discussion. Veuillez respecter les règles directrices de page de discussion, et vous souvenir de signer vos publications en tapant quatre tildes : ~~~~ en postant avec wikitexte.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
+  <string name="talk_share_discussion_subject">Wikipédia — discussion sur le sujet « %s » de la page de discussion</string>
+  <string name="talk_share_talk_page">Wikipédia — discussions sur la page de discussion</string>
+  <string name="talk_edit_disclaimer">Ceci est une page de discussion. Veuillez respecter les lignes directrices relatives aux pages de discussion et vous souvenir de signer vos envois en tapant quatre tildes : ~~~~ en postant du wikitexte.&lt;br /&gt; &lt;br /&gt; &lt;a href=\"https://fr.wikipedia.org/wiki/Aide:Discussion#Recommandations_et_pratiques\"&gt;Aide:Discussion § Recommandations et pratiques&lt;/a&gt; sur Wikipédia</string>
+  <string name="talk_search_hint">Recherche dans les messages</string>
+  <string name="talk_overflow_sort_by">Trier par</string>
+  <string name="talk_overflow_sort_date_published">Date de publication</string>
+  <string name="talk_overflow_sort_topic_name">Nom du sujet</string>
   <string name="menu_option_share_talk_discussion">Partager la discussion</string>
   <string name="menu_option_share_talk_page">Partager la page de discussion</string>
   <string name="menu_option_share_edit">Partager la modification</string>

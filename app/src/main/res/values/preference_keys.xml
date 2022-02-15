@@ -117,6 +117,7 @@
     <string name="preference_key_push_notification_token">pushNotificationToken</string>
     <string name="preference_key_push_notification_token_subscribed">pushNotificationTokenSubscribed</string>
     <string name="preference_key_push_notification_token_old">pushNotificationTokenOld</string>
+    <string name="preference_key_push_notification_options_set">pushNotificationOptionsSet</string>
     <string name="preference_key_event_platform_session_id">eventPlatformSessionId</string>
     <string name="preference_key_event_platform_intake_base_uri">eventPlatformIntakeBaseUri</string>
     <string name="preference_key_send_event_platform_test_event">sendEventPlatformTestEvent</string>
@@ -134,5 +135,6 @@
     <string name="preference_key_customize_toolbar_order">customizeToolbarOrder</string>
     <string name="preference_key_customize_toolbar_menu_order">customizeToolbarMenuOrder</string>
     <string name="preference_key_show_edit_talk_page_source_prompt">showEditTalkPageSourcePrompt</string>
+    <string name="preference_key_talk_topics_sort_mode">talkTopicsSortMode</string>
     <string name="preference_key_reading_focus_mode">readingFocusMode</string>
 </resources>

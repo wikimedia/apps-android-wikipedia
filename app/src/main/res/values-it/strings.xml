@@ -20,6 +20,7 @@
 * Gianfranco
 * Greis
 * JackLantern
+* Karapananguasú Kururú Teremembé
 * LACLARETTA
 * Lorelai87
 * Macofe
@@ -714,7 +715,7 @@
   <string name="menu_feed_overflow_label">Altre opzioni</string>
   <string name="feed_featured_image_share_subject">Immagine in vetrina da Wikimedia Commons</string>
   <string name="feed">Esplora</string>
-  <string name="home">Home</string>
+  <string name="home">Pagina principale</string>
   <string name="view_static_card_icon_content_description">Icona scheda</string>
   <string name="view_card_news_title">Nelle notizie</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -1080,6 +1081,7 @@
   <string name="talk_snackbar_survey_action_text">Inizia</string>
   <string name="talk_share_discussion_subject">Wikipedia - discussione nella sezione \"%s\" della pagina di discussione</string>
   <string name="talk_share_talk_page">Wikipedia - discussione nella pagina di discussione</string>
+  <string name="talk_overflow_sort_by">Ordina per</string>
   <string name="menu_option_share_talk_discussion">Condividi discussione</string>
   <string name="menu_option_share_talk_page">Condividi pagina di discussione</string>
   <string name="menu_option_share_edit">Condividi modifica</string>

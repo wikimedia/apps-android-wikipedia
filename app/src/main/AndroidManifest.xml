@@ -279,7 +279,7 @@
         <activity
             android:name=".talk.TalkTopicsActivity"
             android:label=""
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".talk.TalkTopicActivity" />
