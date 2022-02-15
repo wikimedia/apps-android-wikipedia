@@ -1149,6 +1149,9 @@
   <string name="talk_snackbar_survey_action_text">Начать</string>
   <string name="talk_share_discussion_subject">Википедия — обсуждение в теме «%s»</string>
   <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
+  <string name="talk_search_hint">Искать сообщения</string>
+  <string name="talk_overflow_sort_by">Сортировать по</string>
+  <string name="talk_overflow_sort_topic_name">Название темы</string>
   <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
   <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
   <string name="menu_option_share_edit">Поделиться правкой</string>
