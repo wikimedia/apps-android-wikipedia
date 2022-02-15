@@ -11,6 +11,7 @@
 * LEEJACK
 * LNDDYL
 * Liuxinyu970226
+* Madeleinemcc
 * Mikepanhu
 * MuratTheTurkish
 * Reke
@@ -76,10 +77,13 @@
   <string name="menu_page_other_languages">替換其它語言版本</string>
   <string name="menu_page_find_in_page">於條目尋找</string>
   <string name="menu_page_add_to_watchlist">新增至監視清單</string>
+  <string name="menu_page_watch">監視</string>
   <string name="menu_page_view_talk">檢視討論頁</string>
+  <string name="menu_page_talk_page">討論頁</string>
   <string name="menu_page_view_edit_history">檢視編輯歷史</string>
   <string name="menu_page_edit_history">編輯歷史</string>
   <string name="menu_page_remove_from_watchlist">從監視清單中移除</string>
+  <string name="menu_page_watched">監視者頁面</string>
   <string name="edit_section_find_in_page">於頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與佈景主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
@@ -88,6 +92,7 @@
   <string name="feed_card_add_to_default_list">儲存</string>
   <string name="menu_page_share">分享連結</string>
   <string name="menu_article_share">分享條目</string>
+  <string name="menu_page_article_share">分享</string>
   <string name="menu_page_open_a_new_tab">開啟新分頁</string>
   <string name="menu_page_new_tab">新分頁</string>
   <string name="menu_page_reading_lists">閱讀清單</string>
@@ -1080,6 +1085,10 @@
   <string name="talk_share_discussion_subject">維基百科 - 討論頁話題「%s」的討論</string>
   <string name="talk_share_talk_page">維基百科 - 討論頁上的討論</string>
   <string name="talk_edit_disclaimer">這是一個討論頁。請遵守討論頁的指引，並記得在使用 wikitext 發布內容時藉由輸入四個波浪號：~~~~ ，來在您發布的內容裡產生您的簽名。&lt;br&gt;&lt;br&gt;&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:討論頁指引\"&gt;維基百科:討論頁指引&lt;/a&gt;</string>
+  <string name="talk_search_hint">搜尋訊息</string>
+  <string name="talk_overflow_sort_by">排序依</string>
+  <string name="talk_overflow_sort_date_published">發佈日期</string>
+  <string name="talk_overflow_sort_topic_name">主題名稱</string>
   <string name="menu_option_share_talk_discussion">分享討論</string>
   <string name="menu_option_share_talk_page">分享討論頁</string>
   <string name="menu_option_share_edit">分享編輯</string>

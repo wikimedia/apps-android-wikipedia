@@ -1137,6 +1137,10 @@
   <string name="talk_share_discussion_subject">Вікіпедія — обговорення на сторінці обговорення «%s»</string>
   <string name="talk_share_talk_page">Вікіпедія — обговорення на сторінці обговорення</string>
   <string name="talk_edit_disclaimer">Це сторінка обговорення. Будь ласка, дотримуйтесь інструкцій щодо сторінки обговорення та не забудьте підписувати свої повідомлення, вводячи чотири тильди: ~~~~ під час публікації з використанням вікітексту.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Вікіпедія:Рекомендації щодо сторінок обговорення&lt;/a&gt;</string>
+  <string name="talk_search_hint">Пошук повідомлень</string>
+  <string name="talk_overflow_sort_by">Сортувати за</string>
+  <string name="talk_overflow_sort_date_published">Дата публікації</string>
+  <string name="talk_overflow_sort_topic_name">Назва теми</string>
   <string name="menu_option_share_talk_discussion">Поділіться обговоренням</string>
   <string name="menu_option_share_talk_page">Поділіться сторінкою обговорення</string>
   <string name="menu_option_share_edit">Поділитися редагуванням</string>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* AOla333
 * Alan ffm
 * Alchemik
 * Chrumps
@@ -924,6 +925,10 @@
   <string name="talk_message_empty">Wiadomość nie może być pusta.</string>
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
   <string name="talk_snackbar_undo">Cofnij</string>
+  <string name="talk_search_hint">Przeszukuj wiadomości</string>
+  <string name="talk_overflow_sort_by">Sortuj według</string>
+  <string name="talk_overflow_sort_date_published">Data opublikowania</string>
+  <string name="talk_overflow_sort_topic_name">Nazwa tematu</string>
   <string name="watchlist_details_watch_label">Obserwuj</string>
   <string name="thank_dialog_positive_button_text">Wyślij podziękowanie</string>
   <string name="thank_dialog_negative_button_text">Anuluj</string>

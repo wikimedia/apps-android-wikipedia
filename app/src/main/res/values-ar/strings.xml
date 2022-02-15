@@ -1023,6 +1023,7 @@
   <string name="talk_last_modified">&lt;b&gt;آخر تعديل %1$s&lt;/b&gt; بواسطة %2$s</string>
   <string name="talk_snackbar_survey_text">شكراً لاستخدام صفحات النقاش. هل يمكنك مساعدتنا في تحسين التطبيق من خلال المشاركة في استطلاع؟</string>
   <string name="talk_snackbar_survey_action_text">ابدأ</string>
+  <string name="talk_overflow_sort_by">رتب حسب</string>
   <string name="menu_option_share_edit">شارك التعديل</string>
   <string name="menu_option_user_profile">ملف %s</string>
   <string name="menu_option_user_contributions">مساهمات %s</string>
