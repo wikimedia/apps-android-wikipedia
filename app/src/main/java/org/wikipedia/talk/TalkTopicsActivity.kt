@@ -284,7 +284,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap {
-                    it.query?.firstPage()?.revisions?.getOrNull(0)?.let { revision ->
+                    it.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
                         revisionForLastEdit = revision
                         binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
                             DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
