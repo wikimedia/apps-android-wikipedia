@@ -30,9 +30,11 @@ class AppLanguageState(context: Context) {
             return _appLanguageCodes
         }
 
-    val mruLanguageCodes: List<String> get() = _mruLanguageCodes
+    val mruLanguageCodes: List<String>
+        get() = _mruLanguageCodes
 
-    val appLanguageCode get() = appLanguageCodes.first()
+    val appLanguageCode: String
+        get() = appLanguageCodes.first()
 
     val remainingAvailableLanguageCodes: List<String>
         get() = LanguageUtil.availableLanguages.filter { !_appLanguageCodes.contains(it) && appLanguageLookUpTable.isSupportedCode(it) }
