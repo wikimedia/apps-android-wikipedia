@@ -126,8 +126,8 @@ enum class FeedContentType(private val code: Int,
             val langSupportedMap = Prefs.feedCardsLangSupported
             val langDisabledMap = Prefs.feedCardsLangDisabled
             values().forEachIndexed { i, type ->
-                type.isEnabled = if (i < enabledList.size) enabledList[i] else true
-                type.order = if (i < orderList.size) orderList[i] else i
+                type.isEnabled = enabledList.getOrElse(i) { true }
+                type.order = orderList.getOrElse(i) { i }
                 type.langCodesSupported.clear()
                 langSupportedMap[type.code]?.let {
                     type.langCodesSupported.addAll(it)
