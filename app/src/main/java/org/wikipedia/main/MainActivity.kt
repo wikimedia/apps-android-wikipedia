@@ -136,7 +136,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     companion object {
-        @JvmStatic
         fun newIntent(context: Context): Intent {
             return Intent(context, MainActivity::class.java)
         }

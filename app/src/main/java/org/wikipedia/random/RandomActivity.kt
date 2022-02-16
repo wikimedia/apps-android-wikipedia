@@ -13,7 +13,6 @@ class RandomActivity : SingleFragmentActivity<RandomFragment>() {
     companion object {
         const val INTENT_EXTRA_WIKISITE = "wikiSite"
 
-        @JvmStatic
         fun newIntent(context: Context, wikiSite: WikiSite, invokeSource: InvokeSource?): Intent {
             return Intent(context, RandomActivity::class.java).apply {
                 putExtra(INTENT_EXTRA_WIKISITE, wikiSite)
