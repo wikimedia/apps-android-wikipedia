@@ -223,11 +223,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     override fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
         if (addToDefault) {
-            addToDefaultList(requireActivity(), entry.title, InvokeSource.FEED, object : AddToDefaultListCallback {
-                override fun onMoveClicked(readingListId: Long) {
-                    onSearchMovePageToList(readingListId, entry)
-                }
-            })
+            addToDefaultList(requireActivity(), entry.title, InvokeSource.FEED,
+                AddToDefaultListCallback { readingListId -> onSearchMovePageToList(readingListId, entry) })
         } else {
             bottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(entry.title, InvokeSource.FEED))
@@ -379,7 +376,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         const val LANG_BUTTON_TEXT_SIZE_MEDIUM = 10
         const val LANG_BUTTON_TEXT_SIZE_SMALLER = 8
 
-        @JvmStatic
         fun newInstance(source: InvokeSource, query: String?): SearchFragment =
                 SearchFragment().apply {
                     arguments = bundleOf(
