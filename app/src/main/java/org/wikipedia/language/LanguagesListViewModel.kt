@@ -53,7 +53,7 @@ class LanguagesListViewModel : ViewModel() {
         addFilteredLanguageListItems(filter, suggestedLanguageCodes,
                 context.getString(R.string.languages_list_suggested_text), results)
 
-        addFilteredLanguageListItems(filter, nonSuggestedLanguageCodes,
+        addFilteredLanguageListItems(filter, nonSuggestedLanguageCodes as List<String>,
                 context.getString(R.string.languages_list_all_text), results)
 
         return results
