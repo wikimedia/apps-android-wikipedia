@@ -171,6 +171,7 @@ class LoginActivity : BaseActivity() {
         Prefs.readingListsDeletedIds = emptySet()
         ReadingListSyncAdapter.manualSyncWithForce()
         PollNotificationWorker.schedulePollNotificationJob(this)
+        Prefs.isPushNotificationOptionsSet = false
         updateSubscription()
         finish()
     }
