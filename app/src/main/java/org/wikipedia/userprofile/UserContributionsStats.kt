@@ -75,9 +75,9 @@ object UserContributionsStats {
                     }
                     val langArticleMap = HashMap<String, ArrayList<String>>()
                     entities.entities.forEach { (entityKey, entity) ->
-                        for (qKey in qLangMap.keys) {
+                        for ((qKey, langs) in qLangMap) {
                             if (qKey == entityKey) {
-                                for (lang in qLangMap[qKey]!!) {
+                                for (lang in langs) {
                                     val dbName = WikiSite.forLanguageCode(lang).dbName()
                                     if (entity.sitelinks.containsKey(dbName)) {
                                         langArticleMap.getOrPut(lang, { ArrayList() })

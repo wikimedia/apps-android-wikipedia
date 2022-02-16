@@ -1,0 +1,45 @@
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="16dp"
+    android:layout_marginHorizontal="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:transitionName="@string/transition_search_bar"
+    app:elevation="0dp"
+    app:radius="22dp">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/talk_search_hint"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_search_white_24dp"
+        app:tint="?attr/material_theme_de_emphasised_color" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:text="@string/talk_search_hint"
+        android:textColor="?attr/material_theme_secondary_color"/>
+
+    <ImageView
+        android:id="@+id/talk_sort_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="end"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:contentDescription="@string/talk_overflow_sort_by"
+        android:focusable="true"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_baseline_tune_24"
+        app:tint="?attr/chip_text_color" />
+
+</org.wikipedia.views.WikiCardView>

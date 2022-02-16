@@ -68,10 +68,13 @@
   <string name="menu_page_other_languages">Nyelvváltás</string>
   <string name="menu_page_find_in_page">Keresés a szócikkben</string>
   <string name="menu_page_add_to_watchlist">Hozzáadás a figyelőlistához</string>
+  <string name="menu_page_watch">Figyel</string>
   <string name="menu_page_view_talk">Vitalap megtekintése</string>
+  <string name="menu_page_talk_page">Üzenőlap</string>
   <string name="menu_page_view_edit_history">Laptörténet megtekintése</string>
   <string name="menu_page_edit_history">Szerkesztések története</string>
   <string name="menu_page_remove_from_watchlist">Eltávolítás a figyelőlistáról</string>
+  <string name="menu_page_watched">Figyelt lap</string>
   <string name="edit_section_find_in_page">Keresés a lapon</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
   <string name="menu_page_add_to_list">Hozzáadás az olvasólistához</string>
@@ -80,6 +83,7 @@
   <string name="feed_card_add_to_default_list">Mentés</string>
   <string name="menu_page_share">Hivatkozás megosztása</string>
   <string name="menu_article_share">Szócikk megosztása</string>
+  <string name="menu_page_article_share">Megoszt</string>
   <string name="menu_page_open_a_new_tab">Új lap megnyitása</string>
   <string name="menu_page_new_tab">Új fül</string>
   <string name="menu_page_reading_lists">Olvasólisták</string>
@@ -387,6 +391,7 @@
   <string name="error_blocked_start">A blokk kezdete: %s</string>
   <string name="error_blocked_expiry">A blokk lejárata: %s</string>
   <string name="error_blocked_id">Blokkolási azonosító: %s</string>
+  <string name="theme_chooser_menu_item_tooltip">Eszközsor testreszabása és a fókusz olvasási mód kipróbálása</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
@@ -412,6 +417,9 @@
   <string name="text_size_decrease">Betűméret csökkentése</string>
   <string name="text_size_percent_default">%s (alapértelmezett)</string>
   <string name="text_style_title">Betűtípus</string>
+  <string name="reading_focus_mode">Olvasásra fókuszálás</string>
+  <string name="theme_category_toolbar">Eszközsor</string>
+  <string name="theme_customize_toolbar">Eszközsor módosítása</string>
   <string name="nav_item_saved">Elmentve</string>
   <string name="reading_list_save_to">Mentés olvasólistára</string>
   <string name="reading_list_move_to">Mozgatás olvasólistára</string>
@@ -746,6 +754,7 @@
   <string name="description_starts_with_uppercase">Kis kezdőbetűvel kezdd a szócikkleírást, hacsak nem tulajdonnév az első szó.</string>
   <string name="description_starts_with_lowercase">Kerüld a kisbetűvel történő mondatkezdést</string>
   <string name="description_is_in_different_language">Úgy tűnik, a szöveg nem várt nyelven látható, miközben %s nyelven kéne megjelennie.</string>
+  <string name="description_verification_notice">Bizonyosodj meg róla, hogy a leírás ezen a nyelven van: %1$s. Hagyd figyelmen kívül ezt a megjegyzést, ha a nyelv %2$s.</string>
   <string name="description_edit_success_saved">Szócikkleírás közzétéve!</string>
   <string name="description_edit_success_saved_snackbar">Szócikkleírás közzétéve!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Szócikkleírás (%s) közzétéve!</string>
@@ -763,6 +772,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideális esetben egy sor, két-tizenkét szó között.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
+  <string name="customize_toolbar_title">Eszközsor módosítása</string>
+  <string name="customize_toolbar_description">A navigációs sáv testreszabása műveletek kiválasztásával</string>
+  <string name="customize_toolbar_reset_to_default_button">Alapértelmezés visszaállítása</string>
   <string name="suggested_edits_describe_articles">Szócikkek leírása</string>
   <string name="suggested_edits_caption_images">Hiányzó képfeliratok</string>
   <string name="suggested_edits_tag_images">Képek címkézése</string>
@@ -1051,6 +1063,7 @@
   <string name="thank_dialog_positive_button_text">Köszönet elküldése</string>
   <string name="thank_dialog_negative_button_text">Mégse</string>
   <string name="thank_success_message">A köszöneted elküldve %s részére 👍</string>
+  <string name="menu_option_view_user_talk">Üzenőlap megtekintése</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">A(z) „%1$s” lap és vitalapja %2$s hozzáadva a figyelőlistádhoz.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Módosítás</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">állandó jelleggel</string>
