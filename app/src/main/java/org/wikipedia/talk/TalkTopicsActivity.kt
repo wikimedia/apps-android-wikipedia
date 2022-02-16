@@ -555,7 +555,6 @@ class TalkTopicsActivity : BaseActivity() {
         private const val MAX_CHARS_NO_SUBJECT = 100
         const val NEW_TOPIC_ID = -2
 
-        @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
                 .putExtra(EXTRA_PAGE_TITLE, pageTitle)
