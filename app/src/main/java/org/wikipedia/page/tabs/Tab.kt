@@ -55,12 +55,10 @@ class Tab {
     }
 
     fun squashBackstack() {
-        if (backStack.isEmpty()) {
-            return
+        backStack.lastOrNull()?.let {
+            backStack.clear()
+            backStack.add(it)
+            backStackPosition = 0
         }
-        val item = backStack[backStack.size - 1]
-        backStack.clear()
-        backStack.add(item)
-        backStackPosition = 0
     }
 }

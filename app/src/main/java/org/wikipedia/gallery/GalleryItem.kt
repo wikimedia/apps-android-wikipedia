@@ -5,7 +5,6 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE
 import org.wikipedia.dataclient.Service
 import org.wikipedia.util.ImageUrlUtil
-import java.util.*
 
 @Serializable
 open class GalleryItem {
@@ -44,7 +43,7 @@ open class GalleryItem {
 
     // The getSources has different levels of source,
     // should have an option that allows user to chose which quality to play
-    val originalVideoSource get() = sources?.getOrNull(sources.size - 1)
+    val originalVideoSource get() = sources?.lastOrNull()
 
     var structuredCaptions
         get() = structuredData?.captions ?: emptyMap()

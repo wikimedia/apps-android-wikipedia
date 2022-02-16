@@ -128,11 +128,11 @@ object StringUtil {
             }
         }
         if (pos == -1) {
-            pos = parentText.indexOf(words[words.size - 1])
+            pos = parentText.indexOf(words.last())
         }
         if (pos >= 0) {
             // TODO: Programmatic selection doesn't seem to work with RTL content...
-            editText.setSelection(pos, pos + words[words.size - 1].length)
+            editText.setSelection(pos, pos + words.last().length)
             editText.performLongClick()
         }
     }
