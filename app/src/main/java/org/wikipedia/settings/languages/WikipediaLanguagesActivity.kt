@@ -21,7 +21,6 @@ class WikipediaLanguagesActivity : SingleFragmentActivity<WikipediaLanguagesFrag
     }
 
     companion object {
-        @JvmStatic
         fun newIntent(context: Context, invokeSource: InvokeSource): Intent {
             return Intent(context, WikipediaLanguagesActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)

@@ -19,7 +19,6 @@ class TopReadArticlesActivity : SingleFragmentActivity<TopReadFragment>() {
 
     companion object {
         const val TOP_READ_CARD = "item"
-        @JvmStatic
         fun newIntent(context: Context, card: TopReadListCard): Intent {
             return Intent(context, TopReadArticlesActivity::class.java)
                 .putExtra(TOP_READ_CARD, card)
