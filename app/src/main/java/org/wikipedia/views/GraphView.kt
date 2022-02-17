@@ -24,10 +24,9 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
         isAntiAlias = true
     }
 
-    private val gridPaint = Paint().apply {
-        style = Paint.Style.STROKE
-        strokeWidth = GRAPH_STROKE_WIDTH
-        color = Color.GRAY
+    init {
+        // The y = 0 is on the top of the canvas.
+        scaleY = -1f
     }
 
     fun setData(list: List<Float>) {

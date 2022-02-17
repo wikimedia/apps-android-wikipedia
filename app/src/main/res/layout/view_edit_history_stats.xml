@@ -48,7 +48,6 @@
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginStart="16dp"
-        android:scaleY="-1"
         android:contentDescription="@string/about_app_license_heading"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
