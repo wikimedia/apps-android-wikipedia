@@ -1092,6 +1092,10 @@
   <string name="talk_share_discussion_subject">Wikipedia - discussie over overlegpagina-onderwerp \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - discussies op overlegpagina</string>
   <string name="talk_edit_disclaimer">Dit is een overlegpagina. Respecteer de richtlijnen van de overlegpagina en vergeet niet om uw berichten te ondertekenen door vier tildes te typen: ~~~~ wanneer u een bericht plaatst met wikitekst.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/ Wikipedia:Talk_page_guidelines\"&gt;Richtlijnen voor overlegpagina\'s&lt;/a&gt; op de Engelstalige Wikipedia</string>
+  <string name="talk_search_hint">Berichten zoeken</string>
+  <string name="talk_overflow_sort_by">Sorteren op</string>
+  <string name="talk_overflow_sort_date_published">Publicatiedatum</string>
+  <string name="talk_overflow_sort_topic_name">Onderwerpsnaam</string>
   <string name="menu_option_share_talk_discussion">Deel overleg</string>
   <string name="menu_option_share_talk_page">Overlegpagina delen</string>
   <string name="menu_option_share_edit">Bewerking delen</string>
