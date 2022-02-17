@@ -22,7 +22,10 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.*
+import org.wikipedia.analytics.GalleryFunnel
+import org.wikipedia.analytics.IntentFunnel
+import org.wikipedia.analytics.LinkPreviewFunnel
+import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityPageBinding
@@ -49,7 +52,9 @@ import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
-import org.wikipedia.views.*
+import org.wikipedia.views.FrameLayoutNavMenuTriggerer
+import org.wikipedia.views.ObservableWebView
+import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.widgets.WidgetProviderFeaturedPage
 import java.util.*
@@ -793,7 +798,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             return Intent(ACTION_CREATE_NEW_TAB).setClass(context, PageActivity::class.java)
         }
 
-        @JvmStatic
         fun newIntentForNewTab(context: Context, entry: HistoryEntry, title: PageTitle): Intent {
             return Intent(ACTION_LOAD_IN_NEW_TAB)
                 .setClass(context, PageActivity::class.java)
@@ -801,8 +805,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 .putExtra(EXTRA_PAGETITLE, title)
         }
 
-        @JvmStatic
-        @JvmOverloads
         fun newIntentForCurrentTab(context: Context, entry: HistoryEntry, title: PageTitle, squashBackstack: Boolean = true): Intent {
             return Intent(if (squashBackstack) ACTION_LOAD_IN_CURRENT_TAB_SQUASH else ACTION_LOAD_IN_CURRENT_TAB)
                 .setClass(context, PageActivity::class.java)
