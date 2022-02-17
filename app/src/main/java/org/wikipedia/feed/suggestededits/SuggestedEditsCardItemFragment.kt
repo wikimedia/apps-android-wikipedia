@@ -438,7 +438,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
         private const val CARD_TYPE = "cardType"
         const val MAX_RETRY_LIMIT: Long = 5
 
-        @JvmStatic
         fun newInstance(age: Int, cardType: Action) =
                 SuggestedEditsCardItemFragment().apply {
                     arguments = bundleOf(AGE to age, CARD_TYPE to cardType)

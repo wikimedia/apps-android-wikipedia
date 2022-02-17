@@ -33,7 +33,6 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
-import java.util.*
 
 class TabActivity : BaseActivity() {
     private lateinit var binding: ActivityTabsBinding
@@ -327,7 +326,6 @@ class TabActivity : BaseActivity() {
         const val RESULT_LOAD_FROM_BACKSTACK = 10
         const val RESULT_NEW_TAB = 11
 
-        @JvmStatic
         fun captureFirstTabBitmap(view: View) {
             clearFirstTabBitmap()
             var bmp: Bitmap? = null
@@ -372,7 +370,6 @@ class TabActivity : BaseActivity() {
             return Intent(context, TabActivity::class.java)
         }
 
-        @JvmStatic
         fun newIntentFromPageActivity(context: Context): Intent {
             return Intent(context, TabActivity::class.java)
                     .putExtra(LAUNCHED_FROM_PAGE_ACTIVITY, true)
