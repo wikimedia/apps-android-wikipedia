@@ -216,6 +216,7 @@
   <string name="page_protected_can_not_edit_title">Ez a lap védett</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Hozzáadás a figyelőlistához</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Kövesse nyomon, mi történik az Önt érdeklő cikkekkel. Érintse meg a menüt, és válassza a &lt;b&gt;Hozzáadás a figyelőlistához&lt;/b&gt; lehetőséget, hogy később is láthassa a cikkhez kapcsolódó változásokat.</string>
+  <string name="page_notification_tooltip">Értesítéseid</string>
   <string name="settings_item_preferences">Beállítások</string>
   <string name="settings_activity_title">Beállítások</string>
   <string name="about_description">A Wikipédia alkalmazás névjegye</string>
@@ -774,6 +775,9 @@
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
   <string name="customize_toolbar_title">Eszközsor módosítása</string>
   <string name="customize_toolbar_description">A navigációs sáv testreszabása műveletek kiválasztásával</string>
+  <string name="customize_toolbar_category_toolbar">Eszközsor</string>
+  <string name="customize_toolbar_category_menu">Menü</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Fogd és húzd ide a kedvenc tételeket</string>
   <string name="customize_toolbar_reset_to_default_button">Alapértelmezés visszaállítása</string>
   <string name="suggested_edits_describe_articles">Szócikkek leírása</string>
   <string name="suggested_edits_caption_images">Hiányzó képfeliratok</string>
@@ -1049,6 +1053,8 @@
   <string name="talk_snackbar_undo">Visszavonás</string>
   <string name="talk_share_discussion_subject">Wikipédia - vita a vitalap \"%s\" témájáról</string>
   <string name="talk_share_talk_page">Wikipédia – beszélgetések a vitalapon</string>
+  <string name="talk_overflow_sort_by">Rendezve</string>
+  <string name="talk_overflow_sort_topic_name">Téma neve</string>
   <string name="menu_option_share_talk_discussion">Oszd meg a vitát</string>
   <string name="menu_option_share_talk_page">Beszélgetési oldal megosztása</string>
   <string name="menu_option_share_edit">Szerkesztés megosztása</string>
