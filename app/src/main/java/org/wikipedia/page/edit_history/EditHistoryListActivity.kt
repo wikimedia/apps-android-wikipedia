@@ -17,6 +17,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.wikipedia.R
 import org.wikipedia.R.*
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.commons.FilePageActivity
@@ -60,8 +61,8 @@ class EditHistoryListActivity : BaseActivity() {
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
     }
 
-    private inner class EditHistoryListAdapter(val editHistoryList: List<Any>) :
-        Adapter<ViewHolder>(), OnClickListener {
+    private inner class EditHistoryListAdapter(val editHistoryList: List<Any>) : Adapter<ViewHolder>(), OnClickListener {
+        private val title = getString(R.string.page_edit_history_activity_label)
         var listItems = mutableListOf<Any>()
 
         init {
@@ -94,7 +95,6 @@ class EditHistoryListActivity : BaseActivity() {
             }
         }
 
-        @Suppress("UNCHECKED_CAST")
         override fun onBindViewHolder(holder: ViewHolder, pos: Int) {
             when (holder) {
                 is HeaderViewHolder -> {
@@ -134,6 +134,20 @@ class EditHistoryListActivity : BaseActivity() {
             val item = listItems[v.tag as Int]
             if (item is Revision) {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity, pageTitle.prefixedText, item.revId, pageTitle.wikiSite.languageCode))
+            }
+        }
+
+        override fun onViewAttachedToWindow(holder: ViewHolder) {
+            super.onViewAttachedToWindow(holder)
+            if (holder is StatsViewHolder) {
+                supportActionBar?.title = ""
+            }
+        }
+
+        override fun onViewDetachedFromWindow(holder: ViewHolder) {
+            super.onViewDetachedFromWindow(holder)
+            if (holder is StatsViewHolder) {
+                supportActionBar?.title = title
             }
         }
     }
