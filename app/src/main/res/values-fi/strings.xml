@@ -1080,6 +1080,10 @@
   <string name="talk_snackbar_survey_action_text">Aloita</string>
   <string name="talk_share_discussion_subject">Wikipedia - keskustelu aiheesta \"%s\" keskustelusivulla</string>
   <string name="talk_share_talk_page">Wikipedia - keskustelut keskustelusivulla</string>
+  <string name="talk_search_hint">Hae viestejä</string>
+  <string name="talk_overflow_sort_by">Lajitteluperuste</string>
+  <string name="talk_overflow_sort_date_published">Julkaisupäivä</string>
+  <string name="talk_overflow_sort_topic_name">Aiheen nimi</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>

@@ -1074,6 +1074,10 @@
   <string name="talk_share_discussion_subject">Wikipedia - diskussion på diskussionssidans ämne \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - diskussion på diskussionssida</string>
   <string name="talk_edit_disclaimer">Detta är en diskussionssida. Var god respektera riktlinjerna för diskussionssidor och kom ihåg att signera dina inlägg genom att skriva fyra tildetecken: ~~~~ när du skriver med wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://sv.wikipedia.org/wiki/Wikipedia:Diskussionssidor\"&gt;Wikipedia:Diskussionssidor&lt;/a&gt;</string>
+  <string name="talk_search_hint">Sök efter meddelanden</string>
+  <string name="talk_overflow_sort_by">Sortera efter</string>
+  <string name="talk_overflow_sort_date_published">Datum publicerad</string>
+  <string name="talk_overflow_sort_topic_name">Ämnesnamn</string>
   <string name="menu_option_share_talk_discussion">Dela diskussion</string>
   <string name="menu_option_share_talk_page">Dela diskussionssida</string>
   <string name="menu_option_share_edit">Dela redigering</string>

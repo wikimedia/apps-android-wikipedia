@@ -24,6 +24,11 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
         isAntiAlias = true
     }
 
+    init {
+        // The y = 0 is on the top of the canvas.
+        scaleY = -1f
+    }
+
     fun setData(list: List<Float>) {
         maxX = list.size.toFloat()
         maxY = list.maxByOrNull { it } ?: 0f

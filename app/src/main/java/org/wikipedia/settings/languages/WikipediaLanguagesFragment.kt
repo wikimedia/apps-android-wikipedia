@@ -126,7 +126,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
     }
 
     private fun updateWikipediaLanguages() {
-        app.language().appLanguageCodes = wikipediaLanguages
+        app.language().setAppLanguageCodes(wikipediaLanguages)
         adapter.notifyDataSetChanged()
         requireActivity().invalidateOptionsMenu()
     }
@@ -361,7 +361,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
         const val ACTIVITY_RESULT_LANG_POSITION_DATA = "activity_result_lang_position_data"
         const val ADD_LANGUAGE_INTERACTIONS = "add_language_interactions"
         const val SESSION_TOKEN = "session_token"
-        @JvmStatic
+
         fun newInstance(invokeSource: InvokeSource): WikipediaLanguagesFragment {
             val instance = WikipediaLanguagesFragment()
             instance.arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)

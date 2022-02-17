@@ -300,7 +300,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         private const val ARG_ENTRY = "entry"
         private const val ARG_LOCATION = "location"
 
-        @JvmStatic
         fun newInstance(entry: HistoryEntry, location: Location?): LinkPreviewDialog {
             return LinkPreviewDialog().apply {
                 arguments = bundleOf(ARG_ENTRY to entry, ARG_LOCATION to location)
