@@ -7,7 +7,6 @@ import android.widget.FrameLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
-import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 

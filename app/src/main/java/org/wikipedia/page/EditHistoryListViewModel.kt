@@ -10,7 +10,6 @@ import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
-import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.util.Resource
 import org.wikipedia.util.Resource.Success
 import org.wikipedia.util.log.L
