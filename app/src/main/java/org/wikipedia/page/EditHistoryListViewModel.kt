@@ -33,37 +33,4 @@ class EditHistoryListViewModel : ViewModel() {
             }
         }
     }
-
-    suspend fun fetchDiffSize(languageCode: String, olderRevisionId: Long, revisionId: Long): Int {
-        val response: DiffResponse = ServiceFactory.getCoreRest(WikiSite.forLanguageCode(languageCode))
-            .getEditDiff(olderRevisionId, revisionId)
-        var diffSize = 0
-        for (diff in response.diff) {
-            when (diff.type) {
-                DiffResponse.DIFF_TYPE_LINE_ADDED -> {
-                    diffSize += diff.text.length + 1
-                }
-                DiffResponse.DIFF_TYPE_LINE_REMOVED -> {
-                    diffSize -= diff.text.length + 1
-                }
-                DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
-                    diffSize -= diff.text.length + 1
-                }
-                DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_TO -> {
-                    diffSize += diff.text.length + 1
-                }
-            }
-
-            if (diff.highlightRanges.isNotEmpty()) {
-                for (editRange in diff.highlightRanges) {
-                    if (editRange.type == DiffResponse.HIGHLIGHT_TYPE_ADD) {
-                        diffSize += editRange.length
-                    } else {
-                        diffSize -= editRange.length
-                    }
-                }
-            }
-        }
-        return diffSize
-    }
 }

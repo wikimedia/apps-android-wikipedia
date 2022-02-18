@@ -51,6 +51,7 @@
     <string name="page_edit_history_activity_label">Page history</string>
     <string name="page_edit_history_minor_edit"><![CDATA[<b>m</b> %s]]></string>
     <string name="page_edit_history_comment_placeholder">There is no comment associated with this edit</string>
+    <string name="page_edit_history_item_size_text">%d bytes</string>
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
