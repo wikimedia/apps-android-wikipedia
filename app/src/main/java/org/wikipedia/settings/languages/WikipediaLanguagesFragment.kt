@@ -126,7 +126,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
     }
 
     private fun updateWikipediaLanguages() {
-        app.language().appLanguageCodes = wikipediaLanguages
+        app.language().setAppLanguageCodes(wikipediaLanguages)
         adapter.notifyDataSetChanged()
         requireActivity().invalidateOptionsMenu()
     }

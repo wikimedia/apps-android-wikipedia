@@ -8,32 +8,23 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.google.android.material.button.MaterialButton
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import org.wikipedia.R
-import org.wikipedia.R.*
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.edit_history.EditHistoryListViewModel.EditDetails
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.Resource.Success
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
+import org.wikipedia.util.Resource
 import org.wikipedia.views.EditHistoryStatsView
+import org.wikipedia.views.DefaultViewHolder
 
 class EditHistoryListActivity : BaseActivity() {
+
     private lateinit var binding: ActivityEditHistoryBinding
     private lateinit var editHistoryListAdapter: EditHistoryListAdapter
     private lateinit var pageTitle: PageTitle
@@ -48,7 +39,7 @@ class EditHistoryListActivity : BaseActivity() {
         viewModel.fetchData(pageTitle)
         binding.editHistoryLoadProgress.visibility = View.VISIBLE
         viewModel.editHistoryListData.observe(this) {
-            if (it is Success) {
+            if (it is Resource.Success) {
                 binding.editHistoryLoadProgress.visibility = View.INVISIBLE
                 setUpRecyclerView(it.data)
             }
@@ -84,13 +75,13 @@ class EditHistoryListActivity : BaseActivity() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             return when (viewType) {
                 VIEW_TYPE_HEADER -> {
-                    HeaderViewHolder(layoutInflater.inflate(layout.edit_history_section_header, parent, false))
+                    HeaderViewHolder(layoutInflater.inflate(R.layout.edit_history_section_header, parent, false))
                 }
                 VIEW_TYPE_STATS -> {
                     StatsViewHolder(EditHistoryStatsView(this@EditHistoryListActivity))
                 }
                 else -> {
-                    EditHistoryListItemHolder(layoutInflater.inflate(layout.item_edit_history, parent, false))
+                    EditHistoryListItemHolder(EditHistoryItemView(this@EditHistoryListActivity))
                 }
             }
         }
@@ -160,37 +151,18 @@ class EditHistoryListActivity : BaseActivity() {
 
     private inner class HeaderViewHolder constructor(itemView: View) : ViewHolder(itemView) {
         fun bindItem(listItem: String) {
-            itemView.findViewById<TextView>(id.section_header_text).text = listItem
+            itemView.findViewById<TextView>(R.id.section_header_text).text = listItem
         }
     }
 
-    private inner class EditHistoryListItemHolder constructor(itemView: View) :
-        ViewHolder(itemView) {
-        fun bindItem(oldRevision: Revision?, listItem: Revision) {
-            CoroutineScope(Dispatchers.IO).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
-                val editDetails: EditDetails = viewModel.fetchEditDetails(pageTitle.wikiSite.languageCode, oldRevision?.revId ?: 0, listItem.revId)
-                runOnUiThread {
-                    val diffTextView: MaterialButton = itemView.findViewById(id.diffText)
-                    val editCommentTextView: TextView = itemView.findViewById(id.editHistoryTitle)
-                    editCommentTextView.text = listItem.comment.ifEmpty { editDetails.text }
-                    editCommentTextView.text = if (listItem.minor) StringUtil.fromHtml(getString(string.page_edit_history_minor_edit, editCommentTextView.text))
-                    else editCommentTextView.text
-                    diffTextView.text = String.format(if (editDetails.diffSize != 0) "%+d" else "%d", editDetails.diffSize)
-                    if (editDetails.diffSize >= 0) {
-                        diffTextView.setTextColor(if (editDetails.diffSize > 0) ContextCompat.getColor(this@EditHistoryListActivity, color.green50) else ResourceUtil.getThemedColor(this@EditHistoryListActivity, attr.material_theme_secondary_color))
-                    } else {
-                        diffTextView.setTextColor(ContextCompat.getColor(this@EditHistoryListActivity, color.red50))
-                    }
-                }
-            }
-            itemView.findViewById<MaterialButton>(id.userNameText).text = listItem.user
-            itemView.findViewById<TextView>(id.editHistoryTimeText).text =
-                DateUtil.getTimeString(DateUtil.iso8601DateParse(listItem.timeStamp))
+    private inner class EditHistoryListItemHolder constructor(itemView: EditHistoryItemView) :
+        DefaultViewHolder<EditHistoryItemView>(itemView) {
+        fun bindItem(oldRevision: Revision?, itemRevision: Revision) {
+            view.setContents(oldRevision, itemRevision, viewModel, pageTitle)
         }
     }
 
     companion object {
-
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
         private const val VIEW_TYPE_STATS = 2
