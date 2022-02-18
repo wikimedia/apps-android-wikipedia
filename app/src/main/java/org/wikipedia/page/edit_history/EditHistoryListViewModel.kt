@@ -87,6 +87,5 @@ class EditHistoryListViewModel : ViewModel() {
         return diffSize
     }
 
-    class EditDetails(val diffSize: Int, val text: CharSequence)
     class EditStats(val revision: MwQueryPage.Revision, val editCount: EditCount, val metrics: List<Metrics.Results>)
 }
