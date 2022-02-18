@@ -1,7 +1,9 @@
 package org.wikipedia.diff
 
+import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import org.wikipedia.analytics.WatchlistFunnel
@@ -13,15 +15,16 @@ import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.watchlist.WatchlistExpiry
 
-class ArticleEditDetailsViewModel : ViewModel() {
+class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
 
     val watchedStatus = MutableLiveData<Resource<MwQueryResponse>>()
-    val revisionDetails = MutableLiveData<Resource<RevisionDiffContainer>>()
+    val revisionDetails = MutableLiveData<Resource<Unit>>()
     val diffText = MutableLiveData<Resource<DiffResponse>>()
     val thankStatus = SingleLiveData<Resource<EntityPostResponse>>()
     val watchResponse = SingleLiveData<Resource<WatchPostResponse>>()
@@ -29,82 +32,105 @@ class ArticleEditDetailsViewModel : ViewModel() {
 
     var watchlistExpiryChanged = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
-    var curTitle: PageTitle? = null
+
+    val pageTitle = PageTitle(bundle.getString(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE, ""),
+            WikiSite.forLanguageCode(bundle.getString(ArticleEditDetailsActivity.EXTRA_EDIT_LANGUAGE_CODE,
+                    AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)))
+
+    var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_ID, 0)
+    var revisionTo: MwQueryPage.Revision? = null
+    var revisionFromId: Long = 0
+    var revisionFrom: MwQueryPage.Revision? = null
+    var canGoForward = false
+
     private var diffRevisionId = 0L
+
+    val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
     private val watchlistFunnel = WatchlistFunnel()
 
-    fun setup(pageTitle: PageTitle, revisionId: Long) {
-        if (curTitle == null) {
-            curTitle = pageTitle
-            getWatchedStatus(pageTitle)
-            getRevisionDetails(pageTitle, revisionId)
-        }
+    init {
+        getWatchedStatus()
+        getRevisionDetails(revisionToId)
     }
 
-    private fun getWatchedStatus(title: PageTitle) {
+    private fun getWatchedStatus() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             watchedStatus.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                watchedStatus.postValue(Resource.Success(ServiceFactory.get(title.wikiSite).getWatchedStatus(title.prefixedText)))
+                watchedStatus.postValue(Resource.Success(ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText)))
             }
         }
     }
 
-    fun getRevisionDetails(title: PageTitle, revisionIdTo: Long, revisionIdFrom: Long = -1) {
+    fun getRevisionDetails(revisionIdTo: Long, revisionIdFrom: Long = -1) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                val ret: RevisionDiffContainer
                 if (revisionIdFrom >= 0) {
                     var responseFrom: MwQueryResponse? = null
                     var responseTo: MwQueryResponse? = null
                     coroutineScope {
                         launch {
-                            responseFrom = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionIdFrom, "older")
+                            responseFrom = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetails(pageTitle.prefixedText, revisionIdFrom, "older")
                         }
                         launch {
-                            responseTo = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionIdTo, "older")
+                            responseTo = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetails(pageTitle.prefixedText, revisionIdTo, "older")
                         }
                     }
-                    ret = RevisionDiffContainer(responseFrom?.query?.firstPage()!!.revisions[0],
-                            responseTo?.query?.firstPage()!!.revisions[0], false, false)
+
+                    revisionFrom = responseFrom?.query?.firstPage()!!.revisions[0]
+                    revisionTo = responseTo?.query?.firstPage()!!.revisions[0]
+                    canGoForward = false
                 } else {
-                    val response = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionIdTo, "older")
+                    val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetails(pageTitle.prefixedText, revisionIdTo, "older")
                     val page = response.query?.firstPage()!!
                     val revisions = page.revisions
-                    ret = if (revisions.size > 1) {
-                        RevisionDiffContainer(revisions[1], revisions[0], true, revisions[0].revId < page.lastrevid)
-                    } else {
-                        RevisionDiffContainer(null, revisions[0], false, revisions[0].revId < page.lastrevid)
-                    }
+                    revisionTo = revisions[0]
+                    canGoForward = revisions[0].revId < page.lastrevid
+                    revisionFrom = if (revisions.size > 1) { revisions[1] } else null
                 }
-                revisionDetails.postValue(Resource.Success(ret))
+
+                revisionToId = revisionTo!!.revId
+                revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
+
+                revisionDetails.postValue(Resource.Success(Unit))
+                getDiffText(revisionFromId, revisionToId)
             }
         }
     }
 
-    fun getRevisionDetailsNewer(title: PageTitle, revisionIdFrom: Long) {
+    fun goBackward() {
+        revisionToId = revisionFromId
+        getRevisionDetails(revisionToId)
+    }
+
+    fun goForward() {
+        val revisionIdFrom = revisionToId
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                val response = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionIdFrom, "newer")
+                val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetails(pageTitle.prefixedText, revisionIdFrom, "newer")
                 val page = response.query?.firstPage()!!
                 val revisions = page.revisions
-                val ret = if (revisions.size > 1) {
-                    RevisionDiffContainer(revisions[0], revisions[1], revisions[0].parentRevId > 0, revisions[1].revId < page.lastrevid)
-                } else {
-                    RevisionDiffContainer(revisions[0], revisions[0], revisions[0].parentRevId > 0, false)
-                }
-                revisionDetails.postValue(Resource.Success(ret))
+
+                revisionFrom = revisions[0]
+                revisionTo = if (revisions.size > 1) { revisions[1] } else revisions[0]
+                canGoForward = revisions.size > 1 && revisions[1].revId < page.lastrevid
+
+                revisionToId = revisionTo!!.revId
+                revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
+
+                revisionDetails.postValue(Resource.Success(Unit))
+                getDiffText(revisionFromId, revisionToId)
             }
         }
     }
 
-    fun getDiffText(wikiSite: WikiSite, oldRevisionId: Long, newRevisionId: Long) {
+    private fun getDiffText(oldRevisionId: Long, newRevisionId: Long) {
         if (diffRevisionId == newRevisionId) {
             return
         }
@@ -112,7 +138,7 @@ class ArticleEditDetailsViewModel : ViewModel() {
             diffText.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                diffText.postValue(Resource.Success(ServiceFactory.getCoreRest(wikiSite).getDiff(oldRevisionId, newRevisionId)))
+                diffText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getDiff(oldRevisionId, newRevisionId)))
                 diffRevisionId = newRevisionId
             }
         }
@@ -129,7 +155,7 @@ class ArticleEditDetailsViewModel : ViewModel() {
         }
     }
 
-    fun watchOrUnwatch(title: PageTitle, isWatched: Boolean, expiry: WatchlistExpiry, unwatch: Boolean) {
+    fun watchOrUnwatch(isWatched: Boolean, expiry: WatchlistExpiry, unwatch: Boolean) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             watchResponse.postValue(Resource.Error(throwable))
         }) {
@@ -143,9 +169,9 @@ class ArticleEditDetailsViewModel : ViewModel() {
                         watchlistFunnel.logAddArticle()
                     }
                 }
-                val token = ServiceFactory.get(title.wikiSite).getWatchToken().query?.watchToken()
-                val response = ServiceFactory.get(title.wikiSite)
-                        .watch(if (unwatch) 1 else null, null, title.prefixedText, expiry.expiry, token!!)
+                val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+                val response = ServiceFactory.get(pageTitle.wikiSite)
+                        .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
 
                 lastWatchExpiry = expiry
                 if (watchlistExpiryChanged && unwatch) {
@@ -178,10 +204,10 @@ class ArticleEditDetailsViewModel : ViewModel() {
         }
     }
 
-    class RevisionDiffContainer(
-            val revisionFrom: MwQueryPage.Revision?,
-            val revisionTo: MwQueryPage.Revision,
-            val canGoBack: Boolean,
-            val canGoForward: Boolean
-            )
+    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
+        @Suppress("unchecked_cast")
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            return ArticleEditDetailsViewModel(bundle) as T
+        }
+    }
 }
