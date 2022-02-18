@@ -42,7 +42,6 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.collections.ArrayList
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -174,12 +173,15 @@ class SuggestedEditsTasksFragment : Fragment() {
         disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
+                UserContributionsStats.getEditCountsObservable()) { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
                     var blockInfo: MwServiceError.BlockInfo? = null
                     when {
-                        wikidataResponse.query?.userInfo!!.isBlocked -> blockInfo = wikidataResponse.query?.userInfo!!
-                        commonsResponse.query?.userInfo!!.isBlocked -> blockInfo = commonsResponse.query?.userInfo!!
-                        homeSiteResponse.query?.userInfo!!.isBlocked -> blockInfo = homeSiteResponse.query?.userInfo!!
+                        wikidataResponse.query?.userInfo!!.isBlocked -> blockInfo =
+                            wikidataResponse.query?.userInfo!!
+                        commonsResponse.query?.userInfo!!.isBlocked -> blockInfo =
+                            commonsResponse.query?.userInfo!!
+                        homeSiteResponse.query?.userInfo!!.isBlocked -> blockInfo =
+                            homeSiteResponse.query?.userInfo!!
                     }
                     if (blockInfo != null) {
                         blockMessage = ThrowableUtil.getBlockMessageHtml(blockInfo)
@@ -205,7 +207,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContributionsStats.getRevertSeverity()
                     wikidataResponse
-                })
+                }
                 .flatMap { response ->
                     UserContributionsStats.getPageViewsObservable(response)
                 }
