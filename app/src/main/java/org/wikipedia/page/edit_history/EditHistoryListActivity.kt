@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -20,8 +19,8 @@ import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
-import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.EditHistoryStatsView
 
 class EditHistoryListActivity : BaseActivity() {
 
@@ -52,7 +51,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
     }
 
-    private inner class EditHistoryListAdapter(val editHistoryList: List<Any>) : Adapter<ViewHolder>(), OnClickListener {
+    private inner class EditHistoryListAdapter(val editHistoryList: List<Any>) : Adapter<ViewHolder>(), View.OnClickListener {
         private val title = getString(R.string.page_edit_history_activity_label)
         var listItems = mutableListOf<Any>()
 
