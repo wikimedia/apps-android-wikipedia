@@ -49,6 +49,7 @@
         android:layout_height="128dp"
         android:layout_marginStart="16dp"
         android:contentDescription="@string/about_app_license_heading"
+        android:background="@drawable/graph_background_base80"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
