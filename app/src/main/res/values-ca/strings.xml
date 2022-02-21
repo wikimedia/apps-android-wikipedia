@@ -776,6 +776,7 @@
   <string name="description_starts_with_uppercase">Comenceu amb minúscula a menys que la primera paraula sigui un nom propi.</string>
   <string name="description_starts_with_lowercase">Evita començar per una lletra en minúscula.</string>
   <string name="description_is_in_different_language">El text sembla que estigui en una llengua no esperada. Caldria que fos en %s.</string>
+  <string name="description_verification_notice">Verifiqueu que la vostra descripció és en %1$s. Ignoreu lliurement aquesta notificació si la descripció que heu escrit ja és en %2$s.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció d\'article!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció d\'article.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
@@ -794,8 +795,11 @@
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="customize_toolbar_title">Personalitza la barra d\'eines</string>
+  <string name="customize_toolbar_description">Personalitzeu la barra d\'eines de navegació inferior amb les accions i destinacions que trobeu més útils.</string>
   <string name="customize_toolbar_category_toolbar">Barra d\'eines</string>
   <string name="customize_toolbar_category_menu">Menú</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Arrossegueu i deixeu anar els vostres elements preferits ací 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Reinicialitza als valors per defecte</string>
   <string name="suggested_edits_describe_articles">Descriu articles</string>
   <string name="suggested_edits_caption_images">Posa llegendes a les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
