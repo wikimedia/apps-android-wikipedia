@@ -324,6 +324,7 @@
   <string name="talk_snackbar_undo">Annulla</string>
   <string name="talk_share_discussion_subject">Wikipedia –  discussioni supra l\'argumentu \"%s\" dâ pàggina di discussioni</string>
   <string name="talk_share_talk_page">Wikipedia – discussioni supra la pàggina di discussioni</string>
+  <string name="talk_overflow_sort_topic_name">Nomu di l\'argumentu</string>
   <string name="menu_option_share_talk_discussion">Cunnividi discussioni</string>
   <string name="menu_option_share_talk_page">Cunnividi pàggina di discussioni</string>
   <string name="menu_option_share_edit">Cunnividi canciamentu</string>
