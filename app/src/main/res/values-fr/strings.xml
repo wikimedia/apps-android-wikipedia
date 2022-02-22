@@ -1104,6 +1104,10 @@
   <string name="talk_share_discussion_subject">Wikipédia — discussion sur le sujet « %s » de la page de discussion</string>
   <string name="talk_share_talk_page">Wikipédia — discussions sur la page de discussion</string>
   <string name="talk_edit_disclaimer">Ceci est une page de discussion. Veuillez respecter les lignes directrices relatives aux pages de discussion et vous souvenir de signer vos envois en tapant quatre tildes : ~~~~ en postant du wikitexte.&lt;br /&gt; &lt;br /&gt; &lt;a href=\"https://fr.wikipedia.org/wiki/Aide:Discussion#Recommandations_et_pratiques\"&gt;Aide:Discussion § Recommandations et pratiques&lt;/a&gt; sur Wikipédia</string>
+  <string name="talk_search_hint">Recherche dans les messages</string>
+  <string name="talk_overflow_sort_by">Trier par</string>
+  <string name="talk_overflow_sort_date_published">Date de publication</string>
+  <string name="talk_overflow_sort_topic_name">Nom du sujet</string>
   <string name="menu_option_share_talk_discussion">Partager la discussion</string>
   <string name="menu_option_share_talk_page">Partager la page de discussion</string>
   <string name="menu_option_share_edit">Partager la modification</string>

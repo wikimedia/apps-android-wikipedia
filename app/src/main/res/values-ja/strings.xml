@@ -18,6 +18,7 @@
 * Marine-Blue
 * MathXplore
 * Mirinano
+* MirukuPC
 * Omotecho
 * Otokoume
 * Penn Station
@@ -98,6 +99,7 @@
   <string name="menu_page_talk_page">トークページ</string>
   <string name="menu_page_view_edit_history">編集履歴を表示</string>
   <string name="menu_page_remove_from_watchlist">ウォッチリストから除去</string>
+  <string name="menu_page_watched">既読</string>
   <string name="edit_section_find_in_page">ページ内検索</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_page_add_to_list">あとで読むリストに追加</string>
@@ -1030,6 +1032,10 @@
   <string name="talk_last_modified">&lt;b&gt;最終編集 %1$s&lt;/b&gt; 編集者: %2$s</string>
   <string name="talk_snackbar_survey_text">トークページをご利用いただきありがとうございます。アンケートに参加して、アプリの改善にご協力いただけませんか？</string>
   <string name="talk_snackbar_survey_action_text">始める</string>
+  <string name="talk_search_hint">メッセージを検索する</string>
+  <string name="talk_overflow_sort_by">並び順:</string>
+  <string name="talk_overflow_sort_date_published">公開日</string>
+  <string name="talk_overflow_sort_topic_name">トピック名</string>
   <string name="menu_option_share_edit">編集をシェア</string>
   <string name="menu_option_user_profile">%s のプロフィール</string>
   <string name="menu_option_user_contributions">%s の投稿記録</string>

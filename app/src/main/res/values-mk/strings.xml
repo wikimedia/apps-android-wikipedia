@@ -1063,6 +1063,10 @@
   <string name="talk_share_discussion_subject">Википедија — разговор на темата „%s“ на разговорна страница</string>
   <string name="talk_share_talk_page">Википедија — разговори на разговорна страница</string>
   <string name="talk_edit_disclaimer">Ова е разговорна страница. Почитувајте ги напатствијата и не заборавајте да се потпишувате со четири тилди: ~~~~ кога пишувате со викитекст.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Напатствија за разговорни страници&lt;/a&gt;</string>
+  <string name="talk_search_hint">Пребарај пораки</string>
+  <string name="talk_overflow_sort_by">Подреди по</string>
+  <string name="talk_overflow_sort_date_published">Датум на објавување</string>
+  <string name="talk_overflow_sort_topic_name">Назив на темата</string>
   <string name="menu_option_share_talk_discussion">Сподели разговор</string>
   <string name="menu_option_share_talk_page">Сподели разговорна страница</string>
   <string name="menu_option_share_edit">Сподели уредување</string>
