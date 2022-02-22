@@ -1,11 +1,9 @@
 package org.wikipedia.language
 
 import android.content.Context
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.util.StringUtil
 import java.util.*
 
 class AppLanguageState(context: Context) {
@@ -14,8 +12,8 @@ class AppLanguageState(context: Context) {
 
     // Language codes that have been explicitly chosen by the user in most recently used order. This
     // list includes both app and article languages.
-    private val _mruLanguageCodes = StringUtil.csvToList(Prefs.mruLanguageCodeCsv.orEmpty()).toMutableList()
-    private val _appLanguageCodes = StringUtil.csvToList(Prefs.appLanguageCodeCsv.orEmpty()).toMutableList()
+    private val _mruLanguageCodes = Prefs.mruLanguageCodeList.toMutableList()
+    private val _appLanguageCodes = Prefs.appLanguageCodeList.toMutableList()
 
     init {
         initAppLanguageCodes()
@@ -65,14 +63,14 @@ class AppLanguageState(context: Context) {
     val appLanguageLocalizedNames: String
         get() {
             return appLanguageCodes.joinToString(", ") {
-                StringUtils.capitalize(getAppLanguageLocalizedName(it))
+                getAppLanguageLocalizedName(it).orEmpty()
             }
         }
 
     fun addMruLanguageCode(code: String) {
         _mruLanguageCodes.remove(code)
         _mruLanguageCodes.add(0, code)
-        Prefs.mruLanguageCodeCsv = StringUtil.listToCsv(_mruLanguageCodes)
+        Prefs.mruLanguageCodeList = _mruLanguageCodes
     }
 
     /** @return English name if app language is supported.
@@ -110,21 +108,21 @@ class AppLanguageState(context: Context) {
     fun addAppLanguageCode(code: String) {
         _appLanguageCodes.remove(code)
         _appLanguageCodes.add(code)
-        Prefs.appLanguageCodeCsv = StringUtil.listToCsv(_appLanguageCodes)
+        Prefs.appLanguageCodeList = _appLanguageCodes
         WikipediaApp.getInstance().resetWikiSite()
     }
 
     fun setAppLanguageCodes(codes: List<String>) {
         _appLanguageCodes.clear()
         _appLanguageCodes.addAll(codes.filter { it.isNotEmpty() })
-        Prefs.appLanguageCodeCsv = StringUtil.listToCsv(_appLanguageCodes)
+        Prefs.appLanguageCodeList = _appLanguageCodes
         WikipediaApp.getInstance().resetWikiSite()
     }
 
     fun removeAppLanguageCodes(codes: List<String>) {
         if (_appLanguageCodes.size > 1) {
             _appLanguageCodes.removeAll(codes)
-            Prefs.appLanguageCodeCsv = StringUtil.listToCsv(_appLanguageCodes)
+            Prefs.appLanguageCodeList = _appLanguageCodes
         }
     }
 
