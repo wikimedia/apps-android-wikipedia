@@ -82,9 +82,13 @@
   <string name="menu_page_other_languages">Ubah bahasa</string>
   <string name="menu_page_find_in_page">Cari di artikel</string>
   <string name="menu_page_add_to_watchlist">Tambahkan ke daftar pantauan</string>
+  <string name="menu_page_watch">Pantau</string>
   <string name="menu_page_view_talk">Lihat halaman pembicaraan</string>
+  <string name="menu_page_talk_page">Halaman pembicaraan</string>
   <string name="menu_page_view_edit_history">Lihat riwayat suntingan</string>
+  <string name="menu_page_edit_history">Riwayat suntingan</string>
   <string name="menu_page_remove_from_watchlist">Hapus dari daftar pantauan</string>
+  <string name="menu_page_watched">Dipantau</string>
   <string name="edit_section_find_in_page">Cari di halaman</string>
   <string name="menu_page_font_and_theme">Huruf dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke daftar bacaan</string>
@@ -93,6 +97,7 @@
   <string name="feed_card_add_to_default_list">Simpan</string>
   <string name="menu_page_share">Bagikan pranala</string>
   <string name="menu_article_share">Bagikan artikel</string>
+  <string name="menu_page_article_share">Bagikan</string>
   <string name="menu_page_open_a_new_tab">Buka tab baru</string>
   <string name="menu_page_new_tab">Tab baru</string>
   <string name="menu_page_reading_lists">Daftar bacaan</string>
@@ -780,6 +785,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
   <string name="suggested_edits_describe_articles">Jelaskan artikel</string>
   <string name="suggested_edits_caption_images">Takarir gambar</string>
   <string name="suggested_edits_tag_images">Tandai gambar</string>
@@ -1040,6 +1046,9 @@
   <string name="talk_share_discussion_subject">Wikipedia - diskusi di halaman pembicaraan dengan topik \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - diskusi di halaman pembicaraan</string>
   <string name="talk_edit_disclaimer">Ini adalah halaman pembicaraan. Tolong hormati pedoman halaman pembicaraan, dan jangan lupa untuk menandatangani pesan Anda dengan mengetik empat tilda: ~~~~ ketika menggunakan teks wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
+  <string name="talk_search_hint">Cari pesan</string>
+  <string name="talk_overflow_sort_by">Urut berdasarkan</string>
+  <string name="talk_overflow_sort_topic_name">Nama topik</string>
   <string name="menu_option_share_talk_discussion">Bagikan diskusi</string>
   <string name="menu_option_share_talk_page">Bagikan halaman pembicaraan</string>
   <string name="menu_option_share_edit">Bagikan hasil suntingan</string>

@@ -99,6 +99,7 @@
   <string name="menu_page_talk_page">トークページ</string>
   <string name="menu_page_view_edit_history">編集履歴を表示</string>
   <string name="menu_page_remove_from_watchlist">ウォッチリストから除去</string>
+  <string name="menu_page_watched">既読</string>
   <string name="edit_section_find_in_page">ページ内検索</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_page_add_to_list">あとで読むリストに追加</string>

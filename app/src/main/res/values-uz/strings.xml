@@ -623,7 +623,7 @@
   <string name="preference_title_notification_login_fail">Kirmoq</string>
   <string name="preference_summary_notification_login_fail">Sizning faoliyatingiz</string>
   <string name="preference_title_notification_mention">Eslatma</string>
-  <string name="preference_summary_notification_mention">Kimdir Sizga sahifada eslatma berdi</string>
+  <string name="preference_summary_notification_mention">Kimdir sizni sahifada tilga oldi</string>
   <string name="preference_title_notification_user_talk">Suhbat sahifasi</string>
   <string name="preference_summary_notification_user_talk">Suhbatlardan kelgan xabarlar</string>
   <string name="preference_title_notification_email_user">E-pochta saqlandi</string>
@@ -679,7 +679,7 @@
   <string name="view_featured_image_card_title">Kun surati</string>
   <string name="view_featured_image_card_download">Yuklab olmoq</string>
   <string name="view_featured_image_card_share">Ulashmoq</string>
-  <string name="menu_feed_card_dismiss">Ushbu varaqani berkitmoq</string>
+  <string name="menu_feed_card_dismiss">Bu varaqani berkitish</string>
   <string name="menu_feed_card_dismissed">Varaqa berkitildi.</string>
   <string name="menu_feed_card_edit_card_languages">Varaqa tillarini tahrirlamoq</string>
   <string name="menu_feed_overflow_label">Boshqa tanlovlar</string>
@@ -1041,7 +1041,7 @@
   <string name="talk_no_subject">(mavzu yoʻq)</string>
   <string name="talk_reply_subject">Mavzu</string>
   <string name="talk_reply_hint">Javob yozmoq</string>
-  <string name="talk_message_hint">Xabar qoldirmoq</string>
+  <string name="talk_message_hint">Xabar qoldirish</string>
   <string name="talk_message_empty">Xabar boʻsh qolmasin.</string>
   <string name="talk_subject_empty">Mavzu boʻsh qolishi kerak emas.</string>
   <string name="talk_response_submitted">Soʻrov tasdiqlandi.</string>
