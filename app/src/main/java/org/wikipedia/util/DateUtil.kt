@@ -20,7 +20,6 @@ object DateUtil {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date)
     }
 
-    @JvmStatic
     @Synchronized
     fun iso8601DateParse(date: String): Date {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).parse(date)!!
@@ -31,30 +30,25 @@ object DateUtil {
         return getCachedDateFormat("yyyy-MM-dd'Z'", Locale.ROOT, true).parse(date)!!
     }
 
-    @JvmStatic
     @Synchronized
     fun iso8601LocalDateFormat(date: Date): String {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false).format(date)
     }
 
-    @JvmStatic
     @Synchronized
     fun dbDateFormat(date: Date?): String {
         return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).format(date!!)
     }
 
-    @JvmStatic
     @Synchronized
     fun dbDateParse(date: String): Date {
         return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).parse(date)!!
     }
 
-    @JvmStatic
     fun getFeedCardDayHeaderDate(age: Int): String {
         return getDateStringWithSkeletonPattern(UtcDate(age).baseCalendar.time, "MMMM d")
     }
 
-    @JvmStatic
     fun getFeedCardDateString(age: Int): String {
         return getFeedCardDateString(UtcDate(age).baseCalendar)
     }
@@ -63,12 +57,10 @@ object DateUtil {
         return getShortDateString(date.time)
     }
 
-    @JvmStatic
     fun getFeedCardDateString(date: Date): String {
         return getShortDateString(date)
     }
 
-    @JvmStatic
     fun getFeedCardShortDateString(date: Calendar): String {
         return getExtraShortDateString(date.time)
     }
@@ -77,12 +69,10 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy")
     }
 
-    @JvmStatic
     fun getMonthOnlyDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMMM d")
     }
 
-    @JvmStatic
     fun getMonthOnlyWithoutDayDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMMM")
     }
@@ -122,7 +112,6 @@ object DateUtil {
         }
     }
 
-    @JvmStatic
     fun getShortDateString(date: Date): String {
         // todo: consider allowing TWN date formats. It would be useful to have but might be
         //       difficult for translators to write correct format specifiers without being able to
@@ -133,12 +122,10 @@ object DateUtil {
         return dateFormat.format(date)
     }
 
-    @JvmStatic
     fun getUtcRequestDateFor(age: Int): UtcDate {
         return UtcDate(age)
     }
 
-    @JvmStatic
     fun getDefaultDateFor(age: Int): Calendar {
         val calendar = Calendar.getInstance(TimeZone.getDefault())
         calendar.add(Calendar.DATE, -age)
@@ -146,13 +133,11 @@ object DateUtil {
     }
 
     @Synchronized
-    @JvmStatic
     @Throws(ParseException::class)
     fun getHttpLastModifiedDate(dateStr: String): Date {
         return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr)!!
     }
 
-    @JvmStatic
     @Throws(ParseException::class)
     fun getLastSyncDateString(dateStr: String): String {
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "d MMM yyyy HH:mm")
@@ -162,13 +147,11 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "kk:mm")
     }
 
-    @JvmStatic
     fun yearToStringWithEra(year: Int): String {
         val cal: Calendar = GregorianCalendar(year, 1, 1)
         return getDateStringWithSkeletonPattern(cal.time, if (year < 0) "y GG" else "y")
     }
 
-    @JvmStatic
     fun getYearDifferenceString(year: Int, languageCode: String): String {
         val diffInYears = Calendar.getInstance()[Calendar.YEAR] - year
         val targetResource = L10nUtil.getResourcesForWikiLang(languageCode) ?: WikipediaApp.getInstance().resources
