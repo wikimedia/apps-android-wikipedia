@@ -55,9 +55,11 @@ object ShareUtil {
 
     fun shareImage(context: Context, bmp: Bitmap,
                    imageFileName: String, subject: String, text: String) {
-        CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg -> run {
-            displayOnCatchMessage(msg, context)
-        } }) {
+        CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg ->
+            run {
+                displayOnCatchMessage(msg, context) 
+            }
+        }) {
             val uri = withContext(Dispatchers.IO) { getUriFromFile(context, processBitmapForSharing(context, bmp, imageFileName)) }
             if (uri == null) {
                 displayShareErrorMessage(context)

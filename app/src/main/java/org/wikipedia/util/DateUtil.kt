@@ -14,6 +14,7 @@ object DateUtil {
     private val DATE_FORMATS = HashMap<String, SimpleDateFormat>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
+    @JvmStatic
     @Synchronized
     fun iso8601DateFormat(date: Date): String {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date)
