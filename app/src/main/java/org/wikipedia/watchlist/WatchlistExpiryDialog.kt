@@ -90,7 +90,6 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     companion object {
         private const val ARG_EXPIRY = "expiry"
 
-        @JvmStatic
         fun newInstance(expiry: WatchlistExpiry): WatchlistExpiryDialog {
             val dialog = WatchlistExpiryDialog()
             dialog.arguments = bundleOf(ARG_EXPIRY to expiry)
