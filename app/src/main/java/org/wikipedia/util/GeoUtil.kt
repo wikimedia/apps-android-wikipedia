@@ -9,7 +9,6 @@ import org.wikipedia.R
 import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller
 
 object GeoUtil {
-    @JvmStatic
     fun sendGeoIntent(activity: Activity,
                       location: Location,
                       placeName: String?) {
@@ -25,7 +24,6 @@ object GeoUtil {
         }
     }
 
-    @JvmStatic
     val geoIPCountry: String?
         get() = try {
             GeoIPCookieUnmarshaller.unmarshal().country()
