@@ -12,12 +12,10 @@ import org.wikipedia.WikipediaApp
 import kotlin.math.roundToInt
 
 object DimenUtil {
-    @JvmStatic
     fun dpToPx(dp: Float): Float {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics)
     }
 
-    @JvmStatic
     fun roundedDpToPx(dp: Float): Int {
         return dpToPx(dp).roundToInt()
     }
@@ -26,12 +24,10 @@ object DimenUtil {
         return px / densityScalar
     }
 
-    @JvmStatic
     fun roundedPxToDp(px: Float): Int {
         return pxToDp(px).roundToInt()
     }
 
-    @JvmStatic
     val densityScalar: Float
         get() = displayMetrics.density
 
@@ -40,7 +36,6 @@ object DimenUtil {
         return getValue(id).float
     }
 
-    @JvmStatic
     fun getDimension(@DimenRes id: Int): Float {
         return TypedValue.complexToFloat(getValue(id).data)
     }
@@ -53,21 +48,17 @@ object DimenUtil {
     }
 
     // TODO: use getResources().getDimensionPixelSize()?  Define leadImageWidth with px, not dp?
-    @JvmStatic
     fun calculateLeadImageWidth(): Int {
         val res = WikipediaApp.getInstance().resources
         return (res.getDimension(R.dimen.leadImageWidth) / densityScalar).toInt()
     }
 
-    @JvmStatic
     val displayWidthPx: Int
         get() = displayMetrics.widthPixels
 
-    @JvmStatic
     val displayHeightPx: Int
         get() = displayMetrics.heightPixels
 
-    @JvmStatic
     fun getContentTopOffsetPx(context: Context): Int {
         return roundedDpToPx(getContentTopOffset(context))
     }
@@ -87,7 +78,6 @@ object DimenUtil {
     private val resources: Resources
         get() = WikipediaApp.getInstance().resources
 
-    @JvmStatic
     fun getNavigationBarHeight(context: Context): Float {
         val id = getNavigationBarId(context)
         return if (id > 0) getDimension(id) else 0f
@@ -97,7 +87,6 @@ object DimenUtil {
         return roundedPxToDp(getToolbarHeightPx(context).toFloat()).toFloat()
     }
 
-    @JvmStatic
     fun getToolbarHeightPx(context: Context): Int {
         val styledAttributes = context.theme.obtainStyledAttributes(intArrayOf(
                 androidx.appcompat.R.attr.actionBarSize
@@ -112,12 +101,10 @@ object DimenUtil {
         return context.resources.getIdentifier("navigation_bar_height", "dimen", "android")
     }
 
-    @JvmStatic
     fun isLandscape(context: Context): Boolean {
         return context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     }
 
-    @JvmStatic
     fun leadImageHeightForDevice(context: Context): Int {
         return if (isLandscape(context)) (displayWidthPx * articleHeaderViewScreenHeightRatio()).toInt() else (displayHeightPx * articleHeaderViewScreenHeightRatio()).toInt()
     }
