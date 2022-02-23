@@ -71,9 +71,13 @@
   <string name="menu_page_other_languages">Alterar língua</string>
   <string name="menu_page_find_in_page">Localizar no artigo</string>
   <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
+  <string name="menu_page_watch">Vigiar</string>
   <string name="menu_page_view_talk">Ver página de discussão</string>
+  <string name="menu_page_talk_page">Página de discussão</string>
   <string name="menu_page_view_edit_history">Ver historial de edições</string>
+  <string name="menu_page_edit_history">Historial de edições</string>
   <string name="menu_page_remove_from_watchlist">Remover das páginas vigiadas</string>
+  <string name="menu_page_watched">Vigiada</string>
   <string name="edit_section_find_in_page">Localizar na página</string>
   <string name="menu_page_font_and_theme">Fonte e tema</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
@@ -82,6 +86,7 @@
   <string name="feed_card_add_to_default_list">Guardar</string>
   <string name="menu_page_share">Partilhar hiperligação</string>
   <string name="menu_article_share">Partilhar artigo</string>
+  <string name="menu_page_article_share">Partilhar</string>
   <string name="menu_page_open_a_new_tab">Abrir um novo separador</string>
   <string name="menu_page_new_tab">Separador novo</string>
   <string name="menu_page_reading_lists">Listas de leitura</string>
@@ -394,6 +399,7 @@
   <string name="error_blocked_expiry">Expiração do bloqueio: %s</string>
   <string name="error_blocked_id">Identificador do bloqueio: %s</string>
   <string name="error_blocked_footer">Pode entrar em contacto com &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou outro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
+  <string name="theme_chooser_menu_item_tooltip">Personalizar a barra de ferramentas e experimentar o modo de focalização na leitura</string>
   <string name="error_blocked_footer_no_blocker">Pode entrar em contacto com um &lt;a href=\"https://pt.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
   <string name="crash_report_activity_title">Erro da aplicação</string>
   <string name="crash_report_relaunch_or_quit">Lamentamos, mas a aplicação Wikipédia teve uma falha e foi encerrada.\n\nQuer voltar a começar ou sair?</string>
@@ -420,6 +426,11 @@
   <string name="text_size_decrease">Reduzir o tamanho do texto</string>
   <string name="text_size_percent_default">%s (Padrão)</string>
   <string name="text_style_title">Fonte</string>
+  <string name="theme_category_reading">Leitura</string>
+  <string name="reading_focus_mode">Modo de focalização na leitura</string>
+  <string name="reading_focus_mode_detail">Esconde as funcionalidades de edição e a barra de ferramentas inferior ao deslizar a página</string>
+  <string name="theme_category_toolbar">Barra de ferramentas</string>
+  <string name="theme_customize_toolbar">Personalizar a barra de ferramentas</string>
   <string name="nav_item_saved">Gravado</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
   <string name="reading_list_move_to">Mover para lista de leitura</string>
@@ -763,6 +774,7 @@
   <string name="description_starts_with_uppercase">Comece por letra minúscula, a menos que a primeira palavra seja um substantivo próprio.</string>
   <string name="description_starts_with_lowercase">Evitar começar com letra minúscula.</string>
   <string name="description_is_in_different_language">O texto parece estar numa língua inesperada. A língua devia ser %s.</string>
+  <string name="description_verification_notice">Verifique, por favor, que a sua descrição está em %1$s. Pode ignorar esta notificação se escreveu a descrição em %2$s.</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>
@@ -780,6 +792,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente uma linha, entre duas e doze palavras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
   <string name="description_edit_tutorial_promise">Ao começar, prometo não utilizar esta funcionalidade de forma abusiva.</string>
+  <string name="customize_toolbar_title">Personalizar a barra de ferramentas</string>
+  <string name="customize_toolbar_description">Personalizar a barra inferior de ferramentas de navegação com as operações e destinos que achar mais úteis.</string>
+  <string name="customize_toolbar_category_toolbar">Barra de ferramentas</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Arraste e largue os seus elementos preferidos aqui 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Reiniciar para valores padrão</string>
   <string name="suggested_edits_describe_articles">Descrever artigos</string>
   <string name="suggested_edits_caption_images">Legendar imagens</string>
   <string name="suggested_edits_tag_images">Etiquetar imagens</string>
@@ -1060,11 +1078,17 @@
   <string name="talk_snackbar_survey_action_text">Começar</string>
   <string name="talk_share_discussion_subject">Wikipédia - discussão no tópico \"%s\" de página de discussão</string>
   <string name="talk_share_talk_page">Wikipédia - conversas em página de discussão</string>
+  <string name="talk_edit_disclaimer">Esta página é de discussão. Respeita as normas das páginas de discussão, por favor, e lembre-se de assinar as suas mensagens inserindo quatro tiles: ~~~~ ao publicá-las usando texto wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:P%C3%A1gina_de_discuss%C3%A3o_de_artigo\"&gt;Wikipédia:Página de discussão de artigo&lt;/a&gt;</string>
+  <string name="talk_search_hint">Pesquisar nas mensagens</string>
+  <string name="talk_overflow_sort_by">Ordenar por</string>
+  <string name="talk_overflow_sort_date_published">Data de publicação</string>
+  <string name="talk_overflow_sort_topic_name">Nome do tópico</string>
   <string name="menu_option_share_talk_discussion">Partilhar discussão</string>
   <string name="menu_option_share_talk_page">Partilhar página de discussão</string>
   <string name="menu_option_share_edit">Partilhar a edição</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuições de %s</string>
+  <string name="menu_option_edit_source">Editar fonte</string>
   <string name="watchlist_details_watching_label">Vigiado</string>
   <string name="watchlist_details_watch_label">Vigiar</string>
   <string name="watchlist_details_next_edit">Próxima edição</string>
@@ -1076,6 +1100,8 @@
   <string name="thank_dialog_positive_button_text">Enviar agradecimento</string>
   <string name="thank_dialog_negative_button_text">Cancelar</string>
   <string name="thank_success_message">O seu agradecimento foi enviado a %s</string>
+  <string name="menu_option_view_user_profile">Ver página de perfil do utilizador</string>
+  <string name="menu_option_view_user_talk">Ver página de discussão</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e a respetiva página de discussão foram adicionados às suas páginas vigiadas %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Alterar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
