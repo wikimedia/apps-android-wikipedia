@@ -810,7 +810,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {
-                            EditHistoryListActivity.newIntent(requireContext(), this)
+                            if (ReleaseUtil.isPreBetaRelease) EditHistoryListActivity.newIntent(requireContext(), this)
+                            else loadPage(PageTitle("Special:History/$prefixedText", wikiSite),
+                                HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
                         }
                     }
                     "coordinate" -> {
@@ -1390,7 +1392,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onViewEditHistorySelected() {
             title?.run {
-                startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
+                if (ReleaseUtil.isPreBetaRelease) startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
+                else loadPage(PageTitle("Special:History/$prefixedText", wikiSite),
+                    HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
             }
         }
 
