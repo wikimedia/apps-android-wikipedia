@@ -2,7 +2,6 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
@@ -11,7 +10,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.MenuItemCompat
@@ -29,8 +27,8 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
+import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -395,41 +393,6 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-    internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
-        private val title: TextView = view.findViewById(R.id.topicTitleText)
-        private val subtitle: TextView = view.findViewById(R.id.topicSubtitleText)
-        private var id: Int = 0
-
-        fun bindItem(topic: TalkPage.Topic) {
-            id = topic.id
-            val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
-            var titleStr = RichTextUtil.stripHtml(topic.html).trim()
-            if (titleStr.isEmpty()) {
-                // build up a title based on the contents, massaging the html into plain text that
-                // flows over a few lines...
-                topic.replies?.firstOrNull()?.let {
-                    titleStr = RichTextUtil.stripHtml(it.html).replace("\n", " ")
-                    if (titleStr.length > MAX_CHARS_NO_SUBJECT) {
-                        titleStr = titleStr.substring(0, MAX_CHARS_NO_SUBJECT) + "…"
-                    }
-                }
-            }
-
-            title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
-            title.visibility = View.VISIBLE
-            subtitle.visibility = View.GONE
-            title.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface
-            title.setTextColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity,
-                    if (seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
-            StringUtil.highlightAndBoldenText(title, currentSearchQuery, true, Color.YELLOW)
-            itemView.setOnClickListener(this)
-        }
-
-        override fun onClick(v: View?) {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id, invokeSource))
-        }
-    }
-
     internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         private val listPlaceholder get() = if (actionMode == null) 1 else 0
@@ -446,12 +409,12 @@ class TalkTopicsActivity : BaseActivity() {
             if (type == ITEM_SEARCH_BAR) {
                 return TalkTopicSearcherHolder(layoutInflater.inflate(R.layout.view_talk_topic_search_bar, parent, false))
             }
-            return TalkTopicHolder(layoutInflater.inflate(R.layout.item_talk_topic, parent, false))
+            return TalkTopicHolder(ItemTalkTopicBinding.inflate(layoutInflater, parent, false), this@TalkTopicsActivity, pageTitle, invokeSource)
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             if (holder is TalkTopicHolder) {
-                holder.bindItem(list[pos - listPlaceholder])
+                holder.bindItem(list[pos - listPlaceholder], currentSearchQuery)
             }
         }
 
@@ -552,7 +515,6 @@ class TalkTopicsActivity : BaseActivity() {
         private const val ITEM_TOPIC = 1
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
-        private const val MAX_CHARS_NO_SUBJECT = 100
         const val NEW_TOPIC_ID = -2
 
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
