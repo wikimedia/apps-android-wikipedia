@@ -13,10 +13,9 @@
         <path android:fillColor="#eaecf0" android:pathData="m93.12,0h0.5v128h-0.5z"/>
         <path android:fillColor="#eaecf0" android:pathData="m104.76,0h0.5v128h-0.5z"/>
         <path android:fillColor="#eaecf0" android:pathData="m116.4,0h0.5v128h-0.5z"/>
-        <path android:fillColor="#eaecf0" android:pathData="m0.27,116l0,-0.5l128,-0l0,0.5z"/>
-        <path android:fillColor="#eaecf0" android:pathData="m0.27,90l0,-0.5l128,-0l0,0.5z"/>
-        <path android:fillColor="#eaecf0" android:pathData="m0.27,64l0,-0.5l128,-0l0,0.5z"/>
-        <path android:fillColor="#eaecf0" android:pathData="m0.27,38l0,-0.5l128,-0l0,0.5z"/>
+        <path android:fillColor="#eaecf0" android:pathData="m0.27,117l0,-0.5l128,-0l0,0.5z"/>
+        <path android:fillColor="#eaecf0" android:pathData="m0.27,82l0,-0.5l128,-0l0,0.5z"/>
+        <path android:fillColor="#eaecf0" android:pathData="m0.27,47l0,-0.5l128,-0l0,0.5z"/>
         <path android:fillColor="#eaecf0" android:pathData="m0.27,11.87l0,-0.5l128,-0l0,0.5z"/>
     </group>
 </vector>

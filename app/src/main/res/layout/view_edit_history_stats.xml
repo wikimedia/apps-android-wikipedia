@@ -10,13 +10,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginEnd="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/statsGraphView">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif"
             android:text="@string/page_edit_history_activity_label"
             android:textColor="?attr/primary_text_color"
@@ -27,8 +27,8 @@
             android:id="@+id/articleTitleView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
             android:textColor="?colorAccent"
             android:textSize="24sp" />
 
@@ -37,7 +37,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="?green_highlight_color"
             android:textSize="16sp" />
@@ -45,9 +44,8 @@
 
     <org.wikipedia.views.GraphView
         android:id="@+id/statsGraphView"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:contentDescription="@string/about_app_license_heading"
         android:background="@drawable/graph_background_base80"
         android:backgroundTint="?attr/chip_background_color"
