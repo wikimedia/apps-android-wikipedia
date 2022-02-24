@@ -8,11 +8,15 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
+import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.R
@@ -22,11 +26,14 @@ import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.views.WikiErrorView
 
 class EditHistoryListActivity : BaseActivity() {
 
     private lateinit var binding: ActivityEditHistoryBinding
     private val editHistoryListAdapter = EditHistoryListAdapter()
+    private val loadHeader = LoadingItemAdapter { editHistoryListAdapter.retry() }
+    private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,11 +43,31 @@ class EditHistoryListActivity : BaseActivity() {
 
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
+                .withLoadStateHeaderAndFooter(loadHeader, loadFooter)
 
         lifecycleScope.launch {
             viewModel.editHistoryFlow.collectLatest {
                 editHistoryListAdapter.submitData(it)
             }
+        }
+
+        lifecycleScope.launch {
+            editHistoryListAdapter.loadStateFlow.collect {
+                loadHeader.loadState = it.refresh
+                loadFooter.loadState = it.append
+            }
+        }
+    }
+
+    private inner class LoadingItemAdapter(
+            private val retry: () -> Unit
+    ) : LoadStateAdapter<LoadingViewHolder>() {
+        override fun onBindViewHolder(holder: LoadingViewHolder, loadState: LoadState) {
+            holder.bindItem(loadState, retry)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): LoadingViewHolder {
+            return LoadingViewHolder(layoutInflater.inflate(R.layout.item_list_progress, parent, false))
         }
     }
 
@@ -84,6 +111,18 @@ class EditHistoryListActivity : BaseActivity() {
                 holder.bindItem((item as EditHistoryListViewModel.EditHistorySeparator).date)
             } else if (holder is EditHistoryListItemHolder) {
                 holder.bindItem((item as EditHistoryListViewModel.EditHistoryItem).item)
+            }
+        }
+    }
+
+    private inner class LoadingViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindItem(loadState: LoadState, retry: () -> Unit) {
+            val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
+            itemView.findViewById<TextView>(R.id.progressBar).isVisible = loadState is LoadState.Loading
+            errorView.isVisible = loadState is LoadState.Error
+            errorView.retryClickListener = OnClickListener { retry() }
+            if (loadState is LoadState.Error) {
+                errorView.setError(loadState.error, viewModel.pageTitle)
             }
         }
     }
