@@ -41,6 +41,10 @@ class EditHistoryListActivity : BaseActivity() {
         binding = ActivityEditHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.editHistoryRefreshContainer.setOnRefreshListener {
+            editHistoryListAdapter.refresh()
+        }
+
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
                 .withLoadStateHeaderAndFooter(loadHeader, loadFooter)
@@ -53,6 +57,9 @@ class EditHistoryListActivity : BaseActivity() {
 
         lifecycleScope.launch {
             editHistoryListAdapter.loadStateFlow.collect {
+                if (it.refresh is LoadState.NotLoading && binding.editHistoryRefreshContainer.isRefreshing) {
+                    binding.editHistoryRefreshContainer.isRefreshing = false
+                }
                 loadHeader.loadState = it.refresh
                 loadFooter.loadState = it.append
             }
