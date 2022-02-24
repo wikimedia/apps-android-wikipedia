@@ -27,15 +27,12 @@ class EditHistoryListActivity : BaseActivity() {
 
     private lateinit var binding: ActivityEditHistoryBinding
     private lateinit var editHistoryListAdapter: EditHistoryListAdapter
-    private lateinit var pageTitle: PageTitle
-    private val viewModel: EditHistoryListViewModel by viewModels()
+    private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        pageTitle = intent.getParcelableExtra(INTENT_EXTRA_PAGE_TITLE)!!
-        viewModel.fetchData(pageTitle)
         binding.editHistoryLoadProgress.visibility = View.VISIBLE
         viewModel.editHistoryListData.observe(this) {
             if (it is Success) {
@@ -99,7 +96,8 @@ class EditHistoryListActivity : BaseActivity() {
         override fun onClick(v: View) {
             val item = listItems[v.tag as Int]
             if (item is Revision) {
-                startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity, pageTitle.prefixedText, item.revId, pageTitle.wikiSite.languageCode))
+                startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
+                        viewModel.pageTitle.prefixedText, item.revId, viewModel.pageTitle.wikiSite.languageCode))
             }
         }
     }
