@@ -186,7 +186,7 @@
   <string name="about_libraries_heading">Karkerdena kıtıbxani</string>
   <string name="about_contributors_heading">İştırakkerdoği</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Pela taxıme&lt;/a&gt;</string>
-  <string name="about_translators_heading">Açarnayoği</string>
+  <string name="about_translators_heading">Çarnayoği</string>
   <string name="about_app_license_heading">Lisans</string>
   <string name="about_activity_title">Heqa</string>
   <string name="edit_abandon_confirm_yes">Eya</string>
@@ -553,7 +553,7 @@
   <string name="suggested_edits_feed_card_add_image_tags">Etiketê resımi cı kerê</string>
   <string name="suggested_edits_snackbar_survey_action_text">Anket pırr ke</string>
   <string name="suggested_edits_task_action_text_add">Cı ke</string>
-  <string name="suggested_edits_task_action_text_translate">Açarne</string>
+  <string name="suggested_edits_task_action_text_translate">Bıçarne</string>
   <string name="suggested_edits_image_tags_publishing">Çapnayeno</string>
   <string name="suggested_edits_image_tags_published">Çapneya</string>
   <string name="suggested_edits_help_page_link_text">Pela pheştiya wesıbnaye vurnayışa</string>
