@@ -354,7 +354,9 @@
   <string name="page_offline_notice_last_date">Du leser en offlineutgave av denne artikkelen som ble lagret %s.</string>
   <string name="button_get_directions">Veibeskrivelse</string>
   <string name="error_no_maps_app">Fant ikke noen apper som kunne gi veibeskrivelse.</string>
+  <string name="preference_title_customize_explore_feed">Utforskingsmating</string>
   <string name="preference_title_show_link_previews">Forhåndsvis lenker</string>
+  <string name="preference_summary_customize_explore_feed">Tilpass utforskingsmatingen</string>
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="preference_title_collapse_tables">Fold sammen tabeller</string>
   <string name="preference_summary_collapse_tables">Fold automatisk sammen tabeller i artikler, for eksempel infobokser, referanser og noter.</string>
