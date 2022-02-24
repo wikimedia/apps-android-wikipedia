@@ -55,9 +55,9 @@
             android:paddingTop="8dp"
             android:paddingEnd="12dp"
             android:paddingBottom="8dp"
-            android:textColor="@color/green50"
-            app:iconPadding="8dp"
-            app:iconSize="20dp"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="?attr/material_theme_secondary_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editHistoryTitle"
             tools:text="+123" />

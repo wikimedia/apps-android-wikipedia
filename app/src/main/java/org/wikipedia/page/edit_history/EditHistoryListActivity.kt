@@ -81,17 +81,10 @@ class EditHistoryListActivity : BaseActivity() {
             if (holder is HeaderViewHolder) {
                 holder.bindItem(listItems[pos] as String)
             } else if (holder is EditHistoryListItemHolder) {
-                holder.bindItem(getOldRevision(pos), listItems[pos] as Revision)
+                holder.bindItem(listItems[pos] as Revision)
                 holder.itemView.setOnClickListener(this)
             }
             holder.itemView.tag = pos
-        }
-
-        private fun getOldRevision(position: Int): Revision? {
-            return if (position < listItems.size - 1) {
-                if (listItems[position + 1] is Revision) listItems[position + 1] as Revision
-                else listItems[position + 2] as Revision
-            } else null
         }
 
         fun setUpList() {
@@ -121,8 +114,8 @@ class EditHistoryListActivity : BaseActivity() {
 
     private inner class EditHistoryListItemHolder constructor(itemView: EditHistoryItemView) :
         DefaultViewHolder<EditHistoryItemView>(itemView) {
-        fun bindItem(oldRevision: Revision?, itemRevision: Revision) {
-            view.setContents(oldRevision, itemRevision, viewModel, pageTitle)
+        fun bindItem(itemRevision: Revision) {
+            view.setContents(itemRevision)
         }
     }
 
