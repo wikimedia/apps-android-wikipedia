@@ -2,7 +2,6 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateUtils
@@ -17,7 +16,6 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -32,7 +30,6 @@ import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
@@ -46,11 +43,9 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
-import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 
 class TalkTopicsActivity : BaseActivity() {
@@ -59,11 +54,11 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var funnel: TalkFunnel
     private lateinit var notificationButtonView: NotificationButtonView
+    private lateinit var talkTopicsProvider: TalkTopicsProvider
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private val disposables = CompositeDisposable()
     private val topics = mutableListOf<TalkPage.Topic>()
-    private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var revisionForLastEdit: MwQueryPage.Revision? = null
     private var resolveTitleRequired = false
     private var goToTopic = false
@@ -117,21 +112,12 @@ class TalkTopicsActivity : BaseActivity() {
         }
         notificationButtonView = NotificationButtonView(this)
         Prefs.hasAnonymousNotification = false
-
-        // Determine whether we need to resolve the PageTitle, since the calling activity might
-        // have given us a non-Talk page, and we need to prepend the correct namespace.
-        if (pageTitle.namespace.isEmpty()) {
-            pageTitle.namespace = TalkAliasData.valueFor(pageTitle.wikiSite.languageCode)
-        } else if (pageTitle.isUserPage) {
-            pageTitle.namespace = UserTalkAliasData.valueFor(pageTitle.wikiSite.languageCode)
-        } else if (pageTitle.namespace() != Namespace.TALK && pageTitle.namespace() != Namespace.USER_TALK) {
-            // defer resolution of Talk page title for an API call.
-            resolveTitleRequired = true
-        }
+        talkTopicsProvider = TalkTopicsProvider(pageTitle)
     }
 
     public override fun onDestroy() {
         disposables.clear()
+        talkTopicsProvider.cancel()
         super.onDestroy()
     }
 
@@ -254,58 +240,46 @@ class TalkTopicsActivity : BaseActivity() {
         binding.toolbarTitle.isVisible = !goToTopic
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
 
-        disposables.clear()
+        talkTopicsProvider.cancel()
+
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
 
-        disposables.add(if (resolveTitleRequired) { ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText) } else { Observable.just(MwQueryResponse()) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { response ->
-                    resolveTitleRequired = false
-                    response.query?.namespaces?.let { namespaces ->
-                        response.query?.firstPage()?.let { page ->
-                            // In MediaWiki, namespaces that are even-numbered are "regular" pages,
-                            // and namespaces that are odd-numbered are the "Talk" versions of the
-                            // corresponding even-numbered namespace. For example, "User"=2, "User talk"=3.
-                            // So then, if the namespace of our pageTitle is even (i.e. not a Talk page),
-                            // then increment the namespace by 1, and update the pageTitle with it.
-                            val newNs = namespaces.values.find { it.id == page.namespace().code() + 1 }
-                            if (page.namespace().code() % 2 == 0 && newNs != null) {
-                                pageTitle.namespace = newNs.name
-                            }
-                        }
-                    }
-                    binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
-                    ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText)
+        talkTopicsProvider.load(object: TalkTopicsProvider.Callback {
+            override fun onUpdatePageTitle(title: PageTitle) {
+                pageTitle = title
+                binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+            }
+
+            override fun onReceivedRevision(revision: MwQueryPage.Revision?) {
+                revision?.let {
+                    revisionForLastEdit = revision
+                    binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
+                        DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
+                            System.currentTimeMillis(), 0L), revision.user))
                 }
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap {
-                    it.query?.firstPage()?.revisions?.getOrNull(0)?.let { revision ->
-                        revisionForLastEdit = revision
-                        binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
-                            DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
-                                System.currentTimeMillis(), 0L), revision.user))
-                    }
-                    ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
-                }
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate {
-                    invalidateOptionsMenu()
-                    binding.toolbarTitle.isVisible = !goToTopic
-                    binding.talkProgressBar.isVisible = !goToTopic
-                    binding.talkProgressBar.visibility = View.GONE
-                    binding.talkRefreshView.isRefreshing = false
-                }
-                .subscribe({
-                    topics.clear()
-                    topics.addAll(it.topics!!)
-                    updateOnSuccess()
-                }, {
-                    L.e(it)
-                    updateOnError(it)
-                }))
+            }
+
+            override fun onSuccess(talkPage: TalkPage) {
+                topics.clear()
+                topics.addAll(talkPage.topics!!)
+                updateOnSuccess()
+            }
+
+            override fun onError(throwable: Throwable) {
+                updateOnError(throwable)
+            }
+
+            override fun onFinished() {
+                invalidateOptionsMenu()
+                binding.toolbarTitle.isVisible = !goToTopic
+                binding.talkProgressBar.isVisible = !goToTopic
+                binding.talkProgressBar.visibility = View.GONE
+                binding.talkRefreshView.isRefreshing = false
+            }
+
+        })
     }
 
     private fun updateOnSuccess() {
