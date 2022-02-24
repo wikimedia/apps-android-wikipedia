@@ -6,17 +6,15 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="16dp"
     android:layout_marginBottom="4dp"
-    android:background="?attr/paper_color"
     android:gravity="center_vertical"
-    android:orientation="vertical"
-    tools:context=".page.edit_history.EditHistoryListActivity">
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/section_header_text"
+        android:id="@+id/date_text"
         style="@style/MaterialLargePrimaryTitle"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:textSize="18sp"
-        tools:text="section 1" />
+        tools:text="Date" />
 </LinearLayout>
