@@ -37,6 +37,8 @@ import static org.wikipedia.createaccount.CreateAccountActivity.validateInput;
     @Test public void testValidateInputPasswordIsUsername() {
         assertThat(validateInput("password", "password", "password", ""),
                 is(ValidateResult.PASSWORD_IS_USERNAME));
+        assertThat(validateInput("password", "PassworD", "PassworD", ""),
+                is(ValidateResult.PASSWORD_IS_USERNAME));
     }
 
     @Test public void testValidateInputInvalidEmail() {

@@ -324,7 +324,7 @@ class CreateAccountActivity : BaseActivity() {
                 return ValidateResult.INVALID_USERNAME
             } else if (password.length < PASSWORD_MIN_LENGTH) {
                 return ValidateResult.PASSWORD_TOO_SHORT
-            } else if (password.toString() == username.toString()) {
+            } else if (password.toString().equals(username.toString(), true)) {
                 return ValidateResult.PASSWORD_IS_USERNAME
             } else if (passwordRepeat.toString() != password.toString()) {
                 return ValidateResult.PASSWORD_MISMATCH
