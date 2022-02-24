@@ -89,10 +89,12 @@ class MwQueryPage {
         @SerialName("revid") val revId: Long = 0
         @SerialName("parentid") val parentRevId: Long = 0
         @SerialName("anon") val isAnon = false
-        @SerialName("size") val size: Long = 0L
+        @SerialName("size") val size = 0
         val user: String = ""
         val content: String = ""
         val comment: String = ""
+
+        var diffSize = 0
 
         fun getContentFromSlot(slot: String): String {
             return slots?.get(slot)?.content.orEmpty()

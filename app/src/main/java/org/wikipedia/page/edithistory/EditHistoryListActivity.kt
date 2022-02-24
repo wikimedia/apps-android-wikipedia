@@ -44,26 +44,47 @@ class EditHistoryListActivity : BaseActivity() {
         }
     }
 
-    private inner class EditHistoryDiffCallback : DiffUtil.ItemCallback<MwQueryPage.Revision>() {
-        override fun areItemsTheSame(oldItem: MwQueryPage.Revision, newItem: MwQueryPage.Revision): Boolean {
-            return oldItem.revId == oldItem.revId
+    private inner class EditHistoryDiffCallback : DiffUtil.ItemCallback<EditHistoryListViewModel.EditHistoryItemModel>() {
+        override fun areItemsTheSame(oldItem: EditHistoryListViewModel.EditHistoryItemModel, newItem: EditHistoryListViewModel.EditHistoryItemModel): Boolean {
+            if (oldItem is EditHistoryListViewModel.EditHistorySeparator && newItem is EditHistoryListViewModel.EditHistorySeparator) {
+                return oldItem.date == newItem.date
+            } else if (oldItem is EditHistoryListViewModel.EditHistoryItem && newItem is EditHistoryListViewModel.EditHistoryItem) {
+                return oldItem.item.revId == oldItem.item.revId
+            }
+            return false
         }
 
-        override fun areContentsTheSame(oldItem: MwQueryPage.Revision, newItem: MwQueryPage.Revision): Boolean {
+        override fun areContentsTheSame(oldItem: EditHistoryListViewModel.EditHistoryItemModel, newItem: EditHistoryListViewModel.EditHistoryItemModel): Boolean {
             return areItemsTheSame(oldItem, newItem)
         }
     }
 
     private inner class EditHistoryListAdapter :
-            PagingDataAdapter<MwQueryPage.Revision, RecyclerView.ViewHolder>(EditHistoryDiffCallback()) {
+            PagingDataAdapter<EditHistoryListViewModel.EditHistoryItemModel, RecyclerView.ViewHolder>(EditHistoryDiffCallback()) {
+
+        override fun getItemViewType(position: Int): Int {
+            return if (getItem(position) is EditHistoryListViewModel.EditHistorySeparator) {
+                VIEW_TYPE_SEPARATOR
+            } else {
+                VIEW_TYPE_ITEM
+            }
+        }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            return EditHistoryListItemHolder(EditHistoryItemView(this@EditHistoryListActivity))
+            return if (viewType == VIEW_TYPE_SEPARATOR) {
+                SeparatorViewHolder(layoutInflater.inflate(R.layout.item_edit_history_separator, parent, false))
+            } else {
+                EditHistoryListItemHolder(EditHistoryItemView(this@EditHistoryListActivity))
+            }
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             val item = getItem(position)
-            (holder as EditHistoryListItemHolder).bindItem(item as MwQueryPage.Revision)
+            if (holder is SeparatorViewHolder) {
+                holder.bindItem((item as EditHistoryListViewModel.EditHistorySeparator).date)
+            } else if (holder is EditHistoryListItemHolder) {
+                holder.bindItem((item as EditHistoryListViewModel.EditHistoryItem).item)
+            }
         }
     }
 
