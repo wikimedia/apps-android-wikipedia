@@ -14,6 +14,7 @@
         android:id="@+id/clickTargetView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="8dp"
         android:layout_marginEnd="16dp">
 
         <ImageView
@@ -35,6 +36,7 @@
             android:id="@+id/editHistoryTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:ellipsize="end"
             android:lineSpacingExtra="4sp"
             android:maxLines="2"

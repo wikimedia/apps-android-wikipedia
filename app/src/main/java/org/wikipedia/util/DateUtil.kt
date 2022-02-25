@@ -85,6 +85,10 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "HH:mm")
     }
 
+    fun getShortDayWithTimeString(date: Date): String {
+        return getDateStringWithSkeletonPattern(date, "MMM d HH:mm")
+    }
+
     fun getDateAndTimeWithPipe(date: Date): String {
         return getCachedDateFormat("MMM d, yyyy | HH:mm", Locale.getDefault(), false).format(date)
     }

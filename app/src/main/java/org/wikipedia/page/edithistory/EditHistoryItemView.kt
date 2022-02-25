@@ -60,17 +60,9 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
 
         binding.selectButton.isVisible = true
 
-        //binding.cardView.strokeWidth = if (selectedState >= EditHistoryListViewModel.SELECT_FROM) 0 else DimenUtil.roundedDpToPx(1f)
-
         val colorDefault = ResourceUtil.getThemedColor(context, R.attr.paper_color)
         val colorFrom = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
-        val colorTo = ContextCompat.getColor(context, R.color.osage)
-
-
-
-
-
-
+        val colorTo = ResourceUtil.getThemedColor(context, R.attr.color_group_68)
 
         when (selectedState) {
             EditHistoryListViewModel.SELECT_FROM -> {

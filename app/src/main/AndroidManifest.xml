@@ -302,8 +302,7 @@
 
         <activity
             android:name=".page.edithistory.EditHistoryListActivity"
-            android:label="@string/page_edit_history_activity_label"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

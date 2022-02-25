@@ -1168,6 +1168,7 @@
     <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
     <string name="menu_option_view_user_profile">View user profile page</string>
     <string name="menu_option_view_user_talk">View talk page</string>
+    <string name="revision_compare_button">Compare</string>
     <string name="revision_compare_two_only">Only two revisions can be selected.</string>
 
     <!-- Watchlist -->

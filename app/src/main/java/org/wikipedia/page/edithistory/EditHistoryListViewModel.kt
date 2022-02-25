@@ -6,8 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onStart
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -17,6 +15,12 @@ import org.wikipedia.util.DateUtil
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
     var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
+    var comparing = false
+        private set
+    var selectedRevisionFrom: MwQueryPage.Revision? = null
+        private set
+    var selectedRevisionTo: MwQueryPage.Revision? = null
+        private set
 
     val editHistoryFlow = Pager(PagingConfig(pageSize = 10)) {
         EditHistoryPagingSource(pageTitle)
@@ -37,37 +41,44 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         }
     }.cachedIn(viewModelScope)
 
-    private var selectedRevisionFrom = -1L
-    private var selectedRevisionTo = -1L
+    fun toggleCompareState() {
+        comparing = !comparing
+        if (!comparing) {
+            cancelSelectRevision()
+        }
+    }
 
-    fun cancelSelectRevision() {
-        selectedRevisionFrom = -1L
-        selectedRevisionTo = -1L
+    private fun cancelSelectRevision() {
+        selectedRevisionFrom = null
+        selectedRevisionTo = null
     }
 
     fun toggleSelectRevision(revision: MwQueryPage.Revision): Boolean {
-        if (selectedRevisionFrom == -1L && selectedRevisionTo != revision.revId) {
-            selectedRevisionFrom = revision.revId
+        if (selectedRevisionFrom == null && selectedRevisionTo?.revId != revision.revId) {
+            selectedRevisionFrom = revision
             return true
-        } else if (selectedRevisionTo == -1L && selectedRevisionFrom != revision.revId) {
-            selectedRevisionTo = revision.revId
+        } else if (selectedRevisionTo == null && selectedRevisionFrom?.revId != revision.revId) {
+            selectedRevisionTo = revision
             return true
-        } else if (selectedRevisionFrom == revision.revId) {
-            selectedRevisionFrom = -1L
+        } else if (selectedRevisionFrom?.revId == revision.revId) {
+            selectedRevisionFrom = null
             return true
-        } else if (selectedRevisionTo == revision.revId) {
-            selectedRevisionTo = -1L
+        } else if (selectedRevisionTo?.revId == revision.revId) {
+            selectedRevisionTo = null
             return true
         }
         return false
     }
 
     fun getSelectedState(revision: MwQueryPage.Revision): Int {
-        return when (revision.revId) {
-            selectedRevisionFrom -> SELECT_FROM
-            selectedRevisionTo -> SELECT_TO
-            else -> SELECT_NONE
+        if (!comparing) {
+            return SELECT_INACTIVE
+        } else if (selectedRevisionFrom?.revId == revision.revId) {
+            return SELECT_FROM
+        } else if (selectedRevisionTo?.revId == revision.revId) {
+            return SELECT_TO
         }
+        return SELECT_NONE
     }
 
     class EditHistoryPagingSource(
