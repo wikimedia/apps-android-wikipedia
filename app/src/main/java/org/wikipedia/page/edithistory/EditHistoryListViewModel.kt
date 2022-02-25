@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -35,28 +37,33 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         }
     }.cachedIn(viewModelScope)
 
-    private var selectedRevisionFrom: MwQueryPage.Revision? = null
-    private var selectedRevisionTo: MwQueryPage.Revision? = null
+    private var selectedRevisionFrom = -1L
+    private var selectedRevisionTo = -1L
+
+    fun cancelSelectRevision() {
+        selectedRevisionFrom = -1L
+        selectedRevisionTo = -1L
+    }
 
     fun toggleSelectRevision(revision: MwQueryPage.Revision): Boolean {
-        if (selectedRevisionFrom == null && selectedRevisionTo != revision) {
-            selectedRevisionFrom = revision
+        if (selectedRevisionFrom == -1L && selectedRevisionTo != revision.revId) {
+            selectedRevisionFrom = revision.revId
             return true
-        } else if (selectedRevisionTo == null && selectedRevisionFrom != revision) {
-            selectedRevisionTo = revision
+        } else if (selectedRevisionTo == -1L && selectedRevisionFrom != revision.revId) {
+            selectedRevisionTo = revision.revId
             return true
-        } else if (selectedRevisionFrom == revision) {
-            selectedRevisionFrom = null
+        } else if (selectedRevisionFrom == revision.revId) {
+            selectedRevisionFrom = -1L
             return true
-        } else if (selectedRevisionTo == revision) {
-            selectedRevisionTo = null
+        } else if (selectedRevisionTo == revision.revId) {
+            selectedRevisionTo = -1L
             return true
         }
         return false
     }
 
     fun getSelectedState(revision: MwQueryPage.Revision): Int {
-        return when (revision) {
+        return when (revision.revId) {
             selectedRevisionFrom -> SELECT_FROM
             selectedRevisionTo -> SELECT_TO
             else -> SELECT_NONE
