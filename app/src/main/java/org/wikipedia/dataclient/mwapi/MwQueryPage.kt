@@ -95,6 +95,8 @@ class MwQueryPage {
         val comment: String = ""
         val parsedcomment: String = ""
 
+        var diffSize = 0
+
         fun getContentFromSlot(slot: String): String {
             return slots?.get(slot)?.content.orEmpty()
         }

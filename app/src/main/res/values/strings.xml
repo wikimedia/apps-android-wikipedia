@@ -1181,6 +1181,8 @@
     <string name="revision_undo_message">This will undo the changes made by the revision(s) of the article shown here.</string>
     <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>
     <string name="revision_undo_success">The revision was undone.</string>
+    <string name="revision_compare_button">Compare</string>
+    <string name="revision_compare_two_only">Only two revisions can be selected.</string>
 
     <!-- Watchlist -->
     <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>
