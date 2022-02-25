@@ -64,7 +64,7 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionItem
-import org.wikipedia.page.edit_history.EditHistoryListActivity
+import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
@@ -810,7 +810,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {
-                            EditHistoryListActivity.newIntent(requireContext(), this)
+                            if (ReleaseUtil.isPreBetaRelease) EditHistoryListActivity.newIntent(requireContext(), this)
+                            else loadPage(PageTitle("Special:History/$prefixedText", wikiSite),
+                                HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
                         }
                     }
                     "coordinate" -> {
@@ -1390,7 +1392,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onViewEditHistorySelected() {
             title?.run {
-                startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
+                if (ReleaseUtil.isPreBetaRelease) startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
+                else loadPage(PageTitle("Special:History/$prefixedText", wikiSite),
+                    HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
             }
         }
 

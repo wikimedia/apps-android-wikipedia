@@ -89,6 +89,7 @@ class MwQueryPage {
         @SerialName("revid") val revId: Long = 0
         @SerialName("parentid") val parentRevId: Long = 0
         @SerialName("anon") val isAnon = false
+        @SerialName("size") val size: Long = 0L
         val user: String = ""
         val content: String = ""
         val comment: String = ""
