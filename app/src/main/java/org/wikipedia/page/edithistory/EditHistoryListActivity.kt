@@ -20,8 +20,9 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.Resource.Success
+import org.wikipedia.util.Resource
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.EditHistoryStatsView
 
 class EditHistoryListActivity : BaseActivity() {
 
@@ -32,26 +33,27 @@ class EditHistoryListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = ""
         binding = ActivityEditHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         pageTitle = intent.getParcelableExtra(INTENT_EXTRA_PAGE_TITLE)!!
         viewModel.fetchData(pageTitle)
         binding.editHistoryLoadProgress.visibility = View.VISIBLE
         viewModel.editHistoryListData.observe(this) {
-            if (it is Success) {
+            if (it is Resource.Success) {
                 binding.editHistoryLoadProgress.visibility = View.INVISIBLE
                 setUpRecyclerView(it.data)
             }
         }
     }
 
-    private fun setUpRecyclerView(editHistoryList: List<Revision>) {
+    private fun setUpRecyclerView(editHistoryList: List<Any>) {
         editHistoryListAdapter = EditHistoryListAdapter(editHistoryList)
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
     }
 
-    private inner class EditHistoryListAdapter(val editHistoryList: List<Revision>) :
+    private inner class EditHistoryListAdapter(val editHistoryList: List<Any>) :
         Adapter<ViewHolder>(), OnClickListener {
         var listItems = mutableListOf<Any>()
 
@@ -60,7 +62,11 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (listItems[position] is Revision) VIEW_TYPE_ITEM else VIEW_TYPE_SEPARATOR
+            return when {
+                listItems[position] is Revision -> VIEW_TYPE_ITEM
+                listItems[position] is EditHistoryListViewModel.EditStats -> VIEW_TYPE_STATS
+                else -> VIEW_TYPE_SEPARATOR
+            }
         }
 
         override fun getItemCount(): Int {
@@ -69,28 +75,42 @@ class EditHistoryListActivity : BaseActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val inflater = LayoutInflater.from(this@EditHistoryListActivity)
-            return if (viewType == VIEW_TYPE_SEPARATOR) {
-                SeparatorViewHolder(inflater.inflate(R.layout.item_edit_history_separator, parent, false))
-            } else {
-                EditHistoryListItemHolder(EditHistoryItemView(this@EditHistoryListActivity))
+            return when (viewType) {
+                VIEW_TYPE_SEPARATOR -> {
+                    SeparatorViewHolder(inflater.inflate(R.layout.item_edit_history_separator, parent, false))
+                }
+                VIEW_TYPE_STATS -> {
+                    StatsViewHolder(EditHistoryStatsView(this@EditHistoryListActivity))
+                }
+                else -> {
+                    EditHistoryListItemHolder(EditHistoryItemView(this@EditHistoryListActivity))
+                }
             }
         }
 
         override fun onBindViewHolder(holder: ViewHolder, pos: Int) {
-            if (holder is SeparatorViewHolder) {
-                holder.bindItem(listItems[pos] as String)
-            } else if (holder is EditHistoryListItemHolder) {
-                holder.bindItem(listItems[pos] as Revision)
-                holder.itemView.setOnClickListener(this)
+            when (holder) {
+                is SeparatorViewHolder -> {
+                    holder.bindItem(listItems[pos] as String)
+                }
+                is EditHistoryListItemHolder -> {
+                    holder.bindItem(listItems[pos] as Revision)
+                    holder.itemView.setOnClickListener(this)
+                }
+                is StatsViewHolder -> {
+                    holder.bindItem(listItems[pos] as EditHistoryListViewModel.EditStats)
+                }
             }
             holder.itemView.tag = pos
         }
 
         fun setUpList() {
             editHistoryList.forEach {
-                val dateStr = DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(it.timeStamp))
-                if (!listItems.contains(dateStr)) {
-                    listItems.add(dateStr)
+                if (it is Revision) {
+                    val dateStr = DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(it.timeStamp))
+                    if (!listItems.contains(dateStr)) {
+                        listItems.add(dateStr)
+                    }
                 }
                 listItems.add(it)
             }
@@ -101,6 +121,26 @@ class EditHistoryListActivity : BaseActivity() {
             if (item is Revision) {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity, pageTitle.prefixedText, item.revId, pageTitle.wikiSite.languageCode))
             }
+        }
+
+        override fun onViewAttachedToWindow(holder: ViewHolder) {
+            super.onViewAttachedToWindow(holder)
+            if (holder is StatsViewHolder) {
+                supportActionBar?.title = ""
+            }
+        }
+
+        override fun onViewDetachedFromWindow(holder: ViewHolder) {
+            super.onViewDetachedFromWindow(holder)
+            if (holder is StatsViewHolder) {
+                supportActionBar?.title = title
+            }
+        }
+    }
+
+    private inner class StatsViewHolder constructor(itemView: View) : ViewHolder(itemView) {
+        fun bindItem(editStats: EditHistoryListViewModel.EditStats) {
+            (itemView as EditHistoryStatsView).setup(pageTitle.displayText, editStats)
         }
     }
 
@@ -122,6 +162,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         private const val VIEW_TYPE_SEPARATOR = 0
         private const val VIEW_TYPE_ITEM = 1
+        private const val VIEW_TYPE_STATS = 2
         const val INTENT_EXTRA_PAGE_TITLE = "pageTitle"
 
         fun newIntent(context: Context, pageTitle: PageTitle): Intent {

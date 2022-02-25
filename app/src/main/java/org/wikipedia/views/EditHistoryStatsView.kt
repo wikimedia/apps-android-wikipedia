@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewEditHistoryStatsBinding
-import org.wikipedia.page.edit_history.EditHistoryListViewModel
+import org.wikipedia.page.edithistory.EditHistoryListViewModel
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil

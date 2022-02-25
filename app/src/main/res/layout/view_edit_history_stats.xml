@@ -17,6 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:lineSpacingExtra="4sp"
             android:fontFamily="sans-serif"
             android:text="@string/page_edit_history_activity_label"
             android:textColor="?attr/primary_text_color"
@@ -27,7 +28,8 @@
             android:id="@+id/articleTitleView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
+            android:lineSpacingExtra="4sp"
+            android:fontFamily="sans-serif"
             android:textStyle="bold"
             android:textColor="?colorAccent"
             android:textSize="24sp" />
@@ -37,8 +39,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="sans-serif"
             android:textColor="?green_highlight_color"
+            android:textStyle="bold"
             android:textSize="16sp" />
     </LinearLayout>
 
