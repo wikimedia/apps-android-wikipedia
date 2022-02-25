@@ -190,7 +190,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
         fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             val idListStr = notifications.joinToString("|")
-            CsrfTokenClient(wiki, wiki).token
+            CsrfTokenClient(wiki).token
                     .subscribeOn(Schedulers.io())
                     .flatMap {
                         ServiceFactory.get(wiki).markRead(it, if (unread) null else idListStr, if (unread) idListStr else null)
