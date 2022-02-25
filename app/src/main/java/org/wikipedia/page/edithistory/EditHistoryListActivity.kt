@@ -92,7 +92,7 @@ class EditHistoryListActivity : BaseActivity() {
             if (oldItem is EditHistoryListViewModel.EditHistorySeparator && newItem is EditHistoryListViewModel.EditHistorySeparator) {
                 return oldItem.date == newItem.date
             } else if (oldItem is EditHistoryListViewModel.EditHistoryItem && newItem is EditHistoryListViewModel.EditHistoryItem) {
-                return oldItem.item.revId == oldItem.item.revId
+                return oldItem.item.revId == newItem.item.revId
             }
             return false
         }
