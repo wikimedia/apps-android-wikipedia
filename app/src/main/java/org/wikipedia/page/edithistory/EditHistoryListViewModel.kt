@@ -40,7 +40,7 @@ class EditHistoryListViewModel : ViewModel() {
                 val editCountsResponse = ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS)
                 val articleMetricsResponse = ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today)
 
-                list.add(EditStats(mwResponse.query?.pages?.first()?.revisions?.first()!!, editCountsResponse, articleMetricsResponse.firstItem.results))
+                list.add(EditHistoryStats(mwResponse.query?.pages?.first()?.revisions?.first()!!, editCountsResponse, articleMetricsResponse.firstItem.results))
 
                 // Edit history
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).getEditHistoryDetails(pageTitle.prefixedText)

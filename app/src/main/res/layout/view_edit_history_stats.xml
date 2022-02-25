@@ -40,9 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:lineSpacingExtra="5sp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="sans-serif-medium"
             android:textColor="?green_highlight_color"
-            android:textStyle="bold"
             android:textSize="16sp" />
     </LinearLayout>
 
