@@ -185,6 +185,7 @@
   <string name="dialog_create_account_checking_progress">Message shown to the user while a request is sent to the server to create an account and the app is awaiting the server response</string>
   <string name="create_account_email_hint">Label shown inside the email text box in the account creation form, to inform the user what they have to enter into that box.</string>
   <string name="create_account_password_repeat_hint">{{Identical|Repeat password}}</string>
+  <string name="create_account_password_is_username">Used as an error message on creating an account or resetting a password when password is same as username; this not allowed.</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
   <string name="create_account_email_error">Used as an error message on creating a user account where the email address the user entered does not appear to be a valid email address.</string>
   <string name="create_account_username_error">Used as an error message on logging in or creating a user account where the username entered does not appear to be valid.</string>
@@ -1144,4 +1145,8 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
+  <string name="page_edit_history_activity_label">Label text for the new edit history screen.</string>
+  <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit. %s represents the edit comment.</string>
+  <string name="page_edit_history_comment_placeholder">Placeholder text when a comment is not available on an edit.</string>
+  <string name="page_edit_history_item_size_text">Text showing the size of an edit in bytes. %d represents the number of bytes/</string>
 </resources>

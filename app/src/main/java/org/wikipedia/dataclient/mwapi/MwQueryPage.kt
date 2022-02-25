@@ -85,7 +85,7 @@ class MwQueryPage {
         @SerialName("timestamp") val timeStamp: String = ""
 
         private val slots: Map<String, RevisionSlot>? = null
-        private val minor = false
+        val minor = false
         @SerialName("revid") val revId: Long = 0
         @SerialName("parentid") val parentRevId: Long = 0
         @SerialName("anon") val isAnon = false
