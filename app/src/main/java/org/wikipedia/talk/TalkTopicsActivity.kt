@@ -246,7 +246,7 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
 
-        talkTopicsProvider.load(object: TalkTopicsProvider.Callback {
+        talkTopicsProvider.load(object : TalkTopicsProvider.Callback {
             override fun onUpdatePageTitle(title: PageTitle) {
                 pageTitle = title
                 binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
@@ -278,7 +278,6 @@ class TalkTopicsActivity : BaseActivity() {
                 binding.talkProgressBar.visibility = View.GONE
                 binding.talkRefreshView.isRefreshing = false
             }
-
         })
     }
 
