@@ -210,7 +210,7 @@ class DescriptionEditFragment : Fragment() {
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 CsrfTokenClient(wikiCommons)
             } else {
-                CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else wikiData, pageTitle.wikiSite)
+                CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else wikiData)
             }
 
             disposables.add(csrfClient.token.subscribe({ token ->
