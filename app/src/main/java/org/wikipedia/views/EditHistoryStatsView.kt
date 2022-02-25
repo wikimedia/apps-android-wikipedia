@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewEditHistoryStatsBinding
 import org.wikipedia.page.edithistory.EditHistoryListViewModel
+import org.wikipedia.page.edithistory.EditStats
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -24,7 +25,7 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
         setPadding(padding, 0, padding, 0)
     }
 
-    fun setup(title: String, editStats: EditHistoryListViewModel.EditStats) {
+    fun setup(title: String, editStats: EditStats) {
         binding.articleTitleView.text = StringUtil.fromHtml(title)
         val timestamp = editStats.revision.timeStamp
         if (timestamp.isNotBlank()) {

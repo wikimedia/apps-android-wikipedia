@@ -64,7 +64,7 @@ class EditHistoryListActivity : BaseActivity() {
         override fun getItemViewType(position: Int): Int {
             return when {
                 listItems[position] is Revision -> VIEW_TYPE_ITEM
-                listItems[position] is EditHistoryListViewModel.EditStats -> VIEW_TYPE_STATS
+                listItems[position] is EditStats -> VIEW_TYPE_STATS
                 else -> VIEW_TYPE_SEPARATOR
             }
         }
@@ -98,7 +98,7 @@ class EditHistoryListActivity : BaseActivity() {
                     holder.itemView.setOnClickListener(this)
                 }
                 is StatsViewHolder -> {
-                    holder.bindItem(listItems[pos] as EditHistoryListViewModel.EditStats)
+                    holder.bindItem(listItems[pos] as EditStats)
                 }
             }
             holder.itemView.tag = pos
@@ -139,7 +139,7 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class StatsViewHolder constructor(itemView: View) : ViewHolder(itemView) {
-        fun bindItem(editStats: EditHistoryListViewModel.EditStats) {
+        fun bindItem(editStats: EditStats) {
             (itemView as EditHistoryStatsView).setup(pageTitle.displayText, editStats)
         }
     }

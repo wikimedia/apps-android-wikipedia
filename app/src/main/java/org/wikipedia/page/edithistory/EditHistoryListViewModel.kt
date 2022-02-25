@@ -9,9 +9,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.EditCount
-import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource
@@ -40,15 +38,9 @@ class EditHistoryListViewModel : ViewModel() {
 
                 val mwResponse = ServiceFactory.get(pageTitle.wikiSite).getArticleCreatedDate(pageTitle.prefixedText)
                 val editCountsResponse = ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS)
-                val articleMetricsResponse = ServiceFactory.getRest(WikiSite("wikimedia.org"))
-                    .getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today)
-                list.add(
-                    EditHistoryListViewModel.EditStats(
-                        mwResponse.query?.pages?.first()?.revisions?.first()!!,
-                        editCountsResponse,
-                        articleMetricsResponse.firstItem.results
-                    )
-                )
+                val articleMetricsResponse = ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today)
+
+                list.add(EditStats(mwResponse.query?.pages?.first()?.revisions?.first()!!, editCountsResponse, articleMetricsResponse.firstItem.results))
 
                 // Edit history
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode)).getEditHistoryDetails(pageTitle.prefixedText)
@@ -58,6 +50,4 @@ class EditHistoryListViewModel : ViewModel() {
             }
         }
     }
-
-    class EditStats(val revision: MwQueryPage.Revision, val editCount: EditCount, val metrics: List<Metrics.Results>)
 }
