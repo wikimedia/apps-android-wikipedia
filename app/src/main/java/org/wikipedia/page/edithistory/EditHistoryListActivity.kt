@@ -33,7 +33,7 @@ class EditHistoryListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title = ""
+        supportActionBar?.title = ""
         binding = ActivityEditHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         pageTitle = intent.getParcelableExtra(INTENT_EXTRA_PAGE_TITLE)!!
