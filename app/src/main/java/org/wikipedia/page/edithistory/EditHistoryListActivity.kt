@@ -1,4 +1,4 @@
-package org.wikipedia.page.edit_history
+package org.wikipedia.page.edithistory
 
 import android.content.Context
 import android.content.Intent
@@ -18,7 +18,6 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.page.EditHistoryListViewModel
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.Resource.Success
@@ -61,7 +60,7 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (listItems[position] is Revision) VIEW_TYPE_ITEM else VIEW_TYPE_HEADER
+            return if (listItems[position] is Revision) VIEW_TYPE_ITEM else VIEW_TYPE_SEPARATOR
         }
 
         override fun getItemCount(): Int {
@@ -70,15 +69,15 @@ class EditHistoryListActivity : BaseActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val inflater = LayoutInflater.from(this@EditHistoryListActivity)
-            return if (viewType == VIEW_TYPE_HEADER) {
-                HeaderViewHolder(inflater.inflate(R.layout.edit_history_section_header, parent, false))
+            return if (viewType == VIEW_TYPE_SEPARATOR) {
+                SeparatorViewHolder(inflater.inflate(R.layout.item_edit_history_separator, parent, false))
             } else {
                 EditHistoryListItemHolder(EditHistoryItemView(this@EditHistoryListActivity))
             }
         }
 
         override fun onBindViewHolder(holder: ViewHolder, pos: Int) {
-            if (holder is HeaderViewHolder) {
+            if (holder is SeparatorViewHolder) {
                 holder.bindItem(listItems[pos] as String)
             } else if (holder is EditHistoryListItemHolder) {
                 holder.bindItem(listItems[pos] as Revision)
@@ -105,10 +104,10 @@ class EditHistoryListActivity : BaseActivity() {
         }
     }
 
-    private inner class HeaderViewHolder constructor(itemView: View) :
+    private inner class SeparatorViewHolder constructor(itemView: View) :
         ViewHolder(itemView) {
         fun bindItem(listItem: String) {
-            itemView.findViewById<TextView>(R.id.section_header_text).text = listItem
+            itemView.findViewById<TextView>(R.id.date_text).text = listItem
         }
     }
 
@@ -121,7 +120,7 @@ class EditHistoryListActivity : BaseActivity() {
 
     companion object {
 
-        private const val VIEW_TYPE_HEADER = 0
+        private const val VIEW_TYPE_SEPARATOR = 0
         private const val VIEW_TYPE_ITEM = 1
         const val INTENT_EXTRA_PAGE_TITLE = "pageTitle"
 

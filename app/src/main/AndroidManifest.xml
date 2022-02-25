@@ -301,7 +301,7 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
-            android:name=".page.edit_history.EditHistoryListActivity"
+            android:name=".page.edithistory.EditHistoryListActivity"
             android:label="@string/page_edit_history_activity_label"
             android:theme="@style/AppTheme.ActionBar" />
 

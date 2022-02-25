@@ -64,7 +64,7 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionItem
-import org.wikipedia.page.edit_history.EditHistoryListActivity
+import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
