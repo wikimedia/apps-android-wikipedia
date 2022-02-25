@@ -35,6 +35,34 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         }
     }.cachedIn(viewModelScope)
 
+    private var selectedRevisionFrom: MwQueryPage.Revision? = null
+    private var selectedRevisionTo: MwQueryPage.Revision? = null
+
+    fun toggleSelectRevision(revision: MwQueryPage.Revision): Boolean {
+        if (selectedRevisionFrom == null && selectedRevisionTo != revision) {
+            selectedRevisionFrom = revision
+            return true
+        } else if (selectedRevisionTo == null && selectedRevisionFrom != revision) {
+            selectedRevisionTo = revision
+            return true
+        } else if (selectedRevisionFrom == revision) {
+            selectedRevisionFrom = null
+            return true
+        } else if (selectedRevisionTo == revision) {
+            selectedRevisionTo = null
+            return true
+        }
+        return false
+    }
+
+    fun getSelectedState(revision: MwQueryPage.Revision): Int {
+        return when (revision) {
+            selectedRevisionFrom -> SELECT_FROM
+            selectedRevisionTo -> SELECT_TO
+            else -> SELECT_NONE
+        }
+    }
+
     class EditHistoryPagingSource(
             val pageTitle: PageTitle
     ) : PagingSource<String, MwQueryPage.Revision>() {
@@ -62,5 +90,12 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return EditHistoryListViewModel(bundle) as T
         }
+    }
+
+    companion object {
+        const val SELECT_INACTIVE = 0
+        const val SELECT_NONE = 1
+        const val SELECT_FROM = 2
+        const val SELECT_TO = 3
     }
 }

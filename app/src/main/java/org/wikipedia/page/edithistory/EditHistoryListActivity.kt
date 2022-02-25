@@ -16,8 +16,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -26,6 +25,7 @@ import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.WikiErrorView
 
 class EditHistoryListActivity : BaseActivity() {
@@ -51,18 +51,27 @@ class EditHistoryListActivity : BaseActivity() {
 
         lifecycleScope.launch {
             viewModel.editHistoryFlow.collectLatest {
-                editHistoryListAdapter.submitData(it)
+                editHistoryListAdapter. submitData(it)
             }
         }
 
-        lifecycleScope.launch {
-            editHistoryListAdapter.loadStateFlow.collect {
+        lifecycleScope.launchWhenCreated {
+            editHistoryListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
+                    .filter { it.refresh is LoadState.NotLoading }
+                    .collect {
+                        binding.editHistoryRefreshContainer.isRefreshing = false
+                        editHistoryListAdapter.notifyDataSetChanged()
+                    }
+
+            /*
                 if (it.refresh is LoadState.NotLoading && binding.editHistoryRefreshContainer.isRefreshing) {
                     binding.editHistoryRefreshContainer.isRefreshing = false
+                    editHistoryListAdapter.notifyDataSetChanged()
                 }
                 loadHeader.loadState = it.refresh
                 loadFooter.loadState = it.append
-            }
+
+             */
         }
     }
 
@@ -125,7 +134,7 @@ class EditHistoryListActivity : BaseActivity() {
     private inner class LoadingViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(loadState: LoadState, retry: () -> Unit) {
             val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
-            itemView.findViewById<TextView>(R.id.progressBar).isVisible = loadState is LoadState.Loading
+            itemView.findViewById<TextView>(R.id.progressBar).isVisible = loadState is LoadState.Loading && !binding.editHistoryRefreshContainer.isRefreshing
             errorView.isVisible = loadState is LoadState.Error
             errorView.retryClickListener = OnClickListener { retry() }
             if (loadState is LoadState.Error) {
@@ -142,18 +151,31 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class EditHistoryListItemHolder constructor(itemView: EditHistoryItemView) :
-            RecyclerView.ViewHolder(itemView), OnClickListener {
+            RecyclerView.ViewHolder(itemView), EditHistoryItemView.Listener {
         private lateinit var revision: MwQueryPage.Revision
 
         fun bindItem(revision: MwQueryPage.Revision) {
-            (itemView as EditHistoryItemView).setContents(revision)
-            itemView.setOnClickListener(this)
             this.revision = revision
+            (itemView as EditHistoryItemView).setContents(revision)
+            updateSelectState()
+            itemView.listener = this
         }
 
-        override fun onClick(v: View?) {
+        override fun onClick() {
             startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
                     viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
+        }
+
+        override fun onToggleSelect() {
+            if (!viewModel.toggleSelectRevision(revision)) {
+                FeedbackUtil.showMessage(this@EditHistoryListActivity, R.string.revision_compare_two_only)
+                return
+            }
+            updateSelectState()
+        }
+
+        private fun updateSelectState() {
+            (itemView as EditHistoryItemView).setSelectedState(viewModel.getSelectedState(revision))
         }
     }
 
