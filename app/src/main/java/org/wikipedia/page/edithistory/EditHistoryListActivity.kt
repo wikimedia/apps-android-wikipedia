@@ -46,7 +46,7 @@ class EditHistoryListActivity : BaseActivity() {
 
     private inner class EditHistoryDiffCallback : DiffUtil.ItemCallback<MwQueryPage.Revision>() {
         override fun areItemsTheSame(oldItem: MwQueryPage.Revision, newItem: MwQueryPage.Revision): Boolean {
-            return oldItem.revId == oldItem.revId
+            return oldItem.revId == newItem.revId
         }
 
         override fun areContentsTheSame(oldItem: MwQueryPage.Revision, newItem: MwQueryPage.Revision): Boolean {
