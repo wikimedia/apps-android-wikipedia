@@ -718,6 +718,9 @@
   <string name="talk_no_subject">(Kee Sujet)</string>
   <string name="talk_reply_subject">Sujet</string>
   <string name="talk_snackbar_survey_action_text">Fir unzefänken</string>
+  <string name="talk_search_hint">An de Message sichen</string>
+  <string name="talk_overflow_sort_date_published">Datum vun der Publikatioun</string>
+  <string name="talk_overflow_sort_topic_name">Numm vum Thema</string>
   <string name="menu_option_share_talk_discussion">Diskussioun deelen</string>
   <string name="menu_option_share_talk_page">Diskussiounssäit deelen</string>
   <string name="menu_option_user_contributions">Kontributioune vum %s</string>

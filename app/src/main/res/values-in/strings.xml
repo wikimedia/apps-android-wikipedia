@@ -82,9 +82,13 @@
   <string name="menu_page_other_languages">Ubah bahasa</string>
   <string name="menu_page_find_in_page">Cari di artikel</string>
   <string name="menu_page_add_to_watchlist">Tambahkan ke daftar pantauan</string>
+  <string name="menu_page_watch">Pantau</string>
   <string name="menu_page_view_talk">Lihat halaman pembicaraan</string>
+  <string name="menu_page_talk_page">Halaman pembicaraan</string>
   <string name="menu_page_view_edit_history">Lihat riwayat suntingan</string>
+  <string name="menu_page_edit_history">Riwayat suntingan</string>
   <string name="menu_page_remove_from_watchlist">Hapus dari daftar pantauan</string>
+  <string name="menu_page_watched">Dipantau</string>
   <string name="edit_section_find_in_page">Cari di halaman</string>
   <string name="menu_page_font_and_theme">Huruf dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke daftar bacaan</string>
@@ -93,6 +97,7 @@
   <string name="feed_card_add_to_default_list">Simpan</string>
   <string name="menu_page_share">Bagikan pranala</string>
   <string name="menu_article_share">Bagikan artikel</string>
+  <string name="menu_page_article_share">Bagikan</string>
   <string name="menu_page_open_a_new_tab">Buka tab baru</string>
   <string name="menu_page_new_tab">Tab baru</string>
   <string name="menu_page_reading_lists">Daftar bacaan</string>
@@ -402,6 +407,7 @@
   <string name="error_blocked_expiry">Kadaluwarsa pemblokiran: %s</string>
   <string name="error_blocked_id">ID Blokir: %s</string>
   <string name="error_blocked_footer">Anda bisa menghubungi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; atau &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Pengurus\n\"&gt;pengurus&lt;/a&gt; lain untuk mendiskusikan pemblokiran Anda.</string>
+  <string name="theme_chooser_menu_item_tooltip">Ubah suaikan bilah perkakas Anda dan coba mode fokus membaca</string>
   <string name="error_blocked_footer_no_blocker">Anda bisa menghubungi seorang &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Pengurus\n\"&gt;pengurus&lt;/a&gt; untuk mendiskusikan pembatasan Anda.</string>
   <string name="crash_report_activity_title">Kesalahan aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.\n\nApakah Anda ingin memulai kembali atau keluar?</string>
@@ -431,6 +437,8 @@
   <string name="theme_category_reading">Membaca</string>
   <string name="reading_focus_mode">Mode fokus membaca</string>
   <string name="reading_focus_mode_detail">Sembunyikan fitur penyuntingan dan bilah alat bawah ketika menggulir</string>
+  <string name="theme_category_toolbar">Bilah perkakas</string>
+  <string name="theme_customize_toolbar">Ubah suaikan bilah perkakas</string>
   <string name="nav_item_saved">Tersimpan</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_move_to">Pindahkan ke daftar bacaan</string>
@@ -763,6 +771,7 @@
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>
   <string name="description_starts_with_lowercase">Jangan memulai dengan huruf kecil.</string>
   <string name="description_is_in_different_language">Teks tersebut tampaknya menggunakan bahasa yang tidak terduga. Bahasa harus %s.</string>
+  <string name="description_verification_notice">Tolong pastikan deskripsi Anda ditulis dalam bahasa %1$s. Silakan abaikan pemberitahuan ini jika deskripsi yang Anda tulis berbahasa %2$s.</string>
   <string name="description_edit_success_saved">Deskripsi artikel diterbitkan!</string>
   <string name="description_edit_success_saved_snackbar">Deskripsi artikel diterbitkan!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Deksripsi artikel diterbitkan! (%s)</string>
@@ -780,6 +789,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
+  <string name="customize_toolbar_title">Ubah suaikan bilah perkakas</string>
+  <string name="customize_toolbar_description">Ubah suaikan bilah perkakas navigasi bawah Anda dengan tindakan dan tujuan yang Anda rasa paling berguna.</string>
+  <string name="customize_toolbar_category_toolbar">Bilah perkakas</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Seret dan taruh hal-hal favorit Anda ke sini 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Kembalikan seperti semula</string>
   <string name="suggested_edits_describe_articles">Jelaskan artikel</string>
   <string name="suggested_edits_caption_images">Takarir gambar</string>
   <string name="suggested_edits_tag_images">Tandai gambar</string>
@@ -1040,6 +1055,10 @@
   <string name="talk_share_discussion_subject">Wikipedia - diskusi di halaman pembicaraan dengan topik \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - diskusi di halaman pembicaraan</string>
   <string name="talk_edit_disclaimer">Ini adalah halaman pembicaraan. Tolong hormati pedoman halaman pembicaraan, dan jangan lupa untuk menandatangani pesan Anda dengan mengetik empat tilda: ~~~~ ketika menggunakan teks wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
+  <string name="talk_search_hint">Cari pesan</string>
+  <string name="talk_overflow_sort_by">Urut berdasarkan</string>
+  <string name="talk_overflow_sort_date_published">Tanggal diterbitkan</string>
+  <string name="talk_overflow_sort_topic_name">Nama topik</string>
   <string name="menu_option_share_talk_discussion">Bagikan diskusi</string>
   <string name="menu_option_share_talk_page">Bagikan halaman pembicaraan</string>
   <string name="menu_option_share_edit">Bagikan hasil suntingan</string>

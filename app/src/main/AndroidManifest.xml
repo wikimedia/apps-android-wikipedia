@@ -300,6 +300,11 @@
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
+        <activity
+            android:name=".page.edithistory.EditHistoryListActivity"
+            android:label="@string/page_edit_history_activity_label"
+            android:theme="@style/AppTheme.ActionBar" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
