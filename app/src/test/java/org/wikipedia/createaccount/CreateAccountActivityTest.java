@@ -34,6 +34,13 @@ import static org.wikipedia.createaccount.CreateAccountActivity.validateInput;
                 is(ValidateResult.PASSWORD_MISMATCH));
     }
 
+    @Test public void testValidateInputPasswordIsUsername() {
+        assertThat(validateInput("password", "password", "password", ""),
+                is(ValidateResult.PASSWORD_IS_USERNAME));
+        assertThat(validateInput("password", "PassworD", "PassworD", ""),
+                is(ValidateResult.PASSWORD_IS_USERNAME));
+    }
+
     @Test public void testValidateInputInvalidEmail() {
         assertThat(validateInput("user", "password", "password", "foo"),
                 is(ValidateResult.INVALID_EMAIL));

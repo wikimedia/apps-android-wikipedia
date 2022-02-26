@@ -22,44 +22,36 @@ import java.text.Normalizer
 object StringUtil {
     private const val CSV_DELIMITER = ","
 
-    @JvmStatic
     fun listToCsv(list: List<String?>): String {
         return list.joinToString(CSV_DELIMITER)
     }
 
-    @JvmStatic
     fun csvToList(csv: String): List<String> {
         return delimiterStringToList(csv, CSV_DELIMITER)
     }
 
-    @JvmStatic
     fun delimiterStringToList(delimitedString: String,
                               delimiter: String): List<String> {
         return delimitedString.split(delimiter).filter { it.isNotBlank() }
     }
 
-    @JvmStatic
     fun md5string(s: String): String {
         return s.encodeUtf8().md5().hex()
     }
 
-    @JvmStatic
     fun strip(str: CharSequence?): CharSequence {
         // TODO: remove this function once Kotlin conversion of consumers is complete.
         return if (str.isNullOrEmpty()) "" else str.trim()
     }
 
-    @JvmStatic
     fun intToHexStr(i: Int): String {
         return String.format("x%08x", i)
     }
 
-    @JvmStatic
     fun addUnderscores(text: String?): String {
         return text.orEmpty().replace(" ", "_")
     }
 
-    @JvmStatic
     fun removeUnderscores(text: String?): String {
         return text.orEmpty().replace("_", " ")
     }
@@ -69,14 +61,12 @@ object StringUtil {
                 .replace("_", "-")
     }
 
-    @JvmStatic
     fun removeSectionAnchor(text: String?): String {
         text.orEmpty().let {
             return if (it.contains("#")) it.substring(0, it.indexOf("#")) else it
         }
     }
 
-    @JvmStatic
     fun removeNamespace(text: String): String {
         return if (text.length > text.indexOf(":")) {
             text.substring(text.indexOf(":") + 1)
@@ -85,27 +75,22 @@ object StringUtil {
         }
     }
 
-    @JvmStatic
     fun removeHTMLTags(text: String?): String {
         return fromHtml(text).toString()
     }
 
-    @JvmStatic
     fun removeStyleTags(text: String): String {
         return text.replace("<style.*?</style>".toRegex(), "")
     }
 
-    @JvmStatic
     fun removeCiteMarkup(text: String): String {
         return text.replace("<cite.*?>".toRegex(), "").replace("</cite>".toRegex(), "")
     }
 
-    @JvmStatic
     fun sanitizeAbuseFilterCode(code: String): String {
         return code.replace("[⧼⧽]".toRegex(), "")
     }
 
-    @JvmStatic
     fun normalizedEquals(str1: String?, str2: String?): Boolean {
         return if (str1 == null || str2 == null) {
             str1 == null && str2 == null
@@ -113,7 +98,6 @@ object StringUtil {
                 == Normalizer.normalize(str2, Normalizer.Form.NFC))
     }
 
-    @JvmStatic
     fun fromHtml(source: String?): Spanned {
         var sourceStr = source ?: return "".toSpanned()
         if ("<" !in sourceStr && "&" !in sourceStr) {
@@ -134,7 +118,6 @@ object StringUtil {
         return sourceStr.parseAsHtml()
     }
 
-    @JvmStatic
     fun highlightEditText(editText: EditText, parentText: String, highlightText: String) {
         val words = highlightText.split("\\s+".toRegex()).toTypedArray()
         var pos = 0
@@ -154,7 +137,6 @@ object StringUtil {
         }
     }
 
-    @JvmStatic
     fun boldenKeywordText(textView: TextView, parentText: String, searchQuery: String?) {
         var parentTextStr = parentText
         val startIndex = indexOf(parentTextStr, searchQuery)
@@ -199,7 +181,6 @@ object StringUtil {
         return -1
     }
 
-    @JvmStatic
     fun getBase26String(@IntRange(from = 1) number: Int): String {
         var num = number
         val base = 26

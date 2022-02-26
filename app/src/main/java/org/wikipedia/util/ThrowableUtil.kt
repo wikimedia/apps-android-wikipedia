@@ -41,7 +41,6 @@ object ThrowableUtil {
         return false
     }
 
-    @JvmStatic
     fun getAppError(context: Context, e: Throwable): AppError {
         val inner = getInnermostThrowable(e)
         // look at what kind of exception it is...
@@ -64,49 +63,42 @@ object ThrowableUtil {
         }
     }
 
-    @JvmStatic
     fun isOffline(caught: Throwable?): Boolean {
         return caught is UnknownHostException || caught is SocketException
     }
 
-    @JvmStatic
     fun isTimeout(caught: Throwable?): Boolean {
         return caught is SocketTimeoutException
     }
 
-    @JvmStatic
     fun is404(caught: Throwable): Boolean {
         return caught is HttpStatusException && caught.code == 404
     }
 
-    @JvmStatic
     fun isEmptyException(caught: Throwable): Boolean {
         return caught is EmptyException
     }
 
-    @JvmStatic
     fun isNetworkError(e: Throwable): Boolean {
         return throwableContainsException(e, UnknownHostException::class.java) ||
                 throwableContainsException(e, TimeoutException::class.java) ||
                 throwableContainsException(e, SSLException::class.java)
     }
 
-    @JvmStatic
     @WorkerThread
     fun getBlockMessageHtml(blockInfo: MwServiceError.BlockInfo): String {
         var html = ""
         Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo,
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parsePage("MediaWiki:Blockedtext"),
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parseText(blockInfo.blockReason),
-            { userInfoResponse, blockedParseResponse, reasonParseResponse ->
-                parseBlockedError(blockedParseResponse.text, blockInfo,
-                    reasonParseResponse.text, userInfoResponse.query?.userInfo!!.name)
-            }
-        ).blockingSubscribe({ html = it }) { L.e(it) }
+            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parseText(blockInfo.blockReason)) { userInfoResponse, blockedParseResponse, reasonParseResponse ->
+            parseBlockedError(
+                blockedParseResponse.text, blockInfo,
+                reasonParseResponse.text, userInfoResponse.query?.userInfo!!.name
+            )
+        }.blockingSubscribe({ html = it }) { L.e(it) }
         return html
     }
 
-    @JvmStatic
     fun parseBlockedError(template: String, info: MwServiceError.BlockInfo, reason: String, userName: String): String {
         return template.replace("$1", "<a href=\"${StringUtil.userPageTitleFromName(info.blockedBy, WikipediaApp.getInstance().wikiSite).mobileUri}\">${info.blockedBy}</a>")
             .replace("$2", reason)
