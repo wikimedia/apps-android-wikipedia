@@ -25,7 +25,7 @@ class TalkTopicHolder internal constructor(
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var id: Int = 0
 
-    fun bindItem(topic: TalkPage.Topic, searchQuery: String?) {
+    fun bindItem(topic: TalkPage.Topic, searchQuery: String? = null) {
         id = topic.id
         val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
         var titleStr = RichTextUtil.stripHtml(topic.html).trim()

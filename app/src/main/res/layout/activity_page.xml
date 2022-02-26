@@ -102,49 +102,128 @@
     </org.wikipedia.views.FrameLayoutNavMenuTriggerer>
 
     <FrameLayout
-        android:id="@+id/toc_container"
+        android:id="@+id/side_panel_container"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:background="?android:colorBackground"
         tools:visibility="visible">
 
-        <org.wikipedia.views.SwipeableListView
-            android:id="@+id/toc_list"
+        <!-- ToC -->
+        <FrameLayout
+            android:id="@+id/toc_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:listSelector="?android:attr/selectableItemBackground"
-            android:paddingTop="64dp"
-            android:paddingBottom="64dp"
-            android:scrollbars="none" />
+            android:visibility="gone">
 
-        <ImageView
-            android:layout_width="37dp"
+            <org.wikipedia.views.SwipeableListView
+                android:id="@+id/toc_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:listSelector="?android:attr/selectableItemBackground"
+                android:paddingTop="64dp"
+                android:paddingBottom="64dp"
+                android:scrollbars="none" />
+
+            <ImageView
+                android:layout_width="37dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginTop="-4dp"
+                android:layout_marginEnd="-2dp"
+                android:layout_marginBottom="-4dp"
+                android:contentDescription="@null"
+                android:layerType="software"
+                android:src="@drawable/toc_dotted_line" />
+
+            <org.wikipedia.views.PageScrollerView
+                android:id="@+id/page_scroller_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_circle"
+                android:clickable="true"
+                android:elevation="8dp"
+                android:focusable="true"
+                android:scaleType="center"
+                app:backgroundTint="?attr/toc_scroller_button_color"
+                app:srcCompat="@drawable/ic_unfold_more_black_24dp"
+                app:tint="?attr/colorAccent" />
+
+        </FrameLayout>
+
+        <!-- Talk page -->
+        <FrameLayout
+            android:id="@+id/talk_topic_container"
+            android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_marginTop="-4dp"
-            android:layout_marginEnd="-2dp"
-            android:layout_marginBottom="-4dp"
-            android:contentDescription="@null"
-            android:layerType="software"
-            android:src="@drawable/toc_dotted_line" />
+            android:background="?android:colorBackground"
+            tools:visibility="visible"
+            android:visibility="gone">
 
-        <org.wikipedia.views.PageScrollerView
-            android:id="@+id/page_scroller_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="end"
-            android:background="@drawable/shape_circle"
-            android:clickable="true"
-            android:elevation="8dp"
-            android:focusable="true"
-            android:scaleType="center"
-            app:backgroundTint="?attr/toc_scroller_button_color"
-            app:srcCompat="@drawable/ic_unfold_more_black_24dp"
-            app:tint="?attr/colorAccent" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/talk_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" />
 
+            <LinearLayout
+                android:id="@+id/talk_empty_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_user_talk"
+                    app:tint="?attr/material_theme_de_emphasised_color"/>
+
+                <TextView
+                    style="@style/MaterialMediumSecondaryCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/talk_page_empty" />
+
+            </LinearLayout>
+
+            <org.wikipedia.views.WikiErrorView
+                android:id="@+id/talk_error_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/talk_last_modified"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="?attr/color_group_22"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="?android:attr/textColorPrimary"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:drawablePadding="12dp"
+                android:textSize="14sp"
+                android:gravity="center_vertical"
+                android:layout_gravity="bottom"
+                app:drawableStartCompat="@drawable/ic_history_24"
+                app:drawableTint="?android:attr/textColorTertiary"/>
+
+        </FrameLayout>
     </FrameLayout>
 
 </androidx.drawerlayout.widget.FixedDrawerLayout>

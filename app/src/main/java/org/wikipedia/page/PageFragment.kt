@@ -144,7 +144,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override val referencesGroup get() = references?.referencesGroup
     override val selectedReferenceIndex get() = references?.selectedIndex ?: 0
 
-    lateinit var tocHandler: ToCHandler
+    lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
     var revision = 0L
@@ -204,7 +204,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
         editHandler = EditHandler(this, bridge)
-        tocHandler = ToCHandler(this, ActivityCompat.requireViewById(activity, R.id.navigation_drawer),
+        sidePanelHandler = SidePanelHandler(this, ActivityCompat.requireViewById(activity, R.id.navigation_drawer),
             ActivityCompat.requireViewById(activity, R.id.page_scroller_button), bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView)
         shareHandler = ShareHandler(this, bridge)
@@ -244,7 +244,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         // uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup()
-        tocHandler.log()
+        sidePanelHandler.log()
         shareHandler.dispose()
         leadImagesHandler.dispose()
         disposables.clear()
@@ -295,8 +295,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     override fun onBackPressed(): Boolean {
-        if (tocHandler.isVisible) {
-            tocHandler.hide()
+        if (sidePanelHandler.isVisible) {
+            sidePanelHandler.hide()
             return true
         }
         if (pageFragmentLoadState.goBack()) {
@@ -434,8 +434,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
 
             model.title?.let {
-                tocHandler.setupToC(model.page, it.wikiSite)
-                tocHandler.setEnabled(true)
+                sidePanelHandler.setupToC(model.page, it.wikiSite)
+                sidePanelHandler.setupTalkTopics(it)
+                sidePanelHandler.setEnabled(true)
             }
         }
         bridge.evaluate(JavaScriptActionHandler.getProtection()) { value ->
@@ -943,7 +944,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         addTimeSpentReading(activeTimer.elapsedSec)
         activeTimer.reset()
         callback()?.onPageSetToolbarElevationEnabled(false)
-        tocHandler.setEnabled(false)
+        sidePanelHandler.setEnabled(false)
         errorState = false
         binding.pageError.visibility = View.GONE
         watchlistExpiryChanged = false
@@ -987,7 +988,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 it.alpha = if (it.isEnabled) 1f else 0.5f
             }
         }
-        tocHandler.setEnabled(false)
+        sidePanelHandler.setEnabled(false)
         requireActivity().invalidateOptionsMenu()
     }
 
@@ -1368,7 +1369,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onContentsSelected() {
-            tocHandler.show()
+            // TODO: test only
+            sidePanelHandler.show(false)
         }
 
         override fun onShareSelected() {

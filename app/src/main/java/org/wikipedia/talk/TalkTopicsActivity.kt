@@ -60,7 +60,6 @@ class TalkTopicsActivity : BaseActivity() {
     private val disposables = CompositeDisposable()
     private val topics = mutableListOf<TalkPage.Topic>()
     private var revisionForLastEdit: MwQueryPage.Revision? = null
-    private var resolveTitleRequired = false
     private var goToTopic = false
     private var currentSearchQuery: String? = null
     private var currentSortMode = Prefs.talkTopicsSortMode
