@@ -36,7 +36,7 @@ import java.util.regex.Pattern
 
 class CreateAccountActivity : BaseActivity() {
     enum class ValidateResult {
-        SUCCESS, INVALID_USERNAME, PASSWORD_TOO_SHORT, PASSWORD_MISMATCH, NO_EMAIL, INVALID_EMAIL
+        SUCCESS, INVALID_USERNAME, PASSWORD_TOO_SHORT, PASSWORD_IS_USERNAME, PASSWORD_MISMATCH, NO_EMAIL, INVALID_EMAIL
     }
 
     private lateinit var binding: ActivityCreateAccountBinding
@@ -213,6 +213,11 @@ class CreateAccountActivity : BaseActivity() {
                 binding.createAccountPasswordInput.error = getString(R.string.create_account_password_error)
                 return
             }
+            ValidateResult.PASSWORD_IS_USERNAME -> {
+                binding.createAccountPasswordInput.requestFocus()
+                binding.createAccountPasswordInput.error = getString(R.string.create_account_password_is_username)
+                return
+            }
             ValidateResult.PASSWORD_MISMATCH -> {
                 binding.createAccountPasswordRepeat.requestFocus()
                 binding.createAccountPasswordRepeat.error = getString(R.string.create_account_passwords_mismatch_error)
@@ -308,7 +313,6 @@ class CreateAccountActivity : BaseActivity() {
         const val CREATE_ACCOUNT_RESULT_USERNAME = "username"
         const val CREATE_ACCOUNT_RESULT_PASSWORD = "password"
 
-        @JvmField
         val USERNAME_PATTERN: Pattern = Pattern.compile("[^#<>\\[\\]|{}/@]*")
 
         @JvmStatic
@@ -320,6 +324,8 @@ class CreateAccountActivity : BaseActivity() {
                 return ValidateResult.INVALID_USERNAME
             } else if (password.length < PASSWORD_MIN_LENGTH) {
                 return ValidateResult.PASSWORD_TOO_SHORT
+            } else if (password.toString().equals(username.toString(), true)) {
+                return ValidateResult.PASSWORD_IS_USERNAME
             } else if (passwordRepeat.toString() != password.toString()) {
                 return ValidateResult.PASSWORD_MISMATCH
             } else if (email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {

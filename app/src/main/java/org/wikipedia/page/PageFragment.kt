@@ -1,7 +1,5 @@
 package org.wikipedia.page
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Context
@@ -16,6 +14,7 @@ import android.webkit.WebView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
@@ -65,6 +64,7 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionItem
+import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
@@ -810,7 +810,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {
-                            loadPage(PageTitle("Special:History/$prefixedText", wikiSite), HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK))
+                            if (ReleaseUtil.isPreBetaRelease) EditHistoryListActivity.newIntent(requireContext(), this)
+                            else loadPage(PageTitle("Special:History/$prefixedText", wikiSite),
+                                HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
                         }
                     }
                     "coordinate" -> {
@@ -1355,12 +1357,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 scrolledUpForThemeChange = true
                 val animDuration = 250
                 val anim = ObjectAnimator.ofInt(webView, "scrollY", webView.scrollY, DimenUtil.leadImageHeightForDevice(requireActivity()))
-                anim.setDuration(animDuration.toLong()).addListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator) {
-                        super.onAnimationEnd(animation)
-                        showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB, model.shouldLoadAsMobileWeb))
-                    }
-                })
+                anim.setDuration(animDuration.toLong()).doOnEnd {
+                    showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB, model.shouldLoadAsMobileWeb))
+                }
                 anim.start()
             } else {
                 scrolledUpForThemeChange = false
@@ -1393,7 +1392,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onViewEditHistorySelected() {
             title?.run {
-                loadPage(PageTitle("Special:History/$prefixedText", wikiSite), HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
+                if (ReleaseUtil.isPreBetaRelease) startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
+                else loadPage(PageTitle("Special:History/$prefixedText", wikiSite),
+                    HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
             }
         }
 

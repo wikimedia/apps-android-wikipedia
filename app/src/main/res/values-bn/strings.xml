@@ -384,6 +384,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">চিত্রের উজ্জ্বলতা হ্রাস (কালো থিমে)</string>
   <string name="preference_title_prefer_offline_content">অফলাইন সামগ্রীর পছন্দ</string>
   <string name="preference_summary_prefer_offline_content">সর্বদা নিবন্ধের সর্বশেষ সংস্করণ লোড করার পরিবর্তে অফলাইনে উপলব্ধ নিবন্ধগুলি লোড করে ডেটা খরচ বাঁচান</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">সিস্টেম থিমের সাথে মিল রাখুন</string>
+  <string name="page_footer_license_text">বিষয়বস্তু $1-এর আওতায় প্রকাশিত যদি না অন্য কিছু নির্ধারিত থাকে।</string>
   <string name="empty_tab_title">নতুন ট্যাব</string>
   <string name="menu_save_all_tabs">সকল ট্যাব সংরক্ষণ করুন</string>
   <string name="error_blocked_title">আপনার ব্যবহারকারী নাম বা আইপি ঠিকানাকে বাধা দেওয়া হয়েছে।</string>
@@ -413,7 +415,7 @@
   <string name="text_size_decrease">পাঠ্যের আকার হ্রাস করুন</string>
   <string name="text_size_percent_default">%s (পূর্বনির্ধারিত)</string>
   <string name="text_style_title">ফন্ট</string>
-  <string name="theme_category_toolbar">টুলবার</string>
+  <string name="theme_category_toolbar">সরঞ্জামদণ্ড</string>
   <string name="nav_item_saved">সংরক্ষিত</string>
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="reading_list_create_new">নতুন তৈরি করুন</string>
@@ -476,6 +478,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">প্রবেশ করুন</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ঠিক আছে</string>
   <string name="reading_list_turned_sync_off_dialog_settings">সেটিং</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">আমায় আর এটা দেখাবেন না</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">না ধন্যবাদ</string>
   <string name="default_reading_list_name">সংরক্ষিত</string>
   <string name="no_user_lists_msg">ভ্রমণের স্থান, প্রিয় বিষয় এবং আরও অনেক কিছু নিয়ে তালিকা তৈরি করুন</string>
@@ -500,10 +503,16 @@
   <string name="reading_list_split_dialog_ok_button_text">ঠিক আছে</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_reverted_title">সম্পাদনা বাতিল হয়েছে</string>
+  <string name="notification_channel_title">নিবন্ধ ডাউনলোড করা হচ্ছে</string>
   <string name="notification_channel_description">ডাউনলোডের অগ্রগতি</string>
   <string name="notification_syncing_pause_button">বিরতি</string>
   <string name="notification_syncing_resume_button">পুনরায় শুরু</string>
   <string name="notification_syncing_cancel_button">বাতিল</string>
+  <string name="notification_many_unread">আপনার %dটি অপঠিত বিজ্ঞপ্তি রয়েছে</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">নিবন্ধ ডাউনলোড করা হচ্ছে</item>
+    <item quantity="other">নিবন্ধসমূহ ডাউনলোড করা হচ্ছে</item>
+  </plurals>
   <plurals name="notification_syncing_title">
     <item quantity="one">%1$dটি নিবন্ধ ডাউনলোড হচ্ছে...</item>
     <item quantity="other">%1$dটি নিবন্ধ ডাউনলোড হচ্ছে...</item>
@@ -538,6 +547,7 @@
   <string name="preference_title_notification_milestone">মাইলফলক</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
   <string name="preference_title_notification_revert">প্রত্যাবর্তন</string>
+  <string name="preference_summary_notification_revert">আপনার একটি অবদান পুনর্বহাল করা হয়েছে</string>
   <string name="preference_title_notification_login_fail">প্রবেশ</string>
   <string name="preference_title_notification_mention">উল্লেখ</string>
   <string name="preference_title_notification_user_talk">আলাপ পাতা</string>
@@ -554,9 +564,13 @@
   <string name="notifications_filter_update_app_languages">অ্যাপের ভাষা হালনাগাদ করুন</string>
   <string name="notifications_tab_filter_all">সকল</string>
   <string name="notifications_tab_filter_mentions">উল্লেখ</string>
+  <string name="notifications_menu_mark_as_read">পঠিত হিসেবে চিহ্নিত করুন</string>
+  <string name="notifications_menu_mark_as_unread">অপঠিত হিসেবে চিহ্নিত করুন</string>
   <string name="notifications_swipe_action_read">পঠিত</string>
   <string name="notifications_swipe_action_unread">অপঠিত</string>
   <string name="notifications_menu_check_all">সকল আইটেম চিহ্নিত করুন</string>
+  <string name="notifications_wiki_filter_header">উইকি ছাকনি</string>
+  <string name="notifications_all_wikis_text">সকল \"উইকি\"</string>
   <string name="notifications_menu_user_talk_page">%s-এর আলাপ পাতা</string>
   <string name="notifications_offline_disable_message">অফলাইনে এই ফাংশনটি কার্যকর নয়।</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
@@ -566,6 +580,7 @@
   <string name="view_top_read_card_title">শীর্ষ পঠিত</string>
   <string name="view_top_read_card_action">আরও শীর্ষ পঠিত</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d হাজার</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d মিলিয়ন</string>
   <string name="view_next_random_article">আরেকটি অজানা নিবন্ধ লোড করুন</string>
   <string name="view_main_page_card_title">উইকিপিডিয়ায় আজ</string>
   <string name="view_main_page_card_action">প্রধান পাতা দেখুন</string>
@@ -646,7 +661,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
-  <string name="customize_toolbar_category_toolbar">টুলবার</string>
+  <string name="customize_toolbar_category_toolbar">সরঞ্জামদণ্ড</string>
   <string name="customize_toolbar_category_menu">মেনু</string>
   <string name="suggested_edits_review_description">নিবন্ধের বিবরণ পর্যালোচনা করুন</string>
   <string name="suggested_edits_add_description_button">বিবরণ যোগ করুন</string>

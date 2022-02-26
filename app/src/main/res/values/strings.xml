@@ -47,6 +47,12 @@
     <string name="image_share_via">Share via</string>
     <string name="search_redirect_from">Redirected from %s</string>
 
+    <!-- Page Edit History -->
+    <string name="page_edit_history_activity_label">Revision history</string>
+    <string name="page_edit_history_minor_edit"><![CDATA[<b>m</b> %s]]></string>
+    <string name="page_edit_history_comment_placeholder">There is no comment associated with this edit</string>
+    <string name="page_edit_history_item_size_text">%d bytes</string>
+
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
@@ -159,6 +165,7 @@
     <string name="dialog_create_account_checking_progress">Verifying</string>
     <string name="create_account_email_hint">Email (Optional)</string>
     <string name="create_account_password_repeat_hint">Repeat password</string>
+    <string name="create_account_password_is_username">Password can\'t be the same as username</string>
     <string name="create_account_passwords_mismatch_error">Passwords don\'t match</string>
     <string name="create_account_email_error">Invalid email address</string>
     <string name="create_account_username_error">Invalid characters in username</string>
@@ -1138,6 +1145,10 @@
     <string name="talk_share_discussion_subject">Wikipedia - discussion on talk page topic \"%s\"</string>
     <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
     <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a>]]></string>
+    <string name="talk_search_hint">Search messages</string>
+    <string name="talk_overflow_sort_by">Sort by</string>
+    <string name="talk_overflow_sort_date_published">Date published</string>
+    <string name="talk_overflow_sort_topic_name">Topic name</string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>

@@ -183,8 +183,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             val notificationsPerWiki = items.groupBy {
                 DBNAME_WIKI_SITE_MAP.getOrElse(it.wiki) { WikipediaApp.getInstance().wikiSite }
             }
-            for (wiki in notificationsPerWiki.keys) {
-                markRead(wiki, notificationsPerWiki[wiki]!!, false)
+            for ((wiki, notifications) in notificationsPerWiki) {
+                markRead(wiki, notifications, false)
             }
         }
 

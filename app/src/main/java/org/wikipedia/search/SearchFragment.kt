@@ -28,18 +28,16 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.readinglist.MoveToReadingListDialog
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil.AddToDefaultListCallback
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil.addToDefaultList
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
-import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
-import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
-import org.wikipedia.util.FeedbackUtil.showTooltip
-import org.wikipedia.util.ResourceUtil.getThemedColor
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LanguageScrollView
-import org.wikipedia.views.ViewUtil.formatLangButton
+import org.wikipedia.views.ViewUtil
 import java.util.*
 
 class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
@@ -68,7 +66,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private val searchQueryListener: SearchView.OnQueryTextListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
-            hideSoftKeyboard(requireActivity())
+            DeviceUtil.hideSoftKeyboard(requireActivity())
             return true
         }
 
@@ -176,7 +174,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (Prefs.isMultilingualSearchTutorialEnabled) {
             binding.searchLangButton.postDelayed({
                 if (isAdded) {
-                    showTooltip(requireActivity(), binding.searchLangButton, getString(R.string.tool_tip_lang_button),
+                    FeedbackUtil.showTooltip(requireActivity(), binding.searchLangButton, getString(R.string.tool_tip_lang_button),
                             aboveOrBelow = false, autoDismiss = false)
                 }
             }, 500)
@@ -223,11 +221,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     override fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
         if (addToDefault) {
-            addToDefaultList(requireActivity(), entry.title, InvokeSource.FEED, object : AddToDefaultListCallback {
-                override fun onMoveClicked(readingListId: Long) {
-                    onSearchMovePageToList(readingListId, entry)
-                }
-            })
+            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, InvokeSource.FEED) { readingListId ->
+                onSearchMovePageToList(readingListId, entry)
+            }
         } else {
             bottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(entry.title, InvokeSource.FEED))
@@ -289,7 +285,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun closeSearch() {
         isSearchActive = false
-        hideSoftKeyboard(requireView())
+        DeviceUtil.hideSoftKeyboard(requireView())
         addRecentSearch(query)
     }
 
@@ -318,7 +314,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private fun initSearchView() {
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
         binding.searchCabView.setOnCloseListener(searchCloseListener)
-        binding.searchCabView.setSearchHintTextColor(getThemedColor(requireContext(),
+        binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(requireContext(),
                 R.attr.color_group_63))
 
         // remove focus line from search plate
@@ -329,9 +325,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun initLangButton() {
         binding.searchLangButton.text = app.language().appLanguageCode.uppercase(Locale.ENGLISH)
-        formatLangButton(binding.searchLangButton, app.language().appLanguageCode.uppercase(Locale.ENGLISH),
+        ViewUtil.formatLangButton(binding.searchLangButton, app.language().appLanguageCode.uppercase(Locale.ENGLISH),
                 LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
-        setButtonLongPressToast(binding.searchLangButtonContainer)
+        FeedbackUtil.setButtonLongPressToast(binding.searchLangButtonContainer)
     }
 
     private fun isValidQuery(queryText: String?): Boolean {
@@ -379,7 +375,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         const val LANG_BUTTON_TEXT_SIZE_MEDIUM = 10
         const val LANG_BUTTON_TEXT_SIZE_SMALLER = 8
 
-        @JvmStatic
         fun newInstance(source: InvokeSource, query: String?): SearchFragment =
                 SearchFragment().apply {
                     arguments = bundleOf(

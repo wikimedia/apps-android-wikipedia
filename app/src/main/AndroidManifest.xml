@@ -279,7 +279,7 @@
         <activity
             android:name=".talk.TalkTopicsActivity"
             android:label=""
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".talk.TalkTopicActivity" />
@@ -299,6 +299,11 @@
             android:label="@string/notifications_filter_label"
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+
+        <activity
+            android:name=".page.edithistory.EditHistoryListActivity"
+            android:label="@string/page_edit_history_activity_label"
+            android:theme="@style/AppTheme.ActionBar" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

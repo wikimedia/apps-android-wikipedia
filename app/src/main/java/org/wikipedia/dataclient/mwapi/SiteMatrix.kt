@@ -19,16 +19,17 @@ class SiteMatrix : MwResponse() {
     }
 
     companion object {
-
         fun getSites(siteMatrix: SiteMatrix): List<SiteInfo> {
-            val sites = mutableListOf<SiteInfo>()
             // We have to parse the Json manually because the list of SiteInfo objects
             // contains a "count" member that prevents it from being able to deserialize
             // as a list automatically.
-            siteMatrix.sitematrix?.keys?.filterNot { it == "count" }?.forEach { key ->
-                JsonUtil.json.decodeFromJsonElement<SiteInfo>(siteMatrix.sitematrix[key]!!).let { sites.add(it) }
-            }
-            return sites
+            return siteMatrix.sitematrix?.mapNotNull { (key, value) ->
+                if (key != "count") {
+                    JsonUtil.json.decodeFromJsonElement<SiteInfo>(value)
+                } else {
+                    null
+                }
+            }.orEmpty()
         }
     }
 }

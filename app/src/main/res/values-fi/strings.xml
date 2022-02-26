@@ -85,6 +85,7 @@
   <string name="menu_page_view_talk">Näytä keskustelusivu</string>
   <string name="menu_page_talk_page">Keskustelusivu</string>
   <string name="menu_page_view_edit_history">Näytä muokkaushistoria</string>
+  <string name="menu_page_edit_history">Muokkaushistoria</string>
   <string name="menu_page_remove_from_watchlist">Poista tarkkailulistalta</string>
   <string name="edit_section_find_in_page">Etsi sivulta</string>
   <string name="menu_page_font_and_theme">Kirjasin ja teema</string>
@@ -433,6 +434,7 @@
   <string name="text_size_decrease">Kasvata tekstin kokoa</string>
   <string name="text_size_percent_default">%s (oletus)</string>
   <string name="text_style_title">Kirjasin</string>
+  <string name="theme_category_reading">Lukeminen</string>
   <string name="theme_category_toolbar">Työkalupalkki</string>
   <string name="theme_customize_toolbar">Kustomoi työkalupalkki</string>
   <string name="nav_item_saved">Tallennettu</string>
@@ -1080,11 +1082,17 @@
   <string name="talk_snackbar_survey_action_text">Aloita</string>
   <string name="talk_share_discussion_subject">Wikipedia - keskustelu aiheesta \"%s\" keskustelusivulla</string>
   <string name="talk_share_talk_page">Wikipedia - keskustelut keskustelusivulla</string>
+  <string name="talk_edit_disclaimer">Tämä on keskustelusivu. Kunnioitathan keskustelusivun ohjeistuksia ja muistathan allekirjoittaa viestisi neljällä aaltoviivalla: ~~~~ kun käytät wikitekstiä.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://fi.wikipedia.org/wiki/Wikipedia:Keskustelusivu\"&gt;Wikipedian keskustelusivujen ohjeet ja käytännöt&lt;/a&gt;</string>
+  <string name="talk_search_hint">Hae viestejä</string>
+  <string name="talk_overflow_sort_by">Lajitteluperuste</string>
+  <string name="talk_overflow_sort_date_published">Julkaisupäivä</string>
+  <string name="talk_overflow_sort_topic_name">Aiheen nimi</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
   <string name="menu_option_user_profile">Käyttäjän %s profiili</string>
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
+  <string name="menu_option_edit_source">Muokkaa wikitekstiä</string>
   <string name="watchlist_details_watching_label">Tarkkailemassa</string>
   <string name="watchlist_details_watch_label">Tarkkaile</string>
   <string name="watchlist_details_next_edit">Seuraava muokkaus</string>
@@ -1096,6 +1104,7 @@
   <string name="thank_dialog_positive_button_text">Lähetä kiitokset</string>
   <string name="thank_dialog_negative_button_text">Peruuta</string>
   <string name="thank_success_message">Kiitoksesi lähetettiin käyttäjälle %s 👍</string>
+  <string name="menu_option_view_user_profile">Tarkastele käyttäjäprofiilia</string>
   <string name="menu_option_view_user_talk">Näytä keskustelusivu</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s keskustelusivuineen on lisätty tarkkailulistallesi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Vaihda</string>
