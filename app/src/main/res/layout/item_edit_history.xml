@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/editHistoryTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lineSpacingExtra="4sp"
+            android:maxLines="2"
+            android:textColor="?attr/primary_text_color"
+            android:textColorLink="?attr/primary_text_color"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/editHistoryTimeText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Lorem ipsum" />
+
+        <TextView
+            android:id="@+id/editHistoryTimeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/material_theme_secondary_color"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/editHistoryTitle"
+            tools:text="12:00" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/diffText"
+            style="@style/FlatButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:clickable="false"
+            android:fontFamily="sans-serif-medium"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="8dp"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="?attr/material_theme_secondary_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editHistoryTitle"
+            tools:text="+123" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/userNameText"
+            style="@style/FlatButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:clickable="false"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="8dp"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="?attr/material_theme_secondary_color"
+            app:icon="@drawable/ic_user_avatar"
+            app:iconPadding="8dp"
+            app:iconSize="16dp"
+            app:iconTint="?attr/material_theme_secondary_color"
+            app:layout_constraintStart_toEndOf="@id/diffText"
+            app:layout_constraintTop_toTopOf="@id/diffText"
+            app:layout_constraintWidth_max="220dp"
+            tools:text="Username" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</org.wikipedia.views.WikiCardView>
