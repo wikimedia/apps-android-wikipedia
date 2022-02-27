@@ -542,14 +542,12 @@
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tento článok bude teraz dostupný bez pripojenia.</item>
     <item quantity="few">Tieto články budú teraz dostupné bez pripojenia.</item>
-    <item quantity="many">Tieto články budú teraz dostupné bez pripojenia.</item>
-    <item quantity="other"/>
+    <item quantity="other">Tieto články budú teraz dostupné bez pripojenia.</item>
   </plurals>
   <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Tento článok už nebude dostupný bez pripojenia.</item>
     <item quantity="few">Tieto články už nebudú dostupné bez pripojenia.</item>
-    <item quantity="many">Tieto články už nebudú dostupné bez pripojenia.</item>
-    <item quantity="other"/>
+    <item quantity="other">Tieto články už nebudú dostupné bez pripojenia.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Zoznamy na prečítanie boli synchronizované</string>
   <string name="reading_list_menu_last_sync">Posledná synchronizácia: %s</string>
