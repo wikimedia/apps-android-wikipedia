@@ -29,6 +29,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         } else {
             binding.diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
         }
+        binding.userNameText.setIconResource(if (itemRevision.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar)
         binding.editHistoryTitle.text = itemRevision.comment.ifEmpty { context.getString(R.string.page_edit_history_comment_placeholder) }
         binding.editHistoryTitle.text = if (itemRevision.minor) StringUtil.fromHtml(context.getString(R.string.page_edit_history_minor_edit, binding.editHistoryTitle.text))
         else binding.editHistoryTitle.text
