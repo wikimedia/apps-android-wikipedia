@@ -70,7 +70,7 @@
             app:cardElevation="0dp"
             app:cardCornerRadius="8dp"
             app:strokeWidth="0.5dp"
-            app:strokeColor="?attr/color_group_68">
+            app:strokeColor="?attr/colorAccent">
 
             <TextView
                 android:id="@+id/compareFromText"
@@ -79,7 +79,7 @@
                 android:paddingVertical="8dp"
                 android:paddingHorizontal="12dp"
                 android:textStyle="bold"
-                android:textColor="?attr/color_group_68"
+                android:textColor="?attr/colorAccent"
                 tools:text="12:00" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -96,7 +96,7 @@
             app:cardElevation="0dp"
             app:cardCornerRadius="8dp"
             app:strokeWidth="0.5dp"
-            app:strokeColor="?attr/colorAccent">
+            app:strokeColor="?attr/color_group_68">
 
             <TextView
                 android:id="@+id/compareToText"
@@ -105,7 +105,7 @@
                 android:paddingVertical="8dp"
                 android:paddingHorizontal="12dp"
                 android:textStyle="bold"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?attr/color_group_68"
                 tools:text="12:00" />
 
         </com.google.android.material.card.MaterialCardView>
