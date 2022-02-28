@@ -209,7 +209,19 @@ class EditHistoryListActivity : BaseActivity() {
                     viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
         }
 
+        override fun onLongClick() {
+            if (!viewModel.comparing) {
+                viewModel.toggleCompareState()
+                updateCompareState()
+            }
+            toggleSelectState()
+        }
+
         override fun onToggleSelect() {
+            toggleSelectState()
+        }
+
+        private fun toggleSelectState() {
             if (!viewModel.toggleSelectRevision(revision)) {
                 FeedbackUtil.showMessage(this@EditHistoryListActivity, R.string.revision_compare_two_only)
                 return

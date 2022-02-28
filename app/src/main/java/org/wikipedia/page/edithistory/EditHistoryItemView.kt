@@ -20,6 +20,7 @@ import org.wikipedia.util.StringUtil
 class EditHistoryItemView(context: Context) : FrameLayout(context) {
     interface Listener {
         fun onClick()
+        fun onLongClick()
         fun onToggleSelect()
     }
 
@@ -30,6 +31,10 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         binding.clickTargetView.setOnClickListener {
             listener?.onClick()
+        }
+        binding.clickTargetView.setOnLongClickListener {
+            listener?.onLongClick()
+            true
         }
         binding.selectButton.setOnClickListener {
             listener?.onToggleSelect()
