@@ -14,8 +14,11 @@
         android:id="@+id/clickTargetView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
         android:paddingStart="8dp"
-        android:layout_marginEnd="16dp">
+        android:paddingEnd="16dp">
 
         <ImageView
             android:id="@+id/selectButton"
@@ -59,12 +62,12 @@
             app:layout_constraintTop_toTopOf="@id/editHistoryTitle"
             tools:text="12:00" />
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/diffText"
-            style="@style/FlatButton.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_8dp_corner_group_22"
             android:clickable="false"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="12dp"
@@ -75,6 +78,8 @@
             android:textColor="?attr/material_theme_secondary_color"
             app:layout_constraintStart_toStartOf="@id/editHistoryTitle"
             app:layout_constraintTop_toBottomOf="@id/editHistoryTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp"
             tools:text="+123" />
 
         <com.google.android.material.button.MaterialButton
@@ -100,11 +105,10 @@
             app:layout_constraintStart_toEndOf="@id/diffText"
             app:layout_constraintTop_toTopOf="@id/diffText"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/diffText"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintWidth_default="wrap"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="10dp"
             tools:text="Username" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

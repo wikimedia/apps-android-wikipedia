@@ -57,9 +57,9 @@ class EditHistoryListActivity : BaseActivity() {
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
-                ResourceUtil.getThemedColor(this, R.attr.color_group_68), 0.05f))
-        binding.compareToCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
                 ResourceUtil.getThemedColor(this, R.attr.colorAccent), 0.05f))
+        binding.compareToCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
+                ResourceUtil.getThemedColor(this, R.attr.color_group_68), 0.05f))
         updateCompareState()
 
         binding.compareButton.setOnClickListener {
