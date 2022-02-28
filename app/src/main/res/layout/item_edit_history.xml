@@ -59,12 +59,12 @@
             app:layout_constraintTop_toTopOf="@id/editHistoryTitle"
             tools:text="12:00" />
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/diffText"
-            style="@style/FlatButton.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_8dp_corner_group_22"
             android:clickable="false"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="12dp"
@@ -97,6 +97,7 @@
             app:iconPadding="8dp"
             app:iconSize="16dp"
             app:iconTint="?attr/material_theme_secondary_color"
+            app:layout_constraintBaseline_toBaselineOf="@+id/diffText"
             app:layout_constraintStart_toEndOf="@id/diffText"
             app:layout_constraintTop_toTopOf="@id/diffText"
             app:layout_constraintEnd_toEndOf="parent"
