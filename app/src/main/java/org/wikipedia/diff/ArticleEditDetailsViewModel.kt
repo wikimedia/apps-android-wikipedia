@@ -37,9 +37,9 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             WikiSite.forLanguageCode(bundle.getString(ArticleEditDetailsActivity.EXTRA_EDIT_LANGUAGE_CODE,
                     AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)))
 
-    var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, 0)
+    var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, -1)
     var revisionTo: MwQueryPage.Revision? = null
-    var revisionFromId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM, 0)
+    var revisionFromId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM, -1)
     var revisionFrom: MwQueryPage.Revision? = null
     var canGoForward = false
 

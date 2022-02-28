@@ -8,8 +8,8 @@ class ArticleEditDetailsActivity : SingleFragmentActivity<ArticleEditDetailsFrag
 
     override fun createFragment(): ArticleEditDetailsFragment {
         return ArticleEditDetailsFragment.newInstance(intent.getStringExtra(EXTRA_ARTICLE_TITLE)!!,
-                intent.getLongExtra(EXTRA_EDIT_REVISION_FROM, 0),
-                intent.getLongExtra(EXTRA_EDIT_REVISION_TO, 0),
+                intent.getLongExtra(EXTRA_EDIT_REVISION_FROM, -1),
+                intent.getLongExtra(EXTRA_EDIT_REVISION_TO, -1),
                 intent.getStringExtra(EXTRA_EDIT_LANGUAGE_CODE)!!)
     }
 
@@ -20,7 +20,7 @@ class ArticleEditDetailsActivity : SingleFragmentActivity<ArticleEditDetailsFrag
         const val EXTRA_EDIT_LANGUAGE_CODE = "languageCode"
 
         fun newIntent(context: Context, articleTitle: String, revisionTo: Long, languageCode: String): Intent {
-            return newIntent(context, articleTitle, 0, revisionTo, languageCode)
+            return newIntent(context, articleTitle, -1, revisionTo, languageCode)
         }
 
         fun newIntent(context: Context, articleTitle: String, revisionFrom: Long,
