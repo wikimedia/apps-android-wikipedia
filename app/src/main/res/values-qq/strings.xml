@@ -1137,5 +1137,4 @@
   <string name="page_edit_history_article_created_date">Text of showing the year since the article has been created and the total edit counts. The %d will be replaced by the total edit counts, and the %s will be replaced by the year.</string>
   <string name="page_edit_history_metrics_content_description">Content description of the metrics of edit history in the time range. The %1$s will be replaced by the start date and %2$s will be replaced by the end date of the time range.</string>
   <string name="page_edit_history_comment_placeholder">Placeholder text when a comment is not available on an edit.</string>
-  <string name="page_edit_history_item_size_text">Text showing the size of an edit in bytes. %d represents the number of bytes/</string>
 </resources>
