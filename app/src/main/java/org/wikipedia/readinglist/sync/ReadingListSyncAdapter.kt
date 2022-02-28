@@ -4,6 +4,7 @@ import android.content.*
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.core.app.JobIntentService
+import androidx.core.os.bundleOf
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -486,7 +487,6 @@ class ReadingListSyncAdapter : JobIntentService() {
 
         val isDisabledByRemoteConfig get() = WikipediaApp.getInstance().remoteConfig.config.optBoolean("disableReadingListSync", false)
 
-        @JvmStatic
         fun manualSyncWithDeleteList(list: ReadingList) {
             if (list.remoteId <= 0) {
                 return
@@ -495,7 +495,6 @@ class ReadingListSyncAdapter : JobIntentService() {
             manualSync()
         }
 
-        @JvmStatic
         fun manualSyncWithDeletePages(list: ReadingList, pages: List<ReadingListPage>) {
             if (list.remoteId <= 0) {
                 return
@@ -507,26 +506,16 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
         }
 
-        @JvmStatic
         fun manualSyncWithForce() {
-            val extras = Bundle()
-            extras.putBoolean(SYNC_EXTRAS_FORCE_FULL_SYNC, true)
-            manualSync(extras)
+            manualSync(bundleOf(SYNC_EXTRAS_FORCE_FULL_SYNC to true))
         }
 
         fun manualSyncWithRefresh() {
             Prefs.isSuggestedEditsHighestPriorityEnabled = false
-            val extras = Bundle()
-            extras.putBoolean(SYNC_EXTRAS_REFRESHING, true)
-            manualSync(extras)
+            manualSync(bundleOf(SYNC_EXTRAS_REFRESHING to true))
         }
 
-        @JvmStatic
-        fun manualSync() {
-            manualSync(Bundle())
-        }
-
-        private fun manualSync(extras: Bundle) {
+        fun manualSync(extras: Bundle = Bundle()) {
             if (inProgress()) {
                 return
             }
