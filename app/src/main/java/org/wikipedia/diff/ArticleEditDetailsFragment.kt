@@ -498,10 +498,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     companion object {
-        fun newInstance(articleTitle: String, revisionId: Long, languageCode: String): ArticleEditDetailsFragment {
+        fun newInstance(articleTitle: String, revisionFrom: Long, revisionTo: Long,
+                        languageCode: String): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment().apply {
                 arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to articleTitle,
-                        ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_ID to revisionId,
+                        ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM to revisionFrom,
+                        ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo,
                         ArticleEditDetailsActivity.EXTRA_EDIT_LANGUAGE_CODE to languageCode)
             }
         }

@@ -37,9 +37,9 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             WikiSite.forLanguageCode(bundle.getString(ArticleEditDetailsActivity.EXTRA_EDIT_LANGUAGE_CODE,
                     AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)))
 
-    var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_ID, 0)
+    var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, 0)
     var revisionTo: MwQueryPage.Revision? = null
-    var revisionFromId: Long = 0
+    var revisionFromId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM, 0)
     var revisionFrom: MwQueryPage.Revision? = null
     var canGoForward = false
 
@@ -51,7 +51,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
 
     init {
         getWatchedStatus()
-        getRevisionDetails(revisionToId)
+        getRevisionDetails(revisionToId, revisionFromId)
     }
 
     private fun getWatchedStatus() {
@@ -81,9 +81,10 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                         }
                     }
 
+                    val pageTo = responseTo?.query?.firstPage()!!
                     revisionFrom = responseFrom?.query?.firstPage()!!.revisions[0]
-                    revisionTo = responseTo?.query?.firstPage()!!.revisions[0]
-                    canGoForward = false
+                    revisionTo = pageTo.revisions[0]
+                    canGoForward = revisionTo!!.revId < pageTo.lastrevid
                 } else {
                     val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetails(pageTitle.prefixedText, revisionIdTo, "older")
                     val page = response.query?.firstPage()!!

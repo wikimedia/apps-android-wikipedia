@@ -61,6 +61,14 @@ class EditHistoryListActivity : BaseActivity() {
             updateCompareState()
         }
 
+        binding.compareConfirmButton.setOnClickListener {
+            if (viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null) {
+                startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
+                        viewModel.pageTitle.prefixedText, viewModel.selectedRevisionFrom!!.revId,
+                        viewModel.selectedRevisionTo!!.revId, viewModel.pageTitle.wikiSite.languageCode))
+            }
+        }
+
         binding.editHistoryRefreshContainer.setOnRefreshListener {
             editHistoryListAdapter.refresh()
         }
