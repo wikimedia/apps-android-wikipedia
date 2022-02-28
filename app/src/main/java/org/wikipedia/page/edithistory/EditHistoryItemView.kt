@@ -3,6 +3,7 @@ package org.wikipedia.page.edithistory
 import android.content.Context
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
@@ -19,6 +20,7 @@ import org.wikipedia.util.StringUtil
 class EditHistoryItemView(context: Context) : FrameLayout(context) {
     interface Listener {
         fun onClick()
+        fun onUserNameClick(v: View)
         fun onToggleSelect()
     }
 
@@ -32,6 +34,9 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         }
         binding.selectButton.setOnClickListener {
             listener?.onToggleSelect()
+        }
+        binding.userNameText.setOnClickListener {
+            listener?.onUserNameClick(it)
         }
     }
 
