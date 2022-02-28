@@ -10,11 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.ValueCallback
+import android.widget.*
 import android.widget.AdapterView.OnItemClickListener
-import android.widget.BaseAdapter
-import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.drawerlayout.widget.DrawerLayout
@@ -36,6 +33,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.talk.TalkTopicHolder
+import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.TalkTopicsProvider
 import org.wikipedia.util.*
 import org.wikipedia.views.*
@@ -105,13 +103,21 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
     fun setupTalkTopics(pageTitle: PageTitle) {
         val talkTopicsAdapter = TalkTopicItemAdapter()
+        val titleView = drawerLayout.findViewById<TextView>(R.id.talk_title_view)
+        val fullscreenButton = drawerLayout.findViewById<ImageView>(R.id.tall_fullscreen_button)
         val talkRecyclerView = drawerLayout.findViewById<RecyclerView>(R.id.talk_recycler_view)
         val talkEmptyContainer = drawerLayout.findViewById<LinearLayout>(R.id.talk_empty_container)
         val talkErrorView = drawerLayout.findViewById<WikiErrorView>(R.id.talk_error_view)
+        val talkProgressBar = drawerLayout.findViewById<ProgressBar>(R.id.talk_progress_bar)
         val talkLastModified = drawerLayout.findViewById<MaterialTextView>(R.id.talk_last_modified)
 
+        talkProgressBar.isVisible = true
+        talkErrorView.visibility = View.GONE
+        talkEmptyContainer.visibility = View.GONE
+        
         talkRecyclerView.layoutManager = LinearLayoutManager(fragment.requireContext())
-        talkRecyclerView.addItemDecoration(DrawableItemDecoration(fragment.requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
+        talkRecyclerView.addItemDecoration(DrawableItemDecoration(fragment.requireContext(), R.attr.list_separator_drawable, drawStart = true, drawEnd = false))
         talkRecyclerView.adapter = talkTopicsAdapter
         talkErrorView.backClickListener = View.OnClickListener {
             hide()
@@ -119,8 +125,10 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
         TalkTopicsProvider(pageTitle).load(object : TalkTopicsProvider.Callback {
             override fun onUpdatePageTitle(title: PageTitle) {
-                // TODO: this
-//                binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+                titleView.text = StringUtil.fromHtml(pageTitle.displayText)
+                fullscreenButton.setOnClickListener {
+                    fragment.startActivity(TalkTopicsActivity.newIntent(fragment.requireContext(), title, Constants.InvokeSource.PAGE_ACTIVITY))
+                }
             }
 
             override fun onReceivedRevision(revision: MwQueryPage.Revision?) {
@@ -152,7 +160,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             }
 
             override fun onFinished() {
-                // ignore
+                talkProgressBar.visibility = View.GONE
             }
         })
     }
