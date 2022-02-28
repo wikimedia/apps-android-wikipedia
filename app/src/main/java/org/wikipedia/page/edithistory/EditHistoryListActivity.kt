@@ -223,6 +223,14 @@ class EditHistoryListActivity : BaseActivity() {
                     viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
         }
 
+        override fun onLongClick() {
+            if (!viewModel.comparing) {
+                viewModel.toggleCompareState()
+                updateCompareState()
+            }
+            toggleSelectState()
+        }
+
         override fun onUserNameClick(v: View) {
             UserTalkPopupHelper.show(this@EditHistoryListActivity, bottomSheetPresenter,
                     PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
@@ -231,6 +239,10 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun onToggleSelect() {
+            toggleSelectState()
+        }
+
+        private fun toggleSelectState() {
             if (!viewModel.toggleSelectRevision(revision)) {
                 FeedbackUtil.showMessage(this@EditHistoryListActivity, R.string.revision_compare_two_only)
                 return
