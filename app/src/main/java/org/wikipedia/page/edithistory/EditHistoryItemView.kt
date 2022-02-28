@@ -72,8 +72,8 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         val colorTo = ResourceUtil.getThemedColor(context, R.attr.color_group_68)
         binding.selectButton.isVisible = selectedState != EditHistoryListViewModel.SELECT_INACTIVE
 
-        if (selectedState == EditHistoryListViewModel.SELECT_INACTIVE
-                || selectedState == EditHistoryListViewModel.SELECT_NONE) {
+        if (selectedState == EditHistoryListViewModel.SELECT_INACTIVE ||
+                selectedState == EditHistoryListViewModel.SELECT_NONE) {
             binding.selectButton.setImageResource(R.drawable.ic_check_empty_24)
             ImageViewCompat.setImageTintList(binding.selectButton, ColorStateList.valueOf(colorSecondary))
             binding.cardView.setDefaultBorder()
