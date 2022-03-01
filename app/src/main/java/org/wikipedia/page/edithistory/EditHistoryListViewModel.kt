@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
+import kotlinx.coroutines.flow.map
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.DateUtil
 
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
@@ -16,7 +18,22 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
     val editHistoryFlow = Pager(PagingConfig(pageSize = 10)) {
         EditHistoryPagingSource(pageTitle)
-    }.flow.cachedIn(viewModelScope)
+    }.flow.map { pagingData ->
+        pagingData.map {
+            EditHistoryItem(it)
+        }.insertSeparators { before, after ->
+            if (before != null && after != null) {
+                before.item.diffSize = before.item.size - after.item.size
+            }
+            val dateBefore = if (before != null) DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(before.item.timeStamp)) else ""
+            val dateAfter = if (after != null) DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(after.item.timeStamp)) else ""
+            if (dateAfter.isNotEmpty() && dateAfter != dateBefore) {
+                EditHistorySeparator(dateAfter)
+            } else {
+                null
+            }
+        }
+    }.cachedIn(viewModelScope)
 
     class EditHistoryPagingSource(
             val pageTitle: PageTitle
@@ -35,6 +52,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             return null
         }
     }
+
+    open class EditHistoryItemModel
+    class EditHistoryItem(val item: MwQueryPage.Revision) : EditHistoryItemModel()
+    class EditHistorySeparator(val date: String) : EditHistoryItemModel()
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
