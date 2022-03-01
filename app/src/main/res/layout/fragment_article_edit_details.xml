@@ -186,7 +186,7 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
                 app:layout_constraintTop_toBottomOf="@id/revisionFromTimestamp"
-                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="wrap"
                 tools:text="Lorem ipsum" />
 
             <org.wikipedia.views.GoneIfEmptyTextView
@@ -246,7 +246,7 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
                 app:layout_constraintTop_toBottomOf="@id/revisionToTimestamp"
-                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="wrap"
                 tools:text="Lorem ipsum" />
 
             <org.wikipedia.views.GoneIfEmptyTextView
