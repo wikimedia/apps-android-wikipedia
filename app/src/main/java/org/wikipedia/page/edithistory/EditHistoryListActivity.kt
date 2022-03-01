@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -41,6 +43,10 @@ class EditHistoryListActivity : BaseActivity() {
         binding = ActivityEditHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.editHistoryRefreshContainer.setOnRefreshListener {
+            editHistoryListAdapter.refresh()
+        }
+
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
                 .withLoadStateHeaderAndFooter(loadHeader, loadFooter)
@@ -51,7 +57,17 @@ class EditHistoryListActivity : BaseActivity() {
             }
         }
 
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenCreated {
+            editHistoryListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
+                    .filter { it.refresh is LoadState.NotLoading }
+                    .collect {
+                        if (binding.editHistoryRefreshContainer.isRefreshing) {
+                            binding.editHistoryRefreshContainer.isRefreshing = false
+                        }
+                    }
+        }
+
+        lifecycleScope.launchWhenCreated {
             editHistoryListAdapter.loadStateFlow.collect {
                 loadHeader.loadState = it.refresh
                 loadFooter.loadState = it.append
