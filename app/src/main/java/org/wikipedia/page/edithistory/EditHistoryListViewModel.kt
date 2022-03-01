@@ -1,42 +1,38 @@
 package org.wikipedia.page.edithistory
 
 import android.os.Bundle
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import androidx.paging.*
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.Resource
-import org.wikipedia.util.Resource.Success
-import org.wikipedia.util.log.L
 
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
     var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
 
-    val editHistoryListData = MutableLiveData<Resource<List<Revision>>>()
+    val editHistoryFlow = Pager(PagingConfig(pageSize = 10)) {
+        EditHistoryPagingSource(pageTitle)
+    }.flow.cachedIn(viewModelScope)
 
-    init {
-        fetchData(pageTitle)
-    }
-
-    fun fetchData(pageTitle: PageTitle) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-        }) {
-            withContext(Dispatchers.IO) {
+    class EditHistoryPagingSource(
+            val pageTitle: PageTitle
+    ) : PagingSource<String, MwQueryPage.Revision>() {
+        override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryPage.Revision> {
+            return try {
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                    .getEditHistoryDetails(pageTitle.prefixedText)
-                val revisions = response.query!!.pages?.get(0)?.revisions
-                editHistoryListData.postValue(Success(revisions!!))
+                        .getEditHistoryDetails(pageTitle.prefixedText, params.loadSize, params.key)
+                LoadResult.Page(response.query!!.pages?.get(0)?.revisions!!, null, response.continuation?.rvContinuation)
+            } catch (e: Exception) {
+                LoadResult.Error(e)
             }
+        }
+
+        override fun getRefreshKey(state: PagingState<String, MwQueryPage.Revision>): String? {
+            return null
         }
     }
 

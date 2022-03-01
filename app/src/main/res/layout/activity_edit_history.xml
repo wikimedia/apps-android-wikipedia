@@ -10,13 +10,4 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
 
-    <ProgressBar
-        android:id="@+id/edit_history_load_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:indeterminate="true"
-        android:visibility="gone" />
-
 </FrameLayout>
