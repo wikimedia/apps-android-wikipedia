@@ -35,7 +35,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
             // is not shown again for first time users
-            Prefs.isMultilingualSearchTutorialEnabled = false
+            Prefs.isMultilingualSearchTooltipShown = false
 
             // Use startActivityForResult to avoid preload the Feed contents before finishing the initial onboarding.
             // The ACTIVITY_REQUEST_INITIAL_ONBOARDING has not been used in any onActivityResult

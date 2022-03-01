@@ -12,7 +12,7 @@
     <string name="preference_key_app_channel">channel</string>
     <string name="preference_key_language_mru">languageMru</string>
     <string name="preference_key_language_app">languageApp</string>
-    <string name="preference_key_multilingual_search_tutorial_enabled">multilingualSearchTutorialEnabled</string>
+    <string name="preference_key_multilingual_search_tooltip_shown">multilingualSearchTooltipShown</string>
     <string name="preference_key_show_images">showImages</string>
     <string name="preference_key_announcement_country_override">announcementCountryOverride</string>
     <string name="preference_key_announcement_ignore_date">announcementIgnoreDate</string>
@@ -88,7 +88,6 @@
     <string name="preference_key_remote_notifications_seen_time">remoteNotificationsSeenTime</string>
     <string name="preference_key_save_count_reading_lists">saveCountReadingLists</string>
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
-    <string name="preference_key_show_edit_tasks_onboarding">showEditTasksOnboarding</string>
     <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>
     <string name="preference_key_show_description_edit_success_prompt">showDescriptionEditSuccessPrompt</string>
     <string name="preference_key_suggested_edits_count_for_survey">surveyShownCount</string>

@@ -163,22 +163,22 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             binding.searchLanguageScrollView.setUpLanguageScrollTabData(app.language().appLanguageCodes, pos, this)
             binding.searchLangButtonContainer.visibility = View.GONE
         } else {
-            showMultiLingualOnboarding()
+            maybeShowMultilingualSearchTooltip()
             binding.searchLanguageScrollViewContainer.visibility = View.GONE
             binding.searchLangButtonContainer.visibility = View.VISIBLE
             initLangButton()
         }
     }
 
-    private fun showMultiLingualOnboarding() {
-        if (Prefs.isMultilingualSearchTutorialEnabled) {
+    private fun maybeShowMultilingualSearchTooltip() {
+        if (Prefs.isMultilingualSearchTooltipShown) {
             binding.searchLangButton.postDelayed({
                 if (isAdded) {
                     FeedbackUtil.showTooltip(requireActivity(), binding.searchLangButton, getString(R.string.tool_tip_lang_button),
                             aboveOrBelow = false, autoDismiss = false)
                 }
             }, 500)
-            Prefs.isMultilingualSearchTutorialEnabled = false
+            Prefs.isMultilingualSearchTooltipShown = false
         }
     }
 
