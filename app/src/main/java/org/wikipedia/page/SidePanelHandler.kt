@@ -32,6 +32,8 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.TalkTopicHolder
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.TalkTopicsProvider
@@ -50,11 +52,20 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private val tocContainerView = drawerLayout.findViewById<FrameLayout>(R.id.toc_container)
     private val talkTopicsContainerView = drawerLayout.findViewById<FrameLayout>(R.id.talk_topic_container)
     private val tocList = drawerLayout.findViewById<SwipeableListView>(R.id.toc_list)
+    private val talkTitleView = drawerLayout.findViewById<TextView>(R.id.talk_title_view)
+    private val talkFullscreenButton = drawerLayout.findViewById<ImageView>(R.id.tall_fullscreen_button)
+    private val talkRecyclerView = drawerLayout.findViewById<RecyclerView>(R.id.talk_recycler_view)
+    private val talkEmptyContainer = drawerLayout.findViewById<LinearLayout>(R.id.talk_empty_container)
+    private val talkErrorView = drawerLayout.findViewById<WikiErrorView>(R.id.talk_error_view)
+    private val talkProgressBar = drawerLayout.findViewById<ProgressBar>(R.id.talk_progress_bar)
+    private val talkLastModified = drawerLayout.findViewById<MaterialTextView>(R.id.talk_last_modified)
+    private val talkTopicsAdapter = TalkTopicItemAdapter()
     private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
     private val webView = fragment.webView
     private val adapter = ToCAdapter()
     private var rtl = false
     private var currentItemSelected = 0
+    private var currentTalkSortMode = Prefs.talkTopicsSortMode
     private var funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().wikiSite, 0, 0)
 
     private val sectionOffsetsCallback: ValueCallback<String> = ValueCallback { value ->
@@ -103,14 +114,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
     fun setupTalkTopics(pageTitle: PageTitle) {
         val newPageTitle = pageTitle.copy()
-        val talkTopicsAdapter = TalkTopicItemAdapter()
-        val titleView = drawerLayout.findViewById<TextView>(R.id.talk_title_view)
-        val fullscreenButton = drawerLayout.findViewById<ImageView>(R.id.tall_fullscreen_button)
-        val talkRecyclerView = drawerLayout.findViewById<RecyclerView>(R.id.talk_recycler_view)
-        val talkEmptyContainer = drawerLayout.findViewById<LinearLayout>(R.id.talk_empty_container)
-        val talkErrorView = drawerLayout.findViewById<WikiErrorView>(R.id.talk_error_view)
-        val talkProgressBar = drawerLayout.findViewById<ProgressBar>(R.id.talk_progress_bar)
-        val talkLastModified = drawerLayout.findViewById<MaterialTextView>(R.id.talk_last_modified)
 
         talkProgressBar.isVisible = true
         talkErrorView.visibility = View.GONE
@@ -126,8 +129,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
         TalkTopicsProvider(newPageTitle).load(object : TalkTopicsProvider.Callback {
             override fun onUpdatePageTitle(title: PageTitle) {
-                titleView.text = StringUtil.fromHtml(title.displayText)
-                fullscreenButton.setOnClickListener {
+                talkTitleView.text = StringUtil.fromHtml(title.displayText)
+                talkFullscreenButton.setOnClickListener {
                     fragment.startActivity(TalkTopicsActivity.newIntent(fragment.requireContext(), title, Constants.InvokeSource.PAGE_ACTIVITY))
                 }
             }
@@ -144,7 +147,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
             override fun onSuccess(talkPage: TalkPage) {
                 talkTopicsAdapter.pageTitle = newPageTitle
-                talkTopicsAdapter.topics = talkPage.topics!!
+                talkTopicsAdapter.topics.clear()
+                talkTopicsAdapter.topics.addAll(talkPage.topics!!)
                 talkErrorView.visibility = View.GONE
                 talkRecyclerView.visibility = View.VISIBLE
                 talkRecyclerView.adapter?.notifyDataSetChanged()
@@ -201,6 +205,11 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private fun enableToCContainer(isToC: Boolean = true) {
         tocContainerView.isVisible = isToC
         talkTopicsContainerView.isVisible = !isToC
+
+        if (!isToC && currentTalkSortMode != Prefs.talkTopicsSortMode) {
+            currentTalkSortMode = Prefs.talkTopicsSortMode
+            talkTopicsAdapter.notifyDataSetChanged()
+        }
     }
 
     fun show(isToC: Boolean = true) {
@@ -394,10 +403,10 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     inner class TalkTopicItemAdapter : RecyclerView.Adapter<TalkTopicHolder>() {
 
         lateinit var pageTitle: PageTitle
-        var topics: List<TalkPage.Topic> = emptyList()
+        var topics = mutableListOf<TalkPage.Topic>()
 
         override fun getItemCount(): Int {
-            return topics.size
+            return list.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
@@ -406,7 +415,25 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         }
 
         override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
-            holder.bindItem(topics[pos])
+            holder.bindItem(list[pos])
+        }
+
+        private val list get(): List<TalkPage.Topic> {
+            when (Prefs.talkTopicsSortMode) {
+                TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
+                    topics.sortByDescending { it.id }
+                }
+                TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING -> {
+                    topics.sortBy { it.id }
+                }
+                TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
+                    topics.sortByDescending { RichTextUtil.stripHtml(it.html) }
+                }
+                TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING -> {
+                    topics.sortBy { RichTextUtil.stripHtml(it.html) }
+                }
+            }
+            return topics
         }
     }
 
