@@ -118,7 +118,8 @@ class EditHistoryListActivity : BaseActivity() {
     private inner class LoadingViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(loadState: LoadState, retry: () -> Unit) {
             val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
-            itemView.findViewById<TextView>(R.id.progressBar).isVisible = loadState is LoadState.Loading
+            val progressBar = itemView.findViewById<View>(R.id.progressBar)
+            progressBar.isVisible = loadState is LoadState.Loading
             errorView.isVisible = loadState is LoadState.Error
             errorView.retryClickListener = OnClickListener { retry() }
             if (loadState is LoadState.Error) {
