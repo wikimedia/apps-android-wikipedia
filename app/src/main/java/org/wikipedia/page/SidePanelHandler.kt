@@ -137,6 +137,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                         DateUtils.getRelativeTimeSpanString(
                             DateUtil.iso8601DateParse(revision.timeStamp).time,
                             System.currentTimeMillis(), 0L), revision.user))
+                    talkLastModified.isVisible = true
                 }
             }
 

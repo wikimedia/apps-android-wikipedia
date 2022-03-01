@@ -270,6 +270,7 @@
                 android:textSize="14sp"
                 android:gravity="center_vertical"
                 android:layout_gravity="bottom"
+                android:visibility="gone"
                 app:drawableStartCompat="@drawable/ic_history_24"
                 app:drawableTint="?android:attr/textColorTertiary"/>
 
