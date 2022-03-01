@@ -108,7 +108,7 @@
             app:layout_constraintBaseline_toBaselineOf="@id/diffText"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintWidth_default="wrap"
+            app:layout_constraintWidth_max="wrap"
             tools:text="Username" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
