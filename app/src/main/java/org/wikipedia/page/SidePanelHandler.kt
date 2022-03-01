@@ -102,6 +102,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     }
 
     fun setupTalkTopics(pageTitle: PageTitle) {
+        val newPageTitle = pageTitle.copy()
         val talkTopicsAdapter = TalkTopicItemAdapter()
         val titleView = drawerLayout.findViewById<TextView>(R.id.talk_title_view)
         val fullscreenButton = drawerLayout.findViewById<ImageView>(R.id.tall_fullscreen_button)
@@ -123,9 +124,9 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             hide()
         }
 
-        TalkTopicsProvider(pageTitle).load(object : TalkTopicsProvider.Callback {
+        TalkTopicsProvider(newPageTitle).load(object : TalkTopicsProvider.Callback {
             override fun onUpdatePageTitle(title: PageTitle) {
-                titleView.text = StringUtil.fromHtml(pageTitle.displayText)
+                titleView.text = StringUtil.fromHtml(title.displayText)
                 fullscreenButton.setOnClickListener {
                     fragment.startActivity(TalkTopicsActivity.newIntent(fragment.requireContext(), title, Constants.InvokeSource.PAGE_ACTIVITY))
                 }
@@ -142,7 +143,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             }
 
             override fun onSuccess(talkPage: TalkPage) {
-                talkTopicsAdapter.pageTitle = pageTitle
+                talkTopicsAdapter.pageTitle = newPageTitle
                 talkTopicsAdapter.topics = talkPage.topics!!
                 talkErrorView.visibility = View.GONE
                 talkRecyclerView.visibility = View.VISIBLE
