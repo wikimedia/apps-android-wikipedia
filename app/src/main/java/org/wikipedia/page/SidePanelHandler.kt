@@ -114,7 +114,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         talkProgressBar.isVisible = true
         talkErrorView.visibility = View.GONE
         talkEmptyContainer.visibility = View.GONE
-        
+
         talkRecyclerView.layoutManager = LinearLayoutManager(fragment.requireContext())
         talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
         talkRecyclerView.addItemDecoration(DrawableItemDecoration(fragment.requireContext(), R.attr.list_separator_drawable, drawStart = true, drawEnd = false))
