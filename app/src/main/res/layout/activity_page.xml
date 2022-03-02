@@ -175,7 +175,8 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
+                        android:layout_height="wrap_content"
+                        android:minHeight="?attr/actionBarSize"
                         android:gravity="center_vertical">
 
                         <TextView
@@ -187,7 +188,8 @@
                             android:textSize="20sp"
                             android:lineSpacingExtra="5sp"
                             android:textStyle="bold"
-                            android:layout_marginStart="16dp"/>
+                            android:layout_marginStart="16dp"
+                            android:layout_marginVertical="14dp"/>
 
                         <ImageView
                             android:id="@+id/tall_fullscreen_button"
