@@ -160,7 +160,7 @@
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:background="?android:colorBackground"
+            android:background="?attr/paper_color"
             tools:visibility="visible"
             android:visibility="gone">
 
@@ -175,7 +175,8 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="?attr/actionBarSize"
+                        android:gravity="center_vertical">
 
                         <TextView
                             android:id="@+id/talk_title_view"
@@ -186,15 +187,14 @@
                             android:textSize="20sp"
                             android:lineSpacingExtra="5sp"
                             android:textStyle="bold"
-                            android:layout_margin="16dp" />
+                            android:layout_marginStart="16dp"/>
 
                         <ImageView
                             android:id="@+id/tall_fullscreen_button"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:contentDescription="@null"
-                            android:padding="8dp"
-                            android:layout_marginTop="4dp"
+                            android:padding="12dp"
                             android:background="?android:selectableItemBackgroundBorderless"
                             app:srcCompat="@drawable/ic_baseline_fullscreen_24"
                             app:tint="?attr/colorAccent"/>
@@ -267,7 +267,7 @@
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="8dp"
                 android:drawablePadding="12dp"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:gravity="center_vertical"
                 android:layout_gravity="bottom"
                 android:visibility="gone"

@@ -49,6 +49,11 @@ class TalkTopicHolder internal constructor(
         itemView.setOnClickListener(this)
     }
 
+    private fun updateSeenItem(seen: Boolean) {
+        binding.topicTitleText.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface
+        binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
+    }
+
     override fun onClick(v: View?) {
         context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, id, invokeSource))
     }

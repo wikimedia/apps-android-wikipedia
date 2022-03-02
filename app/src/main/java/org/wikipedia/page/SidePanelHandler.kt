@@ -32,6 +32,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.TalkTopicHolder
@@ -107,6 +108,11 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                     onStartShow()
                 }
             }
+
+            override fun onDrawerClosed(drawerView: View) {
+                super.onDrawerClosed(drawerView)
+                enableToCContainer(true)
+            }
         })
         setScrollerPosition()
         enableToCContainer()
@@ -121,7 +127,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
         talkRecyclerView.layoutManager = LinearLayoutManager(fragment.requireContext())
         talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
-        talkRecyclerView.addItemDecoration(DrawableItemDecoration(fragment.requireContext(), R.attr.list_separator_drawable, drawStart = true, drawEnd = false))
+        talkRecyclerView.addItemDecoration(DrawableItemDecoration(fragment.requireContext(), R.attr.side_panel_list_separator_drawable, drawStart = true, drawEnd = false))
         talkRecyclerView.adapter = talkTopicsAdapter
         talkErrorView.backClickListener = View.OnClickListener {
             hide()
@@ -138,10 +144,12 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             override fun onReceivedRevision(revision: MwQueryPage.Revision?) {
                 revision?.let {
                     talkLastModified.text = StringUtil.fromHtml(fragment.getString(R.string.talk_last_modified,
-                        DateUtils.getRelativeTimeSpanString(
-                            DateUtil.iso8601DateParse(revision.timeStamp).time,
+                        DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
                             System.currentTimeMillis(), 0L), revision.user))
                     talkLastModified.isVisible = true
+                    talkLastModified.setOnClickListener { _ ->
+                        fragment.startActivity(ArticleEditDetailsActivity.newIntent(fragment.requireContext(), pageTitle.displayText, it.revId, pageTitle.wikiSite.languageCode))
+                    }
                 }
             }
 
@@ -220,7 +228,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
     fun hide() {
         drawerLayout.closeDrawers()
-        enableToCContainer(true)
         funnel.scrollStop()
     }
 
@@ -229,6 +236,9 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     }
 
     fun setEnabled(enabled: Boolean) {
+        if (talkTopicsContainerView.isVisible) {
+            return
+        }
         if (enabled) {
             setScrollerPosition()
             drawerLayout.setSlidingEnabled(true)
