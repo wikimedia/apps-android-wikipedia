@@ -186,7 +186,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         binding.thankButton.setOnClickListener { showThankDialog() }
+
+        binding.undoButton.isVisible = ReleaseUtil.isPreBetaRelease
         binding.undoButton.setOnClickListener { showUndoDialog() }
+
         binding.errorView.backClickListener = OnClickListener { requireActivity().finish() }
     }
 

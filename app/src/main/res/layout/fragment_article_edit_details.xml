@@ -282,7 +282,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toStartOf="@id/undoButton"
-                app:layout_constraintBaseline_toBaselineOf="@+id/undoButton"
+                app:layout_constraintBaseline_toBaselineOf="@+id/thankButton"
                 android:layout_marginEnd="16dp"
                 android:textColor="?attr/action_mode_green_background"
                 android:textStyle="bold"
@@ -332,7 +332,7 @@
                 android:background="?attr/color_group_60"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/undoButton" />
+                app:layout_constraintTop_toBottomOf="@id/thankButton" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
