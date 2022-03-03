@@ -67,6 +67,9 @@
   <string name="share_via">Partilhar via</string>
   <string name="image_share_via">Partilhar através de</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
+  <string name="page_edit_history_activity_label" fuzzy="true">Historial da página</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder" fuzzy="true">Não há nenhum comentário associado a esta edição</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
   <string name="menu_page_find_in_page">Localizar no artigo</string>
@@ -173,6 +176,7 @@
   <string name="dialog_create_account_checking_progress">A verificar</string>
   <string name="create_account_email_hint">Endereço de correio eletrónico (Opcional)</string>
   <string name="create_account_password_repeat_hint">Repita a palavra-passe</string>
+  <string name="create_account_password_is_username">A palavra-passe não pode ser igual ao nome de utilizador</string>
   <string name="create_account_passwords_mismatch_error">As palavras-passe não coincidem</string>
   <string name="create_account_email_error">Endereço de correio eletrónico inválido</string>
   <string name="create_account_username_error">Caracteres inválidos no nome de utilizador</string>
