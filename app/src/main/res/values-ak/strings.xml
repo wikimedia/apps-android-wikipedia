@@ -2,6 +2,7 @@
 <!-- Authors:
 * Nkansahrexford
 * Rberchie
+* Robertjamal12
 -->
 <resources>
   <string name="app_name_beta">Wikipedia Beta</string>
@@ -73,7 +74,7 @@
   <string name="user_anon_blocked_from_editing">Woabra wo IP address no wɔ ha</string>
   <string name="edit_how_page_improved">Nsakrae bɛn na woyɛe wɔ ha?</string>
   <string name="edit_next">Nea edi hɔ</string>
-  <string name="edit_done" fuzzy="true">Fa sie</string>
+  <string name="edit_done">Fa to dwa</string>
   <string name="edit_preview">Hwɛ ansa</string>
   <string name="edit_summary_tag_typo">Fixed typo</string>
   <string name="edit_summary_tag_grammar">M\'ama emu ada hɔ</string>
