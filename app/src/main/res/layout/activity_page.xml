@@ -188,8 +188,9 @@
                             android:textSize="20sp"
                             android:lineSpacingExtra="5sp"
                             android:textStyle="bold"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginVertical="14dp"/>
+                            android:background="?android:selectableItemBackground"
+                            android:paddingStart="16dp"
+                            android:paddingVertical="14dp"/>
 
                         <ImageView
                             android:id="@+id/tall_fullscreen_button"

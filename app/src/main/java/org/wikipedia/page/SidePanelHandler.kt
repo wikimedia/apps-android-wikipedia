@@ -136,9 +136,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         TalkTopicsProvider(newPageTitle).load(object : TalkTopicsProvider.Callback {
             override fun onUpdatePageTitle(title: PageTitle) {
                 talkTitleView.text = StringUtil.fromHtml(title.displayText)
-                talkFullscreenButton.setOnClickListener {
-                    fragment.startActivity(TalkTopicsActivity.newIntent(fragment.requireContext(), title, Constants.InvokeSource.PAGE_ACTIVITY))
-                }
+                talkTitleView.setOnClickListener(openTalkPageOnClickListener(title))
+                talkFullscreenButton.setOnClickListener(openTalkPageOnClickListener(title))
             }
 
             override fun onReceivedRevision(revision: MwQueryPage.Revision?) {
@@ -175,6 +174,12 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
             override fun onFinished() {
                 talkProgressBar.visibility = View.GONE
+            }
+
+            private fun openTalkPageOnClickListener(title: PageTitle): View.OnClickListener {
+                return View.OnClickListener {
+                    fragment.startActivity(TalkTopicsActivity.newIntent(fragment.requireContext(), title, Constants.InvokeSource.PAGE_ACTIVITY))
+                }
             }
         })
     }
