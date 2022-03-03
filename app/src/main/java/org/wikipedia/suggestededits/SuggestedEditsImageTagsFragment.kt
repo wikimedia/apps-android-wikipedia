@@ -326,7 +326,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishSuccess = false
 
         funnel?.logSaveAttempt()
-        EditAttemptStepEvent.logSaveAttempt(callback().getLangCode())
+        EditAttemptStepEvent.logSaveAttempt(PageTitle(page!!.title, WikiSite(Service.COMMONS_URL)))
 
         binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         binding.publishProgressCheck.visibility = GONE
@@ -374,7 +374,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             .subscribe({
                                 if (it.entity != null) {
                                     funnel?.logSaved(it.entity.lastRevId, invokeSource.value)
-                                    EditAttemptStepEvent.logSaveSuccess(callback().getLangCode())
+                                    EditAttemptStepEvent.logSaveSuccess(PageTitle(page!!.title, WikiSite(Service.COMMONS_URL)))
                                 }
                                 publishSuccess = true
                                 onSuccess()
@@ -427,7 +427,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         // TODO: expand this a bit.
         SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
-        EditAttemptStepEvent.logSaveFailure(callback().getLangCode())
+        EditAttemptStepEvent.logSaveFailure(PageTitle(page!!.title, WikiSite(Service.COMMONS_URL)))
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
     }
