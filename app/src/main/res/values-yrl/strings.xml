@@ -166,7 +166,7 @@
   <string name="search_recent_header">Sikáriçawa\'etá kuiriwara:</string>
   <string name="search_results_count_zero">Ne yepé çuaxara</string>
   <plurals name="search_results_count">
-    <item quantity="other">yepé=1 çuaxara</item>
+    <item quantity="other">%d çuaxara'etá</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Umuéu sinimuka\'etá kuiriwara</string>
   <string name="clear_recent_searches_confirm_yes">Ẽẽ</string>
