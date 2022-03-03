@@ -6,6 +6,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EditorInterfaceType.OTHER
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.page.PageTitle
 
 @Serializable
 @SerialName("/analytics/legacy/editattemptstep/1.2.0")
@@ -17,29 +18,30 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
         private const val INTEGRATION_ID = "app-android"
         private val PLATFORM = WikipediaApp.getInstance().getString(R.string.device_type).lowercase()
 
-        fun logInit(wikiCode: String) {
-            submitEditAttemptEvent(ActionType.INIT, wikiCode)
+        fun logInit(pageTitle: PageTitle) {
+            submitEditAttemptEvent(ActionType.INIT, pageTitle)
         }
 
-        fun logSaveIntent(wikiCode: String) {
-            submitEditAttemptEvent(ActionType.SAVE_INTENT, wikiCode)
+        fun logSaveIntent(pageTitle: PageTitle) {
+            submitEditAttemptEvent(ActionType.SAVE_INTENT, pageTitle)
         }
 
-        fun logSaveAttempt(wikiCode: String) {
-            submitEditAttemptEvent(ActionType.SAVE_ATTEMPT, wikiCode)
+        fun logSaveAttempt(pageTitle: PageTitle) {
+            submitEditAttemptEvent(ActionType.SAVE_ATTEMPT, pageTitle)
         }
 
-        fun logSaveSuccess(wikiCode: String) {
-            submitEditAttemptEvent(ActionType.SAVE_SUCCESS, wikiCode)
+        fun logSaveSuccess(pageTitle: PageTitle) {
+            submitEditAttemptEvent(ActionType.SAVE_SUCCESS, pageTitle)
         }
 
-        fun logSaveFailure(wikiCode: String) {
-            submitEditAttemptEvent(ActionType.SAVE_FAILURE, wikiCode)
+        fun logSaveFailure(pageTitle: PageTitle) {
+            submitEditAttemptEvent(ActionType.SAVE_FAILURE, pageTitle)
         }
 
-        private fun submitEditAttemptEvent(action: ActionType, wikiCode: String) {
+        private fun submitEditAttemptEvent(action: ActionType, pageTitle: PageTitle) {
             EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action.valueString, "", OTHER.valueString,
-                INTEGRATION_ID, "", PLATFORM, 0, if (AccountUtil.isLoggedIn) AccountUtil.getUserIdForLanguage(wikiCode) else 0, 1)))
+                INTEGRATION_ID, "", PLATFORM, 0, if (AccountUtil.isLoggedIn) AccountUtil.getUserIdForLanguage(pageTitle.wikiSite.languageCode) else 0,
+                1, pageTitle.prefixedText, pageTitle.namespace().code())))
         }
     }
 }
@@ -53,7 +55,9 @@ class EditAttemptStepInteractionEvent(private val action: String,
                                       private val platform: String,
                                       private val user_editcount: Int,
                                       private val user_id: Int,
-                                      private val version: Int)
+                                      private val version: Int,
+                                      private val page_title: String,
+                                      private val page_ns: Int)
 
 enum class ActionType(val valueString: String) {
     INIT("init"),
