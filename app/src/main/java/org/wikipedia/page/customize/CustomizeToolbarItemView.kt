@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemCustomizeToolbarBinding
 import org.wikipedia.page.action.PageActionItem
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 
 class CustomizeToolbarItemView : LinearLayout {
@@ -23,6 +24,7 @@ class CustomizeToolbarItemView : LinearLayout {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
+        FeedbackUtil.setButtonLongPressToast(binding.listItem, binding.dragHandle)
     }
 
     fun setContents(pageActionItem: PageActionItem, position: Int) {

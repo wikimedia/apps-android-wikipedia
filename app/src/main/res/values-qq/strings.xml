@@ -1135,4 +1135,6 @@
   <string name="page_edit_history_activity_label">Label text for the new edit history screen.</string>
   <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit. %s represents the edit comment.</string>
   <string name="page_edit_history_comment_placeholder">Placeholder text when a comment is not available on an edit.</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Default tooltip text for customize toolbar drag handle</string>
+  <string name="customize_toolbar_item_default_tooltip">Default tooltip text for customize toolbar item</string>
 </resources>
