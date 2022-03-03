@@ -48,14 +48,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private var _binding: FragmentSuggestedEditsImageTagsItemBinding? = null
     private val binding get() = _binding!!
 
-    var publishing: Boolean = false
-    var publishSuccess: Boolean = false
+    var publishing = false
+    private var publishSuccess = false
     private var page: MwQueryPage? = null
-    private var pageTitle: PageTitle? = null
-    private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
-    private var wasCaptionLongClicked: Boolean = false
-    private var lastSearchTerm: String = ""
-    var invokeSource: InvokeSource = InvokeSource.SUGGESTED_EDITS
+    private val pageTitle get() = PageTitle(page!!.title, WikiSite(Service.COMMONS_URL))
+    private val tagList = mutableListOf<MwQueryPage.ImageLabel>()
+    private var wasCaptionLongClicked = false
+    private var lastSearchTerm = ""
+    var invokeSource = InvokeSource.SUGGESTED_EDITS
     private var funnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -81,8 +81,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
 
-        val colorStateList = ColorStateList(arrayOf(intArrayOf()),
-                intArrayOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
+        val colorStateList = ColorStateList.valueOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         binding.publishProgressBar.progressTintList = colorStateList
         binding.publishProgressBarComplete.progressTintList = colorStateList
         ImageViewCompat.setImageTintList(binding.publishProgressCheck, colorStateList)
@@ -101,7 +100,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         if (callback().getSinglePage() != null) {
             page = callback().getSinglePage()
-            pageTitle = PageTitle(page!!.title, WikiSite(Service.COMMONS_URL))
         }
 
         binding.imageCaption.setOnLongClickListener {
@@ -131,9 +129,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ page ->
-                    this.page = page
-                    pageTitle = PageTitle(page.title, WikiSite(Service.COMMONS_URL))
+                .subscribe({
+                    this.page = it
                     updateContents()
                     updateTagChips()
                 }, { setErrorState(it) }))
@@ -155,7 +152,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
-        pageTitle?.let { funnel = EditFunnel(WikipediaApp.getInstance(), it) }
+        funnel = EditFunnel(WikipediaApp.getInstance(), pageTitle)
 
         binding.tagsLicenseText.visibility = GONE
         binding.tagsHintText.visibility = VISIBLE
@@ -308,7 +305,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
-        val acceptedLabels = ArrayList<MwQueryPage.ImageLabel>()
+        val acceptedLabels = mutableListOf<MwQueryPage.ImageLabel>()
         val iterator = tagList.iterator()
         while (iterator.hasNext()) {
             val tag = iterator.next()
@@ -328,7 +325,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishSuccess = false
 
         funnel?.logSaveAttempt()
-        pageTitle?.let { EditAttemptStepEvent.logSaveAttempt(it) }
+        EditAttemptStepEvent.logSaveAttempt(pageTitle)
 
         binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         binding.publishProgressCheck.visibility = GONE
@@ -376,12 +373,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             .subscribe({
                                 if (it.entity != null) {
                                     funnel?.logSaved(it.entity.lastRevId, invokeSource.value)
-                                    pageTitle?.let { title -> EditAttemptStepEvent.logSaveSuccess(title) }
+                                    EditAttemptStepEvent.logSaveSuccess(pageTitle)
                                 }
                                 publishSuccess = true
                                 onSuccess()
-                            }, { caught ->
-                                onError(caught)
+                            }, {
+                                onError(it)
                             })
                     )
                 }, {
@@ -429,7 +426,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         // TODO: expand this a bit.
         SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
-        pageTitle?.let { EditAttemptStepEvent.logSaveFailure(it) }
+        EditAttemptStepEvent.logSaveFailure(pageTitle)
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
     }
