@@ -106,7 +106,7 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:background="?android:colorBackground"
+        android:background="?attr/paper_color"
         tools:visibility="visible">
 
         <!-- ToC -->
@@ -160,7 +160,6 @@
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:background="?attr/paper_color"
             tools:visibility="visible"
             android:visibility="gone">
 
