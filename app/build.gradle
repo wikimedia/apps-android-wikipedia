@@ -181,7 +181,7 @@ dependencies {
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
     String mockitoVersion = '3.4.0'
-    String leakCanaryVersion = '2.7'
+    String leakCanaryVersion = '2.8.1'
     String kotlinCoroutinesVersion = '1.3.9'
     String firebaseMessagingVersion = '23.0.0'
     String mlKitVersion = '17.0.3'
