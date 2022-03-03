@@ -54,6 +54,7 @@
   <string name="dialog_message_clear_history_no">नहीं</string>
   <string name="share_via">के माध्यम से साझा करें</string>
   <string name="search_redirect_from">%s से अनुप्रेषित</string>
+  <string name="page_edit_history_activity_label" fuzzy="true">पृष्ठ इतिहास</string>
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages">भाषा बदलें</string>
   <string name="menu_page_find_in_page" fuzzy="true">पृष्ठ में ढूंढें</string>
