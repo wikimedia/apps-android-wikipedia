@@ -74,6 +74,7 @@
   <string name="share_via">এর মাধ্যমে শেয়ার</string>
   <string name="image_share_via">এর মাধ্যমে শেয়ার</string>
   <string name="search_redirect_from">%s থেকে পুনর্নির্দেশিত</string>
+  <string name="page_edit_history_activity_label">পাতার ইতিহাস</string>
   <string name="menu_page_show_tabs">ট্যাব দেখান</string>
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>

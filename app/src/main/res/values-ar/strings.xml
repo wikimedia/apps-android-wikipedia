@@ -78,6 +78,7 @@
   <string name="share_via">مشاركة عبر</string>
   <string name="image_share_via">مشاركة عبر</string>
   <string name="search_redirect_from">بالتحويل من %s</string>
+  <string name="page_edit_history_activity_label" fuzzy="true">تاريخ الصفحة</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
   <string name="menu_page_find_in_page">ابحث في المقالة</string>
