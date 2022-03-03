@@ -13,7 +13,7 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "source", invokeSource.value)
         preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
-        preprocessData(eventData, "pageNS", title.namespace().code())
+        preprocessData(eventData, "pageNS", title.namespace().code().toString())
         return super.preprocessData(eventData)
     }
 

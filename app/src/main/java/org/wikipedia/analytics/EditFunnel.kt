@@ -123,7 +123,7 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
-        preprocessData(eventData, "pageNS", title.namespace().code())
+        preprocessData(eventData, "pageNS", title.namespace().code().toString())
         return super.preprocessData(eventData)
     }
 
