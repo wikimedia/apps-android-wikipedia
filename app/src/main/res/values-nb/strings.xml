@@ -62,6 +62,9 @@
   <string name="share_via">Del via</string>
   <string name="image_share_via">Del via</string>
   <string name="search_redirect_from">Omdirigert fra %s</string>
+  <string name="page_edit_history_activity_label">Revisjonshistorikk</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Tom redigeringsforklaring</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
   <string name="menu_page_find_in_page">Søk i artikkelen</string>
@@ -168,6 +171,7 @@
   <string name="dialog_create_account_checking_progress">Verifiserer</string>
   <string name="create_account_email_hint">E-post (valgfritt)</string>
   <string name="create_account_password_repeat_hint">Gjenta passord</string>
+  <string name="create_account_password_is_username">Passordet kan ikke være det samme som brukernavnet</string>
   <string name="create_account_passwords_mismatch_error">Passordene stemmer ikke overens</string>
   <string name="create_account_email_error">Ugyldig epostadresse</string>
   <string name="create_account_username_error">Ugyldige tegn i brukernavnet</string>
@@ -737,7 +741,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_accessibility_card_text">Du har nådd bunnen av utforskersiden.</string>
   <string name="feed_accessibility_card_load_more_button">Last inn mer</string>
-  <string name="top_read_activity_title">Mest lest på %s</string>
+  <string name="top_read_activity_title">Mest lest %s</string>
   <string name="tabs_activity_title">Faner</string>
   <string name="description_edit_text_hint">Artikkelbeskrivelse</string>
   <string name="description_edit_article_description_label">Artikkel</string>

@@ -92,6 +92,9 @@
   <string name="share_via">Partager via</string>
   <string name="image_share_via">Partager via</string>
   <string name="search_redirect_from">Redirigé depuis %s</string>
+  <string name="page_edit_history_activity_label">Historique des versions</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Résumé de modification vide</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
   <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Trouver dans l’article</string>
@@ -198,6 +201,7 @@
   <string name="dialog_create_account_checking_progress">Vérification en cours</string>
   <string name="create_account_email_hint">Adresse de courriel (facultatif)</string>
   <string name="create_account_password_repeat_hint">Répéter le mot de passe</string>
+  <string name="create_account_password_is_username">Le mot de passe ne peut pas être le même que le nom d‘utilisateur</string>
   <string name="create_account_passwords_mismatch_error">Les mots de passe ne correspondent pas</string>
   <string name="create_account_email_error">Adresse de courriel non valide</string>
   <string name="create_account_username_error">Caractères non valides dans le nom d’utilisateur</string>
@@ -696,6 +700,7 @@
   <string name="notifications_select_all_filters">Sélectionner tous les filtres</string>
   <string name="notifications_tab_filter_all">Tous</string>
   <string name="notifications_tab_filter_mentions">Mentions</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_search_bar_hint">Rechercher ou filtrer les notifications</string>
   <string name="notifications_search_bar_filter_hint">Filtre de notifications</string>
   <string name="notifications_menu_mark_as_read">Marquer comme lu</string>
@@ -788,7 +793,7 @@
   <string name="description_edit_help_title">Infos : descriptions de l’article</string>
   <string name="description_edit_help_about_wikidata">À propos de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guide de Wikidata pour écrire des descriptions</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/fr</string>
   <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier les descriptions d’article ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
   <string name="description_edit_license_notice">En modifiant la description de l\'article, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">commence généralement par une lettre minuscule</string>
@@ -1018,7 +1023,7 @@
   <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
   <string name="onboarding_multilingual_add_language_text">Ajouter ou modifier des langues</string>
   <string name="onboarding_welcome_title_v2">L’encyclopédie libre\n... dans plus de 300 langues</string>
-  <string name="app_shortcuts_random">Aléatoire</string>
+  <string name="app_shortcuts_random">Au hasard</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
   <string name="on_this_day_card_title">Ce jour-là</string>
