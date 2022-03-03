@@ -24,9 +24,11 @@ class TalkTopicHolder internal constructor(
 
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var id: Int = 0
+    private var indicatorSha: String = ""
 
     fun bindItem(topic: TalkPage.Topic, searchQuery: String? = null) {
         id = topic.id
+        indicatorSha = topic.getIndicatorSha()
         val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
         var titleStr = RichTextUtil.stripHtml(topic.html).trim()
         if (titleStr.isEmpty()) {
@@ -55,7 +57,7 @@ class TalkTopicHolder internal constructor(
     }
 
     override fun onClick(v: View?) {
-        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, id, invokeSource))
+        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, id, indicatorSha, invokeSource))
     }
 
     companion object {

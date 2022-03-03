@@ -87,7 +87,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel.logNewTopicClick()
-            startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource),
+            startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, "", invokeSource),
                 Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY)
         }
 
@@ -291,7 +291,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
             }
             if (topic != null) {
-                startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource),
+                startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, topic.getIndicatorSha(), invokeSource),
                         Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY)
                 overridePendingTransition(0, 0)
                 return
@@ -348,7 +348,7 @@ class TalkTopicsActivity : BaseActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, "", invokeSource, undoneSubject, undoneBody))
             }, {
                 updateOnError(it)
             }))
