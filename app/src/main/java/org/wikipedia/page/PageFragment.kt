@@ -1369,8 +1369,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onContentsSelected() {
-            // TODO: test only
-            sidePanelHandler.show(false)
+            sidePanelHandler.show()
         }
 
         override fun onShareSelected() {
