@@ -41,7 +41,7 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
         private fun submitEditAttemptEvent(action: ActionType, pageTitle: PageTitle) {
             EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action.valueString, "", OTHER.valueString,
                 INTEGRATION_ID, "", PLATFORM, 0, if (AccountUtil.isLoggedIn) AccountUtil.getUserIdForLanguage(pageTitle.wikiSite.languageCode) else 0,
-                1, pageTitle.displayText, pageTitle.namespace().code())))
+                1, pageTitle.prefixedText, pageTitle.namespace().code())))
         }
     }
 }
