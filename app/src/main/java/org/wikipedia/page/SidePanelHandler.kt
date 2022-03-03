@@ -237,6 +237,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
     fun setEnabled(enabled: Boolean) {
         if (talkTopicsContainerView.isVisible) {
+            drawerLayout.setSlidingEnabled(true)
             return
         }
         if (enabled) {
