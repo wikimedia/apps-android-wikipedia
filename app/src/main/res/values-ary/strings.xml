@@ -104,7 +104,7 @@
   <string name="title_captcha">دخل لكاپتشا</string>
   <string name="edit_section_captcha_reload">برك على لكاپتشا باش تعاود تشارجا</string>
   <string name="nav_item_login">دخل لويكيپيديا</string>
-  <string name="login_username_hint">سميت لمستخدم</string>
+  <string name="login_username_hint">سميت لخدايمي</string>
   <string name="login_password_hint">موضباص</string>
   <string name="account_creation_password_hint">موضباص</string>
   <string name="login_2fa_hint">كود التحقق بجوج خطوات</string>
@@ -130,7 +130,7 @@
   <string name="search_empty_message_multilingual_upgrade">قرا ويكيپيديا بلوغتك</string>
   <string name="delete_selected_items">مسح لعناصر لي ختاريتي</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">سميت لمستخدم</string>
+  <string name="create_account_username_hint">سميت لخدايمي</string>
   <string name="login_dont_have_account">واش ما عندكش كونط؟</string>
   <string name="login_join_wikipedia">اجي لويكيپيديا</string>
   <string name="login_forgot_password">نسيتي لموضباص؟</string>
@@ -141,7 +141,7 @@
   <string name="create_account_password_repeat_hint">عاود لموضباص</string>
   <string name="create_account_passwords_mismatch_error">لموضباصات ماشي بحال بحال</string>
   <string name="create_account_email_error">ايميل غالط</string>
-  <string name="create_account_username_error">حروف ماصحاحش فسميت لمستخدم</string>
+  <string name="create_account_username_error">حروف مامقبولينش ف سميت لخدايمي</string>
   <string name="create_account_password_error" fuzzy="true">لموضباص ماصالحش</string>
   <string name="create_account_generic_error">مايمكنش دير كونط</string>
   <string name="create_account_next">لماجي</string>
@@ -151,7 +151,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">كمل بلا ايميل</string>
   <string name="email_recommendation_dialog_create_with_email_action">زيد ايميل</string>
   <string name="create_account_button">دير كونط</string>
-  <string name="create_account_name_unavailable">سميت لمستخدم \"%s\" ماصالحاش. ختار وحدا خرى.</string>
+  <string name="create_account_name_unavailable">سميت لخدايمي \"%s\" ماصالحاش. ختار وحدة خرة.</string>
   <string name="create_account_ip_block_message">كانعتادرو، ل IP ديالك مبلوكي هاد الساعة، ماتقدرش تڭاد كونط جديد.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">تفاصيل</string>
@@ -365,7 +365,7 @@
   <string name="text_input_dialog_cancel_button_text">لغي</string>
   <string name="custom_date_picker_dialog_cancel_button_text">لغي</string>
   <string name="talk_title">هضرة</string>
-  <string name="talk_user_title">نقاش: %s</string>
+  <string name="talk_user_title">مداكرة: %s</string>
   <string name="talk_new_topic">موضوع جديد</string>
   <string name="talk_page_empty">هاد صفحة لهضرة خاوية</string>
   <string name="talk_no_subject">(بلا موضوع)</string>

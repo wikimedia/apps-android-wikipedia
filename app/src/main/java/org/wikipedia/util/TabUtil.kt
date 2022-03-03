@@ -8,7 +8,6 @@ import org.wikipedia.page.tabs.Tab
 
 object TabUtil {
 
-    @JvmStatic
     fun openInNewBackgroundTab(entry: HistoryEntry) {
         val app = WikipediaApp.getInstance()
         val tab = if (app.tabCount == 0) app.tabList[0] else Tab()

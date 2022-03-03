@@ -45,6 +45,9 @@
   <string name="share_via">Deelen iwwer</string>
   <string name="image_share_via">Deelen iwwer</string>
   <string name="search_redirect_from">Virugeleet vu(n) %s</string>
+  <string name="page_edit_history_activity_label">Versioune vun der Säit</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Eidele Resumé vun der Ännerung</string>
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Am Artikel sichen</string>
@@ -142,6 +145,7 @@
   <string name="dialog_create_account_checking_progress">Nokucken</string>
   <string name="create_account_email_hint">E-Mail (Fakultativ)</string>
   <string name="create_account_password_repeat_hint">Passwuert widderhuelen</string>
+  <string name="create_account_password_is_username">Passwuert kann net selwecht si wéi de Benotzernumm</string>
   <string name="create_account_passwords_mismatch_error">D\'Passwierder sinn net déi selwescht</string>
   <string name="create_account_email_error">Net-valabel E-Mail-Adress</string>
   <string name="create_account_username_error">Net valabel Zeechen am Benotzernumm</string>
@@ -718,7 +722,10 @@
   <string name="talk_no_subject">(Kee Sujet)</string>
   <string name="talk_reply_subject">Sujet</string>
   <string name="talk_snackbar_survey_action_text">Fir unzefänken</string>
+  <string name="talk_search_hint">An de Message sichen</string>
+  <string name="talk_overflow_sort_by">Zortéieren no</string>
   <string name="talk_overflow_sort_date_published">Datum vun der Publikatioun</string>
+  <string name="talk_overflow_sort_topic_name">Numm vum Thema</string>
   <string name="menu_option_share_talk_discussion">Diskussioun deelen</string>
   <string name="menu_option_share_talk_page">Diskussiounssäit deelen</string>
   <string name="menu_option_user_contributions">Kontributioune vum %s</string>

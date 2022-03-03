@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.TransactionTooLargeException
 import androidx.annotation.StringRes
-import androidx.annotation.VisibleForTesting
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
@@ -23,7 +22,6 @@ object UriUtil {
     const val LOCAL_URL_LANGUAGES = "#languages"
     const val WIKI_REGEX = "/(wiki|[a-z]{2,3}|[a-z]{2,3}-.*)/"
 
-    @JvmStatic
     fun decodeURL(url: String): String {
         return try {
             // Force decoding of plus sign, since the built-in decode() function will replace
@@ -39,7 +37,6 @@ object UriUtil {
         }
     }
 
-    @JvmStatic
     fun encodeURL(url: String): String {
         return try {
             // Before returning, explicitly convert plus signs to encoded spaces, since URLEncoder
@@ -50,7 +47,6 @@ object UriUtil {
         }
     }
 
-    @JvmStatic
     fun visitInExternalBrowser(context: Context, uri: Uri) {
         try {
             val chooserIntent = ShareUtil.getIntentChooser(context, Intent(Intent.ACTION_VIEW, uri))
@@ -81,7 +77,6 @@ object UriUtil {
             }
     }
 
-    @JvmStatic
     fun resolveProtocolRelativeUrl(wiki: WikiSite, url: String): String {
         val ret = resolveProtocolRelativeUrl(url)
 
@@ -94,12 +89,10 @@ object UriUtil {
         else ret
     }
 
-    @JvmStatic
     fun resolveProtocolRelativeUrl(url: String): String {
         return if (url.startsWith("//")) WikipediaApp.getInstance().wikiSite.scheme() + ":" + url else url
     }
 
-    @JvmStatic
     fun isValidPageLink(uri: Uri): Boolean {
         return ((!uri.authority.isNullOrEmpty() &&
                 uri.authority!!.endsWith("wikipedia.org") &&
@@ -109,7 +102,6 @@ object UriUtil {
                         !uri.fragment!!.startsWith("cite"))))
     }
 
-    @JvmStatic
     fun isAppSupportedLink(uri: Uri): Boolean {
         val supportedAuthority = uri.authority?.run { WikiSite.supportedAuthority(this) } == true
         return (uri.path?.run { matches(("^$WIKI_REGEX.*").toRegex()) } == true ||
@@ -117,18 +109,15 @@ object UriUtil {
                 !uri.getQueryParameter("title").isNullOrEmpty() && !uri.getQueryParameter("diff").isNullOrEmpty()) && supportedAuthority
     }
 
-    @JvmStatic
     fun handleExternalLink(context: Context, uri: Uri) {
         visitInExternalBrowser(context, uri)
     }
 
-    @JvmStatic
     fun getUrlWithProvenance(context: Context, title: PageTitle,
                              @StringRes provId: Int): String {
         return title.uri + "?wprov=" + context.getString(provId)
     }
 
-    @JvmStatic
     fun getFilenameFromUploadUrl(url: String): String {
         val splitList = url.split("/")
         val thumbnailName = splitList[splitList.size - 1]
@@ -137,13 +126,11 @@ object UriUtil {
         } else thumbnailName
     }
 
-    @JvmStatic
     fun getTitleFromUrl(url: String): String {
         return removeFragment(removeLinkPrefix(url)).replace("_", " ")
     }
 
     /** Get language variant code from a Uri, e.g. "zh.*", otherwise returns empty string.  */
-    @JvmStatic
     fun getLanguageVariantFromUri(uri: Uri): String {
         if (uri.path.isNullOrEmpty()) {
             return ""
@@ -153,25 +140,20 @@ object UriUtil {
     }
 
     /** For internal links only  */
-    @JvmStatic
     fun removeInternalLinkPrefix(link: String): String {
         return link.replaceFirst(WIKI_REGEX.toRegex(), "")
     }
 
     /** For links that could be internal or external links  */
-    @JvmStatic
     fun removeLinkPrefix(link: String): String {
         return link.replaceFirst("^.*?$WIKI_REGEX".toRegex(), "")
     }
 
     /** Removes an optional fragment portion of a URL  */
-    @JvmStatic
-    @VisibleForTesting
     fun removeFragment(link: String): String {
         return link.replaceFirst("#.*$".toRegex(), "")
     }
 
-    @JvmStatic
     fun parseTalkTopicFromFragment(fragment: String): String {
         val index = fragment.indexOf("Z-")
         return if (index >= 0) fragment.substring(index + 2) else fragment

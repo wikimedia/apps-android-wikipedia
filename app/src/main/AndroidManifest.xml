@@ -13,7 +13,8 @@
     -->
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="replace" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission
@@ -32,7 +33,7 @@
     <!-- For being able to receive notifications upon boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <uses-feature android:name="android.hardware.wifi" tools:node="replace" android:required="false"  />
+    <uses-feature android:name="android.hardware.wifi" android:required="false"  />
 
     <!-- For keeping the device awake while performing background tasks, such as syncing offline articles. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -299,6 +300,11 @@
             android:label="@string/notifications_filter_label"
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+
+        <activity
+            android:name=".page.edithistory.EditHistoryListActivity"
+            android:label="@string/page_edit_history_activity_label"
+            android:theme="@style/AppTheme.ActionBar" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
