@@ -117,7 +117,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkReplyButton.setOnClickListener {
             talkFunnel.logReplyClick()
             editFunnel.logStart()
-            EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
+            EditAttemptStepEvent.logInit(pageTitle)
             replyClicked()
         }
 
@@ -233,7 +233,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
             editFunnel.logStart()
-            EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
+            EditAttemptStepEvent.logInit(pageTitle)
         } else {
             replyActive = false
             binding.replyInputView.editText.setText("")
@@ -378,7 +378,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         undoneSubject = subject
 
         editFunnel.logSaveAttempt()
-        EditAttemptStepEvent.logSaveAttempt(pageTitle.wikiSite.languageCode)
+        EditAttemptStepEvent.logSaveAttempt(pageTitle)
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
@@ -469,7 +469,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
-        EditAttemptStepEvent.logSaveSuccess(pageTitle.wikiSite.languageCode)
+        EditAttemptStepEvent.logSaveSuccess(pageTitle)
 
         if (isNewTopic()) {
             Intent().let {
@@ -487,7 +487,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
-        EditAttemptStepEvent.logSaveFailure(pageTitle.wikiSite.languageCode)
+        EditAttemptStepEvent.logSaveFailure(pageTitle)
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)
