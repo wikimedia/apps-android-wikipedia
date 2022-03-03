@@ -101,6 +101,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         if (callback().getSinglePage() != null) {
             page = callback().getSinglePage()
+            pageTitle = PageTitle(page!!.title, WikiSite(Service.COMMONS_URL))
         }
 
         binding.imageCaption.setOnLongClickListener {
