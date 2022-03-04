@@ -88,7 +88,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
         editHistoryStatsFlow.value = EditHistoryStats(mwResponse?.query?.pages?.first()?.revisions?.first()!!, editCountsResponse!!, articleMetricsResponse!!.firstItem.results)
     }
-    
+
     fun toggleCompareState() {
         comparing = !comparing
         if (!comparing) {
