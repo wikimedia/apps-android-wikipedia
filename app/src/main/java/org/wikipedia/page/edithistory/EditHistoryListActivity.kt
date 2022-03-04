@@ -132,6 +132,15 @@ class EditHistoryListActivity : BaseActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        if (viewModel.comparing) {
+            viewModel.toggleCompareState()
+            updateCompareState()
+            return
+        }
+        super.onBackPressed()
+    }
+
     private inner class LoadingItemAdapter(
             private val retry: () -> Unit
     ) : LoadStateAdapter<LoadingViewHolder>() {
