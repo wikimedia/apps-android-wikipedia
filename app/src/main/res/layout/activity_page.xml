@@ -66,19 +66,6 @@
                         android:layout_height="match_parent"
                         android:contentDescription="@string/notifications_activity_title"/>
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/page_toolbar_button_show_overflow_menu"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:contentDescription="@string/menu_feed_overflow_label"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:srcCompat="@drawable/ic_more_vert_themed_24dp"
-                        app:tint="?attr/toolbar_icon_color" />
-
                 </LinearLayout>
             </androidx.appcompat.widget.Toolbar>
 

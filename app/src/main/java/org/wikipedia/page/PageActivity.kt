@@ -119,10 +119,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             startActivityForResult(TabActivity.newIntentFromPageActivity(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
         }
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP)
-        FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
-        binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
-            pageFragment.showOverflowMenu(it)
-        }
 
         binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
@@ -639,17 +635,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun maybeShowWatchlistTooltip() {
         pageFragment.historyEntry?.let {
-            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn &&
-                    it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS &&
-                    Prefs.loggedInPageActivityVisitCount >= 3) {
+            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS && Prefs.loggedInPageActivityVisitCount >= 3) {
                 enqueueTooltip {
                     watchlistFunnel.logShowTooltip()
                     Prefs.isWatchlistPageOnboardingTooltipShown = true
-                    FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
-                        R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
                 }
-            } else {
-                maybeShowThemeTooltip()
             }
         }
     }
@@ -661,7 +651,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         val anchorView: View?
         var aboveOrBelow = true
         if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
-            anchorView = binding.pageToolbarButtonShowOverflowMenu
+            anchorView = binding.pageToolbar
             aboveOrBelow = false
         } else {
             anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
@@ -747,7 +737,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     fun getOverflowMenu(): View {
-        return binding.pageToolbarButtonShowOverflowMenu
+        return View(baseContext)
     }
 
     override fun onUnreadNotification() {
