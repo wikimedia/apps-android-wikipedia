@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.map
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.page.PageTitle
@@ -51,41 +50,31 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     }.cachedIn(viewModelScope)
 
     init {
+        loadEditHistoryStats()
+    }
+
+    private fun loadEditHistoryStats() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
             withContext(Dispatchers.IO) {
-                loadEditHistoryStats()
+
+                val calendar = Calendar.getInstance()
+                val today = DateUtil.getYMDDateString(calendar.time)
+                calendar.add(Calendar.YEAR, -1)
+                val lastYear = DateUtil.getYMDDateString(calendar.time)
+
+                val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getArticleCreatedDate(pageTitle.prefixedText) }
+                val editCountsResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
+                val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
+
+                editHistoryStatsFlow.value = EditHistoryStats(
+                    mwResponse.await().query?.pages?.first()?.revisions?.first()!!,
+                    editCountsResponse.await(),
+                    articleMetricsResponse.await().firstItem.results
+                )
             }
         }
-    }
-
-    suspend fun loadEditHistoryStats() {
-
-        var mwResponse: MwQueryResponse? = null
-        var editCountsResponse: EditCount? = null
-        var articleMetricsResponse: Metrics? = null
-
-        val calendar = Calendar.getInstance()
-        val today = DateUtil.getYMDDateString(calendar.time)
-        calendar.add(Calendar.YEAR, -1)
-        val lastYear = DateUtil.getYMDDateString(calendar.time)
-
-            coroutineScope {
-                launch {
-                    mwResponse = ServiceFactory.get(pageTitle.wikiSite).getArticleCreatedDate(pageTitle.prefixedText)
-                }
-
-                launch {
-                    editCountsResponse = ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS)
-                }
-
-                launch {
-                    articleMetricsResponse = ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today)
-                }
-            }
-
-        editHistoryStatsFlow.value = EditHistoryStats(mwResponse?.query?.pages?.first()?.revisions?.first()!!, editCountsResponse!!, articleMetricsResponse!!.firstItem.results)
     }
 
     fun toggleCompareState() {
