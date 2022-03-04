@@ -25,6 +25,12 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     val editHistoryStatsFlow = _editHistoryStatsFlow
 
     var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
+    var comparing = false
+        private set
+    var selectedRevisionFrom: MwQueryPage.Revision? = null
+        private set
+    var selectedRevisionTo: MwQueryPage.Revision? = null
+        private set
 
     val editHistoryFlow = Pager(PagingConfig(pageSize = 10)) {
         EditHistoryPagingSource(pageTitle)
@@ -82,6 +88,46 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
         editHistoryStatsFlow.value = EditHistoryStats(mwResponse?.query?.pages?.first()?.revisions?.first()!!, editCountsResponse!!, articleMetricsResponse!!.firstItem.results)
     }
+    
+    fun toggleCompareState() {
+        comparing = !comparing
+        if (!comparing) {
+            cancelSelectRevision()
+        }
+    }
+
+    private fun cancelSelectRevision() {
+        selectedRevisionFrom = null
+        selectedRevisionTo = null
+    }
+
+    fun toggleSelectRevision(revision: MwQueryPage.Revision): Boolean {
+        if (selectedRevisionFrom == null && selectedRevisionTo?.revId != revision.revId) {
+            selectedRevisionFrom = revision
+            return true
+        } else if (selectedRevisionTo == null && selectedRevisionFrom?.revId != revision.revId) {
+            selectedRevisionTo = revision
+            return true
+        } else if (selectedRevisionFrom?.revId == revision.revId) {
+            selectedRevisionFrom = null
+            return true
+        } else if (selectedRevisionTo?.revId == revision.revId) {
+            selectedRevisionTo = null
+            return true
+        }
+        return false
+    }
+
+    fun getSelectedState(revision: MwQueryPage.Revision): Int {
+        if (!comparing) {
+            return SELECT_INACTIVE
+        } else if (selectedRevisionFrom?.revId == revision.revId) {
+            return SELECT_FROM
+        } else if (selectedRevisionTo?.revId == revision.revId) {
+            return SELECT_TO
+        }
+        return SELECT_NONE
+    }
 
     class EditHistoryPagingSource(
             val pageTitle: PageTitle
@@ -111,5 +157,12 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return EditHistoryListViewModel(bundle) as T
         }
+    }
+
+    companion object {
+        const val SELECT_INACTIVE = 0
+        const val SELECT_NONE = 1
+        const val SELECT_FROM = 2
+        const val SELECT_TO = 3
     }
 }
