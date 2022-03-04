@@ -77,6 +77,7 @@
     <string name="menu_page_new_tab">New tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
     <string name="menu_page_recently_viewed">Recently viewed</string>
+    <string name="menu_page_overflow_label">More</string>
 
     <!-- Long press menu -->
     <string name="menu_long_press_open_page">Open</string>

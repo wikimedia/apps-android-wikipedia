@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.SwipeRefreshLayoutWithScroll
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.SwipeRefreshLayoutWithScroll xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/page_refresh_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -45,13 +45,34 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="?attr/actionBarSize" />
 
-        <org.wikipedia.page.PageActionTabLayout
-            android:id="@+id/page_actions_tab_layout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/paper_color"
             android:layout_gravity="bottom"
-            android:elevation="8dp"/>
+            android:background="?attr/paper_color"
+            android:elevation="8dp">
+
+            <org.wikipedia.page.PageActionTabLayout
+                android:id="@+id/page_actions_tab_layout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:elevation="8dp" />
+
+            <TextView
+                android:id="@+id/page_toolbar_button_show_overflow_menu"
+                style="@style/PageActionTabLayoutButtonStyle"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:clickable="true"
+                android:contentDescription="@string/menu_feed_overflow_label"
+                android:focusable="true"
+                android:text="@string/menu_page_overflow_label"
+                android:textColor="?attr/colorAccent"
+                app:drawableTint="?attr/colorAccent"
+                app:srcCompat="@drawable/ic_more_vert_themed_24dp" />
+        </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

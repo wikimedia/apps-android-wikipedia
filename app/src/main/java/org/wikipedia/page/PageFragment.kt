@@ -175,6 +175,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         savedInstanceState?.let {
             scrolledUpForThemeChange = it.getBoolean(ARG_THEME_CHANGE_SCROLLED, false)
         }
+        binding.pageToolbarButtonShowOverflowMenu.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_more_vert_themed_24dp, 0, 0)
+
         return binding.root
     }
 
