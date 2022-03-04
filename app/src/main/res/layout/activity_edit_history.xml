@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:id="@+id/edit_history_refresh_container">
 
+    <org.wikipedia.views.EditHistoryStatsView
+        android:id="@+id/edit_history_stats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/edit_history_recycler"
         android:layout_width="match_parent"

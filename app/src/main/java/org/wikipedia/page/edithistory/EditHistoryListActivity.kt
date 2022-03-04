@@ -72,6 +72,11 @@ class EditHistoryListActivity : BaseActivity() {
                 loadHeader.loadState = it.refresh
                 loadFooter.loadState = it.append
             }
+            viewModel.editHistoryStatsFlow.collectLatest {
+                if (it is EditHistoryListViewModel.EditHistoryStats) {
+                    binding.editHistoryStats.setup(viewModel.pageTitle.displayText, it)
+                }
+            }
         }
     }
 
