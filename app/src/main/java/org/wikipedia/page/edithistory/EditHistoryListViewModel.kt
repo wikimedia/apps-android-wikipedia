@@ -21,8 +21,7 @@ import java.util.*
 
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
-    private val _editHistoryStatsFlow = MutableStateFlow(EditHistoryItemModel())
-    val editHistoryStatsFlow = _editHistoryStatsFlow
+    val editHistoryStatsFlow = MutableStateFlow(EditHistoryItemModel())
 
     var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
     var comparing = false
@@ -86,7 +85,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                 }
             }
 
-        editHistoryStatsFlow.value = EditHistoryStats(mwResponse?.query?.pages?.first()?.revisions?.first()!!, editCountsResponse!!, articleMetricsResponse!!.firstItem.results)
+        editHistoryStatsFlow.value = (EditHistoryStats(mwResponse?.query?.pages?.first()?.revisions?.first()!!, editCountsResponse!!, articleMetricsResponse!!.firstItem.results))
     }
 
     fun toggleCompareState() {

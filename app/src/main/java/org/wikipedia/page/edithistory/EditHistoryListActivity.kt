@@ -32,12 +32,14 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.WikiErrorView
 
 class EditHistoryListActivity : BaseActivity() {
 
     private lateinit var binding: ActivityEditHistoryBinding
     private val editHistoryListAdapter = EditHistoryListAdapter()
+    private val editHistoryStatsAdapter = StatsItemAdapter()
     private val loadHeader = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
@@ -67,7 +69,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
-                .withLoadStateHeaderAndFooter(loadHeader, loadFooter)
+                .withLoadStateHeaderAndFooter(loadHeader, loadFooter).also { it.addAdapter(0, editHistoryStatsAdapter) }
 
         lifecycleScope.launch {
             viewModel.editHistoryFlow.collectLatest {
@@ -90,10 +92,10 @@ class EditHistoryListActivity : BaseActivity() {
                 loadHeader.loadState = it.refresh
                 loadFooter.loadState = it.append
             }
+        }
+        lifecycleScope.launchWhenCreated {
             viewModel.editHistoryStatsFlow.collectLatest {
-                if (it is EditHistoryListViewModel.EditHistoryStats) {
-                    binding.editHistoryStats.setup(viewModel.pageTitle.displayText, it)
-                }
+                editHistoryStatsAdapter.notifyItemChanged(0)
             }
         }
     }
@@ -130,6 +132,18 @@ class EditHistoryListActivity : BaseActivity() {
             return
         }
         super.onBackPressed()
+    }
+
+    private inner class StatsItemAdapter : RecyclerView.Adapter<StatsViewHolder>() {
+        override fun onBindViewHolder(holder: StatsViewHolder, position: Int) {
+            holder.bindItem()
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StatsViewHolder {
+            return StatsViewHolder(EditHistoryStatsView(this@EditHistoryListActivity))
+        }
+
+        override fun getItemCount(): Int { return 1 }
     }
 
     private inner class LoadingItemAdapter(
@@ -196,6 +210,16 @@ class EditHistoryListActivity : BaseActivity() {
             errorView.retryClickListener = OnClickListener { retry() }
             if (loadState is LoadState.Error) {
                 errorView.setError(loadState.error, viewModel.pageTitle)
+            }
+        }
+    }
+
+    private inner class StatsViewHolder constructor(itemView: View) :
+            RecyclerView.ViewHolder(itemView) {
+        fun bindItem() {
+            if (viewModel.editHistoryStatsFlow.value is EditHistoryListViewModel.EditHistoryStats) {
+                (itemView as EditHistoryStatsView).setup(viewModel.pageTitle.displayText,
+                        viewModel.editHistoryStatsFlow.value as EditHistoryListViewModel.EditHistoryStats)
             }
         }
     }
