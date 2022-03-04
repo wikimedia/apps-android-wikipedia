@@ -218,7 +218,7 @@ class EditHistoryListActivity : BaseActivity() {
         fun bindItem() {
             val statsFlowValue = viewModel.editHistoryStatsFlow.value
             if (statsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
-                view.setup(viewModel.pageTitle.displayText, statsFlowValue)
+                view.setup(viewModel.pageTitle, statsFlowValue)
             }
         }
     }

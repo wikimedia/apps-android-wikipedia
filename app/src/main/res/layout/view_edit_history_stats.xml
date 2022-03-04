@@ -34,7 +34,8 @@
             android:fontFamily="sans-serif"
             android:textStyle="bold"
             android:textColor="?colorAccent"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:background="?android:selectableItemBackground"/>
 
         <TextView
             android:id="@+id/editCountsView"
