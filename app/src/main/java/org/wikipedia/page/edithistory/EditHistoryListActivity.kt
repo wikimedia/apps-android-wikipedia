@@ -93,6 +93,7 @@ class EditHistoryListActivity : BaseActivity() {
                 loadFooter.loadState = it.append
             }
         }
+
         lifecycleScope.launchWhenCreated {
             viewModel.editHistoryStatsFlow.collectLatest {
                 editHistoryStatsAdapter.notifyItemChanged(0)
@@ -146,9 +147,7 @@ class EditHistoryListActivity : BaseActivity() {
         override fun getItemCount(): Int { return 1 }
     }
 
-    private inner class LoadingItemAdapter(
-            private val retry: () -> Unit
-    ) : LoadStateAdapter<LoadingViewHolder>() {
+    private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
         override fun onBindViewHolder(holder: LoadingViewHolder, loadState: LoadState) {
             holder.bindItem(loadState, retry)
         }
@@ -205,7 +204,8 @@ class EditHistoryListActivity : BaseActivity() {
     private inner class LoadingViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(loadState: LoadState, retry: () -> Unit) {
             val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
-            itemView.findViewById<TextView>(R.id.progressBar).isVisible = loadState is LoadState.Loading
+            val progressBar = itemView.findViewById<View>(R.id.progressBar)
+            progressBar.isVisible = loadState is LoadState.Loading
             errorView.isVisible = loadState is LoadState.Error
             errorView.retryClickListener = OnClickListener { retry() }
             if (loadState is LoadState.Error) {
@@ -214,12 +214,11 @@ class EditHistoryListActivity : BaseActivity() {
         }
     }
 
-    private inner class StatsViewHolder constructor(itemView: View) :
-            RecyclerView.ViewHolder(itemView) {
+    private inner class StatsViewHolder constructor(private val view: EditHistoryStatsView) : RecyclerView.ViewHolder(view) {
         fun bindItem() {
-            if (viewModel.editHistoryStatsFlow.value is EditHistoryListViewModel.EditHistoryStats) {
-                (itemView as EditHistoryStatsView).setup(viewModel.pageTitle.displayText,
-                        viewModel.editHistoryStatsFlow.value as EditHistoryListViewModel.EditHistoryStats)
+            val statsFlowValue = viewModel.editHistoryStatsFlow.value
+            if (statsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
+                view.setup(viewModel.pageTitle.displayText, statsFlowValue)
             }
         }
     }
@@ -231,15 +230,14 @@ class EditHistoryListActivity : BaseActivity() {
         }
     }
 
-    private inner class EditHistoryListItemHolder constructor(itemView: EditHistoryItemView) :
-            RecyclerView.ViewHolder(itemView), EditHistoryItemView.Listener {
+    private inner class EditHistoryListItemHolder constructor(private val view: EditHistoryItemView) : RecyclerView.ViewHolder(view), EditHistoryItemView.Listener {
         private lateinit var revision: MwQueryPage.Revision
 
         fun bindItem(revision: MwQueryPage.Revision) {
             this.revision = revision
-            (itemView as EditHistoryItemView).setContents(revision)
+            view.setContents(revision)
             updateSelectState()
-            itemView.listener = this
+            view.listener = this
         }
 
         override fun onClick() {
@@ -269,7 +267,7 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         private fun updateSelectState() {
-            (itemView as EditHistoryItemView).setSelectedState(viewModel.getSelectedState(revision))
+            view.setSelectedState(viewModel.getSelectedState(revision))
         }
     }
 
