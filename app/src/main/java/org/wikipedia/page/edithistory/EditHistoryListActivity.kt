@@ -34,6 +34,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.WikiErrorView
 
@@ -54,7 +55,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         binding.articleTitleView.visibility = View.GONE
         binding.articleTitlePrefixView.visibility = View.GONE
-        binding.articleTitleView.text = getString(R.string.page_edit_history_activity_label)
+        binding.articleTitleView.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
         binding.articleTitleView.setOnClickListener {
             startActivity(PageActivity.newIntentForNewTab(this, HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_HISTORY), viewModel.pageTitle))
         }
@@ -78,6 +79,15 @@ class EditHistoryListActivity : BaseActivity() {
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
                 .withLoadStateHeaderAndFooter(loadHeader, loadFooter).also { it.addAdapter(0, editHistoryStatsAdapter) }
+        binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                // TODO: find a better way to adjust the title.
+                val isVisible = if (binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height) View.VISIBLE else View.INVISIBLE
+                binding.articleTitleView.visibility = isVisible
+                binding.articleTitlePrefixView.visibility = isVisible
+            }
+        })
 
         lifecycleScope.launch {
             viewModel.editHistoryFlow.collectLatest {
@@ -153,18 +163,6 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun getItemCount(): Int { return 1 }
-
-        override fun onViewAttachedToWindow(holder: StatsViewHolder) {
-            super.onViewAttachedToWindow(holder)
-            binding.articleTitleView.visibility = View.GONE
-            binding.articleTitlePrefixView.visibility = View.GONE
-        }
-
-        override fun onViewDetachedFromWindow(holder: StatsViewHolder) {
-            super.onViewDetachedFromWindow(holder)
-            binding.articleTitleView.visibility = View.VISIBLE
-            binding.articleTitlePrefixView.visibility = View.VISIBLE
-        }
     }
 
     private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
