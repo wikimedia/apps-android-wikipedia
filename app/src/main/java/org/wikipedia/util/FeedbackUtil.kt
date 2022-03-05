@@ -25,6 +25,7 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.richtext.RichTextUtil
@@ -232,6 +233,7 @@ object FeedbackUtil {
             is RandomActivity -> R.id.random_coordinator_layout
             is ReadingListActivity -> R.id.fragment_reading_list_coordinator
             is SuggestionsActivity -> R.id.suggestedEditsCardsCoordinator
+            is EditHistoryListActivity -> R.id.edit_history_coordinator
             else -> android.R.id.content
         }
         return ActivityCompat.requireViewById(activity, viewId)
