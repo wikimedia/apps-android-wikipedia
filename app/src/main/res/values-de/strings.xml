@@ -80,6 +80,9 @@
   <string name="share_via">Teilen über</string>
   <string name="image_share_via">Teilen über</string>
   <string name="search_redirect_from">Weiterleitung von %s</string>
+  <string name="page_edit_history_activity_label">Versionsgeschichte</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Keine Zusammenfassung vorhanden</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
@@ -186,6 +189,7 @@
   <string name="dialog_create_account_checking_progress">Verifiziere</string>
   <string name="create_account_email_hint">E-Mail (optional)</string>
   <string name="create_account_password_repeat_hint">Passwort wiederholen</string>
+  <string name="create_account_password_is_username">Ein Passwort kann nicht mit dem Benutzernamen identisch sein</string>
   <string name="create_account_passwords_mismatch_error">Die Passwörter stimmen nicht überein.</string>
   <string name="create_account_email_error">Ungültige E-Mail-Adresse</string>
   <string name="create_account_username_error">Ungültige Zeichen im Benutzernamen</string>
