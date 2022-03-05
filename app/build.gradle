@@ -40,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 50395
+        versionCode 50396
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -181,7 +181,7 @@ dependencies {
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
     String mockitoVersion = '3.4.0'
-    String leakCanaryVersion = '2.7'
+    String leakCanaryVersion = '2.8.1'
     String kotlinCoroutinesVersion = '1.3.9'
     String firebaseMessagingVersion = '23.0.0'
     String mlKitVersion = '17.0.3'
@@ -200,6 +200,7 @@ dependencies {
     implementation "androidx.browser:browser:1.4.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation "androidx.fragment:fragment-ktx:1.4.1"
+    implementation "androidx.paging:paging-runtime-ktx:3.1.0"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "androidx.preference:preference-ktx:1.2.0"
     implementation "androidx.recyclerview:recyclerview:1.2.1"

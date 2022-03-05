@@ -9,20 +9,11 @@ object ViewAnimations {
     private val SHORT_ANIMATION_DURATION = WikipediaApp.getInstance().resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
     private val MEDIUM_ANIMATION_DURATION = WikipediaApp.getInstance().resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
 
-    @JvmStatic
-    fun crossFade(curView: View, newView: View) {
-        fadeIn(newView)
-        fadeOut(curView)
-    }
-
-    @JvmStatic
-    fun crossFade(curView: View, newView: View, runOnComplete: Runnable?) {
+    fun crossFade(curView: View, newView: View, runOnComplete: Runnable? = null) {
         fadeIn(newView)
         fadeOut(curView, runOnComplete)
     }
 
-    @JvmStatic
-    @JvmOverloads
     fun fadeIn(view: View, runOnComplete: Runnable? = null) {
         view.alpha = 0f
         view.visibility = View.VISIBLE
@@ -39,8 +30,6 @@ object ViewAnimations {
                 .start()
     }
 
-    @JvmStatic
-    @JvmOverloads
     fun fadeOut(view: View, runOnComplete: Runnable? = null) {
         view.animate().cancel()
         view.animate()
@@ -60,7 +49,6 @@ object ViewAnimations {
                 .start()
     }
 
-    @JvmStatic
     fun ensureTranslationY(view: View, translation: Int) {
         if (view.translationY != translation.toFloat()) {
             view.animate().translationY(translation.toFloat()).setDuration(SHORT_ANIMATION_DURATION).start()
