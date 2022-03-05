@@ -9,13 +9,49 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
         style="@style/ToolbarStyle">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical|end">
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:flexWrap="wrap"
+                app:justifyContent="flex_start">
+
+                <TextView
+                    android:id="@+id/articleTitlePrefixView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:lineSpacingExtra="4sp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/page_edit_history_activity_label_collapse"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/articleTitleView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:lineSpacingExtra="4sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="?colorAccent"
+                    android:textSize="24sp"
+                    android:background="?android:selectableItemBackground"/>
+
+            </com.google.android.flexbox.FlexboxLayout>
 
             <TextView
                 android:id="@+id/compareButton"

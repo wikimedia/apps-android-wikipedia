@@ -28,6 +28,8 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -49,7 +51,13 @@ class EditHistoryListActivity : BaseActivity() {
         binding = ActivityEditHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = getString(R.string.page_edit_history_activity_label)
+
+        binding.articleTitleView.visibility = View.GONE
+        binding.articleTitlePrefixView.visibility = View.GONE
+        binding.articleTitleView.text = getString(R.string.page_edit_history_activity_label)
+        binding.articleTitleView.setOnClickListener {
+            startActivity(PageActivity.newIntentForNewTab(this, HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_HISTORY), viewModel.pageTitle))
+        }
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
@@ -145,6 +153,18 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun getItemCount(): Int { return 1 }
+
+        override fun onViewAttachedToWindow(holder: StatsViewHolder) {
+            super.onViewAttachedToWindow(holder)
+            binding.articleTitleView.visibility = View.GONE
+            binding.articleTitlePrefixView.visibility = View.GONE
+        }
+
+        override fun onViewDetachedFromWindow(holder: StatsViewHolder) {
+            super.onViewDetachedFromWindow(holder)
+            binding.articleTitleView.visibility = View.VISIBLE
+            binding.articleTitlePrefixView.visibility = View.VISIBLE
+        }
     }
 
     private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
