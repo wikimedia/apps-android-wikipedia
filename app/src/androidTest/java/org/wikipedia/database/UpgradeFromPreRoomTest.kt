@@ -4,6 +4,7 @@ import androidx.room.Room
 import androidx.room.testing.MigrationTestHelper
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.platform.app.InstrumentationRegistry
+import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.MatcherAssert.assertThat
@@ -67,8 +68,8 @@ class UpgradeFromPreRoomTest(private val fromVersion: Int) {
     }
 
     @Test
-    fun testTablesAfterMigration() {
-        val recentSearches = recentSearchDao.getRecentSearches().blockingGet()
+    fun testTablesAfterMigration() = runBlocking {
+        val recentSearches = recentSearchDao.getRecentSearches()
         assertThat(recentSearches.size, equalTo(4))
         assertThat(recentSearches[0].text, equalTo("obama"))
         assertThat(recentSearches[3].text, equalTo("trump"))
