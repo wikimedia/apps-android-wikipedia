@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Dbrant
 * Karapananguasú Kururú Teremembé
 -->
 <resources>
@@ -33,6 +34,7 @@
   <string name="image_content_description">Çãgawa: %s</string>
   <string name="page_content_description">Sowa: %s</string>
   <string name="wikimedia_commons">Wikimediya Commons</string>
+  <string name="wikidata">Wikiyedata</string>
   <string name="dialog_title_clear_history">Umuéu sikáriçawa marãduwapawa</string>
   <string name="dialog_message_clear_history_yes">Ẽẽ</string>
   <string name="dialog_message_clear_history_no">Ãã</string>
@@ -214,8 +216,11 @@
   <string name="reading_list_title_exists">Mũgetá kamakaçawa \"%s\" aikué wã.</string>
   <string name="reading_list_article_added_to_named">Umburipíri\'ana %1$s, %2$s upé.</string>
   <string name="reading_list_article_added_to_default_list">%s karawata\'ana. Repurari rekarawatá yawá yepé kamakaçawa upé?</string>
+  <string name="reading_list_article_already_exists_message">Ikatú reté! %1$s urikú %2$s wã.</string>
+  <string name="reading_list_articles_already_exist_message">Ikatú reté! %s urikú panhẽ kuatiara\'etá wã.</string>
   <string name="reading_list_added_view_button">Umaã kamakaçawa</string>
   <string name="reading_list_add_to_list_button">Umburipíri kamakaçawa kití</string>
+  <string name="reading_list_sort_by_name">Upapari rera rupí</string>
   <string name="reading_list_menu_delete">Umuçaká kamakaçawa</string>
   <string name="reading_list_action_menu_remove_from_offline">Umuçaká yumũdianaĩma çuiwara</string>
   <string name="reading_list_action_menu_save_for_offline">Ukarawatá yumũdianaĩma arã</string>
@@ -244,6 +249,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Yumukaturuçawa\'etá</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ĩti, kuekatú</string>
   <string name="default_reading_list_name">Ukarawata\'ana</string>
+  <string name="reading_list_saved_list_rename">%1$s (umunhã\'ana puruçara rupí)</string>
   <string name="reading_lists_menu_create_list">Umunhã yepé kamakaçawa piçaçú</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">KATÚ</string>
   <string name="reading_list_delete_dialog_ok_button_text">KATÚ</string>
@@ -278,8 +284,17 @@
   <string name="notifications_search_bar_hint">Usikári ã uyumuá mbeuçawa\'etá</string>
   <string name="notifications_search_bar_filter_hint">Mbeuçawa\'etá yumuaçawa</string>
   <string name="notifications_menu_mark_as_read">Umuçãgau mayé mũgeta\'ana</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_main_page_card_title">Uye Wikipediya upé</string>
+  <string name="view_main_page_card_action">Umaã sowa yupirũgawara</string>
+  <string name="view_featured_image_card_title">ara rãgawa</string>
   <string name="view_featured_image_card_share">Umuĩ</string>
+  <string name="menu_feed_overflow_label">Purawakaçawa\'etá píri</string>
   <string name="home">Sowa yupirũgawara</string>
+  <string name="view_continue_reading_card_subtitle_today">Uye</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Umũgetá %s</string>
+  <string name="view_announcement_card_negative_action">Ĩti, kuekatú</string>
   <string name="customize_lang_selection_dialog_ok_button_text">KATÚ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Umuamunika</string>
   <string name="feed_lang_selection_dialog_ok_button_text">KATÚ</string>
@@ -293,6 +308,7 @@
   <string name="description_edit_edit_image_caption">Umurupiawa çãgawa titapawa</string>
   <string name="description_edit_translate_image_caption">Usinimukanhẽẽga çãgawa titapawa</string>
   <string name="description_edit_cancel_hint">Umuamunika</string>
+  <string name="description_edit_help_about_wikidata">Wikiyedata reçé</string>
   <string name="description_edit_voice_input_description">Kuruka ikeçawa</string>
   <string name="description_too_short">Pinimaçá mirĩ retãna.</string>
   <string name="description_edit_success_done">Umunhã\'ana</string>
@@ -359,6 +375,7 @@
   <string name="app_shortcuts_random">Mereçeçawara</string>
   <string name="app_shortcuts_search">Usikári</string>
   <string name="on_this_day_card_title">Kuá ara upé</string>
+  <string name="this_year">Kuá akayú rupí</string>
   <string name="languages_list_activity_title">Umburipíri yepé nhẽẽga</string>
   <string name="languages_list_all_text">Panhẽ nhẽẽga\'etá</string>
   <string name="wikipedia_languages_title">Wikipediya nhẽẽga\'etá</string>
@@ -392,9 +409,15 @@
   <string name="custom_date_picker_dialog_cancel_button_text">Umuamunika</string>
   <string name="talk_title">Murũgetaçawa</string>
   <string name="talk_user_title">Murũgetaçawa: %s</string>
+  <string name="talk_add_reply">Uçuaxara</string>
+  <string name="talk_search_hint">Usikári pareçawa\'etá</string>
   <string name="menu_option_share_talk_discussion">Umuĩ murũgetaçawa</string>
   <string name="menu_option_share_talk_page">Umuĩ murũgetaçawa sowa</string>
   <string name="menu_option_share_edit">Umuĩ murupiawa</string>
+  <string name="menu_option_user_profile">%s puruçara mainãgawa</string>
+  <string name="menu_option_user_contributions">%s pitimũgawa\'etá</string>
+  <string name="menu_option_edit_source">Umurupiawa sowa-yupinimaçawa</string>
+  <string name="watchlist_details_watching_label">Xipianawara</string>
   <string name="watchlist_details_watch_label">Uxipiá</string>
   <string name="thank_label">Kuekatú</string>
   <string name="view_user_page">Umaã puruçara sowa</string>
@@ -402,6 +425,7 @@
   <string name="thank_dialog_negative_button_text">Umuamunika</string>
   <string name="menu_option_view_user_profile">Umaã puruçara mainãgawa sowa</string>
   <string name="menu_option_view_user_talk">Umaã murũgetaçawa sowa</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Usinimuka</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 yarika rupí</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 yarika rupí</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 yarika rupí</string>

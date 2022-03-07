@@ -915,6 +915,8 @@
   <string name="thank_dialog_positive_button_text">Dankar</string>
   <string name="thank_dialog_negative_button_text">Nuligar</string>
   <string name="thank_success_message">Vua danko sendesis a %s 👍</string>
+  <string name="revision_compare_button">Komparez</string>
+  <string name="revision_compare_two_only">Nur du revizi povas selektesar.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifikar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanante</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">dum 1 semano</string>

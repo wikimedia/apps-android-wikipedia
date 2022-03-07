@@ -8,6 +8,7 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.core.graphics.ColorUtils
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
@@ -28,6 +29,9 @@ import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.DateUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.WikiErrorView
 
 class EditHistoryListActivity : BaseActivity() {
@@ -42,6 +46,20 @@ class EditHistoryListActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.title = getString(R.string.page_edit_history_activity_label)
+
+        val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
+        binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
+                ResourceUtil.getThemedColor(this, R.attr.colorAccent), 0.05f))
+        binding.compareToCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
+                ResourceUtil.getThemedColor(this, R.attr.color_group_68), 0.05f))
+        updateCompareState()
+
+        binding.compareButton.setOnClickListener {
+            viewModel.toggleCompareState()
+            updateCompareState()
+        }
 
         binding.editHistoryRefreshContainer.setOnRefreshListener {
             editHistoryListAdapter.refresh()
@@ -73,6 +91,40 @@ class EditHistoryListActivity : BaseActivity() {
                 loadFooter.loadState = it.append
             }
         }
+    }
+
+    private fun updateCompareState() {
+        binding.compareContainer.isVisible = viewModel.comparing
+        binding.compareButton.text = getString(if (!viewModel.comparing) R.string.revision_compare_button else android.R.string.cancel)
+        editHistoryListAdapter.notifyItemRangeChanged(0, editHistoryListAdapter.itemCount)
+        updateCompareStateItems()
+    }
+
+    private fun updateCompareStateItems() {
+        binding.compareFromCard.isVisible = viewModel.selectedRevisionFrom != null
+        if (viewModel.selectedRevisionFrom != null) {
+            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionFrom!!.timeStamp))
+        }
+        binding.compareToCard.isVisible = viewModel.selectedRevisionTo != null
+        if (viewModel.selectedRevisionTo != null) {
+            binding.compareToText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionTo!!.timeStamp))
+        }
+        if (viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null) {
+            binding.compareConfirmButton.isEnabled = true
+            binding.compareConfirmButton.setTextColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
+        } else {
+            binding.compareConfirmButton.isEnabled = false
+            binding.compareConfirmButton.setTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
+        }
+    }
+
+    override fun onBackPressed() {
+        if (viewModel.comparing) {
+            viewModel.toggleCompareState()
+            updateCompareState()
+            return
+        }
+        super.onBackPressed()
     }
 
     private inner class LoadingItemAdapter(
@@ -134,8 +186,7 @@ class EditHistoryListActivity : BaseActivity() {
     private inner class LoadingViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(loadState: LoadState, retry: () -> Unit) {
             val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
-            val progressBar = itemView.findViewById<View>(R.id.progressBar)
-            progressBar.isVisible = loadState is LoadState.Loading
+            itemView.findViewById<TextView>(R.id.progressBar).isVisible = loadState is LoadState.Loading
             errorView.isVisible = loadState is LoadState.Error
             errorView.retryClickListener = OnClickListener { retry() }
             if (loadState is LoadState.Error) {
@@ -152,18 +203,44 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class EditHistoryListItemHolder constructor(itemView: EditHistoryItemView) :
-            RecyclerView.ViewHolder(itemView), OnClickListener {
+            RecyclerView.ViewHolder(itemView), EditHistoryItemView.Listener {
         private lateinit var revision: MwQueryPage.Revision
 
         fun bindItem(revision: MwQueryPage.Revision) {
-            (itemView as EditHistoryItemView).setContents(revision)
-            itemView.setOnClickListener(this)
             this.revision = revision
+            (itemView as EditHistoryItemView).setContents(revision)
+            updateSelectState()
+            itemView.listener = this
         }
 
-        override fun onClick(v: View?) {
+        override fun onClick() {
             startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
                     viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
+        }
+
+        override fun onLongClick() {
+            if (!viewModel.comparing) {
+                viewModel.toggleCompareState()
+                updateCompareState()
+            }
+            toggleSelectState()
+        }
+
+        override fun onToggleSelect() {
+            toggleSelectState()
+        }
+
+        private fun toggleSelectState() {
+            if (!viewModel.toggleSelectRevision(revision)) {
+                FeedbackUtil.showMessage(this@EditHistoryListActivity, R.string.revision_compare_two_only)
+                return
+            }
+            updateSelectState()
+            updateCompareStateItems()
+        }
+
+        private fun updateSelectState() {
+            (itemView as EditHistoryItemView).setSelectedState(viewModel.getSelectedState(revision))
         }
     }
 

@@ -1119,6 +1119,8 @@
   <string name="thank_success_message">Dein Danke wurde an %s gesendet 👍</string>
   <string name="menu_option_view_user_profile">Benutzerprofil anzeigen</string>
   <string name="menu_option_view_user_talk">Diskussionsseite anzeigen</string>
+  <string name="revision_compare_button">Vergleichen</string>
+  <string name="revision_compare_two_only">Nur zwei Versionen können ausgewählt werden.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s und die Diskussionsseite wurde deiner Beobachtungsliste %2$s hinzugefügt.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändern</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">dauerhaft</string>
