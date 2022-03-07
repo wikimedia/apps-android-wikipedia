@@ -11,6 +11,8 @@ import static org.hamcrest.Matchers.emptyString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
+import android.net.Uri;
+
 @RunWith(RobolectricTestRunner.class) public class PageTitleTest {
     @Test public void testPrefixedText() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
@@ -62,6 +64,14 @@ import static org.hamcrest.Matchers.nullValue;
         WikiSite enwiki = WikiSite.forLanguageCode("en");
         assertThat(new PageTitle(null, "Test", enwiki).getWikiSite(), is(enwiki));
         assertThat(WikiSite.forLanguageCode("en"), is(enwiki));
+    }
+
+    @Test public void testLangAsNamespace() {
+        Uri uri = Uri.parse("https://en.wikipedia.org/wiki/fr:Article");
+        WikiSite site = new WikiSite(uri);
+        PageTitle title = site.titleForUri(uri);
+        assertThat(title.getWikiSite().authority(), is("fr.wikipedia.org"));
+        assertThat(title.getDisplayText(), is("Article"));
     }
 
     @Test public void testParsing() {
