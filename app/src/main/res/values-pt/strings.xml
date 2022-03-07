@@ -1082,7 +1082,7 @@
   <string name="talk_snackbar_survey_action_text">Começar</string>
   <string name="talk_share_discussion_subject">Wikipédia - discussão no tópico \"%s\" de página de discussão</string>
   <string name="talk_share_talk_page">Wikipédia - conversas em página de discussão</string>
-  <string name="talk_edit_disclaimer">Esta página é de discussão. Respeita as normas das páginas de discussão, por favor, e lembre-se de assinar as suas mensagens inserindo quatro tiles: ~~~~ ao publicá-las usando texto wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://pt.wikipedia.org/wiki/Wikipédia:Página de discussão de artigo\"&gt;Wikipédia:Página de discussão de artigo&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Esta página é de discussão. Respeite as normas das páginas de discussão, por favor, e lembre-se de assinar as suas mensagens inserindo quatro tiles  (~~~~) ao publicá-las usando texto wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://pt.wikipedia.org/wiki/Wikipédia:Página de discussão de artigo\"&gt;Wikipédia:Página de discussão de artigo&lt;/a&gt;</string>
   <string name="talk_search_hint">Pesquisar nas mensagens</string>
   <string name="talk_overflow_sort_by">Ordenar por</string>
   <string name="talk_overflow_sort_date_published">Data de publicação</string>

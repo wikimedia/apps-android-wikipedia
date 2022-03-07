@@ -127,13 +127,13 @@
   <string name="dialog_message_leaving_edit">修改尚未發布，確定要離開此頁面嗎？</string>
   <string name="dialog_message_leaving_edit_leave">離開</string>
   <string name="dialog_message_leaving_edit_stay">留在這裡</string>
-  <string name="menu_show_toc">目錄</string>
+  <string name="menu_show_toc">目次</string>
   <string name="search_no_results_found">找不到任何結果</string>
   <string name="search_reading_list_no_results">在「%s」查無結果</string>
   <string name="search_reading_lists_no_results">在閱讀清單查無結果</string>
   <string name="search_history_no_results">在歷史查無結果</string>
   <string name="edit_section_captcha_message">為了防止自動化的垃圾訊息，請輸入下方顯示的文字</string>
-  <string name="edit_section_captcha_request_an_account_message">看不到圖片嗎？您可以來&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;請求一個帳號&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">看不到圖片嗎？您可以&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;申請帳號&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">請重複輸入上面的文字</string>
   <string name="title_captcha">輸入驗證碼</string>
   <string name="edit_section_captcha_reload">輕觸驗證碼以重新載入</string>
@@ -196,7 +196,7 @@
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">詳細資料</string>
   <string name="preferences_general_heading">一般</string>
-  <string name="preferences_account_heading">帳戶</string>
+  <string name="preferences_account_heading">帳號</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
   <string name="send_feedback">傳送應用程式意見回饋</string>
   <string name="create_account_account_created_toast">已建立帳號！</string>
@@ -415,7 +415,7 @@
   <string name="article_menu_bar_language_button">語言</string>
   <string name="article_menu_bar_search_button">搜尋</string>
   <string name="article_menu_bar_theme_button">佈景主題</string>
-  <string name="article_menu_bar_contents_button">目錄</string>
+  <string name="article_menu_bar_contents_button">目次</string>
   <string name="article_header_edit_hint">編輯…</string>
   <string name="article_header_edit_description">編輯條目描述</string>
   <string name="article_header_edit_lead_section">編輯簡介</string>
@@ -1109,7 +1109,7 @@
   <string name="menu_option_view_user_profile">檢視使用者個人檔案頁面</string>
   <string name="menu_option_view_user_talk">檢視討論頁</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s與該討論頁已新增到您的監視清單%2$s。</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">變更</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 週</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 個月</string>

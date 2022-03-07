@@ -74,9 +74,9 @@
   <string name="share_via">다음을 통해 공유</string>
   <string name="image_share_via">다음을 통해 공유</string>
   <string name="search_redirect_from">%s에서 넘어옴</string>
-  <string name="page_edit_history_activity_label" fuzzy="true">문서 역사</string>
+  <string name="page_edit_history_activity_label">판 역사</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;잔글&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder" fuzzy="true">이 편집에 관한 의견이 없습니다</string>
+  <string name="page_edit_history_comment_placeholder">빈 편집 요약</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
@@ -1091,6 +1091,8 @@
   <string name="thank_success_message">%s님에게 감사를 표했습니다 👍</string>
   <string name="menu_option_view_user_profile">사용자 프로필 페이지 보기</string>
   <string name="menu_option_view_user_talk">토론 문서 보기</string>
+  <string name="revision_compare_button">비교</string>
+  <string name="revision_compare_two_only">판 2개만 선택할 수 있습니다</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s 문서 및 토론 문서가 주시문서 목록 %2$s에 추가되었습니다.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">변경</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">영구적으로</string>
