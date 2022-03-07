@@ -661,7 +661,7 @@
   <string name="view_featured_article_card_title">Хержа статья</string>
   <string name="view_static_card_save_button_label">ДӀайила</string>
   <string name="feed_configure_activity_title">Лентай оттамаш хувца</string>
-  <string name="feed_configure_menu_reset">Юхаметтаоттае луттаргаш юххьанцара хиннача тайпара</string>
+  <string name="feed_configure_menu_reset">Тхьовра хиннача тайпара хургдолаш юхахьаметтаоттае луттаргаш</string>
   <string name="feed_configure_menu_select_all">Дерригаш хьагойта</string>
   <string name="feed_configure_menu_deselect_all">Дерригаш дӀакъайладаха</string>
   <string name="feed_configure_language_warning">Лентай деррига карточкаш дац хьахьувкхаш массадолча меттала. Оттамашка дӀаоттаде йиш я малагӀча метта Википеден разделашкара карточкаш хьагойта деза.</string>
