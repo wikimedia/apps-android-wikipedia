@@ -159,7 +159,7 @@ data class WikiSite(
             return WikipediaApp.getInstance().language().getDefaultLanguageCode(languageCode) ?: normalizeLanguageCode(languageCode)
         }
 
-        private fun authorityToLanguageCode(authority: String): String {
+        fun authorityToLanguageCode(authority: String): String {
             val parts = authority.split("\\.".toRegex()).toTypedArray()
             val minLengthForSubdomain = 3
             return if (parts.size < minLengthForSubdomain ||
