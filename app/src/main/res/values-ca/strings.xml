@@ -68,9 +68,9 @@
   <string name="share_via">Comparteix mitjançant…</string>
   <string name="image_share_via">Compareteix amb</string>
   <string name="search_redirect_from">Redirigit des de %s</string>
-  <string name="page_edit_history_activity_label" fuzzy="true">Historial de la pàgina</string>
+  <string name="page_edit_history_activity_label">Historial de revisions</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder" fuzzy="true">No hi ha cap comentari associat a aquesta modificació</string>
+  <string name="page_edit_history_comment_placeholder">Resum d\'edició buit</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cerca a l\'article</string>
@@ -1108,6 +1108,8 @@
   <string name="thank_success_message">S\'han enviat els agraïments a %s 👍</string>
   <string name="menu_option_view_user_profile">Mosta la pàgina de perfil d\'usuari</string>
   <string name="menu_option_view_user_talk">Mosta la pàgina de discussió</string>
+  <string name="revision_compare_button">Comparar</string>
+  <string name="revision_compare_two_only">Només es poden seleccionar dues revisions.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s i la seva pàgina de discussió s\'han afegit a la vostra llista de seguiment %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Canvia</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentment</string>
