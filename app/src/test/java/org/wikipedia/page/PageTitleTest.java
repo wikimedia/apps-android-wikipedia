@@ -1,10 +1,5 @@
 package org.wikipedia.page;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.emptyString;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
-
 import android.net.Uri;
 
 import org.junit.Test;
@@ -12,6 +7,11 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.staticdata.MainPageNameData;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.emptyString;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 
 @RunWith(RobolectricTestRunner.class) public class PageTitleTest {
     @Test public void testPrefixedText() {
