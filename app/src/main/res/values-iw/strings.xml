@@ -1165,6 +1165,8 @@
   <string name="thank_success_message">התודה שלך נשלחה למשתמש %s 👍</string>
   <string name="menu_option_view_user_profile">הצגת דף פרופיל משתמש</string>
   <string name="menu_option_view_user_talk">הצגת דף שיחה</string>
+  <string name="revision_compare_button">השוואה</string>
+  <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>
