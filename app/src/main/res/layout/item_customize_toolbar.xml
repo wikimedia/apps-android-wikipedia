@@ -23,6 +23,6 @@
         android:contentDescription="@string/customize_toolbar_item_drag_handle_default_tooltip"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_draggable"
-        app:tint="?attr/chart_shade4" />
+        app:tint="?android:attr/textColorTertiary" />
 
 </merge>

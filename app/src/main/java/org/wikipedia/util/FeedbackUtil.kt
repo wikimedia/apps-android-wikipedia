@@ -6,8 +6,7 @@ import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnLongClickListener
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
@@ -39,6 +38,10 @@ object FeedbackUtil {
     val LENGTH_MEDIUM = TimeUnit.SECONDS.toMillis(8).toInt()
     val LENGTH_LONG = TimeUnit.SECONDS.toMillis(15).toInt()
     private val TOOLBAR_LONG_CLICK_LISTENER = OnLongClickListener { v: View ->
+        showToastOverView(v, v.contentDescription, LENGTH_DEFAULT)
+        true
+    }
+    private val TOOLBAR_ON_CLICK_LISTENER = OnClickListener { v: View ->
         showToastOverView(v, v.contentDescription, LENGTH_DEFAULT)
         true
     }
@@ -122,6 +125,12 @@ object FeedbackUtil {
     fun setButtonLongPressToast(vararg views: View) {
         for (v in views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER)
+        }
+    }
+
+    fun setButtonOnClickToast(vararg views: View) {
+        for (v in views) {
+            v.setOnClickListener(TOOLBAR_ON_CLICK_LISTENER)
         }
     }
 

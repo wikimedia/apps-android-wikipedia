@@ -24,7 +24,7 @@ class CustomizeToolbarItemView : LinearLayout {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
-        FeedbackUtil.setButtonLongPressToast(binding.listItem, binding.dragHandle)
+        FeedbackUtil.setButtonOnClickToast(binding.listItem, binding.dragHandle)
     }
 
     fun setContents(pageActionItem: PageActionItem, position: Int) {
