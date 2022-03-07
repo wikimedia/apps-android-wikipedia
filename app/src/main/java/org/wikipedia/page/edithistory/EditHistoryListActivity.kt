@@ -28,8 +28,6 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -54,11 +52,7 @@ class EditHistoryListActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
 
         binding.articleTitleView.visibility = View.GONE
-        binding.articleTitlePrefixView.visibility = View.GONE
-        binding.articleTitleView.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
-        binding.articleTitleView.setOnClickListener {
-            startActivity(PageActivity.newIntentForNewTab(this, HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_HISTORY), viewModel.pageTitle))
-        }
+        binding.articleTitleView.text = getString(R.string.page_edit_history_activity_label_collapse, StringUtil.fromHtml(viewModel.pageTitle.displayText))
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
@@ -85,7 +79,6 @@ class EditHistoryListActivity : BaseActivity() {
                 // TODO: find a better way to adjust the title.
                 val isVisible = if (binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height) View.VISIBLE else View.INVISIBLE
                 binding.articleTitleView.visibility = isVisible
-                binding.articleTitlePrefixView.visibility = isVisible
             }
         })
 

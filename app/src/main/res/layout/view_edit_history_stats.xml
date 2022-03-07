@@ -23,7 +23,8 @@
             android:text="@string/page_edit_history_activity_label"
             android:textColor="?attr/primary_text_color"
             android:textSize="24sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:hyphenationFrequency="normal"/>
 
         <TextView
             android:id="@+id/articleTitleView"

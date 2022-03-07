@@ -10,70 +10,42 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
         style="@style/ToolbarStyle">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
 
-            <com.google.android.flexbox.FlexboxLayout
-                android:id="@+id/flexboxLayout"
+            <TextView
+                android:id="@+id/articleTitleView"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/compareButton"
-                app:flexWrap="wrap"
-                app:justifyContent="flex_start">
-
-                <TextView
-                    android:id="@+id/articleTitlePrefixView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:textAlignment="center"
-                    android:lineSpacingExtra="4sp"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/page_edit_history_activity_label_collapse"
-                    android:textColor="?attr/primary_text_color"
-                    android:textSize="24sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/articleTitleView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:gravity="center_vertical"
-                    android:lineSpacingExtra="4sp"
-                    android:fontFamily="sans-serif"
-                    android:textStyle="bold"
-                    android:textColor="?colorAccent"
-                    android:textSize="24sp"
-                    android:background="?android:selectableItemBackground"/>
-
-            </com.google.android.flexbox.FlexboxLayout>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:lineSpacingExtra="4sp"
+                android:fontFamily="sans-serif"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@string/page_edit_history_activity_label_collapse"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/compareButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?android:selectableItemBackgroundBorderless"
                 android:textColor="?attr/colorAccent"
                 android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
-                android:text="@string/revision_compare_button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:text="@string/revision_compare_button"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
