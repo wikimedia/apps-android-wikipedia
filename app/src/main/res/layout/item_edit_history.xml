@@ -62,33 +62,11 @@
             app:layout_constraintTop_toTopOf="@id/editHistoryTitle"
             tools:text="12:00" />
 
-        <TextView
-            android:id="@+id/diffText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_8dp_corner_group_22"
-            android:clickable="false"
-            android:fontFamily="sans-serif-medium"
-            android:paddingStart="12dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="12dp"
-            android:paddingBottom="8dp"
-            android:textAllCaps="false"
-            android:textColor="?attr/material_theme_secondary_color"
-            app:layout_constraintStart_toStartOf="@id/editHistoryTitle"
-            app:layout_constraintTop_toBottomOf="@id/editHistoryTitle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"
-            tools:text="+123" />
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/userNameText"
             style="@style/FlatButton.Small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:clickable="false"
             android:ellipsize="end"
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
@@ -102,14 +80,25 @@
             app:iconPadding="8dp"
             app:iconSize="16dp"
             app:iconTint="?attr/material_theme_secondary_color"
-            app:layout_constraintStart_toEndOf="@id/diffText"
-            app:layout_constraintTop_toTopOf="@id/diffText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@id/diffText"
+            app:layout_constraintStart_toStartOf="@id/editHistoryTitle"
+            app:layout_constraintTop_toBottomOf="@id/editHistoryTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintWidth_max="wrap"
             tools:text="Username" />
+
+        <TextView
+            android:id="@+id/diffText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintStart_toEndOf="@id/userNameText"
+            app:layout_constraintBaseline_toBaselineOf="@id/userNameText"
+            android:layout_marginStart="12dp"
+            tools:text="+123" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
