@@ -50,6 +50,9 @@
   <string name="share_via">Сподели преку</string>
   <string name="image_share_via">Сподели преку</string>
   <string name="search_redirect_from">Пренасочено од %s</string>
+  <string name="page_edit_history_activity_label">Историја на измените</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;с&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Празен опис на измени</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди во статијата</string>
@@ -156,6 +159,7 @@
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Е-пошта (незадолжително)</string>
   <string name="create_account_password_repeat_hint">Повторете ја лозинката</string>
+  <string name="create_account_password_is_username">Лозинката не може да биде иста како корисничкото име</string>
   <string name="create_account_passwords_mismatch_error">Лозинките не се совпаѓаат</string>
   <string name="create_account_email_error">Неважечка е-пошта</string>
   <string name="create_account_username_error">Неважечки знаци или корисничко име</string>
@@ -1086,6 +1090,8 @@
   <string name="thank_success_message">Вашата благодарница е испратена на %s 👍</string>
   <string name="menu_option_view_user_profile">Погл. кориснички профил</string>
   <string name="menu_option_view_user_talk">Погл. разговорна страница</string>
+  <string name="revision_compare_button">Спореди</string>
+  <string name="revision_compare_two_only">Можете да изберете само две преработки.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и нејзината разговорна страница се додадени во вашите набљудувања %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Смени</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>

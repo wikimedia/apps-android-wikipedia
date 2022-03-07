@@ -79,6 +79,9 @@
   <string name="share_via">Dialog title text for Share list.\n\nThe Share list contains the following menu items (localized):\n* Mail\n* Message</string>
   <string name="image_share_via">Text for button to share image via different means.\n{{Identical|Share via}}</string>
   <string name="search_redirect_from">Label shown when a search result is redirected from the original search query. The \"%s\" symbol is replaced with the redirect source.</string>
+  <string name="page_edit_history_activity_label">Label text for the new edit history screen.</string>
+  <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit. %s represents the edit comment.</string>
+  <string name="page_edit_history_comment_placeholder">Placeholder text when a comment is not available on an edit.</string>
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
@@ -1110,6 +1113,8 @@
   <string name="thank_success_message">Message shown to user after thanking an edit in the diff screen. %s is the contributing user\'s username.</string>
   <string name="menu_option_view_user_profile">Menu label to navigate to the user page of the selected user.</string>
   <string name="menu_option_view_user_talk">Menu label to navigate to the talk page of the selected user.</string>
+  <string name="revision_compare_button">Button label for comparing two revisions.</string>
+  <string name="revision_compare_two_only">Error message when the user attempts to select more than two revisions for comparison.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.\n\n{{Identical|Change}}</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>

@@ -74,7 +74,7 @@
   <string name="last_updated_text">لميزاجور اللخر %s</string>
   <string name="talk_page_link_text">شوف الصفحة ديال لهضرة</string>
   <string name="edit_history_link_text">شوف ليسطوريك ديال التعدال</string>
-  <string name="map_view_link_text">شوف فخريطة</string>
+  <string name="map_view_link_text">شوف ف خريطة</string>
   <string name="other_languages_indication_text">قرا بلغة خرى</string>
   <string name="language_count_link_text">موجود ف %d لغة خرى</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>

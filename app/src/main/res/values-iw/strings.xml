@@ -66,6 +66,9 @@
   <string name="share_via">שיתוף באמצעות</string>
   <string name="image_share_via">שיתוף דרך</string>
   <string name="search_redirect_from">הופנה מהדף %s</string>
+  <string name="page_edit_history_activity_label">היסטוריית הגרסאות</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;מ&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">תקציר עריכה ריק</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
@@ -172,6 +175,7 @@
   <string name="dialog_create_account_checking_progress">אימות</string>
   <string name="create_account_email_hint">דואר אלקטרוני (לא חובה)</string>
   <string name="create_account_password_repeat_hint">חזרה על סיסמה</string>
+  <string name="create_account_password_is_username">הסיסמה אינה יכולה להיות זהה לשם המשתמש</string>
   <string name="create_account_passwords_mismatch_error">הסיסמאות אינן תואמות</string>
   <string name="create_account_email_error">כתובת דוא\"ל שגויה</string>
   <string name="create_account_username_error">תווים בלתי־תקינים בשם המשתמש</string>
@@ -1161,6 +1165,8 @@
   <string name="thank_success_message">התודה שלך נשלחה למשתמש %s 👍</string>
   <string name="menu_option_view_user_profile">הצגת דף פרופיל משתמש</string>
   <string name="menu_option_view_user_talk">הצגת דף שיחה</string>
+  <string name="revision_compare_button">השוואה</string>
+  <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>
