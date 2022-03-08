@@ -72,7 +72,8 @@
             android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -85,7 +86,9 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.Page"
             android:launchMode="singleTask"
-            android:parentActivityName=".main.MainActivity">
+            android:parentActivityName=".main.MainActivity"
+            android:exported="false"
+            tools:ignore="AppLinkUrlError">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".main.MainActivity" />
@@ -108,72 +111,87 @@
             android:name=".crash.CrashReportActivity"
             android:label="@string/crash_report_activity_title"
             android:noHistory="true"
+            android:exported="true"
             android:excludeFromRecents="true" />
         <activity
             android:name=".settings.SettingsActivity"
             android:label="@string/settings_activity_title"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".settings.DeveloperSettingsActivity"
             android:label="@string/developer_settings_activity_title"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".settings.NotificationSettingsActivity"
             android:label="@string/notification_preferences_title"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".settings.AboutActivity"
             android:label="@string/about_activity_title"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar" />
         <activity android:name=".settings.languages.WikipediaLanguagesActivity"
             android:label="@string/wikipedia_languages_title"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar"/>
         <activity
             android:name=".language.LangLinksActivity"
             android:label="@string/langlinks_activity_title"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar.LanguagesList"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".language.LanguagesListActivity"
             android:label="@string/languages_list_activity_title"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar.LanguagesList"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".editactionfeed.AddTitleDescriptionsActivity"
             android:screenOrientation="portrait"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar"
             android:parentActivityName=".editactionfeed.EditTasksActivity"/>
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"
+            android:exported="true"
             android:windowSoftInputMode="adjustResize|stateVisible"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/login_activity_title"
             android:theme="@style/AppTheme.ActionBar"
+            android:exported="true"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".createaccount.CreateAccountActivity"
             android:theme="@style/AppTheme.ActionBar"
             android:label="@string/create_account_activity_title"
+            android:exported="true"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.ResetPasswordActivity"
             android:label="@string/reset_password_title"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".gallery.GalleryActivity"
+            android:exported="true"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.FullScreen" />
         <activity
             android:name=".settings.LicenseActivity"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar"
             tools:ignore="GoogleAppIndexingUrlError">
             <intent-filter>
@@ -184,14 +202,17 @@
         </activity>
 
         <activity
-            android:name=".feed.news.NewsActivity" />
+            android:name=".feed.news.NewsActivity"
+            android:exported="true"/>
 
         <activity
             android:name=".descriptions.DescriptionEditActivity"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true"/>
 
         <activity
             android:name=".search.SearchActivity"
+            android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter android:label="@string/intent_share_search_label">
                 <action android:name="android.intent.action.SEND" />
@@ -207,51 +228,64 @@
 
         <activity
             android:name=".descriptions.DescriptionEditSuccessActivity"
+            android:exported="true"
             android:theme="@style/AppTheme.FullScreen.TranslucentDark"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name=".descriptions.DescriptionEditTutorialActivity" />
+            android:name=".descriptions.DescriptionEditTutorialActivity"
+            android:exported="true"/>
 
         <activity
-            android:name=".readinglist.ReadingListActivity" />
+            android:name=".readinglist.ReadingListActivity"
+            android:exported="true"/>
 
         <activity
-            android:name=".onboarding.InitialOnboardingActivity"/>
+            android:name=".onboarding.InitialOnboardingActivity"
+            android:exported="true"/>
 
         <activity
             android:name=".feed.mostread.MostReadArticlesActivity"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity android:name=".feed.onthisday.OnThisDayActivity"
+            android:exported="true"
             android:configChanges="orientation|screenSize"/>
 
         <activity android:name=".feed.configure.ConfigureActivity"
+            android:exported="true"
             android:label="@string/feed_configure_activity_title"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity android:name=".random.RandomActivity"
+            android:exported="true"
             android:label="@string/view_random_card_title"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity android:name=".theme.ThemeFittingRoomActivity"
+            android:exported="true"
             android:label="@string/preference_title_app_theme"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
             android:name=".notifications.NotificationActivity"
+            android:exported="true"
             android:label="@string/notifications_activity_title"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
             android:name=".page.tabs.TabActivity"
+            android:exported="true"
             android:theme="@style/AppTheme" />
 
         <activity
             android:name=".editactionfeed.EditTasksActivity"
+            android:exported="true"
             android:label="@string/edit_tasks_activity_title"
             android:theme="@style/AppTheme.ActionBar" />
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"
@@ -277,6 +311,7 @@
         <receiver
             android:icon="@mipmap/launcher"
             android:label="@string/widget_name_search"
+            android:exported="true"
             android:name="org.wikipedia.widgets.WidgetProviderSearch" >
             <intent-filter >
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -290,6 +325,7 @@
         <receiver
             android:icon="@mipmap/launcher"
             android:label="@string/widget_name_featured_page"
+            android:exported="true"
             android:name="org.wikipedia.widgets.WidgetProviderFeaturedPage" >
             <intent-filter >
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -306,14 +342,16 @@
         for installing the app contained a "referrer" query parameter. This is why the receiver
         needs to be exported.
         -->
-        <receiver android:name=".analytics.InstallReceiver">
+        <receiver android:name=".analytics.InstallReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".notifications.NotificationPollBroadcastReceiver">
+        <receiver android:name=".notifications.NotificationPollBroadcastReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name=".notifications.NotificationPollBroadcastReceiver.ACTION_POLL" />

@@ -37,25 +37,19 @@ def computeVersionName(label) {
     return "2.7.${android.defaultConfig.versionCode}-${label}-${date}"
 }
 
-final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 android {
     // Keep version in sync with /project.properties
-    compileSdkVersion 30
+    compileSdkVersion 32
 
     compileOptions {
-        sourceCompatibility = JAVA_VERSION
-        targetCompatibility = JAVA_VERSION
-    }
-
-    dexOptions {
-        preDexLibraries = preDexEnabled
-        jumboMode = true
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdkVersion 32
         versionCode 50283
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
@@ -184,9 +178,6 @@ android.applicationVariants.all { variant ->
     }
 }
 
-apply from: '../gradle/src/test.gradle'
-apply from: '../gradle/src/checkstyle.gradle'
-
 dependencies {
 
     // To keep the Maven Central dependencies up-to-date
@@ -201,7 +192,6 @@ dependencies {
     String frescoVersion = '1.13.0' // When updating this version, resync file copies under app/src/main/java/com/facebook
     String testingSupportVersion = '1.0.2'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
-    String leakCanaryVersion = '1.6.2'
 
     // Necessary for getting updated Root Certificates on older devices:
     implementation "com.google.android.gms:play-services-base:16.1.0"
@@ -243,17 +233,9 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.9'
     implementation 'org.jsoup:jsoup:1.12.1'
 
-    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
 
-    android.productFlavors.each { flavor ->
-        String dep
-        if('dev' == flavor.name) {
-            dep = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
-        } else {
-            dep = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
-        }
-        "${flavor.name}Implementation" dep
-    }
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
     testImplementation 'junit:junit:4.12'
     testImplementation mockitoCore

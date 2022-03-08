@@ -6,7 +6,6 @@ import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 
 /**
@@ -22,12 +21,6 @@ public class ExtendedBottomSheetDialogFragment extends BottomSheetDialogFragment
     public void onStart() {
         super.onStart();
         setWindowLayout();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        WikipediaApp.getInstance().getRefWatcher().watch(this);
     }
 
     @Override

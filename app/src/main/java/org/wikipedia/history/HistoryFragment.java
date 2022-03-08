@@ -192,12 +192,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        app.getRefWatcher().watch(this);
-    }
-
-    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_history, menu);
     }

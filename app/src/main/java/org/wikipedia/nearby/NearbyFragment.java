@@ -196,7 +196,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
     public void onDestroy() {
         disposables.clear();
         super.onDestroy();
-        WikipediaApp.getInstance().getRefWatcher().watch(this);
     }
 
     @Override
