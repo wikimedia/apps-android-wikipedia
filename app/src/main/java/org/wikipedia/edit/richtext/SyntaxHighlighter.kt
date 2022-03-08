@@ -118,8 +118,11 @@ class SyntaxHighlighter(
         }
 
         override fun call(): MutableList<SpanExtents> {
+            var time = System.currentTimeMillis()
+
             val spanStack = Stack<SpanExtents>()
             val spansToSet = mutableListOf<SpanExtents>()
+            val textChars = text.toString().toCharArray()
 
             /*
             The (naïve) algorithm:
@@ -128,17 +131,17 @@ class SyntaxHighlighter(
             Span to be added to the EditText at the corresponding location.
              */
             var i = 0
-            while (i < text.length) {
+            while (i < textChars.size) {
                 var newSpanInfo: SpanExtents
                 var incrementDone = false
                 for (syntaxItem in syntaxRules) {
-                    if (i + syntaxItem.startSymbol.length > text.length) {
+                    if (i + syntaxItem.startChars.size > text.length) {
                         continue
                     }
                     if (syntaxItem.isStartEndSame) {
                         var pass = true
-                        for (j in syntaxItem.startSymbol.indices) {
-                            if (text[i + j] != syntaxItem.startSymbol[j]) {
+                        for (j in 0 until syntaxItem.startChars.size) {
+                            if (textChars[i + j] != syntaxItem.startChars[j]) {
                                 pass = false
                                 break
                             }
@@ -146,19 +149,19 @@ class SyntaxHighlighter(
                         if (pass) {
                             if (spanStack.size > 0 && spanStack.peek().syntaxRule == syntaxItem) {
                                 newSpanInfo = spanStack.pop()
-                                newSpanInfo.end = i + syntaxItem.startSymbol.length
+                                newSpanInfo.end = i + syntaxItem.startChars.size
                                 spansToSet.add(newSpanInfo)
                             } else {
                                 val sp = syntaxItem.spanStyle.createSpan(context, i, syntaxItem)
                                 spanStack.push(sp)
                             }
-                            i += syntaxItem.startSymbol.length
+                            i += syntaxItem.startChars.size
                             incrementDone = true
                         }
                     } else {
                         var pass = true
-                        for (j in syntaxItem.startSymbol.indices) {
-                            if (text[i + j] != syntaxItem.startSymbol[j]) {
+                        for (j in 0 until syntaxItem.startChars.size) {
+                            if (textChars[i + j] != syntaxItem.startChars[j]) {
                                 pass = false
                                 break
                             }
@@ -166,16 +169,16 @@ class SyntaxHighlighter(
                         if (pass) {
                             val sp = syntaxItem.spanStyle.createSpan(context, i, syntaxItem)
                             spanStack.push(sp)
-                            i += syntaxItem.startSymbol.length
+                            i += syntaxItem.startChars.size
                             incrementDone = true
                         }
                         // skip the check of end symbol when start symbol is found at end of the text
-                        if (i + syntaxItem.startSymbol.length > text.length) {
+                        if (i + syntaxItem.startChars.size > text.length) {
                             continue
                         }
                         pass = true
-                        for (j in syntaxItem.endSymbol.indices) {
-                            if (text[i + j] != syntaxItem.endSymbol[j]) {
+                        for (j in 0 until syntaxItem.endChars.size) {
+                            if (textChars[i + j] != syntaxItem.endChars[j]) {
                                 pass = false
                                 break
                             }
@@ -183,10 +186,10 @@ class SyntaxHighlighter(
                         if (pass) {
                             if (spanStack.size > 0 && spanStack.peek().syntaxRule == syntaxItem) {
                                 newSpanInfo = spanStack.pop()
-                                newSpanInfo.end = i + syntaxItem.endSymbol.length
+                                newSpanInfo.end = i + syntaxItem.endChars.size
                                 spansToSet.add(newSpanInfo)
                             }
-                            i += syntaxItem.endSymbol.length
+                            i += syntaxItem.endChars.size
                             incrementDone = true
                         }
                     }
@@ -198,6 +201,9 @@ class SyntaxHighlighter(
                     i++
                 }
             }
+
+            time = System.currentTimeMillis() - time
+            L.d(">>> Took $time ms")
             return spansToSet
         }
     }
