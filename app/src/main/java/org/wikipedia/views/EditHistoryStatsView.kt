@@ -31,7 +31,7 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
 
     fun setup(pageTitle: PageTitle, editHistoryStats: EditHistoryListViewModel.EditHistoryStats) {
         binding.articleTitleView.text = StringUtil.fromHtml(context.getString(R.string.page_edit_history_activity_title_with_url, pageTitle.displayText))
-        RichTextUtil.removeUnderlinesFromLinks(binding.articleTitleView )
+        RichTextUtil.removeUnderlinesFromLinks(binding.articleTitleView)
         val timestamp = editHistoryStats.revision.timeStamp
         if (timestamp.isNotBlank()) {
             val createdYear = DateUtil.getYearOnlyDateString(DateUtil.iso8601DateParse(timestamp))
