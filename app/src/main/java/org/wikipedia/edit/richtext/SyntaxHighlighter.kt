@@ -135,7 +135,7 @@ class SyntaxHighlighter(
                 var newSpanInfo: SpanExtents
                 var incrementDone = false
                 for (syntaxItem in syntaxRules) {
-                    if (i + syntaxItem.startChars.size > text.length) {
+                    if (i + syntaxItem.startChars.size > textChars.size) {
                         continue
                     }
                     if (syntaxItem.isStartEndSame) {
@@ -173,7 +173,7 @@ class SyntaxHighlighter(
                             incrementDone = true
                         }
                         // skip the check of end symbol when start symbol is found at end of the text
-                        if (i + syntaxItem.startChars.size > text.length) {
+                        if (i + syntaxItem.startChars.size > textChars.size) {
                             continue
                         }
                         pass = true

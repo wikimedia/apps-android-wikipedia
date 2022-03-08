@@ -10,14 +10,14 @@ package org.wikipedia.edit.richtext
  *                     |
  *                 spanStyle
  */
-class SyntaxRule(val startSym: String, val endSym: String, val spanStyle: SyntaxRuleStyle) {
+class SyntaxRule(startSymbol: String, endSymbol: String, val spanStyle: SyntaxRuleStyle) {
     /**
      * Whether the start symbol is the same as the end symbol
      * (for faster processing)
      */
-    val isStartEndSame: Boolean = startSym == endSym
+    val isStartEndSame: Boolean = startSymbol == endSymbol
 
-    val startChars = startSym.toCharArray()
+    val startChars = startSymbol.toCharArray()
 
-    val endChars = endSym.toCharArray()
+    val endChars = endSymbol.toCharArray()
 }
