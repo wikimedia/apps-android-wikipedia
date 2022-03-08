@@ -3,11 +3,9 @@ package org.wikipedia.edit.richtext
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
-import android.text.Editable
 import android.text.Spanned
 import android.widget.EditText
 import androidx.core.text.getSpans
-import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -51,10 +49,10 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
         }
     }
 
-    private fun runHighlightTasks(text: CharSequence, start: Int, before: Int, count: Int) {
+    private fun runHighlightTasks(text: CharSequence, cursorStart: Int, cursorBeforeCount: Int, cursorAfterCount: Int) {
         currentHighlightTask?.cancel()
-        currentHighlightTask = SyntaxHighlightTask(text)
-        val searchTask = SyntaxHighlightSearchMatchesTask(text, searchText, selectedMatchResultPosition)
+        currentHighlightTask = SyntaxHighlightTask(textBox.text)
+        val searchTask = SyntaxHighlightSearchMatchesTask(textBox.text, searchText, selectedMatchResultPosition)
         disposables.clear()
         disposables.add(Observable.just(Unit)
                 .delay(1000, TimeUnit.MILLISECONDS)
@@ -71,11 +69,22 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
                     syntaxHighlightListener?.syntaxHighlightResults(result)
 
                     var time = System.currentTimeMillis()
+                    val afterDiff = cursorAfterCount - cursorBeforeCount
                     val prevSpans = textBox.text.getSpans<SpanExtents>()
                     val resultDupes = mutableListOf<SpanExtents>()
 
                     val dupes = prevSpans.filter { item ->
-                        val r = result.find { it.start == item.start && it.end == item.end && it.syntaxRule == item.syntaxRule }
+
+                        if (item.start > cursorStart) { item.start += afterDiff }
+                        if (item.end > cursorStart) { item.end += afterDiff }
+
+                        val r = result.find {
+                            //if (it.start > cursorStart && item.start > cursorStart) {
+                            //    it.start == item.start + afterDiff && it.end == item.end + afterDiff && it.syntaxRule == item.syntaxRule
+                            //} else {
+                                it.start == item.start && it.end == item.end && it.syntaxRule == item.syntaxRule
+                            //}
+                        }
                         if (r != null) {
                             resultDupes.add(r)
                         }
