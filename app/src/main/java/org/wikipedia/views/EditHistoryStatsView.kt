@@ -8,9 +8,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewEditHistoryStatsBinding
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edithistory.EditHistoryListViewModel
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -28,7 +30,8 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
     }
 
     fun setup(pageTitle: PageTitle, editHistoryStats: EditHistoryListViewModel.EditHistoryStats) {
-        binding.articleTitleView.text = StringUtil.fromHtml(pageTitle.displayText)
+        binding.articleTitleView.text = StringUtil.fromHtml(context.getString(R.string.page_edit_history_activity_title_with_url, pageTitle.displayText))
+        RichTextUtil.removeUnderlinesFromLinks(binding.articleTitleView )
         val timestamp = editHistoryStats.revision.timeStamp
         if (timestamp.isNotBlank()) {
             val createdYear = DateUtil.getYearOnlyDateString(DateUtil.iso8601DateParse(timestamp))
@@ -41,7 +44,7 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
             binding.statsGraphView.contentDescription = context.getString(R.string.page_edit_history_metrics_content_description, today, lastYear)
             FeedbackUtil.setButtonLongPressToast(binding.statsGraphView)
 
-            binding.articleTitleView.setOnClickListener {
+            binding.articleTitleView.movementMethod = LinkMovementMethodExt { _ ->
                 context.startActivity(PageActivity.newIntentForNewTab(context, HistoryEntry(pageTitle, HistoryEntry.SOURCE_EDIT_HISTORY), pageTitle))
             }
         }

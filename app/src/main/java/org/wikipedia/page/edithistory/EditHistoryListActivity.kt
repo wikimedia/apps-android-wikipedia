@@ -52,7 +52,7 @@ class EditHistoryListActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
 
         binding.articleTitleView.visibility = View.GONE
-        binding.articleTitleView.text = getString(R.string.page_edit_history_activity_label_collapse, StringUtil.fromHtml(viewModel.pageTitle.displayText))
+        binding.articleTitleView.text = getString(R.string.page_edit_history_activity_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
