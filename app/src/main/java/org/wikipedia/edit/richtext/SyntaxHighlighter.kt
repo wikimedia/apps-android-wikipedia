@@ -52,8 +52,7 @@ class SyntaxHighlighter(
                 .flatMap {
                     Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentHighlightTask!!),
                             if (searchText.isNullOrEmpty()) Observable.just(emptyList())
-                            else Observable.fromCallable(SyntaxHighlightSearchMatchesTask(textBox.text, searchText!!, selectedMatchResultPosition)))
-                    { f, s ->
+                            else Observable.fromCallable(SyntaxHighlightSearchMatchesTask(textBox.text, searchText!!, selectedMatchResultPosition))) { f, s ->
                         f.addAll(s)
                         f
                     }
@@ -118,8 +117,6 @@ class SyntaxHighlighter(
         }
 
         override fun call(): MutableList<SpanExtents> {
-            var time = System.currentTimeMillis()
-
             val spanStack = Stack<SpanExtents>()
             val spansToSet = mutableListOf<SpanExtents>()
             val textChars = text.toString().toCharArray()
@@ -201,9 +198,6 @@ class SyntaxHighlighter(
                     i++
                 }
             }
-
-            time = System.currentTimeMillis() - time
-            L.d(">>> Took $time ms")
             return spansToSet
         }
     }
