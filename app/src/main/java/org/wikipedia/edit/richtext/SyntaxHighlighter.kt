@@ -47,12 +47,13 @@ class SyntaxHighlighter(
     private fun runHighlightTasks(delayMillis: Long) {
         currentHighlightTask?.cancel()
         currentHighlightTask = SyntaxHighlightTask(textBox.text)
-        val searchTask = SyntaxHighlightSearchMatchesTask(textBox.text, searchText, selectedMatchResultPosition)
         disposables.clear()
         disposables.add(Observable.timer(delayMillis, TimeUnit.MILLISECONDS)
                 .flatMap {
                     Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentHighlightTask!!),
-                            Observable.fromCallable(searchTask)) { f, s ->
+                            if (searchText.isNullOrEmpty()) Observable.just(emptyList())
+                            else Observable.fromCallable(SyntaxHighlightSearchMatchesTask(textBox.text, searchText!!, selectedMatchResultPosition)))
+                    { f, s ->
                         f.addAll(s)
                         f
                     }
@@ -63,10 +64,10 @@ class SyntaxHighlighter(
                     syntaxHighlightListener?.syntaxHighlightResults(result)
 
                     var time = System.currentTimeMillis()
-                    val prevSpans = textBox.text.getSpans<SpanExtents>().toMutableList()
+                    val oldSpans = textBox.text.getSpans<SpanExtents>().toMutableList()
                     val newSpans = result.toMutableList()
 
-                    val dupes = prevSpans.filter { item ->
+                    val dupes = oldSpans.filter { item ->
                         val r = result.find {
                             it.start == textBox.text.getSpanStart(item) && it.end == textBox.text.getSpanEnd(item) && it.syntaxRule == item.syntaxRule
                         }
@@ -75,11 +76,9 @@ class SyntaxHighlighter(
                         }
                         r != null
                     }
-                    prevSpans.removeAll(dupes)
+                    oldSpans.removeAll(dupes)
 
-                    L.d(">>> Removing ${prevSpans.size} spans and adding ${newSpans.size} new.")
-
-                    for (sp in prevSpans) {
+                    for (sp in oldSpans) {
                         textBox.text.removeSpan(sp)
                     }
                     val findTextList = newSpans
@@ -90,7 +89,7 @@ class SyntaxHighlighter(
                         syntaxHighlightListener?.findTextMatches(findTextList)
                     }
                     time = System.currentTimeMillis() - time
-                    L.d("That took " + time + "ms")
+                    L.d("Took $time ms to remove ${oldSpans.size} spans and add ${newSpans.size} new.")
                 }) { L.e(it) })
     }
 
@@ -203,15 +202,12 @@ class SyntaxHighlighter(
         }
     }
 
-    private inner class SyntaxHighlightSearchMatchesTask constructor(text: CharSequence, searchText: String?, private val selectedMatchResultPosition: Int) : Callable<List<SpanExtents>> {
-        private val searchText = searchText.orEmpty().lowercase(Locale.getDefault())
+    private inner class SyntaxHighlightSearchMatchesTask constructor(text: CharSequence, searchText: String, private val selectedMatchResultPosition: Int) : Callable<List<SpanExtents>> {
+        private val searchText = searchText.lowercase(Locale.getDefault())
         private val text = text.toString().lowercase(Locale.getDefault())
 
         override fun call(): List<SpanExtents> {
             val spansToSet = mutableListOf<SpanExtents>()
-            if (searchText.isEmpty()) {
-                return spansToSet
-            }
             val syntaxItem = SyntaxRule("", "", SyntaxRuleStyle.SEARCH_MATCHES)
             var position = 0
             var matches = 0
