@@ -120,7 +120,7 @@ object UriUtil {
 
     fun getFilenameFromUploadUrl(url: String): String {
         val splitList = url.split("/")
-        val thumbnailName = splitList[splitList.size - 1]
+        val thumbnailName = splitList.last()
         return if (url.contains("/thumb/") && splitList.size > 2) {
             splitList[splitList.size - 2]
         } else thumbnailName
