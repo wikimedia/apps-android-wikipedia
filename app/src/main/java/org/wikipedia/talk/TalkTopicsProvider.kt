@@ -69,7 +69,7 @@ class TalkTopicsProvider(private var pageTitle: PageTitle) {
             }
             .observeOn(AndroidSchedulers.mainThread())
             .flatMap {
-                it.query?.firstPage()?.revisions?.getOrNull(0)?.let { revision ->
+                it.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
                     callback.onReceivedRevision(revision)
                 }
                 ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
