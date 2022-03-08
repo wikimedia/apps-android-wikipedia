@@ -1,12 +1,10 @@
 package org.wikipedia.edit.richtext
 
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import android.text.Spanned
 import android.widget.EditText
 import androidx.core.text.getSpans
-import androidx.core.widget.doOnTextChanged
+import androidx.core.widget.doAfterTextChanged
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -16,7 +14,10 @@ import java.util.*
 import java.util.concurrent.Callable
 import java.util.concurrent.TimeUnit
 
-class SyntaxHighlighter(private var context: Context, val textBox: EditText, var syntaxHighlightListener: OnSyntaxHighlightListener?) {
+class SyntaxHighlighter(
+        private var context: Context,
+        private val textBox: EditText,
+        private var syntaxHighlightListener: OnSyntaxHighlightListener?) {
     constructor(context: Context, textBox: EditText) : this(context, textBox, null)
 
     interface OnSyntaxHighlightListener {
@@ -36,29 +37,22 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
 
     private var searchText: String? = null
     private var selectedMatchResultPosition = 0
-    private val handler = Handler(Looper.getMainLooper())
     private val disposables = CompositeDisposable()
     private var currentHighlightTask: SyntaxHighlightTask? = null
 
     init {
-        textBox.doOnTextChanged { text, start, before, count ->
-            if (text != null) {
-                L.d(">>>> $start, $before, $count")
-                runHighlightTasks(text, start, before, count)
-            }
-        }
+        textBox.doAfterTextChanged { runHighlightTasks(1000) }
     }
 
-    private fun runHighlightTasks(text: CharSequence, cursorStart: Int, cursorBeforeCount: Int, cursorAfterCount: Int) {
+    private fun runHighlightTasks(delayMillis: Long) {
         currentHighlightTask?.cancel()
         currentHighlightTask = SyntaxHighlightTask(textBox.text)
         val searchTask = SyntaxHighlightSearchMatchesTask(textBox.text, searchText, selectedMatchResultPosition)
         disposables.clear()
-        disposables.add(Observable.just(Unit)
-                .delay(1000, TimeUnit.MILLISECONDS)
+        disposables.add(Observable.timer(delayMillis, TimeUnit.MILLISECONDS)
                 .flatMap {
                     Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentHighlightTask!!),
-                            Observable.fromCallable(searchTask!!)) { f, s ->
+                            Observable.fromCallable(searchTask)) { f, s ->
                         f.addAll(s)
                         f
                     }
@@ -69,36 +63,23 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
                     syntaxHighlightListener?.syntaxHighlightResults(result)
 
                     var time = System.currentTimeMillis()
-                    val afterDiff = cursorAfterCount - cursorBeforeCount
-                    val prevSpans = textBox.text.getSpans<SpanExtents>()
-                    val resultDupes = mutableListOf<SpanExtents>()
+                    val prevSpans = textBox.text.getSpans<SpanExtents>().toMutableList()
+                    val newSpans = result.toMutableList()
 
                     val dupes = prevSpans.filter { item ->
-
-                        if (item.start > cursorStart) { item.start += afterDiff }
-                        if (item.end > cursorStart) { item.end += afterDiff }
-
                         val r = result.find {
-                            //if (it.start > cursorStart && item.start > cursorStart) {
-                            //    it.start == item.start + afterDiff && it.end == item.end + afterDiff && it.syntaxRule == item.syntaxRule
-                            //} else {
-                                it.start == item.start && it.end == item.end && it.syntaxRule == item.syntaxRule
-                            //}
+                            it.start == textBox.text.getSpanStart(item) && it.end == textBox.text.getSpanEnd(item) && it.syntaxRule == item.syntaxRule
                         }
                         if (r != null) {
-                            resultDupes.add(r)
+                            newSpans.remove(r)
                         }
                         r != null
                     }
+                    prevSpans.removeAll(dupes)
 
-                    val oldSpans = prevSpans.toMutableList()
-                    oldSpans.removeAll(dupes)
+                    L.d(">>> Removing ${prevSpans.size} spans and adding ${newSpans.size} new.")
 
-                    val newSpans = result.toMutableList()
-                    newSpans.removeAll(resultDupes)
-
-
-                    for (sp in oldSpans) {
+                    for (sp in prevSpans) {
                         textBox.text.removeSpan(sp)
                     }
                     val findTextList = newSpans
@@ -117,12 +98,12 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
         this.searchText = searchText
         syntaxHighlightListener = listener
         setSelectedMatchResultPosition(0)
-        runHighlightTasks(textBox.text, 0, 0, 0)
+        runHighlightTasks(500)
     }
 
     fun setSelectedMatchResultPosition(selectedMatchResultPosition: Int) {
         this.selectedMatchResultPosition = selectedMatchResultPosition
-        runHighlightTasks(textBox.text, 0, 0, 0)
+        runHighlightTasks(0)
     }
 
     fun cleanup() {
@@ -138,7 +119,6 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
         }
 
         override fun call(): MutableList<SpanExtents> {
-            L.d(">>>> SyntaxHighlightTask called.")
             val spanStack = Stack<SpanExtents>()
             val spansToSet = mutableListOf<SpanExtents>()
 
