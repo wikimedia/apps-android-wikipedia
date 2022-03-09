@@ -15,7 +15,6 @@ import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
-import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
@@ -33,10 +32,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var watchlistExpiryChanged = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
 
-    val pageTitle = PageTitle(bundle.getString(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE, ""),
-            WikiSite.forLanguageCode(bundle.getString(ArticleEditDetailsActivity.EXTRA_EDIT_LANGUAGE_CODE,
-                    AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)))
-
+    val pageTitle = bundle.getParcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
     var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, -1)
     var revisionTo: MwQueryPage.Revision? = null
     var revisionFromId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM, -1)

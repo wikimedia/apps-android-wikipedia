@@ -79,7 +79,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         setUpListeners()
         setLoadingState()
 
-        binding.articleTitleView.text = viewModel.pageTitle.displayText
+        binding.articleTitleView.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
 
         viewModel.watchedStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
@@ -501,13 +501,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     companion object {
-        fun newInstance(articleTitle: String, revisionFrom: Long, revisionTo: Long,
-                        languageCode: String): ArticleEditDetailsFragment {
+        fun newInstance(title: PageTitle, revisionFrom: Long, revisionTo: Long): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment().apply {
-                arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to articleTitle,
+                arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to title,
                         ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM to revisionFrom,
-                        ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo,
-                        ArticleEditDetailsActivity.EXTRA_EDIT_LANGUAGE_CODE to languageCode)
+                        ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo)
             }
         }
     }

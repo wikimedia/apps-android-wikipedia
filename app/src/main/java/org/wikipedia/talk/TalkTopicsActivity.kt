@@ -114,7 +114,7 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkLastModified.visibility = View.GONE
         binding.talkLastModified.setOnClickListener {
             revisionForLastEdit?.let {
-                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle.displayText, it.revId, pageTitle.wikiSite.languageCode))
+                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle, it.revId))
             }
         }
         notificationButtonView = NotificationButtonView(this)

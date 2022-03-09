@@ -33,6 +33,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.page.PageTitle
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
@@ -606,7 +607,8 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 else -> {
                     UserContributionFunnel.get().logViewMisc()
                     UserContributionEvent.logViewMisc()
-                    context.startActivity(ArticleEditDetailsActivity.newIntent(context, contribution.apiTitle, contribution.revId, contribution.wikiSite.languageCode))
+                    context.startActivity(ArticleEditDetailsActivity.newIntent(context,
+                            PageTitle(contribution.apiTitle, contribution.wikiSite), contribution.revId))
                 }
             }
         }

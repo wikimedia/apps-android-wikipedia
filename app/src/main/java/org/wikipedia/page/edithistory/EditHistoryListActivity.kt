@@ -70,8 +70,8 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareConfirmButton.setOnClickListener {
             if (viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null) {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle.prefixedText, viewModel.selectedRevisionFrom!!.revId,
-                        viewModel.selectedRevisionTo!!.revId, viewModel.pageTitle.wikiSite.languageCode))
+                        viewModel.pageTitle, viewModel.selectedRevisionFrom!!.revId,
+                        viewModel.selectedRevisionTo!!.revId))
             }
         }
 
@@ -229,7 +229,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         override fun onClick() {
             startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                    viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
+                    viewModel.pageTitle, revision.revId))
         }
 
         override fun onLongClick() {
