@@ -1114,6 +1114,7 @@
   <string name="thank_success_message">Il tuo \'ringraziamento\' è stato inviato a %s 👍</string>
   <string name="menu_option_view_user_profile">Visualizza pagina profilo dell\'utente</string>
   <string name="menu_option_view_user_talk">Vedi la pagina di discussione</string>
+  <string name="revision_compare_button">Confronta</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e la sua pagina di discussione sono state aggiunte alla tua lista degli osservati speciali %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifica</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>

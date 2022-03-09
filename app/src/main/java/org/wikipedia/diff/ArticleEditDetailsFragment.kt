@@ -370,7 +370,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             for (highlightRange in diff.highlightRanges) {
                 val indices = utf8Indices(diff.text)
                 val highlightRangeStart = indices[highlightRange.start]
-                val highlightRangeEnd = if (highlightRange.start + highlightRange.length < indices.size) indices[highlightRange.start + highlightRange.length] else indices[indices.size - 1]
+                val highlightRangeEnd = indices.getOrElse(highlightRange.start + highlightRange.length) { indices.last() }
 
                 if (highlightRange.type == DiffResponse.HIGHLIGHT_TYPE_ADD) {
                     updateDiffTextDecor(spannableString, true, highlightRangeStart, highlightRangeEnd)

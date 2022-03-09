@@ -88,7 +88,9 @@ open class PlainPasteEditText : TextInputEditText {
 
                 override fun findTextMatches(spanExtents: List<SpanExtents>) {
                     findInPageTextPositionList.clear()
-                    findInPageTextPositionList.addAll(spanExtents.map { it.start })
+                    text?.let {
+                        findInPageTextPositionList.addAll(spanExtents.map { span -> it.getSpanStart(span) })
+                    }
                     onFinished(false, listener)
                 }
             })

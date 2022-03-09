@@ -810,7 +810,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
   <string name="customize_toolbar_title">Title text of the customize toolbar page.</string>
-  <string name="customize_toolbar_description">Description of the customize toolbar page.</string>
   <string name="customize_toolbar_category_toolbar">Category of toolbar in the customize toolbar page.</string>
   <string name="customize_toolbar_category_menu">Category of menu in the customize toolbar page.\n\n{{Identical|Menu}}</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize toolbar page.</string>
@@ -1111,8 +1110,6 @@
   <string name="thank_dialog_positive_button_text">Positive button label on the thank dialog.</string>
   <string name="thank_dialog_negative_button_text">Negative button label on the thank dialog.\n{{identical|Cancel}}</string>
   <string name="thank_success_message">Message shown to user after thanking an edit in the diff screen. %s is the contributing user\'s username.</string>
-  <string name="menu_option_view_user_profile">Menu item for viewing the user page of the selected user.</string>
-  <string name="menu_option_view_user_talk">Menu item for viewing the talk page of the selected user.</string>
   <string name="menu_option_view_user_contributions">Menu item for viewing the contributions list of the selected user.</string>
   <string name="revision_diff_compare">Title of screen for comparing revisions.</string>
   <string name="revision_diff_from">Label for older revision to be compared.</string>
@@ -1126,6 +1123,10 @@
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>
   <string name="revision_undo_success">Message shown when an edit was undone successfully.</string>
+  <string name="menu_option_view_user_profile">Menu label to navigate to the user page of the selected user.</string>
+  <string name="menu_option_view_user_talk">Menu label to navigate to the talk page of the selected user.</string>
+  <string name="revision_compare_button">Button label for comparing two revisions.</string>
+  <string name="revision_compare_two_only">Error message when the user attempts to select more than two revisions for comparison.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.\n\n{{Identical|Change}}</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>
@@ -1148,6 +1149,5 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
-  <string name="revision_compare_button">Button label for comparing two revisions.</string>
-  <string name="revision_compare_two_only">Error message when the user attempts to select more than two revisions for comparison.</string>
+  <string name="customize_toolbar_description_text">Description of the customize toolbar page.</string>
 </resources>
