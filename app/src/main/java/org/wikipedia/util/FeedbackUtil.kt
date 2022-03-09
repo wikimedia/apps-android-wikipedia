@@ -35,6 +35,7 @@ import org.wikipedia.util.DimenUtil.roundedDpToPx
 import java.util.concurrent.TimeUnit
 
 object FeedbackUtil {
+    private val LENGTH_SHORT = TimeUnit.SECONDS.toMillis(3).toInt()
     val LENGTH_DEFAULT = TimeUnit.SECONDS.toMillis(5).toInt()
     val LENGTH_MEDIUM = TimeUnit.SECONDS.toMillis(8).toInt()
     val LENGTH_LONG = TimeUnit.SECONDS.toMillis(15).toInt()
@@ -43,8 +44,7 @@ object FeedbackUtil {
         true
     }
     private val TOOLBAR_ON_CLICK_LISTENER = OnClickListener { v: View ->
-        showToastOverView(v, v.contentDescription, LENGTH_DEFAULT)
-        true
+        showToastOverView(v, v.contentDescription, LENGTH_SHORT)
     }
 
     fun showError(activity: Activity, e: Throwable) {
