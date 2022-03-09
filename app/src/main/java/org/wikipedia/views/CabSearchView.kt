@@ -6,7 +6,6 @@ import android.text.Spanned
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.SearchView
 import org.wikipedia.R
@@ -33,14 +32,7 @@ class CabSearchView @JvmOverloads constructor(context: Context, attrs: Attribute
         searchCloseBtn.visibility = GONE
         searchCloseBtn.setColorFilter(themedIconColor)
         FeedbackUtil.setButtonLongPressToast(searchCloseBtn)
-        addFilter(searchSrcTextView, PlainTextInputFilter())
-    }
-
-    private fun addFilter(textView: TextView, filter: InputFilter) {
-        val filters = textView.filters
-        val newFilters = filters.copyOf(filters.size + 1)
-        newFilters[filters.size] = filter
-        textView.filters = newFilters
+        searchSrcTextView.filters += PlainTextInputFilter()
     }
 
     fun selectAllQueryTexts() {
