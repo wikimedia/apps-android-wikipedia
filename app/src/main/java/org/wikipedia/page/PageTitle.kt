@@ -137,7 +137,10 @@ data class PageTitle(
             val namespaceOrLanguage = parts[0]
             if (Locale.getISOLanguages().contains(namespaceOrLanguage)) {
                 _namespace = null
-                wikiSite = WikiSite(wiki.authority(), namespaceOrLanguage)
+                val authorityLang = WikiSite.authorityToLanguageCode(wiki.authority())
+                // Swap out the new language subdomain for the old one in the authority string.
+                wikiSite = WikiSite(if (authorityLang.isNotEmpty()) wiki.authority().replace("$authorityLang.", "$namespaceOrLanguage.") else wiki.authority(),
+                        namespaceOrLanguage)
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else if (parts[1].isNotEmpty() && !Character.isWhitespace(parts[1][0]) && parts[1][0] != '_') {
                 wikiSite = wiki
