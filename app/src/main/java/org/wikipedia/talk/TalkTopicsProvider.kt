@@ -65,21 +65,20 @@ class TalkTopicsProvider(private var pageTitle: PageTitle) {
                     }
                 }
                 callback.onUpdatePageTitle(pageTitle)
-                ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText)
-            }
-            .observeOn(AndroidSchedulers.mainThread())
-            .flatMap {
-                it.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
-                    callback.onReceivedRevision(revision)
+                Observable.zip(ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText),
+                    ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)) {
+                        lastModified, talkPage -> Pair(lastModified, talkPage)
                 }
-                ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
             }
             .observeOn(AndroidSchedulers.mainThread())
             .doAfterTerminate {
                 callback.onFinished()
             }
-            .subscribe({
-                callback.onSuccess(it)
+            .subscribe({ pair ->
+                pair.first.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
+                    callback.onReceivedRevision(revision)
+                }
+                callback.onSuccess(pair.second)
             }, {
                 L.e(it)
                 callback.onError(it)
