@@ -2,14 +2,17 @@ package org.wikipedia.page.edithistory
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.isVisible
+import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
@@ -32,6 +35,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.WikiCardView
 import org.wikipedia.views.WikiErrorView
 
 class EditHistoryListActivity : BaseActivity() {
@@ -67,7 +71,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
-                .withLoadStateHeaderAndFooter(loadHeader, loadFooter)
+                .withLoadStateHeaderAndFooter(loadHeader, loadFooter).also { it.addAdapter(0, SearchBarAdapter()) }
 
         lifecycleScope.launch {
             viewModel.editHistoryFlow.collectLatest {
@@ -125,6 +129,16 @@ class EditHistoryListActivity : BaseActivity() {
             return
         }
         super.onBackPressed()
+    }
+
+    private inner class SearchBarAdapter : RecyclerView.Adapter<SearchBarViewHolder>() {
+        override fun onBindViewHolder(holder: SearchBarViewHolder, position: Int) {}
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchBarViewHolder {
+            return SearchBarViewHolder(layoutInflater.inflate(R.layout.view_edit_history_search_bar, parent, false))
+        }
+
+        override fun getItemCount(): Int { return 1 }
     }
 
     private inner class LoadingItemAdapter(
@@ -199,6 +213,40 @@ class EditHistoryListActivity : BaseActivity() {
         RecyclerView.ViewHolder(itemView) {
         fun bindItem(listItem: String) {
             itemView.findViewById<TextView>(R.id.date_text).text = listItem
+        }
+    }
+
+    private inner class SearchBarViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val filterByButton: AppCompatImageView = itemView.findViewById(R.id.filter_by_button)
+        val filterCountView: TextView = itemView.findViewById(R.id.filter_count)
+
+        init {
+            (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22))
+
+            itemView.setOnClickListener {
+                // TODO: implement this
+            }
+
+            filterByButton.setOnClickListener {
+                // TODO: implement this
+            }
+
+            FeedbackUtil.setButtonLongPressToast(filterByButton)
+        }
+
+        fun updateFilterCount() {
+            // TODO: update this
+            val excludedFilters = 0
+            if (excludedFilters == 0) {
+                filterCountView.visibility = View.GONE
+                ImageViewCompat.setImageTintList(filterByButton,
+                    ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.chip_text_color)))
+            } else {
+                filterCountView.visibility = View.VISIBLE
+                filterCountView.text = excludedFilters.toString()
+                ImageViewCompat.setImageTintList(filterByButton,
+                    ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.colorAccent)))
+            }
         }
     }
 
