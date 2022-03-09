@@ -51,7 +51,7 @@ data class PageTitle(
         get() = _namespace.orEmpty()
         set(value) {
             _namespace = value
-            _displayText = if (value.isEmpty()) _displayText else StringUtil.addUnderscores(value) + ":" + _displayText
+            _displayText = if (value.isEmpty()) _displayText else StringUtil.removeUnderscores(value) + ":" + _displayText
         }
 
     val isFilePage: Boolean
