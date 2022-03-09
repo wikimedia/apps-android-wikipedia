@@ -76,7 +76,6 @@ class EditHistoryListActivity : BaseActivity() {
         binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                // TODO: find a better way to adjust the title.
                 val isVisible = if (binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height) View.VISIBLE else View.INVISIBLE
                 binding.articleTitleView.visibility = isVisible
             }
