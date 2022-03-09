@@ -81,7 +81,6 @@ class TalkTopicsActivity : BaseActivity() {
 
         goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
-        L.d("PageTitle displayText " + pageTitle.displayText)
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
         binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true))
@@ -131,7 +130,6 @@ class TalkTopicsActivity : BaseActivity() {
             // defer resolution of Talk page title for an API call.
             resolveTitleRequired = true
         }
-        L.d("PageTitle displayText 1.5 " + pageTitle.displayText)
     }
 
     public override fun onDestroy() {
@@ -267,7 +265,6 @@ class TalkTopicsActivity : BaseActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
-                    L.d("PageTitle displayText 2" + pageTitle.displayText)
                     resolveTitleRequired = false
                     response.query?.namespaces?.let { namespaces ->
                         response.query?.firstPage()?.let { page ->
@@ -282,7 +279,6 @@ class TalkTopicsActivity : BaseActivity() {
                             }
                         }
                     }
-                    L.d("PageTitle displayText 3" + pageTitle.displayText)
                     binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
                     ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText)
                 }
