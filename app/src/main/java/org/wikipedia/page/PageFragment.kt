@@ -110,7 +110,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private var _binding: FragmentPageBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val activeTimer = ActiveTimer()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
@@ -204,8 +204,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
         editHandler = EditHandler(this, bridge)
-        sidePanelHandler = SidePanelHandler(this, ActivityCompat.requireViewById(activity, R.id.navigation_drawer),
-            ActivityCompat.requireViewById(activity, R.id.page_scroller_button), bridge)
+        sidePanelHandler = SidePanelHandler(this, bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView)
         shareHandler = ShareHandler(this, bridge)
         pageFragmentLoadState = PageFragmentLoadState(model, this, webView, bridge, leadImagesHandler, currentTab)
@@ -245,6 +244,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup()
         sidePanelHandler.log()
+        sidePanelHandler.cancel()
         shareHandler.dispose()
         leadImagesHandler.dispose()
         disposables.clear()

@@ -10,15 +10,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.ValueCallback
-import android.widget.*
 import android.widget.AdapterView.OnItemClickListener
+import android.widget.BaseAdapter
+import android.widget.FrameLayout
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.drawerlayout.widget.FixedDrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textview.MaterialTextView
 import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.Constants
@@ -44,23 +45,12 @@ import org.wikipedia.views.ObservableWebView.OnContentHeightChangedListener
 import org.wikipedia.views.SwipeableListView.OnSwipeOutListener
 
 class SidePanelHandler internal constructor(private val fragment: PageFragment,
-                                            private val drawerLayout: FixedDrawerLayout,
-                                            private val scrollerView: PageScrollerView,
                                             private val bridge: CommunicationBridge) :
         ObservableWebView.OnClickListener, ObservableWebView.OnScrollChangeListener, OnContentHeightChangedListener {
 
-    private val containerView = drawerLayout.findViewById<FrameLayout>(R.id.side_panel_container)
-    private val tocContainerView = drawerLayout.findViewById<FrameLayout>(R.id.toc_container)
-    private val talkTopicsContainerView = drawerLayout.findViewById<FrameLayout>(R.id.talk_topic_container)
-    private val tocList = drawerLayout.findViewById<SwipeableListView>(R.id.toc_list)
-    private val talkTitleView = drawerLayout.findViewById<TextView>(R.id.talk_title_view)
-    private val talkFullscreenButton = drawerLayout.findViewById<ImageView>(R.id.tall_fullscreen_button)
-    private val talkRecyclerView = drawerLayout.findViewById<RecyclerView>(R.id.talk_recycler_view)
-    private val talkEmptyContainer = drawerLayout.findViewById<LinearLayout>(R.id.talk_empty_container)
-    private val talkErrorView = drawerLayout.findViewById<WikiErrorView>(R.id.talk_error_view)
-    private val talkProgressBar = drawerLayout.findViewById<ProgressBar>(R.id.talk_progress_bar)
-    private val talkLastModified = drawerLayout.findViewById<MaterialTextView>(R.id.talk_last_modified)
+    private val binding = (fragment.requireActivity() as PageActivity).binding
     private val talkTopicsAdapter = TalkTopicItemAdapter()
+    private var talkTopicsProvider: TalkTopicsProvider? = null
     private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
     private val webView = fragment.webView
     private val adapter = ToCAdapter()
@@ -86,22 +76,22 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         }
     }
 
-    val isVisible get() = drawerLayout.isDrawerOpen(containerView)
+    val isVisible get() = binding.navigationDrawer.isDrawerOpen(binding.sidePanelContainer)
 
     init {
-        tocList.adapter = adapter
-        tocList.onItemClickListener = OnItemClickListener { _, _, position, _ ->
+        binding.tocList.adapter = adapter
+        binding.tocList.onItemClickListener = OnItemClickListener { _, _, position, _ ->
             val section = adapter.getItem(position)
             scrollToSection(section)
             funnel.logClick()
             hide()
         }
-        tocList.listener = OnSwipeOutListener { hide() }
+        binding.tocList.listener = OnSwipeOutListener { hide() }
         webView.addOnClickListener(this)
         webView.addOnScrollChangeListener(this)
         webView.addOnContentHeightChangedListener(this)
-        scrollerView.callback = ScrollerCallback()
-        drawerLayout.addDrawerListener(object : DrawerLayout.SimpleDrawerListener() {
+        binding.pageScrollerButton.callback = ScrollerCallback()
+        binding.navigationDrawer.addDrawerListener(object : DrawerLayout.SimpleDrawerListener() {
             override fun onDrawerStateChanged(newState: Int) {
                 super.onDrawerStateChanged(newState)
                 if (!isVisible && newState == DrawerLayout.STATE_DRAGGING) {
@@ -121,32 +111,34 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     fun setupTalkTopics(pageTitle: PageTitle) {
         val newPageTitle = pageTitle.copy()
 
-        talkProgressBar.isVisible = true
-        talkErrorView.visibility = View.GONE
-        talkEmptyContainer.visibility = View.GONE
+        binding.talkProgressBar.isVisible = true
+        binding.talkErrorView.visibility = View.GONE
+        binding.talkEmptyContainer.visibility = View.GONE
 
-        talkRecyclerView.layoutManager = LinearLayoutManager(fragment.requireContext())
-        talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
-        talkRecyclerView.addItemDecoration(DrawableItemDecoration(fragment.requireContext(), R.attr.side_panel_list_separator_drawable, drawStart = true, drawEnd = false))
-        talkRecyclerView.adapter = talkTopicsAdapter
-        talkErrorView.backClickListener = View.OnClickListener {
+        binding.talkRecyclerView.layoutManager = LinearLayoutManager(fragment.requireContext())
+        binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
+        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(fragment.requireContext(), R.attr.side_panel_list_separator_drawable, drawStart = true, drawEnd = false))
+        binding.talkRecyclerView.adapter = talkTopicsAdapter
+        binding.talkErrorView.backClickListener = View.OnClickListener {
             hide()
         }
 
-        TalkTopicsProvider(newPageTitle).load(object : TalkTopicsProvider.Callback {
+        talkTopicsProvider = TalkTopicsProvider(newPageTitle)
+
+        talkTopicsProvider?.load(object : TalkTopicsProvider.Callback {
             override fun onUpdatePageTitle(title: PageTitle) {
-                talkTitleView.text = StringUtil.fromHtml(title.displayText)
-                talkTitleView.setOnClickListener(openTalkPageOnClickListener(title))
-                talkFullscreenButton.setOnClickListener(openTalkPageOnClickListener(title))
+                binding.talkTitleView.text = StringUtil.fromHtml(title.displayText)
+                binding.talkTitleView.setOnClickListener(openTalkPageOnClickListener(title))
+                binding.talkFullscreenButton.setOnClickListener(openTalkPageOnClickListener(title))
             }
 
             override fun onReceivedRevision(revision: MwQueryPage.Revision?) {
                 revision?.let {
-                    talkLastModified.text = StringUtil.fromHtml(fragment.getString(R.string.talk_last_modified,
+                    binding.talkLastModified.text = StringUtil.fromHtml(fragment.getString(R.string.talk_last_modified,
                         DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
                             System.currentTimeMillis(), 0L), revision.user))
-                    talkLastModified.isVisible = true
-                    talkLastModified.setOnClickListener { _ ->
+                    binding.talkLastModified.isVisible = true
+                    binding.talkLastModified.setOnClickListener { _ ->
                         fragment.startActivity(ArticleEditDetailsActivity.newIntent(fragment.requireContext(), pageTitle.displayText, it.revId, pageTitle.wikiSite.languageCode))
                     }
                 }
@@ -156,24 +148,24 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                 talkTopicsAdapter.pageTitle = newPageTitle
                 talkTopicsAdapter.topics.clear()
                 talkTopicsAdapter.topics.addAll(talkPage.topics!!)
-                talkErrorView.visibility = View.GONE
-                talkRecyclerView.visibility = View.VISIBLE
-                talkRecyclerView.adapter?.notifyDataSetChanged()
+                binding.talkErrorView.visibility = View.GONE
+                binding.talkRecyclerView.visibility = View.VISIBLE
+                binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             }
 
             override fun onError(throwable: Throwable) {
-                talkRecyclerView.visibility = View.GONE
+                binding.talkRecyclerView.visibility = View.GONE
                 if (throwable is HttpStatusException && throwable.code == 404) {
-                    talkEmptyContainer.visibility = View.VISIBLE
+                    binding.talkEmptyContainer.visibility = View.VISIBLE
                 } else {
-                    talkLastModified.visibility = View.GONE
-                    talkErrorView.visibility = View.VISIBLE
-                    talkErrorView.setError(throwable)
+                    binding.talkLastModified.visibility = View.GONE
+                    binding.talkErrorView.visibility = View.VISIBLE
+                    binding.talkErrorView.setError(throwable)
                 }
             }
 
             override fun onFinished() {
-                talkProgressBar.visibility = View.GONE
+                binding.talkProgressBar.visibility = View.GONE
             }
 
             private fun openTalkPageOnClickListener(title: PageTitle): View.OnClickListener {
@@ -189,9 +181,9 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         page?.let {
             adapter.setPage(it)
             rtl = L10nUtil.isLangRTL(wiki.languageCode)
-            tocList.rtl = rtl
-            L10nUtil.setConditionalLayoutDirection(containerView, wiki.languageCode)
-            containerView.updateLayoutParams<DrawerLayout.LayoutParams> {
+            binding.tocList.rtl = rtl
+            L10nUtil.setConditionalLayoutDirection(binding.sidePanelContainer, wiki.languageCode)
+            binding.sidePanelContainer.updateLayoutParams<DrawerLayout.LayoutParams> {
                 gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
             }
             log()
@@ -216,8 +208,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     }
 
     private fun enableToCContainer(isToC: Boolean = true) {
-        tocContainerView.isVisible = isToC
-        talkTopicsContainerView.isVisible = !isToC
+        binding.tocContainer.isVisible = isToC
+        binding.talkTopicsContainer.isVisible = !isToC
 
         if (!isToC && currentTalkSortMode != Prefs.talkTopicsSortMode) {
             currentTalkSortMode = Prefs.talkTopicsSortMode
@@ -227,12 +219,12 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
     fun show(isToC: Boolean = true) {
         enableToCContainer(isToC)
-        drawerLayout.openDrawer(containerView)
+        binding.navigationDrawer.openDrawer(binding.sidePanelContainer)
         onStartShow()
     }
 
     fun hide() {
-        drawerLayout.closeDrawers()
+        binding.navigationDrawer.closeDrawers()
         funnel.scrollStop()
     }
 
@@ -240,17 +232,21 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         funnel.log()
     }
 
+    fun cancel() {
+        talkTopicsProvider?.cancel()
+    }
+
     fun setEnabled(enabled: Boolean) {
-        if (talkTopicsContainerView.isVisible) {
-            drawerLayout.setSlidingEnabled(true)
+        if (binding.talkTopicsContainer.isVisible) {
+            binding.navigationDrawer.setSlidingEnabled(true)
             return
         }
         if (enabled) {
             setScrollerPosition()
-            drawerLayout.setSlidingEnabled(true)
+            binding.navigationDrawer.setSlidingEnabled(true)
         } else {
-            drawerLayout.closeDrawers()
-            drawerLayout.setSlidingEnabled(false)
+            binding.navigationDrawer.closeDrawers()
+            binding.navigationDrawer.setSlidingEnabled(false)
         }
     }
 
@@ -364,7 +360,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         if (scrollerViewParams.topMargin < toolbarHeight) {
             scrollerViewParams.topMargin = toolbarHeight
         }
-        scrollerView.layoutParams = scrollerViewParams
+        binding.pageScrollerButton.layoutParams = scrollerViewParams
     }
 
     private fun scrollToListSectionByOffset(yOffset: Int) {
@@ -383,7 +379,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             adapter.setHighlightedSection(itemToSelect)
             currentItemSelected = itemToSelect
         }
-        tocList.smoothScrollToPositionFromTop(currentItemSelected,
+        binding.tocList.smoothScrollToPositionFromTop(currentItemSelected,
                 scrollerViewParams.topMargin - DimenUtil.roundedDpToPx(TOC_SECTION_TOP_OFFSET_ADJUST), 0)
     }
 
