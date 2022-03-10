@@ -1,346 +1,451 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/contentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <org.wikipedia.views.WikiErrorView
+                android:id="@+id/errorView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/articleTitleContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:background="?attr/paper_color">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-6.5dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="?attr/colorAccent"
+                    android:progressBackgroundTint="@color/accent30"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/articleTitleView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="8sp"
+                    android:maxLines="3"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/watchButton"
+                    style="@style/FlatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/articleTitleView"
+                    app:layout_constraintTop_toBottomOf="@id/articleTitleView"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.04"
+                    android:text="@string/watchlist_details_watching_label"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_icon_star"
+                    app:iconGravity="textStart"
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/color_group_68" />
+
+                <ImageView
+                    android:id="@+id/olderIdButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="@string/watchlist_details_prev_edit"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:scaleX="-1"
+                    app:layout_constraintEnd_toStartOf="@id/newerIdButton"
+                    app:layout_constraintTop_toTopOf="@id/newerIdButton"
+                    app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+                    app:tint="?attr/primary_text_color" />
+
+                <ImageView
+                    android:id="@+id/newerIdButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="@string/watchlist_details_next_edit"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/articleTitleView"
+                    app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+                    app:tint="?attr/primary_text_color" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/revisionDetailsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/paper_color">
+
+                <View
+                    android:id="@+id/articleTitleDivider"
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:background="?attr/color_group_60"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideLineMiddle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <View
+                    android:id="@+id/fromToDivider"
+                    android:layout_width="0.5dp"
+                    android:layout_height="0dp"
+                    android:background="?attr/color_group_60"
+                    app:layout_constraintBottom_toTopOf="@id/thanksDivider"
+                    app:layout_constraintStart_toStartOf="@id/guideLineMiddle"
+                    app:layout_constraintTop_toBottomOf="@id/articleTitleDivider" />
+
+                <TextView
+                    android:id="@+id/revisionFromTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/revision_diff_from"
+                    android:textColor="?attr/material_theme_primary_color"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@id/guideLineMiddle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/articleTitleDivider" />
+
+                <TextView
+                    android:id="@+id/revisionFromTimestamp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
+                    app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
+                    app:layout_constraintTop_toBottomOf="@id/revisionFromTitleText"
+                    tools:text="Lorem ipsum" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/usernameFromButton"
+                    style="@style/FlatButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.02"
+                    android:maxLines="1"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/colorAccent"
+                    app:icon="@drawable/ic_user_avatar"
+                    app:iconGravity="textStart"
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/colorAccent"
+                    app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
+                    app:layout_constraintTop_toBottomOf="@id/revisionFromTimestamp"
+                    app:layout_constraintWidth_max="wrap"
+                    tools:text="Lorem ipsum" />
+
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/revisionFromEditComment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4sp"
+                    android:textColor="?attr/material_theme_primary_color"
+                    android:textColorLink="?attr/material_theme_primary_color"
+                    app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
+                    app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
+                    app:layout_constraintTop_toBottomOf="@id/usernameFromButton" />
+
+                <TextView
+                    android:id="@+id/revisionToTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/revision_diff_to"
+                    android:textColor="?attr/material_theme_primary_color"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/guideLineMiddle"
+                    app:layout_constraintTop_toBottomOf="@id/articleTitleDivider" />
+
+                <TextView
+                    android:id="@+id/revisionToTimestamp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="?attr/color_group_68"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
+                    app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
+                    app:layout_constraintTop_toBottomOf="@id/revisionToTitleText"
+                    tools:text="Lorem ipsum" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/usernameToButton"
+                    style="@style/FlatButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.02"
+                    android:maxLines="1"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/color_group_68"
+                    app:icon="@drawable/ic_user_avatar"
+                    app:iconGravity="textStart"
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/color_group_68"
+                    app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
+                    app:layout_constraintTop_toBottomOf="@id/revisionToTimestamp"
+                    app:layout_constraintWidth_max="wrap"
+                    tools:text="Lorem ipsum" />
+
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/revisionToEditComment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4sp"
+                    android:textColor="?attr/material_theme_primary_color"
+                    android:textColorLink="?attr/material_theme_primary_color"
+                    app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
+                    app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
+                    app:layout_constraintTop_toBottomOf="@id/usernameToButton" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/diffBarrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="revisionFromEditComment,revisionToEditComment" />
+
+                <View
+                    android:id="@+id/thanksDivider"
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?attr/color_group_60"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/diffBarrier" />
+
+                <TextView
+                    android:id="@+id/diffCharacterCountView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/undoButton"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/thankButton"
+                    android:layout_marginEnd="16dp"
+                    android:textColor="?attr/action_mode_green_background"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="259dp"
+                    tools:text="Lorem ipsum"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/thankButton"
+                    style="@style/FlatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:letterSpacing="0.02"
+                    android:text="@string/thank_label"
+                    android:textAllCaps="false"
+                    app:icon="@drawable/ic_heart_24"
+                    app:iconGravity="textStart"
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/colorAccent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/thanksDivider" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/undoButton"
+                    style="@style/FlatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:letterSpacing="0.02"
+                    android:text="@string/edit_undo"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/colorError"
+                    app:icon="@drawable/ic_undo_themed_24dp"
+                    app:iconGravity="textStart"
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/colorError"
+                    app:layout_constraintEnd_toStartOf="@id/thankButton"
+                    app:layout_constraintTop_toTopOf="@id/thankButton" />
+
+                <View
+                    android:id="@+id/diffDivider"
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="?attr/color_group_60"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/thankButton" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/diffRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/overlayRevisionDetailsView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="?attr/paper_color"
+        android:visibility="invisible"
+        tools:visibility="visible">
 
-        <org.wikipedia.views.WikiErrorView
-            android:id="@+id/errorView"
-            android:layout_width="wrap_content"
+        <View
+            android:id="@+id/overlayArticleTitleDivider"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:background="?attr/color_group_60"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/overlayGuideLineMiddle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <View
+            android:id="@+id/overlayFromToDivider"
+            android:layout_width="0.5dp"
+            android:layout_height="0dp"
+            android:background="?attr/color_group_60"
+            app:layout_constraintBottom_toTopOf="@id/overlayDiffDivider"
+            app:layout_constraintStart_toStartOf="@id/overlayGuideLineMiddle"
+            app:layout_constraintTop_toBottomOf="@id/overlayArticleTitleDivider" />
+
+        <TextView
+            android:id="@+id/overlayRevisionFromTitleText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/revision_diff_from"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/overlayGuideLineMiddle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/overlayArticleTitleDivider" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/articleTitleContainer"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/overlayRevisionFromTimestamp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingBottom="4dp"
-            android:background="?attr/paper_color"
-            android:elevation="6dp">
+            android:layout_marginTop="4dp"
+            android:textColor="?attr/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/overlayRevisionFromTitleText"
+            app:layout_constraintStart_toStartOf="@id/overlayRevisionFromTitleText"
+            app:layout_constraintTop_toBottomOf="@id/overlayRevisionFromTitleText"
+            tools:text="Lorem ipsum" />
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-6.5dp"
-                android:indeterminate="true"
-                android:indeterminateTint="?attr/colorAccent"
-                android:progressBackgroundTint="@color/accent30"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="visible" />
-
-            <TextView
-                android:id="@+id/articleTitleView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:ellipsize="end"
-                android:lineSpacingExtra="8sp"
-                android:maxLines="3"
-                android:textColor="?attr/colorAccent"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/watchButton"
-                style="@style/FlatButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/articleTitleView"
-                app:layout_constraintTop_toBottomOf="@id/articleTitleView"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="sans-serif-medium"
-                android:letterSpacing="0.04"
-                android:text="@string/watchlist_details_watching_label"
-                android:textSize="14sp"
-                app:icon="@drawable/ic_icon_star"
-                app:iconGravity="textStart"
-                app:iconSize="20dp"
-                app:iconTint="?attr/color_group_68" />
-
-            <ImageView
-                android:id="@+id/olderIdButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="8dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/watchlist_details_prev_edit"
-                android:focusable="true"
-                android:padding="12dp"
-                android:scaleX="-1"
-                app:layout_constraintEnd_toStartOf="@id/newerIdButton"
-                app:layout_constraintTop_toTopOf="@id/newerIdButton"
-                app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-                app:tint="?attr/primary_text_color" />
-
-            <ImageView
-                android:id="@+id/newerIdButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="16dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/watchlist_details_next_edit"
-                android:focusable="true"
-                android:padding="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/articleTitleView"
-                app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-                app:tint="?attr/primary_text_color" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/revisionDetailsView"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/overlayRevisionToTitleText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="?attr/paper_color"
-            android:elevation="6dp">
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/revision_diff_to"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/overlayGuideLineMiddle"
+            app:layout_constraintTop_toBottomOf="@id/overlayArticleTitleDivider" />
 
-            <View
-                android:id="@+id/articleTitleDivider"
-                android:layout_width="0dp"
-                android:layout_height="0.5dp"
-                android:background="?attr/color_group_60"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideLineMiddle"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.5" />
-
-            <View
-                android:id="@+id/fromToDivider"
-                android:layout_width="0.5dp"
-                android:layout_height="0dp"
-                android:background="?attr/color_group_60"
-                app:layout_constraintBottom_toTopOf="@id/thanksDivider"
-                app:layout_constraintStart_toStartOf="@id/guideLineMiddle"
-                app:layout_constraintTop_toBottomOf="@id/articleTitleDivider" />
-
-            <TextView
-                android:id="@+id/revisionFromTitleText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/revision_diff_from"
-                android:textColor="?attr/material_theme_primary_color"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@id/guideLineMiddle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/articleTitleDivider" />
-
-            <TextView
-                android:id="@+id/revisionFromTimestamp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textColor="?attr/colorAccent"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
-                app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
-                app:layout_constraintTop_toBottomOf="@id/revisionFromTitleText"
-                tools:text="Lorem ipsum" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/usernameFromButton"
-                style="@style/FlatButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:letterSpacing="0.02"
-                android:maxLines="1"
-                android:textAllCaps="false"
-                android:textColor="?attr/colorAccent"
-                app:icon="@drawable/ic_user_avatar"
-                app:iconGravity="textStart"
-                app:iconSize="20dp"
-                app:iconTint="?attr/colorAccent"
-                app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
-                app:layout_constraintTop_toBottomOf="@id/revisionFromTimestamp"
-                app:layout_constraintWidth_max="wrap"
-                tools:text="Lorem ipsum" />
-
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/revisionFromEditComment"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="4sp"
-                android:textColor="?attr/material_theme_primary_color"
-                android:textColorLink="?attr/material_theme_primary_color"
-                app:layout_constraintEnd_toEndOf="@id/revisionFromTitleText"
-                app:layout_constraintStart_toStartOf="@id/revisionFromTitleText"
-                app:layout_constraintTop_toBottomOf="@id/usernameFromButton" />
-
-            <TextView
-                android:id="@+id/revisionToTitleText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/revision_diff_to"
-                android:textColor="?attr/material_theme_primary_color"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/guideLineMiddle"
-                app:layout_constraintTop_toBottomOf="@id/articleTitleDivider" />
-
-            <TextView
-                android:id="@+id/revisionToTimestamp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textColor="?attr/color_group_68"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
-                app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
-                app:layout_constraintTop_toBottomOf="@id/revisionToTitleText"
-                tools:text="Lorem ipsum" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/usernameToButton"
-                style="@style/FlatButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:letterSpacing="0.02"
-                android:maxLines="1"
-                android:textAllCaps="false"
-                android:textColor="?attr/color_group_68"
-                app:icon="@drawable/ic_user_avatar"
-                app:iconGravity="textStart"
-                app:iconSize="20dp"
-                app:iconTint="?attr/color_group_68"
-                app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
-                app:layout_constraintTop_toBottomOf="@id/revisionToTimestamp"
-                app:layout_constraintWidth_max="wrap"
-                tools:text="Lorem ipsum" />
-
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/revisionToEditComment"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="4sp"
-                android:textColor="?attr/material_theme_primary_color"
-                android:textColorLink="?attr/material_theme_primary_color"
-                app:layout_constraintEnd_toEndOf="@id/revisionToTitleText"
-                app:layout_constraintStart_toStartOf="@id/revisionToTitleText"
-                app:layout_constraintTop_toBottomOf="@id/usernameToButton" />
-
-            <androidx.constraintlayout.widget.Barrier
-                android:id="@+id/diffBarrier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:barrierDirection="bottom"
-                app:constraint_referenced_ids="revisionFromEditComment,revisionToEditComment" />
-
-            <View
-                android:id="@+id/thanksDivider"
-                android:layout_width="0dp"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="8dp"
-                android:background="?attr/color_group_60"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/diffBarrier" />
-
-            <TextView
-                android:id="@+id/diffCharacterCountView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@id/undoButton"
-                app:layout_constraintBaseline_toBaselineOf="@+id/thankButton"
-                android:layout_marginEnd="16dp"
-                android:textColor="?attr/action_mode_green_background"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="259dp"
-                tools:text="Lorem ipsum"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/thankButton"
-                style="@style/FlatButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
-                android:letterSpacing="0.02"
-                android:text="@string/thank_label"
-                android:textAllCaps="false"
-                app:icon="@drawable/ic_heart_24"
-                app:iconGravity="textStart"
-                app:iconSize="20dp"
-                app:iconTint="?attr/colorAccent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/thanksDivider" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/undoButton"
-                style="@style/FlatButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:letterSpacing="0.02"
-                android:text="@string/edit_undo"
-                android:textAllCaps="false"
-                android:textColor="?attr/colorError"
-                app:icon="@drawable/ic_undo_themed_24dp"
-                app:iconGravity="textStart"
-                app:iconSize="20dp"
-                app:iconTint="?attr/colorError"
-                app:layout_constraintEnd_toStartOf="@id/thankButton"
-                app:layout_constraintTop_toTopOf="@id/thankButton" />
-
-            <View
-                android:id="@+id/diffDivider"
-                android:layout_width="0dp"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="4dp"
-                android:background="?attr/color_group_60"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/thankButton" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/diffRecyclerView"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/overlayRevisionToTimestamp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical"/>
+            android:layout_marginTop="4dp"
+            android:textColor="?attr/color_group_68"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/overlayRevisionToTitleText"
+            app:layout_constraintStart_toStartOf="@id/overlayRevisionToTitleText"
+            app:layout_constraintTop_toBottomOf="@id/overlayRevisionToTitleText"
+            tools:text="Lorem ipsum" />
 
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+        <View
+            android:id="@+id/overlayDiffDivider"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="8dp"
+            android:background="?attr/color_group_60"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/overlayRevisionToTimestamp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

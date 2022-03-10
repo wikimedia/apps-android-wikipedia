@@ -2,6 +2,7 @@ package org.wikipedia.diff
 
 import android.app.AlertDialog
 import android.content.res.ColorStateList
+import android.graphics.Rect
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.SpannableStringBuilder
@@ -10,7 +11,6 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.StrikethroughSpan
 import android.text.style.StyleSpan
 import android.view.*
-import android.view.View.*
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -149,6 +150,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         L10nUtil.setConditionalLayoutDirection(requireView(), viewModel.pageTitle.wikiSite.languageCode)
+
+        binding.scrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
+            val bounds = Rect()
+            binding.contentContainer.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
+            if (scrollY > bounds.top) {
+                binding.overlayRevisionDetailsView.visibility = View.VISIBLE
+            } else {
+                binding.overlayRevisionDetailsView.visibility = View.INVISIBLE
+            }
+        })
     }
 
     override fun onDestroyView() {
@@ -191,7 +202,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.undoButton.isVisible = ReleaseUtil.isPreBetaRelease
         binding.undoButton.setOnClickListener { showUndoDialog() }
 
-        binding.errorView.backClickListener = OnClickListener { requireActivity().finish() }
+        binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -247,11 +258,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         if (viewModel.revisionFrom != null) {
             binding.usernameFromButton.text = viewModel.revisionFrom!!.user
             binding.revisionFromTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(viewModel.revisionFrom!!.timeStamp))
+            binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
             binding.revisionFromEditComment.text = StringUtil.fromHtml(viewModel.revisionFrom!!.parsedcomment.trim())
         }
 
         binding.usernameToButton.text = viewModel.revisionTo!!.user
         binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(viewModel.revisionTo!!.timeStamp))
+        binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
         binding.revisionToEditComment.text = StringUtil.fromHtml(viewModel.revisionTo!!.parsedcomment.trim())
 
         setEnableDisableTint(binding.newerIdButton, !viewModel.canGoForward)
