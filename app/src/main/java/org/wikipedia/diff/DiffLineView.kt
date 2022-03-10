@@ -44,7 +44,7 @@ class DiffLineView constructor(context: Context, attrs: AttributeSet? = null) : 
             binding.diffLineNumText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
             setExpanded(false)
         } else {
-            binding.diffLineNumText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
+            binding.diffLineNumText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_68))
             setExpanded(true)
         }
     }
