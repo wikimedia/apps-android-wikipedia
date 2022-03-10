@@ -98,8 +98,6 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
-        funnel = TalkFunnel(pageTitle, invokeSource)
-        funnel.logOpenTalk()
 
         binding.talkNewTopicButton.visibility = View.GONE
 
@@ -312,6 +310,8 @@ class TalkTopicsActivity : BaseActivity() {
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
+        funnel = TalkFunnel(pageTitle, invokeSource)
+        funnel.logOpenTalk()
     }
 
     private fun updateOnError(t: Throwable) {
