@@ -58,7 +58,7 @@ class ArticleEditDetailsViewModel : ViewModel() {
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                val response = ServiceFactory.get(title.wikiSite).getRevisionDetailsAscending(title.prefixedText, 2, revisionId)
+                val response = ServiceFactory.get(title.wikiSite).getRevisionDetails(title.prefixedText, revisionId)
                 val revisions = response.query?.firstPage()!!.revisions
                 if (revisions.isNotEmpty()) {
                     revisionDetails.postValue(Resource.Success(revisions))
