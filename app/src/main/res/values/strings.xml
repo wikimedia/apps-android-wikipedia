@@ -48,9 +48,12 @@
     <string name="search_redirect_from">Redirected from %s</string>
 
     <!-- Page Edit History -->
-    <string name="page_edit_history_activity_label">Revision history</string>
+    <string name="page_edit_history_activity_title">Revision history: %s</string>
+    <string name="page_edit_history_activity_title_with_url"><![CDATA[Revision history: <a href="#">%s</a>]]></string>
     <string name="page_edit_history_minor_edit"><![CDATA[<b>m</b> %s]]></string>
     <string name="page_edit_history_comment_placeholder">Empty edit summary</string>
+    <string name="page_edit_history_article_created_date">%d edits since %s</string>
+    <string name="page_edit_history_metrics_content_description">Metrics from %1$s to %2$s</string>
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
