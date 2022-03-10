@@ -774,7 +774,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
   <string name="customize_toolbar_title">Eszközsor módosítása</string>
-  <string name="customize_toolbar_description">A navigációs sáv testreszabása műveletek kiválasztásával</string>
   <string name="customize_toolbar_category_toolbar">Eszközsor</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Fogd és húzd ide a kedvenc tételeket</string>
