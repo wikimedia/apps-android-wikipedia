@@ -32,7 +32,7 @@
                 android:layout_marginBottom="8dp"
                 android:lineSpacingExtra="4sp"
                 android:fontFamily="sans-serif"
-                android:maxLines="2"
+                android:maxLines="1"
                 android:ellipsize="end"
                 android:text="@string/page_edit_history_activity_title"
                 android:textColor="?attr/primary_text_color"
