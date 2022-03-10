@@ -533,7 +533,7 @@
   <string name="notification_syncing_cancel_button">Nuligar</string>
   <string name="notification_syncing_reading_list_channel_title">Sinkronigar listi pri lektado</string>
   <string name="notification_syncing_reading_list_channel_description">Progreso pri sinkronigo di listi pri lektado</string>
-  <string name="notification_many_unread" fuzzy="true">Vu havas % avizi sen lektar</string>
+  <string name="notification_many_unread" fuzzy="true">Vu havas %d avizi sen lektar</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Descharjo di artiklo</item>
     <item quantity="other">Descharjo di artikli</item>
