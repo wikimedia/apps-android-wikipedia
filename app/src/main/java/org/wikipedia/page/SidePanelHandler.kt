@@ -29,7 +29,6 @@ import org.wikipedia.analytics.ToCInteractionFunnel
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.ItemTalkTopicBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
@@ -53,7 +52,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private var talkTopicsProvider: TalkTopicsProvider? = null
     private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
     private val webView = fragment.webView
-    private val adapter = ToCAdapter()
+    private val tocAdapter = ToCAdapter()
     private var rtl = false
     private var currentItemSelected = 0
     private var currentTalkSortMode = Prefs.talkTopicsSortMode
@@ -66,11 +65,11 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         try {
             val sections = JSONObject(value).getJSONArray("sections")
             for (i in 0 until sections.length()) {
-                adapter.setYOffset(sections.getJSONObject(i).getInt("id"),
+                tocAdapter.setYOffset(sections.getJSONObject(i).getInt("id"),
                         sections.getJSONObject(i).getInt("yOffset"))
             }
             // artificially add height for bottom About section
-            adapter.setYOffset(ABOUT_SECTION_ID, webView.contentHeight)
+            tocAdapter.setYOffset(ABOUT_SECTION_ID, webView.contentHeight)
         } catch (e: JSONException) {
             // ignore
         }
@@ -79,9 +78,9 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     val isVisible get() = binding.navigationDrawer.isDrawerOpen(binding.sidePanelContainer)
 
     init {
-        binding.tocList.adapter = adapter
+        binding.tocList.adapter = tocAdapter
         binding.tocList.onItemClickListener = OnItemClickListener { _, _, position, _ ->
-            val section = adapter.getItem(position)
+            val section = tocAdapter.getItem(position)
             scrollToSection(section)
             funnel.logClick()
             hide()
@@ -101,16 +100,14 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
             override fun onDrawerClosed(drawerView: View) {
                 super.onDrawerClosed(drawerView)
-                enableToCContainer(true)
+                enableToCorTalkTopics(true)
             }
         })
         setScrollerPosition()
-        enableToCContainer()
+        enableToCorTalkTopics()
     }
 
-    fun setupTalkTopics(pageTitle: PageTitle) {
-        val newPageTitle = pageTitle.copy()
-
+    private fun setupTalkTopics(pageTitle: PageTitle) {
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
@@ -123,7 +120,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             hide()
         }
 
-        talkTopicsProvider = TalkTopicsProvider(newPageTitle)
+        talkTopicsProvider?.cancel()
+        talkTopicsProvider = TalkTopicsProvider(pageTitle)
 
         talkTopicsProvider?.load(object : TalkTopicsProvider.Callback {
             override fun onUpdatePageTitle(title: PageTitle) {
@@ -144,8 +142,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                 }
             }
 
-            override fun onSuccess(talkPage: TalkPage) {
-                talkTopicsAdapter.pageTitle = newPageTitle
+            override fun onSuccess(title: PageTitle, talkPage: TalkPage) {
+                talkTopicsAdapter.pageTitle = title
                 talkTopicsAdapter.topics.clear()
                 talkTopicsAdapter.topics.addAll(talkPage.topics!!)
                 binding.talkErrorView.visibility = View.GONE
@@ -177,17 +175,21 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     }
 
     @SuppressLint("RtlHardcoded")
-    fun setupToC(page: Page?, wiki: WikiSite) {
+    fun setupForNewPage(page: Page?) {
         page?.let {
-            adapter.setPage(it)
-            rtl = L10nUtil.isLangRTL(wiki.languageCode)
+            tocAdapter.setPage(it)
+            rtl = L10nUtil.isLangRTL(it.title.wikiSite.languageCode)
             binding.tocList.rtl = rtl
-            L10nUtil.setConditionalLayoutDirection(binding.sidePanelContainer, wiki.languageCode)
+            L10nUtil.setConditionalLayoutDirection(binding.sidePanelContainer, it.title.wikiSite.languageCode)
             binding.sidePanelContainer.updateLayoutParams<DrawerLayout.LayoutParams> {
                 gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
             }
             log()
-            funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), wiki, it.pageProperties.pageId, adapter.count)
+            funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), it.title.wikiSite, it.pageProperties.pageId, tocAdapter.count)
+
+            if (ReleaseUtil.isPreBetaRelease) {
+                setupTalkTopics(it.title)
+            }
         }
     }
 
@@ -207,18 +209,24 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         funnel.scrollStart()
     }
 
-    private fun enableToCContainer(isToC: Boolean = true) {
-        binding.tocContainer.isVisible = isToC
-        binding.talkTopicsContainer.isVisible = !isToC
+    private fun enableToCorTalkTopics(enableToC: Boolean = true) {
+        binding.tocContainer.isVisible = enableToC
+        binding.talkTopicsContainer.isVisible = !enableToC
 
-        if (!isToC && currentTalkSortMode != Prefs.talkTopicsSortMode) {
+        if (!enableToC && currentTalkSortMode != Prefs.talkTopicsSortMode) {
             currentTalkSortMode = Prefs.talkTopicsSortMode
             talkTopicsAdapter.notifyDataSetChanged()
         }
     }
 
-    fun show(isToC: Boolean = true) {
-        enableToCContainer(isToC)
+    fun showToC() {
+        enableToCorTalkTopics(true)
+        binding.navigationDrawer.openDrawer(binding.sidePanelContainer)
+        onStartShow()
+    }
+
+    fun showTalkTopics() {
+        enableToCorTalkTopics(false)
         binding.navigationDrawer.openDrawer(binding.sidePanelContainer)
         onStartShow()
     }
@@ -232,7 +240,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         funnel.log()
     }
 
-    fun cancel() {
+    fun dispose() {
         talkTopicsProvider?.cancel()
     }
 
@@ -367,16 +375,16 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         var newYOffset = yOffset
         newYOffset = DimenUtil.roundedPxToDp(newYOffset.toFloat())
         var itemToSelect = 0
-        for (i in 1 until adapter.count) {
-            val section = adapter.getItem(i)
-            itemToSelect = if (adapter.getYOffset(section.id) < newYOffset) {
+        for (i in 1 until tocAdapter.count) {
+            val section = tocAdapter.getItem(i)
+            itemToSelect = if (tocAdapter.getYOffset(section.id) < newYOffset) {
                 i
             } else {
                 break
             }
         }
         if (itemToSelect != currentItemSelected) {
-            adapter.setHighlightedSection(itemToSelect)
+            tocAdapter.setHighlightedSection(itemToSelect)
             currentItemSelected = itemToSelect
         }
         binding.tocList.smoothScrollToPositionFromTop(currentItemSelected,

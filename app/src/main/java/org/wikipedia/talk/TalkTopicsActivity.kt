@@ -239,8 +239,6 @@ class TalkTopicsActivity : BaseActivity() {
         binding.toolbarTitle.isVisible = !goToTopic
         FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
 
-        talkTopicsProvider.cancel()
-
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
@@ -260,7 +258,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
             }
 
-            override fun onSuccess(talkPage: TalkPage) {
+            override fun onSuccess(title: PageTitle, talkPage: TalkPage) {
                 topics.clear()
                 topics.addAll(talkPage.topics!!)
                 updateOnSuccess()

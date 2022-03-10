@@ -14,12 +14,12 @@ import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.log.L
 
-class TalkTopicsProvider(private var pageTitle: PageTitle) {
+class TalkTopicsProvider(private val pageTitle: PageTitle) {
 
     interface Callback {
         fun onUpdatePageTitle(title: PageTitle)
         fun onReceivedRevision(revision: MwQueryPage.Revision?)
-        fun onSuccess(talkPage: TalkPage)
+        fun onSuccess(title: PageTitle, talkPage: TalkPage)
         fun onError(throwable: Throwable)
         fun onFinished()
     }
@@ -78,7 +78,7 @@ class TalkTopicsProvider(private var pageTitle: PageTitle) {
                 pair.first.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
                     callback.onReceivedRevision(revision)
                 }
-                callback.onSuccess(pair.second)
+                callback.onSuccess(pageTitle, pair.second)
             }, {
                 L.e(it)
                 callback.onError(it)
