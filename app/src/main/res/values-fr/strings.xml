@@ -823,7 +823,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Commencez à éditer</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
   <string name="customize_toolbar_title">Personnaliser la barre d’outils</string>
-  <string name="customize_toolbar_description">Personnaliser votre barre d’outils de navigation en bas avec les actions et les destinations que vous trouvez les plus utiles.</string>
+  <string name="customize_toolbar_description_text">Personnalise la barre d’outils avec 5 liens que vous trouvez les plus utiles.</string>
   <string name="customize_toolbar_category_toolbar">Barre d’outils</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Glisser et déposer vos éléments favoris ici 👋</string>

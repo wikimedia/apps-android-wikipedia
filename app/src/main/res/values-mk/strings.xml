@@ -781,7 +781,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
   <string name="customize_toolbar_title">Прилагодување на алатникот</string>
-  <string name="customize_toolbar_description">Прилагодете го прегледничкиот алатник најдолу со дејства и одредници кои ви се најкорисни.</string>
+  <string name="customize_toolbar_description_text">Прилагодете го алатникот на дното со 5 врски кои ви се најкорисни.</string>
   <string name="customize_toolbar_category_toolbar">Алатник</string>
   <string name="customize_toolbar_category_menu">Мени</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Тука довлекувајте ги омилените ставки 👋</string>
