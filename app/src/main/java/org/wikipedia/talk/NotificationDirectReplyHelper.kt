@@ -31,9 +31,9 @@ object NotificationDirectReplyHelper {
         Toast.makeText(context, context.getString(R.string.notifications_direct_reply_progress, replyTo), Toast.LENGTH_SHORT).show()
 
         Observable.zip(CsrfTokenClient(wiki).token.subscribeOn(Schedulers.io()),
-            ServiceFactory.getRest(wiki).getTalkPage(title.prefixedText).subscribeOn(Schedulers.io()), {
-                token, response -> Pair(token, response)
-            }).subscribeOn(Schedulers.io())
+            ServiceFactory.getRest(wiki).getTalkPage(title.prefixedText).subscribeOn(Schedulers.io())) { token, response ->
+            Pair(token, response)
+        }.subscribeOn(Schedulers.io())
             .flatMap { pair ->
                 val topic = pair.second.topics!!.find {
                     it.id > 0 && it.html?.trim().orEmpty() == StringUtil.removeUnderscores(title.fragment)

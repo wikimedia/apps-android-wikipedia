@@ -24,6 +24,7 @@
 * Mr. Ibrahem
 * MuratTheTurkish
 * NEHAOUA
+* NancyMilad
 * PhiberOptik
 * Shbib Al-Subaie
 * Sonic N800
@@ -80,6 +81,7 @@
   <string name="image_share_via">مشاركة عبر</string>
   <string name="search_redirect_from">بالتحويل من %s</string>
   <string name="page_edit_history_activity_label">تاريخ المراجعة</string>
+  <string name="page_edit_history_comment_placeholder">ملخص محرر فارغ</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
   <string name="menu_page_find_in_page">ابحث في المقالة</string>
@@ -773,6 +775,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثالي سطر واحد يكفي، ما بين كلمتين إلى اثنتا عشرة كلمة</string>
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
+  <string name="customize_toolbar_description_text">عدل شريط الادوات السفلي بخمسة روابط تجدهم الاكثر مساعدا</string>
   <string name="suggested_edits_describe_articles">صِف المقالات</string>
   <string name="suggested_edits_caption_images">تعليقات الصور</string>
   <string name="suggested_edits_tag_images">ضع وسمًا على الصور</string>
@@ -875,7 +878,7 @@
   <string name="suggested_edits_quality_okay_text">حسنا</string>
   <string name="suggested_edits_quality_sufficient_text">كافٍ</string>
   <string name="suggested_edits_quality_poor_text">فقير</string>
-  <string name="suggested_edits_quality_bad_text">سيء</string>
+  <string name="suggested_edits_quality_bad_text">سيئ</string>
   <string name="suggested_edits_label">تعديلات مقترحة</string>
   <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">مساهمة</item>
@@ -1043,6 +1046,8 @@
   <string name="thank_success_message">أُرسل \"شكرك\" إلى %s 👍</string>
   <string name="menu_option_view_user_profile">اعرض صفحة المستخدم</string>
   <string name="menu_option_view_user_talk">اعرض صفحة النقاش</string>
+  <string name="revision_compare_button">مقارنة</string>
+  <string name="revision_compare_two_only">يمكن اختيار فقط مراجعين اثنين</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">أُضيفت %1$s وصفحة نقاشها إلى قائمة مراقبتك %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">غيّر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">بشكلٍ دائمٍ</string>
