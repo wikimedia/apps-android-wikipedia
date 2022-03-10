@@ -52,7 +52,7 @@
     <string name="page_edit_history_minor_edit"><![CDATA[<b>m</b> %s]]></string>
     <string name="page_edit_history_comment_placeholder">Empty edit summary</string>
     <string name="page_edit_history_search_or_filter_edits_hint">Search or filter edits</string>
-    <string name="page_edit_history_filter_by_button">Filter by</string>
+    <string name="page_edit_history_filter_by">Filter by</string>
     <string name="page_edit_history_filter_by_all">All edits (%s)</string>
     <string name="page_edit_history_filter_by_user">User edits (%s)</string>
     <string name="page_edit_history_filter_by_anon">Anon edits (%s)</string>
