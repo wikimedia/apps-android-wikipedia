@@ -51,7 +51,7 @@ class EditHistoryListActivity : BaseActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-        binding.articleTitleView.visibility = View.GONE
+        binding.articleTitleView.isVisible = false
         binding.articleTitleView.text = getString(R.string.page_edit_history_activity_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
@@ -76,8 +76,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                val isVisible = if (binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height) View.VISIBLE else View.INVISIBLE
-                binding.articleTitleView.visibility = isVisible
+                binding.articleTitleView.isVisible = binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height
             }
         })
 
