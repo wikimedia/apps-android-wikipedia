@@ -121,7 +121,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         }
 
         talkTopicsProvider?.cancel()
-        talkTopicsProvider = TalkTopicsProvider(pageTitle)
+        talkTopicsProvider = TalkTopicsProvider(pageTitle.copy())
 
         talkTopicsProvider?.load(object : TalkTopicsProvider.Callback {
             override fun onUpdatePageTitle(title: PageTitle) {
