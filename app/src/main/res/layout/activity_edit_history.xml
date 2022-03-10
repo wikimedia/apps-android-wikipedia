@@ -43,6 +43,7 @@
                 android:textColor="?attr/colorAccent"
                 android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.05"
                 android:text="@string/revision_compare_button"/>
 
         </LinearLayout>
@@ -152,6 +153,7 @@
                 android:textColor="?attr/colorAccent"
                 android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.05"
                 android:text="@string/revision_compare_button"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
