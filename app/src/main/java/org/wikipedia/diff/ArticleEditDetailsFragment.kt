@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
+import android.text.style.StrikethroughSpan
 import android.text.style.StyleSpan
 import android.view.*
 import android.view.View.*
@@ -389,7 +390,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         spannableText.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
                 if (isAddition) R.attr.color_group_65 else R.attr.color_group_67)), start, end, 0)
         spannableText.setSpan(boldStyle, start, end, 0)
-        spannableText.setSpan(if (isAddition) foregroundAddedColor else foregroundRemovedColor, start, end, 0)
+        if (isAddition) {
+            spannableText.setSpan(foregroundAddedColor, start, end, 0)
+        } else {
+            spannableText.setSpan(foregroundRemovedColor, start, end, 0)
+            spannableText.setSpan(StrikethroughSpan(), start, end, 0)
+        }
     }
 
     private fun utf8Indices(s: String): IntArray {
