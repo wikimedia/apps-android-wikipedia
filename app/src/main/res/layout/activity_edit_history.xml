@@ -42,16 +42,18 @@
             <TextView
                 android:id="@+id/compareButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?android:selectableItemBackgroundBorderless"
+                android:gravity="center_vertical"
                 android:textColor="?attr/colorAccent"
                 android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.05"
                 android:text="@string/revision_compare_button"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -161,6 +163,7 @@
                 android:textColor="?attr/colorAccent"
                 android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.05"
                 android:text="@string/revision_compare_button"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
