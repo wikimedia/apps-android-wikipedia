@@ -114,6 +114,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareContainer.isVisible = viewModel.comparing
         binding.compareButton.text = getString(if (!viewModel.comparing) R.string.revision_compare_button else android.R.string.cancel)
         editHistoryListAdapter.notifyItemRangeChanged(0, editHistoryListAdapter.itemCount)
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, if (viewModel.comparing) android.R.attr.colorBackground else R.attr.paper_color))
         updateCompareStateItems()
     }
 
@@ -250,8 +251,12 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun onClick() {
-            startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                    viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
+            if (viewModel.comparing) {
+                toggleSelectState()
+            } else {
+                startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
+                        viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
+            }
         }
 
         override fun onLongClick() {
@@ -260,6 +265,14 @@ class EditHistoryListActivity : BaseActivity() {
                 updateCompareState()
             }
             toggleSelectState()
+        }
+
+        override fun onUserNameClick(v: View) {
+            if (viewModel.comparing) {
+                toggleSelectState()
+            } else {
+                // TODO: will be done in subsequent PR.
+            }
         }
 
         override fun onToggleSelect() {
