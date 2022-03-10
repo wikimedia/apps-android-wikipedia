@@ -244,7 +244,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup()
         sidePanelHandler.log()
-        sidePanelHandler.cancel()
+        sidePanelHandler.dispose()
         shareHandler.dispose()
         leadImagesHandler.dispose()
         disposables.clear()
@@ -434,8 +434,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
 
             model.title?.let {
-                sidePanelHandler.setupToC(model.page, it.wikiSite)
-                sidePanelHandler.setupTalkTopics(it)
+                sidePanelHandler.setupForNewPage(model.page)
                 sidePanelHandler.setEnabled(true)
             }
         }
@@ -1369,7 +1368,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onContentsSelected() {
-            sidePanelHandler.show()
+            sidePanelHandler.showToC()
         }
 
         override fun onShareSelected() {
