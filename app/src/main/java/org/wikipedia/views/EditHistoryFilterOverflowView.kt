@@ -9,15 +9,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import android.widget.TextView
+import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
+import kotlinx.coroutines.*
+import org.wikipedia.R
 import org.wikipedia.databinding.ViewEditHistoryFilterOverflowBinding
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.restbase.EditCount
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 
 class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
 
     fun interface Callback {
-        fun filterByClicked(filterBy: Int)
+        fun filterByClicked(filterBy: String)
     }
 
     private var binding = ViewEditHistoryFilterOverflowBinding.inflate(LayoutInflater.from(context), this, true)
@@ -28,7 +37,7 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
         setButtonsListener()
     }
 
-    fun show(anchorView: View, callback: Callback?) {
+    fun show(anchorView: View, pageTitle: PageTitle, callback: Callback?) {
         this.callback = callback
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
@@ -41,50 +50,49 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
             popupWindowHost = null
         }
 
-        Prefs.editHistoryFilterSet.forEach {
-            when (it) {
-                FILTER_BY_ALL -> {
-                    binding.filterByAllSelected.isVisible = true
-                }
-                FILTER_BY_USER -> {
-                    binding.filterByUserSelected.isVisible = true
-                }
-                FILTER_BY_ANON -> {
-                    binding.filterByAnonSelected.isVisible = true
-                }
-                FILTER_BY_BOT -> {
-                    binding.filterByBotSelected.isVisible = true
-                }
+        binding.filterByAllSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_EDITS)
+        binding.filterByUserSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_EDITORS)
+        binding.filterByAnonSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_ANONYMOUS)
+        binding.filterByBotSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_BOT)
+
+        CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
+            withContext(Dispatchers.IO) {
+                val editCountsAllResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
+                val editCountsUserResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITORS) }
+                val editCountsAnonResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
+                val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
+
+                setUpFilterItem(binding.filterByAll, R.string.page_edit_history_filter_by_all, editCountsAllResponse)
+                setUpFilterItem(binding.filterByUser, R.string.page_edit_history_filter_by_user, editCountsUserResponse)
+                setUpFilterItem(binding.filterByAnon, R.string.page_edit_history_filter_by_anon, editCountsAnonResponse)
+                setUpFilterItem(binding.filterByBot, R.string.page_edit_history_filter_by_bot, editCountsBotResponse)
             }
         }
     }
 
+    suspend fun setUpFilterItem(view: TextView, @StringRes stringId: Int, response: Deferred<EditCount>) {
+        view.text = context.getString(stringId, StringUtil.getPageViewText(context, response.await().count.toLong()))
+    }
+
     private fun setButtonsListener() {
-        binding.filterByAll.setOnClickListener {
-            saveToPreference(FILTER_BY_ALL)
+        binding.filterByAllButton.setOnClickListener {
+            saveToPreference(EditCount.EDIT_TYPE_EDITS)
         }
-        binding.filterByUser.setOnClickListener {
-            saveToPreference(FILTER_BY_USER)
+        binding.filterByUserButton.setOnClickListener {
+            saveToPreference(EditCount.EDIT_TYPE_EDITORS)
         }
-        binding.filterByAnon.setOnClickListener {
-            saveToPreference(FILTER_BY_ANON)
+        binding.filterByAnonButton.setOnClickListener {
+            saveToPreference(EditCount.EDIT_TYPE_ANONYMOUS)
         }
-        binding.filterByBot.setOnClickListener {
-            saveToPreference(FILTER_BY_BOT)
+        binding.filterByBotButton.setOnClickListener {
+            saveToPreference(EditCount.EDIT_TYPE_BOT)
         }
     }
 
-    private fun saveToPreference(filterBy: Int) {
+    private fun saveToPreference(filterBy: String) {
         val set = Prefs.editHistoryFilterSet.toMutableSet()
         set.add(filterBy)
         Prefs.editHistoryFilterSet = set
         callback?.filterByClicked(filterBy)
-    }
-
-    companion object {
-        const val FILTER_BY_ALL = 0
-        const val FILTER_BY_USER = 1
-        const val FILTER_BY_ANON = 2
-        const val FILTER_BY_BOT = 3
     }
 }
