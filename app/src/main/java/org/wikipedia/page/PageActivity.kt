@@ -318,7 +318,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onNavMenuSwipeRequest(gravity: Int) {
         if (!isCabOpen && gravity == Gravity.END) {
-            pageFragment.sidePanelHandler.show()
+            pageFragment.sidePanelHandler.showToC()
         }
     }
 
