@@ -115,6 +115,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareContainer.isVisible = viewModel.comparing
         binding.compareButton.text = getString(if (!viewModel.comparing) R.string.revision_compare_button else android.R.string.cancel)
         editHistoryListAdapter.notifyItemRangeChanged(0, editHistoryListAdapter.itemCount)
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, if (viewModel.comparing) android.R.attr.colorBackground else R.attr.paper_color))
         updateCompareStateItems()
     }
 

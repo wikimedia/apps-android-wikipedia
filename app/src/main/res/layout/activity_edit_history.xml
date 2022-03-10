@@ -36,10 +36,11 @@
             <TextView
                 android:id="@+id/compareButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?android:selectableItemBackgroundBorderless"
+                android:gravity="center_vertical"
                 android:textColor="?attr/colorAccent"
                 android:textAllCaps="true"
                 android:fontFamily="sans-serif-medium"
