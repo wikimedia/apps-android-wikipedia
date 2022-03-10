@@ -799,7 +799,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="customize_toolbar_title">Personalitza la barra d\'eines</string>
-  <string name="customize_toolbar_description">Personalitzeu la barra d\'eines de navegació inferior amb les accions i destinacions que trobeu més útils.</string>
   <string name="customize_toolbar_category_toolbar">Barra d\'eines</string>
   <string name="customize_toolbar_category_menu">Menú</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Arrossegueu i deixeu anar els vostres elements preferits ací 👋</string>

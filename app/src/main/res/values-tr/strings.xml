@@ -89,6 +89,9 @@
   <string name="share_via">Şununla paylaş:</string>
   <string name="image_share_via">Şununla paylaş:</string>
   <string name="search_redirect_from">%s sayfasından yönlendirildi</string>
+  <string name="page_edit_history_activity_label">Sürüm geçmişi</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Boş düzenleme özeti</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Dili değiştir</string>
   <string name="menu_page_find_in_page">Maddede bul</string>
@@ -195,6 +198,7 @@
   <string name="dialog_create_account_checking_progress">Doğrulanıyor</string>
   <string name="create_account_email_hint">E-posta (İsteğe bağlı)</string>
   <string name="create_account_password_repeat_hint">Parolayı tekrarla</string>
+  <string name="create_account_password_is_username">Parola kullanıcı adıyla aynı olamaz</string>
   <string name="create_account_passwords_mismatch_error">Parolalar eşleşmiyor</string>
   <string name="create_account_email_error">Geçersiz e-posta adresi</string>
   <string name="create_account_username_error">Kullanıcı adında geçersiz karakterler</string>
@@ -815,7 +819,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
   <string name="customize_toolbar_title">Araç çubuğunu özelleştir</string>
-  <string name="customize_toolbar_description">En yararlı bulduğunuz eylemler ve hedeflerle alt gezinme araç çubuğunuzu özelleştirin.</string>
   <string name="customize_toolbar_category_toolbar">Araç çubuğu</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Favori öğelerinizi buraya sürükleyip bırakın 👋</string>
@@ -1098,6 +1101,10 @@
   <string name="talk_share_discussion_subject">Vikipedi - tartışma sayfasındaki \"%s\" hakkındaki tartışma</string>
   <string name="talk_share_talk_page">Vikipedi - tartışma sayfasındaki tartışmalar</string>
   <string name="talk_edit_disclaimer">Bu bir tartışma sayfasıdır. Lütfen, tartışma sayfası yönergelerine uyun ve gönderilerinizi dört tilde yazarak imzalamayı unutmayın: vikimetni kullanırken gönderinin sonuna ~~~~ ekleyin.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Tartışma_sayfası\"&gt;Vikipedi:Tartışma sayfası&lt;/a&gt;</string>
+  <string name="talk_search_hint">Mesajları ara</string>
+  <string name="talk_overflow_sort_by">Sıralama ölçütü</string>
+  <string name="talk_overflow_sort_date_published">Yayımlanma tarihi</string>
+  <string name="talk_overflow_sort_topic_name">Konu adı</string>
   <string name="menu_option_share_talk_discussion">Tartışmayı paylaş</string>
   <string name="menu_option_share_talk_page">Tartışma sayfasını paylaş</string>
   <string name="menu_option_share_edit">Değişikliği paylaş</string>
@@ -1117,6 +1124,8 @@
   <string name="thank_success_message">\'Teşekkür\'ün %s kullanıcısına gönderildi</string>
   <string name="menu_option_view_user_profile">Kullanıcı profili sayfasını görüntüle</string>
   <string name="menu_option_view_user_talk">Tartışma sayfasını görüntüle</string>
+  <string name="revision_compare_button">Karşılaştır</string>
+  <string name="revision_compare_two_only">Yalnızca iki sürüm seçilebilir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ve onun tartışma sayfası %2$s izleme listenize eklendi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Değiştir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">kalıcı olarak</string>
