@@ -56,7 +56,6 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
         binding.filterByUserSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_EDITORS)
         binding.filterByAnonSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_ANONYMOUS)
         binding.filterByBotSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_BOT)
-
     }
 
     private fun setUpFilterItem(view: TextView, @StringRes stringId: Int, editCount: EditCount) {
