@@ -49,7 +49,6 @@
 
     <!-- Page Edit History -->
     <string name="page_edit_history_activity_title">Revision history: %s</string>
-    <string name="page_edit_history_activity_title_with_url"><![CDATA[Revision history: <a href="#">%s</a>]]></string>
     <string name="page_edit_history_minor_edit"><![CDATA[<b>m</b> %s]]></string>
     <string name="page_edit_history_comment_placeholder">Empty edit summary</string>
     <string name="page_edit_history_article_created_date">%d edits since %s</string>
@@ -832,6 +831,8 @@
     <string name="customize_toolbar_category_menu">Menu</string>
     <string name="customize_toolbar_drag_and_drop_placeholder">Drag and drop your favorite items here 👋</string>
     <string name="customize_toolbar_reset_to_default_button">Reset to default</string>
+    <string name="customize_toolbar_item_drag_handle_default_tooltip">Hold the drag icon to move the item</string>
+    <string name="customize_toolbar_item_default_tooltip">Press and drag an item to reposition it</string>
     <!-- /Customize toolbar -->
 
     <!-- Suggested edits -->

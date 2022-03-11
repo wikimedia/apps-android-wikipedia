@@ -30,7 +30,8 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
     }
 
     fun setup(pageTitle: PageTitle, editHistoryStats: EditHistoryListViewModel.EditHistoryStats) {
-        binding.articleTitleView.text = StringUtil.fromHtml(context.getString(R.string.page_edit_history_activity_title_with_url, pageTitle.displayText))
+        binding.articleTitleView.text = StringUtil.fromHtml(context.getString(R.string.page_edit_history_activity_title,
+                "<a href=\"#\">${pageTitle.displayText}</a>"))
         RichTextUtil.removeUnderlinesFromLinks(binding.articleTitleView)
         val timestamp = editHistoryStats.revision.timeStamp
         if (timestamp.isNotBlank()) {
