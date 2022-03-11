@@ -6,8 +6,6 @@ import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnLongClickListener
-import android.view.View.VISIBLE
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
@@ -32,16 +30,19 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.staticdata.SpecialAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.suggestededits.SuggestionsActivity
-import org.wikipedia.util.DimenUtil.roundedDpToPx
 import java.util.concurrent.TimeUnit
 
 object FeedbackUtil {
+    private val LENGTH_SHORT = TimeUnit.SECONDS.toMillis(3).toInt()
     val LENGTH_DEFAULT = TimeUnit.SECONDS.toMillis(5).toInt()
     val LENGTH_MEDIUM = TimeUnit.SECONDS.toMillis(8).toInt()
     val LENGTH_LONG = TimeUnit.SECONDS.toMillis(15).toInt()
-    private val TOOLBAR_LONG_CLICK_LISTENER = OnLongClickListener { v: View ->
+    private val TOOLBAR_LONG_CLICK_LISTENER = View.OnLongClickListener { v ->
         showToastOverView(v, v.contentDescription, LENGTH_DEFAULT)
         true
+    }
+    private val TOOLBAR_ON_CLICK_LISTENER = View.OnClickListener { v ->
+        showToastOverView(v, v.contentDescription, LENGTH_SHORT)
     }
 
     fun showError(activity: Activity, e: Throwable) {
@@ -121,9 +122,11 @@ object FeedbackUtil {
     }
 
     fun setButtonLongPressToast(vararg views: View) {
-        for (v in views) {
-            v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER)
-        }
+        views.forEach { it.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER) }
+    }
+
+    fun setButtonOnClickToast(vararg views: View) {
+        views.forEach { it.setOnClickListener(TOOLBAR_ON_CLICK_LISTENER) }
     }
 
     fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int): Snackbar {
@@ -164,9 +167,9 @@ object FeedbackUtil {
 
     private fun showTooltip(activity: Activity, balloon: Balloon, anchor: View, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
         if (aboveOrBelow) {
-            balloon.showAlignTop(anchor, 0, roundedDpToPx(8f))
+            balloon.showAlignTop(anchor, 0, DimenUtil.roundedDpToPx(8f))
         } else {
-            balloon.showAlignBottom(anchor, 0, -roundedDpToPx(8f))
+            balloon.showAlignBottom(anchor, 0, -DimenUtil.roundedDpToPx(8f))
         }
         if (!autoDismiss) {
             (activity as BaseActivity).setCurrentTooltip(balloon)
@@ -179,7 +182,7 @@ object FeedbackUtil {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         if (showDismissButton) {
-            binding.buttonView.visibility = VISIBLE
+            binding.buttonView.visibility = View.VISIBLE
         }
 
         val balloon = createBalloon(context) {

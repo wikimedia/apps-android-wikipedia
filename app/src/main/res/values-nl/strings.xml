@@ -808,7 +808,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
   <string name="customize_toolbar_title">Pas de werkbalk aan</string>
-  <string name="customize_toolbar_description">Pas uw onderste navigatiewerkbalk aan met de acties en bestemmingen die u het nuttigst vindt.</string>
   <string name="customize_toolbar_category_toolbar">Werkbalk</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Sleep je favoriete items hierheen 👋</string>
