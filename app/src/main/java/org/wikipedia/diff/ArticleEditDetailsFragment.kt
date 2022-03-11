@@ -473,15 +473,17 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     ((item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED) ||
                             (item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT && item.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) ||
                             (lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED))) {
-                lastItem!!.lineEnd = it.lineNumber
+                if (it.lineNumber > lastItem!!.lineEnd) {
+                    lastItem!!.lineEnd = it.lineNumber
+                }
                 val str = SpannableStringBuilder(lastItem!!.parsedText)
                 str.append("\n")
                 str.append(item.parsedText)
                 lastItem!!.parsedText = str
             } else {
                 items.add(item)
+                lastItem = item
             }
-            lastItem = item
         }
         binding.diffRecyclerView.adapter = DiffLinesAdapter(items)
     }
