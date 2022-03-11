@@ -1177,6 +1177,7 @@
     <string name="revision_diff_from">From:</string>
     <string name="revision_diff_to">To:</string>
     <string name="revision_diff_line_num">Line %d</string>
+    <string name="revision_diff_line_nums">Lines %d–%d</string>
     <string name="revision_diff_line_added">Line added</string>
     <string name="revision_diff_line_removed">Line removed</string>
     <string name="revision_diff_paragraph_added">Paragraph added</string>

@@ -2,14 +2,10 @@ package org.wikipedia.diff
 
 import android.app.AlertDialog
 import android.content.res.ColorStateList
-import android.graphics.Rect
-import android.graphics.Typeface
+import android.graphics.*
 import android.os.Bundle
 import android.text.SpannableStringBuilder
-import android.text.style.BackgroundColorSpan
-import android.text.style.ForegroundColorSpan
-import android.text.style.StrikethroughSpan
-import android.text.style.StyleSpan
+import android.text.style.*
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -366,6 +362,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun createSpannable(diff: DiffResponse.DiffItem): CharSequence {
         val spannableString = SpannableStringBuilder(diff.text.ifEmpty { "\n" })
+        if (diff.text.isEmpty() && diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) {
+            spannableString.setSpan(EmptyLineSpan(ResourceUtil.getThemedColor(requireContext(), android.R.attr.colorBackground),
+                    ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color)), 0, spannableString.length, 0)
+            return spannableString
+        }
         when (diff.type) {
             DiffResponse.DIFF_TYPE_LINE_ADDED -> {
                 updateDiffTextDecor(spannableString, true, 0, diff.text.length)
@@ -471,6 +472,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     ((item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED) ||
                             (item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT && item.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) ||
                             (lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED))) {
+                lastItem!!.lineEnd = it.lineNumber
                 val str = SpannableStringBuilder(lastItem!!.parsedText)
                 str.append("\n")
                 str.append(item.parsedText)
@@ -480,20 +482,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
             lastItem = item
         }
-        // val items = diffList.map { DiffLine(it) }.filter { it.parsedText.toString().trim().isNotEmpty() || it.diff.type != DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT }
         binding.diffRecyclerView.adapter = DiffLinesAdapter(items)
     }
 
-    inner class DiffLine(diff: DiffResponse.DiffItem) {
-        val diff: DiffResponse.DiffItem
-        var parsedText: CharSequence
-        var expanded: Boolean
-
-        init {
-            parsedText = createSpannable(diff)
-            this.diff = diff
-            expanded = diff.type != DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT
-        }
+    inner class DiffLine(item: DiffResponse.DiffItem) {
+        val diff = item
+        val lineStart = item.lineNumber
+        var lineEnd = item.lineNumber
+        var parsedText = createSpannable(diff)
+        var expanded = diff.type != DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT
     }
 
     private inner class DiffLinesAdapter(val diffLines: List<DiffLine>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

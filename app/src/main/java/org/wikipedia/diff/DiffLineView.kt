@@ -35,7 +35,8 @@ class DiffLineView constructor(context: Context, attrs: AttributeSet? = null) : 
         } else if (diffLine.diff.lineNumber < 0 && diffLine.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED) {
             binding.diffLineNumText.text = context.getString(R.string.revision_diff_line_removed)
         } else {
-            binding.diffLineNumText.text = context.getString(R.string.revision_diff_line_num, diffLine.diff.lineNumber)
+            binding.diffLineNumText.text = if (diffLine.lineStart == diffLine.lineEnd) context.getString(R.string.revision_diff_line_num, diffLine.diff.lineNumber)
+            else context.getString(R.string.revision_diff_line_nums, diffLine.lineStart, diffLine.lineEnd)
         }
 
         binding.diffText.text = diffLine.parsedText
