@@ -14,7 +14,7 @@ import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.log.L
 
-class TalkTopicsProvider(private val pageTitle: PageTitle) {
+class TalkTopicsProvider(title: PageTitle) {
 
     interface Callback {
         fun onUpdatePageTitle(title: PageTitle)
@@ -24,6 +24,7 @@ class TalkTopicsProvider(private val pageTitle: PageTitle) {
         fun onFinished()
     }
 
+    private val pageTitle = title.copy()
     private var resolveTitleRequired = false
     private val disposables = CompositeDisposable()
 

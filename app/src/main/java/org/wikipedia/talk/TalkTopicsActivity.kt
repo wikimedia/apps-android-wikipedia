@@ -52,9 +52,9 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicsBinding
     private lateinit var pageTitle: PageTitle
     private lateinit var invokeSource: Constants.InvokeSource
-    private lateinit var funnel: TalkFunnel
     private lateinit var notificationButtonView: NotificationButtonView
     private lateinit var talkTopicsProvider: TalkTopicsProvider
+    private var funnel: TalkFunnel? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private val disposables = CompositeDisposable()
@@ -86,20 +86,18 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         binding.talkNewTopicButton.setOnClickListener {
-            funnel.logNewTopicClick()
+            funnel?.logNewTopicClick()
             startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, "", invokeSource),
                 Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY)
         }
 
         binding.talkRefreshView.setOnRefreshListener {
-            funnel.logRefresh()
+            funnel?.logRefresh()
             loadTopics()
         }
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
-        funnel = TalkFunnel(pageTitle, invokeSource)
-        funnel.logOpenTalk()
 
         binding.talkNewTopicButton.visibility = View.GONE
 
@@ -132,7 +130,7 @@ class TalkTopicsActivity : BaseActivity() {
             if (data != null && data.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                 val pos = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
                 if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
-                    funnel.logChangeLanguage()
+                    funnel?.logChangeLanguage()
 
                     val newNamespace = when {
                         pageTitle.namespace() == Namespace.USER -> {
@@ -246,6 +244,7 @@ class TalkTopicsActivity : BaseActivity() {
         talkTopicsProvider.load(object : TalkTopicsProvider.Callback {
             override fun onUpdatePageTitle(title: PageTitle) {
                 pageTitle = title
+                funnel = TalkFunnel(pageTitle, invokeSource)
                 binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
             }
 
@@ -312,6 +311,7 @@ class TalkTopicsActivity : BaseActivity() {
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
+        funnel?.logOpenTalk()
     }
 
     private fun updateOnError(t: Throwable) {
