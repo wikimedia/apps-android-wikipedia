@@ -244,6 +244,7 @@ class TalkTopicsActivity : BaseActivity() {
         talkTopicsProvider.load(object : TalkTopicsProvider.Callback {
             override fun onUpdatePageTitle(title: PageTitle) {
                 pageTitle = title
+                funnel = TalkFunnel(pageTitle, invokeSource)
                 binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
             }
 
@@ -310,7 +311,6 @@ class TalkTopicsActivity : BaseActivity() {
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
-        funnel = TalkFunnel(pageTitle, invokeSource)
         funnel?.logOpenTalk()
     }
 
