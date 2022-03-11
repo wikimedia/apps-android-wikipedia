@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
-import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.NestedScrollView
@@ -84,10 +83,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 isWatched = it.data.query?.firstPage()?.watched ?: false
                 hasWatchlistExpiry = it.data.query?.firstPage()?.hasWatchlistExpiry() ?: false
-                updateWatchlistButtonUI()
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
+            requireActivity().invalidateOptionsMenu()
         }
 
         viewModel.revisionDetails.observe(viewLifecycleOwner) {
@@ -126,12 +125,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 val firstWatch = it.data.getFirst()
                 if (firstWatch != null) {
                     showWatchlistSnackbar(viewModel.lastWatchExpiry, firstWatch)
-                    updateWatchlistButtonUI()
                 }
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
-                binding.watchButton.isCheckable = true
             }
+            requireActivity().invalidateOptionsMenu()
         }
 
         viewModel.undoEditResponse.observe(viewLifecycleOwner) {
@@ -181,10 +179,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             setLoadingState()
             viewModel.goBackward()
         }
-        binding.watchButton.setOnClickListener {
-            binding.watchButton.isCheckable = false
-            viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
-        }
 
         binding.usernameFromButton.setOnClickListener {
             showUserPopupMenu(viewModel.revisionFrom, binding.usernameFromButton)
@@ -206,12 +200,23 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         inflater.inflate(R.menu.menu_edit_details, menu)
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
+        watchlistItem.title = getString(if (isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
+        watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_share_edit -> {
                 ShareUtil.shareText(requireContext(), PageTitle(viewModel.pageTitle.prefixedText,
                         viewModel.pageTitle.wikiSite), viewModel.revisionToId, viewModel.revisionFromId)
+                true
+            }
+            R.id.menu_add_watchlist -> {
+                viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -291,13 +296,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         view.iconTint = ColorStateList.valueOf(themedColor)
     }
 
-    private fun updateWatchlistButtonUI() {
-        setButtonTextAndIconColor(binding.watchButton, ResourceUtil.getThemedColor(requireContext(),
-                if (isWatched) R.attr.color_group_68 else R.attr.colorAccent))
-        binding.watchButton.text = getString(if (isWatched) R.string.watchlist_details_watching_label else R.string.watchlist_details_watch_label)
-        binding.watchButton.setIconResource(getWatchlistIcon(isWatched, hasWatchlistExpiry))
-    }
-
     @DrawableRes
     private fun getWatchlistIcon(isWatched: Boolean, hasWatchlistExpiry: Boolean): Int {
         return if (isWatched && !hasWatchlistExpiry) {
@@ -328,7 +326,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
             snackbar.show()
         }
-        binding.watchButton.isCheckable = true
     }
 
     private fun showThankDialog() {

@@ -28,7 +28,7 @@
                 android:id="@+id/articleTitleContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp"
+                android:paddingBottom="8dp"
                 android:background="?attr/paper_color">
 
                 <ProgressBar
@@ -52,33 +52,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     android:ellipsize="end"
                     android:lineSpacingExtra="8sp"
                     android:maxLines="3"
                     android:textColor="?attr/colorAccent"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/olderIdButton"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/watchButton"
-                    style="@style/FlatButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/articleTitleView"
-                    app:layout_constraintTop_toBottomOf="@id/articleTitleView"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:letterSpacing="0.04"
-                    android:text="@string/watchlist_details_watching_label"
-                    android:textSize="14sp"
-                    app:icon="@drawable/ic_icon_star"
-                    app:iconGravity="textStart"
-                    app:iconSize="20dp"
-                    app:iconTint="?attr/color_group_68" />
 
                 <ImageView
                     android:id="@+id/olderIdButton"
@@ -107,7 +90,7 @@
                     android:focusable="true"
                     android:padding="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/articleTitleView"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                     app:tint="?attr/primary_text_color" />
 
