@@ -35,9 +35,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.views.WikiCardView
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.EditHistoryStatsView
+import org.wikipedia.views.WikiCardView
 import org.wikipedia.views.WikiErrorView
 
 class EditHistoryListActivity : BaseActivity() {
@@ -76,10 +76,10 @@ class EditHistoryListActivity : BaseActivity() {
 
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
-                .withLoadStateHeaderAndFooter(loadHeader, loadFooter).also { 
-                  it.addAdapter(0, editHistoryStatsAdapter) 
-                  it.addAdapter(1, SearchBarAdapter())
-                }
+            .withLoadStateHeaderAndFooter(loadHeader, loadFooter).also {
+                it.addAdapter(0, editHistoryStatsAdapter)
+                it.addAdapter(1, SearchBarAdapter())
+            }
         binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -158,7 +158,7 @@ class EditHistoryListActivity : BaseActivity() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchBarViewHolder {
             return SearchBarViewHolder(layoutInflater.inflate(R.layout.view_edit_history_search_bar, parent, false))
         }
-        
+
         override fun getItemCount(): Int { return 1 }
     }
 
