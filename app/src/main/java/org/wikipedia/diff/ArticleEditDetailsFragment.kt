@@ -363,7 +363,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun createSpannable(diff: DiffResponse.DiffItem): CharSequence {
         val spannableString = SpannableStringBuilder(diff.text.ifEmpty { "\n" })
-        if (diff.text.isEmpty() && diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) {
+        if (diff.text.isEmpty()) {
             spannableString.setSpan(EmptyLineSpan(ResourceUtil.getThemedColor(requireContext(), android.R.attr.colorBackground),
                     ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color)), 0, spannableString.length, 0)
             return spannableString
