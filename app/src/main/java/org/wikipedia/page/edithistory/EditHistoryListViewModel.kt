@@ -21,6 +21,7 @@ import java.util.*
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
     val editHistoryStatsFlow = MutableStateFlow(EditHistoryItemModel())
+    val editHistoryEditCountsFlow = MutableStateFlow(EditHistoryItemModel())
 
     var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
     var comparing = false
@@ -50,10 +51,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     }.cachedIn(viewModelScope)
 
     init {
-        loadEditHistoryStats()
+        loadEditHistoryStatsAndEditCounts()
     }
 
-    private fun loadEditHistoryStats() {
+    private fun loadEditHistoryStatsAndEditCounts() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
@@ -66,12 +67,22 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
                 val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, 0, null) }
                 val editCountsResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
+                val editCountsUserResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITORS) }
+                val editCountsAnonResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_ANONYMOUS) }
+                val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
                 val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
 
                 editHistoryStatsFlow.value = EditHistoryStats(
                     mwResponse.await().query?.pages?.first()?.revisions?.first()!!,
                     editCountsResponse.await(),
                     articleMetricsResponse.await().firstItem.results
+                )
+
+                editHistoryEditCountsFlow.value = EditHistoryEditCounts(
+                    editCountsResponse.await(),
+                    editCountsUserResponse.await(),
+                    editCountsAnonResponse.await(),
+                    editCountsBotResponse.await()
                 )
             }
         }
@@ -139,6 +150,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     class EditHistoryItem(val item: MwQueryPage.Revision) : EditHistoryItemModel()
     class EditHistorySeparator(val date: String) : EditHistoryItemModel()
     class EditHistoryStats(val revision: MwQueryPage.Revision, val editCount: EditCount, val metrics: List<Metrics.Results>) : EditHistoryItemModel()
+    class EditHistoryEditCounts(val allEdits: EditCount, val userEdits: EditCount, val anonEdits: EditCount, val botEdits: EditCount) : EditHistoryItemModel()
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")

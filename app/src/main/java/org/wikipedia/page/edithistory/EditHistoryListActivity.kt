@@ -36,6 +36,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.EditHistoryFilterOverflowView
 import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.WikiCardView
 import org.wikipedia.views.WikiErrorView
@@ -45,6 +46,7 @@ class EditHistoryListActivity : BaseActivity() {
     private lateinit var binding: ActivityEditHistoryBinding
     private val editHistoryListAdapter = EditHistoryListAdapter()
     private val editHistoryStatsAdapter = StatsItemAdapter()
+    private val editHistorySearchBarAdapter = SearchBarAdapter()
     private val loadHeader = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
@@ -78,7 +80,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
             .withLoadStateHeaderAndFooter(loadHeader, loadFooter).also {
                 it.addAdapter(0, editHistoryStatsAdapter)
-                it.addAdapter(1, SearchBarAdapter())
+                it.addAdapter(1, editHistorySearchBarAdapter)
             }
         binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -113,6 +115,12 @@ class EditHistoryListActivity : BaseActivity() {
         lifecycleScope.launchWhenCreated {
             viewModel.editHistoryStatsFlow.collectLatest {
                 editHistoryStatsAdapter.notifyItemChanged(0)
+            }
+        }
+
+        lifecycleScope.launchWhenCreated {
+            viewModel.editHistoryEditCountsFlow.collectLatest {
+                editHistorySearchBarAdapter.notifyItemChanged(0)
             }
         }
     }
@@ -269,7 +277,12 @@ class EditHistoryListActivity : BaseActivity() {
             }
 
             filterByButton.setOnClickListener {
-                // TODO: implement this
+                val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
+                if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
+                    EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(filterByButton, editCountsFlowValue) {
+                        // TODO: apply new filter setting
+                    }
+                }
             }
 
             FeedbackUtil.setButtonLongPressToast(filterByButton)

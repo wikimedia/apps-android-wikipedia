@@ -87,7 +87,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_user_avatar"
                 android:contentDescription="@null"
-                android:visibility="gone"
                 app:tint="?android:attr/textColorSecondary"/>
 
         </LinearLayout>
@@ -124,7 +123,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_anonymous_ooui"
                 android:contentDescription="@null"
-                android:visibility="gone"
                 app:tint="?android:attr/textColorSecondary"/>
 
         </LinearLayout>
@@ -161,7 +159,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_robot_24"
                 android:contentDescription="@null"
-                android:visibility="gone"
                 app:tint="?android:attr/textColorSecondary"/>
 
         </LinearLayout>
