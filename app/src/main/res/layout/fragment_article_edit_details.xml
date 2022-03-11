@@ -283,26 +283,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/diffBarrier" />
 
-                <TextView
-                    android:id="@+id/diffCharacterCountView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toStartOf="@id/undoButton"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/thankButton"
-                    android:layout_marginEnd="16dp"
-                    android:textColor="?attr/action_mode_green_background"
-                    android:textStyle="bold"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="259dp"
-                    tools:text="Lorem ipsum"/>
-
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/thankButton"
                     style="@style/FlatButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
                     android:letterSpacing="0.02"
                     android:text="@string/thank_label"
                     android:textAllCaps="false"
@@ -310,7 +297,7 @@
                     app:iconGravity="textStart"
                     app:iconSize="20dp"
                     app:iconTint="?attr/colorAccent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/thanksDivider" />
 
                 <com.google.android.material.button.MaterialButton
@@ -318,7 +305,7 @@
                     style="@style/FlatButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
                     android:letterSpacing="0.02"
                     android:text="@string/edit_undo"
                     android:textAllCaps="false"
@@ -327,8 +314,21 @@
                     app:iconGravity="textStart"
                     app:iconSize="20dp"
                     app:iconTint="?attr/colorError"
-                    app:layout_constraintEnd_toStartOf="@id/thankButton"
+                    app:layout_constraintStart_toEndOf="@id/thankButton"
                     app:layout_constraintTop_toTopOf="@id/thankButton" />
+
+                <TextView
+                    android:id="@+id/diffCharacterCountView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/undoButton"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/thankButton"
+                    android:layout_marginStart="16dp"
+                    android:textColor="?attr/action_mode_green_background"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="259dp"
+                    tools:text="Lorem ipsum"/>
 
                 <View
                     android:id="@+id/diffDivider"
