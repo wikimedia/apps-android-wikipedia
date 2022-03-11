@@ -792,7 +792,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Börja redigera</string>
   <string name="description_edit_tutorial_promise">Genom att börja, lovar jag att inte missbruka denna funktion.</string>
   <string name="customize_toolbar_title">Anpassa verktygsfält</string>
-  <string name="customize_toolbar_description">Anpassa det nedre navigeringsfältet med åtgärder och destination du finner mest hjälpsamma.</string>
   <string name="customize_toolbar_category_toolbar">Verktygsfält</string>
   <string name="customize_toolbar_category_menu">Meny</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Dra och släpp dina favoritobjekt här 👋</string>

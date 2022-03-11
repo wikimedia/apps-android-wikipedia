@@ -36,12 +36,15 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.WikiCardView
+import org.wikipedia.util.StringUtil
+import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.WikiErrorView
 
 class EditHistoryListActivity : BaseActivity() {
 
     private lateinit var binding: ActivityEditHistoryBinding
     private val editHistoryListAdapter = EditHistoryListAdapter()
+    private val editHistoryStatsAdapter = StatsItemAdapter()
     private val loadHeader = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
@@ -51,7 +54,9 @@ class EditHistoryListActivity : BaseActivity() {
         binding = ActivityEditHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = getString(R.string.page_edit_history_activity_label)
+
+        binding.articleTitleView.isVisible = false
+        binding.articleTitleView.text = getString(R.string.page_edit_history_activity_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
@@ -71,7 +76,16 @@ class EditHistoryListActivity : BaseActivity() {
 
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.editHistoryRecycler.adapter = editHistoryListAdapter
-                .withLoadStateHeaderAndFooter(loadHeader, loadFooter).also { it.addAdapter(0, SearchBarAdapter()) }
+                .withLoadStateHeaderAndFooter(loadHeader, loadFooter).also { 
+                  it.addAdapter(0, editHistoryStatsAdapter) 
+                  it.addAdapter(1, SearchBarAdapter())
+                }
+        binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                binding.articleTitleView.isVisible = binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height
+            }
+        })
 
         lifecycleScope.launch {
             viewModel.editHistoryFlow.collectLatest {
@@ -95,12 +109,19 @@ class EditHistoryListActivity : BaseActivity() {
                 loadFooter.loadState = it.append
             }
         }
+
+        lifecycleScope.launchWhenCreated {
+            viewModel.editHistoryStatsFlow.collectLatest {
+                editHistoryStatsAdapter.notifyItemChanged(0)
+            }
+        }
     }
 
     private fun updateCompareState() {
         binding.compareContainer.isVisible = viewModel.comparing
         binding.compareButton.text = getString(if (!viewModel.comparing) R.string.revision_compare_button else android.R.string.cancel)
         editHistoryListAdapter.notifyItemRangeChanged(0, editHistoryListAdapter.itemCount)
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, if (viewModel.comparing) android.R.attr.colorBackground else R.attr.paper_color))
         updateCompareStateItems()
     }
 
@@ -137,13 +158,23 @@ class EditHistoryListActivity : BaseActivity() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchBarViewHolder {
             return SearchBarViewHolder(layoutInflater.inflate(R.layout.view_edit_history_search_bar, parent, false))
         }
+        
+        override fun getItemCount(): Int { return 1 }
+    }
+
+    private inner class StatsItemAdapter : RecyclerView.Adapter<StatsViewHolder>() {
+        override fun onBindViewHolder(holder: StatsViewHolder, position: Int) {
+            holder.bindItem()
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StatsViewHolder {
+            return StatsViewHolder(EditHistoryStatsView(this@EditHistoryListActivity))
+        }
 
         override fun getItemCount(): Int { return 1 }
     }
 
-    private inner class LoadingItemAdapter(
-            private val retry: () -> Unit
-    ) : LoadStateAdapter<LoadingViewHolder>() {
+    private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
         override fun onBindViewHolder(holder: LoadingViewHolder, loadState: LoadState) {
             holder.bindItem(loadState, retry)
         }
@@ -200,11 +231,21 @@ class EditHistoryListActivity : BaseActivity() {
     private inner class LoadingViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(loadState: LoadState, retry: () -> Unit) {
             val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
-            itemView.findViewById<TextView>(R.id.progressBar).isVisible = loadState is LoadState.Loading
+            val progressBar = itemView.findViewById<View>(R.id.progressBar)
+            progressBar.isVisible = loadState is LoadState.Loading
             errorView.isVisible = loadState is LoadState.Error
             errorView.retryClickListener = OnClickListener { retry() }
             if (loadState is LoadState.Error) {
                 errorView.setError(loadState.error, viewModel.pageTitle)
+            }
+        }
+    }
+
+    private inner class StatsViewHolder constructor(private val view: EditHistoryStatsView) : RecyclerView.ViewHolder(view) {
+        fun bindItem() {
+            val statsFlowValue = viewModel.editHistoryStatsFlow.value
+            if (statsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
+                view.setup(viewModel.pageTitle, statsFlowValue)
             }
         }
     }
@@ -250,20 +291,23 @@ class EditHistoryListActivity : BaseActivity() {
         }
     }
 
-    private inner class EditHistoryListItemHolder constructor(itemView: EditHistoryItemView) :
-            RecyclerView.ViewHolder(itemView), EditHistoryItemView.Listener {
+    private inner class EditHistoryListItemHolder constructor(private val view: EditHistoryItemView) : RecyclerView.ViewHolder(view), EditHistoryItemView.Listener {
         private lateinit var revision: MwQueryPage.Revision
 
         fun bindItem(revision: MwQueryPage.Revision) {
             this.revision = revision
-            (itemView as EditHistoryItemView).setContents(revision)
+            view.setContents(revision)
             updateSelectState()
-            itemView.listener = this
+            view.listener = this
         }
 
         override fun onClick() {
-            startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                    viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
+            if (viewModel.comparing) {
+                toggleSelectState()
+            } else {
+                startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
+                        viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
+            }
         }
 
         override fun onLongClick() {
@@ -272,6 +316,14 @@ class EditHistoryListActivity : BaseActivity() {
                 updateCompareState()
             }
             toggleSelectState()
+        }
+
+        override fun onUserNameClick(v: View) {
+            if (viewModel.comparing) {
+                toggleSelectState()
+            } else {
+                // TODO: will be done in subsequent PR.
+            }
         }
 
         override fun onToggleSelect() {
@@ -288,7 +340,7 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         private fun updateSelectState() {
-            (itemView as EditHistoryItemView).setSelectedState(viewModel.getSelectedState(revision))
+            view.setSelectedState(viewModel.getSelectedState(revision))
         }
     }
 
