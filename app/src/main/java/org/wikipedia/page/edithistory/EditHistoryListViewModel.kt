@@ -64,7 +64,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                 calendar.add(Calendar.YEAR, -1)
                 val lastYear = DateUtil.getYMDDateString(calendar.time)
 
-                val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getArticleCreatedDate(pageTitle.prefixedText) }
+                val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, 0, null) }
                 val editCountsResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
                 val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
 
@@ -123,7 +123,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryPage.Revision> {
             return try {
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                        .getEditHistoryDetails(pageTitle.prefixedText, params.loadSize, params.key)
+                        .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, params.key)
                 LoadResult.Page(response.query!!.pages?.get(0)?.revisions!!, null, response.continuation?.rvContinuation)
             } catch (e: Exception) {
                 LoadResult.Error(e)

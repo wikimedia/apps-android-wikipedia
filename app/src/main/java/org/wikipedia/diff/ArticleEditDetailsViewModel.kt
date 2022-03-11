@@ -70,10 +70,10 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                     var responseTo: MwQueryResponse? = null
                     coroutineScope {
                         launch {
-                            responseFrom = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetails(pageTitle.prefixedText, revisionIdFrom, "older")
+                            responseFrom = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdFrom)
                         }
                         launch {
-                            responseTo = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetails(pageTitle.prefixedText, revisionIdTo, "older")
+                            responseTo = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdTo)
                         }
                     }
 
@@ -82,7 +82,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                     revisionTo = pageTo.revisions[0]
                     canGoForward = revisionTo!!.revId < pageTo.lastrevid
                 } else {
-                    val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetails(pageTitle.prefixedText, revisionIdTo, "older")
+                    val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdTo)
                     val page = response.query?.firstPage()!!
                     val revisions = page.revisions
                     revisionTo = revisions[0]
@@ -110,7 +110,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetails(pageTitle.prefixedText, revisionIdFrom, "newer")
+                val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, 2, revisionIdFrom)
                 val page = response.query?.firstPage()!!
                 val revisions = page.revisions
 

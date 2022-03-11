@@ -57,7 +57,7 @@ class EditHistoryListActivity : BaseActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-        binding.articleTitleView.visibility = View.GONE
+        binding.articleTitleView.isVisible = false
         binding.articleTitleView.text = getString(R.string.page_edit_history_activity_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
@@ -90,8 +90,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                val isVisible = if (binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height) View.VISIBLE else View.INVISIBLE
-                binding.articleTitleView.visibility = isVisible
+                binding.articleTitleView.isVisible = binding.editHistoryRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height
             }
         })
 
@@ -129,6 +128,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareContainer.isVisible = viewModel.comparing
         binding.compareButton.text = getString(if (!viewModel.comparing) R.string.revision_compare_button else android.R.string.cancel)
         editHistoryListAdapter.notifyItemRangeChanged(0, editHistoryListAdapter.itemCount)
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, if (viewModel.comparing) android.R.attr.colorBackground else R.attr.paper_color))
         updateCompareStateItems()
     }
 
@@ -265,8 +265,12 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun onClick() {
-            startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                    viewModel.pageTitle, revision.revId))
+            if (viewModel.comparing) {
+                toggleSelectState()
+            } else {
+                startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
+                        viewModel.pageTitle, revision.revId))
+            }
         }
 
         override fun onLongClick() {
@@ -278,10 +282,14 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun onUserNameClick(v: View) {
-            UserTalkPopupHelper.show(this@EditHistoryListActivity, bottomSheetPresenter,
-                    PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
-                            revision.user, viewModel.pageTitle.wikiSite), revision.isAnon, v,
-                    Constants.InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)
+            if (viewModel.comparing) {
+                toggleSelectState()
+            } else {
+                UserTalkPopupHelper.show(this@EditHistoryListActivity, bottomSheetPresenter,
+                        PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
+                                revision.user, viewModel.pageTitle.wikiSite), revision.isAnon, v,
+                        Constants.InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)
+            }
         }
 
         override fun onToggleSelect() {

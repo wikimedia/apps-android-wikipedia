@@ -443,29 +443,26 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
     fun getLastModified(@Query("titles") titles: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|flags|comment|parsedcomment|size|user&rvlimit=2")
-    suspend fun getRevisionDetails(
-        @Query("titles") titles: String,
-        @Query("rvstartid") revisionStartId: Long,
-        @Query("rvdir") direction: String
-    ): MwQueryResponse
-
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
-    suspend fun getEditDetails(
-        @Query("titles") titles: String,
-        @Query("rvstartid") revisionStartId: Long
-    ): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
-    suspend fun getEditHistoryDetails(
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
+    suspend fun getRevisionDetailsAscending(
         @Query("titles") titles: String,
         @Query("rvlimit") count: Int,
+        @Query("rvstartid") revisionStartId: Long?
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
+    suspend fun getRevisionDetailsDescending(
+        @Query("titles") titles: String,
+        @Query("rvlimit") count: Int,
+        @Query("rvstartid") revisionStartId: Long?,
         @Query("rvcontinue") continueStr: String?,
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=1&rvdir=newer")
-    suspend fun getArticleCreatedDate(
-        @Query("titles") titles: String
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user&rvdir=older")
+    suspend fun getRevisionDetailsWithInfo(
+            @Query("titles") titles: String,
+            @Query("rvlimit") count: Int,
+            @Query("rvstartid") revisionStartId: Long
     ): MwQueryResponse
 
     @POST(MW_API_PREFIX + "action=thank")
