@@ -14,6 +14,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 import java.util.*
@@ -35,7 +36,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         EditHistoryPagingSource(pageTitle)
     }.flow.map { pagingData ->
         pagingData.filter {
-            it.isAnon
+            if (Prefs.editHistoryFilterDisableSet.contains(EditCount.EDIT_TYPE_ANONYMOUS)) !it.isAnon else true
         }.map {
             EditHistoryItem(it)
         }.insertSeparators { before, after ->
@@ -128,10 +129,6 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             return SELECT_TO
         }
         return SELECT_NONE
-    }
-
-    fun updateFilter() {
-
     }
 
     class EditHistoryPagingSource(

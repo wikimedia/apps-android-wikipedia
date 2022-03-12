@@ -32,6 +32,7 @@ import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -280,6 +281,8 @@ class EditHistoryListActivity : BaseActivity() {
                 val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
                 if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
                     EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(filterByButton, editCountsFlowValue) {
+                        editHistoryListAdapter.notifyDataSetChanged()
+                        updateFilterCount()
                     }
                 }
             }
@@ -288,15 +291,13 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         fun updateFilterCount() {
-            // TODO: update this
-            val excludedFilters = 0
-            if (excludedFilters == 0) {
+            if (Prefs.editHistoryFilterDisableSet.isEmpty()) {
                 filterCountView.visibility = View.GONE
                 ImageViewCompat.setImageTintList(filterByButton,
                     ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.chip_text_color)))
             } else {
                 filterCountView.visibility = View.VISIBLE
-                filterCountView.text = excludedFilters.toString()
+                filterCountView.text = Prefs.editHistoryFilterDisableSet.size.toString()
                 ImageViewCompat.setImageTintList(filterByButton,
                     ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.colorAccent)))
             }
