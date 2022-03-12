@@ -36,7 +36,8 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         EditHistoryPagingSource(pageTitle)
     }.flow.map { pagingData ->
         pagingData.filter {
-            if (Prefs.editHistoryFilterDisableSet.contains(EditCount.EDIT_TYPE_ANONYMOUS)) !it.isAnon else true
+            // TODO: implement this
+            if (Prefs.editHistoryFilterDisableSet.contains(EditCount.EDIT_TYPE_EDITORS)) it.isAnon else true
         }.map {
             EditHistoryItem(it)
         }.insertSeparators { before, after ->
