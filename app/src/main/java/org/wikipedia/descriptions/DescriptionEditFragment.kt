@@ -108,7 +108,7 @@ class DescriptionEditFragment : Fragment() {
         val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
         funnel = DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type, invokeSource)
         funnel.logStart()
-        EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
+        EditAttemptStepEvent.logInit(pageTitle)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -201,7 +201,7 @@ class DescriptionEditFragment : Fragment() {
                 cancelCalls()
                 getEditTokenThenSave()
                 funnel.logSaveAttempt()
-                EditAttemptStepEvent.logSaveAttempt(pageTitle.wikiSite.languageCode)
+                EditAttemptStepEvent.logSaveAttempt(pageTitle)
             }
         }
 
@@ -210,7 +210,7 @@ class DescriptionEditFragment : Fragment() {
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 CsrfTokenClient(wikiCommons)
             } else {
-                CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else wikiData, pageTitle.wikiSite)
+                CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else wikiData)
             }
 
             disposables.add(csrfClient.token.subscribe({ token ->
@@ -253,7 +253,7 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     funnel.logSaved(newRevId)
-                                    EditAttemptStepEvent.logSaveSuccess(pageTitle.wikiSite.languageCode)
+                                    EditAttemptStepEvent.logSaveSuccess(pageTitle)
                                 }
                                 hasCaptchaResponse -> {
                                     // TODO: handle captcha.
@@ -299,7 +299,7 @@ class DescriptionEditFragment : Fragment() {
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
                             funnel.logSaved(response.entity?.run { lastRevId } ?: 0)
-                            EditAttemptStepEvent.logSaveSuccess(pageTitle.wikiSite.languageCode)
+                            EditAttemptStepEvent.logSaveSuccess(pageTitle)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
                         }
@@ -370,7 +370,7 @@ class DescriptionEditFragment : Fragment() {
             L.e(caught)
             if (logError) {
                 funnel.logError(caught.message)
-                EditAttemptStepEvent.logSaveFailure(pageTitle.wikiSite.languageCode)
+                EditAttemptStepEvent.logSaveFailure(pageTitle)
             }
             SuggestedEditsFunnel.get().failure(action)
         }

@@ -62,6 +62,9 @@
   <string name="share_via">Dela via</string>
   <string name="image_share_via">Dela via</string>
   <string name="search_redirect_from">Omdirigerad från %s</string>
+  <string name="page_edit_history_activity_label">Versionshistorik</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Tom redigeringssammanfattning</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
   <string name="menu_page_find_in_page">Hitta i artikeln</string>
@@ -168,6 +171,7 @@
   <string name="dialog_create_account_checking_progress">Verifierar</string>
   <string name="create_account_email_hint">E-post (valfritt)</string>
   <string name="create_account_password_repeat_hint">Upprepa lösenord</string>
+  <string name="create_account_password_is_username">Lösenordet kan inte vara likadant som användarnamnet</string>
   <string name="create_account_passwords_mismatch_error">Lösenorden matchar inte</string>
   <string name="create_account_email_error">Ogiltig e-postadress</string>
   <string name="create_account_username_error">Ogiltiga tecken i användarnamnet</string>
@@ -788,7 +792,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Börja redigera</string>
   <string name="description_edit_tutorial_promise">Genom att börja, lovar jag att inte missbruka denna funktion.</string>
   <string name="customize_toolbar_title">Anpassa verktygsfält</string>
-  <string name="customize_toolbar_description">Anpassa det nedre navigeringsfältet med åtgärder och destination du finner mest hjälpsamma.</string>
   <string name="customize_toolbar_category_toolbar">Verktygsfält</string>
   <string name="customize_toolbar_category_menu">Meny</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Dra och släpp dina favoritobjekt här 👋</string>

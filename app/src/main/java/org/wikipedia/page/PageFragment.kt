@@ -110,7 +110,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private var _binding: FragmentPageBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val activeTimer = ActiveTimer()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
@@ -144,7 +144,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override val referencesGroup get() = references?.referencesGroup
     override val selectedReferenceIndex get() = references?.selectedIndex ?: 0
 
-    lateinit var tocHandler: ToCHandler
+    lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
     var revision = 0L
@@ -153,7 +153,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
     private val foregroundTabPosition get() = app.tabList.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
-    val currentTab get() = app.tabList[app.tabList.size - 1]!!
+    val currentTab get() = app.tabList.last()!!
     val title get() = model.title
     val page get() = model.page
     val historyEntry get() = model.curEntry
@@ -204,8 +204,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 
         editHandler = EditHandler(this, bridge)
-        tocHandler = ToCHandler(this, ActivityCompat.requireViewById(activity, R.id.navigation_drawer),
-            ActivityCompat.requireViewById(activity, R.id.page_scroller_button), bridge)
+        sidePanelHandler = SidePanelHandler(this, bridge)
         leadImagesHandler = LeadImagesHandler(this, webView, binding.pageHeaderView)
         shareHandler = ShareHandler(this, bridge)
         pageFragmentLoadState = PageFragmentLoadState(model, this, webView, bridge, leadImagesHandler, currentTab)
@@ -244,7 +243,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         // uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup()
-        tocHandler.log()
+        sidePanelHandler.log()
+        sidePanelHandler.dispose()
         shareHandler.dispose()
         leadImagesHandler.dispose()
         disposables.clear()
@@ -295,8 +295,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     override fun onBackPressed(): Boolean {
-        if (tocHandler.isVisible) {
-            tocHandler.hide()
+        if (sidePanelHandler.isVisible) {
+            sidePanelHandler.hide()
             return true
         }
         if (pageFragmentLoadState.goBack()) {
@@ -434,8 +434,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
 
             model.title?.let {
-                tocHandler.setupToC(model.page, it.wikiSite)
-                tocHandler.setEnabled(true)
+                sidePanelHandler.setupForNewPage(model.page)
+                sidePanelHandler.setEnabled(true)
             }
         }
         bridge.evaluate(JavaScriptActionHandler.getProtection()) { value ->
@@ -477,7 +477,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             pageFragmentLoadState.setTab(tab)
         }
         if (app.tabCount > 0) {
-            app.tabList[app.tabList.size - 1].squashBackstack()
+            app.tabList.last().squashBackstack()
             pageFragmentLoadState.loadFromBackStack()
         }
     }
@@ -810,7 +810,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {
-                            if (ReleaseUtil.isPreBetaRelease) EditHistoryListActivity.newIntent(requireContext(), this)
+                            if (ReleaseUtil.isPreBetaRelease) startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
                             else loadPage(PageTitle("Special:History/$prefixedText", wikiSite),
                                 HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
                         }
@@ -924,7 +924,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         if (squashBackstack) {
             if (app.tabCount > 0) {
-                app.tabList[app.tabList.size - 1].clearBackstack()
+                app.tabList.last().clearBackstack()
             }
         }
         loadPage(title, entry, pushBackStack, 0, isRefresh)
@@ -943,7 +943,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         addTimeSpentReading(activeTimer.elapsedSec)
         activeTimer.reset()
         callback()?.onPageSetToolbarElevationEnabled(false)
-        tocHandler.setEnabled(false)
+        sidePanelHandler.setEnabled(false)
         errorState = false
         binding.pageError.visibility = View.GONE
         watchlistExpiryChanged = false
@@ -987,7 +987,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 it.alpha = if (it.isEnabled) 1f else 0.5f
             }
         }
-        tocHandler.setEnabled(false)
+        sidePanelHandler.setEnabled(false)
         requireActivity().invalidateOptionsMenu()
     }
 
@@ -1368,7 +1368,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         override fun onContentsSelected() {
-            tocHandler.show()
+            sidePanelHandler.showToC()
         }
 
         override fun onShareSelected() {

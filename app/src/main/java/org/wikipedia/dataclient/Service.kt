@@ -426,21 +426,18 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
     fun getLastModified(@Query("titles") titles: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
-    suspend fun getRevisionDetails(
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
+    suspend fun getRevisionDetailsAscending(
         @Query("titles") titles: String,
-        @Query("rvstartid") revisionStartId: Long
+        @Query("rvlimit") count: Int,
+        @Query("rvstartid") revisionStartId: Long?
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
-    suspend fun getEditDetails(
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
+    suspend fun getRevisionDetailsDescending(
         @Query("titles") titles: String,
-        @Query("rvstartid") revisionStartId: Long
-    ): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvlimit=500&rvdir=older")
-    suspend fun getEditHistoryDetails(
-        @Query("titles") titles: String
+        @Query("rvlimit") count: Int,
+        @Query("rvcontinue") continueStr: String?,
     ): MwQueryResponse
 
     @POST(MW_API_PREFIX + "action=thank")

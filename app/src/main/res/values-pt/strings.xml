@@ -67,6 +67,9 @@
   <string name="share_via">Partilhar via</string>
   <string name="image_share_via">Partilhar através de</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
+  <string name="page_edit_history_activity_label" fuzzy="true">Historial da página</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder" fuzzy="true">Não há nenhum comentário associado a esta edição</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
   <string name="menu_page_find_in_page">Localizar no artigo</string>
@@ -173,6 +176,7 @@
   <string name="dialog_create_account_checking_progress">A verificar</string>
   <string name="create_account_email_hint">Endereço de correio eletrónico (Opcional)</string>
   <string name="create_account_password_repeat_hint">Repita a palavra-passe</string>
+  <string name="create_account_password_is_username">A palavra-passe não pode ser igual ao nome de utilizador</string>
   <string name="create_account_passwords_mismatch_error">As palavras-passe não coincidem</string>
   <string name="create_account_email_error">Endereço de correio eletrónico inválido</string>
   <string name="create_account_username_error">Caracteres inválidos no nome de utilizador</string>
@@ -793,7 +797,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
   <string name="description_edit_tutorial_promise">Ao começar, prometo não utilizar esta funcionalidade de forma abusiva.</string>
   <string name="customize_toolbar_title">Personalizar a barra de ferramentas</string>
-  <string name="customize_toolbar_description">Personalizar a barra inferior de ferramentas de navegação com as operações e destinos que achar mais úteis.</string>
   <string name="customize_toolbar_category_toolbar">Barra de ferramentas</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Arraste e largue os seus elementos preferidos aqui 👋</string>
@@ -1078,7 +1081,7 @@
   <string name="talk_snackbar_survey_action_text">Começar</string>
   <string name="talk_share_discussion_subject">Wikipédia - discussão no tópico \"%s\" de página de discussão</string>
   <string name="talk_share_talk_page">Wikipédia - conversas em página de discussão</string>
-  <string name="talk_edit_disclaimer">Esta página é de discussão. Respeita as normas das páginas de discussão, por favor, e lembre-se de assinar as suas mensagens inserindo quatro tiles: ~~~~ ao publicá-las usando texto wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:P%C3%A1gina_de_discuss%C3%A3o_de_artigo\"&gt;Wikipédia:Página de discussão de artigo&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Esta página é de discussão. Respeite as normas das páginas de discussão, por favor, e lembre-se de assinar as suas mensagens inserindo quatro tiles  (~~~~) ao publicá-las usando texto wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://pt.wikipedia.org/wiki/Wikipédia:Página de discussão de artigo\"&gt;Wikipédia:Página de discussão de artigo&lt;/a&gt;</string>
   <string name="talk_search_hint">Pesquisar nas mensagens</string>
   <string name="talk_overflow_sort_by">Ordenar por</string>
   <string name="talk_overflow_sort_date_published">Data de publicação</string>

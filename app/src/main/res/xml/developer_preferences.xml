@@ -219,8 +219,8 @@
             android:title="@string/preference_key_description_edit_tutorial_enabled" />
 
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_multilingual_search_tutorial_enabled"
-            android:title="@string/preference_key_multilingual_search_tutorial_enabled" />
+            android:key="@string/preference_key_multilingual_search_tooltip_shown"
+            android:title="@string/preference_key_multilingual_search_tooltip_shown" />
 
         <SwitchPreferenceCompat
             android:key="@string/preference_key_reading_list_sync_reminder_enabled"
@@ -348,10 +348,6 @@
         <SwitchPreferenceCompat
             android:key="@string/preference_key_show_suggested_edits_tooltip"
             android:title="@string/preference_key_show_suggested_edits_tooltip" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_edit_tasks_onboarding"
-            android:title="@string/preference_key_show_edit_tasks_onboarding" />
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"

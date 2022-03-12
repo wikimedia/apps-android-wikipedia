@@ -1,12 +1,10 @@
 package org.wikipedia.analytics
 
-import org.apache.commons.lang3.StringUtils
 import org.json.JSONObject
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.page.PageTitle
-import java.util.*
 
 open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         Funnel(app, SCHEMA_NAME, REV_ID, title.wikiSite) {
@@ -125,8 +123,7 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
-        StringUtils.capitalize(title.namespace.lowercase(Locale.getDefault()))
-        preprocessData(eventData, "pageNS", title.namespace.lowercase(Locale.getDefault()).capitalize(Locale.getDefault()))
+        preprocessData(eventData, "pageNS", title.namespace().code().toString())
         return super.preprocessData(eventData)
     }
 

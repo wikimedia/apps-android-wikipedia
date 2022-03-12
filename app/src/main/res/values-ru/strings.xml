@@ -109,6 +109,8 @@
   <string name="share_via">Поделиться...</string>
   <string name="image_share_via">Поделиться через</string>
   <string name="search_redirect_from">Перенаправлено с %s</string>
+  <string name="page_edit_history_activity_label" fuzzy="true">История изменений страницы</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти в статье</string>
@@ -214,6 +216,7 @@
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Адрес электронной почты (необязательно)</string>
   <string name="create_account_password_repeat_hint">Повторите пароль</string>
+  <string name="create_account_password_is_username">Пароль не может совпадать с именем учётной записи</string>
   <string name="create_account_passwords_mismatch_error">Пароли не совпадают</string>
   <string name="create_account_email_error">Недопустимый адрес электронной почты</string>
   <string name="create_account_username_error">Недопустимые символы в имени участника</string>
@@ -1151,6 +1154,7 @@
   <string name="talk_share_talk_page">Википедия — страница обсуждения</string>
   <string name="talk_search_hint">Искать сообщения</string>
   <string name="talk_overflow_sort_by">Сортировать по</string>
+  <string name="talk_overflow_sort_date_published">Дата публикации</string>
   <string name="talk_overflow_sort_topic_name">Название темы</string>
   <string name="menu_option_share_talk_discussion">Поделиться обсуждением</string>
   <string name="menu_option_share_talk_page">Поделиться страницей обсуждения</string>
@@ -1170,6 +1174,7 @@
   <string name="thank_success_message">Ваше \"Спасибо\" отправлено участнику %s 👍</string>
   <string name="menu_option_view_user_profile">Посмотреть страницу профиля пользователя</string>
   <string name="menu_option_view_user_talk">Смотрите страницу обсуждения</string>
+  <string name="revision_compare_button">Сравнить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Изменить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">постоянно</string>
