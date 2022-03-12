@@ -280,7 +280,6 @@ class EditHistoryListActivity : BaseActivity() {
                 val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
                 if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
                     EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(filterByButton, editCountsFlowValue) {
-                        // TODO: apply new filter setting
                     }
                 }
             }

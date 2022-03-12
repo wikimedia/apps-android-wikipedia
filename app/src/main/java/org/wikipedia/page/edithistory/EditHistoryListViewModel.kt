@@ -34,7 +34,9 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     val editHistoryFlow = Pager(PagingConfig(pageSize = 10)) {
         EditHistoryPagingSource(pageTitle)
     }.flow.map { pagingData ->
-        pagingData.map {
+        pagingData.filter {
+            it.isAnon
+        }.map {
             EditHistoryItem(it)
         }.insertSeparators { before, after ->
             if (before != null && after != null) {
@@ -126,6 +128,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             return SELECT_TO
         }
         return SELECT_NONE
+    }
+
+    fun updateFilter() {
+
     }
 
     class EditHistoryPagingSource(

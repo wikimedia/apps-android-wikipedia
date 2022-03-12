@@ -9,9 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
-import android.widget.TextView
-import androidx.annotation.StringRes
-import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewEditHistoryFilterOverflowBinding
@@ -23,7 +20,7 @@ import org.wikipedia.util.StringUtil
 class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
 
     fun interface Callback {
-        fun filterByClicked(filterBy: String)
+        fun onItemClicked()
     }
 
     private var binding = ViewEditHistoryFilterOverflowBinding.inflate(LayoutInflater.from(context), this, true)
@@ -47,40 +44,50 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
             popupWindowHost = null
         }
 
-        setUpFilterItem(binding.filterByAll, R.string.page_edit_history_filter_by_all, editCounts.allEdits)
-        setUpFilterItem(binding.filterByUser, R.string.page_edit_history_filter_by_user, editCounts.userEdits)
-        setUpFilterItem(binding.filterByAnon, R.string.page_edit_history_filter_by_anon, editCounts.anonEdits)
-        setUpFilterItem(binding.filterByBot, R.string.page_edit_history_filter_by_bot, editCounts.botEdits)
-
-        binding.filterByAllSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_EDITS)
-        binding.filterByUserSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_EDITORS)
-        binding.filterByAnonSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_ANONYMOUS)
-        binding.filterByBotSelected.isVisible = Prefs.editHistoryFilterSet.contains(EditCount.EDIT_TYPE_BOT)
+        binding.filterByAll.text = context.getString(R.string.page_edit_history_filter_by_all, StringUtil.getPageViewText(context, editCounts.allEdits.count.toLong()))
+        binding.filterByUser.text = context.getString(R.string.page_edit_history_filter_by_user, StringUtil.getPageViewText(context, editCounts.userEdits.count.toLong()))
+        binding.filterByAnon.text = context.getString(R.string.page_edit_history_filter_by_anon, StringUtil.getPageViewText(context, editCounts.anonEdits.count.toLong()))
+        binding.filterByBot.text = context.getString(R.string.page_edit_history_filter_by_bot, StringUtil.getPageViewText(context, editCounts.botEdits.count.toLong()))
+        updateSelectedIconVisibility(binding.filterByAllSelected, EditCount.EDIT_TYPE_EDITS)
+        updateSelectedIconVisibility(binding.filterByUserSelected, EditCount.EDIT_TYPE_EDITORS)
+        updateSelectedIconVisibility(binding.filterByAnonSelected, EditCount.EDIT_TYPE_ANONYMOUS)
+        updateSelectedIconVisibility(binding.filterByBotSelected, EditCount.EDIT_TYPE_BOT)
     }
 
-    private fun setUpFilterItem(view: TextView, @StringRes stringId: Int, editCount: EditCount) {
-        view.text = context.getString(stringId, StringUtil.getPageViewText(context, editCount.count.toLong()))
+    private fun updateSelectedIconVisibility(selectedView: View, editType: String) {
+        selectedView.visibility = if (!Prefs.editHistoryFilterDisableSet.contains(editType)) View.VISIBLE else View.INVISIBLE
     }
 
     private fun setButtonsListener() {
         binding.filterByAllButton.setOnClickListener {
             saveToPreference(EditCount.EDIT_TYPE_EDITS)
+            updateSelectedIconVisibility(binding.filterByAllSelected, EditCount.EDIT_TYPE_EDITS)
+            callback?.onItemClicked()
         }
         binding.filterByUserButton.setOnClickListener {
             saveToPreference(EditCount.EDIT_TYPE_EDITORS)
+            updateSelectedIconVisibility(binding.filterByUserSelected, EditCount.EDIT_TYPE_EDITORS)
+            callback?.onItemClicked()
         }
         binding.filterByAnonButton.setOnClickListener {
             saveToPreference(EditCount.EDIT_TYPE_ANONYMOUS)
+            updateSelectedIconVisibility(binding.filterByAnonSelected, EditCount.EDIT_TYPE_ANONYMOUS)
+            callback?.onItemClicked()
         }
         binding.filterByBotButton.setOnClickListener {
             saveToPreference(EditCount.EDIT_TYPE_BOT)
+            updateSelectedIconVisibility(binding.filterByBotSelected, EditCount.EDIT_TYPE_BOT)
+            callback?.onItemClicked()
         }
     }
 
-    private fun saveToPreference(filterBy: String) {
-        val set = Prefs.editHistoryFilterSet.toMutableSet()
-        set.add(filterBy)
-        Prefs.editHistoryFilterSet = set
-        callback?.filterByClicked(filterBy)
+    private fun saveToPreference(disabledType: String) {
+        val set = Prefs.editHistoryFilterDisableSet.toMutableSet()
+        if (set.contains(disabledType)) {
+            set.remove(disabledType)
+        } else {
+            set.add(disabledType)
+        }
+        Prefs.editHistoryFilterDisableSet = set
     }
 }

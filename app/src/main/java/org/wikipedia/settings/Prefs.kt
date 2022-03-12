@@ -589,8 +589,8 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_talk_topics_sort_mode, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_talk_topics_sort_mode, value)
 
-    var editHistoryFilterSet
-        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_edit_history_filter_set, null))
+    var editHistoryFilterDisableSet
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_edit_history_filter_disable_set, null))
             ?: emptySet()
-        set(filterSet) = PrefsIoUtil.setString(R.string.preference_key_edit_history_filter_set, JsonUtil.encodeToString(filterSet))
+        set(filterDisableSet) = PrefsIoUtil.setString(R.string.preference_key_edit_history_filter_disable_set, JsonUtil.encodeToString(filterDisableSet))
 }
