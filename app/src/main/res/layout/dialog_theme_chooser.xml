@@ -251,18 +251,6 @@
                 android:text="@string/theme_category_toolbar"
                 android:textColor="?attr/primary_text_color"
                 android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/customizeFavorites"
-                style="@style/ThemeChooserButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/theme_customize_toolbar"
-                android:textStyle="normal"
-                app:icon="@drawable/ic_chevron_forward_gray"
-                app:iconGravity="end"
-                app:iconTint="?attr/colorAccent" />
         </LinearLayout>
 
     </ScrollView>

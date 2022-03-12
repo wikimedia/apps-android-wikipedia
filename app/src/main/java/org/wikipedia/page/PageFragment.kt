@@ -80,7 +80,7 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
-import org.wikipedia.views.PageActionOverflowView
+import org.wikipedia.views.PageActionMoreDialog
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
@@ -176,6 +176,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             scrolledUpForThemeChange = it.getBoolean(ARG_THEME_CHANGE_SCROLLED, false)
         }
         binding.pageToolbarButtonShowOverflowMenu.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_more_vert_themed_24dp, 0, 0)
+        binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
+            bottomSheetPresenter.show(childFragmentManager, PageActionMoreDialog.newInstance(pageActionItemCallback, currentTab, model))
+        }
 
         return binding.root
     }
@@ -1224,10 +1227,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun showAnonNotification() {
         (requireActivity() as PageActivity).onAnonNotification()
-    }
-
-    fun showOverflowMenu(anchor: View) {
-        PageActionOverflowView(requireContext()).show(anchor, pageActionItemCallback, currentTab, model)
     }
 
     fun goToMainTab() {

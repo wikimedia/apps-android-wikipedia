@@ -3,4 +3,4 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/OverflowMenuItem"
     android:drawablePadding="16dp"
-    app:drawableTint="?attr/material_theme_secondary_color" />
+    app:drawableTint="?attr/section_title_color" />

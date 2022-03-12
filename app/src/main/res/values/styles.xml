@@ -219,6 +219,7 @@
     </style>
 
     <style name="OverflowMenuItem" parent="@android:style/TextAppearance">
+        <item name="android:textColor">?attr/primary_text_color</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingStart">16dp</item>

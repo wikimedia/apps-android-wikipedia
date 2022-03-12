@@ -1,65 +1,67 @@
 package org.wikipedia.views
 
-import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.view.Gravity
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.PopupWindow
-import androidx.core.widget.PopupWindowCompat
 import com.google.android.material.textview.MaterialTextView
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
+import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.action.PageActionItem
+import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ResourceUtil
 
-class PageActionOverflowView(context: Context) : FrameLayout(context) {
+class PageActionMoreDialog(val callback: PageActionItem.Callback,
+                           val currentTab: Tab,
+                           val model: PageViewModel) : ExtendedBottomSheetDialogFragment() {
 
-    private var binding = ViewPageActionOverflowBinding.inflate(LayoutInflater.from(context), this, true)
-    private var popupWindowHost: PopupWindow? = null
-    lateinit var callback: PageActionItem.Callback
+    private var _binding: ViewPageActionOverflowBinding? = null
+    private val binding get() = _binding!!
 
-    init {
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
+                              savedInstanceState: Bundle?): View {
+        _binding = ViewPageActionOverflowBinding.inflate(inflater, container, false)
+
         binding.overflowForward.setOnClickListener {
-            dismissPopupWindowHost()
+            dismiss()
             callback.forwardClick()
         }
+
+        binding.customizeToolbar.setOnClickListener {
+            dismiss()
+            startActivity(CustomizeToolbarActivity.newIntent(requireContext()))
+        }
+
         Prefs.customizeToolbarMenuOrder.forEach {
             val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
             view.id = item.hashCode()
-            view.text = context.getString(item.titleResId)
+            view.text = context?.getString(item.titleResId)
             view.setCompoundDrawablesWithIntrinsicBounds(item.iconResId, 0, 0, 0)
             view.setOnClickListener {
-                dismissPopupWindowHost()
+                dismiss()
                 item.select(callback)
             }
             binding.overflowList.addView(view)
         }
-    }
 
-    fun show(anchorView: View, callback: PageActionItem.Callback, currentTab: Tab, model: PageViewModel) {
-        this.callback = callback
-        popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT, true)
-        popupWindowHost?.let {
-            it.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            PopupWindowCompat.setOverlapAnchor(it, true)
-            it.showAsDropDown(anchorView, 0, 0, Gravity.END)
-        }
         binding.overflowForward.visibility = if (currentTab.canGoForward()) VISIBLE else GONE
+        binding.customizeToolbar.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
 
         for (i in 1 until binding.overflowList.childCount) {
             val view = binding.overflowList.getChildAt(i) as MaterialTextView
             val pageActionItem = PageActionItem.find(view.id)
-            val enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
+            val enabled =
+                model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
             when (pageActionItem) {
                 PageActionItem.ADD_TO_WATCHLIST -> {
                     view.setText(if (model.isWatched) R.string.menu_page_watched else R.string.menu_page_watch)
@@ -75,12 +77,16 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
                 }
             }
         }
+
+        return binding.root
     }
 
-    private fun dismissPopupWindowHost() {
-        popupWindowHost?.let {
-            it.dismiss()
-            popupWindowHost = null
+    companion object {
+        @JvmStatic
+        fun newInstance(callback: PageActionItem.Callback,
+                        currentTab: Tab,
+                        model: PageViewModel): PageActionMoreDialog {
+            return PageActionMoreDialog(callback, currentTab, model)
         }
     }
 }
