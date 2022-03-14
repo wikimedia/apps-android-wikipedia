@@ -25,6 +25,7 @@
 * Lorelai87
 * Macofe
 * Mannivu
+* Marty5550
 * Nastoshka
 * Nemo bis
 * Nivit
@@ -86,9 +87,10 @@
   <string name="share_via">Condividi tramite</string>
   <string name="image_share_via">Condividi tramite</string>
   <string name="search_redirect_from">Reindirizzamento da %s</string>
-  <string name="page_edit_history_activity_label">Cronologia</string>
+  <string name="page_edit_history_activity_title">Cronologia: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Oggetto modifica vuoto</string>
+  <string name="page_edit_history_metrics_content_description">Statistiche dal %1$s al %2$s</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lingua</string>
   <string name="menu_page_find_in_page">Trova nella voce</string>
@@ -810,6 +812,8 @@
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="description_edit_tutorial_promise">Per iniziare, prometto di non abusare di questa funzione.</string>
   <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Tieni premuta l\'icona di trascinamento per muovere l\'elemento</string>
+  <string name="customize_toolbar_item_default_tooltip">Clicca e trascina un elemento per riposizionarlo</string>
   <string name="suggested_edits_describe_articles">Descrivi voce</string>
   <string name="suggested_edits_caption_images">Didascalia delle immagini</string>
   <string name="suggested_edits_tag_images">Etichetta le immagini</string>

@@ -44,24 +44,24 @@ class AppDatabaseTests {
     }
 
     @Test
-    fun testRecentSearch() {
+    fun testRecentSearch() = runBlocking {
         val now = Date()
 
-        recentSearchDao.insertRecentSearch(RecentSearch("Foo")).blockingSubscribe()
-        recentSearchDao.insertRecentSearch(RecentSearch("Bar", now)).blockingSubscribe()
+        recentSearchDao.insertRecentSearch(RecentSearch("Foo"))
+        recentSearchDao.insertRecentSearch(RecentSearch("Bar", now))
 
-        var results = recentSearchDao.getRecentSearches().blockingGet()
+        var results = recentSearchDao.getRecentSearches()
         assertThat(results.size, equalTo(2))
         assertThat(results[0].text, equalTo("Foo"))
         assertThat(results[1].text, equalTo("Bar"))
         assertThat(results[1].timestamp, equalTo(now))
 
-        recentSearchDao.insertRecentSearch(RecentSearch("Baz")).blockingSubscribe()
-        results = recentSearchDao.getRecentSearches().blockingGet()
+        recentSearchDao.insertRecentSearch(RecentSearch("Baz"))
+        results = recentSearchDao.getRecentSearches()
         assertThat(results.size, equalTo(3))
 
-        recentSearchDao.deleteAll().blockingSubscribe()
-        results = recentSearchDao.getRecentSearches().blockingGet()
+        recentSearchDao.deleteAll()
+        results = recentSearchDao.getRecentSearches()
         assertThat(results.size, equalTo(0))
     }
 

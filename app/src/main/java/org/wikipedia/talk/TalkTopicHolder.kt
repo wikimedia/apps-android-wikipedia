@@ -29,7 +29,7 @@ class TalkTopicHolder internal constructor(
     fun bindItem(topic: TalkPage.Topic, searchQuery: String? = null) {
         id = topic.id
         indicatorSha = topic.getIndicatorSha()
-        val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
+        val seen = AppDatabase.instance.talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
         var titleStr = RichTextUtil.stripHtml(topic.html).trim()
         if (titleStr.isEmpty()) {
             // build up a title based on the contents, massaging the html into plain text that

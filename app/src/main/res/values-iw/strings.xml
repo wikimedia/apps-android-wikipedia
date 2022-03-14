@@ -66,9 +66,10 @@
   <string name="share_via">שיתוף באמצעות</string>
   <string name="image_share_via">שיתוף דרך</string>
   <string name="search_redirect_from">הופנה מהדף %s</string>
-  <string name="page_edit_history_activity_label">היסטוריית הגרסאות</string>
+  <string name="page_edit_history_activity_title">היסטוריית גרסאות:  %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;מ&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">תקציר עריכה ריק</string>
+  <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
@@ -839,6 +840,8 @@
   <string name="customize_toolbar_category_menu">תפריט</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">אפשר לגרור ולשחרר את הפריטים האהובים עליהם כאן 👋</string>
   <string name="customize_toolbar_reset_to_default_button">איפוס</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">יש להחזיק את סמל הגרירה כדי להזיז את הפריט</string>
+  <string name="customize_toolbar_item_default_tooltip">יש להחזיק את ולגרור את הפריט כיד להעביר אותו</string>
   <string name="suggested_edits_describe_articles">הוספת תיאור לערכים</string>
   <string name="suggested_edits_caption_images">הוספת כיתוב לתמונות</string>
   <string name="suggested_edits_tag_images">לתייג תמונות</string>
