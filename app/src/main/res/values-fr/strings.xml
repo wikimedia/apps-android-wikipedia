@@ -92,9 +92,11 @@
   <string name="share_via">Partager via</string>
   <string name="image_share_via">Partager via</string>
   <string name="search_redirect_from">Redirigé depuis %s</string>
-  <string name="page_edit_history_activity_label">Historique des versions</string>
+  <string name="page_edit_history_activity_title">Historique des versions : %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Résumé de modification vide</string>
+  <string name="page_edit_history_article_created_date">%d modifications depuis %s</string>
+  <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
   <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Trouver dans l’article</string>
@@ -201,7 +203,7 @@
   <string name="dialog_create_account_checking_progress">Vérification en cours</string>
   <string name="create_account_email_hint">Adresse de courriel (facultatif)</string>
   <string name="create_account_password_repeat_hint">Répéter le mot de passe</string>
-  <string name="create_account_password_is_username">Le mot de passe ne peut pas être le même que le nom d‘utilisateur</string>
+  <string name="create_account_password_is_username">Le mot de passe ne peut pas être le nom d’utilisateur</string>
   <string name="create_account_passwords_mismatch_error">Les mots de passe ne correspondent pas</string>
   <string name="create_account_email_error">Adresse de courriel non valide</string>
   <string name="create_account_username_error">Caractères non valides dans le nom d’utilisateur</string>
@@ -828,6 +830,8 @@
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Glisser et déposer vos éléments favoris ici 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Réinitialiser aux valeurs par défaut</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Maintenir l’icône tirée pour déplacer l’élément</string>
+  <string name="customize_toolbar_item_default_tooltip">Appuyer et tirer un élément pour le repositionner</string>
   <string name="suggested_edits_describe_articles">Décrire les articles</string>
   <string name="suggested_edits_caption_images">Légende d’images</string>
   <string name="suggested_edits_tag_images">Marquer les images</string>

@@ -68,9 +68,11 @@
   <string name="share_via">Comparteix mitjançant…</string>
   <string name="image_share_via">Compareteix amb</string>
   <string name="search_redirect_from">Redirigit des de %s</string>
-  <string name="page_edit_history_activity_label">Historial de revisions</string>
+  <string name="page_edit_history_activity_title">Historial de revisions: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Resum d\'edició buit</string>
+  <string name="page_edit_history_article_created_date">%d edicions des de %s</string>
+  <string name="page_edit_history_metrics_content_description">Mètriques de %1$s a %2$s</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cerca a l\'article</string>
@@ -799,10 +801,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="customize_toolbar_title">Personalitza la barra d\'eines</string>
+  <string name="customize_toolbar_description_text">Personalitza la barra d\'eines inferior amb 5 enllaços que trobeu útils.</string>
   <string name="customize_toolbar_category_toolbar">Barra d\'eines</string>
   <string name="customize_toolbar_category_menu">Menú</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Arrossegueu i deixeu anar els vostres elements preferits ací 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Reinicialitza als valors per defecte</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Mantingueu la icona d\'arrossegament per a moure l\'element</string>
+  <string name="customize_toolbar_item_default_tooltip">Premeu i arrossegueu un element per a reposicionar-lo</string>
   <string name="suggested_edits_describe_articles">Descriu articles</string>
   <string name="suggested_edits_caption_images">Posa llegendes a les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>

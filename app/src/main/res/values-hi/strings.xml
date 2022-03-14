@@ -36,38 +36,70 @@
   <string name="app_name_beta">विकिपीडिया बीटा</string>
   <string name="app_name_alpha">विकिपीडिया ऐल्फ़ा</string>
   <string name="wikimedia">विकिमीडिया</string>
+  <string name="nav_item_back">पीछे जाएँ</string>
+  <string name="page_tabs_back">पीछे जाएँ</string>
+  <string name="nav_item_forward">आगे</string>
   <string name="search_hint">विकिपीडिया में खोजें</string>
   <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
+  <string name="nav_item_suggested_edits">सम्पादन</string>
   <string name="nav_item_more">और</string>
   <string name="nav_item_search">खोजें</string>
   <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
+  <string name="card_offline_error_retry">पुनः प्रयास करें</string>
+  <string name="storage_access_error_retry">पुनः प्रयास करें</string>
+  <string name="article_load_error_retry">पुनः प्रयास करें</string>
+  <string name="offline_load_error_retry">पुनः प्रयास करें</string>
   <string name="page_error_back_to_main">वापस जाएँ</string>
+  <string name="error_back">वापस जाएँ</string>
   <string name="error_next">अगला</string>
   <string name="menu_clear_all_history">इतिहास साफ़ करें</string>
   <string name="history_item_deleted">%s को इतिहास से हटाया गया</string>
   <string name="history_items_deleted">%d लेख इतिहास से हटाए गए</string>
   <string name="history_item_delete_undo">पूर्ववत करें</string>
+  <string name="notification_archive_undo">पूर्ववत करें</string>
   <string name="app_settings">एप सेटिंग्स</string>
+  <string name="search_tab_tooltip">सीधे खोज शब्द लिखना प्रारंभ करने हेतु चिह्न पर पुन: क्लिक करें।</string>
+  <string name="history_list_title">इतिहास</string>
+  <string name="image_content_description">छवि: %s</string>
+  <string name="page_content_description">पृष्ठ: %s</string>
+  <string name="wikimedia_commons">विकिमीडिया कॉमन्स</string>
+  <string name="wikidata">विकिडेटा</string>
   <string name="dialog_title_clear_history">ब्राउज़िंग इतिहास साफ़ करें</string>
   <string name="dialog_message_clear_history">यह आपका सभी ब्राउज़िंग इतिहास मिटा देगा, और अभी खुले हुए टैब्स को भी बंद कर देगा। क्या आप करना चाहेंगे?</string>
   <string name="dialog_message_clear_history_yes">हाँ</string>
   <string name="dialog_message_clear_history_no">नहीं</string>
   <string name="share_via">के माध्यम से साझा करें</string>
+  <string name="image_share_via">के माध्यम से साझा करें</string>
   <string name="search_redirect_from">%s से अनुप्रेषित</string>
-  <string name="page_edit_history_activity_label" fuzzy="true">पृष्ठ इतिहास</string>
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages">भाषा बदलें</string>
   <string name="menu_page_find_in_page" fuzzy="true">पृष्ठ में ढूंढें</string>
-  <string name="menu_page_watch">ध्यान दें</string>
+  <string name="menu_page_add_to_watchlist">ध्यानसूची में जोड़ें</string>
+  <string name="menu_page_watch">नज़र रखें</string>
+  <string name="menu_page_view_talk">वार्ता पृष्ठ देखें</string>
+  <string name="menu_page_talk_page">वार्ता पृष्ठ</string>
+  <string name="menu_page_view_edit_history">सम्पादन इतिहास देखें</string>
+  <string name="menu_page_remove_from_watchlist">ध्यानसूची से हटाएँ</string>
+  <string name="edit_section_find_in_page">पृष्ठ में ढूंढें</string>
   <string name="menu_page_font_and_theme">फॉन्ट और थीम</string>
   <string name="menu_page_add_to_list">पढ़ने वाली सूची में जोड़ें</string>
+  <string name="menu_page_add_to_default_list">सहेजें</string>
+  <string name="feed_card_add_to_list">पढ़ने वाली सूची में जोड़ें</string>
+  <string name="feed_card_add_to_default_list">सहेजें</string>
   <string name="menu_page_share">लिंक साझा करें</string>
+  <string name="menu_article_share">लेख साझा करें</string>
   <string name="menu_page_article_share">साझा करें</string>
+  <string name="menu_page_open_a_new_tab">नया टैब खोलें</string>
+  <string name="menu_page_new_tab">नया टैब</string>
+  <string name="menu_page_reading_lists">पढ़ने की सूची</string>
+  <string name="menu_page_recently_viewed">हाल ही में देखे हुए</string>
   <string name="menu_long_press_open_page">खोलें</string>
   <string name="menu_long_press_open_in_new_tab">नये टैब में खोलें</string>
   <string name="menu_long_press_copy_page">लिंक एड्रेस को कॉपी करें</string>
   <string name="menu_text_select_define">परिभाषित करें</string>
+  <string name="on_this_day_page_share">साझा करें</string>
+  <string name="reading_list_page_share">साझा करें</string>
   <string name="menu_text_select_edit_here">यहाँ सम्पादित करें</string>
   <string name="last_updated_text">%s को अन्तिम अपडेट किया गया।</string>
   <string name="talk_page_link_text">वार्ता पृष्ठ देखें</string>
@@ -77,8 +109,8 @@
   <string name="language_count_link_text">%d अन्य भाषाओं में उपलब्ध</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हैं।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">इसको सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदानों को अपरिवर्तनीय रूप से लाइसेंस &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हैं। इस सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हैं तो आपके पास अधिक प्राइवेसी होगी।</string>
-  <string name="preference_title_language">विकिपीडिया भाषा</string>
-  <string name="langlinks_filter_hint">खोज</string>
+  <string name="preference_title_language">विकिपीडिया भाषाएँ</string>
+  <string name="langlinks_filter_hint">खोजें</string>
   <string name="langlinks_empty">पृष्ठ अन्य भाषा में उपलब्ध नहीं है</string>
   <string name="langlinks_no_match">कोई भाषा नहीं मिली</string>
   <string name="langlinks_activity_title">अन्य भाषाएँ</string>
@@ -103,18 +135,29 @@
   <string name="nav_item_login">विकिपीडिया में लॉग इन करें</string>
   <string name="login_username_hint">सदस्यनाम</string>
   <string name="login_password_hint">कूटशब्द (पासवर्ड)</string>
+  <string name="account_creation_password_hint">कूटशब्द (पासवर्ड)</string>
   <string name="login_2fa_hint">द्विस्तरीय प्रमाणीकरण कोड</string>
   <string name="login_2fa_other_workflow_error_msg">द्विस्तरीय प्रमाणीकरण कूट आवश्यक! कृपया मुख्य कार्यकलाप पर वापस जाएँ और अपने 2FA टोकन से लॉगिन कर दोबारा प्रयास करें।</string>
+  <string name="onboarding_card_login">लॉगिन करें</string>
+  <string name="page_editing_login">लॉगिन करें</string>
+  <string name="reading_lists_sync_login">लॉगिन करें</string>
+  <string name="create_account_login">लॉगिन करें</string>
   <string name="menu_login">प्रवेश</string>
-  <string name="login_activity_title" fuzzy="true">विकिपीडिया में प्रवेश करें</string>
+  <string name="login_activity_title">लॉगिन करें</string>
   <string name="login_in_progress_dialog_message">आपको प्रवेश दिया जा रहा है…</string>
-  <string name="login_success_toast" fuzzy="true">सफलतापूर्वक प्रविष्ट</string>
+  <string name="login_success_toast">लॉग इन हो गया</string>
   <string name="reset_password_title">अपना पासवर्ड लगाएं</string>
   <string name="reset_password_description">अपने एक अस्थाई पासवर्ड से लॉगिन किया। लॉगिन को पूरा करने के लिए यहाँ एक नया पासवर्ड जोड़ें।</string>
   <string name="reset_password_hint">नया पासवर्ड</string>
   <string name="reset_password_button">सहेजे और लॉगिन करें</string>
   <string name="preference_title_logout">प्रस्थान</string>
   <string name="toast_logout_complete">सत्र का अन्त हुआ।</string>
+  <string name="logout_prompt">यह आपको उन सभी उपकरणों से लॉग आउट कर देगा जहां आप लॉग इन हैं। क्या आप जारी रखना चाहते हैं?</string>
+  <string name="logout_dialog_cancel_button_text">रद्द करें</string>
+  <string name="logged_out_in_background_title">सत्र अन्त हुआ।</string>
+  <string name="logged_out_in_background_dialog">आपको विकिपीडिया से लॉग आउट कर दिया गया है। क्या आप फिर से लॉग इन करना चाहेंगे?</string>
+  <string name="logged_out_in_background_login">लॉग इन</string>
+  <string name="logged_out_in_background_cancel">रद्द करें</string>
   <string name="history_empty_title">हाल ही में देखा गया कोई लेख नहीं</string>
   <string name="history_empty_message">ट्रैक करें जो आप यहाँ पढ़ रहे थे।</string>
   <string name="search_empty_message">खोजें और मुक्त ज्ञानकोश को अपनी भाषा में पढ़ें</string>
@@ -130,18 +173,24 @@
   <string name="dialog_create_account_checking_progress">सत्यापन चल रहा है</string>
   <string name="create_account_email_hint">ईमेल (वैकल्पिक)</string>
   <string name="create_account_password_repeat_hint">पासवर्ड दोहराएँ</string>
+  <string name="create_account_password_is_username">पासवर्ड सदस्यनाम के समान नहीं हो सकता</string>
   <string name="create_account_passwords_mismatch_error">पासवर्ड्स मैच नहीं हो रहे</string>
   <string name="create_account_email_error">अवैध ईमेल पता</string>
   <string name="create_account_username_error">सदस्यनाम में अमान्य अक्षर</string>
-  <string name="create_account_password_error" fuzzy="true">ये पासवर्ड अमान्य है</string>
+  <string name="create_account_password_error">पासवर्ड कम से कम 8 अक्षर का होना चाहिए</string>
   <string name="create_account_generic_error">खाता नहीं बन सका</string>
   <string name="create_account_next">अगला</string>
+  <string name="email_recommendation_dialog_title">बिना ईमेल पते के खाता बनाएं?</string>
+  <string name="email_recommendation_message">यह अनुशंसित है क्योंकि खाता पुनर्प्राप्ति के लिए ईमेल की आवश्यकता होती है।</string>
+  <string name="email_recommendation_dialog_create_without_email_action">ईमेल के बिना जारी रखें</string>
+  <string name="email_recommendation_dialog_create_with_email_action">एक ईमेल पता जोड़ें</string>
   <string name="create_account_button">खाता बनायें</string>
   <string name="create_account_name_unavailable">सदस्य नाम %s उपलब्ध नहीं है। कृपया कोई अलग नाम चुनें।</string>
   <string name="create_account_ip_block_message">क्षमा करें, आपका आई पी एड्रेस वर्तमान में नये खाते बनने के लिए प्रतिबंधित है।</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">विवरण</string>
   <string name="preferences_general_heading">सामान्य</string>
+  <string name="preferences_account_heading">खाता</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप FAQ</string>
   <string name="send_feedback">एप फीडबैक भेजें</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
@@ -149,6 +198,7 @@
   <string name="preferences_heading_data_usage">डाटा उपयोग</string>
   <string name="preferences_heading_experimental">प्रयोगात्मक</string>
   <string name="preference_title_sync_reading_lists_from_account">रीडिंग सूची सिंकिंग</string>
+  <string name="preference_title_download_reading_list_articles">पठन सूची लेख डाउनलोड करें</string>
   <string name="preference_summary_sync_reading_lists">पढ़ने वाली सूचियां अपने विकिपीडिया खाते में संयोजित करके विभिन्न डिवाइस में सिंक करें।</string>
   <string name="preference_summary_sync_reading_lists_from_account">पढ़ने वाली सूचियां अपने विकिपीडिया खाते \"%s\" में संयोजित करके विभिन्न डिवाइस में सिंक करें</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">सिंक पढ़ने की सूचियों को \"%s\" से हटा दें?</string>
@@ -166,6 +216,8 @@
   <string name="page_protected_can_not_edit">क्षमा करें,आपके अकाउंट के पास इस पेज को सम्पादित करने के पर्याप्त अधिकार नहीं हैं।</string>
   <string name="page_protected_can_not_edit_anon">क्षमा करें, यह पेज इस समय अज्ञात रूप से सम्पादित नहीं किया जा सकता।</string>
   <string name="page_protected_can_not_edit_title">यह पृष्ठ संरक्षित है</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ध्यानसूची में जोड़ें</string>
+  <string name="page_notification_tooltip">आपकी सूचनाएं अब यहां हैं।</string>
   <string name="settings_item_preferences">सेटिंग्स</string>
   <string name="settings_activity_title">सेटिंग्स</string>
   <string name="about_description">विकिपीडिया एप के बारे में</string>
@@ -205,6 +257,7 @@
   <string name="edit_summary_tag_other_hint">अन्य तरीकों से आपके द्वारा पृष्ठ में सुधार</string>
   <string name="edit_conflict_title">संपादन अंतर्विरोध</string>
   <string name="edit_conflict_message">इस पेज को पहले ही किसी अन्य यूज़र के द्वारा संपादित किया जा चुका है और आपके संपादन के साथ परस्पर-विरोध हो रहा है। कृपया अपने संपादन को कॉपी कर ले, वापस जाएं और पेज रिफ्रेश कर पुनः संपादन का प्रयास करें।</string>
+  <string name="edit_notices_please_read">कृपया संपादन से पहले पढ़ें</string>
   <string name="find_next">अगला ढूँढें</string>
   <string name="find_previous">पिछला ढूँढें</string>
   <string name="find_first_occurence">यह पहली घटना है</string>
@@ -216,6 +269,7 @@
   <string name="page_similar_titles">समरूप पृष्ठ</string>
   <string name="search_did_you_mean">क्या आपका मतलब \"%s\" है?</string>
   <string name="search_recent_header">हाल की खोजें</string>
+  <string name="search_results_count_zero">कोई परिणाम नहीं</string>
   <string name="button_clear_all_recent_searches">हालिया खोजों को मिटाएँ</string>
   <string name="clear_recent_searches_confirm">क्या आप निश्चित तौर पर अपना खोज इतिहास साफ करना चाहते हैं?</string>
   <string name="clear_recent_searches_confirm_yes">हाँ</string>
@@ -259,6 +313,7 @@
   <string name="close_all_tabs_confirm_yes">हाँ</string>
   <string name="close_all_tabs_confirm_no">नहीं</string>
   <string name="button_close_tab">टैब बंद करें</string>
+  <string name="tool_tip_bookmark_icon_title">पठन सूची में जोड़ें</string>
   <string name="page_view_in_browser">पेज को ब्राउज़र में देखें</string>
   <string name="tool_tip_lang_button">आप अब एप में एक से अधिक विकिपीडिया भाषाओं में खोज और पढ़ सकते हैं।</string>
   <string name="error_response_malformed">सर्वर से सही रूप से प्रारूप प्राप्त नहीं हुआ।</string>
@@ -267,6 +322,8 @@
   <string name="address_copied">पते को क्लिपबोर्ड पर कॉपी कर लिया गया है।</string>
   <string name="text_copied">टेक्स्ट को क्लिपबोर्ड पर कॉपी कर लिया गया है।</string>
   <string name="button_continue_to_article">लेख पढ़ें</string>
+  <string name="button_continue_to_talk_page">वार्ता पृष्ठ देखें</string>
+  <string name="button_continue_to_disambiguation">समान पृष्ठ देखें</string>
   <string name="button_add_to_reading_list">पढ़ने वाली सूची में जोड़ें</string>
   <string name="page_offline_notice_cannot_load_while_offline">ऑफलाइन होने पर लेख लोड नहीं किया जा सकता।</string>
   <string name="page_offline_notice_add_to_reading_list">सहायता: लेख को अपनी पढ़ने वाली सूची में जोड़ें और जब आप वापस ऑनलाइन होंगे इसे डाउनलोड कर लिया जाएगा।</string>
@@ -275,7 +332,7 @@
   <string name="error_no_maps_app">दिशानिर्देश देने वाली किसी एप को नहीं पाया जा सका।</string>
   <string name="preference_title_show_link_previews">कड़ी की झलक दिखायें</string>
   <string name="preference_summary_show_link_previews">लिंक्स पर टैप करने पर लेख का छोटा प्रीव्यू दिखाएँ।</string>
-  <string name="nav_item_donate" fuzzy="true">विकिपीडिया का साथ दें</string>
+  <string name="nav_item_donate">दान करें</string>
   <string name="error_voice_search_not_available">क्षमा करें, आवाज की पहचान उपलब्ध नहीं है।</string>
   <string name="location_service_disabled">स्थिति सेवाएं बंद हैं।</string>
   <string name="enable_location_service">चालू करें</string>
@@ -295,8 +352,13 @@
   <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी त्रुटि को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
   <string name="crash_report_quit">बंद करें</string>
+  <string name="article_menu_bar_save_button">सहेजें</string>
+  <string name="article_menu_bar_language_button">भाषा</string>
+  <string name="article_menu_bar_search_button">खोजें</string>
+  <string name="article_menu_bar_theme_button">थीम</string>
+  <string name="article_menu_bar_contents_button">विषय सूची</string>
   <string name="article_header_edit_hint">सम्पादित करें</string>
-  <string name="article_header_edit_description" fuzzy="true">शीर्षक वर्णन को सम्पादित करें</string>
+  <string name="article_header_edit_description">लेख वर्णन सम्पादित करें</string>
   <string name="article_header_edit_lead_section">परिचय सम्पादित करें</string>
   <string name="color_theme_select">विषय</string>
   <string name="color_theme_light">हल्का</string>
@@ -309,10 +371,13 @@
   <string name="text_size_decrease">टेक्स्ट साइज़ घटाएं</string>
   <string name="text_size_percent_default">%s (डिफ़ॉल्ट)</string>
   <string name="theme_category_reading">पढ़ना</string>
+  <string name="nav_item_saved">सहेजा गया</string>
   <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
+  <string name="reading_list_move_to">पठन सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
   <string name="reading_list_title_exists">पढ़ने वाली सूची \"%s\" पहले से है।</string>
   <string name="reading_list_added_view_button">सूची देखें</string>
+  <string name="reading_list_add_to_list_button">सूची में जोड़ें</string>
   <string name="format_reading_list_statistical_summary_singular">1 लेख, %1$.2f मेगाबाइट</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d लेख, %2$.2f मेगाबाइट</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d में से 1 लेख ऑफलाइन उपलब्ध हैं, %2$.2f MB</string>
@@ -345,18 +410,30 @@
   <string name="reading_list_add_to_other_list">अन्य पढ़ने वाली सूची में जोड़ें</string>
   <string name="reading_list_remove_from_list">%s से हटाएँ</string>
   <string name="reading_list_remove_from_lists">पढ़ने वाली सूची से हटाएँ</string>
+  <string name="reading_list_select_item">चयन करें</string>
   <string name="reading_list_confirm_remove_article_from_offline">ऑफलाइन से हटायें</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">लेख एक से अधिक सूचियों में है</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s सभी ऑफलाइन पढ़ने वाली सूचियों में आगे उपलब्ध नहीं होगा:</string>
   <string name="reading_list_login_reminder_title">\nअपनी पठन सूचियों को सिंक करें</string>
+  <string name="reading_lists_ignore_button">अभी नहीं</string>
   <string name="reading_lists_confirm_remote_delete_yes">हाँ</string>
   <string name="reading_lists_confirm_remote_delete_no">नहीं</string>
   <string name="reading_list_article_save_in_progress">लेख का अधोभारण हो रहा है, और यह ऑफलाइन उपलब्ध होगा जब यह पूरा हो जाएगा।</string>
   <string name="reading_list_articles_added_to_named">%2$s में %1$d आलेख जोड़े गए</string>
   <string name="reading_list_delete_confirm" fuzzy="true">क्या आप  \"%s\" को मिटाने हेतु निश्चित हैं?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">रद्द करें</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">लॉगिन करें</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ठीक है</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">पठन सूची को सिंक करना चालू करें?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">ये मुझे दुबारा न दिखाएँ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">समन्वयन सक्षम करें</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">नहीं, धन्यवाद</string>
+  <string name="default_reading_list_name">सहेजा गया</string>
+  <string name="no_user_lists_title">लेखों को सूचियों में व्यवस्थित करें</string>
+  <string name="no_user_lists_msg">यात्रा करने के स्थानों, पसंदीदा विषयों, और अन्य के लिए सूचियां बनाएं</string>
+  <string name="reading_lists_menu_create_list">नई सूची बनाएँ</string>
+  <string name="reading_lists_menu_sort_by">इसके अनुसार क्रमबद्ध करें</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
     <item quantity="other">These articles will now be available offline.</item>
@@ -365,12 +442,18 @@
     <item quantity="one">यह लेख अब आगे ऑफलाइन उपलब्ध नहीं होगा।</item>
     <item quantity="other">These articles will no longer be available offline.</item>
   </plurals>
+  <string name="reading_list_remove_list_dialog_ok_button_text">ठीक है</string>
+  <string name="reading_list_delete_dialog_ok_button_text">ठीक है</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">रद्द करें</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">रद्द करें</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">रद्द करें</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द करें</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
   <string name="notification_channel_description">सिंकिंग प्रगति</string>
-  <string name="notification_syncing_pause_button" fuzzy="true">पॉज़ करें</string>
-  <string name="notification_syncing_resume_button" fuzzy="true">रिज्यूम करें</string>
-  <string name="notification_syncing_cancel_button" fuzzy="true">रद्द करें</string>
+  <string name="notification_syncing_pause_button">रोकें</string>
+  <string name="notification_syncing_resume_button">दुबारा शुरू करें</string>
+  <string name="notification_syncing_cancel_button">रद्द करें</string>
   <string name="notification_channel_name" fuzzy="true">सिंक हो रहा है</string>
   <string name="notification_syncing_title" fuzzy="true">%1$d लेख सिंक किये जा रहे हैं...</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d लेख बचे</string>
