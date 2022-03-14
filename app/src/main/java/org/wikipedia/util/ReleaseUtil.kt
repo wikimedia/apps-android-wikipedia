@@ -11,17 +11,14 @@ object ReleaseUtil {
     private const val RELEASE_ALPHA = 2
     private const val RELEASE_DEV = 3
 
-    @JvmStatic
     val isProdRelease: Boolean
         get() = calculateReleaseType() == RELEASE_PROD
 
-    @JvmStatic
     val isPreProdRelease: Boolean
         get() = calculateReleaseType() != RELEASE_PROD
     val isAlphaRelease: Boolean
         get() = calculateReleaseType() == RELEASE_ALPHA
 
-    @JvmStatic
     val isPreBetaRelease: Boolean
         get() = when (calculateReleaseType()) {
             RELEASE_PROD, RELEASE_BETA -> false

@@ -20,11 +20,9 @@ import java.util.*
 class LanguagesListViewModel : ViewModel() {
 
     private val suggestedLanguageCodes = WikipediaApp.getInstance().language().remainingAvailableLanguageCodes
-    private val nonSuggestedLanguageCodes = WikipediaApp.getInstance().language()
-        .appMruLanguageCodes.toMutableList().also {
-                it.removeAll(suggestedLanguageCodes)
-                it.removeAll(WikipediaApp.getInstance().language().appLanguageCodes)
-            }
+    private val nonSuggestedLanguageCodes = WikipediaApp.getInstance().language().appMruLanguageCodes.filterNot {
+            suggestedLanguageCodes.contains(it) || WikipediaApp.getInstance().language().appLanguageCodes.contains(it)
+        }
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)

@@ -27,6 +27,7 @@
   <string name="dialog_message_clear_history_yes">Sì</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Cunnividi cu</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;n&lt;/b&gt; %s</string>
   <string name="menu_page_other_languages">Cancia lingua</string>
   <string name="menu_page_add_to_watchlist">Agghiunci â lista taliata</string>
   <string name="menu_page_watch">Talìa</string>
@@ -324,6 +325,7 @@
   <string name="talk_snackbar_undo">Annulla</string>
   <string name="talk_share_discussion_subject">Wikipedia –  discussioni supra l\'argumentu \"%s\" dâ pàggina di discussioni</string>
   <string name="talk_share_talk_page">Wikipedia – discussioni supra la pàggina di discussioni</string>
+  <string name="talk_overflow_sort_topic_name">Nomu di l\'argumentu</string>
   <string name="menu_option_share_talk_discussion">Cunnividi discussioni</string>
   <string name="menu_option_share_talk_page">Cunnividi pàggina di discussioni</string>
   <string name="menu_option_share_edit">Cunnividi canciamentu</string>

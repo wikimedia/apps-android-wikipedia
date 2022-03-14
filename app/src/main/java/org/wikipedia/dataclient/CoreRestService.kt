@@ -19,6 +19,12 @@ interface CoreRestService {
             @Path("editType") editType: String
     ): EditCount
 
+    @GET("revision/{oldRev}/compare/{newRev}")
+    suspend fun getEditDiff(
+        @Path("oldRev") oldRev: Long,
+        @Path("newRev") newRev: Long
+    ): DiffResponse
+
     companion object {
         const val CORE_REST_API_PREFIX = "w/rest.php/v1/"
     }

@@ -410,6 +410,7 @@
   <string name="text_size_decrease">Matn oʻlchamini kichraytirmoq</string>
   <string name="text_size_percent_default">%s (standart)</string>
   <string name="text_style_title">Shrift</string>
+  <string name="theme_category_reading">Oʻqish</string>
   <string name="nav_item_saved">Saqlamalar</string>
   <string name="reading_list_save_to">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="reading_list_move_to">Oʻqish roʻyxatiga oʻtmoq</string>
@@ -622,7 +623,7 @@
   <string name="preference_title_notification_login_fail">Kirmoq</string>
   <string name="preference_summary_notification_login_fail">Sizning faoliyatingiz</string>
   <string name="preference_title_notification_mention">Eslatma</string>
-  <string name="preference_summary_notification_mention">Kimdir Sizga sahifada eslatma berdi</string>
+  <string name="preference_summary_notification_mention">Kimdir sizni sahifada tilga oldi</string>
   <string name="preference_title_notification_user_talk">Suhbat sahifasi</string>
   <string name="preference_summary_notification_user_talk">Suhbatlardan kelgan xabarlar</string>
   <string name="preference_title_notification_email_user">E-pochta saqlandi</string>
@@ -678,7 +679,7 @@
   <string name="view_featured_image_card_title">Kun surati</string>
   <string name="view_featured_image_card_download">Yuklab olmoq</string>
   <string name="view_featured_image_card_share">Ulashmoq</string>
-  <string name="menu_feed_card_dismiss">Ushbu varaqani berkitmoq</string>
+  <string name="menu_feed_card_dismiss">Bu varaqani berkitish</string>
   <string name="menu_feed_card_dismissed">Varaqa berkitildi.</string>
   <string name="menu_feed_card_edit_card_languages">Varaqa tillarini tahrirlamoq</string>
   <string name="menu_feed_overflow_label">Boshqa tanlovlar</string>
@@ -769,6 +770,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Bir satrda, ikkidan oʻn ikkitagacha soʻz boʻlishi tavsiya etiladi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Tahrirlash</string>
   <string name="description_edit_tutorial_promise">Boshlash bilan men ushbu funktsiyani notoʻgʻri ishlatmaslikka harakat qilaman.</string>
+  <string name="customize_toolbar_category_menu">Menyu</string>
   <string name="suggested_edits_describe_articles">Maqolani taʼriflang</string>
   <string name="suggested_edits_caption_images">Rasmlar sarlavhasi</string>
   <string name="suggested_edits_tag_images">Rasmlar tegi</string>
@@ -1039,7 +1041,7 @@
   <string name="talk_no_subject">(mavzu yoʻq)</string>
   <string name="talk_reply_subject">Mavzu</string>
   <string name="talk_reply_hint">Javob yozmoq</string>
-  <string name="talk_message_hint">Xabar qoldirmoq</string>
+  <string name="talk_message_hint">Xabar qoldirish</string>
   <string name="talk_message_empty">Xabar boʻsh qolmasin.</string>
   <string name="talk_subject_empty">Mavzu boʻsh qolishi kerak emas.</string>
   <string name="talk_response_submitted">Soʻrov tasdiqlandi.</string>
@@ -1049,11 +1051,14 @@
   <string name="talk_snackbar_survey_action_text">Boshladik</string>
   <string name="talk_share_discussion_subject">Vikipediya - munozara sahifasidagi \"%s\" mavzusidagi muhokama</string>
   <string name="talk_share_talk_page">Vikipediya - munozaralar sahifasi</string>
+  <string name="talk_overflow_sort_date_published">Sana chop etildi</string>
+  <string name="talk_overflow_sort_topic_name">Mavzu nomi</string>
   <string name="menu_option_share_talk_discussion">Munozarani ulashmoq</string>
   <string name="menu_option_share_talk_page">Muhokama sahifasini ulashmoq</string>
   <string name="menu_option_share_edit">Tahrirlashni ulashmoq</string>
   <string name="menu_option_user_profile">%sʼning profili</string>
   <string name="menu_option_user_contributions">%sning hissalari</string>
+  <string name="menu_option_edit_source">Manbasini tahrirlash</string>
   <string name="watchlist_details_watching_label">Kuzatilmoqda</string>
   <string name="watchlist_details_watch_label">Kuzatmoq</string>
   <string name="watchlist_details_next_edit">Keyingi tahrir</string>
@@ -1065,6 +1070,8 @@
   <string name="thank_dialog_positive_button_text">Tashakkur bildirmoq</string>
   <string name="thank_dialog_negative_button_text">Bekor qilmoq</string>
   <string name="thank_success_message">Sizning «Tashakkur»ingiz %sga bildirildi 👍</string>
+  <string name="menu_option_view_user_profile">Foydalanuvchi profili sahifasini koʻrish</string>
+  <string name="menu_option_view_user_talk">Munozara sahifasini koʻrish</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s va uning munozara sahifasi sizning %2$s-kuzatuvlar roʻyxatigizga qoʻshildi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Oʻzgaritirmoq</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vaqtinchalik</string>

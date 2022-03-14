@@ -18,7 +18,6 @@ import androidx.core.view.MenuItemCompat
 import kotlin.jvm.Throws
 
 object ResourceUtil {
-    @JvmStatic
     fun bitmapFromVectorDrawable(context: Context, @DrawableRes id: Int, @ColorRes tintColor: Int?): Bitmap {
         val vectorDrawable = AppCompatResources.getDrawable(context, id)!!.mutate()
         if (tintColor != null) {
@@ -34,7 +33,6 @@ object ResourceUtil {
         } else null
     }
 
-    @JvmStatic
     @AnyRes
     fun getThemedAttributeId(context: Context, @AttrRes id: Int): Int {
         val typedValue = getThemedAttribute(context, id)
@@ -42,7 +40,6 @@ object ResourceUtil {
         return typedValue.resourceId
     }
 
-    @JvmStatic
     @ColorInt
     fun getThemedColor(context: Context, @AttrRes id: Int): Int {
         val typedValue = getThemedAttribute(context, id)

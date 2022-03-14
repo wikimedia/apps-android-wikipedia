@@ -81,6 +81,9 @@
   <string name="share_via">Delen via</string>
   <string name="image_share_via">Delen via</string>
   <string name="search_redirect_from">Doorverwezen vanaf %s</string>
+  <string name="page_edit_history_activity_title">Versiegeschiedenis: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Lege bewerkingssamenvatting</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
   <string name="menu_page_find_in_page">Zoek in artikel</string>
@@ -187,6 +190,7 @@
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
   <string name="create_account_email_hint">E-mailadres (optioneel)</string>
   <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
+  <string name="create_account_password_is_username">Wachtwoord mag niet hetzelfde zijn als de gebruikersnaam</string>
   <string name="create_account_passwords_mismatch_error">Wachtwoorden komen niet overeen</string>
   <string name="create_account_email_error">Ongeldig e-mailadres</string>
   <string name="create_account_username_error">Ongeldige tekens in gebruikersnaam</string>
@@ -806,7 +810,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
   <string name="customize_toolbar_title">Pas de werkbalk aan</string>
-  <string name="customize_toolbar_description">Pas uw onderste navigatiewerkbalk aan met de acties en bestemmingen die u het nuttigst vindt.</string>
   <string name="customize_toolbar_category_toolbar">Werkbalk</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Sleep je favoriete items hierheen 👋</string>
@@ -1092,6 +1095,10 @@
   <string name="talk_share_discussion_subject">Wikipedia - discussie over overlegpagina-onderwerp \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - discussies op overlegpagina</string>
   <string name="talk_edit_disclaimer">Dit is een overlegpagina. Respecteer de richtlijnen van de overlegpagina en vergeet niet om uw berichten te ondertekenen door vier tildes te typen: ~~~~ wanneer u een bericht plaatst met wikitekst.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/ Wikipedia:Talk_page_guidelines\"&gt;Richtlijnen voor overlegpagina\'s&lt;/a&gt; op de Engelstalige Wikipedia</string>
+  <string name="talk_search_hint">Berichten zoeken</string>
+  <string name="talk_overflow_sort_by">Sorteren op</string>
+  <string name="talk_overflow_sort_date_published">Publicatiedatum</string>
+  <string name="talk_overflow_sort_topic_name">Onderwerpsnaam</string>
   <string name="menu_option_share_talk_discussion">Deel overleg</string>
   <string name="menu_option_share_talk_page">Overlegpagina delen</string>
   <string name="menu_option_share_edit">Bewerking delen</string>

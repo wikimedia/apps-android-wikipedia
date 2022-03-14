@@ -90,6 +90,7 @@
   <string name="share_via">共有する</string>
   <string name="image_share_via">共有する</string>
   <string name="search_redirect_from">%s からリダイレクト</string>
+  <string name="page_edit_history_comment_placeholder">編集の要約を空にする</string>
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
@@ -99,6 +100,7 @@
   <string name="menu_page_talk_page">トークページ</string>
   <string name="menu_page_view_edit_history">編集履歴を表示</string>
   <string name="menu_page_remove_from_watchlist">ウォッチリストから除去</string>
+  <string name="menu_page_watched">既読</string>
   <string name="edit_section_find_in_page">ページ内検索</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_page_add_to_list">あとで読むリストに追加</string>
@@ -194,6 +196,7 @@
   <string name="dialog_create_account_checking_progress">検証中</string>
   <string name="create_account_email_hint">メール (省略可能)</string>
   <string name="create_account_password_repeat_hint">パスワード (再入力)</string>
+  <string name="create_account_password_is_username">パスワードを利用者名と同じにすることはできません</string>
   <string name="create_account_passwords_mismatch_error">パスワードが一致しません</string>
   <string name="create_account_email_error">無効なメールアドレスです</string>
   <string name="create_account_username_error">利用者名に無効な文字が使用されています</string>
@@ -1048,6 +1051,8 @@
   <string name="thank_success_message">あなたの感謝は %s に送られました 👍</string>
   <string name="menu_option_view_user_profile">利用者プロフィールページを見る</string>
   <string name="menu_option_view_user_talk">トークページを見る</string>
+  <string name="revision_compare_button">比較</string>
+  <string name="revision_compare_two_only">2つの版しか選べません</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
   <string name="watchlist_page_removed_from_watchlist_snackbar">%s とそのトークぺーj比は正常にウォッチリストから削除されました。</string>
   <string name="watchlist_expiry_dialog_one_week">1週間</string>

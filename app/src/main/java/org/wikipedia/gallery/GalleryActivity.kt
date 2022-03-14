@@ -59,7 +59,6 @@ import org.wikipedia.views.PositionAwareFragmentStateAdapter
 import org.wikipedia.views.ViewAnimations
 import org.wikipedia.views.ViewUtil
 import java.io.File
-import java.util.*
 
 class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemFragment.Callback {
 
@@ -708,7 +707,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         const val EXTRA_SOURCE = "source"
         private var TRANSITION_INFO: JavaScriptActionHandler.ImageHitInfo? = null
 
-        @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long, source: Int): Intent {
             val intent = Intent()
                 .setClass(context, GalleryActivity::class.java)
@@ -722,7 +720,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             return intent
         }
 
-        @JvmStatic
         fun setTransitionInfo(hitInfo: JavaScriptActionHandler.ImageHitInfo) {
             TRANSITION_INFO = hitInfo
         }

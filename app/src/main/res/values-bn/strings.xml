@@ -508,7 +508,7 @@
   <string name="notification_syncing_pause_button">বিরতি</string>
   <string name="notification_syncing_resume_button">পুনরায় শুরু</string>
   <string name="notification_syncing_cancel_button">বাতিল</string>
-  <string name="notification_many_unread">আপনার %d টি অপঠিত বিজ্ঞপ্তি রয়েছে।</string>
+  <string name="notification_many_unread">আপনার %dটি অপঠিত বিজ্ঞপ্তি রয়েছে</string>
   <plurals name="notification_channel_name">
     <item quantity="one">নিবন্ধ ডাউনলোড করা হচ্ছে</item>
     <item quantity="other">নিবন্ধসমূহ ডাউনলোড করা হচ্ছে</item>

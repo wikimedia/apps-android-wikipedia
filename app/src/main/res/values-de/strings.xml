@@ -34,6 +34,7 @@
 * Umherirrender
 * Umlaut
 * Vogone
+* Wnme
 * Wolfdietmann
 * Xqt
 -->
@@ -80,6 +81,10 @@
   <string name="share_via">Teilen über</string>
   <string name="image_share_via">Teilen über</string>
   <string name="search_redirect_from">Weiterleitung von %s</string>
+  <string name="page_edit_history_activity_title">Versionsgeschichte: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Keine Zusammenfassung vorhanden</string>
+  <string name="page_edit_history_metrics_content_description">Metriken vom %1$s bis %2$s</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
@@ -88,7 +93,7 @@
   <string name="menu_page_view_talk">Diskussionsseite anzeigen</string>
   <string name="menu_page_talk_page">Diskussionsseite</string>
   <string name="menu_page_view_edit_history">Versionsgeschichte anzeigen</string>
-  <string name="menu_page_edit_history">Bearbeitungsgeschichte</string>
+  <string name="menu_page_edit_history">Versionsgeschichte</string>
   <string name="menu_page_remove_from_watchlist">Von der Beobachtungsliste entfernen</string>
   <string name="menu_page_watched">Beobachtet</string>
   <string name="edit_section_find_in_page">In Seite suchen</string>
@@ -186,6 +191,7 @@
   <string name="dialog_create_account_checking_progress">Verifiziere</string>
   <string name="create_account_email_hint">E-Mail (optional)</string>
   <string name="create_account_password_repeat_hint">Passwort wiederholen</string>
+  <string name="create_account_password_is_username">Ein Passwort kann nicht mit dem Benutzernamen identisch sein</string>
   <string name="create_account_passwords_mismatch_error">Die Passwörter stimmen nicht überein.</string>
   <string name="create_account_email_error">Ungültige E-Mail-Adresse</string>
   <string name="create_account_username_error">Ungültige Zeichen im Benutzernamen</string>
@@ -806,11 +812,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
   <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
   <string name="customize_toolbar_title">Werkzeugleiste anpassen</string>
-  <string name="customize_toolbar_description">Passen deine untere Navigations-Werkzeugleiste mit den Aktionen und Zielen an, die du am hilfreichsten findest.</string>
+  <string name="customize_toolbar_description_text">Passe die untere Symbolleiste mit 5 Links an, die du am hilfreichsten findest.</string>
   <string name="customize_toolbar_category_toolbar">Werkzeugleiste</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Ziehen deine Lieblingsobjekte hierher 👋.</string>
   <string name="customize_toolbar_reset_to_default_button">Auf den Standard zurücksetzen</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Halte das Ziehensymbol gedrückt, um das Element zu verschieben.</string>
+  <string name="customize_toolbar_item_default_tooltip">Drücke und ziehe ein Element, um es neu zu positionieren</string>
   <string name="suggested_edits_describe_articles">Beschreibe Artikel</string>
   <string name="suggested_edits_caption_images">Bilder betiteln</string>
   <string name="suggested_edits_tag_images">Bilder taggen</string>
@@ -1115,6 +1123,8 @@
   <string name="thank_success_message">Dein Danke wurde an %s gesendet 👍</string>
   <string name="menu_option_view_user_profile">Benutzerprofil anzeigen</string>
   <string name="menu_option_view_user_talk">Diskussionsseite anzeigen</string>
+  <string name="revision_compare_button">Vergleichen</string>
+  <string name="revision_compare_two_only">Nur zwei Versionen können ausgewählt werden.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s und die Diskussionsseite wurde deiner Beobachtungsliste %2$s hinzugefügt.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändern</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">dauerhaft</string>

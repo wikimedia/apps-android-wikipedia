@@ -8,7 +8,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.util.log.L
-import java.lang.RuntimeException
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     public override fun createFragment(): SearchFragment {
@@ -29,7 +28,6 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     companion object {
         const val QUERY_EXTRA = "query"
 
-        @JvmStatic
         fun newIntent(context: Context, source: InvokeSource, query: String?): Intent {
             if (source == InvokeSource.WIDGET) {
                 IntentFunnel(WikipediaApp.getInstance()).logSearchWidgetTap()

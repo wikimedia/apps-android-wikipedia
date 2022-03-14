@@ -11,6 +11,7 @@
 * Envlh
 * Green Zero
 * Gzhegozh
+* Ice bulldog
 * Ihor.Zinchenko
 * Movses
 * Piramidion
@@ -829,7 +830,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Почати редагування</string>
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
   <string name="customize_toolbar_title">Налаштувати панель інструменту</string>
-  <string name="customize_toolbar_description">Налаштуйте нижню панель інструментів навігації за допомогою дій і місць призначення, які ви вважаєте найбільш корисними.</string>
   <string name="customize_toolbar_category_toolbar">Панель інструменту</string>
   <string name="customize_toolbar_category_menu">Меню</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Перетягніть сюди улюблені предмети 👋</string>

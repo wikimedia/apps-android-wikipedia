@@ -106,7 +106,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         private const val EXTRA_SOURCE_SUMMARY = "sourceSummary"
         private const val EXTRA_TARGET_SUMMARY = "targetSummary"
 
-        @JvmStatic
         fun newIntent(context: Context,
                       title: PageTitle,
                       highlightText: String?,

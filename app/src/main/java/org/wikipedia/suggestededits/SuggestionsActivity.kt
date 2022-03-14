@@ -39,7 +39,6 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
     companion object {
         const val EXTRA_SOURCE_ADDED_CONTRIBUTION = "addedContribution"
 
-        @JvmStatic
         fun newIntent(context: Context, action: Action, source: Constants.InvokeSource): Intent {
             return Intent(context, SuggestionsActivity::class.java)
                     .putExtra(INTENT_EXTRA_ACTION, action)

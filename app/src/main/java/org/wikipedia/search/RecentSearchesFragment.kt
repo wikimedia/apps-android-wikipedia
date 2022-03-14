@@ -6,13 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
@@ -41,10 +45,12 @@ class RecentSearchesFragment : Fragment() {
             AlertDialog.Builder(requireContext())
                     .setMessage(getString(R.string.clear_recent_searches_confirm))
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
-                        disposables.add(AppDatabase.instance.recentSearchDao().deleteAll()
-                                .subscribeOn(Schedulers.io())
-                                .subscribe({ updateList() }, { L.e(it) })
-                        )
+                        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+                            withContext(Dispatchers.IO) {
+                                AppDatabase.instance.recentSearchDao().deleteAll()
+                            }
+                            updateList()
+                        }
                     }
                     .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
                     .create().show()
@@ -70,7 +76,7 @@ class RecentSearchesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recentSearchesRecycler.adapter = RecentSearchAdapter()
-        updateList()
+        lifecycleScope.launch { updateList() }
     }
 
     override fun onDestroyView() {
@@ -98,20 +104,22 @@ class RecentSearchesFragment : Fragment() {
         callback?.onAddLanguageClicked()
     }
 
-    fun updateList() {
-        disposables.add(AppDatabase.instance.recentSearchDao().getRecentSearches()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ searches ->
-                recentSearchList.clear()
-                recentSearchList.addAll(searches)
-                binding.recentSearchesRecycler.adapter?.notifyDataSetChanged()
+    suspend fun updateList() {
+        try {
+            val searches = withContext(Dispatchers.IO) {
+                AppDatabase.instance.recentSearchDao().getRecentSearches()
+            }
+            recentSearchList.clear()
+            recentSearchList.addAll(searches)
+            binding.recentSearchesRecycler.adapter?.notifyDataSetChanged()
 
-                val searchesEmpty = recentSearchList.size == 0
-                binding.searchEmptyContainer.visibility = if (searchesEmpty) View.VISIBLE else View.INVISIBLE
-                updateSearchEmptyView(searchesEmpty)
-                binding.recentSearches.visibility = if (!searchesEmpty) View.VISIBLE else View.INVISIBLE
-            }, { L.e(it) }))
+            val searchesEmpty = recentSearchList.isEmpty()
+            binding.searchEmptyContainer.isInvisible = !searchesEmpty
+            updateSearchEmptyView(searchesEmpty)
+            binding.recentSearches.isInvisible = searchesEmpty
+        } catch (t: Throwable) {
+            L.e(t)
+        }
     }
 
     private inner class RecentSearchItemViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
@@ -128,8 +136,12 @@ class RecentSearchesFragment : Fragment() {
         }
 
         override fun onSwipe() {
-            AppDatabase.instance.recentSearchDao().delete(recentSearch)
-            updateList()
+            lifecycleScope.launch {
+                withContext(Dispatchers.IO) {
+                    AppDatabase.instance.recentSearchDao().delete(recentSearch)
+                }
+                updateList()
+            }
         }
     }
 
