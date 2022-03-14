@@ -334,7 +334,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (!title.isNullOrBlank()) {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> throwable.printStackTrace() }) {
                 withContext(Dispatchers.IO) {
-                    AppDatabase.getAppDatabase().recentSearchDao().insertRecentSearch(RecentSearch(text = title))
+                    AppDatabase.instance.recentSearchDao().insertRecentSearch(RecentSearch(text = title))
                 }
                 recentSearchesFragment.updateList()
             }

@@ -47,7 +47,7 @@ class RecentSearchesFragment : Fragment() {
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
                         lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
                             withContext(Dispatchers.IO) {
-                                AppDatabase.getAppDatabase().recentSearchDao().deleteAll()
+                                AppDatabase.instance.recentSearchDao().deleteAll()
                             }
                             updateList()
                         }
@@ -107,7 +107,7 @@ class RecentSearchesFragment : Fragment() {
     suspend fun updateList() {
         try {
             val searches = withContext(Dispatchers.IO) {
-                AppDatabase.getAppDatabase().recentSearchDao().getRecentSearches()
+                AppDatabase.instance.recentSearchDao().getRecentSearches()
             }
             recentSearchList.clear()
             recentSearchList.addAll(searches)
@@ -138,7 +138,7 @@ class RecentSearchesFragment : Fragment() {
         override fun onSwipe() {
             lifecycleScope.launch {
                 withContext(Dispatchers.IO) {
-                    AppDatabase.getAppDatabase().recentSearchDao().delete(recentSearch)
+                    AppDatabase.instance.recentSearchDao().delete(recentSearch)
                 }
                 updateList()
             }
