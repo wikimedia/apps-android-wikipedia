@@ -12,12 +12,10 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityLanglinksBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
@@ -58,7 +56,15 @@ class LangLinksActivity : BaseActivity() {
 
         viewModel.siteListData.observe(this) {
             if (it is Resource.Success) {
-                binding.langlinksRecycler.adapter?.notifyDataSetChanged()
+                binding.langlinksRecycler.adapter?.notifyItemRangeChanged(0,
+                        binding.langlinksRecycler.adapter?.itemCount!!)
+            }
+        }
+
+        viewModel.languageEntryVariantUpdate.observe(this) {
+            if (it is Resource.Success) {
+                binding.langlinksRecycler.adapter?.notifyItemRangeChanged(0,
+                        binding.langlinksRecycler.adapter?.itemCount!!)
             }
         }
     }
@@ -147,6 +153,8 @@ class LangLinksActivity : BaseActivity() {
     private inner class LangLinksAdapter(languageEntries: List<PageTitle>, private val appLanguageEntries: List<PageTitle>) : RecyclerView.Adapter<DefaultViewHolder>() {
         private val originalLanguageEntries = languageEntries.toMutableList()
         private val languageEntries = mutableListOf<PageTitle>()
+        private val variantTitlesToUpdate = originalLanguageEntries.filter { !WikipediaApp.getInstance().language().getDefaultLanguageCode(it.wikiSite.languageCode).isNullOrEmpty() }.toMutableList()
+
         private var isSearching = false
 
         // To remove the already selected languages and suggested languages from all languages list
@@ -161,7 +169,7 @@ class LangLinksActivity : BaseActivity() {
         }
 
         override fun getItemCount(): Int {
-            return this.languageEntries.size
+            return languageEntries.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder {
@@ -169,15 +177,19 @@ class LangLinksActivity : BaseActivity() {
             val inflater = LayoutInflater.from(context)
             return if (viewType == Companion.VIEW_TYPE_HEADER) {
                 val view = inflater.inflate(R.layout.view_section_header, parent, false)
-                DefaultViewHolder(languageEntries, view)
+                DefaultViewHolder(view)
             } else {
                 val view = inflater.inflate(R.layout.item_langlinks_list_entry, parent, false)
-                LangLinksItemViewHolder(languageEntries, view)
+                LangLinksItemViewHolder(view)
             }
         }
 
         override fun onBindViewHolder(holder: DefaultViewHolder, pos: Int) {
-            holder.bindItem(pos)
+            if (variantTitlesToUpdate.contains(languageEntries[pos])) {
+                viewModel.fetchLangVariantLink(languageEntries[pos])
+                variantTitlesToUpdate.remove(languageEntries[pos])
+            }
+            holder.bindItem(languageEntries[pos])
         }
 
         fun shouldShowSectionHeader(position: Int): Boolean {
@@ -216,44 +228,40 @@ class LangLinksActivity : BaseActivity() {
         }
     }
 
-    private open inner class DefaultViewHolder constructor(private val languageEntries: List<PageTitle>, itemView: View) : RecyclerView.ViewHolder(itemView) {
-        open fun bindItem(position: Int) {
-            // TODO: Optimize this
-            itemView.findViewById<TextView>(R.id.section_header_text).text = languageEntries[position].displayText
+    private open inner class DefaultViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        open fun bindItem(pageTitle: PageTitle) {
+            itemView.findViewById<TextView>(R.id.section_header_text).text = StringUtil.fromHtml(pageTitle.displayText)
         }
     }
 
-    private inner class LangLinksItemViewHolder constructor(private val languageEntries: List<PageTitle>, itemView: View) : DefaultViewHolder(languageEntries, itemView), View.OnClickListener {
+    private inner class LangLinksItemViewHolder constructor(itemView: View) : DefaultViewHolder(itemView), View.OnClickListener {
         private val localizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
         private val nonLocalizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.non_localized_language_name)
         private val articleTitleTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
-        private var pos = 0
+        private lateinit var pageTitle: PageTitle
 
-        override fun bindItem(position: Int) {
-            pos = position
-            val item = languageEntries[position]
-            val languageCode = item.wikiSite.languageCode
+        override fun bindItem(pageTitle: PageTitle) {
+            this.pageTitle = pageTitle
+            val languageCode = pageTitle.wikiSite.languageCode
             val localizedLanguageName = app.language().getAppLanguageLocalizedName(languageCode)
-            localizedLanguageNameTextView.text = localizedLanguageName?.capitalize(Locale.getDefault()) ?: languageCode
-            articleTitleTextView.text = item.displayText
-            if (binding.langlinksLoadProgress.visibility != View.VISIBLE) {
-                val canonicalName = viewModel.getCanonicalName(languageCode)
-                if (canonicalName.isNullOrEmpty() || languageCode == app.language().systemLanguageCode) {
-                    nonLocalizedLanguageNameTextView.visibility = View.GONE
-                } else {
-                    // TODO: Fix an issue when app language is zh-hant, the subtitle in zh-hans will display in English
-                    nonLocalizedLanguageNameTextView.text = canonicalName
-                    nonLocalizedLanguageNameTextView.visibility = View.VISIBLE
-                }
+            localizedLanguageNameTextView.text = localizedLanguageName?.capitalize(Locale.getDefault())
+                    ?: languageCode
+            articleTitleTextView.text = pageTitle.displayText
+            val canonicalName = viewModel.getCanonicalName(languageCode)
+            if (canonicalName.isNullOrEmpty() || languageCode == app.language().systemLanguageCode) {
+                nonLocalizedLanguageNameTextView.visibility = View.GONE
+            } else {
+                // TODO: Fix an issue when app language is zh-hant, the subtitle in zh-hans will display in English
+                nonLocalizedLanguageNameTextView.text = canonicalName
+                nonLocalizedLanguageNameTextView.visibility = View.VISIBLE
             }
             itemView.setOnClickListener(this)
         }
 
         override fun onClick(v: View) {
-            val langLink = languageEntries[pos]
-            app.language().addMruLanguageCode(langLink.wikiSite.languageCode)
-            val historyEntry = HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK)
-            val intent = PageActivity.newIntentForCurrentTab(this@LangLinksActivity, historyEntry, langLink, false)
+            app.language().addMruLanguageCode(pageTitle.wikiSite.languageCode)
+            val historyEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_LANGUAGE_LINK)
+            val intent = PageActivity.newIntentForCurrentTab(this@LangLinksActivity, historyEntry, pageTitle, false)
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent)
             DeviceUtil.hideSoftKeyboard(this@LangLinksActivity)
             finish()
@@ -267,22 +275,5 @@ class LangLinksActivity : BaseActivity() {
 
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
-
-        @JvmStatic
-        fun addVariantEntriesIfNeeded(language: AppLanguageState, title: PageTitle, languageEntries: MutableList<PageTitle>) {
-            val parentLanguageCode = language.getDefaultLanguageCode(title.wikiSite.languageCode)
-            if (parentLanguageCode != null) {
-                val languageVariants = language.getLanguageVariants(parentLanguageCode)
-                if (languageVariants != null) {
-                    for (languageCode in languageVariants) {
-                        if (!title.wikiSite.languageCode.contains(languageCode)) {
-                            val pageTitle = PageTitle(if (title.isMainPage) SiteInfoClient.getMainPageForLang(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
-                            pageTitle.text = StringUtil.removeNamespace(title.prefixedText)
-                            languageEntries.add(pageTitle)
-                        }
-                    }
-                }
-            }
-        }
     }
 }

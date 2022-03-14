@@ -10,11 +10,11 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class LangLinksViewModel(bundle: Bundle) : ViewModel() {
@@ -22,6 +22,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
     var pageTitle: PageTitle = bundle.getParcelable(LangLinksActivity.EXTRA_PAGETITLE)!!
 
     val languageEntries = MutableLiveData<Resource<List<PageTitle>>>()
+    val languageEntryVariantUpdate = SingleLiveData<Resource<Unit>>()
     val siteListData = SingleLiveData<Resource<List<SiteMatrix.SiteInfo>>>()
 
     init {
@@ -39,18 +40,18 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 updateLanguageEntriesSupported(langLinks)
                 sortLanguageEntriesByMru(langLinks)
                 languageEntries.postValue(Resource.Success(langLinks))
+            }
+        }
+    }
 
-                val variantLangList = langLinks.filter { !WikipediaApp.getInstance().language().getDefaultLanguageCode(it.wikiSite.languageCode).isNullOrEmpty() }
-                if (variantLangList.isNotEmpty()) {
-                    val pairs = mutableListOf<Pair<PageTitle, Deferred<PageSummary>>>()
-                    variantLangList.forEach {
-                        pairs.add(Pair(it, async { ServiceFactory.getRest(it.wikiSite).getPageSummary(null, it.prefixedText) }))
-                    }
-                    pairs.forEach { pair ->
-                        langLinks.find { pair.first == it }?.displayText = pair.second.await().displayTitle
-                    }
-                    languageEntries.postValue(Resource.Success(langLinks))
-                }
+    fun fetchLangVariantLink(title: PageTitle) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            languageEntries.postValue(Resource.Error(throwable))
+        }) {
+            withContext(Dispatchers.IO) {
+                val summary = ServiceFactory.getRest(title.wikiSite).getPageSummary(null, title.prefixedText)
+                title.displayText = summary.displayTitle
+                languageEntryVariantUpdate.postValue(Resource.Success(Unit))
             }
         }
     }
@@ -87,7 +88,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
                 }
             }
         }
-        LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), pageTitle, languageEntries)
+        addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), pageTitle, languageEntries)
     }
 
     private fun sortLanguageEntriesByMru(entries: MutableList<PageTitle>) {
@@ -116,6 +117,25 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return LangLinksViewModel(bundle) as T
+        }
+    }
+
+    companion object {
+        @JvmStatic
+        fun addVariantEntriesIfNeeded(language: AppLanguageState, title: PageTitle, languageEntries: MutableList<PageTitle>) {
+            val parentLanguageCode = language.getDefaultLanguageCode(title.wikiSite.languageCode)
+            if (parentLanguageCode != null) {
+                val languageVariants = language.getLanguageVariants(parentLanguageCode)
+                if (languageVariants != null) {
+                    for (languageCode in languageVariants) {
+                        if (!title.wikiSite.languageCode.contains(languageCode)) {
+                            val pageTitle = PageTitle(if (title.isMainPage) SiteInfoClient.getMainPageForLang(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
+                            pageTitle.text = StringUtil.removeNamespace(title.prefixedText)
+                            languageEntries.add(pageTitle)
+                        }
+                    }
+                }
+            }
         }
     }
 }
