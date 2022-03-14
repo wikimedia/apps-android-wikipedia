@@ -12,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,7 +35,6 @@ class RecentSearchesFragment : Fragment() {
     private val binding get() = _binding!!
     var callback: Callback? = null
     var recentSearchList = mutableListOf<RecentSearch>()
-    val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)
@@ -47,7 +45,7 @@ class RecentSearchesFragment : Fragment() {
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
                         lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
                             withContext(Dispatchers.IO) {
-                                AppDatabase.getAppDatabase().recentSearchDao().deleteAll()
+                                AppDatabase.instance.recentSearchDao().deleteAll()
                             }
                             updateList()
                         }
@@ -81,7 +79,6 @@ class RecentSearchesFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        disposables.clear()
         _binding = null
     }
 
@@ -107,7 +104,7 @@ class RecentSearchesFragment : Fragment() {
     suspend fun updateList() {
         try {
             val searches = withContext(Dispatchers.IO) {
-                AppDatabase.getAppDatabase().recentSearchDao().getRecentSearches()
+                AppDatabase.instance.recentSearchDao().getRecentSearches()
             }
             recentSearchList.clear()
             recentSearchList.addAll(searches)
@@ -138,7 +135,7 @@ class RecentSearchesFragment : Fragment() {
         override fun onSwipe() {
             lifecycleScope.launch {
                 withContext(Dispatchers.IO) {
-                    AppDatabase.getAppDatabase().recentSearchDao().delete(recentSearch)
+                    AppDatabase.instance.recentSearchDao().delete(recentSearch)
                 }
                 updateList()
             }

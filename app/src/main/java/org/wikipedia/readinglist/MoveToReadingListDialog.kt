@@ -28,7 +28,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
         val parentView = super.onCreateView(inflater, container, savedInstanceState)
         parentView.findViewById<TextView>(R.id.dialog_title).setText(R.string.reading_list_move_to)
         val sourceReadingListId = requireArguments().getLong(SOURCE_READING_LIST_ID)
-        sourceReadingList = AppDatabase.getAppDatabase().readingListDao().getListById(sourceReadingListId, false)
+        sourceReadingList = AppDatabase.instance.readingListDao().getListById(sourceReadingListId, false)
         if (sourceReadingList == null) {
             dismiss()
         }
@@ -42,7 +42,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
     }
 
     override fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
-        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().movePagesToListAndDeleteSourcePages(sourceReadingList!!, readingList, titles) }
+        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListPageDao().movePagesToListAndDeleteSourcePages(sourceReadingList!!, readingList, titles) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ movedTitlesList ->
