@@ -52,7 +52,6 @@
   <string name="share_via">শ্বেয়াৰ</string>
   <string name="image_share_via">শ্বেয়াৰ কৰক</string>
   <string name="search_redirect_from">%sৰ পৰা পুনঃনিৰ্দেশিত</string>
-  <string name="page_edit_history_activity_label">পুনৰীক্ষণৰ ইতিহাস</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">সম্পাদনাৰ সাৰাংশ খালী</string>
   <string name="menu_page_show_tabs">টেব্‌সমূহ দেখুৱাওক</string>

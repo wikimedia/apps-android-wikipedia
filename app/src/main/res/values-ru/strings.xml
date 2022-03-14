@@ -109,7 +109,7 @@
   <string name="share_via">Поделиться...</string>
   <string name="image_share_via">Поделиться через</string>
   <string name="search_redirect_from">Перенаправлено с %s</string>
-  <string name="page_edit_history_activity_label" fuzzy="true">История изменений страницы</string>
+  <string name="page_edit_history_activity_title">История изменений: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
@@ -1161,6 +1161,7 @@
   <string name="menu_option_share_edit">Поделиться правкой</string>
   <string name="menu_option_user_profile">Профиль %s</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>
+  <string name="menu_option_edit_source">Править код</string>
   <string name="watchlist_details_watching_label">Слежу</string>
   <string name="watchlist_details_watch_label">Следить</string>
   <string name="watchlist_details_next_edit">Следующая правка</string>

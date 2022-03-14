@@ -57,8 +57,11 @@
     <string name="page_edit_history_filter_by_user">User edits (%s)</string>
     <string name="page_edit_history_filter_by_anon">Anon edits (%s)</string>
     <string name="page_edit_history_filter_by_bot">Bot edits (%s)</string>
-    <string name="page_edit_history_article_created_date">%d edits since %s</string>
     <string name="page_edit_history_metrics_content_description">Metrics from %1$s to %2$s</string>
+    <plurals name="page_edit_history_article_edits_since_year">
+        <item quantity="one">%1$d edit since %2$s</item>
+        <item quantity="other">%1$d edits since %2$s</item>
+    </plurals>
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>

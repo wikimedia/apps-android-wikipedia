@@ -89,7 +89,6 @@
   <string name="share_via">Şununla paylaş:</string>
   <string name="image_share_via">Şununla paylaş:</string>
   <string name="search_redirect_from">%s sayfasından yönlendirildi</string>
-  <string name="page_edit_history_activity_label">Sürüm geçmişi</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Boş düzenleme özeti</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
