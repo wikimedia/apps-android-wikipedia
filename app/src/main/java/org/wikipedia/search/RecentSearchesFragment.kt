@@ -12,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,7 +35,6 @@ class RecentSearchesFragment : Fragment() {
     private val binding get() = _binding!!
     var callback: Callback? = null
     var recentSearchList = mutableListOf<RecentSearch>()
-    val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)
@@ -81,7 +79,6 @@ class RecentSearchesFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        disposables.clear()
         _binding = null
     }
 
