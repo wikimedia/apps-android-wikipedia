@@ -18,7 +18,6 @@ import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
-import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -33,6 +32,8 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.*
 import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY
+import org.wikipedia.Constants.InvokeSource.PAGE_SIDE_PANEL
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.*
 import org.wikipedia.auth.AccountUtil
@@ -454,7 +455,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return
         }
         if (title.namespace() === Namespace.USER_TALK || title.namespace() === Namespace.TALK) {
-            startTalkTopicActivity(title)
+            startTalkTopicActivity(title, PAGE_ACTIVITY)
             return
         }
         dismissBottomSheet()
@@ -569,8 +570,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun startTalkTopicActivity(pageTitle: PageTitle) {
-        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle, InvokeSource.PAGE_ACTIVITY))
+    private fun startTalkTopicActivity(pageTitle: PageTitle, source: InvokeSource) {
+        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle, source))
     }
 
     private fun startGalleryActivity(fileName: String) {
@@ -807,14 +808,17 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.addListener("header_item") { _, messagePayload ->
             messagePayload?.let { payload ->
                 when (payload["itemType"]?.jsonPrimitive?.content) {
-                    "talkPage" -> sidePanelHandler.showTalkTopics()
+                    "talkPage" -> {
+                        TalkFunnel(model.title!!, InvokeSource.PAGE_TALK_BUBBLE).pageTalkBubbleClick()
+                        sidePanelHandler.showTalkTopics()
+                    }
                 }
             }
         }
         bridge.addListener("footer_item") { _, messagePayload ->
             messagePayload?.let { payload ->
                 when (payload["itemType"]?.jsonPrimitive?.content) {
-                    "talkPage" -> model.title?.run { startTalkTopicActivity(this) }
+                    "talkPage" -> model.title?.run { startTalkTopicActivity(this, PAGE_SIDE_PANEL) }
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {

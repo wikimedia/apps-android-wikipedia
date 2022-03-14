@@ -45,6 +45,10 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
         log("action", "submit")
     }
 
+    fun pageTalkBubbleClick() {
+        log("action", "bubble_click")
+    }
+
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppTalk"
         private const val REV_ID = 21020341

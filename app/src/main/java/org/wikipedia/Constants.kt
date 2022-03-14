@@ -88,6 +88,8 @@ object Constants {
         PAGE_ACTION_TAB("pageActionTab"),
         PAGE_ACTIVITY("page"),
         PAGE_OVERFLOW_MENU("pageOverflowMenu"),
+        PAGE_TALK_BUBBLE("pageTalkBubble"),
+        PAGE_SIDE_PANEL("pageSidePanel"),
         RANDOM_ACTIVITY("random"),
         READ_MORE_BOOKMARK_BUTTON("readMoreBookmark"),
         READING_LIST_ACTIVITY("readingList"),
