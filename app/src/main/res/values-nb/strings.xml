@@ -62,7 +62,6 @@
   <string name="share_via">Del via</string>
   <string name="image_share_via">Del via</string>
   <string name="search_redirect_from">Omdirigert fra %s</string>
-  <string name="page_edit_history_activity_label">Revisjonshistorikk</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Tom redigeringsforklaring</string>
   <string name="menu_page_show_tabs">Vis faner</string>

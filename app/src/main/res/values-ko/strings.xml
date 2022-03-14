@@ -74,7 +74,7 @@
   <string name="share_via">다음을 통해 공유</string>
   <string name="image_share_via">다음을 통해 공유</string>
   <string name="search_redirect_from">%s에서 넘어옴</string>
-  <string name="page_edit_history_activity_label">판 역사</string>
+  <string name="page_edit_history_activity_title">판 역사: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;잔글&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">빈 편집 요약</string>
   <string name="menu_page_show_tabs">탭 보기</string>

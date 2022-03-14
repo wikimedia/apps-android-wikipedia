@@ -51,7 +51,6 @@
   <string name="share_via">Difuzar en</string>
   <string name="image_share_via">Difuzar en</string>
   <string name="search_redirect_from">(Ridirektita de %s)</string>
-  <string name="page_edit_history_activity_label">Historio di redakti</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Efacar rezumo pri redakturi</string>
   <string name="menu_page_show_tabs">Montrar etiketi</string>

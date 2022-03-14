@@ -81,9 +81,10 @@
   <string name="share_via">Teilen über</string>
   <string name="image_share_via">Teilen über</string>
   <string name="search_redirect_from">Weiterleitung von %s</string>
-  <string name="page_edit_history_activity_label">Versionsgeschichte</string>
+  <string name="page_edit_history_activity_title">Versionsgeschichte: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Keine Zusammenfassung vorhanden</string>
+  <string name="page_edit_history_metrics_content_description">Metriken vom %1$s bis %2$s</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
@@ -811,10 +812,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
   <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
   <string name="customize_toolbar_title">Werkzeugleiste anpassen</string>
+  <string name="customize_toolbar_description_text">Passe die untere Symbolleiste mit 5 Links an, die du am hilfreichsten findest.</string>
   <string name="customize_toolbar_category_toolbar">Werkzeugleiste</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Ziehen deine Lieblingsobjekte hierher 👋.</string>
   <string name="customize_toolbar_reset_to_default_button">Auf den Standard zurücksetzen</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Halte das Ziehensymbol gedrückt, um das Element zu verschieben.</string>
+  <string name="customize_toolbar_item_default_tooltip">Drücke und ziehe ein Element, um es neu zu positionieren</string>
   <string name="suggested_edits_describe_articles">Beschreibe Artikel</string>
   <string name="suggested_edits_caption_images">Bilder betiteln</string>
   <string name="suggested_edits_tag_images">Bilder taggen</string>

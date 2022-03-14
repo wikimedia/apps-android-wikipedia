@@ -80,7 +80,6 @@
   <string name="share_via">مشاركة عبر</string>
   <string name="image_share_via">مشاركة عبر</string>
   <string name="search_redirect_from">بالتحويل من %s</string>
-  <string name="page_edit_history_activity_label">تاريخ المراجعة</string>
   <string name="page_edit_history_comment_placeholder">ملخص محرر فارغ</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
@@ -875,7 +874,7 @@
   <string name="suggested_edits_quality_excellent_text">ممتاز</string>
   <string name="suggested_edits_quality_very_good_text">جيد جدا</string>
   <string name="suggested_edits_quality_good_text">جيد</string>
-  <string name="suggested_edits_quality_okay_text">حسنا</string>
+  <string name="suggested_edits_quality_okay_text">حسنًا</string>
   <string name="suggested_edits_quality_sufficient_text">كافٍ</string>
   <string name="suggested_edits_quality_poor_text">فقير</string>
   <string name="suggested_edits_quality_bad_text">سيئ</string>
