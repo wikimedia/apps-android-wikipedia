@@ -4,76 +4,70 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityLanglinksBinding
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewAnimations
 import java.util.*
 
 class LangLinksActivity : BaseActivity() {
     private lateinit var binding: ActivityLanglinksBinding
-    private lateinit var title: PageTitle
 
-    private var languageEntries = mutableListOf<PageTitle>()
     private var app = WikipediaApp.getInstance()
-    private val disposables = CompositeDisposable()
 
     private var currentSearchQuery: String? = null
     private var actionMode: ActionMode? = null
-    private var siteInfoList: List<SiteMatrix.SiteInfo>? = null
-
-    private val entriesByAppLanguages: List<PageTitle>
-        get() = languageEntries.filter {
-            it.wikiSite.languageCode == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
-                    app.language().appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
-                    app.language().appLanguageCodes.contains(it.wikiSite.languageCode)
-        }
+    private val viewModel: LangLinksViewModel by viewModels { LangLinksViewModel.Factory(intent.extras!!) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLanglinksBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        title = intent.getParcelableExtra(EXTRA_PAGETITLE)!!
         binding.langlinkEmptyView.visibility = View.GONE
         binding.langlinksLoadProgress.visibility = View.VISIBLE
-        fetchLangLinks()
 
         binding.langlinksError.backClickListener = View.OnClickListener { onBackPressed() }
         binding.langlinksError.retryClickListener = View.OnClickListener {
             ViewAnimations.crossFade(binding.langlinksError, binding.langlinksLoadProgress)
-            fetchLangLinks()
+            viewModel.fetchLangLinks()
         }
-    }
 
-    public override fun onDestroy() {
-        disposables.clear()
-        super.onDestroy()
+        viewModel.languageEntries.observe(this) {
+            if (it is Resource.Success) {
+                displayLangLinks(it.data)
+            } else if (it is Resource.Error) {
+                binding.langlinksError.setError(it.throwable)
+                ViewAnimations.crossFade(binding.langlinksLoadProgress, binding.langlinksError)
+            }
+        }
+
+        viewModel.siteListData.observe(this) {
+            if (it is Resource.Success) {
+                binding.langlinksRecycler.adapter?.notifyDataSetChanged()
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_languages_list, menu)
         val searchIcon = menu.getItem(0)
-        searchIcon.isVisible = languageEntries.isNotEmpty()
+        searchIcon.isVisible = viewModel.languageEntries.value is Resource.Success &&
+                (viewModel.languageEntries.value as Resource.Success).data.isNotEmpty()
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -131,98 +125,23 @@ class LangLinksActivity : BaseActivity() {
         }
     }
 
-    private fun displayLangLinks() {
+    private fun displayLangLinks(languageEntries: List<PageTitle>) {
         if (languageEntries.isEmpty()) {
             // TODO: Question: should we use the same empty view for the default empty view and search result empty view?
             binding.langlinkEmptyView.setEmptyText(R.string.langlinks_empty)
             ViewAnimations.crossFade(binding.langlinksLoadProgress, binding.langlinkEmptyView)
         } else {
             binding.langlinkEmptyView.setEmptyText(R.string.langlinks_no_match)
-            binding.langlinksRecycler.adapter = LangLinksAdapter(languageEntries, entriesByAppLanguages)
+            binding.langlinksRecycler.adapter = LangLinksAdapter(languageEntries,
+                    languageEntries.filter {
+                        it.wikiSite.languageCode == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
+                                app.language().appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
+                                app.language().appLanguageCodes.contains(it.wikiSite.languageCode)
+                    })
             binding.langlinksRecycler.layoutManager = LinearLayoutManager(this)
-            disposables.add(ServiceFactory.get(app.wikiSite).siteMatrix
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .map { siteMatrix -> SiteMatrix.getSites(siteMatrix) }
-                    .doAfterTerminate {
-                        binding.langlinksLoadProgress.visibility = View.INVISIBLE
-                        binding.langlinksRecycler.adapter?.notifyDataSetChanged()
-                    }
-                    .subscribe({ sites -> siteInfoList = sites }) { t -> L.e(t) })
             ViewAnimations.crossFade(binding.langlinksLoadProgress, binding.langlinksRecycler)
         }
         invalidateOptionsMenu()
-    }
-
-    private fun fetchLangLinks() {
-        if (languageEntries.isEmpty()) {
-            disposables.add(ServiceFactory.get(title.wikiSite).getLangLinks(title.prefixedText)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
-                        languageEntries = response.query!!.langLinks()
-                        updateLanguageEntriesSupported(languageEntries)
-                        sortLanguageEntriesByMru(languageEntries)
-                        displayLangLinks()
-                        updateVariantDisplayTitleIfNeeded()
-                    }) { t ->
-                        ViewAnimations.crossFade(binding.langlinksLoadProgress, binding.langlinksError)
-                        binding.langlinksError.setError(t)
-                    })
-        } else {
-            displayLangLinks()
-        }
-    }
-
-    private fun updateLanguageEntriesSupported(languageEntries: MutableList<PageTitle>) {
-        val it = languageEntries.listIterator()
-        while (it.hasNext()) {
-            val link = it.next()
-            val languageCode = link.wikiSite.languageCode
-            val languageVariants = app.language().getLanguageVariants(languageCode)
-            if (AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE == languageCode) {
-                // Replace legacy name of тарашкевіца language with the correct name.
-                // TODO: Can probably be removed when T111853 is resolved.
-                it.remove()
-                it.add(PageTitle(link.text, WikiSite.forLanguageCode(AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE)))
-            } else if (languageVariants != null) {
-                // remove the language code and replace it with its variants
-                it.remove()
-                for (variant in languageVariants) {
-                    it.add(PageTitle(if (title.isMainPage) SiteInfoClient.getMainPageForLang(variant) else link.prefixedText,
-                            WikiSite.forLanguageCode(variant)))
-                }
-            }
-        }
-        addVariantEntriesIfNeeded(app.language(), title, languageEntries)
-    }
-
-    private fun updateVariantDisplayTitleIfNeeded() {
-        val list = languageEntries.filter { !app.language().getDefaultLanguageCode(it.wikiSite.languageCode).isNullOrEmpty() }
-        disposables.add(Observable.fromIterable(list)
-            .flatMap({ title ->
-                ServiceFactory.getRest(title.wikiSite).getSummary(null, title.prefixedText).subscribeOn(Schedulers.io()) },
-                { first, second -> Pair(first, second) })
-            .observeOn(AndroidSchedulers.mainThread())
-            .doAfterTerminate { binding.langlinksRecycler.adapter?.notifyDataSetChanged() }
-            .subscribe({ pair ->
-                languageEntries.find { pair.first == it }?.displayText = pair.second.displayTitle
-            }) {
-                // ignore
-            })
-    }
-
-    private fun sortLanguageEntriesByMru(entries: MutableList<PageTitle>) {
-        var addIndex = 0
-        for (language in app.language().mruLanguageCodes) {
-            for (i in entries.indices) {
-                if (entries[i].wikiSite.languageCode == language) {
-                    val entry = entries.removeAt(i)
-                    entries.add(addIndex++, entry)
-                    break
-                }
-            }
-        }
     }
 
     private inner class LangLinksAdapter(languageEntries: List<PageTitle>, private val appLanguageEntries: List<PageTitle>) : RecyclerView.Adapter<DefaultViewHolder>() {
@@ -318,7 +237,7 @@ class LangLinksActivity : BaseActivity() {
             localizedLanguageNameTextView.text = localizedLanguageName?.capitalize(Locale.getDefault()) ?: languageCode
             articleTitleTextView.text = item.displayText
             if (binding.langlinksLoadProgress.visibility != View.VISIBLE) {
-                val canonicalName = getCanonicalName(languageCode)
+                val canonicalName = viewModel.getCanonicalName(languageCode)
                 if (canonicalName.isNullOrEmpty() || languageCode == app.language().systemLanguageCode) {
                     nonLocalizedLanguageNameTextView.visibility = View.GONE
                 } else {
@@ -339,14 +258,6 @@ class LangLinksActivity : BaseActivity() {
             DeviceUtil.hideSoftKeyboard(this@LangLinksActivity)
             finish()
         }
-    }
-
-    private fun getCanonicalName(code: String): String? {
-        var canonicalName = siteInfoList?.find { it.code == code }?.localname
-        if (canonicalName.isNullOrEmpty()) {
-            canonicalName = app.language().getAppLanguageCanonicalName(code)
-        }
-        return canonicalName
     }
 
     companion object {
