@@ -77,7 +77,6 @@
   <string name="share_via">Jaa palvelussa</string>
   <string name="image_share_via">Jaa palvelussa</string>
   <string name="search_redirect_from">Ohjattu sivulta %s</string>
-  <string name="page_edit_history_activity_label" fuzzy="true">Sivun historia</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;p&lt;/b&gt; %s</string>
   <string name="menu_page_show_tabs">Näytä välilehdet</string>
   <string name="menu_page_other_languages">Vaihda kieli</string>

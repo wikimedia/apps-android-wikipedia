@@ -52,7 +52,7 @@
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
   <string name="image_share_via">దీని ద్వారా పంచుకోండి</string>
   <string name="search_redirect_from">%s నుండి మళ్ళించబడింది</string>
-  <string name="page_edit_history_activity_label">కూర్పుల చరిత్ర</string>
+  <string name="page_edit_history_activity_title">కూర్పుల చరిత్ర: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;చి&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">దిద్దుబాటు సారాంశం ఖాళీగా ఉంది</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
