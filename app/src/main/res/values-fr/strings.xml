@@ -95,7 +95,6 @@
   <string name="page_edit_history_activity_title">Historique des versions : %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Résumé de modification vide</string>
-  <string name="page_edit_history_article_created_date">%d modifications depuis %s</string>
   <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
   <string name="menu_page_other_languages">Changer de langue</string>

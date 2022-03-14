@@ -84,7 +84,6 @@
   <string name="page_edit_history_activity_title">Versiegeschiedenis: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Lege bewerkingssamenvatting</string>
-  <string name="page_edit_history_article_created_date">%d bewerkingen sinds %s</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
   <string name="menu_page_find_in_page">Zoek in artikel</string>

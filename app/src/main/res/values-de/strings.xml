@@ -84,7 +84,6 @@
   <string name="page_edit_history_activity_title">Versionsgeschichte: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Keine Zusammenfassung vorhanden</string>
-  <string name="page_edit_history_article_created_date">%d Bearbeitungen seit %s</string>
   <string name="page_edit_history_metrics_content_description">Metriken vom %1$s bis %2$s</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>

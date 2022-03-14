@@ -90,7 +90,6 @@
   <string name="page_edit_history_activity_title">Cronologia: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Oggetto modifica vuoto</string>
-  <string name="page_edit_history_article_created_date">%d modifiche dal %s</string>
   <string name="page_edit_history_metrics_content_description">Statistiche dal %1$s al %2$s</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lingua</string>

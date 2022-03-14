@@ -71,7 +71,6 @@
   <string name="page_edit_history_activity_title">Historial de revisions: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Resum d\'edició buit</string>
-  <string name="page_edit_history_article_created_date">%d edicions des de %s</string>
   <string name="page_edit_history_metrics_content_description">Mètriques de %1$s a %2$s</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>

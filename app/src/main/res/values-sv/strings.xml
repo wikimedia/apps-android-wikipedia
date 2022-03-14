@@ -65,7 +65,6 @@
   <string name="page_edit_history_activity_title">Versionshistorik: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Tom redigeringssammanfattning</string>
-  <string name="page_edit_history_article_created_date">%d redigeringar sedan %s</string>
   <string name="page_edit_history_metrics_content_description">Mätvärden från %1$s till %2$s</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>

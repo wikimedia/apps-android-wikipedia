@@ -55,7 +55,6 @@
   <string name="page_edit_history_activity_title">కూర్పుల చరిత్ర: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;చి&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">దిద్దుబాటు సారాంశం ఖాళీగా ఉంది</string>
-  <string name="page_edit_history_article_created_date">%s నుండి %d దిద్దుబాట్లు</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను మార్చు</string>
   <string name="menu_page_find_in_page">వ్యాసంలో వెతకండి</string>

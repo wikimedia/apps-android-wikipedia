@@ -53,7 +53,6 @@
   <string name="page_edit_history_activity_title">Историја на измените: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;с&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Празен опис на измени</string>
-  <string name="page_edit_history_article_created_date">%d уредувања од %s наваму</string>
   <string name="page_edit_history_metrics_content_description">Мерила од %1$s до %2$s</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>

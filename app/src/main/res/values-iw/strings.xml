@@ -69,7 +69,6 @@
   <string name="page_edit_history_activity_title">היסטוריית גרסאות:  %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;מ&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">תקציר עריכה ריק</string>
-  <string name="page_edit_history_article_created_date">%d עריכות מאז %s</string>
   <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>

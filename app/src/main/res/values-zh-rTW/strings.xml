@@ -76,7 +76,6 @@
   <string name="page_edit_history_activity_title">修訂歷史：%s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;小編輯&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">空白編輯摘要</string>
-  <string name="page_edit_history_article_created_date">自 %s 以來 %d 個編輯數</string>
   <string name="page_edit_history_metrics_content_description">自 %1$s 到 %2$s 期間的計量</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">替換其它語言版本</string>
