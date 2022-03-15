@@ -257,17 +257,19 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun updateAfterRevisionFetchSuccess() {
-        if (viewModel.revisionFrom != null) {
-            binding.usernameFromButton.text = viewModel.revisionFrom!!.user
-            binding.revisionFromTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(viewModel.revisionFrom!!.timeStamp))
+        viewModel.revisionFrom?.let {
+            binding.usernameFromButton.text = it.user
+            binding.revisionFromTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(it.timeStamp))
             binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
-            binding.revisionFromEditComment.text = StringUtil.fromHtml(viewModel.revisionFrom!!.parsedcomment.trim())
+            binding.revisionFromEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
         }
 
-        binding.usernameToButton.text = viewModel.revisionTo!!.user
-        binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(viewModel.revisionTo!!.timeStamp))
-        binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
-        binding.revisionToEditComment.text = StringUtil.fromHtml(viewModel.revisionTo!!.parsedcomment.trim())
+        viewModel.revisionTo?.let {
+            binding.usernameToButton.text = it.user
+            binding.revisionToTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(it.timeStamp))
+            binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
+            binding.revisionToEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
+        }
 
         setEnableDisableTint(binding.newerIdButton, !viewModel.canGoForward)
         setEnableDisableTint(binding.olderIdButton, viewModel.revisionFromId == 0L)
@@ -277,7 +279,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
 
         binding.thankButton.isEnabled = true
-        binding.thankButton.isVisible = !AccountUtil.userName.equals(viewModel.revisionTo?.user)
+        binding.thankButton.isVisible = AccountUtil.isLoggedIn && !AccountUtil.userName.equals(viewModel.revisionTo?.user)
         binding.revisionDetailsView.isVisible = true
     }
 
@@ -346,13 +348,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showUndoDialog() {
-        val dialog = UndoEditDialog(requireActivity())
-        dialog.callback = object : UndoEditDialog.Callback {
-            override fun onSuccess(text: CharSequence) {
-                viewModel.revisionTo?.let {
-                    binding.progressBar.isVisible = true
-                    viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)
-                }
+        val dialog = UndoEditDialog(requireActivity()) { text ->
+            viewModel.revisionTo?.let {
+                binding.progressBar.isVisible = true
+                viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)
             }
         }
         dialog.show()

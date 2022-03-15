@@ -87,7 +87,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                     val revisions = page.revisions
                     revisionTo = revisions[0]
                     canGoForward = revisions[0].revId < page.lastrevid
-                    revisionFrom = if (revisions.size > 1) { revisions[1] } else null
+                    revisionFrom = revisions.getOrNull(1)
                 }
 
                 revisionToId = revisionTo!!.revId
@@ -115,7 +115,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
                 val revisions = page.revisions
 
                 revisionFrom = revisions[0]
-                revisionTo = if (revisions.size > 1) { revisions[1] } else revisions[0]
+                revisionTo = revisions.getOrElse(1) { revisions.first() }
                 canGoForward = revisions.size > 1 && revisions[1].revId < page.lastrevid
 
                 revisionToId = revisionTo!!.revId

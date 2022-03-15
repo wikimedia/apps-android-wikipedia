@@ -288,6 +288,7 @@
                     style="@style/FlatButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:layout_marginStart="16dp"
                     android:letterSpacing="0.02"
                     android:text="@string/edit_undo"
@@ -298,17 +299,19 @@
                     app:iconSize="20dp"
                     app:iconTint="?attr/colorError"
                     app:layout_constraintStart_toEndOf="@id/thankButton"
-                    app:layout_constraintTop_toTopOf="@id/thankButton" />
+                    app:layout_constraintTop_toBottomOf="@id/thanksDivider" />
 
                 <TextView
                     android:id="@+id/diffCharacterCountView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="54dp"
                     app:layout_constraintStart_toEndOf="@id/undoButton"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/thankButton"
+                    app:layout_constraintTop_toBottomOf="@id/thanksDivider"
                     android:layout_marginStart="16dp"
+                    android:paddingTop="2dp"
                     android:textColor="?attr/action_mode_green_background"
                     android:textStyle="bold"
+                    android:gravity="center_vertical"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="259dp"
                     tools:text="Lorem ipsum"/>
@@ -321,7 +324,7 @@
                     android:background="?attr/color_group_60"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/thankButton" />
+                    app:layout_constraintTop_toBottomOf="@id/diffCharacterCountView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
