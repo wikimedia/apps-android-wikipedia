@@ -39,6 +39,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.categories.CategoryActivity
+import org.wikipedia.categories.CategoryDialog
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentPageBinding
 import org.wikipedia.databinding.GroupFindReferencesInPageBinding
@@ -1410,6 +1411,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onExploreSelected() {
             goToMainTab()
+        }
+
+        override fun onCategoriesSelected() {
+            title?.let {
+                bottomSheetPresenter.show(childFragmentManager, CategoryDialog.newInstance(it))
+            }
         }
 
         override fun forwardClick() {

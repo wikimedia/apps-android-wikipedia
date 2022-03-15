@@ -66,6 +66,11 @@ enum class PageActionItem constructor(val id: Int,
         override fun select(cb: Callback) {
             cb.onExploreSelected()
         }
+    },
+    CATEGORIES(11, R.string.action_item_categories, R.drawable.ic_format_list_bulleted_black_24dp) {
+        override fun select(cb: Callback) {
+            cb.onCategoriesSelected()
+        }
     };
 
     abstract fun select(cb: Callback)
@@ -88,6 +93,7 @@ enum class PageActionItem constructor(val id: Int,
         fun onViewEditHistorySelected()
         fun onNewTabSelected()
         fun onExploreSelected()
+        fun onCategoriesSelected()
         fun forwardClick()
     }
 

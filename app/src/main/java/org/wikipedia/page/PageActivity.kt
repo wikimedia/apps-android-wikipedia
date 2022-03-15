@@ -27,7 +27,6 @@ import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.analytics.LinkPreviewFunnel
 import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.categories.CategoryDialog
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityPageBinding
 import org.wikipedia.dataclient.WikiSite
