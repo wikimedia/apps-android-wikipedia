@@ -121,7 +121,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         override suspend fun load(params: LoadParams<Long>): LoadResult<Long, PageHistory.Revision> {
             return try {
                 val response = ServiceFactory.getCoreRest(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                        .getPageHistory(pageTitle.prefixedText, params.key, null)
+                        .getPageHistory(pageTitle.prefixedText, olderThan = params.key)
                 LoadResult.Page(response.revisions, null, if (response.older.isNullOrEmpty()) null else response.revisions.last().id)
             } catch (e: Exception) {
                 LoadResult.Error(e)
