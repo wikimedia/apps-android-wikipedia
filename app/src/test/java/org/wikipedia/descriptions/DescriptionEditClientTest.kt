@@ -103,7 +103,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         Mockito.`when`(props.wikiBaseItem).thenReturn("Q123")
         Mockito.`when`(props.canEdit).thenReturn(true)
         Mockito.`when`(props.descriptionSource).thenReturn("central")
-        val page = Page(PageTitle("Test", wiki), emptyList(), props)
+        val page = Page(PageTitle("Test", wiki), pageProperties = props)
         MatcherAssert.assertThat(DescriptionEditUtil.isEditAllowed(page), Matchers.`is`(true))
     }
 
@@ -112,7 +112,7 @@ class DescriptionEditClientTest : MockRetrofitTest() {
         val wiki = WikiSite.forLanguageCode("ru")
         val props = Mockito.mock(PageProperties::class.java)
         Mockito.`when`(props.wikiBaseItem).thenReturn(null)
-        val page = Page(PageTitle("Test", wiki), emptyList(), props)
+        val page = Page(PageTitle("Test", wiki), pageProperties = props)
         MatcherAssert.assertThat(DescriptionEditUtil.isEditAllowed(page), Matchers.`is`(false))
     }
 

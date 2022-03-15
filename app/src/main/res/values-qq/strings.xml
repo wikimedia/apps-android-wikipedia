@@ -92,6 +92,7 @@
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="menu_page_add_to_watchlist">Menu item for adding the current page to the Watchlist.</string>
   <string name="menu_page_watch">Menu item for adding the current page to the Watchlist.</string>
+  <string name="menu_page_unwatch">Menu item for unwatching the current page (removing it from the Watchlist).</string>
   <string name="menu_page_view_talk">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_talk_page">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_view_edit_history">Menu item text for accessing the article edit history.</string>
