@@ -261,7 +261,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             // Determine whether any remote lists need to be created or updated
             for ((localItemsSynced, localList) in allLocalLists.withIndex()) {
                 readingListSyncNotification.setNotificationProgress(applicationContext, localItemsTotal, localItemsSynced)
-                val remoteList = RemoteReadingList(localList.title, localList.description)
+                val remoteList = RemoteReadingList(name = localList.title, description = localList.description)
                 var upsertNeeded = false
                 if (localList.remoteId > 0) {
                     if (!localList.isDefault && localList.dirty) {
@@ -463,7 +463,8 @@ class ReadingListSyncAdapter : JobIntentService() {
 
     private fun remoteEntryFromLocalPage(localPage: ReadingListPage): RemoteReadingListEntry {
         val title = ReadingListPage.toPageTitle(localPage)
-        return RemoteReadingListEntry(title.wikiSite.scheme() + "://" + title.wikiSite.authority(), title.prefixedText)
+        return RemoteReadingListEntry(0, 0,
+            "${title.wikiSite.scheme()}://${title.wikiSite.authority()}", title.prefixedText)
     }
 
     companion object {
