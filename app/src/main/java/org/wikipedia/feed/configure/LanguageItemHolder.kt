@@ -17,13 +17,13 @@ class LanguageItemHolder internal constructor(private val context: Context, item
         langCodeView.text = langCode
 
         langCodeView.setTextColor(if (enabled) ContextCompat.getColor(context, android.R.color.white)
-        else ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color))
+        else ResourceUtil.getThemedColor(context, R.attr.color_group_63))
 
         langCodeView.background = AppCompatResources.getDrawable(context, if (enabled) R.drawable.lang_button_shape
         else R.drawable.lang_button_shape_border)
 
         langCodeView.background.colorFilter = BlendModeColorFilterCompat
             .createBlendModeColorFilterCompat(if (enabled) ContextCompat.getColor(context, R.color.base30)
-            else ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color), BlendModeCompat.SRC_IN)
+            else ResourceUtil.getThemedColor(context, R.attr.color_group_63), BlendModeCompat.SRC_IN)
     }
 }

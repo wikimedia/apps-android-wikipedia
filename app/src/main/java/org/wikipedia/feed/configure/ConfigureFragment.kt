@@ -181,6 +181,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
 
     private inner class ConfigureItemHolder constructor(itemView: ConfigureItemView) : DefaultViewHolder<ConfigureItemView>(itemView) {
         fun bindItem(contentType: FeedContentType) {
+            view.contentDescription = getString(contentType.titleId) + ", " + getString(contentType.subtitleId)
             view.setContents(contentType)
         }
     }

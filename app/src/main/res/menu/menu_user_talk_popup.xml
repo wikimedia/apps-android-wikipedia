@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_user_profile_page"
+        android:icon="@drawable/ic_user_avatar"
+        app:iconTint="?attr/secondary_text_color"
+        android:title="@string/menu_option_view_user_profile" />
+    <item
+        android:id="@+id/menu_user_talk_page"
+        android:icon="@drawable/ic_user_talk"
+        app:iconTint="?attr/secondary_text_color"
+        android:title="@string/menu_option_view_user_talk" />
+</menu>

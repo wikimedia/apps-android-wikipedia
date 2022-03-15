@@ -142,15 +142,10 @@ class ReadingListItemView : ConstraintLayout {
     private fun updateThumbnails() {
         readingList?.let {
             clearThumbnails()
-            val thumbUrls = arrayOfNulls<String>(imageViews.size)
-            var thumbUrlsIndex = 0
-            it.pages.forEach { page ->
-                if (!page.thumbUrl.isNullOrEmpty() && thumbUrlsIndex < imageViews.size) {
-                    thumbUrls[thumbUrlsIndex++] = page.thumbUrl
-                }
-            }
-            thumbUrls.forEachIndexed { i, url ->
-                ViewUtil.loadImage(imageViews[i], url)
+            val thumbUrls = it.pages.mapNotNull { page -> page.thumbUrl }
+                .filterNot { url -> url.isEmpty() }
+            (imageViews zip thumbUrls).forEach { (imageView, url) ->
+                ViewUtil.loadImage(imageView, url)
             }
         }
     }

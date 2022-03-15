@@ -21,7 +21,7 @@ import java.util.*
 
 class NotificationViewModel : ViewModel() {
 
-    private val notificationRepository = NotificationRepository(AppDatabase.getAppDatabase().notificationDao())
+    private val notificationRepository = NotificationRepository(AppDatabase.instance.notificationDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = UiState.Error(throwable)
     }
@@ -177,8 +177,8 @@ class NotificationViewModel : ViewModel() {
             }
         }
 
-        for (wiki in notificationsPerWiki.keys) {
-            NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, markUnread)
+        for ((wiki, notifications) in notificationsPerWiki) {
+            NotificationPollBroadcastReceiver.markRead(wiki, notifications, markUnread)
         }
 
         // Mark items in read state and save into database

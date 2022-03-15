@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 @SerialName("/analytics/mobile_apps/android_daily_stats/1.0.0")
 class DailyStatsEvent(private val app_install_age_in_days: Long,
                       private val languages: List<String>,
-                      private val is_anon: Boolean) : Event(STREAM_NAME) {
+                      private val is_anon: Boolean) : MobileAppsEvent(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "android.daily_stats"

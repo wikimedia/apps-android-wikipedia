@@ -325,6 +325,16 @@
         <item name="android:focusable">true</item>
     </style>
 
+    <style name="ThemeChooserButton" parent="TransparentButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">?attr/primary_text_color</item>
+    </style>
+
     <style name="OnboardingSwitch">
         <item name="colorControlActivated">?attr/colorAccent</item>
         <item name="colorSwitchThumbNormal">@color/base50</item>
@@ -459,6 +469,12 @@
         <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
+    <style name="EditSectionTextInputLayoutStyle" parent="TextInputLayoutStyle">
+        <item name="android:textColorHighlight">@color/find_in_page_active</item>
+        <item name="android:textColor">?attr/primary_text_color</item>
+        <item name="strokeColor">@android:color/transparent</item>
+    </style>
+
     <style name="PagePopupMenu" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
         <item name="android:dropDownHorizontalOffset">@dimen/popup_menu_drop_down_horizontal_offset</item>
         <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>
@@ -520,6 +536,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">4.2dp</item>
         <item name="drawableSize">24dp</item>
         <item name="drawableTint">?attr/color_group_63</item>
     </style>

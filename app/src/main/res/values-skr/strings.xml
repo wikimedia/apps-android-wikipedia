@@ -30,6 +30,7 @@
   <string name="history_item_delete_undo">واپس</string>
   <string name="notification_archive_undo">واپس</string>
   <string name="app_settings">اے پی پی ترتیباں</string>
+  <string name="page_content_description">ورقہ: %s</string>
   <string name="dialog_title_clear_history">براؤزر دی تاریخ مٹاؤ</string>
   <string name="dialog_message_clear_history_yes">جیا</string>
   <string name="dialog_message_clear_history_no">کو</string>

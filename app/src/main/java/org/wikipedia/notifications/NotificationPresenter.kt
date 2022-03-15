@@ -117,7 +117,7 @@ object NotificationPresenter {
         val wiki = WikiSite(link.url)
         val title = wiki.titleForUri(Uri.parse(link.url))
         val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(TalkTopicsActivity.newIntent(context, title, Constants.InvokeSource.NOTIFICATION), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT)
+                addIntentExtras(TalkTopicsActivity.newIntent(context, title, Constants.InvokeSource.NOTIFICATION), n.id, n.type), PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
         builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 

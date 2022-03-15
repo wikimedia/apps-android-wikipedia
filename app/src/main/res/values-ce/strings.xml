@@ -8,7 +8,7 @@
   <string name="app_name_alpha">Википеди Альфа</string>
   <string name="wikimedia">Викикимеди</string>
   <string name="search_hint">Википедин чухула лахар</string>
-  <string name="nav_item_more">Кхин</string>
+  <string name="nav_item_more">Кхин а</string>
   <string name="error_network_error" fuzzy="true">ЗӀе цакарий :(</string>
   <string name="page_error_retry">ЙухагӀорта</string>
   <string name="page_error_back_to_main">Йуханехьа</string>
@@ -66,7 +66,7 @@
   <string name="edit_done" fuzzy="true">Ӏалашдан</string>
   <string name="edit_preview">Хьалххе хьажар</string>
   <string name="edit_summary_tag_grammar">Нийсайаздар</string>
-  <string name="edit_summary_tag_other">Кхин</string>
+  <string name="edit_summary_tag_other">Кхийерг</string>
   <string name="page_similar_titles">Тера агӀонаш</string>
   <string name="table_close">ДӀачӀагӀа</string>
   <string name="wiktionary_no_definitions_found">Цхьаа къастам цакарий.</string>
@@ -99,6 +99,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">тахана</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">Харжа массо</string>
+  <string name="suggested_edits_edit_description_button">Нисбе хаам</string>
   <string name="suggested_edits_learn_more">Цул совнаха хаа</string>
   <string name="suggested_edits_ip_blocked_title">IP заблоктоьхна ду</string>
   <string name="suggested_edits_contribution_image_label">Сурт</string>

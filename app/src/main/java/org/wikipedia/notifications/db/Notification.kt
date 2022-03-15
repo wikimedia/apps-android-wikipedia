@@ -7,6 +7,7 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonPrimitive
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.util.DateUtil
@@ -80,12 +81,19 @@ class Notification(var id: Long = 0,
     class Link {
 
         private val description: String = ""
-        val url: String = ""
-            get() = UriUtil.decodeURL(field)
+        var url: String = ""
+            private set
         val label: String = ""
         val tooltip: String = ""
         // The icon could be a string or `false`.
         private val icon: JsonElement? = null
+
+        init {
+            url = UriUtil.decodeURL(url)
+            if (url.startsWith("//")) {
+                url = url.replaceFirst("//", WikiSite.DEFAULT_SCHEME + "://")
+            }
+        }
 
         fun icon(): String {
             return if (icon?.jsonPrimitive?.isString == true) icon.jsonPrimitive.content else ""
@@ -96,15 +104,17 @@ class Notification(var id: Long = 0,
     class Links {
 
         private var primaryLink: Link? = null
-        val primary: JsonElement? = null
+        private val primary: JsonElement? = null
+        private val legacyPrimary: JsonElement? = null
         val secondary: List<Link>? = null
 
         fun getPrimary(): Link? {
-            if (primary == null) {
-                return null
-            }
-            if (primaryLink == null && primary is JsonObject) {
-                primaryLink = JsonUtil.json.decodeFromJsonElement<Link>(primary)
+            if (primaryLink == null) {
+                if (legacyPrimary != null && legacyPrimary is JsonObject) {
+                    primaryLink = JsonUtil.json.decodeFromJsonElement<Link>(legacyPrimary)
+                } else if (primary != null && primary is JsonObject) {
+                    primaryLink = JsonUtil.json.decodeFromJsonElement<Link>(primary)
+                }
             }
             return primaryLink
         }

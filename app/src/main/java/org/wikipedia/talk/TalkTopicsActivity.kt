@@ -2,17 +2,20 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateUtils
-import android.view.*
-import android.widget.TextView
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.view.ActionMode
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -22,16 +25,16 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
+import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
@@ -40,39 +43,39 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
-import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
-import org.wikipedia.views.DrawableItemDecoration
-import org.wikipedia.views.FooterMarginItemDecoration
-import org.wikipedia.views.NotificationButtonView
-import java.util.*
+import org.wikipedia.views.*
 
 class TalkTopicsActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicsBinding
     private lateinit var pageTitle: PageTitle
     private lateinit var invokeSource: Constants.InvokeSource
-    private lateinit var funnel: TalkFunnel
     private lateinit var notificationButtonView: NotificationButtonView
+    private lateinit var talkTopicsProvider: TalkTopicsProvider
+    private var funnel: TalkFunnel? = null
+    private var actionMode: ActionMode? = null
+    private val searchActionModeCallback = SearchCallback()
     private val disposables = CompositeDisposable()
     private val topics = mutableListOf<TalkPage.Topic>()
-    private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var revisionForLastEdit: MwQueryPage.Revision? = null
-    private var resolveTitleRequired = false
     private var goToTopic = false
+    private var currentSearchQuery: String? = null
+    private var currentSortMode = Prefs.talkTopicsSortMode
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkTopicsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
-        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true))
         binding.talkRecyclerView.adapter = TalkTopicItemAdapter()
 
         binding.talkErrorView.backClickListener = View.OnClickListener {
@@ -83,52 +86,42 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         binding.talkNewTopicButton.setOnClickListener {
-            funnel.logNewTopicClick()
-            startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource),
+            funnel?.logNewTopicClick()
+            startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, "", invokeSource),
                 Constants.ACTIVITY_REQUEST_NEW_TOPIC_ACTIVITY)
         }
 
         binding.talkRefreshView.setOnRefreshListener {
-            funnel.logRefresh()
+            funnel?.logRefresh()
             loadTopics()
         }
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
-        funnel = TalkFunnel(pageTitle, invokeSource)
-        funnel.logOpenTalk()
 
         binding.talkNewTopicButton.visibility = View.GONE
 
         binding.talkLastModified.visibility = View.GONE
         binding.talkLastModified.setOnClickListener {
             revisionForLastEdit?.let {
-                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle.displayText, it.revId, pageTitle.wikiSite.languageCode))
+                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle.prefixedText, it.revId, pageTitle.wikiSite.languageCode))
             }
         }
         notificationButtonView = NotificationButtonView(this)
         Prefs.hasAnonymousNotification = false
-
-        // Determine whether we need to resolve the PageTitle, since the calling activity might
-        // have given us a non-Talk page, and we need to prepend the correct namespace.
-        if (pageTitle.namespace.isEmpty()) {
-            pageTitle.namespace = TalkAliasData.valueFor(pageTitle.wikiSite.languageCode)
-        } else if (pageTitle.isUserPage) {
-            pageTitle.namespace = UserTalkAliasData.valueFor(pageTitle.wikiSite.languageCode)
-        } else if (pageTitle.namespace() != Namespace.TALK && pageTitle.namespace() != Namespace.USER_TALK) {
-            // defer resolution of Talk page title for an API call.
-            resolveTitleRequired = true
-        }
+        talkTopicsProvider = TalkTopicsProvider(pageTitle)
     }
 
     public override fun onDestroy() {
         disposables.clear()
+        talkTopicsProvider.cancel()
         super.onDestroy()
     }
 
     public override fun onResume() {
         super.onResume()
         loadTopics()
+        searchActionModeCallback.searchActionProvider?.selectAllQueryTexts()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -137,7 +130,7 @@ class TalkTopicsActivity : BaseActivity() {
             if (data != null && data.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                 val pos = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
                 if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
-                    funnel.logChangeLanguage()
+                    funnel?.logChangeLanguage()
 
                     val newNamespace = when {
                         pageTitle.namespace() == Namespace.USER -> {
@@ -239,61 +232,49 @@ class TalkTopicsActivity : BaseActivity() {
     private fun loadTopics() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
-        binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
-        binding.talkUsernameView.isVisible = !goToTopic
+        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
+        binding.toolbarTitle.isVisible = !goToTopic
+        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
 
-        disposables.clear()
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
 
-        disposables.add(if (resolveTitleRequired) { ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText) } else { Observable.just(MwQueryResponse()) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { response ->
-                    resolveTitleRequired = false
-                    response.query?.namespaces?.let { namespaces ->
-                        response.query?.firstPage()?.let { page ->
-                            // In MediaWiki, namespaces that are even-numbered are "regular" pages,
-                            // and namespaces that are odd-numbered are the "Talk" versions of the
-                            // corresponding even-numbered namespace. For example, "User"=2, "User talk"=3.
-                            // So then, if the namespace of our pageTitle is even (i.e. not a Talk page),
-                            // then increment the namespace by 1, and update the pageTitle with it.
-                            val newNs = namespaces.values.find { it.id == page.namespace().code() + 1 }
-                            if (page.namespace().code() % 2 == 0 && newNs != null) {
-                                pageTitle.namespace = newNs.name
-                            }
-                        }
-                    }
-                    binding.talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
-                    ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText)
+        talkTopicsProvider.load(object : TalkTopicsProvider.Callback {
+            override fun onUpdatePageTitle(title: PageTitle) {
+                pageTitle = title
+                funnel = TalkFunnel(pageTitle, invokeSource)
+                binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+            }
+
+            override fun onReceivedRevision(revision: MwQueryPage.Revision?) {
+                revision?.let {
+                    revisionForLastEdit = revision
+                    binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
+                        DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
+                            System.currentTimeMillis(), 0L), revision.user))
                 }
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap {
-                    it.query?.firstPage()?.revisions?.getOrNull(0)?.let { revision ->
-                        revisionForLastEdit = revision
-                        binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
-                            DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
-                                System.currentTimeMillis(), 0L), revision.user))
-                    }
-                    ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
-                }
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate {
-                    invalidateOptionsMenu()
-                    binding.talkUsernameView.isVisible = !goToTopic
-                    binding.talkProgressBar.isVisible = !goToTopic
-                    binding.talkProgressBar.visibility = View.GONE
-                    binding.talkRefreshView.isRefreshing = false
-                }
-                .subscribe({
-                    topics.clear()
-                    topics.addAll(it.topics!!)
-                    updateOnSuccess()
-                }, {
-                    L.e(it)
-                    updateOnError(it)
-                }))
+            }
+
+            override fun onSuccess(title: PageTitle, talkPage: TalkPage) {
+                topics.clear()
+                topics.addAll(talkPage.topics!!)
+                updateOnSuccess()
+            }
+
+            override fun onError(throwable: Throwable) {
+                updateOnError(throwable)
+            }
+
+            override fun onFinished() {
+                invalidateOptionsMenu()
+                binding.toolbarTitle.isVisible = !goToTopic
+                binding.talkProgressBar.isVisible = !goToTopic
+                binding.talkProgressBar.visibility = View.GONE
+                binding.talkRefreshView.isRefreshing = false
+            }
+        })
     }
 
     private fun updateOnSuccess() {
@@ -307,7 +288,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
             }
             if (topic != null) {
-                startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource),
+                startActivityForResult(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, topic.getIndicatorSha(), invokeSource),
                         Constants.ACTIVITY_REQUEST_GO_TO_TOPIC_ACTIVITY)
                 overridePendingTransition(0, 0)
                 return
@@ -318,13 +299,19 @@ class TalkTopicsActivity : BaseActivity() {
             updateOnEmpty()
         } else {
             binding.talkErrorView.visibility = View.GONE
-            binding.talkNewTopicButton.show()
-            binding.talkNewTopicButton.isEnabled = true
-            binding.talkNewTopicButton.alpha = 1.0f
-            binding.talkLastModified.visibility = View.VISIBLE
+            if (actionMode != null) {
+                binding.talkNewTopicButton.hide()
+                binding.talkLastModified.visibility = View.GONE
+            } else {
+                binding.talkNewTopicButton.show()
+                binding.talkNewTopicButton.isEnabled = true
+                binding.talkNewTopicButton.alpha = 1.0f
+                binding.talkLastModified.visibility = View.VISIBLE
+            }
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
+        funnel?.logOpenTalk()
     }
 
     private fun updateOnError(t: Throwable) {
@@ -335,6 +322,7 @@ class TalkTopicsActivity : BaseActivity() {
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code == 404) {
             updateOnEmpty()
+            invalidateOptionsMenu()
         } else {
             binding.talkNewTopicButton.hide()
             binding.talkLastModified.visibility = View.GONE
@@ -358,7 +346,7 @@ class TalkTopicsActivity : BaseActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, "", invokeSource, undoneSubject, undoneBody))
             }, {
                 updateOnError(it)
             }))
@@ -375,61 +363,130 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-    internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
-        private val title: TextView = view.findViewById(R.id.topicTitleText)
-        private val subtitle: TextView = view.findViewById(R.id.topicSubtitleText)
-        private var id: Int = 0
+    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-        fun bindItem(topic: TalkPage.Topic) {
-            id = topic.id
-            val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
-            var titleStr = RichTextUtil.stripHtml(topic.html).trim()
-            if (titleStr.isEmpty()) {
-                // build up a title based on the contents, massaging the html into plain text that
-                // flows over a few lines...
-                topic.replies?.firstOrNull()?.let {
-                    titleStr = RichTextUtil.stripHtml(it.html).replace("\n", " ")
-                    if (titleStr.length > MAX_CHARS_NO_SUBJECT) {
-                        titleStr = titleStr.substring(0, MAX_CHARS_NO_SUBJECT) + "…"
-                    }
-                }
-            }
+        private val listPlaceholder get() = if (actionMode == null) 1 else 0
 
-            title.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
-            title.visibility = View.VISIBLE
-            subtitle.visibility = View.GONE
-            title.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface
-            title.setTextColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity,
-                    if (seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
-            itemView.setOnClickListener(this)
+        override fun getItemCount(): Int {
+            return list.size + listPlaceholder
         }
 
-        override fun onClick(v: View?) {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id, invokeSource))
+        override fun getItemViewType(position: Int): Int {
+            return if (position == 0 && listPlaceholder == 1) ITEM_SEARCH_BAR else ITEM_TOPIC
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
+            if (type == ITEM_SEARCH_BAR) {
+                return TalkTopicSearcherHolder(layoutInflater.inflate(R.layout.view_talk_topic_search_bar, parent, false))
+            }
+            return TalkTopicHolder(ItemTalkTopicBinding.inflate(layoutInflater, parent, false), this@TalkTopicsActivity, pageTitle, invokeSource)
+        }
+
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
+            if (holder is TalkTopicHolder) {
+                holder.bindItem(list[pos - listPlaceholder], currentSearchQuery)
+            }
+        }
+
+        private val list get(): List<TalkPage.Topic> {
+            when (currentSortMode) {
+                TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
+                    topics.sortByDescending { it.id }
+                }
+                TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING -> {
+                    topics.sortBy { it.id }
+                }
+                TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
+                    topics.sortByDescending { RichTextUtil.stripHtml(it.html) }
+                }
+                TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING -> {
+                    topics.sortBy { RichTextUtil.stripHtml(it.html) }
+                }
+            }
+            return topics.filter { it.html.orEmpty().contains(currentSearchQuery.orEmpty(), true) }
         }
     }
 
-    internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<TalkTopicHolder>() {
-        override fun getItemCount(): Int {
-            return topics.size
+    private inner class TalkTopicSearcherHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+        val talkSortButton: AppCompatImageView = itemView.findViewById(R.id.talk_sort_button)
+
+        init {
+            (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity, R.attr.color_group_22))
+
+            itemView.setOnClickListener {
+                if (actionMode == null) {
+                    actionMode = startSupportActionMode(searchActionModeCallback)
+                }
+            }
+
+            talkSortButton.setOnClickListener {
+                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, currentSortMode) {
+                    currentSortMode = it
+                    Prefs.talkTopicsSortMode = it
+                    binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+                }
+            }
+
+            FeedbackUtil.setButtonLongPressToast(talkSortButton)
+        }
+    }
+
+    private inner class SearchCallback : SearchActionModeCallback() {
+        var searchActionProvider: SearchActionProvider? = null
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            searchActionProvider = SearchActionProvider(this@TalkTopicsActivity, searchHintString,
+                object : SearchActionProvider.Callback {
+                    override fun onQueryTextChange(s: String) {
+                        onQueryChange(s)
+                    }
+
+                    override fun onQueryTextFocusChange() {
+                    }
+                })
+
+            val menuItem = menu.add(searchHintString)
+
+            MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
+
+            actionMode = mode
+            binding.talkLastModified.isVisible = false
+            binding.talkNewTopicButton.hide()
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            return super.onCreateActionMode(mode, menu)
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
-            return TalkTopicHolder(layoutInflater.inflate(R.layout.item_talk_topic, parent, false))
+        override fun onQueryChange(s: String) {
+            currentSearchQuery = s
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            binding.talkSearchNoResult.isVisible = binding.talkRecyclerView.adapter?.itemCount == 0
         }
 
-        override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
-            holder.bindItem(topics[pos])
+        override fun onDestroyActionMode(mode: ActionMode) {
+            super.onDestroyActionMode(mode)
+            actionMode = null
+            currentSearchQuery = null
+            binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+            binding.talkNewTopicButton.show()
+            binding.talkLastModified.isVisible = true
+            binding.talkSearchNoResult.isVisible = false
+        }
+
+        override fun getSearchHintString(): String {
+            return getString(R.string.talk_search_hint)
+        }
+
+        override fun getParentContext(): Context {
+            return this@TalkTopicsActivity
         }
     }
 
     companion object {
+        private const val ITEM_SEARCH_BAR = 0
+        private const val ITEM_TOPIC = 1
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
-        private const val MAX_CHARS_NO_SUBJECT = 100
         const val NEW_TOPIC_ID = -2
 
-        @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
                 .putExtra(EXTRA_PAGE_TITLE, pageTitle)

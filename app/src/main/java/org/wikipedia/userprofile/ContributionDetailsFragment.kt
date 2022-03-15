@@ -69,7 +69,7 @@ class ContributionDetailsFragment : Fragment() {
         updateTopGradient()
         binding.contributionContainer.setOnClickListener { startTypeSpecificActivity() }
         binding.revisionLayout.visibility = if (contribution.top) VISIBLE else GONE
-        binding.contributionTitle.text = StringUtil.removeNamespace(contribution.displayTitle)
+        binding.contributionTitle.text = StringUtil.fromHtml(StringUtil.removeNamespace(contribution.displayTitle))
         binding.contributionDiffDetailText.text = contribution.description
         if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") {
             binding.contributionImage.visibility = GONE

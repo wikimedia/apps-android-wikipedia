@@ -99,8 +99,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:visibility="gone"
-                tools:visibility="visible"
-                android:contentDescription="@null"/>
+                android:contentDescription="@string/gallery_edit_button_content_description"
+                tools:visibility="visible"/>
 
         </LinearLayout>
 

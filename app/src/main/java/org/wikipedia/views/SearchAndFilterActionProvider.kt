@@ -37,7 +37,7 @@ class SearchAndFilterActionProvider(context: Context,
         binding.searchInput.inputType = EditorInfo.TYPE_CLASS_TEXT
         binding.searchInput.isSubmitButtonEnabled = false
         binding.searchInput.queryHint = searchHintString
-        binding.searchInput.setSearchHintTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color))
+        binding.searchInput.setSearchHintTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_63))
         updateFilterIconAndText()
         binding.searchInput.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(s: String): Boolean {

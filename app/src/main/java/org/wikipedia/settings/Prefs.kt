@@ -15,6 +15,7 @@ import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
+import org.wikipedia.util.StringUtil
 import java.util.*
 
 /** Shared preferences utility for convenient POJO access.  */
@@ -40,6 +41,10 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_previous_color_theme, fallback.marshallingId)
         set(theme) = PrefsIoUtil.setInt(R.string.preference_key_previous_color_theme, theme)
 
+    var readingFocusModeEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_focus_mode, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_focus_mode, value)
+
     var fontFamily
         get() = PrefsIoUtil.getString(R.string.preference_key_font_family, "").orEmpty().ifEmpty { "sans-serif" }
         set(fontFamily) = PrefsIoUtil.setString(R.string.preference_key_font_family, fontFamily)
@@ -64,13 +69,13 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_developer_settings, isDevRelease)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_developer_settings, enabled)
 
-    var mruLanguageCodeCsv
-        get() = PrefsIoUtil.getString(R.string.preference_key_language_mru, null)
-        set(csv) = PrefsIoUtil.setString(R.string.preference_key_language_mru, csv)
+    var mruLanguageCodeList
+        get() = StringUtil.csvToList(PrefsIoUtil.getString(R.string.preference_key_language_mru, null).orEmpty())
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_language_mru, StringUtil.listToCsv(value))
 
-    var appLanguageCodeCsv
-        get() = PrefsIoUtil.getString(R.string.preference_key_language_app, null)
-        set(csv) = PrefsIoUtil.setString(R.string.preference_key_language_app, csv)
+    var appLanguageCodeList
+        get() = StringUtil.csvToList(PrefsIoUtil.getString(R.string.preference_key_language_app, null).orEmpty())
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_language_app, StringUtil.listToCsv(value))
 
     var remoteConfigJson
         get() = PrefsIoUtil.getString(R.string.preference_key_remote_config, "").orEmpty().ifEmpty { "{}" }
@@ -347,9 +352,9 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_editing_text_size_extra, 0)
         set(extra) = PrefsIoUtil.setInt(R.string.preference_key_editing_text_size_extra, extra)
 
-    var isMultilingualSearchTutorialEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_multilingual_search_tutorial_enabled, true)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_multilingual_search_tutorial_enabled, enabled)
+    var isMultilingualSearchTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_multilingual_search_tooltip_shown, true)
+        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_multilingual_search_tooltip_shown, enabled)
 
     var shouldShowRemoveChineseVariantPrompt
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true)
@@ -477,6 +482,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_push_notification_token_subscribed, false)
         set(subscribed) = PrefsIoUtil.setBoolean(R.string.preference_key_push_notification_token_subscribed, subscribed)
 
+    var isPushNotificationOptionsSet
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_push_notification_options_set, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_push_notification_options_set, value)
+
     val isSuggestedEditsReactivationTestEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false)
 
@@ -552,4 +561,31 @@ object Prefs {
 
     val hideReadNotificationsEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_notification_hide_read, false)
+
+    var customizeToolbarOrder
+        get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_order, null))
+            ?: listOf(0, 1, 2, 3, 4)
+        set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_order, JsonUtil.encodeToString(orderList))
+
+    var customizeToolbarMenuOrder
+        get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null))
+            ?: listOf(5, 6, 7, 8, 9, 10)
+        set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_menu_order, JsonUtil.encodeToString(orderList))
+
+    fun resetToolbarAndMenuOrder() {
+        PrefsIoUtil.remove(R.string.preference_key_customize_toolbar_order)
+        PrefsIoUtil.remove(R.string.preference_key_customize_toolbar_menu_order)
+    }
+
+    var showOneTimeCustomizeToolbarTooltip
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_customize_toolbar_tooltip, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_customize_toolbar_tooltip, value)
+
+    var showEditTalkPageSourcePrompt
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_edit_talk_page_source_prompt, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_edit_talk_page_source_prompt, value)
+
+    var talkTopicsSortMode
+        get() = PrefsIoUtil.getInt(R.string.preference_key_talk_topics_sort_mode, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_talk_topics_sort_mode, value)
 }

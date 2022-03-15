@@ -20,5 +20,6 @@ open class MwQueryResponse : MwResponse() {
         val gpsoffset = 0
         @SerialName("continue") val continuation: String? = null
         @SerialName("uccontinue") val ucContinuation: String? = null
+        @SerialName("rvcontinue") val rvContinuation: String? = null
     }
 }

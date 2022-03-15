@@ -218,6 +218,7 @@
   <string name="color_theme_test_title">Teksta paraugs</string>
   <string name="text_size_increase">Palielināt teksta izmēru</string>
   <string name="text_size_decrease">Samazināt teksta izmēru</string>
+  <string name="theme_category_reading">Lasīšana</string>
   <string name="reading_list_create_new">Izveidot jaunu</string>
   <string name="reading_list_added_view_button">Skatīt sarakstu</string>
   <string name="format_reading_list_statistical_summary_singular">1 raksts, %1$.2f MB</string>

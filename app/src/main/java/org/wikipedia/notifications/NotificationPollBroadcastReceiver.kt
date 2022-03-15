@@ -53,7 +53,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     return
                 }
                 LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
-                PollNotificationService.schedulePollNotificationJob(context)
+                PollNotificationWorker.schedulePollNotificationJob(context)
             }
             ACTION_CANCEL == intent.action -> {
                 NotificationInteractionFunnel.processIntent(intent)
@@ -183,14 +183,14 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             val notificationsPerWiki = items.groupBy {
                 DBNAME_WIKI_SITE_MAP.getOrElse(it.wiki) { WikipediaApp.getInstance().wikiSite }
             }
-            for (wiki in notificationsPerWiki.keys) {
-                markRead(wiki, notificationsPerWiki[wiki]!!, false)
+            for ((wiki, notifications) in notificationsPerWiki) {
+                markRead(wiki, notifications, false)
             }
         }
 
         fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             val idListStr = notifications.joinToString("|")
-            CsrfTokenClient(wiki, wiki).token
+            CsrfTokenClient(wiki).token
                     .subscribeOn(Schedulers.io())
                     .flatMap {
                         ServiceFactory.get(wiki).markRead(it, if (unread) null else idListStr, if (unread) idListStr else null)

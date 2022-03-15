@@ -49,7 +49,7 @@ class EventPlatformClientTest {
 
     @Test
     fun testEventSerialization() {
-        val event = TestEvent("test")
+        val event = TestAppsEvent("test")
         EventPlatformClient.addEventMetadata(event)
         val serialized = JsonUtil.encodeToString(event)!!
         MatcherAssert.assertThat(serialized.contains("dt"), CoreMatchers.`is`(true))

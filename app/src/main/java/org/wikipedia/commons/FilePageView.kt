@@ -180,6 +180,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             if (listener != null) {
                 view.binding.editButton.visibility = View.VISIBLE
                 view.binding.editButton.setOnClickListener(listener)
+                view.binding.editButton.contentDescription = context.getString(R.string.file_page_edit_button_content_description, titleString)
             }
             binding.detailsContainer.addView(view)
         }

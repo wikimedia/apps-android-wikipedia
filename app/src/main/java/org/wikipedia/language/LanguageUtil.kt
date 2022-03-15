@@ -106,16 +106,20 @@ object LanguageUtil {
         return TRADITIONAL_CHINESE_COUNTRY_CODES.contains(country)
     }
 
-    @JvmStatic
     val firstSelectedChineseVariant: String
         get() {
             val firstSelectedChineseLangCode =
                 WikipediaApp.getInstance().language().appLanguageCodes.firstOrNull {
-                    it.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)
+                    isChineseVariant(it)
                 }
             return firstSelectedChineseLangCode.orEmpty()
                 .ifEmpty { AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE }
         }
+
+    fun isChineseVariant(langCode: String): Boolean {
+        return langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) &&
+                langCode != AppLanguageLookUpTable.CHINESE_YUE_LANGUAGE_CODE
+    }
 
     fun startsWithArticle(text: String, language: String): Boolean {
         val first = text.split(" ".toRegex()).toTypedArray()[0].lowercase(Locale.getDefault()).trim()

@@ -7,7 +7,7 @@ import android.graphics.PorterDuff
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
-import android.widget.*
+import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
@@ -39,6 +39,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private lateinit var action: DescriptionEditActivity.Action
     private val binding = ViewDescriptionEditBinding.inflate(LayoutInflater.from(context), this)
     private val mlKitLanguageDetector = MlKitLanguageDetector()
+    private val languageDetectRunnable = Runnable { mlKitLanguageDetector.detectLanguageFromText(binding.viewDescriptionEditText.text.toString()) }
     private val textValidateRunnable = Runnable { validateText() }
     private var originalDescription: String? = null
     private var isTranslationEdit = false
@@ -79,7 +80,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         binding.viewDescriptionEditText.addTextChangedListener {
             enqueueValidateText()
             isLanguageWrong = false
-            mlKitLanguageDetector.detectLanguageFromText(binding.viewDescriptionEditText.text.toString())
+            removeCallbacks(languageDetectRunnable)
+            postDelayed(languageDetectRunnable, TEXT_VALIDATE_DELAY_MILLIS / 2)
         }
 
         binding.viewDescriptionEditText.setOnEditorActionListener { _, actionId, _ ->
@@ -91,6 +93,12 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             }
             false
         }
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        removeCallbacks(languageDetectRunnable)
+        removeCallbacks(textValidateRunnable)
     }
 
     fun setPageTitle(pageTitle: PageTitle) {
@@ -289,8 +297,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 pageTitle.wikiSite.languageCode == "en" && Character.isLowerCase(binding.viewDescriptionEditText.text.toString()[0])) {
             setWarning(context.getString(R.string.description_starts_with_lowercase))
         } else if (isLanguageWrong) {
-            setWarning(context.getString(R.string.description_is_in_different_language,
-                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageSummaryForEdit.lang)))
+            val localizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageSummaryForEdit.lang)
+            setWarning(context.getString(R.string.description_verification_notice, localizedName, localizedName))
         } else {
             clearError()
         }
@@ -346,9 +354,9 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         callback?.onBottomBarClick()
     }
 
-    override fun onLanguageDetectionSuccess(languageCode: String) {
-        if (languageCode != pageSummaryForEdit.lang &&
-                languageCode != WikipediaApp.getInstance().language().getDefaultLanguageCode(pageSummaryForEdit.lang)) {
+    override fun onLanguageDetectionSuccess(languageCodes: List<String>) {
+        if (!languageCodes.contains(pageSummaryForEdit.lang) &&
+                !languageCodes.contains(WikipediaApp.getInstance().language().getDefaultLanguageCode(pageSummaryForEdit.lang))) {
             isLanguageWrong = true
             enqueueValidateText()
         }

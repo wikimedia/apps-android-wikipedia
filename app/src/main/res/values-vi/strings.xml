@@ -17,6 +17,7 @@
 * Phjtieudoc
 * Quenhitran
 * Quoclinh94
+* TARGET6tidiem
 * Thanhtai2009
 * Vinhtantran
 * Yosari101
@@ -54,6 +55,7 @@
   <string name="search_tab_tooltip">Nhấn lại vào biểu tượng để bắt đầu nhập cụm từ tìm kiếm.</string>
   <string name="history_list_title">Lịch sử</string>
   <string name="image_content_description">Hình ảnh: %s</string>
+  <string name="page_content_description">Trang: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Xóa lịch sử duyệt trang</string>
@@ -69,6 +71,7 @@
   <string name="menu_page_add_to_watchlist">Thêm vào danh sách theo dõi</string>
   <string name="menu_page_view_talk">Xem trang thảo luận</string>
   <string name="menu_page_view_edit_history">Xem lịch sử sửa đổi</string>
+  <string name="menu_page_edit_history">Lịch sử sửa đổi</string>
   <string name="menu_page_remove_from_watchlist">Xóa khỏi danh sách theo dõi</string>
   <string name="edit_section_find_in_page">Tìm trong trang</string>
   <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
@@ -309,6 +312,7 @@
   <string name="gallery_save_success">Đã lưu tập tin.</string>
   <string name="gallery_error_video_failed">Không thể phát video.</string>
   <string name="gallery_save_image_write_permission_rationale">Để lưu ảnh, bạn cần cho phép ghi dữ liệu vào bộ nhớ thiết bị.</string>
+  <string name="gallery_edit_button_content_description">Sửa đổi chú thích hình ảnh</string>
   <string name="gallery_add_image_caption_button">Thêm chú thích hình ảnh</string>
   <string name="gallery_add_image_caption_in_language_button">Thêm chú thích hình ảnh (%s)</string>
   <string name="err_cannot_save_file">Không thể lưu tập tin</string>
@@ -388,6 +392,8 @@
   <string name="error_blocked_start">Ngày bắt đầu cấm: %s</string>
   <string name="error_blocked_expiry">Ngày hạn tác vụ cấm: %s</string>
   <string name="error_blocked_id">Số tác vụ cấm: %s</string>
+  <string name="error_blocked_footer">Bạn có thể liên hệ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; hoặc &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Bảo quản viên\"&gt;bảo quản viên&lt;/a&gt; khác để thảo luận về cấm.</string>
+  <string name="error_blocked_footer_no_blocker">Bạn có thể liên hệ một &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Bảo quản viên\"&gt;bảo quản viên&lt;/a&gt; để thảo luận về cấm.</string>
   <string name="crash_report_activity_title">Lỗi ứng dụng</string>
   <string name="crash_report_relaunch_or_quit">Bạn muốn bắt đầu lại hay thoát?</string>
   <string name="crash_report_relaunch">Bắt đầu lại</string>
@@ -413,6 +419,9 @@
   <string name="text_size_decrease">Giảm kích thước văn bản</string>
   <string name="text_size_percent_default">%s (Mặc định)</string>
   <string name="text_style_title">Phông chữ</string>
+  <string name="theme_category_reading">Đọc</string>
+  <string name="reading_focus_mode">Chế độ tập trung đọc</string>
+  <string name="reading_focus_mode_detail">Ẩn các tính năng chỉnh sửa và thanh công cụ dưới cùng khi cuộn</string>
   <string name="nav_item_saved">Đã lưu</string>
   <string name="reading_list_save_to">Lưu vào danh sách đọc</string>
   <string name="reading_list_move_to">Di chuyển tới danh sách đọc.</string>
@@ -457,6 +466,7 @@
   <string name="reading_list_name_hint">Tên của danh sách này</string>
   <string name="reading_list_description_hint">Miêu tả (tùy chọn)</string>
   <string name="reading_list_item_deleted">Đã xóa %s khỏi danh sách</string>
+  <string name="reading_list_item_deleted_from_list">Đã xóa %1$s khỏi %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d bài viết bị xóa khỏi danh sách</item>
     <item quantity="other">%d bài viết bị xóa khỏi danh sách</item>
@@ -536,6 +546,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Hủy bỏ</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Hủy bỏ</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_activity_title">Danh sách đọc: %s</string>
   <string name="user_option_sync_label">Tùy chọn</string>
   <string name="notification_reverted_title">Sửa đổi bị lùi lại</string>
   <string name="notification_channel_title">Đang tải bài viết về…</string>
@@ -706,6 +717,7 @@
   <string name="feed_accessibility_card_text">Bạn đã đến cuối nguồn cấp dữ liệu.</string>
   <string name="feed_accessibility_card_load_more_button">Tải thêm</string>
   <string name="top_read_activity_title">Đọc nhiều nhất trên %s</string>
+  <string name="tabs_activity_title">Các tab</string>
   <string name="description_edit_text_hint">Miêu tả bài viết</string>
   <string name="description_edit_article_description_label">Bài viết</string>
   <string name="description_edit_translate_article_description_label_per_language">Mô tả bài viết (%s)</string>
@@ -923,6 +935,7 @@
   <string name="file_page_add_image_caption_button">Thêm chú thích hình ảnh</string>
   <string name="file_page_add_image_tags_button">Thêm thẻ quyền cho hình ảnh</string>
   <string name="file_page_suggestion_reason">Lý do gợi ý</string>
+  <string name="file_page_edit_button_content_description">Chỉnh sửa %s</string>
   <string name="description_edit_revert_subtitle">Cảm ơn bạn đã sửa đổi Wikipedia.</string>
   <string name="description_edit_revert_intro">Rất tiếc, bạn đã cố gắng sửa đổi một cách chính xác, nhưng một người xem lại đã nhận thấy vấn đề. Họ đã lùi lại sửa đổi của bạn, có thể do một lý do sau:</string>
   <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>
@@ -1029,6 +1042,7 @@
   <string name="talk_response_submitted">Đã đăng phản hồi.</string>
   <string name="talk_snackbar_undo">Hoàn tác</string>
   <string name="talk_last_modified">&lt;b&gt;Sửa đổi lần cuối cùng vào %1$s&lt;/b&gt; bởi %2$s</string>
+  <string name="talk_snackbar_survey_text">Cảm ơn vì đã sử dụng các trang thảo luận. Bạn có thể giúp chúng tôi cải thiện ứng dụng bằng cách tham gia một cuộc khảo sát không?</string>
   <string name="talk_snackbar_survey_action_text">Bắt đầu</string>
   <string name="talk_share_discussion_subject">Wikipedia – thảo luận về chủ đề “%s” tại trang thảo luận</string>
   <string name="talk_share_talk_page">Wikipedia – thảo luận tại trang thảo luận</string>
@@ -1037,6 +1051,7 @@
   <string name="menu_option_share_edit">Chia sẻ sửa đổi</string>
   <string name="menu_option_user_profile">%s\'s trang cá nhân</string>
   <string name="menu_option_user_contributions">%s\'s đóng góp</string>
+  <string name="menu_option_edit_source">Sửa mã nguồn</string>
   <string name="watchlist_details_watching_label">Đang theo dõi</string>
   <string name="watchlist_details_watch_label">Theo dõi</string>
   <string name="watchlist_details_next_edit">Sửa đổi sau</string>

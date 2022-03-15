@@ -33,6 +33,9 @@ class ThemeFittingRoomActivity : SingleFragmentActivity<ThemeFittingRoomFragment
         ActivityCompat.recreate(this)
     }
 
+    override fun onToggleReadingFocusMode() {
+    }
+
     override fun onCancelThemeChooser() {
         finish()
     }

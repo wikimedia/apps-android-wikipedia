@@ -95,7 +95,7 @@
                                 app:tint="?attr/colorAccent"
                                 android:background="@drawable/shape_circle"
                                 android:backgroundTint="?attr/color_group_22"
-                                android:contentDescription="@null"/>
+                                android:contentDescription="@string/suggested_edits_my_contributions"/>
                             
                             <androidx.constraintlayout.widget.Guideline
                                 android:id="@+id/guideLineMiddle"

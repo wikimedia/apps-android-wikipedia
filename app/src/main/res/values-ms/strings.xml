@@ -60,6 +60,7 @@
   <string name="menu_page_add_to_watchlist">Tambahkan ke Senarai Pantau</string>
   <string name="menu_page_view_talk">Lihat laman perbincangan</string>
   <string name="menu_page_view_edit_history">Lihat sejarah suntingan</string>
+  <string name="menu_page_edit_history">Sejarah suntingan</string>
   <string name="menu_page_remove_from_watchlist">Buang daripada Senarai Pantau</string>
   <string name="edit_section_find_in_page">Cari dalam laman</string>
   <string name="menu_page_font_and_theme">Tukar fon dan tema</string>

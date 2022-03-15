@@ -34,6 +34,7 @@
     <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
     <string name="history_list_title">History</string>
     <string name="image_content_description">Image: %s</string>
+    <string name="page_content_description">Page: %s</string>
     <string name="wikimedia_commons">Wikimedia Commons</string>
     <string name="wikidata">Wikidata</string>
 
@@ -46,14 +47,29 @@
     <string name="image_share_via">Share via</string>
     <string name="search_redirect_from">Redirected from %s</string>
 
+    <!-- Page Edit History -->
+    <string name="page_edit_history_activity_title">Revision history: %s</string>
+    <string name="page_edit_history_minor_edit"><![CDATA[<b>m</b> %s]]></string>
+    <string name="page_edit_history_comment_placeholder">Empty edit summary</string>
+    <plurals name="page_edit_history_article_edits_since_year">
+        <item quantity="one">%1$d edit since %2$s</item>
+        <item quantity="other">%1$d edits since %2$s</item>
+    </plurals>
+    <string name="page_edit_history_metrics_content_description">Metrics from %1$s to %2$s</string>
+
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
     <string name="menu_page_find_in_page">Find in article</string>
     <string name="menu_page_add_to_watchlist">Add to Watchlist</string>
+    <string name="menu_page_watch">Watch</string>
+    <string name="menu_page_unwatch">Unwatch</string>
     <string name="menu_page_view_talk">View talk page</string>
+    <string name="menu_page_talk_page">Talk page</string>
     <string name="menu_page_view_edit_history">View edit history</string>
+    <string name="menu_page_edit_history">Edit history</string>
     <string name="menu_page_remove_from_watchlist">Remove from Watchlist</string>
+    <string name="menu_page_watched">Watched</string>
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
@@ -62,6 +78,7 @@
     <string name="feed_card_add_to_default_list">Save</string>
     <string name="menu_page_share">Share link</string>
     <string name="menu_article_share">Share article</string>
+    <string name="menu_page_article_share">Share</string>
     <string name="menu_page_open_a_new_tab">Open a new tab</string>
     <string name="menu_page_new_tab">New tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
@@ -153,6 +170,7 @@
     <string name="dialog_create_account_checking_progress">Verifying</string>
     <string name="create_account_email_hint">Email (Optional)</string>
     <string name="create_account_password_repeat_hint">Repeat password</string>
+    <string name="create_account_password_is_username">Password can\'t be the same as username</string>
     <string name="create_account_passwords_mismatch_error">Passwords don\'t match</string>
     <string name="create_account_email_error">Invalid email address</string>
     <string name="create_account_username_error">Invalid characters in username</string>
@@ -299,6 +317,7 @@
     <string name="gallery_save_success">File saved.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="gallery_save_image_write_permission_rationale">Permission to write to storage on your device is required for saving images.</string>
+    <string name="gallery_edit_button_content_description">Edit image caption</string>
     <string name="gallery_add_image_caption_button">Add image caption</string>
     <string name="gallery_add_image_caption_in_language_button">Add image caption (%s)</string>
     <string name="err_cannot_save_file">Cannot save file</string>
@@ -380,6 +399,7 @@
     <string name="error_blocked_expiry">Expiration of block: %s</string>
     <string name="error_blocked_id">Block ID: %s</string>
     <string name="error_blocked_footer"><![CDATA[You can contact <a href="%2$s">%1$s</a> or another <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
+    <string name="theme_chooser_menu_item_tooltip">Customize your toolbar and try reading focus mode</string>
     <string name="error_blocked_footer_no_blocker"><![CDATA[You can contact an <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
 
     <!-- Crash reporter -->
@@ -414,6 +434,11 @@
     <string name="text_size_decrease">Decrease text size</string>
     <string name="text_size_percent_default">%s (Default)</string>
     <string name="text_style_title">Font</string>
+    <string name="theme_category_reading">Reading</string>
+    <string name="reading_focus_mode">Reading focus mode</string>
+    <string name="reading_focus_mode_detail">Hides edit features and bottom toolbar on scroll</string>
+    <string name="theme_category_toolbar">Toolbar</string>
+    <string name="theme_customize_toolbar">Customize toolbar</string>
     <!-- /Theme -->
 
     <!-- Reading lists -->
@@ -545,6 +570,7 @@
     <string name="reading_list_remove_from_offline_cancel_button_text">Cancel</string>
     <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel</string>
     <string name="reading_list_split_dialog_ok_button_text">OK</string>
+    <string name="reading_list_activity_title">Reading list: %s</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
@@ -741,6 +767,8 @@
 
     <string name="top_read_activity_title">Top read on %s</string>
 
+    <string name="tabs_activity_title">Tabs</string>
+
     <!-- Description editing -->
     <string name="description_edit_text_hint">Article description</string>
     <string name="description_edit_article_description_label">Article</string>
@@ -774,6 +802,7 @@
     <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
     <string name="description_starts_with_lowercase">Avoid starting with a lowercase letter.</string>
     <string name="description_is_in_different_language">The text appears to be in an unexpected language. The language should be %s.</string>
+    <string name="description_verification_notice">Please verify your description is in %1$s. Feel free to dismiss this notification if the description you\'ve written is in %2$s.</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
@@ -798,6 +827,17 @@
     <string name="description_edit_tutorial_button_label_start_editing">Start editing</string>
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
     <!-- /Description editing tutorial -->
+
+    <!-- Customize toolbar -->
+    <string name="customize_toolbar_title">Customize toolbar</string>
+    <string name="customize_toolbar_description_text">Customize the bottom toolbar with 5 links you find most helpful.</string>
+    <string name="customize_toolbar_category_toolbar">Toolbar</string>
+    <string name="customize_toolbar_category_menu">Menu</string>
+    <string name="customize_toolbar_drag_and_drop_placeholder">Drag and drop your favorite items here 👋</string>
+    <string name="customize_toolbar_reset_to_default_button">Reset to default</string>
+    <string name="customize_toolbar_item_drag_handle_default_tooltip">Hold the drag icon to move the item</string>
+    <string name="customize_toolbar_item_default_tooltip">Press and drag an item to reposition it</string>
+    <!-- /Customize toolbar -->
 
     <!-- Suggested edits -->
     <string name="suggested_edits_describe_articles">Describe articles</string>
@@ -972,6 +1012,7 @@
     <string name="file_page_add_image_caption_button">Add image caption</string>
     <string name="file_page_add_image_tags_button">Add image tags</string>
     <string name="file_page_suggestion_reason">Suggestion reason</string>
+    <string name="file_page_edit_button_content_description">Edit %s</string>
     <!-- /File page -->
 
     <!-- Description editing revert help -->
@@ -1110,11 +1151,17 @@
     <string name="talk_snackbar_survey_action_text">Get started</string>
     <string name="talk_share_discussion_subject">Wikipedia - discussion on talk page topic \"%s\"</string>
     <string name="talk_share_talk_page">Wikipedia - discussions on talk page</string>
+    <string name="talk_edit_disclaimer"><![CDATA[This is a talk page. Please respect the talk page guidelines, and remember to sign your posts by typing four tildes: ~~~~ when posting using wikitext.<br\><br\><a href="https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines">Wikipedia:Talk page guidelines</a>]]></string>
+    <string name="talk_search_hint">Search messages</string>
+    <string name="talk_overflow_sort_by">Sort by</string>
+    <string name="talk_overflow_sort_date_published">Date published</string>
+    <string name="talk_overflow_sort_topic_name">Topic name</string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>
+    <string name="menu_option_edit_source">Edit source</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
     <string name="watchlist_details_next_edit">Next edit</string>
@@ -1126,6 +1173,10 @@
     <string name="thank_dialog_positive_button_text">Send thanks</string>
     <string name="thank_dialog_negative_button_text">Cancel</string>
     <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
+    <string name="menu_option_view_user_profile">View user profile page</string>
+    <string name="menu_option_view_user_talk">View talk page</string>
+    <string name="revision_compare_button">Compare</string>
+    <string name="revision_compare_two_only">Only two revisions can be selected.</string>
 
     <!-- Watchlist -->
     <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>

@@ -18,21 +18,17 @@
             android:id="@+id/edit_section_scroll"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingStart="@dimen/activity_horizontal_margin"
-            android:paddingEnd="@dimen/activity_horizontal_margin">
+            android:layout_weight="1">
 
             <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:gravity="top|start"
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"
-                android:textColor="?attr/primary_text_color"
-                android:textColorHighlight="#FF9632" />
+                style="@style/EditSectionTextInputLayoutStyle" />
         </ScrollView>
 
         <HorizontalScrollView

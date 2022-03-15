@@ -40,7 +40,7 @@ class TopReadFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMostReadBinding.inflate(inflater, container, false)
 
-        val card = requireActivity().intent.getParcelableExtra<TopReadListCard>(TopReadArticlesActivity.MOST_READ_CARD)!!
+        val card = requireActivity().intent.getParcelableExtra<TopReadListCard>(TopReadArticlesActivity.TOP_READ_CARD)!!
 
         appCompatActivity.setSupportActionBar(binding.toolbar)
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -116,7 +116,7 @@ class TopReadFragment : Fragment() {
     companion object {
         fun newInstance(card: TopReadListCard): TopReadFragment {
             return TopReadFragment().apply {
-                arguments = bundleOf(TopReadArticlesActivity.MOST_READ_CARD to card)
+                arguments = bundleOf(TopReadArticlesActivity.TOP_READ_CARD to card)
             }
         }
     }

@@ -64,7 +64,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
             callback?.onLanguageTabSelected(languageCodes[tab.position])
         } else {
             view?.let {
-                @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)
+                @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.color_group_63)
                 updateTabLanguageLabel(it, null, color)
                 updateTabLanguageCode(it, null, color, AppCompatResources.getDrawable(context, R.drawable.lang_button_shape_border), color)
             }

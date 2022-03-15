@@ -14,7 +14,7 @@
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textColor="?attr/material_theme_de_emphasised_color"
+        android:textColor="?attr/color_group_63"
         android:textSize="12sp" />
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_marginStart="@dimen/view_list_card_margin_vertical"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textColor="?attr/material_theme_de_emphasised_color"
+        android:textColor="?attr/color_group_63"
         android:textSize="12sp"
         tools:text="English" />
 </LinearLayout>

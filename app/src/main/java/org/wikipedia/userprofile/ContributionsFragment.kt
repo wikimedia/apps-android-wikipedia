@@ -260,8 +260,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                     .subscribeOn(Schedulers.io())
                     .flatMap { entities ->
-                        for (entityKey in entities.entities.keys) {
-                            val entity = entities.entities[entityKey]!!
+                        for ((entityKey, entity) in entities.entities) {
                             for (contribution in wikidataContributions) {
                                 val dbName = WikiSite.forLanguageCode(contribution.wikiSite.languageCode).dbName()
                                 if (contribution.qNumber == entityKey && entity.sitelinks.containsKey(dbName)) {

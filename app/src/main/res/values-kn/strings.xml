@@ -8,6 +8,7 @@
 * Omshivaprakash
 * VASANTH S.N.
 * Vikashegde
+* ~aanzx
 * రహ్మానుద్దీన్
 * ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ
 -->
@@ -49,6 +50,7 @@
   <string name="menu_page_find_in_page">ಲೇಖನದಲ್ಲಿ ಹುಡುಕಿ</string>
   <string name="menu_page_add_to_watchlist">ವೀಕ್ಷಣಾಪಟ್ಟಿಗೆ ಸೇರಿಸು</string>
   <string name="menu_page_view_talk">ಚರ್ಚೆ ಪುಟವನ್ನು ವೀಕ್ಷಿಸಿ</string>
+  <string name="menu_page_talk_page">ಚರ್ಚೆಪುಟ</string>
   <string name="menu_page_view_edit_history">ಸಂಪಾದನೆ ಇತಿಹಾಸವನ್ನು ನೋಡಿ</string>
   <string name="menu_page_remove_from_watchlist">ವೀಕ್ಷಣಾಪಟ್ಟಿಯಿಂದ ತೆಗೆ</string>
   <string name="edit_section_find_in_page">ಪಠ್ಯದಲ್ಲಿ ಹುಡುಕಿ</string>

@@ -1,7 +1,6 @@
 package org.wikipedia.settings.languages
 
 import android.app.Activity
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -23,6 +22,7 @@ import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguagesListActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
+import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.MultiSelectActionModeCallback
@@ -68,6 +68,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
             requireActivity().invalidateOptionsMenu()
             adapter.notifyDataSetChanged()
             // explicitly update notification subscription options for any new language wikis
+            Prefs.isPushNotificationOptionsSet = false
             WikipediaFirebaseMessagingService.updateSubscription()
         }
     }
@@ -124,7 +125,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
     }
 
     private fun updateWikipediaLanguages() {
-        app.language().appLanguageCodes = wikipediaLanguages
+        app.language().setAppLanguageCodes(wikipediaLanguages)
         adapter.notifyDataSetChanged()
         requireActivity().invalidateOptionsMenu()
     }
@@ -181,7 +182,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
         override fun onViewAttachedToWindow(holder: DefaultViewHolder<*>) {
             super.onViewAttachedToWindow(holder)
             if (holder is WikipediaLanguageItemHolder) {
-                holder.view.setDragHandleTouchListener { v: View, event: MotionEvent ->
+                holder.view.setDragHandleTouchListener { v, event ->
                     when (event.actionMasked) {
                         MotionEvent.ACTION_DOWN -> {
                             interactionsCount++
@@ -333,7 +334,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
                     it
                     .setTitle(resources.getQuantityString(R.plurals.wikipedia_languages_remove_dialog_title, selectedCodes.size))
                     .setMessage(R.string.wikipedia_languages_remove_dialog_content)
-                    .setPositiveButton(R.string.remove_language_dialog_ok_button_text) { _: DialogInterface, _: Int ->
+                    .setPositiveButton(R.string.remove_language_dialog_ok_button_text) { _, _ ->
                         deleteSelectedLanguages()
                         actionMode?.finish()
                         requireActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)
@@ -359,7 +360,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
         const val ACTIVITY_RESULT_LANG_POSITION_DATA = "activity_result_lang_position_data"
         const val ADD_LANGUAGE_INTERACTIONS = "add_language_interactions"
         const val SESSION_TOKEN = "session_token"
-        @JvmStatic
+
         fun newInstance(invokeSource: InvokeSource): WikipediaLanguagesFragment {
             val instance = WikipediaLanguagesFragment()
             instance.arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
