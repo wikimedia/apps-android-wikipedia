@@ -15,7 +15,6 @@ import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.dataclient.restbase.PageHistory
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 import java.util.*
@@ -36,10 +35,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     val editHistoryFlow = Pager(PagingConfig(pageSize = 20)) {
         EditHistoryPagingSource(pageTitle)
     }.flow.map { pagingData ->
-        pagingData.filter {
-            // TODO: implement this
-            if (Prefs.editHistoryFilterDisableSet.contains(EditCount.EDIT_TYPE_EDITORS)) it.isAnon else true
-        }.map {
+        pagingData.map {
             EditHistoryItem(it)
         }.insertSeparators { before, after ->
             val dateBefore = if (before != null) DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(before.item.timestamp)) else ""
