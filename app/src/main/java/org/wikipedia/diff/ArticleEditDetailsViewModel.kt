@@ -66,19 +66,10 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         }) {
             withContext(Dispatchers.IO) {
                 if (revisionIdFrom >= 0) {
-                    var responseFrom: MwQueryResponse? = null
-                    var responseTo: MwQueryResponse? = null
-                    coroutineScope {
-                        launch {
-                            responseFrom = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdFrom)
-                        }
-                        launch {
-                            responseTo = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdTo)
-                        }
-                    }
-
-                    val pageTo = responseTo?.query?.firstPage()!!
-                    revisionFrom = responseFrom?.query?.firstPage()!!.revisions[0]
+                    val responseFrom = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdFrom) }
+                    val responseTo = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithInfo(pageTitle.prefixedText, 2, revisionIdTo) }
+                    val pageTo = responseTo.await().query?.firstPage()!!
+                    revisionFrom = responseFrom.await().query?.firstPage()!!.revisions[0]
                     revisionTo = pageTo.revisions[0]
                     canGoForward = revisionTo!!.revId < pageTo.lastrevid
                 } else {
