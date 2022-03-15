@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/paper_color"
-        android:minWidth="200dp"
+        android:minWidth="220dp"
         android:orientation="vertical">
 
         <TextView
@@ -61,6 +61,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="16dp"
             android:paddingVertical="13dp"
+            android:gravity="center_vertical"
             android:background="?android:selectableItemBackground">
 
             <ImageView
@@ -83,8 +84,8 @@
                 android:textColor="?attr/material_theme_primary_color" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/ic_user_avatar"
                 android:contentDescription="@null"
                 app:tint="?android:attr/textColorSecondary"/>
@@ -97,6 +98,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="16dp"
             android:paddingVertical="13dp"
+            android:gravity="center_vertical"
             android:background="?android:selectableItemBackground">
 
             <ImageView
@@ -119,8 +121,8 @@
                 android:textColor="?attr/material_theme_primary_color" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/ic_anonymous_ooui"
                 android:contentDescription="@null"
                 app:tint="?android:attr/textColorSecondary"/>
@@ -133,6 +135,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="16dp"
             android:paddingVertical="13dp"
+            android:gravity="center_vertical"
             android:background="?android:selectableItemBackground">
 
             <ImageView
@@ -155,8 +158,8 @@
                 android:textColor="?attr/material_theme_primary_color" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/ic_robot_24"
                 android:contentDescription="@null"
                 app:tint="?android:attr/textColorSecondary"/>

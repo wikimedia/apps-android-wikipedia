@@ -280,9 +280,9 @@ class EditHistoryListActivity : BaseActivity() {
             filterByButton.setOnClickListener {
                 val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
                 if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
-                    val previousFilter = Prefs.editHistoryFilterEnableSet
+                    val previousFilter = Prefs.editHistoryFilterEnableType
                     EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(filterByButton, editCountsFlowValue) {
-                        if (previousFilter != Prefs.editHistoryFilterEnableSet) {
+                        if (previousFilter != Prefs.editHistoryFilterEnableType) {
                             editHistoryListAdapter.refresh()
                             updateFilterCount()
                         }
@@ -294,13 +294,14 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         fun updateFilterCount() {
-            if (Prefs.editHistoryFilterEnableSet.isEmpty()) {
+            if (Prefs.editHistoryFilterEnableType.isEmpty()) {
                 filterCountView.visibility = View.GONE
                 ImageViewCompat.setImageTintList(filterByButton,
                     ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.chip_text_color)))
             } else {
                 filterCountView.visibility = View.VISIBLE
-                filterCountView.text = Prefs.editHistoryFilterEnableSet.size.toString()
+                // TODO: confirm with design
+                filterCountView.text = "1"
                 ImageViewCompat.setImageTintList(filterByButton,
                     ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.colorAccent)))
             }

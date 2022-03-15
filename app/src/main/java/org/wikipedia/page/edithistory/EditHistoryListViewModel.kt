@@ -15,6 +15,7 @@ import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.dataclient.restbase.PageHistory
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 import java.util.*
@@ -131,8 +132,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     ) : PagingSource<Long, PageHistory.Revision>() {
         override suspend fun load(params: LoadParams<Long>): LoadResult<Long, PageHistory.Revision> {
             return try {
+                val filter = if (Prefs.editHistoryFilterEnableType.isNotEmpty() &&
+                    Prefs.editHistoryFilterEnableType != EditCount.EDIT_TYPE_EDITORS) Prefs.editHistoryFilterEnableType else null
                 val response = ServiceFactory.getCoreRest(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                        .getPageHistory(pageTitle.prefixedText, olderThan = params.key)
+                        .getPageHistory(pageTitle.prefixedText, olderThan = params.key, filter = filter)
                 LoadResult.Page(response.revisions, null, if (response.older.isNullOrEmpty()) null else response.revisions.last().id)
             } catch (e: Exception) {
                 LoadResult.Error(e)

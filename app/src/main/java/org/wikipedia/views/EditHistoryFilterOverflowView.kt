@@ -54,12 +54,12 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
     private fun updateSelectedIconsVisibility() {
         val icons = listOf(binding.filterByUserSelected, binding.filterByAnonSelected, binding.filterByBotSelected)
         val types = listOf(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS, EditCount.EDIT_TYPE_BOT)
-        if (Prefs.editHistoryFilterEnableSet.isEmpty()) {
+        if (Prefs.editHistoryFilterEnableType.isEmpty()) {
             icons.map { it.visibility = View.VISIBLE }
             binding.filterByAllSelected.visibility = View.VISIBLE
         } else {
             types.forEachIndexed { index, type ->
-                icons[index].visibility = if (Prefs.editHistoryFilterEnableSet.contains(type)) View.VISIBLE else View.INVISIBLE
+                icons[index].visibility = if (Prefs.editHistoryFilterEnableType == type) View.VISIBLE else View.INVISIBLE
             }
             binding.filterByAllSelected.visibility = View.INVISIBLE
         }
@@ -67,41 +67,23 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
 
     private fun setButtonsListener() {
         binding.filterByAllButton.setOnClickListener {
-            saveToPreference()
-            updateSelectedIconsVisibility()
-            callback?.onItemClicked()
-            popupWindowHost?.dismiss()
+            onButtonCLicked()
         }
         binding.filterByUserButton.setOnClickListener {
-            saveToPreference(EditCount.EDIT_TYPE_EDITORS)
-            updateSelectedIconsVisibility()
-            callback?.onItemClicked()
-            popupWindowHost?.dismiss()
+            onButtonCLicked(EditCount.EDIT_TYPE_EDITORS)
         }
         binding.filterByAnonButton.setOnClickListener {
-            saveToPreference(EditCount.EDIT_TYPE_ANONYMOUS)
-            updateSelectedIconsVisibility()
-            callback?.onItemClicked()
-            popupWindowHost?.dismiss()
+            onButtonCLicked(EditCount.EDIT_TYPE_ANONYMOUS)
         }
         binding.filterByBotButton.setOnClickListener {
-            saveToPreference(EditCount.EDIT_TYPE_BOT)
-            updateSelectedIconsVisibility()
-            callback?.onItemClicked()
-            popupWindowHost?.dismiss()
+            onButtonCLicked(EditCount.EDIT_TYPE_BOT)
         }
     }
 
-    private fun saveToPreference(enableType: String? = null) {
-        val set = Prefs.editHistoryFilterEnableSet.toMutableSet()
-        set.clear()
-        enableType?.let {
-            if (set.contains(enableType)) {
-                set.remove(enableType)
-            } else {
-                set.add(enableType)
-            }
-        }
-        Prefs.editHistoryFilterEnableSet = set
+    private fun onButtonCLicked(editType: String = "") {
+        Prefs.editHistoryFilterEnableType = editType
+        updateSelectedIconsVisibility()
+        callback?.onItemClicked()
+        popupWindowHost?.dismiss()
     }
 }
