@@ -50,9 +50,10 @@
   <string name="share_via">Сподели преку</string>
   <string name="image_share_via">Сподели преку</string>
   <string name="search_redirect_from">Пренасочено од %s</string>
-  <string name="page_edit_history_activity_label">Историја на измените</string>
+  <string name="page_edit_history_activity_title">Историја на измените: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;с&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Празен опис на измени</string>
+  <string name="page_edit_history_metrics_content_description">Мерила од %1$s до %2$s</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди во статијата</string>
@@ -786,6 +787,8 @@
   <string name="customize_toolbar_category_menu">Мени</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Тука довлекувајте ги омилените ставки 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Врати по основно</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Придржете и довлечете ја иконата за да ја преместите ставката</string>
+  <string name="customize_toolbar_item_default_tooltip">Стиснете и довлечете ја ставката за да ѝ го смените местото</string>
   <string name="suggested_edits_describe_articles">Опишување на статии</string>
   <string name="suggested_edits_caption_images">Толкување на слики</string>
   <string name="suggested_edits_tag_images">Означување на слики</string>

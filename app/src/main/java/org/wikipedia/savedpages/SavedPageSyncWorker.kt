@@ -45,19 +45,19 @@ class SavedPageSyncWorker(
             return Result.failure()
         }
         val pagesToSave = withContext(Dispatchers.IO) {
-            AppDatabase.getAppDatabase().readingListPageDao().getAllPagesToBeForcedSave().toMutableList()
+            AppDatabase.instance.readingListPageDao().getAllPagesToBeForcedSave().toMutableList()
         }
         if ((!Prefs.isDownloadOnlyOverWiFiEnabled || DeviceUtil.isOnWiFi) && Prefs.isDownloadingReadingListArticlesEnabled) {
             val pagesToBeSaved = withContext(Dispatchers.IO) {
-                AppDatabase.getAppDatabase().readingListPageDao().getAllPagesToBeSaved()
+                AppDatabase.instance.readingListPageDao().getAllPagesToBeSaved()
             }
             pagesToSave.addAll(pagesToBeSaved)
         }
         val pagesToUnSave = withContext(Dispatchers.IO) {
-            AppDatabase.getAppDatabase().readingListPageDao().getAllPagesToBeUnsaved()
+            AppDatabase.instance.readingListPageDao().getAllPagesToBeUnsaved()
         }
         val pagesToDelete = withContext(Dispatchers.IO) {
-            AppDatabase.getAppDatabase().readingListPageDao().getAllPagesToBeDeleted()
+            AppDatabase.instance.readingListPageDao().getAllPagesToBeDeleted()
         }
         var shouldSendSyncEvent = false
         try {
@@ -72,13 +72,13 @@ class SavedPageSyncWorker(
         } finally {
             if (pagesToDelete.isNotEmpty()) {
                 withContext(Dispatchers.IO) {
-                    AppDatabase.getAppDatabase().readingListPageDao().purgeDeletedPages()
+                    AppDatabase.instance.readingListPageDao().purgeDeletedPages()
                 }
                 shouldSendSyncEvent = true
             }
             if (pagesToUnSave.isNotEmpty()) {
                 withContext(Dispatchers.IO) {
-                    AppDatabase.getAppDatabase().readingListPageDao().resetUnsavedPageStatus()
+                    AppDatabase.instance.readingListPageDao().resetUnsavedPageStatus()
                 }
                 shouldSendSyncEvent = true
             }
@@ -107,7 +107,7 @@ class SavedPageSyncWorker(
     private suspend fun deletePageContents(page: ReadingListPage) {
         try {
             withContext(Dispatchers.IO) {
-                AppDatabase.getAppDatabase().offlineObjectDao().deleteObjectsForPageId(page.id)
+                AppDatabase.instance.offlineObjectDao().deleteObjectsForPageId(page.id)
             }
         } catch (t: Throwable) {
             L.e(t)
@@ -127,7 +127,7 @@ class SavedPageSyncWorker(
                 // Mark remaining pages as online-only!
                 queue.add(page)
                 withContext(Dispatchers.IO) {
-                    AppDatabase.getAppDatabase().readingListPageDao()
+                    AppDatabase.instance.readingListPageDao()
                         .markPagesForOffline(queue, offline = false, forcedSave = false)
                 }
                 break
@@ -167,7 +167,7 @@ class SavedPageSyncWorker(
                 page.status = ReadingListPage.STATUS_SAVED
                 page.sizeBytes = totalSize
                 withContext(Dispatchers.IO) {
-                    AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(page)
+                    AppDatabase.instance.readingListPageDao().updateReadingListPage(page)
                 }
                 itemsSaved++
                 sendSyncEvent()
@@ -205,7 +205,7 @@ class SavedPageSyncWorker(
                 val thumbnailUrl = summaryRsp.body()!!.thumbnailUrl
                 if (!thumbnailUrl.isNullOrEmpty()) {
                     page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, thumbnailUrl)
-                    AppDatabase.getAppDatabase().pageImagesDao().insertPageImage(PageImage(pageTitle, page.thumbUrl!!))
+                    AppDatabase.instance.pageImagesDao().insertPageImage(PageImage(pageTitle, page.thumbUrl!!))
                     fileUrls.add(
                         UriUtil.resolveProtocolRelativeUrl(
                             ImageUrlUtil.getUrlForPreferredSize(
@@ -226,7 +226,7 @@ class SavedPageSyncWorker(
             page.displayTitle = summaryRsp.body()!!.displayTitle
             page.description = summaryRsp.body()!!.description
             reqSaveFiles(page, pageTitle, fileUrls)
-            val totalSize = AppDatabase.getAppDatabase().offlineObjectDao().getTotalBytesForPageId(page.id)
+            val totalSize = AppDatabase.instance.offlineObjectDao().getTotalBytesForPageId(page.id)
             L.i("Saved page " + pageTitle.prefixedText + " ($totalSize)")
             return totalSize
         } catch (t: Throwable) {

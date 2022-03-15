@@ -21,7 +21,7 @@ import java.util.*
 
 class NotificationViewModel : ViewModel() {
 
-    private val notificationRepository = NotificationRepository(AppDatabase.getAppDatabase().notificationDao())
+    private val notificationRepository = NotificationRepository(AppDatabase.instance.notificationDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = UiState.Error(throwable)
     }

@@ -67,7 +67,6 @@
   <string name="share_via">Partilhar via</string>
   <string name="image_share_via">Partilhar através de</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
-  <string name="page_edit_history_activity_label" fuzzy="true">Historial da página</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder" fuzzy="true">Não há nenhum comentário associado a esta edição</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>

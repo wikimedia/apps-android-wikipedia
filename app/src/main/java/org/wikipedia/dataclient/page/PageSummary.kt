@@ -7,7 +7,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.LocationSerializer
-import org.wikipedia.page.*
+import org.wikipedia.page.Namespace
+import org.wikipedia.page.Page
+import org.wikipedia.page.PageProperties
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.UriUtil.getFilenameFromUploadUrl
 
 @Parcelize
@@ -47,16 +50,13 @@ open class PageSummary(
     val ns: Namespace get() = if (namespace == null) Namespace.MAIN else Namespace.of(namespace.id)
 
     constructor(displayTitle: String, prefixTitle: String, description: String?,
-                extract: String?, thumbnail: String?, lang: String) : this() {
-        titles = Titles(prefixTitle, displayTitle)
-        this.description = description
-        this.extract = extract
-        this.thumbnail = Thumbnail(thumbnail, 0, 0)
-        this.lang = lang
-    }
+                extract: String?, thumbnail: String?, lang: String) : this(
+        titles = Titles(prefixTitle, displayTitle), description = description, extract = extract,
+        thumbnail = Thumbnail(thumbnail, 0, 0), lang = lang
+    )
 
     fun toPage(title: PageTitle): Page {
-        return Page(adjustPageTitle(title), PageProperties(this))
+        return Page(adjustPageTitle(title), pageProperties = PageProperties(this))
     }
 
     private fun adjustPageTitle(title: PageTitle): PageTitle {

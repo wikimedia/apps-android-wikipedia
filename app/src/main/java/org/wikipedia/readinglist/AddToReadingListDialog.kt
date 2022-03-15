@@ -91,7 +91,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateLists() {
-        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListDao().getAllLists() }
+        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getAllLists() }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ lists ->
@@ -123,7 +123,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun showCreateListDialog() {
         readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }) { text, description ->
-            addAndDismiss(AppDatabase.getAppDatabase().readingListDao().createList(text, description), titles)
+            addAndDismiss(AppDatabase.instance.readingListDao().createList(text, description), titles)
         }.show()
     }
 
@@ -146,7 +146,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     open fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
         lifecycleScope.launch(WARNING_HANDLER) {
             val addedTitlesList = withContext(Dispatchers.IO) {
-                AppDatabase.getAppDatabase().readingListPageDao().addPagesToListIfNotExist(readingList, titles)
+                AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
             }
             val message: String
             if (addedTitlesList.isEmpty()) {

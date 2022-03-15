@@ -549,7 +549,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
-            Completable.fromCallable { AppDatabase.getAppDatabase().historyEntryDao().upsertWithTimeSpent(it, timeSpentSec) }
+            Completable.fromCallable { AppDatabase.instance.historyEntryDao().upsertWithTimeSpent(it, timeSpentSec) }
                 .subscribeOn(Schedulers.io())
                 .subscribe({}) { L.e(it) }
         }
@@ -869,7 +869,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 disposables.add(Completable.fromAction {
                     page.thumbUrl.equals(title.thumbUrl, true)
                     if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
-                        AppDatabase.getAppDatabase().readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
+                        AppDatabase.instance.readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
                     }
                 }.subscribeOn(Schedulers.io()).subscribe())
             }
@@ -981,7 +981,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (pageActionItem == PageActionItem.SAVE) {
                 it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.readingListIcon(model.isInReadingList), 0, 0)
             } else if (pageActionItem == PageActionItem.ADD_TO_WATCHLIST) {
-                it.setText(if (model.isWatched) R.string.menu_page_watched else R.string.menu_page_watch)
+                it.setText(if (model.isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
                 it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.watchlistIcon(model.isWatched, model.hasWatchlistExpiry), 0, 0)
                 it.isEnabled = enabled && AccountUtil.isLoggedIn
                 it.alpha = if (it.isEnabled) 1f else 0.5f
@@ -994,7 +994,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
             disposables.add(
-                Completable.fromAction { model.readingListPage = AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
+                Completable.fromAction { model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate {

@@ -241,7 +241,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     }
 
     private fun updateReadingListData() {
-        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListDao().getListById(readingListId, true) }
+        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getListById(readingListId, true) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ list ->
@@ -367,7 +367,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             val pages = selectedPages
             if (pages.isNotEmpty()) {
                 lifecycleScope.launch(Dispatchers.IO) {
-                    AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(it, pages)
+                    AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, pages)
                 }
                 it.pages.removeAll(pages)
                 funnel.logDeleteItem(it, 0)
@@ -650,8 +650,8 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
                 lifecycleScope.launch(Dispatchers.IO) {
-                    AppDatabase.getAppDatabase().readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
-                    AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(item)
+                    AppDatabase.instance.readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
+                    AppDatabase.instance.readingListPageDao().updateReadingListPage(item)
                 }
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }

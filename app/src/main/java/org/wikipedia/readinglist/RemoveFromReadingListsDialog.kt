@@ -27,7 +27,7 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
         }
         if (listsContainingPage.size == 1 && listsContainingPage[0].pages.isNotEmpty()) {
             runBlocking(Dispatchers.IO) {
-                AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(listsContainingPage[0], listOf(listsContainingPage[0].pages[0]))
+                AppDatabase.instance.readingListPageDao().markPagesForDeletion(listsContainingPage[0], listOf(listsContainingPage[0].pages[0]))
             }
             callback?.onDeleted(listsContainingPage, listsContainingPage[0].pages[0])
             return
@@ -51,7 +51,7 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
                             if (selected[i]) {
                                 atLeastOneSelected = true
                                 runBlocking(Dispatchers.IO) {
-                                    AppDatabase.getAppDatabase().readingListPageDao().markPagesForDeletion(it[i], listOf(it[i].pages[0]))
+                                    AppDatabase.instance.readingListPageDao().markPagesForDeletion(it[i], listOf(it[i].pages[0]))
                                 }
                                 newLists.add(it[i])
                             }

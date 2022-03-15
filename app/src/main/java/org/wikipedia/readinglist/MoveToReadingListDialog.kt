@@ -29,7 +29,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
         val parentView = super.onCreateView(inflater, container, savedInstanceState)
         parentView.findViewById<TextView>(R.id.dialog_title).setText(R.string.reading_list_move_to)
         val sourceReadingListId = requireArguments().getLong(SOURCE_READING_LIST_ID)
-        sourceReadingList = AppDatabase.getAppDatabase().readingListDao().getListById(sourceReadingListId, false)
+        sourceReadingList = AppDatabase.instance.readingListDao().getListById(sourceReadingListId, false)
         if (sourceReadingList == null) {
             dismiss()
         }
@@ -45,7 +45,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
     override fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
         lifecycleScope.launch(WARNING_HANDLER) {
             val movedTitlesList = withContext(Dispatchers.IO) {
-                AppDatabase.getAppDatabase().readingListPageDao()
+                AppDatabase.instance.readingListPageDao()
                     .movePagesToListAndDeleteSourcePages(sourceReadingList!!, readingList, titles)
             }
             ReadingListsFunnel().logMoveToList(readingList, readingLists.size, invokeSource)

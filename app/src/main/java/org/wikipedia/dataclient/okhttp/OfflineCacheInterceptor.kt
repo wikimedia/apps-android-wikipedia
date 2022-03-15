@@ -52,7 +52,7 @@ class OfflineCacheInterceptor : Interceptor {
             }
         }
         val obj = runBlocking(Dispatchers.IO) {
-            AppDatabase.getAppDatabase().offlineObjectDao().findObject(url, lang)
+            AppDatabase.instance.offlineObjectDao().findObject(url, lang)
         }
         if (obj == null) {
             L.w("Offline object not present in database.")
@@ -169,7 +169,7 @@ class OfflineCacheInterceptor : Interceptor {
                     if (!failed) {
                         // update the record in the database!
                         runBlocking(Dispatchers.IO) {
-                            AppDatabase.getAppDatabase().offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
+                            AppDatabase.instance.offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
                         }
                     }
                 }
@@ -193,7 +193,7 @@ class OfflineCacheInterceptor : Interceptor {
             }
             source.close()
             if (failed) {
-                AppDatabase.getAppDatabase().offlineObjectDao().deleteFilesForObject(obj)
+                AppDatabase.instance.offlineObjectDao().deleteFilesForObject(obj)
             }
         }
     }
