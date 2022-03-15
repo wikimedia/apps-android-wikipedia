@@ -69,6 +69,7 @@
     <string name="menu_page_find_in_page">Find in article</string>
     <string name="menu_page_add_to_watchlist">Add to Watchlist</string>
     <string name="menu_page_watch">Watch</string>
+    <string name="menu_page_unwatch">Unwatch</string>
     <string name="menu_page_view_talk">View talk page</string>
     <string name="menu_page_talk_page">Talk page</string>
     <string name="menu_page_view_edit_history">View edit history</string>
