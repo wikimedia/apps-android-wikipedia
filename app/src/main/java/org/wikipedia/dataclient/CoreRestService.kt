@@ -31,7 +31,8 @@ interface CoreRestService {
     suspend fun getPageHistory(
         @Path("title") title: String,
         @Query("older_than") olderThan: Long?,
-        @Query("newer_than") newerThan: Long?
+        @Query("newer_than") newerThan: Long?,
+        @Query("filter") filter: String?
     ): PageHistory
 
     companion object {
