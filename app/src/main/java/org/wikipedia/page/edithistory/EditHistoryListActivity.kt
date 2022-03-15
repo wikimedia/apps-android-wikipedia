@@ -29,7 +29,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
-import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.restbase.PageHistory
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -137,11 +137,11 @@ class EditHistoryListActivity : BaseActivity() {
     private fun updateCompareStateItems() {
         binding.compareFromCard.isVisible = viewModel.selectedRevisionFrom != null
         if (viewModel.selectedRevisionFrom != null) {
-            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionFrom!!.timeStamp))
+            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionFrom!!.timestamp))
         }
         binding.compareToCard.isVisible = viewModel.selectedRevisionTo != null
         if (viewModel.selectedRevisionTo != null) {
-            binding.compareToText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionTo!!.timeStamp))
+            binding.compareToText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionTo!!.timestamp))
         }
         if (viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null) {
             binding.compareConfirmButton.isEnabled = true
@@ -198,7 +198,7 @@ class EditHistoryListActivity : BaseActivity() {
             if (oldItem is EditHistoryListViewModel.EditHistorySeparator && newItem is EditHistoryListViewModel.EditHistorySeparator) {
                 return oldItem.date == newItem.date
             } else if (oldItem is EditHistoryListViewModel.EditHistoryItem && newItem is EditHistoryListViewModel.EditHistoryItem) {
-                return oldItem.item.revId == newItem.item.revId
+                return oldItem.item.id == newItem.item.id
             }
             return false
         }
@@ -305,9 +305,9 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class EditHistoryListItemHolder constructor(private val view: EditHistoryItemView) : RecyclerView.ViewHolder(view), EditHistoryItemView.Listener {
-        private lateinit var revision: MwQueryPage.Revision
+        private lateinit var revision: PageHistory.Revision
 
-        fun bindItem(revision: MwQueryPage.Revision) {
+        fun bindItem(revision: PageHistory.Revision) {
             this.revision = revision
             view.setContents(revision)
             updateSelectState()
@@ -319,7 +319,7 @@ class EditHistoryListActivity : BaseActivity() {
                 toggleSelectState()
             } else {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
+                        viewModel.pageTitle.prefixedText, revision.id, viewModel.pageTitle.wikiSite.languageCode))
             }
         }
 
