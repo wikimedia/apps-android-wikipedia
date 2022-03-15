@@ -122,7 +122,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             return try {
                 val response = ServiceFactory.getCoreRest(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                         .getPageHistory(pageTitle.prefixedText, params.key, null)
-                LoadResult.Page(response.revisions, null, response.revisions.last().id)
+                LoadResult.Page(response.revisions, null, if (response.older.isNullOrEmpty()) null else response.revisions.last().id)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
