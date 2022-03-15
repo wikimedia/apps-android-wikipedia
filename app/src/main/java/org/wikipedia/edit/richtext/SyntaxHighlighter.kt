@@ -15,11 +15,10 @@ import java.util.concurrent.Callable
 import java.util.concurrent.TimeUnit
 
 class SyntaxHighlighter(
-        private var context: Context,
-        private val textBox: EditText,
-        private var syntaxHighlightListener: OnSyntaxHighlightListener?) {
-    constructor(context: Context, textBox: EditText) : this(context, textBox, null)
-
+    private var context: Context,
+    private val textBox: EditText,
+    private var syntaxHighlightListener: OnSyntaxHighlightListener? = null
+) {
     interface OnSyntaxHighlightListener {
         fun syntaxHighlightResults(spanExtents: List<SpanExtents>)
         fun findTextMatches(spanExtents: List<SpanExtents>)
