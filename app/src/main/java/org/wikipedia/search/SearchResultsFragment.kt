@@ -478,7 +478,7 @@ class SearchResultsFragment : Fragment() {
                 }
             }
             view.setOnCreateContextMenuListener(LongPressHandler(view,
-                    pageTitle, HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position)))
+                    HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
         }
     }
 
