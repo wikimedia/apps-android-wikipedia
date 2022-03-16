@@ -145,6 +145,12 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
     val streamConfigs: Observable<MwStreamConfigsResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=allmessages")
+    suspend fun getMessages(
+            @Query("ammessages") messages: String,
+            @Query("amargs") args: String?
+    ): MwQueryResponse
+
     // ------- CSRF, Login, and Create Account -------
 
     @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
@@ -284,6 +290,17 @@ interface Service {
         @Field("undo") revision: Long,
         @Field("token") token: String
     ): Observable<Edit>
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=edit")
+    suspend fun postUndoEdit(
+            @Field("title") title: String,
+            @Field("summary") summary: String,
+            @Field("assert") user: String?,
+            @Field("token") token: String,
+            @Field("undo") undoRevId: Long,
+            @Field("undoafter") undoRevAfter: Long?,
+    ): Edit
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
@@ -437,7 +454,15 @@ interface Service {
     suspend fun getRevisionDetailsDescending(
         @Query("titles") titles: String,
         @Query("rvlimit") count: Int,
+        @Query("rvstartid") revisionStartId: Long?,
         @Query("rvcontinue") continueStr: String?,
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user&rvdir=older")
+    suspend fun getRevisionDetailsWithInfo(
+            @Query("titles") titles: String,
+            @Query("rvlimit") count: Int,
+            @Query("rvstartid") revisionStartId: Long
     ): MwQueryResponse
 
     @POST(MW_API_PREFIX + "action=thank")
