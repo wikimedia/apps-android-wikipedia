@@ -243,14 +243,6 @@
                 android:gravity="center_vertical"
                 android:text="@string/theme_chooser_dialog_image_dimming_switch_label"
                 android:textColor="?attr/section_title_color" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/theme_category_toolbar"
-                android:textColor="?attr/primary_text_color"
-                android:textStyle="bold" />
         </LinearLayout>
 
     </ScrollView>

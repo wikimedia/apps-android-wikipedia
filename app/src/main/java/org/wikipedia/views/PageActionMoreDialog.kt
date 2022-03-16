@@ -10,7 +10,7 @@ import com.google.android.material.textview.MaterialTextView
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
-import org.wikipedia.databinding.ViewPageActionOverflowBinding
+import org.wikipedia.databinding.ViewPageActionMoreBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.action.PageActionItem
@@ -23,13 +23,13 @@ class PageActionMoreDialog(val callback: PageActionItem.Callback,
                            val currentTab: Tab,
                            val model: PageViewModel) : ExtendedBottomSheetDialogFragment() {
 
-    private var _binding: ViewPageActionOverflowBinding? = null
+    private var _binding: ViewPageActionMoreBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        _binding = ViewPageActionOverflowBinding.inflate(inflater, container, false)
+        _binding = ViewPageActionMoreBinding.inflate(inflater, container, false)
 
         binding.overflowForward.setOnClickListener {
             dismiss()
