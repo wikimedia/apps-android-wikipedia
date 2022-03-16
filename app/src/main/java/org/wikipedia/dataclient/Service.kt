@@ -67,7 +67,7 @@ interface Service {
     val newCaptcha: Observable<Captcha>
 
     @GET(MW_API_PREFIX + "action=query&prop=langlinks&lllimit=500&redirects=&converttitles=")
-    fun getLangLinks(@Query("titles") title: String): Observable<MwQueryResponse>
+    suspend fun getLangLinks(@Query("titles") title: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
     fun getDescription(@Query("titles") titles: String): Observable<MwQueryResponse>
