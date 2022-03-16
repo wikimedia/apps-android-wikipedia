@@ -429,7 +429,7 @@ class SmokeTests {
 
         TestUtil.delay(1)
 
-        onView(withId(R.id.page_toolbar_button_show_overflow_menu)).perform(click())
+        onView(withId(R.id.page_action_layout_more_menu)).perform(click())
 
         TestUtil.delay(1)
 

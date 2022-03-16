@@ -59,7 +59,7 @@
                 android:layout_weight="1"/>
 
             <TextView
-                android:id="@+id/page_toolbar_button_show_overflow_menu"
+                android:id="@+id/page_action_layout_more_menu"
                 style="@style/PageActionTabLayoutButtonStyle"
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
