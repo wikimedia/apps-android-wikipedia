@@ -104,7 +104,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         } else if (selectedState == EditHistoryListViewModel.SELECT_TO) {
             binding.selectButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
             ImageViewCompat.setImageTintList(binding.selectButton, ColorStateList.valueOf(colorTo))
-            binding.cardView.strokeColor = colorTo
+            binding.cardView.strokeColor = ContextCompat.getColor(context, R.color.osage)
             val cardBackground = ColorUtils.blendARGB(colorDefault, colorTo, 0.05f)
             binding.cardView.setCardBackgroundColor(cardBackground)
             val buttonBackground = ColorUtils.blendARGB(cardBackground, colorTo, 0.05f)
