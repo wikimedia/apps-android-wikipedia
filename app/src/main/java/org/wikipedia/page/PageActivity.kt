@@ -649,9 +649,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
         }
-        pageFragment.getMoreMenuView().postDelayed({
+        val anchorView = pageFragment.getMoreMenuView()
+        anchorView.postDelayed({
             if (!isDestroyed) {
-                FeedbackUtil.showTooltip(this, pageFragment.getMoreMenuView(), getString(R.string.theme_chooser_menu_item_tooltip),
+                FeedbackUtil.showTooltip(this, anchorView, getString(R.string.theme_chooser_menu_item_tooltip),
                     aboveOrBelow = true, autoDismiss = false, -DimenUtil.roundedDpToPx(10f), 0)
             }
         }, 1000)
