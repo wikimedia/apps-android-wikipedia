@@ -664,15 +664,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     // TODO: remove on March 2022.
     private fun maybeShowNotificationTooltip() {
         if (!Prefs.isPageNotificationTooltipShown && AccountUtil.isLoggedIn &&
-                Prefs.loggedInPageActivityVisitCount >= 1) {
+            Prefs.loggedInPageActivityVisitCount >= 1) {
             enqueueTooltip {
                 FeedbackUtil.showTooltip(this, binding.pageToolbarButtonNotifications, getString(R.string.page_notification_tooltip),
                     aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
                     Prefs.isPageNotificationTooltipShown = true
                 }
             }
-        } else {
-            maybeShowThemeTooltip()
         }
     }
 
