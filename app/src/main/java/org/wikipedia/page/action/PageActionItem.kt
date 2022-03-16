@@ -67,7 +67,7 @@ enum class PageActionItem constructor(val id: Int,
             cb.onExploreSelected()
         }
     },
-    CATEGORIES(11, R.string.action_item_categories, R.drawable.ic_format_list_bulleted_black_24dp) {
+    CATEGORIES(11, R.string.action_item_categories, R.drawable.ic_category_black_24dp) {
         override fun select(cb: Callback) {
             cb.onCategoriesSelected()
         }

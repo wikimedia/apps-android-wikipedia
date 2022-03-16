@@ -31,7 +31,7 @@
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@null"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/ic_icon_list"
+                    app:srcCompat="@drawable/ic_category_black_24dp"
                     app:tint="?attr/material_theme_secondary_color"/>
 
                 <TextView
@@ -44,7 +44,7 @@
                     android:textSize="20sp"
                     android:maxLines="1"
                     android:ellipsize="end"
-                    android:text="Categories"
+                    android:text="@string/action_item_categories"
                     tools:text="Lorem ipsum" />
 
             </LinearLayout>
