@@ -634,7 +634,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun maybeShowWatchlistTooltip() {
         pageFragment.historyEntry?.let {
-            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS && Prefs.loggedInPageActivityVisitCount >= 3) {
+            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn &&
+                it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS &&
+                Prefs.loggedInPageActivityVisitCount >= 3) {
                 enqueueTooltip {
                     watchlistFunnel.logShowTooltip()
                     Prefs.isWatchlistPageOnboardingTooltipShown = true
