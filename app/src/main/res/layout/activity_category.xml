@@ -15,12 +15,12 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Articles"/>
+            android:text="@string/category_tab_articles"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Subcategories"/>
+            android:text="@string/category_tab_subcategories"/>
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -29,19 +29,5 @@
         android:layout_height="match_parent"
         android:layout_marginTop="48dp"
         android:scrollbars="vertical"/>
-
-    <org.wikipedia.views.WikiErrorView
-        android:id="@+id/category_error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        tools:visibility="visible"/>
-
-    <ProgressBar
-        android:id="@+id/category_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
 
 </FrameLayout>

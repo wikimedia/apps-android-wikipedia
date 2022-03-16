@@ -3,22 +3,21 @@ package org.wikipedia.categories
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityCategoryBinding
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
@@ -26,25 +25,19 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.ClipboardUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.log.L
+import org.wikipedia.util.*
+import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
 
 class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityCategoryBinding
-    private lateinit var categoryTitle: PageTitle
-    private val unsortedTitleList = mutableListOf<PageTitle>()
-    private val unsortedSubcategoryList = mutableListOf<PageTitle>()
-    private val titleList = mutableListOf<PageTitle>()
+
+    private val categoryMembersAdapter = CategoryMembersAdapter()
     private val itemCallback = ItemCallback()
     private var showSubcategories = false
-    private val pendingItemsForHydration = mutableListOf<PageTitle>()
-    private val disposables = CompositeDisposable()
-    private val hydrationRunnable = Runnable { hydrateTitles() }
+
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private val viewModel: CategoryActivityViewModel by viewModels { CategoryActivityViewModel.Factory(intent.extras!!) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,11 +46,19 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.categoryRecycler.layoutManager = LinearLayoutManager(this)
-        binding.categoryRecycler.adapter = CategoryAdapter()
-        categoryTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
-        supportActionBar?.title = categoryTitle.displayText
+        supportActionBar?.title = viewModel.pageTitle.displayText
 
+        binding.categoryRecycler.layoutManager = LinearLayoutManager(this)
+        binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = true, drawEnd = false))
+        binding.categoryRecycler.adapter = categoryMembersAdapter
+
+        lifecycleScope.launch {
+            viewModel.categoryMembersFlow.collectLatest {
+                categoryMembersAdapter.submitData(it)
+            }
+        }
+
+        /*
         binding.categoryTabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 showSubcategories = tab.position == 1
@@ -67,17 +68,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
-        loadCategory()
-    }
-
-    public override fun onDestroy() {
-        super.onDestroy()
-        disposables.clear()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // getMenuInflater().inflate(R.menu.menu_tabs, menu);
-        return true
+        */
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -91,85 +82,12 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun loadPage(title: PageTitle) {
-        if (showSubcategories /* title.namespace() === Namespace.CATEGORY */) {
+        if (showSubcategories) {
             startActivity(newIntent(this, title))
         } else {
             val entry = HistoryEntry(title, HistoryEntry.SOURCE_CATEGORY)
             bottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
         }
-    }
-
-    private fun loadCategory() {
-        disposables.clear()
-        binding.categoryError.visibility = View.GONE
-        binding.categoryRecycler.visibility = View.GONE
-        binding.categoryProgress.visibility = View.VISIBLE
-        disposables.add(ServiceFactory.get(categoryTitle.wikiSite).getCategoryMembers(categoryTitle.prefixedText, null)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate { binding.categoryProgress.visibility = View.GONE }
-                .subscribe({ response ->
-                    unsortedTitleList.clear()
-                    for (page in response.query!!.categorymembers!!) {
-                        val title = PageTitle(page.title, categoryTitle.wikiSite)
-                        if (page.namespace() == Namespace.CATEGORY) {
-                            unsortedSubcategoryList.add(title)
-                        } else {
-                            unsortedTitleList.add(title)
-                        }
-                    }
-                    layOutTitles()
-                }) { t ->
-                    binding.categoryError.setError(t)
-                    binding.categoryError.visibility = View.VISIBLE
-                    L.e(t)
-                })
-    }
-
-    private fun layOutTitles() {
-        titleList.clear()
-        titleList.addAll(if (showSubcategories) unsortedSubcategoryList else unsortedTitleList)
-        if (titleList.isEmpty()) {
-            binding.categoryRecycler.visibility = View.GONE
-        }
-        binding.categoryRecycler.visibility = View.VISIBLE
-        binding.categoryError.visibility = View.GONE
-        binding.categoryRecycler.adapter?.notifyDataSetChanged()
-    }
-
-    private fun queueForHydration(title: PageTitle) {
-        val maxQueueSize = 50
-        val runnableDelay = 500
-        if (title.description != null || title.namespace() !== Namespace.MAIN) {
-            return
-        }
-        pendingItemsForHydration.add(title)
-        binding.categoryRecycler.removeCallbacks(hydrationRunnable)
-        if (pendingItemsForHydration.size >= maxQueueSize) {
-            hydrateTitles()
-        } else {
-            binding.categoryRecycler.postDelayed(hydrationRunnable, runnableDelay.toLong())
-        }
-    }
-
-    private fun hydrateTitles() {
-        val titles: List<PageTitle?> = ArrayList(pendingItemsForHydration)
-        pendingItemsForHydration.clear()
-        disposables.add(ServiceFactory.get(categoryTitle.wikiSite).getImagesAndThumbnails(titles.joinToString("|"))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    for (page in response.query!!.pages!!) {
-                        for (title in titles) {
-                            if (title!!.displayText == page.title) {
-                                title.thumbUrl = page.thumbUrl()
-                                title.description = if (page.description.isNullOrEmpty()) "" else page.description
-                                break
-                            }
-                        }
-                    }
-                    binding.categoryRecycler.adapter?.notifyDataSetChanged()
-                }) { L.e(it) })
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
@@ -189,42 +107,41 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         ShareUtil.shareText(this, title)
     }
 
+    private inner class CategoryMemberDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
+        override fun areItemsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
+            return oldItem.prefixedText == newItem.prefixedText && oldItem.namespace == newItem.namespace
+        }
+
+        override fun areContentsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
+            return areItemsTheSame(oldItem, newItem)
+        }
+    }
+
+    private inner class CategoryMembersAdapter : PagingDataAdapter<PageTitle, RecyclerView.ViewHolder>(CategoryMemberDiffCallback()) {
+        override fun onCreateViewHolder(parent: ViewGroup, pos: Int): CategoryItemHolder {
+            val view = PageItemView<PageTitle>(this@CategoryActivity)
+            view.callback = itemCallback
+            return CategoryItemHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            getItem(position)?.let {
+                (holder as CategoryItemHolder).bindItem(it)
+            }
+        }
+    }
+
     private inner class CategoryItemHolder constructor(itemView: PageItemView<*>) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(title: PageTitle) {
             view.item = title
-            view.setTitle(if (title.namespace() !== Namespace.CATEGORY) title.displayText else title.text.replace("_", " "))
+            view.setTitle(if (title.namespace() !== Namespace.CATEGORY) title.displayText else StringUtil.removeUnderscores(title.text))
             view.setImageUrl(title.thumbUrl)
+            view.setImageVisible(!title.thumbUrl.isNullOrEmpty())
             view.setDescription(title.description)
         }
 
         val view: PageItemView<PageTitle>
             get() = itemView as PageItemView<PageTitle>
-    }
-
-    private inner class CategoryAdapter : RecyclerView.Adapter<CategoryItemHolder>() {
-        override fun getItemCount(): Int {
-            return titleList.size
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, pos: Int): CategoryItemHolder {
-            val view = PageItemView<PageTitle>(this@CategoryActivity)
-            return CategoryItemHolder(view)
-        }
-
-        override fun onBindViewHolder(holder: CategoryItemHolder, pos: Int) {
-            holder.bindItem(titleList[pos])
-            queueForHydration(titleList[pos])
-        }
-
-        override fun onViewAttachedToWindow(holder: CategoryItemHolder) {
-            super.onViewAttachedToWindow(holder)
-            holder.view.callback = itemCallback
-        }
-
-        override fun onViewDetachedFromWindow(holder: CategoryItemHolder) {
-            holder.view.callback = null
-            super.onViewDetachedFromWindow(holder)
-        }
     }
 
     private inner class ItemCallback : PageItemView.Callback<PageTitle?> {
@@ -242,9 +159,8 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     companion object {
-        private const val EXTRA_TITLE = "categoryTitle"
+        const val EXTRA_TITLE = "categoryTitle"
 
-        @JvmStatic
         fun newIntent(context: Context, categoryTitle: PageTitle): Intent {
             return Intent(context, CategoryActivity::class.java)
                     .putExtra(EXTRA_TITLE, categoryTitle)
