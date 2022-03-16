@@ -39,20 +39,16 @@ data class ReadingListPage(
         atime = now
     }
 
-    @Transient private var accentAndCaseInvariantTitle: String? = null
+    @delegate:Transient
+    val accentAndCaseInvariantTitle: String by lazy(LazyThreadSafetyMode.NONE) {
+        StringUtils.stripAccents(displayTitle).lowercase(Locale.getDefault())
+    }
 
     @Transient var downloadProgress = 0
 
     @Transient var selected = false
 
     val saving get() = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
-
-    fun accentAndCaseInvariantTitle(): String {
-        if (accentAndCaseInvariantTitle == null) {
-            accentAndCaseInvariantTitle = StringUtils.stripAccents(displayTitle).lowercase(Locale.getDefault())
-        }
-        return accentAndCaseInvariantTitle!!
-    }
 
     fun touch() {
         atime = System.currentTimeMillis()

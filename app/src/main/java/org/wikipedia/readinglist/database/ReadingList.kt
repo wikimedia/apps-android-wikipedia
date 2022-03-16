@@ -26,8 +26,10 @@ class ReadingList(
     @Ignore
     val pages = mutableListOf<ReadingListPage>()
 
-    @Transient
-    private var accentAndCaseInvariantTitle: String? = null
+    @delegate:Transient
+    val accentAndCaseInvariantTitle: String by lazy(LazyThreadSafetyMode.NONE) {
+        StringUtils.stripAccents(title).lowercase(Locale.getDefault())
+    }
 
     var title
         get() = listTitle.ifEmpty { WikipediaApp.getInstance().getString(R.string.default_reading_list_name) }
@@ -42,13 +44,6 @@ class ReadingList(
     val sizeBytesFromPages
         get() = pages.sumOf { if (it.offline) it.sizeBytes else 0 }
 
-    fun accentAndCaseInvariantTitle(): String {
-        if (accentAndCaseInvariantTitle == null) {
-            accentAndCaseInvariantTitle = StringUtils.stripAccents(title).lowercase(Locale.getDefault())
-        }
-        return accentAndCaseInvariantTitle!!
-    }
-
     fun touch() {
         atime = System.currentTimeMillis()
     }
@@ -61,19 +56,19 @@ class ReadingList(
 
         fun sort(list: ReadingList, sortMode: Int) {
             when (sortMode) {
-                SORT_BY_NAME_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle()) }
-                SORT_BY_NAME_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()) }
-                SORT_BY_RECENT_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.mtime.compareTo(rhs.mtime) }
-                SORT_BY_RECENT_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.mtime.compareTo(lhs.mtime) }
+                SORT_BY_NAME_ASC -> list.pages.sortWith { lhs, rhs -> lhs.accentAndCaseInvariantTitle.compareTo(rhs.accentAndCaseInvariantTitle) }
+                SORT_BY_NAME_DESC -> list.pages.sortWith { lhs, rhs -> rhs.accentAndCaseInvariantTitle.compareTo(lhs.accentAndCaseInvariantTitle) }
+                SORT_BY_RECENT_ASC -> list.pages.sortWith { lhs, rhs -> lhs.mtime.compareTo(rhs.mtime) }
+                SORT_BY_RECENT_DESC -> list.pages.sortWith { lhs, rhs -> rhs.mtime.compareTo(lhs.mtime) }
             }
         }
 
         fun sort(lists: MutableList<ReadingList>, sortMode: Int) {
             when (sortMode) {
-                SORT_BY_NAME_ASC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle()) }
-                SORT_BY_NAME_DESC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()) }
-                SORT_BY_RECENT_ASC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> rhs.mtime.compareTo(lhs.mtime) }
-                SORT_BY_RECENT_DESC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> lhs.mtime.compareTo(rhs.mtime) }
+                SORT_BY_NAME_ASC -> lists.sortWith { lhs, rhs -> lhs.accentAndCaseInvariantTitle.compareTo(rhs.accentAndCaseInvariantTitle) }
+                SORT_BY_NAME_DESC -> lists.sortWith { lhs, rhs -> rhs.accentAndCaseInvariantTitle.compareTo(lhs.accentAndCaseInvariantTitle) }
+                SORT_BY_RECENT_ASC -> lists.sortWith { lhs, rhs -> rhs.mtime.compareTo(lhs.mtime) }
+                SORT_BY_RECENT_DESC -> lists.sortWith { lhs, rhs -> lhs.mtime.compareTo(rhs.mtime) }
             }
             // make the Default list sticky on top, regardless of sorting.
             lists.firstOrNull { it.isDefault }?.let {
@@ -86,14 +81,14 @@ class ReadingList(
             when (sortMode) {
                 SORT_BY_NAME_ASC -> lists.sortWith { lhs: Any?, rhs: Any? ->
                     if (lhs is ReadingList && rhs is ReadingList) {
-                        lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle())
+                        lhs.accentAndCaseInvariantTitle.compareTo(rhs.accentAndCaseInvariantTitle)
                     } else {
                         0
                     }
                 }
                 SORT_BY_NAME_DESC -> lists.sortWith { lhs: Any?, rhs: Any? ->
                     if (lhs is ReadingList && rhs is ReadingList) {
-                        rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle())
+                        rhs.accentAndCaseInvariantTitle.compareTo(lhs.accentAndCaseInvariantTitle)
                     } else {
                         0
                     }
