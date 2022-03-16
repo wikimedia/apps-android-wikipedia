@@ -119,7 +119,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             startActivityForResult(TabActivity.newIntentFromPageActivity(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
         }
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP)
-
+        FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs)
         binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
@@ -639,6 +639,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 enqueueTooltip {
                     watchlistFunnel.logShowTooltip()
                     Prefs.isWatchlistPageOnboardingTooltipShown = true
+                    FeedbackUtil.showTooltip(this, pageFragment.getMoreMenuView(),
+                        R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
                 }
             }
         }
@@ -651,7 +653,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         val anchorView: View?
         var aboveOrBelow = true
         if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
-            anchorView = binding.pageToolbar
+            anchorView = pageFragment.getMoreMenuView()
             aboveOrBelow = false
         } else {
             anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
@@ -672,11 +674,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.isPageNotificationTooltipShown && AccountUtil.isLoggedIn &&
                 Prefs.loggedInPageActivityVisitCount >= 1) {
             enqueueTooltip {
-                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonNotifications, getString(R.string.page_notification_tooltip),
-                    aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
+                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonNotifications, getString(R.string.page_notification_tooltip), aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
                     Prefs.isPageNotificationTooltipShown = true
                 }
             }
+        } else {
+            maybeShowThemeTooltip()
         }
     }
 
@@ -734,10 +737,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     fun getToolbarMargin(): Int {
         return binding.pageToolbarContainer.height
-    }
-
-    fun getOverflowMenu(): View {
-        return View(baseContext)
     }
 
     override fun onUnreadNotification() {

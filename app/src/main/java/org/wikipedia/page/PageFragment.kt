@@ -179,7 +179,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             bottomSheetPresenter.show(childFragmentManager, PageActionMoreDialog.newInstance(pageActionItemCallback, currentTab, model))
         }
-
+        FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonShowOverflowMenu)
         return binding.root
     }
 
@@ -288,6 +288,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun getPageActionTabLayout(): PageActionTabLayout {
         return binding.pageActionsTabLayout
+    }
+
+    fun getMoreMenuView(): View {
+        return binding.pageToolbarButtonShowOverflowMenu
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -1316,7 +1320,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         override fun onSaveSelected() {
             if (model.isInReadingList) {
                 val anchor = if (Prefs.customizeToolbarOrder.contains(PageActionItem.SAVE.id))
-                    binding.pageActionsTabLayout else (requireActivity() as PageActivity).getOverflowMenu()
+                    binding.pageActionsTabLayout else binding.pageToolbarButtonShowOverflowMenu
                 LongPressMenu(anchor, object : LongPressMenu.Callback {
                     override fun onOpenLink(entry: HistoryEntry) { }
 
