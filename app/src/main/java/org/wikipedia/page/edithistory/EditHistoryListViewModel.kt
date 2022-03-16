@@ -32,7 +32,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     var selectedRevisionTo: MwQueryPage.Revision? = null
         private set
 
-    val editHistoryFlow = Pager(PagingConfig(pageSize = 30)) {
+    val editHistoryFlow = Pager(PagingConfig(pageSize = 50)) {
         EditHistoryPagingSource(pageTitle)
     }.flow.map { pagingData ->
         pagingData.filter {
@@ -141,11 +141,19 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
                 val revision = response.query!!.pages?.first()?.revisions!!
 
-                val userNames = revision.filterNot { it.isAnon || it.minor }.map { it.user }.distinct().joinToString("|")
+                // The `ususers` parameter has a size limit of 50 usernames.
+                val userNamesList = revision.asSequence().filterNot { it.isAnon }.map { it.user }.distinct().chunked(50).toList()
 
+                // Combining two async API responses, finding out all bot usernames, and joining them into one list.
                 val botUserList = withContext(Dispatchers.IO) {
-                    ServiceFactory.get(pageTitle.wikiSite).getUserInfoList(userNames)
-                }.query?.users?.filter { it.groups.orEmpty().contains("bot") }?.map { it.name }.orEmpty()
+                    val result = userNamesList.map {
+                        async { ServiceFactory.get(pageTitle.wikiSite).getUserInfoList(it.joinToString("|")) }
+                    }.awaitAll()
+                    result
+                }.foldRight(mutableListOf<String>()) { asyncResponse, list ->
+                    list.addAll(asyncResponse.query?.users?.filter { it.groups.orEmpty().contains("bot") }?.map { it.name }.orEmpty())
+                    list
+                }
 
                 revision.forEach {
                     if (botUserList.contains(it.user)) {
