@@ -1203,5 +1203,6 @@
     <string name="watchlist_page_deleted">Deleted</string>
 
     <string name="action_item_categories">Categories</string>
+    <string name="page_no_categories">This page does not belong to any categories.</string>
 
 </resources>

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.R
 import org.wikipedia.databinding.DialogCategoriesBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -17,7 +18,9 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
 
 class CategoryDialog : ExtendedBottomSheetDialogFragment() {
@@ -43,9 +46,9 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogCategoriesBinding.inflate(inflater, container, false)
         binding.categoriesRecycler.layoutManager = LinearLayoutManager(requireActivity())
+        binding.categoriesRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         binding.categoriesRecycler.adapter = CategoryAdapter()
-
-        // titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
+        binding.categoriesDialogPageTitle.text = StringUtil.fromHtml(pageTitle.displayText)
         L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode)
         loadCategories()
         return binding.root
@@ -103,6 +106,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
 
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): CategoryItemHolder {
             val view = PageItemView<PageTitle>(requireContext())
+            view.setImageVisible(false)
             return CategoryItemHolder(view)
         }
 
