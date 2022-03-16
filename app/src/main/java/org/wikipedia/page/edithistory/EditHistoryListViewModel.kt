@@ -135,7 +135,19 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             return try {
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                     .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, params.key)
-                LoadResult.Page(response.query!!.pages?.get(0)?.revisions!!, null, response.continuation?.rvContinuation)
+                val revisions = response.query!!.pages?.get(0)?.revisions!!.toMutableList()
+
+                val botUserList = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(pageTitle.wikiSite).getUserInfoList(revisions.map { it.user }.joinToString { "|" })
+                }.query?.users?.filter { it.groups.orEmpty().contains("bot") }?.map { it.name }.orEmpty()
+
+                revisions.forEach {
+                    if (botUserList.contains(it.user)) {
+                        it.isBot = true
+                    }
+                }
+
+                LoadResult.Page(revisions, null, response.continuation?.rvContinuation)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }

@@ -100,8 +100,7 @@ class MwQueryPage {
             return slots?.get(slot)?.content.orEmpty()
         }
 
-        // TODO: implement this
-        val isBot = false
+        var isBot = false
     }
 
     @Serializable
