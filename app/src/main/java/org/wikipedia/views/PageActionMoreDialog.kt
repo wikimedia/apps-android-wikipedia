@@ -64,7 +64,7 @@ class PageActionMoreDialog(val callback: PageActionItem.Callback,
                 model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
             when (pageActionItem) {
                 PageActionItem.ADD_TO_WATCHLIST -> {
-                    view.setText(if (model.isWatched) R.string.menu_page_watched else R.string.menu_page_watch)
+                    view.setText(if (model.isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
                     view.setCompoundDrawablesWithIntrinsicBounds(PageActionItem.watchlistIcon(model.isWatched, model.hasWatchlistExpiry), 0, 0, 0)
                     view.visibility = if (enabled && AccountUtil.isLoggedIn) VISIBLE else GONE
                 }

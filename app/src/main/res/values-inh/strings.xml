@@ -101,7 +101,7 @@
   <string name="search_reading_lists_no_results">Цхьаккха а хӀама корадинзар еша лаьрхӀа йолча оагӀоний мугӀамаш чу</string>
   <string name="search_history_no_results">Цхьаккха а хӀама корадинзар тархьара чу</string>
   <string name="edit_section_captcha_message">Ши-шегӀа хулача спамах тхо лоралургдолаш лохе гойташ дола дешаш Ӏочуязде</string>
-  <string name="edit_section_captcha_request_an_account_message">Гаций хьона CAPTCHA сурташ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ДӀадéха дагара йоазув&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Гаций хьона CAPTCHA сурташ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ДӀаéха аккаунт&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ӏоязде лакхе гойташ дола дешаш</string>
   <string name="title_captcha">Ӏочузъе CAPTCHA</string>
   <string name="edit_section_captcha_reload">ӀотӀатоӀабе CAPTCHA йолча из кердайоаккхаргйолаш</string>
@@ -128,7 +128,7 @@
   <string name="logout_prompt">Массайолча устройстваш чу хьай дагара йоазона чура араваргва хьо. Боккъонца безам бий хьа из де?</string>
   <string name="logout_dialog_cancel_button_text">А</string>
   <string name="logged_out_in_background_title">Хьо араваьннав дагара йоазона чура</string>
-  <string name="logged_out_in_background_dialog">Википеден дагара йоазона чура араваьннав хьо. Юха чувала лой хьона?</string>
+  <string name="logged_out_in_background_dialog">Википеден аккаунта чура араваьннав хьо. Юха чувала лой хьона?</string>
   <string name="logged_out_in_background_login">Чувáла</string>
   <string name="logged_out_in_background_cancel">Эшац</string>
   <string name="history_empty_title">Яц дукха ха йоаццаш хьийжа статьяш</string>
@@ -139,11 +139,11 @@
   <string name="delete_selected_items">ДӀаяха хьахержа йола элементаш</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕД&lt;big&gt;И&lt;/big&gt;</string>
   <string name="create_account_username_hint">Доакъашхочун цIи</string>
-  <string name="login_dont_have_account">Дагара йоазув деций хьога?</string>
+  <string name="login_dont_have_account">Аккаунт еций хьога?</string>
   <string name="login_join_wikipedia">ДӀахоттале Википедех</string>
   <string name="login_forgot_password">Пароль йицъеннай?</string>
   <string name="create_account_already_have">Аккаунт йолаш я?</string>
-  <string name="create_account_activity_title">Хьакхолла дагара йоазув</string>
+  <string name="create_account_activity_title">Аккаунт хьакхолла</string>
   <string name="dialog_create_account_checking_progress">Тахкар</string>
   <string name="create_account_email_hint">Электронни поштан цIай (ца хилча хIама дац)</string>
   <string name="create_account_password_repeat_hint">Юха а язъе пароль</string>
@@ -151,14 +151,14 @@
   <string name="create_account_email_error">Могадаьдоаца электронни поштан цIай</string>
   <string name="create_account_username_error">Доакъашхочун цӀера юкъе мегаргдоаца хьаракаш да</string>
   <string name="create_account_password_error">Пароль 8 фискал йолаш хила еза.</string>
-  <string name="create_account_generic_error">ВӀаштехьа дац дагара йоазув (аккаунт) хьакхолла</string>
+  <string name="create_account_generic_error">Аьттув бац аккаунт кхолла</string>
   <string name="create_account_next">ДӀахо</string>
-  <string name="email_recommendation_dialog_title">Электронни пошт а йоацаш хьакхоллий Ӏа дагара йоазув?</string>
+  <string name="email_recommendation_dialog_title">Электронни пошт а йоацаш кхоллий Ӏа аккаунт?</string>
   <string name="email_recommendation_dialog_message">Электронни пошт белгалъяр параз деце а, из Ӏочуязъяр&lt;b&gt;чӀоагӀа пайдане да&lt;/b&gt;, масала, хьай дагара йоазон пароль йицъелча из юха меттаоттаеш накъаяргья электронни пошт.</string>
   <string name="email_recommendation_message">Дика хургья, хӀана аьлча, аккаунт юха меттаоттаеш эшаргья электронни пошт.</string>
   <string name="email_recommendation_dialog_create_without_email_action">ДӀахо дӀаяхийта электронни пошт а йоацаш</string>
   <string name="email_recommendation_dialog_create_with_email_action">Электронни пошта цӀай тӀатоха</string>
-  <string name="create_account_button">Хьакхолла дагара йоазув</string>
+  <string name="create_account_button">Аккаунт хьакхолла</string>
   <string name="create_account_name_unavailable">Доакъашхочун цӀи \"%s\" мукъа яц. Дехар да, кхыйола цӀи Ӏочуязъе.</string>
   <string name="create_account_ip_block_message">Бехк ма баккхалахь, хьа IP-цӀай блок теха латт керда дагара йоазонаш (аккаунташ) хьакхоллалургдоацаш.</string>
   <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Википедия:Блокировки</string>
@@ -167,7 +167,7 @@
   <string name="preferences_account_heading">Аккаунт</string>
   <string name="wikipedia_app_faq">«Википеди» приложенех лаьца каст-кастта тела хаттараш</string>
   <string name="send_feedback">Бувзам</string>
-  <string name="create_account_account_created_toast">Дагара йоазув хьакхеллад!</string>
+  <string name="create_account_account_created_toast">Аккаунт хьакхеллай!</string>
   <string name="preferences_heading_syncing">Синхронизаци</string>
   <string name="preferences_heading_data_usage">Трафик</string>
   <string name="preferences_heading_experimental">Экспериментальни</string>
@@ -661,7 +661,7 @@
   <string name="view_featured_article_card_title">Хержа статья</string>
   <string name="view_static_card_save_button_label">ДӀайила</string>
   <string name="feed_configure_activity_title">Лентай оттамаш хувца</string>
-  <string name="feed_configure_menu_reset">Юхаметтаоттае луттаргаш юххьанцара хиннача тайпара</string>
+  <string name="feed_configure_menu_reset">Тхьовра хиннача тайпара хургдолаш юхахьаметтаоттае луттаргаш</string>
   <string name="feed_configure_menu_select_all">Дерригаш хьагойта</string>
   <string name="feed_configure_menu_deselect_all">Дерригаш дӀакъайладаха</string>
   <string name="feed_configure_language_warning">Лентай деррига карточкаш дац хьахьувкхаш массадолча меттала. Оттамашка дӀаоттаде йиш я малагӀча метта Википеден разделашкара карточкаш хьагойта деза.</string>

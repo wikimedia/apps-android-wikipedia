@@ -79,14 +79,20 @@
   <string name="share_via">Dialog title text for Share list.\n\nThe Share list contains the following menu items (localized):\n* Mail\n* Message</string>
   <string name="image_share_via">Text for button to share image via different means.\n{{Identical|Share via}}</string>
   <string name="search_redirect_from">Label shown when a search result is redirected from the original search query. The \"%s\" symbol is replaced with the redirect source.</string>
-  <string name="page_edit_history_activity_label">Label text for the new edit history screen.</string>
+  <string name="page_edit_history_activity_title">Label text for the new edit history screen when the edit history stats view is not visible. %s will be replaced by the title of the article.</string>
   <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit. %s represents the edit comment.</string>
   <string name="page_edit_history_comment_placeholder">Placeholder text when a comment is not available on an edit.</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">Text of showing the year since the article has been created and the total edit counts. The %1$d will be replaced by the total edit counts, and the %2$s will be replaced by the year.</item>
+    <item quantity="other">Text of showing the year since the article has been created and the total edit counts. The %1$d will be replaced by the total edit counts, and the %2$s will be replaced by the year.</item>
+  </plurals>
+  <string name="page_edit_history_metrics_content_description">Content description of the metrics of edit history in the time range. The %1$s will be replaced by the start date and %2$s will be replaced by the end date of the time range.</string>
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="menu_page_add_to_watchlist">Menu item for adding the current page to the Watchlist.</string>
   <string name="menu_page_watch">Menu item for adding the current page to the Watchlist.</string>
+  <string name="menu_page_unwatch">Menu item for unwatching the current page (removing it from the Watchlist).</string>
   <string name="menu_page_view_talk">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_talk_page">Menu item text for accessing the article talk page.</string>
   <string name="menu_page_view_edit_history">Menu item text for accessing the article edit history.</string>
@@ -810,11 +816,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
   <string name="customize_toolbar_title">Title text of the customize toolbar page.</string>
-  <string name="customize_toolbar_description">Description of the customize toolbar page.</string>
+  <string name="customize_toolbar_description_text">Description of the customize toolbar page.</string>
   <string name="customize_toolbar_category_toolbar">Category of toolbar in the customize toolbar page.</string>
   <string name="customize_toolbar_category_menu">Category of menu in the customize toolbar page.\n\n{{Identical|Menu}}</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Text for the drag and drop placeholder for the list in the customize toolbar page.</string>
   <string name="customize_toolbar_reset_to_default_button">Button label for resetting the configuration of customize toolbar to default.</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Default tooltip text for customize toolbar drag handle</string>
+  <string name="customize_toolbar_item_default_tooltip">Default tooltip text for customize toolbar item</string>
   <string name="suggested_edits_describe_articles">Title of screen where the user chooses articles that are missing article descriptions to be described.</string>
   <string name="suggested_edits_caption_images">Title of screen where the user chooses images that are missing captions to be captioned.</string>
   <string name="suggested_edits_tag_images">Title of screen where the user chooses tags that represent an image.</string>
@@ -989,7 +997,7 @@
   <string name="offline_read_final_rationale">Message explaining why we need permission to access the device storage when reading articles in offline mode.</string>
   <string name="size_gb">Label for showing size in GB. The %.2f is replaced by the number in gigabytes(GB)</string>
   <string name="size_mb">Label for showing size in MB. The %.2f is replaced by the number in megabytes (MB)</string>
-  <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n\nAppears next to {{msg-wm|Wikipedia-android-strings-editactionfeed add description button}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)\n{{Identical|Skip}}</string>
+  <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n\nAppears next to {{msg-wm|Wikipedia-android-strings-suggested edits add description button}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)\n{{Identical|Skip}}</string>
   <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.\n{{Identical|Continue}}</string>
   <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.\n{{Identical|Get started}}</string>
   <string name="onboarding_maybe_later">Button label to dismiss the current onboarding or tutorial screen without any further action.</string>
@@ -1113,6 +1121,8 @@
   <string name="thank_success_message">Message shown to user after thanking an edit in the diff screen. %s is the contributing user\'s username.</string>
   <string name="menu_option_view_user_profile">Menu label to navigate to the user page of the selected user.</string>
   <string name="menu_option_view_user_talk">Menu label to navigate to the talk page of the selected user.</string>
+  <string name="revision_compare_button">Button label for comparing two revisions.</string>
+  <string name="revision_compare_two_only">Error message when the user attempts to select more than two revisions for comparison.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.\n\n{{Identical|Change}}</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>
@@ -1135,7 +1145,5 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
-  <string name="revision_compare_button">Button label for comparing two revisions.</string>
-  <string name="revision_compare_two_only">Error message when the user attempts to select more than two revisions for comparison.</string>
   <string name="menu_page_overflow_label">Label text for icon leading to overflow options.</string>
 </resources>
