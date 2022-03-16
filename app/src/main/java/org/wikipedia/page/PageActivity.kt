@@ -643,11 +643,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     FeedbackUtil.showTooltip(this, pageFragment.getMoreMenuView(),
                         R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
                 }
+            } else {
+                maybeShowCustomizeToolbarTooltip()
             }
         }
     }
 
-    private fun maybeShowThemeTooltip() {
+    private fun maybeShowCustomizeToolbarTooltip() {
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
         }
