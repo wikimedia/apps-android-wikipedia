@@ -22,8 +22,7 @@ class NotificationLinkHandler constructor(context: Context) : LinkHandler(contex
     }
 
     override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
-        context.startActivity(ArticleEditDetailsActivity.newIntent(context,
-            title.displayText, revisionId, title.wikiSite.languageCode))
+        context.startActivity(ArticleEditDetailsActivity.newIntent(context, title, revisionId))
     }
 
     override lateinit var wikiSite: WikiSite
