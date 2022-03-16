@@ -29,7 +29,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
-import org.wikipedia.dataclient.restbase.PageHistory
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -137,11 +137,11 @@ class EditHistoryListActivity : BaseActivity() {
     private fun updateCompareStateItems() {
         binding.compareFromCard.isVisible = viewModel.selectedRevisionFrom != null
         if (viewModel.selectedRevisionFrom != null) {
-            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionFrom!!.timestamp))
+            binding.compareFromText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionFrom!!.timeStamp))
         }
         binding.compareToCard.isVisible = viewModel.selectedRevisionTo != null
         if (viewModel.selectedRevisionTo != null) {
-            binding.compareToText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionTo!!.timestamp))
+            binding.compareToText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionTo!!.timeStamp))
         }
         if (viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null) {
             binding.compareConfirmButton.isEnabled = true
@@ -198,7 +198,7 @@ class EditHistoryListActivity : BaseActivity() {
             if (oldItem is EditHistoryListViewModel.EditHistorySeparator && newItem is EditHistoryListViewModel.EditHistorySeparator) {
                 return oldItem.date == newItem.date
             } else if (oldItem is EditHistoryListViewModel.EditHistoryItem && newItem is EditHistoryListViewModel.EditHistoryItem) {
-                return oldItem.item.id == newItem.item.id
+                return oldItem.item.revId == newItem.item.revId
             }
             return false
         }
@@ -280,9 +280,9 @@ class EditHistoryListActivity : BaseActivity() {
             filterByButton.setOnClickListener {
                 val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
                 if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
-                    val previousFilter = Prefs.editHistoryFilterEnableType
+                    val previousFilter = Prefs.editHistoryFilterDisableSet
                     EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(filterByButton, editCountsFlowValue) {
-                        if (previousFilter != Prefs.editHistoryFilterEnableType) {
+                        if (previousFilter != Prefs.editHistoryFilterDisableSet) {
                             editHistoryListAdapter.refresh()
                             updateFilterCount()
                         }
@@ -294,14 +294,13 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         fun updateFilterCount() {
-            if (Prefs.editHistoryFilterEnableType.isEmpty()) {
+            if (Prefs.editHistoryFilterDisableSet.isEmpty()) {
                 filterCountView.visibility = View.GONE
                 ImageViewCompat.setImageTintList(filterByButton,
                     ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.chip_text_color)))
             } else {
                 filterCountView.visibility = View.VISIBLE
-                // TODO: confirm with design
-                filterCountView.text = "1"
+                filterCountView.text = Prefs.editHistoryFilterDisableSet.size.toString()
                 ImageViewCompat.setImageTintList(filterByButton,
                     ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.colorAccent)))
             }
@@ -309,9 +308,9 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class EditHistoryListItemHolder constructor(private val view: EditHistoryItemView) : RecyclerView.ViewHolder(view), EditHistoryItemView.Listener {
-        private lateinit var revision: PageHistory.Revision
+        private lateinit var revision: MwQueryPage.Revision
 
-        fun bindItem(revision: PageHistory.Revision) {
+        fun bindItem(revision: MwQueryPage.Revision) {
             this.revision = revision
             view.setContents(revision)
             updateSelectState()
@@ -323,7 +322,7 @@ class EditHistoryListActivity : BaseActivity() {
                 toggleSelectState()
             } else {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle.prefixedText, revision.id, viewModel.pageTitle.wikiSite.languageCode))
+                        viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
             }
         }
 

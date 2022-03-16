@@ -13,7 +13,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemEditHistoryBinding
-import org.wikipedia.dataclient.restbase.PageHistory
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -46,9 +46,9 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         }
     }
 
-    fun setContents(itemRevision: PageHistory.Revision) {
-        val diffSize = itemRevision.delta
-        binding.diffText.text = String.format(if (diffSize != 0L) "%+d" else "%d", diffSize)
+    fun setContents(itemRevision: MwQueryPage.Revision) {
+        val diffSize = itemRevision.diffSize
+        binding.diffText.text = String.format(if (diffSize != 0) "%+d" else "%d", diffSize)
         if (diffSize >= 0) {
             binding.diffText.setTextColor(if (diffSize > 0) ContextCompat.getColor(context, R.color.green50)
             else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
@@ -67,8 +67,8 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
             binding.editHistoryTitle.text = if (itemRevision.minor) StringUtil.fromHtml(context.getString(R.string.page_edit_history_minor_edit, itemRevision.comment))
             else itemRevision.comment
         }
-        binding.userNameText.text = itemRevision.user?.name
-        binding.editHistoryTimeText.text = DateUtil.getTimeString(DateUtil.iso8601DateParse(itemRevision.timestamp))
+        binding.userNameText.text = itemRevision.user
+        binding.editHistoryTimeText.text = DateUtil.getTimeString(DateUtil.iso8601DateParse(itemRevision.timeStamp))
     }
 
     fun setSelectedState(selectedState: Int) {

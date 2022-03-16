@@ -54,12 +54,12 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
     private fun updateSelectedIconsVisibility() {
         val icons = listOf(binding.filterByUserSelected, binding.filterByAnonSelected, binding.filterByBotSelected)
         val types = listOf(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS, EditCount.EDIT_TYPE_BOT)
-        if (Prefs.editHistoryFilterEnableType.isEmpty()) {
+        if (Prefs.editHistoryFilterDisableSet.isEmpty()) {
             icons.map { it.visibility = View.VISIBLE }
             binding.filterByAllSelected.visibility = View.VISIBLE
         } else {
             types.forEachIndexed { index, type ->
-                icons[index].visibility = if (Prefs.editHistoryFilterEnableType == type) View.VISIBLE else View.INVISIBLE
+                icons[index].visibility = if (Prefs.editHistoryFilterDisableSet.contains(type)) View.INVISIBLE else View.VISIBLE
             }
             binding.filterByAllSelected.visibility = View.INVISIBLE
         }
@@ -67,7 +67,7 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
 
     private fun setButtonsListener() {
         binding.filterByAllButton.setOnClickListener {
-            onButtonCLicked()
+            onButtonCLicked(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS, EditCount.EDIT_TYPE_BOT)
         }
         binding.filterByUserButton.setOnClickListener {
             onButtonCLicked(EditCount.EDIT_TYPE_EDITORS)
@@ -80,10 +80,15 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
         }
     }
 
-    private fun onButtonCLicked(editType: String = "") {
-        Prefs.editHistoryFilterEnableType = editType
+    private fun onButtonCLicked(vararg disabledTypes: String) {
+        val set = Prefs.editHistoryFilterDisableSet.toMutableSet()
+        if (set.containsAll(disabledTypes.toSet())) {
+            set.removeAll(disabledTypes)
+        } else {
+            set.addAll(disabledTypes)
+        }
+        Prefs.editHistoryFilterDisableSet = set
         updateSelectedIconsVisibility()
         callback?.onItemClicked()
-        popupWindowHost?.dismiss()
     }
 }
