@@ -1,5 +1,7 @@
 package org.wikipedia.page;
 
+import android.net.Uri;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
@@ -62,6 +64,14 @@ import static org.hamcrest.Matchers.nullValue;
         WikiSite enwiki = WikiSite.forLanguageCode("en");
         assertThat(new PageTitle(null, "Test", enwiki).getWikiSite(), is(enwiki));
         assertThat(WikiSite.forLanguageCode("en"), is(enwiki));
+    }
+
+    @Test public void testLangAsNamespace() {
+        Uri uri = Uri.parse("https://en.wikipedia.org/wiki/fr:Article");
+        WikiSite site = new WikiSite(uri);
+        PageTitle title = site.titleForUri(uri);
+        assertThat(title.getWikiSite().authority(), is("fr.wikipedia.org"));
+        assertThat(title.getDisplayText(), is("Article"));
     }
 
     @Test public void testParsing() {

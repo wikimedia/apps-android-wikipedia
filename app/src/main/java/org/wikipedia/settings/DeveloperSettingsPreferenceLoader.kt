@@ -64,7 +64,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             val pages = (0 until numberOfArticles).map {
                 ReadingListPage(PageTitle("Malformed page $it", WikiSite.forLanguageCode("foo")))
             }
-            AppDatabase.getAppDatabase().readingListPageDao().addPagesToList(AppDatabase.getAppDatabase().readingListDao().defaultList, pages, true)
+            AppDatabase.instance.readingListPageDao().addPagesToList(AppDatabase.instance.readingListDao().defaultList, pages, true)
             true
         }
         findPreference(R.string.preference_key_missing_description_test).onPreferenceClickListener = Preference.OnPreferenceClickListener {
@@ -134,7 +134,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_developer_clear_all_talk_topics).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            AppDatabase.getAppDatabase().talkPageSeenDao().deleteAll()
+            AppDatabase.instance.talkPageSeenDao().deleteAll()
                 .subscribeOn(Schedulers.io()).subscribe()
             true
         }
@@ -159,7 +159,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
 
     private fun createTestReadingList(listName: String, numOfLists: Int, numOfArticles: Int) {
         var index = 0
-        AppDatabase.getAppDatabase().readingListDao().getListsWithoutContents().asReversed().forEach {
+        AppDatabase.instance.readingListDao().getListsWithoutContents().asReversed().forEach {
             if (it.title.contains(listName)) {
                 val trimmedListTitle = it.title.substring(listName.length).trim()
                 index = if (trimmedListTitle.isEmpty()) index else trimmedListTitle.toInt().coerceAtLeast(index)
@@ -168,19 +168,19 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
         for (i in 0 until numOfLists) {
             index += 1
-            val list = AppDatabase.getAppDatabase().readingListDao().createList("$listName $index", "")
+            val list = AppDatabase.instance.readingListDao().createList("$listName $index", "")
             val pages = (0 until numOfArticles).map {
                 ReadingListPage(PageTitle("${it + 1}", WikipediaApp.getInstance().wikiSite))
             }
-            AppDatabase.getAppDatabase().readingListPageDao().addPagesToList(list, pages, true)
+            AppDatabase.instance.readingListPageDao().addPagesToList(list, pages, true)
         }
     }
 
     private fun deleteTestReadingList(listName: String, numOfLists: Int) {
         var remainingNumOfLists = numOfLists
-        AppDatabase.getAppDatabase().readingListDao().getAllLists().forEach {
+        AppDatabase.instance.readingListDao().getAllLists().forEach {
             if (it.title.contains(listName) && remainingNumOfLists > 0) {
-                AppDatabase.getAppDatabase().readingListDao().deleteList(it)
+                AppDatabase.instance.readingListDao().deleteList(it)
                 remainingNumOfLists--
             }
         }

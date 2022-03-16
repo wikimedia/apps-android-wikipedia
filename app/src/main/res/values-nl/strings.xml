@@ -81,7 +81,9 @@
   <string name="share_via">Delen via</string>
   <string name="image_share_via">Delen via</string>
   <string name="search_redirect_from">Doorverwezen vanaf %s</string>
-  <string name="page_edit_history_activity_label">Versiegeschiedenis</string>
+  <string name="page_edit_history_activity_title">Versiegeschiedenis: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Lege bewerkingssamenvatting</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
   <string name="menu_page_find_in_page">Zoek in artikel</string>
@@ -808,7 +810,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
   <string name="customize_toolbar_title">Pas de werkbalk aan</string>
-  <string name="customize_toolbar_description">Pas uw onderste navigatiewerkbalk aan met de acties en bestemmingen die u het nuttigst vindt.</string>
   <string name="customize_toolbar_category_toolbar">Werkbalk</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Sleep je favoriete items hierheen 👋</string>
