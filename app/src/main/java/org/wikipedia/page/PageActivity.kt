@@ -664,7 +664,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.isPageNotificationTooltipShown && AccountUtil.isLoggedIn &&
                 Prefs.loggedInPageActivityVisitCount >= 1) {
             enqueueTooltip {
-                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonNotifications, getString(R.string.page_notification_tooltip), aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
+                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonNotifications, getString(R.string.page_notification_tooltip),
+                    aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
                     Prefs.isPageNotificationTooltipShown = true
                 }
             }
