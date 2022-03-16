@@ -36,6 +36,7 @@ class LangLinksActivity : BaseActivity() {
         binding = ActivityLanglinksBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.langlinksRecycler.itemAnimator = null
         binding.langlinkEmptyView.visibility = View.GONE
         binding.langlinksLoadProgress.visibility = View.VISIBLE
 
