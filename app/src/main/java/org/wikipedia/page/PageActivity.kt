@@ -41,7 +41,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -650,22 +649,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
         }
-        val anchorView: View?
-        var aboveOrBelow = true
-        if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
-            anchorView = pageFragment.getMoreMenuView()
-            aboveOrBelow = false
-        } else {
-            anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
-        }
-        anchorView?.let {
-            it.postDelayed({
-                if (!isDestroyed) {
-                    FeedbackUtil.showTooltip(this, it, getString(R.string.theme_chooser_menu_item_tooltip),
-                            aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
-                }
-            }, 2000)
-        }
+        pageFragment.getMoreMenuView().postDelayed({
+            if (!isDestroyed) {
+                FeedbackUtil.showTooltip(this, pageFragment.getMoreMenuView(), getString(R.string.theme_chooser_menu_item_tooltip),
+                    aboveOrBelow = true, autoDismiss = false, -DimenUtil.roundedDpToPx(10f), 0)
+            }
+        }, 1000)
         Prefs.showOneTimeCustomizeToolbarTooltip = false
     }
 
