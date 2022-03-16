@@ -15,7 +15,7 @@
             <item
                 android:id="@+id/menu_add_watchlist"
                 android:icon="@drawable/ic_star_24"
-                android:title="@string/menu_option_share_edit" />
+                android:title="@string/menu_page_watch" />
         </menu>
     </item>
 </menu>

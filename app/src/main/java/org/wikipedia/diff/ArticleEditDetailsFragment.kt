@@ -203,7 +203,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
         val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
-        watchlistItem.title = getString(if (isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
+        watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
     }
 
