@@ -12,6 +12,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
@@ -33,6 +34,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityCategoryBinding
 
     private val categoryMembersAdapter = CategoryMembersAdapter()
+    private val subcategoriesAdapter = CategoryMembersAdapter()
     private val itemCallback = ItemCallback()
     private var showSubcategories = false
 
@@ -49,7 +51,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         supportActionBar?.title = viewModel.pageTitle.displayText
 
         binding.categoryRecycler.layoutManager = LinearLayoutManager(this)
-        binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = true, drawEnd = false))
+        binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         binding.categoryRecycler.adapter = categoryMembersAdapter
 
         lifecycleScope.launch {
@@ -58,17 +60,21 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
             }
         }
 
-        /*
-        binding.categoryTabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
+        lifecycleScope.launch {
+            viewModel.subcategoriesFlow.collectLatest {
+                subcategoriesAdapter.submitData(it)
+            }
+        }
+
+        binding.categoryTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 showSubcategories = tab.position == 1
-                layOutTitles()
+                binding.categoryRecycler.adapter = if (showSubcategories) subcategoriesAdapter else categoryMembersAdapter
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
-        */
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
