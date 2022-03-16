@@ -6,10 +6,11 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.textview.MaterialTextView
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
+import org.wikipedia.databinding.ItemMoreMenuBinding
 import org.wikipedia.databinding.ViewPageActionMoreBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageViewModel
@@ -17,6 +18,7 @@ import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
 class PageActionMoreDialog(val callback: PageActionItem.Callback,
@@ -31,7 +33,7 @@ class PageActionMoreDialog(val callback: PageActionItem.Callback,
                               savedInstanceState: Bundle?): View {
         _binding = ViewPageActionMoreBinding.inflate(inflater, container, false)
 
-        binding.overflowForward.setOnClickListener {
+        binding.moreMenuForward.setOnClickListener {
             dismiss()
             callback.forwardClick()
         }
@@ -42,7 +44,7 @@ class PageActionMoreDialog(val callback: PageActionItem.Callback,
         }
 
         Prefs.customizeToolbarMenuOrder.forEach {
-            val view = ItemCustomizeToolbarMenuBinding.inflate(LayoutInflater.from(context)).root
+            val view = ItemMoreMenuBinding.inflate(LayoutInflater.from(context)).root
             val item = PageActionItem.find(it)
             view.id = item.hashCode()
             view.text = context?.getString(item.titleResId)
@@ -51,14 +53,14 @@ class PageActionMoreDialog(val callback: PageActionItem.Callback,
                 dismiss()
                 item.select(callback)
             }
-            binding.overflowList.addView(view)
+            binding.moreMenuList.addView(view)
         }
 
-        binding.overflowForward.visibility = if (currentTab.canGoForward()) VISIBLE else GONE
+        binding.moreMenuForward.visibility = if (currentTab.canGoForward()) VISIBLE else GONE
         binding.customizeToolbar.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
 
-        for (i in 1 until binding.overflowList.childCount) {
-            val view = binding.overflowList.getChildAt(i) as MaterialTextView
+        for (i in 1 until binding.moreMenuList.childCount) {
+            val view = binding.moreMenuList.getChildAt(i) as MaterialTextView
             val pageActionItem = PageActionItem.find(view.id)
             val enabled =
                 model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
@@ -79,6 +81,11 @@ class PageActionMoreDialog(val callback: PageActionItem.Callback,
         }
 
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        BottomSheetBehavior.from(requireView().parent as View).peekHeight = (DimenUtil.displayHeightPx * 0.75).toInt()
     }
 
     companion object {

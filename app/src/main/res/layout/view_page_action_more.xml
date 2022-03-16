@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/overflow_card_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -22,7 +21,7 @@
         app:drawableTint="?attr/colorAccent" />
 
     <LinearLayout
-        android:id="@+id/overflowList"
+        android:id="@+id/moreMenuList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -31,7 +30,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_forward"
+            android:id="@+id/moreMenuForward"
             style="@style/OverflowMenuItem"
             android:drawablePadding="16dp"
             android:text="@string/nav_item_forward"
