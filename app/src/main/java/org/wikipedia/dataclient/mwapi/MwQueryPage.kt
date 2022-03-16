@@ -100,7 +100,7 @@ class MwQueryPage {
             return slots?.get(slot)?.content.orEmpty()
         }
 
-        var isBot = false
+        var editorType: String? = null
     }
 
     @Serializable

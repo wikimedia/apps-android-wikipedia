@@ -14,6 +14,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 import java.util.*
@@ -34,7 +35,9 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     val editHistoryFlow = Pager(PagingConfig(pageSize = 10)) {
         EditHistoryPagingSource(pageTitle)
     }.flow.map { pagingData ->
-        pagingData.map {
+        pagingData.filter {
+            !Prefs.editHistoryFilterDisableSet.contains(it.editorType)
+        }.map {
             EditHistoryItem(it)
         }.insertSeparators { before, after ->
             if (before != null && after != null) {
@@ -135,19 +138,26 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             return try {
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                     .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, params.key)
-                val revisions = response.query!!.pages?.get(0)?.revisions!!.toMutableList()
+
+                val revision = response.query!!.pages?.first()?.revisions!!
 
                 val botUserList = withContext(Dispatchers.IO) {
-                    ServiceFactory.get(pageTitle.wikiSite).getUserInfoList(revisions.map { it.user }.joinToString { "|" })
+                    ServiceFactory.get(pageTitle.wikiSite).getUserInfoList(revision.joinToString("|") { it.user })
                 }.query?.users?.filter { it.groups.orEmpty().contains("bot") }?.map { it.name }.orEmpty()
 
-                revisions.forEach {
+                revision.forEach {
                     if (botUserList.contains(it.user)) {
-                        it.isBot = true
+                        it.editorType = EditCount.EDIT_TYPE_BOT
+                    }
+                    if (it.isAnon) {
+                        it.editorType = EditCount.EDIT_TYPE_ANONYMOUS
+                    }
+                    if (it.editorType.isNullOrEmpty()) {
+                        it.editorType = EditCount.EDIT_TYPE_EDITORS
                     }
                 }
 
-                LoadResult.Page(revisions, null, response.continuation?.rvContinuation)
+                LoadResult.Page(revision, null, response.continuation?.rvContinuation)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
