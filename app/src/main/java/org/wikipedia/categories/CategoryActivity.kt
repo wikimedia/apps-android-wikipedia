@@ -6,12 +6,16 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
+import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
@@ -28,12 +32,18 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.*
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
+import org.wikipedia.views.WikiErrorView
 
 class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityCategoryBinding
 
     private val categoryMembersAdapter = CategoryMembersAdapter()
+    private val categoryMembersLoadHeader = LoadingItemAdapter { categoryMembersAdapter.retry(); }
+    private val categoryMembersLoadFooter = LoadingItemAdapter { categoryMembersAdapter.retry(); }
     private val subcategoriesAdapter = CategoryMembersAdapter()
+    private val subcategoriesLoadHeader = LoadingItemAdapter { subcategoriesAdapter.retry() }
+    private val subcategoriesLoadFooter = LoadingItemAdapter { subcategoriesAdapter.retry() }
+
     private val itemCallback = ItemCallback()
     private var showSubcategories = false
 
@@ -51,7 +61,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         binding.categoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
-        binding.categoryRecycler.adapter = categoryMembersAdapter
+        binding.categoryRecycler.adapter = categoryMembersAdapter.withLoadStateHeaderAndFooter(categoryMembersLoadHeader, categoryMembersLoadFooter)
 
         lifecycleScope.launch {
             viewModel.categoryMembersFlow.collectLatest {
@@ -65,10 +75,27 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
             }
         }
 
+        lifecycleScope.launchWhenCreated {
+            categoryMembersAdapter.loadStateFlow.collect {
+                categoryMembersLoadHeader.loadState = it.refresh
+                categoryMembersLoadFooter.loadState = it.append
+            }
+        }
+
+        lifecycleScope.launchWhenCreated {
+            subcategoriesAdapter.loadStateFlow.collect {
+                subcategoriesLoadHeader.loadState = it.refresh
+                subcategoriesLoadFooter.loadState = it.append
+            }
+        }
+
         binding.categoryTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 showSubcategories = tab.position == 1
-                binding.categoryRecycler.adapter = if (showSubcategories) subcategoriesAdapter else categoryMembersAdapter
+                binding.categoryRecycler.adapter = if (showSubcategories)
+                    subcategoriesAdapter.withLoadStateHeaderAndFooter(categoryMembersLoadHeader, categoryMembersLoadFooter)
+                else
+                    categoryMembersAdapter.withLoadStateHeaderAndFooter(subcategoriesLoadHeader, subcategoriesLoadFooter)
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
@@ -102,6 +129,16 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         ShareUtil.shareText(this, title)
     }
 
+    private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
+        override fun onBindViewHolder(holder: LoadingViewHolder, loadState: LoadState) {
+            holder.bindItem(loadState, retry)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): LoadingViewHolder {
+            return LoadingViewHolder(layoutInflater.inflate(R.layout.item_list_progress, parent, false))
+        }
+    }
+
     private inner class CategoryMemberDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
         override fun areItemsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
             return oldItem.prefixedText == newItem.prefixedText && oldItem.namespace == newItem.namespace
@@ -122,6 +159,19 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             getItem(position)?.let {
                 (holder as CategoryItemHolder).bindItem(it)
+            }
+        }
+    }
+
+    private inner class LoadingViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindItem(loadState: LoadState, retry: () -> Unit) {
+            val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
+            val progressBar = itemView.findViewById<View>(R.id.progressBar)
+            progressBar.isVisible = loadState is LoadState.Loading
+            errorView.isVisible = loadState is LoadState.Error
+            errorView.retryClickListener = View.OnClickListener { retry() }
+            if (loadState is LoadState.Error) {
+                errorView.setError(loadState.error, viewModel.pageTitle)
             }
         }
     }

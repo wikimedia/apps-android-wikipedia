@@ -23,7 +23,7 @@ class CategoryActivityViewModel(bundle: Bundle) : ViewModel() {
 
     class CategoryMembersPagingSource(
             val pageTitle: PageTitle,
-            val resultType: String
+            private val resultType: String
     ) : PagingSource<String, PageTitle>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, PageTitle> {
             return try {
