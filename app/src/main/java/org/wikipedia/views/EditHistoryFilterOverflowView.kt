@@ -82,7 +82,9 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
 
     private fun onButtonCLicked(vararg disabledTypes: String) {
         val set = Prefs.editHistoryFilterDisableSet.toMutableSet()
-        if (set.containsAll(disabledTypes.toSet())) {
+        if (set.isNotEmpty() && disabledTypes.size == 3) {
+            set.clear()
+        } else if (set.containsAll(disabledTypes.toSet())) {
             set.removeAll(disabledTypes)
         } else {
             set.addAll(disabledTypes)

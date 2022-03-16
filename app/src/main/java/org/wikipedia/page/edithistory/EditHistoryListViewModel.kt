@@ -141,7 +141,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
                 val revision = response.query!!.pages?.first()?.revisions!!
 
-                val userNames = revision.map { it.user }.distinct().joinToString("|")
+                val userNames = revision.filterNot { it.isAnon || it.minor }.map { it.user }.distinct().joinToString("|")
 
                 val botUserList = withContext(Dispatchers.IO) {
                     ServiceFactory.get(pageTitle.wikiSite).getUserInfoList(userNames)
