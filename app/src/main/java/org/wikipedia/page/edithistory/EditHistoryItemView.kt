@@ -55,7 +55,8 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         } else {
             binding.diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
         }
-        binding.userNameText.setIconResource(if (itemRevision.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar)
+        val userIcon = if (itemRevision.isAnon) R.drawable.ic_anonymous_ooui else if (itemRevision.isBot) R.drawable.ic_robot_24 else R.drawable.ic_user_avatar
+        binding.userNameText.setIconResource(userIcon)
 
         if (itemRevision.comment.isEmpty()) {
             binding.editHistoryTitle.setTypeface(Typeface.SANS_SERIF, Typeface.ITALIC)

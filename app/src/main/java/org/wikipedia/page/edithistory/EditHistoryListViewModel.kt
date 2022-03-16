@@ -32,7 +32,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     var selectedRevisionTo: MwQueryPage.Revision? = null
         private set
 
-    val editHistoryFlow = Pager(PagingConfig(pageSize = 10)) {
+    val editHistoryFlow = Pager(PagingConfig(pageSize = 30)) {
         EditHistoryPagingSource(pageTitle)
     }.flow.map { pagingData ->
         pagingData.filter {
@@ -141,8 +141,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
                 val revision = response.query!!.pages?.first()?.revisions!!
 
+                val userNames = revision.map { it.user }.distinct().joinToString("|")
+
                 val botUserList = withContext(Dispatchers.IO) {
-                    ServiceFactory.get(pageTitle.wikiSite).getUserInfoList(revision.joinToString("|") { it.user })
+                    ServiceFactory.get(pageTitle.wikiSite).getUserInfoList(userNames)
                 }.query?.users?.filter { it.groups.orEmpty().contains("bot") }?.map { it.name }.orEmpty()
 
                 revision.forEach {
