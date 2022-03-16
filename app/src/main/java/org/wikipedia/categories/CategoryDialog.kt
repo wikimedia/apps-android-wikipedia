@@ -5,19 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogCategoriesBinding
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
@@ -27,58 +26,42 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: DialogCategoriesBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var pageTitle: PageTitle
-    private val categoryList = mutableListOf<MwQueryPage.Category>()
     private val itemCallback = ItemCallback()
-    private val disposables = CompositeDisposable()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().getParcelable(TITLE)!!
-    }
-
-    override fun onDestroy() {
-        disposables.clear()
-        _binding = null
-        super.onDestroy()
-    }
+    private val viewModel: CategoryDialogViewModel by viewModels { CategoryDialogViewModel.Factory(requireArguments()) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogCategoriesBinding.inflate(inflater, container, false)
         binding.categoriesRecycler.layoutManager = LinearLayoutManager(requireActivity())
         binding.categoriesRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
-        binding.categoriesRecycler.adapter = CategoryAdapter()
-        binding.categoriesDialogPageTitle.text = StringUtil.fromHtml(pageTitle.displayText)
-        L10nUtil.setConditionalLayoutDirection(binding.root, pageTitle.wikiSite.languageCode)
-        loadCategories()
+        binding.categoriesDialogPageTitle.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
+        L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
+
+        binding.categoriesError.isVisible = false
+        binding.categoriesNoneFound.isVisible = false
+        binding.categoriesRecycler.isVisible = false
+        binding.dialogCategoriesProgress.isVisible = true
+
+        viewModel.categoriesData.observe(this) {
+            binding.dialogCategoriesProgress.isVisible = false
+            if (it is Resource.Success) {
+                layOutCategories(it.data)
+            } else if (it is Resource.Error) {
+                binding.categoriesRecycler.isVisible = false
+                binding.categoriesError.setError(it.throwable)
+                binding.categoriesError.isVisible = true
+                L.e(it.throwable)
+            }
+        }
+
         return binding.root
     }
 
-    private fun loadCategories() {
-        binding.categoriesError.visibility = View.GONE
-        binding.categoriesNoneFound.visibility = View.GONE
-        binding.categoriesRecycler.visibility = View.GONE
-        binding.dialogCategoriesProgress.visibility = View.VISIBLE
-        disposables.add(ServiceFactory.get(pageTitle.wikiSite).getCategories(pageTitle.prefixedText)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doFinally { binding.dialogCategoriesProgress.visibility = View.GONE }
-                .subscribe({ response ->
-                    categoryList.clear()
-                    for (cat in response.query!!.firstPage()!!.categories!!) {
-                        if (!cat.hidden) {
-                            categoryList.add(cat)
-                        }
-                    }
-                    layOutCategories()
-                }) { t ->
-                    binding.categoriesError.setError(t)
-                    binding.categoriesError.visibility = View.VISIBLE
-                    L.e(t)
-                })
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 
-    private fun layOutCategories() {
+    private fun layOutCategories(categoryList: List<MwQueryPage.Category>) {
         if (categoryList.isEmpty()) {
             binding.categoriesNoneFound.visibility = View.VISIBLE
             binding.categoriesRecycler.visibility = View.GONE
@@ -86,11 +69,12 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
         binding.categoriesRecycler.visibility = View.VISIBLE
         binding.categoriesNoneFound.visibility = View.GONE
         binding.categoriesError.visibility = View.GONE
+        binding.categoriesRecycler.adapter = CategoryAdapter(categoryList)
     }
 
     private inner class CategoryItemHolder constructor(itemView: PageItemView<PageTitle>) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(category: MwQueryPage.Category) {
-            val title = PageTitle(category.title, pageTitle.wikiSite)
+            val title = PageTitle(category.title, viewModel.pageTitle.wikiSite)
             view.item = title
             view.setTitle(title.text.replace("_", " "))
         }
@@ -99,7 +83,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
             get() = itemView as PageItemView<PageTitle>
     }
 
-    private inner class CategoryAdapter : RecyclerView.Adapter<CategoryItemHolder>() {
+    private inner class CategoryAdapter(val categoryList: List<MwQueryPage.Category>) : RecyclerView.Adapter<CategoryItemHolder>() {
         override fun getItemCount(): Int {
             return categoryList.size
         }
@@ -142,11 +126,10 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     companion object {
-        private const val TITLE = "title"
+        const val ARG_TITLE = "title"
 
-        @JvmStatic
         fun newInstance(title: PageTitle): CategoryDialog {
-            return CategoryDialog().apply { arguments = bundleOf(TITLE to title) }
+            return CategoryDialog().apply { arguments = bundleOf(ARG_TITLE to title) }
         }
     }
 }

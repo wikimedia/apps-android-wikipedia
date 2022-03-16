@@ -123,7 +123,7 @@ interface Service {
     fun getImagesAndThumbnails(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=categories&clprop=hidden&cllimit=500")
-    fun getCategories(@Query("titles") titles: String): Observable<MwQueryResponse>
+    suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=categorymembers&cmlimit=500")
     fun getCategoryMembers(
