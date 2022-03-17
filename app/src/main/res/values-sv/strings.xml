@@ -799,7 +799,7 @@
   <string name="customize_toolbar_drag_and_drop_placeholder">Dra och släpp dina favoritobjekt här 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Återställ till standardvärden</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Håll ned draikonen för att flytta objektet</string>
-  <string name="customize_toolbar_item_default_tooltip">Tryck och håll ned objekt för att flytta runt det</string>
+  <string name="customize_toolbar_item_default_tooltip">Tryck och dra objekt för att flytta på det</string>
   <string name="suggested_edits_describe_articles">Beskriv artiklar</string>
   <string name="suggested_edits_caption_images">Skriv bildtexter</string>
   <string name="suggested_edits_tag_images">Tagga bilder</string>
