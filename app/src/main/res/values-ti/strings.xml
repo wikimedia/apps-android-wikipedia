@@ -72,7 +72,7 @@
   <string name="langlinks_filter_hint">ድለይ</string>
   <string name="langlinks_no_match">ምንም ቋንቋታት ኣይተረኸቡን</string>
   <string name="langlinks_activity_title">ካልኦት ቋንቋታት</string>
-  <string name="langlinks_your_wikipedia_languages">ናይ ዊኪፐድያ ቋንቋታትኻ</string>
+  <string name="langlinks_your_wikipedia_languages">ቋንቋታት ዊኪፐድያኻ</string>
   <string name="menu_save_changes">ለውጥታት ኣሕትም</string>
   <string name="edit_saved_successfully">ኣርትዖት ተሓቲሙ!</string>
   <string name="dialog_message_edit_failed_retry">እንደገና ፈትን</string>
@@ -137,6 +137,7 @@
   <string name="about_activity_title">ብዛዕባ</string>
   <string name="edit_abandon_confirm_yes">እወ</string>
   <string name="edit_abandon_confirm_no">ኣይፋል</string>
+  <string name="edit_how_page_improved">ነቲ ገጽ ብኸመይ ኣመሓይሽካዮ?</string>
   <string name="edit_next">ዝቕጽል</string>
   <string name="edit_done">ኣሕትም</string>
   <string name="edit_preview">ቅድመ ትርኢት</string>
@@ -145,6 +146,7 @@
   <string name="edit_zoom_in">ኣዕብይ</string>
   <string name="edit_zoom_out">ኣንእስ</string>
   <string name="edit_summary_tag_other">ካልእ</string>
+  <string name="edit_summary_tag_other_hint">ነቲ ገጽ እተመሓይሾ ካልኦት መገድታት</string>
   <string name="page_similar_titles">ተመሳሳሊ ገጻት</string>
   <string name="search_did_you_mean">«%s» ማለትካ ድዩ?</string>
   <string name="search_results_count_zero">ውጽኢታት የለዉን</string>
@@ -307,7 +309,8 @@
   <string name="view_random_card_title">ሃውራዊ</string>
   <string name="view_random_article_card_title">ሃውራዊ ጽሑፍ</string>
   <string name="view_random_article_card_action">ተወሰኽቲ ሃውራዊ ጽሑፋት</string>
-  <string name="view_top_read_card_title">ብብዝሒ ዝንበቡ</string>
+  <string name="view_top_read_card_title">ብብዝሒ ዝተነበቡ</string>
+  <string name="view_top_read_card_action">ዝርዝር ናይ ዝበዝሑ ዝተነበቡ ጽሑፋት</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d ሽሕ</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d ሚልዮን</string>
   <string name="view_main_page_card_title">ሎሚ ኣብ ዊኪፐድያ</string>
@@ -336,7 +339,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ሕራይ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ኣትርፍ</string>
   <string name="feed_accessibility_card_load_more_button">ተወሳኺ ጸዓን</string>
-  <string name="top_read_activity_title">ብብዝሒ ዝንበቡ ብ%s</string>
+  <string name="top_read_activity_title">ብብዝሒ ዝተነበቡ ብ%s</string>
   <string name="tabs_activity_title">ጽላታት</string>
   <string name="description_edit_text_hint">ናይ ጽሑፍ መግለጺ</string>
   <string name="description_edit_article_description_label">ጽሑፍ</string>
@@ -362,6 +365,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">ናይ ጽሑፍ መግለጺ ተሓቲሙ! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">ናይ ምስሊ መግለጺ ጽሑፍ ተሓቲሙ!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">ናይ ምስሊ መግለጺ ጽሑፍ ተሓቲሙ! (%s)</string>
+  <string name="description_edit_success_encouragement">በቃ ንኩሉ ሰብ ዊኪፐድያ ዝሓሸ ጌርካዮ</string>
   <string name="description_edit_success_done">ተወዲኡ</string>
   <string name="description_edit_success_did_you_know">ትፈልጥ ዶ?</string>
   <string name="description_edit_tutorial_title_descriptions">ናይ ጽሑፍ መግለጺታት</string>

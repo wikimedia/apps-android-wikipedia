@@ -57,4 +57,8 @@ class SearchActionProvider(context: Context,
     override fun overridesItemVisibility(): Boolean {
         return true
     }
+
+    fun selectAllQueryTexts() {
+        binding.searchInput.selectAllQueryTexts()
+    }
 }

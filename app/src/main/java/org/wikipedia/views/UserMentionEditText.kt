@@ -5,6 +5,7 @@ import android.text.*
 import android.text.style.ForegroundColorSpan
 import android.util.AttributeSet
 import androidx.annotation.ColorInt
+import androidx.core.text.getSpans
 import androidx.core.widget.doOnTextChanged
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
@@ -90,7 +91,7 @@ class UserMentionEditText : PlainPasteEditText {
             }
             onUserNameChanged(editable.substring(userNameStartPos, userNameEndPos))
         } else if (selStart == selEnd && !isEnteringUserName) {
-            val spans = editable.getSpans(selStart, selEnd, UserColorSpan::class.java)
+            val spans = editable.getSpans<UserColorSpan>(selStart, selEnd)
             if (spans.isNotEmpty()) {
                 userNameStartPos = editable.getSpanStart(spans[0])
                 userNameEndPos = editable.getSpanEnd(spans[0])
@@ -168,7 +169,7 @@ class UserMentionEditText : PlainPasteEditText {
     fun getParsedText(wikiSite: WikiSite): String {
         var str = editable.toString()
 
-        val spans = editable.getSpans(0, editable.length, UserColorSpan::class.java)
+        val spans = editable.getSpans<UserColorSpan>()
         if (spans.isNotEmpty()) {
 
             val pairs = mutableListOf<MutablePair<Int, Int>>()

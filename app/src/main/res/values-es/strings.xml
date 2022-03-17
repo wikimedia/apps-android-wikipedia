@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* AVIADOR71
 * Agent
 * Agusbou2015
 * Amaia
@@ -8,6 +9,7 @@
 * Athena in Wonderland
 * Bruno44101
 * Canaan9801
+* Chopan050
 * Codynguyen1116
 * Cooltey
 * Csbotero
@@ -113,6 +115,7 @@
   <string name="share_via">Compartir por</string>
   <string name="image_share_via">Compartir por</string>
   <string name="search_redirect_from">Redirigido desde %s</string>
+  <string name="page_edit_history_comment_placeholder">Resumen de edición vacío</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
   <string name="menu_page_other_languages">Cambiar idioma</string>
   <string name="menu_page_find_in_page">Buscar en artículo</string>
@@ -215,6 +218,7 @@
   <string name="dialog_create_account_checking_progress">Verificando</string>
   <string name="create_account_email_hint">Correo electrónico (opcional)</string>
   <string name="create_account_password_repeat_hint">Repetir contraseña</string>
+  <string name="create_account_password_is_username">La contraseña no puede ser la misma que el nombre de usuario</string>
   <string name="create_account_passwords_mismatch_error">Las contraseñas no coinciden</string>
   <string name="create_account_email_error">Dirección de correo electrónico no válida.</string>
   <string name="create_account_username_error">Caracteres no válidos en el nombre de usuario</string>
@@ -1097,7 +1101,7 @@
   <string name="watchlist_details_prev_edit">Edición anterior</string>
   <string name="thank_label">Agradecer</string>
   <string name="view_user_page">Ver página de usuario</string>
-  <string name="thank_dialog_title_text">Enviar agradecimiento públicamente</string>
+  <string name="thank_dialog_title_text">Agradecer públicamente</string>
   <string name="thank_dialog_text">\'Gracias\' es una manera fácil de mostrar agradecimiento por el trabajo de un editor en Wikipedia. Dar las \'Gracias\' no se puede deshacer y es públicamente visible.</string>
   <string name="thank_dialog_positive_button_text">Agradecer</string>
   <string name="thank_dialog_negative_button_text">Cancelar</string>

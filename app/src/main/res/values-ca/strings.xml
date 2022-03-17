@@ -68,6 +68,10 @@
   <string name="share_via">Comparteix mitjançant…</string>
   <string name="image_share_via">Compareteix amb</string>
   <string name="search_redirect_from">Redirigit des de %s</string>
+  <string name="page_edit_history_activity_title">Historial de revisions: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Resum d\'edició buit</string>
+  <string name="page_edit_history_metrics_content_description">Mètriques de %1$s a %2$s</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cerca a l\'article</string>
@@ -78,6 +82,7 @@
   <string name="menu_page_view_edit_history">Mostra l\'historial de modificacions</string>
   <string name="menu_page_edit_history">Modifica l\'historial</string>
   <string name="menu_page_remove_from_watchlist">Suprimeix de la llista de seguiment</string>
+  <string name="menu_page_watched">Seguida</string>
   <string name="edit_section_find_in_page">Cerca a la pàgina</string>
   <string name="menu_page_font_and_theme">Tipus de lletra i tema</string>
   <string name="menu_page_add_to_list">Afegeix a la llista de lectura</string>
@@ -173,6 +178,7 @@
   <string name="dialog_create_account_checking_progress">S\'està verificant</string>
   <string name="create_account_email_hint">Adreça electrònica (opcional)</string>
   <string name="create_account_password_repeat_hint">Repetiu la contrasenya</string>
+  <string name="create_account_password_is_username">La contrasenya no pot ser igual que el nom d\'usuari</string>
   <string name="create_account_passwords_mismatch_error">Les contrasenyes no coincideixen</string>
   <string name="create_account_email_error">Correu electrònic no vàlid</string>
   <string name="create_account_username_error">Caràcters no vàlids en el nom d\'usuari</string>
@@ -399,6 +405,7 @@
   <string name="error_blocked_expiry">Expiració del blocatge: %s</string>
   <string name="error_blocked_id">ID del blocatge: %s</string>
   <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador o administradora&lt;/a&gt; per a discutir el blocatge.</string>
+  <string name="theme_chooser_menu_item_tooltip">Personalitzeu la barra d\'eines i proveu el mode de focalització en lectura</string>
   <string name="error_blocked_footer_no_blocker">Podeu contactar un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt; administrador o una administradora&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
@@ -429,6 +436,7 @@
   <string name="reading_focus_mode">Mode de focalització en lectura</string>
   <string name="reading_focus_mode_detail">Amaga les funcionalitats d\'edició i la barra d\'eines inferior en desplaçar-se</string>
   <string name="theme_category_toolbar">Barra d\'eines</string>
+  <string name="theme_customize_toolbar">Personalitza la barra d\'eines</string>
   <string name="nav_item_saved">Desat</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_move_to">Mou a la llista de lectura</string>
@@ -773,6 +781,7 @@
   <string name="description_starts_with_uppercase">Comenceu amb minúscula a menys que la primera paraula sigui un nom propi.</string>
   <string name="description_starts_with_lowercase">Evita començar per una lletra en minúscula.</string>
   <string name="description_is_in_different_language">El text sembla que estigui en una llengua no esperada. Caldria que fos en %s.</string>
+  <string name="description_verification_notice">Verifiqueu que la vostra descripció és en %1$s. Ignoreu lliurement aquesta notificació si la descripció que heu escrit ja és en %2$s.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció d\'article!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció d\'article.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
@@ -790,7 +799,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealment una línia, entre dos o dotze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
+  <string name="customize_toolbar_title">Personalitza la barra d\'eines</string>
+  <string name="customize_toolbar_description_text">Personalitza la barra d\'eines inferior amb 5 enllaços que trobeu útils.</string>
+  <string name="customize_toolbar_category_toolbar">Barra d\'eines</string>
   <string name="customize_toolbar_category_menu">Menú</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Arrossegueu i deixeu anar els vostres elements preferits ací 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Reinicialitza als valors per defecte</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Mantingueu la icona d\'arrossegament per a moure l\'element</string>
+  <string name="customize_toolbar_item_default_tooltip">Premeu i arrossegueu un element per a reposicionar-lo</string>
   <string name="suggested_edits_describe_articles">Descriu articles</string>
   <string name="suggested_edits_caption_images">Posa llegendes a les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
@@ -1072,6 +1088,10 @@
   <string name="talk_share_discussion_subject">Viquipèdia - debat en el tema «%s» de la pàgina de discussió</string>
   <string name="talk_share_talk_page">Viquipèdia - debats a la pàgina de discussió</string>
   <string name="talk_edit_disclaimer">Aquesta és una pàgina de discussió. Respecteu les recomanacions de les pàgines de discussió i recordeu signar els vostres apunts amb quatre titlles: ~~~~ en enviar utilitzant wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Pàgines de discussió\"&gt;Recomanacions de les pàgines de discussió&lt;/a&gt;</string>
+  <string name="talk_search_hint">Cerca en els missatges</string>
+  <string name="talk_overflow_sort_by">Ordena per</string>
+  <string name="talk_overflow_sort_date_published">Data de publicació</string>
+  <string name="talk_overflow_sort_topic_name">Nom del tema</string>
   <string name="menu_option_share_talk_discussion">Comparteix la discussió</string>
   <string name="menu_option_share_talk_page">Comparteix la pàgina de discussió</string>
   <string name="menu_option_share_edit">Comparteix l\'edició</string>
@@ -1089,6 +1109,10 @@
   <string name="thank_dialog_positive_button_text">Envia agraïments</string>
   <string name="thank_dialog_negative_button_text">Cancel·la</string>
   <string name="thank_success_message">S\'han enviat els agraïments a %s 👍</string>
+  <string name="menu_option_view_user_profile">Mosta la pàgina de perfil d\'usuari</string>
+  <string name="menu_option_view_user_talk">Mosta la pàgina de discussió</string>
+  <string name="revision_compare_button">Comparar</string>
+  <string name="revision_compare_two_only">Només es poden seleccionar dues revisions.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s i la seva pàgina de discussió s\'han afegit a la vostra llista de seguiment %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Canvia</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentment</string>

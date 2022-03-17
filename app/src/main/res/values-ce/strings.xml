@@ -8,7 +8,7 @@
   <string name="app_name_alpha">Википеди Альфа</string>
   <string name="wikimedia">Викикимеди</string>
   <string name="search_hint">Википедин чухула лахар</string>
-  <string name="nav_item_more">Кхин</string>
+  <string name="nav_item_more">Кхин а</string>
   <string name="error_network_error" fuzzy="true">ЗӀе цакарий :(</string>
   <string name="page_error_retry">ЙухагӀорта</string>
   <string name="page_error_back_to_main">Йуханехьа</string>
@@ -66,7 +66,7 @@
   <string name="edit_done" fuzzy="true">Ӏалашдан</string>
   <string name="edit_preview">Хьалххе хьажар</string>
   <string name="edit_summary_tag_grammar">Нийсайаздар</string>
-  <string name="edit_summary_tag_other">Кхин</string>
+  <string name="edit_summary_tag_other">Кхийерг</string>
   <string name="page_similar_titles">Тера агӀонаш</string>
   <string name="table_close">ДӀачӀагӀа</string>
   <string name="wiktionary_no_definitions_found">Цхьаа къастам цакарий.</string>

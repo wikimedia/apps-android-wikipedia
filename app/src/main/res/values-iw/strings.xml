@@ -66,6 +66,10 @@
   <string name="share_via">שיתוף באמצעות</string>
   <string name="image_share_via">שיתוף דרך</string>
   <string name="search_redirect_from">הופנה מהדף %s</string>
+  <string name="page_edit_history_activity_title">היסטוריית גרסאות:  %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;מ&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">תקציר עריכה ריק</string>
+  <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
@@ -172,6 +176,7 @@
   <string name="dialog_create_account_checking_progress">אימות</string>
   <string name="create_account_email_hint">דואר אלקטרוני (לא חובה)</string>
   <string name="create_account_password_repeat_hint">חזרה על סיסמה</string>
+  <string name="create_account_password_is_username">הסיסמה אינה יכולה להיות זהה לשם המשתמש</string>
   <string name="create_account_passwords_mismatch_error">הסיסמאות אינן תואמות</string>
   <string name="create_account_email_error">כתובת דוא\"ל שגויה</string>
   <string name="create_account_username_error">תווים בלתי־תקינים בשם המשתמש</string>
@@ -830,11 +835,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
   <string name="customize_toolbar_title">התאמת סרגל כלים</string>
-  <string name="customize_toolbar_description">האתמה אישים של סרגל הניווט התחתון שלך עם הפעולות והיעדים השימושיים לך.</string>
+  <string name="customize_toolbar_description_text">אפשר לעשות התאמה אישית של הסרגל התחתון עם 5 קישורים שהכי שימושיים לך.</string>
   <string name="customize_toolbar_category_toolbar">סרגל כלים</string>
   <string name="customize_toolbar_category_menu">תפריט</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">אפשר לגרור ולשחרר את הפריטים האהובים עליהם כאן 👋</string>
   <string name="customize_toolbar_reset_to_default_button">איפוס</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">יש להחזיק את סמל הגרירה כדי להזיז את הפריט</string>
+  <string name="customize_toolbar_item_default_tooltip">יש להחזיק את ולגרור את הפריט כיד להעביר אותו</string>
   <string name="suggested_edits_describe_articles">הוספת תיאור לערכים</string>
   <string name="suggested_edits_caption_images">הוספת כיתוב לתמונות</string>
   <string name="suggested_edits_tag_images">לתייג תמונות</string>
@@ -1138,6 +1145,10 @@
   <string name="talk_share_discussion_subject">ויקיפדיה – דיון בדף שיחה בנושא \"%s\"</string>
   <string name="talk_share_talk_page">ויקיפדיה – דיונים בדף שיחה</string>
   <string name="talk_edit_disclaimer">זהו דף שיחה. נא לכבד את ההנחיות לשימוש בדפי שיחה, ולזכור לחתום על ההודעות שלך בארבע טילדות בעת שימוש בקוד ויקי.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://he.wikipedia.org/wiki/ויקיפדיה:דף_שיחה\"&gt;ויקיפדיה:דף_שיחה&lt;/a&gt;</string>
+  <string name="talk_search_hint">חיפוש הודעות</string>
+  <string name="talk_overflow_sort_by">מיון לפי</string>
+  <string name="talk_overflow_sort_date_published">תאריך פרסום</string>
+  <string name="talk_overflow_sort_topic_name">שם הנושא</string>
   <string name="menu_option_share_talk_discussion">שיתוף דיון</string>
   <string name="menu_option_share_talk_page">שיתוף דף שיחה</string>
   <string name="menu_option_share_edit">לשתף את העריכה</string>
@@ -1157,6 +1168,8 @@
   <string name="thank_success_message">התודה שלך נשלחה למשתמש %s 👍</string>
   <string name="menu_option_view_user_profile">הצגת דף פרופיל משתמש</string>
   <string name="menu_option_view_user_talk">הצגת דף שיחה</string>
+  <string name="revision_compare_button">השוואה</string>
+  <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>

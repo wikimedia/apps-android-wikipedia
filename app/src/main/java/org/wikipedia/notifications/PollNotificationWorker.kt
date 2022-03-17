@@ -50,7 +50,7 @@ class PollNotificationWorker(
     }
 
     private suspend fun getFullNotifications(foreignWikis: List<String>) {
-        val notificationRepository = NotificationRepository(AppDatabase.getAppDatabase().notificationDao())
+        val notificationRepository = NotificationRepository(AppDatabase.instance.notificationDao())
 
         val response = ServiceFactory.get(WikipediaApp.getInstance().wikiSite)
             .getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)

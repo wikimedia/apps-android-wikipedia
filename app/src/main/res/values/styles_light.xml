@@ -37,6 +37,7 @@
         <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_light</item>
         <item name="list_separator_drawable">@drawable/divider_light</item>
         <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_light</item>
+        <item name="side_panel_list_separator_drawable">@drawable/side_panel_divider_light</item>
 
         <!-- Overrides of our own custom color attributes -->
         <item name="toolbar_icon_color">@color/base30</item>

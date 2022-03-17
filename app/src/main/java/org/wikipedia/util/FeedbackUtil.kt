@@ -6,8 +6,6 @@ import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnLongClickListener
-import android.view.View.VISIBLE
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
@@ -25,30 +23,30 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.staticdata.SpecialAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.suggestededits.SuggestionsActivity
-import org.wikipedia.util.DimenUtil.roundedDpToPx
 import java.util.concurrent.TimeUnit
 
 object FeedbackUtil {
-    @JvmField
+    private val LENGTH_SHORT = TimeUnit.SECONDS.toMillis(3).toInt()
     val LENGTH_DEFAULT = TimeUnit.SECONDS.toMillis(5).toInt()
-
-    @JvmField
     val LENGTH_MEDIUM = TimeUnit.SECONDS.toMillis(8).toInt()
     val LENGTH_LONG = TimeUnit.SECONDS.toMillis(15).toInt()
-    private val TOOLBAR_LONG_CLICK_LISTENER = OnLongClickListener { v: View ->
+    private val TOOLBAR_LONG_CLICK_LISTENER = View.OnLongClickListener { v ->
         showToastOverView(v, v.contentDescription, LENGTH_DEFAULT)
         true
     }
+    private val TOOLBAR_ON_CLICK_LISTENER = View.OnClickListener { v ->
+        showToastOverView(v, v.contentDescription, LENGTH_SHORT)
+    }
 
-    @JvmStatic
-    fun showError(activity: Activity, e: Throwable?) {
-        val error = ThrowableUtil.getAppError(activity, e!!)
+    fun showError(activity: Activity, e: Throwable) {
+        val error = ThrowableUtil.getAppError(activity, e)
         makeSnackbar(activity, error.error, LENGTH_DEFAULT).also {
             if (error.error.length > 200) {
                 it.duration = Snackbar.LENGTH_INDEFINITE
@@ -60,23 +58,19 @@ object FeedbackUtil {
         }
     }
 
-    @JvmStatic
     fun showMessageAsPlainText(activity: Activity, possibleHtml: CharSequence) {
         val richText: CharSequence = StringUtil.fromHtml(possibleHtml.toString())
         showMessage(activity, richText.toString())
     }
 
-    @JvmStatic
     fun showMessage(fragment: Fragment, @StringRes text: Int) {
         makeSnackbar(fragment.requireActivity(), fragment.getString(text), Snackbar.LENGTH_LONG).show()
     }
 
-    @JvmStatic
     fun showMessage(fragment: Fragment, text: String) {
         makeSnackbar(fragment.requireActivity(), text, Snackbar.LENGTH_LONG).show()
     }
 
-    @JvmStatic
     fun showMessage(activity: Activity, @StringRes resId: Int) {
         showMessage(activity, activity.getString(resId), Snackbar.LENGTH_LONG)
     }
@@ -85,33 +79,26 @@ object FeedbackUtil {
         showMessage(activity, activity.getString(resId), duration)
     }
 
-    @JvmOverloads
-    @JvmStatic
     fun showMessage(activity: Activity, text: CharSequence, duration: Int = Snackbar.LENGTH_LONG) {
         makeSnackbar(activity, text, duration).show()
     }
 
-    @JvmStatic
     fun showPrivacyPolicy(context: Context) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.privacy_policy_url)))
     }
 
-    @JvmStatic
     fun showOfflineReadingAndData(context: Context) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.offline_reading_and_data_url)))
     }
 
-    @JvmStatic
     fun showAboutWikipedia(context: Context) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.about_wikipedia_url)))
     }
 
-    @JvmStatic
     fun showAndroidAppFAQ(context: Context) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_faq_url)))
     }
 
-    @JvmStatic
     fun showAndroidAppRequestAnAccount(context: Context) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_request_an_account_url)))
     }
@@ -128,22 +115,20 @@ object FeedbackUtil {
         UriUtil.visitInExternalBrowser(context, Uri.parse(title.uri))
     }
 
-    @JvmOverloads
-    @JvmStatic
     fun showAndroidAppEditingFAQ(context: Context,
                                  @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
         SuggestedEditsFunnel.get().helpOpened()
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
 
-    @JvmStatic
     fun setButtonLongPressToast(vararg views: View) {
-        for (v in views) {
-            v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER)
-        }
+        views.forEach { it.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER) }
     }
 
-    @JvmStatic
+    fun setButtonOnClickToast(vararg views: View) {
+        views.forEach { it.setOnClickListener(TOOLBAR_ON_CLICK_LISTENER) }
+    }
+
     fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int): Snackbar {
         val view = findBestView(activity)
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
@@ -170,13 +155,11 @@ object FeedbackUtil {
         return toast
     }
 
-    @JvmStatic
     fun showTooltip(activity: Activity, anchor: View, text: CharSequence, aboveOrBelow: Boolean,
                     autoDismiss: Boolean, arrowAnchorPadding: Int = 0, topOrBottomMargin: Int = 0): Balloon {
         return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow), anchor, aboveOrBelow, autoDismiss)
     }
 
-    @JvmStatic
     fun showTooltip(activity: Activity, anchor: View, @LayoutRes layoutRes: Int,
                     arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
         return showTooltip(activity, getTooltip(anchor.context, layoutRes, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss)
@@ -184,9 +167,9 @@ object FeedbackUtil {
 
     private fun showTooltip(activity: Activity, balloon: Balloon, anchor: View, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
         if (aboveOrBelow) {
-            balloon.showAlignTop(anchor, 0, roundedDpToPx(8f))
+            balloon.showAlignTop(anchor, 0, DimenUtil.roundedDpToPx(8f))
         } else {
-            balloon.showAlignBottom(anchor, 0, -roundedDpToPx(8f))
+            balloon.showAlignBottom(anchor, 0, -DimenUtil.roundedDpToPx(8f))
         }
         if (!autoDismiss) {
             (activity as BaseActivity).setCurrentTooltip(balloon)
@@ -199,7 +182,7 @@ object FeedbackUtil {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         if (showDismissButton) {
-            binding.buttonView.visibility = VISIBLE
+            binding.buttonView.visibility = View.VISIBLE
         }
 
         val balloon = createBalloon(context) {
@@ -253,6 +236,7 @@ object FeedbackUtil {
             is RandomActivity -> R.id.random_coordinator_layout
             is ReadingListActivity -> R.id.fragment_reading_list_coordinator
             is SuggestionsActivity -> R.id.suggestedEditsCardsCoordinator
+            is EditHistoryListActivity -> R.id.edit_history_coordinator
             else -> android.R.id.content
         }
         return ActivityCompat.requireViewById(activity, viewId)

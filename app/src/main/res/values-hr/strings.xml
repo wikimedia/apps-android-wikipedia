@@ -10,6 +10,7 @@
 * Neptune, the Mystic
 * Patriccck
 * Patrik L.
+* Ponor
 * Vrhnje
 * Wumbolo
 -->
@@ -164,7 +165,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">Dodajte adresu e-pošte</string>
   <string name="create_account_button">Otvori suradnički račun</string>
   <string name="create_account_name_unavailable">Suradničko ime \"%s\" nije dostupno. Molimo izaberite drugo ime.</string>
-  <string name="create_account_ip_block_message">Oprostite, Vašoj IP adresi trenutačno je zabranjeno stvaranje novih računa.</string>
+  <string name="create_account_ip_block_message">Žao nam je, Vašoj internetskoj adresi trenutačno je zabranjeno stvaranje novih računa.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detalji</string>
   <string name="preferences_general_heading">Općenito</string>

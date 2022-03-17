@@ -28,8 +28,6 @@ class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
         const val INTENT_EXTRA_ALLOW_EDIT = "allowEdit"
         const val INTENT_EXTRA_SUGGESTION_REASON = "suggestionReason"
 
-        @JvmStatic
-        @JvmOverloads
         fun newIntent(context: Context, pageTitle: PageTitle, allowEdit: Boolean = true, suggestionReason: String? = null): Intent {
             return Intent(context, FilePageActivity::class.java)
                     .putExtra(INTENT_EXTRA_PAGE_TITLE, pageTitle)
