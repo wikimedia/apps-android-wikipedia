@@ -124,6 +124,7 @@ class EditHistoryListActivity : BaseActivity() {
             editHistoryListAdapter.loadStateFlow.collect {
                 loadHeader.loadState = it.refresh
                 loadFooter.loadState = it.append
+                enableCompareButton(binding.compareButton, editHistoryListAdapter.itemCount > 2)
             }
         }
 
@@ -157,12 +158,16 @@ class EditHistoryListActivity : BaseActivity() {
         if (viewModel.selectedRevisionTo != null) {
             binding.compareToText.text = DateUtil.getShortDayWithTimeString(DateUtil.iso8601DateParse(viewModel.selectedRevisionTo!!.timeStamp))
         }
-        if (viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null) {
-            binding.compareConfirmButton.isEnabled = true
-            binding.compareConfirmButton.setTextColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
+        enableCompareButton(binding.compareConfirmButton, viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null)
+    }
+
+    private fun enableCompareButton(button: TextView, enable: Boolean) {
+        if (enable) {
+            button.isEnabled = true
+            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
         } else {
-            binding.compareConfirmButton.isEnabled = false
-            binding.compareConfirmButton.setTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
+            button.isEnabled = false
+            button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
         }
     }
 
