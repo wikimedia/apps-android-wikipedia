@@ -720,7 +720,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
 
             override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
-                startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), title.displayText, revisionId, title.wikiSite.languageCode))
+                startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), title, revisionId))
             }
 
             // ignore
