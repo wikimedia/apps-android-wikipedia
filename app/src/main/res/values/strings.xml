@@ -62,6 +62,11 @@
         <item quantity="one">%1$d edit since %2$s</item>
         <item quantity="other">%1$d edits since %2$s</item>
     </plurals>
+    <string name="page_edit_history_empty_search_message">Try removing %s to see more revision history</string>
+    <plurals name="page_edit_history_number_of_filters">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filters</item>
+    </plurals>
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
