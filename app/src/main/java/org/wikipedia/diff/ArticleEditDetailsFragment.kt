@@ -56,14 +56,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireActivity().title = getString(R.string.revision_diff_compare)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
 
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
@@ -151,8 +147,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.contentContainer.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
             if (scrollY > bounds.top) {
                 binding.overlayRevisionDetailsView.visibility = View.VISIBLE
+                if (binding.toolbarTitleView.text.isNullOrEmpty()) {
+                    binding.toolbarTitleView.text = getString(R.string.revision_diff_compare_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
+                }
             } else {
                 binding.overlayRevisionDetailsView.visibility = View.INVISIBLE
+                binding.toolbarTitleView.text = ""
             }
         })
     }
@@ -290,7 +290,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun setEnableDisableTint(view: ImageView, isDisabled: Boolean) {
         ImageViewCompat.setImageTintList(view, AppCompatResources.getColorStateList(requireContext(),
             ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
-                R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color)))
+                R.attr.material_theme_de_emphasised_color else R.attr.material_theme_secondary_color)))
     }
 
     private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
