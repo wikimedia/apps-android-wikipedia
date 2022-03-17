@@ -289,9 +289,7 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity
-            android:name=".diff.ArticleEditDetailsActivity"
-            android:label=""
-            android:theme="@style/AppTheme.ActionBar"  />
+            android:name=".diff.ArticleEditDetailsActivity" />
 
         <activity
             android:name=".page.customize.CustomizeToolbarActivity"
