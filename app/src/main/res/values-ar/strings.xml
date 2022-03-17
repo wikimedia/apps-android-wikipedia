@@ -85,9 +85,14 @@
   <string name="menu_page_other_languages">غير اللغة</string>
   <string name="menu_page_find_in_page">ابحث في المقالة</string>
   <string name="menu_page_add_to_watchlist">أضف لقائمة المراقبة</string>
+  <string name="menu_page_watch">راقب</string>
+  <string name="menu_page_unwatch">لا تراقب</string>
   <string name="menu_page_view_talk">اعرض صفحة النقاش</string>
+  <string name="menu_page_talk_page">صفحة النقاش</string>
   <string name="menu_page_view_edit_history">اعرض تاريخ التعديلات</string>
+  <string name="menu_page_edit_history">تاريخ التعديل</string>
   <string name="menu_page_remove_from_watchlist">أزل من قائمة المراقبة</string>
+  <string name="menu_page_watched">مُراقبَة</string>
   <string name="edit_section_find_in_page">البحث في الصفحة</string>
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
   <string name="menu_page_add_to_list">أضف إلى قائمة القراءة</string>
@@ -96,6 +101,7 @@
   <string name="feed_card_add_to_default_list">احفظ</string>
   <string name="menu_page_share">شارك الوصلة</string>
   <string name="menu_article_share">شارك المقالة</string>
+  <string name="menu_page_article_share">شارك</string>
   <string name="menu_page_open_a_new_tab">افتح تبويبا جديدًا</string>
   <string name="menu_page_new_tab">تبويب جديد</string>
   <string name="menu_page_reading_lists">قوائم القراءة</string>
@@ -182,6 +188,7 @@
   <string name="dialog_create_account_checking_progress">جارٍ التحقق…</string>
   <string name="create_account_email_hint">البريد الإلكتروني (اختياري)</string>
   <string name="create_account_password_repeat_hint">أعد كلمة السر</string>
+  <string name="create_account_password_is_username">لا يمكن أن تكون كلمة المرور هي نفس اسم المستخدم</string>
   <string name="create_account_passwords_mismatch_error">كلمتا السر لا تتطابقان</string>
   <string name="create_account_email_error">عنوان البريد الإلكتروني غير صحيح</string>
   <string name="create_account_username_error">أحرف غير صالحة في اسم المستخدم</string>
