@@ -67,8 +67,10 @@
   <string name="share_via">Partilhar via</string>
   <string name="image_share_via">Partilhar através de</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
+  <string name="page_edit_history_activity_title">Historial de revisões: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder" fuzzy="true">Não há nenhum comentário associado a esta edição</string>
+  <string name="page_edit_history_comment_placeholder">Resumo de edição vazio</string>
+  <string name="page_edit_history_metrics_content_description">Métricas desde %1$s até %2$s</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
   <string name="menu_page_find_in_page">Localizar no artigo</string>
@@ -796,10 +798,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
   <string name="description_edit_tutorial_promise">Ao começar, prometo não utilizar esta funcionalidade de forma abusiva.</string>
   <string name="customize_toolbar_title">Personalizar a barra de ferramentas</string>
+  <string name="customize_toolbar_description_text">Personalize a barra de ferramentas inferior com cinco hiperligações que considera mais úteis.</string>
   <string name="customize_toolbar_category_toolbar">Barra de ferramentas</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Arraste e largue os seus elementos preferidos aqui 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Reiniciar para valores padrão</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Segure o ícone de arrastar para mover o elemento</string>
+  <string name="customize_toolbar_item_default_tooltip">Pressione e arraste um elemento para reposicioná-lo</string>
   <string name="suggested_edits_describe_articles">Descrever artigos</string>
   <string name="suggested_edits_caption_images">Legendar imagens</string>
   <string name="suggested_edits_tag_images">Etiquetar imagens</string>
@@ -1104,6 +1109,8 @@
   <string name="thank_success_message">O seu agradecimento foi enviado a %s</string>
   <string name="menu_option_view_user_profile">Ver página de perfil do utilizador</string>
   <string name="menu_option_view_user_talk">Ver página de discussão</string>
+  <string name="revision_compare_button">Comparar</string>
+  <string name="revision_compare_two_only">Só podem ser selecionadas duas revisões.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e a respetiva página de discussão foram adicionados às suas páginas vigiadas %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Alterar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
