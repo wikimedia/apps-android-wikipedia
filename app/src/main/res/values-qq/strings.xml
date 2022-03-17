@@ -1123,6 +1123,7 @@
   <string name="menu_option_view_user_talk">Menu label to navigate to the talk page of the selected user.</string>
   <string name="menu_option_view_user_contributions">Menu item for viewing the contributions list of the selected user.</string>
   <string name="revision_diff_compare">Title of screen for comparing revisions.</string>
+  <string name="revision_diff_compare_title">Title of screen for comparing revisions of an article. The %s symbol is replaced with the article title.</string>
   <string name="revision_diff_from">Label for older revision to be compared.</string>
   <string name="revision_diff_to">Label for newer revision to be compared.</string>
   <string name="revision_diff_line_num">Label for line number seen in a diff between revisions. The %d symbol is replaced with the line number.</string>

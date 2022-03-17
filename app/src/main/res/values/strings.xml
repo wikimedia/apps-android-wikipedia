@@ -1177,6 +1177,7 @@
     <string name="menu_option_view_user_talk">View talk page</string>
     <string name="menu_option_view_user_contributions">View user contributions</string>
     <string name="revision_diff_compare">Compare revisions</string>
+    <string name="revision_diff_compare_title">Compare revisions: %s</string>
     <string name="revision_diff_from">From:</string>
     <string name="revision_diff_to">To:</string>
     <string name="revision_diff_line_num">Line %d</string>
