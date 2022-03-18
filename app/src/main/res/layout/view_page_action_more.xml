@@ -22,7 +22,7 @@
 
     <LinearLayout
         android:id="@+id/moreMenuList"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:background="?attr/paper_color"
@@ -34,6 +34,7 @@
             style="@style/OverflowMenuItem"
             android:drawablePadding="16dp"
             android:text="@string/nav_item_forward"
+            android:fontFamily="sans-serif-medium"
             app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
             app:drawableTint="?attr/section_title_color" />
 

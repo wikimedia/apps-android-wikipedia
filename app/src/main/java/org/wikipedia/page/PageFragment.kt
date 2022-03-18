@@ -204,7 +204,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
         }
 
-        bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabLayout, null, Gravity.BOTTOM, updateElevation = false)
+        bottomBarHideHandler = ViewHideHandler(binding.bottomNavBar, null, Gravity.BOTTOM, updateElevation = false)
         bottomBarHideHandler.setScrollView(webView)
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
 

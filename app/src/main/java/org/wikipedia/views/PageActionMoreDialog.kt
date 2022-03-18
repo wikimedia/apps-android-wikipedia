@@ -18,6 +18,7 @@ import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
@@ -79,13 +80,17 @@ class PageActionMoreDialog(val callback: PageActionItem.Callback,
                 }
             }
         }
-
+        disableBackgroundDim()
+        requireDialog().window?.let {
+            DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+        }
         return binding.root
     }
 
     override fun onStart() {
         super.onStart()
-        BottomSheetBehavior.from(requireView().parent as View).peekHeight = (DimenUtil.displayHeightPx * 0.75).toInt()
+        BottomSheetBehavior.from(requireView().parent as View).peekHeight =
+            (DimenUtil.displayHeightPx * 0.75).toInt()
     }
 
     companion object {

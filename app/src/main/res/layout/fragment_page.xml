@@ -46,6 +46,7 @@
             android:layout_marginBottom="?attr/actionBarSize" />
 
         <LinearLayout
+            android:id="@+id/bottom_nav_bar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="bottom"
@@ -56,20 +57,19 @@
                 android:id="@+id/page_actions_tab_layout"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="0.84"/>
 
             <TextView
                 android:id="@+id/page_action_layout_more_menu"
                 style="@style/PageActionTabLayoutButtonStyle"
-                android:layout_width="48dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0"
+                android:layout_weight="0.16"
                 android:clickable="true"
                 android:contentDescription="@string/menu_feed_overflow_label"
                 android:focusable="true"
+                android:minWidth="48dp"
                 android:text="@string/menu_page_overflow_label"
-                android:textColor="?attr/colorAccent"
-                app:drawableTint="?attr/colorAccent"
                 app:srcCompat="@drawable/ic_more_vert_themed_24dp" />
         </LinearLayout>
 
