@@ -10,14 +10,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 
 class CategoryDialogViewModel(bundle: Bundle) : ViewModel() {
 
     val pageTitle = bundle.getParcelable<PageTitle>(CategoryDialog.ARG_TITLE)!!
-    val categoriesData = MutableLiveData<Resource<List<MwQueryPage.Category>>>()
+    val categoriesData = MutableLiveData<Resource<List<PageTitle>>>()
 
     init {
         fetchCategories()
@@ -29,7 +28,12 @@ class CategoryDialogViewModel(bundle: Bundle) : ViewModel() {
         }) {
             withContext(Dispatchers.IO) {
                 val response = ServiceFactory.get(pageTitle.wikiSite).getCategories(pageTitle.prefixedText)
-                categoriesData.postValue(Resource.Success(response.query!!.firstPage()!!.categories!!.filter { !it.hidden }))
+                val titles = response.query!!.pages!!.map { page ->
+                    PageTitle(page.title, pageTitle.wikiSite).also {
+                        it.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)
+                    }
+                }
+                categoriesData.postValue(Resource.Success(titles))
             }
         }
     }

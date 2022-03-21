@@ -457,7 +457,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (title.namespace() === Namespace.USER_TALK || title.namespace() === Namespace.TALK) {
             startTalkTopicActivity(title)
             return
-        } else if (title.isCategory) {
+        } else if (title.namespace() == Namespace.CATEGORY) {
             startActivity(CategoryActivity.newIntent(requireActivity(), title))
             return
         }

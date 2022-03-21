@@ -119,7 +119,7 @@ interface Service {
     @get:Headers("Cache-Control: no-cache")
     val randomWithImageLabels: Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=categories&clprop=hidden&cllimit=500")
+    @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles&gclshow=!hidden&gcllimit=500")
     suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=description|pageimages|info&generator=categorymembers&inprop=varianttitles&gcmprop=ids|title")

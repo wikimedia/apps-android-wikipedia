@@ -69,9 +69,6 @@ data class PageTitle(
             return mainPageTitle == displayText
         }
 
-    val isCategory: Boolean
-        get() = namespace() == Namespace.CATEGORY
-
     val uri: String
         get() = getUriForDomain(wikiSite.authority())
 

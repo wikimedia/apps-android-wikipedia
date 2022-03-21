@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogCategoriesBinding
-import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
@@ -61,7 +60,7 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
         super.onDestroy()
     }
 
-    private fun layOutCategories(categoryList: List<MwQueryPage.Category>) {
+    private fun layOutCategories(categoryList: List<PageTitle>) {
         if (categoryList.isEmpty()) {
             binding.categoriesNoneFound.visibility = View.VISIBLE
             binding.categoriesRecycler.visibility = View.GONE
@@ -73,14 +72,13 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private inner class CategoryItemHolder constructor(val view: PageItemView<PageTitle>) : RecyclerView.ViewHolder(view) {
-        fun bindItem(category: MwQueryPage.Category) {
-            val title = PageTitle(category.title, viewModel.pageTitle.wikiSite)
+        fun bindItem(title: PageTitle) {
             view.item = title
-            view.setTitle(title.text.replace("_", " "))
+            view.setTitle(StringUtil.removeNamespace(title.displayText))
         }
     }
 
-    private inner class CategoryAdapter(val categoryList: List<MwQueryPage.Category>) : RecyclerView.Adapter<CategoryItemHolder>() {
+    private inner class CategoryAdapter(val categoryList: List<PageTitle>) : RecyclerView.Adapter<CategoryItemHolder>() {
         override fun getItemCount(): Int {
             return categoryList.size
         }

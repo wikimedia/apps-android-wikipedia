@@ -28,7 +28,6 @@ class MwQueryResult {
     private val tokens: Tokens? = null
     private val echomarkread: MarkReadResponse? = null
     val pages: MutableList<MwQueryPage>? = null
-    val categorymembers: MutableList<MwQueryPage>? = null
     val echomarkseen: MarkReadResponse? = null
     val notifications: NotificationList? = null
     val watchlist: List<WatchlistItem> = emptyList()
