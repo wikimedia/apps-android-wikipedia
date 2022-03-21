@@ -191,6 +191,13 @@ data class PageTitle(
         )
     }
 
+    fun matches(other: PageTitle?): Boolean {
+        return other != null &&
+                other.prefixedText == prefixedText &&
+                other.namespace == namespace &&
+                other.wikiSite.languageCode == wikiSite.languageCode
+    }
+
     companion object {
         fun withSeparateFragment(prefixedText: String, fragment: String?, wiki: WikiSite): PageTitle {
             return if (fragment.isNullOrEmpty()) {

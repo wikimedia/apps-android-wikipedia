@@ -459,9 +459,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         dismissBottomSheet()
         val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK)
 
-        if (model.title?.prefixedText == title.prefixedText &&
-                model.title?.wikiSite?.languageCode == title.wikiSite.languageCode &&
-                !title.fragment.isNullOrEmpty()) {
+        if (title.matches(model.title) && !title.fragment.isNullOrEmpty()) {
             scrollToSection(title.fragment!!)
             return
         }
@@ -923,8 +921,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {
         // is the new title the same as what's already being displayed?
         if (currentTab.backStack.isNotEmpty() &&
-                currentTab.backStack[currentTab.backStackPosition].title.prefixedText == title.prefixedText &&
-                currentTab.backStack[currentTab.backStackPosition].title.wikiSite.languageCode == title.wikiSite.languageCode) {
+                title.matches(currentTab.backStack[currentTab.backStackPosition].title)) {
             if (model.page == null || isRefresh) {
                 pageFragmentLoadState.loadFromBackStack(isRefresh)
             } else if (!title.fragment.isNullOrEmpty()) {
