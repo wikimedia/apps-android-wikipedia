@@ -137,7 +137,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
                             System.currentTimeMillis(), 0L), revision.user))
                     binding.talkLastModified.isVisible = true
                     binding.talkLastModified.setOnClickListener { _ ->
-                        fragment.startActivity(ArticleEditDetailsActivity.newIntent(fragment.requireContext(), pageTitle.displayText, it.revId, pageTitle.wikiSite.languageCode))
+                        fragment.startActivity(ArticleEditDetailsActivity.newIntent(fragment.requireContext(), pageTitle, it.revId))
                     }
                 }
             }
