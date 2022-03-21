@@ -72,15 +72,12 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
         binding.categoriesRecycler.adapter = CategoryAdapter(categoryList)
     }
 
-    private inner class CategoryItemHolder constructor(itemView: PageItemView<PageTitle>) : RecyclerView.ViewHolder(itemView) {
+    private inner class CategoryItemHolder constructor(val view: PageItemView<PageTitle>) : RecyclerView.ViewHolder(view) {
         fun bindItem(category: MwQueryPage.Category) {
             val title = PageTitle(category.title, viewModel.pageTitle.wikiSite)
             view.item = title
             view.setTitle(title.text.replace("_", " "))
         }
-
-        val view: PageItemView<PageTitle>
-            get() = itemView as PageItemView<PageTitle>
     }
 
     private inner class CategoryAdapter(val categoryList: List<MwQueryPage.Category>) : RecyclerView.Adapter<CategoryItemHolder>() {

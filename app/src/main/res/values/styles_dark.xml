@@ -112,6 +112,7 @@
     <style name="BottomSheetDialogDark" parent="Theme.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
         <item name="colorAccent">@color/accent75</item>
+        <item name="colorPrimary">@color/accent75</item>
         <item name="colorSwitchThumbNormal">@color/base90</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:disabledAlpha">1.0</item>

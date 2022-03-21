@@ -113,7 +113,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, entry.title) else PageActivity.newIntentForCurrentTab(this, entry, entry.title))
+        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, entry.title) else PageActivity.newIntentForCurrentTab(this, entry, entry.title, false))
     }
 
     override fun onLinkPreviewCopyLink(title: PageTitle) {
@@ -176,7 +176,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
-    private inner class CategoryItemHolder constructor(itemView: PageItemView<*>) : RecyclerView.ViewHolder(itemView) {
+    private inner class CategoryItemHolder constructor(val view: PageItemView<PageTitle>) : RecyclerView.ViewHolder(view) {
         fun bindItem(title: PageTitle) {
             view.item = title
             view.setTitle(if (title.namespace() !== Namespace.CATEGORY) title.displayText else StringUtil.removeUnderscores(title.text))
@@ -184,9 +184,6 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
             view.setImageVisible(!title.thumbUrl.isNullOrEmpty())
             view.setDescription(title.description)
         }
-
-        val view: PageItemView<PageTitle>
-            get() = itemView as PageItemView<PageTitle>
     }
 
     private inner class ItemCallback : PageItemView.Callback<PageTitle?> {

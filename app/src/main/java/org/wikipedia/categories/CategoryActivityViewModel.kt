@@ -33,6 +33,7 @@ class CategoryActivityViewModel(bundle: Bundle) : ViewModel() {
                     PageTitle(page.title, pageTitle.wikiSite).also {
                         it.description = page.description.orEmpty()
                         it.thumbUrl = page.thumbUrl()
+                        it.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)
                     }
                 }
                 LoadResult.Page(titles, null, response.continuation?.gcmContinuation)
