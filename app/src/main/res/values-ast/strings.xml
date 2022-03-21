@@ -544,7 +544,7 @@
   <string name="feed_configure_activity_title">Personalizar la canal</string>
   <string name="feed_configure_menu_reset">Restaurar la vista predeterminada</string>
   <string name="feed_configure_menu_select_all">Amosar toes</string>
-  <string name="feed_configure_menu_deselect_all">Tapecer toes</string>
+  <string name="feed_configure_menu_deselect_all">Anubriles toes</string>
   <string name="feed_configure_language_warning">Repara que non tolos tipos de tarxeta tán disponibles en toles ediciones de Wikipedia. Edita los idiomes esbillaos na configuración.</string>
   <string name="feed_item_type_news">Artículos d\'acontecimientos actuales</string>
   <string name="feed_item_type_on_this_day">Acontecimientos históricos de güei</string>
