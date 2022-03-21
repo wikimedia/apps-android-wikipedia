@@ -52,7 +52,7 @@
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
   <string name="image_share_via">దీని ద్వారా పంచుకోండి</string>
   <string name="search_redirect_from">%s నుండి మళ్ళించబడింది</string>
-  <string name="page_edit_history_activity_label">కూర్పుల చరిత్ర</string>
+  <string name="page_edit_history_activity_title">కూర్పుల చరిత్ర: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;చి&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">దిద్దుబాటు సారాంశం ఖాళీగా ఉంది</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
@@ -762,6 +762,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">దిద్దుబాటు మొదలు పెట్టండి</string>
   <string name="description_edit_tutorial_promise">ఈ అంశాన్ని దురుపయోగం చెయ్యనని మాటిస్తూ మొదలెడుతున్నాను.</string>
   <string name="customize_toolbar_title">పరికరాల పట్టీని కస్టమైజు చెయ్యి</string>
+  <string name="customize_toolbar_description_text">మీకు బాగా ఉపయోగం అనిపించే 5 లింకులను అడుగున ఉండే పరికరాల పట్టీలో చేర్చి కస్టమైజు చేసుకోండి.</string>
   <string name="customize_toolbar_category_toolbar">పరికరాల పట్టీ</string>
   <string name="customize_toolbar_category_menu">మెనూ</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">మీకిష్టమైన వాటిని లాక్కొచ్చి ఇక్కడ పడెయ్యండి 👋</string>

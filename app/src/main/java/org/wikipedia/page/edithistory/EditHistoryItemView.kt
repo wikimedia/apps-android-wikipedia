@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Typeface
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
@@ -21,6 +22,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
     interface Listener {
         fun onClick()
         fun onLongClick()
+        fun onUserNameClick(v: View)
         fun onToggleSelect()
     }
 
@@ -40,7 +42,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
             listener?.onToggleSelect()
         }
         binding.userNameText.setOnClickListener {
-            // TODO
+            listener?.onUserNameClick(it)
         }
     }
 
@@ -101,7 +103,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         } else if (selectedState == EditHistoryListViewModel.SELECT_TO) {
             binding.selectButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
             ImageViewCompat.setImageTintList(binding.selectButton, ColorStateList.valueOf(colorTo))
-            binding.cardView.strokeColor = colorTo
+            binding.cardView.strokeColor = ContextCompat.getColor(context, R.color.osage)
             val cardBackground = ColorUtils.blendARGB(colorDefault, colorTo, 0.05f)
             binding.cardView.setCardBackgroundColor(cardBackground)
             val buttonBackground = ColorUtils.blendARGB(cardBackground, colorTo, 0.05f)

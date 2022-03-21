@@ -90,13 +90,13 @@
   <string name="share_via">共有する</string>
   <string name="image_share_via">共有する</string>
   <string name="search_redirect_from">%s からリダイレクト</string>
-  <string name="page_edit_history_activity_label">変更履歴</string>
   <string name="page_edit_history_comment_placeholder">編集の要約を空にする</string>
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
   <string name="menu_page_add_to_watchlist">ウォッチリストに追加</string>
   <string name="menu_page_watch">ウォッチ</string>
+  <string name="menu_page_unwatch">ウォッチ解除</string>
   <string name="menu_page_view_talk">ノートを表示</string>
   <string name="menu_page_talk_page">トークページ</string>
   <string name="menu_page_view_edit_history">編集履歴を表示</string>
@@ -1052,6 +1052,12 @@
   <string name="thank_success_message">あなたの感謝は %s に送られました 👍</string>
   <string name="menu_option_view_user_profile">利用者プロフィールページを見る</string>
   <string name="menu_option_view_user_talk">トークページを見る</string>
+  <string name="menu_option_view_user_contributions">利用者の投稿記録を閲覧する</string>
+  <string name="revision_diff_compare">版を比較</string>
+  <string name="revision_diff_from">差出人:</string>
+  <string name="revision_diff_to">宛先:</string>
+  <string name="revision_undo_title">編集を取り消す</string>
+  <string name="revision_undo_success">この版は取り消されました。</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">2つの版しか選べません</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>

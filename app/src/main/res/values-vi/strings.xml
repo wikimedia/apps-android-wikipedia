@@ -11,6 +11,7 @@
 * Minh Nguyen
 * MuratTheTurkish
 * Nghiemtrongdai VN
+* NguyenHung
 * Nguyên Lê
 * Nguyễn Mạnh An
 * Nhatminh01
@@ -69,6 +70,7 @@
   <string name="menu_page_other_languages">Thay đổi ngôn ngữ</string>
   <string name="menu_page_find_in_page">Tìm trong trang</string>
   <string name="menu_page_add_to_watchlist">Thêm vào danh sách theo dõi</string>
+  <string name="menu_page_unwatch">Ngừng theo dõi</string>
   <string name="menu_page_view_talk">Xem trang thảo luận</string>
   <string name="menu_page_view_edit_history">Xem lịch sử sửa đổi</string>
   <string name="menu_page_edit_history">Lịch sử sửa đổi</string>
@@ -1063,6 +1065,8 @@
   <string name="thank_dialog_positive_button_text">Gửi lời cảm ơn</string>
   <string name="thank_dialog_negative_button_text">Hủy bỏ</string>
   <string name="thank_success_message">Lời \'Cảm ơn\' của bạn đã được gửi tới %s 👍</string>
+  <string name="menu_option_view_user_contributions">Xem đóng góp của người dùng</string>
+  <string name="revision_diff_compare">So sánh các phiên bản</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s cùng trang thảo luận đã được thêm vào danh sách theo dõi của bạn %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Thay đổi</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vô hạn</string>

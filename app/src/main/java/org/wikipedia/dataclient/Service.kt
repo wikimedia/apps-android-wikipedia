@@ -67,7 +67,7 @@ interface Service {
     val newCaptcha: Observable<Captcha>
 
     @GET(MW_API_PREFIX + "action=query&prop=langlinks&lllimit=500&redirects=&converttitles=")
-    fun getLangLinks(@Query("titles") title: String): Observable<MwQueryResponse>
+    suspend fun getLangLinks(@Query("titles") title: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
     fun getDescription(@Query("titles") titles: String): Observable<MwQueryResponse>
@@ -144,6 +144,12 @@ interface Service {
 
     @get:GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
     val streamConfigs: Observable<MwStreamConfigsResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=allmessages")
+    suspend fun getMessages(
+            @Query("ammessages") messages: String,
+            @Query("amargs") args: String?
+    ): MwQueryResponse
 
     // ------- CSRF, Login, and Create Account -------
 
@@ -287,6 +293,17 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
+    suspend fun postUndoEdit(
+            @Field("title") title: String,
+            @Field("summary") summary: String,
+            @Field("assert") user: String?,
+            @Field("token") token: String,
+            @Field("undo") undoRevId: Long,
+            @Field("undoafter") undoRevAfter: Long?,
+    ): Edit
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=edit")
     fun postEditSubmit(
         @Field("title") title: String,
         @Field("section") section: String,
@@ -426,23 +443,26 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
     fun getLastModified(@Query("titles") titles: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
-    suspend fun getRevisionDetails(
-        @Query("titles") titles: String,
-        @Query("rvstartid") revisionStartId: Long
-    ): MwQueryResponse
-
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
-    suspend fun getEditDetails(
-        @Query("titles") titles: String,
-        @Query("rvstartid") revisionStartId: Long
-    ): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
-    suspend fun getEditHistoryDetails(
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
+    suspend fun getRevisionDetailsAscending(
         @Query("titles") titles: String,
         @Query("rvlimit") count: Int,
+        @Query("rvstartid") revisionStartId: Long?
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=older")
+    suspend fun getRevisionDetailsDescending(
+        @Query("titles") titles: String,
+        @Query("rvlimit") count: Int,
+        @Query("rvstartid") revisionStartId: Long?,
         @Query("rvcontinue") continueStr: String?,
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user&rvdir=older")
+    suspend fun getRevisionDetailsWithInfo(
+            @Query("titles") titles: String,
+            @Query("rvlimit") count: Int,
+            @Query("rvstartid") revisionStartId: Long
     ): MwQueryResponse
 
     @POST(MW_API_PREFIX + "action=thank")
