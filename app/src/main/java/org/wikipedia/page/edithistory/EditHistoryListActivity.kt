@@ -4,12 +4,15 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.view.ActionMode
 import androidx.core.graphics.ColorUtils
+import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.lifecycleScope
@@ -34,6 +37,7 @@ import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
@@ -47,6 +51,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.EditHistoryFilterOverflowView
 import org.wikipedia.views.EditHistoryStatsView
+import org.wikipedia.views.SearchAndFilterActionProvider
 import org.wikipedia.views.WikiErrorView
 
 class EditHistoryListActivity : BaseActivity() {
@@ -60,6 +65,8 @@ class EditHistoryListActivity : BaseActivity() {
     private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private var actionMode: ActionMode? = null
+    private val searchActionModeCallback = SearchCallback()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,12 +102,7 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         binding.editHistoryRecycler.layoutManager = LinearLayoutManager(this)
-        binding.editHistoryRecycler.adapter = editHistoryListAdapter
-            .withLoadStateHeaderAndFooter(loadHeader, loadFooter).also {
-                it.addAdapter(0, editHistoryStatsAdapter)
-                it.addAdapter(1, editHistorySearchBarAdapter)
-                it.addAdapter(2, editHistoryEmptyMessagesAdapter)
-            }
+        setupAdapters()
         binding.editHistoryRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -174,6 +176,20 @@ class EditHistoryListActivity : BaseActivity() {
             button.isEnabled = false
             button.setTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
         }
+    }
+
+    private fun setupAdapters() {
+        binding.editHistoryRecycler.adapter = editHistoryListAdapter.withLoadStateHeaderAndFooter(loadHeader, loadFooter).also {
+                if (actionMode != null) {
+                    it.removeAdapter(editHistoryStatsAdapter)
+                    it.removeAdapter(editHistorySearchBarAdapter)
+                    it.addAdapter(0, editHistoryEmptyMessagesAdapter)
+                } else {
+                    it.addAdapter(0, editHistoryStatsAdapter)
+                    it.addAdapter(1, editHistorySearchBarAdapter)
+                    it.addAdapter(2, editHistoryEmptyMessagesAdapter)
+                }
+            }
     }
 
     override fun onBackPressed() {
@@ -292,6 +308,7 @@ class EditHistoryListActivity : BaseActivity() {
 
     private inner class StatsViewHolder constructor(private val view: EditHistoryStatsView) : RecyclerView.ViewHolder(view) {
         fun bindItem() {
+            view.isVisible = actionMode == null
             val statsFlowValue = viewModel.editHistoryStatsFlow.value
             if (statsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
                 view.setup(viewModel.pageTitle, statsFlowValue)
@@ -307,10 +324,13 @@ class EditHistoryListActivity : BaseActivity() {
 
     private inner class SearchBarViewHolder constructor(val binding: ViewEditHistorySearchBarBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem() {
-            binding.root.setCardBackgroundColor(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22))
+            binding.root.isVisible = actionMode == null
+            binding.root.setCardBackgroundColor(
+                ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
+            )
 
             itemView.setOnClickListener {
-                // TODO: implement this
+                actionMode = startSupportActionMode(searchActionModeCallback)
             }
 
             binding.filterByButton.setOnClickListener {
@@ -414,6 +434,56 @@ class EditHistoryListActivity : BaseActivity() {
 
         private fun updateSelectState() {
             view.setSelectedState(viewModel.getSelectedState(revision))
+        }
+    }
+
+    private inner class SearchCallback : SearchActionModeCallback() {
+
+        var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            searchAndFilterActionProvider = SearchAndFilterActionProvider(this@EditHistoryListActivity, searchHintString,
+                object : SearchAndFilterActionProvider.Callback {
+                    override fun onQueryTextChange(s: String) {
+                        onQueryChange(s)
+                    }
+
+                    override fun onQueryTextFocusChange() {
+                    }
+
+                    override fun getExcludedFilterCount(): Int {
+                        return Prefs.editHistoryFilterDisableSet.size
+                    }
+                })
+
+            val menuItem = menu.add(searchHintString)
+
+            MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
+
+            actionMode = mode
+            setupAdapters()
+            return super.onCreateActionMode(mode, menu)
+        }
+
+        override fun onQueryChange(s: String) {
+            // TODO
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode) {
+            super.onDestroyActionMode(mode)
+            actionMode = null
+            setupAdapters()
+        }
+
+        override fun getSearchHintString(): String {
+            return getString(R.string.notifications_search)
+        }
+
+        override fun getParentContext(): Context {
+            return this@EditHistoryListActivity
+        }
+
+        fun refreshProvider() {
+            searchAndFilterActionProvider?.updateFilterIconAndText()
         }
     }
 
