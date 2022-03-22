@@ -79,7 +79,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
                     android:ellipsize="end"
                     android:lineSpacingExtra="4sp"
                     android:maxLines="1"
@@ -109,8 +108,9 @@
 
                 <ImageView
                     android:id="@+id/olderIdButton"
-                    android:layout_width="32dp"
-                    android:layout_height="36dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
@@ -124,9 +124,10 @@
 
                 <ImageView
                     android:id="@+id/newerIdButton"
-                    android:layout_width="32dp"
-                    android:layout_height="36dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="-6dp"
+                    android:padding="8dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:contentDescription="@string/watchlist_details_next_edit"
