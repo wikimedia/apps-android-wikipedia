@@ -32,9 +32,11 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     var selectedRevisionTo: MwQueryPage.Revision? = null
         private set
 
-    val editHistoryFlow = Pager(PagingConfig(pageSize = 50)) {
+    private val _editHistoryFlow = Pager(PagingConfig(pageSize = 50)) {
         EditHistoryPagingSource(pageTitle)
-    }.flow.map { pagingData ->
+    }.flow
+
+    val editHistoryFlow = _editHistoryFlow.map { pagingData ->
         pagingData.filter {
             !Prefs.editHistoryFilterDisableSet.contains(it.editorType)
         }.map {
