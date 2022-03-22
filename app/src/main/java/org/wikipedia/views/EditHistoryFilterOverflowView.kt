@@ -67,7 +67,7 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
 
     private fun setButtonsListener() {
         binding.filterByAllButton.setOnClickListener {
-            onButtonCLicked(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS, EditCount.EDIT_TYPE_BOT)
+            onButtonCLicked(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS)
         }
         binding.filterByUserButton.setOnClickListener {
             onButtonCLicked(EditCount.EDIT_TYPE_EDITORS)
@@ -75,14 +75,11 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
         binding.filterByAnonButton.setOnClickListener {
             onButtonCLicked(EditCount.EDIT_TYPE_ANONYMOUS)
         }
-        binding.filterByBotButton.setOnClickListener {
-            onButtonCLicked(EditCount.EDIT_TYPE_BOT)
-        }
     }
 
     private fun onButtonCLicked(vararg disabledTypes: String) {
         val set = Prefs.editHistoryFilterDisableSet.toMutableSet()
-        if (set.isNotEmpty() && disabledTypes.size == 3) {
+        if (set.isNotEmpty() && disabledTypes.size == 2) {
             set.clear()
         } else if (set.containsAll(disabledTypes.toSet())) {
             set.removeAll(disabledTypes)

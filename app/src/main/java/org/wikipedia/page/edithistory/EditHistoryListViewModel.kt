@@ -143,28 +143,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
                 val revision = response.query!!.pages?.first()?.revisions!!
 
-                // The `ususers` parameter has a size limit of 50 usernames.
-                val userNamesList = revision.asSequence().filterNot { it.isAnon }.map { it.user }.distinct().chunked(50).toList()
-
-                // Combining two async API responses, finding out all bot usernames, and joining them into one list.
-                val botUserList = withContext(Dispatchers.IO) {
-                    val result = userNamesList.map {
-                        async { ServiceFactory.get(pageTitle.wikiSite).getUserInfoList(it.joinToString("|")) }
-                    }.awaitAll()
-                    result
-                }.foldRight(mutableListOf<String>()) { asyncResponse, list ->
-                    list.addAll(asyncResponse.query?.users?.filter { it.groups.orEmpty().contains("bot") }?.map { it.name }.orEmpty())
-                    list
-                }
-
                 revision.forEach {
-                    if (botUserList.contains(it.user)) {
-                        it.editorType = EditCount.EDIT_TYPE_BOT
-                    }
                     if (it.isAnon) {
                         it.editorType = EditCount.EDIT_TYPE_ANONYMOUS
-                    }
-                    if (it.editorType.isNullOrEmpty()) {
+                    } else {
                         it.editorType = EditCount.EDIT_TYPE_EDITORS
                     }
                 }
