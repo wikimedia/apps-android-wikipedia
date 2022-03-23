@@ -3,7 +3,6 @@ package org.wikipedia.dataclient.mwapi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.page.Protection
-import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.Namespace
 
@@ -103,7 +102,6 @@ class MwQueryPage {
         }
 
         var editorType: String? = null
-        val isBot get() = editorType == EditCount.EDIT_TYPE_BOT
     }
 
     @Serializable

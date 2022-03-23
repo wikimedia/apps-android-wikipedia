@@ -138,20 +138,24 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     ) : PagingSource<String, MwQueryPage.Revision>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryPage.Revision> {
             return try {
-                val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                    .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, params.key)
+                if (Prefs.editHistoryFilterDisableSet.size == FILTER_TYPE_SIZE) {
+                    LoadResult.Page(emptyList(), null, null)
+                } else {
+                    val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
+                        .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, params.key)
 
-                val revision = response.query!!.pages?.first()?.revisions!!
+                    val revision = response.query!!.pages?.first()?.revisions!!
 
-                revision.forEach {
-                    if (it.isAnon) {
-                        it.editorType = EditCount.EDIT_TYPE_ANONYMOUS
-                    } else {
-                        it.editorType = EditCount.EDIT_TYPE_EDITORS
+                    revision.forEach {
+                        if (it.isAnon) {
+                            it.editorType = EditCount.EDIT_TYPE_ANONYMOUS
+                        } else {
+                            it.editorType = EditCount.EDIT_TYPE_EDITORS
+                        }
                     }
-                }
 
-                LoadResult.Page(revision, null, response.continuation?.rvContinuation)
+                    LoadResult.Page(revision, null, response.continuation?.rvContinuation)
+                }
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
