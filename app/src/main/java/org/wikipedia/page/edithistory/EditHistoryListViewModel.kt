@@ -31,9 +31,12 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         private set
     var selectedRevisionTo: MwQueryPage.Revision? = null
         private set
+    var loadCache = false
+
+    private val revisionList = mutableListOf<MwQueryPage.Revision>()
 
     private val _editHistoryFlow = Pager(PagingConfig(initialLoadSize = 500, pageSize = 500)) {
-        EditHistoryPagingSource(pageTitle)
+        EditHistoryPagingSource(pageTitle, loadCache)
     }.flow
 
     val editHistoryFlow = _editHistoryFlow.map { pagingData ->
@@ -133,28 +136,43 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         return SELECT_NONE
     }
 
-    class EditHistoryPagingSource(
-            val pageTitle: PageTitle
+    inner class EditHistoryPagingSource(
+        val pageTitle: PageTitle,
+        private val loadCache: Boolean = false
     ) : PagingSource<String, MwQueryPage.Revision>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryPage.Revision> {
             return try {
                 if (Prefs.editHistoryFilterDisableSet.size == FILTER_TYPE_SIZE) {
                     LoadResult.Page(emptyList(), null, null)
                 } else {
-                    val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                        .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, params.key)
+                    val revision: List<MwQueryPage.Revision>
+                    var continuation: String? = null
 
-                    val revision = response.query!!.pages?.first()?.revisions!!
+                    if (!loadCache || revisionList.isEmpty()) {
+                        val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
+                                .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, params.key)
 
-                    revision.forEach {
-                        if (it.isAnon) {
-                            it.editorType = EditCount.EDIT_TYPE_ANONYMOUS
-                        } else {
-                            it.editorType = EditCount.EDIT_TYPE_EDITORS
+                        revision = response.query!!.pages?.first()?.revisions!!
+
+                        revision.forEach {
+                            if (it.isAnon) {
+                                it.editorType = EditCount.EDIT_TYPE_ANONYMOUS
+                            } else {
+                                it.editorType = EditCount.EDIT_TYPE_EDITORS
+                            }
                         }
-                    }
 
-                    LoadResult.Page(revision, null, response.continuation?.rvContinuation)
+                        continuation = response.continuation?.rvContinuation
+
+                        if (continuation.isNullOrEmpty()) {
+                            revisionList.clear()
+                        }
+                        revisionList.addAll(revision)
+
+                    } else {
+                        revision = revisionList
+                    }
+                    LoadResult.Page(revision, null, continuation)
                 }
             } catch (e: Exception) {
                 LoadResult.Error(e)

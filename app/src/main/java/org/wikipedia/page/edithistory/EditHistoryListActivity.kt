@@ -98,6 +98,7 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         binding.editHistoryRefreshContainer.setOnRefreshListener {
+            viewModel.loadCache = false
             editHistoryListAdapter.refresh()
         }
 
@@ -132,6 +133,7 @@ class EditHistoryListActivity : BaseActivity() {
                 loadFooter.loadState = it.append
                 enableCompareButton(binding.compareButton, editHistoryListAdapter.itemCount > 2)
                 editHistoryEmptyMessagesAdapter.notifyItemChanged(0)
+                viewModel.loadCache = loadFooter.loadState.endOfPaginationReached
             }
         }
 
@@ -342,6 +344,7 @@ class EditHistoryListActivity : BaseActivity() {
                 val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
                 if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
                     EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(binding.filterByButton, editCountsFlowValue) {
+                        viewModel.loadCache = true
                         editHistoryListAdapter.refresh()
                         updateFilterCount()
                     }
