@@ -254,6 +254,10 @@
             android:label="@string/tabs_activity_title"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".categories.CategoryActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
         <activity

@@ -1227,4 +1227,11 @@
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
 
+    <string name="action_item_categories">Categories</string>
+    <string name="page_no_categories">This page does not belong to any categories.</string>
+    <string name="category_tab_articles">Articles</string>
+    <string name="category_tab_subcategories">Subcategories</string>
+    <string name="category_empty">No articles found in this category.</string>
+    <string name="subcategory_empty">No subcategories found in this category.</string>
+
 </resources>
