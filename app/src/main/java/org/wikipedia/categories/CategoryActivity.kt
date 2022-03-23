@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
@@ -15,7 +17,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
@@ -40,9 +41,11 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val categoryMembersAdapter = CategoryMembersAdapter()
     private val categoryMembersLoadHeader = LoadingItemAdapter { categoryMembersAdapter.retry(); }
     private val categoryMembersLoadFooter = LoadingItemAdapter { categoryMembersAdapter.retry(); }
+    private val categoryMembersConcatAdapter = categoryMembersAdapter.withLoadStateHeaderAndFooter(categoryMembersLoadHeader, categoryMembersLoadFooter)
     private val subcategoriesAdapter = CategoryMembersAdapter()
     private val subcategoriesLoadHeader = LoadingItemAdapter { subcategoriesAdapter.retry() }
     private val subcategoriesLoadFooter = LoadingItemAdapter { subcategoriesAdapter.retry() }
+    private val subcategoriesConcatAdapter = subcategoriesAdapter.withLoadStateHeaderAndFooter(subcategoriesLoadHeader, subcategoriesLoadFooter)
 
     private val itemCallback = ItemCallback()
     private var showSubcategories = false
@@ -61,7 +64,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         binding.categoryRecycler.layoutManager = LinearLayoutManager(this)
         binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
-        binding.categoryRecycler.adapter = categoryMembersAdapter.withLoadStateHeaderAndFooter(categoryMembersLoadHeader, categoryMembersLoadFooter)
+        binding.categoryRecycler.adapter = categoryMembersConcatAdapter
 
         lifecycleScope.launch {
             viewModel.categoryMembersFlow.collectLatest {
@@ -76,26 +79,35 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         lifecycleScope.launchWhenCreated {
-            categoryMembersAdapter.loadStateFlow.collect {
+            categoryMembersAdapter.loadStateFlow.collectLatest {
                 categoryMembersLoadHeader.loadState = it.refresh
                 categoryMembersLoadFooter.loadState = it.append
+                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && categoryMembersAdapter.itemCount == 0)
+                if (showEmpty) {
+                    categoryMembersConcatAdapter.addAdapter(EmptyItemAdapter(R.string.category_empty))
+                }
             }
         }
 
         lifecycleScope.launchWhenCreated {
-            subcategoriesAdapter.loadStateFlow.collect {
+            subcategoriesAdapter.loadStateFlow.collectLatest {
                 subcategoriesLoadHeader.loadState = it.refresh
                 subcategoriesLoadFooter.loadState = it.append
+                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && subcategoriesAdapter.itemCount == 0)
+                if (showEmpty) {
+                    subcategoriesConcatAdapter.addAdapter(EmptyItemAdapter(R.string.subcategory_empty))
+                }
             }
         }
 
         binding.categoryTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 showSubcategories = tab.position == 1
-                binding.categoryRecycler.adapter = if (showSubcategories)
-                    subcategoriesAdapter.withLoadStateHeaderAndFooter(categoryMembersLoadHeader, categoryMembersLoadFooter)
-                else
-                    categoryMembersAdapter.withLoadStateHeaderAndFooter(subcategoriesLoadHeader, subcategoriesLoadFooter)
+                if (showSubcategories) {
+                    binding.categoryRecycler.adapter = subcategoriesConcatAdapter
+                } else {
+                    binding.categoryRecycler.adapter = categoryMembersConcatAdapter
+                }
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
@@ -139,6 +151,18 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
+    private inner class EmptyItemAdapter(@StringRes private val text: Int) : RecyclerView.Adapter<EmptyViewHolder>() {
+        override fun onBindViewHolder(holder: EmptyViewHolder, position: Int) {
+            holder.bindItem(text)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmptyViewHolder {
+            return EmptyViewHolder(layoutInflater.inflate(R.layout.item_list_progress, parent, false))
+        }
+
+        override fun getItemCount(): Int { return 1 }
+    }
+
     private inner class CategoryMemberDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
         override fun areItemsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
             return oldItem.prefixedText == newItem.prefixedText && oldItem.namespace == newItem.namespace
@@ -173,6 +197,18 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (loadState is LoadState.Error) {
                 errorView.setError(loadState.error, viewModel.pageTitle)
             }
+        }
+    }
+
+    private inner class EmptyViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindItem(@StringRes text: Int) {
+            val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
+            val progressBar = itemView.findViewById<View>(R.id.progressBar)
+            val emptyMessage = itemView.findViewById<TextView>(R.id.emptyMessage)
+            progressBar.isVisible = false
+            errorView.isVisible = false
+            emptyMessage.text = getString(text)
+            emptyMessage.isVisible = true
         }
     }
 

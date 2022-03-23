@@ -29,6 +29,9 @@ class CategoryActivityViewModel(bundle: Bundle) : ViewModel() {
             return try {
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                         .getCategoryMembers(pageTitle.prefixedText, resultType, params.loadSize, params.key)
+                if (response.query == null) {
+                    return LoadResult.Page(emptyList(), null, null)
+                }
                 val titles = response.query!!.pages!!.map { page ->
                     PageTitle(page.title, pageTitle.wikiSite).also {
                         it.description = page.description.orEmpty()

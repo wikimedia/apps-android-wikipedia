@@ -1163,4 +1163,6 @@
   <string name="page_no_categories">Error message saying that the article does not belong to any categories.</string>
   <string name="category_tab_articles">Label for tab that lists all the articles in a category.</string>
   <string name="category_tab_subcategories">Label for tab that lists all the subcategories of a category.</string>
+  <string name="category_empty">Error shown when the current category contains no articles.</string>
+  <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
 </resources>
