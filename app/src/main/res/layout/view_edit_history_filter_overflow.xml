@@ -146,7 +146,7 @@
                 android:contentDescription="@null"
                 android:visibility="invisible"
                 android:layout_marginEnd="16dp"
-                app:tint="?attr/colorPrimary"/>
+                app:tint="?attr/material_theme_secondary_color"/>
 
             <TextView
                 android:id="@+id/filterByBot"
@@ -155,14 +155,14 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/page_edit_history_filter_by_bot"
-                android:textColor="?attr/material_theme_primary_color" />
+                android:textColor="?attr/material_theme_secondary_color" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_robot_24"
                 android:contentDescription="@null"
-                app:tint="?android:attr/textColorSecondary"/>
+                app:tint="?attr/material_theme_secondary_color"/>
 
         </LinearLayout>
     </LinearLayout>

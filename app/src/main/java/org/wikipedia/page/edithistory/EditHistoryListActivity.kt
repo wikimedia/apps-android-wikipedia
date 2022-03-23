@@ -323,6 +323,11 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class SearchBarViewHolder constructor(val binding: ViewEditHistorySearchBarBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            updateFilterCount()
+        }
+
         fun bindItem() {
             binding.root.isVisible = actionMode == null
             binding.root.setCardBackgroundColor(

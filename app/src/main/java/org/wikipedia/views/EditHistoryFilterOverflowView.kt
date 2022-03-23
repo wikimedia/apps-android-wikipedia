@@ -52,8 +52,8 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
     }
 
     private fun updateSelectedIconsVisibility() {
-        val icons = listOf(binding.filterByUserSelected, binding.filterByAnonSelected, binding.filterByBotSelected)
-        val types = listOf(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS, EditCount.EDIT_TYPE_BOT)
+        val icons = listOf(binding.filterByUserSelected, binding.filterByAnonSelected)
+        val types = listOf(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS)
         if (Prefs.editHistoryFilterDisableSet.isEmpty()) {
             icons.map { it.visibility = View.VISIBLE }
             binding.filterByAllSelected.visibility = View.VISIBLE
@@ -79,7 +79,7 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
 
     private fun onButtonCLicked(vararg disabledTypes: String) {
         val set = Prefs.editHistoryFilterDisableSet.toMutableSet()
-        if (set.isNotEmpty() && disabledTypes.size == 2) {
+        if (set.isNotEmpty() && disabledTypes.size == EditHistoryListViewModel.FILTER_TYPE_SIZE) {
             set.clear()
         } else if (set.containsAll(disabledTypes.toSet())) {
             set.removeAll(disabledTypes)

@@ -32,7 +32,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     var selectedRevisionTo: MwQueryPage.Revision? = null
         private set
 
-    private val _editHistoryFlow = Pager(PagingConfig(pageSize = 50)) {
+    private val _editHistoryFlow = Pager(PagingConfig(initialLoadSize = 500, pageSize = 500)) {
         EditHistoryPagingSource(pageTitle)
     }.flow
 
@@ -180,5 +180,6 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         const val SELECT_NONE = 1
         const val SELECT_FROM = 2
         const val SELECT_TO = 3
+        const val FILTER_TYPE_SIZE = 2
     }
 }
