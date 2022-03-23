@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.Group
-import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -273,20 +273,23 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         }
 
-        val showSuggestedEdits = totalContributions >= MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS
-        binding.suggestedEditsLearnMoreContainer.isVisible = showSuggestedEdits
-        binding.contributeSubtitleView.isVisible = showSuggestedEdits
-        binding.tasksRecyclerView.isVisible = showSuggestedEdits
-
-        binding.userStatsViewsGroup.visibility = VISIBLE
-        binding.onboardingImageView.visibility = GONE
-        binding.onboardingTextView.visibility = GONE
-        binding.userStatsClickTarget.isEnabled = true
-        binding.userNameView.text = AccountUtil.userName
-        binding.contributionsStatsView.setTitle(totalContributions.toString())
-        binding.contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
-        if (Prefs.showOneTimeSequentialUserStatsTooltip) {
-            showOneTimeSequentialUserStatsTooltips()
+        if (totalContributions == 0) {
+            binding.userStatsClickTarget.isEnabled = false
+            binding.userStatsViewsGroup.visibility = GONE
+            binding.onboardingImageView.visibility = VISIBLE
+            binding.onboardingTextView.visibility = VISIBLE
+            binding.onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
+        } else {
+            binding.userStatsViewsGroup.visibility = VISIBLE
+            binding.onboardingImageView.visibility = GONE
+            binding.onboardingTextView.visibility = GONE
+            binding.userStatsClickTarget.isEnabled = true
+            binding.userNameView.text = AccountUtil.userName
+            binding.contributionsStatsView.setTitle(totalContributions.toString())
+            binding.contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
+            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
+                showOneTimeSequentialUserStatsTooltips()
+            }
         }
 
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
@@ -333,7 +336,15 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun maybeSetPausedOrDisabled(): Boolean {
         val pauseEndDate = UserContributionsStats.maybePauseAndGetEndDate()
 
-        if (UserContributionsStats.isDisabled()) {
+        if (totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.getInstance().appOrSystemLanguageCode == "en") {
+            clearContents()
+            binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
+            binding.disabledStatesView.setPositiveButton(R.string.suggested_edits_learn_more, {
+                UriUtil.visitInExternalBrowser(requireContext(), Uri.parse("")) // TODO: provide URL.
+            }, true)
+            binding.disabledStatesView.visibility = VISIBLE
+            return true
+        } else if (UserContributionsStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
