@@ -2,6 +2,7 @@ package org.wikipedia.dataclient
 
 import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.captcha.Captcha
+import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.mwapi.*
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.Claims
@@ -503,9 +504,9 @@ interface Service {
     // ------- DiscussionTools -------
 
     @GET(MW_API_PREFIX + "action=discussiontoolspageinfo&prop=threaditemshtml")
-    suspend fun getTalkPageTopics(
+    fun getTalkPageTopics(
             @Query("page") title: String
-    ): DiscussionToolsInfoResponse
+    ): Observable<DiscussionToolsInfoResponse>
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"
