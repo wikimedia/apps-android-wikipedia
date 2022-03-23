@@ -52,8 +52,8 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
     }
 
     private fun updateSelectedIconsVisibility() {
-        val icons = listOf(binding.filterByUserSelected, binding.filterByAnonSelected)
-        val types = listOf(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS)
+        val icons = listOf(binding.filterByUserSelected, binding.filterByAnonSelected, binding.filterByBotSelected)
+        val types = listOf(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS, EditCount.EDIT_TYPE_BOT)
         if (Prefs.editHistoryFilterDisableSet.isEmpty()) {
             icons.map { it.visibility = View.VISIBLE }
             binding.filterByAllSelected.visibility = View.VISIBLE
@@ -61,6 +61,8 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
             types.forEachIndexed { index, type ->
                 icons[index].visibility = if (Prefs.editHistoryFilterDisableSet.contains(type)) View.INVISIBLE else View.VISIBLE
             }
+            // Manually make bot and all selected icon invisible.
+            binding.filterByBotSelected.visibility = View.INVISIBLE
             binding.filterByAllSelected.visibility = View.INVISIBLE
         }
     }
