@@ -51,7 +51,7 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/page_edit_history_filter_by_all"
-                android:textColor="?attr/material_theme_primary_color" />
+                android:textColor="?attr/primary_text_color" />
 
         </LinearLayout>
 
@@ -81,14 +81,14 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/page_edit_history_filter_by_user"
-                android:textColor="?attr/material_theme_primary_color" />
+                android:textColor="?attr/primary_text_color" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_user_avatar"
                 android:contentDescription="@null"
-                app:tint="?android:attr/textColorSecondary"/>
+                app:tint="?android:attr/textColorTertiary"/>
 
         </LinearLayout>
 
@@ -118,14 +118,14 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/page_edit_history_filter_by_anon"
-                android:textColor="?attr/material_theme_primary_color" />
+                android:textColor="?attr/primary_text_color" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_anonymous_ooui"
                 android:contentDescription="@null"
-                app:tint="?android:attr/textColorSecondary"/>
+                app:tint="?android:attr/textColorTertiary"/>
 
         </LinearLayout>
 
@@ -155,14 +155,14 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="@string/page_edit_history_filter_by_bot"
-                android:textColor="?attr/material_theme_secondary_color" />
+                android:textColor="?android:attr/textColorTertiary" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_robot_24"
                 android:contentDescription="@null"
-                app:tint="?attr/material_theme_secondary_color"/>
+                app:tint="?android:attr/textColorHint"/>
 
         </LinearLayout>
     </LinearLayout>
