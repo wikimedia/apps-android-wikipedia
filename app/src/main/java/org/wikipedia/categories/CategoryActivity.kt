@@ -48,8 +48,6 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val subcategoriesConcatAdapter = subcategoriesAdapter.withLoadStateHeaderAndFooter(subcategoriesLoadHeader, subcategoriesLoadFooter)
 
     private val itemCallback = ItemCallback()
-    private var showSubcategories = false
-
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val viewModel: CategoryActivityViewModel by viewModels { CategoryActivityViewModel.Factory(intent.extras!!) }
 
@@ -102,8 +100,8 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         binding.categoryTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-                showSubcategories = tab.position == 1
-                if (showSubcategories) {
+                viewModel.showSubcategories = tab.position == 1
+                if (viewModel.showSubcategories) {
                     binding.categoryRecycler.adapter = subcategoriesConcatAdapter
                 } else {
                     binding.categoryRecycler.adapter = categoryMembersConcatAdapter
@@ -113,10 +111,11 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
+        binding.categoryTabLayout.selectTab(binding.categoryTabLayout.getTabAt(if (viewModel.showSubcategories) 1 else 0))
     }
 
     private fun loadPage(title: PageTitle) {
-        if (showSubcategories) {
+        if (viewModel.showSubcategories) {
             startActivity(newIntent(this, title))
         } else {
             val entry = HistoryEntry(title, HistoryEntry.SOURCE_CATEGORY)

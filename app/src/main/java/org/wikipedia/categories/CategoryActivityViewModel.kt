@@ -12,6 +12,7 @@ import org.wikipedia.page.PageTitle
 class CategoryActivityViewModel(bundle: Bundle) : ViewModel() {
 
     val pageTitle = bundle.getParcelable<PageTitle>(CategoryActivity.EXTRA_TITLE)!!
+    var showSubcategories = false
 
     val categoryMembersFlow = Pager(PagingConfig(pageSize = 10)) {
         CategoryMembersPagingSource(pageTitle, "page")
