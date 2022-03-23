@@ -500,6 +500,13 @@ interface Service {
     @Headers("Cache-Control: no-cache")
     suspend fun getWatchToken(): MwQueryResponse
 
+    // ------- DiscussionTools -------
+
+    @GET(MW_API_PREFIX + "action=discussiontoolspageinfo&prop=threaditemshtml")
+    suspend fun getTalkPageTopics(
+            @Query("page") title: String
+    ): DiscussionToolsInfoResponse
+
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"
         const val WIKIDATA_URL = "https://www.wikidata.org/"
