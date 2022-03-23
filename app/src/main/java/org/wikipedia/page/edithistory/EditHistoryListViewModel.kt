@@ -168,7 +168,6 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                             revisionList.clear()
                         }
                         revisionList.addAll(revision)
-
                     } else {
                         revision = revisionList
                     }
