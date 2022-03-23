@@ -2,6 +2,7 @@ package org.wikipedia.page.edithistory
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
@@ -46,7 +47,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         }
     }
 
-    fun setContents(itemRevision: MwQueryPage.Revision) {
+    fun setContents(itemRevision: MwQueryPage.Revision, currentQuery: String?) {
         val diffSize = itemRevision.diffSize
         binding.diffText.text = String.format(if (diffSize != 0) "%+d" else "%d", diffSize)
         if (diffSize >= 0) {
@@ -65,11 +66,13 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
         } else {
             binding.editHistoryTitle.setTypeface(Typeface.SANS_SERIF, Typeface.NORMAL)
             binding.editHistoryTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
-            binding.editHistoryTitle.text = if (itemRevision.minor) StringUtil.fromHtml(context.getString(R.string.page_edit_history_minor_edit, itemRevision.comment))
-            else itemRevision.comment
+            binding.editHistoryTitle.text = if (itemRevision.minor) StringUtil.fromHtml(context.getString(R.string.page_edit_history_minor_edit, itemRevision.comment)) else itemRevision.comment
+            StringUtil.highlightAndBoldenText(binding.editHistoryTitle, currentQuery, true, Color.YELLOW)
         }
         binding.userNameText.text = itemRevision.user
         binding.editHistoryTimeText.text = DateUtil.getTimeString(DateUtil.iso8601DateParse(itemRevision.timeStamp))
+        StringUtil.highlightAndBoldenText(binding.diffText, currentQuery, true, Color.YELLOW)
+        StringUtil.highlightAndBoldenText(binding.userNameText, currentQuery, true, Color.YELLOW)
     }
 
     fun setSelectedState(selectedState: Int) {

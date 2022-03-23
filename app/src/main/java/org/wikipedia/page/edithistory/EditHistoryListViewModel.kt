@@ -32,6 +32,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     var selectedRevisionTo: MwQueryPage.Revision? = null
         private set
     var loadCache = false
+    var currentQuery: String? = null
 
     private val revisionList = mutableListOf<MwQueryPage.Revision>()
 
@@ -55,6 +56,22 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             } else {
                 null
             }
+        }.filter {
+            currentQuery?.run {
+                when (it) {
+                    is EditHistoryItem -> {
+                        it.item.diffSize.toString().contains(this) ||
+                                it.item.comment.contains(this, true) ||
+                                it.item.content.contains(this, true) ||
+                                it.item.parsedcomment.contains(this, true) ||
+                                it.item.user.contains(this, true)
+                    }
+                    is EditHistorySeparator -> {
+                        it.date.contains(this, true)
+                    }
+                    else -> true
+                }
+            } ?: true
         }
     }.cachedIn(viewModelScope)
 

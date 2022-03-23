@@ -3,6 +3,7 @@ package org.wikipedia.page.edithistory
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -181,17 +182,21 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private fun setupAdapters() {
-        binding.editHistoryRecycler.adapter = editHistoryListAdapter.withLoadStateHeaderAndFooter(loadHeader, loadFooter).also {
-                if (actionMode != null) {
+        if (actionMode != null) {
+            binding.editHistoryRecycler.adapter =
+                editHistoryListAdapter.withLoadStateFooter(loadFooter).also {
                     it.removeAdapter(editHistoryStatsAdapter)
                     it.removeAdapter(editHistorySearchBarAdapter)
                     it.addAdapter(0, editHistoryEmptyMessagesAdapter)
-                } else {
+                }
+        } else {
+            binding.editHistoryRecycler.adapter =
+                editHistoryListAdapter.withLoadStateHeaderAndFooter(loadHeader, loadFooter).also {
                     it.addAdapter(0, editHistoryStatsAdapter)
                     it.addAdapter(1, editHistorySearchBarAdapter)
                     it.addAdapter(2, editHistoryEmptyMessagesAdapter)
                 }
-            }
+        }
     }
 
     override fun onBackPressed() {
@@ -320,7 +325,9 @@ class EditHistoryListActivity : BaseActivity() {
 
     private inner class SeparatorViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(listItem: String) {
-            itemView.findViewById<TextView>(R.id.date_text).text = listItem
+            val dateText = itemView.findViewById<TextView>(R.id.date_text)
+            dateText.text = listItem
+            StringUtil.highlightAndBoldenText(dateText, viewModel.currentQuery, true, Color.YELLOW)
         }
     }
 
@@ -394,7 +401,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         fun bindItem(revision: MwQueryPage.Revision) {
             this.revision = revision
-            view.setContents(revision)
+            view.setContents(revision, viewModel.currentQuery)
             updateSelectState()
             view.listener = this
         }
@@ -448,6 +455,7 @@ class EditHistoryListActivity : BaseActivity() {
     private inner class SearchCallback : SearchActionModeCallback() {
 
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
+
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             searchAndFilterActionProvider = SearchAndFilterActionProvider(this@EditHistoryListActivity, searchHintString,
                 object : SearchAndFilterActionProvider.Callback {
@@ -473,12 +481,16 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun onQueryChange(s: String) {
-            // TODO
+            viewModel.currentQuery = s
+            editHistoryListAdapter.refresh()
+            editHistoryListAdapter.notifyDataSetChanged()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
+            viewModel.currentQuery = null
+            editHistoryListAdapter.refresh()
             setupAdapters()
         }
 
@@ -488,10 +500,6 @@ class EditHistoryListActivity : BaseActivity() {
 
         override fun getParentContext(): Context {
             return this@EditHistoryListActivity
-        }
-
-        fun refreshProvider() {
-            searchAndFilterActionProvider?.updateFilterIconAndText()
         }
     }
 
