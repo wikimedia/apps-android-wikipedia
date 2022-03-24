@@ -516,14 +516,14 @@ interface Service {
     @GET(MW_API_PREFIX + "action=discussiontoolssubscribe")
     suspend fun subscribeTalkPageTopic(
             @Query("page") page: String,
-            @Query("commentname") topicId: String,
+            @Query("commentname") topicName: String,
             @Query("token") token: String,
             @Query("subscribe") subscribe: Boolean,
     ): DiscussionToolsSubscribeResponse
 
     @GET(MW_API_PREFIX + "action=discussiontoolsgetsubscriptions")
     suspend fun getTalkPageTopicSubscriptions(
-            @Query("commentname") topicIds: String
+            @Query("commentname") topicNames: String
     ): DiscussionToolsSubscriptionList
 
     @POST(MW_API_PREFIX + "action=discussiontoolsedit&paction=addtopic")

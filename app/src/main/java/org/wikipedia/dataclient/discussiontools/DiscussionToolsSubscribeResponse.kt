@@ -10,7 +10,7 @@ class DiscussionToolsSubscribeResponse {
     @Serializable
     class SubscribeStatus(
             val page: String = "",
-            @SerialName("commentname") val id: String = "",
+            @SerialName("commentname") val topicName: String = "",
             val subscribe: Boolean = false
     )
 }
