@@ -208,7 +208,6 @@
   <string name="page_protected_can_not_edit_title">Această pagină este protejată</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Adaugă la urmărite</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Urmăriți ce se întâmplă cu articolele de care sunteți interesat(ă). Apăsați meniul de revărsare și selectați &lt;b&gt;Adaugă la urmărite&lt;/b&gt; pentru a vedea shimbări asupra unui articol.</string>
-  <string name="page_notification_tooltip">Notificările dvs. sunt acum aici.</string>
   <string name="settings_item_preferences">Setări</string>
   <string name="settings_activity_title">Setări</string>
   <string name="about_description">Despre aplicația Wikipedia</string>

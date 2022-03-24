@@ -224,7 +224,6 @@
   <string name="page_protected_can_not_edit_title">Ez a lap védett</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Hozzáadás a figyelőlistához</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Kövesse nyomon, mi történik az Önt érdeklő cikkekkel. Érintse meg a menüt, és válassza a &lt;b&gt;Hozzáadás a figyelőlistához&lt;/b&gt; lehetőséget, hogy később is láthassa a cikkhez kapcsolódó változásokat.</string>
-  <string name="page_notification_tooltip">Értesítéseid</string>
   <string name="settings_item_preferences">Beállítások</string>
   <string name="settings_activity_title">Beállítások</string>
   <string name="about_description">A Wikipédia alkalmazás névjegye</string>

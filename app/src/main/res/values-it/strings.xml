@@ -249,7 +249,6 @@
   <string name="page_protected_can_not_edit_title">Questa pagina è protetta</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Aggiungi agli osservati speciali</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Traccia ciò che accade alle voci a cui sei interessato. Premi nel menu e seleziona &lt;b&gt;Aggiungi agli osservati speciali&lt;/b&gt; per vedere le modifiche ad una voce.</string>
-  <string name="page_notification_tooltip">Le tue notifiche adesso stanno qui.</string>
   <string name="settings_item_preferences">Impostazioni</string>
   <string name="settings_activity_title">Impostazioni</string>
   <string name="about_description">Informazioni sull\'applicazione di Wikipedia</string>
@@ -1157,4 +1156,10 @@
   <string name="watchlist_page_moved">Spostato</string>
   <string name="watchlist_page_protected">Protetto</string>
   <string name="watchlist_page_deleted">Cancellato</string>
+  <string name="action_item_categories">Categorie</string>
+  <string name="page_no_categories">Questa pagina non appartiene ad alcuna categoria.</string>
+  <string name="category_tab_articles">Voci</string>
+  <string name="category_tab_subcategories">Sottocategorie</string>
+  <string name="category_empty">Nessuna voce trovata in questa categoria.</string>
+  <string name="subcategory_empty">Nessuna sottocategoria trovata in questa categoria.</string>
 </resources>

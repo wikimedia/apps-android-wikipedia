@@ -38,6 +38,8 @@ import org.wikipedia.analytics.*
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
+import org.wikipedia.categories.CategoryActivity
+import org.wikipedia.categories.CategoryDialog
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentPageBinding
 import org.wikipedia.databinding.GroupFindReferencesInPageBinding
@@ -455,7 +457,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (title.namespace() === Namespace.USER_TALK || title.namespace() === Namespace.TALK) {
             startTalkTopicActivity(title)
             return
+        } else if (title.namespace() == Namespace.CATEGORY) {
+            startActivity(CategoryActivity.newIntent(requireActivity(), title))
+            return
         }
+
         dismissBottomSheet()
         val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK)
 
@@ -940,6 +946,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, stagedScrollY: Int, isRefresh: Boolean = false) {
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle()
+        dismissBottomSheet()
 
         if (AccountUtil.isLoggedIn) {
             // explicitly check notifications for the current user
@@ -1411,6 +1418,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onExploreSelected() {
             goToMainTab()
+        }
+
+        override fun onCategoriesSelected() {
+            title?.let {
+                bottomSheetPresenter.show(childFragmentManager, CategoryDialog.newInstance(it))
+            }
         }
 
         override fun forwardClick() {

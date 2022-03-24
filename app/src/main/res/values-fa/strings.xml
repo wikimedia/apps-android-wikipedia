@@ -10,6 +10,7 @@
 * Amirsara
 * Arash.pt
 * AzorAhai
+* Beginneruser
 * Dalba
 * Darafsh
 * Dbrant
@@ -90,13 +91,13 @@
   <string name="menu_page_show_tabs">نمایش برگه‌ها</string>
   <string name="menu_page_other_languages">تغییر زبان</string>
   <string name="menu_page_find_in_page">جستجو در مقاله</string>
-  <string name="menu_page_add_to_watchlist">افزودن به فهرست پی‌گیری</string>
+  <string name="menu_page_add_to_watchlist">افزودن به فهرست پیگیری</string>
   <string name="menu_page_watch">پی‌گیری</string>
   <string name="menu_page_view_talk">مشاهدهٔ صفحهٔ بحث</string>
   <string name="menu_page_talk_page">صفحهٔ بحث</string>
   <string name="menu_page_view_edit_history">مشاهده تاریخچه ویرایش</string>
   <string name="menu_page_edit_history">ویرایش تاریخچه</string>
-  <string name="menu_page_remove_from_watchlist">حذف از فهرست پی‌گیری</string>
+  <string name="menu_page_remove_from_watchlist">حذف از فهرست پیگیری</string>
   <string name="menu_page_watched">پی‌گیری شده</string>
   <string name="edit_section_find_in_page">جستجو در صفحه</string>
   <string name="menu_page_font_and_theme">قلم و پوسته</string>
@@ -237,9 +238,8 @@
   <string name="page_protected_can_not_edit">متأسفیم، حساب شما در حال حاضر از امتیازات کافی برای ویرایش این صفحه برخوردار نیست.</string>
   <string name="page_protected_can_not_edit_anon">متأسفیم، در حال حاضر این صفحه به صورت ناشناس قابل ویرایش نیست.</string>
   <string name="page_protected_can_not_edit_title">این صفحه محافظت شده‌ است</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">افزودن به فهرست پی‌گیری</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">از آنچه بر مقاله‌های مورد علاقهٔ شما می‌گذرد باخبر بمانید. منوی پایین‌رونده را باز کنید و &lt;b&gt;افزودن به فهرست پی‌گیری‌ها&lt;/b&gt; را انتخاب کنید تا تغییرات در مقاله را ببینید.</string>
-  <string name="page_notification_tooltip">اکنون اعلان‌های شما در اینجا قرار دارند.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">افزودن به فهرست پیگیری</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">از آنچه بر مقاله‌های مورد علاقهٔ شما می‌گذرد باخبر بمانید. منوی پایین‌رونده را باز کنید و &lt;b&gt;افزودن به فهرست پیگیری&lt;/b&gt; را انتخاب کنید تا تغییرات در مقاله را ببینید.</string>
   <string name="settings_item_preferences">تنظیمات</string>
   <string name="settings_activity_title">تنظیمات</string>
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
@@ -629,7 +629,7 @@
   <string name="notifications_direct_reply_error">پاسخ به‌طور خودکار ارسال نشد.</string>
   <string name="notifications_mark_all_as_read_message">%d به عنوان خوانده شده علامت‌گذاری شد</string>
   <string name="notifications_mark_all_as_unread_message">%d به عنوان خوانده نشده علامت‌گذاری شد</string>
-  <string name="watchlist_title">فهرست پی‌گیری</string>
+  <string name="watchlist_title">فهرست پیگیری</string>
   <string name="preference_title_notification_poll">سرشماری اعلان‌ها</string>
   <string name="preference_summary_notification_poll">به نرم‌افزار اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی اعلان‌های جدید استفاده کند.</string>
   <string name="preference_category_notification_types">انواع اعلانات درون‌برنامه‌ای</string>
@@ -1026,8 +1026,8 @@
   <string name="main_tooltip_text">سلام %s، آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
   <string name="main_tooltip_text_v2">آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
   <string name="main_tooltip_action_button">شروع کن</string>
-  <string name="main_tooltip_watchlist_title">فهرست پی‌گیری</string>
-  <string name="main_tooltip_watchlist_text">با استفاده از منوی «بیشتر» در &lt;b&gt;فهرست پی‌گیری‌ها&lt;/b&gt;، مقاله‌ها و صفحه‌هایی که پیشتر به فهرست پی‌گیری‌های خود افزودید را بیابید.</string>
+  <string name="main_tooltip_watchlist_title">فهرست پیگیری</string>
+  <string name="main_tooltip_watchlist_text">با استفاده از منوی «بیشتر» در &lt;b&gt;فهرست پی‌گیری&lt;/b&gt;، مقاله‌ها و صفحه‌هایی که پیشتر به فهرست پیگیری‌‌تان افزودید را بیابید.</string>
   <string name="custom_date_picker_dialog_ok_button_text">تأیید</string>
   <string name="text_input_dialog_ok_button_text">تأیید</string>
   <string name="text_input_dialog_cancel_button_text">لغو</string>
@@ -1068,21 +1068,21 @@
   <string name="thank_dialog_positive_button_text">ارسال تشکر</string>
   <string name="thank_dialog_negative_button_text">لغو</string>
   <string name="thank_success_message">«تشکر» شما به %s فرستاده شد 👍</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s و صفحهٔ بحث آن %2$s به فهرست پی‌گیری‌های شما افزوده‌شد.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s و صفحهٔ بحث آن %2$s به فهرست پیگیری‌‌تان افزوده‌شد.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">تغییر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">به صورت دائمی</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">برای ۱ هفته</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">برای ۱ ماه</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">برای ۳ ماه</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">برای ۶ ماه</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s و صفحهٔ بحث آن از فهرست پی‌گیری‌های شما حذف شد.</string>
-  <string name="watchlist_expiry_dialog_title">انتخاب دوره زمانی فهرست پی‌گیری</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s و صفحهٔ بحث آن از فهرست پیگیری‌‌تان حذف شد.</string>
+  <string name="watchlist_expiry_dialog_title">انتخاب دوره زمانی فهرست پیگیری</string>
   <string name="watchlist_expiry_dialog_permanent">دائمی</string>
   <string name="watchlist_expiry_dialog_one_week">۱ هفته</string>
   <string name="watchlist_expiry_dialog_one_month">۱ ماه</string>
   <string name="watchlist_expiry_dialog_three_months">۳ ماه</string>
   <string name="watchlist_expiry_dialog_six_months">۶ ماه</string>
-  <string name="watchlist_empty">در فهرست پی‌گیری‌تان مقاله‌ای ندارید.</string>
+  <string name="watchlist_empty">در فهرست پیگیری‌تان مقاله‌ای ندارید.</string>
   <string name="watchlist_filter_all">همه</string>
   <string name="watchlist_filter_talk">بحث</string>
   <string name="watchlist_filter_pages">صفحات</string>

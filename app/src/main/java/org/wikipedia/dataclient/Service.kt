@@ -120,14 +120,16 @@ interface Service {
     @get:Headers("Cache-Control: no-cache")
     val randomWithImageLabels: Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=categories&clprop=hidden&cllimit=500")
-    fun getCategories(@Query("titles") titles: String): Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles&gclshow=!hidden&gcllimit=500")
+    suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&list=categorymembers&cmlimit=500")
-    fun getCategoryMembers(
-        @Query("cmtitle") title: String,
-        @Query("cmcontinue") continueStr: String?
-    ): Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages|info&generator=categorymembers&inprop=varianttitles&gcmprop=ids|title")
+    suspend fun getCategoryMembers(
+        @Query("gcmtitle") title: String,
+        @Query("gcmtype") type: String,
+        @Query("gcmlimit") count: Int,
+        @Query("gcmcontinue") continueStr: String?
+    ): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=10&prop=description|imageinfo|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @get:Headers("Cache-Control: no-cache")
