@@ -91,5 +91,6 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
         Prefs.editHistoryFilterDisableSet = set
         updateSelectedIconsVisibility()
         callback?.onItemClicked()
+        popupWindowHost?.dismiss()
     }
 }
