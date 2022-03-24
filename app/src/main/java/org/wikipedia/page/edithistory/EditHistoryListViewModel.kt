@@ -31,13 +31,13 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         private set
     var selectedRevisionTo: MwQueryPage.Revision? = null
         private set
-    var loadCache = false
     var currentQuery: String? = null
 
     private val revisionList = mutableListOf<MwQueryPage.Revision>()
+    private val continuationList = mutableSetOf<String>()
 
     private val _editHistoryFlow = Pager(PagingConfig(initialLoadSize = 500, pageSize = 500)) {
-        EditHistoryPagingSource(pageTitle, loadCache)
+        EditHistoryPagingSource(pageTitle)
     }.flow
 
     val editHistoryFlow = _editHistoryFlow.map { pagingData ->
@@ -154,8 +154,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     }
 
     inner class EditHistoryPagingSource(
-        val pageTitle: PageTitle,
-        private val loadCache: Boolean = false
+        val pageTitle: PageTitle
     ) : PagingSource<String, MwQueryPage.Revision>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryPage.Revision> {
             return try {
@@ -165,7 +164,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                     val revision: List<MwQueryPage.Revision>
                     var continuation: String? = null
 
-                    if (!loadCache || revisionList.isEmpty()) {
+                    if (continuationList.contains(params.key) || (revisionList.isEmpty() && params.key == null)) {
                         val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                                 .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, params.key)
 
@@ -179,11 +178,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                             }
                         }
 
-                        continuation = response.continuation?.rvContinuation
-
-                        if (continuation.isNullOrEmpty()) {
-                            revisionList.clear()
+                        continuation = response.continuation?.rvContinuation?.also {
+                            continuationList.add(it)
                         }
+
                         revisionList.addAll(revision)
                     } else {
                         revision = revisionList
