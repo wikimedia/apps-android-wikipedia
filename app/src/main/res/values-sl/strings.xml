@@ -198,7 +198,6 @@
   <string name="page_protected_can_not_edit_title">Stran je zaščitena</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj na spisek nadzorov</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Sledite spremembe člankov, ki vas zanimajo. Tapnite prelivni meni in izberite &lt;b&gt;Dodaj na spisek nadzorov&lt;/b&gt;, da si ogledate spremembe članka.</string>
-  <string name="page_notification_tooltip">Vaša obvestila so zdaj tukaj.</string>
   <string name="settings_item_preferences">Nastavitve</string>
   <string name="settings_activity_title">Nastavitve</string>
   <string name="about_description">O aplikaciji Wikipedija</string>
