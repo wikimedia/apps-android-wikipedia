@@ -9,162 +9,168 @@
     android:layout_marginEnd="2dp"
     app:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?attr/paper_color"
-        android:minWidth="220dp"
-        android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <TextView
-            android:text="@string/page_edit_history_filter_by"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="13dp"
-            android:textColor="?attr/material_theme_primary_color"/>
-
-        <LinearLayout
-            android:id="@+id/filterByAllButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="13dp"
-            android:background="?android:selectableItemBackground">
-
-            <ImageView
-                android:id="@+id/filterByAllSelected"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_check_black_24dp"
-                android:contentDescription="@null"
-                android:visibility="invisible"
-                android:layout_marginEnd="16dp"
-                app:tint="?attr/colorPrimary"/>
+            android:background="?attr/paper_color"
+            android:minWidth="220dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/filterByAll"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:text="@string/page_edit_history_filter_by_all"
-                android:textColor="?attr/primary_text_color" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/filterByUserButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="13dp"
-            android:gravity="center_vertical"
-            android:background="?android:selectableItemBackground">
-
-            <ImageView
-                android:id="@+id/filterByUserSelected"
+                android:text="@string/page_edit_history_filter_by"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_check_black_24dp"
-                android:contentDescription="@null"
-                android:visibility="invisible"
-                android:layout_marginEnd="16dp"
-                app:tint="?attr/colorPrimary"/>
-
-            <TextView
-                android:id="@+id/filterByUser"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:textStyle="bold"
                 android:textSize="16sp"
-                android:text="@string/page_edit_history_filter_by_user"
-                android:textColor="?attr/primary_text_color" />
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="13dp"
+                android:textColor="?attr/material_theme_primary_color"/>
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_user_avatar"
-                android:contentDescription="@null"
-                app:tint="?android:attr/textColorTertiary"/>
+            <LinearLayout
+                android:id="@+id/filterByAllButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="13dp"
+                android:background="?android:selectableItemBackground">
 
+                <ImageView
+                    android:id="@+id/filterByAllSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_check_black_24dp"
+                    android:contentDescription="@null"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="16dp"
+                    app:tint="?attr/colorPrimary"/>
+
+                <TextView
+                    android:id="@+id/filterByAll"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:text="@string/page_edit_history_filter_by_all"
+                    android:textColor="?attr/primary_text_color" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filterByUserButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="13dp"
+                android:gravity="center_vertical"
+                android:background="?android:selectableItemBackground">
+
+                <ImageView
+                    android:id="@+id/filterByUserSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_check_black_24dp"
+                    android:contentDescription="@null"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="16dp"
+                    app:tint="?attr/colorPrimary"/>
+
+                <TextView
+                    android:id="@+id/filterByUser"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:text="@string/page_edit_history_filter_by_user"
+                    android:textColor="?attr/primary_text_color" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_user_avatar"
+                    android:contentDescription="@null"
+                    app:tint="?android:attr/textColorTertiary"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filterByAnonButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="13dp"
+                android:gravity="center_vertical"
+                android:background="?android:selectableItemBackground">
+
+                <ImageView
+                    android:id="@+id/filterByAnonSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_check_black_24dp"
+                    android:contentDescription="@null"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="16dp"
+                    app:tint="?attr/colorPrimary"/>
+
+                <TextView
+                    android:id="@+id/filterByAnon"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:text="@string/page_edit_history_filter_by_anon"
+                    android:textColor="?attr/primary_text_color" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_anonymous_ooui"
+                    android:contentDescription="@null"
+                    app:tint="?android:attr/textColorTertiary"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filterByBotButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="13dp"
+                android:gravity="center_vertical"
+                android:background="?android:selectableItemBackground">
+
+                <ImageView
+                    android:id="@+id/filterByBotSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_check_black_24dp"
+                    android:contentDescription="@null"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="16dp"
+                    app:tint="?android:attr/textColorHint"/>
+
+                <TextView
+                    android:id="@+id/filterByBot"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:text="@string/page_edit_history_filter_by_bot"
+                    android:textColor="?android:attr/textColorTertiary" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_robot_24"
+                    android:contentDescription="@null"
+                    app:tint="?android:attr/textColorHint"/>
+
+            </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/filterByAnonButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="13dp"
-            android:gravity="center_vertical"
-            android:background="?android:selectableItemBackground">
-
-            <ImageView
-                android:id="@+id/filterByAnonSelected"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_check_black_24dp"
-                android:contentDescription="@null"
-                android:visibility="invisible"
-                android:layout_marginEnd="16dp"
-                app:tint="?attr/colorPrimary"/>
-
-            <TextView
-                android:id="@+id/filterByAnon"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:text="@string/page_edit_history_filter_by_anon"
-                android:textColor="?attr/primary_text_color" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_anonymous_ooui"
-                android:contentDescription="@null"
-                app:tint="?android:attr/textColorTertiary"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/filterByBotButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="13dp"
-            android:gravity="center_vertical"
-            android:background="?android:selectableItemBackground">
-
-            <ImageView
-                android:id="@+id/filterByBotSelected"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_check_black_24dp"
-                android:contentDescription="@null"
-                android:visibility="invisible"
-                android:layout_marginEnd="16dp"
-                app:tint="?android:attr/textColorHint"/>
-
-            <TextView
-                android:id="@+id/filterByBot"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:text="@string/page_edit_history_filter_by_bot"
-                android:textColor="?android:attr/textColorTertiary" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_robot_24"
-                android:contentDescription="@null"
-                app:tint="?android:attr/textColorHint"/>
-
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </org.wikipedia.views.WikiCardView>

@@ -28,7 +28,7 @@
         android:textColor="?attr/material_theme_secondary_color"/>
 
     <TextView
-        android:id="@+id/notification_filter_count"
+        android:id="@+id/filter_count"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"

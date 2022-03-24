@@ -350,11 +350,7 @@ class EditHistoryListActivity : BaseActivity() {
             binding.filterByButton.setOnClickListener {
                 val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
                 if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
-                    EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(binding.filterByButton, editCountsFlowValue) {
-                        viewModel.loadCache = true
-                        editHistoryListAdapter.refresh()
-                        updateFilterCount()
-                    }
+                    showOverflowMenu(it)
                 }
             }
 
@@ -374,8 +370,18 @@ class EditHistoryListActivity : BaseActivity() {
             }
         }
 
-        fun showOverflowMenu() {
-            binding.filterByButton.performClick()
+        fun showOverflowMenu(anchor: View) {
+            val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
+            if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
+                EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchor, editCountsFlowValue) {
+                    viewModel.loadCache = true
+                    editHistoryListAdapter.refresh()
+                    updateFilterCount()
+                    actionMode?.let {
+                        searchActionModeCallback.updateFilterIconAndText()
+                    }
+                }
+            }
         }
     }
 
@@ -387,10 +393,12 @@ class EditHistoryListActivity : BaseActivity() {
                 binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
                 RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
                 binding.emptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
-                    editHistorySearchBarAdapter.viewHolder.showOverflowMenu()
+                    editHistorySearchBarAdapter.viewHolder.showOverflowMenu(binding.emptySearchMessage)
                 }
-                binding.searchEmptyContainer.isVisible = true
+                binding.searchEmptyText.isVisible = actionMode != null
+                binding.searchEmptyContainer.isVisible = Prefs.editHistoryFilterDisableSet.isNotEmpty()
             } else {
+                binding.searchEmptyText.isVisible = false
                 binding.searchEmptyContainer.isVisible = false
             }
         }
@@ -466,8 +474,16 @@ class EditHistoryListActivity : BaseActivity() {
                     override fun onQueryTextFocusChange() {
                     }
 
+                    override fun onFilterIconClick(view: View) {
+                        editHistorySearchBarAdapter.viewHolder.showOverflowMenu(view)
+                    }
+
                     override fun getExcludedFilterCount(): Int {
                         return Prefs.editHistoryFilterDisableSet.size
+                    }
+
+                    override fun getFilterIconContentDescription(): Int {
+                        return R.string.page_edit_history_filter_by
                     }
                 })
 
@@ -495,11 +511,15 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         override fun getSearchHintString(): String {
-            return getString(R.string.notifications_search)
+            return getString(R.string.page_edit_history_search_or_filter_edits_hint)
         }
 
         override fun getParentContext(): Context {
             return this@EditHistoryListActivity
+        }
+
+        fun updateFilterIconAndText() {
+            searchAndFilterActionProvider?.updateFilterIconAndText()
         }
     }
 
