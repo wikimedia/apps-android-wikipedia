@@ -46,12 +46,20 @@
   <string name="share_via">Wagiang lumantar</string>
   <string name="image_share_via">Wagiang lumantar</string>
   <string name="search_redirect_from">Kagingsirang saking %s</string>
+  <string name="page_edit_history_activity_title">Babad uahan: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Ringkasan uahan puyung</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d uahan saking %2$s</item>
+    <item quantity="other">%1$d uahan saking %2$s</item>
+  </plurals>
+  <string name="page_edit_history_metrics_content_description">Métrik saking %1$s nganti %2$s</string>
   <string name="menu_page_show_tabs">Édengang tab</string>
   <string name="menu_page_other_languages">Gingsir basa</string>
   <string name="menu_page_find_in_page">Ngarereh ring suratan</string>
   <string name="menu_page_add_to_watchlist">Tambah nuju lis pangawasan</string>
   <string name="menu_page_watch">Awasin</string>
+  <string name="menu_page_unwatch">Tan awasin</string>
   <string name="menu_page_view_talk">Cingak kaca pablibagan</string>
   <string name="menu_page_talk_page">Kaca pabligbagan</string>
   <string name="menu_page_view_edit_history">Cingak lelintihan uahan</string>
@@ -199,7 +207,6 @@
   <string name="page_protected_can_not_edit_anon">Ampura, kaca puniki tan prasida kauah sacara anonim sané mangkin.</string>
   <string name="page_protected_can_not_edit_title">Kaca puniki kasaibin</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Tambah nuju lis pangawasan</string>
-  <string name="page_notification_tooltip">Notifikasi Ida mangkin driki.</string>
   <string name="settings_item_preferences">Setélan</string>
   <string name="settings_activity_title">Setélan</string>
   <string name="about_description">Indik aplikasi Wikipédia</string>

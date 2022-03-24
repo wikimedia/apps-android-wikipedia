@@ -116,11 +116,13 @@
   <string name="share_via">Compartir por</string>
   <string name="image_share_via">Compartir por</string>
   <string name="search_redirect_from">Redirigido desde %s</string>
+  <string name="page_edit_history_activity_title">Historial de revisiones: %s</string>
   <string name="page_edit_history_comment_placeholder">Resumen de edición vacío</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d editar desde %2$s</item>
     <item quantity="other">%1$d editar desde %2$s</item>
   </plurals>
+  <string name="page_edit_history_metrics_content_description">Métrica de %1$s a %2$s</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
   <string name="menu_page_other_languages">Cambiar idioma</string>
   <string name="menu_page_find_in_page">Buscar en artículo</string>
@@ -271,7 +273,6 @@
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Añadir a la lista de seguimiento</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Mantente al tanto de lo que está pasando en los artículos que a ti te interesan. Toca el menú de opciones y selecciona &lt;b&gt;Añadir a la lista de seguimiento&lt;/b&gt; para ver los cambios a un artículo.</string>
-  <string name="page_notification_tooltip">Tus notificaciones ahora están aquí.</string>
   <string name="settings_item_preferences">Configuración</string>
   <string name="settings_activity_title">Configuración</string>
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
@@ -816,6 +817,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Pulse el icono de arrastre para mover el elemento</string>
+  <string name="customize_toolbar_item_default_tooltip">Pulse y arrastre un elemento para reubicarlo</string>
   <string name="suggested_edits_describe_articles">Describir artículos</string>
   <string name="suggested_edits_caption_images">Leyenda de imágenes</string>
   <string name="suggested_edits_tag_images">Etiqueta de imágenes</string>
