@@ -212,7 +212,6 @@
   <string name="page_protected_can_not_edit_title">Оваа страница е заштитена</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додај во набљудувани</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следете што се случува со статиите кои ве интересираат. Допрете на расклопеното мени и изберете and select &lt;b&gt;Додај во набљудувани&lt;/b&gt; за да видите промени во статија.</string>
-  <string name="page_notification_tooltip">Сега вашите известувања се тука.</string>
   <string name="settings_item_preferences">Нагодувања</string>
   <string name="settings_activity_title">Нагодувања</string>
   <string name="about_description">За прилогот „Википедија“</string>
@@ -1137,4 +1136,10 @@
   <string name="watchlist_page_moved">Преместена</string>
   <string name="watchlist_page_protected">Заштитена</string>
   <string name="watchlist_page_deleted">Избришана</string>
+  <string name="action_item_categories">Категории</string>
+  <string name="page_no_categories">Статијава не припаѓа на ниедна категорија.</string>
+  <string name="category_tab_articles">Статии</string>
+  <string name="category_tab_subcategories">Поткатегории</string>
+  <string name="category_empty">Не се пронајдени статии во оваа категорија.</string>
+  <string name="subcategory_empty">Не се пронајдени поткатегории во оваа категорија.</string>
 </resources>

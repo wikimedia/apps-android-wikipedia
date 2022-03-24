@@ -254,7 +254,6 @@
   <string name="page_protected_can_not_edit_title">Cette page est protégée</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Ajouter à la liste de suivi</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Garder trace de ce qui se passe sur les articles qui vous intéressent. Taper sur le menu surgissant et sélectionner &lt;b&gt;Ajouter à la liste de suivi&lt;/b&gt; pour voir les modifications sur cet article.</string>
-  <string name="page_notification_tooltip">Vos notifications sont désormais ici.</string>
   <string name="settings_item_preferences">Paramètres</string>
   <string name="settings_activity_title">Paramètres</string>
   <string name="about_description">À propos de l’application Wikipédia</string>
@@ -474,7 +473,7 @@
   <string name="reading_list_article_added_to_named">%1$s ajouté à %2$s.</string>
   <string name="reading_list_article_added_to_default_list">%s enregistré. Voulez-vous l’ajouter à une liste ?</string>
   <string name="reading_list_article_moved_to_named">%1$s déplacé vers %2$s .</string>
-  <string name="reading_list_article_already_exists_message">Tout est bon ! %1$s contient déjà %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Tout va bien ! %1$s contient déjà %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Tout va bien ! %s contient déjà tous les articles.</string>
   <string name="reading_list_added_view_button">Afficher la liste</string>
   <string name="reading_list_add_to_list_button">Ajouter à la liste</string>
@@ -644,7 +643,7 @@
   <string name="notifications_poll_enable_title">Activer les notifications</string>
   <string name="notifications_poll_enable_positive">Activer</string>
   <string name="notifications_poll_enable_negative">Pas maintenant</string>
-  <string name="notifications_empty_message">Vous n’avez pas de nouvelle notification !</string>
+  <string name="notifications_empty_message">Vous n’avez aucune nouvelle notification !</string>
   <string name="notifications_view_archived_button_text">Afficher les notifications archivées</string>
   <string name="notification_preferences_title">Préférences de notification</string>
   <string name="notifications_mark_unread">Marquer comme non lu</string>
@@ -1179,4 +1178,10 @@
   <string name="watchlist_page_moved">Déplacé</string>
   <string name="watchlist_page_protected">Protégé</string>
   <string name="watchlist_page_deleted">Supprimé</string>
+  <string name="action_item_categories">Catégories</string>
+  <string name="page_no_categories">Cette page n’appartient à aucune catégorie.</string>
+  <string name="category_tab_articles">Articles</string>
+  <string name="category_tab_subcategories">Sous-catégories</string>
+  <string name="category_empty">Aucun article trouvé dans cette catégorie.</string>
+  <string name="subcategory_empty">Aucune sous-catégorie trouvée dans cette catégorie.</string>
 </resources>
