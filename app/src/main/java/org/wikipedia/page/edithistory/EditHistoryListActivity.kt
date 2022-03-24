@@ -49,7 +49,6 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.EditHistoryFilterOverflowView
 import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.SearchAndFilterActionProvider
@@ -99,6 +98,7 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         binding.editHistoryRefreshContainer.setOnRefreshListener {
+            viewModel.clearCache()
             editHistoryListAdapter.refresh()
         }
 

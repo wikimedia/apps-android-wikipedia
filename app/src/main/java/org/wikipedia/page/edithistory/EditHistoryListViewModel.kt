@@ -34,7 +34,8 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     var currentQuery: String? = null
 
     private val revisionList = mutableListOf<MwQueryPage.Revision>()
-    private val continuationList = mutableSetOf<String>()
+    private val usedContinuationString = mutableSetOf<String>()
+    private var latestContinuationString: String? = null
 
     private val _editHistoryFlow = Pager(PagingConfig(initialLoadSize = 500, pageSize = 500)) {
         EditHistoryPagingSource(pageTitle)
@@ -153,6 +154,12 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         return SELECT_NONE
     }
 
+    fun clearCache() {
+        revisionList.clear()
+        usedContinuationString.clear()
+        latestContinuationString = null
+    }
+
     inner class EditHistoryPagingSource(
         val pageTitle: PageTitle
     ) : PagingSource<String, MwQueryPage.Revision>() {
@@ -162,11 +169,12 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                     LoadResult.Page(emptyList(), null, null)
                 } else {
                     val revision: List<MwQueryPage.Revision>
-                    var continuation: String? = null
+                    val key = if (latestContinuationString != params.key) params.key else latestContinuationString
 
-                    if (continuationList.contains(params.key) || (revisionList.isEmpty() && params.key == null)) {
+                    // Only do the API request when the revisionList is empty, or if the page is not yet fully loaded
+                    if ((key != null && !usedContinuationString.contains(key)) || (revisionList.isEmpty() && key == null)) {
                         val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                                .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, params.key)
+                                .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, key)
 
                         revision = response.query!!.pages?.first()?.revisions!!
 
@@ -178,15 +186,17 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                             }
                         }
 
-                        continuation = response.continuation?.rvContinuation?.also {
-                            continuationList.add(it)
+                        params.key?.let {
+                            usedContinuationString.add(it)
                         }
+
+                        latestContinuationString = response.continuation?.rvContinuation
 
                         revisionList.addAll(revision)
                     } else {
                         revision = revisionList
                     }
-                    LoadResult.Page(revision, null, continuation)
+                    LoadResult.Page(revision, null, latestContinuationString)
                 }
             } catch (e: Exception) {
                 LoadResult.Error(e)
@@ -196,6 +206,9 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         override fun getRefreshKey(state: PagingState<String, MwQueryPage.Revision>): String? {
             return null
         }
+
+        override val jumpingSupported: Boolean
+            get() = super.jumpingSupported
     }
 
     open class EditHistoryItemModel
