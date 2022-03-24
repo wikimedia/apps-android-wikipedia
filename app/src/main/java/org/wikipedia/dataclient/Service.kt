@@ -2,7 +2,10 @@ package org.wikipedia.dataclient
 
 import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.captcha.Captcha
+import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
+import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
+import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
 import org.wikipedia.dataclient.mwapi.*
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.Claims
@@ -506,9 +509,46 @@ interface Service {
     // ------- DiscussionTools -------
 
     @GET(MW_API_PREFIX + "action=discussiontoolspageinfo&prop=threaditemshtml")
-    fun getTalkPageTopics(
-            @Query("page") title: String
-    ): Observable<DiscussionToolsInfoResponse>
+    suspend fun getTalkPageTopics(
+            @Query("page") page: String
+    ): DiscussionToolsInfoResponse
+
+    @GET(MW_API_PREFIX + "action=discussiontoolssubscribe")
+    suspend fun subscribeTalkPageTopic(
+            @Query("page") page: String,
+            @Query("commentname") topicId: String,
+            @Query("token") token: String,
+            @Query("subscribe") subscribe: Boolean,
+    ): DiscussionToolsSubscribeResponse
+
+    @GET(MW_API_PREFIX + "action=discussiontoolsgetsubscriptions")
+    suspend fun getTalkPageTopicSubscriptions(
+            @Query("commentname") topicIds: String
+    ): DiscussionToolsSubscriptionList
+
+    @POST(MW_API_PREFIX + "action=discussiontoolsedit&paction=addtopic")
+    @FormUrlEncoded
+    suspend fun postTalkPageTopic(
+            @Field("page") page: String,
+            @Field("sectiontitle") title: String,
+            @Field("wikitext") text: String,
+            @Field("token") token: String,
+            @Field("summary") summary: String? = null,
+            @Field("captchaid") captchaId: Long? = null,
+            @Field("captchaword") captchaWord: String? = null
+    ): DiscussionToolsEditResponse
+
+    @POST(MW_API_PREFIX + "action=discussiontoolsedit&paction=addcomment")
+    @FormUrlEncoded
+    suspend fun postTalkPageTopicReply(
+            @Field("page") page: String,
+            @Field("commentid") commentId: String,
+            @Field("wikitext") text: String,
+            @Field("token") token: String,
+            @Field("summary") summary: String? = null,
+            @Field("captchaid") captchaId: Long? = null,
+            @Field("captchaword") captchaWord: String? = null
+    ): DiscussionToolsEditResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"
