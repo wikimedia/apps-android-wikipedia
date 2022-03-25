@@ -9,9 +9,11 @@
         style="@style/MaterialMediumSecondaryCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/search_results_count_zero"
+        android:textColor="?android:attr/textColorPrimary"
         android:visibility="gone" />
 
     <LinearLayout
@@ -19,7 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_margin="16dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginHorizontal="16dp"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">
