@@ -183,9 +183,9 @@ dependencies {
     String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.8.1'
     String kotlinCoroutinesVersion = '1.3.9'
-    String firebaseMessagingVersion = '23.0.0'
+    String firebaseMessagingVersion = '23.0.2'
     String mlKitVersion = '17.0.3'
-    String roomVersion = "2.4.1"
+    String roomVersion = "2.4.2"
     String espressoVersion = '3.4.0'
     String serialization_version = '1.2.1'
 
@@ -200,7 +200,7 @@ dependencies {
     implementation "androidx.browser:browser:1.4.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation "androidx.fragment:fragment-ktx:1.4.1"
-    implementation "androidx.paging:paging-runtime-ktx:3.1.0"
+    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "androidx.preference:preference-ktx:1.2.0"
     implementation "androidx.recyclerview:recyclerview:1.2.1"
