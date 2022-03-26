@@ -450,8 +450,6 @@
   <string name="theme_category_reading">Label for theme category that contains settings related to reading.</string>
   <string name="reading_focus_mode">Label for checkbox that enables reading focus mode.</string>
   <string name="reading_focus_mode_detail">Detailed label for checkbox that enables reading focus mode.</string>
-  <string name="theme_category_toolbar">Button label for customizing toolbar category.</string>
-  <string name="theme_customize_toolbar">Button label for customizing toolbar options.</string>
   <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
