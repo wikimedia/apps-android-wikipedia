@@ -123,7 +123,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryPage.Revision> {
             return try {
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                        .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, params.key)
+                        .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, params.key)
                 LoadResult.Page(response.query!!.pages?.get(0)?.revisions!!, null, response.continuation?.rvContinuation)
             } catch (e: Exception) {
                 LoadResult.Error(e)

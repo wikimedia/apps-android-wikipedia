@@ -67,7 +67,7 @@ interface Service {
     val newCaptcha: Observable<Captcha>
 
     @GET(MW_API_PREFIX + "action=query&prop=langlinks&lllimit=500&redirects=&converttitles=")
-    fun getLangLinks(@Query("titles") title: String): Observable<MwQueryResponse>
+    suspend fun getLangLinks(@Query("titles") title: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
     fun getDescription(@Query("titles") titles: String): Observable<MwQueryResponse>
@@ -119,14 +119,16 @@ interface Service {
     @get:Headers("Cache-Control: no-cache")
     val randomWithImageLabels: Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=categories&clprop=hidden&cllimit=500")
-    fun getCategories(@Query("titles") titles: String): Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles&gclshow=!hidden&gcllimit=500")
+    suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&list=categorymembers&cmlimit=500")
-    fun getCategoryMembers(
-        @Query("cmtitle") title: String,
-        @Query("cmcontinue") continueStr: String?
-    ): Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&prop=description|pageimages|info&generator=categorymembers&inprop=varianttitles&gcmprop=ids|title")
+    suspend fun getCategoryMembers(
+        @Query("gcmtitle") title: String,
+        @Query("gcmtype") type: String,
+        @Query("gcmlimit") count: Int,
+        @Query("gcmcontinue") continueStr: String?
+    ): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=10&prop=description|imageinfo|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @get:Headers("Cache-Control: no-cache")
@@ -144,6 +146,12 @@ interface Service {
 
     @get:GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
     val streamConfigs: Observable<MwStreamConfigsResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=allmessages")
+    suspend fun getMessages(
+            @Query("ammessages") messages: String,
+            @Query("amargs") args: String?
+    ): MwQueryResponse
 
     // ------- CSRF, Login, and Create Account -------
 
@@ -284,6 +292,17 @@ interface Service {
         @Field("undo") revision: Long,
         @Field("token") token: String
     ): Observable<Edit>
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=edit")
+    suspend fun postUndoEdit(
+            @Field("title") title: String,
+            @Field("summary") summary: String,
+            @Field("assert") user: String?,
+            @Field("token") token: String,
+            @Field("undo") undoRevId: Long,
+            @Field("undoafter") undoRevAfter: Long?,
+    ): Edit
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
@@ -437,7 +456,15 @@ interface Service {
     suspend fun getRevisionDetailsDescending(
         @Query("titles") titles: String,
         @Query("rvlimit") count: Int,
+        @Query("rvstartid") revisionStartId: Long?,
         @Query("rvcontinue") continueStr: String?,
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user&rvdir=older")
+    suspend fun getRevisionDetailsWithInfo(
+            @Query("titles") titles: String,
+            @Query("rvlimit") count: Int,
+            @Query("rvstartid") revisionStartId: Long
     ): MwQueryResponse
 
     @POST(MW_API_PREFIX + "action=thank")

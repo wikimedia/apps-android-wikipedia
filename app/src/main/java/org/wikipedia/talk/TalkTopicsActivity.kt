@@ -39,6 +39,7 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -104,7 +105,7 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkLastModified.visibility = View.GONE
         binding.talkLastModified.setOnClickListener {
             revisionForLastEdit?.let {
-                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle.prefixedText, it.revId, pageTitle.wikiSite.languageCode))
+                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle, it.revId))
             }
         }
         notificationButtonView = NotificationButtonView(this)
@@ -215,6 +216,10 @@ class TalkTopicsActivity : BaseActivity() {
             R.id.menu_view_user_page -> {
                 val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+                return true
+            }
+            R.id.menu_view_edit_history -> {
+                startActivity(EditHistoryListActivity.newIntent(this, pageTitle))
                 return true
             }
             R.id.menu_talk_topic_share -> {
