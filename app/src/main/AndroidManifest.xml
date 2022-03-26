@@ -254,6 +254,10 @@
             android:label="@string/tabs_activity_title"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".categories.CategoryActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
         <activity
@@ -289,9 +293,7 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity
-            android:name=".diff.ArticleEditDetailsActivity"
-            android:label=""
-            android:theme="@style/AppTheme.ActionBar"  />
+            android:name=".diff.ArticleEditDetailsActivity" />
 
         <activity
             android:name=".page.customize.CustomizeToolbarActivity"

@@ -55,11 +55,16 @@
   <string name="page_edit_history_activity_title">కూర్పుల చరిత్ర: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;చి&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">దిద్దుబాటు సారాంశం ఖాళీగా ఉంది</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%2$s నుండి %1$d దిద్దుబాటు</item>
+    <item quantity="other">%2$s నుండి %1$d దిద్దుబాట్లు</item>
+  </plurals>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను మార్చు</string>
   <string name="menu_page_find_in_page">వ్యాసంలో వెతకండి</string>
   <string name="menu_page_add_to_watchlist">వీక్షణ జాబితాలో చేర్చు</string>
   <string name="menu_page_watch">వీక్షించు</string>
+  <string name="menu_page_unwatch">వీక్షించవద్దు</string>
   <string name="menu_page_view_talk">చర్చ పేజీ చూడండి</string>
   <string name="menu_page_talk_page">చర్చ పేజీ</string>
   <string name="menu_page_view_edit_history">మార్పుల చరిత్ర చూడండి</string>
@@ -207,7 +212,6 @@
   <string name="page_protected_can_not_edit_title">ఈ పేజీ సంరక్షించబడింది</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">వీక్షణ జాబితాలో చేర్చు</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">మీకు ఆసక్తి ఉన్న వ్యాసాల్లో ఏమేం జరుగుతున్నాయో గమనిస్తూ ఉండండి. వ్యాసంలో జరిగే మార్పులను చూసేందుకు, ఓవర్‌ఫ్లో మెనూను తట్టి, &lt;b&gt;వీక్షణ జాబితాలో చేర్చు&lt;/b&gt; ను ఎంచుకోండి.</string>
-  <string name="page_notification_tooltip">ఇప్పుడు మీ గమనింపులు ఇక్కడ ఉంటాయి.</string>
   <string name="settings_item_preferences">అమరికలు</string>
   <string name="settings_activity_title">అమరికలు</string>
   <string name="about_description">వికీపీడియా అనువర్తనం గురించి</string>
@@ -1065,6 +1069,18 @@
   <string name="thank_success_message">మీ \'ధన్యవాదాలను\' %s కు పంపించాం 👍</string>
   <string name="menu_option_view_user_profile">వాడుకరి ప్రొఫైలు పేజీ చూడండి</string>
   <string name="menu_option_view_user_talk">చర్చ పేజీ చూడండి</string>
+  <string name="menu_option_view_user_contributions">వాడుకరి రచనలను చూపించు</string>
+  <string name="revision_diff_compare">కూర్పులను పోల్చు</string>
+  <string name="revision_diff_compare_title">కూర్పులను పోల్చు: %s</string>
+  <string name="revision_diff_from">నుండి:</string>
+  <string name="revision_diff_to">వరకు:</string>
+  <string name="revision_diff_line_num">పంక్తి %d</string>
+  <string name="revision_diff_line_nums">పంక్తులు %d–%d</string>
+  <string name="revision_diff_line_added">పంక్తిని చేర్చారు</string>
+  <string name="revision_diff_line_removed">పంక్తిని తీసేసారు</string>
+  <string name="revision_diff_paragraph_added">పేరాగ్రాఫును చేర్చారు</string>
+  <string name="revision_diff_paragraph_removed">పేరాగ్రాఫును తీసేసారు</string>
+  <string name="revision_undo_success">ఈ కూర్పును వెనక్కి తిప్పాం.</string>
   <string name="revision_compare_button">పోల్చిచూడు</string>
   <string name="revision_compare_two_only">రెండే కూర్పులను ఎంచుకోవచ్చు.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s నీ, దాని చర్చ పేజీనీ మీ వీక్షణ జాబితా %2$s లో చేర్చాం.</string>
@@ -1089,4 +1105,10 @@
   <string name="watchlist_page_moved">తరలించారు</string>
   <string name="watchlist_page_protected">సంరక్షించారు</string>
   <string name="watchlist_page_deleted">తొలగించారు</string>
+  <string name="action_item_categories">వర్గాలు</string>
+  <string name="page_no_categories">ఈ పేజీ వార్గాలకు చెందినది కాదు.</string>
+  <string name="category_tab_articles">వ్యాసాలు</string>
+  <string name="category_tab_subcategories">ఉపవర్గాలు</string>
+  <string name="category_empty">ఈ వర్గంలో వ్యాసాలేమీ కనబడలేదు.</string>
+  <string name="subcategory_empty">ఈ వర్గంలో ఉపవర్గాలేమీ కనబడలేదు.</string>
 </resources>

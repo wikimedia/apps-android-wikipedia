@@ -33,6 +33,12 @@
                 android:title="@string/page_view_in_browser"
                 app:showAsAction="never" />
             <item
+                android:id="@+id/menu_view_edit_history"
+                android:icon="@drawable/ic_icon_revision_history_apps"
+                app:iconTint="?attr/secondary_text_color"
+                android:title="@string/menu_page_view_edit_history"
+                app:showAsAction="never" />
+            <item
                 android:id="@+id/menu_talk_topic_share"
                 android:icon="@drawable/ic_share_material_secondary_themed"
                 android:title="@string/menu_option_share_talk_page"

@@ -225,7 +225,6 @@
   <string name="page_protected_can_not_edit_title">La pàgina està protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Afegeix a la llista de seguiment</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Vigileu tot allò que passa en els articles en què esteu interessat. Toqueu el menú que sobresurt i seleccioneu &lt;b&gt;Afegeix a la llista de seguiment&lt;/b&gt; per a veure els canvis d\'un article.</string>
-  <string name="page_notification_tooltip">Les notificacions són ara aquí.</string>
   <string name="settings_item_preferences">Configuració</string>
   <string name="settings_activity_title">Configuració</string>
   <string name="about_description">Quant a l’aplicació de la Viquipèdia</string>
@@ -1111,6 +1110,18 @@
   <string name="thank_success_message">S\'han enviat els agraïments a %s 👍</string>
   <string name="menu_option_view_user_profile">Mosta la pàgina de perfil d\'usuari</string>
   <string name="menu_option_view_user_talk">Mosta la pàgina de discussió</string>
+  <string name="menu_option_view_user_contributions">Mostra les contribucions de l\'usuari</string>
+  <string name="revision_diff_compare">Compara les revisions</string>
+  <string name="revision_diff_compare_title">Compara les revisions: %s</string>
+  <string name="revision_diff_from">De:</string>
+  <string name="revision_diff_to">Per a:</string>
+  <string name="revision_diff_line_num">Línia %d</string>
+  <string name="revision_diff_line_nums">Línies %d–%d</string>
+  <string name="revision_diff_line_added">Línia afegida</string>
+  <string name="revision_diff_line_removed">Línia eliminada</string>
+  <string name="revision_diff_paragraph_added">Paràgraf afegit</string>
+  <string name="revision_diff_paragraph_removed">Paràgraf eliminat</string>
+  <string name="revision_undo_success">S\'ha desfet la revisió.</string>
   <string name="revision_compare_button">Comparar</string>
   <string name="revision_compare_two_only">Només es poden seleccionar dues revisions.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s i la seva pàgina de discussió s\'han afegit a la vostra llista de seguiment %2$s.</string>

@@ -84,12 +84,17 @@
   <string name="page_edit_history_activity_title">Versionsgeschichte: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Keine Zusammenfassung vorhanden</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d Bearbeitung seit %2$s</item>
+    <item quantity="other">%1$d Bearbeitungen seit %2$s</item>
+  </plurals>
   <string name="page_edit_history_metrics_content_description">Metriken vom %1$s bis %2$s</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
   <string name="menu_page_add_to_watchlist">Zur Beobachtungsliste hinzufügen</string>
   <string name="menu_page_watch">Beobachten</string>
+  <string name="menu_page_unwatch">Nicht mehr beobachten</string>
   <string name="menu_page_view_talk">Diskussionsseite anzeigen</string>
   <string name="menu_page_talk_page">Diskussionsseite</string>
   <string name="menu_page_view_edit_history">Versionsgeschichte anzeigen</string>
@@ -238,7 +243,6 @@
   <string name="page_protected_can_not_edit_title">Diese Seite ist geschützt</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Zur Beobachtungsliste hinzufügen</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Verfolge, was mit Artikeln geschieht, die dich interessieren. Tippe auf das Menü und wähle &lt;b&gt;Zur Beobachtungsliste hinzufügen&lt;/b&gt;, um Änderungen an einem Artikel zu sehen.</string>
-  <string name="page_notification_tooltip">Deinen Benachrichtigungen sind jetzt da.</string>
   <string name="settings_item_preferences">Einstellungen</string>
   <string name="settings_activity_title">Einstellungen</string>
   <string name="about_description">Über die Wikipedia-App</string>
@@ -1099,7 +1103,7 @@
   <string name="talk_snackbar_survey_action_text">Anfangen</string>
   <string name="talk_share_discussion_subject">Wikipedia - Diskussion zum Thema auf der Diskussionsseite „%s“</string>
   <string name="talk_share_talk_page">Wikipedia - Diskussion zum Thema auf der Diskussionsseite</string>
-  <string name="talk_edit_disclaimer">Dies ist eine Diskussionsseite. Bitte respektiere die Richtlinien der Diskussionsseite und denke daran, deine Beiträge zu unterschreiben, indem du vier Tilden eingibst: ~~~~, wenn du Wikitext verwendest.&lt;br&gt;&lt;br&gt;&lt;a href=https://de.wikipedia.org/wiki/Wikipedia:Diskussionsseiten\"&gt;Wikipedia:Diskussionsseiten&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Dies ist eine Diskussionsseite. Bitte respektiere die Richtlinien der Diskussionsseite und denke daran, deine Beiträge zu unterschreiben, indem du vier Tilden eingibst: ~~~~, wenn du Wikitext verwendest.&lt;br&gt;&lt;br&gt;&lt;a href=https://de.wikipedia.org/wiki/Wikipedia:Diskussionsseiten&gt;Wikipedia:Diskussionsseiten&lt;/a&gt;</string>
   <string name="talk_search_hint">Nachrichten suchen</string>
   <string name="talk_overflow_sort_by">Sortieren nach</string>
   <string name="talk_overflow_sort_date_published">Datum der Veröffentlichung</string>
@@ -1123,6 +1127,21 @@
   <string name="thank_success_message">Dein Danke wurde an %s gesendet 👍</string>
   <string name="menu_option_view_user_profile">Benutzerprofil anzeigen</string>
   <string name="menu_option_view_user_talk">Diskussionsseite anzeigen</string>
+  <string name="menu_option_view_user_contributions">Benutzerbeiträge anzeigen</string>
+  <string name="revision_diff_compare">Versionen vergleichen</string>
+  <string name="revision_diff_compare_title">Versionen vergleichen: %s</string>
+  <string name="revision_diff_from">Von:</string>
+  <string name="revision_diff_to">Nach:</string>
+  <string name="revision_diff_line_num">Zeile %d</string>
+  <string name="revision_diff_line_nums">Zeilen %d–%d</string>
+  <string name="revision_diff_line_added">Zeile hinzugefügt</string>
+  <string name="revision_diff_line_removed">Zeile entfernt</string>
+  <string name="revision_diff_paragraph_added">Abschnitt hinzugefügt</string>
+  <string name="revision_diff_paragraph_removed">Abschnitt entfernt</string>
+  <string name="revision_undo_title">Bearbeitung rückgängig machen</string>
+  <string name="revision_undo_message">Damit werden die Änderungen, die durch die hier angezeigte(n) Version(en) des Artikels vorgenommen wurden, rückgängig gemacht.</string>
+  <string name="revision_undo_reason">Um fortzufahren, gib bitte einen Grund für die Rückgängigmachung dieser Bearbeitung an:</string>
+  <string name="revision_undo_success">Die Version wurde rückgängig gemacht.</string>
   <string name="revision_compare_button">Vergleichen</string>
   <string name="revision_compare_two_only">Nur zwei Versionen können ausgewählt werden.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s und die Diskussionsseite wurde deiner Beobachtungsliste %2$s hinzugefügt.</string>

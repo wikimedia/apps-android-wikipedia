@@ -18,6 +18,7 @@
 * David.novella
 * Destinid10 2
 * Dgstranz
+* DiegoAmbrocio
 * Eduardo Addad de Oliveira
 * Eduardoaddad
 * Elisardojm
@@ -115,11 +116,18 @@
   <string name="share_via">Compartir por</string>
   <string name="image_share_via">Compartir por</string>
   <string name="search_redirect_from">Redirigido desde %s</string>
+  <string name="page_edit_history_activity_title">Historial de revisiones: %s</string>
   <string name="page_edit_history_comment_placeholder">Resumen de edición vacío</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d editar desde %2$s</item>
+    <item quantity="other">%1$d editar desde %2$s</item>
+  </plurals>
+  <string name="page_edit_history_metrics_content_description">Métrica de %1$s a %2$s</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
   <string name="menu_page_other_languages">Cambiar idioma</string>
   <string name="menu_page_find_in_page">Buscar en artículo</string>
   <string name="menu_page_add_to_watchlist">Añadir a lista de seguimiento</string>
+  <string name="menu_page_unwatch">Dejar de vigilar</string>
   <string name="menu_page_view_talk">Ver página de discusión</string>
   <string name="menu_page_view_edit_history">Ver historial de ediciones</string>
   <string name="menu_page_edit_history">Historial de ediciones</string>
@@ -265,7 +273,6 @@
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Añadir a la lista de seguimiento</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Mantente al tanto de lo que está pasando en los artículos que a ti te interesan. Toca el menú de opciones y selecciona &lt;b&gt;Añadir a la lista de seguimiento&lt;/b&gt; para ver los cambios a un artículo.</string>
-  <string name="page_notification_tooltip">Tus notificaciones ahora están aquí.</string>
   <string name="settings_item_preferences">Configuración</string>
   <string name="settings_activity_title">Configuración</string>
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
@@ -810,6 +817,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Pulse el icono de arrastre para mover el elemento</string>
+  <string name="customize_toolbar_item_default_tooltip">Pulse y arrastre un elemento para reubicarlo</string>
   <string name="suggested_edits_describe_articles">Describir artículos</string>
   <string name="suggested_edits_caption_images">Leyenda de imágenes</string>
   <string name="suggested_edits_tag_images">Etiqueta de imágenes</string>
@@ -1106,6 +1115,21 @@
   <string name="thank_dialog_positive_button_text">Agradecer</string>
   <string name="thank_dialog_negative_button_text">Cancelar</string>
   <string name="thank_success_message">Tu \'Gracias\' ha sido enviado a %s 👍</string>
+  <string name="menu_option_view_user_contributions">Ver las contribuciones de los usuarios</string>
+  <string name="revision_diff_compare">Compara las revisiones</string>
+  <string name="revision_diff_compare_title">Comparar las revisiones: %s</string>
+  <string name="revision_diff_from">De:</string>
+  <string name="revision_diff_to">Para:</string>
+  <string name="revision_diff_line_num">Línea %d</string>
+  <string name="revision_diff_line_nums">Líneas %d–%d</string>
+  <string name="revision_diff_line_added">Línea añadida</string>
+  <string name="revision_diff_line_removed">Línea eliminada</string>
+  <string name="revision_diff_paragraph_added">Párrafo añadido</string>
+  <string name="revision_diff_paragraph_removed">Párrafo eliminado</string>
+  <string name="revision_undo_title">Deshacer la edición</string>
+  <string name="revision_undo_message">Esto deshará los cambios realizados por la(s) revisión(es) del artículo mostrado aquí.</string>
+  <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>
+  <string name="revision_undo_success">La revisión se deshizo.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s y su página de discusión han sido añadidos a tu lista de seguimiento %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>

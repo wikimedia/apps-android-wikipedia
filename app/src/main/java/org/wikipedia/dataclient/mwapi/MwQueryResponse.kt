@@ -21,5 +21,6 @@ open class MwQueryResponse : MwResponse() {
         @SerialName("continue") val continuation: String? = null
         @SerialName("uccontinue") val ucContinuation: String? = null
         @SerialName("rvcontinue") val rvContinuation: String? = null
+        @SerialName("gcmcontinue") val gcmContinuation: String? = null
     }
 }

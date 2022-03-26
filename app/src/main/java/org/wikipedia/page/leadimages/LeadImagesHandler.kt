@@ -38,6 +38,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     private var callToActionSourceSummary: PageSummaryForEdit? = null
     private var callToActionTargetSummary: PageSummaryForEdit? = null
     private var callToActionIsTranslation = false
+    private var lastImageTitleForCallToAction = ""
     private var imageEditType: ImageEditType? = null
     private var captionSourcePageTitle: PageTitle? = null
     private var captionTargetPageTitle: PageTitle? = null
@@ -100,6 +101,11 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         }
         title?.let {
             val imageTitle = "File:" + page!!.pageProperties.leadImageName
+            pageHeaderView.imageView.contentDescription = parentFragment.getString(R.string.image_content_description, it.displayText)
+            if (imageTitle == lastImageTitleForCallToAction) {
+                finalizeCallToAction()
+                return
+            }
             disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(imageTitle)
                 .subscribeOn(Schedulers.io())
                 .map { response -> response.query?.isEditProtected ?: false }
@@ -133,9 +139,9 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                         imageEditType = ImageEditType.ADD_TAGS
                     }
                     finalizeCallToAction()
+                    lastImageTitleForCallToAction = imageTitle
                 }
             )
-            pageHeaderView.imageView.contentDescription = parentFragment.getString(R.string.image_content_description, it.displayText)
         }
     }
 

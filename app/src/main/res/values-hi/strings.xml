@@ -217,7 +217,6 @@
   <string name="page_protected_can_not_edit_anon">क्षमा करें, यह पेज इस समय अज्ञात रूप से सम्पादित नहीं किया जा सकता।</string>
   <string name="page_protected_can_not_edit_title">यह पृष्ठ संरक्षित है</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ध्यानसूची में जोड़ें</string>
-  <string name="page_notification_tooltip">आपकी सूचनाएं अब यहां हैं।</string>
   <string name="settings_item_preferences">सेटिंग्स</string>
   <string name="settings_activity_title">सेटिंग्स</string>
   <string name="about_description">विकिपीडिया एप के बारे में</string>
@@ -540,6 +539,13 @@
   <string name="talk_add_reply">जवाब दें</string>
   <string name="talk_snackbar_survey_text">Talk Pages का इस्तेमाल करने के लिए धन्यवाद। क्या आप किसी सर्वे में भाग लेकर ऐप को बेहतर बनाने में हमारी मदद कर सकते हैं?</string>
   <string name="talk_snackbar_survey_action_text">शुरूआत करें</string>
+  <string name="menu_option_view_user_contributions">प्रयोक्ता योगदान देखें</string>
+  <string name="revision_diff_compare">संशोधनों की तुलना करें</string>
+  <string name="revision_diff_from">प्रेषक:</string>
+  <string name="revision_diff_to">प्राप्तकर्ता:</string>
+  <string name="revision_diff_paragraph_added">अनुच्छेद जोड़ा गया</string>
+  <string name="revision_undo_reason">जारी रखने के लिए, कृपया इस संपादन को पूर्ववत करने का एक कारण प्रदान करें:</string>
+  <string name="revision_undo_success">संशोधन पूर्ववत किया गया था।</string>
   <string name="revision_compare_button">तुलना करें</string>
   <string name="revision_compare_two_only">केवल दो संशोधनों का चयन किया जा सकता है।</string>
 </resources>
