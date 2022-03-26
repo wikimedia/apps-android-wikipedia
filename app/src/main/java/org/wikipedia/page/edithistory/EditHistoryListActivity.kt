@@ -313,7 +313,6 @@ class EditHistoryListActivity : BaseActivity() {
 
     private inner class StatsViewHolder constructor(private val view: EditHistoryStatsView) : RecyclerView.ViewHolder(view) {
         fun bindItem() {
-            view.isVisible = actionMode == null
             val statsFlowValue = viewModel.editHistoryStatsFlow.value
             if (statsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
                 view.setup(viewModel.pageTitle, statsFlowValue)
@@ -332,27 +331,28 @@ class EditHistoryListActivity : BaseActivity() {
     private inner class SearchBarViewHolder constructor(val binding: ViewEditHistorySearchBarBinding) : RecyclerView.ViewHolder(binding.root) {
 
         init {
+            binding.root.isVisible = false
             updateFilterCount()
         }
 
         fun bindItem() {
-            binding.root.isVisible = actionMode == null
-            binding.root.setCardBackgroundColor(
-                ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
-            )
+            val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
+            if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
+                binding.root.setCardBackgroundColor(
+                    ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
+                )
 
-            itemView.setOnClickListener {
-                actionMode = startSupportActionMode(searchActionModeCallback)
-            }
+                itemView.setOnClickListener {
+                    actionMode = startSupportActionMode(searchActionModeCallback)
+                }
 
-            binding.filterByButton.setOnClickListener {
-                val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
-                if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
+                binding.filterByButton.setOnClickListener {
                     showOverflowMenu(it)
                 }
-            }
 
-            FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+                FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+                binding.root.isVisible = true
+            }
         }
 
         fun updateFilterCount() {
