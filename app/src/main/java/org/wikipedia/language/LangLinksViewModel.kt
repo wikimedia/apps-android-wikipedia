@@ -5,17 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.util.ERROR_LOG_HANDLER
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 
 class LangLinksViewModel(bundle: Bundle) : ViewModel() {
 
@@ -57,9 +60,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun fetchSiteInfo() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-        }) {
+        viewModelScope.launch(ERROR_LOG_HANDLER) {
             withContext(Dispatchers.IO) {
                 val siteMatrix = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getSiteMatrix()
                 val sites = SiteMatrix.getSites(siteMatrix)

@@ -6,13 +6,13 @@ import android.net.Uri
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.main.MainActivity
+import org.wikipedia.util.ERROR_LOG_HANDLER
 import org.wikipedia.util.log.L
 
 class AppShortcuts {
@@ -25,7 +25,7 @@ class AppShortcuts {
 
         @JvmStatic
         fun setShortcuts(app: Context) {
-            CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg -> run { L.e(msg) } }) {
+            CoroutineScope(Dispatchers.Default).launch(ERROR_LOG_HANDLER) {
                 val list = listOf(searchShortcut(app), continueReadingShortcut(app), randomShortcut(app))
                 if (ShortcutManagerCompat.getDynamicShortcuts(app).size < list.size) {
                     ShortcutManagerCompat.setDynamicShortcuts(app, list)

@@ -11,7 +11,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -36,6 +35,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.ERROR_LOG_HANDLER
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LanguageScrollView
@@ -332,7 +332,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun addRecentSearch(title: String?) {
         if (!title.isNullOrBlank()) {
-            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> throwable.printStackTrace() }) {
+            lifecycleScope.launch(ERROR_LOG_HANDLER) {
                 withContext(Dispatchers.IO) {
                     AppDatabase.instance.recentSearchDao().insertRecentSearch(RecentSearch(text = title))
                 }

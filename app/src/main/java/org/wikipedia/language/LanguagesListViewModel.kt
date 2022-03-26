@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -13,19 +12,14 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
+import org.wikipedia.util.ERROR_LOG_HANDLER
 import org.wikipedia.util.Resource
-import org.wikipedia.util.log.L
 import java.util.*
 
 class LanguagesListViewModel : ViewModel() {
-
     private val suggestedLanguageCodes = WikipediaApp.getInstance().language().remainingAvailableLanguageCodes
     private val nonSuggestedLanguageCodes = WikipediaApp.getInstance().language().appMruLanguageCodes.filterNot {
-            suggestedLanguageCodes.contains(it) || WikipediaApp.getInstance().language().appLanguageCodes.contains(it)
-        }
-
-    private val handler = CoroutineExceptionHandler { _, throwable ->
-        L.e(throwable)
+        suggestedLanguageCodes.contains(it) || WikipediaApp.getInstance().language().appLanguageCodes.contains(it)
     }
 
     val siteListData = MutableLiveData<Resource<List<SiteMatrix.SiteInfo>>>()
@@ -35,7 +29,7 @@ class LanguagesListViewModel : ViewModel() {
     }
 
     private fun fetchData() {
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(ERROR_LOG_HANDLER) {
             withContext(Dispatchers.IO) {
                 val siteMatrix = ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getSiteMatrix()
                 val sites = SiteMatrix.getSites(siteMatrix)

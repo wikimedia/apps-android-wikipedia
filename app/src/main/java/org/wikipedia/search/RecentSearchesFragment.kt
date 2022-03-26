@@ -12,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -21,6 +20,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchRecentBinding
 import org.wikipedia.search.db.RecentSearch
+import org.wikipedia.util.ERROR_LOG_HANDLER
 import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
 import org.wikipedia.util.log.L
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
@@ -43,7 +43,7 @@ class RecentSearchesFragment : Fragment() {
             AlertDialog.Builder(requireContext())
                     .setMessage(getString(R.string.clear_recent_searches_confirm))
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
-                        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+                        lifecycleScope.launch(ERROR_LOG_HANDLER) {
                             withContext(Dispatchers.IO) {
                                 AppDatabase.instance.recentSearchDao().deleteAll()
                             }

@@ -19,6 +19,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.WARNING_LOG_HANDLER
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar.Companion.MIN_PROGRESS
 import java.util.*
@@ -46,7 +47,6 @@ object ReadingListBehaviorsUtil {
     // Kotlin coroutine
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
     private val scope = CoroutineScope(Dispatchers.Main)
-    private val exceptionHandler = CoroutineExceptionHandler { _, exception -> L.w(exception) }
 
     fun getListsContainPage(readingListPage: ReadingListPage) =
             allReadingLists.filter { list -> list.pages.any { it.displayTitle == readingListPage.displayTitle } }
@@ -104,7 +104,7 @@ object ReadingListBehaviorsUtil {
 
     fun deletePages(activity: Activity, listsContainPage: List<ReadingList>, readingListPage: ReadingListPage, snackbarCallback: SnackbarCallback, callback: Callback) {
         if (listsContainPage.size > 1) {
-            scope.launch(exceptionHandler) {
+            scope.launch(WARNING_LOG_HANDLER) {
                 val pages = withContext(dispatcher) { AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(readingListPage)) }
                 val lists = withContext(dispatcher) { AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages) }
                 RemoveFromReadingListsDialog(lists).deleteOrShowDialog(activity) { list, page ->
@@ -206,7 +206,7 @@ object ReadingListBehaviorsUtil {
             return
         }
         if (page.offline) {
-            scope.launch(exceptionHandler) {
+            scope.launch(WARNING_LOG_HANDLER) {
                 val pages = withContext(dispatcher) { AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(page)) }
                 val lists = withContext(dispatcher) { AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages) }
                 if (lists.size > 1) {
@@ -293,7 +293,7 @@ object ReadingListBehaviorsUtil {
     }
 
     fun searchListsAndPages(searchQuery: String?, callback: SearchCallback) {
-        scope.launch(exceptionHandler) {
+        scope.launch(WARNING_LOG_HANDLER) {
             allReadingLists = withContext(dispatcher) { AppDatabase.instance.readingListDao().getAllLists() }
             val list = withContext(dispatcher) { applySearchQuery(searchQuery, allReadingLists) }
             if (searchQuery.isNullOrEmpty()) {

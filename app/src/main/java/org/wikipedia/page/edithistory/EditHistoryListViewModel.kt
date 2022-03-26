@@ -5,9 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -15,7 +18,7 @@ import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.log.L
+import org.wikipedia.util.ERROR_LOG_HANDLER
 import java.util.*
 
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
@@ -54,11 +57,8 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun loadEditHistoryStats() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-        }) {
+        viewModelScope.launch(ERROR_LOG_HANDLER) {
             withContext(Dispatchers.IO) {
-
                 val calendar = Calendar.getInstance()
                 val today = DateUtil.getYMDDateString(calendar.time)
                 calendar.add(Calendar.YEAR, -1)
