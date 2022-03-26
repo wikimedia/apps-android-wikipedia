@@ -52,6 +52,7 @@
   <string name="menu_page_find_in_page">Am Artikel sichen</string>
   <string name="menu_page_add_to_watchlist">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
   <string name="menu_page_watch">Iwwerwaachen</string>
+  <string name="menu_page_unwatch">Net méi iwwerwaachen</string>
   <string name="menu_page_view_talk">Diskussiounssäit weisen</string>
   <string name="menu_page_talk_page">Diskussiounssäit</string>
   <string name="menu_page_view_edit_history">All Versioune vun der Säit weisen</string>
@@ -182,7 +183,6 @@
   <string name="page_protected_can_not_edit_anon">Leider kann dës Säit zu dësem Zäitpunkt net anonym geännert ginn.</string>
   <string name="page_protected_can_not_edit_title">Dës Säit ass gespaart</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
-  <string name="page_notification_tooltip">Är Notifikatioune sinn elo hei.</string>
   <string name="settings_item_preferences">Astellungen</string>
   <string name="settings_activity_title">Astellungen</string>
   <string name="about_description">Iwwer d\'Wikipedia App</string>
@@ -737,6 +737,14 @@
   <string name="thank_dialog_negative_button_text">Ofbriechen</string>
   <string name="menu_option_view_user_profile">Benotzerprofil weisen</string>
   <string name="menu_option_view_user_talk">Diskussiounssäit weisen</string>
+  <string name="menu_option_view_user_contributions">Benotzerkontributioune weisen</string>
+  <string name="revision_diff_compare">Versioune vergläichen</string>
+  <string name="revision_diff_from">Vum:</string>
+  <string name="revision_diff_to">Fir:</string>
+  <string name="revision_diff_paragraph_removed">Abschnitt ewechgeholl</string>
+  <string name="revision_undo_title">Ännerung zrécksetzen</string>
+  <string name="revision_undo_success">D\'Versioun gouf réckgängeg gemaach.</string>
+  <string name="revision_compare_button">Vergläichen</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">fir 1 Woch</string>

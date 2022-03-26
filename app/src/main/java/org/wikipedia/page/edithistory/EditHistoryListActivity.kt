@@ -22,13 +22,18 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -44,6 +49,7 @@ class EditHistoryListActivity : BaseActivity() {
     private val loadHeader = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
+    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +70,14 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareButton.setOnClickListener {
             viewModel.toggleCompareState()
             updateCompareState()
+        }
+
+        binding.compareConfirmButton.setOnClickListener {
+            if (viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null) {
+                startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
+                        viewModel.pageTitle, viewModel.selectedRevisionFrom!!.revId,
+                        viewModel.selectedRevisionTo!!.revId))
+            }
         }
 
         binding.editHistoryRefreshContainer.setOnRefreshListener {
@@ -255,7 +269,7 @@ class EditHistoryListActivity : BaseActivity() {
                 toggleSelectState()
             } else {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle.prefixedText, revision.revId, viewModel.pageTitle.wikiSite.languageCode))
+                        viewModel.pageTitle, revision.revId))
             }
         }
 
@@ -271,7 +285,10 @@ class EditHistoryListActivity : BaseActivity() {
             if (viewModel.comparing) {
                 toggleSelectState()
             } else {
-                // TODO: will be done in subsequent PR.
+                UserTalkPopupHelper.show(this@EditHistoryListActivity, bottomSheetPresenter,
+                        PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
+                                revision.user, viewModel.pageTitle.wikiSite), revision.isAnon, v,
+                        Constants.InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)
             }
         }
 

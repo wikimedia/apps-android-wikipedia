@@ -28,7 +28,6 @@ class MwQueryPage {
     var title: String = ""
     val langlinks: List<LangLink> = emptyList()
     val revisions: List<Revision> = emptyList()
-    val categories: List<Category>? = null
     val protection: List<Protection> = emptyList()
     val extract: String? = null
     val description: String? = null
@@ -89,10 +88,11 @@ class MwQueryPage {
         @SerialName("revid") val revId: Long = 0
         @SerialName("parentid") val parentRevId: Long = 0
         @SerialName("anon") val isAnon = false
-        @SerialName("size") val size = 0
+        val size = 0
         val user: String = ""
         val content: String = ""
         val comment: String = ""
+        val parsedcomment: String = ""
 
         var diffSize = 0
 
@@ -124,9 +124,6 @@ class MwQueryPage {
         private val disambiguation: String? = null
         @SerialName("displaytitle") val displayTitle: String? = null
     }
-
-    @Serializable
-    class Category(val ns: Int = 0, val title: String = "", val hidden: Boolean = false)
 
     @Serializable
     class ImageLabel {
