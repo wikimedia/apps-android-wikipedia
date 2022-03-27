@@ -357,11 +357,11 @@ interface Service {
         @Query("uselang") resultLang: String
     ): Observable<Search>
 
-    @GET(MW_API_PREFIX + "action=wbgetentities&props=labels&languagefallback=1")
-    fun getWikidataLabels(
-        @Query("ids") idList: String,
-        @Query("languages") langList: String
-    ): Observable<Entities>
+    @GET(MW_API_PREFIX + "action=query&prop=entityterms")
+    fun getWikidataEntityTerms(
+            @Query("titles") titles: String,
+            @Query("wbetlanguage") lang: String
+    ): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=wbgetclaims")
     fun getClaims(

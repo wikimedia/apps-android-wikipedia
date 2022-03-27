@@ -17,6 +17,7 @@ class MwQueryPage {
     @SerialName("imagelabels") val imageLabels: List<ImageLabel> = emptyList()
     @SerialName("pageid") val pageId = 0
     @SerialName("pageprops") val pageProps: PageProps? = null
+    @SerialName("entityterms") val entityTerms: EntityTerms? = null
 
     private val ns = 0
     private var coordinates: List<Coordinates>? = null
@@ -150,4 +151,11 @@ class MwQueryPage {
 
     @Serializable
     class Confidence(val google: Float = 0f)
+
+    @Serializable
+    class EntityTerms {
+        val alias: List<String> = emptyList()
+        val label: List<String> = emptyList()
+        val description: List<String> = emptyList()
+    }
 }
