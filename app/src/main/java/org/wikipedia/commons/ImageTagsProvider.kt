@@ -14,7 +14,7 @@ object ImageTagsProvider {
                 .subscribeOn(Schedulers.io())
                 .onErrorReturnItem(Claims())
                 .flatMap { claims ->
-                    val ids = claims.claims["P180"]?.map { it.mainSnak?.dataValue?.value() }
+                    val ids = getDepictsClaims(claims.claims)
                     if (ids.isNullOrEmpty()) {
                         Observable.just(MwQueryResponse())
                     } else {
@@ -28,5 +28,9 @@ object ImageTagsProvider {
                     }
                     if (labelList.isNullOrEmpty()) emptyMap() else mapOf(langCode to labelList)
                 }
+    }
+
+    fun getDepictsClaims(claims: Map<String, List<Claims.Claim>>): List<String> {
+        return claims["P180"]?.mapNotNull { it.mainSnak?.dataValue?.value() }.orEmpty()
     }
 }

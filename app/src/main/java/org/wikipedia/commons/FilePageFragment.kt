@@ -17,7 +17,6 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -94,15 +93,11 @@ class FilePageFragment : Fragment() {
         binding.filePageView.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
 
-        disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText,
-                    pageTitle.wikiSite.languageCode), { caption, response ->
-                    // set image caption to pageTitle description
-                    pageTitle.description = caption[pageTitle.wikiSite.languageCode]
-                    response
-                })
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
+                    // set image caption to pageTitle description
+                    pageTitle.description = it.query?.firstPage()?.entityTerms?.label?.firstOrNull()
                     if (it.query?.firstPage()?.imageInfo() == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                         ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode)

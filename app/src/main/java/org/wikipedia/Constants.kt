@@ -57,6 +57,7 @@ object Constants {
     const val SUGGESTION_REQUEST_ITEMS = 5
 
     const val WIKI_CODE_COMMONS = "commons"
+    const val COMMONS_DB_NAME = "commonswiki"
     const val WIKI_CODE_WIKIDATA = "wikidata"
 
     enum class InvokeSource(val value: String) {

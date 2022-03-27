@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
@@ -162,7 +163,7 @@ class NotificationViewModel : ViewModel() {
             val notification = item.notification!!
             val wiki = dbNameMap.getOrElse(notification.wiki) {
                 when (notification.wiki) {
-                    "commonswiki" -> WikiSite(Service.COMMONS_URL)
+                    Constants.COMMONS_DB_NAME -> WikiSite(Service.COMMONS_URL)
                     "wikidatawiki" -> WikiSite(Service.WIKIDATA_URL)
                     else -> {
                         val langCode = StringUtil.dbNameToLangCode(notification.wiki)

@@ -191,7 +191,6 @@ class DescriptionEditFragment : Fragment() {
     private inner class EditViewCallback : DescriptionEditView.Callback {
         private val wikiData = WikiSite(Service.WIKIDATA_URL, "")
         private val wikiCommons = WikiSite(Service.COMMONS_URL)
-        private val commonsDbName = "commonswiki"
         override fun onSaveClick() {
             if (!binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
@@ -341,7 +340,7 @@ class DescriptionEditFragment : Fragment() {
         private fun getPostObservable(editToken: String, languageCode: String): Observable<EntityPostResponse> {
             return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, commonsDbName,
+                ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, Constants.COMMONS_DB_NAME,
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
                         getEditComment(), editToken, if (AccountUtil.isLoggedIn) "user" else null)
             } else {
