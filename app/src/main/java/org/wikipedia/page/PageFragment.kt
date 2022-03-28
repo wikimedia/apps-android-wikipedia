@@ -175,7 +175,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         savedInstanceState?.let {
             scrolledUpForThemeChange = it.getBoolean(ARG_THEME_CHANGE_SCROLLED, false)
         }
-        binding.pageActionLayoutMoreMenu.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_more_vert_themed_24dp, 0, 0)
+        binding.pageActionLayoutMoreMenu.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_more_hor_themed_24dp, 0, 0)
         binding.pageActionLayoutMoreMenu.setOnClickListener {
             bottomSheetPresenter.show(childFragmentManager, PageActionMoreDialog.newInstance(pageActionItemCallback, currentTab, model))
         }

@@ -70,7 +70,7 @@
                 android:focusable="true"
                 android:minWidth="48dp"
                 android:text="@string/menu_page_overflow_label"
-                app:srcCompat="@drawable/ic_more_vert_themed_24dp" />
+                app:srcCompat="@drawable/ic_more_hor_themed_24dp" />
         </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

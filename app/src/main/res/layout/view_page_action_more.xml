@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/customize_toolbar"
-        style="@style/OverflowMenuItem"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:drawablePadding="16dp"
-        android:gravity="center_vertical"
-        android:text="@string/customize_toolbar_title"
-        android:textAllCaps="true"
-        android:textColor="?attr/colorAccent"
-        android:textSize="14sp"
-        android:letterSpacing="0.05"
-        android:fontFamily="sans-serif-medium"
-        app:drawableStartCompat="@drawable/ic_customize_toolbar"
-        app:drawableTint="?attr/colorAccent" />
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/moreMenuList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:background="?attr/paper_color"
         android:minWidth="180dp"
         android:orientation="vertical">
@@ -33,11 +17,24 @@
             android:id="@+id/moreMenuForward"
             style="@style/OverflowMenuItem"
             android:drawablePadding="16dp"
-            android:text="@string/nav_item_forward"
             android:fontFamily="sans-serif-medium"
+            android:text="@string/nav_item_forward"
             app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
             app:drawableTint="?attr/section_title_color" />
 
     </LinearLayout>
 
-</FrameLayout>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/customize_toolbar"
+        style="@style/OverflowMenuItem"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:drawablePadding="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:letterSpacing="0.05"
+        android:text="@string/customize_toolbar_title"
+        android:textAllCaps="true"
+        android:textColor="?attr/colorAccent"
+        android:textSize="14sp" />
+</LinearLayout>

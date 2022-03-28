@@ -58,7 +58,6 @@ class PageActionMoreDialog(val callback: PageActionItem.Callback,
         }
 
         binding.moreMenuForward.visibility = if (currentTab.canGoForward()) VISIBLE else GONE
-        binding.customizeToolbar.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
 
         for (i in 1 until binding.moreMenuList.childCount) {
             val view = binding.moreMenuList.getChildAt(i) as MaterialTextView
