@@ -106,12 +106,12 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 finalizeCallToAction()
                 return
             }
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(imageTitle)
+            disposables.add(ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfo(imageTitle)
                 .subscribeOn(Schedulers.io())
                 .map { response -> response.query?.isEditProtected ?: false }
                 .flatMap { isProtected ->
                     if (isProtected) Observable.empty() else Observable.zip(MediaHelper.getImageCaptions(imageTitle),
-                        ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode)) { first, second -> Pair(first, second) }
+                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode)) { first, second -> Pair(first, second) }
                 }
                 .flatMap { pair ->
                     captionSourcePageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, it.wikiSite.languageCode))
