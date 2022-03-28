@@ -940,6 +940,7 @@
     <string name="suggested_edits_paused_message">Suggested edits is paused until %1$s. Sorry %2$s, some of your recent contributions have been reverted.</string>
     <string name="suggested_edits_disabled_message">Suggested edits is disabled. Sorry %s, too many of your recent contributions have been reverted.</string>
     <string name="suggested_edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Wikipedia.</string>
+    <string name="suggested_edits_gate_message">Sorry, %s, you must make at least three edits directly in an article to use this feature.</string>
     <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
     <string name="suggested_edits_edit_streak_label_text">Edit streak</string>
