@@ -546,8 +546,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         disposeImageCaptionDisposable()
         imageCaptionDisposable =
             Observable.zip(
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getEntitiesByTitle(item.imageTitle!!.prefixedText, Constants.COMMONS_DB_NAME),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.imageTitle!!.prefixedText)
+                ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitle(item.imageTitle!!.prefixedText, Constants.COMMONS_DB_NAME),
+                ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfo(item.imageTitle!!.prefixedText)
             ) { entities, protectionInfoRsp ->
                 val captions = entities.first?.labels?.values?.associate { it.language to it.value }.orEmpty()
                 item.mediaInfo!!.captions = captions

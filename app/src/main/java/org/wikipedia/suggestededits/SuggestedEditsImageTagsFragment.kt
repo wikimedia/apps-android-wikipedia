@@ -27,9 +27,7 @@ import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
 import org.wikipedia.page.PageTitle
@@ -50,7 +48,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     var publishing = false
     private var publishSuccess = false
     private var page: MwQueryPage? = null
-    private val pageTitle get() = PageTitle(page!!.title, WikiSite(Service.COMMONS_URL))
+    private val pageTitle get() = PageTitle(page!!.title, Constants.commonsWikiSite)
     private val tagList = mutableListOf<ImageTag>()
     private var wasCaptionLongClicked = false
     private var lastSearchTerm = ""
@@ -160,7 +158,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
         disposables.add(
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataEntityTerms(page!!.title, callback().getLangCode())
+                ServiceFactory.get(Constants.commonsWikiSite).getWikidataEntityTerms(page!!.title, callback().getLangCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { response ->
@@ -334,9 +332,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
-        val commonsSite = WikiSite(Service.COMMONS_URL)
-
-        disposables.add(CsrfTokenClient(WikiSite(Service.COMMONS_URL)).token
+        disposables.add(CsrfTokenClient(Constants.commonsWikiSite).token
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ token ->
@@ -365,7 +361,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     claimStr += "]}"
                     commentStr += " */"
 
-                    disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
+                    disposables.add(ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, token, claimStr, commentStr, null)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .doAfterTerminate {

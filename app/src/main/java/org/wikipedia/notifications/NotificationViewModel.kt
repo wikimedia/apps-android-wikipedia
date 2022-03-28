@@ -13,7 +13,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.settings.Prefs
@@ -163,8 +162,8 @@ class NotificationViewModel : ViewModel() {
             val notification = item.notification!!
             val wiki = dbNameMap.getOrElse(notification.wiki) {
                 when (notification.wiki) {
-                    Constants.COMMONS_DB_NAME -> WikiSite(Service.COMMONS_URL)
-                    Constants.WIKIDATA_DB_NAME -> WikiSite(Service.WIKIDATA_URL)
+                    Constants.COMMONS_DB_NAME -> Constants.commonsWikiSite
+                    Constants.WIKIDATA_DB_NAME -> Constants.wikidataWikiSite
                     else -> {
                         val langCode = StringUtil.dbNameToLangCode(notification.wiki)
                         WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
