@@ -52,7 +52,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private var publishSuccess = false
     private var page: MwQueryPage? = null
     private val pageTitle get() = PageTitle(page!!.title, WikiSite(Service.COMMONS_URL))
-    private val tagList = mutableListOf<MwQueryPage.ImageLabel>()
+    private val tagList = mutableListOf<ImageTag>()
     private var wasCaptionLongClicked = false
     private var lastSearchTerm = ""
     var invokeSource = InvokeSource.SUGGESTED_EDITS
@@ -210,7 +210,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         callback().updateActionButton()
     }
 
-    private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface): Chip {
+    private fun addChip(label: ImageTag?, typeface: Typeface): Chip {
         val chip = Chip(requireContext())
         chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
@@ -273,14 +273,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.isChipIconVisible = true
         }
         if (chip.tag != null) {
-            (chip.tag as MwQueryPage.ImageLabel).isSelected = chip.isChecked
+            (chip.tag as ImageTag).isSelected = chip.isChecked
         }
 
         updateLicenseTextShown()
         callback().updateActionButton()
     }
 
-    override fun onSearchSelect(item: MwQueryPage.ImageLabel) {
+    override fun onSearchSelect(item: ImageTag) {
         var exists = false
         for (tag in tagList) {
             if (tag.wikidataId == item.wikidataId) {
@@ -305,7 +305,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
-        val acceptedLabels = mutableListOf<MwQueryPage.ImageLabel>()
+        val acceptedLabels = mutableListOf<ImageTag>()
         val iterator = tagList.iterator()
         while (iterator.hasNext()) {
             val tag = iterator.next()
