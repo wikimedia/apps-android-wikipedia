@@ -32,7 +32,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
@@ -484,32 +483,26 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     contribution.wikiSite.languageCode).subscribeOn(Schedulers.io()),
                     if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
                             ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
-                                .getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode)
+                                .getWikidataEntityTerms(contribution.qNumber, contribution.wikiSite.languageCode)
                                 .subscribeOn(Schedulers.io())
                                 .flatMap { response ->
                                     var label = contribution.qNumber
-                                    val entities = response.entities
-                                    val qNumber = entities[contribution.qNumber]
+                                    val qNumber = response.query?.pages?.find { it.title == contribution.qNumber }
                                     qNumber?.let {
-                                        if (it.labels.containsKey(contribution.wikiSite.languageCode)) {
-                                            label = it.labels[contribution.wikiSite.languageCode]!!.value
-                                        } else if (it.labels.containsKey(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)) {
-                                            label = it.labels[AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE]!!.value
-                                        }
+                                        label = it.entityTerms?.label?.firstOrNull().orEmpty().ifEmpty { contribution.qNumber }
                                     }
                                         Observable.just(label)
-                                    }), { commonsResponse, qLabel ->
-
-                            commonsResponse.query?.firstPage()?.imageInfo()?.let {
-                                contribution.imageUrl = it.thumbUrl
-                            } ?: run {
-                                contribution.imageUrl = ""
-                            }
-                            if (contribution.editType == EDIT_TYPE_IMAGE_TAG && qLabel.isNotEmpty()) {
-                                contribution.description = qLabel
-                            }
-                            contribution
-                        })
+                                    })) { commonsResponse, qLabel ->
+                                        commonsResponse.query?.firstPage()?.imageInfo()?.let {
+                                            contribution.imageUrl = it.thumbUrl
+                                        } ?: run {
+                                            contribution.imageUrl = ""
+                                        }
+                                        if (contribution.editType == EDIT_TYPE_IMAGE_TAG && qLabel.isNotEmpty()) {
+                                            contribution.description = qLabel
+                                        }
+                                        contribution
+                                    }
                         .delaySubscription(250, TimeUnit.MILLISECONDS)
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe {

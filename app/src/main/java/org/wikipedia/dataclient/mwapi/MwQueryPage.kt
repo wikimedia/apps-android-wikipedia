@@ -16,6 +16,7 @@ class MwQueryPage {
     @SerialName("pageviews") val pageViewsMap: Map<String, Long?> = emptyMap()
     @SerialName("pageid") val pageId = 0
     @SerialName("pageprops") val pageProps: PageProps? = null
+    @SerialName("entityterms") val entityTerms: EntityTerms? = null
 
     private val ns = 0
     private var coordinates: List<Coordinates>? = null
@@ -122,5 +123,12 @@ class MwQueryPage {
         @SerialName("wikibase_item") val wikiBaseItem: String = ""
         private val disambiguation: String? = null
         @SerialName("displaytitle") val displayTitle: String? = null
+    }
+
+    @Serializable
+    class EntityTerms {
+        val alias: List<String> = emptyList()
+        val label: List<String> = emptyList()
+        val description: List<String> = emptyList()
     }
 }
