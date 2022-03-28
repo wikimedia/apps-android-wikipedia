@@ -59,6 +59,7 @@ object Constants {
     const val WIKI_CODE_COMMONS = "commons"
     const val COMMONS_DB_NAME = "commonswiki"
     const val WIKI_CODE_WIKIDATA = "wikidata"
+    const val WIKIDATA_DB_NAME = "wikidatawiki"
 
     enum class InvokeSource(val value: String) {
         ANNOUNCEMENT("announcement"),
