@@ -4,6 +4,7 @@
 * Chubit
 * Cwlin0416
 * Dbrant
+* DinoWP
 * Eric850130
 * Go1002opn
 * Impartial just
@@ -1114,6 +1115,7 @@
   <string name="thank_success_message">您的感謝已發送給%s 👍</string>
   <string name="menu_option_view_user_profile">檢視使用者個人檔案頁面</string>
   <string name="menu_option_view_user_talk">檢視討論頁</string>
+  <string name="revision_diff_to">至：</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">僅能選擇兩個修訂。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s與該討論頁已新增到您的監視清單%2$s。</string>
