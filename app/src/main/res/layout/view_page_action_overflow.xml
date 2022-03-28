@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/overflow_card_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -10,20 +9,39 @@
     app:cardUseCompatPadding="true">
 
     <LinearLayout
-        android:id="@+id/overflowList"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/paper_color"
-        android:minWidth="180dp"
         android:orientation="vertical">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_forward"
+        <LinearLayout
+            android:id="@+id/overflowList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/paper_color"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/overflow_forward"
+                style="@style/OverflowMenuItem"
+                android:drawablePadding="16dp"
+                android:text="@string/nav_item_forward"
+                app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
+                app:drawableTint="?attr/material_theme_secondary_color" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/customize_toolbar"
             style="@style/OverflowMenuItem"
-            android:drawablePadding="16dp"
-            android:text="@string/nav_item_forward"
-            app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
-            app:drawableTint="?attr/material_theme_secondary_color" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:letterSpacing="0.05"
+            android:text="@string/customize_toolbar_title"
+            android:textAllCaps="true"
+            android:textColor="?attr/colorAccent"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

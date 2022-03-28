@@ -17,6 +17,7 @@ import org.wikipedia.databinding.ItemCustomizeToolbarMenuBinding
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.action.PageActionItem
+import org.wikipedia.page.customize.CustomizeToolbarActivity
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
 
@@ -42,6 +43,9 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
                 item.select(callback)
             }
             binding.overflowList.addView(view)
+        }
+        binding.customizeToolbar.setOnClickListener {
+            context.startActivity(CustomizeToolbarActivity.newIntent(context))
         }
     }
 
