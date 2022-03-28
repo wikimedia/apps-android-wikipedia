@@ -22,12 +22,13 @@ class SearchAndFilterActionProvider(context: Context,
     interface Callback {
         fun onQueryTextChange(s: String)
         fun onQueryTextFocusChange()
-        fun onFilterIconClick(view: View)
+        fun onFilterIconClick()
         fun getExcludedFilterCount(): Int
         fun getFilterIconContentDescription(): Int
     }
 
     private val binding = ViewSearchAndFilterBinding.inflate(LayoutInflater.from(context))
+    val filterIcon = binding.filterIcon
 
     override fun onCreateActionView(): View {
         binding.searchInput.isFocusable = true
@@ -55,7 +56,7 @@ class SearchAndFilterActionProvider(context: Context,
             }
         }
         binding.filterIcon.setOnClickListener {
-            callback.onFilterIconClick(it)
+            callback.onFilterIconClick()
         }
         binding.filterIcon.contentDescription = context.getString(callback.getFilterIconContentDescription())
         FeedbackUtil.setButtonLongPressToast(binding.filterIcon)

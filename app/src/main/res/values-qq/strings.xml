@@ -93,7 +93,7 @@
     <item quantity="one">Text of showing the year since the article has been created and the total edit counts. Format:\n: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\'\'text to display (for one edit)\'\'&lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\nIn the \'\'text to display\'\', the &lt;code&gt;%1$d &lt;/code&gt; will be replaced by the total edit counts, and the &lt;code&gt;%2$s&lt;/code&gt; will be replaced by the year.</item>
     <item quantity="other">Text of showing the year since the article has been created and the total edit counts. Format:\n: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\'\'text to display (for two edits or more)\'\'&lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\nIn the \'\'text to display\'\', the &lt;code&gt;%1$d &lt;/code&gt; will be replaced by the total edit counts, and the &lt;code&gt;%2$s&lt;/code&gt; will be replaced by the year.</item>
   </plurals>
-  <string name="page_edit_history_empty_search_message">Empty message text hinting the user to remove filters to see revision history. %s indicates the number of filters string.</string>
+  <string name="page_edit_history_empty_search_message">Empty message text hinting the user to remove filters to see more revision history. %s indicates the number of filters string.</string>
   <plurals name="page_edit_history_number_of_filters">
     <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
     <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>

@@ -49,6 +49,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.EditHistoryFilterOverflowView
 import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.SearchAndFilterActionProvider
@@ -347,7 +348,7 @@ class EditHistoryListActivity : BaseActivity() {
                 }
 
                 binding.filterByButton.setOnClickListener {
-                    showOverflowMenu(it)
+                    showOverflowMenu()
                 }
 
                 FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
@@ -368,10 +369,17 @@ class EditHistoryListActivity : BaseActivity() {
             }
         }
 
-        fun showOverflowMenu(anchor: View) {
+        fun showOverflowMenu() {
             val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
             if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
-                EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchor, editCountsFlowValue) {
+                val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null) {
+                    L.d("showOverflowMenu #1")
+                    searchActionModeCallback.searchBarFilterIcon!!
+                } else {
+                    L.d("showOverflowMenu #2")
+                    binding.filterByButton
+                }
+                EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsFlowValue) {
                     editHistoryListAdapter.refresh()
                     updateFilterCount()
                     actionMode?.let {
@@ -390,7 +398,7 @@ class EditHistoryListActivity : BaseActivity() {
                 binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
                 RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
                 binding.emptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
-                    editHistorySearchBarAdapter.viewHolder.showOverflowMenu(binding.emptySearchMessage)
+                    editHistorySearchBarAdapter.viewHolder.showOverflowMenu()
                 }
                 binding.searchEmptyText.isVisible = actionMode != null
                 binding.searchEmptyContainer.isVisible = Prefs.editHistoryFilterDisableSet.isNotEmpty()
@@ -460,6 +468,7 @@ class EditHistoryListActivity : BaseActivity() {
     private inner class SearchCallback : SearchActionModeCallback() {
 
         var searchAndFilterActionProvider: SearchAndFilterActionProvider? = null
+        val searchBarFilterIcon get() = searchAndFilterActionProvider?.filterIcon
 
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             searchAndFilterActionProvider = SearchAndFilterActionProvider(this@EditHistoryListActivity, searchHintString,
@@ -471,8 +480,8 @@ class EditHistoryListActivity : BaseActivity() {
                     override fun onQueryTextFocusChange() {
                     }
 
-                    override fun onFilterIconClick(view: View) {
-                        editHistorySearchBarAdapter.viewHolder.showOverflowMenu(view)
+                    override fun onFilterIconClick() {
+                        editHistorySearchBarAdapter.viewHolder.showOverflowMenu()
                     }
 
                     override fun getExcludedFilterCount(): Int {

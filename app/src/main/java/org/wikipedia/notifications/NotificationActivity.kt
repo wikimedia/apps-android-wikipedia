@@ -586,7 +586,7 @@ class NotificationActivity : BaseActivity() {
                     override fun onQueryTextFocusChange() {
                     }
 
-                    override fun onFilterIconClick(view: View) {
+                    override fun onFilterIconClick() {
                         NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
                         DeviceUtil.hideSoftKeyboard(this@NotificationActivity)
                         startActivity(NotificationFilterActivity.newIntent(this@NotificationActivity))
