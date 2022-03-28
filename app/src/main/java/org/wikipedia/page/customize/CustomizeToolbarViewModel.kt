@@ -16,7 +16,8 @@ class CustomizeToolbarViewModel : ViewModel() {
         private set
 
     init {
-        setupDefaultOrder(Prefs.customizeToolbarMenuOrder.isEmpty() && Prefs.customizeToolbarOrder.isEmpty())
+        setupDefaultOrder(true)
+        // setupDefaultOrder(Prefs.customizeToolbarMenuOrder.isEmpty() && Prefs.customizeToolbarOrder.isEmpty())
         preProcessList()
     }
 
@@ -52,7 +53,7 @@ class CustomizeToolbarViewModel : ViewModel() {
 
     private fun headerPair(isToolbar: Boolean): Pair<Int, Any> {
         return CustomizeToolbarFragment.VIEW_TYPE_HEADER to
-                if (isToolbar) R.string.customize_toolbar_category_toolbar else R.string.customize_toolbar_category_menu
+                if (isToolbar) R.string.customize_toolbar_category_toolbar else R.string.customize_toolbar_category_more
     }
 
     private fun emptyPlaceholderPair(isToolbar: Boolean): Pair<Int, Any> {

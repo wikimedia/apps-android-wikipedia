@@ -221,7 +221,7 @@ class CustomizeToolbarFragment : Fragment() {
         const val VIEW_TYPE_ITEM = 2
         const val VIEW_TYPE_SET_TO_DEFAULT = 3
         const val VIEW_TYPE_EMPTY_PLACEHOLDER = 4
-        const val TOOLBAR_ITEMS_LIMIT = 5
+        const val TOOLBAR_ITEMS_LIMIT = 4
 
         fun newInstance(): CustomizeToolbarFragment {
             return CustomizeToolbarFragment()
