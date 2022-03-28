@@ -93,7 +93,7 @@ class FilePageFragment : Fragment() {
         binding.filePageView.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode)
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfoWithEntityTerms(pageTitle.prefixedText, pageTitle.wikiSite.languageCode, pageTitle.wikiSite.languageCode)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     // set image caption to pageTitle description
