@@ -676,6 +676,7 @@
   <string name="notifications_offline_disable_message">ఈ ఫంక్షను ఆప్‌లైనులో అందుబాటులో లేదు.</string>
   <string name="view_because_you_read_card_title">మీరివి చదివారు కాబట్టి</string>
   <string name="view_random_article_card_action">మరిన్ని యాదృచ్ఛిక వ్యాసాలు</string>
+  <string name="view_top_read_card_title">ఎక్కువగా చదివినవి</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_main_page_card_title">వికీపీడియాలో నేడు</string>

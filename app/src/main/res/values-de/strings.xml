@@ -1166,4 +1166,10 @@
   <string name="watchlist_page_moved">Verschoben</string>
   <string name="watchlist_page_protected">Geschützt</string>
   <string name="watchlist_page_deleted">Gelöscht</string>
+  <string name="action_item_categories">Kategorien</string>
+  <string name="page_no_categories">Dieser Artikel gehört zu keiner Kategorie.</string>
+  <string name="category_tab_articles">Artikel</string>
+  <string name="category_tab_subcategories">Unterkategorien</string>
+  <string name="category_empty">Keine Artikel in dieser Kategorie gefunden.</string>
+  <string name="subcategory_empty">Keine Unterkategorien in dieser Kategorie gefunden.</string>
 </resources>

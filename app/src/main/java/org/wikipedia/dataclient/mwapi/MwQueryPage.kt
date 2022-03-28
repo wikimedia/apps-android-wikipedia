@@ -14,9 +14,9 @@ class MwQueryPage {
     @SerialName("videoinfo") private val videoInfo: List<ImageInfo>? = null
     @SerialName("watchlistexpiry") private val watchlistExpiry: String? = null
     @SerialName("pageviews") val pageViewsMap: Map<String, Long?> = emptyMap()
-    @SerialName("imagelabels") val imageLabels: List<ImageLabel> = emptyList()
     @SerialName("pageid") val pageId = 0
     @SerialName("pageprops") val pageProps: PageProps? = null
+    @SerialName("entityterms") val entityTerms: EntityTerms? = null
 
     private val ns = 0
     private var coordinates: List<Coordinates>? = null
@@ -128,28 +128,9 @@ class MwQueryPage {
     }
 
     @Serializable
-    class ImageLabel {
-
-        @SerialName("wikidata_id") var wikidataId: String? = ""
-        private val confidence: Confidence? = null
-        val state: String = ""
-        var label: String = ""
-        var description: String? = ""
-        var isSelected = false
-        var isCustom = false
-
-        constructor()
-        constructor(wikidataId: String, label: String, description: String?) {
-            this.wikidataId = wikidataId
-            this.label = label
-            this.description = description
-            isCustom = true
-        }
-
-        val confidenceScore: Float
-            get() = confidence?.google ?: 0f
+    class EntityTerms {
+        val alias: List<String> = emptyList()
+        val label: List<String> = emptyList()
+        val description: List<String> = emptyList()
     }
-
-    @Serializable
-    class Confidence(val google: Float = 0f)
 }

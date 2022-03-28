@@ -75,13 +75,13 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|description&inprop=varianttitles&redirects=1")
     fun getInfoByPageId(@Query("pageids") pageIds: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=imageinfo|imagelabels&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     fun getImageInfo(
         @Query("titles") titles: String,
         @Query("iiextmetadatalanguage") lang: String
     ): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=videoinfo|imagelabels&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
+    @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
     fun getVideoInfo(
         @Query("titles") titles: String,
         @Query("viextmetadatalanguage") lang: String
@@ -111,14 +111,6 @@ interface Service {
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
     fun parseTextForMainPage(@Query("page") mainPageTitle: String): Observable<MwParseResponse>
 
-    @get:GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=0&grnlimit=50&prop=pageprops|description")
-    @get:Headers("Cache-Control: no-cache")
-    val randomWithPageProps: Observable<MwQueryResponse>
-
-    @get:GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=100&prop=imagelabels")
-    @get:Headers("Cache-Control: no-cache")
-    val randomWithImageLabels: Observable<MwQueryResponse>
-
     @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles&gclshow=!hidden&gcllimit=500")
     suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
 
@@ -133,9 +125,6 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=10&prop=description|imageinfo|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @get:Headers("Cache-Control: no-cache")
     val randomWithImageInfo: Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&generator=unreviewedimagelabels&guillimit=10&prop=imagelabels|imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    fun getImagesWithUnreviewedLabels(@Query("uselang") lang: String): Observable<MwQueryResponse>
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")
@@ -336,15 +325,6 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     val editorTaskCounts: Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=missingdescriptions&gwetslimit=3")
-    fun getEditorTaskMissingDescriptions(@Query("gwetstarget") targetLanguage: String): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=descriptiontranslations&gwetslimit=3")
-    fun getEditorTaskTranslatableDescriptions(
-        @Query("gwetssource") sourceLanguage: String,
-        @Query("gwetstarget") targetLanguage: String
-    ): Observable<MwQueryResponse>
-
     // ------- Wikidata -------
 
     @GET(MW_API_PREFIX + "action=wbgetentities")
@@ -360,11 +340,11 @@ interface Service {
         @Query("uselang") resultLang: String
     ): Observable<Search>
 
-    @GET(MW_API_PREFIX + "action=wbgetentities&props=labels&languagefallback=1")
-    fun getWikidataLabels(
-        @Query("ids") idList: String,
-        @Query("languages") langList: String
-    ): Observable<Entities>
+    @GET(MW_API_PREFIX + "action=query&prop=entityterms")
+    fun getWikidataEntityTerms(
+            @Query("titles") titles: String,
+            @Query("wbetlanguage") lang: String
+    ): Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=wbgetclaims")
     fun getClaims(
@@ -419,14 +399,6 @@ interface Service {
         @Field("summary") summary: String?,
         @Field("tags") tags: String?
     ): Observable<EntityPostResponse>
-
-    @POST(MW_API_PREFIX + "action=reviewimagelabels")
-    @FormUrlEncoded
-    fun postReviewImageLabels(
-        @Field("filename") fileName: String,
-        @Field("token") token: String,
-        @Field("batch") batchLabels: String
-    ): Observable<MwPostResponse>
 
     @GET(MW_API_PREFIX + "action=visualeditor&paction=metadata")
     fun getVisualEditorMetadata(@Query("page") page: String): Observable<MwVisualEditorResponse>
