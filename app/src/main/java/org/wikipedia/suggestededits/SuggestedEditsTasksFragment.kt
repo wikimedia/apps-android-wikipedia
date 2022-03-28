@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -335,7 +336,15 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun maybeSetPausedOrDisabled(): Boolean {
         val pauseEndDate = UserContributionsStats.maybePauseAndGetEndDate()
 
-        if (UserContributionsStats.isDisabled()) {
+        if (totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.getInstance().appOrSystemLanguageCode == "en") {
+            clearContents()
+            binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
+            binding.disabledStatesView.setPositiveButton(R.string.suggested_edits_learn_more, {
+                UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(MIN_CONTRIBUTIONS_GATE_URL))
+            }, true)
+            binding.disabledStatesView.visibility = VISIBLE
+            return true
+        } else if (UserContributionsStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
@@ -449,6 +458,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
+        private const val MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS = 3
+        private const val MIN_CONTRIBUTIONS_GATE_URL = "https://en.wikipedia.org/wiki/Help:Introduction_to_editing_with_Wiki_Markup/1"
+
         fun newInstance(): SuggestedEditsTasksFragment {
             return SuggestedEditsTasksFragment()
         }
