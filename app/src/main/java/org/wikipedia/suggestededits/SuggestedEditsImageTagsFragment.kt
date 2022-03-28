@@ -159,13 +159,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getEntitiesByTitle(page!!.title, Constants.COMMONS_DB_NAME)
+        disposables.add(
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataEntityTerms(page!!.title, callback().getLangCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { response ->
-                    val captions = response.first?.labels?.values?.associate { it.language to it.value }.orEmpty()
-                    if (captions.containsKey(callback().getLangCode())) {
-                        binding.imageCaption.text = captions[callback().getLangCode()]
+                    val caption = response.query?.firstPage()?.entityTerms?.label?.firstOrNull()
+                    if (!caption.isNullOrEmpty()) {
+                        binding.imageCaption.text = caption
                         binding.imageCaption.visibility = VISIBLE
                     } else {
                         if (page?.imageInfo()?.metadata != null) {
