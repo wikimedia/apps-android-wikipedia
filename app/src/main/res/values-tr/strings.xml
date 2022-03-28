@@ -29,6 +29,7 @@
 * MrSchipunov
 * MuratTheTurkish
 * Okkerem
+* Oyuncu
 * Rapsar
 * SaldırganSincap
 * Sayginer
@@ -1146,4 +1147,10 @@
   <string name="watchlist_page_moved">Taşındı</string>
   <string name="watchlist_page_protected">Korumalı</string>
   <string name="watchlist_page_deleted">Silindi</string>
+  <string name="action_item_categories">kategoriler</string>
+  <string name="page_no_categories">Bulunduğunuz sayfa herhangi bir kategoriye ait değildir.</string>
+  <string name="category_tab_articles">Makaleler</string>
+  <string name="category_tab_subcategories">alt kategoriler</string>
+  <string name="category_empty">kategoride makale bulunamadı.</string>
+  <string name="subcategory_empty">Bu kategoride alt kategori bulunamadı.</string>
 </resources>
