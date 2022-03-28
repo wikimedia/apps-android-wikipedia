@@ -15,6 +15,7 @@
 * Patsagorn Y.
 * Pon44695
 * Prame Tan
+* Trisorn Triboon
 -->
 <resources>
   <string name="app_name_prod">วิกิพีเดีย</string>
@@ -59,6 +60,7 @@
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
   <string name="menu_page_find_in_page">ค้นหาในบทความ</string>
   <string name="menu_page_add_to_watchlist">เพิ่มเข้ารายการเฝ้าดู</string>
+  <string name="menu_page_unwatch">เลิกเฝ้าดู</string>
   <string name="menu_page_view_talk">ดูหน้าอภิปราย</string>
   <string name="menu_page_view_edit_history">ดูประวัติการแก้ไข</string>
   <string name="menu_page_remove_from_watchlist">เอาออกจากรายการเฝ้าดู</string>
@@ -896,6 +898,11 @@
   <string name="talk_reply_subject">หัวเรื่อง</string>
   <string name="thank_dialog_positive_button_text">ส่งคำขอบคุณ</string>
   <string name="thank_dialog_negative_button_text">ยกเลิก</string>
+  <string name="revision_diff_compare">เปรียบเทียบรุ่นแก้ไข</string>
+  <string name="revision_diff_compare_title">เปรียบเทียบรุ่นแก้ไข: %s</string>
+  <string name="revision_diff_from">จาก:</string>
+  <string name="revision_diff_to">ถึง:</string>
+  <string name="revision_compare_button">เปรียบเทียบ</string>
   <string name="watchlist_filter_all">ทั้งหมด</string>
   <string name="watchlist_filter_talk">คุย</string>
   <string name="watchlist_filter_pages">หน้า</string>
@@ -903,4 +910,8 @@
   <string name="watchlist_page_moved">ถูกย้าย</string>
   <string name="watchlist_page_protected">ถูกป้องกัน</string>
   <string name="watchlist_page_deleted">ถูกลบ</string>
+  <string name="action_item_categories">หมวดหมู่</string>
+  <string name="category_tab_articles">บทความ</string>
+  <string name="category_tab_subcategories">หมวดหมู่ย่อย</string>
+  <string name="subcategory_empty">ไม่พบหมวดหมู่ย่อยในหมวดหมู่นี้</string>
 </resources>
