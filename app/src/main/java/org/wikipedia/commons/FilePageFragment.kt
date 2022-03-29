@@ -12,12 +12,10 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.databinding.FragmentFilePageBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -94,15 +92,11 @@ class FilePageFragment : Fragment() {
         binding.filePageView.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
 
-        disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText,
-                    pageTitle.wikiSite.languageCode), { caption, response ->
-                    // set image caption to pageTitle description
-                    pageTitle.description = caption[pageTitle.wikiSite.languageCode]
-                    response
-                })
+        disposables.add(ServiceFactory.get(Constants.commonsWikiSite).getImageInfoWithEntityTerms(pageTitle.prefixedText, pageTitle.wikiSite.languageCode, pageTitle.wikiSite.languageCode)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
+                    // set image caption to pageTitle description
+                    pageTitle.description = it.query?.firstPage()?.entityTerms?.label?.firstOrNull()
                     if (it.query?.firstPage()?.imageInfo() == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                         ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode)
@@ -135,7 +129,7 @@ class FilePageFragment : Fragment() {
                 }
                 .flatMap {
                     imageTags = it
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(pageTitle.prefixedText)
+                    ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfo(pageTitle.prefixedText)
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
