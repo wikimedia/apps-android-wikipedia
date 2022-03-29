@@ -47,7 +47,6 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             if (before != null && after != null) { before.diffSize = before.size - after.size }
             null
         }.filter {
-            L.d("Run filter")
             when {
                 anonEditsOnly -> { it.isAnon }
                 userEditsOnly -> { !it.isAnon }

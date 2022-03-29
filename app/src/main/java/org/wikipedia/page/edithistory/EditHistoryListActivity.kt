@@ -3,7 +3,6 @@ package org.wikipedia.page.edithistory
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -50,6 +49,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.EditHistoryFilterOverflowView
 import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.SearchAndFilterActionProvider
@@ -298,6 +298,7 @@ class EditHistoryListActivity : BaseActivity() {
 
     private inner class LoadingViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(loadState: LoadState, retry: () -> Unit) {
+            L.d("Binding loading")
             val errorView = itemView.findViewById<WikiErrorView>(R.id.errorView)
             val progressBar = itemView.findViewById<View>(R.id.progressBar)
             progressBar.isVisible = loadState is LoadState.Loading
@@ -322,7 +323,6 @@ class EditHistoryListActivity : BaseActivity() {
         fun bindItem(listItem: String) {
             val dateText = itemView.findViewById<TextView>(R.id.date_text)
             dateText.text = listItem
-            StringUtil.highlightAndBoldenText(dateText, viewModel.currentQuery, true, Color.YELLOW)
         }
     }
 
@@ -372,8 +372,9 @@ class EditHistoryListActivity : BaseActivity() {
                 val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
                     searchActionModeCallback.searchBarFilterIcon!! else binding.filterByButton
                 EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsFlowValue) {
-                    setupAdapters()
-                    editHistoryListAdapter.refresh()
+                    setupAdapters().run {
+                        editHistoryListAdapter.refresh()
+                    }
                     updateFilterCount()
                     actionMode?.let {
                         searchActionModeCallback.updateFilterIconAndText()
