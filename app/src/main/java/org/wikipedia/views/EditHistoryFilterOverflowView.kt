@@ -48,48 +48,38 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
         binding.filterByUser.text = context.getString(R.string.page_edit_history_filter_by_user, StringUtil.getPageViewText(context, editCounts.userEdits.count.toLong()))
         binding.filterByAnon.text = context.getString(R.string.page_edit_history_filter_by_anon, StringUtil.getPageViewText(context, editCounts.anonEdits.count.toLong()))
         binding.filterByBot.text = context.getString(R.string.page_edit_history_filter_by_bot, StringUtil.getPageViewText(context, editCounts.botEdits.count.toLong()))
-        updateSelectedIconsVisibility()
+        updateSelectedItem()
     }
 
-    private fun updateSelectedIconsVisibility() {
-        val icons = listOf(binding.filterByUserSelected, binding.filterByAnonSelected, binding.filterByBotSelected)
-        val types = listOf(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS, EditCount.EDIT_TYPE_BOT)
-        if (Prefs.editHistoryFilterDisableSet.isEmpty()) {
-            icons.map { it.visibility = View.VISIBLE }
-            binding.filterByAllSelected.visibility = View.VISIBLE
-        } else {
-            types.forEachIndexed { index, type ->
-                icons[index].visibility = if (Prefs.editHistoryFilterDisableSet.contains(type)) View.INVISIBLE else View.VISIBLE
-            }
-            // Manually make bot and all selected icon invisible.
-            binding.filterByBotSelected.visibility = View.INVISIBLE
-            binding.filterByAllSelected.visibility = View.INVISIBLE
+    private fun updateSelectedItem() {
+        binding.filterByAllSelected.visibility = View.INVISIBLE
+        binding.filterByAnonSelected.visibility = View.INVISIBLE
+        binding.filterByUserSelected.visibility = View.INVISIBLE
+        binding.filterByBotSelected.visibility = View.INVISIBLE
+
+        when (Prefs.editHistoryFilterType) {
+            EditCount.EDIT_TYPE_ANONYMOUS -> { binding.filterByAnonSelected.visibility = View.VISIBLE }
+            EditCount.EDIT_TYPE_EDITORS -> { binding.filterByUserSelected.visibility = View.VISIBLE }
+            else -> { binding.filterByAllSelected.visibility = View.VISIBLE }
         }
     }
 
     private fun setButtonsListener() {
         binding.filterByAllButton.setOnClickListener {
-            onButtonCLicked(EditCount.EDIT_TYPE_EDITORS, EditCount.EDIT_TYPE_ANONYMOUS)
+            Prefs.editHistoryFilterType = ""
+            onSelected()
         }
         binding.filterByUserButton.setOnClickListener {
-            onButtonCLicked(EditCount.EDIT_TYPE_EDITORS)
+            Prefs.editHistoryFilterType = EditCount.EDIT_TYPE_EDITORS
+            onSelected()
         }
         binding.filterByAnonButton.setOnClickListener {
-            onButtonCLicked(EditCount.EDIT_TYPE_ANONYMOUS)
+            Prefs.editHistoryFilterType = EditCount.EDIT_TYPE_ANONYMOUS
+            onSelected()
         }
     }
 
-    private fun onButtonCLicked(vararg disabledTypes: String) {
-        val set = Prefs.editHistoryFilterDisableSet.toMutableSet()
-        if (set.isNotEmpty() && disabledTypes.size == EditHistoryListViewModel.FILTER_TYPE_SIZE) {
-            set.clear()
-        } else if (set.containsAll(disabledTypes.toSet())) {
-            set.removeAll(disabledTypes)
-        } else {
-            set.addAll(disabledTypes)
-        }
-        Prefs.editHistoryFilterDisableSet = set
-        updateSelectedIconsVisibility()
+    private fun onSelected() {
         callback?.onItemClicked()
         popupWindowHost?.dismiss()
     }

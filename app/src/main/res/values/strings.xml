@@ -62,11 +62,7 @@
         <item quantity="one">%1$d edit since %2$s</item>
         <item quantity="other">%1$d edits since %2$s</item>
     </plurals>
-    <string name="page_edit_history_empty_search_message">Try removing %s to see more edits</string>
-    <plurals name="page_edit_history_number_of_filters">
-        <item quantity="one">%d filter</item>
-        <item quantity="other">%d filters</item>
-    </plurals>
+    <string name="page_edit_history_empty_search_message"><![CDATA[Try changing <a href="#">filters</a> to see more edits]]></string>
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>

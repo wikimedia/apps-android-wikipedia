@@ -20,6 +20,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -132,7 +133,10 @@ class EditHistoryListActivity : BaseActivity() {
                 loadHeader.loadState = it.refresh
                 loadFooter.loadState = it.append
                 enableCompareButton(binding.compareButton, editHistoryListAdapter.itemCount > 2)
-                editHistoryEmptyMessagesAdapter.notifyItemChanged(0)
+                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && editHistoryListAdapter.itemCount == 0)
+                if (showEmpty) {
+                    (binding.editHistoryRecycler.adapter as ConcatAdapter).addAdapter(editHistoryEmptyMessagesAdapter)
+                }
             }
         }
 
@@ -181,18 +185,12 @@ class EditHistoryListActivity : BaseActivity() {
 
     private fun setupAdapters() {
         if (actionMode != null) {
-            binding.editHistoryRecycler.adapter =
-                editHistoryListAdapter.withLoadStateFooter(loadFooter).also {
-                    it.removeAdapter(editHistoryStatsAdapter)
-                    it.removeAdapter(editHistorySearchBarAdapter)
-                    it.addAdapter(0, editHistoryEmptyMessagesAdapter)
-                }
+            binding.editHistoryRecycler.adapter = editHistoryListAdapter.withLoadStateFooter(loadFooter)
         } else {
             binding.editHistoryRecycler.adapter =
                 editHistoryListAdapter.withLoadStateHeaderAndFooter(loadHeader, loadFooter).also {
                     it.addAdapter(0, editHistoryStatsAdapter)
                     it.addAdapter(1, editHistorySearchBarAdapter)
-                    it.addAdapter(2, editHistoryEmptyMessagesAdapter)
                 }
         }
     }
@@ -255,7 +253,7 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class EditHistoryDiffCallback : DiffUtil.ItemCallback<EditHistoryListViewModel.EditHistoryItemModel>() {
-        override fun areItemsTheSame(oldItem: EditHistoryListViewModel.EditHistoryItemModel, newItem: EditHistoryListViewModel.EditHistoryItemModel): Boolean {
+        override fun areContentsTheSame(oldItem: EditHistoryListViewModel.EditHistoryItemModel, newItem: EditHistoryListViewModel.EditHistoryItemModel): Boolean {
             if (oldItem is EditHistoryListViewModel.EditHistorySeparator && newItem is EditHistoryListViewModel.EditHistorySeparator) {
                 return oldItem.date == newItem.date
             } else if (oldItem is EditHistoryListViewModel.EditHistoryItem && newItem is EditHistoryListViewModel.EditHistoryItem) {
@@ -264,8 +262,8 @@ class EditHistoryListActivity : BaseActivity() {
             return false
         }
 
-        override fun areContentsTheSame(oldItem: EditHistoryListViewModel.EditHistoryItemModel, newItem: EditHistoryListViewModel.EditHistoryItemModel): Boolean {
-            return areItemsTheSame(oldItem, newItem)
+        override fun areItemsTheSame(oldItem: EditHistoryListViewModel.EditHistoryItemModel, newItem: EditHistoryListViewModel.EditHistoryItemModel): Boolean {
+            return oldItem == newItem
         }
     }
 
@@ -356,13 +354,13 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         fun updateFilterCount() {
-            if (Prefs.editHistoryFilterDisableSet.isEmpty()) {
+            if (Prefs.editHistoryFilterType.isEmpty()) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.chip_text_color)))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
-                binding.filterCount.text = Prefs.editHistoryFilterDisableSet.size.toString()
+                binding.filterCount.text = (if (Prefs.editHistoryFilterType.isNotEmpty()) 1 else 0).toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
                     ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.colorAccent)))
             }
@@ -374,6 +372,7 @@ class EditHistoryListActivity : BaseActivity() {
                 val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
                     searchActionModeCallback.searchBarFilterIcon!! else binding.filterByButton
                 EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsFlowValue) {
+                    setupAdapters()
                     editHistoryListAdapter.refresh()
                     updateFilterCount()
                     actionMode?.let {
@@ -385,21 +384,17 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class EmptyMessagesViewHolder constructor(val binding: ViewEditHistoryEmptyMessagesBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindItem() {
-            if (loadFooter.loadState is LoadState.NotLoading && loadFooter.loadState.endOfPaginationReached && editHistoryListAdapter.itemCount == 0) {
-                val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters,
-                    Prefs.editHistoryFilterDisableSet.size, Prefs.editHistoryFilterDisableSet.size)
-                binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
-                RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
-                binding.emptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
-                    editHistorySearchBarAdapter.viewHolder.showOverflowMenu()
-                }
-                binding.searchEmptyText.isVisible = actionMode != null
-                binding.searchEmptyContainer.isVisible = Prefs.editHistoryFilterDisableSet.isNotEmpty()
-            } else {
-                binding.searchEmptyText.isVisible = false
-                binding.searchEmptyContainer.isVisible = false
+        init {
+            binding.emptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
+                editHistorySearchBarAdapter.viewHolder.showOverflowMenu()
             }
+        }
+
+        fun bindItem() {
+            binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
+            RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
+            binding.searchEmptyText.isVisible = actionMode != null
+            binding.searchEmptyContainer.isVisible = Prefs.editHistoryFilterType.isNotEmpty()
         }
     }
 
@@ -479,7 +474,7 @@ class EditHistoryListActivity : BaseActivity() {
                     }
 
                     override fun getExcludedFilterCount(): Int {
-                        return Prefs.editHistoryFilterDisableSet.size
+                        return if (Prefs.editHistoryFilterType.isNotEmpty()) 1 else 0
                     }
 
                     override fun getFilterIconContentDescription(): Int {
@@ -498,6 +493,7 @@ class EditHistoryListActivity : BaseActivity() {
 
         override fun onQueryChange(s: String) {
             viewModel.currentQuery = s
+            setupAdapters()
             editHistoryListAdapter.refresh()
             editHistoryListAdapter.notifyDataSetChanged()
         }
@@ -505,7 +501,7 @@ class EditHistoryListActivity : BaseActivity() {
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
-            viewModel.currentQuery = null
+            viewModel.currentQuery = ""
             editHistoryListAdapter.refresh()
             setupAdapters()
         }
