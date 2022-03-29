@@ -17,6 +17,8 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
+import retrofit2.HttpException
+import java.io.IOException
 import java.util.*
 
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
@@ -33,17 +35,29 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         private set
     var currentQuery: String? = null
 
-    private val revisionList = mutableListOf<MwQueryPage.Revision>()
-    private val usedContinuationString = mutableSetOf<String>()
-    private var latestContinuationString: String? = null
+    private val cachedRevisions = mutableListOf<MwQueryPage.Revision>()
+    private var cachedContinueKey: String? = null
 
-    private val _editHistoryFlow = Pager(PagingConfig(initialLoadSize = 500, pageSize = 500)) {
+    val editHistoryFlow = Pager(PagingConfig(pageSize = 50)) {
         EditHistoryPagingSource(pageTitle)
-    }.flow
+    }.flow.map { pagingData ->
+        val anonEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_ANONYMOUS
+        val userEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_EDITORS
 
-    val editHistoryFlow = _editHistoryFlow.map { pagingData ->
         pagingData.filter {
-            !Prefs.editHistoryFilterDisableSet.contains(it.editorType)
+            when {
+                anonEditsOnly -> { it.isAnon }
+                userEditsOnly -> { !it.isAnon }
+                else -> { true }
+            }
+        }.filter {
+            currentQuery?.run {
+                it.diffSize.toString().contains(this) ||
+                        it.comment.contains(this, true) ||
+                        it.content.contains(this, true) ||
+                        it.parsedcomment.contains(this, true) ||
+                        it.user.contains(this, true)
+            } ?: true
         }.map {
             EditHistoryItem(it)
         }.insertSeparators { before, after ->
@@ -57,22 +71,6 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
             } else {
                 null
             }
-        }.filter {
-            currentQuery?.run {
-                when (it) {
-                    is EditHistoryItem -> {
-                        it.item.diffSize.toString().contains(this) ||
-                                it.item.comment.contains(this, true) ||
-                                it.item.content.contains(this, true) ||
-                                it.item.parsedcomment.contains(this, true) ||
-                                it.item.user.contains(this, true)
-                    }
-                    is EditHistorySeparator -> {
-                        it.date.contains(this, true)
-                    }
-                    else -> true
-                }
-            } ?: true
         }
     }.cachedIn(viewModelScope)
 
@@ -155,9 +153,8 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun clearCache() {
-        revisionList.clear()
-        usedContinuationString.clear()
-        latestContinuationString = null
+        cachedRevisions.clear()
+        cachedContinueKey = null
     }
 
     inner class EditHistoryPagingSource(
@@ -165,40 +162,21 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     ) : PagingSource<String, MwQueryPage.Revision>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryPage.Revision> {
             return try {
-                if (Prefs.editHistoryFilterDisableSet.size == FILTER_TYPE_SIZE) {
-                    LoadResult.Page(emptyList(), null, null)
-                } else {
-                    val revision: List<MwQueryPage.Revision>
-                    val key = if (latestContinuationString != params.key) params.key else latestContinuationString
-
-                    // Only do the API request when the revisionList is empty, or if the page is not yet fully loaded
-                    if ((key != null && !usedContinuationString.contains(key)) || (revisionList.isEmpty() && key == null)) {
-                        val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
-                                .getRevisionDetailsDescending(pageTitle.prefixedText, params.loadSize, null, key)
-
-                        revision = response.query!!.pages?.first()?.revisions!!
-
-                        revision.forEach {
-                            if (it.isAnon) {
-                                it.editorType = EditCount.EDIT_TYPE_ANONYMOUS
-                            } else {
-                                it.editorType = EditCount.EDIT_TYPE_EDITORS
-                            }
-                        }
-
-                        params.key?.let {
-                            usedContinuationString.add(it)
-                        }
-
-                        latestContinuationString = response.continuation?.rvContinuation
-
-                        revisionList.addAll(revision)
-                    } else {
-                        revision = revisionList
-                    }
-                    LoadResult.Page(revision, null, latestContinuationString)
+                if (params.key == null && cachedRevisions.isNotEmpty() && !cachedContinueKey.isNullOrEmpty()) {
+                    return LoadResult.Page(cachedRevisions, null, cachedContinueKey)
                 }
-            } catch (e: Exception) {
+
+                val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
+                        .getRevisionDetailsDescending(pageTitle.prefixedText, 500, null, params.key)
+
+                val revision = response.query!!.pages?.first()?.revisions!!
+
+                cachedContinueKey = response.continuation?.rvContinuation
+                cachedRevisions.addAll(revision)
+                LoadResult.Page(revision, null, cachedContinueKey)
+            } catch (e: IOException) {
+                LoadResult.Error(e)
+            } catch (e: HttpException) {
                 LoadResult.Error(e)
             }
         }
@@ -206,9 +184,6 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         override fun getRefreshKey(state: PagingState<String, MwQueryPage.Revision>): String? {
             return null
         }
-
-        override val jumpingSupported: Boolean
-            get() = super.jumpingSupported
     }
 
     open class EditHistoryItemModel
@@ -229,6 +204,5 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         const val SELECT_NONE = 1
         const val SELECT_FROM = 2
         const val SELECT_TO = 3
-        const val FILTER_TYPE_SIZE = 2
     }
 }

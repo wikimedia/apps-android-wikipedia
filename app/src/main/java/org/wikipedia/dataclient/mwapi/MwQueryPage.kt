@@ -99,8 +99,6 @@ class MwQueryPage {
         fun getContentFromSlot(slot: String): String {
             return slots?.get(slot)?.content.orEmpty()
         }
-
-        var editorType: String? = null
     }
 
     @Serializable
