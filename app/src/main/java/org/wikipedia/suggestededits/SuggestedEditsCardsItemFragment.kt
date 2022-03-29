@@ -9,9 +9,9 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentSuggestedEditsCardsItemBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
@@ -121,7 +121,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { title ->
-                            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(title, parent().langFromCode)
+                            ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(title, parent().langFromCode)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
@@ -167,7 +167,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
                             fileCaption = pair.first
-                            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pair.second, parent().langFromCode)
+                            ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(pair.second, parent().langFromCode)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }

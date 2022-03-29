@@ -3,8 +3,8 @@ package org.wikipedia.userprofile
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -27,7 +27,7 @@ object UserContributionsStats {
     var totalImageTagEdits: Int = 0
 
     fun getEditCountsObservable(): Observable<MwQueryResponse> {
-        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
+        return ServiceFactory.get(Constants.wikidataWikiSite).editorTaskCounts
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
@@ -44,7 +44,7 @@ object UserContributionsStats {
     }
 
     fun getPageViewsObservable(): Observable<Long> {
-        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null)
+        return ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
@@ -64,10 +64,10 @@ object UserContributionsStats {
                 continue
             }
 
-            qLangMap.getOrPut(userContribution.title, { HashSet() }).add(descLang)
+            qLangMap.getOrPut(userContribution.title) { HashSet() }.add(descLang)
         }
 
-        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
+        return ServiceFactory.get(Constants.wikidataWikiSite).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                 .subscribeOn(Schedulers.io())
                 .flatMap { entities ->
                     if (entities.entities.isEmpty()) {
@@ -80,7 +80,7 @@ object UserContributionsStats {
                                 for (lang in langs) {
                                     val dbName = WikiSite.forLanguageCode(lang).dbName()
                                     if (entity.sitelinks.containsKey(dbName)) {
-                                        langArticleMap.getOrPut(lang, { ArrayList() })
+                                        langArticleMap.getOrPut(lang) { ArrayList() }
                                                 .add(entity.sitelinks[dbName]?.title!!)
                                     }
                                 }

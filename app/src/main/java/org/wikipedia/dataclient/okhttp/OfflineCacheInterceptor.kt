@@ -49,7 +49,7 @@ class OfflineCacheInterceptor : Interceptor {
                 throw networkException
             }
         }
-        val obj = AppDatabase.getAppDatabase().offlineObjectDao().findObject(url, lang)
+        val obj = AppDatabase.instance.offlineObjectDao().findObject(url, lang)
         if (obj == null) {
             L.w("Offline object not present in database.")
             throw networkException
@@ -164,7 +164,7 @@ class OfflineCacheInterceptor : Interceptor {
                     cacheSink.close()
                     if (!failed) {
                         // update the record in the database!
-                        AppDatabase.getAppDatabase().offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
+                        AppDatabase.instance.offlineObjectDao().addObject(obj.url, obj.lang, obj.path, title)
                     }
                 }
                 return -1
@@ -187,7 +187,7 @@ class OfflineCacheInterceptor : Interceptor {
             }
             source.close()
             if (failed) {
-                AppDatabase.getAppDatabase().offlineObjectDao().deleteFilesForObject(obj)
+                AppDatabase.instance.offlineObjectDao().deleteFilesForObject(obj)
             }
         }
     }

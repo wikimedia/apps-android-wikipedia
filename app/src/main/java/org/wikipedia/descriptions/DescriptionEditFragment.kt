@@ -25,7 +25,6 @@ import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
@@ -108,7 +107,7 @@ class DescriptionEditFragment : Fragment() {
         val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
         funnel = DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type, invokeSource)
         funnel.logStart()
-        EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
+        EditAttemptStepEvent.logInit(pageTitle)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -189,8 +188,6 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private inner class EditViewCallback : DescriptionEditView.Callback {
-        private val wikiData = WikiSite(Service.WIKIDATA_URL, "")
-        private val wikiCommons = WikiSite(Service.COMMONS_URL)
         private val commonsDbName = "commonswiki"
         override fun onSaveClick() {
             if (!binding.fragmentDescriptionEditView.showingReviewContent()) {
@@ -201,16 +198,16 @@ class DescriptionEditFragment : Fragment() {
                 cancelCalls()
                 getEditTokenThenSave()
                 funnel.logSaveAttempt()
-                EditAttemptStepEvent.logSaveAttempt(pageTitle.wikiSite.languageCode)
+                EditAttemptStepEvent.logSaveAttempt(pageTitle)
             }
         }
 
         private fun getEditTokenThenSave() {
             val csrfClient = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                CsrfTokenClient(wikiCommons)
+                CsrfTokenClient(Constants.commonsWikiSite)
             } else {
-                CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else wikiData, pageTitle.wikiSite)
+                CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else Constants.wikidataWikiSite)
             }
 
             disposables.add(csrfClient.token.subscribe({ token ->
@@ -253,7 +250,7 @@ class DescriptionEditFragment : Fragment() {
                                     AnonymousNotificationHelper.onEditSubmitted()
                                     waitForUpdatedRevision(newRevId)
                                     funnel.logSaved(newRevId)
-                                    EditAttemptStepEvent.logSaveSuccess(pageTitle.wikiSite.languageCode)
+                                    EditAttemptStepEvent.logSaveSuccess(pageTitle)
                                 }
                                 hasCaptchaResponse -> {
                                     // TODO: handle captcha.
@@ -299,7 +296,7 @@ class DescriptionEditFragment : Fragment() {
                         if (response.success > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
                             funnel.logSaved(response.entity?.run { lastRevId } ?: 0)
-                            EditAttemptStepEvent.logSaveSuccess(pageTitle.wikiSite.languageCode)
+                            EditAttemptStepEvent.logSaveSuccess(pageTitle)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
                         }
@@ -341,11 +338,11 @@ class DescriptionEditFragment : Fragment() {
         private fun getPostObservable(editToken: String, languageCode: String): Observable<EntityPostResponse> {
             return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, commonsDbName,
+                ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(languageCode, languageCode, commonsDbName,
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
                         getEditComment(), editToken, if (AccountUtil.isLoggedIn) "user" else null)
             } else {
-                ServiceFactory.get(wikiData).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
+                ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
                         if (AccountUtil.isLoggedIn) "user" else null)
             }
@@ -370,7 +367,7 @@ class DescriptionEditFragment : Fragment() {
             L.e(caught)
             if (logError) {
                 funnel.logError(caught.message)
-                EditAttemptStepEvent.logSaveFailure(pageTitle.wikiSite.languageCode)
+                EditAttemptStepEvent.logSaveFailure(pageTitle)
             }
             SuggestedEditsFunnel.get().failure(action)
         }

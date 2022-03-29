@@ -318,7 +318,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onNavMenuSwipeRequest(gravity: Int) {
         if (!isCabOpen && gravity == Gravity.END) {
-            pageFragment.tocHandler.show()
+            pageFragment.sidePanelHandler.showToC()
         }
     }
 
@@ -677,19 +677,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         Prefs.showOneTimeCustomizeToolbarTooltip = false
     }
 
-    // TODO: remove on March 2022.
-    private fun maybeShowNotificationTooltip() {
-        if (!Prefs.isPageNotificationTooltipShown && AccountUtil.isLoggedIn &&
-                Prefs.loggedInPageActivityVisitCount >= 1) {
-            enqueueTooltip {
-                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonNotifications, getString(R.string.page_notification_tooltip),
-                    aboveOrBelow = false, autoDismiss = false, -32, -8).setOnBalloonDismissListener {
-                    Prefs.isPageNotificationTooltipShown = true
-                }
-            }
-        }
-    }
-
     private fun enqueueTooltip(runnable: Runnable) {
         if (exclusiveTooltipRunnable != null) {
             return
@@ -735,7 +722,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         } else {
             binding.pageToolbarButtonNotifications.isVisible = false
         }
-        maybeShowNotificationTooltip()
     }
 
     fun clearActionBarTitle() {

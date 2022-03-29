@@ -5,7 +5,10 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
@@ -57,6 +60,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private val disposables = CompositeDisposable()
     private var topicId: Int = -1
+    private var topicIndicatorSha: String = ""
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
     private var undone = false
@@ -99,6 +103,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = pageTitle.wikiSite
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
+        topicIndicatorSha = intent.extras?.getString(EXTRA_TOPIC_INDICATOR_SHA, "")!!
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
@@ -117,7 +122,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkReplyButton.setOnClickListener {
             talkFunnel.logReplyClick()
             editFunnel.logStart()
-            EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
+            EditAttemptStepEvent.logInit(pageTitle)
             replyClicked()
         }
 
@@ -233,7 +238,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
             editFunnel.logStart()
-            EditAttemptStepEvent.logInit(pageTitle.wikiSite.languageCode)
+            EditAttemptStepEvent.logInit(pageTitle)
         } else {
             replyActive = false
             binding.replyInputView.editText.setText("")
@@ -260,8 +265,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
-                    val talkTopic = response.topics?.find { t -> t.id == topicId }!!
-                    AppDatabase.getAppDatabase().talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
+                    val talkTopic = response.topics?.find { t -> if (topicId == -1) t.getIndicatorSha() == topicIndicatorSha else t.id == topicId }!!
+                    AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
                     currentRevision = response.revision
                     talkTopic
                 }
@@ -367,7 +372,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter, title, lastX, lastY)
+            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter, title, false, lastX, lastY,
+                    Constants.InvokeSource.TALK_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
 
@@ -378,7 +384,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         undoneSubject = subject
 
         editFunnel.logSaveAttempt()
-        EditAttemptStepEvent.logSaveAttempt(pageTitle.wikiSite.languageCode)
+        EditAttemptStepEvent.logSaveAttempt(pageTitle)
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
@@ -469,7 +475,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
-        EditAttemptStepEvent.logSaveSuccess(pageTitle.wikiSite.languageCode)
+        EditAttemptStepEvent.logSaveSuccess(pageTitle)
 
         if (isNewTopic()) {
             Intent().let {
@@ -487,7 +493,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
-        EditAttemptStepEvent.logSaveFailure(pageTitle.wikiSite.languageCode)
+        EditAttemptStepEvent.logSaveFailure(pageTitle)
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)
@@ -612,16 +618,24 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_TOPIC = "topicId"
+        const val EXTRA_TOPIC_INDICATOR_SHA = "topicIndicatorSha"
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
         const val RESULT_EDIT_SUCCESS = 1
         const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
-        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource, undoneSubject: String? = null, undoneBody: String? = null): Intent {
+        fun newIntent(context: Context,
+                      pageTitle: PageTitle,
+                      topicId: Int,
+                      topicIndicatorSha: String,
+                      invokeSource: Constants.InvokeSource,
+                      undoneSubject: String? = null,
+                      undoneBody: String? = null): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC, topicId)
+                    .putExtra(EXTRA_TOPIC_INDICATOR_SHA, topicIndicatorSha)
                     .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
                     .putExtra(EXTRA_BODY, undoneBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)

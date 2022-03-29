@@ -1,5 +1,8 @@
 package org.wikipedia
 
+import org.wikipedia.dataclient.Service
+import org.wikipedia.dataclient.WikiSite
+
 object Constants {
 
     const val ACTIVITY_REQUEST_ADD_A_LANGUAGE = 59
@@ -58,6 +61,9 @@ object Constants {
 
     const val WIKI_CODE_COMMONS = "commons"
     const val WIKI_CODE_WIKIDATA = "wikidata"
+
+    val commonsWikiSite = WikiSite(Service.COMMONS_URL)
+    val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
 
     enum class InvokeSource(val value: String) {
         ANNOUNCEMENT("announcement"),

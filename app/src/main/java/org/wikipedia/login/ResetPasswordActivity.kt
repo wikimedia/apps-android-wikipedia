@@ -71,6 +71,11 @@ class ResetPasswordActivity : BaseActivity() {
                 binding.resetPasswordInput.error = getString(R.string.create_account_password_error)
                 return
             }
+            ValidateResult.PASSWORD_IS_USERNAME -> {
+                binding.resetPasswordInput.requestFocus()
+                binding.resetPasswordInput.error = getString(R.string.create_account_password_is_username)
+                return
+            }
             ValidateResult.PASSWORD_MISMATCH -> {
                 binding.resetPasswordRepeat.requestFocus()
                 binding.resetPasswordRepeat.error = getString(R.string.create_account_passwords_mismatch_error)

@@ -27,9 +27,7 @@ import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
@@ -42,20 +40,20 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
 import java.util.*
-import kotlin.collections.ArrayList
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
 
     private var _binding: FragmentSuggestedEditsImageTagsItemBinding? = null
     private val binding get() = _binding!!
 
-    var publishing: Boolean = false
-    var publishSuccess: Boolean = false
+    var publishing = false
+    private var publishSuccess = false
     private var page: MwQueryPage? = null
-    private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
-    private var wasCaptionLongClicked: Boolean = false
-    private var lastSearchTerm: String = ""
-    var invokeSource: InvokeSource = InvokeSource.SUGGESTED_EDITS
+    private val pageTitle get() = PageTitle(page!!.title, Constants.commonsWikiSite)
+    private val tagList = mutableListOf<ImageTag>()
+    private var wasCaptionLongClicked = false
+    private var lastSearchTerm = ""
+    var invokeSource = InvokeSource.SUGGESTED_EDITS
     private var funnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -81,8 +79,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
 
-        val colorStateList = ColorStateList(arrayOf(intArrayOf()),
-                intArrayOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
+        val colorStateList = ColorStateList.valueOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         binding.publishProgressBar.progressTintList = colorStateList
         binding.publishProgressBarComplete.progressTintList = colorStateList
         ImageViewCompat.setImageTintList(binding.publishProgressCheck, colorStateList)
@@ -130,8 +127,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ page ->
-                    this.page = page
+                .subscribe({
+                    this.page = it
                     updateContents()
                     updateTagChips()
                 }, { setErrorState(it) }))
@@ -153,7 +150,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
-        funnel = EditFunnel(WikipediaApp.getInstance(), PageTitle(page!!.title, WikiSite(Service.COMMONS_URL)))
+        funnel = EditFunnel(WikipediaApp.getInstance(), pageTitle)
 
         binding.tagsLicenseText.visibility = GONE
         binding.tagsHintText.visibility = VISIBLE
@@ -211,7 +208,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         callback().updateActionButton()
     }
 
-    private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface): Chip {
+    private fun addChip(label: ImageTag?, typeface: Typeface): Chip {
         val chip = Chip(requireContext())
         chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
@@ -274,14 +271,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.isChipIconVisible = true
         }
         if (chip.tag != null) {
-            (chip.tag as MwQueryPage.ImageLabel).isSelected = chip.isChecked
+            (chip.tag as ImageTag).isSelected = chip.isChecked
         }
 
         updateLicenseTextShown()
         callback().updateActionButton()
     }
 
-    override fun onSearchSelect(item: MwQueryPage.ImageLabel) {
+    override fun onSearchSelect(item: ImageTag) {
         var exists = false
         for (tag in tagList) {
             if (tag.wikidataId == item.wikidataId) {
@@ -306,7 +303,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
-        val acceptedLabels = ArrayList<MwQueryPage.ImageLabel>()
+        val acceptedLabels = mutableListOf<ImageTag>()
         val iterator = tagList.iterator()
         while (iterator.hasNext()) {
             val tag = iterator.next()
@@ -326,7 +323,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishSuccess = false
 
         funnel?.logSaveAttempt()
-        EditAttemptStepEvent.logSaveAttempt(callback().getLangCode())
+        EditAttemptStepEvent.logSaveAttempt(pageTitle)
 
         binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         binding.publishProgressCheck.visibility = GONE
@@ -334,9 +331,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
-        val commonsSite = WikiSite(Service.COMMONS_URL)
-
-        disposables.add(CsrfTokenClient(WikiSite(Service.COMMONS_URL)).token
+        disposables.add(CsrfTokenClient(Constants.commonsWikiSite).token
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ token ->
@@ -365,7 +360,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     claimStr += "]}"
                     commentStr += " */"
 
-                    disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
+                    disposables.add(ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, token, claimStr, commentStr, null)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .doAfterTerminate {
@@ -374,12 +369,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             .subscribe({
                                 if (it.entity != null) {
                                     funnel?.logSaved(it.entity.lastRevId, invokeSource.value)
-                                    EditAttemptStepEvent.logSaveSuccess(callback().getLangCode())
+                                    EditAttemptStepEvent.logSaveSuccess(pageTitle)
                                 }
                                 publishSuccess = true
                                 onSuccess()
-                            }, { caught ->
-                                onError(caught)
+                            }, {
+                                onError(it)
                             })
                     )
                 }, {
@@ -427,7 +422,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         // TODO: expand this a bit.
         SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
-        EditAttemptStepEvent.logSaveFailure(callback().getLangCode())
+        EditAttemptStepEvent.logSaveFailure(pageTitle)
         binding.publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
     }

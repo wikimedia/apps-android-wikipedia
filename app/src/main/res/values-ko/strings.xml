@@ -74,16 +74,25 @@
   <string name="share_via">다음을 통해 공유</string>
   <string name="image_share_via">다음을 통해 공유</string>
   <string name="search_redirect_from">%s에서 넘어옴</string>
+  <string name="page_edit_history_activity_title">판 역사: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;잔글&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">빈 편집 요약</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="other">%2$s 이후 편집 %1$d건</item>
+  </plurals>
+  <string name="page_edit_history_metrics_content_description">%1$s부터 %2$s까지의 메트릭스</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
   <string name="menu_page_add_to_watchlist">주시문서 목록에 추가</string>
   <string name="menu_page_watch">주시</string>
+  <string name="menu_page_unwatch">주시 해제</string>
   <string name="menu_page_view_talk">토론 문서 보기</string>
   <string name="menu_page_talk_page">토론 문서</string>
   <string name="menu_page_view_edit_history">편집 역사 보기</string>
   <string name="menu_page_edit_history">편집 역사</string>
   <string name="menu_page_remove_from_watchlist">주시문서 목록에서 제거</string>
+  <string name="menu_page_watched">주시 중</string>
   <string name="edit_section_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_add_to_list">읽기 목록에 추가</string>
@@ -179,6 +188,7 @@
   <string name="dialog_create_account_checking_progress">확인하기</string>
   <string name="create_account_email_hint">이메일 (선택 사항)</string>
   <string name="create_account_password_repeat_hint">비밀번호 다시 입력</string>
+  <string name="create_account_password_is_username">비밀번호는 사용자 이름과 같을 수 없습니다</string>
   <string name="create_account_passwords_mismatch_error">비밀번호가 일치하지 않습니다</string>
   <string name="create_account_email_error">이메일 주소가 잘못되었습니다</string>
   <string name="create_account_username_error">사용자 이름에 유효하지 않은 문자가 있습니다</string>
@@ -225,7 +235,6 @@
   <string name="page_protected_can_not_edit_title">이 문서는 보호되어 있습니다</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">주시문서 목록에 추가</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">관심 가는 문서에 일어나는 변화를 추적해보세요. 메뉴를 &lt;b&gt;주시문서 목록에 추가&lt;/b&gt; 문서의 변경 사항을 확인할 수 있습니다.</string>
-  <string name="page_notification_tooltip">알림이 여기에 있습니다.</string>
   <string name="settings_item_preferences">설정</string>
   <string name="settings_activity_title">설정</string>
   <string name="about_description">위키백과 앱 정보</string>
@@ -403,6 +412,7 @@
   <string name="error_blocked_expiry">차단 해제일: %s</string>
   <string name="error_blocked_id">차단 ID: %s</string>
   <string name="error_blocked_footer">&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;님 이나 다른 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
+  <string name="theme_chooser_menu_item_tooltip">도구 모음을 사용자에 맞게 지정하고 읽기 집중 모드를 사용해보세요</string>
   <string name="error_blocked_footer_no_blocker">&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;관리자&lt;/a&gt;와 차단에 관해 의논할 수 있습니다.</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
@@ -429,6 +439,11 @@
   <string name="text_size_decrease">텍스트 크기 줄이기</string>
   <string name="text_size_percent_default">%s (기본값)</string>
   <string name="text_style_title">글꼴</string>
+  <string name="theme_category_reading">읽기</string>
+  <string name="reading_focus_mode">읽기 집중 모드</string>
+  <string name="reading_focus_mode_detail">스크롤할 때 편집 기능과 아래 도구 모음을 숨깁니다</string>
+  <string name="theme_category_toolbar">도구 모음</string>
+  <string name="theme_customize_toolbar">도구 모음 사용자 지정</string>
   <string name="nav_item_saved">저장됨</string>
   <string name="reading_list_save_to">읽기 목록에 저장</string>
   <string name="reading_list_move_to">읽기 목록으로 이동</string>
@@ -763,6 +778,7 @@
   <string name="description_starts_with_uppercase">처음 오는 단어가 고유 명사가 아니면 소문자로 시작하십시오.</string>
   <string name="description_starts_with_lowercase">소문자로 시작하지 마세요.</string>
   <string name="description_is_in_different_language">문구가 예측할 수 없는 언어로 되어있는 것 같습니다. 언어는 %s여야 합니다.</string>
+  <string name="description_verification_notice">%1$s 언어로 설명을 확인해 주십시오. 작성한 설명이 %2$s 언어인 경우 이 알림을 숨기기 처리해도 됩니다.</string>
   <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_snackbar">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
@@ -780,6 +796,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">2개부터 12개 사이의 단어에 한 줄이 적당합니다</string>
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
+  <string name="customize_toolbar_title">도구 모음 사용자 지정</string>
+  <string name="customize_toolbar_description_text">가장 도움이 될만한 5개의 링크를 가지고 아래의 도구 모음을 사용자에 맞게 수정하십시오.</string>
+  <string name="customize_toolbar_category_toolbar">도구 모음</string>
+  <string name="customize_toolbar_category_menu">메뉴</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">여기에 즐겨찾는 항목을 끌어 놓으십시오 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">기본값으로 재설정</string>
   <string name="suggested_edits_describe_articles">문서 설명 추가</string>
   <string name="suggested_edits_caption_images">이미지 캡션 추가</string>
   <string name="suggested_edits_tag_images">이미지 태그하기</string>
@@ -1050,11 +1072,17 @@
   <string name="talk_snackbar_survey_action_text">시작하기</string>
   <string name="talk_share_discussion_subject">위키백과 - 토론 문서 주제 \"%s\"의 토론</string>
   <string name="talk_share_talk_page">위키백과 - 토론 문서의 토론</string>
+  <string name="talk_edit_disclaimer">이것은 토론 문서입니다. 문서 지침을 준수해 주시고 4개의 물결표를 입력하여 게시글에 꼭 서명해 주세요: 위키텍스트를 사용하여 게시할 때 ~~~~를 입력합니다.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://ko.wikipedia.org/wiki/위키백과:토론_문서_지침\"&gt;위키백과:토론 문서 지침&lt;/a&gt;</string>
+  <string name="talk_search_hint">메시지 검색</string>
+  <string name="talk_overflow_sort_by">정렬 기준</string>
+  <string name="talk_overflow_sort_date_published">게시일</string>
+  <string name="talk_overflow_sort_topic_name">주제 이름</string>
   <string name="menu_option_share_talk_discussion">토론 공유하기</string>
   <string name="menu_option_share_talk_page">토론 문서 공유</string>
   <string name="menu_option_share_edit">편집 공유</string>
   <string name="menu_option_user_profile">%s님의 정보</string>
   <string name="menu_option_user_contributions">%s님의 기여</string>
+  <string name="menu_option_edit_source">원본 편집</string>
   <string name="watchlist_details_watching_label">주시 중</string>
   <string name="watchlist_details_watch_label">주시</string>
   <string name="watchlist_details_next_edit">다음 편집</string>
@@ -1066,6 +1094,23 @@
   <string name="thank_dialog_positive_button_text">감사 표현하기</string>
   <string name="thank_dialog_negative_button_text">취소</string>
   <string name="thank_success_message">%s님에게 감사를 표했습니다 👍</string>
+  <string name="menu_option_view_user_profile">사용자 프로필 페이지 보기</string>
+  <string name="menu_option_view_user_talk">토론 문서 보기</string>
+  <string name="menu_option_view_user_contributions">사용자 기여 보기</string>
+  <string name="revision_diff_compare">판 비교</string>
+  <string name="revision_diff_compare_title">판 비교: %s</string>
+  <string name="revision_diff_line_num">줄 %d</string>
+  <string name="revision_diff_line_nums">줄 %d-%d</string>
+  <string name="revision_diff_line_added">줄 추가됨</string>
+  <string name="revision_diff_line_removed">줄 제거됨</string>
+  <string name="revision_diff_paragraph_added">문단 추가됨</string>
+  <string name="revision_diff_paragraph_removed">문단 제거됨</string>
+  <string name="revision_undo_title">편집 취소</string>
+  <string name="revision_undo_message">여기에 보이는 문서의 판들에 의한 변경사항을 취소합니다.</string>
+  <string name="revision_undo_reason">계속하려면 이 편집을 취소하려는 이유를 제공해 주십시오:</string>
+  <string name="revision_undo_success">이 판의 편집이 취소되었습니다.</string>
+  <string name="revision_compare_button">비교</string>
+  <string name="revision_compare_two_only">판 2개만 선택할 수 있습니다</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s 문서 및 토론 문서가 주시문서 목록 %2$s에 추가되었습니다.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">변경</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">영구적으로</string>
@@ -1088,4 +1133,10 @@
   <string name="watchlist_page_moved">이동됨</string>
   <string name="watchlist_page_protected">보호됨</string>
   <string name="watchlist_page_deleted">삭제됨</string>
+  <string name="action_item_categories">분류</string>
+  <string name="page_no_categories">이 문서는 어떠한 분류에도 속하지 않습니다.</string>
+  <string name="category_tab_articles">문서</string>
+  <string name="category_tab_subcategories">하위 분류</string>
+  <string name="category_empty">이 분류에 문서가 없습니다.</string>
+  <string name="subcategory_empty">이 분류에 하위 분류가 없습니다.</string>
 </resources>

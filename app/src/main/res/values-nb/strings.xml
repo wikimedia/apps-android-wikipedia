@@ -62,6 +62,8 @@
   <string name="share_via">Del via</string>
   <string name="image_share_via">Del via</string>
   <string name="search_redirect_from">Omdirigert fra %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Tom redigeringsforklaring</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
   <string name="menu_page_find_in_page">Søk i artikkelen</string>
@@ -168,6 +170,7 @@
   <string name="dialog_create_account_checking_progress">Verifiserer</string>
   <string name="create_account_email_hint">E-post (valgfritt)</string>
   <string name="create_account_password_repeat_hint">Gjenta passord</string>
+  <string name="create_account_password_is_username">Passordet kan ikke være det samme som brukernavnet</string>
   <string name="create_account_passwords_mismatch_error">Passordene stemmer ikke overens</string>
   <string name="create_account_email_error">Ugyldig epostadresse</string>
   <string name="create_account_username_error">Ugyldige tegn i brukernavnet</string>
@@ -214,7 +217,6 @@
   <string name="page_protected_can_not_edit_title">Denne siden er beskyttet</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Legg til i overvåkningsliste</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Følg med på hva som skjer med artikler du er interessert i. Trykk på overløpsmenyen og velg &lt;b&gt;Legg til i overvåkningsliste&lt;/b&gt; for å se hvordan artikkelen endrer seg.</string>
-  <string name="page_notification_tooltip">Varslene dine vises nå her.</string>
   <string name="settings_item_preferences">Innstillinger</string>
   <string name="settings_activity_title">Innstillinger</string>
   <string name="about_description">Om Wikipedia-appen</string>
@@ -354,7 +356,9 @@
   <string name="page_offline_notice_last_date">Du leser en offlineutgave av denne artikkelen som ble lagret %s.</string>
   <string name="button_get_directions">Veibeskrivelse</string>
   <string name="error_no_maps_app">Fant ikke noen apper som kunne gi veibeskrivelse.</string>
+  <string name="preference_title_customize_explore_feed">Utforskingsmating</string>
   <string name="preference_title_show_link_previews">Forhåndsvis lenker</string>
+  <string name="preference_summary_customize_explore_feed">Tilpass utforskingsmatingen</string>
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="preference_title_collapse_tables">Fold sammen tabeller</string>
   <string name="preference_summary_collapse_tables">Fold automatisk sammen tabeller i artikler, for eksempel infobokser, referanser og noter.</string>
@@ -735,7 +739,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_accessibility_card_text">Du har nådd bunnen av utforskersiden.</string>
   <string name="feed_accessibility_card_load_more_button">Last inn mer</string>
-  <string name="top_read_activity_title">Mest lest på %s</string>
+  <string name="top_read_activity_title">Mest lest %s</string>
   <string name="tabs_activity_title">Faner</string>
   <string name="description_edit_text_hint">Artikkelbeskrivelse</string>
   <string name="description_edit_article_description_label">Artikkel</string>
@@ -786,7 +790,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
   <string name="customize_toolbar_title">Tilpass verktøylinje</string>
-  <string name="customize_toolbar_description">Tilpass verktøylinjen nederst med de handlingene og målsidene du finner nyttigst.</string>
+  <string name="customize_toolbar_description_text">Tilpass verktøylinja nederst med 5 lenker du syns er nyttige.</string>
   <string name="customize_toolbar_category_toolbar">Verktøylinje</string>
   <string name="customize_toolbar_category_menu">Meny</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Dra og slipp favorittelementete dine her 👋</string>
@@ -1095,6 +1099,8 @@
   <string name="thank_success_message">Din takk ble sendt til %s 👍</string>
   <string name="menu_option_view_user_profile">Vis brukerens profilside</string>
   <string name="menu_option_view_user_talk">Vis diskusjonsside</string>
+  <string name="revision_compare_button">Sammenlign</string>
+  <string name="revision_compare_two_only">Man kan kun velge to revisjoner.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s og diskusjonssiden dens har blitt lagt til i overvåkningslisten din %2$s.s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Endre</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
