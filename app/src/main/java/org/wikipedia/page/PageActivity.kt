@@ -110,11 +110,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         clearActionBarTitle()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.pageToolbarButtonSearch.setOnClickListener {
+            pageFragment.articleInteractionEvent.logSearchWikipediaClick()
             startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
         }
         binding.pageToolbarButtonTabs.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
+            pageFragment.articleInteractionEvent.logTabsClick()
             TabActivity.captureFirstTabBitmap(pageFragment.containerView)
             startActivityForResult(TabActivity.newIntentFromPageActivity(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
         }
@@ -122,11 +124,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             pageFragment.showOverflowMenu(it)
+            pageFragment.articleInteractionEvent.logMoreClick()
         }
 
         binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
+            pageFragment.articleInteractionEvent.logNotificationClick()
             if (AccountUtil.isLoggedIn) {
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
             } else if (AnonymousNotificationHelper.isWithinAnonNotificationTime() && !Prefs.lastAnonNotificationLang.isNullOrEmpty()) {
@@ -318,6 +322,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onNavMenuSwipeRequest(gravity: Int) {
         if (!isCabOpen && gravity == Gravity.END) {
+            pageFragment.articleInteractionEvent.logTocSwipe()
             pageFragment.sidePanelHandler.showToC()
         }
     }

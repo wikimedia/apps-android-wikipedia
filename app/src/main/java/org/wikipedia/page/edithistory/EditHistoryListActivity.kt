@@ -25,6 +25,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -50,6 +51,7 @@ class EditHistoryListActivity : BaseActivity() {
     private val loadFooter = LoadingItemAdapter { editHistoryListAdapter.retry() }
     private val viewModel: EditHistoryListViewModel by viewModels { EditHistoryListViewModel.Factory(intent.extras!!) }
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private lateinit var editHistoryInteractionEvent: EditHistoryInteractionEvent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
