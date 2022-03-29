@@ -169,11 +169,11 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
                         .getRevisionDetailsDescending(pageTitle.prefixedText, 500, null, params.key)
 
-                val revision = response.query!!.pages?.first()?.revisions!!
+                val revisions = response.query!!.pages?.first()?.revisions!!
 
                 cachedContinueKey = response.continuation?.rvContinuation
-                cachedRevisions.addAll(revision)
-                LoadResult.Page(revision, null, cachedContinueKey)
+                cachedRevisions.addAll(revisions)
+                LoadResult.Page(revisions, null, cachedContinueKey)
             } catch (e: IOException) {
                 LoadResult.Error(e)
             } catch (e: HttpException) {
