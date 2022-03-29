@@ -253,7 +253,7 @@ class EditHistoryListActivity : BaseActivity() {
     }
 
     private inner class EditHistoryDiffCallback : DiffUtil.ItemCallback<EditHistoryListViewModel.EditHistoryItemModel>() {
-        override fun areItemsTheSame(oldItem: EditHistoryListViewModel.EditHistoryItemModel, newItem: EditHistoryListViewModel.EditHistoryItemModel): Boolean {
+        override fun areContentsTheSame(oldItem: EditHistoryListViewModel.EditHistoryItemModel, newItem: EditHistoryListViewModel.EditHistoryItemModel): Boolean {
             if (oldItem is EditHistoryListViewModel.EditHistorySeparator && newItem is EditHistoryListViewModel.EditHistorySeparator) {
                 return oldItem.date == newItem.date
             } else if (oldItem is EditHistoryListViewModel.EditHistoryItem && newItem is EditHistoryListViewModel.EditHistoryItem) {
@@ -262,8 +262,8 @@ class EditHistoryListActivity : BaseActivity() {
             return false
         }
 
-        override fun areContentsTheSame(oldItem: EditHistoryListViewModel.EditHistoryItemModel, newItem: EditHistoryListViewModel.EditHistoryItemModel): Boolean {
-            return areItemsTheSame(oldItem, newItem)
+        override fun areItemsTheSame(oldItem: EditHistoryListViewModel.EditHistoryItemModel, newItem: EditHistoryListViewModel.EditHistoryItemModel): Boolean {
+            return oldItem == newItem
         }
     }
 
@@ -501,7 +501,7 @@ class EditHistoryListActivity : BaseActivity() {
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
-            viewModel.currentQuery = null
+            viewModel.currentQuery = ""
             editHistoryListAdapter.refresh()
             setupAdapters()
         }

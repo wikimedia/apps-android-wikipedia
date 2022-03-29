@@ -33,7 +33,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         private set
     var selectedRevisionTo: MwQueryPage.Revision? = null
         private set
-    var currentQuery: String? = null
+    var currentQuery = ""
 
     private val cachedRevisions = mutableListOf<MwQueryPage.Revision>()
     private var cachedContinueKey: String? = null
@@ -44,26 +44,24 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         val anonEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_ANONYMOUS
         val userEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_EDITORS
 
-        pagingData.filter {
+        pagingData.insertSeparators { before, after ->
+            if (before != null && after != null) { before.diffSize = before.size - after.size }
+            null
+        }.filter {
             when {
                 anonEditsOnly -> { it.isAnon }
                 userEditsOnly -> { !it.isAnon }
                 else -> { true }
             }
         }.filter {
-            currentQuery?.run {
-                it.diffSize.toString().contains(this) ||
-                        it.comment.contains(this, true) ||
-                        it.content.contains(this, true) ||
-                        it.parsedcomment.contains(this, true) ||
-                        it.user.contains(this, true)
-            } ?: true
+            if (currentQuery.isNotEmpty()) {
+                it.comment.contains(currentQuery, true) ||
+                        it.content.contains(currentQuery, true) ||
+                        it.user.contains(currentQuery, true)
+            } else true
         }.map {
             EditHistoryItem(it)
         }.insertSeparators { before, after ->
-            if (before != null && after != null) {
-                before.item.diffSize = before.item.size - after.item.size
-            }
             val dateBefore = if (before != null) DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(before.item.timeStamp)) else ""
             val dateAfter = if (after != null) DateUtil.getMonthOnlyDateString(DateUtil.iso8601DateParse(after.item.timeStamp)) else ""
             if (dateAfter.isNotEmpty() && dateAfter != dateBefore) {
@@ -162,7 +160,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     ) : PagingSource<String, MwQueryPage.Revision>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryPage.Revision> {
             return try {
-                if (params.key == null && cachedRevisions.isNotEmpty() && !cachedContinueKey.isNullOrEmpty()) {
+                if (params.key == null && cachedRevisions.isNotEmpty()) {
                     return LoadResult.Page(cachedRevisions, null, cachedContinueKey)
                 }
 
@@ -173,6 +171,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
                 cachedContinueKey = response.continuation?.rvContinuation
                 cachedRevisions.addAll(revisions)
+
                 LoadResult.Page(revisions, null, cachedContinueKey)
             } catch (e: IOException) {
                 LoadResult.Error(e)
