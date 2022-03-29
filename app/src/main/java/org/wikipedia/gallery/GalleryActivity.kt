@@ -432,14 +432,14 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         L.v("Link clicked was $urlStr")
         var url = UriUtil.resolveProtocolRelativeUrl(urlStr)
         if (url.startsWith("/wiki/")) {
-            val title = app.wikiSite.titleForInternalLink(url)
+            val title = PageTitle.titleForInternalLink(url, app.wikiSite)
             showLinkPreview(title)
         } else {
             val uri = Uri.parse(url)
             val authority = uri.authority
             if (authority != null && WikiSite.supportedAuthority(authority) &&
                 uri.path != null && uri.path!!.startsWith("/wiki/")) {
-                val title = WikiSite(uri).titleForUri(uri)
+                val title = PageTitle.titleForUri(uri, WikiSite(uri))
                 showLinkPreview(title)
             } else {
                 // if it's a /w/ URI, turn it into a full URI and go external

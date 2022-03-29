@@ -129,7 +129,12 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                             val page = response.query?.pages!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
+                                val title = if (imageInfo.commonsUrl.isEmpty()) {
+                                    page.title
+                                } else {
+                                    val wiki = WikiSite(Service.COMMONS_URL)
+                                    PageTitle.titleForUri(Uri.parse(imageInfo.commonsUrl), wiki).prefixedText
+                                }
 
                                 sourceSummaryForEdit = PageSummaryForEdit(
                                         title,
@@ -170,7 +175,12 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                             val page = response.query?.pages!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
+                                val title = if (imageInfo.commonsUrl.isEmpty()) {
+                                    page.title
+                                } else {
+                                    val wiki = WikiSite(Service.COMMONS_URL)
+                                    PageTitle.titleForUri(Uri.parse(imageInfo.commonsUrl), wiki).prefixedText
+                                }
 
                                 sourceSummaryForEdit = PageSummaryForEdit(
                                         title,

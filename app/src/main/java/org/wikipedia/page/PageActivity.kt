@@ -419,7 +419,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             }
             uri?.let {
                 val wiki = WikiSite(it)
-                val title = wiki.titleForUri(it)
+                val title = PageTitle.titleForUri(it, wiki)
                 val historyEntry = HistoryEntry(title, if (intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID))
                     HistoryEntry.SOURCE_NOTIFICATION_SYSTEM else HistoryEntry.SOURCE_EXTERNAL_LINK)
                 // Populate the referrer with the externally-referring URL, e.g. an external Browser URL, if present.
