@@ -49,7 +49,6 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.EditHistoryFilterOverflowView
 import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.SearchAndFilterActionProvider
@@ -372,13 +371,8 @@ class EditHistoryListActivity : BaseActivity() {
         fun showOverflowMenu() {
             val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
             if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
-                val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null) {
-                    L.d("showOverflowMenu #1")
-                    searchActionModeCallback.searchBarFilterIcon!!
-                } else {
-                    L.d("showOverflowMenu #2")
-                    binding.filterByButton
-                }
+                val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
+                    searchActionModeCallback.searchBarFilterIcon!! else binding.filterByButton
                 EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsFlowValue) {
                     editHistoryListAdapter.refresh()
                     updateFilterCount()
