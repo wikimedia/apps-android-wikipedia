@@ -29,7 +29,6 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsImageTagsItemBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -158,12 +157,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
-        disposables.add(MediaHelper.getImageCaptions(page!!.title)
+        disposables.add(
+                ServiceFactory.get(Constants.commonsWikiSite).getWikidataEntityTerms(page!!.title, callback().getLangCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { captions ->
-                    if (captions.containsKey(callback().getLangCode())) {
-                        binding.imageCaption.text = captions[callback().getLangCode()]
+                .subscribe { response ->
+                    val caption = response.query?.firstPage()?.entityTerms?.label?.firstOrNull()
+                    if (!caption.isNullOrEmpty()) {
+                        binding.imageCaption.text = caption
                         binding.imageCaption.visibility = VISIBLE
                     } else {
                         if (page?.imageInfo()?.metadata != null) {
