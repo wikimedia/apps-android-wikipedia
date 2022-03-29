@@ -105,21 +105,6 @@ data class WikiSite(
         return url() + path(segment)
     }
 
-    // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
-    fun titleForInternalLink(internalLink: String?): PageTitle {
-        // Strip the /wiki/ from the href
-        return PageTitle(UriUtil.removeInternalLinkPrefix(internalLink.orEmpty()), this)
-    }
-
-    // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
-    fun titleForUri(uri: Uri): PageTitle {
-        var path = uri.path
-        if (!uri.fragment.isNullOrEmpty()) {
-            path += "#" + uri.fragment
-        }
-        return titleForInternalLink(path)
-    }
-
     fun dbName(): String {
         return subdomain().replace("-".toRegex(), "_") + "wiki"
     }

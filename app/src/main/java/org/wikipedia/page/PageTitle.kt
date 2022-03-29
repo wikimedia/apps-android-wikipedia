@@ -1,5 +1,6 @@
 package org.wikipedia.page
 
+import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
@@ -194,6 +195,19 @@ data class PageTitle(
                 // without having to do string manipulations.
                 PageTitle("$prefixedText#$fragment", wiki, null)
             }
+        }
+
+        fun titleForInternalLink(internalLink: String?, wiki: WikiSite): PageTitle {
+            // Strip the /wiki/ from the href
+            return PageTitle(UriUtil.removeInternalLinkPrefix(internalLink.orEmpty()), wiki)
+        }
+
+        fun titleForUri(uri: Uri, wiki: WikiSite): PageTitle {
+            var path = uri.path
+            if (!uri.fragment.isNullOrEmpty()) {
+                path += "#" + uri.fragment
+            }
+            return titleForInternalLink(path, wiki)
         }
     }
 }
