@@ -35,11 +35,14 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
         private set
     var currentQuery = ""
 
-    private val cachedRevisions = mutableMapOf<String?, Pair<String?, List<MwQueryPage.Revision>>>()
+    var editHistorySource: EditHistoryPagingSource? = null
+    private val cachedRevisions = mutableListOf<MwQueryPage.Revision>()
+    private var cachedContinueKey: String? = null
 
-    val editHistoryFlow = Pager(PagingConfig(pageSize = 50)) {
-        EditHistoryPagingSource(pageTitle)
-    }.flow.map { pagingData ->
+    val editHistoryFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
+        editHistorySource = EditHistoryPagingSource(pageTitle)
+        editHistorySource!!
+    }).flow.map { pagingData ->
         val anonEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_ANONYMOUS
         val userEditsOnly = Prefs.editHistoryFilterType == EditCount.EDIT_TYPE_EDITORS
 
@@ -158,9 +161,8 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     ) : PagingSource<String, MwQueryPage.Revision>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryPage.Revision> {
             return try {
-                if (cachedRevisions[params.key] != null) {
-                    val pair = cachedRevisions[params.key]!!
-                    return LoadResult.Page(pair.second, null, pair.first)
+                if (params.key == null && cachedRevisions.isNotEmpty()) {
+                    return LoadResult.Page(cachedRevisions, null, cachedContinueKey)
                 }
 
                 val response = ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode))
@@ -168,10 +170,10 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
                 val revisions = response.query!!.pages?.first()?.revisions!!
 
-                val continueKey = response.continuation?.rvContinuation
-                cachedRevisions[params.key] = Pair(continueKey, revisions)
+                cachedContinueKey = response.continuation?.rvContinuation
+                cachedRevisions.addAll(revisions)
 
-                LoadResult.Page(revisions, null, continueKey)
+                LoadResult.Page(revisions, null, cachedContinueKey)
             } catch (e: IOException) {
                 LoadResult.Error(e)
             } catch (e: HttpException) {
