@@ -39,8 +39,6 @@ import org.wikipedia.databinding.ActivityGalleryBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -547,13 +545,14 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         updateProgressBar(true)
         disposeImageCaptionDisposable()
         imageCaptionDisposable =
-            Observable.zip<Map<String, String>, MwQueryResponse, Map<String, List<String>>, Pair<Boolean, Int>>(
-                MediaHelper.getImageCaptions(item.imageTitle!!.prefixedText),
-                ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfo(item.imageTitle!!.prefixedText),
-                ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId, sourceWiki.languageCode)
-            ) { captions, protectionInfoRsp, imageTags ->
+            Observable.zip(
+                ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitle(item.imageTitle!!.prefixedText, Constants.COMMONS_DB_NAME),
+                ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfo(item.imageTitle!!.prefixedText)
+            ) { entities, protectionInfoRsp ->
+                val captions = entities.first?.labels?.values?.associate { it.language to it.value }.orEmpty()
                 item.mediaInfo!!.captions = captions
-                Pair(protectionInfoRsp.query?.isEditProtected, imageTags.size)
+                val depicts = ImageTagsProvider.getDepictsClaims(entities.first?.statements.orEmpty())
+                Pair(protectionInfoRsp.query?.isEditProtected == true, depicts.size)
             }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
