@@ -13,7 +13,8 @@ sealed class TimedEvent(@Transient private val streamNameStr: String = "") : Mob
     private var pauseTime = 0L
 
     @Transient
-    val duration = System.currentTimeMillis() - startTime
+    val duration : Long
+        get() = System.currentTimeMillis() - startTime
 
     fun start() {
         startTime = System.currentTimeMillis()
