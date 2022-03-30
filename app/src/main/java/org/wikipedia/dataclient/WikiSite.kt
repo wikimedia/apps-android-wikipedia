@@ -9,7 +9,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.json.UriSerializer
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.language.LanguageUtil
-import org.wikipedia.page.PageTitle
 import org.wikipedia.util.UriUtil
 
 /**

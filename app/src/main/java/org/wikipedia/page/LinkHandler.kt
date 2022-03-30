@@ -75,8 +75,7 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
             uri.path?.run { matches(("^${UriUtil.WIKI_REGEX}.*").toRegex()) } == true && supportedAuthority -> {
                 val newTitle = if (titleStr.isNullOrEmpty()) {
                     PageTitle.titleForInternalLink(uri.path, site)
-                }
-                else PageTitle.withSeparateFragment(titleStr, uri.fragment, site)
+                } else PageTitle.withSeparateFragment(titleStr, uri.fragment, site)
                 if (newTitle.isFilePage) {
                     onMediaLinkClicked(newTitle)
                 } else {
