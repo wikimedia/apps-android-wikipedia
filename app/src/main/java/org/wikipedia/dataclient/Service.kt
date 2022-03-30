@@ -213,9 +213,6 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
     fun getUserList(@Query("ususers") userNames: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups")
-    suspend fun getUserInfoList(@Query("ususers") userNames: String): MwQueryResponse
-
     // ------- Notifications -------
 
     @Headers("Cache-Control: no-cache")
