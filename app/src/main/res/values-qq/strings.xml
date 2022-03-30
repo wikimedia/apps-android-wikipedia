@@ -1163,4 +1163,5 @@
   <string name="category_tab_subcategories">Label for tab that lists all the subcategories of a category.</string>
   <string name="category_empty">Error shown when the current category contains no articles.</string>
   <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
+  <string name="customize_toolbar__shortcut_description_text">Description of the customize toolbar page.</string>
 </resources>
