@@ -162,8 +162,8 @@ class NotificationViewModel : ViewModel() {
             val notification = item.notification!!
             val wiki = dbNameMap.getOrElse(notification.wiki) {
                 when (notification.wiki) {
-                    "commonswiki" -> Constants.commonsWikiSite
-                    "wikidatawiki" -> Constants.wikidataWikiSite
+                    Constants.COMMONS_DB_NAME -> Constants.commonsWikiSite
+                    Constants.WIKIDATA_DB_NAME -> Constants.wikidataWikiSite
                     else -> {
                         val langCode = StringUtil.dbNameToLangCode(notification.wiki)
                         WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
