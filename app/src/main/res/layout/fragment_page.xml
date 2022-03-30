@@ -69,7 +69,7 @@
                 android:contentDescription="@string/menu_feed_overflow_label"
                 android:focusable="true"
                 android:minWidth="48dp"
-                android:text="@string/menu_page_overflow_label"
+                android:text="@string/nav_item_more"
                 app:srcCompat="@drawable/ic_more_hor_themed_24dp" />
         </LinearLayout>
 

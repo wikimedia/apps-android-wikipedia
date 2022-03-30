@@ -35,6 +35,6 @@
         android:letterSpacing="0.05"
         android:text="@string/customize_toolbar_title"
         android:textAllCaps="true"
-        android:textColor="?attr/colorAccent"
+        android:textColor="?attr/chart_shade1"
         android:textSize="14sp" />
 </LinearLayout>
