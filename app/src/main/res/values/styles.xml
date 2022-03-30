@@ -533,7 +533,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
         <item name="android:textColor">?attr/chart_shade1</item>
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingTop">8dp</item>
