@@ -22,9 +22,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentGalleryItemBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
@@ -54,7 +52,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         mediaListItem = requireArguments().getParcelable(ARG_GALLERY_ITEM)!!
         pageTitle = requireArguments().getParcelable(ARG_PAGETITLE)
         if (pageTitle == null) {
-            pageTitle = PageTitle(mediaListItem.title, WikiSite(Service.COMMONS_URL))
+            pageTitle = PageTitle(mediaListItem.title, Constants.commonsWikiSite)
         }
         imageTitle = PageTitle("File:${StringUtil.removeNamespace(mediaListItem.title)}", pageTitle!!.wikiSite)
     }
@@ -181,10 +179,10 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
 
     private fun getMediaInfoDisposable(title: String, lang: String): Observable<MwQueryResponse> {
         return if (FileUtil.isVideo(mediaListItem.type)) {
-            ServiceFactory.get(if (mediaListItem.isInCommons) WikiSite(Service.COMMONS_URL)
+            ServiceFactory.get(if (mediaListItem.isInCommons) Constants.commonsWikiSite
             else pageTitle!!.wikiSite).getVideoInfo(title, lang)
         } else {
-            ServiceFactory.get(if (mediaListItem.isInCommons) WikiSite(Service.COMMONS_URL)
+            ServiceFactory.get(if (mediaListItem.isInCommons) Constants.commonsWikiSite
             else pageTitle!!.wikiSite).getImageInfo(title, lang)
         }
     }

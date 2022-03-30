@@ -25,7 +25,6 @@ import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
@@ -189,9 +188,6 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private inner class EditViewCallback : DescriptionEditView.Callback {
-        private val wikiData = WikiSite(Service.WIKIDATA_URL, "")
-        private val wikiCommons = WikiSite(Service.COMMONS_URL)
-        private val commonsDbName = "commonswiki"
         override fun onSaveClick() {
             if (!binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(true)
@@ -208,9 +204,9 @@ class DescriptionEditFragment : Fragment() {
         private fun getEditTokenThenSave() {
             val csrfClient = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                CsrfTokenClient(wikiCommons)
+                CsrfTokenClient(Constants.commonsWikiSite)
             } else {
-                CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else wikiData)
+                CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else Constants.wikidataWikiSite)
             }
 
             disposables.add(csrfClient.token.subscribe({ token ->
@@ -341,11 +337,11 @@ class DescriptionEditFragment : Fragment() {
         private fun getPostObservable(editToken: String, languageCode: String): Observable<EntityPostResponse> {
             return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, commonsDbName,
+                ServiceFactory.get(Constants.commonsWikiSite).postLabelEdit(languageCode, languageCode, Constants.COMMONS_DB_NAME,
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
                         getEditComment(), editToken, if (AccountUtil.isLoggedIn) "user" else null)
             } else {
-                ServiceFactory.get(wikiData).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
+                ServiceFactory.get(Constants.wikidataWikiSite).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
                         if (AccountUtil.isLoggedIn) "user" else null)
             }
