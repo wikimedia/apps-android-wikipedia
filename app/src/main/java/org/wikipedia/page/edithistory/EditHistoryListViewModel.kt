@@ -154,7 +154,6 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
     fun clearCache() {
         cachedRevisions.clear()
-        cachedContinueKey = null
     }
 
     inner class EditHistoryPagingSource(

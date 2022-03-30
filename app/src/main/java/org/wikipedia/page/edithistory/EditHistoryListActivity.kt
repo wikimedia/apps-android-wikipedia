@@ -3,7 +3,6 @@ package org.wikipedia.page.edithistory
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -330,7 +329,6 @@ class EditHistoryListActivity : BaseActivity() {
         fun bindItem(listItem: String) {
             val dateText = itemView.findViewById<TextView>(R.id.date_text)
             dateText.text = listItem
-            StringUtil.highlightAndBoldenText(dateText, viewModel.currentQuery, true, Color.YELLOW)
         }
     }
 
