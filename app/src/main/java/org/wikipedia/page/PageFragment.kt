@@ -819,7 +819,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.addListener("footer_item") { _, messagePayload ->
             messagePayload?.let { payload ->
                 when (payload["itemType"]?.jsonPrimitive?.content) {
-                    "talkPage" -> model.title?.run { startTalkTopicActivity(this, PAGE_SIDE_PANEL) }
+                    "talkPage" -> model.title?.run { startTalkTopicActivity(this, PAGE_ACTIVITY) }
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {
