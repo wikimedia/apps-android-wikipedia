@@ -1,14 +1,10 @@
 package org.wikipedia.analytics.eventplatform
 
 abstract class TimedEvent {
-    private var startTime = 0L
+    private var startTime = System.currentTimeMillis()
     private var pauseTime = 0L
 
     val duration get() = (System.currentTimeMillis() - startTime).toInt()
-
-    fun start() {
-        startTime = System.currentTimeMillis()
-    }
 
     fun pause() {
         pauseTime = System.currentTimeMillis()
