@@ -860,6 +860,7 @@
   <string name="suggested_edits_paused_message">దిద్దుబాటు సూచనలను %1$s వరకు నిలిపివేసాం. సారీ %2$s గారూ, మీ ఇటీవలి దిద్దుబాట్లలో కొన్నిటిని తిరగ్గొట్టారు.</string>
   <string name="suggested_edits_disabled_message">దిద్దుబాటు సూచనలను అచేతనం చేసాం. సారీ %s గారూ, మీ ఇటీవలి దిద్దుబాట్లలో చాలా వాటిని తిరగ్గొట్టారు.</string>
   <string name="suggested_edits_ip_blocked_message">వికీపీడియాలో దిద్దుబాట్లు చెయ్యకుండా మీ ఐపీ చిరునామాను (లేదా ఐపీ శ్రేణిని) నిరోధించినట్లుగా కనిపిస్తోంది.</string>
+  <string name="suggested_edits_gate_message">సారీ %s గారూ, ఈ అంశాన్ని వాడాలంటే మీరు ఏదైనా వ్యాసంలో నేరుగా కనీసం 3 దిద్దుబాట్లు చేసి ఉండాలి.</string>
   <string name="suggested_edits_editing_tips_link_text">దిద్దుబాటు చిట్కాలు</string>
   <string name="suggested_edits_help_page_link_text">సూచించిన దిద్దుబాట్లపై సహాయం పేజీ</string>
   <string name="suggested_edits_edit_streak_label_text">అప్రతిహత దిద్దుబాట్లు</string>

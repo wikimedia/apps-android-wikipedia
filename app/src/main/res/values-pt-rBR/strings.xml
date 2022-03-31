@@ -37,6 +37,7 @@
 * Walesson
 * Webysther
 * Welerson98
+* YuriNikolai
 -->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
@@ -84,6 +85,7 @@
   <string name="menu_page_other_languages">Alterar idioma</string>
   <string name="menu_page_find_in_page">Encontre no artigo</string>
   <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
+  <string name="menu_page_unwatch">Deixar de vigiar</string>
   <string name="menu_page_view_talk">Ver página de discussão</string>
   <string name="menu_page_view_edit_history">Ver histórico de edições</string>
   <string name="menu_page_edit_history">Histórico de edições</string>
@@ -1064,6 +1066,12 @@
   <string name="thank_dialog_positive_button_text">Enviar agradecimento</string>
   <string name="thank_dialog_negative_button_text">Cancelar</string>
   <string name="thank_success_message">O seu \'agradecimento\' foi enviado para %s 👍</string>
+  <string name="menu_option_view_user_contributions">Ver contribuições do usuário</string>
+  <string name="revision_diff_compare">Comparar revisões</string>
+  <string name="revision_diff_from">De:</string>
+  <string name="revision_diff_to">Para:</string>
+  <string name="revision_diff_line_added">Linha acrescentada</string>
+  <string name="revision_undo_reason">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e sua página de discussão foi adicionada à sua lista de páginas vigiadas %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Mudar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
