@@ -9,9 +9,10 @@ import android.view.View
 import androidx.annotation.MenuRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.history.HistoryEntry
@@ -38,15 +39,16 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
 
     fun show(entry: HistoryEntry?) {
         entry?.let {
-            Completable.fromAction { listsContainingPage = AppDatabase.getAppDatabase().readingListDao().getListsFromPageOccurrences(
-                AppDatabase.getAppDatabase().readingListPageDao().getAllPageOccurrences(it.title)) }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                if (!anchorView.isAttachedToWindow) {
-                    return@subscribe
+            CoroutineScope(Dispatchers.Main).launch {
+                listsContainingPage = withContext(Dispatchers.IO) {
+                    AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
+                        AppDatabase.instance.readingListPageDao().getAllPageOccurrences(it.title)
+                    )
                 }
-                this.entry = it
+                if (!anchorView.isAttachedToWindow) {
+                    return@launch
+                }
+                this@LongPressMenu.entry = it
                 showMenu()
             }
         }

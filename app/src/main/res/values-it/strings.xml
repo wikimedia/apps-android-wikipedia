@@ -25,6 +25,7 @@
 * Lorelai87
 * Macofe
 * Mannivu
+* Marty5550
 * Nastoshka
 * Nemo bis
 * Nivit
@@ -86,14 +87,26 @@
   <string name="share_via">Condividi tramite</string>
   <string name="image_share_via">Condividi tramite</string>
   <string name="search_redirect_from">Reindirizzamento da %s</string>
+  <string name="page_edit_history_activity_title">Cronologia: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Oggetto modifica vuoto</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d modifica dal %2$s</item>
+    <item quantity="other">%1$d modifiche dal %2$s</item>
+  </plurals>
+  <string name="page_edit_history_metrics_content_description">Statistiche dal %1$s al %2$s</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lingua</string>
   <string name="menu_page_find_in_page">Trova nella voce</string>
   <string name="menu_page_add_to_watchlist">Aggiungi agli osservati speciali</string>
+  <string name="menu_page_watch">Osserva</string>
+  <string name="menu_page_unwatch">Non seguire</string>
   <string name="menu_page_view_talk">Vedi la pagina di discussione</string>
+  <string name="menu_page_talk_page">Pagina di discussione</string>
   <string name="menu_page_view_edit_history">Vedi cronologia delle modifiche</string>
   <string name="menu_page_edit_history">Cronologia delle modifiche</string>
   <string name="menu_page_remove_from_watchlist">Rimuovi dagli osservati speciali</string>
+  <string name="menu_page_watched">Osservato</string>
   <string name="edit_section_find_in_page">Trova nella pagina</string>
   <string name="menu_page_font_and_theme">Carattere e tema</string>
   <string name="menu_page_add_to_list">Aggiungi all\'elenco di lettura</string>
@@ -102,6 +115,7 @@
   <string name="feed_card_add_to_default_list">Salva</string>
   <string name="menu_page_share">Condividi collegamento</string>
   <string name="menu_article_share">Condividi voce</string>
+  <string name="menu_page_article_share">Condividi</string>
   <string name="menu_page_open_a_new_tab">Apri una nuova scheda</string>
   <string name="menu_page_new_tab">Nuova scheda</string>
   <string name="menu_page_reading_lists">Elenchi di lettura</string>
@@ -188,6 +202,7 @@
   <string name="dialog_create_account_checking_progress">Verifica in corso</string>
   <string name="create_account_email_hint">Email (opzionale)</string>
   <string name="create_account_password_repeat_hint">Reinserisci la password</string>
+  <string name="create_account_password_is_username">La password non può essere uguale al nome utente</string>
   <string name="create_account_passwords_mismatch_error">Le password non corrispondono</string>
   <string name="create_account_email_error">Indirizzo email non valido</string>
   <string name="create_account_username_error">Caratteri non validi nel nome utente</string>
@@ -234,7 +249,6 @@
   <string name="page_protected_can_not_edit_title">Questa pagina è protetta</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Aggiungi agli osservati speciali</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Traccia ciò che accade alle voci a cui sei interessato. Premi nel menu e seleziona &lt;b&gt;Aggiungi agli osservati speciali&lt;/b&gt; per vedere le modifiche ad una voce.</string>
-  <string name="page_notification_tooltip">Le tue notifiche adesso stanno qui.</string>
   <string name="settings_item_preferences">Impostazioni</string>
   <string name="settings_activity_title">Impostazioni</string>
   <string name="about_description">Informazioni sull\'applicazione di Wikipedia</string>
@@ -801,6 +815,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="description_edit_tutorial_promise">Per iniziare, prometto di non abusare di questa funzione.</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Tieni premuta l\'icona di trascinamento per muovere l\'elemento</string>
+  <string name="customize_toolbar_item_default_tooltip">Clicca e trascina un elemento per riposizionarlo</string>
   <string name="suggested_edits_describe_articles">Descrivi voce</string>
   <string name="suggested_edits_caption_images">Didascalia delle immagini</string>
   <string name="suggested_edits_tag_images">Etichetta le immagini</string>
@@ -1081,12 +1098,17 @@
   <string name="talk_snackbar_survey_action_text">Inizia</string>
   <string name="talk_share_discussion_subject">Wikipedia - discussione nella sezione \"%s\" della pagina di discussione</string>
   <string name="talk_share_talk_page">Wikipedia - discussione nella pagina di discussione</string>
+  <string name="talk_edit_disclaimer">Questa è una pagina di discussione. Per favore rispetta le linee guida per le discussioni, e ricordati di firmare i tuoi interventi digitando quattro tilde: ~~~~ quando pubblichi utilizzando il wikitesto.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://it.wikipedia.org/wiki/Aiuto:Pagina_di_discussione\"&gt;Aiuto:Pagine di discussione&lt;/a&gt;</string>
+  <string name="talk_search_hint">Cerca nei messaggi</string>
   <string name="talk_overflow_sort_by">Ordina per</string>
+  <string name="talk_overflow_sort_date_published">Data di pubblicazione</string>
+  <string name="talk_overflow_sort_topic_name">Nome argomento</string>
   <string name="menu_option_share_talk_discussion">Condividi discussione</string>
   <string name="menu_option_share_talk_page">Condividi pagina di discussione</string>
   <string name="menu_option_share_edit">Condividi modifica</string>
   <string name="menu_option_user_profile">Profilo di %s</string>
   <string name="menu_option_user_contributions">Contributi di %s</string>
+  <string name="menu_option_edit_source">Modifica wikitesto</string>
   <string name="watchlist_details_watching_label">Osservato</string>
   <string name="watchlist_details_watch_label">Osserva</string>
   <string name="watchlist_details_next_edit">Prossima modifica</string>
@@ -1098,7 +1120,20 @@
   <string name="thank_dialog_positive_button_text">Invia ringraziamento</string>
   <string name="thank_dialog_negative_button_text">Annulla</string>
   <string name="thank_success_message">Il tuo \'ringraziamento\' è stato inviato a %s 👍</string>
+  <string name="menu_option_view_user_profile">Visualizza pagina profilo dell\'utente</string>
   <string name="menu_option_view_user_talk">Vedi la pagina di discussione</string>
+  <string name="revision_diff_compare">Confronta versioni</string>
+  <string name="revision_diff_from">Da:</string>
+  <string name="revision_diff_to">A:</string>
+  <string name="revision_diff_line_num">Riga %d</string>
+  <string name="revision_diff_line_nums">Righe %d–%d</string>
+  <string name="revision_diff_line_added">Riga aggiunta</string>
+  <string name="revision_diff_line_removed">Riga rimossa</string>
+  <string name="revision_diff_paragraph_added">Paragrafo aggiunto</string>
+  <string name="revision_diff_paragraph_removed">Paragrafo rimosso</string>
+  <string name="revision_undo_title">Annulla modifica</string>
+  <string name="revision_undo_success">La versione è stata annullata.</string>
+  <string name="revision_compare_button">Confronta</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e la sua pagina di discussione sono state aggiunte alla tua lista degli osservati speciali %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifica</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
@@ -1121,4 +1156,10 @@
   <string name="watchlist_page_moved">Spostato</string>
   <string name="watchlist_page_protected">Protetto</string>
   <string name="watchlist_page_deleted">Cancellato</string>
+  <string name="action_item_categories">Categorie</string>
+  <string name="page_no_categories">Questa pagina non appartiene ad alcuna categoria.</string>
+  <string name="category_tab_articles">Voci</string>
+  <string name="category_tab_subcategories">Sottocategorie</string>
+  <string name="category_empty">Nessuna voce trovata in questa categoria.</string>
+  <string name="subcategory_empty">Nessuna sottocategoria trovata in questa categoria.</string>
 </resources>

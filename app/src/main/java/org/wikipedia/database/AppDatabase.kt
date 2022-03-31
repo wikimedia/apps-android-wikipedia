@@ -171,24 +171,12 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
-        @Volatile
-        private var instance: AppDatabase? = null
-
-        fun getAppDatabase(): AppDatabase {
-            if (instance == null) {
-                synchronized(AppDatabase::class) {
-                    instance = Room.databaseBuilder(
-                        WikipediaApp.getInstance(),
-                        AppDatabase::class.java,
-                        DATABASE_NAME
-                    )
-                        .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24)
-                        .allowMainThreadQueries() // TODO: remove after migration
-                        .fallbackToDestructiveMigration()
-                        .build()
-                }
-            }
-            return instance!!
+        val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
+            Room.databaseBuilder(WikipediaApp.getInstance(), AppDatabase::class.java, DATABASE_NAME)
+                .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24)
+                .allowMainThreadQueries() // TODO: remove after migration
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
 }

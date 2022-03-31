@@ -146,14 +146,14 @@ def copy_apk(flavor, version_name):
     sh.mkdir("-p", folder_path)
     output_file = '%s/wikipedia-%s.apk' % (folder_path, version_name)
     sh.cp(get_output_apk_file_name(flavor), output_file)
-    print ' apk: %s' % output_file
+    print(' apk: %s' % output_file)
 
 def copy_bundle(flavor, version_name):
     folder_path = 'releases'
     sh.mkdir("-p", folder_path)
     output_file = '%s/wikipedia-%s.aab' % (folder_path, version_name)
     sh.cp(get_output_bundle_file_name(flavor), output_file)
-    print ' apk: %s' % output_file
+    print(' apk: %s' % output_file)
 
 
 def find_output_apk_for(label, version_code):
@@ -179,6 +179,9 @@ def main():
                        action='store_true')
     group.add_argument('--prod',
                        help='Step 1: Google Play stable.',
+                       action='store_true')
+    parser.add_argument('--bundle',
+                       help='Build a bundle (AAB) in addition to APK.',
                        action='store_true')
     group.add_argument('--channel',
                        help='Step 1: Custom versionName&channel. OEMs w/ Play')
@@ -223,16 +226,17 @@ def main():
         folder_path = 'releases'
         sh.mkdir("-p", folder_path)
 
-        print('Building APK...')
+        print('Building APK: ' + str(flavors))
         make_release(flavors, custom_channel)
         version_name = get_version_name_from_apk(get_output_apk_file_name(flavors[0]))
         print('Copying APK...')
         copy_apk(flavors[0], version_name)
 
-        print('Building bundle...')
-        make_bundle(flavors, custom_channel)
-        print('Copying bundle...')
-        copy_bundle(flavors[0], version_name)
+        if args.bundle:
+            print('Building bundle: ' + str(flavors))
+            make_bundle(flavors, custom_channel)
+            print('Copying bundle...')
+            copy_bundle(flavors[0], version_name)
 
         print('Please test the APK. After that, run w/ --push flag, and release the tested APK.')
         print('A useful command for collecting the release notes:')

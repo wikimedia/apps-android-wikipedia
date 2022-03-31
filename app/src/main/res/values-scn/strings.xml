@@ -27,6 +27,7 @@
   <string name="dialog_message_clear_history_yes">Sì</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Cunnividi cu</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;n&lt;/b&gt; %s</string>
   <string name="menu_page_other_languages">Cancia lingua</string>
   <string name="menu_page_add_to_watchlist">Agghiunci â lista taliata</string>
   <string name="menu_page_watch">Talìa</string>

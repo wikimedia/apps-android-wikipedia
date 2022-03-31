@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/statsGraphView"
+        app:layout_constraintWidth_percent="0.60">
+
+        <TextView
+            android:id="@+id/articleTitleView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:lineSpacingExtra="4sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="24sp"
+            android:hyphenationFrequency="normal"/>
+
+        <TextView
+            android:id="@+id/editCountsView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:lineSpacingExtra="5sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="?green_highlight_color"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <org.wikipedia.views.GraphView
+        android:id="@+id/statsGraphView"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:contentDescription="@string/about_app_license_heading"
+        android:background="@drawable/graph_background_base80"
+        android:backgroundTint="?attr/chip_background_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.40"/>
+
+</merge>
