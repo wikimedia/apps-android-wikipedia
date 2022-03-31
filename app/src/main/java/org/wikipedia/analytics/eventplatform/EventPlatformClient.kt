@@ -170,18 +170,15 @@ object EventPlatformClient {
          * can contain events of different streams
          */
         private fun send() {
-            val eventsByStream = mutableMapOf<String, ArrayList<Event>>()
-            for (event in QUEUE) {
-                val stream = event.stream
-                if (!eventsByStream.containsKey(stream) || eventsByStream[stream] == null) {
-                    eventsByStream[stream] = ArrayList()
-                }
-                eventsByStream[stream]!!.add(event)
+            if (!Prefs.isEventLoggingEnabled) {
+                return
             }
-            for (stream in eventsByStream.keys) {
-                if (Prefs.isEventLoggingEnabled) {
-                    sendEventsForStream(STREAM_CONFIGS[stream]!!, eventsByStream[stream]!!)
-                }
+            val eventsByStream = mutableMapOf<String, MutableList<Event>>()
+            QUEUE.forEach {
+                eventsByStream.getOrPut(it.stream) { mutableListOf() }.add(it)
+            }
+            eventsByStream.keys.forEach {
+                sendEventsForStream(STREAM_CONFIGS[it]!!, eventsByStream[it]!!)
             }
         }
 
