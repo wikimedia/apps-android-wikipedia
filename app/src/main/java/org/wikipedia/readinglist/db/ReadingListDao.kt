@@ -26,6 +26,9 @@ interface ReadingListDao {
     @Query("SELECT * FROM ReadingList WHERE id = :id")
     fun getListById(id: Long): ReadingList?
 
+    @Query("SELECT * FROM ReadingList WHERE id IN (:readingListIds)")
+    suspend fun getListsByIds(readingListIds: Set<Long>): List<ReadingList>
+
     @Query("UPDATE ReadingList SET remoteId = -1")
     fun markAllListsUnsynced()
 
@@ -82,17 +85,8 @@ interface ReadingListDao {
         }
     }
 
-    fun getListsFromPageOccurrences(pages: List<ReadingListPage>): List<ReadingList> {
-        val lists = mutableListOf<ReadingList>()
-        val listIds = mutableSetOf<Long>()
-        for (page in pages) {
-            listIds.add(page.listId)
-        }
-        for (listId in listIds) {
-            getListById(listId)?.let {
-                lists.add(it)
-            }
-        }
+    suspend fun getListsFromPageOccurrences(pages: List<ReadingListPage>): List<ReadingList> {
+        val lists = getListsByIds(pages.map { it.listId }.toSet())
         pages.forEach { page ->
             lists.filter { it.id == page.listId }.map { it.pages.add(page) }
         }

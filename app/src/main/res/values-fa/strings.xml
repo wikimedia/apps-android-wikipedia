@@ -201,7 +201,7 @@
   <string name="create_account_generic_error">امکان ایجاد حساب وجود ندارد</string>
   <string name="create_account_next">بعدی</string>
   <string name="email_recommendation_dialog_title">حساب بدون ایمیل ساخته شود؟</string>
-  <string name="email_recommendation_dialog_message">هرچند که آدرس ایمیل اختیاری است، &lt;b&gt;به شدت توصیه&lt;/b&gt; می‌شود که آدرس ایمیل را وارد کنید. این آدرس برای بازیابی حساب کاربری در هنگام فراموشی رمز عبور لازم خواهد بود.</string>
+  <string name="email_recommendation_dialog_message">هرچند که آدرس ایمیل اختیاری است، &lt;b&gt;به شدت توصیه&lt;/b&gt; می‌شود که آدرس ایمیل را وارد کنید. این آدرس برای بازیابی حساب در هنگام فراموشی رمز عبور لازم خواهد بود.</string>
   <string name="email_recommendation_message">نظر به اینکه برای بازیابی حساب کاربری لازم است توصیه می شود.</string>
   <string name="email_recommendation_dialog_create_without_email_action">بدون ایمیل ادامه دهید</string>
   <string name="email_recommendation_dialog_create_with_email_action">افزودن یک آدرس ایمیل</string>
@@ -223,7 +223,7 @@
   <string name="preference_summary_sync_reading_lists">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب ویکی‌پدیا</string>
   <string name="preference_summary_sync_reading_lists_from_account">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب «%s» در ویکی‌پدیا</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های مطالعهٔ همگام‌سازی‌شده از «%s» حذف شوند؟</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">این کار همهٔ فهرست‌های مطالعه که پیشتر در حافظه همگام‌سازی شده را کاملاً حذف می‌کند. همهٔ فهرست‌های همگام‌سازی‌شده از حساب کاربری شما «%s» پاک شود؟</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">این کار همهٔ فهرست‌های مطالعه که پیشتر در حافظه همگام‌سازی شده را کاملاً حذف می‌کند. همهٔ فهرست‌های همگام‌سازی‌شده از حساب شما «%s» پاک شود؟</string>
   <string name="preferences_privacy_settings_heading">حریم خصوصی</string>
   <string name="preference_title_eventlogging_opt_in">ارسال گزارش‌های استفاده</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، جمع‌آوری کند</string>
@@ -512,11 +512,11 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">مقاله در چندین فهرست دیده می‌شود</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s دیگر به صورت آفلاین برای همهٔ فهرست‌های مطالعه موجود نخواهد بود:</string>
   <string name="reading_lists_sync_reminder_title">همگام‌سازی فهرست مطالعه فعال شود؟</string>
-  <string name="reading_lists_sync_reminder_text">مقاله‌های ذخیره‌شده در فهرست‌های مطالعهٔ شما اکنون می‌توانند در حساب کاربری ویکی‌پدیای شما همگام‌سازی شوند. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">مقاله‌های ذخیره‌شده در فهرست‌های مطالعهٔ شما اکنون می‌توانند در حساب ویکی‌پدیای شما همگام‌سازی شوند. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">فهرست‌های مطالعه اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب ویکی‌پدیای خود وارد شوید و امکان ذخیره‌سازی فهرست‌های خود را فراهم کنید. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">فعال‌کردن همگام‌سازی</string>
   <string name="reading_list_login_reminder_title">همگام‌سازی فهرست‌های مطالعه</string>
-  <string name="reading_lists_login_reminder_text">فهرست‌های مطالعه اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب کاربری ویکی‌پدیای خود وارد شوید و و امکان ذخیره‌سازی فهرست‌های خود را فراهم کنید.</string>
+  <string name="reading_lists_login_reminder_text">فهرست‌های مطالعه اکنون می‌توانند بین چند دستگاه همگام‌سازی شوند. به حساب ویکی‌پدیای خود وارد شوید و و امکان ذخیره‌سازی فهرست‌های خود را فراهم کنید.</string>
   <string name="reading_lists_login_button">ورود/پیوستن به ویکی‌پدیا</string>
   <string name="reading_lists_ignore_button">حالا نه</string>
   <string name="reading_lists_confirm_remote_delete_yes">بله</string>
@@ -530,11 +530,11 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">لغو</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ورود</string>
   <string name="reading_list_turned_sync_off_dialog_title">همگام‌‌سازی فهرست مطالعه غیرفعال شد</string>
-  <string name="reading_list_turned_sync_off_dialog_text">همگام‌سازی فهرست مطالعه برای حساب کاربری شما غیرفعال است و مقاله‌های ذخیره‌شده در دستگاه‌های واردشده دیگر همگام‌سازی نمی‌شوند. همگام‌سازی فهرست‌های مطالعه را در تنظمیات فعال کنید.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">همگام‌سازی فهرست مطالعه برای حساب شما غیرفعال است و مقاله‌های ذخیره‌شده در دستگاه‌های واردشده دیگر همگام‌سازی نمی‌شوند. همگام‌سازی فهرست‌های مطالعه را در تنظمیات فعال کنید.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">تأیید</string>
   <string name="reading_list_turned_sync_off_dialog_settings">تنظیمات</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">همگام‌سازی فهرست مطالعه فعال شود؟</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">مقاله‌های ذخیره‌شده در فهرست‌های مطالعهٔ شما اکنون می‌توانند در حساب کاربری ویکی‌پدیای شما همگام‌سازی شوند. &lt;a href=\"#faq\"&gt;بیشتر بدانید&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">مقاله‌های ذخیره‌شده در فهرست‌های مطالعهٔ شما اکنون می‌توانند در حساب ویکی‌پدیای شما همگام‌سازی شوند. &lt;a href=\"#faq\"&gt;بیشتر بدانید&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">این را دوباره به من نشان نده</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">فعال‌کردن همگام‌سازی</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نه ممنون</string>
@@ -546,7 +546,7 @@
   <string name="split_reading_list_message">محدودیت %d مقاله به‌ازای هر فهرست مطالعه وجود دارد. هر فهرست موجودی که بیش از این تعداد مقاله داشته‌است، به چند فهرست تقسیم شده‌است.</string>
   <string name="reading_list_move_article_limit_message">انتقال به این فهرست امکان‌پذیر نیست. شما در فهرست «%1$s» به محدودیت %2$d مقاله به‌ازای هر فهرست رسیده‌اید.</string>
   <string name="reading_list_article_limit_message">افزودن به این فهرست امکان‌پذیر نیست. شما در فهرست «%1$s» به محدودیت %2$d مقاله به‌ازای هر فهرست رسیده‌اید.</string>
-  <string name="reading_lists_limit_message">ایجاد فهرستی دیگر امکان‌پذیر نیست. شما به محدودیت ۱۰۰ فهرست مطالعه برای هر حساب کاربری رسیده‌اید.</string>
+  <string name="reading_lists_limit_message">ایجاد فهرستی دیگر امکان‌پذیر نیست. شما به محدودیت ۱۰۰ فهرست مطالعه برای هر حساب رسیده‌اید.</string>
   <string name="reading_lists_menu_create_list">ایجاد فهرست جدید</string>
   <string name="reading_lists_menu_sort_by">مرتب‌سازی بر اساس</string>
   <string name="reading_lists_refresh_sync_option">تازه‌کردن همگام‌سازی</string>
@@ -744,7 +744,7 @@
   <string name="description_edit_help_about_wikidata">دربارهٔ ویکی‌داده</string>
   <string name="description_edit_help_wikidata_guide">راهنمای ویکی‌داده برای نوشتن توضیحات</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">ممنون برای علاقه ادامه‌دارتان در ویرایش توضیحات مقاله! لطفاً برای ویرایش‌های بیشتر، با حساب ویکی‌پدیا وارد سامانه شوید.</string>
+  <string name="description_edit_anon_limit">ممنون برای علاقه ادامه‌دارتان در ویرایش توضیحات مقاله! لطفاً برای ویرایش‌های بیشتر، با حساب ویکی‌پدیا خودتان وارد شوید.</string>
   <string name="description_edit_license_notice">با تغییر توضیحات عنوان، با &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; و انتشار برگشت‌ناپذیر مشارکت‌هایم تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; موافقت می‌کنم.</string>
   <string name="description_edit_helper_text_lowercase_warning">معمولاً با حرف کوچک آغاز می‌شود</string>
   <string name="description_edit_voice_input_description">صدای ورودی</string>
@@ -958,7 +958,7 @@
   <string name="onboarding_explore_title">روش‌های جدید برای مرور</string>
   <string name="onboarding_explore_text">جستجو در ویکی‌پدیا با به‌روزرسانی مداوم خوراک بازدید.&lt;br/&gt; &lt;b&gt;شخصی‌سازی&lt;/b&gt; خوراک به‌صورت دلخواه- به نحوی که در مورد رویدادهای تاریخی &lt;b&gt;در این روز &lt;/b&gt; یا جستجوی &lt;b&gt;تصادفی&lt;/b&gt;</string>
   <string name="onboarding_reading_list_sync_title">فهرست‌های مطالعه با همگام‌سازی</string>
-  <string name="onboarding_reading_list_sync_text_v2">می‌توانید از مقاله‌هایی برای مطالعه در آینده، حتی در زمانی که آفلاین هستید، یک فهرست مطالعه تهیه کنید. برای همگام‌سازی فرهست‌ها، به حساب کاربری خود وارد شوید. &lt;a href=\"#login\"&gt;به ویکی‌پدیا ملحق شوید.&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2">می‌توانید از مقاله‌هایی برای مطالعه در آینده، حتی در زمانی که آفلاین هستید، یک فهرست مطالعه تهیه کنید. برای همگام‌سازی فهرست‌ها، به حساب ویکی‌پدیای خود وارد شوید. &lt;a href=\"#login\"&gt;به ویکی‌پدیا ملحق شوید.&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
   <string name="onboarding_analytics_offline_text">ما را مطلع کنید که چگونه از این برنامه استفاده می کنید تا یاریمان نمایید آن را بهبود بخشیم. جمع‌آوری داده ها به‌صورت ناشناس انجام می‌گیرد. &lt;a href=\"#privacy\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ارسال دادهٔ مصرف</string>
