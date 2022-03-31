@@ -7,6 +7,7 @@ class ThreadItem(
         val type: String = "",
         val level: Int = 0,
         val id: String = "",
+        val name: String = "",
         val html: String = "",
         val author: String = "",
         val timestamp: String = "",
