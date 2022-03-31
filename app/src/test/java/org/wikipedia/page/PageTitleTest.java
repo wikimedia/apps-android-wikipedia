@@ -71,7 +71,7 @@ import static org.hamcrest.Matchers.nullValue;
     @Test public void testLangAsNamespace() {
         Uri uri = Uri.parse("https://en.wikipedia.org/wiki/fr:Article");
         WikiSite site = new WikiSite(uri);
-        PageTitle title = site.titleForUri(uri);
+        PageTitle title = PageTitle.Companion.titleForUri(uri, site);
         assertThat(title.getWikiSite().authority(), is("fr.wikipedia.org"));
         assertThat(title.getDisplayText(), is("Article"));
     }
