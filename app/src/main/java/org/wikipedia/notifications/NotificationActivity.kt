@@ -9,12 +9,11 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
 import android.text.format.DateUtils
-import android.text.style.ForegroundColorSpan
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -46,6 +45,7 @@ import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
@@ -54,7 +54,6 @@ import org.wikipedia.util.*
 import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
-import java.util.*
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
@@ -123,10 +122,6 @@ class NotificationActivity : BaseActivity() {
             override fun onTabReselected(tab: TabLayout.Tab) {
             }
         })
-
-        binding.notificationsSearchEmptyContainer.setOnClickListener {
-            resultLauncher.launch(NotificationFilterActivity.newIntent(it.context))
-        }
 
         Prefs.notificationUnreadCount = 0
 
@@ -260,7 +255,7 @@ class NotificationActivity : BaseActivity() {
             binding.notificationsEmptyContainer.visibility = if (actionMode == null && viewModel.excludedFiltersCount() == 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyContainer.visibility = if (viewModel.excludedFiltersCount() != 0) View.VISIBLE else View.GONE
             binding.notificationsSearchEmptyText.visibility = if (actionMode != null) View.VISIBLE else View.GONE
-            binding.notificationsEmptySearchMessage.setText(getSpannedEmptySearchMessage(), TextView.BufferType.SPANNABLE)
+            setUpEmptySearchMessage()
         } else {
             binding.notificationsEmptyContainer.visibility = View.GONE
             binding.notificationsSearchEmptyContainer.visibility = View.GONE
@@ -275,13 +270,13 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun getSpannedEmptySearchMessage(): Spannable {
+    private fun setUpEmptySearchMessage() {
         val filtersStr = resources.getQuantityString(R.plurals.notifications_number_of_filters, viewModel.excludedFiltersCount(), viewModel.excludedFiltersCount())
-        val emptySearchMessage = getString(R.string.notifications_empty_search_message, filtersStr)
-        val spannable = SpannableString(emptySearchMessage)
-        val prefixStringLength = 13
-        spannable.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(this, R.attr.colorAccent)), prefixStringLength, prefixStringLength + filtersStr.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        return spannable
+        binding.notificationsEmptySearchMessage.text = StringUtil.fromHtml(getString(R.string.notifications_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
+        RichTextUtil.removeUnderlinesFromLinks(binding.notificationsEmptySearchMessage)
+        binding.notificationsEmptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
+            resultLauncher.launch(NotificationFilterActivity.newIntent(this))
+        }
     }
 
     private fun markReadItems(items: List<NotificationListItemContainer>, markUnread: Boolean, fromUndoOrClick: Boolean = false, position: Int? = null) {

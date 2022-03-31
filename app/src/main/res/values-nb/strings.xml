@@ -62,7 +62,6 @@
   <string name="share_via">Del via</string>
   <string name="image_share_via">Del via</string>
   <string name="search_redirect_from">Omdirigert fra %s</string>
-  <string name="page_edit_history_activity_label">Revisjonshistorikk</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Tom redigeringsforklaring</string>
   <string name="menu_page_show_tabs">Vis faner</string>
@@ -218,7 +217,6 @@
   <string name="page_protected_can_not_edit_title">Denne siden er beskyttet</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Legg til i overvåkningsliste</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Følg med på hva som skjer med artikler du er interessert i. Trykk på overløpsmenyen og velg &lt;b&gt;Legg til i overvåkningsliste&lt;/b&gt; for å se hvordan artikkelen endrer seg.</string>
-  <string name="page_notification_tooltip">Varslene dine vises nå her.</string>
   <string name="settings_item_preferences">Innstillinger</string>
   <string name="settings_activity_title">Innstillinger</string>
   <string name="about_description">Om Wikipedia-appen</string>
@@ -792,7 +790,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
   <string name="customize_toolbar_title">Tilpass verktøylinje</string>
-  <string name="customize_toolbar_description">Tilpass verktøylinjen nederst med de handlingene og målsidene du finner nyttigst.</string>
+  <string name="customize_toolbar_description_text">Tilpass verktøylinja nederst med 5 lenker du syns er nyttige.</string>
   <string name="customize_toolbar_category_toolbar">Verktøylinje</string>
   <string name="customize_toolbar_category_menu">Meny</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Dra og slipp favorittelementete dine her 👋</string>
@@ -1101,6 +1099,8 @@
   <string name="thank_success_message">Din takk ble sendt til %s 👍</string>
   <string name="menu_option_view_user_profile">Vis brukerens profilside</string>
   <string name="menu_option_view_user_talk">Vis diskusjonsside</string>
+  <string name="revision_compare_button">Sammenlign</string>
+  <string name="revision_compare_two_only">Man kan kun velge to revisjoner.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s og diskusjonssiden dens har blitt lagt til i overvåkningslisten din %2$s.s</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Endre</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>

@@ -52,7 +52,6 @@
   <string name="share_via">শ্বেয়াৰ</string>
   <string name="image_share_via">শ্বেয়াৰ কৰক</string>
   <string name="search_redirect_from">%sৰ পৰা পুনঃনিৰ্দেশিত</string>
-  <string name="page_edit_history_activity_label">পুনৰীক্ষণৰ ইতিহাস</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">সম্পাদনাৰ সাৰাংশ খালী</string>
   <string name="menu_page_show_tabs">টেব্‌সমূহ দেখুৱাওক</string>
@@ -208,7 +207,6 @@
   <string name="page_protected_can_not_edit_title">এই পৃষ্ঠাটো সুৰক্ষিত</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">লক্ষ্য-তালিকাত অন্তৰ্ভুক্ত কৰক</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">আপোনাৰ আগ্ৰহ থকা প্ৰবন্ধবোৰত কি ঘটি আছে তাৰ ওপৰত চকু ৰাখক। কোনো প্ৰবন্ধৰ সাল-সলনি চাবলৈ অভাৰফ্ল\' মেন্যুত স্পৰ্শ কৰি &lt;b&gt;চোৱাসূচীত যোগ কৰক&lt;/b&gt; বাছনি কৰক।</string>
-  <string name="page_notification_tooltip">আপোনাৰ জাননীসমূহ এতিয়া ইয়াত আছে।</string>
   <string name="settings_item_preferences">ছেটিং</string>
   <string name="settings_activity_title">ছেটিং</string>
   <string name="about_description">ৱিকিপিডিয়া এপ্‌টোৰ বিষয়ে</string>

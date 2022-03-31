@@ -68,9 +68,10 @@
   <string name="share_via">Comparteix mitjançant…</string>
   <string name="image_share_via">Compareteix amb</string>
   <string name="search_redirect_from">Redirigit des de %s</string>
-  <string name="page_edit_history_activity_label" fuzzy="true">Historial de la pàgina</string>
+  <string name="page_edit_history_activity_title">Historial de revisions: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder" fuzzy="true">No hi ha cap comentari associat a aquesta modificació</string>
+  <string name="page_edit_history_comment_placeholder">Resum d\'edició buit</string>
+  <string name="page_edit_history_metrics_content_description">Mètriques de %1$s a %2$s</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cerca a l\'article</string>
@@ -224,7 +225,6 @@
   <string name="page_protected_can_not_edit_title">La pàgina està protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Afegeix a la llista de seguiment</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Vigileu tot allò que passa en els articles en què esteu interessat. Toqueu el menú que sobresurt i seleccioneu &lt;b&gt;Afegeix a la llista de seguiment&lt;/b&gt; per a veure els canvis d\'un article.</string>
-  <string name="page_notification_tooltip">Les notificacions són ara aquí.</string>
   <string name="settings_item_preferences">Configuració</string>
   <string name="settings_activity_title">Configuració</string>
   <string name="about_description">Quant a l’aplicació de la Viquipèdia</string>
@@ -799,11 +799,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="customize_toolbar_title">Personalitza la barra d\'eines</string>
-  <string name="customize_toolbar_description">Personalitzeu la barra d\'eines de navegació inferior amb les accions i destinacions que trobeu més útils.</string>
+  <string name="customize_toolbar_description_text">Personalitza la barra d\'eines inferior amb 5 enllaços que trobeu útils.</string>
   <string name="customize_toolbar_category_toolbar">Barra d\'eines</string>
   <string name="customize_toolbar_category_menu">Menú</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Arrossegueu i deixeu anar els vostres elements preferits ací 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Reinicialitza als valors per defecte</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Mantingueu la icona d\'arrossegament per a moure l\'element</string>
+  <string name="customize_toolbar_item_default_tooltip">Premeu i arrossegueu un element per a reposicionar-lo</string>
   <string name="suggested_edits_describe_articles">Descriu articles</string>
   <string name="suggested_edits_caption_images">Posa llegendes a les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
@@ -1108,6 +1110,20 @@
   <string name="thank_success_message">S\'han enviat els agraïments a %s 👍</string>
   <string name="menu_option_view_user_profile">Mosta la pàgina de perfil d\'usuari</string>
   <string name="menu_option_view_user_talk">Mosta la pàgina de discussió</string>
+  <string name="menu_option_view_user_contributions">Mostra les contribucions de l\'usuari</string>
+  <string name="revision_diff_compare">Compara les revisions</string>
+  <string name="revision_diff_compare_title">Compara les revisions: %s</string>
+  <string name="revision_diff_from">De:</string>
+  <string name="revision_diff_to">Per a:</string>
+  <string name="revision_diff_line_num">Línia %d</string>
+  <string name="revision_diff_line_nums">Línies %d–%d</string>
+  <string name="revision_diff_line_added">Línia afegida</string>
+  <string name="revision_diff_line_removed">Línia eliminada</string>
+  <string name="revision_diff_paragraph_added">Paràgraf afegit</string>
+  <string name="revision_diff_paragraph_removed">Paràgraf eliminat</string>
+  <string name="revision_undo_success">S\'ha desfet la revisió.</string>
+  <string name="revision_compare_button">Comparar</string>
+  <string name="revision_compare_two_only">Només es poden seleccionar dues revisions.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s i la seva pàgina de discussió s\'han afegit a la vostra llista de seguiment %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Canvia</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentment</string>

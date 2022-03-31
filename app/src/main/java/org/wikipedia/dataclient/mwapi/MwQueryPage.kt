@@ -14,9 +14,9 @@ class MwQueryPage {
     @SerialName("videoinfo") private val videoInfo: List<ImageInfo>? = null
     @SerialName("watchlistexpiry") private val watchlistExpiry: String? = null
     @SerialName("pageviews") val pageViewsMap: Map<String, Long?> = emptyMap()
-    @SerialName("imagelabels") val imageLabels: List<ImageLabel> = emptyList()
     @SerialName("pageid") val pageId = 0
     @SerialName("pageprops") val pageProps: PageProps? = null
+    @SerialName("entityterms") val entityTerms: EntityTerms? = null
 
     private val ns = 0
     private var coordinates: List<Coordinates>? = null
@@ -28,7 +28,6 @@ class MwQueryPage {
     var title: String = ""
     val langlinks: List<LangLink> = emptyList()
     val revisions: List<Revision> = emptyList()
-    val categories: List<Category>? = null
     val protection: List<Protection> = emptyList()
     val extract: String? = null
     val description: String? = null
@@ -89,10 +88,11 @@ class MwQueryPage {
         @SerialName("revid") val revId: Long = 0
         @SerialName("parentid") val parentRevId: Long = 0
         @SerialName("anon") val isAnon = false
-        @SerialName("size") val size = 0
+        val size = 0
         val user: String = ""
         val content: String = ""
         val comment: String = ""
+        val parsedcomment: String = ""
 
         var diffSize = 0
 
@@ -126,31 +126,9 @@ class MwQueryPage {
     }
 
     @Serializable
-    class Category(val ns: Int = 0, val title: String = "", val hidden: Boolean = false)
-
-    @Serializable
-    class ImageLabel {
-
-        @SerialName("wikidata_id") var wikidataId: String? = ""
-        private val confidence: Confidence? = null
-        val state: String = ""
-        var label: String = ""
-        var description: String? = ""
-        var isSelected = false
-        var isCustom = false
-
-        constructor()
-        constructor(wikidataId: String, label: String, description: String?) {
-            this.wikidataId = wikidataId
-            this.label = label
-            this.description = description
-            isCustom = true
-        }
-
-        val confidenceScore: Float
-            get() = confidence?.google ?: 0f
+    class EntityTerms {
+        val alias: List<String> = emptyList()
+        val label: List<String> = emptyList()
+        val description: List<String> = emptyList()
     }
-
-    @Serializable
-    class Confidence(val google: Float = 0f)
 }

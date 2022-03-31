@@ -230,7 +230,6 @@
   <string name="page_protected_can_not_edit_title">Halaman ini dilindungi</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Tambahkan ke daftar pantauan</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Lacak apa yang terjadi pada artikel yang Anda minati. Ketuk menu tambahan dan pilih &lt;b&gt;Tambahkan ke Daftar Pantauan&lt;/b&gt; untuk melihat perubahan pada artikel.</string>
-  <string name="page_notification_tooltip">Notifikasi Anda sekarang disini.</string>
   <string name="settings_item_preferences">Pengaturan</string>
   <string name="settings_activity_title">Pengaturan</string>
   <string name="about_description">Tentang aplikasi Wikipedia</string>
@@ -790,7 +789,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
   <string name="customize_toolbar_title">Ubah suaikan bilah perkakas</string>
-  <string name="customize_toolbar_description">Ubah suaikan bilah perkakas navigasi bawah Anda dengan tindakan dan tujuan yang Anda rasa paling berguna.</string>
   <string name="customize_toolbar_category_toolbar">Bilah perkakas</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Seret dan taruh hal-hal favorit Anda ke sini 👋</string>

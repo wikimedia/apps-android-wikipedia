@@ -62,9 +62,10 @@
   <string name="share_via">Dela via</string>
   <string name="image_share_via">Dela via</string>
   <string name="search_redirect_from">Omdirigerad från %s</string>
-  <string name="page_edit_history_activity_label">Versionshistorik</string>
+  <string name="page_edit_history_activity_title">Versionshistorik: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Tom redigeringssammanfattning</string>
+  <string name="page_edit_history_metrics_content_description">Mätvärden från %1$s till %2$s</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
   <string name="menu_page_find_in_page">Hitta i artikeln</string>
@@ -218,7 +219,6 @@
   <string name="page_protected_can_not_edit_title">Denna sida är skrivskyddad</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Lägg till i bevakningslistan</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Håll reda på vad som händer i artiklar du är intresserad av. Tryck på överflödesmenyn och välj &lt;b&gt;Lägg till i bevakningslistan&lt;/b&gt; för att se ändringar på en artikel.</string>
-  <string name="page_notification_tooltip">Dina aviseringar finns nu här.</string>
   <string name="settings_item_preferences">Inställningar</string>
   <string name="settings_activity_title">Inställningar</string>
   <string name="about_description">Om Wikipedia-appen</string>
@@ -792,11 +792,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Börja redigera</string>
   <string name="description_edit_tutorial_promise">Genom att börja, lovar jag att inte missbruka denna funktion.</string>
   <string name="customize_toolbar_title">Anpassa verktygsfält</string>
-  <string name="customize_toolbar_description">Anpassa det nedre navigeringsfältet med åtgärder och destination du finner mest hjälpsamma.</string>
+  <string name="customize_toolbar_description_text">Anpassa verktygsfältet längst ned med 5 länkar du finner användbara.</string>
   <string name="customize_toolbar_category_toolbar">Verktygsfält</string>
   <string name="customize_toolbar_category_menu">Meny</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Dra och släpp dina favoritobjekt här 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Återställ till standardvärden</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Håll ned draikonen för att flytta objektet</string>
+  <string name="customize_toolbar_item_default_tooltip">Tryck och dra objekt för att flytta på det</string>
   <string name="suggested_edits_describe_articles">Beskriv artiklar</string>
   <string name="suggested_edits_caption_images">Skriv bildtexter</string>
   <string name="suggested_edits_tag_images">Tagga bilder</string>
@@ -1101,6 +1103,8 @@
   <string name="thank_success_message">Ditt tack skickades till %s 👍</string>
   <string name="menu_option_view_user_profile">Visa användarens profilsida</string>
   <string name="menu_option_view_user_talk">Visa diskussionssida</string>
+  <string name="revision_compare_button">Jämför</string>
+  <string name="revision_compare_two_only">Endast två versioner kan markeras.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s och dess diskussionssida har lagts till i din bevakningslista %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändra</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>

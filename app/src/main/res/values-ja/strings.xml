@@ -90,13 +90,13 @@
   <string name="share_via">共有する</string>
   <string name="image_share_via">共有する</string>
   <string name="search_redirect_from">%s からリダイレクト</string>
-  <string name="page_edit_history_activity_label">変更履歴</string>
   <string name="page_edit_history_comment_placeholder">編集の要約を空にする</string>
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
   <string name="menu_page_add_to_watchlist">ウォッチリストに追加</string>
   <string name="menu_page_watch">ウォッチ</string>
+  <string name="menu_page_unwatch">ウォッチ解除</string>
   <string name="menu_page_view_talk">ノートを表示</string>
   <string name="menu_page_talk_page">トークページ</string>
   <string name="menu_page_view_edit_history">編集履歴を表示</string>
@@ -244,7 +244,6 @@
   <string name="page_protected_can_not_edit_title">このページは保護されています</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ウォッチリストに追加</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">興味のある記事について何が起こったか追跡します。右上のメニューをタップして、&lt;b&gt;ウォッチリストに追加&lt;/b&gt;を選び、記事の変更を追ってみましょう。</string>
-  <string name="page_notification_tooltip">通知はここにあります。</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
   <string name="about_description">ウィキペディアアプリについて</string>
@@ -1052,6 +1051,15 @@
   <string name="thank_success_message">あなたの感謝は %s に送られました 👍</string>
   <string name="menu_option_view_user_profile">利用者プロフィールページを見る</string>
   <string name="menu_option_view_user_talk">トークページを見る</string>
+  <string name="menu_option_view_user_contributions">利用者の投稿記録を閲覧する</string>
+  <string name="revision_diff_compare">版を比較</string>
+  <string name="revision_diff_from">差出人:</string>
+  <string name="revision_diff_to">宛先:</string>
+  <string name="revision_undo_title">編集を取り消す</string>
+  <string name="revision_undo_reason">操作を続ける場合、編集を取り消す理由を記入してください。</string>
+  <string name="revision_undo_success">この版は取り消されました。</string>
+  <string name="revision_compare_button">比較</string>
+  <string name="revision_compare_two_only">2つの版しか選べません</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
   <string name="watchlist_page_removed_from_watchlist_snackbar">%s とそのトークぺーj比は正常にウォッチリストから削除されました。</string>
   <string name="watchlist_expiry_dialog_one_week">1週間</string>
@@ -1065,4 +1073,10 @@
   <string name="watchlist_page_moved">移動</string>
   <string name="watchlist_page_protected">保護</string>
   <string name="watchlist_page_deleted">削除</string>
+  <string name="action_item_categories">カテゴリ</string>
+  <string name="page_no_categories">このページはどのカテゴリにも属していません。</string>
+  <string name="category_tab_articles">記事</string>
+  <string name="category_tab_subcategories">下位カテゴリ</string>
+  <string name="category_empty">このカテゴリには記事がありませんでした</string>
+  <string name="subcategory_empty">このカテゴリに下位カテゴリはありませんでした。</string>
 </resources>

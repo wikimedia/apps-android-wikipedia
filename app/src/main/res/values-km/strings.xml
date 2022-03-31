@@ -33,6 +33,7 @@
   <string name="menu_page_show_tabs">បង្ហាញថេប</string>
   <string name="menu_page_other_languages">ប្ដូរភាសា</string>
   <string name="menu_page_find_in_page" fuzzy="true">ស្វែងរកក្នុងទំព័រ</string>
+  <string name="menu_page_unwatch">ឈប់​តាមដាន</string>
   <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>
   <string name="menu_page_add_to_list">បន្ថែមទៅក្នុងបញ្ជីអំណាន</string>
   <string name="menu_page_share">ចែក​ចាយតំណភ្ជាប់</string>
@@ -374,4 +375,12 @@
   <string name="edit_type_all">វិភាគទានទាំងអស់</string>
   <string name="main_drawer_help">ជំនួយ</string>
   <string name="main_drawer_login">កត់ឈ្មោះចូល / ចូលរួមជាមួយវិគីភីឌា</string>
+  <string name="revision_diff_from">ពី៖</string>
+  <string name="revision_diff_to">ទៅជា៖</string>
+  <string name="revision_diff_line_num">បន្ទាត់ទី %d</string>
+  <string name="revision_diff_line_nums">បន្ទាត់ទី %d–%d</string>
+  <string name="revision_diff_line_added">បន្ទាត់​ដែល​បាន​បន្ថែម</string>
+  <string name="revision_diff_line_removed">បន្ទាត់​ដែល​បានលុប</string>
+  <string name="revision_diff_paragraph_added">កថាខណ្ឌ​ដែល​បាន​បន្ថែម</string>
+  <string name="revision_diff_paragraph_removed">កថាខណ្ឌ​ដែល​បានលុប</string>
 </resources>

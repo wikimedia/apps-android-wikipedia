@@ -10,9 +10,11 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -43,7 +45,6 @@ import java.util.*
 class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
-    private val disposables = CompositeDisposable()
     private var app = WikipediaApp.getInstance()
     private var tempLangCodeHolder: String? = null
     private var langBtnClicked = false
@@ -183,7 +184,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     override fun onDestroyView() {
-        disposables.clear()
         binding.searchCabView.setOnCloseListener(null)
         binding.searchCabView.setOnQueryTextListener(null)
         _binding = null
@@ -277,7 +277,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.isIconified = false
         // if we already have a previous search query, then put it into the SearchView, and it will
         // automatically trigger the showing of the corresponding search results.
-        if (isValidQuery(query)) {
+        if (!query.isNullOrBlank()) {
             binding.searchCabView.setQuery(query, false)
             binding.searchCabView.selectAllQueryTexts()
         }
@@ -330,18 +330,14 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         FeedbackUtil.setButtonLongPressToast(binding.searchLangButtonContainer)
     }
 
-    private fun isValidQuery(queryText: String?): Boolean {
-        return queryText != null && queryText.trim().isNotEmpty()
-    }
-
     private fun addRecentSearch(title: String?) {
-        if (isValidQuery(title)) {
-            disposables.add(AppDatabase.getAppDatabase().recentSearchDao().insertRecentSearch(RecentSearch(text = title!!))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    recentSearchesFragment.updateList()
-                }) { obj: Throwable -> obj.printStackTrace() })
+        if (!title.isNullOrBlank()) {
+            lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> throwable.printStackTrace() }) {
+                withContext(Dispatchers.IO) {
+                    AppDatabase.instance.recentSearchDao().insertRecentSearch(RecentSearch(text = title))
+                }
+                recentSearchesFragment.updateList()
+            }
         }
     }
 

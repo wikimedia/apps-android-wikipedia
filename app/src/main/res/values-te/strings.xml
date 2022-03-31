@@ -52,14 +52,19 @@
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
   <string name="image_share_via">దీని ద్వారా పంచుకోండి</string>
   <string name="search_redirect_from">%s నుండి మళ్ళించబడింది</string>
-  <string name="page_edit_history_activity_label">కూర్పుల చరిత్ర</string>
+  <string name="page_edit_history_activity_title">కూర్పుల చరిత్ర: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;చి&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">దిద్దుబాటు సారాంశం ఖాళీగా ఉంది</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%2$s నుండి %1$d దిద్దుబాటు</item>
+    <item quantity="other">%2$s నుండి %1$d దిద్దుబాట్లు</item>
+  </plurals>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను మార్చు</string>
   <string name="menu_page_find_in_page">వ్యాసంలో వెతకండి</string>
   <string name="menu_page_add_to_watchlist">వీక్షణ జాబితాలో చేర్చు</string>
   <string name="menu_page_watch">వీక్షించు</string>
+  <string name="menu_page_unwatch">వీక్షించవద్దు</string>
   <string name="menu_page_view_talk">చర్చ పేజీ చూడండి</string>
   <string name="menu_page_talk_page">చర్చ పేజీ</string>
   <string name="menu_page_view_edit_history">మార్పుల చరిత్ర చూడండి</string>
@@ -207,7 +212,6 @@
   <string name="page_protected_can_not_edit_title">ఈ పేజీ సంరక్షించబడింది</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">వీక్షణ జాబితాలో చేర్చు</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">మీకు ఆసక్తి ఉన్న వ్యాసాల్లో ఏమేం జరుగుతున్నాయో గమనిస్తూ ఉండండి. వ్యాసంలో జరిగే మార్పులను చూసేందుకు, ఓవర్‌ఫ్లో మెనూను తట్టి, &lt;b&gt;వీక్షణ జాబితాలో చేర్చు&lt;/b&gt; ను ఎంచుకోండి.</string>
-  <string name="page_notification_tooltip">ఇప్పుడు మీ గమనింపులు ఇక్కడ ఉంటాయి.</string>
   <string name="settings_item_preferences">అమరికలు</string>
   <string name="settings_activity_title">అమరికలు</string>
   <string name="about_description">వికీపీడియా అనువర్తనం గురించి</string>
@@ -672,6 +676,7 @@
   <string name="notifications_offline_disable_message">ఈ ఫంక్షను ఆప్‌లైనులో అందుబాటులో లేదు.</string>
   <string name="view_because_you_read_card_title">మీరివి చదివారు కాబట్టి</string>
   <string name="view_random_article_card_action">మరిన్ని యాదృచ్ఛిక వ్యాసాలు</string>
+  <string name="view_top_read_card_title">ఎక్కువగా చదివినవి</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_main_page_card_title">వికీపీడియాలో నేడు</string>
@@ -708,12 +713,14 @@
   <string name="feed_item_type_featured_article">వికీపీడియాలో రోజూ వచ్చే విశేష వ్యాసం</string>
   <string name="feed_item_type_trending">రోజువారీ అత్యధికంగా చూసిన వ్యాసాలు</string>
   <string name="feed_item_type_featured_image">వికీమీడియా కామన్సు నుండి రోజువారీ విశేష చిత్రం</string>
+  <string name="feed_configure_onboarding_action">కస్టమైజు చెయ్యండి</string>
   <string name="customize_lang_selection_dialog_ok_button_text">సరే</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">రద్దుచేయి</string>
   <string name="feed_lang_selection_dialog_ok_button_text">సరే</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">రద్దుచేయి</string>
   <string name="feed_accessibility_card_text">ఫీడు చివరికి చేరుకున్నారు.</string>
   <string name="feed_accessibility_card_load_more_button">మరిన్ని లోడు చెయ్యి</string>
+  <string name="top_read_activity_title">%s న అత్యధికంగా చదివినవి</string>
   <string name="tabs_activity_title">ట్యాబులు</string>
   <string name="description_edit_text_hint">వ్యాస వివరణ</string>
   <string name="description_edit_article_description_label">వ్యాసం</string>
@@ -734,22 +741,33 @@
   <string name="description_edit_cancel_hint">రద్దుచేయి</string>
   <string name="description_edit_help_title">సమాచారం: వ్యాసాల వివరాలు</string>
   <string name="description_edit_help_about_wikidata">వికీడేటా గురించి</string>
+  <string name="description_edit_help_wikidata_guide">వివరణలు రాసేందుకు వికీడేటా మార్గదర్శిని</string>
+  <string name="description_edit_license_notice">వివరణ మార్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వినియోగ నియమాలకూ&lt;/a&gt;, నా రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; లైసెన్సు కింద వెనక్కి తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నాను.</string>
+  <string name="description_edit_helper_text_lowercase_warning">ఇంగ్లీషులోనైతే మామూలుగా చిన్నబడి అక్షరంతొనే మొదలౌతుంది</string>
   <string name="description_too_short">పాఠ్యం మరీ కొద్దిగా ఉంది.</string>
   <string name="description_ends_with_punctuation">పాఠ్యం చివర వ్యాకరణ చిహ్నాలు ఉండకూడదు.</string>
+  <string name="description_starts_with_uppercase">ఇంగ్లీషులోనైతే సంజ్ఞా నామవాచకమైతే తప్ప చిన్నబడి అక్షరంతొనే మొదలు పెట్టాలి.</string>
+  <string name="description_is_in_different_language">ఈ పాఠ్యం అనుకోని భాషలో ఉంది. భాష %s అయి తీరాలి.</string>
+  <string name="description_verification_notice">మీ వివరణ %1$s లో ఉందని నిర్థారించుకోండి. మీర్రాసిన వివరణ %2$s లో ఉంటే ఈ గమనింపును సంకోచించకుండా తీసెయ్యండి..</string>
   <string name="description_edit_success_saved">వ్యాస వివరణ ప్రచురితమయ్యింది!</string>
   <string name="description_edit_success_saved_snackbar">వ్యాస వివరణను ప్రచురించాం!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">వ్యాస వివరణను ప్రచురించాం! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">బొమ్మ వ్యాఖ్యను ప్రచురించాం!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">బొమ్మ వ్యాఖ్యను ప్రచురించాం! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">బొమ్మ ట్యాగు(ల)ను ప్రచురించాం!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">నచ్చిందా? మరిన్ని చేర్చేందుకు తోడ్పడండి.</string>
   <string name="description_edit_success_encouragement">ఇప్పుడే మీరు వికీపీడియాను మెరుగుపరచారు</string>
   <string name="description_edit_success_done">పూర్తయ్యింది</string>
   <string name="description_edit_success_did_you_know">మీకు తెలుసా?</string>
+  <string name="description_edit_success_article_edit_hint">ఈ యాప్‌లో మీరు వ్యాసాలను సవరించవచ్చు కూడా. ఈసారి, ^1 బొమ్మను నొక్కి చిన్నచిన్న భాషా దోషాలను, చిన్న వాక్యాలనూ సరిదిద్దండి.</string>
   <string name="description_edit_tutorial_title_descriptions">వ్యాస వివరణలు</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">వ్యాస విషయం పాఠకులకు ఠక్కున అర్థమయ్యేలా వ్యాస సారాంశాన్ని ఇస్తుంది.</string>
   <string name="description_edit_tutorial_keep_it_short">చిన్నదిగా రాయండి</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">ఒకే వరుసైతే బాగుంటుంది, పదీ పన్నెండు పదాలతో</string>
   <string name="description_edit_tutorial_button_label_start_editing">దిద్దుబాటు మొదలు పెట్టండి</string>
   <string name="description_edit_tutorial_promise">ఈ అంశాన్ని దురుపయోగం చెయ్యనని మాటిస్తూ మొదలెడుతున్నాను.</string>
+  <string name="customize_toolbar_title">పరికరాల పట్టీని కస్టమైజు చెయ్యి</string>
+  <string name="customize_toolbar_description_text">మీకు బాగా ఉపయోగం అనిపించే 5 లింకులను అడుగున ఉండే పరికరాల పట్టీలో చేర్చి కస్టమైజు చేసుకోండి.</string>
   <string name="customize_toolbar_category_toolbar">పరికరాల పట్టీ</string>
   <string name="customize_toolbar_category_menu">మెనూ</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">మీకిష్టమైన వాటిని లాక్కొచ్చి ఇక్కడ పడెయ్యండి 👋</string>
@@ -777,6 +795,7 @@
   <string name="suggested_edits_task_translate_caption_title">బొమ్మ వ్యాఖ్యను అనువదించండి</string>
   <string name="suggested_edits_task_translate_caption_description">వ్యాఖ్యలను ఇతర భాషల్లోకి అనువదించండి</string>
   <string name="suggested_edits_task_multilingual_title">బహుభాషా వాడుకరులకు మరిన్ని పనులు</string>
+  <string name="suggested_edits_task_multilingual_description">మీరు ఒకటి కంటే ఎక్కువ వికీపీడియా భాషల్లో చదవడం రాయడం చెయ్యగలిగితే, అనువాద పనులు చెయ్యవచ్చు.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">%d బొమ్మ వ్యాఖ్యలను సవరించేంత వరకూ ఇది లాకై ఉంటుంది</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d వ్యాస వివరణలను సవరించేంత వరకూ ఇది లాకై ఉంటుంది (ధ్రువీకరించబడిన)</string>
   <string name="suggested_edits_task_multilingual_negative">నాకొద్దు</string>
@@ -870,6 +889,7 @@
   <string name="suggested_edits_disabled_title">అచేతనం చేసాం</string>
   <string name="suggested_edits_ip_blocked_title">ఐపీని నిరోధించారు</string>
   <string name="suggested_edits_last_edited">చివరిగా దిద్దుబాటు చేసినది</string>
+  <string name="suggested_edits_last_edited_never">ఎప్పటికీ వద్దు</string>
   <string name="suggested_edits_task_new">కొత్త</string>
   <string name="suggested_edits_cc0_notice">ప్రచురించడంతో మీరు &lt;a href=\"%1$s\"&gt;వినియోగ నియమాలనూ&lt;/a&gt;, ఈ దిద్దుబాటును &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt; కింద వెనక్కు తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నారు.</string>
   <string name="suggested_edits_reactivation_notification_title">సూచించిన దిద్దుబాట్లు</string>
@@ -1050,6 +1070,20 @@
   <string name="thank_success_message">మీ \'ధన్యవాదాలను\' %s కు పంపించాం 👍</string>
   <string name="menu_option_view_user_profile">వాడుకరి ప్రొఫైలు పేజీ చూడండి</string>
   <string name="menu_option_view_user_talk">చర్చ పేజీ చూడండి</string>
+  <string name="menu_option_view_user_contributions">వాడుకరి రచనలను చూపించు</string>
+  <string name="revision_diff_compare">కూర్పులను పోల్చు</string>
+  <string name="revision_diff_compare_title">కూర్పులను పోల్చు: %s</string>
+  <string name="revision_diff_from">నుండి:</string>
+  <string name="revision_diff_to">వరకు:</string>
+  <string name="revision_diff_line_num">పంక్తి %d</string>
+  <string name="revision_diff_line_nums">పంక్తులు %d–%d</string>
+  <string name="revision_diff_line_added">పంక్తిని చేర్చారు</string>
+  <string name="revision_diff_line_removed">పంక్తిని తీసేసారు</string>
+  <string name="revision_diff_paragraph_added">పేరాగ్రాఫును చేర్చారు</string>
+  <string name="revision_diff_paragraph_removed">పేరాగ్రాఫును తీసేసారు</string>
+  <string name="revision_undo_success">ఈ కూర్పును వెనక్కి తిప్పాం.</string>
+  <string name="revision_compare_button">పోల్చిచూడు</string>
+  <string name="revision_compare_two_only">రెండే కూర్పులను ఎంచుకోవచ్చు.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s నీ, దాని చర్చ పేజీనీ మీ వీక్షణ జాబితా %2$s లో చేర్చాం.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">మార్చు</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">శాశ్వతంగా</string>
@@ -1072,4 +1106,10 @@
   <string name="watchlist_page_moved">తరలించారు</string>
   <string name="watchlist_page_protected">సంరక్షించారు</string>
   <string name="watchlist_page_deleted">తొలగించారు</string>
+  <string name="action_item_categories">వర్గాలు</string>
+  <string name="page_no_categories">ఈ పేజీ వార్గాలకు చెందినది కాదు.</string>
+  <string name="category_tab_articles">వ్యాసాలు</string>
+  <string name="category_tab_subcategories">ఉపవర్గాలు</string>
+  <string name="category_empty">ఈ వర్గంలో వ్యాసాలేమీ కనబడలేదు.</string>
+  <string name="subcategory_empty">ఈ వర్గంలో ఉపవర్గాలేమీ కనబడలేదు.</string>
 </resources>

@@ -53,6 +53,10 @@
   <string name="share_via">Quyidagida ulashmoq</string>
   <string name="image_share_via">Quyidagida ulashmoq</string>
   <string name="search_redirect_from">%s dan yo‘naltirildi</string>
+  <string name="page_edit_history_activity_title">Oʻzgarishlar tarixi: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Jami tahrir boʻsh</string>
+  <string name="page_edit_history_metrics_content_description">%1$s dan %2$s gacha metrikada</string>
   <string name="menu_page_show_tabs">Tablarni ko‘rsatish</string>
   <string name="menu_page_other_languages">Boshqa tillarda o‘qish</string>
   <string name="menu_page_find_in_page">Maqoladan izlash</string>
@@ -63,6 +67,7 @@
   <string name="menu_page_view_edit_history">Tahrirlash tarixini koʻrish</string>
   <string name="menu_page_edit_history">Oʻzgarishlar tarixi</string>
   <string name="menu_page_remove_from_watchlist">Kuzatuv roʻyxatidan oʻchirmoq</string>
+  <string name="menu_page_watched">Kuzatilgan</string>
   <string name="edit_section_find_in_page">Sahifadan izlash</string>
   <string name="menu_page_font_and_theme">Shrift va tema</string>
   <string name="menu_page_add_to_list">Ro‘yxatga qo‘shmoq</string>
@@ -158,6 +163,7 @@
   <string name="dialog_create_account_checking_progress">Tekshirilmoqda...</string>
   <string name="create_account_email_hint">Elektron pochta (ixtiyoriy)</string>
   <string name="create_account_password_repeat_hint">Maxfiy so‘zni takrorlang</string>
+  <string name="create_account_password_is_username">Parol foydalanuvchi nomi bilan bir xil boʻlmasin</string>
   <string name="create_account_passwords_mismatch_error">Maxfiy so‘zlar mos kelmadi</string>
   <string name="create_account_email_error">Noto‘g‘ri elektron pochta manzili</string>
   <string name="create_account_username_error">Foydalanuvchi nomidagi belgilar noto‘g‘ri</string>
@@ -204,7 +210,6 @@
   <string name="page_protected_can_not_edit_title">Bu sahifa himoyalangan</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Kuzatuv roʻyxatiga qoʻshmoq</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Siz qiziqish bildirgan maqolalarda qanday oʻzgarishlar boʻlayotganligini kuzatib turing. Maqoladagi oʻzgarishlardan boxabar boʻlib borish uchun qoʻshimcha menyudagi &lt;b&gt;Kuzatuv roʻyxatiga qoʻshmoq&lt;/b&gt; tugmasini tanlang.</string>
-  <string name="page_notification_tooltip">Sizning bildirishnomalaringiz bu yerda boʻladi.</string>
   <string name="settings_item_preferences">Tanlovlar</string>
   <string name="settings_activity_title">Tanlovlar</string>
   <string name="about_description">«Vikipediya» ilovasi haqida</string>
@@ -384,6 +389,7 @@
   <string name="error_blocked_expiry">Bloklash muddati: %s</string>
   <string name="error_blocked_id">Bloklashning ID kodi: %s</string>
   <string name="error_blocked_footer">Siz &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bilan yoki &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash masalasida murojaat qilishingiz mumkin.</string>
+  <string name="theme_chooser_menu_item_tooltip">Jihozlar panelini moslang va oʻqish rejimini yoqing</string>
   <string name="error_blocked_footer_no_blocker">Siz &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; bilan bloklash boʻyicha bogʻlanishingiz mumkin.</string>
   <string name="crash_report_activity_title">Ilova xatoligi</string>
   <string name="crash_report_relaunch_or_quit">Kechirasiz, Vikipediya ilovasida xatolik yuz berdi va u bekor qilindi.\n\nBoshlashni xohlaysizmi yoki ishdan chiqishni xohlaysizmi?</string>
@@ -411,6 +417,10 @@
   <string name="text_size_percent_default">%s (standart)</string>
   <string name="text_style_title">Shrift</string>
   <string name="theme_category_reading">Oʻqish</string>
+  <string name="reading_focus_mode">Oʻqish rejimi</string>
+  <string name="reading_focus_mode_detail">Asosiy tahrirlarni va harakat vaqti quyi panelni berkitmoq</string>
+  <string name="theme_category_toolbar">Panel</string>
+  <string name="theme_customize_toolbar">Panelni moslash</string>
   <string name="nav_item_saved">Saqlamalar</string>
   <string name="reading_list_save_to">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="reading_list_move_to">Oʻqish roʻyxatiga oʻtmoq</string>
@@ -753,6 +763,7 @@
   <string name="description_starts_with_uppercase">Birinchi soʻz atoqli ot boʻlmasa, kichik harf bilan boshlang.</string>
   <string name="description_starts_with_lowercase">Kichik harflarda yozishni taqiqlash.</string>
   <string name="description_is_in_different_language">Matn kutilmagan tilda koʻrinadi. %s tilda boʻlishi kerak.</string>
+  <string name="description_verification_notice">Tavsifingiz %1$s ichida ekanligini tekshiring. Agar Siz yozgan tavsif %2$s tilida boʻlsa, bu bildirishnomani oʻchirib qoʻyishingiz mumkin.</string>
   <string name="description_edit_success_saved">Maqola tavsifi saqlandi!</string>
   <string name="description_edit_success_saved_snackbar">Maqola tavsifi saqlandi!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Maqola tavsifi saqlandi! (%s)</string>
@@ -770,7 +781,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Bir satrda, ikkidan oʻn ikkitagacha soʻz boʻlishi tavsiya etiladi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Tahrirlash</string>
   <string name="description_edit_tutorial_promise">Boshlash bilan men ushbu funktsiyani notoʻgʻri ishlatmaslikka harakat qilaman.</string>
+  <string name="customize_toolbar_title">Panelni moslash</string>
+  <string name="customize_toolbar_description_text">Quyi panelda Sizga kerakli boʻlgan 5 ta havolni joylang.</string>
+  <string name="customize_toolbar_category_toolbar">Panel</string>
   <string name="customize_toolbar_category_menu">Menyu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Kerakli elementlarni bu yerga surib olib keling 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Asliga qaytarmoq</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Elementni siljitish uchun tortish belgisini ushlab turing</string>
+  <string name="customize_toolbar_item_default_tooltip">Elementni joyini oʻzgartirish uchun bosing va sudrab torting</string>
   <string name="suggested_edits_describe_articles">Maqolani taʼriflang</string>
   <string name="suggested_edits_caption_images">Rasmlar sarlavhasi</string>
   <string name="suggested_edits_tag_images">Rasmlar tegi</string>
@@ -1051,6 +1069,9 @@
   <string name="talk_snackbar_survey_action_text">Boshladik</string>
   <string name="talk_share_discussion_subject">Vikipediya - munozara sahifasidagi \"%s\" mavzusidagi muhokama</string>
   <string name="talk_share_talk_page">Vikipediya - munozaralar sahifasi</string>
+  <string name="talk_edit_disclaimer">Bu munozara sahifasi. Iltimos, munozara sahifasi yoʻriqnomalarini hurmat qiling va toʻrtta tilda belgisini terish orqali postlaringizga imzo qoʻyishni unutmang: vikimatn yordamida joylashda ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia:Talk page guidelines&lt;/a&gt;</string>
+  <string name="talk_search_hint">Xabarni izlash</string>
+  <string name="talk_overflow_sort_by">Saralash turi</string>
   <string name="talk_overflow_sort_date_published">Sana chop etildi</string>
   <string name="talk_overflow_sort_topic_name">Mavzu nomi</string>
   <string name="menu_option_share_talk_discussion">Munozarani ulashmoq</string>
@@ -1072,6 +1093,8 @@
   <string name="thank_success_message">Sizning «Tashakkur»ingiz %sga bildirildi 👍</string>
   <string name="menu_option_view_user_profile">Foydalanuvchi profili sahifasini koʻrish</string>
   <string name="menu_option_view_user_talk">Munozara sahifasini koʻrish</string>
+  <string name="revision_compare_button">Solishtirish</string>
+  <string name="revision_compare_two_only">Faqat ikkita tahrirni tanlash mumkin.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s va uning munozara sahifasi sizning %2$s-kuzatuvlar roʻyxatigizga qoʻshildi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Oʻzgaritirmoq</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vaqtinchalik</string>

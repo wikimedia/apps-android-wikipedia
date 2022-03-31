@@ -266,7 +266,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
                     val talkTopic = response.topics?.find { t -> if (topicId == -1) t.getIndicatorSha() == topicIndicatorSha else t.id == topicId }!!
-                    AppDatabase.getAppDatabase().talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
+                    AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
                     currentRevision = response.revision
                     talkTopic
                 }
@@ -372,7 +372,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter, title, lastX, lastY)
+            UserTalkPopupHelper.show(this@TalkTopicActivity, bottomSheetPresenter, title, false, lastX, lastY,
+                    Constants.InvokeSource.TALK_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
 

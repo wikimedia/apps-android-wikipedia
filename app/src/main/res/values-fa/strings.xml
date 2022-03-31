@@ -10,6 +10,7 @@
 * Amirsara
 * Arash.pt
 * AzorAhai
+* Beginneruser
 * Dalba
 * Darafsh
 * Dbrant
@@ -90,13 +91,13 @@
   <string name="menu_page_show_tabs">نمایش برگه‌ها</string>
   <string name="menu_page_other_languages">تغییر زبان</string>
   <string name="menu_page_find_in_page">جستجو در مقاله</string>
-  <string name="menu_page_add_to_watchlist">افزودن به فهرست پی‌گیری</string>
+  <string name="menu_page_add_to_watchlist">افزودن به فهرست پیگیری</string>
   <string name="menu_page_watch">پی‌گیری</string>
   <string name="menu_page_view_talk">مشاهدهٔ صفحهٔ بحث</string>
   <string name="menu_page_talk_page">صفحهٔ بحث</string>
-  <string name="menu_page_view_edit_history">مشاهده تاریخچه ویرایش</string>
+  <string name="menu_page_view_edit_history">مشاهده تاریخچۀ ویرایش</string>
   <string name="menu_page_edit_history">ویرایش تاریخچه</string>
-  <string name="menu_page_remove_from_watchlist">حذف از فهرست پی‌گیری</string>
+  <string name="menu_page_remove_from_watchlist">حذف از فهرست پیگیری</string>
   <string name="menu_page_watched">پی‌گیری شده</string>
   <string name="edit_section_find_in_page">جستجو در صفحه</string>
   <string name="menu_page_font_and_theme">قلم و پوسته</string>
@@ -120,7 +121,7 @@
   <string name="menu_text_select_edit_here">ویرایش اینجا</string>
   <string name="last_updated_text">آخرین بروزرسانی %s</string>
   <string name="talk_page_link_text">مشاهدهٔ صفحهٔ بحث</string>
-  <string name="edit_history_link_text">مشاهده تاریخچه ویرایش</string>
+  <string name="edit_history_link_text">مشاهده تاریخچۀ ویرایش</string>
   <string name="map_view_link_text">دیدن در نقشه</string>
   <string name="other_languages_indication_text">به زبان‌های دیگر مطالعه کنید</string>
   <string name="language_count_link_text">به %d زبان دیگر در دسترس است</string>
@@ -185,11 +186,11 @@
   <string name="delete_selected_items">حذف موارد انتخاب‌شده</string>
   <string name="wp_stylized">&lt;big&gt;ویکی‌پدیا&lt;/big&gt;</string>
   <string name="create_account_username_hint">نام کاربری</string>
-  <string name="login_dont_have_account">حساب کاربری ندارید؟</string>
+  <string name="login_dont_have_account">یک حساب ندارید؟</string>
   <string name="login_join_wikipedia">به ویکی‌پدیا بپیوندید</string>
   <string name="login_forgot_password">گذرواژه‌تان را فراموش کرده‌اید؟</string>
-  <string name="create_account_already_have">از قبل حساب کاربری دارید؟</string>
-  <string name="create_account_activity_title">ایجاد حساب کاربری</string>
+  <string name="create_account_already_have">از قبل حسابی دارید؟</string>
+  <string name="create_account_activity_title">ایجاد حساب</string>
   <string name="dialog_create_account_checking_progress">تأیید</string>
   <string name="create_account_email_hint">ایمیل (اختیاری)</string>
   <string name="create_account_password_repeat_hint">تکرار گذرواژه</string>
@@ -197,30 +198,30 @@
   <string name="create_account_email_error">آدرس ایمیل نامعتبر است</string>
   <string name="create_account_username_error">نویسهٔ نامعتبر در نام کاربری شما</string>
   <string name="create_account_password_error">گذرواژه باید دست کم دارای ۸ نویسه باشد</string>
-  <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
+  <string name="create_account_generic_error">امکان ایجاد حساب وجود ندارد</string>
   <string name="create_account_next">بعدی</string>
   <string name="email_recommendation_dialog_title">حساب بدون ایمیل ساخته شود؟</string>
   <string name="email_recommendation_dialog_message">هرچند که آدرس ایمیل اختیاری است، &lt;b&gt;به شدت توصیه&lt;/b&gt; می‌شود که آدرس ایمیل را وارد کنید. این آدرس برای بازیابی حساب کاربری در هنگام فراموشی رمز عبور لازم خواهد بود.</string>
-  <string name="email_recommendation_message">توصیه می شود؛ چراکه برای بازیابی حساب کاربری ضروری است.</string>
+  <string name="email_recommendation_message">نظر به اینکه برای بازیابی حساب کاربری لازم است توصیه می شود.</string>
   <string name="email_recommendation_dialog_create_without_email_action">بدون ایمیل ادامه دهید</string>
   <string name="email_recommendation_dialog_create_with_email_action">افزودن یک آدرس ایمیل</string>
-  <string name="create_account_button">ایجاد حساب کاربری</string>
+  <string name="create_account_button">ایجاد حساب</string>
   <string name="create_account_name_unavailable">نام کاربری «%s» در دسترس نیست. لطفا نام دیگری را انتخاب کنید.</string>
   <string name="create_account_ip_block_message">متاسفانه نشانی آی‌پی شما از ساخت حساب جدید محروم شده است.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">جزئیات</string>
   <string name="preferences_general_heading">عمومی</string>
-  <string name="preferences_account_heading">حساب کاربری</string>
+  <string name="preferences_account_heading">حساب</string>
   <string name="wikipedia_app_faq">پاسخ پرسش‌های رایج ویکی‌پدیا</string>
   <string name="send_feedback">ارسال بازخورد برنامه</string>
-  <string name="create_account_account_created_toast">حساب ساخته شد!</string>
+  <string name="create_account_account_created_toast">حساب ایجاد شد!</string>
   <string name="preferences_heading_syncing">همگام‌سازی</string>
   <string name="preferences_heading_data_usage">مصرف دیتا</string>
   <string name="preferences_heading_experimental">آزمایشی</string>
   <string name="preference_title_sync_reading_lists_from_account">همگام‌سازی فهرست مطالعه</string>
   <string name="preference_title_download_reading_list_articles">دانلود مقالات فهرست مطالعه</string>
-  <string name="preference_summary_sync_reading_lists">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب کاربری ویکی‌پدیا</string>
-  <string name="preference_summary_sync_reading_lists_from_account">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب کاربری «%s» در ویکی‌پدیا</string>
+  <string name="preference_summary_sync_reading_lists">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب ویکی‌پدیا</string>
+  <string name="preference_summary_sync_reading_lists_from_account">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب «%s» در ویکی‌پدیا</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های مطالعهٔ همگام‌سازی‌شده از «%s» حذف شوند؟</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">این کار همهٔ فهرست‌های مطالعه که پیشتر در حافظه همگام‌سازی شده را کاملاً حذف می‌کند. همهٔ فهرست‌های همگام‌سازی‌شده از حساب کاربری شما «%s» پاک شود؟</string>
   <string name="preferences_privacy_settings_heading">حریم خصوصی</string>
@@ -237,9 +238,8 @@
   <string name="page_protected_can_not_edit">متأسفیم، حساب شما در حال حاضر از امتیازات کافی برای ویرایش این صفحه برخوردار نیست.</string>
   <string name="page_protected_can_not_edit_anon">متأسفیم، در حال حاضر این صفحه به صورت ناشناس قابل ویرایش نیست.</string>
   <string name="page_protected_can_not_edit_title">این صفحه محافظت شده‌ است</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">افزودن به فهرست پی‌گیری</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">از آنچه بر مقاله‌های مورد علاقهٔ شما می‌گذرد باخبر بمانید. منوی پایین‌رونده را باز کنید و &lt;b&gt;افزودن به فهرست پی‌گیری‌ها&lt;/b&gt; را انتخاب کنید تا تغییرات در مقاله را ببینید.</string>
-  <string name="page_notification_tooltip">اکنون اعلان‌های شما در اینجا قرار دارند.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">افزودن به فهرست پیگیری</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">از آنچه بر مقاله‌های مورد علاقهٔ شما می‌گذرد باخبر بمانید. منوی پایین‌رونده را باز کنید و &lt;b&gt;افزودن به فهرست پیگیری&lt;/b&gt; را انتخاب کنید تا تغییرات در مقاله را ببینید.</string>
   <string name="settings_item_preferences">تنظیمات</string>
   <string name="settings_activity_title">تنظیمات</string>
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
@@ -268,7 +268,7 @@
   <string name="edit_abandon_confirm_yes">بله</string>
   <string name="edit_abandon_confirm_no">خیر</string>
   <string name="user_blocked_from_editing_title">بسته شده</string>
-  <string name="user_logged_in_blocked_from_editing">دسترسی ویرایشی حساب کاربری شما در این ویکی بسته شده‌است.</string>
+  <string name="user_logged_in_blocked_from_editing">حساب کاربری شما از ویرایش در این ویکی مسدود شده است.</string>
   <string name="user_anon_blocked_from_editing">نشانی آی‌پی شما در برابر ویرایش، مسدود شده‌است.</string>
   <string name="edit_how_page_improved">چگونه صفحه را بهبود دادید؟</string>
   <string name="edit_next">بعدی</string>
@@ -296,7 +296,7 @@
   <string name="article_opened_in_background_tab">مقاله در یک زبانهٔ پس‌زمینه گشوده شده‌است.</string>
   <string name="abusefilter_title_warn">این ویرایش ممکن است غیرسازنده باشد. آیا مطمئنید می‌خواهید منتشرش کنید؟</string>
   <string name="abusefilter_title_disallow">شما نمی‌توانید این ویرایش را منتشر کنید. لطفاً بازگردید و تغییرش دهید.</string>
-  <string name="abusefilter_text_warn">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده شناسایی کرده‌است. این ویرایش ممکن است شامل یک یا چند مورد از موارد زیر باشد:&lt;br /&gt;&lt;br /&gt;· همه را با حروف بزرگ نوشتن&lt;br /&gt;· خالی‌گذاشتن مقاله‌ها یا هرز نگاره&lt;br /&gt;· پیوندهای بیرونی یا تصاویر نامرتبط&lt;br /&gt;· تکرار نویسه‌ها</string>
+  <string name="abusefilter_text_warn">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده شناسایی کرده‌است. این ویرایش ممکن است شامل یک یا چند مورد از موارد زیر باشد:&lt;br /&gt;&lt;br /&gt;· همه را با حروف بزرگ نوشتن&lt;br /&gt;· خالی‌ کردن مقاله‌ها یا هرز نگاره&lt;br /&gt;· پیوندهای بیرونی یا تصاویر نامرتبط&lt;br /&gt;· تکرار نویسه‌ها</string>
   <string name="abusefilter_text_disallow">یک پالایهٔ خودکار این ویرایش را احتمالاً غیرسازنده یا خرابکاری محتمل شناسایی کرده‌است.&lt;br /&gt;&lt;br /&gt;ویکی‌پدیا یک دانشنامه است و فقط میزبان محتوای بی‌طرف و سرشناس است.</string>
   <string name="page_similar_titles">صفحات مشابه</string>
   <string name="search_did_you_mean">منظورتان «%s» بود؟</string>
@@ -388,7 +388,7 @@
   <string name="enable_location_service">فعال‌سازی</string>
   <string name="location_permissions_enable_prompt">فعال کردن اجازهٔ مشاهدهٔ موقعیت برای مشاهدهٔ مکان‌های اطرافتان.</string>
   <string name="location_permissions_enable_action">روشن کردن</string>
-  <string name="error_webview_updating">سامانه مشاهدهٔ وب اندروید در حال بروزرسانی‌ست. لطفاً چند لحظه دیگر از نو تلاش کنید.</string>
+  <string name="error_webview_updating">سامانۀ مشاهدهٔ وب اندروید در حال بروزرسانی‌ست. لطفاً چند لحظه دیگر از نو تلاش کنید.</string>
   <string name="multi_items_selected">%d مورد انتخاب شد</string>
   <string name="multi_select_items_selected">%d مورد انتخاب شد</string>
   <string name="error_message_generic">خطایی رخ داد</string>
@@ -402,7 +402,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">کم‌نور کردن تصویر (در حالت تیره)</string>
   <string name="preference_title_prefer_offline_content">محتوای آفلاین را ترجیح بده</string>
   <string name="preference_summary_prefer_offline_content">به‌جای دریافت آخرین نسخهٔ مقاله، با بارگیری محتوایی که در حالت آفلاین در دسترس است، می‌توانید در مصرف داده صرفه‌جویی کنید</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">تطبیق با زمینه سیستم</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">تطبیق با زمینه سامانه</string>
   <string name="page_footer_license_text">محتوا تحت $1 در دسترس است، مگر اینکه خلافش ذکر شده‌باشد.</string>
   <string name="empty_tab_title">برگهٔ جدید</string>
   <string name="menu_save_all_tabs">ذخیرهٔ همهٔ برگه‌ها</string>
@@ -526,7 +526,7 @@
   <string name="reading_list_articles_moved_to_named">%1$d مقاله به %2$s منتقل شد</string>
   <string name="reading_list_delete_confirm">آیا مطمئن هستید که می‌خواهید %s را حذف کنید؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">برای فعال‌کردن همگام‌سازی وارد شوید</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">برای ممکن ساختن ذخیرهٔ فهرست‌های مطالعهٔ خود، به حساب کاربری خود وارد شوید.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">برای ممکن ساختن ذخیرهٔ فهرست‌های مطالعهٔ خود، به حساب خود وارد شوید.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">لغو</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ورود</string>
   <string name="reading_list_turned_sync_off_dialog_title">همگام‌‌سازی فهرست مطالعه غیرفعال شد</string>
@@ -629,7 +629,7 @@
   <string name="notifications_direct_reply_error">پاسخ به‌طور خودکار ارسال نشد.</string>
   <string name="notifications_mark_all_as_read_message">%d به عنوان خوانده شده علامت‌گذاری شد</string>
   <string name="notifications_mark_all_as_unread_message">%d به عنوان خوانده نشده علامت‌گذاری شد</string>
-  <string name="watchlist_title">فهرست پی‌گیری</string>
+  <string name="watchlist_title">فهرست پیگیری</string>
   <string name="preference_title_notification_poll">سرشماری اعلان‌ها</string>
   <string name="preference_summary_notification_poll">به نرم‌افزار اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی اعلان‌های جدید استفاده کند.</string>
   <string name="preference_category_notification_types">انواع اعلانات درون‌برنامه‌ای</string>
@@ -1026,8 +1026,8 @@
   <string name="main_tooltip_text">سلام %s، آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
   <string name="main_tooltip_text_v2">آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
   <string name="main_tooltip_action_button">شروع کن</string>
-  <string name="main_tooltip_watchlist_title">فهرست پی‌گیری</string>
-  <string name="main_tooltip_watchlist_text">با استفاده از منوی «بیشتر» در &lt;b&gt;فهرست پی‌گیری‌ها&lt;/b&gt;، مقاله‌ها و صفحه‌هایی که پیشتر به فهرست پی‌گیری‌های خود افزودید را بیابید.</string>
+  <string name="main_tooltip_watchlist_title">فهرست پیگیری</string>
+  <string name="main_tooltip_watchlist_text">با استفاده از منوی «بیشتر» در &lt;b&gt;فهرست پی‌گیری&lt;/b&gt;، مقاله‌ها و صفحه‌هایی که پیشتر به فهرست پیگیری‌‌تان افزودید را بیابید.</string>
   <string name="custom_date_picker_dialog_ok_button_text">تأیید</string>
   <string name="text_input_dialog_ok_button_text">تأیید</string>
   <string name="text_input_dialog_cancel_button_text">لغو</string>
@@ -1068,21 +1068,23 @@
   <string name="thank_dialog_positive_button_text">ارسال تشکر</string>
   <string name="thank_dialog_negative_button_text">لغو</string>
   <string name="thank_success_message">«تشکر» شما به %s فرستاده شد 👍</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s و صفحهٔ بحث آن %2$s به فهرست پی‌گیری‌های شما افزوده‌شد.</string>
+  <string name="revision_diff_from">از:</string>
+  <string name="revision_diff_to">به:</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s و صفحهٔ بحث آن %2$s به فهرست پیگیری‌‌تان افزوده‌شد.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">تغییر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">به صورت دائمی</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">برای ۱ هفته</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">برای ۱ ماه</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">برای ۳ ماه</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">برای ۶ ماه</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s و صفحهٔ بحث آن از فهرست پی‌گیری‌های شما حذف شد.</string>
-  <string name="watchlist_expiry_dialog_title">انتخاب دوره زمانی فهرست پی‌گیری</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s و صفحهٔ بحث آن از فهرست پیگیری‌‌تان حذف شد.</string>
+  <string name="watchlist_expiry_dialog_title">انتخاب دوره زمانی فهرست پیگیری</string>
   <string name="watchlist_expiry_dialog_permanent">دائمی</string>
   <string name="watchlist_expiry_dialog_one_week">۱ هفته</string>
   <string name="watchlist_expiry_dialog_one_month">۱ ماه</string>
   <string name="watchlist_expiry_dialog_three_months">۳ ماه</string>
   <string name="watchlist_expiry_dialog_six_months">۶ ماه</string>
-  <string name="watchlist_empty">در فهرست پی‌گیری‌تان مقاله‌ای ندارید.</string>
+  <string name="watchlist_empty">در فهرست پیگیری‌تان مقاله‌ای ندارید.</string>
   <string name="watchlist_filter_all">همه</string>
   <string name="watchlist_filter_talk">بحث</string>
   <string name="watchlist_filter_pages">صفحات</string>
@@ -1090,4 +1092,6 @@
   <string name="watchlist_page_moved">منتقل شده</string>
   <string name="watchlist_page_protected">محافظت‌شده</string>
   <string name="watchlist_page_deleted">حذف شده</string>
+  <string name="action_item_categories">رده‌ها</string>
+  <string name="category_tab_articles">مقاله‌ها</string>
 </resources>
