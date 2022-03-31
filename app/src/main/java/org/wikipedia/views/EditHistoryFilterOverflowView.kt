@@ -31,7 +31,7 @@ class EditHistoryFilterOverflowView(context: Context) : FrameLayout(context) {
         setButtonsListener()
     }
 
-    fun show(anchorView: View, editCounts: EditHistoryListViewModel.EditHistoryEditCounts, callback: Callback?) {
+    fun show(anchorView: View, editCounts: EditHistoryListViewModel.EditHistoryStats, callback: Callback?) {
         this.callback = callback
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)

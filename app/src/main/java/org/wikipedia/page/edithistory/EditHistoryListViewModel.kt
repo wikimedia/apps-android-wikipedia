@@ -24,7 +24,6 @@ import java.util.*
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
     val editHistoryStatsFlow = MutableStateFlow(EditHistoryItemModel())
-    val editHistoryEditCountsFlow = MutableStateFlow(EditHistoryItemModel())
 
     var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
     var comparing = false
@@ -98,11 +97,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
                 editHistoryStatsFlow.value = EditHistoryStats(
                     mwResponse.await().query?.pages?.first()?.revisions?.first()!!,
-                    editCountsResponse.await(),
-                    articleMetricsResponse.await().firstItem.results
-                )
-
-                editHistoryEditCountsFlow.value = EditHistoryEditCounts(
+                    articleMetricsResponse.await().firstItem.results,
                     editCountsResponse.await(),
                     editCountsUserResponse.await(),
                     editCountsAnonResponse.await(),
@@ -189,8 +184,8 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     open class EditHistoryItemModel
     class EditHistoryItem(val item: MwQueryPage.Revision) : EditHistoryItemModel()
     class EditHistorySeparator(val date: String) : EditHistoryItemModel()
-    class EditHistoryStats(val revision: MwQueryPage.Revision, val editCount: EditCount, val metrics: List<Metrics.Results>) : EditHistoryItemModel()
-    class EditHistoryEditCounts(val allEdits: EditCount, val userEdits: EditCount, val anonEdits: EditCount, val botEdits: EditCount) : EditHistoryItemModel()
+    class EditHistoryStats(val revision: MwQueryPage.Revision, val metrics: List<Metrics.Results>,
+                           val allEdits: EditCount, val userEdits: EditCount, val anonEdits: EditCount, val botEdits: EditCount) : EditHistoryItemModel()
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")

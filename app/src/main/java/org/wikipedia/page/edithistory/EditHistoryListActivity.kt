@@ -145,14 +145,10 @@ class EditHistoryListActivity : BaseActivity() {
         lifecycleScope.launchWhenCreated {
             viewModel.editHistoryStatsFlow.collectLatest {
                 editHistoryStatsAdapter.notifyItemChanged(0)
-            }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            viewModel.editHistoryEditCountsFlow.collectLatest {
                 editHistorySearchBarAdapter.notifyItemChanged(0)
             }
         }
+
     }
 
     private fun updateCompareState() {
@@ -340,8 +336,8 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         fun bindItem() {
-            val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
-            if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
+            val editCountsFlowValue = viewModel.editHistoryStatsFlow.value
+            if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
                 binding.root.setCardBackgroundColor(
                     ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.color_group_22)
                 )
@@ -373,8 +369,8 @@ class EditHistoryListActivity : BaseActivity() {
         }
 
         fun showOverflowMenu() {
-            val editCountsFlowValue = viewModel.editHistoryEditCountsFlow.value
-            if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryEditCounts) {
+            val editCountsFlowValue = viewModel.editHistoryStatsFlow.value
+            if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
                 val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
                     searchActionModeCallback.searchBarFilterIcon!! else binding.filterByButton
                 EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsFlowValue) {
