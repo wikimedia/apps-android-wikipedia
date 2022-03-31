@@ -19,7 +19,6 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.page.PageFragment
@@ -106,36 +105,38 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 finalizeCallToAction()
                 return
             }
-            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(imageTitle)
+            disposables.add(ServiceFactory.get(Constants.commonsWikiSite).getProtectionInfo(imageTitle)
                 .subscribeOn(Schedulers.io())
                 .map { response -> response.query?.isEditProtected ?: false }
                 .flatMap { isProtected ->
-                    if (isProtected) Observable.empty() else Observable.zip(MediaHelper.getImageCaptions(imageTitle),
-                        ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode), { first, second -> Pair(first, second) })
+                    if (isProtected) Observable.empty() else Observable.zip(ServiceFactory.get(Constants.commonsWikiSite).getEntitiesByTitle(imageTitle, Constants.COMMONS_DB_NAME),
+                        ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode)) { first, second -> Pair(first, second) }
                 }
                 .flatMap { pair ->
+                    val labelMap = pair.first.first?.labels?.values?.associate { v -> v.language to v.value }.orEmpty()
+                    val depicts = ImageTagsProvider.getDepictsClaims(pair.first.first?.statements.orEmpty())
                     captionSourcePageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, it.wikiSite.languageCode))
-                    captionSourcePageTitle!!.description = pair.first[it.wikiSite.languageCode]
+                    captionSourcePageTitle!!.description = labelMap[it.wikiSite.languageCode]
                     imagePage = pair.second.query?.firstPage()
                     imageEditType = null // Need to clear value from precious call
-                    if (!pair.first.containsKey(it.wikiSite.languageCode)) {
+                    if (!labelMap.containsKey(it.wikiSite.languageCode)) {
                         imageEditType = ImageEditType.ADD_CAPTION
-                        return@flatMap ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage()!!.pageId, it.wikiSite.languageCode)
+                        return@flatMap Observable.just(depicts)
                     }
                     if (WikipediaApp.getInstance().language().appLanguageCodes.size >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                         for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
-                            if (!pair.first.containsKey(lang)) {
+                            if (!labelMap.containsKey(lang)) {
                                 imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
-                                captionTargetPageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, lang!!))
+                                captionTargetPageTitle = PageTitle(imageTitle, WikiSite(Service.COMMONS_URL, lang))
                                 break
                             }
                         }
                     }
-                    ImageTagsProvider.getImageTagsObservable(pair.second.query?.firstPage()!!.pageId, it.wikiSite.languageCode)
+                    Observable.just(depicts)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { imageTagsResult ->
-                    if (imageEditType != ImageEditType.ADD_CAPTION && imageTagsResult.isEmpty()) {
+                .subscribe { depicts ->
+                    if (imageEditType != ImageEditType.ADD_CAPTION && depicts.isEmpty()) {
                         imageEditType = ImageEditType.ADD_TAGS
                     }
                     finalizeCallToAction()

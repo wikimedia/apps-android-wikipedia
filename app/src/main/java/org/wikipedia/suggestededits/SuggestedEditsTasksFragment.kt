@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,9 +25,7 @@ import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
@@ -171,8 +170,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.progressBar.visibility = VISIBLE
 
         disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
+                ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
+                ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable()) { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
                     var blockInfo: MwServiceError.BlockInfo? = null
                     when {
@@ -335,7 +334,15 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun maybeSetPausedOrDisabled(): Boolean {
         val pauseEndDate = UserContributionsStats.maybePauseAndGetEndDate()
 
-        if (UserContributionsStats.isDisabled()) {
+        if (totalContributions < MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS && WikipediaApp.getInstance().appOrSystemLanguageCode == "en") {
+            clearContents()
+            binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_gate_message, AccountUtil.userName))
+            binding.disabledStatesView.setPositiveButton(R.string.suggested_edits_learn_more, {
+                UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(MIN_CONTRIBUTIONS_GATE_URL))
+            }, true)
+            binding.disabledStatesView.visibility = VISIBLE
+            return true
+        } else if (UserContributionsStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
@@ -449,6 +456,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
+        private const val MIN_CONTRIBUTIONS_FOR_SUGGESTED_EDITS = 3
+        private const val MIN_CONTRIBUTIONS_GATE_URL = "https://en.wikipedia.org/wiki/Help:Introduction_to_editing_with_Wiki_Markup/1"
+
         fun newInstance(): SuggestedEditsTasksFragment {
             return SuggestedEditsTasksFragment()
         }

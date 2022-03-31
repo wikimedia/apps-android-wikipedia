@@ -1056,6 +1056,7 @@
   <string name="revision_diff_from">差出人:</string>
   <string name="revision_diff_to">宛先:</string>
   <string name="revision_undo_title">編集を取り消す</string>
+  <string name="revision_undo_reason">操作を続ける場合、編集を取り消す理由を記入してください。</string>
   <string name="revision_undo_success">この版は取り消されました。</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">2つの版しか選べません</string>
