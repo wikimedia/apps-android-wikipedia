@@ -148,7 +148,6 @@ class EditHistoryListActivity : BaseActivity() {
                 editHistorySearchBarAdapter.notifyItemChanged(0)
             }
         }
-
     }
 
     private fun updateCompareState() {
