@@ -132,8 +132,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 val title = if (imageInfo.commonsUrl.isEmpty()) {
                                     page.title
                                 } else {
-                                    val wiki = Constants.commonsWikiSite
-                                    PageTitle.titleForUri(Uri.parse(imageInfo.commonsUrl), wiki).prefixedText
+                                    PageTitle.titleForUri(Uri.parse(imageInfo.commonsUrl), Constants.commonsWikiSite).prefixedText
                                 }
 
                                 sourceSummaryForEdit = PageSummaryForEdit(
@@ -178,8 +177,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 val title = if (imageInfo.commonsUrl.isEmpty()) {
                                     page.title
                                 } else {
-                                    val wiki = Constants.commonsWikiSite
-                                    PageTitle.titleForUri(Uri.parse(imageInfo.commonsUrl), wiki).prefixedText
+                                    PageTitle.titleForUri(Uri.parse(imageInfo.commonsUrl), Constants.commonsWikiSite).prefixedText
                                 }
 
                                 sourceSummaryForEdit = PageSummaryForEdit(
