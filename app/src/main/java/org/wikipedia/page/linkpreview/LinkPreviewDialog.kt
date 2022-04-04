@@ -179,7 +179,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                             summary.description, summary.displayTitle)
 
                     if (response.raw().priorResponse != null && response.raw().priorResponse!!.isRedirect) {
-                        pageTitle.redirectedFrom = originalTitleText;
+                        pageTitle.redirectedFrom = originalTitleText
                     }
 
                     // check if our URL was redirected, which might include a URL fragment that leads
