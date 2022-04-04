@@ -128,7 +128,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private lateinit var leadImagesHandler: LeadImagesHandler
     private lateinit var pageFragmentLoadState: PageFragmentLoadState
     private lateinit var bottomBarHideHandler: ViewHideHandler
-    lateinit var articleInteractionEvent: ArticleInteractionEvent
+    internal var articleInteractionEvent: ArticleInteractionEvent? = null
     private var pageScrollFunnel: PageScrollFunnel? = null
     private var pageRefreshed = false
     private var errorState = false
@@ -272,6 +272,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         closePageScrollFunnel()
         val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
+        articleInteractionEvent?.pause()
     }
 
     override fun onResume() {
@@ -283,6 +284,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageImageTransitionHolder.visibility = View.GONE
         binding.pageActionsTabLayout.update()
         updateQuickActionsAndMenuOptions()
+        articleInteractionEvent?.resume()
     }
 
     fun getPageActionTabLayout(): PageActionTabLayout {
@@ -299,7 +301,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     override fun onBackPressed(): Boolean {
-        articleInteractionEvent.logBackClick()
+        articleInteractionEvent?.logBackClick()
         if (sidePanelHandler.isVisible) {
             sidePanelHandler.hide()
             return true
@@ -743,7 +745,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@addListener
             }
             bridge.onPcsReady()
-            articleInteractionEvent.logLoaded()
+            articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
 
             // do we have a URL fragment to scroll to?
@@ -823,13 +825,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             messagePayload?.let { payload ->
                 when (payload["itemType"]?.jsonPrimitive?.content) {
                     "talkPage" -> model.title?.run {
-                        articleInteractionEvent.logTalkPageArticleClick()
+                        articleInteractionEvent?.logTalkPageArticleClick()
                         startTalkTopicActivity(this)
                     }
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {
-                            articleInteractionEvent.logEditHistoryArticleClick()
+                            articleInteractionEvent?.logEditHistoryArticleClick()
                             if (ReleaseUtil.isPreBetaRelease) startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
                             else loadPage(PageTitle("Special:History/$prefixedText", wikiSite),
                                 HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
@@ -1365,21 +1367,21 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     addToReadingList(this, InvokeSource.BOOKMARK_BUTTON, true)
                 }
             }
-            articleInteractionEvent.logSaveClick()
+            articleInteractionEvent?.logSaveClick()
         }
 
         override fun onLanguageSelected() {
             startLangLinksActivity()
-            articleInteractionEvent.logLanguageClick()
+            articleInteractionEvent?.logLanguageClick()
         }
 
         override fun onFindInArticleSelected() {
             showFindInPage()
-            articleInteractionEvent.logFindInArticleClick()
+            articleInteractionEvent?.logFindInArticleClick()
         }
 
         override fun onThemeSelected() {
-            articleInteractionEvent.logThemeClick()
+            articleInteractionEvent?.logThemeClick()
 
             // If we're looking at the top of the article, then scroll down a bit so that at least
             // some of the text is shown.
@@ -1399,12 +1401,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onContentsSelected() {
             sidePanelHandler.showToC()
-            articleInteractionEvent.logContentsClick()
+            articleInteractionEvent?.logContentsClick()
         }
 
         override fun onShareSelected() {
             sharePageLink()
-            articleInteractionEvent.logShareClick()
+            articleInteractionEvent?.logShareClick()
         }
 
         override fun onAddToWatchlistSelected() {
@@ -1420,7 +1422,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             title?.let {
                 startActivity(TalkTopicsActivity.newIntent(requireContext(), it, InvokeSource.PAGE_ACTIVITY))
             }
-            articleInteractionEvent.logTalkPageClick()
+            articleInteractionEvent?.logTalkPageClick()
         }
 
         override fun onViewEditHistorySelected() {
@@ -1429,29 +1431,29 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 else loadPage(PageTitle("Special:History/$prefixedText", wikiSite),
                     HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
             }
-            articleInteractionEvent.logEditHistoryClick()
+            articleInteractionEvent?.logEditHistoryClick()
         }
 
         override fun onNewTabSelected() {
             startActivity(PageActivity.newIntentForNewTab(requireContext()))
-            articleInteractionEvent.logNewTabClick()
+            articleInteractionEvent?.logNewTabClick()
         }
 
         override fun onExploreSelected() {
             goToMainTab()
-            articleInteractionEvent.logExploreClick()
+            articleInteractionEvent?.logExploreClick()
         }
 
         override fun onCategoriesSelected() {
             title?.let {
                 bottomSheetPresenter.show(childFragmentManager, CategoryDialog.newInstance(it))
             }
-            articleInteractionEvent.logCategoriesClick()
+            articleInteractionEvent?.logCategoriesClick()
         }
 
         override fun forwardClick() {
             goForward()
-            articleInteractionEvent.logForwardClick()
+            articleInteractionEvent?.logForwardClick()
         }
     }
 

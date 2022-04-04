@@ -2,49 +2,40 @@ package org.wikipedia.analytics.eventplatform
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent.ActionType.*
 import org.wikipedia.auth.AccountUtil
 
-class EditHistoryInteractionEvent(private var wikiDb: String, private var pageId: Int) : TimedEvent() {
-
-    private lateinit var action: String
+class EditHistoryInteractionEvent(private var wikiDb: String, private var pageId: Int) :
+    TimedEvent() {
 
     fun logShowHistory() {
-        action = SHOW_HISTORY.valueString
-        submitEvent()
+        submitEvent("show_history")
     }
 
     fun logRevision() {
-        action = REVISION_VIEW.valueString
-        submitEvent()
+        submitEvent("revision_view")
     }
 
     fun logCompare1() {
-        action = COMPARE1.valueString
-        submitEvent()
+        submitEvent("compare1")
     }
 
     fun logCompare2() {
-        action = COMPARE2.valueString
-        submitEvent()
+        submitEvent("compare2")
     }
 
     fun logThankTry() {
-        action = THANK_TRY.valueString
-        submitEvent()
+        submitEvent("thank_try")
     }
 
     fun logThankSuccess() {
-        action = THANK_SUCCESS.valueString
-        submitEvent()
+        submitEvent("thank_success")
     }
 
     fun logThankFail() {
-        action = THANK_FAIL.valueString
-        submitEvent()
+        submitEvent("thank_fail")
     }
 
-    private fun submitEvent() {
+    private fun submitEvent(action: String) {
         EventPlatformClient.submit(EditHistoryInteractionEventImpl(!AccountUtil.isLoggedIn, duration, wikiDb, pageId, action))
     }
 
@@ -57,14 +48,4 @@ class EditHistoryInteractionEvent(private var wikiDb: String, private var pageId
                                       @SerialName("page_id") private var pageId: Int,
                                       private val action: String) :
         MobileAppsEvent("android.edit_history_interaction")
-
-    enum class ActionType(val valueString: String) {
-        SHOW_HISTORY("show_history"),
-        REVISION_VIEW("revision_view"),
-        COMPARE1("compare1"),
-        COMPARE2("compare2"),
-        THANK_TRY("thank_try"),
-        THANK_SUCCESS("thank_success"),
-        THANK_FAIL("thank_fail");
-    }
 }

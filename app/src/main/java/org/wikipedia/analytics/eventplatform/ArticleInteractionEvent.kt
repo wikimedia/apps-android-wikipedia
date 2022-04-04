@@ -2,119 +2,95 @@ package org.wikipedia.analytics.eventplatform
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent.ActionType.*
 import org.wikipedia.auth.AccountUtil
 
 class ArticleInteractionEvent(private var wikiDb: String, private var pageId: Int) : TimedEvent() {
 
-    private lateinit var action: String
-
     fun logLoaded() {
-        action = LOAD.valueString
-        submitEvent()
+        submitEvent("load")
     }
 
     fun logSaveClick() {
-        action = SAVE.valueString
-        submitEvent()
+        submitEvent("save")
     }
 
     fun logLanguageClick() {
-        action = LANGUAGE.valueString
-        submitEvent()
+        submitEvent("language")
     }
 
     fun logFindInArticleClick() {
-        action = FIND_IN_ARTICLE.valueString
-        submitEvent()
+        submitEvent("find_in_article")
     }
 
     fun logThemeClick() {
-        action = THEME.valueString
-        submitEvent()
+        submitEvent("theme")
     }
 
     fun logContentsClick() {
-        action = CONTENTS.valueString
-        submitEvent()
+        submitEvent("contents")
     }
 
     fun logMoreClick() {
-        action = MORE.valueString
-        submitEvent()
+        submitEvent("more")
     }
 
     fun logShareClick() {
-        action = SHARE.valueString
-        submitEvent()
+        submitEvent("share")
     }
 
     fun logTalkPageClick() {
-        action = TALK_PAGE.valueString
-        submitEvent()
+        submitEvent("talk_page")
     }
 
     fun logEditHistoryClick() {
-        action = EDIT_HISTORY.valueString
-        submitEvent()
+        submitEvent("edit_history")
     }
 
     fun logNewTabClick() {
-        action = NEW_TAB.valueString
-        submitEvent()
+        submitEvent("new_tab")
     }
 
     fun logExploreClick() {
-        action = EXPLORE.valueString
-        submitEvent()
+        submitEvent("explore")
     }
 
     fun logForwardClick() {
-        action = FORWARD.valueString
-        submitEvent()
+        submitEvent("forward")
     }
 
     fun logNotificationClick() {
-        action = NOTIFICATION.valueString
-        submitEvent()
+        submitEvent("notification")
     }
 
     fun logTabsClick() {
-        action = TABS.valueString
-        submitEvent()
+        submitEvent("tabs")
     }
 
     fun logSearchWikipediaClick() {
-        action = SEARCH_WIKIPEDIA.valueString
-        submitEvent()
+        submitEvent("search_wikipedia")
     }
 
     fun logBackClick() {
-        action = BACK.valueString
-        submitEvent()
+        submitEvent("back")
     }
 
     fun logEditHistoryArticleClick() {
-        action = EDIT_HISTORY_ARTICLE.valueString
-        submitEvent()
+        submitEvent("edit_history_from_article")
     }
 
     fun logTalkPageArticleClick() {
-        action = TALK_PAGE_ARTICLE.valueString
-        submitEvent()
+        submitEvent("talk_page_from_article")
     }
 
     fun logTocSwipe() {
-        action = TOC_SWIPE.valueString
-        submitEvent()
+        submitEvent("toc_swipe")
     }
 
     fun logCategoriesClick() {
-        action = CATEGORIES.valueString
-        submitEvent()
+        submitEvent("categories")
     }
 
-    private fun submitEvent() {
+    private fun submitEvent(action: String) {
         EventPlatformClient.submit(ArticleInteractionEventImpl(!AccountUtil.isLoggedIn, duration, wikiDb, pageId, action))
     }
 
@@ -127,28 +103,4 @@ class ArticleInteractionEvent(private var wikiDb: String, private var pageId: In
                                       @SerialName("page_id") private var pageId: Int,
                                       private val action: String) :
         MobileAppsEvent("android.article_toolbar_interaction")
-
-    enum class ActionType(val valueString: String) {
-        LOAD("load"),
-        SAVE("save"),
-        LANGUAGE("language"),
-        FIND_IN_ARTICLE("find_in_article"),
-        THEME("theme"),
-        CONTENTS("contents"),
-        MORE("more"),
-        SHARE("share"),
-        TALK_PAGE("talk_page"),
-        EDIT_HISTORY("edit_history"),
-        CATEGORIES("categories"),
-        NEW_TAB("new_tab"),
-        EXPLORE("explore"),
-        NOTIFICATION("notification"),
-        TABS("tabs"),
-        SEARCH_WIKIPEDIA("search_wikipedia"),
-        BACK("back"),
-        FORWARD("forward"),
-        EDIT_HISTORY_ARTICLE("edit_history_from_article"),
-        TALK_PAGE_ARTICLE("talk_page_from_article"),
-        TOC_SWIPE("toc_swipe");
-    }
 }
