@@ -174,8 +174,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
                     // Rebuild our PageTitle, since it may have been redirected or normalized.
                     val oldFragment = pageTitle.fragment
+                    val originalTitleText = pageTitle.text
                     pageTitle = PageTitle(summary.apiTitle, pageTitle.wikiSite, summary.thumbnailUrl,
                             summary.description, summary.displayTitle)
+
+                    if (response.raw().priorResponse != null && response.raw().priorResponse!!.isRedirect) {
+                        pageTitle.redirectedFrom = originalTitleText;
+                    }
 
                     // check if our URL was redirected, which might include a URL fragment that leads
                     // to a specific section in the target article.

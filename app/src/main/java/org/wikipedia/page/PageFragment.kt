@@ -22,6 +22,7 @@ import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
@@ -876,6 +877,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.isRefreshing = false
         requireActivity().invalidateOptionsMenu()
         initPageScrollFunnel()
+        model.page?.title?.redirectedFrom?.let {
+            FeedbackUtil.makeSnackbar(this.requireActivity(), getString(R.string.redirected_from_snackbar, it), Snackbar.LENGTH_SHORT).show()
+        }
         model.readingListPage?.let { page ->
             model.title?.let { title ->
                 disposables.add(Completable.fromAction {
