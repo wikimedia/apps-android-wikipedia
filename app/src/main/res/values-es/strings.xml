@@ -1152,4 +1152,7 @@
   <string name="watchlist_page_moved">Trasladado</string>
   <string name="watchlist_page_protected">Protegido</string>
   <string name="watchlist_page_deleted">Borrado</string>
+  <string name="action_item_categories">Categorías</string>
+  <string name="category_tab_articles">Artículos</string>
+  <string name="category_tab_subcategories">Subcategorías</string>
 </resources>

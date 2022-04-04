@@ -940,6 +940,7 @@
   <string name="suggested_edits_paused_message">עריכות מוצעות הופסקו עד %1$s. מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_disabled_message">עריכות מוצעות הופסקו. מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסומה כרגע מעריכת ויקיפדיה.</string>
+  <string name="suggested_edits_gate_message">סליחה\" %s, חובה לעשות לפחות שלוש עריכות ישירות בערך כדי להשתמש בתכונה הזאת.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
