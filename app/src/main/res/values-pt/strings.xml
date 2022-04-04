@@ -70,12 +70,17 @@
   <string name="page_edit_history_activity_title">Historial de revisões: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Resumo de edição vazio</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d edição desde %2$s</item>
+    <item quantity="other">%1$d edições desde %2$s</item>
+  </plurals>
   <string name="page_edit_history_metrics_content_description">Métricas desde %1$s até %2$s</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
   <string name="menu_page_find_in_page">Localizar no artigo</string>
   <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
   <string name="menu_page_watch">Vigiar</string>
+  <string name="menu_page_unwatch">Deixar de vigiar</string>
   <string name="menu_page_view_talk">Ver página de discussão</string>
   <string name="menu_page_talk_page">Página de discussão</string>
   <string name="menu_page_view_edit_history">Ver historial de edições</string>
@@ -224,7 +229,6 @@
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Adicionar às páginas vigiadas</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Acompanhe o que está a acontecer a artigos do seu interesse. Toque no menu flutuante e selecione &lt;b&gt;Adicionar à lista de páginas vigiadas&lt;/b&gt; para ver as alterações de um artigo.</string>
-  <string name="page_notification_tooltip">As suas notificações estão agora aqui.</string>
   <string name="settings_item_preferences">Configurações</string>
   <string name="settings_activity_title">Configurações</string>
   <string name="about_description">Sobre a aplicação Wikipédia</string>
@@ -895,6 +899,7 @@
   <string name="suggested_edits_paused_message">\"Edições sugeridas\" estará interrompida até %1$s. Desculpe, %2$s, mas algumas das suas contribuições recentes foram revertidas.</string>
   <string name="suggested_edits_disabled_message">\"Edições sugeridas\" está desativada. Desculpe, %s, foram revertidas demasiadas das suas contribuições recentes.</string>
   <string name="suggested_edits_ip_blocked_message">Parece que o seu endereço IP (ou gama de endereços IP) está atualmente bloqueado, impedindo a edição da Wikipédia.</string>
+  <string name="suggested_edits_gate_message">Desculpe, %s, tem de fazer pelo menos três edições diretamente num artigo para usar esta funcionalidade.</string>
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda de \"Edições sugeridas\"</string>
   <string name="suggested_edits_edit_streak_label_text">Edições consecutivas</string>
@@ -1109,6 +1114,21 @@
   <string name="thank_success_message">O seu agradecimento foi enviado a %s</string>
   <string name="menu_option_view_user_profile">Ver página de perfil do utilizador</string>
   <string name="menu_option_view_user_talk">Ver página de discussão</string>
+  <string name="menu_option_view_user_contributions">Ver contribuições do utilizador</string>
+  <string name="revision_diff_compare">Comparar revisões</string>
+  <string name="revision_diff_compare_title">Comparar revisões: %s</string>
+  <string name="revision_diff_from">De:</string>
+  <string name="revision_diff_to">Para:</string>
+  <string name="revision_diff_line_num">Linha %d</string>
+  <string name="revision_diff_line_nums">Linhas %d–%d</string>
+  <string name="revision_diff_line_added">Linha acrescentada</string>
+  <string name="revision_diff_line_removed">Linha removida</string>
+  <string name="revision_diff_paragraph_added">Parágrafo acrescentado</string>
+  <string name="revision_diff_paragraph_removed">Parágrafo removido</string>
+  <string name="revision_undo_title">Desfazer edição</string>
+  <string name="revision_undo_message">Esta operação irá desfazer as mudanças realizadas pelas revisões do artigo que são mostradas aqui.</string>
+  <string name="revision_undo_reason">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
+  <string name="revision_undo_success">A revisão foi desfeita.</string>
   <string name="revision_compare_button">Comparar</string>
   <string name="revision_compare_two_only">Só podem ser selecionadas duas revisões.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e a respetiva página de discussão foram adicionados às suas páginas vigiadas %2$s.</string>
@@ -1133,4 +1153,10 @@
   <string name="watchlist_page_moved">Movida</string>
   <string name="watchlist_page_protected">Protegida</string>
   <string name="watchlist_page_deleted">Eliminada</string>
+  <string name="action_item_categories">Categorias</string>
+  <string name="page_no_categories">Esta página não pertence a nenhuma categoria.</string>
+  <string name="category_tab_articles">Artigos</string>
+  <string name="category_tab_subcategories">Subcategorias</string>
+  <string name="category_empty">Não foi encontrado nenhum artigo nesta categoria.</string>
+  <string name="subcategory_empty">Não foi encontrada nenhuma subcategoria nesta categoria.</string>
 </resources>

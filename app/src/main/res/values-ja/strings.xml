@@ -244,7 +244,6 @@
   <string name="page_protected_can_not_edit_title">このページは保護されています</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ウォッチリストに追加</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">興味のある記事について何が起こったか追跡します。右上のメニューをタップして、&lt;b&gt;ウォッチリストに追加&lt;/b&gt;を選び、記事の変更を追ってみましょう。</string>
-  <string name="page_notification_tooltip">通知はここにあります。</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
   <string name="about_description">ウィキペディアアプリについて</string>
@@ -1057,6 +1056,7 @@
   <string name="revision_diff_from">差出人:</string>
   <string name="revision_diff_to">宛先:</string>
   <string name="revision_undo_title">編集を取り消す</string>
+  <string name="revision_undo_reason">操作を続ける場合、編集を取り消す理由を記入してください。</string>
   <string name="revision_undo_success">この版は取り消されました。</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">2つの版しか選べません</string>
@@ -1073,4 +1073,10 @@
   <string name="watchlist_page_moved">移動</string>
   <string name="watchlist_page_protected">保護</string>
   <string name="watchlist_page_deleted">削除</string>
+  <string name="action_item_categories">カテゴリ</string>
+  <string name="page_no_categories">このページはどのカテゴリにも属していません。</string>
+  <string name="category_tab_articles">記事</string>
+  <string name="category_tab_subcategories">下位カテゴリ</string>
+  <string name="category_empty">このカテゴリには記事がありませんでした</string>
+  <string name="subcategory_empty">このカテゴリに下位カテゴリはありませんでした。</string>
 </resources>
