@@ -743,6 +743,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@addListener
             }
             bridge.onPcsReady()
+            articleInteractionEvent.logLoaded()
             callback()?.onPageLoadComplete()
 
             // do we have a URL fragment to scroll to?

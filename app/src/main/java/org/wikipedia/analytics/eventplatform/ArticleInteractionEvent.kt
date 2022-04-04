@@ -5,15 +5,14 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent.ActionType.*
 import org.wikipedia.auth.AccountUtil
 
-@Suppress("unused")
-@Serializable
-@SerialName("/analytics/mobile_apps/android_article_toolbar_interaction/1.0.0")
-class ArticleInteractionEvent(@SerialName("wiki_db") private var wikiDb: String,
-                              @SerialName("page_id") private var pageId: Int) : TimedEvent(STREAM_NAME) {
+class ArticleInteractionEvent(private var wikiDb: String, private var pageId: Int) : TimedEvent() {
 
-    @SerialName("time_spent_ms") private var timeSpentMs: Int? = null
-    @SerialName("is_anon") private var isAnon: Boolean? = null
-    private var action: String? = null
+    private lateinit var action: String
+
+    fun logLoaded() {
+        action = LOAD.valueString
+        submitEvent()
+    }
 
     fun logSaveClick() {
         action = SAVE.valueString
@@ -116,16 +115,21 @@ class ArticleInteractionEvent(@SerialName("wiki_db") private var wikiDb: String,
     }
 
     private fun submitEvent() {
-        timeSpentMs = duration.toInt()
-        isAnon = !AccountUtil.isLoggedIn
-        EventPlatformClient.submit(this)
+        EventPlatformClient.submit(ArticleInteractionEventImpl(!AccountUtil.isLoggedIn, duration, wikiDb, pageId, action))
     }
 
-    companion object {
-        private const val STREAM_NAME = "android.article_toolbar_interaction"
-    }
+    @Suppress("unused")
+    @Serializable
+    @SerialName("/analytics/mobile_apps/android_article_toolbar_interaction/1.0.0")
+    class ArticleInteractionEventImpl(@SerialName("is_anon") private val isAnon: Boolean,
+                                      @SerialName("time_spent_ms") private var timeSpentMs: Int,
+                                      @SerialName("wiki_db") private var wikiDb: String,
+                                      @SerialName("page_id") private var pageId: Int,
+                                      private val action: String) :
+        MobileAppsEvent("android.article_toolbar_interaction")
 
     enum class ActionType(val valueString: String) {
+        LOAD("load"),
         SAVE("save"),
         LANGUAGE("language"),
         FIND_IN_ARTICLE("find_in_article"),
