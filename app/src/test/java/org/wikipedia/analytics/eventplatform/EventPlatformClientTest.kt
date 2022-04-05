@@ -16,7 +16,6 @@ import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.test.TestFileUtil
-import java.io.IOException
 
 @RunWith(RobolectricTestRunner::class)
 class EventPlatformClientTest {
@@ -181,8 +180,8 @@ class EventPlatformClientTest {
         )
     }
 
+    @Ignore("Disabled because of flakiness on CI systems, and only marginally useful.")
     @Test
-    @Throws(IOException::class)
     fun testStreamConfigMapSerializationDeserialization() {
         val originalStreamConfigs = JsonUtil.decodeFromString<MwStreamConfigsResponse>(TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE))!!.streamConfigs
         Prefs.streamConfigs = originalStreamConfigs
