@@ -29,6 +29,7 @@ import org.wikipedia.notifications.NotificationCategory
 import org.wikipedia.notifications.NotificationLinkHandler
 import org.wikipedia.notifications.NotificationListItemContainer
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -72,7 +73,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
                     binding.overflowViewSecondary.visibility = View.VISIBLE
 
                     val uri = Uri.parse(secondary.first().url)
-                    val pageTitle = WikiSite(uri).titleForUri(uri)
+                    val pageTitle = PageTitle.titleForUri(uri, WikiSite(uri))
                     if (pageTitle.isUserPage) {
                         binding.overflowViewSecondaryTalk.visibility = View.VISIBLE
                         binding.overflowViewSecondaryTalk.text = context.getString(R.string.notifications_menu_user_talk_page, secondary.first().label)
