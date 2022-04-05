@@ -59,19 +59,11 @@ object EventPlatformClient {
      */
     @Synchronized
     fun submit(event: Event) {
-        val streamConfig = STREAM_CONFIGS[event.stream] ?: return
         if (!SamplingController.isInSample(event)) {
             return
         }
         addEventMetadata(event)
-        //
-        // Temporarily send events immediately in order to investigate discrepancies in
-        // the numbers of events submitted in this system vs. legacy eventlogging.
-        //
-        // https://phabricator.wikimedia.org/T281001
-        //
-        // OutputBuffer.schedule(event);
-        OutputBuffer.sendEventsForStream(streamConfig, listOf(event))
+        OutputBuffer.schedule(event)
     }
 
     /**
@@ -131,7 +123,7 @@ object EventPlatformClient {
          * If another item is added to QUEUE during this time, reset the countdown.
          */
         private const val WAIT_MS = 30000
-        private const val MAX_QUEUE_SIZE = 128
+        private const val MAX_QUEUE_SIZE = 64
         private val SEND_RUNNABLE = Runnable { sendAllScheduled() }
 
         @Synchronized
