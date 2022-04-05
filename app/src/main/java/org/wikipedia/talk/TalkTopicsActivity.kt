@@ -146,6 +146,7 @@ class TalkTopicsActivity : BaseActivity() {
                     pageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(pageTitle.prefixedText),
                             WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
 
+                    talkTopicsProvider.cancel()
                     talkTopicsProvider = TalkTopicsProvider(pageTitle)
                     loadTopics()
                 }
