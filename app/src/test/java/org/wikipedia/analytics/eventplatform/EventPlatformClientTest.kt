@@ -181,8 +181,8 @@ class EventPlatformClientTest {
         )
     }
 
+    @Ignore("Disabled because of flakiness on CI systems, and only marginally useful.")
     @Test
-    @Throws(IOException::class)
     fun testStreamConfigMapSerializationDeserialization() {
         val originalStreamConfigs = JsonUtil.decodeFromString<MwStreamConfigsResponse>(TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE))!!.streamConfigs
         Prefs.streamConfigs = originalStreamConfigs
