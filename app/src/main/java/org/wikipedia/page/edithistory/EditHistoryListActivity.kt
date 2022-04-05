@@ -112,12 +112,6 @@ class EditHistoryListActivity : BaseActivity() {
             }
         })
 
-        lifecycleScope.launch {
-            viewModel.editHistoryFlow.collectLatest {
-                editHistoryListAdapter.submitData(it)
-            }
-        }
-
         lifecycleScope.launchWhenCreated {
             editHistoryListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
                     .filter { it.refresh is LoadState.NotLoading }
@@ -146,6 +140,13 @@ class EditHistoryListActivity : BaseActivity() {
             viewModel.editHistoryStatsFlow.collectLatest {
                 editHistoryStatsAdapter.notifyItemChanged(0)
                 editHistorySearchBarAdapter.notifyItemChanged(0)
+
+                // Submit data after showing the stats and search bar.
+                lifecycleScope.launch {
+                    viewModel.editHistoryFlow.collectLatest {
+                        editHistoryListAdapter.submitData(it)
+                    }
+                }
             }
         }
     }
