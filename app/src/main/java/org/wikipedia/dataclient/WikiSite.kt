@@ -9,7 +9,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.json.UriSerializer
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.language.LanguageUtil
-import org.wikipedia.page.PageTitle
 import org.wikipedia.util.UriUtil
 
 /**
@@ -103,21 +102,6 @@ data class WikiSite(
 
     fun url(segment: String): String {
         return url() + path(segment)
-    }
-
-    // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
-    fun titleForInternalLink(internalLink: String?): PageTitle {
-        // Strip the /wiki/ from the href
-        return PageTitle(UriUtil.removeInternalLinkPrefix(internalLink.orEmpty()), this)
-    }
-
-    // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
-    fun titleForUri(uri: Uri): PageTitle {
-        var path = uri.path
-        if (!uri.fragment.isNullOrEmpty()) {
-            path += "#" + uri.fragment
-        }
-        return titleForInternalLink(path)
     }
 
     fun dbName(): String {
