@@ -1066,4 +1066,12 @@
   <string name="watchlist_page_moved">移動</string>
   <string name="watchlist_page_protected">保護</string>
   <string name="watchlist_page_deleted">削除</string>
+  <string name="action_item_categories">カテゴリ</string>
+  <string name="page_no_categories">このページはどのカテゴリにも属していません。</string>
+  <string name="category_tab_articles">記事</string>
+  <string name="category_tab_subcategories">下位カテゴリ</string>
+  <string name="category_empty">このカテゴリには記事がありませんでした</string>
+  <string name="subcategory_empty">このカテゴリに下位カテゴリはありませんでした。</string>
+  <string name="theme_chooser_menu_item_short_tooltip">あなたのツールバーをカスタマイズする</string>
+  <string name="customize_toolbar_shortcut_description_text">あなたが最も役立つと思う4つのショートカットで下部のツールバーをカスタマイズできます。</string>
 </resources>

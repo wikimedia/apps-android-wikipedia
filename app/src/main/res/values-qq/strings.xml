@@ -1161,4 +1161,12 @@
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.\n\n{{Identical|Deleted}}</string>
   <string name="customize_toolbar_category_more">Category of menu in the customize toolbar page.</string>
   <string name="customize_toolbar_shortcut_description_text">Description of the customize toolbar page.</string>
+  <string name="action_item_categories">Label for menu item for viewing the categories to which an article belongs.</string>
+  <string name="page_no_categories">Error message saying that the article does not belong to any categories.</string>
+  <string name="category_tab_articles">Label for tab that lists all the articles in a category.</string>
+  <string name="category_tab_subcategories">Label for tab that lists all the subcategories of a category.</string>
+  <string name="category_empty">Error shown when the current category contains no articles.</string>
+  <string name="subcategory_empty">Error shown when the current category contains no subcategories.</string>
+  <string name="customize_toolbar_shortcut_description_text">Description of the customize toolbar page.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Tooltip message text for customizing menu options on article screen</string>
 </resources>

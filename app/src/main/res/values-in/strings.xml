@@ -1099,4 +1099,6 @@
   <string name="watchlist_page_moved">Dipindahkan</string>
   <string name="watchlist_page_protected">Dilindungi</string>
   <string name="watchlist_page_deleted">Dihapus</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Kustomisasi bilah alat Anda</string>
+  <string name="customize_toolbar_shortcut_description_text">Kustomisasi bilah alat bawah dengan 4 pintasan yang paling membantu Anda</string>
 </resources>
