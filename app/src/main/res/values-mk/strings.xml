@@ -883,6 +883,7 @@
   <string name="suggested_edits_paused_message">Предложените уредувања се во прекин до %1$s. За жал, %2$s, некои од вашите скорешни уредувања се отповикани.</string>
   <string name="suggested_edits_disabled_message">Предложените уредувања се оневозможени. За жал, %s, имате премногу отповикани скорешни уредувања.</string>
   <string name="suggested_edits_ip_blocked_message">Се чини дека на на вашата IP-адреса (или адресен опсег) ѝ е забрането да уредува на Википедија.</string>
+  <string name="suggested_edits_gate_message">%s, ќе мора да извршите барем три уредувања непосредно во статија за да можете да ја користите оваа можност.</string>
   <string name="suggested_edits_editing_tips_link_text">Совети за уредување</string>
   <string name="suggested_edits_help_page_link_text">Помошна страница за предложени уредувања</string>
   <string name="suggested_edits_edit_streak_label_text">Последователни уредувања</string>

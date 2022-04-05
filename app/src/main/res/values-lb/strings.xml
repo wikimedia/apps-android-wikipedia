@@ -762,4 +762,8 @@
   <string name="watchlist_filter_pages">Säiten</string>
   <string name="watchlist_page_moved">Geréckelt</string>
   <string name="watchlist_page_deleted">Geläscht</string>
+  <string name="action_item_categories">Kategorien</string>
+  <string name="category_tab_articles">Artikelen</string>
+  <string name="category_tab_subcategories">Ënnerkategorien</string>
+  <string name="category_empty">Keng Artikelen an dëser Kategorie fonnt.</string>
 </resources>
