@@ -16,7 +16,6 @@ import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.test.TestFileUtil
-import java.io.IOException
 
 @RunWith(RobolectricTestRunner::class)
 class EventPlatformClientTest {
