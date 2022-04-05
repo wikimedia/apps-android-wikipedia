@@ -1123,7 +1123,7 @@
   <string name="revision_diff_to">至：</string>
   <string name="revision_diff_line_num">第 %d 行</string>
   <string name="revision_diff_line_nums">第 %d 到第 %d 行</string>
-  <string name="revision_diff_line_added">行已添加</string>
+  <string name="revision_diff_line_added">行已新增</string>
   <string name="revision_diff_line_removed">行已移除</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">僅能選擇兩個修訂。</string>
