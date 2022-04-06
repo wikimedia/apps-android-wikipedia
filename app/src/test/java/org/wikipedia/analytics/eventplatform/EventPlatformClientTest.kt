@@ -16,14 +16,11 @@ import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.test.TestFileUtil
-import java.io.IOException
-import java.util.*
 
 @RunWith(RobolectricTestRunner::class)
 class EventPlatformClientTest {
     @Before
     fun reset() {
-        EventPlatformClient.STREAM_CONFIGS = HashMap()
         EventPlatformClient.AssociationController.beginNewSession()
 
         // Set app install ID
@@ -32,7 +29,7 @@ class EventPlatformClientTest {
 
     @Test
     fun testGenerateRandomId() {
-        val id = EventPlatformClient.AssociationController.generateRandomId()
+        val id = EventPlatformClient.AssociationController.pageViewId
         MatcherAssert.assertThat(id.length, CoreMatchers.`is`(20))
     }
 
@@ -40,10 +37,10 @@ class EventPlatformClientTest {
     fun testGetStream() {
         EventPlatformClient.setStreamConfig(StreamConfig("test", null, null))
         MatcherAssert.assertThat(
-            EventPlatformClient.STREAM_CONFIGS["test"], CoreMatchers.`is`(CoreMatchers.notNullValue())
+            EventPlatformClient.getStreamConfig("test"), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
         MatcherAssert.assertThat(
-            EventPlatformClient.STREAM_CONFIGS["key.does.not.exist"], CoreMatchers.`is`(CoreMatchers.nullValue())
+            EventPlatformClient.getStreamConfig("key.does.not.exist"), CoreMatchers.`is`(CoreMatchers.nullValue())
         )
     }
 
@@ -69,8 +66,8 @@ class EventPlatformClientTest {
                     .thenReturn(true)
                 EventPlatformClient.submit(event)
                 outputBuffer.verify(
-                    Mockito.times(1),
-                    { EventPlatformClient.OutputBuffer.schedule(event) })
+                    Mockito.times(1)
+                ) { EventPlatformClient.OutputBuffer.schedule(event) }
             }
         }
     }
@@ -80,20 +77,20 @@ class EventPlatformClientTest {
         Mockito.mockStatic(EventPlatformClient.OutputBuffer::class.java).use { outputBuffer ->
             EventPlatformClient.setEnabled(true)
             outputBuffer.verify(
-                Mockito.times(1),
-                { EventPlatformClient.OutputBuffer.sendAllScheduled() })
+                Mockito.times(1)
+            ) { EventPlatformClient.OutputBuffer.sendAllScheduled() }
         }
     }
 
     @Test
     fun testAssociationControllerGetPageViewId() {
-        val pageViewId = EventPlatformClient.AssociationController.getPageViewId()
+        val pageViewId = EventPlatformClient.AssociationController.pageViewId
         MatcherAssert.assertThat(pageViewId.length, CoreMatchers.equalTo(20))
     }
 
     @Test
     fun testAssociationControllerGetSessionId() {
-        val sessionId = EventPlatformClient.AssociationController.getSessionId()
+        val sessionId = EventPlatformClient.AssociationController.sessionId
         MatcherAssert.assertThat(sessionId.length, CoreMatchers.equalTo(20))
         val persistentSessionId = Prefs.eventPlatformSessionId
         MatcherAssert.assertThat(persistentSessionId, CoreMatchers.`is`(CoreMatchers.notNullValue()))
@@ -183,8 +180,8 @@ class EventPlatformClientTest {
         )
     }
 
+    @Ignore("Disabled because of flakiness on CI systems, and only marginally useful.")
     @Test
-    @Throws(IOException::class)
     fun testStreamConfigMapSerializationDeserialization() {
         val originalStreamConfigs = JsonUtil.decodeFromString<MwStreamConfigsResponse>(TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE))!!.streamConfigs
         Prefs.streamConfigs = originalStreamConfigs

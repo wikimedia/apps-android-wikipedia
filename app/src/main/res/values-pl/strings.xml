@@ -235,7 +235,6 @@
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj do listy obserwowanych</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Śledź artykuły, które cię ciekawią. Kliknij w menu i wybierz &lt;b&gt;Dodaj do listy obserwowanych&lt;/b&gt;, aby widzieć zmiany w artykule.</string>
-  <string name="page_notification_tooltip">Twoje powiadomienia znajdują się tutaj.</string>
   <string name="settings_item_preferences">Ustawienia</string>
   <string name="settings_activity_title">Ustawienia</string>
   <string name="about_description">O aplikacji Wikipedia</string>

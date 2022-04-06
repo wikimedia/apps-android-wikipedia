@@ -79,6 +79,7 @@
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
   <string name="menu_page_add_to_watchlist">নজরতালিকায় যোগ করুন</string>
   <string name="menu_page_watch">নজর রাখুন</string>
+  <string name="menu_page_unwatch">নজর সরিয়ে নিন</string>
   <string name="menu_page_view_talk">আলাপ পাতা দেখুন</string>
   <string name="menu_page_talk_page">আলাপ পাতা</string>
   <string name="menu_page_view_edit_history">সম্পাদনার ইতিহাস দেখুন</string>
@@ -225,7 +226,6 @@
   <string name="page_protected_can_not_edit_anon">দুঃখিত, এই পৃষ্ঠাটি এই মুহুর্তে বেনামে সম্পাদনা করা যাবে না।</string>
   <string name="page_protected_can_not_edit_title">এই পাতাটি সুরক্ষিত</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">নজরতালিকায় যোগ করুন</string>
-  <string name="page_notification_tooltip">আপনার বিজ্ঞপ্তিগুলি এখন এখানে পাওয়া যাবে।</string>
   <string name="settings_item_preferences">সেটিংস</string>
   <string name="settings_activity_title">সেটিংস</string>
   <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
@@ -793,6 +793,14 @@
   <string name="thank_dialog_positive_button_text">ধন্যবাদ পাঠান</string>
   <string name="thank_dialog_negative_button_text">বাতিল</string>
   <string name="thank_success_message">আপনার \'ধন্যবাদ\' %s কে পাঠানো হয়েছে 👍</string>
+  <string name="menu_option_view_user_contributions">ব্যবহারকারী অবদান দেখুন</string>
+  <string name="revision_diff_compare">সংস্করণ তুলনা</string>
+  <string name="revision_diff_from">হতে:</string>
+  <string name="revision_diff_to">প্রতি:</string>
+  <string name="revision_diff_line_added">লাইন যুক্ত হয়েছে</string>
+  <string name="revision_diff_paragraph_removed">অনুচ্ছেদ সরানো হয়েছে</string>
+  <string name="revision_undo_title">সম্পাদনা বাতিল করুন</string>
+  <string name="revision_undo_reason">চালিয়ে যেতে, অনুগ্রহ করে এই সম্পাদনাটি পূর্বাবস্থায় ফেরত নেয়ার একটি কারণ প্রদান করুন:</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">পরিবর্তন</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">স্থায়ীভাবে</string>
   <string name="watchlist_expiry_dialog_permanent">স্থায়ীভাবে</string>
@@ -807,4 +815,8 @@
   <string name="watchlist_page_moved">স্থানান্তর করা হয়েছে</string>
   <string name="watchlist_page_protected">সুরক্ষিত</string>
   <string name="watchlist_page_deleted">অপসারিত</string>
+  <string name="page_no_categories">এই পাতাটি এখনো কোন বিষয়শ্রেণীর অন্তর্গত নয়।</string>
+  <string name="category_tab_articles">নিবন্ধ</string>
+  <string name="category_empty">এই বিষয়শ্রেণীতে কোনো নিবন্ধ পাওয়া যায়নি।</string>
+  <string name="subcategory_empty">এই বিষয়শ্রেণীতে কোনো উপ-বিষয়শ্রেণী পাওয়া যায়নি।</string>
 </resources>

@@ -193,7 +193,6 @@
   <string name="page_protected_can_not_edit_anon">Tá brón orainn, ní féidir an leathanach seo a chur in eagar gan ainm faoi láthair.</string>
   <string name="page_protected_can_not_edit_title">Tá an leathanach seo cosanta</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Cuir ar Liosta Faire</string>
-  <string name="page_notification_tooltip">Anseo a aimseoidh tú do chuid fógraí.</string>
   <string name="settings_item_preferences">Socruithe</string>
   <string name="settings_activity_title">Socruithe</string>
   <string name="about_description">Maidir leis an aip Vicipéide</string>

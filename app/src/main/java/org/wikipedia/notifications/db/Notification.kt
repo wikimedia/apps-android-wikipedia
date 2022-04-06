@@ -7,6 +7,7 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonPrimitive
+import org.wikipedia.Constants
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
@@ -31,7 +32,7 @@ class Notification(var id: Long = 0,
         get() = timestamp?.utciso8601.orEmpty()
 
     val isFromWikidata: Boolean
-        get() = wiki == "wikidatawiki"
+        get() = wiki == Constants.WIKIDATA_DB_NAME
 
     val isUnread get() = read.isNullOrEmpty()
 
