@@ -24,17 +24,21 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="?attr/material_theme_border_color" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/customize_toolbar"
         style="@style/OverflowMenuItem"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
         android:drawablePadding="16dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_vertical"
         android:letterSpacing="0.05"
         android:text="@string/customize_toolbar_title"
         android:textAllCaps="true"
-        android:textColor="?attr/chart_shade1"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        app:drawableStartCompat="@drawable/ic_settings_themed_24dp"
+        app:drawableTint="?attr/section_title_color" />
 </LinearLayout>

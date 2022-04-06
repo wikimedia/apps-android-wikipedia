@@ -656,8 +656,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         val anchorView = pageFragment.getMoreMenuView()
         anchorView.postDelayed({
             if (!isDestroyed) {
-                FeedbackUtil.showTooltip(this, anchorView, getString(R.string.theme_chooser_menu_item_tooltip),
-                    aboveOrBelow = true, autoDismiss = false, -DimenUtil.roundedDpToPx(10f), 0)
+                val balloon = FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(16f), autoDismiss = true, showDismissButton = true)
+                balloon.showAlignBottom(anchorView)
             }
         }, 1000)
         Prefs.showOneTimeCustomizeToolbarTooltip = false
