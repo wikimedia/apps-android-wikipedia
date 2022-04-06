@@ -188,7 +188,6 @@
   <string name="page_protected_can_not_edit">სამწუხაროდ, ამ მომენტისათვის თქვენს ანგარიშს არ აქვს ამ გვერდის რედაქტირებისთვის საჭირო შესაბამისი უფლებები.</string>
   <string name="page_protected_can_not_edit_title">ეს გვერდი დაცულია</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">კონტროლის სიაში დამატება</string>
-  <string name="page_notification_tooltip">თქვენი შეტყობინებები ახლა აქ არის.</string>
   <string name="settings_item_preferences">კონფიგურაცია</string>
   <string name="settings_activity_title">კონფიგურაცია</string>
   <string name="about_description">ვიკიპედიის აპლიკაციის შესახებ</string>

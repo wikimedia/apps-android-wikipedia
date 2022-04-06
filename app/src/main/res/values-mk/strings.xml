@@ -53,12 +53,17 @@
   <string name="page_edit_history_activity_title">Историја на измените: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;с&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Празен опис на измени</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d уредување од %2$s наваму</item>
+    <item quantity="other">%1$d уредувања од %2$s наваму</item>
+  </plurals>
   <string name="page_edit_history_metrics_content_description">Мерила од %1$s до %2$s</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди во статијата</string>
   <string name="menu_page_add_to_watchlist">Додај во набљудувани</string>
   <string name="menu_page_watch">Набљудувај</string>
+  <string name="menu_page_unwatch">Престани со набљудување</string>
   <string name="menu_page_view_talk">Разговорна страница</string>
   <string name="menu_page_talk_page">Разговорна страница</string>
   <string name="menu_page_view_edit_history">Историја на уредувања</string>
@@ -207,7 +212,6 @@
   <string name="page_protected_can_not_edit_title">Оваа страница е заштитена</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додај во набљудувани</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следете што се случува со статиите кои ве интересираат. Допрете на расклопеното мени и изберете and select &lt;b&gt;Додај во набљудувани&lt;/b&gt; за да видите промени во статија.</string>
-  <string name="page_notification_tooltip">Сега вашите известувања се тука.</string>
   <string name="settings_item_preferences">Нагодувања</string>
   <string name="settings_activity_title">Нагодувања</string>
   <string name="about_description">За прилогот „Википедија“</string>
@@ -879,6 +883,7 @@
   <string name="suggested_edits_paused_message">Предложените уредувања се во прекин до %1$s. За жал, %2$s, некои од вашите скорешни уредувања се отповикани.</string>
   <string name="suggested_edits_disabled_message">Предложените уредувања се оневозможени. За жал, %s, имате премногу отповикани скорешни уредувања.</string>
   <string name="suggested_edits_ip_blocked_message">Се чини дека на на вашата IP-адреса (или адресен опсег) ѝ е забрането да уредува на Википедија.</string>
+  <string name="suggested_edits_gate_message">%s, ќе мора да извршите барем три уредувања непосредно во статија за да можете да ја користите оваа можност.</string>
   <string name="suggested_edits_editing_tips_link_text">Совети за уредување</string>
   <string name="suggested_edits_help_page_link_text">Помошна страница за предложени уредувања</string>
   <string name="suggested_edits_edit_streak_label_text">Последователни уредувања</string>
@@ -1093,6 +1098,21 @@
   <string name="thank_success_message">Вашата благодарница е испратена на %s 👍</string>
   <string name="menu_option_view_user_profile">Погл. кориснички профил</string>
   <string name="menu_option_view_user_talk">Погл. разговорна страница</string>
+  <string name="menu_option_view_user_contributions">Погл. кориснички придонеси</string>
+  <string name="revision_diff_compare">Спореди преработки</string>
+  <string name="revision_diff_compare_title">Спореди преработки: %s</string>
+  <string name="revision_diff_from">Од:</string>
+  <string name="revision_diff_to">До:</string>
+  <string name="revision_diff_line_num">Ред %d</string>
+  <string name="revision_diff_line_nums">Редови %d – %d</string>
+  <string name="revision_diff_line_added">Додаден ред</string>
+  <string name="revision_diff_line_removed">Отстранет ред</string>
+  <string name="revision_diff_paragraph_added">Додаден пасус</string>
+  <string name="revision_diff_paragraph_removed">Отстранет пасус</string>
+  <string name="revision_undo_title">Врати уредување</string>
+  <string name="revision_undo_message">Ова ќе ги врати промените направени со преработката/ките на тука прикажаната статија.</string>
+  <string name="revision_undo_reason">За да продолжите, внесете причина за враќање на уредувањево:</string>
+  <string name="revision_undo_success">Преработката е вратена.</string>
   <string name="revision_compare_button">Спореди</string>
   <string name="revision_compare_two_only">Можете да изберете само две преработки.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и нејзината разговорна страница се додадени во вашите набљудувања %2$s.</string>
@@ -1117,4 +1137,10 @@
   <string name="watchlist_page_moved">Преместена</string>
   <string name="watchlist_page_protected">Заштитена</string>
   <string name="watchlist_page_deleted">Избришана</string>
+  <string name="action_item_categories">Категории</string>
+  <string name="page_no_categories">Статијава не припаѓа на ниедна категорија.</string>
+  <string name="category_tab_articles">Статии</string>
+  <string name="category_tab_subcategories">Поткатегории</string>
+  <string name="category_empty">Не се пронајдени статии во оваа категорија.</string>
+  <string name="subcategory_empty">Не се пронајдени поткатегории во оваа категорија.</string>
 </resources>

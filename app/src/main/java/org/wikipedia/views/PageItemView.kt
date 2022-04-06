@@ -9,6 +9,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import com.google.android.material.chip.Chip
 import org.wikipedia.R
@@ -109,6 +110,10 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
     fun setImageUrl(url: String?) {
         imageUrl = url
         updateSelectedState()
+    }
+
+    fun setImageVisible(visible: Boolean) {
+        binding.pageListItemImageContainer.isVisible = visible
     }
 
     fun setSecondaryActionIcon(@DrawableRes id: Int, show: Boolean) {

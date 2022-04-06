@@ -48,8 +48,11 @@
   <string name="menu_page_find_in_page">ꯋꯥꯔꯦꯡ ꯗ ꯑꯣꯏꯅ ꯊꯤꯕꯥ</string>
   <string name="menu_page_add_to_watchlist">ꯌꯦꯡꯅꯕ ꯄꯔꯤꯡꯗ ꯍꯥꯞꯆꯤꯟꯂꯨ</string>
   <string name="menu_page_view_talk">ꯋꯥ ꯍꯥꯏꯐꯝ ꯂꯃꯥꯏ ꯌꯦꯡꯕ</string>
+  <string name="menu_page_talk_page">ꯋꯥ ꯍꯥꯏꯐꯝ ꯂꯃꯥꯏ</string>
   <string name="menu_page_view_edit_history">ꯁꯦꯝꯒꯠꯄꯒꯤ ꯄꯨꯋꯥꯔꯤ ꯌꯦꯡꯕ</string>
+  <string name="menu_page_edit_history">ꯁꯦꯝꯒꯠꯈꯤꯕꯒꯤ ꯄꯨꯋꯥꯔꯤ</string>
   <string name="menu_page_remove_from_watchlist">ꯌꯦꯡꯅꯕ ꯄꯔꯤꯡꯗꯒꯤ ꯂꯧꯊꯣꯛꯄ</string>
+  <string name="menu_page_watched">ꯌꯦꯡꯈꯔꯕ</string>
   <string name="edit_section_find_in_page">ꯂꯃꯥꯏ ꯗ ꯑꯣꯏꯅ ꯊꯤꯕꯥ</string>
   <string name="menu_page_add_to_default_list">ꯇꯨꯡꯁꯤꯟꯂꯨ</string>
   <string name="feed_card_add_to_list">ꯄꯥꯅꯕ ꯄꯔꯤꯡꯗ ꯍꯥꯞꯆꯤꯟꯂꯨ</string>
@@ -132,7 +135,6 @@
   <string name="preferences_heading_data_usage">ꯗꯥꯇꯥ ꯁꯤꯖꯤꯟꯅꯐꯝ</string>
   <string name="page_protected_can_not_edit_title">ꯃꯁꯤꯒꯤ ꯂꯃꯥꯏꯁꯤ ꯉꯥꯛꯊꯣꯛꯂꯦ</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ꯌꯦꯡꯅꯕ ꯄꯔꯤꯡꯗ ꯍꯥꯞꯆꯤꯟꯂꯨ</string>
-  <string name="page_notification_tooltip">ꯅꯪꯉꯣꯟꯗ ꯈꯪꯍꯟꯕꯗꯨ ꯃꯁꯤꯗ ꯂꯩꯔꯦ ꯫</string>
   <string name="settings_item_preferences">ꯁꯦꯝꯐꯝ</string>
   <string name="settings_activity_title">ꯁꯦꯝꯐꯝ</string>
   <string name="about_description">ꯋꯤꯀꯤꯄꯦꯗꯤꯌꯥ ꯑꯦꯞꯁ ꯃꯔꯝꯗ</string>

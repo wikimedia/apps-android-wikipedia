@@ -18,11 +18,11 @@ class Entities : MwResponse() {
 
     @Serializable
     class Entity {
-
         val id: String = ""
         val labels: Map<String, Label> = emptyMap()
         val descriptions: Map<String, Label> = emptyMap()
         val sitelinks: Map<String, SiteLink> = emptyMap()
+        val statements: Map<String, List<Claims.Claim>> = emptyMap()
         val missing: JsonElement? = null
         val lastRevId: Long = 0
     }

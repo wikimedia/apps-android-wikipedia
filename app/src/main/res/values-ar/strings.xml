@@ -52,7 +52,7 @@
   <string name="nav_item_suggested_edits">التعديلات</string>
   <string name="nav_item_more">المزيد</string>
   <string name="nav_item_search">بحث</string>
-  <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
+  <string name="error_network_error">لا يُمكن الاتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="card_offline_error_retry">إعادة المحاولة</string>
   <string name="storage_access_error_retry">إعادة المحاولة</string>
@@ -80,14 +80,20 @@
   <string name="share_via">مشاركة عبر</string>
   <string name="image_share_via">مشاركة عبر</string>
   <string name="search_redirect_from">بالتحويل من %s</string>
+  <string name="page_edit_history_activity_title">تأريخ مراجعة: %s</string>
   <string name="page_edit_history_comment_placeholder">ملخص محرر فارغ</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
   <string name="menu_page_find_in_page">ابحث في المقالة</string>
   <string name="menu_page_add_to_watchlist">أضف لقائمة المراقبة</string>
+  <string name="menu_page_watch">راقب</string>
+  <string name="menu_page_unwatch">لا تراقب</string>
   <string name="menu_page_view_talk">اعرض صفحة النقاش</string>
+  <string name="menu_page_talk_page">صفحة النقاش</string>
   <string name="menu_page_view_edit_history">اعرض تاريخ التعديلات</string>
+  <string name="menu_page_edit_history">تاريخ التعديل</string>
   <string name="menu_page_remove_from_watchlist">أزل من قائمة المراقبة</string>
+  <string name="menu_page_watched">مُراقبَة</string>
   <string name="edit_section_find_in_page">البحث في الصفحة</string>
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
   <string name="menu_page_add_to_list">أضف إلى قائمة القراءة</string>
@@ -96,7 +102,8 @@
   <string name="feed_card_add_to_default_list">احفظ</string>
   <string name="menu_page_share">شارك الوصلة</string>
   <string name="menu_article_share">شارك المقالة</string>
-  <string name="menu_page_open_a_new_tab">افتح تبويبا جديدًا</string>
+  <string name="menu_page_article_share">شارك</string>
+  <string name="menu_page_open_a_new_tab">افتح تبويبًا جديدًا</string>
   <string name="menu_page_new_tab">تبويب جديد</string>
   <string name="menu_page_reading_lists">قوائم القراءة</string>
   <string name="menu_page_recently_viewed">طالعتها مؤخرًا</string>
@@ -106,7 +113,7 @@
   <string name="menu_text_select_define">عرّف</string>
   <string name="on_this_day_page_share">شارك</string>
   <string name="reading_list_page_share">شارك</string>
-  <string name="menu_text_select_edit_here">عدل هنا</string>
+  <string name="menu_text_select_edit_here">عدّل هنا</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="talk_page_link_text">اعرض صفحة النقاش</string>
   <string name="edit_history_link_text">اعرض تاريخ الصفحة</string>
@@ -182,6 +189,7 @@
   <string name="dialog_create_account_checking_progress">جارٍ التحقق…</string>
   <string name="create_account_email_hint">البريد الإلكتروني (اختياري)</string>
   <string name="create_account_password_repeat_hint">أعد كلمة السر</string>
+  <string name="create_account_password_is_username">لا يمكن أن تكون كلمة المرور هي نفس اسم المستخدم</string>
   <string name="create_account_passwords_mismatch_error">كلمتا السر لا تتطابقان</string>
   <string name="create_account_email_error">عنوان البريد الإلكتروني غير صحيح</string>
   <string name="create_account_username_error">أحرف غير صالحة في اسم المستخدم</string>
@@ -228,7 +236,6 @@
   <string name="page_protected_can_not_edit_title">هذه الصفحة محمية</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">أضف لقائمة المراقبة</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">كن على اطلاع بما يحدث على المقالات التي تهمك. اضغط على قائمة الخيارات واختر &lt;b&gt;أضف لقائمة المراقبة&lt;/b&gt; لرؤية التغييرات على المقالة.</string>
-  <string name="page_notification_tooltip">إشعاراتك موجودة هنا الآن.</string>
   <string name="settings_item_preferences">الإعدادات</string>
   <string name="settings_activity_title">الإعدادات</string>
   <string name="about_description">حول تطبيق ويكيبيديا</string>
@@ -409,6 +416,7 @@
   <string name="empty_tab_title">تبويب جديد</string>
   <string name="menu_save_all_tabs">حفظ كل الألسنة</string>
   <string name="error_blocked_title">عنوان الآي بي أو اسم المستخدم الخاص بك تم منعه.</string>
+  <string name="error_blocked_reason">السبب المُعطى هو: %s</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
@@ -631,6 +639,8 @@
   <string name="notifications_view_archived_button_text">عرض الإشعارات المؤرشفة</string>
   <string name="notification_preferences_title">تفضيلات الإشعارات</string>
   <string name="notifications_mark_unread">علم كغير مقروءة</string>
+  <string name="notifications_mark_all_as_read">اعتبرها كلها مقروءة</string>
+  <string name="notifications_direct_reply_action">رد</string>
   <string name="watchlist_title">قائمة المراقبة</string>
   <string name="preference_title_notification_poll">إشعارات الاستقصاء</string>
   <string name="preference_summary_notification_poll">السماح للتطبيق باستخدام البيانات للتحقق من الإشعارات الجديدة في الخلفية.</string>
@@ -648,7 +658,7 @@
   <string name="preference_title_notification_mention">إشارة</string>
   <string name="preference_summary_notification_mention">شخص ما يذكرك في صفحة</string>
   <string name="preference_title_notification_user_talk">صفحة النقاش</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">رسائل من صفحات النقاش</string>
+  <string name="preference_summary_notification_user_talk">رسائل وردود من صفحات النقاش</string>
   <string name="preference_title_notification_user_rights">تغييرات صلاحيات المستخدم</string>
   <string name="preference_title_notification_article_linked">وصلات إلى المقالات التي أنشأتها</string>
   <string name="preference_category_display_settings">إعدادات العرض</string>
@@ -907,6 +917,7 @@
   <string name="suggested_edits_contribution_article_label">مقالة</string>
   <string name="suggested_edits_contribution_views">%s مشاهدة</string>
   <string name="suggested_edits_contribution_seen_text">شوهدت %s مرة في آخر 30 يوماً</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
   <string name="suggested_edits_encourage_account_creation_title">هل تعلم أنه بإمكان الجميع تعديل ويكيبيديا؟</string>
   <string name="suggested_edits_encourage_account_creation_message">التعديلات المقترحة هي طريقة جديدة لتحرير ويكيبيديا على الأندرويد. تُساعدك على إجراء مساهمات صغيرة ولكنها حيوية في ويكيبيديا.\nهدفنا هو جعل التحرير أسهل وأكثر مرونة للجميع! سجّل الدخول أو انضم لويكيبيديا للبدء.</string>
@@ -1045,6 +1056,9 @@
   <string name="thank_success_message">أُرسل \"شكرك\" إلى %s 👍</string>
   <string name="menu_option_view_user_profile">اعرض صفحة المستخدم</string>
   <string name="menu_option_view_user_talk">اعرض صفحة النقاش</string>
+  <string name="revision_diff_from">من:</string>
+  <string name="revision_diff_to">إلى:</string>
+  <string name="revision_undo_title">تراجع عن التعديل</string>
   <string name="revision_compare_button">مقارنة</string>
   <string name="revision_compare_two_only">يمكن اختيار فقط مراجعين اثنين</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">أُضيفت %1$s وصفحة نقاشها إلى قائمة مراقبتك %2$s.</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Dbrant
+* Dulkith
 * MuratTheTurkish
 * Pradeepmaduranga
 * Sahan.ssw
@@ -13,37 +14,78 @@
   <string name="app_name_beta">විකිපීඩියා බීටා</string>
   <string name="app_name_alpha">විකිපීඩිය ඇල්ෆා</string>
   <string name="wikimedia">විකිමාධ්‍ය</string>
+  <string name="nav_item_back">ආපසු</string>
+  <string name="page_tabs_back">ආපසු</string>
+  <string name="nav_item_forward">ඉදිරියට</string>
   <string name="search_hint">විකිපීඩියාව ගවේෂණය කරන්න</string>
+  <string name="search_hint_voice_search">හඩ ආදාන සෙවීම</string>
+  <string name="search_hint_search_languages">භාෂාවක් සොයන්නා</string>
+  <string name="nav_item_suggested_edits">සංස්කරණ</string>
+  <string name="nav_item_more">තවත්</string>
+  <string name="nav_item_search">සොයන්න</string>
   <string name="error_network_error">අන්තර්ජාලය වෙත සම්බන්ධ විය නොහැක.</string>
   <string name="page_error_retry">නැවත උත්සහ කරන්න</string>
   <string name="page_error_back_to_main">ආපසු යන්න</string>
+  <string name="error_back">ආපසු යන්න</string>
+  <string name="error_next">ඊළග</string>
   <string name="menu_clear_all_history">ඉතිහාසය ඉවත් කරන්න</string>
+  <string name="history_item_deleted">%s ඉතිහාසයෙන් ඉවත් කරන ලදි</string>
+  <string name="history_items_deleted">%d ලිපිය ඉතිහාසයෙන් ඉවත් කරන ලදි</string>
+  <string name="history_item_delete_undo">පසුගමනය</string>
+  <string name="notification_archive_undo">පසුගමනය</string>
+  <string name="app_settings">යෙදුම් සැකසීම්</string>
+  <string name="history_list_title">ඉතිහාසය</string>
+  <string name="image_content_description">පින්තූරය : %s</string>
+  <string name="page_content_description">පිටුව : %s</string>
+  <string name="wikidata">විකිදත්ත</string>
   <string name="dialog_title_clear_history">සෙවුම් ඉතිහාසය මකන්න</string>
   <string name="dialog_message_clear_history">මෙමගින් ඔබේ සියලු සෙවුම් ඉතිහාසය මකා දැමෙනු ඇත, එමෙන්ම සියලු විවෘත ටැබ්(කුඩා තීරු) ද වැසෙනු ඇත. ඔබට සහතික ද?</string>
+  <string name="dialog_message_clear_history_yes">ඔව්</string>
+  <string name="dialog_message_clear_history_no">නැහැ</string>
   <string name="share_via">මගින් හුවමාරු කරන්න</string>
   <string name="search_redirect_from">%s වෙතින් යළි යොමුකරන ලදී</string>
   <string name="menu_page_show_tabs">ටැබ් පෙන්වන්න</string>
   <string name="menu_page_other_languages">භාෂාව වෙනස් කරන්න</string>
-  <string name="menu_page_find_in_page" fuzzy="true">පිටුවෙහි සොයන්න</string>
+  <string name="menu_page_find_in_page">පිටුවෙහි සොයන්න</string>
+  <string name="menu_page_add_to_watchlist">නැරඹුම් ලැයිස්තුවට එක් කරන්න</string>
+  <string name="menu_page_watch">නරඹන්න</string>
+  <string name="menu_page_view_edit_history">සංස්කරණ ඉතිහාසය බලන්න</string>
+  <string name="menu_page_edit_history">ඉතිහාසය සංස්කරණය</string>
+  <string name="menu_page_remove_from_watchlist">නැරඹුම් ලැයිස්තුවෙන් මකන්න</string>
+  <string name="edit_section_find_in_page">පිටුවෙහි සොයන්න</string>
   <string name="menu_page_font_and_theme">අකුරු රටාව හා තේමාව</string>
   <string name="menu_page_add_to_list">කියවීමේ ලැයිස්තුවට එක්කරන්න</string>
+  <string name="menu_page_add_to_default_list">සුරකින්න</string>
+  <string name="feed_card_add_to_list">කියවීම් ලැයිස්තුවට එක්කරන්න</string>
+  <string name="feed_card_add_to_default_list">සුරකින්න</string>
   <string name="menu_page_share">සබැඳිය හුවමාරු කරන්න</string>
+  <string name="menu_article_share">ලිපිය බෙදාගන්න</string>
+  <string name="menu_page_article_share">බෙදාගන්න</string>
+  <string name="menu_page_open_a_new_tab">නව පටිත්තක විවෘත කරන්න</string>
+  <string name="menu_page_new_tab">නව පටිත්ත</string>
+  <string name="menu_page_reading_lists">කියවීම් ලැයිස්තු</string>
   <string name="menu_long_press_open_page">විවෘත කරන්න</string>
   <string name="menu_long_press_open_in_new_tab">නව ටැබයක විවෘත කරන්න</string>
   <string name="menu_long_press_copy_page">සබැඳි ලිපිනය පිටපත් කරන්න</string>
   <string name="menu_text_select_define">පැහැදිලි කිරීම</string>
+  <string name="on_this_day_page_share">බෙදාගන්න</string>
+  <string name="reading_list_page_share">බෙදාගන්න</string>
   <string name="menu_text_select_edit_here">මෙහි සංස්කරණය කරන්න</string>
   <string name="last_updated_text">අවසන් යාවත්කාලීන කිරීම %s</string>
-  <string name="talk_page_link_text" fuzzy="true">සාකච්ඡාව</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">සුරැකීම මගින්, &lt;a href=\"%1$s\"&gt;භාවිතයේ කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">සුරැකීම මගින්, &lt;a href=\"%1$s\"&gt;භාවිතයේ කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ. ඔබේ උපාංගයේ IP ලිපිනයට සංස්කරණ ආරෝපණය කෙරෙනු ඇත. ඔබ &lt;a href=\"https://#login\"&gt;පිවිසියේ&lt;/a&gt; නම්, ඔබේ පෞද්ගලිකත්වයට වැඩි ඉඩක් හිමිවනු ඇත.</string>
-  <string name="preference_title_language" fuzzy="true">විකිපීඩියා භාෂාව</string>
+  <string name="talk_page_link_text">සාකච්ඡා පිටුව බලන්න</string>
+  <string name="edit_history_link_text">සංස්කරණ ඉතිහාසය බලන්න</string>
+  <string name="map_view_link_text">සිතියම බලන්න</string>
+  <string name="other_languages_indication_text">වෙනත් භාෂාවකින් කියවන්න</string>
+  <string name="edit_save_action_license_logged_in">සුරැකීම මගින්, &lt;a href=\"%1$s\"&gt;භාවිත කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත්‍රය යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ.</string>
+  <string name="edit_save_action_license_anon">සුරැකීම මගින්, &lt;a href=\"%1$s\"&gt;භාවිත කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත්‍රය යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ. ඔබේ උපාංගයේ IP ලිපිනයට සංස්කරණ ආරෝපණය කෙරෙනු ඇත. ඔබ &lt;a href=\"https://#login\"&gt;පිවිසියේ&lt;/a&gt; නම්, ඔබේ පෞද්ගලිකත්වයට වැඩි ඉඩක් හිමිවනු ඇත.</string>
+  <string name="preference_title_language">විකිපීඩියා භාෂා</string>
   <string name="langlinks_filter_hint">සොයන්න</string>
   <string name="langlinks_empty">මෙම පිටුව වෙනත් භාෂාවලින් ලබාගත නොහැක</string>
-  <string name="langlinks_no_match" fuzzy="true">ඔබේ සෙවීමට සමාන භාෂා සොයාගැනීමට නොහැක</string>
+  <string name="langlinks_no_match">ඔබේ සෙවීමට සමාන භාෂා සොයාගැනීමට නොහැක</string>
   <string name="langlinks_activity_title">වෙනත් භාෂාවන්</string>
-  <string name="menu_save_changes" fuzzy="true">වෙනස්කම් සුරකින්න</string>
-  <string name="edit_saved_successfully" fuzzy="true">සංස්කරණය සුරකින ලදී!</string>
+  <string name="langlinks_your_wikipedia_languages">ඔබේ විකිපීඩියා භාෂාව</string>
+  <string name="menu_save_changes">වෙනස්කම් සුරකින්න</string>
+  <string name="edit_saved_successfully">සංස්කරණ සුරකින ලදී!</string>
   <string name="dialog_message_edit_failed">සංස්කරණය අසාර්ථකයි!</string>
   <string name="dialog_message_edit_failed_retry">නැවත උත්සහ කරන්න</string>
   <string name="dialog_message_edit_failed_cancel">අවලංගු කරන්න</string>
@@ -51,18 +93,28 @@
   <string name="dialog_message_leaving_edit_stay">inna</string>
   <string name="menu_show_toc">පටුන</string>
   <string name="search_no_results_found">ප්‍රතිඑල හමු නොවුණි</string>
+  <string name="search_reading_list_no_results">\"%s\" සදහා ප්‍රතිඵල සොයාගත්තේ නැත</string>
   <string name="edit_section_captcha_hint">කරුණාකර උඩ ඇති වචන නැවත කියන්න</string>
   <string name="title_captcha">CAPTCHA ඇතුල් ක‍රන්න</string>
   <string name="edit_section_captcha_reload">නැවත පෙන්වීමට CAPTCHA මත තට්ටු කරන්න.</string>
   <string name="nav_item_login">පිවිසෙන්න</string>
   <string name="login_username_hint">පරිශීලක නාමය</string>
   <string name="login_password_hint">මුරපදය</string>
+  <string name="account_creation_password_hint">මුරපදය</string>
+  <string name="onboarding_card_login">ප්‍රවේශ වන්න</string>
+  <string name="page_editing_login">ප්‍රවේශ වන්න</string>
+  <string name="reading_lists_sync_login">ප්‍රවේශ වන්න</string>
+  <string name="create_account_login">ප්‍රවේශ වන්න</string>
   <string name="menu_login">පිවිසෙන්න</string>
-  <string name="login_activity_title" fuzzy="true">විකිපීඩියාවට පිවිසෙන්න</string>
+  <string name="login_activity_title">ප්‍රවේශ වන්න</string>
   <string name="login_in_progress_dialog_message">ඔබව ඇතුළු කරමින්…</string>
-  <string name="login_success_toast" fuzzy="true">පිවිසුම සාර්ථකයි!</string>
+  <string name="login_success_toast">ප්‍රවේශ විය!</string>
+  <string name="reset_password_hint">නව මුරපදය</string>
   <string name="preference_title_logout">නික්මීම</string>
   <string name="toast_logout_complete">නික්මී ඇත</string>
+  <string name="logout_dialog_cancel_button_text">අවලංගු කරන්න</string>
+  <string name="logged_out_in_background_login">ප්‍රවේශ වන්න</string>
+  <string name="logged_out_in_background_cancel">අවලංගු කරන්න</string>
   <string name="history_empty_title" fuzzy="true">මෑත පිටු මෙහි නොමැත!</string>
   <string name="wp_stylized">&lt;big&gt;වි&lt;/big&gt;කිපීඩි&lt;big&gt;යා&lt;/big&gt;</string>
   <string name="create_account_username_hint">පරිශීලක නාමය</string>

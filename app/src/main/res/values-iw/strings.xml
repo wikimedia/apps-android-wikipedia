@@ -69,12 +69,19 @@
   <string name="page_edit_history_activity_title">היסטוריית גרסאות:  %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;מ&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">תקציר עריכה ריק</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">עריכה %1$d מאז %2$s</item>
+    <item quantity="two">%1$d עריכות מאז %2$s</item>
+    <item quantity="many">%1$d עריכות מאז %2$s</item>
+    <item quantity="other">%1$d עריכות מאז %2$s</item>
+  </plurals>
   <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
   <string name="menu_page_add_to_watchlist">הוספה לרשימת המעקב</string>
   <string name="menu_page_watch">לעקוב</string>
+  <string name="menu_page_unwatch">הפסקת מעקב</string>
   <string name="menu_page_view_talk">הצגת דף השיחה</string>
   <string name="menu_page_talk_page">דף שיחה</string>
   <string name="menu_page_view_edit_history">הצגת היסטוריית עריכות</string>
@@ -223,7 +230,6 @@
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">הוספה לרשימת המעקב</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">עקוב אחרי מה שקורה הערכים שמעניינים אותך. לחץ על תפריט הפעולות הנוספות ובחר &lt;b&gt;הוספה לרשימת המעקב&lt;/b&gt; כיד לראות את השינויים לערך.</string>
-  <string name="page_notification_tooltip">עכשיו ההתראות שלך נמצאות כאן.</string>
   <string name="settings_item_preferences">הגדרות</string>
   <string name="settings_activity_title">הגדרות</string>
   <string name="about_description">אודות יישום ויקיפדיה</string>
@@ -934,6 +940,7 @@
   <string name="suggested_edits_paused_message">עריכות מוצעות הופסקו עד %1$s. מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_disabled_message">עריכות מוצעות הופסקו. מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסומה כרגע מעריכת ויקיפדיה.</string>
+  <string name="suggested_edits_gate_message">סליחה\" %s, חובה לעשות לפחות שלוש עריכות ישירות בערך כדי להשתמש בתכונה הזאת.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
@@ -1168,6 +1175,21 @@
   <string name="thank_success_message">התודה שלך נשלחה למשתמש %s 👍</string>
   <string name="menu_option_view_user_profile">הצגת דף פרופיל משתמש</string>
   <string name="menu_option_view_user_talk">הצגת דף שיחה</string>
+  <string name="menu_option_view_user_contributions">הצגת תרומות משתמש</string>
+  <string name="revision_diff_compare">השוואת גרסאות</string>
+  <string name="revision_diff_compare_title">השוואת גרסאות: %s</string>
+  <string name="revision_diff_from">מאת:</string>
+  <string name="revision_diff_to">אל:</string>
+  <string name="revision_diff_line_num">שורה %d</string>
+  <string name="revision_diff_line_nums">שורות %d–%d</string>
+  <string name="revision_diff_line_added">שורה שנוספה</string>
+  <string name="revision_diff_line_removed">שורה שהוסרה</string>
+  <string name="revision_diff_paragraph_added">פסקה שנוספה</string>
+  <string name="revision_diff_paragraph_removed">פסקה שהוסרה</string>
+  <string name="revision_undo_title">ביטול עריכה</string>
+  <string name="revision_undo_message">זה יבטל את העריכה שנעשתה בגרסת הערך שמוצגת כאן.</string>
+  <string name="revision_undo_reason">כדי להמשיך, נא לספק סיבה לביטול העריכה הזאת:</string>
+  <string name="revision_undo_success">הגרסה בוטלה.</string>
   <string name="revision_compare_button">השוואה</string>
   <string name="revision_compare_two_only">ניתן לבחור שתי גרסאות בלבד.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
@@ -1192,4 +1214,10 @@
   <string name="watchlist_page_moved">הועבר</string>
   <string name="watchlist_page_protected">הוגן</string>
   <string name="watchlist_page_deleted">נמחק</string>
+  <string name="action_item_categories">קטגוריות</string>
+  <string name="page_no_categories">הדף הזה אינו משויך לקטגוריות כלשהן.</string>
+  <string name="category_tab_articles">ערכים</string>
+  <string name="category_tab_subcategories">קטגוריות־משנה</string>
+  <string name="category_empty">לא נמצאו ערכים בקטגוריה הזאת.</string>
+  <string name="subcategory_empty">לא נמצאו קטגוריות־משנה בקטגוריה הזאת.</string>
 </resources>

@@ -32,7 +32,6 @@ class CustomizeToolbarFragment : Fragment() {
                               savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         customizeToolbarEvent = CustomizeToolbarEvent()
-        customizeToolbarEvent.start()
         _binding = FragmentCustomizeToolbarBinding.inflate(LayoutInflater.from(context), container, false)
         return binding.root
     }

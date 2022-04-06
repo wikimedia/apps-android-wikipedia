@@ -90,12 +90,17 @@
   <string name="page_edit_history_activity_title">Cronologia: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Oggetto modifica vuoto</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d modifica dal %2$s</item>
+    <item quantity="other">%1$d modifiche dal %2$s</item>
+  </plurals>
   <string name="page_edit_history_metrics_content_description">Statistiche dal %1$s al %2$s</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lingua</string>
   <string name="menu_page_find_in_page">Trova nella voce</string>
   <string name="menu_page_add_to_watchlist">Aggiungi agli osservati speciali</string>
   <string name="menu_page_watch">Osserva</string>
+  <string name="menu_page_unwatch">Non seguire</string>
   <string name="menu_page_view_talk">Vedi la pagina di discussione</string>
   <string name="menu_page_talk_page">Pagina di discussione</string>
   <string name="menu_page_view_edit_history">Vedi cronologia delle modifiche</string>
@@ -244,7 +249,6 @@
   <string name="page_protected_can_not_edit_title">Questa pagina è protetta</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Aggiungi agli osservati speciali</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Traccia ciò che accade alle voci a cui sei interessato. Premi nel menu e seleziona &lt;b&gt;Aggiungi agli osservati speciali&lt;/b&gt; per vedere le modifiche ad una voce.</string>
-  <string name="page_notification_tooltip">Le tue notifiche adesso stanno qui.</string>
   <string name="settings_item_preferences">Impostazioni</string>
   <string name="settings_activity_title">Impostazioni</string>
   <string name="about_description">Informazioni sull\'applicazione di Wikipedia</string>
@@ -1118,6 +1122,17 @@
   <string name="thank_success_message">Il tuo \'ringraziamento\' è stato inviato a %s 👍</string>
   <string name="menu_option_view_user_profile">Visualizza pagina profilo dell\'utente</string>
   <string name="menu_option_view_user_talk">Vedi la pagina di discussione</string>
+  <string name="revision_diff_compare">Confronta versioni</string>
+  <string name="revision_diff_from">Da:</string>
+  <string name="revision_diff_to">A:</string>
+  <string name="revision_diff_line_num">Riga %d</string>
+  <string name="revision_diff_line_nums">Righe %d–%d</string>
+  <string name="revision_diff_line_added">Riga aggiunta</string>
+  <string name="revision_diff_line_removed">Riga rimossa</string>
+  <string name="revision_diff_paragraph_added">Paragrafo aggiunto</string>
+  <string name="revision_diff_paragraph_removed">Paragrafo rimosso</string>
+  <string name="revision_undo_title">Annulla modifica</string>
+  <string name="revision_undo_success">La versione è stata annullata.</string>
   <string name="revision_compare_button">Confronta</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e la sua pagina di discussione sono state aggiunte alla tua lista degli osservati speciali %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifica</string>
@@ -1141,4 +1156,10 @@
   <string name="watchlist_page_moved">Spostato</string>
   <string name="watchlist_page_protected">Protetto</string>
   <string name="watchlist_page_deleted">Cancellato</string>
+  <string name="action_item_categories">Categorie</string>
+  <string name="page_no_categories">Questa pagina non appartiene ad alcuna categoria.</string>
+  <string name="category_tab_articles">Voci</string>
+  <string name="category_tab_subcategories">Sottocategorie</string>
+  <string name="category_empty">Nessuna voce trovata in questa categoria.</string>
+  <string name="subcategory_empty">Nessuna sottocategoria trovata in questa categoria.</string>
 </resources>
