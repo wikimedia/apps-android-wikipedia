@@ -53,6 +53,15 @@ class ReadingList(
         atime = System.currentTimeMillis()
     }
 
+    fun compareTo(other: Any): Boolean {
+        return (other is ReadingList &&
+                id == other.id &&
+                pages.size == other.pages.size &&
+                numPagesOffline == numPagesOffline &&
+                title == other.title &&
+                description == other.description)
+    }
+
     companion object {
         const val SORT_BY_NAME_ASC = 0
         const val SORT_BY_NAME_DESC = 1
