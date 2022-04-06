@@ -45,9 +45,7 @@
                 android:layout_width="wrap_content"
                 android:drawablePadding="16dp"
                 android:text="@string/customize_toolbar_title"
-                android:textAllCaps="true"
-                android:textSize="14sp"
-                app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
+                app:drawableStartCompat="@drawable/ic_settings_themed_24dp"
                 app:drawableTint="?attr/material_theme_secondary_color" />
 
         </LinearLayout>

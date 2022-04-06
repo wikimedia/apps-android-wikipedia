@@ -46,6 +46,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             binding.overflowList.addView(view)
         }
         binding.customizeToolbar.setOnClickListener {
+            dismissPopupWindowHost()
             context.startActivity(CustomizeToolbarActivity.newIntent(context))
         }
     }
