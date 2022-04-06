@@ -1085,7 +1085,7 @@
   <string name="watchlist_page_deleted">حُذفت</string>
   <string name="theme_chooser_menu_item_short_tooltip">خصص شريط أدواتك</string>
   <string name="customize_toolbar_title">خصص شريط الأدوات</string>
-  <string name="customize_toolbar_shortcut_description_text">خصص شريط الأدوات السفلي باستخدام أكثر 4 اختصارات مفيدة</string>
+  <string name="customize_toolbar_shortcut_description_text">خصص شريط الأدوات السفلي باستخدام أكثر 5 اختصارات مفيدة</string>
   <string name="customize_toolbar_category_toolbar">شريط الأدوات</string>
   <string name="customize_toolbar_category_menu">القائمة</string>
   <string name="customize_toolbar_reset_to_default_button">إعادة تعيين الوضع الافتراضي</string>

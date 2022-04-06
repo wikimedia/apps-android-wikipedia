@@ -26,22 +26,26 @@
                 android:drawablePadding="16dp"
                 android:text="@string/nav_item_forward"
                 app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
-                app:drawableTint="?attr/material_theme_secondary_color" />
+                app:drawableTint="?attr/section_title_color" />
 
         </LinearLayout>
 
-        <TextView
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/material_theme_border_color" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/customize_toolbar"
             style="@style/OverflowMenuItem"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center_vertical"
-            android:letterSpacing="0.05"
+            android:drawablePadding="16dp"
             android:text="@string/customize_toolbar_title"
             android:textAllCaps="true"
-            android:textColor="?attr/colorAccent"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
+            app:drawableTint="?attr/material_theme_secondary_color" />
+
 
     </LinearLayout>
 

@@ -550,7 +550,7 @@
   <string name="revision_compare_two_only">केवल दो संशोधनों का चयन किया जा सकता है।</string>
   <string name="theme_chooser_menu_item_short_tooltip">अपना टूलबार कस्टमाइज़ करें</string>
   <string name="customize_toolbar_title">टूलबार कस्टमाइज़ करें</string>
-  <string name="customize_toolbar_shortcut_description_text">नीचे के टूलबार को 4 शॉर्टकट के साथ कस्टमाइज़ करें जो आपको सबसे ज़्यादा मददगार लगते हैं</string>
+  <string name="customize_toolbar_shortcut_description_text">नीचे के टूलबार को 5 शॉर्टकट के साथ कस्टमाइज़ करें जो आपको सबसे ज़्यादा मददगार लगते हैं</string>
   <string name="customize_toolbar_category_toolbar">टूलबार</string>
   <string name="customize_toolbar_category_menu">मेन्यू</string>
   <string name="customize_toolbar_reset_to_default_button">डिफ़ॉल्ट पर रीसेट करें</string>

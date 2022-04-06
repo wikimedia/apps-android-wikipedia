@@ -669,8 +669,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         anchorView?.let {
             it.postDelayed({
                 if (!isDestroyed) {
-                    FeedbackUtil.showTooltip(this, it, getString(R.string.theme_chooser_menu_item_tooltip),
-                            aboveOrBelow = aboveOrBelow, autoDismiss = false, -DimenUtil.roundedDpToPx(8f), 0)
+                    val balloon = FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip),
+                        arrowAnchorPadding = -DimenUtil.roundedDpToPx(16f), aboveOrBelow = aboveOrBelow, autoDismiss = true, showDismissButton = true)
+                    balloon.showAlignBottom(anchorView)
                 }
             }, 2000)
         }

@@ -1185,5 +1185,5 @@
   <string name="category_empty">Aucun article trouvé dans cette catégorie.</string>
   <string name="subcategory_empty">Aucune sous-catégorie trouvée dans cette catégorie.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personnalisez votre barre d\'outils</string>
-  <string name="customize_toolbar_shortcut_description_text">Personnalisez la barre d\'outils du bas à l\'aide de quatre raccourcis que vous trouvez très utiles</string>
+  <string name="customize_toolbar_shortcut_description_text">Personnalisez la barre d\'outils du bas à l\'aide de cinq raccourcis que vous trouvez très utiles</string>
 </resources>
