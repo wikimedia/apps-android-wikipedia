@@ -867,7 +867,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.setProgressViewOffset(false, -swipeOffset, swipeOffset)
     }
 
-    fun onPageMetadataLoaded() {
+    fun onPageMetadataLoaded(redirectedFrom: String? = null) {
         updateQuickActionsAndMenuOptions()
         if (model.page == null) {
             return
@@ -877,7 +877,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.isRefreshing = false
         requireActivity().invalidateOptionsMenu()
         initPageScrollFunnel()
-        model.page?.title?.redirectedFrom?.let {
+        redirectedFrom?.let {
             FeedbackUtil.makeSnackbar(this.requireActivity(), getString(R.string.redirected_from_snackbar, it), Snackbar.LENGTH_SHORT).show()
         }
         model.readingListPage?.let { page ->

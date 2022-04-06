@@ -171,6 +171,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         if (pageSummaryResponse.body() == null) {
                             throw RuntimeException("Summary response was invalid.")
                         }
+                        var redirectedFrom: String? = model.title!!.text
                         createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
                         if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
                             showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""))
@@ -178,7 +179,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         if (delayLoadHtml) {
                             bridge.resetHtml(title)
                         }
-                        fragment.onPageMetadataLoaded()
+                        if (pageSummaryResponse.raw().priorResponse == null || !pageSummaryResponse.raw().priorResponse!!.isRedirect) {
+                            redirectedFrom = null
+                        }
+                        fragment.onPageMetadataLoaded(redirectedFrom)
 
                         if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                             checkAnonNotifications(title)
@@ -228,14 +232,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
         model.page = page
         model.isWatched = isWatched
         model.hasWatchlistExpiry = hasWatchlistExpiry
-        val originalPageTitle = model.title!!
         model.title = page?.title
         model.title?.let { title ->
-            if (originalPageTitle.redirectedFrom != null) {
-                title.redirectedFrom = originalPageTitle.redirectedFrom
-            } else if (response.raw().priorResponse != null && response.raw().priorResponse!!.isRedirect) {
-                title.redirectedFrom = originalPageTitle.text
-            }
             if (!response.raw().request.url.fragment.isNullOrEmpty()) {
                 title.fragment = response.raw().request.url.fragment
             }
