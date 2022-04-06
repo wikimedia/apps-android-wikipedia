@@ -18,7 +18,6 @@ import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
-import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -34,7 +33,6 @@ import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.*
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY
-import org.wikipedia.Constants.InvokeSource.PAGE_SIDE_PANEL
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.*
 import org.wikipedia.auth.AccountUtil
