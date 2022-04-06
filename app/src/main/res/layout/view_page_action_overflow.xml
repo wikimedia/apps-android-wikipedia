@@ -8,45 +8,48 @@
     android:layout_marginEnd="2dp"
     app:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/overflowList"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/paper_color"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:id="@+id/overflowList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/paper_color"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/overflow_forward"
+                    style="@style/OverflowMenuItem"
+                    android:drawablePadding="16dp"
+                    android:text="@string/nav_item_forward"
+                    app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
+                    app:drawableTint="?attr/section_title_color" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="?attr/material_theme_border_color" />
+
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/overflow_forward"
+                android:id="@+id/customize_toolbar"
                 style="@style/OverflowMenuItem"
+                android:layout_width="wrap_content"
                 android:drawablePadding="16dp"
-                android:text="@string/nav_item_forward"
+                android:text="@string/customize_toolbar_title"
+                android:textAllCaps="true"
+                android:textSize="14sp"
                 app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
-                app:drawableTint="?attr/section_title_color" />
+                app:drawableTint="?attr/material_theme_secondary_color" />
 
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="?attr/material_theme_border_color" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/customize_toolbar"
-            style="@style/OverflowMenuItem"
-            android:layout_width="wrap_content"
-            android:drawablePadding="16dp"
-            android:text="@string/customize_toolbar_title"
-            android:textAllCaps="true"
-            android:textSize="14sp"
-            app:drawableStartCompat="@drawable/ic_arrow_forward_black_24dp"
-            app:drawableTint="?attr/material_theme_secondary_color" />
-
-
-    </LinearLayout>
-
+    </ScrollView>
 </org.wikipedia.views.WikiCardView>

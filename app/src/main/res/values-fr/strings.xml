@@ -925,6 +925,7 @@
   <string name="suggested_edits_paused_message">Les modifications suggérées sont en pause jusqu’au %1$s. Désolé %2$s, certaines de vos contributions récentes ont été annulées.</string>
   <string name="suggested_edits_disabled_message">Les modifications suggérées sont désactivées. Désolé %s, trop de vos contributions récentes ont été annulées.</string>
   <string name="suggested_edits_ip_blocked_message">Il semblerait que votre adresse IP (ou une plage d’adresses IP) soit actuellement bloquée pour modifier Wikipédia.</string>
+  <string name="suggested_edits_gate_message">Désolé, %s, vous devez réaliser au moins trois modifications directement dans un article pour utiliser cette fonctionnalité.</string>
   <string name="suggested_edits_editing_tips_link_text">Modifier les trucs et astuces</string>
   <string name="suggested_edits_help_page_link_text">Page d’aide des Modifications suggérées</string>
   <string name="suggested_edits_edit_streak_label_text">Modifier la trace</string>

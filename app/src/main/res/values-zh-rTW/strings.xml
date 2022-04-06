@@ -83,6 +83,7 @@
   <string name="menu_page_find_in_page">於條目尋找</string>
   <string name="menu_page_add_to_watchlist">新增至監視清單</string>
   <string name="menu_page_watch">監視</string>
+  <string name="menu_page_unwatch">取消監視</string>
   <string name="menu_page_view_talk">檢視討論頁</string>
   <string name="menu_page_talk_page">討論頁</string>
   <string name="menu_page_view_edit_history">檢視編輯歷史</string>
@@ -1115,7 +1116,15 @@
   <string name="thank_success_message">您的感謝已發送給%s 👍</string>
   <string name="menu_option_view_user_profile">檢視使用者個人檔案頁面</string>
   <string name="menu_option_view_user_talk">檢視討論頁</string>
+  <string name="menu_option_view_user_contributions">檢視使用者貢獻</string>
+  <string name="revision_diff_compare">比較修訂</string>
+  <string name="revision_diff_compare_title">比較修訂：%s</string>
+  <string name="revision_diff_from">從：</string>
   <string name="revision_diff_to">至：</string>
+  <string name="revision_diff_line_num">第 %d 行</string>
+  <string name="revision_diff_line_nums">第 %d 到第 %d 行</string>
+  <string name="revision_diff_line_added">行已新增</string>
+  <string name="revision_diff_line_removed">行已移除</string>
   <string name="revision_compare_button">比較</string>
   <string name="revision_compare_two_only">僅能選擇兩個修訂。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s與該討論頁已新增到您的監視清單%2$s。</string>
