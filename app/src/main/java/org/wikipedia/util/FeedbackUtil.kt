@@ -45,6 +45,10 @@ object FeedbackUtil {
         showToastOverView(v, v.contentDescription, LENGTH_SHORT)
     }
 
+    interface Callback {
+        fun onDismissClicked()
+    }
+
     fun showError(activity: Activity, e: Throwable) {
         val error = ThrowableUtil.getAppError(activity, e)
         makeSnackbar(activity, error.error, LENGTH_DEFAULT).also {
@@ -178,7 +182,7 @@ object FeedbackUtil {
     }
 
     fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
-                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
+                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false, callback: Callback? = null): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         if (showDismissButton) {
@@ -204,6 +208,7 @@ object FeedbackUtil {
 
         binding.buttonView.setOnClickListener {
             balloon.dismiss()
+            callback?.onDismissClicked()
         }
 
         return balloon
