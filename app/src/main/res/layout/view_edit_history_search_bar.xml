@@ -13,7 +13,7 @@
     <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:contentDescription="@string/notifications_search_bar_hint"
+        android:contentDescription="@string/page_edit_history_search_or_filter_edits_hint"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_search_white_24dp"
         app:tint="?attr/material_theme_de_emphasised_color" />
@@ -24,7 +24,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
-        android:text="@string/notifications_search_bar_hint"
+        android:text="@string/page_edit_history_search_or_filter_edits_hint"
         android:textColor="?attr/material_theme_secondary_color"/>
 
     <TextView
@@ -39,13 +39,13 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/notification_filter_button"
+        android:id="@+id/filter_by_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="end"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
-        android:contentDescription="@string/notifications_search_bar_filter_hint"
+        android:contentDescription="@string/page_edit_history_filter_by"
         android:focusable="true"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_baseline_tune_24"
