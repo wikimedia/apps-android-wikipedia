@@ -328,7 +328,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
-        //maybeShowWatchlistTooltip()
+        // maybeShowWatchlistTooltip()
         maybeShowThemeTooltip()
     }
 
