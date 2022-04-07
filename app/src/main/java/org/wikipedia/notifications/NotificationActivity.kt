@@ -507,7 +507,7 @@ class NotificationActivity : BaseActivity() {
     private inner class NotificationSearchBarHolder constructor(view: View) :
         RecyclerView.ViewHolder(view) {
         val notificationFilterButton: AppCompatImageView = itemView.findViewById(R.id.notification_filter_button)
-        val notificationFilterCountView: TextView = itemView.findViewById(R.id.notification_filter_count)
+        val notificationFilterCountView: TextView = itemView.findViewById(R.id.filter_count)
 
         init {
             (itemView as WikiCardView).setCardBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.color_group_22))
@@ -586,8 +586,18 @@ class NotificationActivity : BaseActivity() {
                     override fun onQueryTextFocusChange() {
                     }
 
+                    override fun onFilterIconClick() {
+                        NotificationPreferencesFunnel(WikipediaApp.getInstance()).logFilterClick()
+                        DeviceUtil.hideSoftKeyboard(this@NotificationActivity)
+                        startActivity(NotificationFilterActivity.newIntent(this@NotificationActivity))
+                    }
+
                     override fun getExcludedFilterCount(): Int {
                         return viewModel.excludedFiltersCount()
+                    }
+
+                    override fun getFilterIconContentDescription(): Int {
+                        return R.string.notifications_search_bar_filter_hint
                     }
                 })
 

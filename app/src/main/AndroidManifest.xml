@@ -308,7 +308,8 @@
 
         <activity
             android:name=".page.edithistory.EditHistoryListActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
