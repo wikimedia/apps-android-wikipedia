@@ -1,6 +1,7 @@
 package org.wikipedia.test
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import kotlinx.serialization.ExperimentalSerializationApi
 import okhttp3.MediaType.Companion.toMediaType
 import org.junit.Before
 import org.wikipedia.dataclient.RestService
@@ -18,6 +19,7 @@ abstract class MockRetrofitTest : MockWebServerTest() {
     protected val wikiSite = forLanguageCode("en")
 
     @Before
+    @ExperimentalSerializationApi
     @Throws(Throwable::class)
     override fun setUp() {
         super.setUp()

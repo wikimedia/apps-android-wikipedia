@@ -1,5 +1,6 @@
 package org.wikipedia.test
 
+import kotlinx.serialization.ExperimentalSerializationApi
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockResponse
@@ -15,6 +16,7 @@ abstract class MockWebServerTest {
     private val server = TestWebServer()
 
     @Before
+    @ExperimentalSerializationApi
     @Throws(Throwable::class)
     open fun setUp() {
         val builder = client.newBuilder()
