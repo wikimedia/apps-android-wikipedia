@@ -149,6 +149,10 @@ class EditHistoryListActivity : BaseActivity() {
                 }
             }
         }
+
+        if (viewModel.actionModeActive) {
+            startSearchActionMode()
+        }
     }
 
     private fun updateCompareState() {
@@ -202,15 +206,36 @@ class EditHistoryListActivity : BaseActivity() {
         super.onBackPressed()
     }
 
+    private fun startSearchActionMode() {
+        actionMode = startSupportActionMode(searchActionModeCallback)
+    }
+
+    fun showFilterOverflowMenu() {
+        val editCountsFlowValue = viewModel.editHistoryStatsFlow.value
+        if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
+            val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
+                searchActionModeCallback.searchBarFilterIcon!! else if (editHistorySearchBarAdapter.viewHolder != null)
+                    editHistorySearchBarAdapter.viewHolder!!.binding.filterByButton else binding.root
+            EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsFlowValue) {
+                setupAdapters()
+                editHistoryListAdapter.reload()
+                editHistorySearchBarAdapter.notifyItemChanged(0)
+                actionMode?.let {
+                    searchActionModeCallback.updateFilterIconAndText()
+                }
+            }
+        }
+    }
+
     private inner class SearchBarAdapter : RecyclerView.Adapter<SearchBarViewHolder>() {
-        lateinit var viewHolder: SearchBarViewHolder
+        var viewHolder: SearchBarViewHolder? = null
         override fun onBindViewHolder(holder: SearchBarViewHolder, position: Int) {
             holder.bindItem()
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchBarViewHolder {
             viewHolder = SearchBarViewHolder(ViewEditHistorySearchBarBinding.inflate(layoutInflater, parent, false))
-            return viewHolder
+            return viewHolder!!
         }
 
         override fun getItemCount(): Int { return 1 }
@@ -343,11 +368,11 @@ class EditHistoryListActivity : BaseActivity() {
                 )
 
                 itemView.setOnClickListener {
-                    actionMode = startSupportActionMode(searchActionModeCallback)
+                    startSearchActionMode()
                 }
 
                 binding.filterByButton.setOnClickListener {
-                    showOverflowMenu()
+                    showFilterOverflowMenu()
                 }
 
                 FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
@@ -355,7 +380,7 @@ class EditHistoryListActivity : BaseActivity() {
             }
         }
 
-        fun updateFilterCount() {
+        private fun updateFilterCount() {
             if (Prefs.editHistoryFilterType.isEmpty()) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
@@ -367,28 +392,12 @@ class EditHistoryListActivity : BaseActivity() {
                     ColorStateList.valueOf(ResourceUtil.getThemedColor(this@EditHistoryListActivity, R.attr.colorAccent)))
             }
         }
-
-        fun showOverflowMenu() {
-            val editCountsFlowValue = viewModel.editHistoryStatsFlow.value
-            if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
-                val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
-                    searchActionModeCallback.searchBarFilterIcon!! else binding.filterByButton
-                EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsFlowValue) {
-                    setupAdapters()
-                    editHistoryListAdapter.reload()
-                    updateFilterCount()
-                    actionMode?.let {
-                        searchActionModeCallback.updateFilterIconAndText()
-                    }
-                }
-            }
-        }
     }
 
     private inner class EmptyMessagesViewHolder constructor(val binding: ViewEditHistoryEmptyMessagesBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.emptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
-                editHistorySearchBarAdapter.viewHolder.showOverflowMenu()
+                showFilterOverflowMenu()
             }
         }
 
@@ -472,7 +481,7 @@ class EditHistoryListActivity : BaseActivity() {
                     }
 
                     override fun onFilterIconClick() {
-                        editHistorySearchBarAdapter.viewHolder.showOverflowMenu()
+                        showFilterOverflowMenu()
                     }
 
                     override fun getExcludedFilterCount(): Int {
@@ -489,7 +498,9 @@ class EditHistoryListActivity : BaseActivity() {
             MenuItemCompat.setActionProvider(menuItem, searchAndFilterActionProvider)
 
             actionMode = mode
+            searchAndFilterActionProvider?.setQueryText(viewModel.currentQuery)
             setupAdapters()
+            viewModel.actionModeActive = true
             return super.onCreateActionMode(mode, menu)
         }
 
@@ -504,6 +515,7 @@ class EditHistoryListActivity : BaseActivity() {
             actionMode = null
             viewModel.currentQuery = ""
             editHistoryListAdapter.reload()
+            viewModel.actionModeActive = false
             setupAdapters()
         }
 
