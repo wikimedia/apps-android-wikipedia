@@ -589,4 +589,8 @@ object Prefs {
     var talkTopicsSortMode
         get() = PrefsIoUtil.getInt(R.string.preference_key_talk_topics_sort_mode, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_talk_topics_sort_mode, value)
+
+    var editHistoryFilterType
+        get() = PrefsIoUtil.getString(R.string.preference_key_edit_history_filter_type, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_edit_history_filter_type, value)
 }
