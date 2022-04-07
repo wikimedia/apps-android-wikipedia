@@ -73,16 +73,6 @@ class EventPlatformClientTest {
     }
 
     @Test
-    fun testOutputBufferSendsEnqueuedEventsOnEnabled() {
-        Mockito.mockStatic(EventPlatformClient.OutputBuffer::class.java).use { outputBuffer ->
-            EventPlatformClient.setEnabled(true)
-            outputBuffer.verify(
-                Mockito.times(1)
-            ) { EventPlatformClient.OutputBuffer.sendAllScheduled() }
-        }
-    }
-
-    @Test
     fun testAssociationControllerGetPageViewId() {
         val pageViewId = EventPlatformClient.AssociationController.pageViewId
         MatcherAssert.assertThat(pageViewId.length, CoreMatchers.equalTo(20))
