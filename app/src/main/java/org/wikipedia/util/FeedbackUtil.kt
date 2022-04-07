@@ -19,6 +19,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.feed.FeedContentType
 import org.wikipedia.main.MainActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
@@ -43,6 +44,11 @@ object FeedbackUtil {
     }
     private val TOOLBAR_ON_CLICK_LISTENER = View.OnClickListener { v ->
         showToastOverView(v, v.contentDescription, LENGTH_SHORT)
+    }
+
+
+    interface Callback {
+        fun onDismissClicked()
     }
 
     fun showError(activity: Activity, e: Throwable) {
@@ -178,7 +184,7 @@ object FeedbackUtil {
     }
 
     fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
-                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
+                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false, callback: Callback? = null): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         if (showDismissButton) {
@@ -202,6 +208,7 @@ object FeedbackUtil {
 
         binding.buttonView.setOnClickListener {
             balloon.dismiss()
+            callback?.onDismissClicked()
         }
 
         return balloon

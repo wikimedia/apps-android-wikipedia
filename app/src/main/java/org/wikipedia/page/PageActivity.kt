@@ -51,6 +51,7 @@ import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
+import org.wikipedia.util.FeedbackUtil.Callback
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
@@ -58,7 +59,8 @@ import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.widgets.WidgetProviderFeaturedPage
 import java.util.*
 
-class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Callback, FrameLayoutNavMenuTriggerer.Callback {
+class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Callback, FrameLayoutNavMenuTriggerer.Callback,
+    Callback {
 
     enum class TabPosition {
         CURRENT_TAB, CURRENT_TAB_SQUASH, NEW_TAB_BACKGROUND, NEW_TAB_FOREGROUND, EXISTING_TAB
@@ -661,11 +663,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         anchorView.postDelayed({
             if (!isDestroyed) {
                 val balloon = FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip),
-                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(0f), autoDismiss = false, showDismissButton = true)
+                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(0f), autoDismiss = false, showDismissButton = true, callback = this)
                 balloon.showAlignBottom(anchorView)
             }
         }, 1000)
-        Prefs.showOneTimeCustomizeToolbarTooltip = false
     }
 
     private fun enqueueTooltip(runnable: Runnable) {
@@ -791,5 +792,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 .putExtra(EXTRA_HISTORYENTRY, entry)
                 .putExtra(EXTRA_PAGETITLE, title)
         }
+    }
+
+    override fun onDismissClicked() {
+        Prefs.showOneTimeCustomizeToolbarTooltip = false
     }
 }
