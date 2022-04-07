@@ -33,6 +33,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     var selectedRevisionTo: MwQueryPage.Revision? = null
         private set
     var currentQuery = ""
+    var actionModeActive = false
 
     var editHistorySource: EditHistoryPagingSource? = null
     private val cachedRevisions = mutableListOf<MwQueryPage.Revision>()

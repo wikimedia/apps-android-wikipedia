@@ -84,4 +84,8 @@ class SearchAndFilterActionProvider(context: Context,
                 ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorAccent)))
         }
     }
+
+    fun setQueryText(text: String?) {
+        binding.searchInput.setQuery(text, false)
+    }
 }
