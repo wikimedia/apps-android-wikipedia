@@ -323,7 +323,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
-        maybeShowWatchlistTooltip()
+        maybeShowCustomizeToolbarTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -660,7 +660,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         val anchorView = pageFragment.getMoreMenuView()
         anchorView.postDelayed({
             if (!isDestroyed) {
-                val balloon = FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(16f), autoDismiss = true, showDismissButton = true)
+                val balloon = FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip),
+                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(0f), autoDismiss = false, showDismissButton = true)
                 balloon.showAlignBottom(anchorView)
             }
         }, 1000)

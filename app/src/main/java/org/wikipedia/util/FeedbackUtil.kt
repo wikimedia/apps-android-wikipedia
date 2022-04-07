@@ -192,8 +192,6 @@ object FeedbackUtil {
             setArrowSize(24)
             setMarginLeft(8)
             setMarginRight(8)
-            setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
-            setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
             setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(binding.root)

@@ -33,12 +33,7 @@
         android:id="@+id/customize_toolbar"
         style="@style/OverflowMenuItem"
         android:drawablePadding="16dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center_vertical"
-        android:letterSpacing="0.05"
         android:text="@string/customize_toolbar_title"
-        android:textAllCaps="true"
-        android:textSize="14sp"
         app:drawableStartCompat="@drawable/ic_settings_themed_24dp"
         app:drawableTint="?attr/section_title_color" />
 </LinearLayout>
