@@ -82,11 +82,18 @@
   <string name="page_edit_history_activity_title">Label text for the new edit history screen when the edit history stats view is not visible. %s will be replaced by the title of the article.</string>
   <string name="page_edit_history_minor_edit">Letter m to represent that the edit is a minor edit. %s represents the edit comment.</string>
   <string name="page_edit_history_comment_placeholder">Placeholder text when a comment is not available on an edit.</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Text hint for the search bar in edit history.</string>
+  <string name="page_edit_history_filter_by">Menu header for the overflow menu when clicking on the filter icon in the search bar in edit history.</string>
+  <string name="page_edit_history_filter_by_all">Menu item text for the filter overflow menu to show all edits in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_filter_by_user">Menu item text for the filter overflow menu to show user edits in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_filter_by_anon">Menu item text for the filter overflow menu to show anonymous in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_filter_by_bot">Menu item text for the filter overflow menu to show bot edits in edit history. %s will be replaced by the number of edits.</string>
+  <string name="page_edit_history_metrics_content_description">Content description of the metrics of edit history in the time range. The %1$s will be replaced by the start date and %2$s will be replaced by the end date of the time range.</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">Text of showing the year since the article has been created and the total edit counts. Format:\n: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\'\'text to display (for one edit)\'\'&lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\nIn the \'\'text to display\'\', the &lt;code&gt;%1$d &lt;/code&gt; will be replaced by the total edit counts, and the &lt;code&gt;%2$s&lt;/code&gt; will be replaced by the year.</item>
     <item quantity="other">Text of showing the year since the article has been created and the total edit counts. Format:\n: &lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\'\'text to display (for two edits or more)\'\'&lt;code&gt;&lt;nowiki&gt;&lt;/nowiki&gt;&lt;/code&gt;\nIn the \'\'text to display\'\', the &lt;code&gt;%1$d &lt;/code&gt; will be replaced by the total edit counts, and the &lt;code&gt;%2$s&lt;/code&gt; will be replaced by the year.</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">Content description of the metrics of edit history in the time range. The %1$s will be replaced by the start date and %2$s will be replaced by the end date of the time range.</string>
+  <string name="page_edit_history_empty_search_message">Empty message text hinting the user to change filters to see more revision history. Please keep the anchor link around the word \"filters\".</string>
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
