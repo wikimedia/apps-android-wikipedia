@@ -70,11 +70,18 @@
   <string name="page_edit_history_activity_title">Historial de revisões: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Resumo de edição vazio</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Pesquisar ou filtrar edições</string>
+  <string name="page_edit_history_filter_by">Filtrar por</string>
+  <string name="page_edit_history_filter_by_all">Todas as edições (%s)</string>
+  <string name="page_edit_history_filter_by_user">Edições do utilizador (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Edições de anónimos (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Edições de robôs (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Métricas desde %1$s até %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d edição desde %2$s</item>
     <item quantity="other">%1$d edições desde %2$s</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">Métricas desde %1$s até %2$s</string>
+  <string name="page_edit_history_empty_search_message">Tente alterar os &lt;a href=\"#\"&gt;filtros&lt;/a&gt; para ver mais edições</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
   <string name="menu_page_find_in_page">Localizar no artigo</string>

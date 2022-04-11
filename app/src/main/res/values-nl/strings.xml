@@ -84,6 +84,8 @@
   <string name="page_edit_history_activity_title">Versiegeschiedenis: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Lege bewerkingssamenvatting</string>
+  <string name="page_edit_history_filter_by">Filteren op</string>
+  <string name="page_edit_history_filter_by_all">Alle bewerkingen (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d bewerking sinds %2$s</item>
     <item quantity="other">%1$d bewerkingen sinds %2$s</item>
@@ -1125,6 +1127,8 @@
   <string name="menu_option_view_user_contributions">Gebruikersbijdragen bekijken</string>
   <string name="revision_diff_compare">Versies vergelijken</string>
   <string name="revision_diff_compare_title">Versies vergelijken: %s</string>
+  <string name="revision_diff_from">Van:</string>
+  <string name="revision_diff_to">Naar:</string>
   <string name="revision_diff_line_num">Regel %d</string>
   <string name="revision_diff_line_nums">Regels %d–%d</string>
   <string name="revision_diff_line_added">Regel toegevoegd</string>
