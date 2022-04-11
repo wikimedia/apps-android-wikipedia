@@ -65,12 +65,24 @@
   <string name="page_edit_history_activity_title">Versionshistorik: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Tom redigeringssammanfattning</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Sök eller filtrera redigeringar</string>
+  <string name="page_edit_history_filter_by">Filtrera efter</string>
+  <string name="page_edit_history_filter_by_all">Alla redigeringar (%s)</string>
+  <string name="page_edit_history_filter_by_user">Användarredigeringar (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonyma redigeringar (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Robotredigeringar (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mätvärden från %1$s till %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d redigering sedan %2$s</item>
+    <item quantity="other">%1$d redigeringar sedan %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Testa att ändra &lt;a href=\"#\"&gt;filter&lt;/a&gt; för att se fler redigeringar</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
   <string name="menu_page_find_in_page">Hitta i artikeln</string>
   <string name="menu_page_add_to_watchlist">Lägg till i bevakningslistan</string>
   <string name="menu_page_watch">Bevaka</string>
+  <string name="menu_page_unwatch">Sluta bevaka</string>
   <string name="menu_page_view_talk">Visa diskussionssida</string>
   <string name="menu_page_talk_page">Diskussionssida</string>
   <string name="menu_page_view_edit_history">Visa redigeringshistorik</string>
@@ -443,17 +455,17 @@
   <string name="reading_list_added_view_button">Visa lista</string>
   <string name="reading_list_add_to_list_button">Lägg till i lista</string>
   <plurals name="format_reading_list_statistical_summary">
-    <item quantity="one">1 artikel • %2$.2f MB</item>
-    <item quantity="other">%1$d artiklar • %2$.2f MB</item>
+    <item quantity="one">1 artikel, %2$.2f MB</item>
+    <item quantity="other">%1$d artiklar, %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">%1$d av 1 artikel är tillgänglig offline • %3$.2f MB</item>
-    <item quantity="other">%1$d av %2$d artiklar är tillgängliga offline • %3$.2f MB</item>
+    <item quantity="one">%1$d av 1 artikel är tillgänglig offline, %3$.2f MB</item>
+    <item quantity="other">%1$d av %2$d artiklar är tillgängliga offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel • %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artiklar • %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel är tillgänglig offline • %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar är tillgängliga offline • %3$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artiklar, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel är tillgänglig offline, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar är tillgängliga offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortera</string>
   <string name="reading_list_sort_ellipsis">Sortera efter...</string>
   <string name="reading_list_sort_by_name">Sortera efter namn</string>
@@ -638,7 +650,7 @@
   <string name="preference_title_notification_thanks">Tack</string>
   <string name="preference_summary_notification_thanks">Någon tackar dig för en redigering</string>
   <string name="preference_title_notification_revert">Återställning</string>
-  <string name="preference_summary_notification_revert">Ett av dina bidrag återställs</string>
+  <string name="preference_summary_notification_revert">Ett av dina bidrag återställdes</string>
   <string name="preference_title_notification_login_fail">Inloggning</string>
   <string name="preference_summary_notification_login_fail">Dina inloggningsaktiviteter</string>
   <string name="preference_title_notification_mention">Omnämnande</string>
@@ -685,7 +697,7 @@
   <string name="notifications_menu_user_talk_page">%ss diskussionssida</string>
   <string name="notifications_offline_disable_message">Funktionen är inte tillgänglig när du saknar uppkoppling.</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
-  <string name="view_random_card_title">Slumpartikel</string>
+  <string name="view_random_card_title">Slumpgenerator</string>
   <string name="view_random_article_card_title">Slumpartikel</string>
   <string name="view_random_article_card_action">Fler slumpartiklar</string>
   <string name="view_top_read_card_title">Mest lästa</string>
@@ -749,7 +761,7 @@
   <string name="description_edit_add_caption_label">Bildbeskrivning</string>
   <string name="description_edit_add_caption_hint">Bildtext</string>
   <string name="description_edit_translate_caption_label_per_language">Bildtext (%s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">Bildtexter (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Bildtext (%s)</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_read">Läs</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
@@ -827,7 +839,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Låst tills du har redigerat %d artikelbeskrivningar (verifierade)</string>
   <string name="suggested_edits_task_multilingual_negative">Ingenting för mig</string>
   <string name="suggested_edits_task_multilingual_positive">Lägg till språk</string>
-  <string name="suggested_edits_image_caption_summary_title_image">Fil</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Bild</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Konstnär</string>
   <string name="suggested_edits_image_caption_summary_title_author">Författare</string>
   <string name="suggested_edits_image_caption_summary_title_source">Källa</string>
@@ -839,10 +851,10 @@
   </plurals>
   <string name="suggested_edits_feed_card_title">Redigeringsförslag</string>
   <string name="suggested_edits_feed_card_add_description_button">Lägg till artikelbeskrivning</string>
-  <string name="suggested_edits_feed_card_add_translation_in_language_button">Lägg till beskrivningar %s</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Lägg till artikelbeskrivningar %s</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildtexter (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_image">Fil</string>
+  <string name="suggested_edits_image_preview_dialog_image">Bild</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Fil från Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Konstnär</string>
   <string name="suggested_edits_image_preview_dialog_tags">Taggar</string>
@@ -889,6 +901,7 @@
   <string name="suggested_edits_paused_message">Redigeringsförslag pausas t.o.m. %1$s. Förlåt, %2$s. Några av dina senaste bidrag har återställts.</string>
   <string name="suggested_edits_disabled_message">Redigeringsförslag har inaktiverats. Förlåt, %s. Alltför många av dina senaste bidrag har återställts.</string>
   <string name="suggested_edits_ip_blocked_message">Det ser ut som att din IP-adress (eller IP-intervall) är för tillfället blockerad från att redigera på Wikipedia.</string>
+  <string name="suggested_edits_gate_message">Ledsen %s, men du måste göra minst tre redigeringar direkt i en artikel innan du kan använda den här funktionen.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips och tricks för att redigera</string>
   <string name="suggested_edits_help_page_link_text">Hjälpsida för redigeringsförslag</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringar i rad</string>
@@ -1103,6 +1116,20 @@
   <string name="thank_success_message">Ditt tack skickades till %s 👍</string>
   <string name="menu_option_view_user_profile">Visa användarens profilsida</string>
   <string name="menu_option_view_user_talk">Visa diskussionssida</string>
+  <string name="menu_option_view_user_contributions">Visa användarbidrag</string>
+  <string name="revision_diff_compare">Jämför versioner</string>
+  <string name="revision_diff_compare_title">Jämför versioner: %s</string>
+  <string name="revision_diff_from">Från:</string>
+  <string name="revision_diff_to">Till:</string>
+  <string name="revision_diff_line_num">Rad %d</string>
+  <string name="revision_diff_line_nums">Rader %d–%d</string>
+  <string name="revision_diff_line_added">Raden lades till</string>
+  <string name="revision_diff_line_removed">Raden togs bort</string>
+  <string name="revision_diff_paragraph_added">Paragrafen lades till</string>
+  <string name="revision_diff_paragraph_removed">Paragrafen togs bort</string>
+  <string name="revision_undo_title">Återställ redigering</string>
+  <string name="revision_undo_reason">För att fortsätta, vänligen ange en orsak för att återställa den här redigeringen:</string>
+  <string name="revision_undo_success">Versionen återställdes.</string>
   <string name="revision_compare_button">Jämför</string>
   <string name="revision_compare_two_only">Endast två versioner kan markeras.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s och dess diskussionssida har lagts till i din bevakningslista %2$s.</string>
@@ -1127,4 +1154,10 @@
   <string name="watchlist_page_moved">Flyttades</string>
   <string name="watchlist_page_protected">Skyddades</string>
   <string name="watchlist_page_deleted">Raderades</string>
+  <string name="action_item_categories">Kategorier</string>
+  <string name="page_no_categories">Denna sida tillhör inga kategorier.</string>
+  <string name="category_tab_articles">Artiklar</string>
+  <string name="category_tab_subcategories">Underkategorier</string>
+  <string name="category_empty">Inga artiklar hittade i den här kategorin.</string>
+  <string name="subcategory_empty">Inga underkategorier hittade i den här kategorin.</string>
 </resources>

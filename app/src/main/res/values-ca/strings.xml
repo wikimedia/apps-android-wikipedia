@@ -71,6 +71,7 @@
   <string name="page_edit_history_activity_title">Historial de revisions: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Resum d\'edició buit</string>
+  <string name="page_edit_history_filter_by">Filtra per</string>
   <string name="page_edit_history_metrics_content_description">Mètriques de %1$s a %2$s</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
@@ -1146,4 +1147,8 @@
   <string name="watchlist_page_moved">Moguda</string>
   <string name="watchlist_page_protected">Protegida</string>
   <string name="watchlist_page_deleted">Suprimida</string>
+  <string name="action_item_categories">Categories</string>
+  <string name="page_no_categories">La pàgina no pertany a cap categoria.</string>
+  <string name="category_tab_articles">Articles</string>
+  <string name="category_tab_subcategories">Subcategories</string>
 </resources>
