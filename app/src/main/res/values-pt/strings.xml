@@ -899,6 +899,7 @@
   <string name="suggested_edits_paused_message">\"Edições sugeridas\" estará interrompida até %1$s. Desculpe, %2$s, mas algumas das suas contribuições recentes foram revertidas.</string>
   <string name="suggested_edits_disabled_message">\"Edições sugeridas\" está desativada. Desculpe, %s, foram revertidas demasiadas das suas contribuições recentes.</string>
   <string name="suggested_edits_ip_blocked_message">Parece que o seu endereço IP (ou gama de endereços IP) está atualmente bloqueado, impedindo a edição da Wikipédia.</string>
+  <string name="suggested_edits_gate_message">Desculpe, %s, tem de fazer pelo menos três edições diretamente num artigo para usar esta funcionalidade.</string>
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda de \"Edições sugeridas\"</string>
   <string name="suggested_edits_edit_streak_label_text">Edições consecutivas</string>

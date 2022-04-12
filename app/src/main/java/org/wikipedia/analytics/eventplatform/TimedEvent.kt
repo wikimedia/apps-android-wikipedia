@@ -1,24 +1,10 @@
 package org.wikipedia.analytics.eventplatform
 
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.Transient
-
-@Serializable
-sealed class TimedEvent(@Transient private val streamNameStr: String = "") : MobileAppsEvent(streamNameStr) {
-
-    @Transient
-    private var startTime = 0L
-
-    @Transient
+abstract class TimedEvent {
+    private var startTime = System.currentTimeMillis()
     private var pauseTime = 0L
 
-    @Transient
-    val duration: Long
-        get() = System.currentTimeMillis() - startTime
-
-    fun start() {
-        startTime = System.currentTimeMillis()
-    }
+    val duration get() = (System.currentTimeMillis() - startTime).toInt()
 
     fun pause() {
         pauseTime = System.currentTimeMillis()
@@ -31,7 +17,7 @@ sealed class TimedEvent(@Transient private val streamNameStr: String = "") : Mob
         pauseTime = 0
     }
 
-    fun resetDuration() {
+    fun reset() {
         startTime = System.currentTimeMillis()
     }
 }
