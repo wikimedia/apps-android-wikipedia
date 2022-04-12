@@ -159,7 +159,7 @@
   <string name="create_account_generic_error">Nije moguće stvoriti suradnički račun</string>
   <string name="create_account_next">Sljedeće</string>
   <string name="email_recommendation_dialog_title">Stvoriti račun bez adrese e-pošte?</string>
-  <string name="email_recommendation_dialog_message">Iako je adresa e-pošte neobavezna, &lt;b&gt;strogo ju preporučamo&lt;/b&gt; jer je potrebna za oporavak računa u slučaju gubitka zaporke.</string>
+  <string name="email_recommendation_dialog_message">Iako je adresa e-pošte neobavezna, &lt;b&gt;jako je preporučujemo&lt;/b&gt; jer je potrebna za oporavak računa u slučaju gubitka zaporke.</string>
   <string name="email_recommendation_message">Preporučeno jer je adresa e-pošte potrebna za oporavak računa.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Nastavi bez e-pošte</string>
   <string name="email_recommendation_dialog_create_with_email_action">Dodajte adresu e-pošte</string>

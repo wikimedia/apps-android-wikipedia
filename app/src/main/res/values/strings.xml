@@ -51,11 +51,18 @@
     <string name="page_edit_history_activity_title">Revision history: %s</string>
     <string name="page_edit_history_minor_edit"><![CDATA[<b>m</b> %s]]></string>
     <string name="page_edit_history_comment_placeholder">Empty edit summary</string>
+    <string name="page_edit_history_search_or_filter_edits_hint">Search or filter edits</string>
+    <string name="page_edit_history_filter_by">Filter by</string>
+    <string name="page_edit_history_filter_by_all">All edits (%s)</string>
+    <string name="page_edit_history_filter_by_user">User edits (%s)</string>
+    <string name="page_edit_history_filter_by_anon">Anon edits (%s)</string>
+    <string name="page_edit_history_filter_by_bot">Bot edits (%s)</string>
+    <string name="page_edit_history_metrics_content_description">Metrics from %1$s to %2$s</string>
     <plurals name="page_edit_history_article_edits_since_year">
         <item quantity="one">%1$d edit since %2$s</item>
         <item quantity="other">%1$d edits since %2$s</item>
     </plurals>
-    <string name="page_edit_history_metrics_content_description">Metrics from %1$s to %2$s</string>
+    <string name="page_edit_history_empty_search_message"><![CDATA[Try changing <a href="#">filters</a> to see more edits]]></string>
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
@@ -929,6 +936,7 @@
     <string name="suggested_edits_paused_message">Suggested edits is paused until %1$s. Sorry %2$s, some of your recent contributions have been reverted.</string>
     <string name="suggested_edits_disabled_message">Suggested edits is disabled. Sorry %s, too many of your recent contributions have been reverted.</string>
     <string name="suggested_edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Wikipedia.</string>
+    <string name="suggested_edits_gate_message">Sorry, %s, you must make at least three edits directly in an article to use this feature.</string>
     <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
     <string name="suggested_edits_edit_streak_label_text">Edit streak</string>

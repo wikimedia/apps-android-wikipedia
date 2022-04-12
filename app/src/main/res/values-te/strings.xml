@@ -236,7 +236,7 @@
   <string name="about_app_license">సోర్సు కోడు &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; వద్ద &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది. ప్రత్యేకించి చెప్పకపోతే, కంటెంటు &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;వికీమీడియా ఫౌండేషను&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>
-  <string name="edit_abandon_confirm">ఈ పేజి సవరించబడింది. మార్పులని భద్రపరచకుండా ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
+  <string name="edit_abandon_confirm">ఈ పేజీలో మార్పులు చేసారు. మీరు చేసిన మార్పులను భద్రపరచకుండానే వెళ్ళిపోవాలని నిశ్చయించుకున్నారా?</string>
   <string name="edit_abandon_confirm_yes">అవును</string>
   <string name="edit_abandon_confirm_no">కాదు</string>
   <string name="user_blocked_from_editing_title">నిరోధించబడింది</string>
@@ -676,6 +676,7 @@
   <string name="notifications_offline_disable_message">ఈ ఫంక్షను ఆప్‌లైనులో అందుబాటులో లేదు.</string>
   <string name="view_because_you_read_card_title">మీరివి చదివారు కాబట్టి</string>
   <string name="view_random_article_card_action">మరిన్ని యాదృచ్ఛిక వ్యాసాలు</string>
+  <string name="view_top_read_card_title">ఎక్కువగా చదివినవి</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_main_page_card_title">వికీపీడియాలో నేడు</string>
@@ -859,6 +860,7 @@
   <string name="suggested_edits_paused_message">దిద్దుబాటు సూచనలను %1$s వరకు నిలిపివేసాం. సారీ %2$s గారూ, మీ ఇటీవలి దిద్దుబాట్లలో కొన్నిటిని తిరగ్గొట్టారు.</string>
   <string name="suggested_edits_disabled_message">దిద్దుబాటు సూచనలను అచేతనం చేసాం. సారీ %s గారూ, మీ ఇటీవలి దిద్దుబాట్లలో చాలా వాటిని తిరగ్గొట్టారు.</string>
   <string name="suggested_edits_ip_blocked_message">వికీపీడియాలో దిద్దుబాట్లు చెయ్యకుండా మీ ఐపీ చిరునామాను (లేదా ఐపీ శ్రేణిని) నిరోధించినట్లుగా కనిపిస్తోంది.</string>
+  <string name="suggested_edits_gate_message">సారీ %s గారూ, ఈ అంశాన్ని వాడాలంటే మీరు ఏదైనా వ్యాసంలో నేరుగా కనీసం 3 దిద్దుబాట్లు చేసి ఉండాలి.</string>
   <string name="suggested_edits_editing_tips_link_text">దిద్దుబాటు చిట్కాలు</string>
   <string name="suggested_edits_help_page_link_text">సూచించిన దిద్దుబాట్లపై సహాయం పేజీ</string>
   <string name="suggested_edits_edit_streak_label_text">అప్రతిహత దిద్దుబాట్లు</string>

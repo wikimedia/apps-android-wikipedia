@@ -1,7 +1,10 @@
 package org.wikipedia.util
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
+import android.icu.text.CompactDecimalFormat
+import android.os.Build
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
@@ -13,11 +16,13 @@ import androidx.annotation.IntRange
 import androidx.core.text.parseAsHtml
 import androidx.core.text.toSpanned
 import okio.ByteString.Companion.encodeUtf8
+import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.UserAliasData
 import java.text.Collator
 import java.text.Normalizer
+import kotlin.math.roundToInt
 
 object StringUtil {
     private const val CSV_DELIMITER = ","
@@ -194,5 +199,28 @@ object StringUtil {
 
     fun userPageTitleFromName(userName: String, wiki: WikiSite): PageTitle {
         return PageTitle(UserAliasData.valueFor(wiki.languageCode), userName, wiki)
+    }
+
+    fun getPageViewText(context: Context, pageViews: Long): String {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            val primaryLocale = context.resources.configuration.locales[0]
+            val decimalFormat = CompactDecimalFormat.getInstance(primaryLocale, CompactDecimalFormat.CompactStyle.SHORT)
+            return decimalFormat.format(pageViews)
+        }
+        return when {
+            pageViews < 1000 -> pageViews.toString()
+            pageViews < 1000000 -> {
+                context.getString(
+                    R.string.view_top_read_card_pageviews_k_suffix,
+                    (pageViews / 1000f).roundToInt()
+                )
+            }
+            else -> {
+                context.getString(
+                    R.string.view_top_read_card_pageviews_m_suffix,
+                    (pageViews / 1000000f).roundToInt()
+                )
+            }
+        }
     }
 }
