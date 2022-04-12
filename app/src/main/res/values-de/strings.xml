@@ -913,6 +913,7 @@
   <string name="suggested_edits_paused_message">Vorgeschlagene Bearbeitungen ist pausiert bis %1$s. Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.</string>
   <string name="suggested_edits_disabled_message">Vorgeschlagene Bearbeitungen ist deaktiviert. Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.</string>
   <string name="suggested_edits_ip_blocked_message">Es sieht so aus, als ob Ihre IP-Adresse (oder Ihr IP-Adressbereich) derzeit für die Bearbeitung von Wikipedia gesperrt ist.</string>
+  <string name="suggested_edits_gate_message">Tut mir leid, %s, du musst mindestens drei Bearbeitungen direkt in einem Artikel vornehmen, um diese Funktion nutzen zu können.</string>
   <string name="suggested_edits_editing_tips_link_text">Tipps und Tricks beim Bearbeiten</string>
   <string name="suggested_edits_help_page_link_text">Hilfeseite für Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_edit_streak_label_text">Aufeinanderfolgende Edits</string>

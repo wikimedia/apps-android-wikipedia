@@ -52,7 +52,7 @@ class LongPressHandler(
                             wikiSite = this
                         }
                     }
-                    title = wikiSite.titleForInternalLink(uri.path)
+                    title = PageTitle.titleForInternalLink(uri.path, wikiSite)
                     referrer = callback.referrer
                     showPopupMenu(view, true)
                 }
