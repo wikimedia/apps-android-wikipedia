@@ -24,7 +24,7 @@
         app:defaultQueryHint="@string/notifications_search" />
 
     <TextView
-        android:id="@+id/notification_filter_count"
+        android:id="@+id/filter_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
@@ -33,7 +33,7 @@
         android:textColor="?attr/colorAccent" />
 
     <ImageView
-        android:id="@+id/notification_filter_icon"
+        android:id="@+id/filter_icon"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="end"

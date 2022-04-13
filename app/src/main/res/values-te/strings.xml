@@ -55,10 +55,17 @@
   <string name="page_edit_history_activity_title">కూర్పుల చరిత్ర: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;చి&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">దిద్దుబాటు సారాంశం ఖాళీగా ఉంది</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">వడపోత దిద్దుబాట్ల కోసం వెతుకండి</string>
+  <string name="page_edit_history_filter_by">ఇలా వడపోయి:</string>
+  <string name="page_edit_history_filter_by_all">దిద్దుబాట్లన్నీ (%s)</string>
+  <string name="page_edit_history_filter_by_user">వాడుకరి దిద్దుబాట్లు (%s)</string>
+  <string name="page_edit_history_filter_by_anon">అజ్ఞాత దిద్దుబాట్లు (%s)</string>
+  <string name="page_edit_history_filter_by_bot">బాట్ల దిద్దుబాట్లు (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%2$s నుండి %1$d దిద్దుబాటు</item>
     <item quantity="other">%2$s నుండి %1$d దిద్దుబాట్లు</item>
   </plurals>
+  <string name="page_edit_history_empty_search_message">మరిన్ని దిద్దుబాట్లు చూసేందుకు &lt;a href=\"#\"&gt;వడపోతలను&lt;/a&gt; మార్చి చూడండి</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను మార్చు</string>
   <string name="menu_page_find_in_page">వ్యాసంలో వెతకండి</string>
@@ -236,7 +243,7 @@
   <string name="about_app_license">సోర్సు కోడు &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; వద్ద &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది. ప్రత్యేకించి చెప్పకపోతే, కంటెంటు &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;వికీమీడియా ఫౌండేషను&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>
-  <string name="edit_abandon_confirm">ఈ పేజి సవరించబడింది. మార్పులని భద్రపరచకుండా ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
+  <string name="edit_abandon_confirm">ఈ పేజీలో మార్పులు చేసారు. మీరు చేసిన మార్పులను భద్రపరచకుండానే వెళ్ళిపోవాలని నిశ్చయించుకున్నారా?</string>
   <string name="edit_abandon_confirm_yes">అవును</string>
   <string name="edit_abandon_confirm_no">కాదు</string>
   <string name="user_blocked_from_editing_title">నిరోధించబడింది</string>

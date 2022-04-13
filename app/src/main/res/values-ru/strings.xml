@@ -1174,6 +1174,9 @@
   <string name="thank_success_message">Ваше \"Спасибо\" отправлено участнику %s 👍</string>
   <string name="menu_option_view_user_profile">Посмотреть страницу профиля пользователя</string>
   <string name="menu_option_view_user_talk">Смотрите страницу обсуждения</string>
+  <string name="revision_diff_compare_title">Сравнить версии: %s</string>
+  <string name="revision_diff_from">От:</string>
+  <string name="revision_diff_line_num">Строка %d</string>
   <string name="revision_compare_button">Сравнить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Изменить</string>

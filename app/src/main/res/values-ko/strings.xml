@@ -77,10 +77,17 @@
   <string name="page_edit_history_activity_title">판 역사: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;잔글&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">빈 편집 요약</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">편집 검색/필터</string>
+  <string name="page_edit_history_filter_by">필터 기준</string>
+  <string name="page_edit_history_filter_by_all">모든 편집 (%s)</string>
+  <string name="page_edit_history_filter_by_user">유저 편집 (%s)</string>
+  <string name="page_edit_history_filter_by_anon">익명 편집 (%s)</string>
+  <string name="page_edit_history_filter_by_bot">봇 편집 (%s)</string>
+  <string name="page_edit_history_metrics_content_description">%1$s부터 %2$s까지의 메트릭스</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="other">%2$s 이후 편집 %1$d건</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">%1$s부터 %2$s까지의 메트릭스</string>
+  <string name="page_edit_history_empty_search_message">더 많은 편집을 보려면 &lt;a href=\"#\"&gt;필터&lt;/a&gt;를 변경하세요</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>

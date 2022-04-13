@@ -307,7 +307,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun setHighlightText(text: String?) {
         if (text != null && originalDescription != null) {
-            postDelayed({ StringUtil.highlightEditText(binding.viewDescriptionEditText, originalDescription!!, text) }, 500)
+            postDelayed({
+                if (isAttachedToWindow) {
+                    StringUtil.highlightEditText(binding.viewDescriptionEditText, originalDescription!!, text)
+                }
+            }, 500)
         }
     }
 

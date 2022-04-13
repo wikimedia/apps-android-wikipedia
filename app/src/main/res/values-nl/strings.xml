@@ -84,6 +84,8 @@
   <string name="page_edit_history_activity_title">Versiegeschiedenis: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Lege bewerkingssamenvatting</string>
+  <string name="page_edit_history_filter_by">Filteren op</string>
+  <string name="page_edit_history_filter_by_all">Alle bewerkingen (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d bewerking sinds %2$s</item>
     <item quantity="other">%1$d bewerkingen sinds %2$s</item>
@@ -93,6 +95,7 @@
   <string name="menu_page_find_in_page">Zoek in artikel</string>
   <string name="menu_page_add_to_watchlist">Toevoegen aan volglijst</string>
   <string name="menu_page_watch">Volgen</string>
+  <string name="menu_page_unwatch">Niet volgen</string>
   <string name="menu_page_view_talk">Overlegpagina bekijken</string>
   <string name="menu_page_talk_page">Overlegpagina</string>
   <string name="menu_page_view_edit_history">Bewerkingsgeschiedenis bekijken</string>
@@ -1124,9 +1127,15 @@
   <string name="menu_option_view_user_contributions">Gebruikersbijdragen bekijken</string>
   <string name="revision_diff_compare">Versies vergelijken</string>
   <string name="revision_diff_compare_title">Versies vergelijken: %s</string>
+  <string name="revision_diff_from">Van:</string>
+  <string name="revision_diff_to">Naar:</string>
   <string name="revision_diff_line_num">Regel %d</string>
   <string name="revision_diff_line_nums">Regels %d–%d</string>
+  <string name="revision_diff_line_added">Regel toegevoegd</string>
+  <string name="revision_diff_line_removed">Regel verwijderd</string>
+  <string name="revision_undo_success">De versie is ongedaan gemaakt.</string>
   <string name="revision_compare_button">Vergelijken</string>
+  <string name="revision_compare_two_only">Slechts twee versies kunnen worden geselecteerd.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s en zijn overlegpagina zijn toegevoegd aan uw volglijst %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Wijzig</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
@@ -1149,4 +1158,8 @@
   <string name="watchlist_page_moved">Hernoemd</string>
   <string name="watchlist_page_protected">Beveiligd</string>
   <string name="watchlist_page_deleted">Verwijderd</string>
+  <string name="action_item_categories">Categorieën</string>
+  <string name="page_no_categories">Deze pagina staat in geen enkele categorie.</string>
+  <string name="category_tab_articles">Artikelen</string>
+  <string name="category_tab_subcategories">Ondercategorieën</string>
 </resources>
