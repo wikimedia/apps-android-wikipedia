@@ -100,7 +100,7 @@
   <string name="page_edit_history_filter_by_all">Toutes les modifications (%s)</string>
   <string name="page_edit_history_filter_by_user">Modifications par un utilisateur (%s)</string>
   <string name="page_edit_history_filter_by_anon">Modifications anonyme (%s)</string>
-  <string name="page_edit_history_filter_by_bot">Modifications par un robot (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Modifications par robot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mesures de %1$s à %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d modification depuis %2$s</item>
