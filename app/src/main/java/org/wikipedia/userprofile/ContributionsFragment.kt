@@ -24,7 +24,6 @@ import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentContributionsSuggestedEditsBinding
@@ -105,7 +104,6 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
         resetAndFetch()
 
-        UserContributionFunnel.get().logOpen()
         UserContributionEvent.logOpen()
     }
 
@@ -114,7 +112,6 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         binding.contributionsRecyclerView.clearOnScrollListeners()
         _binding = null
         disposables.clear()
-        UserContributionFunnel.reset()
         super.onDestroyView()
     }
 
@@ -122,19 +119,15 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         editFilterType = editType
         when (editFilterType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                UserContributionFunnel.get().logFilterDescriptions()
                 UserContributionEvent.logFilterDescriptions()
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
-                UserContributionFunnel.get().logFilterCaptions()
                 UserContributionEvent.logFilterCaptions()
             }
             EDIT_TYPE_IMAGE_TAG -> {
-                UserContributionFunnel.get().logFilterTags()
                 UserContributionEvent.logFilterTags()
             }
             else -> {
-                UserContributionFunnel.get().logFilterAll()
                 UserContributionEvent.logFilterAll()
             }
         }
@@ -583,22 +576,18 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         override fun onClick(context: Context, contribution: Contribution) {
             when (contribution.editType) {
                 EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                    UserContributionFunnel.get().logViewDescription()
                     UserContributionEvent.logViewDescription()
                     context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
                 }
                 EDIT_TYPE_IMAGE_CAPTION -> {
-                    UserContributionFunnel.get().logViewCaption()
                     UserContributionEvent.logViewCaption()
                     context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
                 }
                 EDIT_TYPE_IMAGE_TAG -> {
-                    UserContributionFunnel.get().logViewTag()
                     UserContributionEvent.logViewTag()
                     context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
                 }
                 else -> {
-                    UserContributionFunnel.get().logViewMisc()
                     UserContributionEvent.logViewMisc()
                     context.startActivity(ArticleEditDetailsActivity.newIntent(context,
                             PageTitle(contribution.apiTitle, contribution.wikiSite), contribution.revId))
