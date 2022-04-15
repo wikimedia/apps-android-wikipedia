@@ -53,10 +53,10 @@
   <string name="create_account_next">Кхин дӀа</string>
   <string name="create_account_ip_block_details">Мадарра</string>
   <string name="preferences_general_heading">Йукъара</string>
-  <string name="send_feedback">ЗӀе</string>
+  <string name="send_feedback">Йуханехьа зӀе</string>
   <string name="settings_activity_title" fuzzy="true">Параметраш</string>
   <string name="privacy_policy_description">Къайлаха политика</string>
-  <string name="terms_of_use_description">Лелоран хьал</string>
+  <string name="terms_of_use_description">Лелоран биллам</string>
   <string name="about_wikipedia_url">https://ce.wikipedia.org/wiki/Википеди:Цуьнах_лаьцна</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Къайлаха_политика</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
