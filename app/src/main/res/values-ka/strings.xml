@@ -466,7 +466,7 @@
   <string name="description_edit_success_done">გაკეთდა</string>
   <string name="description_edit_success_did_you_know">იცოდით?</string>
   <string name="description_edit_tutorial_title_descriptions">სტატიის აღწერა</string>
-  <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
+  <string name="description_edit_tutorial_button_label_start_editing">დაიწყეთ რედაქტირება</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="size_mb">%.2f მბ</string>
   <string name="onboarding_skip">გამოტოვება</string>
