@@ -118,11 +118,11 @@
   <string name="search_redirect_from">Redirigido desde %s</string>
   <string name="page_edit_history_activity_title">Historial de revisiones: %s</string>
   <string name="page_edit_history_comment_placeholder">Resumen de edición vacío</string>
+  <string name="page_edit_history_metrics_content_description">Métrica de %1$s a %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d editar desde %2$s</item>
     <item quantity="other">%1$d editar desde %2$s</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">Métrica de %1$s a %2$s</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
   <string name="menu_page_other_languages">Cambiar idioma</string>
   <string name="menu_page_find_in_page">Buscar en artículo</string>

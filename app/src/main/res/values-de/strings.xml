@@ -84,11 +84,18 @@
   <string name="page_edit_history_activity_title">Versionsgeschichte: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Keine Zusammenfassung vorhanden</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Bearbeitungen suchen oder filtern</string>
+  <string name="page_edit_history_filter_by">Filtern nach</string>
+  <string name="page_edit_history_filter_by_all">Alle Bearbeitungen (%s)</string>
+  <string name="page_edit_history_filter_by_user">Benutzer-Bearbeitungen (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonyme Bearbeitungen (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Bot-Bearbeitungen (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metriken vom %1$s bis %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d Bearbeitung seit %2$s</item>
     <item quantity="other">%1$d Bearbeitungen seit %2$s</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">Metriken vom %1$s bis %2$s</string>
+  <string name="page_edit_history_empty_search_message">Änder die &lt;a href=\"#\"&gt;Filter&lt;/a&gt;, um weitere Bearbeitungen zu sehen.</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>

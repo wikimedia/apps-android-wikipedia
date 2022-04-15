@@ -43,20 +43,20 @@
   <string name="history_empty_message">Кхузахь хьой бешна болу яззамашка хьажа.</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕД&lt;big&gt;И&lt;/big&gt;</string>
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
-  <string name="create_account_activity_title">Кхолла декъашхочун агӀо</string>
+  <string name="create_account_activity_title">Кхолла аккаунт</string>
   <string name="dialog_create_account_checking_progress">Таллар</string>
   <string name="create_account_email_hint">Электронан поштан адрес (ца хилча а мега)</string>
   <string name="create_account_password_repeat_hint">Йуха а йазйе пароль</string>
   <string name="create_account_passwords_mismatch_error">Паролаш цхьана йогӀуш йац</string>
   <string name="create_account_email_error">Магийна доцу электронан поштан адрес</string>
-  <string name="create_account_generic_error">Декъашхочун агӀо кхолла йиш йац</string>
+  <string name="create_account_generic_error">Аккаунт кхолла йиш йац</string>
   <string name="create_account_next">Кхин дӀа</string>
   <string name="create_account_ip_block_details">Мадарра</string>
   <string name="preferences_general_heading">Йукъара</string>
-  <string name="send_feedback">ЗӀе</string>
+  <string name="send_feedback">Йуханехьа зӀе</string>
   <string name="settings_activity_title" fuzzy="true">Параметраш</string>
   <string name="privacy_policy_description">Къайлаха политика</string>
-  <string name="terms_of_use_description">Лелоран хьал</string>
+  <string name="terms_of_use_description">Лелоран биллам</string>
   <string name="about_wikipedia_url">https://ce.wikipedia.org/wiki/Википеди:Цуьнах_лаьцна</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Къайлаха_политика</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
