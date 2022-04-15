@@ -108,7 +108,7 @@ interface Service {
     suspend fun getSiteMatrix(): SiteMatrix
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=namespaces")
-    fun getPageNamespaceWithSiteInfo(@Query("titles") title: String): Observable<MwQueryResponse>
+    suspend fun getPageNamespaceWithSiteInfo(@Query("titles") title: String): MwQueryResponse
 
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>
@@ -426,7 +426,7 @@ interface Service {
     val watchlist: Observable<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=timestamp|user|ids|comment|tags")
-    fun getLastModified(@Query("titles") titles: String): Observable<MwQueryResponse>
+    suspend fun getLastModified(@Query("titles") titles: String): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|size|flags|comment|user&rvdir=newer")
     suspend fun getRevisionDetailsAscending(

@@ -43,6 +43,8 @@ class TalkTopicsProvider(title: PageTitle) {
 
     fun load(callback: Callback) {
         cancel()
+
+        // TODO: replace with coroutine / move to view model
         disposables.add(if (resolveTitleRequired) {
                 ServiceFactory.get(pageTitle.wikiSite).getPageNamespaceWithSiteInfo(pageTitle.prefixedText)
             } else {
