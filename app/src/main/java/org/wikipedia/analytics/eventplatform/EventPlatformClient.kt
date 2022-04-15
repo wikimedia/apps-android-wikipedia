@@ -165,12 +165,8 @@ object EventPlatformClient {
             if (!Prefs.isEventLoggingEnabled) {
                 return
             }
-            val eventsByStream = mutableMapOf<String, MutableList<Event>>()
-            QUEUE.forEach {
-                eventsByStream.getOrPut(it.stream) { mutableListOf() }.add(it)
-            }
-            eventsByStream.keys.forEach {
-                sendEventsForStream(STREAM_CONFIGS[it]!!, eventsByStream[it]!!)
+            QUEUE.groupBy { it.stream }.forEach { (stream, events) ->
+                sendEventsForStream(STREAM_CONFIGS[stream]!!, events)
             }
         }
 

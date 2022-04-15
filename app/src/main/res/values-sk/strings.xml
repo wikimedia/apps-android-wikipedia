@@ -78,6 +78,7 @@
   <string name="feed_card_add_to_default_list">Uložiť</string>
   <string name="menu_page_share">Zdieľať odkaz</string>
   <string name="menu_article_share">Zdieľať článok</string>
+  <string name="menu_page_article_share">Zdieľať</string>
   <string name="menu_page_open_a_new_tab">Otvoriť novú kartu</string>
   <string name="menu_page_new_tab">Nová karta</string>
   <string name="menu_page_reading_lists">Zoznamy na prečítanie</string>

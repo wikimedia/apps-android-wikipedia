@@ -54,13 +54,13 @@
   <string name="page_edit_history_activity_title">Zgodovina redakcij: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Prazen povzetek urejanja</string>
+  <string name="page_edit_history_metrics_content_description">Metrike od %1$s do %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d urejanje od %2$s </item>
     <item quantity="two">%1$d urejanji od %2$s </item>
     <item quantity="few">%1$d urejanja od %2$s </item>
     <item quantity="other">%1$d urejanj od %2$s</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">Metrike od %1$s do %2$s</string>
   <string name="menu_page_show_tabs">Pokaži zavihke</string>
   <string name="menu_page_other_languages">Spremeni jezik</string>
   <string name="menu_page_find_in_page">Poišči na strani</string>
