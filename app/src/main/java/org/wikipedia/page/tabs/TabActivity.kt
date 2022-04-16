@@ -327,7 +327,7 @@ class TabActivity : BaseActivity() {
 
         fun captureFirstTabBitmap(view: View) {
             clearFirstTabBitmap()
-            FIRST_TAB_BITMAP = view.drawToBitmap()
+            FIRST_TAB_BITMAP = view.drawToBitmap(Bitmap.Config.RGB_565)
         }
 
         private fun clearFirstTabBitmap() {
