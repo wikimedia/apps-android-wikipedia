@@ -97,21 +97,21 @@ class TabActivity : BaseActivity() {
                 return 2
             }
         }
-        for (i in app.tabList.indices) {
-            val tabIndex = app.tabList.size - i - 1
-            if (app.tabList[tabIndex].backStack.isEmpty()) {
-                continue
+
+        val tabs = app.tabList.asReversed().filter { it.backStack.isNotEmpty() }
+            .map {
+                de.mrapp.android.tabswitcher.Tab(StringUtil.fromHtml(it.backStackPositionTitle?.displayText)).apply {
+                    setIcon(R.drawable.ic_image_black_24dp)
+                    setIconTint(ResourceUtil.getThemedColor(this@TabActivity, R.attr.material_theme_secondary_color))
+                    setTitleTextColor(ResourceUtil.getThemedColor(this@TabActivity, R.attr.material_theme_secondary_color))
+                    setCloseButtonIcon(R.drawable.ic_close_white_24dp)
+                    setCloseButtonIconTint(ResourceUtil.getThemedColor(this@TabActivity, R.attr.material_theme_secondary_color))
+                    isCloseable = true
+                    parameters = Bundle()
+                }
             }
-            val tab = de.mrapp.android.tabswitcher.Tab(StringUtil.fromHtml(app.tabList[tabIndex].backStackPositionTitle?.displayText))
-            tab.setIcon(R.drawable.ic_image_black_24dp)
-            tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
-            tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
-            tab.setCloseButtonIcon(R.drawable.ic_close_white_24dp)
-            tab.setCloseButtonIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
-            tab.isCloseable = true
-            tab.parameters = Bundle()
-            binding.tabSwitcher.addTab(tab)
-        }
+        binding.tabSwitcher.addAllTabs(tabs)
+
         binding.tabSwitcher.logLevel = LogLevel.OFF
         binding.tabSwitcher.addListener(tabListener)
         binding.tabSwitcher.showSwitcher()
