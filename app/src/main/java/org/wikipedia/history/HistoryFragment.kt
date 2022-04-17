@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.collection.arraySetOf
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
@@ -39,8 +40,10 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.*
-import java.util.*
+import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.PageItemView
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.WikiCardView
 
 class HistoryFragment : Fragment(), BackPressedHandler {
     interface Callback {
@@ -56,7 +59,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     private val itemCallback = ItemCallback()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = HistorySearchCallback()
-    private val selectedEntries = mutableSetOf<HistoryEntry>()
+    private val selectedEntries = arraySetOf<HistoryEntry>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,7 +119,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             finish()
             return@onBackPressed true
         }
-        if (selectedEntries.size > 0) {
+        if (selectedEntries.isNotEmpty()) {
             unselectAllPages()
             return true
         }
@@ -187,7 +190,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     private fun deleteSelectedPages() {
         val selectedEntryList = mutableListOf<HistoryEntry>()
-        for (entry in selectedEntries) {
+        for (i in selectedEntries.indices) {
+            val entry = selectedEntries.valueAt(i)
             selectedEntryList.add(entry)
             AppDatabase.instance.historyEntryDao().delete(entry)
         }
@@ -279,7 +283,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 }
             }
             clearHistoryButton.setOnClickListener {
-                if (selectedEntries.size == 0) {
+                if (selectedEntries.isEmpty()) {
                     AlertDialog.Builder(requireContext())
                             .setTitle(R.string.dialog_title_clear_history)
                             .setMessage(R.string.dialog_message_clear_history)

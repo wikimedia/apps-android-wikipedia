@@ -1,6 +1,8 @@
 package org.wikipedia.savedpages
 
 import android.content.Intent
+import androidx.collection.ArraySet
+import androidx.collection.arraySetOf
 import androidx.core.app.JobIntentService
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
@@ -169,7 +171,7 @@ class SavedPageSyncService : JobIntentService() {
                         app.bus.post(PageDownloadEvent(page))
                         page.downloadProgress = MEDIA_LIST_PROGRESS
                         app.bus.post(PageDownloadEvent(page))
-                        val fileUrls = mutableSetOf<String>()
+                        val fileUrls = arraySetOf<String>()
 
                         // download css and javascript assets
                         mobileHTMLRsp.body?.let {
@@ -245,11 +247,12 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     @Throws(IOException::class, InterruptedException::class)
-    private fun reqSaveFiles(page: ReadingListPage, pageTitle: PageTitle, urls: Set<String>) {
+    private fun reqSaveFiles(page: ReadingListPage, pageTitle: PageTitle, urls: ArraySet<String>) {
         val numOfImages = urls.size
         var percentage = MEDIA_LIST_PROGRESS.toFloat()
         val updateRate = (CircularProgressBar.MAX_PROGRESS - percentage) / numOfImages
-        for (url in urls) {
+        for (i in urls.indices) {
+            val url = urls.valueAt(i)
             if (savedPageSyncNotification.isSyncPaused() || savedPageSyncNotification.isSyncCanceled()) {
                 throw InterruptedException("Sync paused or cancelled.")
             }

@@ -12,6 +12,8 @@ import android.text.format.DateUtils
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.collection.ArraySet
+import androidx.collection.arraySetOf
 import androidx.core.app.ActivityCompat
 import androidx.core.view.*
 import androidx.preference.PreferenceManager
@@ -71,7 +73,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private var app = WikipediaApp.getInstance()
     private var hasTransitionAnimation = false
     private var wasTransitionShown = false
-    private val currentActionModes = mutableSetOf<ActionMode>()
+    private val currentActionModes = arraySetOf<ActionMode>()
     private val disposables = CompositeDisposable()
     private val watchlistFunnel = WatchlistFunnel()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
@@ -391,9 +393,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageCloseActionMode() {
-        val actionModesToFinish = HashSet(currentActionModes)
-        for (mode in actionModesToFinish) {
-            mode.finish()
+        val actionModesToFinish = ArraySet(currentActionModes)
+        for (i in actionModesToFinish.indices) {
+            actionModesToFinish.valueAt(i).finish()
         }
         currentActionModes.clear()
     }

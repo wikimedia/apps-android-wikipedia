@@ -1,5 +1,6 @@
 package org.wikipedia.userprofile
 
+import androidx.collection.ArraySet
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -10,9 +11,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.settings.Prefs
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.HashSet
 import kotlin.math.ceil
 
 object UserContributionsStats {
@@ -53,7 +51,7 @@ object UserContributionsStats {
     }
 
     fun getPageViewsObservable(response: MwQueryResponse): Observable<Long> {
-        val qLangMap = HashMap<String, HashSet<String>>()
+        val qLangMap = HashMap<String, ArraySet<String>>()
 
         for (userContribution in response.query!!.userContributions) {
             val descLang = userContribution.comment.split(" ")
@@ -64,7 +62,7 @@ object UserContributionsStats {
                 continue
             }
 
-            qLangMap.getOrPut(userContribution.title) { HashSet() }.add(descLang)
+            qLangMap.getOrPut(userContribution.title) { ArraySet() }.add(descLang)
         }
 
         return ServiceFactory.get(Constants.wikidataWikiSite).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
@@ -77,11 +75,12 @@ object UserContributionsStats {
                     entities.entities.forEach { (entityKey, entity) ->
                         for ((qKey, langs) in qLangMap) {
                             if (qKey == entityKey) {
-                                for (lang in langs) {
+                                for (i in langs.indices) {
+                                    val lang = langs.valueAt(i)
                                     val dbName = WikiSite.forLanguageCode(lang).dbName()
                                     if (entity.sitelinks.containsKey(dbName)) {
                                         langArticleMap.getOrPut(lang) { ArrayList() }
-                                                .add(entity.sitelinks[dbName]?.title!!)
+                                            .add(entity.sitelinks[dbName]?.title!!)
                                     }
                                 }
                                 break

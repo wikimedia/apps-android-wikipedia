@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.collection.arraySetOf
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doOnTextChanged
@@ -585,7 +586,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun parseUserNamesFromTopic(): Set<String> {
-        val userNames = mutableSetOf<String>()
+        val userNames = arraySetOf<String>()
         // Go through our list of replies under the current topic, and collect any links to user
         // names, making sure to store them in reverse order, so that the last user name mentioned
         // in a response will appear first in the list of hints when searching for mentions.

@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Parcelable
 import android.os.TransactionTooLargeException
 import android.widget.Toast
+import androidx.collection.arraySetOf
 import androidx.core.content.FileProvider
 import kotlinx.coroutines.*
 import org.wikipedia.BuildConfig
@@ -153,7 +154,7 @@ object ShareUtil {
 
     fun getIntentChooser(context: Context, intent: Intent, chooserTitle: CharSequence? = null): Intent? {
         val infoList = context.packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
-        val excludedComponents = HashSet<ComponentName>()
+        val excludedComponents = arraySetOf<ComponentName>()
         infoList.forEach {
             val activityInfo = it.activityInfo
             val componentName = ComponentName(activityInfo.packageName, activityInfo.name)

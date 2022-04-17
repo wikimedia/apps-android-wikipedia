@@ -11,6 +11,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.collection.ArraySet
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -211,7 +212,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             .subscribeOn(Schedulers.io())
             .flatMap { response ->
                 val wikidataContributions = mutableListOf<Contribution>()
-                val qLangMap = hashMapOf<String, HashSet<String>>()
+                val qLangMap = hashMapOf<String, ArraySet<String>>()
                 val cont = response.continuation?.ucContinuation
                 if (cont.isNullOrEmpty()) {
                     continuations.remove(Constants.wikidataWikiSite)
@@ -242,7 +243,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                     }
 
                     if (qNumber.isNotEmpty() && !qLangMap.containsKey(qNumber)) {
-                        qLangMap[qNumber] = HashSet()
+                        qLangMap[qNumber] = ArraySet()
                     }
 
                     wikidataContributions.add(Contribution(qNumber, contribution.revid, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
