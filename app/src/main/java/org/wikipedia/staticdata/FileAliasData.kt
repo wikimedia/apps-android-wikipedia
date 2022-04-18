@@ -3,15 +3,16 @@
    TO HAVE YOUR CHANGES OVERWRITTEN */
 package org.wikipedia.staticdata
 
+import androidx.collection.arrayMapOf
 import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
 
 object FileAliasData {
     @JvmStatic
     fun valueFor(key: String): String {
-        return dataMap[getDesiredLanguageCode(key)] ?: dataMap["en"]!!
+        return dataMap.getOrDefault(getDesiredLanguageCode(key), dataMap["en"])
     }
 
-    private val dataMap = mapOf(
+    private val dataMap = arrayMapOf(
             "ab" to "Афаил",
             "ace" to "Beureukaih",
             "ady" to "File",
@@ -113,6 +114,7 @@ object FileAliasData {
             "gor" to "Berkas",
             "got" to "𐍆𐌴𐌹𐌻𐌰",
             "gu" to "ચિત્ર",
+            "guw" to "Wepo",
             "gv" to "Coadan",
             "ha" to "File",
             "hak" to "檔案",
@@ -239,7 +241,7 @@ object FileAliasData {
             "qu" to "Rikcha",
             "rm" to "Datoteca",
             "rmy" to "Chitro",
-            "rn" to "File",
+            "rn" to "Dosiye",
             "ro" to "Fișier",
             "roa-rup" to "Fișier",
             "roa-tara" to "File",

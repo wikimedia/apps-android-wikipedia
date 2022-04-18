@@ -3,15 +3,16 @@
    TO HAVE YOUR CHANGES OVERWRITTEN */
 package org.wikipedia.staticdata
 
+import androidx.collection.arrayMapOf
 import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
 
 object MainPageNameData {
     @JvmStatic
     fun valueFor(key: String): String {
-        return dataMap[getDesiredLanguageCode(key)] ?: dataMap["en"]!!
+        return dataMap.getOrDefault(getDesiredLanguageCode(key), dataMap["en"])
     }
 
-    private val dataMap = mapOf(
+    private val dataMap = arrayMapOf(
             "ab" to "Ихадоу адаҟьа",
             "ace" to "Ôn Keue",
             "ady" to "НэкӀубгъо шъхьаӀ",
@@ -113,6 +114,7 @@ object MainPageNameData {
             "gor" to "Halaman Bungaliyo",
             "got" to "𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽𐌹𐌻𐌰𐌿𐍆𐍃",
             "gu" to "મુખપૃષ્ઠ",
+            "guw" to "Weda Tangan",
             "gv" to "Ard-ghuillag",
             "ha" to "Babban shafi",
             "hak" to "Thèu-Ya̍p",

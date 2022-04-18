@@ -3,15 +3,16 @@
    TO HAVE YOUR CHANGES OVERWRITTEN */
 package org.wikipedia.staticdata
 
+import androidx.collection.arrayMapOf
 import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
 
 object UserTalkAliasData {
     @JvmStatic
     fun valueFor(key: String): String {
-        return dataMap[getDesiredLanguageCode(key)] ?: dataMap["en"]!!
+        return dataMap.getOrDefault(getDesiredLanguageCode(key), dataMap["en"])
     }
 
-    private val dataMap = mapOf(
+    private val dataMap = arrayMapOf(
             "ab" to "Алахәыла ахцәажәара",
             "ace" to "Marit Ureuëng Ngui",
             "ady" to "User talk",
@@ -113,6 +114,7 @@ object UserTalkAliasData {
             "gor" to "Lo'iya ta ohu'uwo",
             "got" to "𐌽𐌹𐌿𐍄𐌰𐌽𐌳𐌹𐍃 𐌲𐌰𐍅𐌰𐌿𐍂𐌳𐌾𐌰",
             "gu" to "સભ્યની ચર્ચા",
+            "guw" to "Zinzantọ hodidọ",
             "gv" to "Resooney ymmydeyr",
             "ha" to "User talk",
             "hak" to "用戶討論",
@@ -155,7 +157,7 @@ object UserTalkAliasData {
             "ko" to "사용자토론",
             "koi" to "Обсуждение участника",
             "krc" to "Къошулуучуну сюзюу",
-            "ks" to "رُکُن بَحَژ",
+            "ks" to "رُکُن کَتھ",
             "ksh" to "Metmaacher Klaaf",
             "ku" to "Gotûbêja bikarhêner",
             "kv" to "Пырыськӧд сёрнитанiн",
@@ -239,7 +241,7 @@ object UserTalkAliasData {
             "qu" to "Ruraq rimanakuy",
             "rm" to "Utilisader discussiun",
             "rmy" to "Jeno vakyarimata",
-            "rn" to "User talk",
+            "rn" to "Ikiyago c'uwukoresha",
             "ro" to "Discuție Utilizator",
             "roa-rup" to "Discuție Utilizator",
             "roa-tara" to "Discussioni utente",
