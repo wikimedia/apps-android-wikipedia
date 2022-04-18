@@ -54,6 +54,10 @@
   <string name="share_via">Sebarkan melalui</string>
   <string name="image_share_via">Sebarkan melalui</string>
   <string name="search_redirect_from">Dilencongkan dari %s</string>
+  <string name="page_edit_history_filter_by">Tapis mengikut</string>
+  <string name="page_edit_history_filter_by_all">Semua suntingan (%s)</string>
+  <string name="page_edit_history_filter_by_user">Suntingan pengguna (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Suntingan bot (%s)</string>
   <string name="menu_page_show_tabs">Paparkan tab</string>
   <string name="menu_page_other_languages">Tukar bahasa</string>
   <string name="menu_page_find_in_page">Cari dalam rencana</string>
