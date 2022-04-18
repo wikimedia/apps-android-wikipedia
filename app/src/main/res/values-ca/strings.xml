@@ -71,13 +71,24 @@
   <string name="page_edit_history_activity_title">Historial de revisions: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Resum d\'edició buit</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Cerca o filtra les edicions</string>
   <string name="page_edit_history_filter_by">Filtra per</string>
+  <string name="page_edit_history_filter_by_all">Totes les edicions (%s)</string>
+  <string name="page_edit_history_filter_by_user">Edicions de l\'usuari (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Edicions anònimes (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Edicions de bots (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mètriques de %1$s a %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d edició des de %2$s</item>
+    <item quantity="other">%1$d edicions des de %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Proveu de canviar els &lt;a href=\"#\"&gt;filtres&lt;/a&gt; per a mostrar més edicions</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cerca a l\'article</string>
   <string name="menu_page_add_to_watchlist">Afegeix a la llista de seguiment</string>
   <string name="menu_page_watch">Segueix</string>
+  <string name="menu_page_unwatch">Deixa de seguir</string>
   <string name="menu_page_view_talk">Mostra la pàgina de discussió</string>
   <string name="menu_page_talk_page">Pàgina de discussió</string>
   <string name="menu_page_view_edit_history">Mostra l\'historial de modificacions</string>
@@ -897,6 +908,7 @@
   <string name="suggested_edits_paused_message">Les edicions suggerides s\'han posat en pausa fins al %1$s. Ho sentim %2$s, però s\'han revertit algunes de les vostres darreres contribucions.</string>
   <string name="suggested_edits_disabled_message">S\'han inhabilitat les edicions suggerides. Ho sentim %s, s\'han revertit massa contribucions recents.</string>
   <string name="suggested_edits_ip_blocked_message">Sembla que la vostra adreça IP (o rang d\'adreces IP) està blocada per a editar a la Viquipèdia.</string>
+  <string name="suggested_edits_gate_message">%s, cal que feu com a mínim tres edicions en un article directament per a utilitzar aquesta funcionalitat.</string>
   <string name="suggested_edits_editing_tips_link_text">Consells i trucs d\'edició</string>
   <string name="suggested_edits_help_page_link_text">Pàgina d\'ajuda de les edicions suggerides</string>
   <string name="suggested_edits_edit_streak_label_text">Modifica la marca</string>
@@ -1122,6 +1134,9 @@
   <string name="revision_diff_line_removed">Línia eliminada</string>
   <string name="revision_diff_paragraph_added">Paràgraf afegit</string>
   <string name="revision_diff_paragraph_removed">Paràgraf eliminat</string>
+  <string name="revision_undo_title">Desfés la modificació</string>
+  <string name="revision_undo_message">Això desfarà els canvis fets en les revisions de l\'article que es mostra a continuació.</string>
+  <string name="revision_undo_reason">Per a continuar, proporcioneu un motiu per a desfer la modificació:</string>
   <string name="revision_undo_success">S\'ha desfet la revisió.</string>
   <string name="revision_compare_button">Comparar</string>
   <string name="revision_compare_two_only">Només es poden seleccionar dues revisions.</string>
@@ -1151,4 +1166,6 @@
   <string name="page_no_categories">La pàgina no pertany a cap categoria.</string>
   <string name="category_tab_articles">Articles</string>
   <string name="category_tab_subcategories">Subcategories</string>
+  <string name="category_empty">No s\'han trobat articles en la categoria.</string>
+  <string name="subcategory_empty">No s\'han trobat subcategories en la categoria.</string>
 </resources>

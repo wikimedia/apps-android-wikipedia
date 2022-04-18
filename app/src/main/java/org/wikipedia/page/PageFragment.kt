@@ -1412,8 +1412,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         override fun onAddToWatchlistSelected() {
             if (model.isWatched) {
                 watchlistFunnel.logRemoveArticle()
+                articleInteractionEvent?.logUnWatchClick()
             } else {
                 watchlistFunnel.logAddArticle()
+                articleInteractionEvent?.logWatchClick()
             }
             updateWatchlist(WatchlistExpiry.NEVER, model.isWatched)
         }
