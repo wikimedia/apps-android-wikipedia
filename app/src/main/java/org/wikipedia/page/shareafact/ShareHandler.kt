@@ -7,8 +7,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.ShareAFactFunnel
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.page.PageFragment
@@ -17,15 +15,7 @@ import org.wikipedia.wiktionary.WiktionaryDialog
 
 class ShareHandler(private val fragment: PageFragment, private val bridge: CommunicationBridge) {
     private var webViewActionMode: ActionMode? = null
-    private var funnel: ShareAFactFunnel? = null
     private val disposables = CompositeDisposable()
-
-    private fun createFunnel() {
-        fragment.page?.let {
-            funnel = ShareAFactFunnel(WikipediaApp.getInstance(), it.title, it.pageProperties.pageId,
-                    it.pageProperties.revisionId)
-        }
-    }
 
     private fun onEditHerePayload(sectionID: Int, text: String, isEditingDescription: Boolean) {
         if (sectionID == 0 && isEditingDescription) {
@@ -73,10 +63,6 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mode.invalidateContentRect()
         }
-        if (funnel == null) {
-            createFunnel()
-        }
-        funnel?.logHighlight()
     }
 
     fun shouldEnableWiktionaryDialog(): Boolean {

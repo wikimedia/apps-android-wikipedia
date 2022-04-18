@@ -25,7 +25,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">Parzûnê listanê mı</string>
   <string name="nav_item_suggested_edits">Vurnayışi</string>
   <string name="nav_item_more">Zêde</string>
-  <string name="nav_item_search">Cıgeyrayış</string>
+  <string name="nav_item_search">Cı geyre</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>
   <string name="page_error_retry">Anciya bıcerrebne</string>
   <string name="card_offline_error_retry">Anciya bıcerrebne</string>
@@ -307,7 +307,7 @@
   <string name="crash_report_quit">Veciyayış</string>
   <string name="article_menu_bar_save_button">Qeyd ke</string>
   <string name="article_menu_bar_language_button">Zıwan</string>
-  <string name="article_menu_bar_search_button">Cıgeyrayış</string>
+  <string name="article_menu_bar_search_button">Cı geyre</string>
   <string name="article_menu_bar_theme_button">Thema</string>
   <string name="article_menu_bar_contents_button">Zerrek</string>
   <string name="article_header_edit_hint">Bıvurne...</string>

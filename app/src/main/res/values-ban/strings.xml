@@ -49,11 +49,11 @@
   <string name="page_edit_history_activity_title">Babad uahan: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Ringkasan uahan puyung</string>
+  <string name="page_edit_history_metrics_content_description">Métrik saking %1$s nganti %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d uahan saking %2$s</item>
     <item quantity="other">%1$d uahan saking %2$s</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">Métrik saking %1$s nganti %2$s</string>
   <string name="menu_page_show_tabs">Édengang tab</string>
   <string name="menu_page_other_languages">Gingsir basa</string>
   <string name="menu_page_find_in_page">Ngarereh ring suratan</string>

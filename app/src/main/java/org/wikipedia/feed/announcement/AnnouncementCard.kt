@@ -29,11 +29,7 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     }
 
     fun imageHeight(): Int {
-        return try {
-            announcement.imageHeight.orEmpty().ifEmpty { "0" }.toInt()
-        } catch (e: NumberFormatException) {
-            0
-        }
+        return announcement.imageHeight.orEmpty().ifEmpty { "0" }.toIntOrNull() ?: 0
     }
 
     fun hasAction(): Boolean {

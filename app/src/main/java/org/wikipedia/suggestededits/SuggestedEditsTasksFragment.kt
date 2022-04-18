@@ -21,7 +21,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
-import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
@@ -321,7 +320,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         clearContents()
         binding.disabledStatesView.setIPBlocked(blockMessage)
         binding.disabledStatesView.visibility = VISIBLE
-        UserContributionFunnel.get().logIpBlock()
         UserContributionEvent.logIpBlock()
     }
 
@@ -347,14 +345,12 @@ class SuggestedEditsTasksFragment : Fragment() {
             clearContents()
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
-            UserContributionFunnel.get().logDisabled()
             UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
-            UserContributionFunnel.get().logPaused()
             UserContributionEvent.logPaused()
             return true
         }

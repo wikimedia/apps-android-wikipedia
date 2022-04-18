@@ -13,7 +13,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -56,7 +55,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 PollNotificationWorker.schedulePollNotificationJob(context)
             }
             ACTION_CANCEL == intent.action -> {
-                NotificationInteractionFunnel.processIntent(intent)
+                NotificationInteractionEvent.processIntent(intent)
             }
             ACTION_DIRECT_REPLY == intent.action -> {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
@@ -158,13 +157,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             // we show our own custom "grouped" notification.
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N && notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), 0, notificationsToDisplay[0].wiki, TYPE_MULTIPLE).logIncoming()
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
                 for (n in notificationsToDisplay) {
                     // Record that there is an incoming notification to track/compare further actions on it.
-                    NotificationInteractionFunnel(WikipediaApp.getInstance(), n).logIncoming()
                     NotificationInteractionEvent.logIncoming(n, null)
                     NotificationPresenter.showNotification(context, n,
                         DBNAME_WIKI_NAME_MAP.getOrElse(n.wiki) { n.wiki },

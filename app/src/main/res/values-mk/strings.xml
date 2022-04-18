@@ -53,11 +53,18 @@
   <string name="page_edit_history_activity_title">Историја на измените: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;с&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Празен опис на измени</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Пребарај или филтрирај уредувања</string>
+  <string name="page_edit_history_filter_by">Филтрирај по</string>
+  <string name="page_edit_history_filter_by_all">Сите уредувања (%s)</string>
+  <string name="page_edit_history_filter_by_user">Кориснички уредувања (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Анонимни уредувања (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Ботовски уредувања (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Мерила од %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d уредување од %2$s наваму</item>
     <item quantity="other">%1$d уредувања од %2$s наваму</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">Мерила од %1$s до %2$s</string>
+  <string name="page_edit_history_empty_search_message">Изменете ги &lt;a href=\"#\"&gt;филтрите&lt;/a&gt; за да добиете повеќе ставки</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди во статијата</string>
