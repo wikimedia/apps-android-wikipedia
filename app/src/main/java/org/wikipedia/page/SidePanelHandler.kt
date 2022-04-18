@@ -435,7 +435,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         }
 
         override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
-            holder.bindItem(list[pos])
+            // TODO: fix this
+            // holder.bindItem(list[pos])
         }
 
         private val list get(): List<TalkPage.Topic> {

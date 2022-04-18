@@ -10,15 +10,18 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.flow.collect
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -30,9 +33,11 @@ import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
+import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
@@ -55,12 +60,12 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var pageTitle: PageTitle
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var notificationButtonView: NotificationButtonView
-    private lateinit var talkTopicsProvider: TalkTopicsProvider
+    private val viewModel: TalkTopicsViewModel by viewModels()
     private var funnel: TalkFunnel? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private val disposables = CompositeDisposable()
-    private val topics = mutableListOf<TalkPage.Topic>()
+    private val topics = mutableListOf<ThreadItem>()
     private var revisionForLastEdit: MwQueryPage.Revision? = null
     private var goToTopic = false
     private var currentSearchQuery: String? = null
@@ -87,8 +92,6 @@ class TalkTopicsActivity : BaseActivity() {
                         pageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(pageTitle.prefixedText),
                             WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
 
-                        talkTopicsProvider.cancel()
-                        talkTopicsProvider = TalkTopicsProvider(pageTitle)
                         loadTopics()
                     }
                 }
@@ -99,7 +102,8 @@ class TalkTopicsActivity : BaseActivity() {
     private val requestNewTopic = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == TalkTopicActivity.RESULT_EDIT_SUCCESS) {
             val newRevisionId = it.data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
-            val topic = it.data?.getIntExtra(TalkTopicActivity.EXTRA_TOPIC, 0) ?: -1
+            // TODO: fix this
+            val topic = it.data?.getStringExtra(TalkTopicActivity.EXTRA_TOPIC) ?: ""
             val undoneSubject = it.data?.getStringExtra(TalkTopicActivity.EXTRA_SUBJECT) ?: ""
             val undoneText = it.data?.getStringExtra(TalkTopicActivity.EXTRA_BODY) ?: ""
             if (newRevisionId > 0) {
@@ -145,7 +149,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel?.logNewTopicClick()
-            requestNewTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, "", invokeSource))
+            requestNewTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource))
         }
 
         binding.talkRefreshView.setOnRefreshListener {
@@ -166,12 +170,21 @@ class TalkTopicsActivity : BaseActivity() {
         }
         notificationButtonView = NotificationButtonView(this)
         Prefs.hasAnonymousNotification = false
-        talkTopicsProvider = TalkTopicsProvider(pageTitle)
+
+        lifecycleScope.launchWhenCreated {
+            viewModel.uiState.collect {
+                when (it) {
+                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.pageTitle, it.discussionToolsInfoResponse, it.lastModifiedResponse)
+                    is TalkTopicsViewModel.UiState.Error -> updateOnError(it.throwable)
+                }
+            }
+        }
+
+        viewModel.loadTopics(pageTitle)
     }
 
     public override fun onDestroy() {
         disposables.clear()
-        talkTopicsProvider.cancel()
         super.onDestroy()
     }
 
@@ -257,46 +270,30 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
 
-        talkTopicsProvider.load(object : TalkTopicsProvider.Callback {
-            override fun onUpdatePageTitle(title: PageTitle) {
-                pageTitle = title
-                funnel = TalkFunnel(pageTitle, invokeSource)
-                binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
-            }
-
-            override fun onReceivedRevision(revision: MwQueryPage.Revision?) {
-                revision?.let {
-                    revisionForLastEdit = revision
-                    binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
-                        DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
-                            System.currentTimeMillis(), 0L), revision.user))
-                }
-            }
-
-            override fun onSuccess(title: PageTitle, talkPage: TalkPage) {
-                topics.clear()
-                topics.addAll(talkPage.topics!!)
-                updateOnSuccess()
-            }
-
-            override fun onError(throwable: Throwable) {
-                updateOnError(throwable)
-            }
-
-            override fun onFinished() {
-                invalidateOptionsMenu()
-                binding.toolbarTitle.isVisible = !goToTopic
-                binding.talkProgressBar.isVisible = !goToTopic
-                binding.talkProgressBar.visibility = View.GONE
-                binding.talkRefreshView.isRefreshing = false
-            }
-        })
+        viewModel.loadTopics(pageTitle)
     }
 
-    private fun updateOnSuccess() {
+    private fun updateOnSuccess(pageTitle: PageTitle, discussionToolsInfoResponse: DiscussionToolsInfoResponse, lastModifiedResponse: MwQueryResponse) {
+        // Update page title and start the funnel
+        this.pageTitle = pageTitle
+        funnel = TalkFunnel(pageTitle, invokeSource)
+        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+
+        // Update last modified date
+        lastModifiedResponse.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
+            revisionForLastEdit = revision
+            binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
+                DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
+                    System.currentTimeMillis(), 0L), revision.user))
+        }
+
+        // Gather all list
+        topics.clear()
+        topics.addAll(discussionToolsInfoResponse.pageInfo?.threads ?: emptyList())
+
         if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
-            var topic: TalkPage.Topic? = null
+            var topic: ThreadItem? = null
             if (!pageTitle.fragment.isNullOrEmpty()) {
                 val targetTopic = UriUtil.parseTalkTopicFromFragment(pageTitle.fragment.orEmpty())
                 topic = topics.find {
@@ -304,7 +301,8 @@ class TalkTopicsActivity : BaseActivity() {
                 }
             }
             if (topic != null) {
-                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, topic.getIndicatorSha(), invokeSource))
+                // TODO: implement this
+//                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, topic.getIndicatorSha(), invokeSource))
                 overridePendingTransition(0, 0)
                 return
             }
@@ -327,6 +325,12 @@ class TalkTopicsActivity : BaseActivity() {
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
         funnel?.logOpenTalk()
+
+        invalidateOptionsMenu()
+        binding.toolbarTitle.isVisible = !goToTopic
+        binding.talkProgressBar.isVisible = !goToTopic
+        binding.talkProgressBar.visibility = View.GONE
+        binding.talkRefreshView.isRefreshing = false
     }
 
     private fun updateOnError(t: Throwable) {
@@ -354,14 +358,14 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkNewTopicButton.show()
     }
 
-    private fun undoSave(newRevisionId: Long, topicId: Int, undoneSubject: String, undoneBody: String) {
+    private fun undoSave(newRevisionId: Long, topicId: String, undoneSubject: String, undoneBody: String) {
         disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
             .subscribeOn(Schedulers.io())
             .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, newRevisionId, token) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, "", invokeSource, undoneSubject, undoneBody))
+                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
             }, {
                 updateOnError(it)
             }))
@@ -403,7 +407,7 @@ class TalkTopicsActivity : BaseActivity() {
             }
         }
 
-        private val list get(): List<TalkPage.Topic> {
+        private val list get(): List<ThreadItem> {
             when (currentSortMode) {
                 TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
                     topics.sortByDescending { it.id }
@@ -418,7 +422,7 @@ class TalkTopicsActivity : BaseActivity() {
                     topics.sortBy { RichTextUtil.stripHtml(it.html) }
                 }
             }
-            return topics.filter { it.html.orEmpty().contains(currentSearchQuery.orEmpty(), true) }
+            return topics.filter { it.html.contains(currentSearchQuery.orEmpty(), true) }
         }
     }
 
@@ -500,7 +504,8 @@ class TalkTopicsActivity : BaseActivity() {
         private const val ITEM_TOPIC = 1
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
-        const val NEW_TOPIC_ID = -2
+        // TODO: fix this
+        const val NEW_TOPIC_ID = ""
 
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)

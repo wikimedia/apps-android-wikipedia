@@ -9,6 +9,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ItemTalkTopicBinding
+import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
@@ -23,13 +24,13 @@ class TalkTopicHolder internal constructor(
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-    private var id: Int = 0
-    private var indicatorSha: String = ""
+    private var id: String = ""
 
-    fun bindItem(topic: TalkPage.Topic, searchQuery: String? = null) {
+    fun bindItem(topic: ThreadItem, searchQuery: String? = null) {
         id = topic.id
-        indicatorSha = topic.getIndicatorSha()
-        val seen = AppDatabase.instance.talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
+//        val seen = AppDatabase.instance.talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
+        // TODO: implement seen
+        val seen = false
         var titleStr = RichTextUtil.stripHtml(topic.html).trim()
         if (titleStr.isEmpty()) {
             // build up a title based on the contents, massaging the html into plain text that
@@ -57,7 +58,7 @@ class TalkTopicHolder internal constructor(
     }
 
     override fun onClick(v: View?) {
-        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, id, indicatorSha, invokeSource))
+        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, id, invokeSource))
     }
 
     companion object {

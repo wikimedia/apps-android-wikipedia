@@ -35,7 +35,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.edit.EditHandler
-import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -57,8 +56,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private lateinit var textWatcher: TextWatcher
 
     private val disposables = CompositeDisposable()
-    private var topicId: Int = -1
-    private var topicIndicatorSha: String = ""
+    private var topicId: String = ""
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
     private var undone = false
@@ -100,8 +98,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         if (intent.hasExtra(EXTRA_BODY)) undoneBody = intent.getStringExtra(EXTRA_BODY) ?: ""
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = pageTitle.wikiSite
-        topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
-        topicIndicatorSha = intent.extras?.getString(EXTRA_TOPIC_INDICATOR_SHA, "")!!
+        topicId = intent.extras?.getString(EXTRA_TOPIC, "")!!
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
@@ -179,7 +176,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 true
             }
             R.id.menu_edit_source -> {
-                requestEditSource.launch(EditSectionActivity.newIntent(this, topicId, undoneSubject, pageTitle))
+                // TODO: fix edit section
+//                requestEditSource.launch(EditSectionActivity.newIntent(this, topicId, undoneSubject, pageTitle))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -260,22 +258,22 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkErrorView.visibility = View.GONE
 
         // TODO: update with discussion API and use coroutine
-        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map { response ->
-                    val talkTopic = response.topics?.find { t -> if (topicId == -1) t.getIndicatorSha() == topicIndicatorSha else t.id == topicId }!!
-//                    AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
-                    currentRevision = response.revision
-                    talkTopic
-                }
-                .subscribe({
-                    topic = it
-                    updateOnSuccess()
-                }, { t ->
-                    L.e(t)
-                    updateOnError(t)
-                }))
+//        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .map { response ->
+//                    val talkTopic = response.topics?.find { t -> if (topicId == -1) t.getIndicatorSha() == topicIndicatorSha else t.id == topicId }!!
+////                    AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
+//                    currentRevision = response.revision
+//                    talkTopic
+//                }
+//                .subscribe({
+//                    topic = it
+//                    updateOnSuccess()
+//                }, { t ->
+//                    L.e(t)
+//                    updateOnError(t)
+//                }))
     }
 
     private fun updateOnSuccess() {
@@ -310,14 +308,18 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun isNewTopic(): Boolean {
-        return topicId == TalkTopicsActivity.NEW_TOPIC_ID
+        return false
+        // TODO: fix this
+//        return topicId == TalkTopicsActivity.NEW_TOPIC_ID
     }
 
     private fun shouldHideReplyButton(): Boolean {
+        return false
+        // TODO: fix this
         // Hide the reply button when:
         // a) The topic ID is -1, which means the API couldn't parse it properly (TODO: wait until fixed)
         // b) The name of the topic is empty, implying that this is the topmost "header" section.
-        return topicId == -1 || topic?.html.orEmpty().trim().isEmpty()
+//        return topicId == -1 || topic?.html.orEmpty().trim().isEmpty()
     }
 
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
@@ -617,7 +619,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_TOPIC = "topicId"
-        const val EXTRA_TOPIC_INDICATOR_SHA = "topicIndicatorSha"
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
         const val RESULT_EDIT_SUCCESS = 1
@@ -626,15 +627,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
-                      topicId: Int,
-                      topicIndicatorSha: String,
+                      topicId: String,
                       invokeSource: Constants.InvokeSource,
                       undoneSubject: String? = null,
                       undoneBody: String? = null): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC, topicId)
-                    .putExtra(EXTRA_TOPIC_INDICATOR_SHA, topicIndicatorSha)
                     .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
                     .putExtra(EXTRA_BODY, undoneBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
