@@ -11,6 +11,7 @@
 * Masumrezarock100
 * Md. Golam Mukit Khan
 * MdsShakil
+* Meghmollar2017
 * MuratTheTurkish
 * Nasir8891
 * R4356th
@@ -74,6 +75,19 @@
   <string name="share_via">এর মাধ্যমে শেয়ার</string>
   <string name="image_share_via">এর মাধ্যমে শেয়ার</string>
   <string name="search_redirect_from">%s থেকে পুনর্নির্দেশিত</string>
+  <string name="page_edit_history_activity_title">সংশোধনের ইতিহাস: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;অ&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">খালি সম্পাদনা সারাংশ</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">সম্পাদনা খুঁজুন বা ছাঁকুন</string>
+  <string name="page_edit_history_filter_by_all">সমস্ত সম্পাদনা (%s)</string>
+  <string name="page_edit_history_filter_by_user">ব্যবহারকারীর সম্পাদনা (%s)</string>
+  <string name="page_edit_history_filter_by_anon">বেনামি সম্পাদনা (%s)</string>
+  <string name="page_edit_history_filter_by_bot">বট সম্পাদনা (%s)</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%2$s থেকে %1$dটি সম্পাদনা</item>
+    <item quantity="other">%2$s থেকে %1$dটি সম্পাদনা</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">আরও সম্পাদনা দেখতে &lt;a href=\"#\"&gt;ছাঁকনি&lt;/a&gt; পরিবর্তন করে আবার চেষ্টা করুন</string>
   <string name="menu_page_show_tabs">ট্যাব দেখান</string>
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
@@ -181,6 +195,7 @@
   <string name="dialog_create_account_checking_progress">যাচাই করা হচ্ছে</string>
   <string name="create_account_email_hint">ইমেইল (ঐচ্ছিক)</string>
   <string name="create_account_password_repeat_hint">পাসওয়ার্ডটি পুনরায় লিখুন</string>
+  <string name="create_account_password_is_username">ব্যবহারকারী নাম ও পাসওয়ার্ড একই হতে পারবে না</string>
   <string name="create_account_passwords_mismatch_error">পাসওয়ার্ড মিলেনি</string>
   <string name="create_account_email_error">ভুল ইমেইল ঠিকানা</string>
   <string name="create_account_username_error">ব্যবহারকারী নামে অবৈধ অক্ষর রয়েছে</string>
@@ -355,6 +370,7 @@
   <string name="button_add_to_reading_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="page_offline_notice_cannot_load_while_offline">নিবন্ধ অফলাইনে থাকাকালীন সময়ে লোড করা যাবে না।</string>
   <string name="page_offline_notice_add_to_reading_list">ইঙ্গিত: নিবন্ধটিকে পড়ার তালিকায় যোগ করে ও আপনি অনলাইনে আসলে এটি ডাউনলোড করা হবে।</string>
+  <string name="page_offline_notice_last_date">আপনি %s-এ সংরক্ষিত নিবন্ধের একটি অফলাইন সংস্করণ দেখতে পাচ্ছেন।</string>
   <string name="button_get_directions">দিক নির্দেশনা পান</string>
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_customize_explore_feed">অন্বেষণ ফিড</string>

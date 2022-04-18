@@ -13,6 +13,7 @@
 * Mads Haupt
 * Mortenelling
 * MuratTheTurkish
+* Peterleth
 * Rho
 * Saederup92
 * Sarrus
@@ -51,6 +52,10 @@
   <string name="app_settings">Programindstillinger</string>
   <string name="search_tab_tooltip">Tryk på ikonet igen for at begynde at skrive et søgeord.</string>
   <string name="history_list_title">Historik</string>
+  <string name="image_content_description">Billede: %s</string>
+  <string name="page_content_description">Side: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Ryd browserhistorikken</string>
   <string name="dialog_message_clear_history">Dette vil slette hele browserhistorikken og lukke alle åbne faner. Er du sikker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -58,6 +63,15 @@
   <string name="share_via">Del via</string>
   <string name="image_share_via">Del via</string>
   <string name="search_redirect_from">Omdirigeret fra %s</string>
+  <string name="page_edit_history_activity_title">Revisionshistorik: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Tom redigeringforklaring</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Søg eller filtrér redigeringer</string>
+  <string name="page_edit_history_filter_by">Filtrer efter</string>
+  <string name="page_edit_history_filter_by_all">Alle redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_user">Brugerredigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonyme redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Bot redigeringer (%s)</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Skift sprog</string>
   <string name="menu_page_find_in_page">Find i artiklen</string>
