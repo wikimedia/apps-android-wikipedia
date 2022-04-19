@@ -6,6 +6,9 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
@@ -138,8 +141,9 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_developer_clear_all_talk_topics).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            AppDatabase.instance.talkPageSeenDao().deleteAll()
-                .subscribeOn(Schedulers.io()).subscribe()
+            CoroutineScope(Dispatchers.Main).launch {
+                AppDatabase.instance.talkPageSeenDao().deleteAll()
+            }
             true
         }
         findPreference(R.string.preference_key_memory_leak_test).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, _: Any? ->
