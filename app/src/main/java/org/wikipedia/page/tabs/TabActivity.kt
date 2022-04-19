@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.graphics.scale
+import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import de.mrapp.android.tabswitcher.Animation
 import de.mrapp.android.tabswitcher.TabSwitcher
@@ -321,40 +321,17 @@ class TabActivity : BaseActivity() {
 
     companion object {
         private const val LAUNCHED_FROM_PAGE_ACTIVITY = "launchedFromPageActivity"
-        private const val MAX_CACHED_BMP_SIZE = 800
         private var FIRST_TAB_BITMAP: Bitmap? = null
         const val RESULT_LOAD_FROM_BACKSTACK = 10
         const val RESULT_NEW_TAB = 11
 
         fun captureFirstTabBitmap(view: View) {
             clearFirstTabBitmap()
-            var bmp: Bitmap? = null
             try {
-                val wasCacheEnabled = view.isDrawingCacheEnabled
-                if (!wasCacheEnabled) {
-                    view.isDrawingCacheEnabled = true
-                    view.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_LOW
-                }
-                val cacheBmp = view.drawingCache
-                if (cacheBmp != null) {
-                    val width: Int
-                    val height: Int
-                    if (cacheBmp.width > cacheBmp.height) {
-                        width = MAX_CACHED_BMP_SIZE
-                        height = width * cacheBmp.height / cacheBmp.width
-                    } else {
-                        height = MAX_CACHED_BMP_SIZE
-                        width = height * cacheBmp.width / cacheBmp.height
-                    }
-                    bmp = cacheBmp.scale(width, height)
-                }
-                if (!wasCacheEnabled) {
-                    view.isDrawingCacheEnabled = false
-                }
+                FIRST_TAB_BITMAP = view.drawToBitmap(Bitmap.Config.RGB_565)
             } catch (e: OutOfMemoryError) {
                 // don't worry about it
             }
-            FIRST_TAB_BITMAP = bmp
         }
 
         private fun clearFirstTabBitmap() {
