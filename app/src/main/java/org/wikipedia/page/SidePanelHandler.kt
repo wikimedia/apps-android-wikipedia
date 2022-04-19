@@ -41,7 +41,6 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.TalkTopicHolder
 import org.wikipedia.talk.TalkTopicsActivity
-import org.wikipedia.talk.TalkTopicsProvider
 import org.wikipedia.talk.TalkTopicsViewModel
 import org.wikipedia.util.*
 import org.wikipedia.views.*
@@ -55,7 +54,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private val binding = (fragment.requireActivity() as PageActivity).binding
     private val viewModel: TalkTopicsViewModel by fragment.viewModels()
     private val talkTopicsAdapter = TalkTopicItemAdapter()
-    private var talkTopicsProvider: TalkTopicsProvider? = null
     private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
     private val webView = fragment.webView
     private val tocAdapter = ToCAdapter()
@@ -244,10 +242,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
 
     fun log() {
         funnel.log()
-    }
-
-    fun dispose() {
-        talkTopicsProvider?.cancel()
     }
 
     fun setEnabled(enabled: Boolean) {
