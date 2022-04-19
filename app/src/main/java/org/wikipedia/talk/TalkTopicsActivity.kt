@@ -301,8 +301,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
             }
             if (topic != null) {
-                // TODO: implement this
-//                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, topic.getIndicatorSha(), invokeSource))
+                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource))
                 overridePendingTransition(0, 0)
                 return
             }

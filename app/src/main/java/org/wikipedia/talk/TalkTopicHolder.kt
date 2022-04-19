@@ -7,10 +7,8 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.ResourceUtil
@@ -35,7 +33,7 @@ class TalkTopicHolder internal constructor(
         if (titleStr.isEmpty()) {
             // build up a title based on the contents, massaging the html into plain text that
             // flows over a few lines...
-            topic.replies?.firstOrNull()?.let {
+            topic.replies.firstOrNull()?.let {
                 titleStr = RichTextUtil.stripHtml(it.html).replace("\n", " ")
                 if (titleStr.length > MAX_CHARS_NO_SUBJECT) {
                     titleStr = titleStr.substring(0, MAX_CHARS_NO_SUBJECT) + "…"
@@ -50,11 +48,6 @@ class TalkTopicHolder internal constructor(
         binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
         StringUtil.highlightAndBoldenText(binding.topicTitleText, searchQuery, true, Color.YELLOW)
         itemView.setOnClickListener(this)
-    }
-
-    private fun updateSeenItem(seen: Boolean) {
-        binding.topicTitleText.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface
-        binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
     }
 
     override fun onClick(v: View?) {

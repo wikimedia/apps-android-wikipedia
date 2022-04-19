@@ -11,14 +11,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.flow.collect
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -32,8 +35,9 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
+import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
@@ -55,9 +59,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
 
+    private val viewModel: TalkTopicsViewModel by viewModels()
     private val disposables = CompositeDisposable()
     private var topicId: String = ""
-    private var topic: TalkPage.Topic? = null
+    private var topic: ThreadItem? = null
     private var replyActive = false
     private var undone = false
     private var undoneBody = ""
@@ -82,7 +87,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private val requestEditSource = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             // TODO: maybe add funnel?
-            loadTopic()
+            loadTopics()
         }
     }
 
@@ -111,7 +116,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             finish()
         }
         binding.talkErrorView.retryClickListener = View.OnClickListener {
-            loadTopic()
+            loadTopics()
         }
 
         binding.talkReplyButton.setOnClickListener {
@@ -132,7 +137,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkRefreshView.isEnabled = !isNewTopic()
         binding.talkRefreshView.setOnRefreshListener {
             talkFunnel.logRefresh()
-            loadTopic()
+            loadTopics()
         }
 
         binding.talkScrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, _, _, _ ->
@@ -153,6 +158,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         editFunnel = EditFunnel(WikipediaApp.getInstance(), pageTitle)
         updateEditLicenseText()
 
+        lifecycleScope.launchWhenCreated {
+            viewModel.uiState.collect {
+                when (it) {
+                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.discussionToolsInfoResponse)
+                    is TalkTopicsViewModel.UiState.Error -> updateOnError(it.throwable)
+                }
+            }
+        }
         onInitialLoad()
     }
 
@@ -243,42 +256,31 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.replyInputView.visibility = View.GONE
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.licenseText.visibility = View.GONE
+            loadTopics()
             DeviceUtil.hideSoftKeyboard(this)
-            loadTopic()
         }
         invalidateOptionsMenu()
     }
 
-    private fun loadTopic() {
+    private fun loadTopics() {
         if (isNewTopic()) {
             return
         }
-        disposables.clear()
         binding.talkProgressBar.visibility = View.VISIBLE
         binding.talkErrorView.visibility = View.GONE
-
-        // TODO: update with discussion API and use coroutine
-//        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .map { response ->
-//                    val talkTopic = response.topics?.find { t -> if (topicId == -1) t.getIndicatorSha() == topicIndicatorSha else t.id == topicId }!!
-////                    AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
-//                    currentRevision = response.revision
-//                    talkTopic
-//                }
-//                .subscribe({
-//                    topic = it
-//                    updateOnSuccess()
-//                }, { t ->
-//                    L.e(t)
-//                    updateOnError(t)
-//                }))
+        viewModel.loadTopics(pageTitle)
     }
 
-    private fun updateOnSuccess() {
+    private fun updateOnSuccess(discussionToolsInfoResponse: DiscussionToolsInfoResponse) {
+
         binding.talkProgressBar.visibility = View.GONE
-        binding.talkErrorView.visibility = View.GONE
+
+        topic = discussionToolsInfoResponse.pageInfo?.threads?.find { t -> t.id == topicId }
+        // TODO: implement seen topic
+        // AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
+        // TODO: implement save logic
+        // currentRevision = talkTopic.revision
+
         if (replyActive || shouldHideReplyButton()) {
             binding.talkReplyButton.hide()
         } else {
@@ -326,10 +328,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         private val text: TextView = view.findViewById(R.id.replyText)
         private val indentArrow: View = view.findViewById(R.id.replyIndentArrow)
         private val bottomSpace: View = view.findViewById(R.id.replyBottomSpace)
-        fun bindItem(reply: TalkPage.TopicReply, isLast: Boolean) {
+        fun bindItem(reply: ThreadItem, isLast: Boolean) {
             text.movementMethod = linkMovementMethod
             text.text = StringUtil.fromHtml(reply.html)
-            indentArrow.visibility = if (reply.depth > 0) View.VISIBLE else View.GONE
+            indentArrow.visibility = if (reply.level > 1) View.VISIBLE else View.GONE
             bottomSpace.visibility = if (!isLast || replyActive || shouldHideReplyButton()) View.GONE else View.VISIBLE
         }
     }
@@ -397,7 +399,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             return
         }
 
-        val topicDepth = topic?.replies?.lastOrNull()?.depth ?: 0
+        val topicDepth = topic?.replies?.lastOrNull()?.level ?: 1
 
         body = addDefaultFormatting(body, topicDepth, isNewTopic())
 
