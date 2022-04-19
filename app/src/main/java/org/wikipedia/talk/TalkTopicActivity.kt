@@ -110,6 +110,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        // TODO: need to work on nest replies
         binding.talkRecyclerView.adapter = TalkReplyItemAdapter()
 
         binding.talkErrorView.backClickListener = View.OnClickListener {
@@ -338,7 +339,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     internal inner class TalkReplyItemAdapter : RecyclerView.Adapter<TalkReplyHolder>() {
         override fun getItemCount(): Int {
-            return topic?.replies?.size ?: 0
+            return topic?.allReplies?.size ?: 0
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkReplyHolder {
@@ -346,7 +347,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
 
         override fun onBindViewHolder(holder: TalkReplyHolder, pos: Int) {
-            holder.bindItem(topic?.replies!![pos], pos == itemCount - 1)
+            holder.bindItem(topic?.allReplies!![pos], pos == itemCount - 1)
         }
     }
 
@@ -399,7 +400,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             return
         }
 
-        val topicDepth = topic?.replies?.lastOrNull()?.level ?: 1
+        val topicDepth = topic?.allReplies?.lastOrNull()?.level ?: 1
 
         body = addDefaultFormatting(body, topicDepth, isNewTopic())
 
@@ -433,7 +434,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun doSave(token: String, subject: String, body: String) {
         disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
-                if (isNewTopic()) "new" else topicId.toString(),
+                if (isNewTopic()) "new" else topicId,
                 if (isNewTopic()) subject else null,
                 "", if (AccountUtil.isLoggedIn) "user" else null,
                 if (isNewTopic()) body else null, if (isNewTopic()) null else body,
@@ -592,21 +593,21 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         // Go through our list of replies under the current topic, and collect any links to user
         // names, making sure to store them in reverse order, so that the last user name mentioned
         // in a response will appear first in the list of hints when searching for mentions.
-        topic?.replies?.forEach {
+        topic?.allReplies?.forEach {
             var start = 0
             val userList = mutableListOf<String>()
             while (true) {
                 val searchStr = "title=\""
-                start = it.html!!.indexOf(searchStr, startIndex = start)
+                start = it.html.indexOf(searchStr, startIndex = start)
                 if (start < 0) {
                     break
                 }
                 start += searchStr.length
-                val end = it.html!!.indexOf("\"", startIndex = start)
+                val end = it.html.indexOf("\"", startIndex = start)
                 if (end <= start) {
                     break
                 }
-                val name = it.html!!.substring(start, end)
+                val name = it.html.substring(start, end)
                 val title = PageTitle(name, pageTitle.wikiSite)
                 if (title.namespace() == Namespace.USER || title.namespace() == Namespace.USER_TALK) {
                     userList.add(0, StringUtil.removeUnderscores(title.text))
