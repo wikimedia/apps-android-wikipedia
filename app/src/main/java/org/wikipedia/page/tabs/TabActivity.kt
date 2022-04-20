@@ -86,7 +86,7 @@ class TabActivity : BaseActivity() {
             }
 
             override fun getViewType(tab: de.mrapp.android.tabswitcher.Tab, index: Int): Int {
-                return if (index == 0 && FIRST_TAB_BITMAP != null && !FIRST_TAB_BITMAP!!.isRecycled) {
+                return if (FIRST_TAB_BITMAP_TITLE == app.tabList[app.tabCount - index - 1]?.backStackPositionTitle?.prefixedText) {
                     1
                 } else {
                     0
@@ -322,19 +322,22 @@ class TabActivity : BaseActivity() {
     companion object {
         private const val LAUNCHED_FROM_PAGE_ACTIVITY = "launchedFromPageActivity"
         private var FIRST_TAB_BITMAP: Bitmap? = null
+        private var FIRST_TAB_BITMAP_TITLE = ""
         const val RESULT_LOAD_FROM_BACKSTACK = 10
         const val RESULT_NEW_TAB = 11
 
-        fun captureFirstTabBitmap(view: View) {
+        fun captureFirstTabBitmap(view: View, title: String) {
             clearFirstTabBitmap()
             try {
                 FIRST_TAB_BITMAP = view.drawToBitmap(Bitmap.Config.RGB_565)
+                FIRST_TAB_BITMAP_TITLE = title
             } catch (e: OutOfMemoryError) {
                 // don't worry about it
             }
         }
 
         private fun clearFirstTabBitmap() {
+            FIRST_TAB_BITMAP_TITLE = ""
             FIRST_TAB_BITMAP?.run {
                 if (!isRecycled) {
                     recycle()
