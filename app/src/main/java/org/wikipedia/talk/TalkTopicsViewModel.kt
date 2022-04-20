@@ -4,10 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
+import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.edit.Edit
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.TalkAliasData
@@ -69,10 +71,21 @@ class TalkTopicsViewModel : ViewModel() {
         }
     }
 
+    fun undoSave(newRevisionId: Long, topicId: String, undoneSubject: String, undoneBody: String) {
+        viewModelScope.launch(handler) {
+            val token = withContext(Dispatchers.IO) {
+                CsrfTokenClient(pageTitle.wikiSite).getToken()
+            }
+            val undoResponse =  ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
+            _uiState.value = UiState.UndoEdit(undoResponse, topicId, undoneSubject, undoneBody)
+        }
+    }
+
     open class UiState {
         data class Success(val pageTitle: PageTitle,
                            val discussionToolsInfoResponse: DiscussionToolsInfoResponse,
                            val lastModifiedResponse: MwQueryResponse) : UiState()
+        data class UndoEdit(val edit: Edit, val topicId: String, val undoneSubject: String, val undoneBody: String): UiState()
         data class Error(val throwable: Throwable) : UiState()
     }
 }

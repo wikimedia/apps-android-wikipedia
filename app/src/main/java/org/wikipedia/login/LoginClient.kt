@@ -92,6 +92,28 @@ class LoginClient {
             }
     }
 
+    // TODO: revisit this if we need to convert all RxJava to Coroutine
+    suspend fun login(wiki: WikiSite, userName: String, password: String, twoFactorCode: String?): LoginResponse {
+        val loginTokenResponse = ServiceFactory.get(wiki).loginToken()
+        val loginToken = loginTokenResponse.query?.loginToken()
+        if (loginToken.isNullOrEmpty()) {
+            throw RuntimeException("Received empty login token.")
+        }
+        val loginResponse = getLoginResponseKT(wiki, userName, password, null, twoFactorCode, loginToken)
+        val loginResult = loginResponse.toLoginResult(wiki, password) ?: throw IOException("Unexpected response when logging in.")
+        if (LoginResult.STATUS_UI == loginResult.status) {
+            if (loginResult is LoginOAuthResult) {
+                // TODO: Find a better way to boil up the warning about 2FA
+                Toast.makeText(WikipediaApp.getInstance(),
+                    R.string.login_2fa_other_workflow_error_msg, Toast.LENGTH_LONG).show()
+            }
+            throw LoginFailedException(loginResult.message)
+        } else if (!loginResult.pass() || loginResult.userName.isNullOrEmpty()) {
+            throw LoginFailedException(loginResult.message)
+        }
+        return loginResponse
+    }
+
     private fun getLoginToken(wiki: WikiSite): Observable<String> {
         return ServiceFactory.get(wiki).loginToken
             .subscribeOn(Schedulers.io())
@@ -109,6 +131,13 @@ class LoginClient {
         return if (twoFactorCode.isNullOrEmpty() && retypedPassword.isNullOrEmpty())
             ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
         else ServiceFactory.get(wiki).postLogIn(userName, password, retypedPassword, twoFactorCode, loginToken, true)
+    }
+
+    private suspend fun getLoginResponseKT(wiki: WikiSite, userName: String, password: String, retypedPassword: String?,
+                                 twoFactorCode: String?, loginToken: String?): LoginResponse {
+        return if (twoFactorCode.isNullOrEmpty() && retypedPassword.isNullOrEmpty())
+            ServiceFactory.get(wiki).postLogInKT(userName, password, loginToken, Service.WIKIPEDIA_URL)
+        else ServiceFactory.get(wiki).postLogInKT(userName, password, retypedPassword, twoFactorCode, loginToken, true)
     }
 
     private fun getExtendedInfo(wiki: WikiSite, loginResult: LoginResult): Observable<LoginResult> {

@@ -18,9 +18,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.flow.collect
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -28,10 +26,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.ThreadItem
@@ -113,7 +109,7 @@ class TalkTopicsActivity : BaseActivity() {
                         binding.talkNewTopicButton.isEnabled = false
                         binding.talkNewTopicButton.alpha = 0.5f
                         binding.talkProgressBar.visibility = View.VISIBLE
-                        undoSave(newRevisionId, topic, undoneSubject, undoneText)
+                        viewModel.undoSave(newRevisionId, topic, undoneSubject, undoneText)
                     }
                     .show()
             }
@@ -175,6 +171,7 @@ class TalkTopicsActivity : BaseActivity() {
             viewModel.uiState.collect {
                 when (it) {
                     is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.pageTitle, it.discussionToolsInfoResponse, it.lastModifiedResponse)
+                    is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.topicId, it.undoneSubject, it.undoneBody)
                     is TalkTopicsViewModel.UiState.Error -> updateOnError(it.throwable)
                 }
             }
@@ -357,17 +354,9 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkNewTopicButton.show()
     }
 
-    private fun undoSave(newRevisionId: Long, topicId: String, undoneSubject: String, undoneBody: String) {
-        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
-            .subscribeOn(Schedulers.io())
-            .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, newRevisionId, token) }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
-            }, {
-                updateOnError(it)
-            }))
+    private fun updateOnUndoSave(topicId: String, undoneSubject: String, undoneBody: String) {
+        // TODO: discuss this
+        startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
     }
 
     fun updateNotificationDot(animate: Boolean) {
