@@ -39,6 +39,7 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.edit.EditHandler
+import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -61,6 +62,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private val viewModel: TalkTopicsViewModel by viewModels()
     private val disposables = CompositeDisposable()
+    private var sectionId: Int = 0
     private var topicId: String = ""
     private var topic: ThreadItem? = null
     private var replyActive = false
@@ -190,8 +192,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 true
             }
             R.id.menu_edit_source -> {
-                // TODO: fix edit section
-//                requestEditSource.launch(EditSectionActivity.newIntent(this, topicId, undoneSubject, pageTitle))
+                requestEditSource.launch(EditSectionActivity.newIntent(this, sectionId, undoneSubject, pageTitle))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -277,6 +278,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkProgressBar.visibility = View.GONE
 
         topic = discussionToolsInfoResponse.pageInfo?.threads?.find { t -> t.id == topicId }
+        sectionId = discussionToolsInfoResponse.pageInfo?.threads?.indexOf(topic) ?: 0
+
         // TODO: implement seen topic
         // AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
         // TODO: implement save logic
@@ -311,18 +314,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun isNewTopic(): Boolean {
-        return false
-        // TODO: fix this
-//        return topicId == TalkTopicsActivity.NEW_TOPIC_ID
+        return topicId == TalkTopicsActivity.NEW_TOPIC_ID
     }
 
     private fun shouldHideReplyButton(): Boolean {
-        return false
-        // TODO: fix this
+        // TODO: revisit this
         // Hide the reply button when:
         // a) The topic ID is -1, which means the API couldn't parse it properly (TODO: wait until fixed)
         // b) The name of the topic is empty, implying that this is the topmost "header" section.
-//        return topicId == -1 || topic?.html.orEmpty().trim().isEmpty()
+        return topicId == "" || topic?.html.orEmpty().trim().isEmpty()
     }
 
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
