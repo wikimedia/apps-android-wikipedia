@@ -173,7 +173,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
             ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
                     existingTitles) { text, description ->
-                AppDatabase.getAppDatabase().readingListDao().createList(text, description)
+                AppDatabase.instance.readingListDao().createList(text, description)
                 updateLists()
             }.show()
         }
@@ -233,10 +233,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     if (displayedLists.size <= oldItemPosition || lists.size <= newItemPosition) {
                         return false
                     }
-                    return (displayedLists[oldItemPosition] is ReadingList && lists[newItemPosition] is ReadingList &&
-                            (displayedLists[oldItemPosition] as ReadingList).id == (lists[newItemPosition] as ReadingList).id &&
-                            (displayedLists[oldItemPosition] as ReadingList).pages.size == (lists[newItemPosition] as ReadingList).pages.size &&
-                            (displayedLists[oldItemPosition] as ReadingList).numPagesOffline == (lists[newItemPosition] as ReadingList).numPagesOffline)
+                    return (displayedLists[oldItemPosition] is ReadingList &&
+                            (displayedLists[oldItemPosition] as ReadingList).compareTo(lists[newItemPosition]))
                 }
             })
             // If the number of lists has changed, just invalidate everything, as a
@@ -428,8 +426,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 it.touch()
                 Completable.fromAction {
-                    AppDatabase.getAppDatabase().readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
-                    AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(it)
+                    AppDatabase.instance.readingListDao().updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
+                    AppDatabase.instance.readingListPageDao().updateReadingListPage(it)
                 }.subscribeOn(Schedulers.io()).subscribe()
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }

@@ -1,5 +1,6 @@
 package org.wikipedia.page
 
+import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
@@ -49,7 +50,10 @@ data class PageTitle(
 
     var namespace: String
         get() = _namespace.orEmpty()
-        set(value) { _namespace = value; _displayText = null }
+        set(value) {
+            _namespace = value
+            _displayText = if (value.isEmpty()) _displayText else StringUtil.removeUnderscores(value) + ":" + _displayText
+        }
 
     val isFilePage: Boolean
         get() = namespace().file()
@@ -137,7 +141,10 @@ data class PageTitle(
             val namespaceOrLanguage = parts[0]
             if (Locale.getISOLanguages().contains(namespaceOrLanguage)) {
                 _namespace = null
-                wikiSite = WikiSite(wiki.authority(), namespaceOrLanguage)
+                val authorityLang = WikiSite.authorityToLanguageCode(wiki.authority())
+                // Swap out the new language subdomain for the old one in the authority string.
+                wikiSite = WikiSite(if (authorityLang.isNotEmpty()) wiki.authority().replace("$authorityLang.", "$namespaceOrLanguage.") else wiki.authority(),
+                        namespaceOrLanguage)
                 this._text = parts.copyOfRange(1, parts.size).joinToString(":")
             } else if (parts[1].isNotEmpty() && !Character.isWhitespace(parts[1][0]) && parts[1][0] != '_') {
                 wikiSite = wiki
@@ -185,6 +192,13 @@ data class PageTitle(
         )
     }
 
+    fun matches(other: PageTitle?): Boolean {
+        return other != null &&
+                other.prefixedText == prefixedText &&
+                other.namespace == namespace &&
+                other.wikiSite.languageCode == wikiSite.languageCode
+    }
+
     companion object {
         fun withSeparateFragment(prefixedText: String, fragment: String?, wiki: WikiSite): PageTitle {
             return if (fragment.isNullOrEmpty()) {
@@ -194,6 +208,19 @@ data class PageTitle(
                 // without having to do string manipulations.
                 PageTitle("$prefixedText#$fragment", wiki, null)
             }
+        }
+
+        fun titleForInternalLink(internalLink: String?, wiki: WikiSite): PageTitle {
+            // Strip the /wiki/ from the href
+            return PageTitle(UriUtil.removeInternalLinkPrefix(internalLink.orEmpty()), wiki)
+        }
+
+        fun titleForUri(uri: Uri, wiki: WikiSite): PageTitle {
+            var path = uri.path
+            if (!uri.fragment.isNullOrEmpty()) {
+                path += "#" + uri.fragment
+            }
+            return titleForInternalLink(path, wiki)
         }
     }
 }

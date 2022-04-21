@@ -24,6 +24,7 @@
   <string name="storage_access_error_retry">Ammasyaali</string>
   <string name="page_error_back_to_main">Duubatti deebi\'i</string>
   <string name="menu_clear_all_history">Seenaa qulqulleessi</string>
+  <string name="menu_page_edit_history">Seenaa gulaali</string>
   <string name="menu_page_add_to_default_list">Ol kaa\'i</string>
   <string name="feed_card_add_to_default_list">Ol kaa\'i</string>
   <string name="menu_page_share">Hidhaa hiri</string>

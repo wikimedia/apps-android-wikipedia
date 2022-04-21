@@ -2,6 +2,7 @@
 <!-- Authors:
 * 1233qwer1234qwer4
 * Bergrübe
+* Brettchenweber
 * Bxalber
 * Chronist
 * Cooltey
@@ -33,6 +34,7 @@
 * Umherirrender
 * Umlaut
 * Vogone
+* Wnme
 * Wolfdietmann
 * Xqt
 -->
@@ -79,13 +81,33 @@
   <string name="share_via">Teilen über</string>
   <string name="image_share_via">Teilen über</string>
   <string name="search_redirect_from">Weiterleitung von %s</string>
+  <string name="page_edit_history_activity_title">Versionsgeschichte: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Keine Zusammenfassung vorhanden</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Bearbeitungen suchen oder filtern</string>
+  <string name="page_edit_history_filter_by">Filtern nach</string>
+  <string name="page_edit_history_filter_by_all">Alle Bearbeitungen (%s)</string>
+  <string name="page_edit_history_filter_by_user">Benutzer-Bearbeitungen (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonyme Bearbeitungen (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Bot-Bearbeitungen (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metriken vom %1$s bis %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d Bearbeitung seit %2$s</item>
+    <item quantity="other">%1$d Bearbeitungen seit %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Änder die &lt;a href=\"#\"&gt;Filter&lt;/a&gt;, um weitere Bearbeitungen zu sehen.</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
   <string name="menu_page_add_to_watchlist">Zur Beobachtungsliste hinzufügen</string>
+  <string name="menu_page_watch">Beobachten</string>
+  <string name="menu_page_unwatch">Nicht mehr beobachten</string>
   <string name="menu_page_view_talk">Diskussionsseite anzeigen</string>
+  <string name="menu_page_talk_page">Diskussionsseite</string>
   <string name="menu_page_view_edit_history">Versionsgeschichte anzeigen</string>
+  <string name="menu_page_edit_history">Versionsgeschichte</string>
   <string name="menu_page_remove_from_watchlist">Von der Beobachtungsliste entfernen</string>
+  <string name="menu_page_watched">Beobachtet</string>
   <string name="edit_section_find_in_page">In Seite suchen</string>
   <string name="menu_page_font_and_theme">Schriftart und Farbschema ändern</string>
   <string name="menu_page_add_to_list">Zur Leseliste hinzufügen</string>
@@ -94,6 +116,7 @@
   <string name="feed_card_add_to_default_list">Speichern</string>
   <string name="menu_page_share">Link teilen</string>
   <string name="menu_article_share">Artikel teilen</string>
+  <string name="menu_page_article_share">Teilen</string>
   <string name="menu_page_open_a_new_tab">Eine neue Registerkarte öffnen</string>
   <string name="menu_page_new_tab">Neue Registerkarte</string>
   <string name="menu_page_reading_lists">Leselisten</string>
@@ -180,6 +203,7 @@
   <string name="dialog_create_account_checking_progress">Verifiziere</string>
   <string name="create_account_email_hint">E-Mail (optional)</string>
   <string name="create_account_password_repeat_hint">Passwort wiederholen</string>
+  <string name="create_account_password_is_username">Ein Passwort kann nicht mit dem Benutzernamen identisch sein</string>
   <string name="create_account_passwords_mismatch_error">Die Passwörter stimmen nicht überein.</string>
   <string name="create_account_email_error">Ungültige E-Mail-Adresse</string>
   <string name="create_account_username_error">Ungültige Zeichen im Benutzernamen</string>
@@ -226,7 +250,6 @@
   <string name="page_protected_can_not_edit_title">Diese Seite ist geschützt</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Zur Beobachtungsliste hinzufügen</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Verfolge, was mit Artikeln geschieht, die dich interessieren. Tippe auf das Menü und wähle &lt;b&gt;Zur Beobachtungsliste hinzufügen&lt;/b&gt;, um Änderungen an einem Artikel zu sehen.</string>
-  <string name="page_notification_tooltip">Deinen Benachrichtigungen sind jetzt da.</string>
   <string name="settings_item_preferences">Einstellungen</string>
   <string name="settings_activity_title">Einstellungen</string>
   <string name="about_description">Über die Wikipedia-App</string>
@@ -406,6 +429,7 @@
   <string name="error_blocked_expiry">Ender der Sperre: %s</string>
   <string name="error_blocked_id">Sperr-ID: %s</string>
   <string name="error_blocked_footer">Du kannst &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; oder einen anderen &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Administratoren\"&gt;Administrator&lt;/a&gt; kontaktieren, um die Sperre zu besprechen.</string>
+  <string name="theme_chooser_menu_item_tooltip">Passe deine Symbolleiste an und versuche den Modus Lesefokus</string>
   <string name="error_blocked_footer_no_blocker">Du kannst einen &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Administratoren\"&gt;Administrator&lt;/a&gt; kontaktieren, um die Sperre zu besprechen.</string>
   <string name="crash_report_activity_title">Anwendungsfehler</string>
   <string name="crash_report_relaunch_or_quit">Leider ist in der Wikipedia-App ein Fehler aufgetreten.\n\nMöchtest du die App neu starten oder beenden?</string>
@@ -435,6 +459,8 @@
   <string name="theme_category_reading">Lesen</string>
   <string name="reading_focus_mode">Modus Lesefokus</string>
   <string name="reading_focus_mode_detail">Blendet Bearbeitungsfunktionen und untere Symbolleiste beim Scrollen aus</string>
+  <string name="theme_category_toolbar">Werkzeugleiste</string>
+  <string name="theme_customize_toolbar">Werkzeugleiste anpassen</string>
   <string name="nav_item_saved">Gespeichert</string>
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
   <string name="reading_list_move_to">In Leseliste verschieben</string>
@@ -778,6 +804,7 @@
   <string name="description_starts_with_uppercase">Beginne mit einem Kleinbuchstaben, es sei denn, das erste Wort ist ein Eigenname.</string>
   <string name="description_starts_with_lowercase">Vermeide es, mit einem Kleinbuchstaben zu beginnen.</string>
   <string name="description_is_in_different_language">Der Text scheint in einer unerwarteten Sprache zu sein. Die Sprache sollte %s sein.</string>
+  <string name="description_verification_notice">Bitte überprüfe, dass deine Beschreibung in %1$s ist. Du kannst diese Benachrichtigung ablehnen, wenn die Beschreibung, die du geschrieben haben, in %2$s ist.</string>
   <string name="description_edit_success_saved">Artikelbeschreibung veröffentlicht!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeschreibung veröffentlicht!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeschreibung veröffentlicht! (%s)</string>
@@ -795,6 +822,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweise eine Zeile, zwischen zwei und zwölf Wörtern</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
   <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
+  <string name="customize_toolbar_title">Werkzeugleiste anpassen</string>
+  <string name="customize_toolbar_description_text">Passe die untere Symbolleiste mit 5 Links an, die du am hilfreichsten findest.</string>
+  <string name="customize_toolbar_category_toolbar">Werkzeugleiste</string>
+  <string name="customize_toolbar_category_menu">Menü</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Ziehen deine Lieblingsobjekte hierher 👋.</string>
+  <string name="customize_toolbar_reset_to_default_button">Auf den Standard zurücksetzen</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Halte das Ziehensymbol gedrückt, um das Element zu verschieben.</string>
+  <string name="customize_toolbar_item_default_tooltip">Drücke und ziehe ein Element, um es neu zu positionieren</string>
   <string name="suggested_edits_describe_articles">Beschreibe Artikel</string>
   <string name="suggested_edits_caption_images">Bilder betiteln</string>
   <string name="suggested_edits_tag_images">Bilder taggen</string>
@@ -885,6 +920,7 @@
   <string name="suggested_edits_paused_message">Vorgeschlagene Bearbeitungen ist pausiert bis %1$s. Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.</string>
   <string name="suggested_edits_disabled_message">Vorgeschlagene Bearbeitungen ist deaktiviert. Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.</string>
   <string name="suggested_edits_ip_blocked_message">Es sieht so aus, als ob Ihre IP-Adresse (oder Ihr IP-Adressbereich) derzeit für die Bearbeitung von Wikipedia gesperrt ist.</string>
+  <string name="suggested_edits_gate_message">Tut mir leid, %s, du musst mindestens drei Bearbeitungen direkt in einem Artikel vornehmen, um diese Funktion nutzen zu können.</string>
   <string name="suggested_edits_editing_tips_link_text">Tipps und Tricks beim Bearbeiten</string>
   <string name="suggested_edits_help_page_link_text">Hilfeseite für Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_edit_streak_label_text">Aufeinanderfolgende Edits</string>
@@ -1075,7 +1111,11 @@
   <string name="talk_snackbar_survey_action_text">Anfangen</string>
   <string name="talk_share_discussion_subject">Wikipedia - Diskussion zum Thema auf der Diskussionsseite „%s“</string>
   <string name="talk_share_talk_page">Wikipedia - Diskussion zum Thema auf der Diskussionsseite</string>
-  <string name="talk_edit_disclaimer">Dies ist eine Diskussionsseite. Bitte respektiere die Richtlinien der Diskussionsseite und denke daran, deine Beiträge zu unterschreiben, indem du vier Tilden eingibst: ~~~~, wenn du Wikitext verwendest.&lt;br&gt;&lt;br&gt;&lt;a href=https://de.wikipedia.org/wiki/Wikipedia:Diskussionsseiten\"&gt;Wikipedia:Diskussionsseiten&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Dies ist eine Diskussionsseite. Bitte respektiere die Richtlinien der Diskussionsseite und denke daran, deine Beiträge zu unterschreiben, indem du vier Tilden eingibst: ~~~~, wenn du Wikitext verwendest.&lt;br&gt;&lt;br&gt;&lt;a href=https://de.wikipedia.org/wiki/Wikipedia:Diskussionsseiten&gt;Wikipedia:Diskussionsseiten&lt;/a&gt;</string>
+  <string name="talk_search_hint">Nachrichten suchen</string>
+  <string name="talk_overflow_sort_by">Sortieren nach</string>
+  <string name="talk_overflow_sort_date_published">Datum der Veröffentlichung</string>
+  <string name="talk_overflow_sort_topic_name">Name des Themas</string>
   <string name="menu_option_share_talk_discussion">Diskussion teilen</string>
   <string name="menu_option_share_talk_page">Diskussionsseite teilen</string>
   <string name="menu_option_share_edit">Bearbeitung teilen</string>
@@ -1093,6 +1133,25 @@
   <string name="thank_dialog_positive_button_text">Danke senden</string>
   <string name="thank_dialog_negative_button_text">Abbrechen</string>
   <string name="thank_success_message">Dein Danke wurde an %s gesendet 👍</string>
+  <string name="menu_option_view_user_profile">Benutzerprofil anzeigen</string>
+  <string name="menu_option_view_user_talk">Diskussionsseite anzeigen</string>
+  <string name="menu_option_view_user_contributions">Benutzerbeiträge anzeigen</string>
+  <string name="revision_diff_compare">Versionen vergleichen</string>
+  <string name="revision_diff_compare_title">Versionen vergleichen: %s</string>
+  <string name="revision_diff_from">Von:</string>
+  <string name="revision_diff_to">Nach:</string>
+  <string name="revision_diff_line_num">Zeile %d</string>
+  <string name="revision_diff_line_nums">Zeilen %d–%d</string>
+  <string name="revision_diff_line_added">Zeile hinzugefügt</string>
+  <string name="revision_diff_line_removed">Zeile entfernt</string>
+  <string name="revision_diff_paragraph_added">Abschnitt hinzugefügt</string>
+  <string name="revision_diff_paragraph_removed">Abschnitt entfernt</string>
+  <string name="revision_undo_title">Bearbeitung rückgängig machen</string>
+  <string name="revision_undo_message">Damit werden die Änderungen, die durch die hier angezeigte(n) Version(en) des Artikels vorgenommen wurden, rückgängig gemacht.</string>
+  <string name="revision_undo_reason">Um fortzufahren, gib bitte einen Grund für die Rückgängigmachung dieser Bearbeitung an:</string>
+  <string name="revision_undo_success">Die Version wurde rückgängig gemacht.</string>
+  <string name="revision_compare_button">Vergleichen</string>
+  <string name="revision_compare_two_only">Nur zwei Versionen können ausgewählt werden.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s und die Diskussionsseite wurde deiner Beobachtungsliste %2$s hinzugefügt.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändern</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">dauerhaft</string>
@@ -1115,4 +1174,10 @@
   <string name="watchlist_page_moved">Verschoben</string>
   <string name="watchlist_page_protected">Geschützt</string>
   <string name="watchlist_page_deleted">Gelöscht</string>
+  <string name="action_item_categories">Kategorien</string>
+  <string name="page_no_categories">Dieser Artikel gehört zu keiner Kategorie.</string>
+  <string name="category_tab_articles">Artikel</string>
+  <string name="category_tab_subcategories">Unterkategorien</string>
+  <string name="category_empty">Keine Artikel in dieser Kategorie gefunden.</string>
+  <string name="subcategory_empty">Keine Unterkategorien in dieser Kategorie gefunden.</string>
 </resources>

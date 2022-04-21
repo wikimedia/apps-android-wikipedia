@@ -9,14 +9,11 @@ import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UriUtil
-import java.util.*
 
 class OnboardingClient : FeedClient {
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
-        getCards(context).let {
-            FeedCoordinator.postCardsToCallback(cb, if (age < it.size) listOf(it[age]) else emptyList())
-        }
+        FeedCoordinator.postCardsToCallback(cb, listOfNotNull(getCards(context).getOrNull(age)))
     }
 
     private fun getCards(context: Context): List<Card> {

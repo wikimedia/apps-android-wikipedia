@@ -41,6 +41,10 @@
   <string name="app_settings">এপ্‌ ছেটিং</string>
   <string name="search_tab_tooltip">সন্ধান শব্দ চিধাই টাইপ কৰা আৰম্ভ কৰিবলৈ আইকনটোত পুনৰ টেপ কৰক।</string>
   <string name="history_list_title">ইতিহাস</string>
+  <string name="image_content_description">ছবি: %s</string>
+  <string name="page_content_description">পৃষ্ঠা: %s</string>
+  <string name="wikimedia_commons">ৱিকিমিডিয়া কমঞ্চ</string>
+  <string name="wikidata">ৱিকিডাটা</string>
   <string name="dialog_title_clear_history">ব্ৰাউজিং ইতিহাস মচি পেলাওক</string>
   <string name="dialog_message_clear_history">এই কাৰ্যই আপোনাৰ সমগ্ৰ ব্ৰাউজিং ইতিহাস মচি পেলাব আৰু বৰ্তমানে খোলা সকলো টব্‌ বন্ধ কৰিব। আপুনি নিশ্চিতনে?</string>
   <string name="dialog_message_clear_history_yes">হয়</string>
@@ -48,13 +52,19 @@
   <string name="share_via">শ্বেয়াৰ</string>
   <string name="image_share_via">শ্বেয়াৰ কৰক</string>
   <string name="search_redirect_from">%sৰ পৰা পুনঃনিৰ্দেশিত</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">সম্পাদনাৰ সাৰাংশ খালী</string>
   <string name="menu_page_show_tabs">টেব্‌সমূহ দেখুৱাওক</string>
   <string name="menu_page_other_languages">ভাষা পৰিবৰ্তন কৰক</string>
   <string name="menu_page_find_in_page">এই প্ৰবন্ধত সন্ধান কৰক</string>
   <string name="menu_page_add_to_watchlist">লক্ষ্য-তালিকাত অন্তৰ্ভুক্ত কৰক</string>
+  <string name="menu_page_watch">চকু ৰাখক</string>
   <string name="menu_page_view_talk">আলোচনা পৃষ্ঠা চাওক</string>
+  <string name="menu_page_talk_page">আলোচনা পৃষ্ঠা</string>
   <string name="menu_page_view_edit_history">সম্পাদনা ইতিহাস চাওক</string>
+  <string name="menu_page_edit_history">সম্পাদনাৰ ইতিহাস</string>
   <string name="menu_page_remove_from_watchlist">লক্ষ্য-তালিকাৰ পৰা আঁতৰাওক</string>
+  <string name="menu_page_watched">চকু ৰাখিছে</string>
   <string name="edit_section_find_in_page">এই পৃষ্ঠাত বিচাৰক</string>
   <string name="menu_page_font_and_theme">ফ\'ণ্ট আৰু থীম</string>
   <string name="menu_page_add_to_list">পঢ়া তালিকাত যোগ দিয়ক</string>
@@ -62,6 +72,8 @@
   <string name="feed_card_add_to_list">পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="feed_card_add_to_default_list">সাঁচি থওক</string>
   <string name="menu_page_share">লিংক শ্বেয়াৰ কৰক</string>
+  <string name="menu_article_share">প্ৰবন্ধ শ্বেয়াৰ কৰক</string>
+  <string name="menu_page_article_share">শ্বেয়াৰ কৰক</string>
   <string name="menu_page_open_a_new_tab">নতুন টেব খোলক</string>
   <string name="menu_page_new_tab">নতুন টেব</string>
   <string name="menu_page_reading_lists">পঢ়াৰ তালিকা</string>
@@ -148,10 +160,11 @@
   <string name="dialog_create_account_checking_progress">সত্যাসত্য নিৰূপণ কৰা হৈ আছে</string>
   <string name="create_account_email_hint">ইমেইল (বৈকল্পিক)</string>
   <string name="create_account_password_repeat_hint">গুপ্তশব্দ আকৌ লিখক</string>
+  <string name="create_account_password_is_username">পাছৱৰ্ড আৰু ব্যৱহাৰকাৰীনাম একে হ\'ব নোৱাৰে</string>
   <string name="create_account_passwords_mismatch_error">গুপ্তশব্দ মিলা নাই</string>
   <string name="create_account_email_error">অগ্ৰহণযোগ্য ইমেইল ঠিকনা</string>
   <string name="create_account_username_error">সদস্যনামত অবৈধ চিহ্ন আছে</string>
-  <string name="create_account_password_error" fuzzy="true">গুপ্তশব্দটো ভুল</string>
+  <string name="create_account_password_error">পাছৱৰ্ডটোত কমেও 8টা বৰ্ণ থাকিবই লাগিব</string>
   <string name="create_account_generic_error">একাউণ্ট সৃষ্টি কৰিব পৰা নগ\'ল</string>
   <string name="create_account_next">পৰৱৰ্তী</string>
   <string name="email_recommendation_dialog_title">ইমেইল ঠিকনা অবিহনেই একাউণ্ট সৃষ্টি কৰিব?</string>
@@ -165,6 +178,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">বিৱৰণ</string>
   <string name="preferences_general_heading">সাধাৰণ</string>
+  <string name="preferences_account_heading">একাউণ্ট</string>
   <string name="wikipedia_app_faq">ৱিকিপিডিয়া এপ্‌ FAQ</string>
   <string name="send_feedback">এপ্‌ প্ৰতিক্ৰিয়া জনাওক</string>
   <string name="create_account_account_created_toast">একাউণ্ট সৃষ্টি হ\'ল!</string>
@@ -192,6 +206,7 @@
   <string name="page_protected_can_not_edit_anon">দুঃখিত, এই পৃষ্ঠাটো বৰ্তমান বেনামীভাৱে সম্পাদনা কৰিব নোৱাৰি।</string>
   <string name="page_protected_can_not_edit_title">এই পৃষ্ঠাটো সুৰক্ষিত</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">লক্ষ্য-তালিকাত অন্তৰ্ভুক্ত কৰক</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">আপোনাৰ আগ্ৰহ থকা প্ৰবন্ধবোৰত কি ঘটি আছে তাৰ ওপৰত চকু ৰাখক। কোনো প্ৰবন্ধৰ সাল-সলনি চাবলৈ অভাৰফ্ল\' মেন্যুত স্পৰ্শ কৰি &lt;b&gt;চোৱাসূচীত যোগ কৰক&lt;/b&gt; বাছনি কৰক।</string>
   <string name="settings_item_preferences">ছেটিং</string>
   <string name="settings_activity_title">ছেটিং</string>
   <string name="about_description">ৱিকিপিডিয়া এপ্‌টোৰ বিষয়ে</string>
@@ -208,7 +223,7 @@
   <string name="about_translators_heading">অনুবাদকসকল</string>
   <string name="about_translators_translatewiki">এই এপ্‌টো স্বেচ্ছাসেৱক অনুবাদকে &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;ত অনুবাদ কৰিছে।</string>
   <string name="about_app_license_heading">অনুজ্ঞাপত্ৰ</string>
-  <string name="about_app_license" fuzzy="true">উৎস ক\'ড &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 অনুজ্ঞাপত্ৰৰ&lt;/a&gt; অধীনত &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;জেৰিট&lt;/a&gt; আৰু &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবত&lt;/a&gt; উপলব্ধ। অন্যভাৱে উল্লেখ নাথাকিলে সমল &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্ৰিয়েটিভ কমন্স এট্ৰিবিউচন-শ্বেয়াৰ এলাইক অনুজ্ঞাপত্ৰ&lt;/a&gt; অধীনত উপলব্ধ।</string>
+  <string name="about_app_license">উৎস ক\'ড &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 অনুজ্ঞাপত্ৰ&lt;/a&gt;ৰ অধীনত &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; আৰু &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;ত উপলব্ধ। আন একো উল্লেখ কৰা নাথাকিলে বিষয়বস্তু &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্ৰিয়েটীভ কমঞ্চ এট্ৰিবিউচন-শ্বেয়াৰ এলাইক অনুজ্ঞাপত্ৰ&lt;/a&gt;ৰ অধীনত উপলব্ধ।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ৱিকিমিডিয়া ফাউণ্ডেছনৰ&lt;/a&gt; এটা সামগ্ৰী</string>
   <string name="about_activity_title">বিষয়ে</string>
   <string name="edit_abandon_confirm">এই পৃষ্ঠাটো সলোৱা হৈছে। আপোনাৰ সালসলনি সাঁচি নোথোৱাকৈ গুচি যাব বুলি নিশ্চিতনে?</string>
@@ -232,10 +247,15 @@
   <string name="edit_summary_tag_other_hint">পৃষ্ঠাটো উন্নত কৰাত আপোনাৰ অন্য অৱদান</string>
   <string name="edit_conflict_title">সম্পাদনা দ্বন্দ্ব</string>
   <string name="edit_conflict_message">এই পৃষ্ঠাটো ইতিমধ্যে আন এগৰাকী সদস্যই সলনি কৰিছে আৰু ফলত সম্পাদনা দ্বন্দ্ব হৈছে। অনুগ্ৰহ কৰি আপোনাৰ সম্পাদনাখিনি প্ৰতিলিপি কৰক আৰু পৃষ্ঠাটো ৰিফ্ৰেশ্ব কৰি পুনৰ সম্পাদনাৰ চেষ্টা কৰক।</string>
+  <string name="edit_notices">সম্পাদনাৰ জাননীসমূহ</string>
+  <string name="edit_notices_please_read">অনুগ্ৰহ কৰি সম্পাদনা কৰাৰ আগত পঢ়ি লওক</string>
+  <string name="edit_notices_show_auto">স্বয়ংক্ৰিয়ভাৱে সম্পাদনাৰ জাননীসমূহ দেখুৱাব</string>
+  <string name="edit_notices_tooltip">এই প্ৰবন্ধ-সম্পৰ্কীয় সম্পাদনাৰ জাননীসমূহ চাবলৈ এই বুটামটোত স্পৰ্শ কৰক।</string>
   <string name="find_next">পৰৱৰ্তী বিচাৰক</string>
   <string name="find_previous">পূৰ্বৱৰ্তী বিচাৰক</string>
   <string name="find_first_occurence">এইবাৰেই প্ৰথম হৈছে</string>
   <string name="find_last_occurence">এইবাৰেই শেষ হৈছে</string>
+  <string name="article_opened_in_background_tab">প্ৰবন্ধটো এটা পিছফালৰ টেবত খোলা হৈছে।</string>
   <string name="abusefilter_title_warn">এইটো সম্ভৱ এটা অগঠনমূলক সম্পাদনা। আপুনি এইটো প্ৰকাশ কৰিব বুলি নিশ্চিতনে?</string>
   <string name="abusefilter_title_disallow">আপুনি এই সম্পাদনাটো প্ৰকাশ কৰিব নোৱাৰে। অনুগ্ৰহ কৰি ঘূৰি গৈ এইটো সলাওক।</string>
   <string name="abusefilter_text_warn">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বুলি চিহ্নিত কৰিছে। ইয়াত তলৰ এটা বা অধিক থাকিব পাৰে:&lt;br /&gt;&lt;br /&gt;· প্ৰবন্ধ খালি কৰা বা স্পামিং&lt;br /&gt;· অপ্ৰয়োজনীয় বাহ্যিক সংযোগ বা ছবি&lt;br /&gt;· চিহ্নৰ পুনৰাবৃত্তি</string>
@@ -500,7 +520,34 @@
   <string name="preference_title_notification_mention">উল্লেখ</string>
   <string name="preference_summary_notification_mention">কোনোবাই পৃষ্ঠা এখনত আপোনাক উল্লেখ কৰে</string>
   <string name="preference_title_notification_user_talk">আলোচনা পৃষ্ঠা</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">আলোচনা পৃষ্ঠাৰ বাৰ্তাসমূহ</string>
+  <string name="preference_summary_notification_user_talk">আলোচনা পৃষ্ঠাৰ বাৰ্তা আৰু প্ৰত্যুত্তৰসমূহ</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ৱিকিপিডিয়া</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">ৱিকিপিডিয়াৰ জাননীসমূহ</string>
+  <string name="notifications_channel_group_other_title">অন্যান্য</string>
+  <string name="notifications_channel_group_other_description">এপটোৰ অন্যান্য জাননীসমূহ</string>
+  <string name="notifications_filter_label">জাননীসমূহ ফিল্টাৰ কৰক</string>
+  <string name="notifications_filter_icon_content_description">জাননীসমূহ ফিল্টাৰ কৰক</string>
+  <string name="notifications_filter_update_app_languages">এপৰ ভাষাসমূহ আপডেট কৰক</string>
+  <string name="notifications_empty_search_message">অধিক জাননী চাবলৈ %s আঁতৰাই চাওক</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%dটা ফিল্টাৰ</item>
+    <item quantity="other">%dটা ফিল্টাৰ</item>
+  </plurals>
+  <string name="notifications_select_all_filters">সকলো ফিল্টাৰ বাছক</string>
+  <string name="notifications_tab_filter_all">সকলো</string>
+  <string name="notifications_tab_filter_mentions">উল্লেখ</string>
+  <string name="notifications_search_bar_hint">জাননীৰ সন্ধান কৰক বা ফিল্টাৰ কৰক</string>
+  <string name="notifications_search_bar_filter_hint">জাননী ফিল্টাৰ</string>
+  <string name="notifications_menu_mark_as_read">পঢ়া বুলি চিন দিয়ক</string>
+  <string name="notifications_menu_mark_as_unread">নপঢ়া বুলি চিন দিয়ক</string>
+  <string name="notifications_swipe_action_read">পৰিছোঁ</string>
+  <string name="notifications_swipe_action_unread">পঢ়া নাই</string>
+  <string name="notifications_menu_check_all">আটাইকেইটা বাছি লওক</string>
+  <string name="notifications_menu_uncheck_all">আটাইকেইটা বাছনি বাতিল কৰক</string>
+  <string name="notifications_wiki_filter_header">ৱিকি ফিল্টাৰ</string>
+  <string name="notifications_type_filter_header">প্ৰকাৰ ফিল্টাৰ</string>
+  <string name="notifications_all_wikis_text">সকলো \"ৱিকি\"</string>
+  <string name="notifications_all_types_text">সকলো \"প্ৰকাৰ\"</string>
   <string name="view_because_you_read_card_title">কাৰণ আপুনি পঢ়িছে</string>
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
   <string name="view_random_article_card_title">যাদৃচ্ছিক প্ৰবন্ধ</string>
@@ -584,6 +631,7 @@
   <string name="description_edit_tutorial_keep_it_short">সংক্ষিপ্ত ৰাখক</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা আৰম্ভ কৰক</string>
   <string name="description_edit_tutorial_promise">আৰম্ভ কৰি মই এই সুবিধা অপব্যৱহাৰ নকৰাৰ শপত খাইছোঁ।</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">আপোনাৰ প্ৰিয় বস্তুবিলাক ইয়ালৈ টানি আনি এৰি দিয়ক 👋</string>
   <string name="suggested_edits_describe_articles">প্ৰবন্ধৰ বৰ্ণনা কৰক</string>
   <string name="suggested_edits_caption_images">ছবিৰ কেপশ্যন লিখক</string>
   <string name="suggested_edits_tag_images">ছবি টেগ কৰক</string>
@@ -602,6 +650,10 @@
   <string name="suggested_edits_image_caption_summary_title_source">উৎস</string>
   <string name="suggested_edits_image_caption_summary_title_license">অনুজ্ঞাপত্ৰ</string>
   <string name="suggested_edits_image_caption_summary_title_date">তাৰিখ</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1টা বৰঙণি</item>
+    <item quantity="other">%dটা বৰঙণি</item>
+  </plurals>
   <string name="suggested_edits_feed_card_title">পৰামৰ্শকৃত সম্পাদনা</string>
   <string name="suggested_edits_feed_card_add_description_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক (%s)</string>
@@ -671,6 +723,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">কালি</string>
   <string name="suggested_edits_encourage_account_creation_title"> আপুনি জানেনে যে ৱিকিপিডিয়াত সকলোৱে সম্পাদনা কৰিব পাৰে?</string>
   <string name="file_page_activity_title">ফাইল পৃষ্ঠা</string>
+  <string name="file_page_edit_button_content_description">%s সম্পাদনা কৰক</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="description_edit_revert_intro">আমি বুজিছোঁ যে আপুনি অশেষ চেষ্টা কৰিলে, কিন্তু এজন পৰ্যবেক্ষকে এট আপত্তি দৰ্শাইছে। আপোনাৰ সম্পাদনা বাতিল কৰাৰ সম্ভাব্য কাৰণ হ\'ব পাৰে:</string>
   <string name="description_edit_revert_reason1">আপোনাৰ অৱদানে &lt;a href=\"%1$s\"&gt;নীতিসমূহ&lt;/a&gt; অনুসৰণ কৰা নাই।</string>
@@ -680,6 +733,7 @@
   <string name="onboarding_continue">অব্যাহত ৰাখক</string>
   <string name="onboarding_get_started">আৰম্ভ কৰক</string>
   <string name="onboarding_maybe_later">সম্ভৱত পাছত</string>
+  <string name="onboarding_explore_title">অন্বেষণ কৰাৰ নতুন উপায়</string>
   <string name="onboarding_got_it">বুজিছোঁ</string>
   <string name="app_shortcuts_random">যিকোনো</string>
   <string name="app_shortcuts_continue_reading">পঢ়া অব্যাহত ৰাখক</string>
@@ -741,17 +795,37 @@
   <string name="talk_add_reply">সঁহাৰি জনাওক</string>
   <string name="talk_no_subject">(কোনো বিষয় নাই)</string>
   <string name="talk_reply_subject">বিষয়</string>
+  <string name="talk_overflow_sort_by">সজোৱা ক্ৰম</string>
+  <string name="talk_overflow_sort_date_published">প্ৰকাশ কৰা তাৰিখ</string>
+  <string name="talk_overflow_sort_topic_name">বিষয়ৰ নাম</string>
+  <string name="menu_option_share_talk_discussion">আলোচনা শ্বেয়াৰ কৰক</string>
+  <string name="menu_option_share_talk_page">আলোচনা পৃষ্ঠা শ্বেয়াৰ কৰক</string>
+  <string name="menu_option_share_edit">সম্পাদনা শ্বেয়াৰ কৰক</string>
+  <string name="menu_option_user_profile">%s-ৰ প্ৰ\'ফাইল</string>
+  <string name="menu_option_user_contributions">%s-ৰ বৰঙণি</string>
+  <string name="menu_option_edit_source">উৎস সম্পাদনা কৰক</string>
+  <string name="watchlist_details_watching_label">চকু ৰাখি আছে</string>
+  <string name="watchlist_details_watch_label">চকু ৰাখক</string>
+  <string name="watchlist_details_next_edit">পৰৱৰ্তী সম্পাদনা</string>
+  <string name="watchlist_details_prev_edit">পূৰ্বৱৰ্তী সম্পাদনা</string>
   <string name="thank_label">ধন্যবাদ জনাওক</string>
+  <string name="view_user_page">ব্যৱহাৰকাৰীৰ পৃষ্ঠা চাওক</string>
   <string name="thank_dialog_title_text">ৰাজহুৱাকৈ \'ধন্যবাদ\' জ্ঞাপন কৰক</string>
+  <string name="thank_dialog_text">ৱিকিপিডিয়াত কোনো এগৰাকী সম্পাদকৰ কামৰ বাবে প্ৰশংসা প্ৰকাশ কৰাৰ এক সহজ উপায় হৈছে \'ধন্যবাদ\'। \'ধন্যবাদ\' বাতিল কৰিব নোৱাৰি আৰু ৰাজহুৱাভাৱে চাব পৰা যায়</string>
   <string name="thank_dialog_positive_button_text">ধন্যবাদ জ্ঞাপন কৰক</string>
   <string name="thank_dialog_negative_button_text">বাতিল কৰক</string>
   <string name="thank_success_message">আপোনাৰ \'ধন্যবাদ\' %s-লৈ প্ৰেৰণ কৰা হ\'ল 👍</string>
+  <string name="menu_option_view_user_profile">ব্যৱহাৰকাৰীৰ প্ৰ\'ফাইল পৃষ্ঠা চাওক</string>
+  <string name="menu_option_view_user_talk">আলোচনা পৃষ্ঠা চাওক</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s আৰু ইয়াৰ আলোচনা পৃষ্ঠাখন %2$s আপোনাৰ চোৱাসূচীত যোগ কৰা হৈছে।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">সলাওক</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">স্থায়ীকৈ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">১ সপ্তাহৰ বাবে</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">১ মাহৰ বাবে</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">৩ মাহৰ বাবে</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">৬ মাহৰ বাবে</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s আৰু ইয়াৰ আলোচনা পৃষ্ঠাখন আপোনাৰ চোৱাসূচীৰ পৰা আঁতৰোৱা হৈছে।</string>
+  <string name="watchlist_expiry_dialog_title">চোৱাসূচীৰ সময়কাল বাছনি কৰক</string>
   <string name="watchlist_expiry_dialog_permanent">স্থায়ী</string>
   <string name="watchlist_expiry_dialog_one_week">১ সপ্তাহ</string>
   <string name="watchlist_expiry_dialog_one_month">১ মাহ</string>

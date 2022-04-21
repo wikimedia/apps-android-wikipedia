@@ -78,6 +78,7 @@
   <string name="feed_card_add_to_default_list">Uložiť</string>
   <string name="menu_page_share">Zdieľať odkaz</string>
   <string name="menu_article_share">Zdieľať článok</string>
+  <string name="menu_page_article_share">Zdieľať</string>
   <string name="menu_page_open_a_new_tab">Otvoriť novú kartu</string>
   <string name="menu_page_new_tab">Nová karta</string>
   <string name="menu_page_reading_lists">Zoznamy na prečítanie</string>
@@ -210,7 +211,6 @@
   <string name="page_protected_can_not_edit_title">Táto stránka je chránená</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Pridať do zoznamu sledovaných</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Sledujte čo sa deje s článkami, ktoré Vás zaujímajú. Stlačte menu a zvoľte &lt;b&gt;Pridať do zoznamu sledovaných&lt;/b&gt; pre zobrazenie zmien článku.</string>
-  <string name="page_notification_tooltip">Vaše notifikácie sa teraz nachádzajú tu.</string>
   <string name="settings_item_preferences">Nastavenia</string>
   <string name="settings_activity_title">Nastavenia</string>
   <string name="about_description">O aplikácii</string>
@@ -543,13 +543,13 @@
     <item quantity="one">Tento článok bude teraz dostupný bez pripojenia.</item>
     <item quantity="few">Tieto články budú teraz dostupné bez pripojenia.</item>
     <item quantity="many">Tieto články budú teraz dostupné bez pripojenia.</item>
-    <item quantity="other"/>
+    <item quantity="other">Tieto články budú teraz dostupné bez pripojenia.</item>
   </plurals>
   <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Tento článok už nebude dostupný bez pripojenia.</item>
     <item quantity="few">Tieto články už nebudú dostupné bez pripojenia.</item>
     <item quantity="many">Tieto články už nebudú dostupné bez pripojenia.</item>
-    <item quantity="other"/>
+    <item quantity="other">Tieto články už nebudú dostupné bez pripojenia.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Zoznamy na prečítanie boli synchronizované</string>
   <string name="reading_list_menu_last_sync">Posledná synchronizácia: %s</string>

@@ -19,7 +19,6 @@ class DescriptionEditSuccessActivity : SingleFragmentActivityTransparent<Descrip
     companion object {
         const val RESULT_OK_FROM_EDIT_SUCCESS = 1
 
-        @JvmStatic
         fun newIntent(context: Context, invokeSource: InvokeSource): Intent {
             return Intent(context, DescriptionEditSuccessActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)

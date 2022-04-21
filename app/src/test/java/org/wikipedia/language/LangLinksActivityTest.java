@@ -21,7 +21,7 @@ public class LangLinksActivityTest{
         PageTitle title = new PageTitle(null, "洋基體育場 (1923年)", WikiSite.forLanguageCode("zh-hant"));
         List<PageTitle> list = getBaseLanguageEntries();
 
-        LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
+        LangLinksViewModel.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
         compareLists(list, getExpectedZhHantResults());
     }
 
@@ -30,7 +30,7 @@ public class LangLinksActivityTest{
         PageTitle title = new PageTitle(null, "洋基体育场 (1923年)", WikiSite.forLanguageCode("zh-hans"));
         List<PageTitle> list = getBaseLanguageEntries();
 
-        LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
+        LangLinksViewModel.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
         compareLists(list, getExpectedZhHansResults());
     }
 
@@ -39,7 +39,7 @@ public class LangLinksActivityTest{
         PageTitle title = new PageTitle(null, "Yankee Stadium (1923)", WikiSite.forLanguageCode("da"));
         List<PageTitle> list = getBaseLanguageEntriesWithZhVariants();
 
-        LangLinksActivity.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
+        LangLinksViewModel.addVariantEntriesIfNeeded(WikipediaApp.getInstance().language(), title, list);
         compareLists(list, getExpectedGeneralResults());
     }
 

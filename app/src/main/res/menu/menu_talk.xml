@@ -4,16 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
-    <item
-        android:id="@+id/menu_change_language"
-        android:icon="@drawable/ic_translate_toolbar_icon_color_themed"
-        android:title="@string/langlinks_activity_title"
-        app:showAsAction="always" />
+
     <item
         android:id="@+id/menu_notifications"
         android:title="@string/notifications_activity_title"
         app:showAsAction="always" />
-
 
     <item
         android:id="@+id/menu_notifications_group"
@@ -23,6 +18,11 @@
         <menu>
 
             <item
+                android:id="@+id/menu_change_language"
+                android:icon="@drawable/ic_translate_toolbar_icon_color_themed"
+                android:title="@string/langlinks_activity_title"
+                app:showAsAction="never" />
+            <item
                 android:id="@+id/menu_view_user_page"
                 android:icon="@drawable/ic_user_avatar_material_secondary_themed"
                 android:title="@string/view_user_page"
@@ -31,6 +31,12 @@
                 android:id="@+id/menu_view_in_browser"
                 android:icon="@drawable/ic_open_in_new_material_secondary_themed"
                 android:title="@string/page_view_in_browser"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/menu_view_edit_history"
+                android:icon="@drawable/ic_icon_revision_history_apps"
+                app:iconTint="?attr/secondary_text_color"
+                android:title="@string/menu_page_view_edit_history"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_talk_topic_share"

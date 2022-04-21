@@ -11,6 +11,7 @@
 * Envlh
 * Green Zero
 * Gzhegozh
+* Ice bulldog
 * Ihor.Zinchenko
 * Movses
 * Piramidion
@@ -68,9 +69,13 @@
   <string name="menu_page_other_languages">Змінити мову</string>
   <string name="menu_page_find_in_page">Знайти у статті</string>
   <string name="menu_page_add_to_watchlist">Додати до списку спостереження</string>
+  <string name="menu_page_watch">Спостерігати</string>
   <string name="menu_page_view_talk">Переглянути сторінку обговорення</string>
+  <string name="menu_page_talk_page">Сторінка обговорення</string>
   <string name="menu_page_view_edit_history">Переглянути історію редагувань</string>
+  <string name="menu_page_edit_history">Історія редагувань</string>
   <string name="menu_page_remove_from_watchlist">Прибрати зі списку спостереження</string>
+  <string name="menu_page_watched">Спостерігається</string>
   <string name="edit_section_find_in_page">Знайти на сторінці</string>
   <string name="menu_page_font_and_theme">Змінити шрифт і тему</string>
   <string name="menu_page_add_to_list">Додати до читального списку</string>
@@ -79,6 +84,7 @@
   <string name="feed_card_add_to_default_list">Зберегти</string>
   <string name="menu_page_share">Поділитися посиланням</string>
   <string name="menu_article_share">Поділитися статтею</string>
+  <string name="menu_page_article_share">Поділитися</string>
   <string name="menu_page_open_a_new_tab">Відкрити нову вкладинку</string>
   <string name="menu_page_new_tab">Нова вкладка</string>
   <string name="menu_page_reading_lists">Читальні списки</string>
@@ -211,7 +217,6 @@
   <string name="page_protected_can_not_edit_title">Цю сторінку захищено</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додати до списку спостереження</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Слідкуйте за тим, що відбувається з цікавими вам статтями. Натисніть на значок меню і виберіть &lt;b&gt;Додати до списку спостереження&lt;/b&gt;, щоб бачити зміни до статті.</string>
-  <string name="page_notification_tooltip">Ваші сповіщення тепер тут.</string>
   <string name="settings_item_preferences">Налаштування</string>
   <string name="settings_activity_title">Налаштування</string>
   <string name="about_description">Про додаток Вікіпедії</string>
@@ -395,6 +400,7 @@
   <string name="error_blocked_expiry">Кінець блокування: %s</string>
   <string name="error_blocked_id">Ідентифікатор блокування: %s</string>
   <string name="error_blocked_footer">Ви можете зв\'язатися із &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; або іншим &lt;a href=\"https://uk.wikipedia.org/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
+  <string name="theme_chooser_menu_item_tooltip">Налаштуйте панель інструментів і спробуйте читати режим фокусування</string>
   <string name="error_blocked_footer_no_blocker">Ви можете зв\'язатися з &lt;a href=\"https://uk.wikipedia.org/wiki/Вікіпедія:Адміністратори\"&gt;адміністратором&lt;/a&gt; й обговорити блокування.</string>
   <string name="crash_report_activity_title">Помилка програми</string>
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
@@ -424,6 +430,8 @@
   <string name="theme_category_reading">Читання</string>
   <string name="reading_focus_mode">Режим фокусування читання</string>
   <string name="reading_focus_mode_detail">Приховує функції редагування та нижню панель інструментів під час прокручування</string>
+  <string name="theme_category_toolbar">Панель інструменту</string>
+  <string name="theme_customize_toolbar">Налаштувати панель інструменту</string>
   <string name="nav_item_saved">Збережено</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
   <string name="reading_list_move_to">Перенести до читального списку</string>
@@ -802,6 +810,7 @@
   <string name="description_starts_with_uppercase">Починайте з малої літери, якщо тільки перше слово не є власною назвою.</string>
   <string name="description_starts_with_lowercase">Уникайте малої літери на початку.</string>
   <string name="description_is_in_different_language">Схоже, текст неочікуваною мовою. Повинна бути така мова: %s.</string>
+  <string name="description_verification_notice">Будь ласка, переконайтеся, що ваш опис міститься в %1$s. Не соромтеся відхилити це сповіщення, якщо опис, який ви написали, містить %2$s.</string>
   <string name="description_edit_success_saved">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_snackbar">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Опис статті збережено! (%s)</string>
@@ -819,6 +828,11 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В ідеалі — один рядок, від двох до дванадцяти слів</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почати редагування</string>
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
+  <string name="customize_toolbar_title">Налаштувати панель інструменту</string>
+  <string name="customize_toolbar_category_toolbar">Панель інструменту</string>
+  <string name="customize_toolbar_category_menu">Меню</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Перетягніть сюди улюблені предмети 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Скинути за замовчуванням</string>
   <string name="suggested_edits_describe_articles">Опишіть статті</string>
   <string name="suggested_edits_caption_images">Назвіть зображення</string>
   <string name="suggested_edits_tag_images">Теги до зображень</string>
@@ -1122,6 +1136,10 @@
   <string name="talk_share_discussion_subject">Вікіпедія — обговорення на сторінці обговорення «%s»</string>
   <string name="talk_share_talk_page">Вікіпедія — обговорення на сторінці обговорення</string>
   <string name="talk_edit_disclaimer">Це сторінка обговорення. Будь ласка, дотримуйтесь інструкцій щодо сторінки обговорення та не забудьте підписувати свої повідомлення, вводячи чотири тильди: ~~~~ під час публікації з використанням вікітексту.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Вікіпедія:Рекомендації щодо сторінок обговорення&lt;/a&gt;</string>
+  <string name="talk_search_hint">Пошук повідомлень</string>
+  <string name="talk_overflow_sort_by">Сортувати за</string>
+  <string name="talk_overflow_sort_date_published">Дата публікації</string>
+  <string name="talk_overflow_sort_topic_name">Назва теми</string>
   <string name="menu_option_share_talk_discussion">Поділіться обговоренням</string>
   <string name="menu_option_share_talk_page">Поділіться сторінкою обговорення</string>
   <string name="menu_option_share_edit">Поділитися редагуванням</string>
@@ -1139,6 +1157,8 @@
   <string name="thank_dialog_positive_button_text">Надіслати подяку</string>
   <string name="thank_dialog_negative_button_text">Скасувати</string>
   <string name="thank_success_message">Ваша подяка надіслана до %s 👍</string>
+  <string name="menu_option_view_user_profile">Дивитися сторінку профілю користувача</string>
+  <string name="menu_option_view_user_talk">Переглянути сторінку обговорення</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Сторінка %1$s та її сторінка обговорення додані до вашого списку спостереження %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Змінити</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">на постійно</string>

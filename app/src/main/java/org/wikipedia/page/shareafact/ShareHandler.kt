@@ -1,31 +1,21 @@
 package org.wikipedia.page.shareafact
 
+import android.os.Build
 import android.view.ActionMode
 import android.view.MenuItem
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.ShareAFactFunnel
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.page.PageFragment
 import org.wikipedia.util.log.L
 import org.wikipedia.wiktionary.WiktionaryDialog
-import java.util.*
 
 class ShareHandler(private val fragment: PageFragment, private val bridge: CommunicationBridge) {
     private var webViewActionMode: ActionMode? = null
-    private var funnel: ShareAFactFunnel? = null
     private val disposables = CompositeDisposable()
-
-    private fun createFunnel() {
-        fragment.page?.let {
-            funnel = ShareAFactFunnel(WikipediaApp.getInstance(), it.title, it.pageProperties.pageId,
-                    it.pageProperties.revisionId)
-        }
-    }
 
     private fun onEditHerePayload(sectionID: Int, text: String, isEditingDescription: Boolean) {
         if (sectionID == 0 && isEditingDescription) {
@@ -56,13 +46,13 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
 
     fun onTextSelected(mode: ActionMode) {
         webViewActionMode = mode
-        mode.menu.findItem(R.id.menu_text_select_define).run {
+        mode.menu.findItem(R.id.menu_text_select_define)?.run {
             if (shouldEnableWiktionaryDialog()) {
                 isVisible = true
                 setOnMenuItemClickListener(RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_DEFINE))
             }
         }
-        mode.menu.findItem(R.id.menu_text_edit_here).run {
+        mode.menu.findItem(R.id.menu_text_edit_here)?.run {
             setOnMenuItemClickListener(RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_EDIT_HERE))
             fragment.page?.run {
                 if (!isArticle) {
@@ -70,10 +60,9 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
                 }
             }
         }
-        if (funnel == null) {
-            createFunnel()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mode.invalidateContentRect()
         }
-        funnel?.logHighlight()
     }
 
     fun shouldEnableWiktionaryDialog(): Boolean {

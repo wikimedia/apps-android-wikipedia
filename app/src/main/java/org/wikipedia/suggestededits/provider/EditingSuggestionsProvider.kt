@@ -2,7 +2,7 @@ package org.wikipedia.suggestededits.provider
 
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.dataclient.Service
+import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -52,7 +52,7 @@ object EditingSuggestionsProvider {
             if (cachedTitle.isNotEmpty()) {
                 Observable.just(cachedTitle)
             } else {
-                ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode))
+                ServiceFactory.getRest(Constants.wikidataWikiSite).getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode))
                         .flatMap { pages ->
                             val titleList = ArrayList<String>()
                             pages.forEach { titleList.add(it.title()) }
@@ -74,7 +74,7 @@ object EditingSuggestionsProvider {
                             }
                             title
                         }
-                        .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
+                        .retry(retryLimit) { it is ListEmptyException }
             }
         }.flatMap { title -> ServiceFactory.getRest(wiki).getSummary(null, title) }
                 .doFinally { mutex.release() }
@@ -96,7 +96,7 @@ object EditingSuggestionsProvider {
             if (cachedPair != null) {
                 Observable.just(cachedPair)
             } else {
-                ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode), WikiSite.normalizeLanguageCode(targetLang))
+                ServiceFactory.getRest(Constants.wikidataWikiSite).getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode), WikiSite.normalizeLanguageCode(targetLang))
                         .flatMap({ pages ->
                             if (pages.isEmpty()) {
                                 throw ListEmptyException()
@@ -134,9 +134,7 @@ object EditingSuggestionsProvider {
                             }
                             targetAndSourcePageTitles
                         }
-                        .retry(retryLimit) { t: Throwable ->
-                            t is ListEmptyException
-                        }
+                        .retry(retryLimit) { it is ListEmptyException }
             }
         }.flatMap { getSummary(it) }
                 .doFinally { mutex.release() }
@@ -166,7 +164,7 @@ object EditingSuggestionsProvider {
             if (cachedTitle != null) {
                 Observable.just(cachedTitle)
             } else {
-                ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
+                ServiceFactory.getRest(Constants.commonsWikiSite).getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
                         .map { pages ->
                             imagesWithMissingCaptionsCacheLang = lang
                             pages.forEach { imagesWithMissingCaptionsCache.push(it.title()) }
@@ -179,7 +177,7 @@ object EditingSuggestionsProvider {
                             }
                             item
                         }
-                        .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
+                        .retry(retryLimit) { it is ListEmptyException }
             }
         }.doFinally { mutex.release() }
     }
@@ -199,7 +197,7 @@ object EditingSuggestionsProvider {
             if (cachedPair != null) {
                 Observable.just(cachedPair)
             } else {
-                ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithTranslatableCaptions(WikiSite.normalizeLanguageCode(sourceLang), WikiSite.normalizeLanguageCode(targetLang))
+                ServiceFactory.getRest(Constants.commonsWikiSite).getImagesWithTranslatableCaptions(WikiSite.normalizeLanguageCode(sourceLang), WikiSite.normalizeLanguageCode(targetLang))
                         .map { pages ->
                             imagesWithTranslatableCaptionCacheFromLang = sourceLang
                             imagesWithTranslatableCaptionCacheToLang = targetLang
@@ -220,7 +218,7 @@ object EditingSuggestionsProvider {
                             }
                             item
                         }
-                        .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
+                        .retry(retryLimit) { it is ListEmptyException }
             }
         }.doFinally { mutex.release() }
     }
@@ -235,7 +233,7 @@ object EditingSuggestionsProvider {
             if (cachedItem != null) {
                 Observable.just(cachedItem)
             } else {
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
+                ServiceFactory.get(Constants.commonsWikiSite).randomWithImageInfo
                         .map { response ->
                             response.query?.pages?.filter { it.imageInfo()?.mime == "image/jpeg" }?.forEach { page ->
                                 if (page.revisions.none { "P180" in it.getContentFromSlot("mediainfo") }) {
@@ -251,7 +249,7 @@ object EditingSuggestionsProvider {
                             }
                             item
                         }
-                        .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
+                        .retry(retryLimit) { it is ListEmptyException }
             }
         }.doFinally { mutex.release() }
     }

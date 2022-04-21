@@ -63,6 +63,8 @@
   <string name="app_settings">Nastavení aplikace</string>
   <string name="search_tab_tooltip">Chcete-li přímo začít vyhledávat, klepněte znovu na tuto ikonu.</string>
   <string name="history_list_title">Historie</string>
+  <string name="image_content_description">Obrázek: %s</string>
+  <string name="page_content_description">Stránka: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
@@ -78,6 +80,7 @@
   <string name="menu_page_add_to_watchlist">Přidat do sledovaných stránek</string>
   <string name="menu_page_view_talk">Zobrazit diskusní stránku</string>
   <string name="menu_page_view_edit_history">Zobrazit historii editací</string>
+  <string name="menu_page_edit_history">Historie editací</string>
   <string name="menu_page_remove_from_watchlist">Odstranit ze sledovaných stránek</string>
   <string name="edit_section_find_in_page">Najít na stránce</string>
   <string name="menu_page_font_and_theme">Písmo a vzhled</string>
@@ -218,7 +221,6 @@
   <string name="page_protected_can_not_edit_title">Tato stránka je zamčena</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Přidat do sledovaných stránek</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Sledujte, co se děje s články, které vás zajímají. Klepnutím na rozbalovací nabídku a výběrem možnosti &lt;b&gt;Přidat do sledovaných stránek&lt;/b&gt; uvidíte změny článku.</string>
-  <string name="page_notification_tooltip">Vaše oznámení se nyní nacházejí zde.</string>
   <string name="settings_item_preferences">Nastavení</string>
   <string name="settings_activity_title">Nastavení</string>
   <string name="about_description">O aplikaci Wikipedie</string>
@@ -599,8 +601,6 @@
   <string name="notifications_view_archived_button_text">Zobrazit přečtená upozornění</string>
   <string name="notification_preferences_title">Nastavení upozornění</string>
   <string name="notifications_mark_unread">Označit jako nepřečtené</string>
-  <string name="notifications_direct_reply_action">Odpověď</string>
-  <string name="notifications_direct_reply_success">Odpověď zveřejněna.</string>
   <string name="watchlist_title">Sledované stránky</string>
   <string name="preference_title_notification_poll">Kontrola nových upozornění</string>
   <string name="preference_summary_notification_poll">Povolit aplikaci používaní dat ke kontrole nových upozornění na pozadí.</string>
@@ -619,15 +619,6 @@
   <string name="preference_summary_notification_mention">Někdo vás zmínil v diskusi</string>
   <string name="preference_title_notification_user_talk">Diskusní stránka</string>
   <string name="preference_summary_notification_user_talk" fuzzy="true">Zprávy na vaší diskusi</string>
-  <string name="notifications_filter_label">Filtrovat upozornění</string>
-  <string name="notifications_filter_icon_content_description">Filtrovat upozornění</string>
-  <string name="notifications_select_all_filters">Zrušit všechny filtry</string>
-  <string name="notifications_tab_filter_all">Vše</string>
-  <string name="notifications_tab_filter_mentions">Zmínky</string>
-  <string name="notifications_menu_mark_as_read">Označit jako přečtené</string>
-  <string name="notifications_menu_mark_as_unread">Označit jako nepřečtené</string>
-  <string name="notifications_swipe_action_read">Přečtená</string>
-  <string name="notifications_swipe_action_unread">Nepřečtená</string>
   <string name="view_because_you_read_card_title">Protože jste četli</string>
   <string name="view_random_card_title">Náhodný článek</string>
   <string name="view_random_article_card_title">Náhodný článek</string>

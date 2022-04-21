@@ -62,6 +62,7 @@
   <string name="menu_page_add_to_watchlist">စောင့်ကြည့်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="menu_page_view_talk">ဆွေးနွေးချက်စာမျက်နှာကို ကြည့်ရန်</string>
   <string name="menu_page_view_edit_history">တည်းဖြတ်မှု ရာဇဝင် ကြည့်ရန်</string>
+  <string name="menu_page_edit_history">တည်းဖြတ်မှု ရာဇဝင်</string>
   <string name="menu_page_remove_from_watchlist">စောင့်ကြည့်စာရင်းမှ ဖယ်ရှားရန်</string>
   <string name="edit_section_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
   <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
@@ -201,7 +202,6 @@
   <string name="page_protected_can_not_edit_anon">ယခုအချိန်၌ ဤစာမျက်နှာအား အမည်မဖော်လိုသူအဖြစ် တည်းဖြတ်မရနိုင်ပါ</string>
   <string name="page_protected_can_not_edit_title">ဤစာမျက်နှာအား ကာကွယ်ထားသည်</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">စောင့်ကြည့်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
-  <string name="page_notification_tooltip">သင်၏အသိပေးချက်များမှာ ယခုဤနေရာတွင်ရှိသည်။</string>
   <string name="settings_item_preferences">အပြင်အဆင်များ</string>
   <string name="settings_activity_title">အပြင်အဆင်များ</string>
   <string name="about_description">ဝီကီပီးဒီးယားအက်ပ် အကြောင်း</string>

@@ -77,12 +77,29 @@
   <string name="share_via">Jaa palvelussa</string>
   <string name="image_share_via">Jaa palvelussa</string>
   <string name="search_redirect_from">Ohjattu sivulta %s</string>
+  <string name="page_edit_history_activity_title">Muutoshistoria: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;p&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Tyhjä muokkausyhteenveto</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Etsi tai suodata muokkauksia</string>
+  <string name="page_edit_history_filter_by_all">Kaikki muokkaukset (%s)</string>
+  <string name="page_edit_history_filter_by_user">Käyttäjien muokkaukset (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonyymit muokkaukset (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Bottimuokkaukset (%s)</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d muokkaus vuodesta %2$s lähtien</item>
+    <item quantity="other">%1$d muokkausta vuodesta %2$s lähtien</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Kokeile &lt;a href=\"#\"&gt;suodattimien&lt;/a&gt; muuttamista nähdäksesi enemmän muokkauksia</string>
   <string name="menu_page_show_tabs">Näytä välilehdet</string>
   <string name="menu_page_other_languages">Vaihda kieli</string>
   <string name="menu_page_find_in_page">Etsi artikkelista</string>
   <string name="menu_page_add_to_watchlist">Lisää tarkkailulistalle</string>
+  <string name="menu_page_watch">Tarkkaile</string>
+  <string name="menu_page_unwatch">Lopeta tarkkailu</string>
   <string name="menu_page_view_talk">Näytä keskustelusivu</string>
+  <string name="menu_page_talk_page">Keskustelusivu</string>
   <string name="menu_page_view_edit_history">Näytä muokkaushistoria</string>
+  <string name="menu_page_edit_history">Muokkaushistoria</string>
   <string name="menu_page_remove_from_watchlist">Poista tarkkailulistalta</string>
   <string name="edit_section_find_in_page">Etsi sivulta</string>
   <string name="menu_page_font_and_theme">Kirjasin ja teema</string>
@@ -92,6 +109,7 @@
   <string name="feed_card_add_to_default_list">Tallenna</string>
   <string name="menu_page_share">Jaa linkki</string>
   <string name="menu_article_share">Jaa artikkeli</string>
+  <string name="menu_page_article_share">Jaa</string>
   <string name="menu_page_open_a_new_tab">Avaa uusi välilehti</string>
   <string name="menu_page_new_tab">Uusi välilehti</string>
   <string name="menu_page_reading_lists">Lukulistat</string>
@@ -178,6 +196,7 @@
   <string name="dialog_create_account_checking_progress">Vahvistetaan</string>
   <string name="create_account_email_hint">Sähköpostiosoite (valinnainen)</string>
   <string name="create_account_password_repeat_hint">Salasana uudelleen</string>
+  <string name="create_account_password_is_username">Salasana ei voi olla sama kuin käyttäjänimi</string>
   <string name="create_account_passwords_mismatch_error">Salasanat eivät täsmää</string>
   <string name="create_account_email_error">Virheellinen sähköpostiosoite</string>
   <string name="create_account_username_error">Käyttäjänimi sisältää kelpaamattomia merkkejä</string>
@@ -224,7 +243,6 @@
   <string name="page_protected_can_not_edit_title">Tämä sivu on suojattu</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Lisää tarkkailulistalle</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Seuraa helposti artikkelien kehitystä. Lisää artikkeli seurattavien joukkoon napauttamalla valikkoa ja valitsemalla &lt;b&gt;Lisää tarkkailulistalle&lt;/b&gt;.</string>
-  <string name="page_notification_tooltip">Ilmoituksesi ovat nyt täällä.</string>
   <string name="settings_item_preferences">Asetukset</string>
   <string name="settings_activity_title">Asetukset</string>
   <string name="about_description">Tietoja Wikipedia-sovelluksesta</string>
@@ -404,6 +422,7 @@
   <string name="error_blocked_expiry">Esto päättyy: %s</string>
   <string name="error_blocked_id">Eston tunniste: %s</string>
   <string name="error_blocked_footer">Voit olla yhteydessä käyttäjään &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; tai toiseen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
+  <string name="theme_chooser_menu_item_tooltip">Tuunaa työkalupalkkiasi ja kokeile lukutilaa</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
@@ -430,6 +449,11 @@
   <string name="text_size_decrease">Kasvata tekstin kokoa</string>
   <string name="text_size_percent_default">%s (oletus)</string>
   <string name="text_style_title">Kirjasin</string>
+  <string name="theme_category_reading">Lukeminen</string>
+  <string name="reading_focus_mode">Lukutila</string>
+  <string name="reading_focus_mode_detail">Piilottaa muokkausominaisuudet sekä alapalkin alaspäin vieritettäessä</string>
+  <string name="theme_category_toolbar">Työkalupalkki</string>
+  <string name="theme_customize_toolbar">Kustomoi työkalupalkki</string>
   <string name="nav_item_saved">Tallennettu</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_move_to">Siirrä lukulistaan</string>
@@ -790,6 +814,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
+  <string name="customize_toolbar_title">Kustomoi työkalupalkki</string>
+  <string name="customize_toolbar_description_text">Tuunaa alaosan työkalupalkkia niillä 5 linkillä, jotka koet hyödyllisimmiksi.</string>
+  <string name="customize_toolbar_category_toolbar">Työkalupalkki</string>
+  <string name="customize_toolbar_category_menu">Valikko</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Raahaa ja pudota suosikkikohteesi tähän 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Nollaa oletukseksi</string>
   <string name="suggested_edits_describe_articles">Kuvaile artikkeleita</string>
   <string name="suggested_edits_caption_images">Kuvatekstit</string>
   <string name="suggested_edits_tag_images">Merkitse kuvia</string>
@@ -880,6 +910,7 @@
   <string name="suggested_edits_paused_message">Ehdotetut muokkaukset on keskeytetty %1$s asti. Anteeksi %2$s, osa viimeaikaisista muokkauksistasi on palautettu.</string>
   <string name="suggested_edits_disabled_message">Ehdotetut muokkaukset on poistettu käytöstä. Pahoittelut %s, liian moni viimeaikaisista muokkauksistasi on kumottu.</string>
   <string name="suggested_edits_ip_blocked_message">Näyttää siltä, että IP-osoitteesi (tai IP-osoitealueesi) on tällä hetkellä estetty muokkaamasta Wikipediaa.</string>
+  <string name="suggested_edits_gate_message">Pahoittelut, %s, sinun tulee tehdä ainakin kolme muokkausta suoraan artikkeliin voidaksesi käyttää tätä ominaisuutta.</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
   <string name="suggested_edits_help_page_link_text">Ehdotettujen muokkausten ohjesivu</string>
   <string name="suggested_edits_edit_streak_label_text">Muokkaa juovaa</string>
@@ -1070,11 +1101,17 @@
   <string name="talk_snackbar_survey_action_text">Aloita</string>
   <string name="talk_share_discussion_subject">Wikipedia - keskustelu aiheesta \"%s\" keskustelusivulla</string>
   <string name="talk_share_talk_page">Wikipedia - keskustelut keskustelusivulla</string>
+  <string name="talk_edit_disclaimer">Tämä on keskustelusivu. Kunnioitathan keskustelusivun ohjeistuksia ja muistathan allekirjoittaa viestisi neljällä aaltoviivalla: ~~~~ kun käytät wikitekstiä.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://fi.wikipedia.org/wiki/Wikipedia:Keskustelusivu\"&gt;Wikipedian keskustelusivujen ohjeet ja käytännöt&lt;/a&gt;</string>
+  <string name="talk_search_hint">Hae viestejä</string>
+  <string name="talk_overflow_sort_by">Lajitteluperuste</string>
+  <string name="talk_overflow_sort_date_published">Julkaisupäivä</string>
+  <string name="talk_overflow_sort_topic_name">Aiheen nimi</string>
   <string name="menu_option_share_talk_discussion">Jaa keskustelu</string>
   <string name="menu_option_share_talk_page">Jaa keskustelusivu</string>
   <string name="menu_option_share_edit">Jaa muokkaus</string>
   <string name="menu_option_user_profile">Käyttäjän %s profiili</string>
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
+  <string name="menu_option_edit_source">Muokkaa wikitekstiä</string>
   <string name="watchlist_details_watching_label">Tarkkailemassa</string>
   <string name="watchlist_details_watch_label">Tarkkaile</string>
   <string name="watchlist_details_next_edit">Seuraava muokkaus</string>
@@ -1086,6 +1123,22 @@
   <string name="thank_dialog_positive_button_text">Lähetä kiitokset</string>
   <string name="thank_dialog_negative_button_text">Peruuta</string>
   <string name="thank_success_message">Kiitoksesi lähetettiin käyttäjälle %s 👍</string>
+  <string name="menu_option_view_user_profile">Tarkastele käyttäjäprofiilia</string>
+  <string name="menu_option_view_user_talk">Näytä keskustelusivu</string>
+  <string name="menu_option_view_user_contributions">Tarkastele käyttäjän muokkauksia</string>
+  <string name="revision_diff_compare">Vertaile versioita</string>
+  <string name="revision_diff_compare_title">Vertaile versioita: %s</string>
+  <string name="revision_diff_line_num">Rivi %d</string>
+  <string name="revision_diff_line_nums">Rivit %d–%d</string>
+  <string name="revision_diff_line_added">Rivi lisätty</string>
+  <string name="revision_diff_line_removed">Rivi poistettu</string>
+  <string name="revision_diff_paragraph_added">Kappale lisätty</string>
+  <string name="revision_diff_paragraph_removed">Kappale poistettu</string>
+  <string name="revision_undo_title">Kumoa muokkaus</string>
+  <string name="revision_undo_reason">Anna syy tämän muokkauksen kumoamiselle jatkaaksesi:</string>
+  <string name="revision_undo_success">Versio kumottiin.</string>
+  <string name="revision_compare_button">Vertaile</string>
+  <string name="revision_compare_two_only">Vain kaksi versiota voidaan valita.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s keskustelusivuineen on lisätty tarkkailulistallesi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Vaihda</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">pysyvästi</string>
@@ -1108,4 +1161,10 @@
   <string name="watchlist_page_moved">Siirretty</string>
   <string name="watchlist_page_protected">Suojattu</string>
   <string name="watchlist_page_deleted">Poistettu</string>
+  <string name="action_item_categories">Luokat</string>
+  <string name="page_no_categories">Tämä sivu ei kuulu mihinkään luokkaan.</string>
+  <string name="category_tab_articles">Artikkelit</string>
+  <string name="category_tab_subcategories">Alaluokat</string>
+  <string name="category_empty">Tässä luokassa ei ole artikkeleita.</string>
+  <string name="subcategory_empty">Tässä luokassa ei ole alaluokkia.</string>
 </resources>

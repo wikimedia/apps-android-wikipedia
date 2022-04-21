@@ -18,20 +18,20 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
 import org.wikipedia.util.UriUtil.isValidPageLink
 
-class LongPressHandler(view: View, private val historySource: Int, private val callback: LongPressMenu.Callback) : OnCreateContextMenuListener, OnTouchListener {
+class LongPressHandler(
+    view: View,
+    private val historySource: Int,
+    private val callback: LongPressMenu.Callback,
+    private var title: PageTitle? = null
+) : OnCreateContextMenuListener, OnTouchListener {
     interface WebViewMenuCallback : LongPressMenu.Callback {
         val wikiSite: WikiSite?
         val referrer: String?
     }
 
     private var referrer: String? = null
-    private var title: PageTitle? = null
     private var clickPositionX = 0f
     private var clickPositionY = 0f
-
-    constructor(view: View, pageTitle: PageTitle, historySource: Int, callback: LongPressMenu.Callback) : this(view, historySource, callback) {
-        title = pageTitle
-    }
 
     init {
         view.setOnCreateContextMenuListener(this)
@@ -52,7 +52,7 @@ class LongPressHandler(view: View, private val historySource: Int, private val c
                             wikiSite = this
                         }
                     }
-                    title = wikiSite.titleForInternalLink(uri.path)
+                    title = PageTitle.titleForInternalLink(uri.path, wikiSite)
                     referrer = callback.referrer
                     showPopupMenu(view, true)
                 }

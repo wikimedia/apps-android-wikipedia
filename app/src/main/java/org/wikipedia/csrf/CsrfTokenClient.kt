@@ -16,9 +16,7 @@ import java.util.concurrent.Semaphore
 
 class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetries: Int,
                       private val csrfService: Service, private val type: String) {
-    constructor(site: WikiSite) : this(site, site)
-    constructor(site: WikiSite, type: String) : this(site, 1, ServiceFactory.get(site), type)
-    constructor(csrfWikiSite: WikiSite, loginWikiSite: WikiSite) : this(loginWikiSite, MAX_RETRIES, ServiceFactory.get(csrfWikiSite), "csrf")
+    constructor(site: WikiSite) : this(WikipediaApp.getInstance().wikiSite, MAX_RETRIES, ServiceFactory.get(site), "csrf")
 
     val token: Observable<String>
         get() {

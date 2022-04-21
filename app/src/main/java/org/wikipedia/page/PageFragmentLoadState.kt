@@ -122,7 +122,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
     private fun pageLoadCheckReadingLists() {
         model.title?.let {
             disposables.clear()
-            disposables.add(Completable.fromAction { model.readingListPage = AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
+            disposables.add(Completable.fromAction { model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { pageLoadFromNetwork { fragment.onPageLoadError(it) } }
@@ -132,7 +132,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     private fun pageLoadFromNetwork(errorCallback: ErrorCallback) {
         model.title?.let { title ->
-            fragment.updateBookmarkAndMenuOptions()
+            fragment.updateQuickActionsAndMenuOptions()
             networkErrorCallback = errorCallback
             if (!fragment.isAdded) {
                 return
@@ -160,8 +160,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText)),
                     if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText)
                     else if (app.isOnline && !AccountUtil.isLoggedIn) AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
-                    else Observable.just(MwQueryResponse()), { first, second -> Pair(first, second) })
-                    .subscribeOn(Schedulers.io())
+                    else Observable.just(MwQueryResponse())) { first, second -> Pair(first, second) }
+                .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
                         val pageSummaryResponse = pair.first
@@ -256,7 +256,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
             // Save the thumbnail URL to the DB
             val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
-            Completable.fromAction { AppDatabase.getAppDatabase().pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
+            Completable.fromAction { AppDatabase.instance.pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
             title.thumbUrl = pageImage.imageName
         }
     }

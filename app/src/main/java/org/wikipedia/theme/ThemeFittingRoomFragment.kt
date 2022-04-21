@@ -58,7 +58,6 @@ class ThemeFittingRoomFragment : Fragment() {
     }
 
     companion object {
-        @JvmStatic
         fun newInstance(): ThemeFittingRoomFragment {
             return ThemeFittingRoomFragment()
         }

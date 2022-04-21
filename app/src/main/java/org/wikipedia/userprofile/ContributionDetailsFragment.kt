@@ -11,7 +11,6 @@ import androidx.core.graphics.ColorUtils
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentContributionDiffDetailBinding
@@ -69,7 +68,7 @@ class ContributionDetailsFragment : Fragment() {
         updateTopGradient()
         binding.contributionContainer.setOnClickListener { startTypeSpecificActivity() }
         binding.revisionLayout.visibility = if (contribution.top) VISIBLE else GONE
-        binding.contributionTitle.text = StringUtil.removeNamespace(contribution.displayTitle)
+        binding.contributionTitle.text = StringUtil.fromHtml(StringUtil.removeNamespace(contribution.displayTitle))
         binding.contributionDiffDetailText.text = contribution.description
         if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") {
             binding.contributionImage.visibility = GONE
@@ -84,19 +83,15 @@ class ContributionDetailsFragment : Fragment() {
     private fun startTypeSpecificActivity() {
         when (contribution.editType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                UserContributionFunnel.get().logNavigateDescription()
                 UserContributionEvent.logNavigateDescription()
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
-                UserContributionFunnel.get().logNavigateCaption()
                 UserContributionEvent.logNavigateCaption()
             }
             EDIT_TYPE_IMAGE_TAG -> {
-                UserContributionFunnel.get().logNavigateTag()
                 UserContributionEvent.logNavigateTag()
             }
             else -> {
-                UserContributionFunnel.get().logNavigateMisc()
                 UserContributionEvent.logNavigateMisc()
             }
         }

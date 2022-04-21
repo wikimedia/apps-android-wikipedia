@@ -29,6 +29,7 @@
 * MrSchipunov
 * MuratTheTurkish
 * Okkerem
+* Oyuncu
 * Rapsar
 * SaldırganSincap
 * Sayginer
@@ -89,13 +90,19 @@
   <string name="share_via">Şununla paylaş:</string>
   <string name="image_share_via">Şununla paylaş:</string>
   <string name="search_redirect_from">%s sayfasından yönlendirildi</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Boş düzenleme özeti</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Dili değiştir</string>
   <string name="menu_page_find_in_page">Maddede bul</string>
   <string name="menu_page_add_to_watchlist">İzleme listesine ekle</string>
+  <string name="menu_page_watch">İzle</string>
   <string name="menu_page_view_talk">Tartışma sayfasını görüntüle</string>
+  <string name="menu_page_talk_page">Tartışma sayfası</string>
   <string name="menu_page_view_edit_history">Düzenleme geçmişini görüntüle</string>
+  <string name="menu_page_edit_history">Düzenleme geçmişi</string>
   <string name="menu_page_remove_from_watchlist">İzleme listesinden kaldır</string>
+  <string name="menu_page_watched">İzlenen</string>
   <string name="edit_section_find_in_page">Sayfada bul</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_page_add_to_list">Okuma listesine ekle</string>
@@ -104,6 +111,7 @@
   <string name="feed_card_add_to_default_list">Kaydet</string>
   <string name="menu_page_share">Bağlantıyı paylaş</string>
   <string name="menu_article_share">Maddeyi paylaş</string>
+  <string name="menu_page_article_share">Paylaş</string>
   <string name="menu_page_open_a_new_tab">Yeni sekme aç</string>
   <string name="menu_page_new_tab">Yeni sekme</string>
   <string name="menu_page_reading_lists">Okuma listeleri</string>
@@ -190,6 +198,7 @@
   <string name="dialog_create_account_checking_progress">Doğrulanıyor</string>
   <string name="create_account_email_hint">E-posta (İsteğe bağlı)</string>
   <string name="create_account_password_repeat_hint">Parolayı tekrarla</string>
+  <string name="create_account_password_is_username">Parola kullanıcı adıyla aynı olamaz</string>
   <string name="create_account_passwords_mismatch_error">Parolalar eşleşmiyor</string>
   <string name="create_account_email_error">Geçersiz e-posta adresi</string>
   <string name="create_account_username_error">Kullanıcı adında geçersiz karakterler</string>
@@ -236,7 +245,6 @@
   <string name="page_protected_can_not_edit_title">Bu sayfa koruma altındadır</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">İzleme listesine ekle</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">İlgilendiğiniz maddelere ne olduğunu takip edin. Bir maddedeki değişiklikleri görmek için taşma menüsüne dokunun ve &lt;b&gt;İzleme Listesine Ekle&lt;/b&gt; seçeneğini seçin.</string>
-  <string name="page_notification_tooltip">Bildirimleriniz artık burada.</string>
   <string name="settings_item_preferences">Ayarlar</string>
   <string name="settings_activity_title">Ayarlar</string>
   <string name="about_description">Vikipedi uygulaması hakkında</string>
@@ -416,6 +424,7 @@
   <string name="error_blocked_expiry">Engel bitişi: %s</string>
   <string name="error_blocked_id">Engel kimliği: %s</string>
   <string name="error_blocked_footer">Engellemeyi görüşmek için &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ya da başka bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
+  <string name="theme_chooser_menu_item_tooltip">Araç çubuğunuzu özelleştirin ve odaklanma kipinde okumayı deneyin</string>
   <string name="error_blocked_footer_no_blocker">Engellemeyi görüşmek için bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
   <string name="crash_report_activity_title">Uygulama hatası</string>
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlatmak mı yoksa çıkmak mı istersiniz?</string>
@@ -445,6 +454,8 @@
   <string name="theme_category_reading">Okuma</string>
   <string name="reading_focus_mode">Odaklanma modunda okunuyor</string>
   <string name="reading_focus_mode_detail">Kaydırma esnasındayken düzenleme özelliklerini ve alt araç çubuğunu gizler</string>
+  <string name="theme_category_toolbar">Araç çubuğu</string>
+  <string name="theme_customize_toolbar">Araç çubuğunu özelleştir</string>
   <string name="nav_item_saved">Kaydedildi</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_move_to">Okuma listesine taşı</string>
@@ -788,6 +799,7 @@
   <string name="description_starts_with_uppercase">İlk kelime uygun bir isim değilse, küçük harfle başlayın.</string>
   <string name="description_starts_with_lowercase">Küçük harfle başlamaktan kaçının.</string>
   <string name="description_is_in_different_language">Metin beklenmedik bir dilde görünüyor. Dil %s olmalıdır.</string>
+  <string name="description_verification_notice">Lütfen, açıklamanızın %1$s olduğunu doğrulayın. Yazdığınız açıklama %2$s ise bu bildirimi kapamaktan çekinmeyin.</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
@@ -805,6 +817,11 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
+  <string name="customize_toolbar_title">Araç çubuğunu özelleştir</string>
+  <string name="customize_toolbar_category_toolbar">Araç çubuğu</string>
+  <string name="customize_toolbar_category_menu">Menü</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Favori öğelerinizi buraya sürükleyip bırakın 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Varsayılana sıfırla</string>
   <string name="suggested_edits_describe_articles">Maddeleri tarif et</string>
   <string name="suggested_edits_caption_images">Başlık resimleri</string>
   <string name="suggested_edits_tag_images">Etiket resimleri</string>
@@ -1080,7 +1097,13 @@
   <string name="talk_last_modified">&lt;b&gt;Son düzenleme %1$s tarihinde&lt;/b&gt; %2$s tarafından yapıldı</string>
   <string name="talk_snackbar_survey_text">Tartışma sayfalarını kullandığınız için teşekkürler. Bir ankete katılarak uygulamayı geliştirmemize yardımcı olur musunuz?</string>
   <string name="talk_snackbar_survey_action_text">Başla</string>
+  <string name="talk_share_discussion_subject">Vikipedi - tartışma sayfasındaki \"%s\" hakkındaki tartışma</string>
   <string name="talk_share_talk_page">Vikipedi - tartışma sayfasındaki tartışmalar</string>
+  <string name="talk_edit_disclaimer">Bu bir tartışma sayfasıdır. Lütfen, tartışma sayfası yönergelerine uyun ve gönderilerinizi dört tilde yazarak imzalamayı unutmayın: vikimetni kullanırken gönderinin sonuna ~~~~ ekleyin.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Tartışma_sayfası\"&gt;Vikipedi:Tartışma sayfası&lt;/a&gt;</string>
+  <string name="talk_search_hint">Mesajları ara</string>
+  <string name="talk_overflow_sort_by">Sıralama ölçütü</string>
+  <string name="talk_overflow_sort_date_published">Yayımlanma tarihi</string>
+  <string name="talk_overflow_sort_topic_name">Konu adı</string>
   <string name="menu_option_share_talk_discussion">Tartışmayı paylaş</string>
   <string name="menu_option_share_talk_page">Tartışma sayfasını paylaş</string>
   <string name="menu_option_share_edit">Değişikliği paylaş</string>
@@ -1098,6 +1121,10 @@
   <string name="thank_dialog_positive_button_text">Teşekkür gönder</string>
   <string name="thank_dialog_negative_button_text">İptal</string>
   <string name="thank_success_message">\'Teşekkür\'ün %s kullanıcısına gönderildi</string>
+  <string name="menu_option_view_user_profile">Kullanıcı profili sayfasını görüntüle</string>
+  <string name="menu_option_view_user_talk">Tartışma sayfasını görüntüle</string>
+  <string name="revision_compare_button">Karşılaştır</string>
+  <string name="revision_compare_two_only">Yalnızca iki sürüm seçilebilir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ve onun tartışma sayfası %2$s izleme listenize eklendi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Değiştir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">kalıcı olarak</string>
@@ -1120,4 +1147,10 @@
   <string name="watchlist_page_moved">Taşındı</string>
   <string name="watchlist_page_protected">Korumalı</string>
   <string name="watchlist_page_deleted">Silindi</string>
+  <string name="action_item_categories">kategoriler</string>
+  <string name="page_no_categories">Bulunduğunuz sayfa herhangi bir kategoriye ait değildir.</string>
+  <string name="category_tab_articles">Makaleler</string>
+  <string name="category_tab_subcategories">alt kategoriler</string>
+  <string name="category_empty">kategoride makale bulunamadı.</string>
+  <string name="subcategory_empty">Bu kategoride alt kategori bulunamadı.</string>
 </resources>

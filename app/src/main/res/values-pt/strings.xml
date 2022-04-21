@@ -67,13 +67,33 @@
   <string name="share_via">Partilhar via</string>
   <string name="image_share_via">Partilhar através de</string>
   <string name="search_redirect_from">Redirecionado de %s</string>
+  <string name="page_edit_history_activity_title">Historial de revisões: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Resumo de edição vazio</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Pesquisar ou filtrar edições</string>
+  <string name="page_edit_history_filter_by">Filtrar por</string>
+  <string name="page_edit_history_filter_by_all">Todas as edições (%s)</string>
+  <string name="page_edit_history_filter_by_user">Edições do utilizador (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Edições de anónimos (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Edições de robôs (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Métricas desde %1$s até %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d edição desde %2$s</item>
+    <item quantity="other">%1$d edições desde %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Tente alterar os &lt;a href=\"#\"&gt;filtros&lt;/a&gt; para ver mais edições</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
   <string name="menu_page_find_in_page">Localizar no artigo</string>
   <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
+  <string name="menu_page_watch">Vigiar</string>
+  <string name="menu_page_unwatch">Deixar de vigiar</string>
   <string name="menu_page_view_talk">Ver página de discussão</string>
+  <string name="menu_page_talk_page">Página de discussão</string>
   <string name="menu_page_view_edit_history">Ver historial de edições</string>
+  <string name="menu_page_edit_history">Historial de edições</string>
   <string name="menu_page_remove_from_watchlist">Remover das páginas vigiadas</string>
+  <string name="menu_page_watched">Vigiada</string>
   <string name="edit_section_find_in_page">Localizar na página</string>
   <string name="menu_page_font_and_theme">Fonte e tema</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
@@ -82,6 +102,7 @@
   <string name="feed_card_add_to_default_list">Guardar</string>
   <string name="menu_page_share">Partilhar hiperligação</string>
   <string name="menu_article_share">Partilhar artigo</string>
+  <string name="menu_page_article_share">Partilhar</string>
   <string name="menu_page_open_a_new_tab">Abrir um novo separador</string>
   <string name="menu_page_new_tab">Separador novo</string>
   <string name="menu_page_reading_lists">Listas de leitura</string>
@@ -168,6 +189,7 @@
   <string name="dialog_create_account_checking_progress">A verificar</string>
   <string name="create_account_email_hint">Endereço de correio eletrónico (Opcional)</string>
   <string name="create_account_password_repeat_hint">Repita a palavra-passe</string>
+  <string name="create_account_password_is_username">A palavra-passe não pode ser igual ao nome de utilizador</string>
   <string name="create_account_passwords_mismatch_error">As palavras-passe não coincidem</string>
   <string name="create_account_email_error">Endereço de correio eletrónico inválido</string>
   <string name="create_account_username_error">Caracteres inválidos no nome de utilizador</string>
@@ -214,7 +236,6 @@
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Adicionar às páginas vigiadas</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Acompanhe o que está a acontecer a artigos do seu interesse. Toque no menu flutuante e selecione &lt;b&gt;Adicionar à lista de páginas vigiadas&lt;/b&gt; para ver as alterações de um artigo.</string>
-  <string name="page_notification_tooltip">As suas notificações estão agora aqui.</string>
   <string name="settings_item_preferences">Configurações</string>
   <string name="settings_activity_title">Configurações</string>
   <string name="about_description">Sobre a aplicação Wikipédia</string>
@@ -394,6 +415,7 @@
   <string name="error_blocked_expiry">Expiração do bloqueio: %s</string>
   <string name="error_blocked_id">Identificador do bloqueio: %s</string>
   <string name="error_blocked_footer">Pode entrar em contacto com &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou outro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
+  <string name="theme_chooser_menu_item_tooltip">Personalizar a barra de ferramentas e experimentar o modo de focalização na leitura</string>
   <string name="error_blocked_footer_no_blocker">Pode entrar em contacto com um &lt;a href=\"https://pt.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
   <string name="crash_report_activity_title">Erro da aplicação</string>
   <string name="crash_report_relaunch_or_quit">Lamentamos, mas a aplicação Wikipédia teve uma falha e foi encerrada.\n\nQuer voltar a começar ou sair?</string>
@@ -420,6 +442,11 @@
   <string name="text_size_decrease">Reduzir o tamanho do texto</string>
   <string name="text_size_percent_default">%s (Padrão)</string>
   <string name="text_style_title">Fonte</string>
+  <string name="theme_category_reading">Leitura</string>
+  <string name="reading_focus_mode">Modo de focalização na leitura</string>
+  <string name="reading_focus_mode_detail">Esconde as funcionalidades de edição e a barra de ferramentas inferior ao deslizar a página</string>
+  <string name="theme_category_toolbar">Barra de ferramentas</string>
+  <string name="theme_customize_toolbar">Personalizar a barra de ferramentas</string>
   <string name="nav_item_saved">Gravado</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
   <string name="reading_list_move_to">Mover para lista de leitura</string>
@@ -763,6 +790,7 @@
   <string name="description_starts_with_uppercase">Comece por letra minúscula, a menos que a primeira palavra seja um substantivo próprio.</string>
   <string name="description_starts_with_lowercase">Evitar começar com letra minúscula.</string>
   <string name="description_is_in_different_language">O texto parece estar numa língua inesperada. A língua devia ser %s.</string>
+  <string name="description_verification_notice">Verifique, por favor, que a sua descrição está em %1$s. Pode ignorar esta notificação se escreveu a descrição em %2$s.</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>
@@ -780,6 +808,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente uma linha, entre duas e doze palavras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
   <string name="description_edit_tutorial_promise">Ao começar, prometo não utilizar esta funcionalidade de forma abusiva.</string>
+  <string name="customize_toolbar_title">Personalizar a barra de ferramentas</string>
+  <string name="customize_toolbar_description_text">Personalize a barra de ferramentas inferior com cinco hiperligações que considera mais úteis.</string>
+  <string name="customize_toolbar_category_toolbar">Barra de ferramentas</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Arraste e largue os seus elementos preferidos aqui 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Reiniciar para valores padrão</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Segure o ícone de arrastar para mover o elemento</string>
+  <string name="customize_toolbar_item_default_tooltip">Pressione e arraste um elemento para reposicioná-lo</string>
   <string name="suggested_edits_describe_articles">Descrever artigos</string>
   <string name="suggested_edits_caption_images">Legendar imagens</string>
   <string name="suggested_edits_tag_images">Etiquetar imagens</string>
@@ -870,6 +906,7 @@
   <string name="suggested_edits_paused_message">\"Edições sugeridas\" estará interrompida até %1$s. Desculpe, %2$s, mas algumas das suas contribuições recentes foram revertidas.</string>
   <string name="suggested_edits_disabled_message">\"Edições sugeridas\" está desativada. Desculpe, %s, foram revertidas demasiadas das suas contribuições recentes.</string>
   <string name="suggested_edits_ip_blocked_message">Parece que o seu endereço IP (ou gama de endereços IP) está atualmente bloqueado, impedindo a edição da Wikipédia.</string>
+  <string name="suggested_edits_gate_message">Desculpe, %s, tem de fazer pelo menos três edições diretamente num artigo para usar esta funcionalidade.</string>
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda de \"Edições sugeridas\"</string>
   <string name="suggested_edits_edit_streak_label_text">Edições consecutivas</string>
@@ -1060,11 +1097,17 @@
   <string name="talk_snackbar_survey_action_text">Começar</string>
   <string name="talk_share_discussion_subject">Wikipédia - discussão no tópico \"%s\" de página de discussão</string>
   <string name="talk_share_talk_page">Wikipédia - conversas em página de discussão</string>
+  <string name="talk_edit_disclaimer">Esta página é de discussão. Respeite as normas das páginas de discussão, por favor, e lembre-se de assinar as suas mensagens inserindo quatro tiles  (~~~~) ao publicá-las usando texto wiki.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://pt.wikipedia.org/wiki/Wikipédia:Página de discussão de artigo\"&gt;Wikipédia:Página de discussão de artigo&lt;/a&gt;</string>
+  <string name="talk_search_hint">Pesquisar nas mensagens</string>
+  <string name="talk_overflow_sort_by">Ordenar por</string>
+  <string name="talk_overflow_sort_date_published">Data de publicação</string>
+  <string name="talk_overflow_sort_topic_name">Nome do tópico</string>
   <string name="menu_option_share_talk_discussion">Partilhar discussão</string>
   <string name="menu_option_share_talk_page">Partilhar página de discussão</string>
   <string name="menu_option_share_edit">Partilhar a edição</string>
   <string name="menu_option_user_profile">Perfil de %s</string>
   <string name="menu_option_user_contributions">Contribuições de %s</string>
+  <string name="menu_option_edit_source">Editar fonte</string>
   <string name="watchlist_details_watching_label">Vigiado</string>
   <string name="watchlist_details_watch_label">Vigiar</string>
   <string name="watchlist_details_next_edit">Próxima edição</string>
@@ -1076,6 +1119,25 @@
   <string name="thank_dialog_positive_button_text">Enviar agradecimento</string>
   <string name="thank_dialog_negative_button_text">Cancelar</string>
   <string name="thank_success_message">O seu agradecimento foi enviado a %s</string>
+  <string name="menu_option_view_user_profile">Ver página de perfil do utilizador</string>
+  <string name="menu_option_view_user_talk">Ver página de discussão</string>
+  <string name="menu_option_view_user_contributions">Ver contribuições do utilizador</string>
+  <string name="revision_diff_compare">Comparar revisões</string>
+  <string name="revision_diff_compare_title">Comparar revisões: %s</string>
+  <string name="revision_diff_from">De:</string>
+  <string name="revision_diff_to">Para:</string>
+  <string name="revision_diff_line_num">Linha %d</string>
+  <string name="revision_diff_line_nums">Linhas %d–%d</string>
+  <string name="revision_diff_line_added">Linha acrescentada</string>
+  <string name="revision_diff_line_removed">Linha removida</string>
+  <string name="revision_diff_paragraph_added">Parágrafo acrescentado</string>
+  <string name="revision_diff_paragraph_removed">Parágrafo removido</string>
+  <string name="revision_undo_title">Desfazer edição</string>
+  <string name="revision_undo_message">Esta operação irá desfazer as mudanças realizadas pelas revisões do artigo que são mostradas aqui.</string>
+  <string name="revision_undo_reason">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
+  <string name="revision_undo_success">A revisão foi desfeita.</string>
+  <string name="revision_compare_button">Comparar</string>
+  <string name="revision_compare_two_only">Só podem ser selecionadas duas revisões.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e a respetiva página de discussão foram adicionados às suas páginas vigiadas %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Alterar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
@@ -1098,4 +1160,10 @@
   <string name="watchlist_page_moved">Movida</string>
   <string name="watchlist_page_protected">Protegida</string>
   <string name="watchlist_page_deleted">Eliminada</string>
+  <string name="action_item_categories">Categorias</string>
+  <string name="page_no_categories">Esta página não pertence a nenhuma categoria.</string>
+  <string name="category_tab_articles">Artigos</string>
+  <string name="category_tab_subcategories">Subcategorias</string>
+  <string name="category_empty">Não foi encontrado nenhum artigo nesta categoria.</string>
+  <string name="subcategory_empty">Não foi encontrada nenhuma subcategoria nesta categoria.</string>
 </resources>

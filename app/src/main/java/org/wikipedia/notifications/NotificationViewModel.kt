@@ -8,11 +8,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.settings.Prefs
@@ -21,7 +20,7 @@ import java.util.*
 
 class NotificationViewModel : ViewModel() {
 
-    private val notificationRepository = NotificationRepository(AppDatabase.getAppDatabase().notificationDao())
+    private val notificationRepository = NotificationRepository(AppDatabase.instance.notificationDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = UiState.Error(throwable)
     }
@@ -162,8 +161,8 @@ class NotificationViewModel : ViewModel() {
             val notification = item.notification!!
             val wiki = dbNameMap.getOrElse(notification.wiki) {
                 when (notification.wiki) {
-                    "commonswiki" -> WikiSite(Service.COMMONS_URL)
-                    "wikidatawiki" -> WikiSite(Service.WIKIDATA_URL)
+                    Constants.COMMONS_DB_NAME -> Constants.commonsWikiSite
+                    Constants.WIKIDATA_DB_NAME -> Constants.wikidataWikiSite
                     else -> {
                         val langCode = StringUtil.dbNameToLangCode(notification.wiki)
                         WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getDefaultLanguageCode(langCode) ?: langCode)
@@ -172,13 +171,12 @@ class NotificationViewModel : ViewModel() {
             }
             notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
             if (!markUnread) {
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
                 NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }
 
-        for (wiki in notificationsPerWiki.keys) {
-            NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, markUnread)
+        for ((wiki, notifications) in notificationsPerWiki) {
+            NotificationPollBroadcastReceiver.markRead(wiki, notifications, markUnread)
         }
 
         // Mark items in read state and save into database

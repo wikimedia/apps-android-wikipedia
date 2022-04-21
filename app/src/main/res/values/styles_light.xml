@@ -37,6 +37,7 @@
         <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_light</item>
         <item name="list_separator_drawable">@drawable/divider_light</item>
         <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_light</item>
+        <item name="side_panel_list_separator_drawable">@drawable/side_panel_divider_light</item>
 
         <!-- Overrides of our own custom color attributes -->
         <item name="toolbar_icon_color">@color/base30</item>
@@ -112,6 +113,7 @@
     <style name="BottomSheetDialogLight" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
         <item name="colorAccent">@color/accent50</item>
+        <item name="colorPrimary">@color/accent50</item>
         <item name="colorSwitchThumbNormal">@color/base90</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:disabledAlpha">1.0</item>

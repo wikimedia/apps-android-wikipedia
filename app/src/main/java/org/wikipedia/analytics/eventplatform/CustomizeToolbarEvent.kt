@@ -2,29 +2,34 @@ package org.wikipedia.analytics.eventplatform
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.page.action.PageActionItem
+import org.wikipedia.settings.Prefs
 
-@Suppress("unused")
-@Serializable
-@SerialName("/analytics/mobile_apps/android_customize_toolbar_interaction/1.0.0")
-class CustomizeToolbarEvent(private var is_anon: Boolean,
-                            private var is_rfm_enabled: Boolean,
-                            private var source: String,
-                            private var favorites_order: List<Int>,
-                            private var menu_order: List<Int>,
-                            private var time_spent_ms: Int) : TimedEvent(STREAM_NAME) {
+class CustomizeToolbarEvent : TimedEvent() {
 
-    fun logCustomization(source: String, favoritesOrder: List<Int>, menuOrder: List<Int>, isRfmEnabled: Boolean) {
-        this.is_anon = AccountUtil.isLoggedIn
-        this.is_rfm_enabled = isRfmEnabled
-        this.source = source
-        this.favorites_order = favoritesOrder
-        this.menu_order = menuOrder
-        time_spent_ms = duration.toInt()
-        EventPlatformClient.submit(this)
+    fun logCustomization(favoritesOrder: List<Int>, menuOrder: List<Int>) {
+        EventPlatformClient.submit(CustomizeToolbarEventImpl(
+                !AccountUtil.isLoggedIn,
+                Prefs.readingFocusModeEnabled,
+                favoritesOrder,
+                menuOrder,
+                duration,
+                if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id))
+                    InvokeSource.PAGE_OVERFLOW_MENU.value else InvokeSource.PAGE_ACTION_TAB.value)
+        )
     }
 
-    companion object {
-        private const val STREAM_NAME = "android.customize_toolbar_interaction"
-    }
+    @Suppress("unused")
+    @Serializable
+    @SerialName("/analytics/mobile_apps/android_customize_toolbar_interaction/1.0.0")
+    class CustomizeToolbarEventImpl(
+        @SerialName("is_anon") private val isAnon: Boolean,
+        @SerialName("is_rfm_enabled") private val isRfmEnabled: Boolean,
+        @SerialName("favorites_order") private val favoritesOrder: List<Int>,
+        @SerialName("menu_order") private val menuOrder: List<Int>,
+        @SerialName("time_spent_ms") private val timeSpentMs: Int,
+        private val source: String
+    ) : MobileAppsEvent("android.customize_toolbar_interaction")
 }

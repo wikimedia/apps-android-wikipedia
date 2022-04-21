@@ -12,7 +12,6 @@ class ConfigureActivity : SingleFragmentActivity<ConfigureFragment>() {
     }
 
     companion object {
-        @JvmStatic
         fun newIntent(context: Context, invokeSource: Int): Intent {
             return Intent(context, ConfigureActivity::class.java)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)

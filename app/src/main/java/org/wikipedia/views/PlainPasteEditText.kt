@@ -16,7 +16,7 @@ import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.richtext.SyntaxHighlighter.OnSyntaxHighlightListener
 import java.util.*
 
-class PlainPasteEditText : TextInputEditText {
+open class PlainPasteEditText : TextInputEditText {
     interface FindListener {
         fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean)
     }
@@ -88,7 +88,9 @@ class PlainPasteEditText : TextInputEditText {
 
                 override fun findTextMatches(spanExtents: List<SpanExtents>) {
                     findInPageTextPositionList.clear()
-                    findInPageTextPositionList.addAll(spanExtents.map { it.start })
+                    text?.let {
+                        findInPageTextPositionList.addAll(spanExtents.map { span -> it.getSpanStart(span) })
+                    }
                     onFinished(false, listener)
                 }
             })

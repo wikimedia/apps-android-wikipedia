@@ -25,7 +25,6 @@ import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsCardItemBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -47,7 +46,6 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
 
 class SuggestedEditsCardItemFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsCardItemBinding? = null
@@ -269,7 +267,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { title ->
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(title, langFromCode)
+                    ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(title, langFromCode)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
@@ -310,7 +308,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->
                     fileCaption = pair.first
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pair.second, langFromCode)
+                    ServiceFactory.get(Constants.commonsWikiSite).getImageInfo(pair.second, langFromCode)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
@@ -438,7 +436,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
         private const val CARD_TYPE = "cardType"
         const val MAX_RETRY_LIMIT: Long = 5
 
-        @JvmStatic
         fun newInstance(age: Int, cardType: Action) =
                 SuggestedEditsCardItemFragment().apply {
                     arguments = bundleOf(AGE to age, CARD_TYPE to cardType)

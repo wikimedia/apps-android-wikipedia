@@ -50,12 +50,12 @@ class LanguagesListActivity : BaseActivity() {
 
         searchingFunnel = AppLanguageSearchingFunnel(intent.getStringExtra(WikipediaLanguagesFragment.SESSION_TOKEN).orEmpty())
 
-        viewModel.siteListData.observe(this, {
+        viewModel.siteListData.observe(this) {
             if (it is Resource.Success) {
                 binding.languagesListLoadProgress.visibility = View.INVISIBLE
                 languageAdapter.notifyItemRangeChanged(0, languageAdapter.itemCount)
             }
-        })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

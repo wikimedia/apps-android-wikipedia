@@ -25,6 +25,7 @@ class MwQueryResult {
     @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
     @SerialName("recentchanges") val recentChanges: List<RecentChange>? = null
     @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
+    @SerialName("allusers") val allUsers: List<User>? = null
 
     private val redirects: MutableList<Redirect>? = null
     private val converted: MutableList<ConvertedTitle>? = null
@@ -36,6 +37,7 @@ class MwQueryResult {
     val notifications: NotificationList? = null
     val watchlist: List<WatchlistItem> = emptyList()
     val namespaces: Map<String, Namespace>? = null
+    val allmessages: List<Message>? = null
 
     init {
         resolveConvertedTitles()
@@ -235,5 +237,17 @@ class MwQueryResult {
     class Namespace {
         val id: Int = 0
         val name: String = ""
+    }
+
+    @Serializable
+    class User {
+        val userid: Int = 0
+        val name: String = ""
+    }
+
+    @Serializable
+    class Message {
+        val name: String = ""
+        val content: String = ""
     }
 }
