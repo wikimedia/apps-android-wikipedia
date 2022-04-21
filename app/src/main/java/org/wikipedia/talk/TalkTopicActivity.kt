@@ -31,7 +31,6 @@ import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -163,8 +162,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
-                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.threadItems)
-                    is TalkTopicsViewModel.UiState.Error -> updateOnError(it.throwable)
+                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.threadItems)
+                    is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
+                    is TalkTopicsViewModel.UiState.DoEdit -> onSaveSuccess(it.editResult.newRevId)
+                    is TalkTopicsViewModel.UiState.UndoEdit -> onSaveSuccess(it.edit.edit?.newRevId ?: 0)
+                    is TalkTopicsViewModel.UiState.EditError -> onSaveError(it.throwable)
                 }
             }
         }
@@ -409,27 +411,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         talkFunnel.logEditSubmit()
 
-        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    doSave(it, subject, body)
-                }, {
-                    onSaveError(it)
-                }))
-    }
-
-    private fun undoSave() {
-        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
-            .subscribeOn(Schedulers.io())
-            .flatMap { token -> ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(pageTitle.prefixedText, revisionForUndo, token) }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                waitForUpdatedRevision(it.edit!!.newRevId)
-            }, {
-                onSaveError(it)
-            }))
+        // TODO: move this logic to another class
+        if (isNewTopic()) {
+            viewModel.doSave(subject, body)
+        } else {
+            // TODO: give comment id
+            viewModel.doSaveReply("", body)
+        }
     }
 
     private fun doSave(token: String, subject: String, body: String) {
@@ -517,7 +505,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                     binding.talkReplyButton.isEnabled = false
                     binding.talkReplyButton.alpha = 0.5f
                     binding.talkProgressBar.visibility = View.VISIBLE
-                    undoSave()
+                    viewModel.undoSave(revisionForUndo, "", "", "")
                 }
                 .show()
             showUndoSnackbar = false

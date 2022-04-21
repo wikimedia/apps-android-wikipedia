@@ -113,8 +113,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         fragment.lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
-                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.pageTitle, it.lastModifiedResponse)
-                    is TalkTopicsViewModel.UiState.Error -> updateOnError(it.throwable)
+                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.lastModifiedResponse)
+                    is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
                 }
             }
         }

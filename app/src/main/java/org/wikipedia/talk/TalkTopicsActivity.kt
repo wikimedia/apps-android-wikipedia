@@ -18,7 +18,6 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import kotlinx.coroutines.flow.collect
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -58,7 +57,6 @@ class TalkTopicsActivity : BaseActivity() {
     private var funnel: TalkFunnel? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
-    private val disposables = CompositeDisposable()
     private var revisionForLastEdit: MwQueryPage.Revision? = null
     private var goToTopic = false
 
@@ -169,18 +167,13 @@ class TalkTopicsActivity : BaseActivity() {
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
-                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.pageTitle, it.threadItems, it.lastModifiedResponse)
+                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems, it.lastModifiedResponse)
                     is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.topicId, it.undoneSubject, it.undoneBody)
-                    is TalkTopicsViewModel.UiState.Error -> updateOnError(it.throwable)
+                    is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
                 }
             }
         }
         resetViews()
-    }
-
-    public override fun onDestroy() {
-        disposables.clear()
-        super.onDestroy()
     }
 
     public override fun onResume() {
