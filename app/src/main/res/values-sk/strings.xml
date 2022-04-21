@@ -63,13 +63,35 @@
   <string name="share_via">Zdieľať cez</string>
   <string name="image_share_via">Zdieľať cez</string>
   <string name="search_redirect_from">Presmerované z %s</string>
+  <string name="page_edit_history_activity_title">História úprav: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Prázdny sumár úprav</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Hľadať alebo filtrovať úpravy</string>
+  <string name="page_edit_history_filter_by">Filtrovať podľa</string>
+  <string name="page_edit_history_filter_by_all">Všetky úpravy (%s)</string>
+  <string name="page_edit_history_filter_by_user">Úpravy používateľa (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonymné úpravy (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Úpravy bota (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metriky od %1$s do %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d úprava od %2$s</item>
+    <item quantity="few">%1$d úpravy od %2$s</item>
+    <item quantity="many">%1$d úprav od %2$s</item>
+    <item quantity="other">%1$d úprav od %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Skúste zmeniť &lt;a href=\"#\"&gt;filtre&lt;/a&gt;pre zobrazenie viac úprav</string>
   <string name="menu_page_show_tabs">Zobraziť karty</string>
   <string name="menu_page_other_languages">Zmeniť jazyk</string>
   <string name="menu_page_find_in_page">Nájsť v článku</string>
   <string name="menu_page_add_to_watchlist">Pridať do zoznamu sledovaných</string>
+  <string name="menu_page_watch">Sledovať</string>
+  <string name="menu_page_unwatch">Nesledovať</string>
   <string name="menu_page_view_talk">Zobraziť diskusiu</string>
+  <string name="menu_page_talk_page">Diskusná stránka</string>
   <string name="menu_page_view_edit_history">Zobraziť históriu úprav</string>
+  <string name="menu_page_edit_history">História úprav</string>
   <string name="menu_page_remove_from_watchlist">Odstrániť zo zoznamu sledovaných</string>
+  <string name="menu_page_watched">Sledované</string>
   <string name="edit_section_find_in_page">Nájsť na stránke</string>
   <string name="menu_page_font_and_theme">Písmo a vzhľad</string>
   <string name="menu_page_add_to_list">Pridať do zoznamu na prečítanie</string>
@@ -165,6 +187,7 @@
   <string name="dialog_create_account_checking_progress">Overujem</string>
   <string name="create_account_email_hint">E-mail (voliteľné)</string>
   <string name="create_account_password_repeat_hint">Zopakujte heslo</string>
+  <string name="create_account_password_is_username">Heslo nemôže byť rovnaké ako meno používateľa</string>
   <string name="create_account_passwords_mismatch_error">Heslá sa nezhodujú</string>
   <string name="create_account_email_error">Neplatná e-mailová adresa</string>
   <string name="create_account_username_error">Neplatné znaky v používateľskom mene</string>
@@ -394,6 +417,7 @@
   <string name="error_blocked_expiry">Koniec blokovania: %s</string>
   <string name="error_blocked_id">ID bloku: %s</string>
   <string name="error_blocked_footer">Môžete kontaktovať &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; alebo iného &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
+  <string name="theme_chooser_menu_item_tooltip">Prispôsobte si svoj panel nástrojov a skúste mód sústredeného čítania</string>
   <string name="error_blocked_footer_no_blocker">Môžete kontaktovať a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
@@ -420,6 +444,11 @@
   <string name="text_size_decrease">Zmenšiť veľkosť textu</string>
   <string name="text_size_percent_default">%s (predvolená hodnota)</string>
   <string name="text_style_title">Písmo</string>
+  <string name="theme_category_reading">Čítanie</string>
+  <string name="reading_focus_mode">Mód sústredeného čítania</string>
+  <string name="reading_focus_mode_detail">Skryje funkcie úprav a spodný panel nástrojov pri skrolovaní</string>
+  <string name="theme_category_toolbar">Panel nástrojov</string>
+  <string name="theme_customize_toolbar">Prispôsobiť panel nástrojov</string>
   <string name="nav_item_saved">Uložené</string>
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
   <string name="reading_list_move_to">Presunúť do zoznamu na prečítanie</string>
@@ -797,6 +826,7 @@
   <string name="description_starts_with_uppercase">Začnite malým písmenom pokiaľ slovo nie je meno.</string>
   <string name="description_starts_with_lowercase">Vyhnite sa začatiu malým písmenom.</string>
   <string name="description_is_in_different_language">Zdá sa, že text je v neočakávanom jazyku. Jazyk by mal byť %s.</string>
+  <string name="description_verification_notice">Prosím skontrolujte či je váš popis v %1$s. Zamietnite toto upozornenie ak je váš popis napísaný v %2$s.</string>
   <string name="description_edit_success_saved">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku v jazyku %s bol uverejnený!</string>
@@ -814,6 +844,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
+  <string name="customize_toolbar_title">Prispôsobiť panel nástrojov</string>
+  <string name="customize_toolbar_description_text">Prispôsobiť spodný panel nástrojov s 5 odkazmi, ktoré považujete za najviac nápomocné.</string>
+  <string name="customize_toolbar_category_toolbar">Panel nástrojov</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Chyťte a pretiahnite svoje obľúbené položky sem</string>
+  <string name="customize_toolbar_reset_to_default_button">Vynulovať na predvolené</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Podržte a potiahnite ikonu pre posunutie položky</string>
+  <string name="customize_toolbar_item_default_tooltip">Stlačte a presuňte položku</string>
   <string name="suggested_edits_describe_articles">Popísať články</string>
   <string name="suggested_edits_caption_images">Otitulkovať obrázky</string>
   <string name="suggested_edits_tag_images">Označiť obrázky</string>
