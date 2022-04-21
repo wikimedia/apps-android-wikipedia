@@ -141,7 +141,7 @@
   <string name="create_account_login">Đăng nhập</string>
   <string name="menu_login">Đăng nhập</string>
   <string name="login_activity_title">Đăng nhập</string>
-  <string name="login_in_progress_dialog_message">Đang đăng nhập bạn vào…</string>
+  <string name="login_in_progress_dialog_message">Đang đăng nhập…</string>
   <string name="login_success_toast">Đã đăng nhập!</string>
   <string name="reset_password_title">Đặt mật khẩu</string>
   <string name="reset_password_description">Bạn đã đăng nhập bằng mật khẩu tạm thời. Để hoàn tất việc đăng nhập, xin vui lòng đặt lại mật khẩu mới tại đây.</string>
@@ -178,8 +178,8 @@
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
   <string name="create_account_next">Tiếp</string>
   <string name="email_recommendation_dialog_title">Mở tài khoản mà không cung cấp địa chỉ thư điện tử?</string>
-  <string name="email_recommendation_dialog_message">Mặc dù không được bắt buộc, chúng tôi &lt;b&gt;rất khuyến khích&lt;/b&gt; cung cấp địa chỉ thư điện tử, vì địa chỉ thư điện tử được yêu cầu để phục hồi tài khoản nếu trường hợp bạn quên mật khẩu.</string>
-  <string name="email_recommendation_message">Khuyến khích vì địa chỉ thư điện tử được yêu cầu để phục hồi tài khoản.</string>
+  <string name="email_recommendation_dialog_message">Dù không bắt buộc, chúng tôi &lt;b&gt;rất khuyến khích&lt;/b&gt; cung cấp địa chỉ thư điện tử, vì nếu mất mật khẩu, bạn sẽ cần nhận thư điện tử để khôi phục tài khoản.</string>
+  <string name="email_recommendation_message">Khuyến khích, vì bạn cần địa chỉ thư điện tử để khôi phục tài khoản.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Bỏ qua việc cung cấp địa chỉ thư điện tử</string>
   <string name="email_recommendation_dialog_create_with_email_action">Đặt địa chỉ thư điện tử</string>
   <string name="create_account_button">Mở tài khoản</string>
