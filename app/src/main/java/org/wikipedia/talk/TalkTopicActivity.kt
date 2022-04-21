@@ -53,6 +53,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private lateinit var textWatcher: TextWatcher
 
     private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(EXTRA_PAGE_TITLE)) }
+    private val disposables = CompositeDisposable()
     private var sectionId: Int = 0
     private var topicId: String = ""
     private var topic: ThreadItem? = null
@@ -220,6 +221,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     public override fun onDestroy() {
+        disposables.clear()
         binding.replySubjectText.removeTextChangedListener(textWatcher)
         binding.replyInputView.editText.removeTextChangedListener(textWatcher)
         super.onDestroy()
@@ -435,6 +437,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             }
         } else {
             onInitialLoad()
+            loadTopics()
         }
     }
 
