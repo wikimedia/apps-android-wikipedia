@@ -18,9 +18,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.flow.collect
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -32,10 +30,8 @@ import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicBinding
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
@@ -45,10 +41,8 @@ import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.*
-import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.UserMentionInputView
-import java.util.concurrent.TimeUnit
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
     private lateinit var binding: ActivityTalkTopicBinding
@@ -59,7 +53,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private lateinit var textWatcher: TextWatcher
 
     private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(EXTRA_PAGE_TITLE)) }
-    private val disposables = CompositeDisposable()
     private var sectionId: Int = 0
     private var topicId: String = ""
     private var topic: ThreadItem? = null
@@ -227,7 +220,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     public override fun onDestroy() {
-        disposables.clear()
         binding.replySubjectText.removeTextChangedListener(textWatcher)
         binding.replyInputView.editText.removeTextChangedListener(textWatcher)
         super.onDestroy()
@@ -420,50 +412,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
     }
 
-    private fun doSave(token: String, subject: String, body: String) {
-        disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
-                if (isNewTopic()) "new" else topicId,
-                if (isNewTopic()) subject else null,
-                "", if (AccountUtil.isLoggedIn) "user" else null,
-                if (isNewTopic()) body else null, if (isNewTopic()) null else body,
-                currentRevision, token, null, null)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    showUndoSnackbar = true
-                    AnonymousNotificationHelper.onEditSubmitted()
-                    waitForUpdatedRevision(it.edit!!.newRevId)
-                }, {
-                    onSaveError(it)
-                }))
-    }
-
-    @Suppress("SameParameterValue")
-    private fun waitForUpdatedRevision(newRevision: Long) {
-        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
-                .delay(2, TimeUnit.SECONDS)
-                .subscribeOn(Schedulers.io())
-                .map { response ->
-                    if (response.revision < newRevision) {
-                        throw IllegalStateException()
-                    }
-                    response.revision
-                }
-                .retry(20) { t ->
-                    (t is IllegalStateException) ||
-                            (isNewTopic() && t is HttpStatusException && t.code == 404)
-                }
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    revisionForUndo = it
-                    onSaveSuccess(it)
-                }, { t ->
-                    L.e(t)
-                    onSaveError(t)
-                }))
-    }
-
     private fun onSaveSuccess(newRevision: Long) {
+
+        // TODO: should we add logic of checking updated revision?
+        revisionForUndo = newRevision
+        showUndoSnackbar = true
+        AnonymousNotificationHelper.onEditSubmitted()
+
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
