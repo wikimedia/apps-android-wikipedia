@@ -851,7 +851,7 @@
   </plurals>
   <string name="suggested_edits_feed_card_title">Redigeringsförslag</string>
   <string name="suggested_edits_feed_card_add_description_button">Lägg till artikelbeskrivning</string>
-  <string name="suggested_edits_feed_card_add_translation_in_language_button">Lägg till artikelbeskrivningar %s</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Lägg till artikelbeskrivningar (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildtexter (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Bild</string>
@@ -1159,6 +1159,6 @@
   <string name="page_no_categories">Denna sida tillhör inga kategorier.</string>
   <string name="category_tab_articles">Artiklar</string>
   <string name="category_tab_subcategories">Underkategorier</string>
-  <string name="category_empty">Inga artiklar hittade i den här kategorin.</string>
-  <string name="subcategory_empty">Inga underkategorier hittade i den här kategorin.</string>
+  <string name="category_empty">Inga artiklar hittades i den här kategorin.</string>
+  <string name="subcategory_empty">Inga underkategorier hittades i den här kategorin.</string>
 </resources>

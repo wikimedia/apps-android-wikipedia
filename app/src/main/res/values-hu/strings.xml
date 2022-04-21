@@ -1063,6 +1063,8 @@
   <string name="talk_subject_empty">A tárgy nem lehet üres.</string>
   <string name="talk_snackbar_undo">Visszavonás</string>
   <string name="talk_last_modified">&lt;b&gt;Utoljára szerkesztette %1$s&lt;/b&gt; ekkor: %2$s</string>
+  <string name="talk_snackbar_survey_text">Köszönjük, hogy használod a beszélgetőoldalakat. Segítenél nekünk az alkalmazás fejlesztésében egy felmérésben való részvétellel?</string>
+  <string name="talk_snackbar_survey_action_text">Kezdjük el</string>
   <string name="talk_share_discussion_subject">Wikipédia - vita a vitalap \"%s\" témájáról</string>
   <string name="talk_share_talk_page">Wikipédia – beszélgetések a vitalapon</string>
   <string name="talk_overflow_sort_by">Rendezve</string>
@@ -1124,4 +1126,6 @@
   <string name="watchlist_page_moved">Áthelyezve</string>
   <string name="watchlist_page_protected">Védett</string>
   <string name="watchlist_page_deleted">Törölve</string>
+  <string name="category_empty">Ebben a kategóriában nem található szócikk.</string>
+  <string name="subcategory_empty">Ebben a kategóriában nincsenek alkategóriák.</string>
 </resources>
