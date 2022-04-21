@@ -184,10 +184,6 @@ interface Service {
     @get:Headers("Cache-Control: no-cache")
     val loginToken: Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
-    @Headers("Cache-Control: no-cache")
-    suspend fun loginToken(): MwQueryResponse
-
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
     fun postLogIn(
@@ -199,15 +195,6 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    suspend fun postLogInKT(
-        @Field("username") user: String?,
-        @Field("password") pass: String?,
-        @Field("logintoken") token: String?,
-        @Field("loginreturnurl") url: String?
-    ): LoginResponse
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
     fun postLogIn(
         @Field("username") user: String?,
         @Field("password") pass: String?,
@@ -216,17 +203,6 @@ interface Service {
         @Field("logintoken") token: String?,
         @Field("logincontinue") loginContinue: Boolean
     ): Observable<LoginResponse>
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    suspend fun postLogInKT(
-        @Field("username") user: String?,
-        @Field("password") pass: String?,
-        @Field("retype") retypedPass: String?,
-        @Field("OATHToken") twoFactorCode: String?,
-        @Field("logintoken") token: String?,
-        @Field("logincontinue") loginContinue: Boolean
-    ): LoginResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=logout")
@@ -246,15 +222,6 @@ interface Service {
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
     suspend fun getAllNotifications(
-        @Query("notwikis") wikiList: String?,
-        @Query("notfilter") filter: String?,
-        @Query("notcontinue") continueStr: String?
-    ): MwQueryResponse
-
-    // TODO: remove "KT" if we remove the Observable one.
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
-    suspend fun getAllNotificationsKT(
         @Query("notwikis") wikiList: String?,
         @Query("notfilter") filter: String?,
         @Query("notcontinue") continueStr: String?

@@ -111,7 +111,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         val pageTitle = pageTitle!!
         viewModelScope.launch(handler) {
             val token = withContext(Dispatchers.IO) {
-                CsrfTokenClient(pageTitle.wikiSite).getToken()
+                CsrfTokenClient(pageTitle.wikiSite).token.blockingFirst()
             }
             val undoResponse = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
             _uiState.value = UiState.UndoEdit(undoResponse, topicId, undoneSubject, undoneBody)

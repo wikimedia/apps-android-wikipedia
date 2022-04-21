@@ -78,48 +78,6 @@ class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetrie
             }
         }
 
-    suspend fun getToken(): String {
-        var token = ""
-        // TODO: verify this
-        MUTEX.acquire()
-        var lastError: Throwable? = null
-        for (retry in 0 until numRetries) {
-            if (retry > 0) {
-                // Log in explicitly
-                try {
-                    LoginClient().login(loginWikiSite, AccountUtil.userName!!, AccountUtil.password!!, "")
-                } catch (e: Exception) {
-                    L.e(e)
-                    lastError = e
-                }
-            }
-
-            try {
-                val csrfTokenResponse = csrfService.getCsrfToken()
-                token = csrfTokenResponse.query?.csrfToken().orEmpty()
-                if (AccountUtil.isLoggedIn && token == ANON_TOKEN) {
-                    throw RuntimeException("App believes we're logged in, but got anonymous token.")
-                }
-            } catch (e: Exception) {
-                L.e(e)
-                lastError = e
-            }
-
-            if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
-                continue
-            }
-            break
-        }
-        if (token.isEmpty() || (AccountUtil.isLoggedIn && token == ANON_TOKEN)) {
-            if (token == ANON_TOKEN) {
-                bailWithLogout()
-            }
-            throw lastError ?: IOException("Invalid token, or login failure.")
-        }
-        MUTEX.release()
-        return token
-    }
-
     private fun bailWithLogout() {
         // Signal to the rest of the app that we're explicitly logging out in the background.
         WikipediaApp.getInstance().logOut()
