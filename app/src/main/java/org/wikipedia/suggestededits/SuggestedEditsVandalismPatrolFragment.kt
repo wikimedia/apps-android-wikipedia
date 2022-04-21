@@ -3,24 +3,21 @@ package org.wikipedia.suggestededits
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableStringBuilder
-import android.text.style.BackgroundColorSpan
-import android.text.style.StrikethroughSpan
 import android.view.*
 import android.view.View.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.animation.ArgbEvaluatorCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentSuggestedEditsVandalismItemBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.restbase.DiffResponse
+import org.wikipedia.diff.DiffUtil
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
-import java.lang.Exception
 
 class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
     private var _binding: FragmentSuggestedEditsVandalismItemBinding? = null
@@ -36,6 +33,8 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setConditionalLayoutDirection(binding.contentContainer, parent().langFromCode)
+
+        binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         binding.cardItemErrorView.backClickListener = OnClickListener { requireActivity().finish() }
         binding.cardItemErrorView.retryClickListener = OnClickListener {
@@ -143,57 +142,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         binding.userTextView.text = StringUtil.fromHtml("<b>User:</b> " + candidate.user)
         binding.summaryTextView.text = StringUtil.fromHtml("<b>Summary:</b> " + candidate.parsedcomment)
 
-        val sb = SpannableStringBuilder()
-
-        for (d in diff.diff) {
-            when (d.type) {
-                DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT -> {
-                    sb.append(d.text)
-                    sb.append("\n")
-                }
-                DiffResponse.DIFF_TYPE_LINE_ADDED -> {
-                    val spanStart = sb.length
-                    sb.append(d.text)
-                    sb.setSpan(BackgroundColorSpan(colorAdd), spanStart, sb.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                    sb.append("\n")
-                }
-                DiffResponse.DIFF_TYPE_LINE_REMOVED -> {
-                    val spanStart = sb.length
-                    sb.append(d.text)
-                    sb.setSpan(BackgroundColorSpan(colorDelete), spanStart, sb.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                    sb.append("\n")
-                }
-                DiffResponse.DIFF_TYPE_LINE_WITH_DIFF -> {
-                    val spanStart = sb.length
-                    val indices = StringUtil.utf8Indices(d.text)
-                    sb.append(d.text)
-                    try {
-                        for (range in d.highlightRanges) {
-                            val rangeStart = indices[range.start]
-                            val rangeEnd = if (range.start + range.length < indices.size) indices[range.start + range.length] else indices[indices.size - 1]
-
-                            if (range.type == DiffResponse.HIGHLIGHT_TYPE_ADD) {
-                                sb.setSpan(BackgroundColorSpan(colorAdd), spanStart + rangeStart, spanStart + rangeEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                            } else {
-                                sb.setSpan(BackgroundColorSpan(colorDelete), spanStart + rangeStart, spanStart + rangeEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                                sb.setSpan(StrikethroughSpan(), spanStart + rangeStart, spanStart + rangeEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                            }
-                        }
-                    } catch (e: Exception) {
-                        L.e(e)
-                    }
-                    sb.append("\n")
-                }
-            }
-        }
-
-        binding.diffTextView.text = sb
-
-        /*
-        ForegroundColorSpan(0xFFCC5500), start, longDescription.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        StyleSpan(android.graphics.Typeface.BOLD), start, longDescription.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-         */
-
+        binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), diff.diff))
         parent().updateActionButton()
     }
 
