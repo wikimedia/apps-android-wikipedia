@@ -157,7 +157,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         binding.talkProgressBar.visibility = View.GONE
         binding.talkRecyclerView.visibility = View.VISIBLE
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-
     }
 
     private fun updateOnError(throwable: Throwable) {
@@ -435,7 +434,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
              holder.bindItem(viewModel.sortedThreadItems[pos])
         }
-
     }
 
     companion object {
