@@ -32,19 +32,19 @@ import org.wikipedia.analytics.ToCInteractionFunnel
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.ItemTalkTopicBinding
-import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
-import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.diff.ArticleEditDetailsActivity
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.TalkTopicHolder
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.TalkTopicsViewModel
 import org.wikipedia.util.*
-import org.wikipedia.views.*
+import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.FooterMarginItemDecoration
+import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ObservableWebView.OnContentHeightChangedListener
+import org.wikipedia.views.PageScrollerView
 import org.wikipedia.views.SwipeableListView.OnSwipeOutListener
 
 class SidePanelHandler internal constructor(private val fragment: PageFragment,
@@ -113,7 +113,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         fragment.lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
-                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.pageTitle, it.discussionToolsInfoResponse, it.lastModifiedResponse)
+                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.pageTitle, it.lastModifiedResponse)
                     is TalkTopicsViewModel.UiState.Error -> updateOnError(it.throwable)
                 }
             }
@@ -133,10 +133,11 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             hide()
         }
 
-        viewModel.loadTopics(pageTitle)
+        viewModel.pageTitle = pageTitle
+        viewModel.loadTopics()
     }
 
-    private fun updateOnSuccess(pageTitle: PageTitle, discussionToolsInfoResponse: DiscussionToolsInfoResponse, lastModifiedResponse: MwQueryResponse) {
+    private fun updateOnSuccess(pageTitle: PageTitle, lastModifiedResponse: MwQueryResponse) {
         binding.talkTitleView.text = StringUtil.fromHtml(pageTitle.displayText)
         binding.talkTitleView.setOnClickListener(openTalkPageOnClickListener(pageTitle))
         binding.talkFullscreenButton.setOnClickListener(openTalkPageOnClickListener(pageTitle))
@@ -152,8 +153,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         }
 
         talkTopicsAdapter.pageTitle = pageTitle
-        talkTopicsAdapter.topics.clear()
-        talkTopicsAdapter.topics.addAll(discussionToolsInfoResponse.pageInfo?.threads ?: emptyList())
         binding.talkErrorView.visibility = View.GONE
         binding.talkProgressBar.visibility = View.GONE
         binding.talkRecyclerView.visibility = View.VISIBLE
@@ -423,10 +422,9 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     inner class TalkTopicItemAdapter : RecyclerView.Adapter<TalkTopicHolder>() {
 
         lateinit var pageTitle: PageTitle
-        var topics = mutableListOf<ThreadItem>()
 
         override fun getItemCount(): Int {
-            return list.size
+            return viewModel.sortedThreadItems.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkTopicHolder {
@@ -435,26 +433,9 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         }
 
         override fun onBindViewHolder(holder: TalkTopicHolder, pos: Int) {
-             holder.bindItem(list[pos])
+             holder.bindItem(viewModel.sortedThreadItems[pos])
         }
 
-        private val list get(): List<ThreadItem> {
-            when (Prefs.talkTopicsSortMode) {
-                TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
-                    topics.sortByDescending { it.id }
-                }
-                TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING -> {
-                    topics.sortBy { it.id }
-                }
-                TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
-                    topics.sortByDescending { RichTextUtil.stripHtml(it.html) }
-                }
-                TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING -> {
-                    topics.sortBy { RichTextUtil.stripHtml(it.html) }
-                }
-            }
-            return topics
-        }
     }
 
     companion object {

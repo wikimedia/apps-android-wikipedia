@@ -29,7 +29,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -42,7 +41,6 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edithistory.EditHistoryListActivity
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -56,16 +54,13 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var pageTitle: PageTitle
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var notificationButtonView: NotificationButtonView
-    private val viewModel: TalkTopicsViewModel by viewModels()
+    private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(EXTRA_PAGE_TITLE)) }
     private var funnel: TalkFunnel? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private val disposables = CompositeDisposable()
-    private val topics = mutableListOf<ThreadItem>()
     private var revisionForLastEdit: MwQueryPage.Revision? = null
     private var goToTopic = false
-    private var currentSearchQuery: String? = null
-    private var currentSortMode = Prefs.talkTopicsSortMode
 
     private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
@@ -88,7 +83,9 @@ class TalkTopicsActivity : BaseActivity() {
                         pageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(pageTitle.prefixedText),
                             WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
 
-                        loadTopics()
+                        resetViews()
+                        viewModel.pageTitle = pageTitle
+                        viewModel.loadTopics()
                     }
                 }
             }
@@ -140,7 +137,8 @@ class TalkTopicsActivity : BaseActivity() {
             finish()
         }
         binding.talkErrorView.retryClickListener = View.OnClickListener {
-            loadTopics()
+            resetViews()
+            viewModel.loadTopics()
         }
 
         binding.talkNewTopicButton.setOnClickListener {
@@ -150,7 +148,8 @@ class TalkTopicsActivity : BaseActivity() {
 
         binding.talkRefreshView.setOnRefreshListener {
             funnel?.logRefresh()
-            loadTopics()
+            resetViews()
+            viewModel.loadTopics()
         }
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
@@ -170,14 +169,13 @@ class TalkTopicsActivity : BaseActivity() {
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
-                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.pageTitle, it.discussionToolsInfoResponse, it.lastModifiedResponse)
+                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.pageTitle, it.threadItems, it.lastModifiedResponse)
                     is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.topicId, it.undoneSubject, it.undoneBody)
                     is TalkTopicsViewModel.UiState.Error -> updateOnError(it.throwable)
                 }
             }
         }
-
-        viewModel.loadTopics(pageTitle)
+        resetViews()
     }
 
     public override fun onDestroy() {
@@ -187,7 +185,6 @@ class TalkTopicsActivity : BaseActivity() {
 
     public override fun onResume() {
         super.onResume()
-        loadTopics()
         searchActionModeCallback.searchActionProvider?.selectAllQueryTexts()
     }
 
@@ -255,7 +252,7 @@ class TalkTopicsActivity : BaseActivity() {
         updateNotificationDot(true)
     }
 
-    private fun loadTopics() {
+    private fun resetViews() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
         binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
@@ -266,11 +263,9 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
-
-        viewModel.loadTopics(pageTitle)
     }
 
-    private fun updateOnSuccess(pageTitle: PageTitle, discussionToolsInfoResponse: DiscussionToolsInfoResponse, lastModifiedResponse: MwQueryResponse) {
+    private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>, lastModifiedResponse: MwQueryResponse) {
         // Update page title and start the funnel
         this.pageTitle = pageTitle
         funnel = TalkFunnel(pageTitle, invokeSource)
@@ -284,27 +279,23 @@ class TalkTopicsActivity : BaseActivity() {
                     System.currentTimeMillis(), 0L), revision.user))
         }
 
-        // Gather all list
-        topics.clear()
-        topics.addAll(discussionToolsInfoResponse.pageInfo?.threads ?: emptyList())
-
         if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
-            var topic: ThreadItem? = null
+            var threadItem: ThreadItem? = null
             if (!pageTitle.fragment.isNullOrEmpty()) {
                 val targetTopic = UriUtil.parseTalkTopicFromFragment(pageTitle.fragment.orEmpty())
-                topic = topics.find {
+                threadItem = threadItems.find {
                     StringUtil.addUnderscores(targetTopic) == StringUtil.addUnderscores(it.html)
                 }
             }
-            if (topic != null) {
-                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topic.id, invokeSource))
+            if (threadItem != null) {
+                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadItem.id, invokeSource))
                 overridePendingTransition(0, 0)
                 return
             }
         }
         goToTopic = false
-        if (topics.isEmpty()) {
+        if (threadItems.isEmpty()) {
             updateOnEmpty()
         } else {
             binding.talkErrorView.visibility = View.GONE
@@ -330,7 +321,6 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun updateOnError(t: Throwable) {
-        topics.clear()
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         binding.talkRecyclerView.visibility = View.GONE
 
@@ -375,7 +365,7 @@ class TalkTopicsActivity : BaseActivity() {
         private val listPlaceholder get() = if (actionMode == null) 1 else 0
 
         override fun getItemCount(): Int {
-            return list.size + listPlaceholder
+            return viewModel.sortedThreadItems.size + listPlaceholder
         }
 
         override fun getItemViewType(position: Int): Int {
@@ -391,26 +381,8 @@ class TalkTopicsActivity : BaseActivity() {
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             if (holder is TalkTopicHolder) {
-                holder.bindItem(list[pos - listPlaceholder], currentSearchQuery)
+                holder.bindItem(viewModel.sortedThreadItems[pos - listPlaceholder], viewModel.currentSearchQuery)
             }
-        }
-
-        private val list get(): List<ThreadItem> {
-            when (currentSortMode) {
-                TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
-                    topics.sortByDescending { it.id }
-                }
-                TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING -> {
-                    topics.sortBy { it.id }
-                }
-                TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
-                    topics.sortByDescending { RichTextUtil.stripHtml(it.html) }
-                }
-                TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING -> {
-                    topics.sortBy { RichTextUtil.stripHtml(it.html) }
-                }
-            }
-            return topics.filter { it.html.contains(currentSearchQuery.orEmpty(), true) }
         }
     }
 
@@ -427,8 +399,8 @@ class TalkTopicsActivity : BaseActivity() {
             }
 
             talkSortButton.setOnClickListener {
-                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, currentSortMode) {
-                    currentSortMode = it
+                TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, viewModel.currentSortMode) {
+                    viewModel.currentSortMode = it
                     Prefs.talkTopicsSortMode = it
                     binding.talkRecyclerView.adapter?.notifyDataSetChanged()
                 }
@@ -463,7 +435,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         override fun onQueryChange(s: String) {
-            currentSearchQuery = s
+            viewModel.currentSearchQuery = s
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             binding.talkSearchNoResult.isVisible = binding.talkRecyclerView.adapter?.itemCount == 0
         }
@@ -471,7 +443,7 @@ class TalkTopicsActivity : BaseActivity() {
         override fun onDestroyActionMode(mode: ActionMode) {
             super.onDestroyActionMode(mode)
             actionMode = null
-            currentSearchQuery = null
+            viewModel.currentSearchQuery = null
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             binding.talkNewTopicButton.show()
             binding.talkLastModified.isVisible = true

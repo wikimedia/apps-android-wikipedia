@@ -35,7 +35,6 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.edit.EditHandler
@@ -60,7 +59,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
 
-    private val viewModel: TalkTopicsViewModel by viewModels()
+    private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(EXTRA_PAGE_TITLE)) }
     private val disposables = CompositeDisposable()
     private var sectionId: Int = 0
     private var topicId: String = ""
@@ -164,7 +163,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
-                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.discussionToolsInfoResponse)
+                    is TalkTopicsViewModel.UiState.Success -> updateOnSuccess(it.threadItems)
                     is TalkTopicsViewModel.UiState.Error -> updateOnError(it.throwable)
                 }
             }
@@ -258,7 +257,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.replyInputView.visibility = View.GONE
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.licenseText.visibility = View.GONE
-            loadTopics()
+            binding.talkProgressBar.visibility = View.VISIBLE
+            binding.talkErrorView.visibility = View.GONE
             DeviceUtil.hideSoftKeyboard(this)
         }
         invalidateOptionsMenu()
@@ -270,15 +270,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
         binding.talkProgressBar.visibility = View.VISIBLE
         binding.talkErrorView.visibility = View.GONE
-        viewModel.loadTopics(pageTitle)
+        viewModel.loadTopics()
     }
 
-    private fun updateOnSuccess(discussionToolsInfoResponse: DiscussionToolsInfoResponse) {
+    private fun updateOnSuccess(threadItems: List<ThreadItem>) {
 
         binding.talkProgressBar.visibility = View.GONE
 
-        topic = discussionToolsInfoResponse.pageInfo?.threads?.find { t -> t.id == topicId }
-        sectionId = discussionToolsInfoResponse.pageInfo?.threads?.indexOf(topic) ?: 0
+        topic = threadItems.find { t -> t.id == topicId }
+        sectionId = threadItems.indexOf(topic)
 
         // TODO: implement seen topic
         // AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
