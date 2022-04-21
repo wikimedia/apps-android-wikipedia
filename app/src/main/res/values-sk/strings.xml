@@ -77,7 +77,7 @@
     <item quantity="one">%1$d úprava od %2$s</item>
     <item quantity="few">%1$d úpravy od %2$s</item>
     <item quantity="many">%1$d úprav od %2$s</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d úprav od %2$s</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Skúste zmeniť &lt;a href=\"#\"&gt;filtre&lt;/a&gt;pre zobrazenie viac úprav</string>
   <string name="menu_page_show_tabs">Zobraziť karty</string>
