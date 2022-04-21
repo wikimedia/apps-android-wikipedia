@@ -10,18 +10,13 @@ import android.text.style.StrikethroughSpan
 import android.view.*
 import android.view.View.*
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.viewModels
 import com.google.android.material.animation.ArgbEvaluatorCompat
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsVandalismItemBinding
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.restbase.DiffResponse
-import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
@@ -30,12 +25,7 @@ import java.lang.Exception
 class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
     private var _binding: FragmentSuggestedEditsVandalismItemBinding? = null
     private val binding get() = _binding!!
-
-    var publishing: Boolean = false
-    private var publishSuccess: Boolean = false
-
-    private var candidate: MwQueryResult.RecentChange? = null
-    private var diff: DiffResponse? = null
+    private val viewModel: SuggestedEditsVandalismPatrolViewModel by viewModels { SuggestedEditsVandalismPatrolViewModel.Factory(parent().langFromCode) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -51,7 +41,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         binding.cardItemErrorView.retryClickListener = OnClickListener {
             binding.cardItemProgressBar.visibility = VISIBLE
             binding.cardItemErrorView.visibility = GONE
-            getNextItem()
+            viewModel.getCandidate()
         }
 
         val transparency = 0xcc000000
@@ -65,37 +55,48 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         binding.publishProgressCheck.imageTintList = colorStateList
         binding.publishProgressText.setTextColor(colorStateList)
 
-        getNextItem()
-        updateContents()
-
         binding.oresGradient.background = GradientUtil.getPowerGradient(R.color.black26, Gravity.BOTTOM)
 
         binding.voteGoodButton.setOnClickListener {
-            // TODO
             parent().nextPage(this)
         }
 
         binding.voteNotSureButton.setOnClickListener {
-            // TODO
             parent().nextPage(this)
         }
 
         binding.voteRevertButton.setOnClickListener {
-            // TODO
-
             AlertDialog.Builder(requireContext())
                 .setMessage("Do you want to roll back this edit right now?")
                 .setPositiveButton(android.R.string.ok) { _, _ ->
-                    doRollback()
+                    binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
+                    binding.publishProgressCheck.visibility = GONE
+                    binding.publishOverlayContainer.visibility = VISIBLE
+                    binding.publishProgressBarComplete.visibility = GONE
+                    binding.publishProgressBar.visibility = VISIBLE
+                    viewModel.doRollback()
                 }
                 .setNegativeButton(android.R.string.cancel, null)
                 .show()
-
-            // val title = PageTitle(candidate!!.title, WikiSite.forLanguageCode(parent().langFromCode))
-            // UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(title.getUriForAction("history")))
-
-            // parent().nextPage()
         }
+
+        viewModel.candidateLiveData.observe(viewLifecycleOwner) {
+            if (it is Resource.Success) {
+                updateContents(it.data.first, it.data.second)
+            } else if (it is Resource.Error) {
+                setErrorState(it.throwable)
+            }
+        }
+
+        viewModel.rollbackResponse.observe(viewLifecycleOwner) {
+            if (it is Resource.Success) {
+                onSuccess()
+            } else if (it is Resource.Error) {
+                onError(it.throwable)
+            }
+        }
+
+        setProgressState()
     }
 
     override fun onStart() {
@@ -108,24 +109,6 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         _binding = null
     }
 
-    private fun getNextItem() {
-        if (candidate != null) {
-            return
-        }
-        disposables.add(EditingSuggestionsProvider.getNextRevertCandidate(parent().langFromCode)
-                .flatMap {
-                    candidate = it
-                    ServiceFactory.getCoreRest(WikiSite.forLanguageCode(parent().langFromCode))
-                            .getDiff(candidate!!.revFrom, candidate!!.curRev)
-                }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    diff = response
-                    updateContents()
-                }, { this.setErrorState(it) }))
-    }
-
     private fun setErrorState(t: Throwable) {
         L.e(t)
         binding.cardItemErrorView.setError(t)
@@ -134,32 +117,35 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         binding.contentContainer.visibility = GONE
     }
 
-    private fun updateContents() {
+    private fun setProgressState() {
         binding.cardItemErrorView.visibility = GONE
-        binding.contentContainer.visibility = if (candidate != null) VISIBLE else GONE
-        binding.cardItemProgressBar.visibility = if (candidate != null) GONE else VISIBLE
-        if (candidate == null || diff == null) {
-            return
-        }
+        binding.contentContainer.visibility = GONE
+        binding.cardItemProgressBar.visibility = VISIBLE
+    }
+
+    private fun updateContents(candidate: MwQueryResult.RecentChange, diff: DiffResponse) {
+        binding.cardItemErrorView.visibility = GONE
+        binding.contentContainer.visibility = VISIBLE
+        binding.cardItemProgressBar.visibility = GONE
 
         val colorAdd = Color.rgb(220, 255, 220)
         val colorDelete = Color.rgb(255, 220, 220)
 
-        if (candidate!!.ores != null) {
-            binding.oresScoreView.text = (candidate!!.ores!!.damagingProb * 100).toInt().toString() + "%"
-            binding.oresContainer.setBackgroundColor(ArgbEvaluatorCompat.getInstance().evaluate(candidate!!.ores!!.damagingProb, colorAdd, colorDelete))
+        if (candidate.ores != null) {
+            binding.oresScoreView.text = (candidate.ores!!.damagingProb * 100).toInt().toString() + "%"
+            binding.oresContainer.setBackgroundColor(ArgbEvaluatorCompat.getInstance().evaluate(candidate.ores!!.damagingProb, colorAdd, colorDelete))
             binding.oresContainer.visibility = VISIBLE
         } else {
             binding.oresContainer.visibility = GONE
         }
-        binding.articleTitleView.text = candidate!!.title
+        binding.articleTitleView.text = candidate.title
 
-        binding.userTextView.text = StringUtil.fromHtml("<b>User:</b> " + candidate!!.user)
-        binding.summaryTextView.text = StringUtil.fromHtml("<b>Summary:</b> " + candidate!!.parsedcomment)
+        binding.userTextView.text = StringUtil.fromHtml("<b>User:</b> " + candidate.user)
+        binding.summaryTextView.text = StringUtil.fromHtml("<b>Summary:</b> " + candidate.parsedcomment)
 
         val sb = SpannableStringBuilder()
 
-        for (d in diff!!.diff) {
+        for (d in diff.diff) {
             when (d.type) {
                 DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT -> {
                     sb.append(d.text)
@@ -212,40 +198,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
     }
 
     override fun publish() {
-        if (publishing || publishSuccess) {
-            return
-        }
-
         parent().nextPage(this)
-    }
-
-    private fun doRollback() {
-        if (candidate == null) {
-            return
-        }
-
-        // Point of no return
-
-        binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
-        binding.publishProgressCheck.visibility = GONE
-        binding.publishOverlayContainer.visibility = VISIBLE
-        binding.publishProgressBarComplete.visibility = GONE
-        binding.publishProgressBar.visibility = VISIBLE
-
-        val wiki = WikiSite.forLanguageCode(parent().langFromCode)
-
-        CsrfTokenClient(wiki, "rollback").token.subscribeOn(Schedulers.io())
-            .flatMap { token ->
-                ServiceFactory.get(wiki)
-                    .postRollback(candidate!!.title, candidate!!.user, "", token)
-                    .subscribeOn(Schedulers.io())
-            }
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                onSuccess()
-            }, {
-                onError(it)
-            })
     }
 
     private fun onSuccess() {
@@ -299,7 +252,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
     }
 
     override fun publishEnabled(): Boolean {
-        return !publishSuccess
+        return true
     }
 
     companion object {

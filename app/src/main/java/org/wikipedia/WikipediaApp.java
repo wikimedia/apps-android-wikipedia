@@ -325,7 +325,7 @@ public class WikipediaApp extends Application {
         AccountUtil.removeAccount();
         Prefs.INSTANCE.setPushNotificationTokenSubscribed(false);
         Prefs.INSTANCE.setPushNotificationTokenOld("");
-        ServiceFactory.get(getWikiSite()).getCsrfToken()
+        ServiceFactory.get(getWikiSite()).getTokenObservable("csrf")
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> {
                     String csrfToken = response.getQuery().csrfToken();

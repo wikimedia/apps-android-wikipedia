@@ -16,7 +16,7 @@ import java.util.concurrent.Semaphore
 
 class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetries: Int,
                       private val csrfService: Service, private val type: String) {
-    constructor(site: WikiSite) : this(WikipediaApp.getInstance().wikiSite, MAX_RETRIES, ServiceFactory.get(site), "csrf")
+    constructor(site: WikiSite, type: String = "csrf") : this(WikipediaApp.getInstance().wikiSite, MAX_RETRIES, ServiceFactory.get(site), type)
 
     val token: Observable<String>
         get() {
@@ -42,7 +42,7 @@ class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetrie
                             return@create
                         }
 
-                        csrfService.getToken(type)
+                        csrfService.getTokenObservable(type)
                                 .subscribeOn(Schedulers.io())
                                 .blockingSubscribe({
                                     if (type == "rollback") {

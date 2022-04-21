@@ -254,7 +254,7 @@ object EditingSuggestionsProvider {
         }.doFinally { mutex.release() }
     }
 
-    fun getNextRevertCandidate(lang: String): Observable<MwQueryResult.RecentChange> {
+    fun getNextRevertCandidate(lang: String): MwQueryResult.RecentChange {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedItem: MwQueryResult.RecentChange? = null
             if (revertCandidateLang != lang) {
@@ -300,11 +300,10 @@ object EditingSuggestionsProvider {
                         }
                         item
                     }.doOnError { L.w(it) }
-                    .retryWhen { t ->
-                        t.delay(2, TimeUnit.SECONDS)
-                    }
+                    .retryWhen { it.delay(2, TimeUnit.SECONDS) }
             }
         }.doFinally { mutex.release() }
+                .blockingSingle()
     }
 
     class ListEmptyException : RuntimeException()

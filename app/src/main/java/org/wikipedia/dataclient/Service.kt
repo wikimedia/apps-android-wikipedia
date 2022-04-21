@@ -15,7 +15,6 @@ import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginClient.LoginResponse
 import org.wikipedia.search.PrefixSearchResponse
-import retrofit2.Call
 import retrofit2.http.*
 
 /**
@@ -159,17 +158,13 @@ interface Service {
 
     // ------- CSRF, Login, and Create Account -------
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
-    @get:Headers("Cache-Control: no-cache")
-    val csrfToken: Observable<MwQueryResponse>
-
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens")
-    fun getToken(@Query("type") type: String): Observable<MwQueryResponse>
+    fun getTokenObservable(@Query("type") type: String = "csrf"): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
+    @GET(MW_API_PREFIX + "action=query&meta=tokens")
     @Headers("Cache-Control: no-cache")
-    suspend fun getCsrfToken(): MwQueryResponse
+    suspend fun getToken(@Query("type") type: String = "csrf"): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=createaccount&createmessageformat=html")
@@ -326,12 +321,12 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=rollback")
-    fun postRollback(
+    suspend fun postRollback(
             @Field("title") title: String,
             @Field("user") user: String,
             @Field("summary") summary: String,
             @Field("token") token: String
-    ): Observable<MwPostResponse>
+    ): MwPostResponse
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     fun getUserContributions(
