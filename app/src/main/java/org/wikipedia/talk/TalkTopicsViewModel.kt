@@ -18,6 +18,7 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.views.TalkTopicsSortOverflowView
 
 class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
@@ -150,6 +151,16 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
             val postTopicResponse = ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, commentId, body, token)
             postTopicResponse.result?.let {
                 _uiState.value = UiState.DoEdit(it)
+            }
+        }
+    }
+
+    fun seenTopic(topicId: String?) {
+        topicId?.let {
+            viewModelScope.launch(editHandler) {
+                withContext(Dispatchers.IO) {
+                    talkPageSeenRepository.insertTalkPageSeen(TalkPageSeen(it))
+                }
             }
         }
     }

@@ -18,7 +18,6 @@ import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import kotlinx.coroutines.flow.collect
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -53,7 +52,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private lateinit var textWatcher: TextWatcher
 
     private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(EXTRA_PAGE_TITLE)) }
-    private val disposables = CompositeDisposable()
     private var sectionId: Int = 0
     private var topicId: String = ""
     private var topic: ThreadItem? = null
@@ -221,7 +219,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     public override fun onDestroy() {
-        disposables.clear()
         binding.replySubjectText.removeTextChangedListener(textWatcher)
         binding.replyInputView.editText.removeTextChangedListener(textWatcher)
         super.onDestroy()
@@ -276,9 +273,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         topic = threadItems.find { t -> t.id == topicId }
         sectionId = threadItems.indexOf(topic)
 
-        // TODO: implement seen topic
-        // AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
-        // TODO: implement save logic
+        viewModel.seenTopic(topic?.id)
+
+        // TODO: Discuss this
         // currentRevision = talkTopic.revision
 
         if (replyActive || shouldHideReplyButton()) {
