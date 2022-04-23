@@ -20,8 +20,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.databinding.ViewNotificationActionsOverflowBinding
 import org.wikipedia.dataclient.WikiSite
@@ -119,7 +117,6 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         val url = link.url
         val notification = container.notification
         if (url.isNotEmpty() && notification != null) {
-            NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link)
             NotificationInteractionEvent.logAction(notification, linkIndex, link)
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")

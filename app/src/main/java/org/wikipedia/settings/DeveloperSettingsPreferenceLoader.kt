@@ -36,31 +36,35 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         setUpMediaWikiSettings()
         findPreference(R.string.preferences_developer_crash_key).onPreferenceClickListener = Preference.OnPreferenceClickListener { throw TestException("User tested crash functionality.") }
         findPreference(R.string.preference_key_add_articles).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            if (!isEmptyOrZero(newValue)) {
-                createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, newValue.toString().trim().toInt())
+            val intValue = newValue.toIntOrDefault()
+            if (intValue != 0) {
+                createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, intValue)
             }
             true
         }
         findPreference(R.string.preference_key_add_reading_lists).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            if (!isEmptyOrZero(newValue)) {
-                createTestReadingList(TEXT_OF_READING_LIST, newValue.toString().trim().toInt(), 10)
+            val intValue = newValue.toIntOrDefault()
+            if (intValue != 0) {
+                createTestReadingList(TEXT_OF_READING_LIST, intValue, 10)
             }
             true
         }
         findPreference(R.string.preference_key_delete_reading_lists).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            if (!isEmptyOrZero(newValue)) {
-                deleteTestReadingList(TEXT_OF_READING_LIST, newValue.toString().trim().toInt())
+            val intValue = newValue.toIntOrDefault()
+            if (intValue != 0) {
+                deleteTestReadingList(TEXT_OF_READING_LIST, intValue)
             }
             true
         }
         findPreference(R.string.preference_key_delete_test_reading_lists).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            if (!isEmptyOrZero(newValue)) {
-                deleteTestReadingList(TEXT_OF_TEST_READING_LIST, newValue.toString().trim().toInt())
+            val intValue = newValue.toIntOrDefault()
+            if (intValue != 0) {
+                deleteTestReadingList(TEXT_OF_TEST_READING_LIST, intValue)
             }
             true
         }
         findPreference(R.string.preference_key_add_malformed_reading_list_page).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            val numberOfArticles = if (newValue.toString().isEmpty()) 1 else newValue.toString().trim().toInt()
+            val numberOfArticles = newValue.toIntOrDefault(1)
             val pages = (0 until numberOfArticles).map {
                 ReadingListPage(PageTitle("Malformed page $it", WikiSite.forLanguageCode("foo")))
             }
@@ -162,7 +166,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         AppDatabase.instance.readingListDao().getListsWithoutContents().asReversed().forEach {
             if (it.title.contains(listName)) {
                 val trimmedListTitle = it.title.substring(listName.length).trim()
-                index = if (trimmedListTitle.isEmpty()) index else trimmedListTitle.toInt().coerceAtLeast(index)
+                index = trimmedListTitle.toIntOrNull()?.coerceAtLeast(index) ?: index
                 return
             }
         }
@@ -186,8 +190,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
     }
 
-    private fun isEmptyOrZero(newValue: Any): Boolean {
-        return newValue.toString().trim().isEmpty() || newValue.toString().trim() == "0"
+    private fun Any.toIntOrDefault(defaultValue: Int = 0): Int {
+        return toString().trim().toIntOrNull() ?: defaultValue
     }
 
     private class TestException constructor(message: String?) : RuntimeException(message)

@@ -80,15 +80,22 @@
   <string name="page_edit_history_activity_title">Muutoshistoria: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;p&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Tyhjä muokkausyhteenveto</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Etsi tai suodata muokkauksia</string>
+  <string name="page_edit_history_filter_by_all">Kaikki muokkaukset (%s)</string>
+  <string name="page_edit_history_filter_by_user">Käyttäjien muokkaukset (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonyymit muokkaukset (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Bottimuokkaukset (%s)</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d muokkaus vuodesta %2$s lähtien</item>
     <item quantity="other">%1$d muokkausta vuodesta %2$s lähtien</item>
   </plurals>
+  <string name="page_edit_history_empty_search_message">Kokeile &lt;a href=\"#\"&gt;suodattimien&lt;/a&gt; muuttamista nähdäksesi enemmän muokkauksia</string>
   <string name="menu_page_show_tabs">Näytä välilehdet</string>
   <string name="menu_page_other_languages">Vaihda kieli</string>
   <string name="menu_page_find_in_page">Etsi artikkelista</string>
   <string name="menu_page_add_to_watchlist">Lisää tarkkailulistalle</string>
   <string name="menu_page_watch">Tarkkaile</string>
+  <string name="menu_page_unwatch">Lopeta tarkkailu</string>
   <string name="menu_page_view_talk">Näytä keskustelusivu</string>
   <string name="menu_page_talk_page">Keskustelusivu</string>
   <string name="menu_page_view_edit_history">Näytä muokkaushistoria</string>
