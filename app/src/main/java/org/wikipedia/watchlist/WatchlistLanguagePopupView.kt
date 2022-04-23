@@ -21,7 +21,7 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
     val binding = ViewWatchlistLanguagePopupBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
     private var popupWindowHost: PopupWindow? = null
-    private val disabledLangCodes = Prefs.watchlistDisabledLanguages.toMutableSet()
+    private val disabledLangCodes = Prefs.watchlistDisabledLanguages
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -68,8 +68,8 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
         }
     }
 
-    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        val langCode = buttonView!!.tag as String
+    override fun onCheckedChanged(buttonView: CompoundButton, isChecked: Boolean) {
+        val langCode = buttonView.tag as String
         if (isChecked) {
             disabledLangCodes.remove(langCode)
         } else if (!isChecked) {

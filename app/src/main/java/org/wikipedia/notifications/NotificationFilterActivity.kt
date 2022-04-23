@@ -91,8 +91,8 @@ class NotificationFilterActivity : BaseActivity() {
 
     private inner class NotificationsFilterAdapter(val context: Context, private val filtersList: List<Any>) :
         RecyclerView.Adapter<DefaultViewHolder<*>>(), NotificationFilterItemView.Callback {
-        private var excludedWikiCodes = Prefs.notificationExcludedWikiCodes.toMutableSet()
-        private var excludedTypeCodes = Prefs.notificationExcludedTypeCodes.toMutableSet()
+        private var excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        private var excludedTypeCodes = Prefs.notificationExcludedTypeCodes
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
             return when (type) {

@@ -1,5 +1,6 @@
 package org.wikipedia.offline.db
 
+import androidx.collection.ArraySet
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -19,13 +20,13 @@ data class OfflineObject(
     }
 
     fun addUsedBy(id: Long) {
-        val set = usedBy.toMutableSet()
+        val set = ArraySet(usedBy)
         set.add(id)
         updateUsedBy(set)
     }
 
     fun removeUsedBy(id: Long) {
-        val set = usedBy.toMutableSet()
+        val set = ArraySet(usedBy)
         set.remove(id)
         updateUsedBy(set)
     }

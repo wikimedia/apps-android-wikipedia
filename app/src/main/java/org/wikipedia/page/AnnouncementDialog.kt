@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.net.Uri
 import android.widget.ScrollView
+import androidx.collection.arraySetOf
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.FeedFunnel
@@ -62,7 +63,7 @@ class AnnouncementDialog internal constructor(context: Context, val announcement
     }
 
     private fun dismissDialog() {
-        Prefs.announcementShownDialogs = setOf(announcement.id)
+        Prefs.announcementShownDialogs = arraySetOf(announcement.id)
         dismiss()
     }
 }
