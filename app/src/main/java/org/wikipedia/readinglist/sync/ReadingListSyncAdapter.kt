@@ -1,8 +1,11 @@
 package org.wikipedia.readinglist.sync
 
-import android.content.*
+import android.content.ContentResolver
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import androidx.collection.ArraySet
+import androidx.collection.arraySetOf
 import androidx.core.app.JobIntentService
 import androidx.core.os.bundleOf
 import org.wikipedia.WikipediaApp
@@ -39,8 +42,8 @@ class ReadingListSyncAdapter : JobIntentService() {
         }
         L.d("Begin sync of reading lists...")
         val csrfToken = mutableListOf<String>()
-        val listIdsDeleted = Prefs.readingListsDeletedIds.toMutableSet()
-        val pageIdsDeleted = Prefs.readingListPagesDeletedIds.toMutableSet()
+        val listIdsDeleted = Prefs.readingListsDeletedIds
+        val pageIdsDeleted = Prefs.readingListPagesDeletedIds
         var allLocalLists: MutableList<ReadingList>? = null
         val wiki = WikipediaApp.getInstance().wikiSite
         val client = ReadingListClient(wiki)
@@ -222,9 +225,8 @@ class ReadingListSyncAdapter : JobIntentService() {
             // -----------------------------------------------
 
             // Do any remote lists need to be deleted?
-            val listIdsToDelete = mutableListOf<Long>()
-            listIdsToDelete.addAll(listIdsDeleted)
-            for (id in listIdsToDelete) {
+            for (i in listIdsDeleted.indices) {
+                val id = listIdsDeleted.valueAt(i)
                 L.d("Deleting remote list id $id")
                 try {
                     client.deleteList(getCsrfToken(wiki, csrfToken), id)
@@ -238,9 +240,8 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
 
             // Do any remote pages need to be deleted?
-            val pageIdsToDelete = mutableListOf<String>()
-            pageIdsToDelete.addAll(pageIdsDeleted)
-            for (id in pageIdsToDelete) {
+            for (i in pageIdsDeleted.indices) {
+                val id = pageIdsDeleted.valueAt(i)
                 L.d("Deleting remote page id $id")
                 val listAndPageId = id.split(":").toTypedArray()
                 try {
@@ -492,7 +493,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             if (list.remoteId <= 0) {
                 return
             }
-            Prefs.addReadingListsDeletedIds(setOf(list.remoteId))
+            Prefs.addReadingListsDeletedIds(arraySetOf(list.remoteId))
             manualSync()
         }
 
@@ -500,7 +501,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             if (list.remoteId <= 0) {
                 return
             }
-            val ids = pages.map { it.remoteId }.filter { it > 0 }.map { "${list.remoteId}:$it" }.toSet()
+            val ids = ArraySet(pages.map { it.remoteId }.filter { it > 0 }.map { "${list.remoteId}:$it" })
             if (ids.isNotEmpty()) {
                 Prefs.addReadingListPagesDeletedIds(ids)
                 manualSync()

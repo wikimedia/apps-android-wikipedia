@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.collection.arraySetOf
 import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -167,8 +168,8 @@ class LoginActivity : BaseActivity() {
         // so that the sync adapter can run at least once and check whether syncing is enabled
         // on the server side.
         Prefs.isReadingListSyncEnabled = true
-        Prefs.readingListPagesDeletedIds = emptySet()
-        Prefs.readingListsDeletedIds = emptySet()
+        Prefs.readingListPagesDeletedIds = arraySetOf()
+        Prefs.readingListsDeletedIds = arraySetOf()
         ReadingListSyncAdapter.manualSyncWithForce()
         PollNotificationWorker.schedulePollNotificationJob(this)
         Prefs.isPushNotificationOptionsSet = false

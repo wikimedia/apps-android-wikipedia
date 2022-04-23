@@ -1,5 +1,6 @@
 package org.wikipedia.settings
 
+import androidx.collection.ArraySet
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
@@ -317,26 +318,24 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_reading_lists_last_sync_time, "")
         set(timeStr) = PrefsIoUtil.setString(R.string.preference_key_reading_lists_last_sync_time, timeStr)
 
-    var readingListsDeletedIds
-        get() = JsonUtil.decodeFromString<Set<Long>>(PrefsIoUtil.getString(R.string.preference_key_reading_lists_deleted_ids, null))
-            ?: emptySet()
+    var readingListsDeletedIds: ArraySet<Long>
+        get() = ArraySet(JsonUtil.decodeFromString<Set<Long>>(PrefsIoUtil.getString(R.string.preference_key_reading_lists_deleted_ids, null)))
         set(set) = PrefsIoUtil.setString(R.string.preference_key_reading_lists_deleted_ids, JsonUtil.encodeToString(set))
 
-    fun addReadingListsDeletedIds(set: Set<Long>) {
+    fun addReadingListsDeletedIds(set: ArraySet<Long>) {
         val maxStoredIds = 256
-        val currentSet = readingListsDeletedIds.toMutableSet()
+        val currentSet = readingListsDeletedIds
         currentSet.addAll(set)
         readingListsDeletedIds = if (currentSet.size < maxStoredIds) currentSet else set
     }
 
-    var readingListPagesDeletedIds
-        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_reading_list_pages_deleted_ids, null))
-            ?: emptySet()
+    var readingListPagesDeletedIds: ArraySet<String>
+        get() = ArraySet(JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_reading_list_pages_deleted_ids, null)))
         set(set) = PrefsIoUtil.setString(R.string.preference_key_reading_list_pages_deleted_ids, JsonUtil.encodeToString(set))
 
-    fun addReadingListPagesDeletedIds(set: Set<String>) {
+    fun addReadingListPagesDeletedIds(set: ArraySet<String>) {
         val maxStoredIds = 256
-        val currentSet = readingListPagesDeletedIds.toMutableSet()
+        val currentSet = readingListPagesDeletedIds
         currentSet.addAll(set)
         readingListPagesDeletedIds = if (currentSet.size < maxStoredIds) currentSet else set
     }
