@@ -154,13 +154,8 @@ object ShareUtil {
 
     fun getIntentChooser(context: Context, intent: Intent, chooserTitle: CharSequence? = null): Intent? {
         val infoList = context.packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
-        val excludedComponents = arraySetOf<ComponentName>()
-        infoList.forEach {
-            val activityInfo = it.activityInfo
-            val componentName = ComponentName(activityInfo.packageName, activityInfo.name)
-            if (isSelfComponentName(componentName))
-                excludedComponents.add(componentName)
-        }
+        val excludedComponents = infoList.map { ComponentName(it.activityInfo.packageName, it.activityInfo.name) }
+            .filterTo(arraySetOf()) { isSelfComponentName(it) }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return if (excludedComponents.size >= infoList.size) null
             else Intent.createChooser(intent, chooserTitle)
