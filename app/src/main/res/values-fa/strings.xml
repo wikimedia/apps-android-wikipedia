@@ -30,6 +30,7 @@
 * Mehdi
 * Mjbmr
 * Mohammad ebz
+* Mojtabakd
 * MuratTheTurkish
 * Namo
 * Ni eu
@@ -88,6 +89,13 @@
   <string name="share_via">اشتراک‌گذاری با</string>
   <string name="image_share_via">اشتراک‌گذاری با</string>
   <string name="search_redirect_from">تغییر مسیر از %s</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">جستجو یا پالایش ویرایش‌ها</string>
+  <string name="page_edit_history_filter_by">پالایش بر اساس</string>
+  <string name="page_edit_history_filter_by_all">تمام ویرایش‌ها (%s)</string>
+  <string name="page_edit_history_filter_by_user">ویرایش‌های کاربر (%s)</string>
+  <string name="page_edit_history_filter_by_anon">ویرایش‌های ناشناس (%s)</string>
+  <string name="page_edit_history_filter_by_bot">ویرایش‌های ربات (%s)</string>
+  <string name="page_edit_history_empty_search_message">برای مشاهدهٔ ویرایش‌های بیشتر، &lt;a href=\"#\"&gt;پالایه‌ها&lt;/a&gt; را تغییر دهید</string>
   <string name="menu_page_show_tabs">نمایش برگه‌ها</string>
   <string name="menu_page_other_languages">تغییر زبان</string>
   <string name="menu_page_find_in_page">جستجو در مقاله</string>
@@ -96,7 +104,7 @@
   <string name="menu_page_view_talk">مشاهدهٔ صفحهٔ بحث</string>
   <string name="menu_page_talk_page">صفحهٔ بحث</string>
   <string name="menu_page_view_edit_history">مشاهده تاریخچۀ ویرایش</string>
-  <string name="menu_page_edit_history">ویرایش تاریخچه</string>
+  <string name="menu_page_edit_history">تاریخچۀ ویرایش</string>
   <string name="menu_page_remove_from_watchlist">حذف از فهرست پیگیری</string>
   <string name="menu_page_watched">پیگیری شده</string>
   <string name="edit_section_find_in_page">جستجو در صفحه</string>
@@ -137,7 +145,7 @@
   <string name="menu_save_changes">انتشار تغییرات</string>
   <string name="edit_saved_successfully">ویرایش منتشر شد!</string>
   <string name="dialog_message_edit_failed">ویرایش اِعمال نشد!</string>
-  <string name="dialog_message_edit_failed_retry">تلاش دوباره</string>
+  <string name="dialog_message_edit_failed_retry">تلاش مجدد</string>
   <string name="dialog_message_edit_failed_cancel">انصراف</string>
   <string name="dialog_message_leaving_edit">ویرایش شما هنوز ذخیره نشده است. آیا واقعاً می‌خواهید از این صفحه خارج شوید؟</string>
   <string name="dialog_message_leaving_edit_leave">ترک‌کردن</string>
@@ -156,8 +164,8 @@
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">رمز عبور</string>
   <string name="account_creation_password_hint">رمز عبور</string>
-  <string name="login_2fa_hint">کد اعتبارسنجی دوعاملی</string>
-  <string name="login_2fa_other_workflow_error_msg">تائید دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای به سامانه وارد شوید و از نو تلاش کنید.</string>
+  <string name="login_2fa_hint">کد تأیید اعتبار دومرحله‌ای</string>
+  <string name="login_2fa_other_workflow_error_msg">تأیید اعتبار دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای خودتان به سامانه وارد شوید و از نو تلاش کنید.</string>
   <string name="onboarding_card_login">ورود</string>
   <string name="page_editing_login">ورود</string>
   <string name="reading_lists_sync_login">ورود</string>
@@ -186,7 +194,7 @@
   <string name="delete_selected_items">حذف موارد انتخاب‌شده</string>
   <string name="wp_stylized">&lt;big&gt;ویکی‌پدیا&lt;/big&gt;</string>
   <string name="create_account_username_hint">نام کاربری</string>
-  <string name="login_dont_have_account">یک حساب ندارید؟</string>
+  <string name="login_dont_have_account">حسابی ندارید؟</string>
   <string name="login_join_wikipedia">به ویکی‌پدیا بپیوندید</string>
   <string name="login_forgot_password">رمز عبورتان را فراموش کرده‌اید؟</string>
   <string name="create_account_already_have">از قبل حسابی دارید؟</string>
@@ -404,13 +412,13 @@
   <string name="preference_summary_prefer_offline_content">به‌جای دریافت آخرین نسخهٔ مقاله، با بارگیری محتوایی که در حالت آفلاین در دسترس است، می‌توانید در مصرف داده صرفه‌جویی کنید</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">تطبیق با زمینه سامانه</string>
   <string name="page_footer_license_text">محتوا تحت $1 در دسترس است، مگر اینکه خلافش ذکر شده‌باشد.</string>
-  <string name="empty_tab_title">برگهٔ جدید</string>
+  <string name="empty_tab_title">زبانۀ جدید</string>
   <string name="menu_save_all_tabs">ذخیرهٔ همهٔ برگه‌ها</string>
   <string name="error_blocked_title">دسترسی حساب کاربری یا نشانی آی‌پی شما قطع شده‌است.</string>
   <string name="error_blocked_by">این قطع دسترسی توسط &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; انجام شده‌است</string>
   <string name="error_blocked_reason">دلیل ارائه‌شده: %s</string>
   <string name="error_blocked_start">آغاز قطع دسترسی: %s</string>
-  <string name="error_blocked_expiry">زمان منقضی‌شدن قطع دسترسی: %s</string>
+  <string name="error_blocked_expiry">زمان منقضی‌شدن بستن دسترسی: %s</string>
   <string name="error_blocked_id">شناسهٔ قطع دسترسی: %s</string>
   <string name="error_blocked_footer">برای گفتگو پیرامون قطع دسترسی می‌توانید با &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; یا یک &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:مدیران\"&gt;مدیر&lt;/a&gt; دیگر تماس بگیرید.</string>
   <string name="error_blocked_footer_no_blocker">برای گفتگو پیرامون قطع دسترسی می‌توانید با یک &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:مدیران\"&gt;مدیر&lt;/a&gt; تماس بگیرید.</string>
@@ -422,7 +430,7 @@
   <string name="article_menu_bar_language_button">زبان</string>
   <string name="article_menu_bar_search_button">جستجو</string>
   <string name="article_menu_bar_theme_button">پوسته</string>
-  <string name="article_menu_bar_contents_button">محتویات</string>
+  <string name="article_menu_bar_contents_button">فهرست</string>
   <string name="article_header_edit_hint">ویرایش...</string>
   <string name="article_header_edit_description">ویرایش توضیحات مقاله</string>
   <string name="article_header_edit_lead_section">ویرایش مقدمه</string>
@@ -603,10 +611,10 @@
     <item quantity="one">%1$d فهرست باقی مانده‌است</item>
     <item quantity="other">%1$d فهرست باقی مانده‌است</item>
   </plurals>
-  <string name="notification_echo_channel_description">آگاه‌سازی‌های ویکی‌پدیا</string>
-  <string name="notifications_activity_title">آگاه‌سازی‌ها</string>
-  <string name="notifications_activity_title_archived">آگاه‌سازی‌ها (بایگانی‌شده)</string>
-  <string name="notifications_search">جستجو در آگاه‌سازی‌ها</string>
+  <string name="notification_echo_channel_description">اعلان‌های ویکی‌پدیا</string>
+  <string name="notifications_activity_title">اعلان‌ها</string>
+  <string name="notifications_activity_title_archived">اعلان‌ها (بایگانی‌شده)</string>
+  <string name="notifications_search">جستجو در اعلان‌ها</string>
   <string name="notifications_view_unread">مشاهدهٔ خوانده‌نشده‌ها</string>
   <string name="notifications_view_archived">مشاهدهٔ بایگانی‌شده‌ها</string>
   <string name="notifications_prefs">ترجیحات اعلان‌ها</string>
@@ -615,11 +623,11 @@
     <item quantity="one">آگاه‌سازی‌ بایگانی شد</item>
     <item quantity="other">%d آگاه‌سازی‌ بایگانی شد</item>
   </plurals>
-  <string name="notifications_poll_enable_title">فعال‌سازی آگاه‌سازی‌ها</string>
+  <string name="notifications_poll_enable_title">فعال‌سازی اعلان‌ها</string>
   <string name="notifications_poll_enable_positive">فعال‌سازی</string>
   <string name="notifications_poll_enable_negative">اکنون نه</string>
   <string name="notifications_empty_message">آگاه‌سازی‌‌ نخواندهٔ دیگری باقی نمانده است!</string>
-  <string name="notifications_view_archived_button_text">مشاهدهٔ آگاه‌سازی‌های بایگانی‌شده</string>
+  <string name="notifications_view_archived_button_text">مشاهدهٔ اعلان‌های بایگانی‌شده</string>
   <string name="notification_preferences_title">ترجیحات اعلان‌ها</string>
   <string name="notifications_mark_unread">نشانه‌گذاری به‌عنوان خوانده‌نشده</string>
   <string name="notifications_mark_all_as_read">نشان‌گذاری همه به عنوان خوانده‌شده</string>
@@ -630,8 +638,8 @@
   <string name="notifications_mark_all_as_read_message">%d به عنوان خوانده شده علامت‌گذاری شد</string>
   <string name="notifications_mark_all_as_unread_message">%d به عنوان خوانده نشده علامت‌گذاری شد</string>
   <string name="watchlist_title">فهرست پیگیری</string>
-  <string name="preference_title_notification_poll">سرشماری آگاه‌سازی‌ها</string>
-  <string name="preference_summary_notification_poll">به نرم‌افزار اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی اعلان‌های جدید استفاده کند.</string>
+  <string name="preference_title_notification_poll">سرشماری اعلان‌ها</string>
+  <string name="preference_summary_notification_poll">به نرم‌افزار اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی آگاه‌سازی‌های جدید استفاده کند.</string>
   <string name="preference_category_notification_types">انواع اعلانات درون‌برنامه‌ای</string>
   <string name="preference_title_notification_system">سامانه</string>
   <string name="preference_summary_notification_system">پیام‌های سامانه</string>
@@ -653,16 +661,16 @@
   <string name="preference_summary_notification_user_rights">هنگامی که اختیارات کاربری تغییر کرد دریافت شد</string>
   <string name="preference_title_notification_article_linked">پیوند به مقاله‌هایی که ایجاد کردید</string>
   <string name="preference_summary_notification_article_linked">زمانی دریافت می‌شود که پیوند جدیدی به صفحه‌ای که ایجاد کرده‌اید ساخته شود</string>
-  <string name="preference_category_push_notifications">آگاه‌سازی‌ها</string>
-  <string name="preference_title_customize_push_notifications">شخصی‌سازی آگاه‌سازی‌ها</string>
+  <string name="preference_category_push_notifications">اعلان‌های تشویقی</string>
+  <string name="preference_title_customize_push_notifications">شخصی‌سازی اعلان‌های تشویقی</string>
   <string name="preference_category_display_settings">تنظیمات نمایش</string>
-  <string name="preference_title_hide_read_notifications">نهفتن آگاه‌سازی‌های خوانده‌شده</string>
+  <string name="preference_title_hide_read_notifications">نهفتن اعلان‌های خوانده‌شده</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">ویکی‌پدیا</string>
-  <string name="notifications_channel_group_wikipedia_notifications_description">آگاه‌سازی‌ها از ویکی‌پدیا</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">اعلان‌ها از ویکی‌پدیا</string>
   <string name="notifications_channel_group_other_title">سایر</string>
-  <string name="notifications_channel_group_other_description">سایر آگاه‌سازی‌ها از  برنامه</string>
-  <string name="notifications_filter_label">پالایش آگاه‌سازی‌ها</string>
-  <string name="notifications_filter_icon_content_description">پالایش آگاه‌سازی‌ها</string>
+  <string name="notifications_channel_group_other_description">سایر اعلان‌ها از  برنامه</string>
+  <string name="notifications_filter_label">پالایش اعلان‌ها</string>
+  <string name="notifications_filter_icon_content_description">پالایش اعلان‌ها</string>
   <string name="notifications_filter_update_app_languages">به‌روزرسانی زبان‌های برنامه</string>
   <string name="notifications_tab_filter_all">همه</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه کرده‌اید</string>
@@ -683,7 +691,7 @@
   <string name="menu_feed_card_dismissed">کارت پنهان شد</string>
   <string name="menu_feed_card_edit_card_languages">ویرایش زبان‌های کارت‌ها</string>
   <string name="menu_feed_overflow_label">گزینه‌های بیشتر</string>
-  <string name="feed_featured_image_share_subject">نگارهٔ برگزیده از ویکی‌انبار</string>
+  <string name="feed_featured_image_share_subject">تصویر برگزیده از ویکی‌انبار</string>
   <string name="feed">مرور</string>
   <string name="home">خانه</string>
   <string name="view_static_card_icon_content_description">آیکون کارت</string>
@@ -708,7 +716,7 @@
   <string name="feed_item_type_because_you_read">پیشنهادها بر پایهٔ مقاله‌ای از تاریخچهٔ مطالعهٔ شما که اخیراً آن را خوانده‌اید</string>
   <string name="feed_item_type_featured_article">مقالهٔ برگزیدهٔ روزانه در ویکی‌پدیا</string>
   <string name="feed_item_type_trending">پربازدیدترین مقاله‌های روزانه</string>
-  <string name="feed_item_type_featured_image">نگارهٔ برگزیدهٔ روز از ویکی‌انبار</string>
+  <string name="feed_item_type_featured_image">تصویر برگزیدهٔ روز از ویکی‌انبار</string>
   <string name="feed_item_type_main_page">صفحهٔ اصلی ویکی‌پدیا با محتوای برگزیدهٔ روزانه</string>
   <string name="feed_item_type_randomizer">مقالهٔ تصادفی برای مطالعه</string>
   <string name="feed_item_type_suggested_edits">پیشنهادهایی برای افزودن محتوا به ویکی‌پدیا</string>
@@ -840,7 +848,7 @@
   <string name="suggested_edits_image_tags_publishing">در حال انتشار</string>
   <string name="suggested_edits_image_tags_published">منتشر شد</string>
   <string name="suggested_edits_image_tags_onboarding_title">برچسب‌گذاری تصویرها یافتن‌شان را آسان‌تر می‌کند.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">شما با افزودن برچسب‌ها به ساده‌تر شدن جستجو برای نگاره‌ها در ویکی‌انبار کمک خواهید کرد. ویکی‌انبار مخزنی از نگاره‌های آزاد است که ویکی‌پدیا از آن‌ها به‌عنوان تصاویر آزاد در مقاله‌هایش استفاده می‌کند.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">شما با افزودن برچسب‌ها به ساده‌تر شدن جستجو برای تصاویر در ویکی‌انبار کمک خواهید کرد. ویکی‌انبار مخزنی از نگاره‌های آزاد است که ویکی‌پدیا از آن‌ها به‌عنوان تصاویر آزاد در مقاله‌هایش استفاده می‌کند.</string>
   <string name="suggested_edits_image_tags_onboarding_note">تنها برچسب‌هایی که انتخاب کنید به تصاویر افزوده خواهد شد.</string>
   <string name="suggested_edits_image_tags_task_detail">برچسب‌های سفارشی را به تصویرها بیفزایید تا یافتن‌شان آسان‌تر شود.</string>
   <string name="suggested_edits_image_tags_choose">اضافه‌کردن یا انتخاب برچسب‌های مرتبط</string>
@@ -849,7 +857,7 @@
   <string name="suggested_edits_image_tags_select_title">شما هیچ برچسبی برای این تصویر انتخاب نکرده‌اید</string>
   <string name="suggested_edits_image_tags_select_text">تنها برچسب‌هایی که انتخاب کنید به تصویرها افزوده خواهند شد. برچسب‌هایی که انتخاب نشده‌اند به‌عنوان رد شده علامت‌گذاری می‌شوند. آیا از علامت‌زدن همهٔ برچسب‌ها به‌عنوان رد شده مطمئن هستید؟</string>
   <string name="suggested_edits_image_tags_add_tag">افزودن برچسب</string>
-  <string name="suggested_edits_image_zoom_tooltip">برای بزرگنمایی این نگاره، پینچ کنید.</string>
+  <string name="suggested_edits_image_zoom_tooltip">برای بزرگنمایی این تصویر، پینچ کنید.</string>
   <string name="suggested_edits_encouragement_message">%s، ممنون بابت ویرایش‌های شما. در زیر می‌توان راه‌های بیشتری برای مشارکت در ویکی‌پدیا بیابید.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;سلام %s&lt;/b&gt;، در زیر می‌توانید راه‌های ساده و سریعی برای کمک به ویکی‌پدیا بیابید. به‌محض آغاز کار، تفاوتی که دارید ایجاد می‌کنید را خواهید دید. ویرایش خوش!</string>
   <string name="suggested_edits_image_captions_task_detail">برای کمک به مخاطبان در درک معنی و مفهوم تصویر، آن را توصیف کنید.</string>
@@ -1070,6 +1078,10 @@
   <string name="thank_success_message">«تشکر» شما به %s فرستاده شد 👍</string>
   <string name="revision_diff_from">از:</string>
   <string name="revision_diff_to">به:</string>
+  <string name="revision_diff_line_num">خط %d</string>
+  <string name="revision_diff_line_nums">خطوط %d-%d</string>
+  <string name="revision_diff_line_added">خط اضافه شد</string>
+  <string name="revision_diff_paragraph_added">پاراگراف اضافه شد</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s و صفحهٔ بحث آن %2$s به فهرست پیگیری‌‌تان افزوده‌شد.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">تغییر</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">به صورت دائمی</string>
@@ -1087,11 +1099,15 @@
   <string name="watchlist_empty">در فهرست پیگیری‌تان مقاله‌ای ندارید.</string>
   <string name="watchlist_filter_all">همه</string>
   <string name="watchlist_filter_talk">بحث</string>
-  <string name="watchlist_filter_pages">صفحات</string>
+  <string name="watchlist_filter_pages">صفحه‌ها</string>
   <string name="watchlist_filter_other">سایر</string>
   <string name="watchlist_page_moved">منتقل شده</string>
   <string name="watchlist_page_protected">محافظت‌شده</string>
   <string name="watchlist_page_deleted">حذف شده</string>
   <string name="action_item_categories">رده‌ها</string>
+  <string name="page_no_categories">این صفحه به هیچ رده‌ای تعلق ندارد.</string>
   <string name="category_tab_articles">مقاله‌ها</string>
+  <string name="category_tab_subcategories">زیررده‌ها</string>
+  <string name="category_empty">هیچ مقاله‌ای در این رده یافت نشد.</string>
+  <string name="subcategory_empty">هیچ زیررده‌ای در این رده یافت نشد.</string>
 </resources>

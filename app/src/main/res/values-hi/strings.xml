@@ -548,4 +548,5 @@
   <string name="revision_undo_success">संशोधन पूर्ववत किया गया था।</string>
   <string name="revision_compare_button">तुलना करें</string>
   <string name="revision_compare_two_only">केवल दो संशोधनों का चयन किया जा सकता है।</string>
+  <string name="category_tab_articles">लेख</string>
 </resources>

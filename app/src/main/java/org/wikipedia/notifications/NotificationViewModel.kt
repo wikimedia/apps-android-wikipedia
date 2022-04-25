@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.NotificationInteractionFunnel
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
@@ -172,7 +171,6 @@ class NotificationViewModel : ViewModel() {
             }
             notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
             if (!markUnread) {
-                NotificationInteractionFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
                 NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }
