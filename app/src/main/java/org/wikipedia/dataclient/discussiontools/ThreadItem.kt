@@ -15,13 +15,16 @@ class ThreadItem(
         val placeholderHeading: Boolean = false,
         val replies: List<ThreadItem> = emptyList()
 ) {
-        // TODO: remove this temporary variable when new talk page implementation built.
-        val allReplies: List<ThreadItem> get() {
-                val list = mutableListOf<ThreadItem>()
-                replies.forEach {
-                        list.add(it)
-                        list.addAll(it.allReplies)
-                }
-                return list
-        }
+    var isExpanded = false
+        private set
+
+    fun expand() {
+        replies.forEach { it.expand() }
+        isExpanded = true
+    }
+
+    fun collapse() {
+        replies.forEach { it.collapse() }
+        isExpanded = false
+    }
 }

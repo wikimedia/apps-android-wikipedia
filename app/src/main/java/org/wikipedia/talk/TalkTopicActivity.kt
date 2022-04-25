@@ -45,16 +45,12 @@ import org.wikipedia.views.UserMentionInputView
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
     private lateinit var binding: ActivityTalkTopicBinding
-    private lateinit var pageTitle: PageTitle
     private lateinit var talkFunnel: TalkFunnel
     private lateinit var editFunnel: EditFunnel
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
 
-    private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(EXTRA_PAGE_TITLE)) }
-    private var sectionId: Int = 0
-    private var topicId: String = ""
-    private var topic: ThreadItem? = null
+    private val viewModel: TalkTopicViewModel by viewModels { TalkTopicViewModel.Factory(intent.extras!!) }
     private var replyActive = false
     private var undone = false
     private var undoneBody = ""
@@ -64,6 +60,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private var currentRevision: Long = 0
     private var revisionForUndo: Long = 0
     private var userMentionScrolled = false
+
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
     }
@@ -90,19 +87,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         setSupportActionBar(binding.replyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
-        pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         if (intent.hasExtra(EXTRA_SUBJECT)) undoneSubject = intent.getStringExtra(EXTRA_SUBJECT) ?: ""
         if (intent.hasExtra(EXTRA_BODY)) undoneBody = intent.getStringExtra(EXTRA_BODY) ?: ""
         linkHandler = TalkLinkHandler(this)
-        linkHandler.wikiSite = pageTitle.wikiSite
-        topicId = intent.extras?.getString(EXTRA_TOPIC, "")!!
+        linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
-        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
+        L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, viewModel.pageTitle.wikiSite.languageCode)
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
-        // TODO: need to work on nest replies
         binding.talkRecyclerView.adapter = TalkReplyItemAdapter()
 
         binding.talkErrorView.backClickListener = View.OnClickListener {
@@ -115,7 +108,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkReplyButton.setOnClickListener {
             talkFunnel.logReplyClick()
             editFunnel.logStart()
-            EditAttemptStepEvent.logInit(pageTitle)
+            EditAttemptStepEvent.logInit(viewModel.pageTitle)
             replyClicked()
         }
 
@@ -142,23 +135,23 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         binding.talkReplyButton.visibility = View.GONE
 
-        binding.replyInputView.wikiSite = pageTitle.wikiSite
+        binding.replyInputView.wikiSite = viewModel.pageTitle.wikiSite
         binding.replyInputView.listener = this
 
-        talkFunnel = TalkFunnel(pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
+        talkFunnel = TalkFunnel(viewModel.pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
         talkFunnel.logOpenTopic()
 
-        editFunnel = EditFunnel(WikipediaApp.getInstance(), pageTitle)
+        editFunnel = EditFunnel(WikipediaApp.getInstance(), viewModel.pageTitle)
         updateEditLicenseText()
 
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect {
                 when (it) {
-                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.threadItems)
-                    is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
-                    is TalkTopicsViewModel.UiState.DoEdit -> onSaveSuccess(it.editResult.newRevId)
-                    is TalkTopicsViewModel.UiState.UndoEdit -> onSaveSuccess(it.edit.edit?.newRevId ?: 0)
-                    is TalkTopicsViewModel.UiState.EditError -> onSaveError(it.throwable)
+                    is TalkTopicViewModel.UiState.LoadTopic -> updateOnSuccess(it.threadItems)
+                    is TalkTopicViewModel.UiState.LoadError -> updateOnError(it.throwable)
+                    is TalkTopicViewModel.UiState.DoEdit -> onSaveSuccess(it.editResult.newRevId)
+                    is TalkTopicViewModel.UiState.UndoEdit -> onSaveSuccess(it.edit.edit?.newRevId ?: 0)
+                    is TalkTopicViewModel.UiState.EditError -> onSaveError(it.throwable)
                 }
             }
         }
@@ -181,11 +174,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_talk_topic_share -> {
-                ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), pageTitle.uri + "#" + StringUtil.addUnderscores(topic?.html))
+                ShareUtil.shareText(this, getString(R.string.talk_share_discussion_subject, viewModel.topic?.html?.ifEmpty { getString(R.string.talk_no_subject) }), viewModel.pageTitle.uri + "#" + StringUtil.addUnderscores(viewModel.topic?.html))
                 true
             }
             R.id.menu_edit_source -> {
-                requestEditSource.launch(EditSectionActivity.newIntent(this, sectionId, undoneSubject, pageTitle))
+                requestEditSource.launch(EditSectionActivity.newIntent(this, viewModel.sectionId, undoneSubject, viewModel.pageTitle))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -241,7 +234,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
             editFunnel.logStart()
-            EditAttemptStepEvent.logInit(pageTitle)
+            EditAttemptStepEvent.logInit(viewModel.pageTitle)
         } else {
             replyActive = false
             binding.replyInputView.editText.setText("")
@@ -263,17 +256,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
         binding.talkProgressBar.visibility = View.VISIBLE
         binding.talkErrorView.visibility = View.GONE
-        viewModel.loadTopics()
+        viewModel.loadTopic()
     }
 
     private fun updateOnSuccess(threadItems: List<ThreadItem>) {
 
         binding.talkProgressBar.visibility = View.GONE
 
-        topic = threadItems.find { t -> t.id == topicId }
-        sectionId = threadItems.indexOf(topic)
-
-        viewModel.seenTopic(topic?.id)
+        // TODO:
+        // viewModel.seenTopic(topic?.id)
 
         // TODO: Discuss this
         // currentRevision = talkTopic.revision
@@ -287,7 +278,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
         binding.talkRefreshView.isRefreshing = false
 
-        val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
+        val titleStr = StringUtil.fromHtml(viewModel.topic?.html).toString().trim()
         binding.talkSubjectView.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
         binding.talkSubjectView.visibility = View.VISIBLE
         binding.talkToolbarSubjectView.text = binding.talkSubjectView.text
@@ -307,7 +298,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun isNewTopic(): Boolean {
-        return topicId == TalkTopicsActivity.NEW_TOPIC_ID
+        return viewModel.topicId == TalkTopicsActivity.NEW_TOPIC_ID
     }
 
     private fun shouldHideReplyButton(): Boolean {
@@ -315,32 +306,26 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         // Hide the reply button when:
         // a) The topic ID is -1, which means the API couldn't parse it properly (TODO: wait until fixed)
         // b) The name of the topic is empty, implying that this is the topmost "header" section.
-        return topicId == "" || topic?.html.orEmpty().trim().isEmpty()
+        return viewModel.topicId == "" || viewModel.topic?.html.orEmpty().trim().isEmpty()
     }
 
-    internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
-        private val text: TextView = view.findViewById(R.id.replyText)
-        private val indentArrow: View = view.findViewById(R.id.replyIndentArrow)
-        private val bottomSpace: View = view.findViewById(R.id.replyBottomSpace)
-        fun bindItem(reply: ThreadItem, isLast: Boolean) {
-            text.movementMethod = linkMovementMethod
-            text.text = StringUtil.fromHtml(reply.html)
-            indentArrow.visibility = if (reply.level > 1) View.VISIBLE else View.GONE
-            bottomSpace.visibility = if (!isLast || replyActive || shouldHideReplyButton()) View.GONE else View.VISIBLE
+    internal inner class TalkReplyHolder internal constructor(view: TalkThreadItemView) : RecyclerView.ViewHolder(view) {
+        fun bindItem(item: ThreadItem) {
+            (itemView as TalkThreadItemView).bindItem(item, linkMovementMethod)
         }
     }
 
     internal inner class TalkReplyItemAdapter : RecyclerView.Adapter<TalkReplyHolder>() {
         override fun getItemCount(): Int {
-            return topic?.allReplies?.size ?: 0
+            return viewModel.flattenedThreadItems.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): TalkReplyHolder {
-            return TalkReplyHolder(layoutInflater.inflate(R.layout.item_talk_reply, parent, false))
+            return TalkReplyHolder(TalkThreadItemView(parent.context))
         }
 
         override fun onBindViewHolder(holder: TalkReplyHolder, pos: Int) {
-            holder.bindItem(topic?.allReplies!![pos], pos == itemCount - 1)
+            holder.bindItem(viewModel.flattenedThreadItems[pos])
         }
     }
 
@@ -376,12 +361,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
-        var body = binding.replyInputView.editText.getParsedText(pageTitle.wikiSite).trim()
+        var body = binding.replyInputView.editText.getParsedText(viewModel.pageTitle.wikiSite).trim()
         undoneBody = body
         undoneSubject = subject
 
         editFunnel.logSaveAttempt()
-        EditAttemptStepEvent.logSaveAttempt(pageTitle)
+        EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
 
         if (isNewTopic() && subject.isEmpty()) {
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
@@ -393,7 +378,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             return
         }
 
-        val topicDepth = topic?.allReplies?.lastOrNull()?.level ?: 1
+        // TODO: get level of replied-to item
+        val topicDepth = viewModel.topic?.level ?: 1
 
         body = addDefaultFormatting(body, topicDepth, isNewTopic())
 
@@ -403,12 +389,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         talkFunnel.logEditSubmit()
 
         // TODO: move this logic to another class
+        /*
         if (isNewTopic()) {
             viewModel.doSave(subject, body)
         } else {
             // TODO: give comment id
             viewModel.doSaveReply("", body)
         }
+        */
     }
 
     private fun onSaveSuccess(newRevision: Long) {
@@ -421,12 +409,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         editFunnel.logSaved(newRevision)
-        EditAttemptStepEvent.logSaveSuccess(pageTitle)
+        EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle)
 
         if (isNewTopic()) {
             Intent().let {
                 it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
-                it.putExtra(EXTRA_TOPIC, topicId)
+                it.putExtra(EXTRA_TOPIC, viewModel.topicId)
                 it.putExtra(EXTRA_SUBJECT, undoneSubject)
                 it.putExtra(EXTRA_BODY, undoneBody)
                 setResult(RESULT_EDIT_SUCCESS, it)
@@ -440,7 +428,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
-        EditAttemptStepEvent.logSaveFailure(pageTitle)
+        EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
         binding.talkProgressBar.visibility = View.GONE
         binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)
@@ -460,7 +448,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                     binding.talkReplyButton.isEnabled = false
                     binding.talkReplyButton.alpha = 0.5f
                     binding.talkProgressBar.visibility = View.VISIBLE
-                    viewModel.undoSave(revisionForUndo, "", "", "")
+                    // TODO
+                    // viewModel.undoSave(revisionForUndo, "", "", "")
                 }
                 .show()
             showUndoSnackbar = false
@@ -536,7 +525,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         // Go through our list of replies under the current topic, and collect any links to user
         // names, making sure to store them in reverse order, so that the last user name mentioned
         // in a response will appear first in the list of hints when searching for mentions.
-        topic?.allReplies?.forEach {
+        // TODO: search only up to the replied-to item
+        viewModel.flattenedThreadItems.forEach {
             var start = 0
             val userList = mutableListOf<String>()
             while (true) {
@@ -551,7 +541,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                     break
                 }
                 val name = it.html.substring(start, end)
-                val title = PageTitle(name, pageTitle.wikiSite)
+                val title = PageTitle(name, viewModel.pageTitle.wikiSite)
                 if (title.namespace() == Namespace.USER || title.namespace() == Namespace.USER_TALK) {
                     userList.add(0, StringUtil.removeUnderscores(title.text))
                 }
@@ -563,7 +553,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     companion object {
-        private const val EXTRA_PAGE_TITLE = "pageTitle"
+        const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_TOPIC = "topicId"
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
