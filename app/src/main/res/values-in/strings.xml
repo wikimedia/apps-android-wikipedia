@@ -78,11 +78,26 @@
   <string name="share_via">Bagikan lewat</string>
   <string name="image_share_via">Bagikan lewat</string>
   <string name="search_redirect_from">Dialihkan dari %s</string>
+  <string name="page_edit_history_activity_title">Riwayat revisi: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">Ringkasan suntingan kosong</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Cari atau saring suntingan</string>
+  <string name="page_edit_history_filter_by">Saring berdasarkan</string>
+  <string name="page_edit_history_filter_by_all">Semua suntingan (%s)</string>
+  <string name="page_edit_history_filter_by_user">Suntingan pengguna (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Suntingan anonim (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Suntingan bot (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metrik dari %1$s hingga %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="other">%1$d suntingan sejak %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Coba ubah &lt;a href=\"#\"&gt;penyaring&lt;/a&gt; untuk melihat lebih banyak suntingan</string>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
   <string name="menu_page_other_languages">Ubah bahasa</string>
   <string name="menu_page_find_in_page">Cari di artikel</string>
   <string name="menu_page_add_to_watchlist">Tambahkan ke daftar pantauan</string>
   <string name="menu_page_watch">Pantau</string>
+  <string name="menu_page_unwatch">Batal pantau</string>
   <string name="menu_page_view_talk">Lihat halaman pembicaraan</string>
   <string name="menu_page_talk_page">Halaman pembicaraan</string>
   <string name="menu_page_view_edit_history">Lihat riwayat suntingan</string>
@@ -184,6 +199,7 @@
   <string name="dialog_create_account_checking_progress">Memverifikasi</string>
   <string name="create_account_email_hint">Alamat surel (Opsional)</string>
   <string name="create_account_password_repeat_hint">Ulangi kata sandi</string>
+  <string name="create_account_password_is_username">Kata sandi tidak boleh sama dengan nama pengguna</string>
   <string name="create_account_passwords_mismatch_error">Kata sandi tidak cocok</string>
   <string name="create_account_email_error">Alamat surel tidak sah</string>
   <string name="create_account_username_error">Karakter tidak sah dalam nama pengguna</string>
@@ -789,10 +805,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
   <string name="customize_toolbar_title">Ubah suaikan bilah perkakas</string>
+  <string name="customize_toolbar_description_text">Ubah bilah perkakas bawah dengan 5 pranala yang Anda rasa paling berguna.</string>
   <string name="customize_toolbar_category_toolbar">Bilah perkakas</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Seret dan taruh hal-hal favorit Anda ke sini 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Kembalikan seperti semula</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Tekan ikon geser untuk memindahkan item</string>
+  <string name="customize_toolbar_item_default_tooltip">Tekan dan geser item untuk mengubah posisinya</string>
   <string name="suggested_edits_describe_articles">Jelaskan artikel</string>
   <string name="suggested_edits_caption_images">Takarir gambar</string>
   <string name="suggested_edits_tag_images">Tandai gambar</string>
@@ -883,6 +902,7 @@
   <string name="suggested_edits_paused_message">Penyuntingan yang disarankan terjeda hingga %1$s. Maaf %2$s, beberapa kontribusi terbaru Anda telah dibalikkan.</string>
   <string name="suggested_edits_disabled_message">Penyuntingan yang disarankan telah dinonaktifkan. Maaf %s, terlalu banyak kontribusi terakhir Anda yang telah dikembalikan.</string>
   <string name="suggested_edits_ip_blocked_message">Sepertinya alamat IP (atau rentang alamat IP) Anda saat ini diblokir dari penyuntingan di Wikipedia.</string>
+  <string name="suggested_edits_gate_message">Maaf, %s, Anda harus membuat paling tidak tiga suntingan secara langsung di artikel untuk menggunakan fitur ini.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips dan trik menyunting</string>
   <string name="suggested_edits_help_page_link_text">Halaman bantuan suntingan yang disarankan</string>
   <string name="suggested_edits_edit_streak_label_text">Suntingan runtun</string>
@@ -1076,6 +1096,23 @@
   <string name="thank_success_message">\'Terima kasih\' anda telah dikirim kepada %s</string>
   <string name="menu_option_view_user_profile">Lihat halaman profil pengguna</string>
   <string name="menu_option_view_user_talk">Lihat halaman pembicaraan</string>
+  <string name="menu_option_view_user_contributions">Lihat kontribusi pengguna</string>
+  <string name="revision_diff_compare">Bandingkan revisi</string>
+  <string name="revision_diff_compare_title">Bandingkan revisi: %s</string>
+  <string name="revision_diff_from">Dari:</string>
+  <string name="revision_diff_to">Ke:</string>
+  <string name="revision_diff_line_num">Baris %d</string>
+  <string name="revision_diff_line_nums">Baris %d–%d</string>
+  <string name="revision_diff_line_added">Baris ditambahkan</string>
+  <string name="revision_diff_line_removed">Baris dihapus</string>
+  <string name="revision_diff_paragraph_added">Paragraf ditambahkan</string>
+  <string name="revision_diff_paragraph_removed">Paragraf dihapus</string>
+  <string name="revision_undo_title">Batalkan suntingan</string>
+  <string name="revision_undo_message">Ini akan membatalkan perubahan yang dibuat oleh revisi artikel yang ditampilkan di sini.</string>
+  <string name="revision_undo_reason">Untuk melanjutkan, tolong berikan alasan suntingan ini dibatalkan:</string>
+  <string name="revision_undo_success">Revisi telah dibatalkan.</string>
+  <string name="revision_compare_button">Bandingkan</string>
+  <string name="revision_compare_two_only">Hanya dua revisi yang bisa dipilih.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s dan halaman pembicaraannya telah ditambahkan ke daftar pantauan Anda %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ubah</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">selamanya</string>
@@ -1098,4 +1135,10 @@
   <string name="watchlist_page_moved">Dipindahkan</string>
   <string name="watchlist_page_protected">Dilindungi</string>
   <string name="watchlist_page_deleted">Dihapus</string>
+  <string name="action_item_categories">Kategori</string>
+  <string name="page_no_categories">Halaman ini tidak terdaftar dalam kategori apa pun.</string>
+  <string name="category_tab_articles">Artikel</string>
+  <string name="category_tab_subcategories">Subkategori</string>
+  <string name="category_empty">Tidak ada artikel di kategori ini.</string>
+  <string name="subcategory_empty">Tidak ada subkategori di kategori ini.</string>
 </resources>
