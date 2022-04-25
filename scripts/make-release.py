@@ -133,7 +133,7 @@ def get_version_code_from_build_file():
 def get_version_name_from_apk(apk_file):
     aapt = '%s/build-tools/%s/aapt' % (get_android_home(), next(os.walk('%s/build-tools/' % get_android_home()))[1][0])
     process = subprocess.check_output([aapt, 'dump', 'badging', apk_file])
-    found = re.search(r'versionName=\'(\S+)\'', process)
+    found = re.search(r'versionName=\'(\S+)\'', str(process))
     if found:
         apk_version_name = found.groups()[0]
         return apk_version_name
@@ -213,7 +213,7 @@ def main():
         sys.exit(-1)
 
     if args.push:
-        if custom_channel is 'ignore':
+        if custom_channel == 'ignore':
             label = targets[0]
         else:
             label = custom_channel
