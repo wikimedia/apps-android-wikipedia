@@ -233,10 +233,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     if (displayedLists.size <= oldItemPosition || lists.size <= newItemPosition) {
                         return false
                     }
-                    return (displayedLists[oldItemPosition] is ReadingList && lists[newItemPosition] is ReadingList &&
-                            (displayedLists[oldItemPosition] as ReadingList).id == (lists[newItemPosition] as ReadingList).id &&
-                            (displayedLists[oldItemPosition] as ReadingList).pages.size == (lists[newItemPosition] as ReadingList).pages.size &&
-                            (displayedLists[oldItemPosition] as ReadingList).numPagesOffline == (lists[newItemPosition] as ReadingList).numPagesOffline)
+                    return (displayedLists[oldItemPosition] is ReadingList &&
+                            (displayedLists[oldItemPosition] as ReadingList).compareTo(lists[newItemPosition]))
                 }
             })
             // If the number of lists has changed, just invalidate everything, as a

@@ -615,7 +615,9 @@ class EditSectionActivity : BaseActivity() {
         binding.editSectionText.post {
             binding.editSectionScroll.fullScroll(View.FOCUS_DOWN)
             binding.editSectionText.postDelayed(500) {
-                StringUtil.highlightEditText(binding.editSectionText, sectionWikitext!!, highlightText)
+                if (!isDestroyed) {
+                    StringUtil.highlightEditText(binding.editSectionText, sectionWikitext!!, highlightText)
+                }
             }
         }
     }

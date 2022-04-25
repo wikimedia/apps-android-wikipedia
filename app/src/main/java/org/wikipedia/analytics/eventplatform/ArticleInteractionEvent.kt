@@ -90,6 +90,14 @@ class ArticleInteractionEvent(private var wikiDb: String, private var pageId: In
         submitEvent("categories")
     }
 
+    fun logWatchClick() {
+        submitEvent("watch_article")
+    }
+
+    fun logUnWatchClick() {
+        submitEvent("unwatch_article")
+    }
+
     private fun submitEvent(action: String) {
         EventPlatformClient.submit(ArticleInteractionEventImpl(!AccountUtil.isLoggedIn, duration, wikiDb, pageId, action))
     }

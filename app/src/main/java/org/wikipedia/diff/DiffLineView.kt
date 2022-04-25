@@ -13,7 +13,7 @@ import org.wikipedia.util.ResourceUtil
 
 class DiffLineView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     private val binding = ItemDiffLineBinding.inflate(LayoutInflater.from(context), this)
-    private lateinit var diffLine: ArticleEditDetailsFragment.DiffLine
+    private lateinit var diffLine: DiffUtil.DiffLine
 
     init {
         layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -23,7 +23,7 @@ class DiffLineView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
     }
 
-    fun setItem(item: ArticleEditDetailsFragment.DiffLine) {
+    fun setItem(item: DiffUtil.DiffLine) {
         diffLine = item
 
         if (diffLine.diff.type == DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_FROM) {

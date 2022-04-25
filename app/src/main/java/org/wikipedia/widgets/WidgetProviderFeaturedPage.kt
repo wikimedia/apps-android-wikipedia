@@ -15,6 +15,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
@@ -108,8 +109,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     text.getSpanEnd(span) - text.getSpanStart(span) <= 1) {
                 continue
             }
-            val title = WikipediaApp.getInstance().wikiSite
-                    .titleForInternalLink(UriUtil.decodeURL(span.url))
+            val title = PageTitle.titleForInternalLink(UriUtil.decodeURL(span.url), WikiSite(span.url))
             if (!title.isFilePage && !title.isSpecial) {
                 titleText = title.displayText
                 break
