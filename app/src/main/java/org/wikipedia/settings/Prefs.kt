@@ -561,7 +561,7 @@ object Prefs {
 
     var customizeToolbarOrder
         get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_order, null))
-            ?: listOf(4, 0, 2, 3, 1)
+            ?: listOf(0, 1, 2, 3, 4)
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_order, JsonUtil.encodeToString(orderList))
 
     var customizeToolbarMenuOrder: List<Int>
