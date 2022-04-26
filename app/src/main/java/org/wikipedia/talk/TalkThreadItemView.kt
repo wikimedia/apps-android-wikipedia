@@ -16,6 +16,11 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
 class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+    interface Callback {
+        fun onExpandClick(item: ThreadItem)
+    }
+
+    var callback: Callback? = null
     private val binding = ItemTalkThreadItemBinding.inflate(LayoutInflater.from(context), this)
     private lateinit var item: ThreadItem
 
@@ -27,13 +32,11 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         }
 
         binding.showRepliesContainer.setOnClickListener {
-            // TODO
+            callback?.onExpandClick(item)
         }
     }
 
     fun bindItem(item: ThreadItem, movementMethod: MovementMethod) {
-        isVisible = item.level == 1 || item.isExpanded
-
         this.item = item
         binding.userNameText.text = item.author
         binding.timeStampText.text = item.timestamp

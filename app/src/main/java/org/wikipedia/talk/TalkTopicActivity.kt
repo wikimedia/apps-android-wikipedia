@@ -9,13 +9,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collect
@@ -40,7 +40,6 @@ import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.*
-import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.UserMentionInputView
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
@@ -51,6 +50,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private lateinit var textWatcher: TextWatcher
 
     private val viewModel: TalkTopicViewModel by viewModels { TalkTopicViewModel.Factory(intent.extras!!) }
+    private val threadAdapter = TalkReplyItemAdapter()
     private var replyActive = false
     private var undone = false
     private var undoneBody = ""
@@ -96,7 +96,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.talkRecyclerView.adapter = TalkReplyItemAdapter()
+        binding.talkRecyclerView.adapter = threadAdapter
 
         binding.talkErrorView.backClickListener = View.OnClickListener {
             finish()
@@ -309,9 +309,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         return viewModel.topicId == "" || viewModel.topic?.html.orEmpty().trim().isEmpty()
     }
 
-    internal inner class TalkReplyHolder internal constructor(view: TalkThreadItemView) : RecyclerView.ViewHolder(view) {
+    internal inner class TalkReplyHolder internal constructor(view: TalkThreadItemView) : RecyclerView.ViewHolder(view), TalkThreadItemView.Callback {
         fun bindItem(item: ThreadItem) {
-            (itemView as TalkThreadItemView).bindItem(item, linkMovementMethod)
+            (itemView as TalkThreadItemView).let {
+                it.bindItem(item, linkMovementMethod)
+                it.callback = this
+            }
+        }
+
+        override fun onExpandClick(item: ThreadItem) {
+            viewModel.toggleItemExpanded(item).dispatchUpdatesTo(threadAdapter)
         }
     }
 

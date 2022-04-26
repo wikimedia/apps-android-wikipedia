@@ -1,6 +1,7 @@
 package org.wikipedia.dataclient.discussiontools
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 @Serializable
 class ThreadItem(
@@ -15,16 +16,5 @@ class ThreadItem(
         val placeholderHeading: Boolean = false,
         val replies: List<ThreadItem> = emptyList()
 ) {
-    var isExpanded = false
-        private set
-
-    fun expand() {
-        replies.forEach { it.expand() }
-        isExpanded = true
-    }
-
-    fun collapse() {
-        replies.forEach { it.collapse() }
-        isExpanded = false
-    }
+    @Transient var isExpanded = false
 }
