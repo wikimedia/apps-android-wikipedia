@@ -7,6 +7,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.PageTitle
@@ -26,9 +27,7 @@ class TalkTopicHolder internal constructor(
 
     fun bindItem(topic: ThreadItem, searchQuery: String? = null) {
         id = topic.id
-//        val seen = AppDatabase.instance.talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()) != null
-        // TODO: implement seen
-        val seen = false
+        val seen = AppDatabase.instance.talkPageSeenDao().getTalkPageSeen(topic.id) != null
         var titleStr = RichTextUtil.stripHtml(topic.html).trim()
         if (titleStr.isEmpty()) {
             // build up a title based on the contents, massaging the html into plain text that

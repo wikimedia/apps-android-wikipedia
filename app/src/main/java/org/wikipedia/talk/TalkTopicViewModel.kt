@@ -7,11 +7,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.*
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.Edit
 import org.wikipedia.page.PageTitle
+import org.wikipedia.talk.db.TalkPageSeen
 
 class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
@@ -24,6 +26,8 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     val flattenedThreadItems = mutableListOf<ThreadItem>()
     val uiState = MutableLiveData<UiState>()
 
+    private val talkPageSeenRepository = TalkPageSeenRepository(AppDatabase.instance.talkPageSeenDao())
+
     init {
         loadTopic()
     }
@@ -34,6 +38,12 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         }) {
             val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
             topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.id == topicId }
+
+            topic?.id?.let {
+                if (it.isNotEmpty()) {
+                    talkPageSeenRepository.insertTalkPageSeen(TalkPageSeen(it))
+                }
+            }
 
             threadItems.clear()
             threadItems.addAll(topic?.replies.orEmpty())
