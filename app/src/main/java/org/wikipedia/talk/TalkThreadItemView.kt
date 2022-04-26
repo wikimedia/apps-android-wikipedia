@@ -12,6 +12,7 @@ import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
@@ -41,7 +42,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
     fun bindItem(item: ThreadItem, movementMethod: MovementMethod) {
         this.item = item
         binding.userNameText.text = item.author
-        binding.timeStampText.text = item.timestamp
+        binding.timeStampText.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(item.timestamp))
         binding.bodyText.text = StringUtil.fromHtml(item.html)
         binding.bodyText.movementMethod = movementMethod
 
