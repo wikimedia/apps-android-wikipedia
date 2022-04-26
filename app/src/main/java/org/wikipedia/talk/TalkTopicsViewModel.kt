@@ -183,6 +183,17 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         }
     }
 
+    fun getSubscriptions(commentName: String) {
+        if (pageTitle == null) {
+            return
+        }
+        val pageTitle = pageTitle!!
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+            val subscriptionsResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName)
+            // TODO: send list to the UiState
+        }
+    }
+
     class Factory(private val pageTitle: PageTitle?) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
