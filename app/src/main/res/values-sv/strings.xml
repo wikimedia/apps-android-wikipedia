@@ -331,7 +331,7 @@
   <string name="gallery_save_image_write_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att spara bilder.</string>
   <string name="gallery_edit_button_content_description">Redigera bildtext</string>
   <string name="gallery_add_image_caption_button">Lägg till bildtext</string>
-  <string name="gallery_add_image_caption_in_language_button">Lägg till %s bildtext</string>
+  <string name="gallery_add_image_caption_in_language_button">Lägg till bildtext (%s)</string>
   <string name="err_cannot_save_file">Kan inte spara filen</string>
   <string name="expand_refs">Tryck för att expandera</string>
   <string name="cc_logo">Creative Commons-licens</string>
@@ -899,9 +899,9 @@
   <string name="suggested_edits_page_views_stat_tooltip">Sidvisningar för objekt till vilka du har bidragit till de senaste 30 dagarna.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Baserat på hur många gånger ett av dina bidrag har återställts (blivit ogjord av en annan redigerare). Återställda redigeringar: %d.</string>
   <string name="suggested_edits_paused_message">Redigeringsförslag pausas t.o.m. %1$s. Beklagar %2$s, men några av dina senaste bidrag har återställts.</string>
-  <string name="suggested_edits_disabled_message">Redigeringsförslag har inaktiverats. Beklagar, %s men alltför många av dina senaste bidrag har återställts.</string>
+  <string name="suggested_edits_disabled_message">Redigeringsförslag har inaktiverats. Beklagar %s, men alltför många av dina senaste bidrag har återställts.</string>
   <string name="suggested_edits_ip_blocked_message">Det ser ut som att din IP-adress (eller IP-intervall) för tillfället är blockerad från att redigera på Wikipedia.</string>
-  <string name="suggested_edits_gate_message">Ledsen %s, men du måste göra minst tre redigeringar direkt i en artikel innan du kan använda den här funktionen.</string>
+  <string name="suggested_edits_gate_message">Tyvärr %s, men du måste göra minst tre redigeringar direkt i en artikel innan du kan använda den här funktionen.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips och tricks för att redigera</string>
   <string name="suggested_edits_help_page_link_text">Hjälpsida för redigeringsförslag</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringar i rad</string>

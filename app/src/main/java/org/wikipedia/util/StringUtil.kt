@@ -20,6 +20,7 @@ import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.UserAliasData
+import java.nio.charset.StandardCharsets
 import java.text.Collator
 import java.text.Normalizer
 import kotlin.math.roundToInt
@@ -195,6 +196,25 @@ object StringUtil {
             num /= base
         }
         return str
+    }
+
+    fun utf8Indices(s: String): IntArray {
+        val indices = IntArray(s.toByteArray(StandardCharsets.UTF_8).size)
+        var ptr = 0
+        var count = 0
+        for (i in s.indices) {
+            val c = s.codePointAt(i)
+            when {
+                c <= 0x7F -> count = 1
+                c <= 0x7FF -> count = 2
+                c <= 0xFFFF -> count = 3
+                c <= 0x1FFFFF -> count = 4
+            }
+            for (j in 0 until count) {
+                indices[ptr++] = i
+            }
+        }
+        return indices
     }
 
     fun userPageTitleFromName(userName: String, wiki: WikiSite): PageTitle {
