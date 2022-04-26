@@ -14,11 +14,8 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doOnTextChanged
-import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.flow.collect
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -144,17 +141,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         editFunnel = EditFunnel(WikipediaApp.getInstance(), viewModel.pageTitle)
         updateEditLicenseText()
 
-        lifecycleScope.launchWhenCreated {
-            viewModel.uiState.collect {
-                when (it) {
-                    is TalkTopicViewModel.UiState.LoadTopic -> updateOnSuccess(it.threadItems)
-                    is TalkTopicViewModel.UiState.LoadError -> updateOnError(it.throwable)
-                    is TalkTopicViewModel.UiState.DoEdit -> onSaveSuccess(it.editResult.newRevId)
-                    is TalkTopicViewModel.UiState.UndoEdit -> onSaveSuccess(it.edit.edit?.newRevId ?: 0)
-                    is TalkTopicViewModel.UiState.EditError -> onSaveError(it.throwable)
-                }
+        viewModel.uiState.observe(this) {
+            when (it) {
+                is TalkTopicViewModel.UiState.LoadTopic -> updateOnSuccess(it.threadItems)
+                is TalkTopicViewModel.UiState.LoadError -> updateOnError(it.throwable)
+                is TalkTopicViewModel.UiState.DoEdit -> onSaveSuccess(it.editResult.newRevId)
+                is TalkTopicViewModel.UiState.UndoEdit -> onSaveSuccess(it.edit.edit?.newRevId ?: 0)
+                is TalkTopicViewModel.UiState.EditError -> onSaveError(it.throwable)
             }
         }
+
         onInitialLoad()
     }
 
@@ -187,7 +183,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun replyClicked() {
         replyActive = true
-        binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+        threadAdapter.notifyDataSetChanged()
         binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
         binding.replySaveButton.visibility = View.VISIBLE
         binding.replyInputView.visibility = View.VISIBLE
@@ -260,8 +256,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun updateOnSuccess(threadItems: List<ThreadItem>) {
-
         binding.talkProgressBar.visibility = View.GONE
+        binding.talkRefreshView.isRefreshing = false
 
         // TODO:
         // viewModel.seenTopic(topic?.id)
@@ -269,21 +265,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         // TODO: Discuss this
         // currentRevision = talkTopic.revision
 
-        if (replyActive || shouldHideReplyButton()) {
-            binding.talkReplyButton.hide()
-        } else {
-            binding.talkReplyButton.show()
-            binding.talkReplyButton.isEnabled = true
-            binding.talkReplyButton.alpha = 1.0f
-        }
-        binding.talkRefreshView.isRefreshing = false
-
         val titleStr = StringUtil.fromHtml(viewModel.topic?.html).toString().trim()
         binding.talkSubjectView.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
         binding.talkSubjectView.visibility = View.VISIBLE
         binding.talkToolbarSubjectView.text = binding.talkSubjectView.text
         binding.talkToolbarSubjectView.visibility = View.INVISIBLE
-        binding.talkRecyclerView.adapter?.notifyDataSetChanged()
+        threadAdapter.notifyDataSetChanged()
         binding.replyInputView.userNameHints = parseUserNamesFromTopic()
 
         maybeShowUndoSnackbar()
@@ -301,14 +288,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         return viewModel.topicId == TalkTopicsActivity.NEW_TOPIC_ID
     }
 
-    private fun shouldHideReplyButton(): Boolean {
-        // TODO: revisit this
-        // Hide the reply button when:
-        // a) The topic ID is -1, which means the API couldn't parse it properly (TODO: wait until fixed)
-        // b) The name of the topic is empty, implying that this is the topmost "header" section.
-        return viewModel.topicId == "" || viewModel.topic?.html.orEmpty().trim().isEmpty()
-    }
-
     internal inner class TalkReplyHolder internal constructor(view: TalkThreadItemView) : RecyclerView.ViewHolder(view), TalkThreadItemView.Callback {
         fun bindItem(item: ThreadItem) {
             (itemView as TalkThreadItemView).let {
@@ -319,6 +298,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         override fun onExpandClick(item: ThreadItem) {
             viewModel.toggleItemExpanded(item).dispatchUpdatesTo(threadAdapter)
+        }
+
+        override fun onReplyClick(item: ThreadItem) {
+            // TODO
         }
     }
 

@@ -1,12 +1,12 @@
 package org.wikipedia.talk
 
 import android.os.Bundle
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.MutableStateFlow
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.ThreadItem
@@ -22,7 +22,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     val sectionId get() = threadItems.indexOf(topic)
     val threadItems = mutableListOf<ThreadItem>()
     val flattenedThreadItems = mutableListOf<ThreadItem>()
-    val uiState = MutableStateFlow(UiState())
+    val uiState = MutableLiveData<UiState>()
 
     init {
         loadTopic()
@@ -39,7 +39,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             threadItems.addAll(topic?.replies.orEmpty())
             updateFlattenedThreadItems()
 
-            uiState.value = UiState.LoadTopic(threadItems)
+            uiState.postValue(UiState.LoadTopic(threadItems))
         }
     }
 

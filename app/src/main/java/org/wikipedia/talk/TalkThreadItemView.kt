@@ -18,6 +18,7 @@ import org.wikipedia.util.StringUtil
 class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
         fun onExpandClick(item: ThreadItem)
+        fun onReplyClick(item: ThreadItem)
     }
 
     var callback: Callback? = null
@@ -28,7 +29,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
         binding.replyButton.setOnClickListener {
-            // TODO
+            callback?.onReplyClick(item)
         }
 
         binding.showRepliesContainer.setOnClickListener {
