@@ -17,4 +17,5 @@ class ThreadItem(
         val replies: List<ThreadItem> = emptyList()
 ) {
     @Transient var isExpanded = false
+    @Transient var isLastSibling = false
 }

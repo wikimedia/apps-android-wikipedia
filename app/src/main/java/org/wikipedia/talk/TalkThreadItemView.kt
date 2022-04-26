@@ -34,6 +34,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
 
         binding.showRepliesContainer.setOnClickListener {
             callback?.onExpandClick(item)
+            updateExpandedState()
         }
     }
 
@@ -54,9 +55,16 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             binding.replyButton.setTextColor(Color.WHITE)
         }
 
-        binding.topDivider.isVisible = item.level == 1
+        binding.topDivider.isVisible = item.level <= 2
+        binding.threadLineTop.isVisible = item.level > 2
+        binding.showRepliesContainer.isVisible = item.level > 1 && item.replies.isNotEmpty()
+        binding.threadLineMiddle.isVisible = item.level > 1 && (item.replies.isNotEmpty() || (item.level > 2 && !item.isLastSibling))
+        updateExpandedState()
+    }
 
-        binding.showRepliesContainer.isVisible = item.replies.isNotEmpty()
-        binding.threadLine.isVisible = item.replies.isNotEmpty()
+    private fun updateExpandedState() {
+        binding.showRepliesArrow.setImageResource(if (item.isExpanded) R.drawable.ic_arrow_drop_down_black_24dp else R.drawable.ic_arrow_forward_24)
+        binding.showRepliesText.text = context.resources.getQuantityString(if (item.isExpanded) R.plurals.talk_hide_replies_count else R.plurals.talk_show_replies_count, item.replies.size, item.replies.size)
+        binding.threadLineBottom.isVisible = item.isExpanded || (item.level > 2 && !item.isLastSibling)
     }
 }

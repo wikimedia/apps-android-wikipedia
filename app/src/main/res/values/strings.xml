@@ -1163,6 +1163,14 @@
     <string name="talk_overflow_sort_by">Sort by</string>
     <string name="talk_overflow_sort_date_published">Date published</string>
     <string name="talk_overflow_sort_topic_name">Topic name</string>
+    <plurals name="talk_show_replies_count">
+        <item quantity="one">Show reply</item>
+        <item quantity="other">Show replies (%d)</item>
+    </plurals>
+    <plurals name="talk_hide_replies_count">
+        <item quantity="one">Hide reply</item>
+        <item quantity="other">Hide replies (%d)</item>
+    </plurals>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>

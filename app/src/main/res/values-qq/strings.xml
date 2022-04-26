@@ -1109,6 +1109,14 @@
   <string name="talk_overflow_sort_by">Header text of the sort menu.</string>
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
   <string name="talk_overflow_sort_topic_name">Menu item label for sorting the list by the topic name.</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Button label for showing one reply to the current thread.</item>
+    <item quantity="other">Button label for showing replies to the current thread. The %d symbol is replaced with the number of replies.</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Button label for hiding one reply to the current thread.</item>
+    <item quantity="other">Button label for hiding replies to the current thread. The %d symbol is replaced with the number of replies.</item>
+  </plurals>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>

@@ -37,16 +37,17 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
             threadItems.clear()
             threadItems.addAll(topic?.replies.orEmpty())
+
+            // By default expand the first level of the thread
+            threadItems.forEach { it.isExpanded = true }
             updateFlattenedThreadItems()
 
             uiState.postValue(UiState.LoadTopic(threadItems))
         }
     }
 
-
     fun toggleItemExpanded(item: ThreadItem): DiffUtil.DiffResult {
         val prevList = mutableListOf<ThreadItem>()
-
         prevList.addAll(flattenedThreadItems)
         item.isExpanded = !item.isExpanded
 
@@ -71,11 +72,12 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         })
     }
 
-
-
     private fun updateFlattenedThreadItems() {
         flattenedThreadItems.clear()
         flattenThreadLevel(threadItems, flattenedThreadItems)
+        for (i in flattenedThreadItems.indices) {
+            flattenedThreadItems[i].isLastSibling = i > 0 && flattenedThreadItems[i].level > 1 && (if(i < flattenedThreadItems.size - 1) flattenedThreadItems[i + 1].level < flattenedThreadItems[i].level else true)
+        }
     }
 
     private fun flattenThreadLevel(list: List<ThreadItem>, flatList: MutableList<ThreadItem>) {
@@ -84,14 +86,6 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             if (it.isExpanded) {
                 flattenThreadLevel(it.replies, flatList)
             }
-        }
-    }
-
-
-    private fun flattenThreadItem(list: List<ThreadItem>, flatList: MutableList<ThreadItem>) {
-        list.forEach {
-            flatList.add(it)
-            flattenThreadItem(it.replies, flatList)
         }
     }
 
