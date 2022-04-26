@@ -835,7 +835,6 @@
 
     <!-- Customize toolbar -->
     <string name="customize_toolbar_title">Customize toolbar</string>
-    <string name="customize_toolbar_description_text">Customize the bottom toolbar with 5 links you find most helpful.</string>
     <string name="customize_toolbar_shortcut_description_text">Customize the bottom toolbar with 5 shortcuts you find most helpful.</string>
     <string name="customize_toolbar_category_toolbar">Toolbar</string>
     <string name="customize_toolbar_category_menu">Menu</string>
