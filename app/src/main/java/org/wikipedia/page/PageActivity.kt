@@ -41,6 +41,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
@@ -51,7 +52,6 @@ import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
-import org.wikipedia.util.FeedbackUtil.Callback
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
@@ -60,7 +60,7 @@ import org.wikipedia.widgets.WidgetProviderFeaturedPage
 import java.util.*
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Callback, FrameLayoutNavMenuTriggerer.Callback,
-    Callback {
+    FeedbackUtil.Callback {
 
     enum class TabPosition {
         CURRENT_TAB, CURRENT_TAB_SQUASH, NEW_TAB_BACKGROUND, NEW_TAB_FOREGROUND, EXISTING_TAB
@@ -330,8 +330,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
-        // maybeShowWatchlistTooltip()
-        maybeShowThemeTooltip()
+        maybeShowWatchlistTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -665,13 +664,23 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (!Prefs.showOneTimeCustomizeToolbarTooltip) {
             return
         }
-        binding.pageToolbarButtonShowOverflowMenu.postDelayed({
-            if (!isDestroyed) {
-                val balloon = FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip),
-                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(12f), aboveOrBelow = false, autoDismiss = false, showDismissButton = true, callback = this)
-                balloon.showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
-            }
-        }, 2000)
+        val anchorView: View?
+        var aboveOrBelow = true
+        if (Prefs.customizeToolbarMenuOrder.contains(PageActionItem.THEME.id)) {
+            anchorView = binding.pageToolbarButtonShowOverflowMenu
+            aboveOrBelow = false
+        } else {
+            anchorView = pageFragment.getPageActionTabLayout().children.find { it.id == PageActionItem.THEME.hashCode() }
+        }
+        anchorView?.let {
+            it.postDelayed({
+                if (!isDestroyed) {
+                    val balloon =
+                        FeedbackUtil.getTooltip(this, getString(R.string.theme_chooser_menu_item_short_tooltip), arrowAnchorPadding = -DimenUtil.roundedDpToPx(12f), aboveOrBelow = aboveOrBelow, autoDismiss = false, showDismissButton = true, callback = this)
+                    balloon.showAlignBottom(it)
+                }
+            }, 2000)
+        }
     }
 
     private fun enqueueTooltip(runnable: Runnable) {
