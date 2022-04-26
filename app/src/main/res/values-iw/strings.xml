@@ -69,13 +69,20 @@
   <string name="page_edit_history_activity_title">היסטוריית גרסאות:  %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;מ&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">תקציר עריכה ריק</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">חיפוש או סינון של עריכות</string>
+  <string name="page_edit_history_filter_by">לסנן לפי</string>
+  <string name="page_edit_history_filter_by_all">כל העריכות (%s)</string>
+  <string name="page_edit_history_filter_by_user">עריכות משתמש (%s)</string>
+  <string name="page_edit_history_filter_by_anon">עריכות אלמוניות (%s)</string>
+  <string name="page_edit_history_filter_by_bot">עריכות בוט (%s)</string>
+  <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">עריכה %1$d מאז %2$s</item>
     <item quantity="two">%1$d עריכות מאז %2$s</item>
     <item quantity="many">%1$d עריכות מאז %2$s</item>
     <item quantity="other">%1$d עריכות מאז %2$s</item>
   </plurals>
-  <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
+  <string name="page_edit_history_empty_search_message">נא לנסות לשנות את &lt;a href=\"#\"&gt;המסננים&lt;/a&gt; כדי לראות יותר עריכות</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>

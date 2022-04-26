@@ -3,7 +3,6 @@ package org.wikipedia.recurring
 import android.content.Context
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.DailyStatsFunnel
 import org.wikipedia.analytics.eventplatform.DailyStatsEvent
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -26,7 +25,6 @@ class DailyEventTask(context: Context) : RecurringTask() {
     }
 
     private fun logDailyEventReport() {
-        DailyStatsFunnel(WikipediaApp.getInstance()).log(WikipediaApp.getInstance())
         DailyStatsEvent.log(WikipediaApp.getInstance())
     }
 

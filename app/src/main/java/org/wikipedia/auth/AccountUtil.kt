@@ -50,17 +50,12 @@ object AccountUtil {
 
     @JvmStatic
     fun getUserIdForLanguage(code: String): Int {
-        val map = userIds
-        val id = map[code]
-        return id ?: 0
+        return userIds.getOrElse(code) { 0 }
     }
 
     @JvmStatic
     fun putUserIdForLanguage(code: String, id: Int) {
-        val ids: MutableMap<String, Int> = HashMap()
-        ids.putAll(userIds)
-        ids[code] = id
-        userIds = ids
+        userIds += code to id
     }
 
     @JvmStatic

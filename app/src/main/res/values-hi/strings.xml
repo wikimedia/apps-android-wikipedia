@@ -554,5 +554,6 @@
   <string name="customize_toolbar_category_toolbar">टूलबार</string>
   <string name="customize_toolbar_category_menu">मेन्यू</string>
   <string name="customize_toolbar_reset_to_default_button">डिफ़ॉल्ट पर रीसेट करें</string>
-  <string name="onboarding_got_it">डसमझ में आ गया</string>
+  <string name="onboarding_got_it">समझ में आ गया</string>
+  <string name="category_tab_articles">लेख</string>
 </resources>
