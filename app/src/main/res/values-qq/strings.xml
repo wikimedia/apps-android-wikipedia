@@ -1109,6 +1109,13 @@
   <string name="talk_overflow_sort_by">Header text of the sort menu.</string>
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
   <string name="talk_overflow_sort_topic_name">Menu item label for sorting the list by the topic name.</string>
+  <string name="talk_tab_discussions">Tab label for the discussions in the talk page.</string>
+  <string name="talk_tab_archived">Tab label for the archived discussions in the talk page.</string>
+  <string name="talk_list_item_overflow_subscribe">Menu option label for the talk topic item to subscribe to the topic.</string>
+  <string name="talk_list_item_overflow_subscribed">Menu option label for the talk topic item to unsubscribe to the topic.</string>
+  <string name="talk_list_item_overflow_mark_as_read">Menu option label for the talk topic item to mark it as read.</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Menu option label for the talk topic item to mark it as unread.</string>
+  <string name="talk_list_item_overflow_share">Menu option label for the talk topic item to share the discussion.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
