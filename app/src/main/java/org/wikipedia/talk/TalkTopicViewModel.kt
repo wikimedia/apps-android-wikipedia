@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.*
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.edit.Edit
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.util.Resource

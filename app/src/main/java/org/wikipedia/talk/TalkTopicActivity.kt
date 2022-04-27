@@ -2,7 +2,6 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
 import android.view.Menu
@@ -11,9 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.core.view.isVisible
-import androidx.core.widget.NestedScrollView
-import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +18,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
@@ -32,13 +27,11 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.*
-import org.wikipedia.views.UserMentionInputView
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMentionInputView.Listener*/ {
     private lateinit var binding: ActivityTalkTopicBinding
