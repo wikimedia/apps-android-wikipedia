@@ -24,6 +24,8 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     val sectionId get() = threadItems.indexOf(topic)
     val threadItems = mutableListOf<ThreadItem>()
     val flattenedThreadItems = mutableListOf<ThreadItem>()
+    var subscribed = false
+        private set
     val uiState = MutableLiveData<UiState>()
 
     private val talkPageSeenRepository = TalkPageSeenRepository(AppDatabase.instance.talkPageSeenDao())
@@ -37,7 +39,11 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             uiState.value = UiState.LoadError(throwable)
         }) {
             val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
-            topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.id == topicId }
+            val subscribeResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicId) }
+
+            topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.name == topicId }
+            val res = subscribeResponse.await()
+            subscribed = res.subscriptions[topicId] == 1
 
             topic?.id?.let {
                 if (it.isNotEmpty()) {

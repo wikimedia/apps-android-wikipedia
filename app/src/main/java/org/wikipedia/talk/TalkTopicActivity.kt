@@ -14,6 +14,7 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doOnTextChanged
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
@@ -39,7 +40,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.*
 import org.wikipedia.views.UserMentionInputView
 
-class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
+class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMentionInputView.Listener*/ {
     private lateinit var binding: ActivityTalkTopicBinding
     private lateinit var talkFunnel: TalkFunnel
     private lateinit var editFunnel: EditFunnel
@@ -48,6 +49,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private val viewModel: TalkTopicViewModel by viewModels { TalkTopicViewModel.Factory(intent.extras!!) }
     private val threadAdapter = TalkReplyItemAdapter()
+    private val headerAdapter = HeaderItemAdapter()
     private var replyActive = false
     private var undone = false
     private var undoneBody = ""
@@ -61,6 +63,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
     }
+
+    /*
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             updateEditLicenseText()
@@ -70,6 +74,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             editFunnel.logLoginFailure()
         }
     }
+    */
+
     private val requestEditSource = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             // TODO: maybe add funnel?
@@ -93,7 +99,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.talkRecyclerView.adapter = threadAdapter
 
         binding.talkErrorView.backClickListener = View.OnClickListener {
             finish()
@@ -102,6 +107,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             loadTopics()
         }
 
+        /*
         binding.talkReplyButton.setOnClickListener {
             talkFunnel.logReplyClick()
             editFunnel.logStart()
@@ -113,9 +119,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.replySubjectLayout.error = null
             binding.replyInputView.textInputLayout.error = null
         }
+
         binding.replySaveButton.setOnClickListener {
             onSaveClicked()
         }
+        */
 
         binding.talkRefreshView.isEnabled = !isNewTopic()
         binding.talkRefreshView.setOnRefreshListener {
@@ -123,6 +131,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             loadTopics()
         }
 
+        /*
         binding.talkScrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, _, _, _ ->
             if (binding.talkSubjectView.isVisible) {
                 binding.talkToolbarSubjectView.visibility = if (binding.talkScrollContainer.scrollY >
@@ -134,12 +143,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         binding.replyInputView.wikiSite = viewModel.pageTitle.wikiSite
         binding.replyInputView.listener = this
+        updateEditLicenseText()
+        */
 
         talkFunnel = TalkFunnel(viewModel.pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
         talkFunnel.logOpenTopic()
 
         editFunnel = EditFunnel(WikipediaApp.getInstance(), viewModel.pageTitle)
-        updateEditLicenseText()
 
         viewModel.uiState.observe(this) {
             when (it) {
@@ -181,6 +191,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
     }
 
+    /*
     private fun replyClicked() {
         replyActive = true
         threadAdapter.notifyDataSetChanged()
@@ -206,10 +217,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
         invalidateOptionsMenu()
     }
+    */
 
     public override fun onDestroy() {
-        binding.replySubjectText.removeTextChangedListener(textWatcher)
-        binding.replyInputView.editText.removeTextChangedListener(textWatcher)
+
+        // TODO
+        // binding.replySubjectText.removeTextChangedListener(textWatcher)
+        // binding.replyInputView.editText.removeTextChangedListener(textWatcher)
+
         super.onDestroy()
     }
 
@@ -217,28 +232,33 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         if (isNewTopic()) {
             replyActive = true
             title = getString(R.string.talk_new_topic)
-            binding.talkSubjectView.visibility = View.GONE
             binding.talkToolbarSubjectView.visibility = View.INVISIBLE
             binding.talkProgressBar.visibility = View.GONE
             binding.talkErrorView.visibility = View.GONE
             binding.replySaveButton.visibility = View.VISIBLE
-            binding.replySubjectLayout.visibility = View.VISIBLE
+
+            /*
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
             binding.replySubjectText.setText(undoneSubject)
             binding.replyInputView.editText.setText(undoneBody)
             binding.replyInputView.visibility = View.VISIBLE
             binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
+            */
+
             editFunnel.logStart()
             EditAttemptStepEvent.logInit(viewModel.pageTitle)
         } else {
             replyActive = false
-            binding.replyInputView.editText.setText("")
             binding.replySaveButton.visibility = View.GONE
-            binding.replySubjectLayout.visibility = View.GONE
+
+            /*
+            binding.replyInputView.editText.setText("")
             binding.replyInputView.visibility = View.GONE
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.licenseText.visibility = View.GONE
+            */
+
             binding.talkProgressBar.visibility = View.VISIBLE
             binding.talkErrorView.visibility = View.GONE
             DeviceUtil.hideSoftKeyboard(this)
@@ -259,33 +279,51 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.talkProgressBar.visibility = View.GONE
         binding.talkRefreshView.isRefreshing = false
 
-        // TODO:
-        // viewModel.seenTopic(topic?.id)
-
         // TODO: Discuss this
         // currentRevision = talkTopic.revision
 
-        val titleStr = StringUtil.fromHtml(viewModel.topic?.html).toString().trim()
-        binding.talkSubjectView.text = titleStr.ifEmpty { getString(R.string.talk_no_subject) }
-        binding.talkSubjectView.visibility = View.VISIBLE
-        binding.talkToolbarSubjectView.text = binding.talkSubjectView.text
-        binding.talkToolbarSubjectView.visibility = View.INVISIBLE
-        threadAdapter.notifyDataSetChanged()
-        binding.replyInputView.userNameHints = parseUserNamesFromTopic()
+        if (binding.talkRecyclerView.adapter == null) {
+            binding.talkRecyclerView.adapter = ConcatAdapter().apply {
+                addAdapter(headerAdapter)
+                addAdapter(threadAdapter)
+            }
+        } else {
+            headerAdapter.notifyItemChanged(0)
+            threadAdapter.notifyDataSetChanged()
+        }
 
-        maybeShowUndoSnackbar()
+        // TODO:
+        // binding.replyInputView.userNameHints = parseUserNamesFromTopic()
+        // maybeShowUndoSnackbar()
     }
 
     private fun updateOnError(t: Throwable) {
         binding.talkProgressBar.visibility = View.GONE
         binding.talkRefreshView.isRefreshing = false
-        binding.talkReplyButton.hide()
         binding.talkErrorView.visibility = View.VISIBLE
         binding.talkErrorView.setError(t)
     }
 
     private fun isNewTopic(): Boolean {
         return viewModel.topicId == TalkTopicsActivity.NEW_TOPIC_ID
+    }
+
+    private inner class HeaderItemAdapter : RecyclerView.Adapter<HeaderViewHolder>() {
+        override fun onBindViewHolder(holder: HeaderViewHolder, position: Int) {
+            holder.bindItem()
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeaderViewHolder {
+            return HeaderViewHolder(TalkThreadHeaderView(this@TalkTopicActivity))
+        }
+
+        override fun getItemCount(): Int { return 1 }
+    }
+
+    private inner class HeaderViewHolder constructor(private val view: TalkThreadHeaderView) : RecyclerView.ViewHolder(view) {
+        fun bindItem() {
+            view.bind(viewModel.pageTitle, viewModel.topic!!, viewModel.subscribed)
+        }
     }
 
     internal inner class TalkReplyHolder internal constructor(view: TalkThreadItemView) : RecyclerView.ViewHolder(view), TalkThreadItemView.Callback {
@@ -349,6 +387,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
     }
 
+    /*
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
         var body = binding.replyInputView.editText.getParsedText(viewModel.pageTitle.wikiSite).trim()
@@ -388,6 +427,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
         */
     }
+    */
 
     private fun onSaveSuccess(newRevision: Long) {
 
@@ -424,6 +464,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         FeedbackUtil.showError(this, t)
     }
 
+    /*
     private fun maybeShowUndoSnackbar() {
         if (undone) {
             replyClicked()
@@ -445,7 +486,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             showUndoSnackbar = false
         }
     }
+    */
 
+    /*
     private fun updateEditLicenseText() {
         binding.licenseText.text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
@@ -460,6 +503,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             }
         }
     }
+    */
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
@@ -489,6 +533,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
     }
 
+    /*
     override fun onUserMentionListUpdate() {
         if (!replyActive) {
             return
@@ -509,6 +554,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         userMentionScrolled = false
         binding.licenseText.isVisible = true
     }
+    */
 
     private fun parseUserNamesFromTopic(): Set<String> {
         val userNames = mutableSetOf<String>()
@@ -544,7 +590,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     companion object {
         const val EXTRA_PAGE_TITLE = "pageTitle"
-        const val EXTRA_TOPIC = "topicId"
+        const val EXTRA_TOPIC = "topicName"
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
         const val RESULT_EDIT_SUCCESS = 1

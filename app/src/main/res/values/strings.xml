@@ -1171,6 +1171,8 @@
         <item quantity="one">Hide reply</item>
         <item quantity="other">Hide replies (%d)</item>
     </plurals>
+    <string name="talk_thread_subscribe">Subscribe</string>
+    <string name="talk_thread_subscribed">Subscribed</string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>

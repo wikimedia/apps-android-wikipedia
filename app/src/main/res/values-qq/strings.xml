@@ -1117,6 +1117,8 @@
     <item quantity="one">Button label for hiding one reply to the current thread.</item>
     <item quantity="other">Button label for hiding replies to the current thread. The %d symbol is replaced with the number of replies.</item>
   </plurals>
+  <string name="talk_thread_subscribe">Button label for subscribing to a talk thread.</string>
+  <string name="talk_thread_subscribed">Button label shown when the user is subscribed to a talk thread, and tapping the button will unsubscribe from the thread.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>

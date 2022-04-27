@@ -282,7 +282,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
             }
             if (threadItem != null) {
-                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadItem.id, invokeSource))
+                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadItem.name, invokeSource))
                 overridePendingTransition(0, 0)
                 return
             }
