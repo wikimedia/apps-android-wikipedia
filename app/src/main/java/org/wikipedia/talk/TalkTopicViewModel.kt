@@ -46,7 +46,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             val res = subscribeResponse.await()
             subscribed = res.subscriptions[topicId] == 1
 
-            topic?.id?.let {
+            topic?.name?.let {
                 if (it.isNotEmpty()) {
                     talkPageSeenRepository.insertTalkPageSeen(TalkPageSeen(it))
                 }
