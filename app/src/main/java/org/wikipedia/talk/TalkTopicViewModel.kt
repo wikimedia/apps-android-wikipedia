@@ -14,6 +14,8 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.Edit
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.db.TalkPageSeen
+import org.wikipedia.util.Resource
+import org.wikipedia.util.SingleLiveData
 
 class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
@@ -26,7 +28,8 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     val flattenedThreadItems = mutableListOf<ThreadItem>()
     var subscribed = false
         private set
-    val uiState = MutableLiveData<UiState>()
+    val uiState = MutableLiveData<Resource<List<ThreadItem>>>()
+    val subscribeData = SingleLiveData<Resource<Boolean>>()
 
     private val talkPageSeenRepository = TalkPageSeenRepository(AppDatabase.instance.talkPageSeenDao())
 
@@ -36,7 +39,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
     fun loadTopic() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            uiState.value = UiState.LoadError(throwable)
+            uiState.postValue(Resource.Error(throwable))
         }) {
             val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
             val subscribeResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicId) }
@@ -58,7 +61,18 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             threadItems.forEach { it.isExpanded = true }
             updateFlattenedThreadItems()
 
-            uiState.postValue(UiState.LoadTopic(threadItems))
+            uiState.postValue(Resource.Success(threadItems))
+        }
+    }
+
+    fun toggleSubscription() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            subscribeData.postValue(Resource.Error(throwable))
+        }) {
+            val token = ServiceFactory.get(pageTitle.wikiSite).getCsrfToken().query?.csrfToken()!!
+            val response = ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, topicId, token, if (!subscribed) true else null)
+            subscribed = response.status!!.subscribe
+            subscribeData.postValue(Resource.Success(subscribed))
         }
     }
 
@@ -110,13 +124,5 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return TalkTopicViewModel(bundle) as T
         }
-    }
-
-    open class UiState {
-        data class LoadTopic(val threadItems: List<ThreadItem>) : UiState()
-        data class LoadError(val throwable: Throwable) : UiState()
-        data class DoEdit(val editResult: DiscussionToolsEditResponse.EditResult) : UiState()
-        data class UndoEdit(val edit: Edit, val topicId: String, val undoneSubject: String, val undoneBody: String) : UiState()
-        data class EditError(val throwable: Throwable) : UiState()
     }
 }

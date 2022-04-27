@@ -1173,6 +1173,8 @@
     </plurals>
     <string name="talk_thread_subscribe">Subscribe</string>
     <string name="talk_thread_subscribed">Subscribed</string>
+    <string name="talk_thread_subscribed_to">Subscribed to \"%s\"</string>
+    <string name="talk_thread_unsubscribed_from">Unsubscribed from \"%s\"</string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>

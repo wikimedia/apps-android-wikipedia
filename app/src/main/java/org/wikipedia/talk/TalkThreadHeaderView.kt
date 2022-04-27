@@ -36,6 +36,7 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
 
         binding.subscribeButton.text = context.getString(if (subscribed) R.string.talk_thread_subscribed else R.string.talk_thread_subscribe)
         binding.subscribeButton.setTextColor(ResourceUtil.getThemedColor(context, if (subscribed) R.attr.material_theme_secondary_color else R.attr.colorAccent))
+        binding.subscribeButton.setIconResource(if (subscribed) R.drawable.ic_notifications_active else R.drawable.ic_notifications_black_24dp)
         binding.subscribeButton.iconTint = binding.subscribeButton.textColors
     }
 }

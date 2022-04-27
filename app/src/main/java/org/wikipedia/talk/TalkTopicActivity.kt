@@ -153,11 +153,18 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
 
         viewModel.uiState.observe(this) {
             when (it) {
-                is TalkTopicViewModel.UiState.LoadTopic -> updateOnSuccess(it.threadItems)
-                is TalkTopicViewModel.UiState.LoadError -> updateOnError(it.throwable)
-                is TalkTopicViewModel.UiState.DoEdit -> onSaveSuccess(it.editResult.newRevId)
-                is TalkTopicViewModel.UiState.UndoEdit -> onSaveSuccess(it.edit.edit?.newRevId ?: 0)
-                is TalkTopicViewModel.UiState.EditError -> onSaveError(it.throwable)
+                is Resource.Success -> updateOnSuccess(it.data)
+                is Resource.Error -> updateOnError(it.throwable)
+            }
+        }
+
+        viewModel.subscribeData.observe(this) {
+            if (it is Resource.Success) {
+                FeedbackUtil.showMessage(this, getString(if (it.data) R.string.talk_thread_subscribed_to else R.string.talk_thread_unsubscribed_from,
+                        StringUtil.fromHtml(viewModel.topic!!.html)), FeedbackUtil.LENGTH_DEFAULT)
+                headerAdapter.notifyItemChanged(0)
+            } else if (it is Resource.Error) {
+                FeedbackUtil.showError(this, it.throwable)
             }
         }
 
@@ -320,9 +327,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
         override fun getItemCount(): Int { return 1 }
     }
 
-    private inner class HeaderViewHolder constructor(private val view: TalkThreadHeaderView) : RecyclerView.ViewHolder(view) {
+    private inner class HeaderViewHolder constructor(private val view: TalkThreadHeaderView) : RecyclerView.ViewHolder(view), TalkThreadHeaderView.Callback {
         fun bindItem() {
             view.bind(viewModel.pageTitle, viewModel.topic!!, viewModel.subscribed)
+            view.callback = this
+        }
+
+        override fun onSubscribeClick() {
+            viewModel.toggleSubscription()
         }
     }
 

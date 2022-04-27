@@ -1119,6 +1119,8 @@
   </plurals>
   <string name="talk_thread_subscribe">Button label for subscribing to a talk thread.</string>
   <string name="talk_thread_subscribed">Button label shown when the user is subscribed to a talk thread, and tapping the button will unsubscribe from the thread.</string>
+  <string name="talk_thread_subscribed_to">Message shown when the user subscribes to a talk thread. The %s symbol is replaced with the thread title.</string>
+  <string name="talk_thread_unsubscribed_from">Message shown when the user unsubscribes from a talk thread. The %s symbol is replaced with the thread title.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
