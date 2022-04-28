@@ -36,7 +36,7 @@ class ArticleTocInteractionEvent(private val pageId: Int,
         if (numSections == 0 || numOpens == 0) {
             return
         }
-        EventPlatformClient.submit(ArticleTocInteractionEventImpl(!AccountUtil.isLoggedIn, wikiDb, pageId, 0, numOpens, numSectionClicks, 0, totalOpenedSec, numSections))
+        EventPlatformClient.submit(ArticleTocInteractionEventImpl(!AccountUtil.isLoggedIn, wikiDb, pageId, numOpens, numSectionClicks, totalOpenedSec, numSections))
     }
 
     @Suppress("unused")
@@ -45,10 +45,8 @@ class ArticleTocInteractionEvent(private val pageId: Int,
     class ArticleTocInteractionEventImpl(@SerialName("is_anon") private val isAnon: Boolean,
                                          @SerialName("wiki_db") private var wikiDb: String,
                                          @SerialName("page_id") private var pageId: Int,
-                                         @SerialName("num_peeks") private var numberOfPeeks: Int,
                                          @SerialName("num_opens") private var numberOfOpens: Int,
                                          @SerialName("num_section_clicks") private var numberOfSectionClicks: Int,
-                                         @SerialName("total_peek_sec") private var totalPeekSec: Int,
                                          @SerialName("total_open_sec") private var totalOpenSec: Int,
                                          @SerialName("num_sections") private var numSections: Int) :
         MobileAppsEvent("android.article_toc_interaction")
