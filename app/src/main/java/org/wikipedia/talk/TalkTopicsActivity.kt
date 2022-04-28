@@ -395,7 +395,6 @@ class TalkTopicsActivity : BaseActivity() {
             talkSortButton.setOnClickListener {
                 TalkTopicsSortOverflowView(this@TalkTopicsActivity).show(talkSortButton, viewModel.currentSortMode) {
                     viewModel.currentSortMode = it
-                    Prefs.talkTopicsSortMode = it
                     binding.talkRecyclerView.adapter?.notifyDataSetChanged()
                 }
             }

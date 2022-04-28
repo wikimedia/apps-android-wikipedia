@@ -36,6 +36,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
     private var resolveTitleRequired = false
     val threadItems = mutableListOf<ThreadItem>()
     var currentSortMode = Prefs.talkTopicsSortMode
+        set(value) {
+            field = value
+            Prefs.talkTopicsSortMode = field
+        }
     var currentSearchQuery: String? = null
 
     val uiState = MutableStateFlow(UiState())
@@ -95,10 +99,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
     val sortedThreadItems get(): List<ThreadItem> {
         when (currentSortMode) {
             TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
-                threadItems.sortByDescending { it.id }
+                threadItems.sortByDescending { it.replies.firstOrNull()?.timestamp }
             }
             TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING -> {
-                threadItems.sortBy { it.id }
+                threadItems.sortBy { it.replies.firstOrNull()?.timestamp }
             }
             TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
                 threadItems.sortByDescending { RichTextUtil.stripHtml(it.html) }
