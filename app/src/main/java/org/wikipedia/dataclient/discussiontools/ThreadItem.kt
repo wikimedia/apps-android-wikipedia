@@ -15,7 +15,6 @@ class ThreadItem(
         val placeholderHeading: Boolean = false,
         val replies: List<ThreadItem> = emptyList()
 ) {
-        // TODO: remove this temporary variable when new talk page implementation built.
         val allReplies: List<ThreadItem> get() {
                 val list = mutableListOf<ThreadItem>()
                 replies.forEach {
