@@ -1,39 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/talkRefreshView"
+    android:id="@+id/talkTopicsCoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbarContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="?attr/paper_color"
+        app:elevation="0dp">
 
-        <LinearLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ToolbarTheme"
+            app:layout_scrollFlags="scroll|enterAlways" >
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <TextView
+                android:id="@+id/toolbarTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="@style/ToolbarTheme">
+                android:lineSpacingExtra="8sp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:ellipsize="end"/>
 
-                <TextView
-                    android:id="@+id/toolbarTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="8sp"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:singleLine="true"
-                    android:ellipsize="end"/>
+        </androidx.appcompat.widget.Toolbar>
 
-            </androidx.appcompat.widget.Toolbar>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/tab_layout_background_bottom_line"
+            app:tabTextAppearance="@style/NotificationTabTextAppearance"
+            app:tabTextColor="?attr/chart_shade4"
+            app:tabSelectedTextColor="?attr/colorAccent">
+
+            <com.google.android.material.tabs.TabItem
+                android:text="@string/talk_tab_discussions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.tabs.TabItem
+                android:text="@string/talk_tab_archived"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.tabs.TabLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/talkRefreshView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/talkRecyclerView"
@@ -51,88 +84,86 @@
                 android:text="@string/search_results_count_zero"
                 android:visibility="gone" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/talkEmptyContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone"
-            tools:visibility="visible">
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_user_talk"
-                app:tint="?attr/material_theme_de_emphasised_color"/>
-
-            <TextView
-                style="@style/MaterialMediumSecondaryCaption"
+            <LinearLayout
+                android:id="@+id/talkEmptyContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/talk_page_empty" />
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_user_talk"
+                    app:tint="?attr/material_theme_de_emphasised_color"/>
 
-        <org.wikipedia.views.WikiErrorView
-            android:id="@+id/talkErrorView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical" />
+                <TextView
+                    style="@style/MaterialMediumSecondaryCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/talk_page_empty" />
 
-        <ProgressBar
-            android:id="@+id/talkProgressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_marginTop="-7dp"
-            android:indeterminate="true" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:orientation="vertical">
-
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/talkNewTopicButton"
+            <org.wikipedia.views.WikiErrorView
+                android:id="@+id/talkErrorView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:layout_gravity="end"
-                app:backgroundTint="?attr/colorAccent"
-                app:icon="@drawable/ic_add_gray_white_24dp"
-                app:iconTint="@android:color/white"
-                android:textColor="@android:color/white"
-                android:text="@string/talk_new_topic" />
+                android:layout_gravity="center"
+                android:orientation="vertical" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/talkLastModified"
+            <ProgressBar
+                android:id="@+id/talkProgressBar"
+                style="@style/Widget.AppCompat.ProgressBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:background="?attr/color_group_22"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:textColor="?android:attr/textColorPrimary"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="8dp"
-                android:drawablePadding="12dp"
-                android:textSize="14sp"
-                android:gravity="center_vertical"
-                app:drawableStartCompat="@drawable/ic_history_24"
-                app:drawableTint="?android:attr/textColorTertiary"/>
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:indeterminate="true" />
 
-    </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
 
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/talkNewTopicButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="end"
+                    app:backgroundTint="?attr/colorAccent"
+                    app:icon="@drawable/ic_add_gray_white_24dp"
+                    app:iconTint="@android:color/white"
+                    android:textColor="@android:color/white"
+                    android:text="@string/talk_new_topic" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/talkLastModified"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:background="?attr/color_group_22"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:drawablePadding="12dp"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical"
+                    app:drawableStartCompat="@drawable/ic_history_24"
+                    app:drawableTint="?android:attr/textColorTertiary"/>
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

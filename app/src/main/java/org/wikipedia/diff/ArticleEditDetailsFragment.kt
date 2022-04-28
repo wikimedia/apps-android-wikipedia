@@ -4,8 +4,6 @@ import android.app.AlertDialog
 import android.content.res.ColorStateList
 import android.graphics.*
 import android.os.Bundle
-import android.text.SpannableStringBuilder
-import android.text.style.*
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -20,14 +18,12 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
-import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -44,7 +40,6 @@ import org.wikipedia.util.ClipboardUtil.setPlainText
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
-import java.nio.charset.StandardCharsets
 
 class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, LinkPreviewDialog.Callback {
     private var _binding: FragmentArticleEditDetailsBinding? = null
@@ -96,7 +91,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.diffText.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                buildDiffLinesList(it.data.diff)
+                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data.diff))
                 updateAfterDiffFetchSuccess()
                 binding.progressBar.isVisible = false
             } else if (it is Resource.Error) {
@@ -357,77 +352,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         dialog.show()
     }
 
-    private fun createSpannable(diff: DiffResponse.DiffItem): CharSequence {
-        val spannableString = SpannableStringBuilder(diff.text.ifEmpty { "\n" })
-        if (diff.text.isEmpty()) {
-            spannableString.setSpan(EmptyLineSpan(ResourceUtil.getThemedColor(requireContext(), android.R.attr.colorBackground),
-                    ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color)), 0, spannableString.length, 0)
-            return spannableString
-        }
-        when (diff.type) {
-            DiffResponse.DIFF_TYPE_LINE_ADDED -> {
-                updateDiffTextDecor(spannableString, true, 0, diff.text.length)
-            }
-            DiffResponse.DIFF_TYPE_LINE_REMOVED -> {
-                updateDiffTextDecor(spannableString, false, 0, diff.text.length)
-            }
-            DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
-                updateDiffTextDecor(spannableString, false, 0, diff.text.length)
-            }
-            DiffResponse.DIFF_TYPE_PARAGRAPH_MOVED_TO -> {
-                updateDiffTextDecor(spannableString, true, 0, diff.text.length)
-            }
-        }
-        if (diff.highlightRanges.isNotEmpty()) {
-            for (highlightRange in diff.highlightRanges) {
-                val indices = utf8Indices(diff.text)
-                val highlightRangeStart = indices[highlightRange.start]
-                val highlightRangeEnd = indices.getOrElse(highlightRange.start + highlightRange.length) { indices.last() }
-
-                if (highlightRange.type == DiffResponse.HIGHLIGHT_TYPE_ADD) {
-                    updateDiffTextDecor(spannableString, true, highlightRangeStart, highlightRangeEnd)
-                } else {
-                    updateDiffTextDecor(spannableString, false, highlightRangeStart, highlightRangeEnd)
-                }
-            }
-        }
-        return spannableString
-    }
-
-    private fun updateDiffTextDecor(spannableText: SpannableStringBuilder, isAddition: Boolean, start: Int, end: Int) {
-        val boldStyle = StyleSpan(Typeface.BOLD)
-        val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_64))
-        val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_66))
-        spannableText.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                if (isAddition) R.attr.color_group_65 else R.attr.color_group_67)), start, end, 0)
-        spannableText.setSpan(boldStyle, start, end, 0)
-        if (isAddition) {
-            spannableText.setSpan(foregroundAddedColor, start, end, 0)
-        } else {
-            spannableText.setSpan(foregroundRemovedColor, start, end, 0)
-            spannableText.setSpan(StrikethroughSpan(), start, end, 0)
-        }
-    }
-
-    private fun utf8Indices(s: String): IntArray {
-        val indices = IntArray(s.toByteArray(StandardCharsets.UTF_8).size)
-        var ptr = 0
-        var count = 0
-        for (i in s.indices) {
-            val c = s.codePointAt(i)
-            when {
-                c <= 0x7F -> count = 1
-                c <= 0x7FF -> count = 2
-                c <= 0xFFFF -> count = 3
-                c <= 0x1FFFFF -> count = 4
-            }
-            for (j in 0 until count) {
-                indices[ptr++] = i
-            }
-        }
-        return indices
-    }
-
     override fun onExpirySelect(expiry: WatchlistExpiry) {
         viewModel.watchOrUnwatch(isWatched, expiry, false)
         bottomSheetPresenter.dismiss(childFragmentManager)
@@ -457,62 +381,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun copyLink(uri: String?) {
         setPlainText(requireContext(), null, uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    private fun buildDiffLinesList(diffList: List<DiffResponse.DiffItem>) {
-        val items = mutableListOf<DiffLine>()
-        var lastItem: DiffLine? = null
-        diffList.forEach {
-            val item = DiffLine(it)
-            // coalesce diff lines that occur on successive line numbers
-            if (lastItem != null &&
-                    ((item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_ADDED) ||
-                            (item.diff.lineNumber - lastItem!!.diff.lineNumber == 1 && lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT && item.diff.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) ||
-                            (lastItem!!.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED && item.diff.type == DiffResponse.DIFF_TYPE_LINE_REMOVED))) {
-                if (it.lineNumber > lastItem!!.lineEnd) {
-                    lastItem!!.lineEnd = it.lineNumber
-                }
-                val str = SpannableStringBuilder(lastItem!!.parsedText)
-                str.append("\n")
-                str.append(item.parsedText)
-                lastItem!!.parsedText = str
-            } else {
-                items.add(item)
-                lastItem = item
-            }
-        }
-        binding.diffRecyclerView.adapter = DiffLinesAdapter(items)
-    }
-
-    inner class DiffLine(item: DiffResponse.DiffItem) {
-        val diff = item
-        val lineStart = item.lineNumber
-        var lineEnd = item.lineNumber
-        var parsedText = createSpannable(diff)
-        var expanded = diff.type != DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT
-    }
-
-    private inner class DiffLinesAdapter(val diffLines: List<DiffLine>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-        override fun getItemCount(): Int {
-            return diffLines.size
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            return DiffLineHolder(DiffLineView(requireContext()))
-        }
-
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            if (holder is DiffLineHolder) {
-                holder.bindItem(diffLines[pos])
-            }
-            holder.itemView.tag = pos
-        }
-    }
-
-    private inner class DiffLineHolder constructor(itemView: DiffLineView) : RecyclerView.ViewHolder(itemView) {
-        fun bindItem(item: DiffLine) {
-            (itemView as DiffLineView).setItem(item)
-        }
     }
 
     companion object {

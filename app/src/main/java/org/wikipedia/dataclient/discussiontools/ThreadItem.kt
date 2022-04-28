@@ -18,4 +18,14 @@ class ThreadItem(
 ) {
     @Transient var isExpanded = false
     @Transient var isLastSibling = false
+
+    val allReplies: List<ThreadItem>
+        get() {
+            val list = mutableListOf<ThreadItem>()
+            replies.forEach {
+                list.add(it)
+                list.addAll(it.allReplies)
+            }
+            return list
+        }
 }

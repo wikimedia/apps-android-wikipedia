@@ -34,7 +34,7 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
         val titleStr = StringUtil.fromHtml(item?.html).toString().trim()
         binding.threadTitleText.text = titleStr.ifEmpty { context.getString(R.string.talk_no_subject) }
 
-        binding.subscribeButton.text = context.getString(if (subscribed) R.string.talk_thread_subscribed else R.string.talk_thread_subscribe)
+        binding.subscribeButton.text = context.getString(if (subscribed) R.string.talk_list_item_overflow_subscribed else R.string.talk_list_item_overflow_subscribe)
         binding.subscribeButton.setTextColor(ResourceUtil.getThemedColor(context, if (subscribed) R.attr.material_theme_secondary_color else R.attr.colorAccent))
         binding.subscribeButton.setIconResource(if (subscribed) R.drawable.ic_notifications_active else R.drawable.ic_notifications_black_24dp)
         binding.subscribeButton.iconTint = binding.subscribeButton.textColors

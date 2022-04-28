@@ -1117,10 +1117,18 @@
     <item quantity="one">Button label for hiding one reply to the current thread.</item>
     <item quantity="other">Button label for hiding replies to the current thread. The %d symbol is replaced with the number of replies.</item>
   </plurals>
-  <string name="talk_thread_subscribe">Button label for subscribing to a talk thread.</string>
-  <string name="talk_thread_subscribed">Button label shown when the user is subscribed to a talk thread, and tapping the button will unsubscribe from the thread.</string>
   <string name="talk_thread_subscribed_to">Message shown when the user subscribes to a talk thread. The %s symbol is replaced with the thread title.</string>
   <string name="talk_thread_unsubscribed_from">Message shown when the user unsubscribes from a talk thread. The %s symbol is replaced with the thread title.</string>
+  <string name="talk_tab_discussions">Tab label for the discussions in the talk page.</string>
+  <string name="talk_tab_archived">Tab label for the archived discussions in the talk page.</string>
+  <string name="talk_list_item_overflow_subscribe">Menu option label for the talk topic item to subscribe to the topic.</string>
+  <string name="talk_list_item_overflow_subscribed">Menu option label for the talk topic item to unsubscribe to the topic.</string>
+  <string name="talk_list_item_overflow_mark_as_read">Menu option label for the talk topic item to mark it as read.</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Menu option label for the talk topic item to mark it as unread.</string>
+  <string name="talk_list_item_overflow_share">Menu option label for the talk topic item to share the discussion.</string>
+  <string name="talk_list_item_last_comment_date">Label text for showing the posted date of the last comment. The %s will be replaced by the posted date of last comment.</string>
+  <string name="talk_list_item_reply_icon_content_description">Content description of the reply number icon.</string>
+  <string name="talk_list_item_user_icon_content_description">Content description of the user icon.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>

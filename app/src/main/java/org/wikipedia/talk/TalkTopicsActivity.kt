@@ -301,6 +301,7 @@ class TalkTopicsActivity : BaseActivity() {
                 binding.talkNewTopicButton.alpha = 1.0f
                 binding.talkLastModified.visibility = View.VISIBLE
             }
+            binding.tabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }

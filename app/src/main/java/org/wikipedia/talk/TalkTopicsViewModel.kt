@@ -9,6 +9,7 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
+import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.edit.Edit
@@ -19,6 +20,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.db.TalkPageSeen
+import org.wikipedia.util.log.L
 import org.wikipedia.views.TalkTopicsSortOverflowView
 
 class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
@@ -165,6 +167,33 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         }
     }
 
+    fun subscribeTopic(commentName: String, subscribe: Boolean) {
+        if (pageTitle == null) {
+            return
+        }
+        val pageTitle = pageTitle!!
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+            val token = withContext(Dispatchers.IO) {
+                CsrfTokenClient(pageTitle.wikiSite).token.blockingFirst()
+            }
+            val subscribeResponse = ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, subscribe)
+            subscribeResponse.status?.let {
+                _uiState.value = UiState.Subscribe(it)
+            }
+        }
+    }
+
+    fun getSubscriptions(commentName: String) {
+        if (pageTitle == null) {
+            return
+        }
+        val pageTitle = pageTitle!!
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
+            val subscriptionsResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(commentName)
+            // TODO: send list to the UiState
+        }
+    }
+
     class Factory(private val pageTitle: PageTitle?) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -180,5 +209,6 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         data class DoEdit(val editResult: DiscussionToolsEditResponse.EditResult) : UiState()
         data class UndoEdit(val edit: Edit, val topicId: String, val undoneSubject: String, val undoneBody: String) : UiState()
         data class EditError(val throwable: Throwable) : UiState()
+        data class Subscribe(val subscribeStatus: DiscussionToolsSubscribeResponse.SubscribeStatus) : UiState()
     }
 }
