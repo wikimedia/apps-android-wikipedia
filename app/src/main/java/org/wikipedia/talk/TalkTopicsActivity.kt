@@ -375,7 +375,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             if (holder is TalkTopicHolder) {
-                holder.bindItem(viewModel.sortedThreadItems[pos - listPlaceholder], viewModel.currentSearchQuery)
+                holder.bindItem(viewModel.sortedThreadItems[pos - listPlaceholder], viewModel)
             }
         }
     }

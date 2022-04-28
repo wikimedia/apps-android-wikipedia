@@ -12,7 +12,7 @@ interface TalkPageSeenDao {
     suspend fun insertTalkPageSeen(talkPageSeen: TalkPageSeen)
 
     @Query("SELECT * FROM TalkPageSeen WHERE sha = :sha LIMIT 1")
-    fun getTalkPageSeen(sha: String): Flow<TalkPageSeen?>
+    fun getTalkPageSeen(sha: String): TalkPageSeen?
 
     @Query("SELECT * FROM TalkPageSeen")
     fun getAll(): Flow<List<TalkPageSeen>>

@@ -170,6 +170,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         }
     }
 
+    fun getSeenStatus(topicId: String?): Boolean {
+        return topicId?.run { talkPageDao.getTalkPageSeen(topicId) != null } ?: run { false }
+    }
+
     fun subscribeTopic(commentName: String, subscribe: Boolean) {
         if (pageTitle == null) {
             return
