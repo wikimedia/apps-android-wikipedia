@@ -194,7 +194,7 @@
   <string name="page_protected_other">လိတ်မဲ့ငါယိုဗာႏနောဝ်ꩻ အောဝ်ႏရဲးခါꩻသေꩻ ဗꩻလဲန်းအရန်းဖုံႏနုဲင်းယို: %s</string>
   <string name="page_protected_can_not_edit">ကမ်းတော့တော့ဒျာႏ၊ နာꩻအကောဝ့်တ်နောဝ်ꩻ ယိုခါတာႏ ဖေႏခါꩻလုမ်းဗဉ်ႏတောဝ်း ကအီးဖျင်ယမ် လိတ်မဲ့ငါယိုဗာႏတာႏ။</string>
   <string name="page_protected_can_not_edit_anon">ကမ်းတော့တော့ဒျာႏ၊ မဉ်ႏဖေႏသေငါꩻခါꩻတောဝ်း မဉ်ꩻနောဝ်ꩻ ယိုခါတာႏ ဖျင်ယမ်လိတ်မဲ့ငါယို လꩻတောဝ်းဩ။</string>
-  <string name="page_protected_can_not_edit_title">လိတ်မဲ့ငါယိုဗာႏနောဝ်ꩻ အောဝ်ႏရဲးကမ်းသေꩻခါꩻဩ</string>
+  <string name="page_protected_can_not_edit_title">လိတ်မဲ့ငါယိုဗာႏနောဝ်ꩻ ရဲးကမ်းခါꩻလဲဉ်းသွူဩ</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">သော့ꩻ ကအောဝ်ႏထွား ထာꩻရဲန်ႏကို</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">ထောင်လွေꩻ နာꩻသꩻကအောဝ်ႏဒင်ႏဒါႏ ရွမ်ꩻဖြုဲင်ꩻဖုံႏ အောဝ်ႏထွာနုဲင်းမုဲင်ꩻ။ ယမ်ဖေႏနေးကထီႏ ထာꩻကြုဲင်းလုဲင်ႏထိုꩻ ရွမ်ꩻဖြုဲင်ꩻတဗာႏလောင်းတာႏနောဝ်ꩻ နျꩻဖေႏ ရွီꩻခရာႏမီနူ၊ ရွီꩻဖေႏ &lt;b&gt;သော့ꩻကအောဝ်ႏထွားရဲန်ႏကို&lt;/b&gt;နောဝ်ꩻ။</string>
   <string name="settings_item_preferences">အဖျင်အဆင်ဖုံႏ</string>

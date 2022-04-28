@@ -977,6 +977,7 @@
   <string name="thank_success_message">توھان جي \'مھرباني\' %s ڏانھن موڪلي وئي 👍</string>
   <string name="menu_option_view_user_profile">واپرائيندڙ جو پروفائيل صفحو ڏسو</string>
   <string name="menu_option_view_user_talk">بحث صفحو ڏسو</string>
+  <string name="revision_compare_button">ڀيٽيو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ۽ ان جو بحث صفحو توھان جي %2$s نظر۾فھرست ۾ وڌا ويا آھن.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بدلايو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل طور</string>
