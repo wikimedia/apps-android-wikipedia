@@ -26,7 +26,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     val flattenedThreadItems = mutableListOf<ThreadItem>()
     var subscribed = false
         private set
-    val uiState = MutableLiveData<Resource<List<ThreadItem>>>()
+    val threadItemsData = MutableLiveData<Resource<List<ThreadItem>>>()
     val subscribeData = SingleLiveData<Resource<Boolean>>()
 
     private val talkPageSeenRepository = TalkPageSeenRepository(AppDatabase.instance.talkPageSeenDao())
@@ -37,7 +37,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
     fun loadTopic() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            uiState.postValue(Resource.Error(throwable))
+            threadItemsData.postValue(Resource.Error(throwable))
         }) {
             val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
             val subscribeResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicId) }
@@ -59,7 +59,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
             threadItems.forEach { it.isExpanded = true }
             updateFlattenedThreadItems()
 
-            uiState.postValue(Resource.Success(threadItems))
+            threadItemsData.postValue(Resource.Success(threadItems))
         }
     }
 

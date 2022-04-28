@@ -293,6 +293,9 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity
+            android:name=".talk.TalkReplyActivity" />
+
+        <activity
             android:name=".diff.ArticleEditDetailsActivity" />
 
         <activity

@@ -1,9 +1,13 @@
 package org.wikipedia.dataclient.discussiontools
 
+import android.os.Parcelable
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 
 @Serializable
+@Parcelize
 class ThreadItem(
         val type: String = "",
         val level: Int = 0,
@@ -15,11 +19,11 @@ class ThreadItem(
         val headingLevel: Int = 0,
         val placeholderHeading: Boolean = false,
         val replies: List<ThreadItem> = emptyList()
-) {
-    @Transient var isExpanded = false
-    @Transient var isLastSibling = false
+) : Parcelable {
+    @IgnoredOnParcel @Transient var isExpanded = false
+    @IgnoredOnParcel @Transient var isLastSibling = false
 
-    val allReplies: List<ThreadItem>
+    @IgnoredOnParcel val allReplies: List<ThreadItem>
         get() {
             val list = mutableListOf<ThreadItem>()
             replies.forEach {

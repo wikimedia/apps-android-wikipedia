@@ -39,12 +39,22 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         }
     }
 
-    fun bindItem(item: ThreadItem, movementMethod: MovementMethod) {
+    fun bindItem(item: ThreadItem, movementMethod: MovementMethod, replying: Boolean = false) {
         this.item = item
         binding.userNameText.text = item.author
         binding.timeStampText.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(item.timestamp))
         binding.bodyText.text = StringUtil.fromHtml(item.html)
         binding.bodyText.movementMethod = movementMethod
+
+        if (replying) {
+            binding.replyButton.isVisible = false
+            binding.topDivider.isVisible = false
+            binding.threadLineTop.isVisible = false
+            binding.showRepliesContainer.isVisible = false
+            binding.threadLineMiddle.isVisible = false
+            binding.threadLineBottom.isVisible = false
+            return
+        }
 
         if (item.level > 1) {
             binding.replyButton.backgroundTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_22))

@@ -42,19 +42,6 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/replySaveButton"
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:contentDescription="@string/description_edit_save"
-                    android:focusable="true"
-                    android:padding="16dp"
-                    app:srcCompat="@drawable/ic_check_circle_black_24dp"
-                    app:tint="?attr/themed_icon_color"/>
-
             </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>

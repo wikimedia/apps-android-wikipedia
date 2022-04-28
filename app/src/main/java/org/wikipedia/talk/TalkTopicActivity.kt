@@ -3,7 +3,6 @@ package org.wikipedia.talk
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -27,23 +26,20 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.*
 
-class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMentionInputView.Listener*/ {
+class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityTalkTopicBinding
     private lateinit var talkFunnel: TalkFunnel
     private lateinit var editFunnel: EditFunnel
     private lateinit var linkHandler: TalkLinkHandler
-    private lateinit var textWatcher: TextWatcher
 
     private val viewModel: TalkTopicViewModel by viewModels { TalkTopicViewModel.Factory(intent.extras!!) }
     private val threadAdapter = TalkReplyItemAdapter()
     private val headerAdapter = HeaderItemAdapter()
-    private var replyActive = false
     private var undone = false
     private var undoneBody = ""
     private var undoneSubject = ""
@@ -51,29 +47,20 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
     private var revisionForUndo: Long = 0
-    private var userMentionScrolled = false
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
     }
-
-    /*
-    private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            updateEditLicenseText()
-            editFunnel.logLoginSuccess()
-            FeedbackUtil.showMessage(this, R.string.login_success_toast)
-        } else {
-            editFunnel.logLoginFailure()
-        }
-    }
-    */
 
     private val requestEditSource = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             // TODO: maybe add funnel?
             loadTopics()
         }
+    }
+
+    private val replyResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,51 +87,17 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
             loadTopics()
         }
 
-        /*
-        binding.talkReplyButton.setOnClickListener {
-            talkFunnel.logReplyClick()
-            editFunnel.logStart()
-            EditAttemptStepEvent.logInit(viewModel.pageTitle)
-            replyClicked()
-        }
-
-        textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
-            binding.replySubjectLayout.error = null
-            binding.replyInputView.textInputLayout.error = null
-        }
-
-        binding.replySaveButton.setOnClickListener {
-            onSaveClicked()
-        }
-        */
-
-        binding.talkRefreshView.isEnabled = !isNewTopic()
         binding.talkRefreshView.setOnRefreshListener {
             talkFunnel.logRefresh()
             loadTopics()
         }
-
-        /*
-        binding.talkScrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, _, _, _ ->
-            if (binding.talkSubjectView.isVisible) {
-                binding.talkToolbarSubjectView.visibility = if (binding.talkScrollContainer.scrollY >
-                        binding.talkSubjectView.height) View.VISIBLE else View.INVISIBLE
-            }
-        })
-
-        binding.talkReplyButton.visibility = View.GONE
-
-        binding.replyInputView.wikiSite = viewModel.pageTitle.wikiSite
-        binding.replyInputView.listener = this
-        updateEditLicenseText()
-        */
 
         talkFunnel = TalkFunnel(viewModel.pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
         talkFunnel.logOpenTopic()
 
         editFunnel = EditFunnel(WikipediaApp.getInstance(), viewModel.pageTitle)
 
-        viewModel.uiState.observe(this) {
+        viewModel.threadItemsData.observe(this) {
             when (it) {
                 is Resource.Success -> updateOnSuccess(it.data)
                 is Resource.Error -> updateOnError(it.throwable)
@@ -170,9 +123,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        menu?.findItem(R.id.menu_talk_topic_group)?.isVisible = !replyActive
         menu?.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
-        binding.talkRefreshView.isEnabled = !replyActive
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -191,85 +142,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
         }
     }
 
-    /*
-    private fun replyClicked() {
-        replyActive = true
-        threadAdapter.notifyDataSetChanged()
-        binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
-        binding.replySaveButton.visibility = View.VISIBLE
-        binding.replyInputView.visibility = View.VISIBLE
-        binding.replyInputView.maybePrepopulateUserName()
-
-        binding.licenseText.visibility = View.VISIBLE
-        binding.talkScrollContainer.post {
-            if (!isDestroyed) {
-                binding.replyInputView.editText.requestFocus()
-                DeviceUtil.showSoftKeyboard(binding.replyInputView.editText)
-                binding.talkScrollContainer.postDelayed({
-                    binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
-                }, 500)
-            }
-        }
-        binding.talkReplyButton.hide()
-        if (undone) {
-            binding.replyInputView.editText.setText(undoneBody)
-            binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
-        }
-        invalidateOptionsMenu()
-    }
-    */
-
-    public override fun onDestroy() {
-
-        // TODO
-        // binding.replySubjectText.removeTextChangedListener(textWatcher)
-        // binding.replyInputView.editText.removeTextChangedListener(textWatcher)
-
-        super.onDestroy()
-    }
-
     private fun onInitialLoad() {
-        if (isNewTopic()) {
-            replyActive = true
-            title = getString(R.string.talk_new_topic)
-            binding.talkToolbarSubjectView.visibility = View.INVISIBLE
-            binding.talkProgressBar.visibility = View.GONE
-            binding.talkErrorView.visibility = View.GONE
-            binding.replySaveButton.visibility = View.VISIBLE
-
-            /*
-            binding.replyInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
-            binding.replySubjectText.setText(undoneSubject)
-            binding.replyInputView.editText.setText(undoneBody)
-            binding.replyInputView.visibility = View.VISIBLE
-            binding.licenseText.visibility = View.VISIBLE
-            binding.replySubjectLayout.requestFocus()
-            */
-
-            editFunnel.logStart()
-            EditAttemptStepEvent.logInit(viewModel.pageTitle)
-        } else {
-            replyActive = false
-            binding.replySaveButton.visibility = View.GONE
-
-            /*
-            binding.replyInputView.editText.setText("")
-            binding.replyInputView.visibility = View.GONE
-            binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
-            binding.licenseText.visibility = View.GONE
-            */
-
-            binding.talkProgressBar.visibility = View.VISIBLE
-            binding.talkErrorView.visibility = View.GONE
-            DeviceUtil.hideSoftKeyboard(this)
-        }
-        invalidateOptionsMenu()
+        binding.talkProgressBar.visibility = View.VISIBLE
+        binding.talkErrorView.visibility = View.GONE
+        DeviceUtil.hideSoftKeyboard(this)
     }
 
     private fun loadTopics() {
-        if (isNewTopic()) {
-            return
-        }
         binding.talkProgressBar.visibility = View.VISIBLE
         binding.talkErrorView.visibility = View.GONE
         viewModel.loadTopic()
@@ -291,10 +170,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
             headerAdapter.notifyItemChanged(0)
             threadAdapter.notifyDataSetChanged()
         }
-
-        // TODO:
-        // binding.replyInputView.userNameHints = parseUserNamesFromTopic()
-        // maybeShowUndoSnackbar()
     }
 
     private fun updateOnError(t: Throwable) {
@@ -302,10 +177,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
         binding.talkRefreshView.isRefreshing = false
         binding.talkErrorView.visibility = View.VISIBLE
         binding.talkErrorView.setError(t)
-    }
-
-    private fun isNewTopic(): Boolean {
-        return viewModel.topicId == TalkTopicsActivity.NEW_TOPIC_ID
     }
 
     private inner class HeaderItemAdapter : RecyclerView.Adapter<HeaderViewHolder>() {
@@ -344,7 +215,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
         }
 
         override fun onReplyClick(item: ThreadItem) {
-            // TODO
+            talkFunnel.logReplyClick()
+            replyResult.launch(TalkReplyActivity.newIntent(this@TalkTopicActivity, viewModel.pageTitle,
+                    item, Constants.InvokeSource.TALK_ACTIVITY, undoneSubject, undoneBody))
         }
     }
 
@@ -392,80 +265,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
         }
     }
 
-    /*
-    private fun onSaveClicked() {
-        val subject = binding.replySubjectText.text.toString().trim()
-        var body = binding.replyInputView.editText.getParsedText(viewModel.pageTitle.wikiSite).trim()
-        undoneBody = body
-        undoneSubject = subject
-
-        editFunnel.logSaveAttempt()
-        EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
-
-        if (isNewTopic() && subject.isEmpty()) {
-            binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
-            binding.replySubjectLayout.requestFocus()
-            return
-        } else if (body.isEmpty()) {
-            binding.replyInputView.textInputLayout.error = getString(R.string.talk_message_empty)
-            binding.replyInputView.textInputLayout.requestFocus()
-            return
-        }
-
-        // TODO: get level of replied-to item
-        val topicDepth = viewModel.topic?.level ?: 1
-
-        body = addDefaultFormatting(body, topicDepth, isNewTopic())
-
-        binding.talkProgressBar.visibility = View.VISIBLE
-        binding.replySaveButton.isEnabled = false
-
-        talkFunnel.logEditSubmit()
-
-        // TODO: move this logic to another class
-        /*
-        if (isNewTopic()) {
-            viewModel.doSave(subject, body)
-        } else {
-            // TODO: give comment id
-            viewModel.doSaveReply("", body)
-        }
-        */
-    }
-    */
-
-    private fun onSaveSuccess(newRevision: Long) {
-
-        // TODO: should we add logic of checking updated revision?
-        revisionForUndo = newRevision
-        showUndoSnackbar = true
-        AnonymousNotificationHelper.onEditSubmitted()
-
-        binding.talkProgressBar.visibility = View.GONE
-        binding.replySaveButton.isEnabled = true
-        editFunnel.logSaved(newRevision)
-        EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle)
-
-        if (isNewTopic()) {
-            Intent().let {
-                it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
-                it.putExtra(EXTRA_TOPIC, viewModel.topicId)
-                it.putExtra(EXTRA_SUBJECT, undoneSubject)
-                it.putExtra(EXTRA_BODY, undoneBody)
-                setResult(RESULT_EDIT_SUCCESS, it)
-                finish()
-            }
-        } else {
-            onInitialLoad()
-            loadTopics()
-        }
-    }
-
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
         EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
         binding.talkProgressBar.visibility = View.GONE
-        binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)
     }
 
@@ -493,23 +296,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
     }
     */
 
-    /*
-    private fun updateEditLicenseText() {
-        binding.licenseText.text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
-                getString(R.string.terms_of_use_url),
-                getString(R.string.cc_by_sa_3_url)))
-        binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
-            if (url == "https://#login") {
-                val loginIntent = LoginActivity.newIntent(this,
-                        LoginFunnel.SOURCE_EDIT, editFunnel.sessionToken)
-                requestLogin.launch(loginIntent)
-            } else {
-                UriUtil.handleExternalLink(this, Uri.parse(url))
-            }
-        }
-    }
-    */
-
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
             PageActivity.newIntentForCurrentTab(this, entry, title, false))
@@ -527,70 +313,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
         ShareUtil.shareText(this, title)
-    }
-
-    override fun onBackPressed() {
-        if (replyActive && !isNewTopic()) {
-            onInitialLoad()
-        } else {
-            setResult(RESULT_BACK_FROM_TOPIC)
-            super.onBackPressed()
-        }
-    }
-
-    /*
-    override fun onUserMentionListUpdate() {
-        if (!replyActive) {
-            return
-        }
-        binding.licenseText.isVisible = false
-        binding.talkScrollContainer.post {
-            if (!isDestroyed && !userMentionScrolled) {
-                binding.talkScrollContainer.smoothScrollTo(0, binding.root.height * 4)
-                userMentionScrolled = true
-            }
-        }
-    }
-
-    override fun onUserMentionComplete() {
-        if (!replyActive) {
-            return
-        }
-        userMentionScrolled = false
-        binding.licenseText.isVisible = true
-    }
-    */
-
-    private fun parseUserNamesFromTopic(): Set<String> {
-        val userNames = mutableSetOf<String>()
-        // Go through our list of replies under the current topic, and collect any links to user
-        // names, making sure to store them in reverse order, so that the last user name mentioned
-        // in a response will appear first in the list of hints when searching for mentions.
-        // TODO: search only up to the replied-to item
-        viewModel.flattenedThreadItems.forEach {
-            var start = 0
-            val userList = mutableListOf<String>()
-            while (true) {
-                val searchStr = "title=\""
-                start = it.html.indexOf(searchStr, startIndex = start)
-                if (start < 0) {
-                    break
-                }
-                start += searchStr.length
-                val end = it.html.indexOf("\"", startIndex = start)
-                if (end <= start) {
-                    break
-                }
-                val name = it.html.substring(start, end)
-                val title = PageTitle(name, viewModel.pageTitle.wikiSite)
-                if (title.namespace() == Namespace.USER || title.namespace() == Namespace.USER_TALK) {
-                    userList.add(0, StringUtil.removeUnderscores(title.text))
-                }
-                start = end
-            }
-            userNames.addAll(userList)
-        }
-        return userNames
     }
 
     companion object {
@@ -614,19 +336,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback /*, UserMen
                     .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
                     .putExtra(EXTRA_BODY, undoneBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-        }
-
-        fun addDefaultFormatting(text: String, topicDepth: Int, newTopic: Boolean = false): String {
-            var body = ":".repeat(if (newTopic) 0 else topicDepth + 1) + text
-            // if the message is not signed, then sign it explicitly
-            if (!body.endsWith("~~~~")) {
-                body += " ~~~~"
-            }
-            if (!newTopic) {
-                // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
-                body = "\n\n" + body
-            }
-            return body
         }
     }
 }

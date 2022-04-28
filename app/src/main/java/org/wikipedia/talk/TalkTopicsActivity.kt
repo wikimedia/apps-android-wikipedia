@@ -141,7 +141,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel?.logNewTopicClick()
-            requestNewTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource))
+            requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, invokeSource))
         }
 
         binding.talkRefreshView.setOnRefreshListener {
@@ -458,8 +458,6 @@ class TalkTopicsActivity : BaseActivity() {
         private const val ITEM_TOPIC = 1
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
-        // TODO: fix this
-        const val NEW_TOPIC_ID = ""
 
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
