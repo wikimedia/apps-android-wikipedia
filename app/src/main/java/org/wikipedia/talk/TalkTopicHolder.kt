@@ -49,14 +49,22 @@ class TalkTopicHolder internal constructor(
         binding.topicTitleText.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface
         binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
 
+        StringUtil.highlightAndBoldenText(binding.topicTitleText, searchQuery, true, Color.YELLOW)
+        itemView.setOnClickListener(this)
+
         val allReplies = threadItem.allReplies
+
+        if (allReplies.isEmpty()) {
+            binding.topicBodyGroup.isVisible = false
+            return
+        }
 
         // Last comment
         binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim()
 
-        // Username with involved user number
-        val usersInvolved = allReplies.map { it.author }.distinct()
-        val usernameText = allReplies.first().author + (if (usersInvolved.size > 1) " +${usersInvolved.size}" else "")
+        // Username with involved user number exclude the author
+        val usersInvolved = allReplies.map { it.author }.distinct().size - 1
+        val usernameText = allReplies.first().author + (if (usersInvolved > 1) " +${usersInvolved}" else "")
         binding.topicUsername.text = usernameText
 
         // Amount of replies, exclude the topic in replies[].
@@ -66,9 +74,6 @@ class TalkTopicHolder internal constructor(
         val lastCommentDate = allReplies.maxByOrNull { it.timestamp }?.timestamp?.run { DateUtil.getDateAndTime(DateUtil.iso8601DateParse(this)) }
         binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
         binding.topicLastCommentDate.isVisible = !lastCommentDate.isNullOrEmpty()
-
-        StringUtil.highlightAndBoldenText(binding.topicTitleText, searchQuery, true, Color.YELLOW)
-        itemView.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {

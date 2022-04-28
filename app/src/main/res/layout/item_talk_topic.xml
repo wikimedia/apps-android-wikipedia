@@ -36,6 +36,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_more_vert_white_24dp" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/topicBodyGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="topicUserIcon,topicUsername,topicContentText,topicReplyIcon,topicReplyNumber,topicLastCommentDate" />
+
     <ImageView
         android:id="@+id/topicUserIcon"
         android:layout_width="16dp"
