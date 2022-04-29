@@ -5,32 +5,22 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
-import androidx.recyclerview.widget.ConcatAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkReplyBinding
-import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.edit.EditHandler
-import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -47,17 +37,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private lateinit var textWatcher: TextWatcher
 
     private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
-
-    private var undone = false
-    private var undoneBody = ""
-    private var undoneSubject = ""
-
-    private var showUndoSnackbar = false
-
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-
-    private var currentRevision: Long = 0
-    private var revisionForUndo: Long = 0
     private var userMentionScrolled = false
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
@@ -81,8 +61,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         setSupportActionBar(binding.replyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
-        if (intent.hasExtra(EXTRA_SUBJECT)) undoneSubject = intent.getStringExtra(EXTRA_SUBJECT) ?: ""
-        if (intent.hasExtra(EXTRA_BODY)) undoneBody = intent.getStringExtra(EXTRA_BODY) ?: ""
+
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
@@ -109,6 +88,14 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.threadItemView.isVisible = false
         }
 
+        viewModel.postReplyData.observe(this) {
+            if (it is Resource.Success) {
+                onSaveSuccess(it.data)
+            } else if (it is Resource.Error) {
+                onSaveError(it.throwable)
+            }
+        }
+
         onInitialLoad()
     }
 
@@ -124,21 +111,24 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun onInitialLoad() {
         updateEditLicenseText()
         binding.progressBar.isVisible = false
+        binding.replySubjectText.setText(intent.getStringExtra(EXTRA_SUBJECT).orEmpty())
+        binding.replyInputView.editText.setText(intent.getStringExtra(EXTRA_BODY).orEmpty())
+        if (intent.hasExtra(EXTRA_BODY)) {
+            binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
+        }
+        editFunnel.logStart()
+        EditAttemptStepEvent.logInit(viewModel.pageTitle)
 
         if (viewModel.isNewTopic) {
             title = getString(R.string.talk_new_topic)
             binding.talkToolbarSubjectView.visibility = View.INVISIBLE
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
-            binding.replySubjectText.setText(undoneSubject)
-            binding.replyInputView.editText.setText(undoneBody)
             binding.replySubjectLayout.requestFocus()
-            editFunnel.logStart()
-            EditAttemptStepEvent.logInit(viewModel.pageTitle)
+
         } else {
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
             binding.replyInputView.maybePrepopulateUserName()
-
             binding.talkScrollContainer.post {
                 if (!isDestroyed) {
                     binding.replyInputView.editText.requestFocus()
@@ -147,10 +137,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                         binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
                     }, 500)
                 }
-            }
-            if (undone) {
-                binding.replyInputView.editText.setText(undoneBody)
-                binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
             }
         }
     }
@@ -203,8 +189,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
         var body = binding.replyInputView.editText.getParsedText(viewModel.pageTitle.wikiSite).trim()
-        undoneBody = body
-        undoneSubject = subject
+        Intent().let {
+            it.putExtra(EXTRA_SUBJECT, subject)
+            it.putExtra(EXTRA_BODY, body)
+        }
 
         editFunnel.logSaveAttempt()
         EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
@@ -219,30 +207,13 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             return
         }
 
-        // TODO: get level of replied-to item
-        val topicDepth = viewModel.topic?.level ?: 1
-
-        body = addDefaultFormatting(body, topicDepth, viewModel.isNewTopic)
-
         binding.progressBar.visibility = View.VISIBLE
         binding.replySaveButton.isEnabled = false
 
-        // TODO: move this logic to another class
-        /*
-        if (isNewTopic()) {
-            viewModel.doSave(subject, body)
-        } else {
-            // TODO: give comment id
-            viewModel.doSaveReply("", body)
-        }
-        */
+        viewModel.postReply(subject, body)
     }
 
     private fun onSaveSuccess(newRevision: Long) {
-
-        // TODO: should we add logic of checking updated revision?
-        revisionForUndo = newRevision
-        showUndoSnackbar = true
         AnonymousNotificationHelper.onEditSubmitted()
 
         binding.progressBar.visibility = View.GONE
@@ -250,22 +221,11 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         editFunnel.logSaved(newRevision)
         EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle)
 
-        /*
-        if (isNewTopic()) {
-            Intent().let {
-                it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
-                it.putExtra(EXTRA_TOPIC, viewModel.topicId)
-                it.putExtra(EXTRA_SUBJECT, undoneSubject)
-                it.putExtra(EXTRA_BODY, undoneBody)
-                setResult(RESULT_EDIT_SUCCESS, it)
-                finish()
-            }
-        } else {
-            onInitialLoad()
-            loadTopics()
+        Intent().let {
+            it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
+            setResult(RESULT_EDIT_SUCCESS, it)
+            finish()
         }
-        */
-
     }
 
     private fun onSaveError(t: Throwable) {
