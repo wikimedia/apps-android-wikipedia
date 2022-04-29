@@ -29,8 +29,6 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     val threadItemsData = MutableLiveData<Resource<List<ThreadItem>>>()
     val subscribeData = SingleLiveData<Resource<Boolean>>()
 
-    private val talkPageSeenRepository = TalkPageSeenRepository(AppDatabase.instance.talkPageSeenDao())
-
     init {
         loadTopic()
     }
@@ -48,7 +46,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
 
             topic?.name?.let {
                 if (it.isNotEmpty()) {
-                    talkPageSeenRepository.insertTalkPageSeen(TalkPageSeen(it))
+                    AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(it))
                 }
             }
 

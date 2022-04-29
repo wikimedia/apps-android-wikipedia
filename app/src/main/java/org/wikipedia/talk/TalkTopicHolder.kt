@@ -37,7 +37,7 @@ class TalkTopicHolder internal constructor(
         this.threadItem = threadItem
         itemPosition = position
         id = threadItem.name
-        val seen = viewModel.topicSeen(threadItem.id)
+        val seen = viewModel.topicSeen(id)
         var titleStr = RichTextUtil.stripHtml(threadItem.html).trim()
         if (titleStr.isEmpty()) {
             threadItem.replies.firstOrNull()?.let {
@@ -101,11 +101,11 @@ class TalkTopicHolder internal constructor(
     }
 
     override fun onClick(v: View?) {
-        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, threadItem.id, invokeSource))
+        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, threadItem.name, invokeSource))
     }
 
     override fun onSwipe() {
-        viewModel.markAsSeen(threadItem.id)
+        viewModel.markAsSeen(threadItem.name)
         bindingAdapter?.notifyItemChanged(itemPosition)
     }
 
