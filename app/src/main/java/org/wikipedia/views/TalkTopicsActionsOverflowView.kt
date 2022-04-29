@@ -1,40 +1,17 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
-import android.widget.TextView
-import androidx.annotation.ColorInt
-import androidx.annotation.DrawableRes
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
 import androidx.core.widget.PopupWindowCompat
-import org.wikipedia.Constants
-import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
-import org.wikipedia.databinding.ViewNotificationActionsOverflowBinding
 import org.wikipedia.databinding.ViewTalkTopicsActionsOverflowBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.notifications.NotificationCategory
-import org.wikipedia.notifications.NotificationLinkHandler
-import org.wikipedia.notifications.NotificationListItemContainer
-import org.wikipedia.notifications.db.Notification
-import org.wikipedia.page.PageTitle
-import org.wikipedia.talk.TalkTopicsActivity
-import org.wikipedia.talk.TalkTopicsViewModel
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.UriUtil
 
 class TalkTopicsActionsOverflowView(context: Context) : FrameLayout(context) {
 

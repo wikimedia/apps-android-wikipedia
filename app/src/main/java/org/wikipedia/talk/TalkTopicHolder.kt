@@ -17,7 +17,6 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.views.NotificationActionsOverflowView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.TalkTopicsActionsOverflowView
 
@@ -109,7 +108,7 @@ class TalkTopicHolder internal constructor(
     }
 
     private fun showOverflowMenu(anchorView: View) {
-        TalkTopicsActionsOverflowView(context).show(anchorView, threadItem, object: TalkTopicsActionsOverflowView.Callback {
+        TalkTopicsActionsOverflowView(context).show(anchorView, threadItem, object : TalkTopicsActionsOverflowView.Callback {
             override fun markAsReadClick(threadItem: ThreadItem, markRead: Boolean) {
                 onSwipe()
             }
