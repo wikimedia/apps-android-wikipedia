@@ -123,9 +123,11 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             title = getString(R.string.talk_new_topic)
             binding.talkToolbarSubjectView.visibility = View.INVISIBLE
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
+            binding.replySubjectText.isVisible = true
             binding.replySubjectLayout.requestFocus()
 
         } else {
+            binding.replySubjectText.isVisible = false
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
             binding.replyInputView.maybePrepopulateUserName()
@@ -188,7 +190,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
-        var body = binding.replyInputView.editText.getParsedText(viewModel.pageTitle.wikiSite).trim()
+        val body = binding.replyInputView.editText.getParsedText(viewModel.pageTitle.wikiSite).trim()
         Intent().let {
             it.putExtra(EXTRA_SUBJECT, subject)
             it.putExtra(EXTRA_BODY, body)
@@ -369,19 +371,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                     .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
                     .putExtra(EXTRA_BODY, undoneBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-        }
-
-        fun addDefaultFormatting(text: String, topicDepth: Int, newTopic: Boolean = false): String {
-            var body = ":".repeat(if (newTopic) 0 else topicDepth + 1) + text
-            // if the message is not signed, then sign it explicitly
-            if (!body.endsWith("~~~~")) {
-                body += " ~~~~"
-            }
-            if (!newTopic) {
-                // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
-                body = "\n\n" + body
-            }
-            return body
         }
     }
 }
