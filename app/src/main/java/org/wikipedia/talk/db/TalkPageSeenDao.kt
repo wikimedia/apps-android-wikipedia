@@ -17,6 +17,9 @@ interface TalkPageSeenDao {
     @Query("SELECT * FROM TalkPageSeen")
     fun getAll(): Flow<List<TalkPageSeen>>
 
+    @Query("DELETE FROM TalkPageSeen WHERE sha = :sha")
+    suspend fun deleteTalkPageSeen(sha: String)
+
     @Query("DELETE FROM TalkPageSeen")
     suspend fun deleteAll()
 }

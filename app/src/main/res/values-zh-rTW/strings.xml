@@ -1137,7 +1137,7 @@
   <string name="revision_diff_line_nums">第 %d 到第 %d 行</string>
   <string name="revision_diff_line_added">行已新增</string>
   <string name="revision_diff_line_removed">行已移除</string>
-  <string name="revision_diff_paragraph_added">章節已添加</string>
+  <string name="revision_diff_paragraph_added">已新增章節</string>
   <string name="revision_diff_paragraph_removed">章節已移除</string>
   <string name="revision_undo_title">撤銷編輯</string>
   <string name="revision_undo_message">這將會撤銷掉在此顯示出的修訂在條目裡所做出的變更內容。</string>

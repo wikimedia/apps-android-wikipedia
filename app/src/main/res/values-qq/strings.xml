@@ -1129,6 +1129,8 @@
   <string name="talk_list_item_last_comment_date">Label text for showing the posted date of the last comment. The %s will be replaced by the posted date of last comment.</string>
   <string name="talk_list_item_reply_icon_content_description">Content description of the reply number icon.</string>
   <string name="talk_list_item_user_icon_content_description">Content description of the user icon.</string>
+  <string name="talk_list_item_swipe_mark_as_read">Label text for the swipe gesture that markes the item as read.</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Label text for the swipe gesture that markes the item as unread.</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>

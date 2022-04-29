@@ -25,21 +25,24 @@ import org.wikipedia.views.TalkTopicsSortOverflowView
 
 class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
 
-    private val talkPageSeenRepository = TalkPageSeenRepository(AppDatabase.instance.talkPageSeenDao())
+    private val talkPageDao = AppDatabase.instance.talkPageSeenDao()
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.LoadError(throwable)
+        uiState.value = UiState.LoadError(throwable)
     }
     private val editHandler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.EditError(throwable)
+        uiState.value = UiState.EditError(throwable)
     }
 
     private var resolveTitleRequired = false
     val threadItems = mutableListOf<ThreadItem>()
     var currentSortMode = Prefs.talkTopicsSortMode
+        set(value) {
+            field = value
+            Prefs.talkTopicsSortMode = field
+        }
     var currentSearchQuery: String? = null
 
-    private val _uiState = MutableStateFlow(UiState())
-    val uiState = _uiState
+    val uiState = MutableStateFlow(UiState())
 
     init {
         loadTopics()
@@ -89,17 +92,17 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
             threadItems.clear()
             threadItems.addAll(discussionToolsInfoResponse.await().pageInfo?.threads ?: emptyList())
 
-            _uiState.value = UiState.LoadTopic(pageTitle, threadItems, lastModifiedResponse.await())
+            uiState.value = UiState.LoadTopic(pageTitle, threadItems, lastModifiedResponse.await())
         }
     }
 
     val sortedThreadItems get(): List<ThreadItem> {
         when (currentSortMode) {
             TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_DESCENDING -> {
-                threadItems.sortByDescending { it.id }
+                threadItems.sortByDescending { it.replies.firstOrNull()?.timestamp }
             }
             TalkTopicsSortOverflowView.SORT_BY_DATE_PUBLISHED_ASCENDING -> {
-                threadItems.sortBy { it.id }
+                threadItems.sortBy { it.replies.firstOrNull()?.timestamp }
             }
             TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_DESCENDING -> {
                 threadItems.sortByDescending { RichTextUtil.stripHtml(it.html) }
@@ -121,7 +124,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
                 CsrfTokenClient(pageTitle.wikiSite).token.blockingFirst()
             }
             val undoResponse = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
-            _uiState.value = UiState.UndoEdit(undoResponse, topicId, undoneSubject, undoneBody)
+            uiState.value = UiState.UndoEdit(undoResponse, topicId, undoneSubject, undoneBody)
         }
     }
 
@@ -136,7 +139,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
             }
             val postTopicResponse = ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token)
             postTopicResponse.result?.let {
-                _uiState.value = UiState.DoEdit(it)
+                uiState.value = UiState.DoEdit(it)
             }
         }
     }
@@ -152,19 +155,27 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
             }
             val postTopicResponse = ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopicReply(pageTitle.prefixedText, commentId, body, token)
             postTopicResponse.result?.let {
-                _uiState.value = UiState.DoEdit(it)
+                uiState.value = UiState.DoEdit(it)
             }
         }
     }
 
-    fun seenTopic(topicId: String?) {
+    fun markAsSeen(topicId: String?) {
         topicId?.let {
             viewModelScope.launch(editHandler) {
                 withContext(Dispatchers.IO) {
-                    talkPageSeenRepository.insertTalkPageSeen(TalkPageSeen(it))
+                    if (topicSeen(topicId)) {
+                        talkPageDao.deleteTalkPageSeen(it)
+                    } else {
+                        talkPageDao.insertTalkPageSeen(TalkPageSeen(it))
+                    }
                 }
             }
         }
+    }
+
+    fun topicSeen(topicId: String?): Boolean {
+        return topicId?.run { talkPageDao.getTalkPageSeen(topicId) != null } ?: run { false }
     }
 
     fun subscribeTopic(commentName: String, subscribe: Boolean) {
@@ -178,7 +189,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
             }
             val subscribeResponse = ServiceFactory.get(pageTitle.wikiSite).subscribeTalkPageTopic(pageTitle.prefixedText, commentName, token, subscribe)
             subscribeResponse.status?.let {
-                _uiState.value = UiState.Subscribe(it)
+                uiState.value = UiState.Subscribe(it)
             }
         }
     }
