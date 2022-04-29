@@ -41,7 +41,6 @@
                 style="@style/OverflowMenuItem"
                 android:drawablePadding="16dp"
                 android:text="@string/talk_list_item_overflow_share"
-                android:visibility="gone"
                 app:drawableStartCompat="@drawable/ic_share"
                 app:drawableTint="?attr/material_theme_secondary_color" />
 

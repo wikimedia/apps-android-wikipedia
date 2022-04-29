@@ -19,6 +19,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.NotificationActionsOverflowView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.TalkTopicsActionsOverflowView
 
 class TalkTopicHolder internal constructor(
     private val binding: ItemTalkTopicBinding,
@@ -108,9 +109,14 @@ class TalkTopicHolder internal constructor(
     }
 
     private fun showOverflowMenu(anchorView: View) {
-    }
+        TalkTopicsActionsOverflowView(context).show(anchorView, threadItem, object: TalkTopicsActionsOverflowView.Callback {
+            override fun markAsReadClick(threadItem: ThreadItem, markRead: Boolean) {
+                onSwipe()
+            }
 
-    companion object {
-        private const val MAX_CHARS_NO_SUBJECT = 100
+            override fun subscribeClick(threadItem: ThreadItem, subscribed: Boolean) {
+                // TODO: implement this
+            }
+        })
     }
 }
