@@ -5,7 +5,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
 import android.view.View
-import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -18,20 +17,24 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
 
 class TalkTopicHolder internal constructor(
     private val binding: ItemTalkTopicBinding,
     private val context: Context,
     private val pageTitle: PageTitle,
+    private val viewModel: TalkTopicsViewModel,
     private val invokeSource: Constants.InvokeSource
-) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback  {
 
+    private lateinit var threadItem: ThreadItem
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-    private var id: String = ""
+    private var itemPosition = -1
 
-    fun bindItem(threadItem: ThreadItem, viewModel: TalkTopicsViewModel) {
-        id = threadItem.id
-        val seen = viewModel.getSeenStatus(id)
+    fun bindItem(threadItem: ThreadItem, position: Int) {
+        this.threadItem = threadItem
+        itemPosition = position
+        val seen = viewModel.topicSeen(threadItem.id)
         var titleStr = RichTextUtil.stripHtml(threadItem.html).trim()
         if (titleStr.isEmpty()) {
             threadItem.replies.firstOrNull()?.let {
@@ -45,6 +48,15 @@ class TalkTopicHolder internal constructor(
 
         StringUtil.highlightAndBoldenText(binding.topicTitleText, viewModel.currentSearchQuery, true, Color.YELLOW)
         itemView.setOnClickListener(this)
+
+        // setting tag for swipe action text
+        if (seen) {
+            itemView.setTag(R.string.tag_text_key, context.getString(R.string.talk_list_item_swipe_mark_as_read))
+            itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_drafts_24)
+        } else {
+            itemView.setTag(R.string.tag_text_key, context.getString(R.string.talk_list_item_swipe_mark_as_unread))
+            itemView.setTag(R.string.tag_icon_key, R.drawable.ic_outline_email_24)
+        }
 
         val allReplies = threadItem.allReplies
 
@@ -81,7 +93,12 @@ class TalkTopicHolder internal constructor(
     }
 
     override fun onClick(v: View?) {
-        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, id, invokeSource))
+        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, threadItem.id, invokeSource))
+    }
+
+    override fun onSwipe() {
+        viewModel.markAsSeen(threadItem.id)
+        bindingAdapter?.notifyItemChanged(itemPosition)
     }
 
     companion object {

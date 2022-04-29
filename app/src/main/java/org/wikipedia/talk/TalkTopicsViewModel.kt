@@ -160,17 +160,21 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         }
     }
 
-    fun seenTopic(topicId: String?) {
+    fun markAsSeen(topicId: String?) {
         topicId?.let {
             viewModelScope.launch(editHandler) {
                 withContext(Dispatchers.IO) {
-                    talkPageDao.insertTalkPageSeen(TalkPageSeen(it))
+                    if (topicSeen(topicId)) {
+                        talkPageDao.deleteTalkPageSeen(it)
+                    } else {
+                        talkPageDao.insertTalkPageSeen(TalkPageSeen(it))
+                    }
                 }
             }
         }
     }
 
-    fun getSeenStatus(topicId: String?): Boolean {
+    fun topicSeen(topicId: String?): Boolean {
         return topicId?.run { talkPageDao.getTalkPageSeen(topicId) != null } ?: run { false }
     }
 

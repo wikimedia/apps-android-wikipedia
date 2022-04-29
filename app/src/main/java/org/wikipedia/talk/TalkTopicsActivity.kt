@@ -16,6 +16,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collect
@@ -130,6 +131,14 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
         binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true))
         binding.talkRecyclerView.adapter = TalkTopicItemAdapter()
+
+        val touchCallback = SwipeableItemTouchHelperCallback(this,
+            ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
+            R.drawable.ic_outline_drafts_24, android.R.color.white, true, binding.talkRefreshView)
+
+        touchCallback.swipeableEnabled = true
+        val itemTouchHelper = ItemTouchHelper(touchCallback)
+        itemTouchHelper.attachToRecyclerView(binding.talkRecyclerView)
 
         binding.talkErrorView.backClickListener = View.OnClickListener {
             finish()
@@ -370,12 +379,12 @@ class TalkTopicsActivity : BaseActivity() {
             if (type == ITEM_SEARCH_BAR) {
                 return TalkTopicSearcherHolder(layoutInflater.inflate(R.layout.view_talk_topic_search_bar, parent, false))
             }
-            return TalkTopicHolder(ItemTalkTopicBinding.inflate(layoutInflater, parent, false), this@TalkTopicsActivity, pageTitle, invokeSource)
+            return TalkTopicHolder(ItemTalkTopicBinding.inflate(layoutInflater, parent, false), this@TalkTopicsActivity, pageTitle, viewModel, invokeSource)
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             if (holder is TalkTopicHolder) {
-                holder.bindItem(viewModel.sortedThreadItems[pos - listPlaceholder], viewModel)
+                holder.bindItem(viewModel.sortedThreadItems[pos - listPlaceholder], pos)
             }
         }
     }
