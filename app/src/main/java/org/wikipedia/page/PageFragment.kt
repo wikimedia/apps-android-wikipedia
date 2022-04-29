@@ -327,6 +327,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         leadImagesHandler.refreshCallToActionVisibility()
         page?.let {
             bridge.execute(JavaScriptActionHandler.setUpEditButtons(!Prefs.readingFocusModeEnabled, !it.pageProperties.canEdit))
+            bridge.execute(JavaScriptActionHandler.setUpDescriptionButton(!Prefs.readingFocusModeEnabled))
         }
         // We disable and then re-enable scroll events coming from the WebView, because toggling
         // reading focus mode within the article could actually change the dimensions of the page,
@@ -909,6 +910,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // handler), since the page metadata might have altered the lead image display state.
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
         bridge.execute(JavaScriptActionHandler.setFooter(model))
+        bridge.execute(JavaScriptActionHandler.setUpDescriptionButton(!Prefs.readingFocusModeEnabled))
     }
 
     fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry) {

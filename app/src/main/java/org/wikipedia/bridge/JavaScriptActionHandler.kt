@@ -109,6 +109,17 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.setEditButtons($isEditable, $isProtected)"
     }
 
+    fun setUpDescriptionButton(isEditable: Boolean): String {
+        // TODO: remove this temporary once the PCS side can handle this correctly
+        val displayString = if (isEditable) "inline" else "none"
+        return "(function() {" +
+                "   var titleDescriptionButton = document.getElementById('pcs-edit-section-add-title-description');" +
+                "   if (titleDescriptionButton != null) {" +
+                "       titleDescriptionButton.style.display = '$displayString';" +
+                "   }" +
+                "})();"
+    }
+
     fun setFooter(model: PageViewModel): String {
         if (model.page == null) {
             return ""
