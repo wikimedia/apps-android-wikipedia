@@ -6,7 +6,8 @@
     android:padding="16dp"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?attr/selectableItemBackground">
+    android:foreground="?attr/selectableItemBackground"
+    android:background="?paper_color">
 
     <TextView
         android:id="@+id/topicTitleText"

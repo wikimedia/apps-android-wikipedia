@@ -17,6 +17,7 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.NotificationActionsOverflowView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 
 class TalkTopicHolder internal constructor(
@@ -90,6 +91,11 @@ class TalkTopicHolder internal constructor(
         val lastCommentDate = allReplies.maxByOrNull { it.timestamp }?.timestamp?.run { DateUtil.getDateAndTime(DateUtil.iso8601DateParse(this)) }
         binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
         binding.topicLastCommentDate.isVisible = !lastCommentDate.isNullOrEmpty()
+
+        // Overflow menu
+        binding.topicOverflowMenu.setOnClickListener {
+            showOverflowMenu(it)
+        }
     }
 
     override fun onClick(v: View?) {
@@ -99,6 +105,9 @@ class TalkTopicHolder internal constructor(
     override fun onSwipe() {
         viewModel.markAsSeen(threadItem.id)
         bindingAdapter?.notifyItemChanged(itemPosition)
+    }
+
+    private fun showOverflowMenu(anchorView: View) {
     }
 
     companion object {
