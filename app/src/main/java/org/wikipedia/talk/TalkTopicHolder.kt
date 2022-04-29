@@ -25,7 +25,7 @@ class TalkTopicHolder internal constructor(
     private val pageTitle: PageTitle,
     private val viewModel: TalkTopicsViewModel,
     private val invokeSource: Constants.InvokeSource
-) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback  {
+) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
 
     private lateinit var threadItem: ThreadItem
     private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
@@ -72,7 +72,7 @@ class TalkTopicHolder internal constructor(
 
         // Username with involved user number exclude the author
         val usersInvolved = allReplies.map { it.author }.distinct().size - 1
-        val usernameText = allReplies.first().author + (if (usersInvolved > 1) " +${usersInvolved}" else "")
+        val usernameText = allReplies.first().author + (if (usersInvolved > 1) " +$usersInvolved" else "")
         val usernameColor = if (seen) android.R.attr.textColorTertiary else R.attr.colorAccent
         binding.topicUsername.text = usernameText
         binding.topicUsername.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface
