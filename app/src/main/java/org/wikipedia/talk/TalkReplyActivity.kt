@@ -123,11 +123,11 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             title = getString(R.string.talk_new_topic)
             binding.talkToolbarSubjectView.visibility = View.INVISIBLE
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
-            binding.replySubjectText.isVisible = true
+            binding.replySubjectLayout.isVisible = true
             binding.replySubjectLayout.requestFocus()
 
         } else {
-            binding.replySubjectText.isVisible = false
+            binding.replySubjectLayout.isVisible = false
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
             binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
             binding.replyInputView.maybePrepopulateUserName()
