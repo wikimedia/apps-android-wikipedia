@@ -23,4 +23,6 @@ class ThreadItem(
                 }
                 return list
         }
+
+        var seen: Boolean = false
 }

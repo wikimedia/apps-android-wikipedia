@@ -273,7 +273,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         topic = threadItems.find { t -> t.id == topicId }
         sectionId = threadItems.indexOf(topic)
 
-        viewModel.markAsSeen(topic?.id)
+        // viewModel.markAsSeen(topic?.id)
 
         // TODO: Discuss this
         // currentRevision = talkTopic.revision

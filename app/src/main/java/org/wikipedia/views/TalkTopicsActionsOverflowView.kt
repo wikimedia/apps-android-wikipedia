@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.widget.PopupWindowCompat
+import org.wikipedia.R
 import org.wikipedia.databinding.ViewTalkTopicsActionsOverflowBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 
@@ -35,6 +36,8 @@ class TalkTopicsActionsOverflowView(context: Context) : FrameLayout(context) {
             PopupWindowCompat.showAsDropDown(it, anchorView, 0, 0, Gravity.END)
         }
 
+        binding.overflowMarkAsRead.text = context.getString(if (threadItem.seen)
+            R.string.talk_list_item_overflow_mark_as_unread else R.string.notifications_menu_mark_as_read)
         // TODO: update read and subscribe status
 
         binding.overflowMarkAsRead.setOnClickListener {

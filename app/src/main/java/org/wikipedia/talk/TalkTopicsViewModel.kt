@@ -163,7 +163,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
     fun markAsSeen(topicId: String?) {
         topicId?.let {
             viewModelScope.launch(editHandler) {
-                withContext(Dispatchers.IO) {
+                withContext(Dispatchers.Main) {
                     if (topicSeen(topicId)) {
                         talkPageDao.deleteTalkPageSeen(it)
                     } else {
