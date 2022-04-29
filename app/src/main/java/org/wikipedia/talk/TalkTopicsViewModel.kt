@@ -52,7 +52,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         if (pageTitle == null) {
             return
         }
-        val pageTitle = pageTitle!!
+        val pageTitle = pageTitle?.copy()!!
 
         // Determine whether we need to resolve the PageTitle, since the calling activity might
         // have given us a non-Talk page, and we need to prepend the correct namespace.
