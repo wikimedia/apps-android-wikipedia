@@ -2,9 +2,7 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -19,6 +17,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.PluralsRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -355,13 +354,13 @@ class NotificationActivity : BaseActivity() {
             this.itemPosition = pos
             val n = container.notification!!
             val notificationCategory = NotificationCategory.find(n.category)
-            val notificationColor = ContextCompat.getColor(this@NotificationActivity,
+            val notificationColor = AppCompatResources.getColorStateList(this@NotificationActivity,
                 ResourceUtil.getThemedAttributeId(this@NotificationActivity, notificationCategory.iconColor))
-            val primaryColor = ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.primary_text_color)
+            val primaryColor = ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.primary_text_color)
 
             binding.notificationItemImage.setImageResource(notificationCategory.iconResId)
-            binding.notificationItemImage.setColorFilter(if (n.isUnread) notificationColor else
-                ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN)
+            ImageViewCompat.setImageTintList(binding.notificationItemImage, if (n.isUnread) notificationColor else
+                ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.toolbar_icon_color))
             n.contents?.let {
                 binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
                 StringUtil.highlightAndBoldenText(binding.notificationSubtitle, viewModel.currentSearchQuery, true, Color.YELLOW)
@@ -533,13 +532,11 @@ class NotificationActivity : BaseActivity() {
             val excludedFilters = viewModel.excludedFiltersCount()
             if (excludedFilters == 0) {
                 notificationFilterCountView.visibility = View.GONE
-                ImageViewCompat.setImageTintList(notificationFilterButton,
-                    ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.chip_text_color)))
+                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.chip_text_color))
             } else {
                 notificationFilterCountView.visibility = View.VISIBLE
                 notificationFilterCountView.text = excludedFilters.toString()
-                ImageViewCompat.setImageTintList(notificationFilterButton,
-                    ColorStateList.valueOf(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.colorAccent)))
+                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.colorAccent))
             }
         }
     }
