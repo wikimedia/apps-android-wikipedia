@@ -1,7 +1,6 @@
 package org.wikipedia.watchlist
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View.OnClickListener
@@ -87,7 +86,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
     }
 
     private fun setButtonTextAndIconColor(text: String, @AttrRes backgroundTint: Int, @DrawableRes iconResourceDrawable: Int = 0) {
-        val themedTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_61))
+        val themedTint = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_61)
         binding.diffText.text = text
         binding.diffText.setTextColor(themedTint)
         binding.diffText.setIconResource(iconResourceDrawable)

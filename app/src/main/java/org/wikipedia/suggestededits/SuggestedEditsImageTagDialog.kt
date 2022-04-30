@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.DialogInterface
-import android.content.res.ColorStateList
 import android.graphics.drawable.InsetDrawable
 import android.os.Build
 import android.os.Bundle
@@ -68,10 +67,9 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
-        val surfaceColor = ResourceUtil.getThemedColor(requireActivity(), R.attr.searchItemBackground)
         val model = ShapeAppearanceModel.builder().setAllCornerSizes(DimenUtil.dpToPx(6f)).build()
         val materialShapeDrawable = MaterialShapeDrawable(model)
-        materialShapeDrawable.fillColor = ColorStateList.valueOf(surfaceColor)
+        materialShapeDrawable.fillColor = ResourceUtil.getThemedColorStateList(requireActivity(), R.attr.searchItemBackground)
         materialShapeDrawable.elevation = dialog.window!!.decorView.elevation
 
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
