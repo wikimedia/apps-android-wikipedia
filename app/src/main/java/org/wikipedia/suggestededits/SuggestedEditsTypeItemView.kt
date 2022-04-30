@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemSuggestedEditsTypeBinding
@@ -34,13 +33,13 @@ class SuggestedEditsTypeItemView constructor(context: Context, attrs: AttributeS
     fun setEnabledStateUI() {
         binding.editTypeTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
         ImageViewCompat.setImageTintList(binding.editTypeImage, AppCompatResources.getColorStateList(context, ResourceUtil.getThemedAttributeId(context, R.attr.themed_icon_color)))
-        binding.editTypeContainer.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_accent90_fill)
+        binding.editTypeContainer.setBackgroundResource(R.drawable.rounded_12dp_accent90_fill)
     }
 
     fun setDisabledStateUI() {
         binding.editTypeTitle.setTextColor(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
         ImageViewCompat.setImageTintList(binding.editTypeImage, AppCompatResources.getColorStateList(context, ResourceUtil.getThemedAttributeId(context, R.attr.chart_shade4)))
-        binding.editTypeContainer.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_corner_base90_fill)
+        binding.editTypeContainer.setBackgroundResource(R.drawable.rounded_12dp_corner_base90_fill)
     }
 
     fun setAttributes(title: String, imageResource: Int, editType: Int, callback: Callback) {

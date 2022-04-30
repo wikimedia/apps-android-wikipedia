@@ -40,7 +40,7 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
     }
 
     fun setImageDrawable(@DrawableRes imageDrawable: Int) {
-        binding.image.setImageDrawable(AppCompatResources.getDrawable(context, imageDrawable))
+        binding.image.setImageResource(imageDrawable)
     }
 
     fun getDescriptionView(): View {

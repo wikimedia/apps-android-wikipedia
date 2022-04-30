@@ -90,8 +90,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         val themedTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_61))
         binding.diffText.text = text
         binding.diffText.setTextColor(themedTint)
-        binding.diffText.icon = if (iconResourceDrawable == null) null
-        else ContextCompat.getDrawable(context, iconResourceDrawable)
+        iconResourceDrawable?.let { binding.diffText.setIconResource(it) }
         binding.diffText.iconTint = themedTint
         binding.diffText.setBackgroundColor(ResourceUtil.getThemedColor(context, backgroundTint))
     }
