@@ -4,12 +4,12 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.collection.ArrayMap;
 
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +23,7 @@ public final class SharedPreferenceCookieManager implements CookieJar {
     private static SharedPreferenceCookieManager INSTANCE;
 
     // Map: domain -> list of cookies
-    private final Map<String, List<Cookie>> cookieJar;
+    private final ArrayMap<String, List<Cookie>> cookieJar;
 
     @NonNull
     public static SharedPreferenceCookieManager getInstance() {
@@ -41,11 +41,12 @@ public final class SharedPreferenceCookieManager implements CookieJar {
     }
 
     public SharedPreferenceCookieManager(Map<String, List<Cookie>> cookieJar) {
-        this.cookieJar = new HashMap<>(cookieJar);
+        this.cookieJar = new ArrayMap<>(cookieJar.size());
+        this.cookieJar.putAll(cookieJar);
     }
 
     private SharedPreferenceCookieManager() {
-        cookieJar = new HashMap<>();
+        cookieJar = new ArrayMap<>();
     }
 
     public Map<String, List<Cookie>> getCookieJar() {
@@ -62,8 +63,8 @@ public final class SharedPreferenceCookieManager implements CookieJar {
     }
 
     @Nullable public synchronized String getCookieByName(@NonNull String name) {
-        for (String domainSpec: cookieJar.keySet()) {
-            for (Cookie cookie : cookieJar.get(domainSpec)) {
+        for (int i = 0; i < cookieJar.size(); i++) {
+            for (Cookie cookie : cookieJar.valueAt(i)) {
                 if (cookie.name().equals(name)) {
                     return cookie.value();
                 }
@@ -81,9 +82,7 @@ public final class SharedPreferenceCookieManager implements CookieJar {
         for (Cookie cookie : cookies) {
             // Default to the URI's domain if cookie's domain is not explicitly set
             String domainSpec = TextUtils.isEmpty(cookie.domain()) ? url.uri().getAuthority() : cookie.domain();
-            if (!cookieJar.containsKey(domainSpec)) {
-                cookieJar.put(domainSpec, new ArrayList<>());
-            }
+            cookieJar.putIfAbsent(domainSpec, new ArrayList<>());
 
             List<Cookie> cookieList = cookieJar.get(domainSpec);
             if (cookie.expiresAt() < System.currentTimeMillis() || "deleted".equals(cookie.value())) {
@@ -120,13 +119,15 @@ public final class SharedPreferenceCookieManager implements CookieJar {
         }
     }
 
+    @NonNull
     @Override
     public synchronized List<Cookie> loadForRequest(@NonNull HttpUrl url) {
         List<Cookie> cookieList = new ArrayList<>();
         String domain = url.uri().getAuthority();
 
-        for (String domainSpec : cookieJar.keySet()) {
-            List<Cookie> cookiesForDomainSpec = cookieJar.get(domainSpec);
+        for (int i = 0; i < cookieJar.size(); i++) {
+            final String domainSpec = cookieJar.keyAt(i);
+            final List<Cookie> cookiesForDomainSpec = cookieJar.valueAt(i);
 
             if (domain.endsWith(domainSpec)) {
                 buildCookieList(cookieList, cookiesForDomainSpec, null);
