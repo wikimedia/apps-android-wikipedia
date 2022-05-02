@@ -37,10 +37,12 @@ import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edithistory.EditHistoryListActivity
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -234,8 +236,7 @@ class TalkTopicsActivity : BaseActivity() {
                 return true
             }
             R.id.menu_view_user_page -> {
-                val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
-                startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+                goToPage()
                 return true
             }
             R.id.menu_view_edit_history -> {
@@ -257,10 +258,7 @@ class TalkTopicsActivity : BaseActivity() {
     private fun resetViews() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
-        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
-        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
-        binding.toolbarTitle.isVisible = !goToTopic
-        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
+        setToolbarTitle(pageTitle)
 
         binding.talkProgressBar.isVisible = true
         binding.talkErrorView.visibility = View.GONE
@@ -271,7 +269,7 @@ class TalkTopicsActivity : BaseActivity() {
         // Update page title and start the funnel
         this.pageTitle = pageTitle
         funnel = TalkFunnel(pageTitle, invokeSource)
-        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+        setToolbarTitle(pageTitle)
 
         // Update last modified date
         lastModifiedResponse.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
@@ -351,6 +349,17 @@ class TalkTopicsActivity : BaseActivity() {
         startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
     }
 
+    private fun setToolbarTitle(pageTitle: PageTitle) {
+        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
+        binding.toolbarTitle.isVisible = !goToTopic
+        binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
+            goToPage()
+        }
+        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
+        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
+    }
+
     fun updateNotificationDot(animate: Boolean) {
         if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
@@ -360,6 +369,15 @@ class TalkTopicsActivity : BaseActivity() {
         } else {
             notificationButtonView.setUnreadCount(0)
         }
+    }
+
+    private fun goToPage() {
+        val entry = if (pageTitle.namespace() == Namespace.USER_TALK) {
+            HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
+        } else {
+            HistoryEntry(PageTitle(pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
+        }
+        startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
     }
 
     internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
