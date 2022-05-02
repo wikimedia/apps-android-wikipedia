@@ -1,12 +1,10 @@
 package org.wikipedia.talk
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
 import android.view.View
 import androidx.core.view.isVisible
-import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -36,15 +34,7 @@ class TalkTopicHolder internal constructor(
         item.seen = viewModel.topicSeen(item.id)
         threadItem = item
         itemPosition = position
-        var titleStr = RichTextUtil.stripHtml(threadItem.html).trim()
-        if (titleStr.isEmpty()) {
-            threadItem.replies.firstOrNull()?.let {
-                titleStr = RichTextUtil.stripHtml(it.html).replace("\n", " ")
-            }
-        }
-
-        binding.topicTitleText.text = titleStr.ifEmpty { context.getString(R.string.talk_no_subject) }
-        binding.topicTitleText.typeface = if (threadItem.seen) Typeface.SANS_SERIF else unreadTypeface
+        binding.topicTitleText.text = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
         binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
 
         StringUtil.highlightAndBoldenText(binding.topicTitleText, viewModel.currentSearchQuery, true, Color.YELLOW)
@@ -68,24 +58,15 @@ class TalkTopicHolder internal constructor(
 
         // Last comment
         binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim()
-        binding.topicContentText.typeface = if (threadItem.seen) Typeface.SANS_SERIF else unreadTypeface
         binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color))
 
         // Username with involved user number exclude the author
         val usersInvolved = allReplies.map { it.author }.distinct().size - 1
         val usernameText = allReplies.first().author + (if (usersInvolved > 1) " +$usersInvolved" else "")
-        val usernameColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.colorAccent
         binding.topicUsername.text = usernameText
-        binding.topicUsername.typeface = if (threadItem.seen) Typeface.SANS_SERIF else unreadTypeface
-        binding.topicUsername.setTextColor(ResourceUtil.getThemedColor(context, usernameColor))
-        ImageViewCompat.setImageTintList(binding.topicUserIcon, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, usernameColor)))
 
         // Amount of replies, exclude the topic in replies[].
-        val replyNumberColor = if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color
         binding.topicReplyNumber.text = (allReplies.size - 1).toString()
-        binding.topicReplyNumber.typeface = if (threadItem.seen) Typeface.SANS_SERIF else unreadTypeface
-        binding.topicReplyNumber.setTextColor(ResourceUtil.getThemedColor(context, replyNumberColor))
-        ImageViewCompat.setImageTintList(binding.topicReplyIcon, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, replyNumberColor)))
 
         // Last comment date
         val lastCommentDate = allReplies.maxByOrNull { it.timestamp }?.timestamp?.run { DateUtil.getDateAndTime(DateUtil.iso8601DateParse(this)) }
@@ -99,6 +80,7 @@ class TalkTopicHolder internal constructor(
     }
 
     override fun onClick(v: View?) {
+        markAsSeen()
         context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, threadItem.id, invokeSource))
     }
 
