@@ -109,8 +109,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(),
                         R.attr.material_theme_de_emphasised_color))
                 binding.thankButton.isEnabled = false
+                editHistoryInteractionEvent?.logThankSuccess()
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
+                editHistoryInteractionEvent?.logThankFail()
             }
         }
 
@@ -334,7 +336,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .setView(parent)
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
                     editHistoryInteractionEvent?.logThankTry()
-                    viewModel.sendThanks(viewModel.pageTitle.wikiSite, viewModel.revisionToId, editHistoryInteractionEvent)
+                    viewModel.sendThanks(viewModel.pageTitle.wikiSite, viewModel.revisionToId)
                 }
                 .setNegativeButton(R.string.thank_dialog_negative_button_text, null)
                 .create()

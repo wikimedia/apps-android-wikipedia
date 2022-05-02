@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import org.wikipedia.analytics.WatchlistFunnel
-import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -133,17 +132,13 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    fun sendThanks(wikiSite: WikiSite,
-                   revisionId: Long,
-                   editHistoryInteractionEvent: EditHistoryInteractionEvent?) {
+    fun sendThanks(wikiSite: WikiSite, revisionId: Long) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             thankStatus.postValue(Resource.Error(throwable))
-            editHistoryInteractionEvent?.logThankFail()
         }) {
             withContext(Dispatchers.IO) {
                 val token = ServiceFactory.get(wikiSite).getCsrfToken().query?.csrfToken()
                 thankStatus.postValue(Resource.Success(ServiceFactory.get(wikiSite).postThanksToRevision(revisionId, token!!)))
-                editHistoryInteractionEvent?.logThankSuccess()
             }
         }
     }
