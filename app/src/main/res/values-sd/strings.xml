@@ -127,7 +127,7 @@
   <string name="login_in_progress_dialog_message">توهان کي داخل ڪندي...</string>
   <string name="login_success_toast">داخل ٿيا!</string>
   <string name="reset_password_title">پنھنجو ڳجهولفظ مرتب ڪريو</string>
-  <string name="reset_password_description">توھان ھڪ عارضي ڳجهي-لفظ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ پنھنجو ھڪ نئون ڳجهولفظ مرتب ڪريو.</string>
+  <string name="reset_password_description">توھان ھڪ عارضي ڳجهي‌لفظ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ پنھنجو ھڪ نئون ڳجهولفظ مرتب ڪريو.</string>
   <string name="reset_password_hint">نئون ڳجهولفظ</string>
   <string name="reset_password_button">محفوظ ڪريو ۽ داخل ٿيو</string>
   <string name="preference_title_logout">ٻاھر نڪرو</string>
@@ -337,7 +337,7 @@
   <string name="enable_location_service">فعاليو</string>
   <string name="location_permissions_enable_prompt">اوھان جي ويجهو جڳھون ڏسڻ لاءِ مڪانيت اجازتن کي فعال ڪريو.</string>
   <string name="location_permissions_enable_action">ھلايو</string>
-  <string name="error_webview_updating">دي اينڊروئڊ سسٽم ويبوِيو ھن وقت جديديو پيو وڃي.\nمھرباني ڪري ھڪ لمحي ۾ ٻيھر ڪوشش ڪريو.</string>
+  <string name="error_webview_updating">دي اينڊروئڊ سسٽم ويبوِيو ھن وقت تجديديو پيو وڃي. مھرباني ڪري ھڪ لمحي ۾ ٻيھر ڪوشش ڪريو.</string>
   <plurals name="multi_items_selected">
     <item quantity="one">%d چونڊيل</item>
     <item quantity="other">%d چونڊيل</item>
