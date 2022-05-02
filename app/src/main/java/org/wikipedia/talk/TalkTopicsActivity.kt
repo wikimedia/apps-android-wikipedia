@@ -92,12 +92,12 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private val requestNewTopic = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == TalkTopicActivity.RESULT_EDIT_SUCCESS) {
+        if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
             val newRevisionId = it.data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
             // TODO: fix this
             val topic = it.data?.getStringExtra(TalkTopicActivity.EXTRA_TOPIC) ?: ""
-            val undoneSubject = it.data?.getStringExtra(TalkTopicActivity.EXTRA_SUBJECT) ?: ""
-            val undoneText = it.data?.getStringExtra(TalkTopicActivity.EXTRA_BODY) ?: ""
+            val undoneSubject = it.data?.getStringExtra(TalkReplyActivity.EXTRA_SUBJECT) ?: ""
+            val undoneText = it.data?.getStringExtra(TalkReplyActivity.EXTRA_BODY) ?: ""
             if (newRevisionId > 0) {
                 FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
                     .setAnchorView(binding.talkNewTopicButton)
@@ -113,9 +113,7 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private val requestGoToTopic = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == TalkTopicActivity.RESULT_BACK_FROM_TOPIC) {
-            finish()
-        }
+        finish()
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -349,7 +347,7 @@ class TalkTopicsActivity : BaseActivity() {
 
     private fun updateOnUndoSave(topicId: String, undoneSubject: String, undoneBody: String) {
         // TODO: discuss this
-        startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
+        startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource))
     }
 
     fun updateNotificationDot(animate: Boolean) {

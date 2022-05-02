@@ -100,16 +100,17 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     public override fun onDestroy() {
-
-        // TODO
-        // binding.replySubjectText.removeTextChangedListener(textWatcher)
-        // binding.replyInputView.editText.removeTextChangedListener(textWatcher)
-
+        binding.replySubjectText.removeTextChangedListener(textWatcher)
+        binding.replyInputView.editText.removeTextChangedListener(textWatcher)
         super.onDestroy()
     }
 
     private fun onInitialLoad() {
         updateEditLicenseText()
+
+        // TODO:
+        // binding.replyInputView.userNameHints = parseUserNamesFromTopic()
+
         binding.progressBar.isVisible = false
         binding.replySubjectText.setText(intent.getStringExtra(EXTRA_SUBJECT).orEmpty())
         binding.replyInputView.editText.setText(intent.getStringExtra(EXTRA_BODY).orEmpty())
@@ -141,21 +142,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 }
             }
         }
-    }
-
-    private fun updateOnSuccess(threadItems: List<ThreadItem>) {
-        binding.progressBar.visibility = View.GONE
-
-        // TODO: Discuss this
-        // currentRevision = talkTopic.revision
-
-        // TODO:
-        // binding.replyInputView.userNameHints = parseUserNamesFromTopic()
-        // maybeShowUndoSnackbar()
-    }
-
-    private fun updateOnError(t: Throwable) {
-        binding.progressBar.visibility = View.GONE
     }
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
@@ -225,6 +211,11 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         Intent().let {
             it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
+            it.putExtra(EXTRA_SUBJECT, binding.replySubjectText.text)
+            it.putExtra(EXTRA_BODY, binding.replyInputView.editText.text)
+            if (viewModel.topic != null) {
+                it.putExtra(EXTRA_TOPIC_ID, viewModel.topic!!.id)
+            }
             setResult(RESULT_EDIT_SUCCESS, it)
             finish()
         }
@@ -237,30 +228,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.replySaveButton.isEnabled = true
         FeedbackUtil.showError(this, t)
     }
-
-    /*
-    private fun maybeShowUndoSnackbar() {
-        if (undone) {
-            replyClicked()
-            undone = false
-            return
-        }
-        if (showUndoSnackbar) {
-            FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
-                .setAnchorView(binding.talkReplyButton)
-                .setAction(R.string.talk_snackbar_undo) {
-                    undone = true
-                    binding.talkReplyButton.isEnabled = false
-                    binding.talkReplyButton.alpha = 0.5f
-                    binding.talkProgressBar.visibility = View.VISIBLE
-                    // TODO
-                    // viewModel.undoSave(revisionForUndo, "", "", "")
-                }
-                .show()
-            showUndoSnackbar = false
-        }
-    }
-    */
 
     private fun updateEditLicenseText() {
         binding.licenseText.text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
@@ -316,43 +283,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.licenseText.isVisible = true
     }
 
-    /*
-    private fun parseUserNamesFromTopic(): Set<String> {
-        val userNames = mutableSetOf<String>()
-        // Go through our list of replies under the current topic, and collect any links to user
-        // names, making sure to store them in reverse order, so that the last user name mentioned
-        // in a response will appear first in the list of hints when searching for mentions.
-        // TODO: search only up to the replied-to item
-        viewModel.flattenedThreadItems.forEach {
-            var start = 0
-            val userList = mutableListOf<String>()
-            while (true) {
-                val searchStr = "title=\""
-                start = it.html.indexOf(searchStr, startIndex = start)
-                if (start < 0) {
-                    break
-                }
-                start += searchStr.length
-                val end = it.html.indexOf("\"", startIndex = start)
-                if (end <= start) {
-                    break
-                }
-                val name = it.html.substring(start, end)
-                val title = PageTitle(name, viewModel.pageTitle.wikiSite)
-                if (title.namespace() == Namespace.USER || title.namespace() == Namespace.USER_TALK) {
-                    userList.add(0, StringUtil.removeUnderscores(title.text))
-                }
-                start = end
-            }
-            userNames.addAll(userList)
-        }
-        return userNames
-    }
-    */
-
     companion object {
         const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_TOPIC = "topic"
+        const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
         const val RESULT_EDIT_SUCCESS = 1
@@ -363,13 +297,13 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                       pageTitle: PageTitle,
                       topic: ThreadItem?,
                       invokeSource: Constants.InvokeSource,
-                      undoneSubject: String? = null,
-                      undoneBody: String? = null): Intent {
+                      undoSubject: String? = null,
+                      undoBody: String? = null): Intent {
             return Intent(context, TalkReplyActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC, topic)
-                    .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
-                    .putExtra(EXTRA_BODY, undoneBody ?: "")
+                    .putExtra(EXTRA_SUBJECT, undoSubject ?: "")
+                    .putExtra(EXTRA_BODY, undoBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

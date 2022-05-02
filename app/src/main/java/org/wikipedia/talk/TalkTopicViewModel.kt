@@ -28,6 +28,11 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         private set
     val threadItemsData = MutableLiveData<Resource<List<ThreadItem>>>()
     val subscribeData = SingleLiveData<Resource<Boolean>>()
+    val undoResponseData = SingleLiveData<Resource<Boolean>>()
+
+    var undoSubject: String? = null
+    var undoBody: String? = null
+    var undoTopicId: String? = null
 
     init {
         loadTopic()
@@ -96,6 +101,25 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
                 return prevList[oldItemPosition].id == flattenedThreadItems[newItemPosition].id
             }
         })
+    }
+
+    fun undo(undoRevId: Long) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            undoResponseData.postValue(Resource.Error(throwable))
+        }) {
+            val token = ServiceFactory.get(pageTitle.wikiSite).getCsrfToken().query?.csrfToken()!!
+            val response = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = undoRevId, token = token)
+            undoResponseData.postValue(Resource.Success(response.edit!!.editSucceeded))
+        }
+    }
+
+    fun findTopicById(id: String?): ThreadItem? {
+        topic?.allReplies?.forEach {
+            if (it.id == id) {
+                return it
+            }
+        }
+        return null
     }
 
     private fun updateFlattenedThreadItems() {

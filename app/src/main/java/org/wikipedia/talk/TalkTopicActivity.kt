@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,13 +41,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val viewModel: TalkTopicViewModel by viewModels { TalkTopicViewModel.Factory(intent.extras!!) }
     private val threadAdapter = TalkReplyItemAdapter()
     private val headerAdapter = HeaderItemAdapter()
-    private var undone = false
-    private var undoneBody = ""
-    private var undoneSubject = ""
-    private var showUndoSnackbar = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private var currentRevision: Long = 0
-    private var revisionForUndo: Long = 0
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
@@ -59,8 +54,18 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
-    private val replyResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-
+    private val replyResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
+            result.data?.let {
+                viewModel.undoSubject = it.getStringExtra(TalkReplyActivity.EXTRA_SUBJECT)
+                viewModel.undoBody = it.getStringExtra(TalkReplyActivity.EXTRA_BODY)
+                viewModel.undoTopicId = it.getStringExtra(TalkReplyActivity.EXTRA_TOPIC_ID)
+                val undoRevId = it.getLongExtra(TalkReplyActivity.RESULT_NEW_REVISION_ID, -1)
+                if (undoRevId >= 0) {
+                    showUndoSnackbar(undoRevId)
+                }
+            }
+        }
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,8 +75,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         setSupportActionBar(binding.replyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
-        if (intent.hasExtra(EXTRA_SUBJECT)) undoneSubject = intent.getStringExtra(EXTRA_SUBJECT) ?: ""
-        if (intent.hasExtra(EXTRA_BODY)) undoneBody = intent.getStringExtra(EXTRA_BODY) ?: ""
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
@@ -114,6 +117,17 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             }
         }
 
+        viewModel.undoResponseData.observe(this) {
+            if (it is Resource.Success) {
+                binding.talkProgressBar.isVisible = false
+                viewModel.findTopicById(viewModel.undoTopicId)?.let { item ->
+                    startReplyActivity(item)
+                }
+            } else if (it is Resource.Error) {
+                FeedbackUtil.showError(this, it.throwable)
+            }
+        }
+
         onInitialLoad()
     }
 
@@ -135,7 +149,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 true
             }
             R.id.menu_edit_source -> {
-                requestEditSource.launch(EditSectionActivity.newIntent(this, viewModel.sectionId, undoneSubject, viewModel.pageTitle))
+                requestEditSource.launch(EditSectionActivity.newIntent(this, viewModel.sectionId, null, viewModel.pageTitle))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -157,9 +171,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun updateOnSuccess(threadItems: List<ThreadItem>) {
         binding.talkProgressBar.visibility = View.GONE
         binding.talkRefreshView.isRefreshing = false
-
-        // TODO: Discuss this
-        // currentRevision = talkTopic.revision
 
         if (binding.talkRecyclerView.adapter == null) {
             binding.talkRecyclerView.adapter = ConcatAdapter().apply {
@@ -215,9 +226,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onReplyClick(item: ThreadItem) {
-            talkFunnel.logReplyClick()
-            replyResult.launch(TalkReplyActivity.newIntent(this@TalkTopicActivity, viewModel.pageTitle,
-                    item, Constants.InvokeSource.TALK_ACTIVITY, undoneSubject, undoneBody))
+            startReplyActivity(item)
         }
     }
 
@@ -265,6 +274,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
+    private fun startReplyActivity(item: ThreadItem) {
+        talkFunnel.logReplyClick()
+        replyResult.launch(TalkReplyActivity.newIntent(this@TalkTopicActivity, viewModel.pageTitle,
+                item, Constants.InvokeSource.TALK_ACTIVITY, viewModel.undoSubject, viewModel.undoBody))
+    }
+
     private fun onSaveError(t: Throwable) {
         editFunnel.logError(t.message)
         EditAttemptStepEvent.logSaveFailure(viewModel.pageTitle)
@@ -272,29 +287,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         FeedbackUtil.showError(this, t)
     }
 
-    /*
-    private fun maybeShowUndoSnackbar() {
-        if (undone) {
-            replyClicked()
-            undone = false
-            return
-        }
-        if (showUndoSnackbar) {
-            FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
-                .setAnchorView(binding.talkReplyButton)
+    private fun showUndoSnackbar(undoRevId: Long) {
+        FeedbackUtil.makeSnackbar(this, getString(R.string.talk_response_submitted), FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.talk_snackbar_undo) {
-                    undone = true
-                    binding.talkReplyButton.isEnabled = false
-                    binding.talkReplyButton.alpha = 0.5f
                     binding.talkProgressBar.visibility = View.VISIBLE
-                    // TODO
-                    // viewModel.undoSave(revisionForUndo, "", "", "")
+                    viewModel.undo(undoRevId)
                 }
                 .show()
-            showUndoSnackbar = false
-        }
     }
-    */
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
@@ -318,23 +318,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     companion object {
         const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_TOPIC = "topicName"
-        const val EXTRA_SUBJECT = "subject"
-        const val EXTRA_BODY = "body"
-        const val RESULT_EDIT_SUCCESS = 1
-        const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         fun newIntent(context: Context,
                       pageTitle: PageTitle,
                       topicId: String,
-                      invokeSource: Constants.InvokeSource,
-                      undoneSubject: String? = null,
-                      undoneBody: String? = null): Intent {
+                      invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC, topicId)
-                    .putExtra(EXTRA_SUBJECT, undoneSubject ?: "")
-                    .putExtra(EXTRA_BODY, undoneBody ?: "")
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

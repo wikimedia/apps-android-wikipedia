@@ -42,7 +42,8 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
     fun bindItem(item: ThreadItem, movementMethod: MovementMethod, replying: Boolean = false) {
         this.item = item
         binding.userNameText.text = item.author
-        binding.timeStampText.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(item.timestamp))
+        binding.timeStampText.isVisible = item.date != null
+        item.date?.let { binding.timeStampText.text = DateUtil.getDateAndTimeWithPipe(it) }
         binding.bodyText.text = StringUtil.fromHtml(item.html)
         binding.bodyText.movementMethod = movementMethod
 

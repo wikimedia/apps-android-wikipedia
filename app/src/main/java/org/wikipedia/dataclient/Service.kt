@@ -278,14 +278,6 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
-    fun postUndoEdit(
-        @Field("title") title: String,
-        @Field("undo") revision: Long,
-        @Field("token") token: String
-    ): Observable<Edit>
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=edit")
     suspend fun postUndoEdit(
             @Field("title") title: String,
             @Field("summary") summary: String? = null,

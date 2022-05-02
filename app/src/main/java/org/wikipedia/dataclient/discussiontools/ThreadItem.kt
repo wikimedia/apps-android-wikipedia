@@ -5,6 +5,8 @@ import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
+import org.wikipedia.util.DateUtil
+import java.util.*
 
 @Serializable
 @Parcelize
@@ -15,7 +17,7 @@ class ThreadItem(
         val name: String = "",
         val html: String = "",
         val author: String = "",
-        val timestamp: String = "",
+        private val timestamp: String = "",
         val headingLevel: Int = 0,
         val placeholderHeading: Boolean = false,
         val replies: List<ThreadItem> = emptyList()
@@ -32,4 +34,11 @@ class ThreadItem(
             }
             return list
         }
+
+    @IgnoredOnParcel @Transient val date = try {
+        DateUtil.iso8601DateParse(timestamp)
+    } catch (e: Exception) {
+        e.printStackTrace()
+        null
+    }
 }

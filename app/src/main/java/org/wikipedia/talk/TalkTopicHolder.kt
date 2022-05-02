@@ -14,7 +14,6 @@ import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
@@ -90,9 +89,9 @@ class TalkTopicHolder internal constructor(
         ImageViewCompat.setImageTintList(binding.topicReplyIcon, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, replyNumberColor)))
 
         // Last comment date
-        val lastCommentDate = allReplies.maxByOrNull { it.timestamp }?.timestamp?.run { DateUtil.getDateAndTime(DateUtil.iso8601DateParse(this)) }
+        val lastCommentDate = allReplies.mapNotNull { it.date }.maxByOrNull { it }
         binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
-        binding.topicLastCommentDate.isVisible = !lastCommentDate.isNullOrEmpty()
+        binding.topicLastCommentDate.isVisible = lastCommentDate != null
 
         // Overflow menu
         binding.topicOverflowMenu.setOnClickListener {
