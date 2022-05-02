@@ -62,13 +62,27 @@
   <string name="share_via">Del via</string>
   <string name="image_share_via">Del via</string>
   <string name="search_redirect_from">Omdirigert fra %s</string>
+  <string name="page_edit_history_activity_title">Revisjonshistorikk: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Tom redigeringsforklaring</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Søk i eller filtrer redigeringer</string>
+  <string name="page_edit_history_filter_by">Filtrer etter</string>
+  <string name="page_edit_history_filter_by_all">Alle redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_user">Brukerredigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Anonyme redigeringer (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Botredigeringer (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Målinger fra %1$s til %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d redigering siden %2$s</item>
+    <item quantity="other">%1$d redigeringer siden %2$s</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Prøv å endre &lt;a href=\"#\"&gt;filtrene&lt;/a&gt; for å se flere redigeringer</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
   <string name="menu_page_find_in_page">Søk i artikkelen</string>
   <string name="menu_page_add_to_watchlist">Legg til i overvåkningsliste</string>
   <string name="menu_page_watch">Overvåk</string>
+  <string name="menu_page_unwatch">Avslutt overvåkning</string>
   <string name="menu_page_view_talk">Vis diskusjonsside</string>
   <string name="menu_page_talk_page">Diskusjonsside</string>
   <string name="menu_page_view_edit_history">Vis redigeringshistorikk</string>
@@ -795,6 +809,8 @@
   <string name="customize_toolbar_category_menu">Meny</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Dra og slipp favorittelementete dine her 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Nullstill</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Hold flytteikonet for å flytte elementet</string>
+  <string name="customize_toolbar_item_default_tooltip">Trykk og dra elementet for å flytte det</string>
   <string name="suggested_edits_describe_articles">Beskriv artikler</string>
   <string name="suggested_edits_caption_images">Skriv bildetekster</string>
   <string name="suggested_edits_tag_images">Tagg bilder</string>
@@ -885,6 +901,7 @@
   <string name="suggested_edits_paused_message">Redigeringsforslag er deaktivert frem til %1$s. Beklager %2$s, men noen av de siste bidragene dine har blitt tilbakestilt.</string>
   <string name="suggested_edits_disabled_message">Redigeringsforslag er deaktivert. Beklager %s, for mange av de siste bidragene dine har blitt tilbakestilt.</string>
   <string name="suggested_edits_ip_blocked_message">Det ser ut som IP-adressen din er blokkert fra å rdeigere Wikipedia, eller befinner seg i et blokkert intervall.</string>
+  <string name="suggested_edits_gate_message">Beklager, %s, du må gjøre minst tre redigeringer direkte i artikler for å bruke denne funksjonen.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og -triks for redigering</string>
   <string name="suggested_edits_help_page_link_text">Hjelpeside for redigeringsforslag</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringsstrekk</string>
@@ -1099,6 +1116,21 @@
   <string name="thank_success_message">Din takk ble sendt til %s 👍</string>
   <string name="menu_option_view_user_profile">Vis brukerens profilside</string>
   <string name="menu_option_view_user_talk">Vis diskusjonsside</string>
+  <string name="menu_option_view_user_contributions">Vis brukerbidrag</string>
+  <string name="revision_diff_compare">Sammenlign revisjoner</string>
+  <string name="revision_diff_compare_title">Sammenlign revisjoner: %s</string>
+  <string name="revision_diff_from">Fra:</string>
+  <string name="revision_diff_to">Til:</string>
+  <string name="revision_diff_line_num">Linje %d</string>
+  <string name="revision_diff_line_nums">Linje %d–%d</string>
+  <string name="revision_diff_line_added">Linje lagt til</string>
+  <string name="revision_diff_line_removed">Linje fjernet</string>
+  <string name="revision_diff_paragraph_added">Avsnitt lagt til</string>
+  <string name="revision_diff_paragraph_removed">Avsnitt fjernet</string>
+  <string name="revision_undo_title">Gjør om redigering</string>
+  <string name="revision_undo_message">Dette vil gjøre om redigeringene som ble gjort i revisjonen(e) som vises her.</string>
+  <string name="revision_undo_reason">Angi en årsak til at du gjør om denne redigeringen for å fortsette:</string>
+  <string name="revision_undo_success">Revisjonen ble gjort om.</string>
   <string name="revision_compare_button">Sammenlign</string>
   <string name="revision_compare_two_only">Man kan kun velge to revisjoner.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s og diskusjonssiden dens har blitt lagt til i overvåkningslisten din %2$s.s</string>
@@ -1123,4 +1155,10 @@
   <string name="watchlist_page_moved">Flyttet</string>
   <string name="watchlist_page_protected">Beskyttet</string>
   <string name="watchlist_page_deleted">Slettet</string>
+  <string name="action_item_categories">Kategorier</string>
+  <string name="page_no_categories">Denne siden tilhører ingen kategorier.</string>
+  <string name="category_tab_articles">Artikler</string>
+  <string name="category_tab_subcategories">Underkategorier</string>
+  <string name="category_empty">Ingen artikler funnet i denne kategorien.</string>
+  <string name="subcategory_empty">Ingen underkategorier funnet i denne kategorien.</string>
 </resources>
