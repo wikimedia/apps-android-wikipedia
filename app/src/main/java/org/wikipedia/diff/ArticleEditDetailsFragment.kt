@@ -2,7 +2,7 @@ package org.wikipedia.diff
 
 import android.app.AlertDialog
 import android.content.res.ColorStateList
-import android.graphics.*
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.*
 import android.widget.FrameLayout
@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.button.MaterialButton
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
@@ -50,6 +51,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
+    private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -58,7 +60,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
-
+        editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), -1)
+        editHistoryInteractionEvent?.logRevision()
         return binding.root
     }
 
@@ -330,7 +333,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val dialog: AlertDialog = AlertDialog.Builder(activity)
                 .setView(parent)
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
-                    viewModel.sendThanks(viewModel.pageTitle.wikiSite, viewModel.revisionToId)
+                    editHistoryInteractionEvent?.logThankTry()
+                    viewModel.sendThanks(viewModel.pageTitle.wikiSite, viewModel.revisionToId, editHistoryInteractionEvent)
                 }
                 .setNegativeButton(R.string.thank_dialog_negative_button_text, null)
                 .create()

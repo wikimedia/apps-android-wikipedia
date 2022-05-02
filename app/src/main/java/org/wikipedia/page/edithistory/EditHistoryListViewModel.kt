@@ -26,6 +26,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     val editHistoryStatsFlow = MutableStateFlow(EditHistoryItemModel())
 
     var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
+    var pageId: Int = bundle.getInt(EditHistoryListActivity.INTENT_EXTRA_PAGE_ID)
     var comparing = false
         private set
     var selectedRevisionFrom: MwQueryPage.Revision? = null
