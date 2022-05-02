@@ -1,6 +1,7 @@
 package org.wikipedia.feed.aggregated
 
 import android.content.Context
+import androidx.collection.arrayMapOf
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -21,7 +22,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 
 class AggregatedFeedContentClient {
-    private val aggregatedResponses = mutableMapOf<String, AggregatedFeedContent>()
+    private val aggregatedResponses = arrayMapOf<String, AggregatedFeedContent>()
     private var aggregatedResponseAge = -1
     private val disposables = CompositeDisposable()
 

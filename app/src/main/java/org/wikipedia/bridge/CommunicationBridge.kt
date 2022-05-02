@@ -5,6 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.webkit.*
+import androidx.collection.arrayMapOf
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject
 import org.wikipedia.bridge.JavaScriptActionHandler.setUp
@@ -25,11 +26,11 @@ import org.wikipedia.util.log.L
  */
 @SuppressLint("AddJavascriptInterface", "SetJavaScriptEnabled")
 class CommunicationBridge constructor(private val communicationBridgeListener: CommunicationBridgeListener) {
-    private val eventListeners = HashMap<String, MutableList<JSEventListener>>()
+    private val eventListeners = arrayMapOf<String, MutableList<JSEventListener>>()
     private var isMetadataReady = false
     private var isPcsReady = false
     private val pendingJSMessages = ArrayList<String>()
-    private val pendingEvals = HashMap<String, ValueCallback<String>>()
+    private val pendingEvals = arrayMapOf<String, ValueCallback<String>>()
 
     fun interface JSEventListener {
         fun onMessage(messageType: String, messagePayload: JsonObject?)
@@ -118,20 +119,20 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
             communicationBridgeListener.webView.loadUrl(jsString)
         }
         pendingJSMessages.clear()
-        for ((key, callback) in pendingEvals) {
-            communicationBridgeListener.webView.evaluateJavascript(key, callback)
+        for (i in 0 until pendingEvals.size) {
+            communicationBridgeListener.webView.evaluateJavascript(pendingEvals.keyAt(i), pendingEvals.valueAt(i))
         }
         pendingEvals.clear()
     }
 
     private var incomingMessageHandler: Handler? = Handler(Looper.getMainLooper(), Handler.Callback { msg ->
         val message = msg.obj as BridgeMessage
-        if (!eventListeners.containsKey(message.action)) {
+        val listeners = eventListeners[message.action]
+        if (listeners == null) {
             L.e("No such message type registered: " + message.action)
             return@Callback false
         }
         try {
-            val listeners: List<JSEventListener> = eventListeners[message.action]!!
             for (listener in listeners) {
                 listener.onMessage(message.action, message.data)
             }

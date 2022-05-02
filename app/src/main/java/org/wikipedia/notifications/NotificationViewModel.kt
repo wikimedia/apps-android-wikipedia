@@ -1,5 +1,6 @@
 package org.wikipedia.notifications
 
+import androidx.collection.arrayMapOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -155,7 +156,7 @@ class NotificationViewModel : ViewModel() {
     }
 
     fun markItemsAsRead(items: List<NotificationListItemContainer>, markUnread: Boolean) {
-        val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
+        val notificationsPerWiki = arrayMapOf<WikiSite, MutableList<Notification>>()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
             val notification = item.notification!!
@@ -175,8 +176,9 @@ class NotificationViewModel : ViewModel() {
             }
         }
 
-        for ((wiki, notifications) in notificationsPerWiki) {
-            NotificationPollBroadcastReceiver.markRead(wiki, notifications, markUnread)
+        for (i in 0 until notificationsPerWiki.size) {
+            NotificationPollBroadcastReceiver.markRead(notificationsPerWiki.keyAt(i),
+                notificationsPerWiki.valueAt(i), markUnread)
         }
 
         // Mark items in read state and save into database

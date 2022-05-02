@@ -1,5 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
+import androidx.collection.arrayMapOf
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
@@ -16,7 +17,7 @@ object EventPlatformClient {
     /**
      * Stream configs to be fetched on startup and stored for the duration of the app lifecycle.
      */
-    private val STREAM_CONFIGS = mutableMapOf<String, StreamConfig>()
+    private val STREAM_CONFIGS = arrayMapOf<String, StreamConfig>()
 
     /*
      * When ENABLED is false, items can be enqueued but not dequeued.
@@ -165,8 +166,9 @@ object EventPlatformClient {
             if (!Prefs.isEventLoggingEnabled) {
                 return
             }
-            QUEUE.groupBy { it.stream }.forEach { (stream, events) ->
-                sendEventsForStream(STREAM_CONFIGS[stream]!!, events)
+            val eventsPerStream = QUEUE.groupByTo(arrayMapOf()) { it.stream }
+            for (i in 0 until eventsPerStream.size) {
+                sendEventsForStream(STREAM_CONFIGS[eventsPerStream.keyAt(i)]!!, eventsPerStream.valueAt(i))
             }
         }
 
@@ -286,7 +288,7 @@ object EventPlatformClient {
      * part of its configuration.
      */
     internal object SamplingController {
-        private var SAMPLING_CACHE = mutableMapOf<String, Boolean>()
+        private var SAMPLING_CACHE = arrayMapOf<String, Boolean>()
 
         /**
          * @param event event
@@ -294,8 +296,9 @@ object EventPlatformClient {
          */
         fun isInSample(event: Event): Boolean {
             val stream = event.stream
-            if (SAMPLING_CACHE.containsKey(stream)) {
-                return SAMPLING_CACHE[stream]!!
+            val cacheValue = SAMPLING_CACHE[stream]
+            if (cacheValue != null) {
+                return cacheValue
             }
             val streamConfig = STREAM_CONFIGS[stream] ?: return false
             val samplingConfig = streamConfig.samplingConfig

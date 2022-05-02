@@ -11,6 +11,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.collection.arrayMapOf
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -57,7 +58,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private var displayedContributions = mutableListOf<Any>()
 
     private val disposables = CompositeDisposable()
-    private val continuations = mutableMapOf<WikiSite, String>()
+    private val continuations = arrayMapOf<WikiSite, String>()
 
     private var editFilterType = EDIT_TYPE_GENERIC
     private var totalPageViews = 0L
@@ -211,7 +212,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             .subscribeOn(Schedulers.io())
             .flatMap { response ->
                 val wikidataContributions = mutableListOf<Contribution>()
-                val qLangMap = hashMapOf<String, HashSet<String>>()
+                val qLangMap = arrayMapOf<String, HashSet<String>>()
                 val cont = response.continuation?.ucContinuation
                 if (cont.isNullOrEmpty()) {
                     continuations.remove(Constants.wikidataWikiSite)
@@ -241,8 +242,8 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                         qNumber = contribution.title
                     }
 
-                    if (qNumber.isNotEmpty() && !qLangMap.containsKey(qNumber)) {
-                        qLangMap[qNumber] = HashSet()
+                    if (qNumber.isNotEmpty()) {
+                        qLangMap.putIfAbsent(qNumber, HashSet())
                     }
 
                     wikidataContributions.add(Contribution(qNumber, contribution.revid, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
@@ -387,16 +388,10 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         return outStr.trim()
     }
 
-    private fun extractTagsFromComment(metaComment: String): HashMap<String, String> {
-        val strArr = metaComment.replace(DEPICTS_META_STR, "").split(",")
-        val outMap = hashMapOf<String, String>()
-        for (item in strArr) {
-            val itemArr = item.split("|")
-            if (itemArr.size > 1) {
-                outMap[itemArr[0]] = itemArr[1]
-            }
-        }
-        return outMap
+    private fun extractTagsFromComment(metaComment: String): Map<String, String> {
+        return metaComment.replace(DEPICTS_META_STR, "").split(",")
+            .map { it.split("|") }.filter { it.size > 1 }
+            .associateTo(arrayMapOf()) { it[0] to it[1] }
     }
 
     private fun showError(t: Throwable) {

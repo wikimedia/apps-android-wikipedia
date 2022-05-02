@@ -1,5 +1,6 @@
 package org.wikipedia.userprofile
 
+import androidx.collection.arrayMapOf
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -10,9 +11,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.settings.Prefs
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.HashSet
 import kotlin.math.ceil
 
 object UserContributionsStats {
@@ -53,7 +51,7 @@ object UserContributionsStats {
     }
 
     fun getPageViewsObservable(response: MwQueryResponse): Observable<Long> {
-        val qLangMap = HashMap<String, HashSet<String>>()
+        val qLangMap = arrayMapOf<String, HashSet<String>>()
 
         for (userContribution in response.query!!.userContributions) {
             val descLang = userContribution.comment.split(" ")
@@ -73,9 +71,10 @@ object UserContributionsStats {
                     if (entities.entities.isEmpty()) {
                         return@flatMap Observable.just(0L)
                     }
-                    val langArticleMap = HashMap<String, ArrayList<String>>()
+                    val langArticleMap = arrayMapOf<String, ArrayList<String>>()
                     entities.entities.forEach { (entityKey, entity) ->
-                        for ((qKey, langs) in qLangMap) {
+                        for (i in 0 until qLangMap.size) {
+                            val (qKey, langs) = qLangMap.keyAt(i) to qLangMap.valueAt(i)
                             if (qKey == entityKey) {
                                 for (lang in langs) {
                                     val dbName = WikiSite.forLanguageCode(lang).dbName()

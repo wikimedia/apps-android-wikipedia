@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.SystemClock
 import androidx.annotation.StringRes
+import androidx.collection.arrayMapOf
 import androidx.core.app.RemoteInput
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -88,8 +89,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private const val MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
-        val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>().withDefault { WikipediaApp.getInstance().wikiSite }
-        val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
+        val DBNAME_WIKI_SITE_MAP = arrayMapOf<String, WikiSite>().withDefault { WikipediaApp.getInstance().wikiSite }
+        val DBNAME_WIKI_NAME_MAP = arrayMapOf<String, String>()
         private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.locallyKnownNotifications.toMutableList()
 
         @JvmStatic
@@ -164,7 +165,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     // Record that there is an incoming notification to track/compare further actions on it.
                     NotificationInteractionEvent.logIncoming(n, null)
                     NotificationPresenter.showNotification(context, n,
-                        DBNAME_WIKI_NAME_MAP.getOrElse(n.wiki) { n.wiki },
+                        DBNAME_WIKI_NAME_MAP.getOrDefault(n.wiki, n.wiki),
                         DBNAME_WIKI_SITE_MAP.getValue(n.wiki).languageCode)
                 }
             }
@@ -177,9 +178,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun markItemsAsRead(items: List<Notification>) {
-            val notificationsPerWiki = items.groupBy { DBNAME_WIKI_SITE_MAP.getValue(it.wiki) }
-            for ((wiki, notifications) in notificationsPerWiki) {
-                markRead(wiki, notifications, false)
+            val notificationsPerWiki = items.groupByTo(arrayMapOf()) { DBNAME_WIKI_SITE_MAP.getValue(it.wiki) }
+            for (i in 0 until notificationsPerWiki.size) {
+                markRead(notificationsPerWiki.keyAt(i), notificationsPerWiki.valueAt(i), false)
             }
         }
 

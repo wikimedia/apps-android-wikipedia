@@ -1,6 +1,7 @@
 package org.wikipedia.suggestededits
 
 import android.app.Activity
+import androidx.collection.arrayMapOf
 import com.google.android.material.snackbar.Snackbar
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -15,7 +16,7 @@ object SuggestedEditsSnackbars {
     }
 
     private const val MAX_SHOW_PER_SESSION = 2
-    private val snackbarSessionMap = mutableMapOf<String, Int>()
+    private val snackbarSessionMap = arrayMapOf<String, Int>()
 
     @JvmStatic
     fun show(activity: Activity, action: Action?, sequentialSnackbar: Boolean = true, targetLanguageCode: String? = null,
@@ -75,7 +76,7 @@ object SuggestedEditsSnackbars {
     }
 
     private fun getSessionCount(activity: Activity, action: Action): Int {
-        return snackbarSessionMap.getOrPut(getMapKey(activity, action), { 0 })
+        return snackbarSessionMap.getOrDefault(getMapKey(activity, action), 0)
     }
 
     private fun getMapKey(activity: Activity, action: Action): String {
