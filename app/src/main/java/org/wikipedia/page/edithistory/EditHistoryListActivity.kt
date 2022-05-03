@@ -31,6 +31,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
@@ -68,6 +69,7 @@ class EditHistoryListActivity : BaseActivity() {
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
+    private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,6 +90,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareButton.setOnClickListener {
             viewModel.toggleCompareState()
             updateCompareState()
+            editHistoryInteractionEvent?.logCompare1()
         }
 
         binding.compareConfirmButton.setOnClickListener {
@@ -96,6 +99,7 @@ class EditHistoryListActivity : BaseActivity() {
                         viewModel.pageTitle, viewModel.selectedRevisionFrom!!.revId,
                         viewModel.selectedRevisionTo!!.revId))
             }
+            editHistoryInteractionEvent?.logCompare2()
         }
 
         binding.editHistoryRefreshContainer.setOnRefreshListener {
@@ -153,6 +157,8 @@ class EditHistoryListActivity : BaseActivity() {
         if (viewModel.actionModeActive) {
             startSearchActionMode()
         }
+        editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
+        editHistoryInteractionEvent?.logShowHistory()
     }
 
     private fun updateCompareState() {
@@ -432,6 +438,7 @@ class EditHistoryListActivity : BaseActivity() {
             if (!viewModel.comparing) {
                 viewModel.toggleCompareState()
                 updateCompareState()
+                editHistoryInteractionEvent?.logCompare1()
             }
             toggleSelectState()
         }
@@ -537,9 +544,12 @@ class EditHistoryListActivity : BaseActivity() {
         private const val VIEW_TYPE_SEPARATOR = 0
         private const val VIEW_TYPE_ITEM = 1
         const val INTENT_EXTRA_PAGE_TITLE = "pageTitle"
+        const val INTENT_EXTRA_PAGE_ID = "pageId"
 
-        fun newIntent(context: Context, pageTitle: PageTitle): Intent {
-            return Intent(context, EditHistoryListActivity::class.java).putExtra(FilePageActivity.INTENT_EXTRA_PAGE_TITLE, pageTitle)
+        fun newIntent(context: Context, pageTitle: PageTitle, pageId: Int = -1): Intent {
+            return Intent(context, EditHistoryListActivity::class.java)
+                .putExtra(FilePageActivity.INTENT_EXTRA_PAGE_TITLE, pageTitle)
+                .putExtra(INTENT_EXTRA_PAGE_ID, pageId)
         }
     }
 }
