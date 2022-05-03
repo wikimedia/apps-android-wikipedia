@@ -26,6 +26,8 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
     val editHistoryStatsFlow = MutableStateFlow(EditHistoryItemModel())
 
     var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
+    var pageId = -1
+        private set
     var comparing = false
         private set
     var selectedRevisionFrom: MwQueryPage.Revision? = null
@@ -96,8 +98,11 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
                 val editCountsBotResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_BOT) }
                 val articleMetricsResponse = async { ServiceFactory.getRest(WikiSite("wikimedia.org")).getArticleMetrics(pageTitle.wikiSite.authority(), pageTitle.prefixedText, lastYear, today) }
 
+                val page = mwResponse.await().query?.pages?.first()
+                pageId = page?.pageId ?: -1
+
                 editHistoryStatsFlow.value = EditHistoryStats(
-                    mwResponse.await().query?.pages?.first()?.revisions?.first()!!,
+                    page?.revisions?.first()!!,
                     articleMetricsResponse.await().firstItem.results,
                     editCountsResponse.await(),
                     editCountsUserResponse.await(),

@@ -831,9 +831,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     "lastEdited" -> {
                         model.title?.run {
                             articleInteractionEvent?.logEditHistoryArticleClick()
-                            if (ReleaseUtil.isPreBetaRelease) startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
-                            else loadPage(PageTitle("Special:History/$prefixedText", wikiSite),
-                                HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK), pushBackStack = true, squashBackstack = false)
+                            startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
                         }
                     }
                     "coordinate" -> {
