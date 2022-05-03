@@ -136,9 +136,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.edit!!.newRevId)
                 FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success), FeedbackUtil.LENGTH_DEFAULT).show()
+                editHistoryInteractionEvent?.logUndoSuccess()
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
+                editHistoryInteractionEvent?.logUndoFail()
             }
         }
 
@@ -176,10 +178,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.newerIdButton.setOnClickListener {
             setLoadingState()
             viewModel.goForward()
+            editHistoryInteractionEvent?.logNewerEditChevronClick()
         }
         binding.olderIdButton.setOnClickListener {
             setLoadingState()
             viewModel.goBackward()
+            editHistoryInteractionEvent?.logOlderEditChevronClick()
         }
 
         binding.usernameFromButton.setOnClickListener {
@@ -190,10 +194,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             showUserPopupMenu(viewModel.revisionTo, binding.usernameToButton)
         }
 
-        binding.thankButton.setOnClickListener { showThankDialog() }
+        binding.thankButton.setOnClickListener {
+            showThankDialog()
+            editHistoryInteractionEvent?.logThankTry()
+        }
 
         binding.undoButton.isVisible = ReleaseUtil.isPreBetaRelease
-        binding.undoButton.setOnClickListener { showUndoDialog() }
+        binding.undoButton.setOnClickListener {
+            showUndoDialog()
+            editHistoryInteractionEvent?.logUndoTry()
+        }
 
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
     }
@@ -215,10 +225,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             R.id.menu_share_edit -> {
                 ShareUtil.shareText(requireContext(), PageTitle(viewModel.pageTitle.prefixedText,
                         viewModel.pageTitle.wikiSite), viewModel.revisionToId, viewModel.revisionFromId)
+                editHistoryInteractionEvent?.logShareClick()
                 true
             }
             R.id.menu_add_watchlist -> {
                 viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
+                if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -337,10 +349,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val dialog: AlertDialog = AlertDialog.Builder(activity)
                 .setView(parent)
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
-                    editHistoryInteractionEvent?.logThankTry()
                     viewModel.sendThanks(viewModel.pageTitle.wikiSite, viewModel.revisionToId)
                 }
-                .setNegativeButton(R.string.thank_dialog_negative_button_text, null)
+                .setNegativeButton(R.string.thank_dialog_negative_button_text) { _, _ ->
+                    editHistoryInteractionEvent?.logThankCancel()
+                }
                 .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
         dialog.setOnShowListener {
@@ -351,7 +364,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showUndoDialog() {
-        val dialog = UndoEditDialog(requireActivity()) { text ->
+        val dialog = UndoEditDialog(editHistoryInteractionEvent, requireActivity()) { text ->
             viewModel.revisionTo?.let {
                 binding.progressBar.isVisible = true
                 viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)
