@@ -1163,8 +1163,6 @@
     <string name="talk_overflow_sort_by">Sort by</string>
     <string name="talk_overflow_sort_date_published">Date published</string>
     <string name="talk_overflow_sort_topic_name">Topic name</string>
-    <string name="talk_tab_discussions">Discussions</string>
-    <string name="talk_tab_archived">Archived</string>
     <string name="talk_list_item_overflow_subscribe">Subscribe</string>
     <string name="talk_list_item_overflow_subscribed">Subscribed</string>
     <string name="talk_list_item_overflow_mark_as_read">Mark as read</string>
@@ -1175,6 +1173,10 @@
     <string name="talk_list_item_user_icon_content_description">User icon</string>
     <string name="talk_list_item_swipe_mark_as_read">Read</string>
     <string name="talk_list_item_swipe_mark_as_unread">Unread</string>
+    <string name="talk_footer_about_this_talk_page">About this talk page</string>
+    <string name="talk_footer_view_edit_history">View edit history</string>
+    <string name="talk_footer_view_user_profile">View user profile</string>
+    <string name="talk_footer_view_article">View article</string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>
