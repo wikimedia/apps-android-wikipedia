@@ -1177,6 +1177,7 @@
     <string name="talk_footer_view_edit_history">View edit history</string>
     <string name="talk_footer_view_user_profile">View user profile</string>
     <string name="talk_footer_view_article">View article</string>
+    <string name="talk_footer_last_modified"><![CDATA[Last edited %1$s by %2$s]]></string>
     <string name="menu_option_share_talk_discussion">Share discussion</string>
     <string name="menu_option_share_talk_page">Share talk page</string>
     <string name="menu_option_share_edit">Share edit</string>

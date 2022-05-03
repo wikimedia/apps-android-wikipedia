@@ -2,34 +2,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/footerContainer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:colorBackground"
+    android:paddingTop="24dp"
+    android:paddingBottom="120dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
         android:text="@string/talk_footer_about_this_talk_page"
-        android:textColor="?attr/material_theme_secondary_color"/>
+        android:textColor="?attr/secondary_text_color"
+        android:textAllCaps="true"
+        android:letterSpacing="0.04"/>
 
     <LinearLayout
         android:id="@+id/viewEditHistoryContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?paper_color"
+        android:foreground="?selectableItemBackground">
 
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:contentDescription="@string/talk_search_hint"
             android:scaleType="center"
+            android:layout_margin="8dp"
             app:srcCompat="@drawable/ic_icon_revision_history_apps"
-            app:tint="?attr/material_theme_de_emphasised_color" />
+            app:tint="?attr/secondary_text_color" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1">
 
             <TextView
@@ -37,7 +47,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/talk_footer_view_edit_history"
-                android:textColor="?attr/material_theme_secondary_color"/>
+                android:textColor="?attr/primary_text_color"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/lastModifiedText"
@@ -45,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/talk_footer_about_this_talk_page"
-                android:textColor="?attr/material_theme_secondary_color"/>
+                android:textColor="?attr/secondary_text_color"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -53,38 +64,43 @@
     <LinearLayout
         android:id="@+id/viewPageContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?paper_color"
+        android:foreground="?selectableItemBackground">
 
         <ImageView
             android:id="@+id/viewPageIcon"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_margin="8dp"
             android:contentDescription="@string/talk_search_hint"
             android:scaleType="center"
-            app:srcCompat="@drawable/ic_download_circle_gray_24dp"
-            app:tint="?attr/material_theme_de_emphasised_color" />
+            app:srcCompat="@drawable/ic_article_ltr_ooui"
+            app:tint="?attr/secondary_text_color" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/viewPageText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/talk_footer_view_edit_history"
-                android:textColor="?attr/material_theme_secondary_color"/>
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical">
 
             <TextView
                 android:id="@+id/viewPageTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/talk_footer_about_this_talk_page"
-                android:textColor="?attr/material_theme_secondary_color"/>
+                android:text="@string/view_user_page"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/viewPageContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/view_user_page"
+                android:textColor="?attr/secondary_text_color"/>
 
         </LinearLayout>
     </LinearLayout>
