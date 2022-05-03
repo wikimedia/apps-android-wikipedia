@@ -142,23 +142,24 @@ class EditHistoryListActivity : BaseActivity() {
 
         lifecycleScope.launchWhenCreated {
             viewModel.editHistoryStatsFlow.collectLatest {
+                if (editHistoryInteractionEvent == null) {
+                    editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
+                    editHistoryInteractionEvent?.logShowHistory()
+                }
                 editHistoryStatsAdapter.notifyItemChanged(0)
                 editHistorySearchBarAdapter.notifyItemChanged(0)
+            }
+        }
 
-                // Submit data after showing the stats and search bar.
-                lifecycleScope.launch {
-                    viewModel.editHistoryFlow.collectLatest {
-                        editHistoryListAdapter.submitData(it)
-                    }
-                }
+        lifecycleScope.launch {
+            viewModel.editHistoryFlow.collectLatest {
+                editHistoryListAdapter.submitData(it)
             }
         }
 
         if (viewModel.actionModeActive) {
             startSearchActionMode()
         }
-        editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
-        editHistoryInteractionEvent?.logShowHistory()
     }
 
     private fun updateCompareState() {
@@ -544,12 +545,10 @@ class EditHistoryListActivity : BaseActivity() {
         private const val VIEW_TYPE_SEPARATOR = 0
         private const val VIEW_TYPE_ITEM = 1
         const val INTENT_EXTRA_PAGE_TITLE = "pageTitle"
-        const val INTENT_EXTRA_PAGE_ID = "pageId"
 
-        fun newIntent(context: Context, pageTitle: PageTitle, pageId: Int = -1): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle): Intent {
             return Intent(context, EditHistoryListActivity::class.java)
                 .putExtra(FilePageActivity.INTENT_EXTRA_PAGE_TITLE, pageTitle)
-                .putExtra(INTENT_EXTRA_PAGE_ID, pageId)
         }
     }
 }

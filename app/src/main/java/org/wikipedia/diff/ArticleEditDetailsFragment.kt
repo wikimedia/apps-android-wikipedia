@@ -60,8 +60,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
-        editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), -1)
-        editHistoryInteractionEvent?.logRevision()
         return binding.root
     }
 
@@ -75,8 +73,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.watchedStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                isWatched = it.data.query?.firstPage()?.watched ?: false
-                hasWatchlistExpiry = it.data.query?.firstPage()?.hasWatchlistExpiry() ?: false
+                if (editHistoryInteractionEvent == null) {
+                    editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
+                    editHistoryInteractionEvent?.logRevision()
+                }
+                isWatched = it.data.watched
+                hasWatchlistExpiry = it.data.hasWatchlistExpiry()
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
