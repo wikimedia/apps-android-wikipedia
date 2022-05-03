@@ -1141,7 +1141,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun verifyBeforeEditingDescription(text: String?) {
+    fun verifyBeforeEditingDescription(text: String?, invokeSource: InvokeSource) {
         page?.let {
             if (!AccountUtil.isLoggedIn && Prefs.totalAnonDescriptionsEdited >= resources.getInteger(R.integer.description_max_anon_edits)) {
                 AlertDialog.Builder(requireActivity())
@@ -1152,20 +1152,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     .setNegativeButton(R.string.description_edit_login_cancel_button_text, null)
                     .show()
             } else {
-                startDescriptionEditActivity(text)
+                startDescriptionEditActivity(text, invokeSource)
             }
         }
     }
 
-    fun startDescriptionEditActivity(text: String?) {
+    fun startDescriptionEditActivity(text: String?, invokeSource: InvokeSource) {
         if (Prefs.isDescriptionEditTutorialEnabled) {
-            requireActivity().startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text),
+            requireActivity().startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text, invokeSource),
                 Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL)
         } else {
             title?.run {
                 val sourceSummary = PageSummaryForEdit(prefixedText, wikiSite.languageCode, this, displayText, description, thumbUrl)
                 requireActivity().startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), this, text, sourceSummary, null,
-                        DescriptionEditActivity.Action.ADD_DESCRIPTION, InvokeSource.PAGE_ACTIVITY), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+                        DescriptionEditActivity.Action.ADD_DESCRIPTION, invokeSource), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
             }
         }
     }
