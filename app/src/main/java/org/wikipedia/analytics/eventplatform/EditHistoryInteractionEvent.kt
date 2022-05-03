@@ -15,10 +15,12 @@ class EditHistoryInteractionEvent(private var wikiDb: String, private var pageId
         submitEvent("revision_view")
     }
 
+    // User tapped 'Compare' on the edit History screen to start selecting the revisions to compare
     fun logCompare1() {
         submitEvent("compare1")
     }
 
+    // User has selected a second revision and tapped the 'Compare' button, navigating them to the comparison screen
     fun logCompare2() {
         submitEvent("compare2")
     }
