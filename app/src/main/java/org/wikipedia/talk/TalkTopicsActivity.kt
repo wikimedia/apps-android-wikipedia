@@ -471,8 +471,8 @@ class TalkTopicsActivity : BaseActivity() {
         override fun onQueryChange(s: String) {
             viewModel.currentSearchQuery = s
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-            binding.talkConditionContainer.isVisible = true
             binding.talkSearchNoResult.isVisible = binding.talkRecyclerView.adapter?.itemCount == 0
+            binding.talkConditionContainer.isVisible = binding.talkSearchNoResult.isVisible
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {

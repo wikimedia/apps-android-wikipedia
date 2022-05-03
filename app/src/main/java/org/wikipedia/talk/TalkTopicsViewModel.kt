@@ -111,7 +111,9 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
                 threadItems.sortBy { RichTextUtil.stripHtml(it.html) }
             }
         }
-        return threadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true) }
+        return threadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true) ||
+                it.allReplies.any { reply -> reply.html.contains(currentSearchQuery.orEmpty(), true) ||
+                        reply.author.contains(currentSearchQuery.orEmpty(), true) } }
     }
 
     fun undoSave(newRevisionId: Long, topicId: String, undoneSubject: String, undoneBody: String) {
