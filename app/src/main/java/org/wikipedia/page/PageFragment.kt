@@ -1427,7 +1427,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onViewEditHistorySelected() {
             title?.run {
-                startActivity(EditHistoryListActivity.newIntent(requireContext(), this, model.page?.pageProperties?.pageId ?: -1))
+                startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
             }
             articleInteractionEvent?.logEditHistoryClick()
         }
