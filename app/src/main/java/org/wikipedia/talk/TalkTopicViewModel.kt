@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.*
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
@@ -26,12 +27,13 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     val flattenedThreadItems = mutableListOf<ThreadItem>()
     var subscribed = false
         private set
+    var scrollTargetId: String? = null
     val threadItemsData = MutableLiveData<Resource<List<ThreadItem>>>()
     val subscribeData = SingleLiveData<Resource<Boolean>>()
     val undoResponseData = SingleLiveData<Resource<Boolean>>()
 
-    var undoSubject: String? = null
-    var undoBody: String? = null
+    var undoSubject: CharSequence? = null
+    var undoBody: CharSequence? = null
     var undoTopicId: String? = null
 
     init {
@@ -44,6 +46,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         }) {
             val discussionToolsInfoResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText) }
             val subscribeResponse = async { ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopicSubscriptions(topicId) }
+            val oldItemsFlattened = topic?.allReplies.orEmpty()
 
             topic = discussionToolsInfoResponse.await().pageInfo?.threads.orEmpty().find { it.name == topicId }
             val res = subscribeResponse.await()
@@ -55,11 +58,28 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
                 }
             }
 
+            val newItemsFlattened = topic?.allReplies.orEmpty().filter { it.id !in oldItemsFlattened.map { item -> item.id } }
+
+            scrollTargetId = null
+            if (oldItemsFlattened.isNotEmpty() && newItemsFlattened.isNotEmpty()) {
+                if (AccountUtil.isLoggedIn) {
+                    scrollTargetId = newItemsFlattened.findLast { it.author == AccountUtil.userName }?.id
+                }
+                if (scrollTargetId.isNullOrEmpty()) {
+                    scrollTargetId = newItemsFlattened.first().id
+                }
+            }
+
             threadItems.clear()
             threadItems.addAll(topic?.replies.orEmpty())
 
-            // By default expand the first level of the thread
-            threadItems.forEach { it.isExpanded = true }
+            if (scrollTargetId.isNullOrEmpty()) {
+                // By default expand the first level of the thread
+                threadItems.forEach { it.isExpanded = true }
+            } else {
+                // If we have a scroll target, make sure we're expanded to view the target
+                topic?.allReplies?.forEach { it.isExpanded = true }
+            }
             updateFlattenedThreadItems()
 
             threadItemsData.postValue(Resource.Success(threadItems))
@@ -126,7 +146,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         flattenedThreadItems.clear()
         flattenThreadLevel(threadItems, flattenedThreadItems)
         for (i in flattenedThreadItems.indices) {
-            flattenedThreadItems[i].isLastSibling = i > 0 && flattenedThreadItems[i].level > 1 && (if(i < flattenedThreadItems.size - 1) flattenedThreadItems[i + 1].level < flattenedThreadItems[i].level else true)
+            flattenedThreadItems[i].isLastSibling = i > 0 && flattenedThreadItems[i].level > 1 && (if (i < flattenedThreadItems.size - 1) flattenedThreadItems[i + 1].level < flattenedThreadItems[i].level else true)
         }
     }
 

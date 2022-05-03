@@ -108,12 +108,13 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun onInitialLoad() {
         updateEditLicenseText()
 
-        // TODO:
-        // binding.replyInputView.userNameHints = parseUserNamesFromTopic()
+        if (viewModel.topic != null) {
+            binding.replyInputView.userNameHints = setOf(viewModel.topic!!.author)
+        }
 
         binding.progressBar.isVisible = false
-        binding.replySubjectText.setText(intent.getStringExtra(EXTRA_SUBJECT).orEmpty())
-        binding.replyInputView.editText.setText(intent.getStringExtra(EXTRA_BODY).orEmpty())
+        binding.replySubjectText.setText(intent.getCharSequenceExtra(EXTRA_SUBJECT))
+        binding.replyInputView.editText.setText(intent.getCharSequenceExtra(EXTRA_BODY))
         if (intent.hasExtra(EXTRA_BODY)) {
             binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
         }
@@ -126,7 +127,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
             binding.replySubjectLayout.isVisible = true
             binding.replySubjectLayout.requestFocus()
-
         } else {
             binding.replySubjectLayout.isVisible = false
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_reply_hint)
@@ -297,13 +297,13 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                       pageTitle: PageTitle,
                       topic: ThreadItem?,
                       invokeSource: Constants.InvokeSource,
-                      undoSubject: String? = null,
-                      undoBody: String? = null): Intent {
+                      undoSubject: CharSequence? = null,
+                      undoBody: CharSequence? = null): Intent {
             return Intent(context, TalkReplyActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC, topic)
-                    .putExtra(EXTRA_SUBJECT, undoSubject ?: "")
-                    .putExtra(EXTRA_BODY, undoBody ?: "")
+                    .putExtra(EXTRA_SUBJECT, undoSubject)
+                    .putExtra(EXTRA_BODY, undoBody)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

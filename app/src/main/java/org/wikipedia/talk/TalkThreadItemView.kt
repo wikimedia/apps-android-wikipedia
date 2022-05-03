@@ -1,5 +1,7 @@
 package org.wikipedia.talk
 
+import android.animation.ArgbEvaluator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -72,6 +74,21 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         binding.showRepliesContainer.isVisible = item.level > 1 && item.replies.isNotEmpty()
         binding.threadLineMiddle.isVisible = item.level > 1 && (item.replies.isNotEmpty() || (item.level > 2 && !item.isLastSibling))
         updateExpandedState()
+    }
+
+    fun animateSelectedBackground() {
+        val colorFrom = ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)
+        val colorTo = ResourceUtil.getThemedColor(context, R.attr.paper_color)
+        val anim = ValueAnimator.ofObject(ArgbEvaluator(), colorFrom, colorTo)
+        anim.duration = 1000
+        anim.addUpdateListener {
+            if (it.isRunning) {
+                setBackgroundColor(it.animatedValue as Int)
+            } else {
+                setBackgroundColor(Color.TRANSPARENT)
+            }
+        }
+        anim.start()
     }
 
     private fun updateExpandedState() {

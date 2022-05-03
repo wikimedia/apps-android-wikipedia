@@ -57,14 +57,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val replyResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
             result.data?.let {
-                viewModel.undoSubject = it.getStringExtra(TalkReplyActivity.EXTRA_SUBJECT)
-                viewModel.undoBody = it.getStringExtra(TalkReplyActivity.EXTRA_BODY)
+                viewModel.undoSubject = it.getCharSequenceExtra(TalkReplyActivity.EXTRA_SUBJECT)
+                viewModel.undoBody = it.getCharSequenceExtra(TalkReplyActivity.EXTRA_BODY)
                 viewModel.undoTopicId = it.getStringExtra(TalkReplyActivity.EXTRA_TOPIC_ID)
                 val undoRevId = it.getLongExtra(TalkReplyActivity.RESULT_NEW_REVISION_ID, -1)
                 if (undoRevId >= 0) {
                     showUndoSnackbar(undoRevId)
                 }
             }
+            loadTopics()
         }
     }
 
@@ -121,8 +122,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (it is Resource.Success) {
                 binding.talkProgressBar.isVisible = false
                 viewModel.findTopicById(viewModel.undoTopicId)?.let { item ->
-                    startReplyActivity(item)
+                    startReplyActivity(item, viewModel.undoSubject, viewModel.undoBody)
                 }
+                loadTopics()
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
             }
@@ -181,6 +183,17 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             headerAdapter.notifyItemChanged(0)
             threadAdapter.notifyDataSetChanged()
         }
+        if (!viewModel.scrollTargetId.isNullOrEmpty()) {
+            val position = 1 + viewModel.flattenedThreadItems.indexOfFirst { it.id == viewModel.scrollTargetId }
+            if (position >= 0) {
+                binding.talkRecyclerView.post {
+                    if (!isDestroyed) {
+                        binding.talkRecyclerView.smoothScrollToPosition(position)
+                        threadAdapter.notifyItemChanged(position)
+                    }
+                }
+            }
+        }
     }
 
     private fun updateOnError(t: Throwable) {
@@ -217,6 +230,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         fun bindItem(item: ThreadItem) {
             (itemView as TalkThreadItemView).let {
                 it.bindItem(item, linkMovementMethod)
+                if (item.id == viewModel.scrollTargetId) {
+                    viewModel.scrollTargetId = null
+                    it.animateSelectedBackground()
+                }
                 it.callback = this
             }
         }
@@ -274,10 +291,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
-    private fun startReplyActivity(item: ThreadItem) {
+    private fun startReplyActivity(item: ThreadItem, undoSubject: CharSequence? = null, undoBody: CharSequence? = null) {
         talkFunnel.logReplyClick()
         replyResult.launch(TalkReplyActivity.newIntent(this@TalkTopicActivity, viewModel.pageTitle,
-                item, Constants.InvokeSource.TALK_ACTIVITY, viewModel.undoSubject, viewModel.undoBody))
+                item, Constants.InvokeSource.TALK_ACTIVITY, undoSubject, undoBody))
     }
 
     private fun onSaveError(t: Throwable) {
