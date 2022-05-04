@@ -20,6 +20,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.LinkPreviewFunnel
+import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -51,6 +52,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private lateinit var historyEntry: HistoryEntry
     private lateinit var pageTitle: PageTitle
     private lateinit var funnel: LinkPreviewFunnel
+    private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
     private var location: Location? = null
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
@@ -143,6 +145,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         super.onDismiss(dialogInterface)
         if (!navigateSuccess) {
             funnel.logCancel()
+            articleLinkPreviewInteractionEvent?.logCancel()
         }
     }
 
@@ -170,6 +173,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 .subscribe({ response ->
                     val summary = response.body()!!
                     funnel.setPageId(summary.pageId)
+                    articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(pageTitle.wikiSite.dbName(), summary.pageId, historyEntry.source)
+                    articleLinkPreviewInteractionEvent?.logLinkClick()
                     revision = summary.revision
 
                     // Rebuild our PageTitle, since it may have been redirected or normalized.
@@ -270,6 +275,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun goToLinkedPage(inNewTab: Boolean) {
         navigateSuccess = true
         funnel.logNavigate()
+        articleLinkPreviewInteractionEvent?.logNavigate()
         dialog?.dismiss()
         loadPage(pageTitle, historyEntry, inNewTab)
     }

@@ -35,6 +35,7 @@ import org.wikipedia.*
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.*
+import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
@@ -1047,8 +1048,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 if (!isAdded) {
                     return@evaluate
                 }
-                val funnel = FindInPageFunnel(app, title.wikiSite, model.page?.run { pageProperties.pageId } ?: -1)
-                val findInPageActionProvider = FindInWebPageActionProvider(this, funnel)
+                val funnel = FindInPageFunnel(app, title.wikiSite, model.page?.pageProperties?.pageId ?: -1)
+                val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(title.wikiSite.dbName(), model.page?.pageProperties?.pageId ?: -1)
+                val findInPageActionProvider = FindInWebPageActionProvider(this, funnel, articleFindInPageInteractionEvent)
                 startSupportActionMode(object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                         val menuItem = menu.add(R.string.menu_page_find_in_page)
@@ -1072,7 +1074,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             return
                         }
                         funnel.pageHeight = webView.contentHeight
+                        articleFindInPageInteractionEvent.pageHeight = webView.contentHeight
                         funnel.logDone()
+                        articleFindInPageInteractionEvent.logDone()
                         webView.clearMatches()
                         callback()?.onPageHideSoftKeyboard()
                         callback()?.onPageSetToolbarElevationEnabled(true)

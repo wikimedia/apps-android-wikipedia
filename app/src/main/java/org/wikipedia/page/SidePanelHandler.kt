@@ -29,6 +29,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ToCInteractionFunnel
+import org.wikipedia.analytics.eventplatform.ArticleTocInteractionEvent
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.ItemTalkTopicBinding
@@ -61,6 +62,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private var currentItemSelected = 0
     private var currentTalkSortMode = Prefs.talkTopicsSortMode
     private var funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().wikiSite, 0, 0)
+    private var articleTocInteractionEvent: ArticleTocInteractionEvent? = null
 
     private val sectionOffsetsCallback: ValueCallback<String> = ValueCallback { value ->
         if (!fragment.isAdded) {
@@ -188,7 +190,8 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
             }
             log()
             funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), it.title.wikiSite, it.pageProperties.pageId, tocAdapter.count)
-
+            articleTocInteractionEvent = ArticleTocInteractionEvent(it.pageProperties.pageId, it.title.wikiSite.dbName(), tocAdapter.count)
+            articleTocInteractionEvent?.logClick()
             if (ReleaseUtil.isPreBetaRelease) {
                 setupTalkTopics(it.title)
             }
@@ -209,6 +212,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         currentItemSelected = -1
         onScrollerMoved(0f, false)
         funnel.scrollStart()
+        articleTocInteractionEvent?.scrollStart()
     }
 
     private fun enableToCorTalkTopics(enableToC: Boolean = true) {
@@ -236,10 +240,12 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     fun hide() {
         binding.navigationDrawer.closeDrawers()
         funnel.scrollStop()
+        articleTocInteractionEvent?.scrollStop()
     }
 
     fun log() {
         funnel.log()
+        articleTocInteractionEvent?.logEvent()
     }
 
     fun setEnabled(enabled: Boolean) {

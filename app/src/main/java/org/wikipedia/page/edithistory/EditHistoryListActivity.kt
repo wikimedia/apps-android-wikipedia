@@ -37,6 +37,7 @@ import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
 import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
@@ -215,15 +216,18 @@ class EditHistoryListActivity : BaseActivity() {
 
     private fun startSearchActionMode() {
         actionMode = startSupportActionMode(searchActionModeCallback)
+        editHistoryInteractionEvent?.logSearchClick()
     }
 
     fun showFilterOverflowMenu() {
+        editHistoryInteractionEvent?.logFilterClick()
         val editCountsFlowValue = viewModel.editHistoryStatsFlow.value
         if (editCountsFlowValue is EditHistoryListViewModel.EditHistoryStats) {
             val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
                 searchActionModeCallback.searchBarFilterIcon!! else if (editHistorySearchBarAdapter.viewHolder != null)
                     editHistorySearchBarAdapter.viewHolder!!.binding.filterByButton else binding.root
             EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsFlowValue) {
+                editHistoryInteractionEvent?.logFilterSelection(Prefs.editHistoryFilterType.ifEmpty { EditCount.EDIT_TYPE_ALL })
                 setupAdapters()
                 editHistoryListAdapter.reload()
                 editHistorySearchBarAdapter.notifyItemChanged(0)
