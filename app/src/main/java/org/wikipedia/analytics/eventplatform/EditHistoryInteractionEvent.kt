@@ -29,12 +29,64 @@ class EditHistoryInteractionEvent(private var wikiDb: String, private var pageId
         submitEvent("thank_try")
     }
 
+    fun logThankCancel() {
+        submitEvent("thank_cancel")
+    }
+
     fun logThankSuccess() {
         submitEvent("thank_success")
     }
 
     fun logThankFail() {
         submitEvent("thank_fail")
+    }
+
+    fun logSearchClick() {
+        submitEvent("search_click")
+    }
+
+    fun logFilterClick() {
+        submitEvent("filter_click")
+    }
+
+    fun logFilterSelection(selection: String) {
+        submitEvent("filter_selection_" + selection)
+    }
+
+    fun logUndoTry() {
+        submitEvent("undo_try")
+    }
+
+    fun logUndoCancel() {
+        submitEvent("undo_cancel")
+    }
+
+    fun logUndoSuccess() {
+        submitEvent("undo_success")
+    }
+
+    fun logUndoFail() {
+        submitEvent("undo_fail")
+    }
+
+    fun logOlderEditChevronClick() {
+        submitEvent("older_edit_click")
+    }
+
+    fun logNewerEditChevronClick() {
+        submitEvent("newer_edit_click")
+    }
+
+    fun logShareClick() {
+        submitEvent("share_click")
+    }
+
+    fun logWatchClick() {
+        submitEvent("watch_click")
+    }
+
+    fun logUnwatchClick() {
+        submitEvent("unwatch_click")
     }
 
     private fun submitEvent(action: String) {
