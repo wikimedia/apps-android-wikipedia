@@ -249,7 +249,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.cleanup()
         sidePanelHandler.log()
         sidePanelHandler.dispose()
-        shareHandler.dispose()
         leadImagesHandler.dispose()
         disposables.clear()
         webView.clearAllListeners()
