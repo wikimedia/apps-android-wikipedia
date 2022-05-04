@@ -248,7 +248,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup()
         sidePanelHandler.log()
-        shareHandler.dispose()
         leadImagesHandler.dispose()
         disposables.clear()
         webView.clearAllListeners()

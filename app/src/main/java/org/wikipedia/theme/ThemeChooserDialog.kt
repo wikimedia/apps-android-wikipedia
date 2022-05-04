@@ -304,7 +304,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any?) {
+        override fun accept(event: Any) {
             if (event is WebViewInvalidateEvent) {
                 updatingFont = false
                 updateComponents()
