@@ -3,19 +3,17 @@ package org.wikipedia.page.shareafact
 import android.os.Build
 import android.view.ActionMode
 import android.view.MenuItem
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import org.json.JSONException
-import org.json.JSONObject
+import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageFragment
 import org.wikipedia.util.log.L
 import org.wikipedia.wiktionary.WiktionaryDialog
 
 class ShareHandler(private val fragment: PageFragment, private val bridge: CommunicationBridge) {
     private var webViewActionMode: ActionMode? = null
-    private val disposables = CompositeDisposable()
 
     private fun onEditHerePayload(sectionID: Int, text: String, isEditingDescription: Boolean) {
         if (sectionID == 0 && isEditingDescription) {
@@ -32,10 +30,6 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
             finish()
             webViewActionMode = null
         }
-    }
-
-    fun dispose() {
-        disposables.clear()
     }
 
     fun showWiktionaryDefinition(text: String) {
@@ -78,16 +72,14 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
                     return@evaluate
                 }
                 finishActionMode()
-                val messagePayload: JSONObject
                 try {
-                    messagePayload = JSONObject(value)
-                    val text = messagePayload.optString(PAYLOAD_TEXT_KEY, "")
+                    val message = JsonUtil.decodeFromString<TextSelectResponse>(value)!!
                     when (purpose) {
-                        PAYLOAD_PURPOSE_DEFINE -> showWiktionaryDefinition(text)
-                        PAYLOAD_PURPOSE_EDIT_HERE -> onEditHerePayload(messagePayload.optInt("section", 0), text, messagePayload.optBoolean("isTitleDescription", false))
+                        PAYLOAD_PURPOSE_DEFINE -> showWiktionaryDefinition(message.text)
+                        PAYLOAD_PURPOSE_EDIT_HERE -> onEditHerePayload(message.section, message.text, message.isTitleDescription)
                         else -> L.d("Unknown purpose=$purpose")
                     }
-                } catch (e: JSONException) {
+                } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }
@@ -95,9 +87,15 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
         }
     }
 
+    @Serializable
+    private class TextSelectResponse {
+        val text: String = ""
+        val section: Int = 0
+        val isTitleDescription: Boolean = false
+    }
+
     companion object {
         private const val PAYLOAD_PURPOSE_DEFINE = "define"
         private const val PAYLOAD_PURPOSE_EDIT_HERE = "edit_here"
-        private const val PAYLOAD_TEXT_KEY = "text"
     }
 }
