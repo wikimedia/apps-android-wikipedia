@@ -2,7 +2,6 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.Menu
@@ -195,7 +194,10 @@ class TalkTopicsActivity : BaseActivity() {
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
         if (!goToTopic) {
             menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
+            menu.findItem(R.id.menu_read_article).isVisible = pageTitle.namespace() != Namespace.USER_TALK
             menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
+            menu.findItem(R.id.menu_view_user_page).title = getString(R.string.menu_option_user_page, StringUtil.removeNamespace(pageTitle.displayText))
+
             val notificationMenuItem = menu.findItem(R.id.menu_notifications)
             if (AccountUtil.isLoggedIn) {
                 notificationMenuItem.isVisible = true
@@ -224,11 +226,7 @@ class TalkTopicsActivity : BaseActivity() {
                 requestLanguageChange.launch(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY))
                 return true
             }
-            R.id.menu_view_in_browser -> {
-                UriUtil.visitInExternalBrowser(this, Uri.parse(pageTitle.uri))
-                return true
-            }
-            R.id.menu_view_user_page -> {
+            R.id.menu_read_article, R.id.menu_view_user_page -> {
                 goToPage()
                 return true
             }
