@@ -245,6 +245,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         override fun onReplyClick(item: ThreadItem) {
             startReplyActivity(item)
         }
+
+        override fun onShareClick(item: ThreadItem) {
+            val title = viewModel.pageTitle.copy()
+            title.fragment = item.name
+            ShareUtil.shareText(this@TalkTopicActivity, title)
+        }
     }
 
     internal inner class TalkReplyItemAdapter : RecyclerView.Adapter<TalkReplyHolder>() {

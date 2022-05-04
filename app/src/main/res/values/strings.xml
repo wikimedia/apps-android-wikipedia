@@ -1191,6 +1191,9 @@
     <string name="menu_option_user_profile">%s\'s profile</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="menu_option_edit_source">Edit source</string>
+    <string name="talk_menu_copy_text">Copy text</string>
+    <string name="talk_menu_expand_threads">Expand threads</string>
+    <string name="talk_menu_collapse_threads">Collapse threads</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
     <string name="watchlist_details_next_edit">Next edit</string>

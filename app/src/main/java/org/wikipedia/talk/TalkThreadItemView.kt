@@ -2,26 +2,33 @@ package org.wikipedia.talk
 
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.text.method.MovementMethod
 import android.util.AttributeSet
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.view.menu.MenuBuilder
+import androidx.appcompat.view.menu.MenuPopupHelper
+import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.util.DateUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.util.*
 
+@SuppressLint("RestrictedApi")
 class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
         fun onExpandClick(item: ThreadItem)
         fun onReplyClick(item: ThreadItem)
+        fun onShareClick(item: ThreadItem)
     }
 
     var callback: Callback? = null
@@ -38,6 +45,16 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         binding.showRepliesContainer.setOnClickListener {
             callback?.onExpandClick(item)
             updateExpandedState()
+        }
+
+        binding.overflowButton.setOnClickListener {
+            val builder = MenuBuilder(context)
+            MenuInflater(context).inflate(R.menu.menu_talk_thread_item, builder)
+            builder.setCallback(overflowMenuListener)
+            val helper = MenuPopupHelper(context, builder, binding.overflowButton)
+            helper.setForceShowIcon(true)
+            helper.gravity = Gravity.END
+            helper.show()
         }
     }
 
@@ -95,5 +112,23 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         binding.showRepliesArrow.setImageResource(if (item.isExpanded) R.drawable.ic_arrow_drop_down_black_24dp else R.drawable.ic_arrow_forward_24)
         binding.showRepliesText.text = context.resources.getQuantityString(if (item.isExpanded) R.plurals.talk_hide_replies_count else R.plurals.talk_show_replies_count, item.replies.size, item.replies.size)
         binding.threadLineBottom.isVisible = item.isExpanded || (item.level > 2 && !item.isLastSibling)
+    }
+
+    private val overflowMenuListener = object : MenuBuilder.Callback {
+        override fun onMenuItemSelected(menu: MenuBuilder, menuItem: MenuItem): Boolean {
+            return when (menuItem.itemId) {
+                R.id.menu_talk_topic_share -> {
+                    callback?.onShareClick(item)
+                    true
+                }
+                R.id.menu_copy_text -> {
+                    ClipboardUtil.setPlainText(context, null, StringUtil.fromHtml(item.html))
+                    true
+                }
+                else -> false
+            }
+        }
+
+        override fun onMenuModeChange(menu: MenuBuilder) { }
     }
 }
