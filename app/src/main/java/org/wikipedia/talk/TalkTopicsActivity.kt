@@ -327,6 +327,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
         funnel?.logOpenTalk()
 
+        binding.talkProgressBar.isVisible = false
         invalidateOptionsMenu()
     }
 
