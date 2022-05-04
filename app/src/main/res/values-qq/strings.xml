@@ -1108,6 +1108,7 @@
   <string name="talk_search_hint">Hint for the talk page search bar.</string>
   <string name="talk_overflow_sort_by">Header text of the sort menu.</string>
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
+  <string name="talk_overflow_sort_date_updated">Menu item label for sorting the list by the updated date.</string>
   <string name="talk_overflow_sort_topic_name">Menu item label for sorting the list by the topic name.</string>
   <string name="talk_list_item_overflow_subscribe">Menu option label for the talk topic item to subscribe to the topic.</string>
   <string name="talk_list_item_overflow_subscribed">Menu option label for the talk topic item to unsubscribe to the topic.</string>

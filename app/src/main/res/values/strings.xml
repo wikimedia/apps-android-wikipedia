@@ -1162,6 +1162,7 @@
     <string name="talk_search_hint">Search messages</string>
     <string name="talk_overflow_sort_by">Sort by</string>
     <string name="talk_overflow_sort_date_published">Date published</string>
+    <string name="talk_overflow_sort_date_updated">Date updated</string>
     <string name="talk_overflow_sort_topic_name">Topic name</string>
     <string name="talk_list_item_overflow_subscribe">Subscribe</string>
     <string name="talk_list_item_overflow_subscribed">Subscribed</string>
