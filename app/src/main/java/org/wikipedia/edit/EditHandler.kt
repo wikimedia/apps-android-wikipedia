@@ -47,7 +47,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                     startEditingSection(sectionId, null)
                 }
             } else if (messageType == TYPE_ADD_TITLE_DESCRIPTION && DescriptionEditUtil.isEditAllowed(it)) {
-                fragment.verifyBeforeEditingDescription(null)
+                fragment.verifyBeforeEditingDescription(null, Constants.InvokeSource.PAGE_DESCRIPTION_CTA)
             }
         }
     }
@@ -56,7 +56,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
         override fun onMenuItemClick(item: MenuItem): Boolean {
             return when (item.itemId) {
                 R.id.menu_page_header_edit_description -> {
-                    fragment.verifyBeforeEditingDescription(null)
+                    fragment.verifyBeforeEditingDescription(null, Constants.InvokeSource.PAGE_EDIT_PENCIL)
                     true
                 }
                 R.id.menu_page_header_edit_lead_section -> {
