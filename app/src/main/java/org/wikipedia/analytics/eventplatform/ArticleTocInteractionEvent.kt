@@ -6,7 +6,7 @@ import org.wikipedia.auth.AccountUtil
 import java.util.concurrent.TimeUnit
 
 class ArticleTocInteractionEvent(private val pageId: Int,
-                                 private var wikiDb: String,
+                                 private val wikiDb: String,
                                  private val numSections: Int) {
 
     private var numOpens = 0
@@ -43,11 +43,11 @@ class ArticleTocInteractionEvent(private val pageId: Int,
     @Serializable
     @SerialName("/analytics/mobile_apps/android_article_toc_interaction/1.0.0")
     class ArticleTocInteractionEventImpl(@SerialName("is_anon") private val isAnon: Boolean,
-                                         @SerialName("wiki_db") private var wikiDb: String,
-                                         @SerialName("page_id") private var pageId: Int,
-                                         @SerialName("num_opens") private var numberOfOpens: Int,
-                                         @SerialName("num_section_clicks") private var numberOfSectionClicks: Int,
-                                         @SerialName("total_open_sec") private var totalOpenSec: Int,
-                                         @SerialName("num_sections") private var numSections: Int) :
+                                         @SerialName("wiki_db") private val wikiDb: String,
+                                         @SerialName("page_id") private val pageId: Int,
+                                         @SerialName("num_opens") private val numberOfOpens: Int,
+                                         @SerialName("num_section_clicks") private val numberOfSectionClicks: Int,
+                                         @SerialName("total_open_sec") private val totalOpenSec: Int,
+                                         @SerialName("num_sections") private val numSections: Int) :
         MobileAppsEvent("android.article_toc_interaction")
 }

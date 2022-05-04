@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.auth.AccountUtil
 
-class EditHistoryInteractionEvent(private var wikiDb: String, private var pageId: Int) :
+class EditHistoryInteractionEvent(private val wikiDb: String, private val pageId: Int) :
     TimedEvent() {
 
     fun logShowHistory() {
@@ -45,9 +45,9 @@ class EditHistoryInteractionEvent(private var wikiDb: String, private var pageId
     @Serializable
     @SerialName("/analytics/mobile_apps/android_edit_history_interaction/1.0.0")
     class EditHistoryInteractionEventImpl(@SerialName("is_anon") private val isAnon: Boolean,
-                                      @SerialName("time_spent_ms") private var timeSpentMs: Int,
-                                      @SerialName("wiki_db") private var wikiDb: String,
-                                      @SerialName("page_id") private var pageId: Int,
+                                      @SerialName("time_spent_ms") private val timeSpentMs: Int,
+                                      @SerialName("wiki_db") private val wikiDb: String,
+                                      @SerialName("page_id") private val pageId: Int,
                                       private val action: String) :
         MobileAppsEvent("android.edit_history_interaction")
 }

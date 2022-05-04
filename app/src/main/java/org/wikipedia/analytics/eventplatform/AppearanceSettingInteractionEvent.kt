@@ -6,7 +6,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.theme.Theme
 
-class AppearanceSettingInteractionEvent(private var source: InvokeSource) {
+class AppearanceSettingInteractionEvent(private val source: InvokeSource) {
 
     fun logFontSizeChange(currentFontSize: Float, newFontSize: Float) {
         submitEvent("fontSizeChange", currentFontSize.toString(), newFontSize.toString())
@@ -31,10 +31,10 @@ class AppearanceSettingInteractionEvent(private var source: InvokeSource) {
     @Suppress("unused")
     @Serializable
     @SerialName("/analytics/mobile_apps/android_app_appearance_settings_interaction/1.0.0")
-    class AppearanceSettingInteractionEventImpl(private var action: String,
+    class AppearanceSettingInteractionEventImpl(private val action: String,
                                                 @SerialName("is_anon") private val isAnon: Boolean,
-                                                @SerialName("current_value") private var currentValue: String,
-                                                @SerialName("new_value") private var newValue: String,
-                                                private var source: String) :
+                                                @SerialName("current_value") private val currentValue: String,
+                                                @SerialName("new_value") private val newValue: String,
+                                                private val source: String) :
         MobileAppsEvent("android.app_appearance_settings_interaction")
 }

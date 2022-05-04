@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.auth.AccountUtil
 
-class ArticleFindInPageInteractionEvent(private var wikiDb: String, private var pageId: Int) :
+class ArticleFindInPageInteractionEvent(private val wikiDb: String, private val pageId: Int) :
     TimedEvent() {
 
     private var numFindNext = 0
@@ -28,12 +28,12 @@ class ArticleFindInPageInteractionEvent(private var wikiDb: String, private var 
     @Serializable
     @SerialName("/analytics/mobile_apps/android_find_in_page_interaction/1.0.0")
     class ArticleFindInPageInteractionEventImpl(@SerialName("is_anon") private val isAnon: Boolean,
-                                                @SerialName("wiki_db") private var wikiDb: String,
-                                                @SerialName("page_id") private var pageId: Int,
-                                                @SerialName("find_text") private var findText: String,
-                                                @SerialName("find_next_clicks_count") private var findNextClicksCount: Int,
-                                                @SerialName("find_prev_clicks_count") private var findPrevClicksCount: Int,
-                                                @SerialName("page_height") private var pageHeight: Int,
-                                                @SerialName("time_spent_ms") private var timeSpentMs: Int) :
+                                                @SerialName("wiki_db") private val wikiDb: String,
+                                                @SerialName("page_id") private val pageId: Int,
+                                                @SerialName("find_text") private val findText: String,
+                                                @SerialName("find_next_clicks_count") private val findNextClicksCount: Int,
+                                                @SerialName("find_prev_clicks_count") private val findPrevClicksCount: Int,
+                                                @SerialName("page_height") private val pageHeight: Int,
+                                                @SerialName("time_spent_ms") private val timeSpentMs: Int) :
         MobileAppsEvent("android.find_in_page_interaction")
 }
