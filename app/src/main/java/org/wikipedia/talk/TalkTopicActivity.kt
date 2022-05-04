@@ -139,7 +139,17 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        menu?.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
+        menu?.let {
+            it.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
+            if (viewModel.isExpandable) {
+                val fullyExpanded = viewModel.isFullyExpanded
+                it.findItem(R.id.menu_talk_topic_expand)?.isVisible = !fullyExpanded
+                it.findItem(R.id.menu_talk_topic_collapse)?.isVisible = fullyExpanded
+            } else {
+                it.findItem(R.id.menu_talk_topic_expand)?.isVisible = false
+                it.findItem(R.id.menu_talk_topic_collapse)?.isVisible = false
+            }
+        }
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -152,6 +162,18 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             }
             R.id.menu_edit_source -> {
                 requestEditSource.launch(EditSectionActivity.newIntent(this, viewModel.sectionId, null, viewModel.pageTitle))
+                true
+            }
+            R.id.menu_talk_topic_expand -> {
+                viewModel.expandOrCollapseAll(true).dispatchUpdatesTo(threadAdapter)
+                threadAdapter.notifyItemRangeChanged(0, threadAdapter.itemCount)
+                invalidateOptionsMenu()
+                true
+            }
+            R.id.menu_talk_topic_collapse -> {
+                viewModel.expandOrCollapseAll(false).dispatchUpdatesTo(threadAdapter)
+                threadAdapter.notifyItemRangeChanged(0, threadAdapter.itemCount)
+                invalidateOptionsMenu()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -194,6 +216,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
             }
         }
+        invalidateOptionsMenu()
     }
 
     private fun updateOnError(t: Throwable) {
@@ -240,6 +263,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         override fun onExpandClick(item: ThreadItem) {
             viewModel.toggleItemExpanded(item).dispatchUpdatesTo(threadAdapter)
+            invalidateOptionsMenu()
         }
 
         override fun onReplyClick(item: ThreadItem) {

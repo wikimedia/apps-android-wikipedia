@@ -1137,6 +1137,9 @@
   <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
   <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
   <string name="menu_option_edit_source">Menu option label for editing the page.</string>
+  <string name="talk_menu_copy_text">Menu label for copying the text of the current reply.</string>
+  <string name="talk_menu_expand_threads">Menu label for expanding all the threads in the conversation.</string>
+  <string name="talk_menu_collapse_threads">Menu label for collapsing all the threads in the conversation.</string>
   <string name="watchlist_details_watching_label">Label indicating that user is watching the article.</string>
   <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.\n\n{{Identical|Watch}}</string>
   <string name="watchlist_details_next_edit">Content description for the button that goes to the next edit history.</string>

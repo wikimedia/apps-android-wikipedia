@@ -36,6 +36,15 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     var undoBody: CharSequence? = null
     var undoTopicId: String? = null
 
+    val isExpandable: Boolean get() {
+        topic?.allReplies?.forEach { if (it.level > 1) return true }
+        return false
+    }
+
+    val isFullyExpanded: Boolean get() {
+        return flattenedThreadItems.size == topic?.allReplies?.size
+    }
+
     init {
         loadTopic()
     }
@@ -101,24 +110,34 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         val prevList = mutableListOf<ThreadItem>()
         prevList.addAll(flattenedThreadItems)
         item.isExpanded = !item.isExpanded
-
         updateFlattenedThreadItems()
+        return getDiffResult(prevList, flattenedThreadItems)
+    }
 
+    fun expandOrCollapseAll(expand: Boolean): DiffUtil.DiffResult {
+        val prevList = mutableListOf<ThreadItem>()
+        prevList.addAll(flattenedThreadItems)
+        topic?.allReplies?.forEach { if (it.level > 1) it.isExpanded = expand }
+        updateFlattenedThreadItems()
+        return getDiffResult(prevList, flattenedThreadItems)
+    }
+
+    private fun getDiffResult(prevList: List<ThreadItem>, newList: List<ThreadItem>): DiffUtil.DiffResult {
         return DiffUtil.calculateDiff(object : DiffUtil.Callback() {
             override fun getOldListSize(): Int {
                 return prevList.size
             }
 
             override fun getNewListSize(): Int {
-                return flattenedThreadItems.size
+                return newList.size
             }
 
             override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-                return prevList[oldItemPosition] == flattenedThreadItems[newItemPosition]
+                return prevList[oldItemPosition] == newList[newItemPosition]
             }
 
             override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-                return prevList[oldItemPosition].id == flattenedThreadItems[newItemPosition].id
+                return prevList[oldItemPosition].id == newList[newItemPosition].id
             }
         })
     }
