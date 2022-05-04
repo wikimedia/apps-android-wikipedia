@@ -7,125 +7,135 @@
     android:layout_height="match_parent"
     android:background="?android:colorBackground">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ToolbarTheme"
+            android:background="?paper_color"
+            app:layout_scrollFlags="scroll|enterAlways" >
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="8sp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:ellipsize="end"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/talkNestedScrollView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="?paper_color">
+                android:layout_height="match_parent">
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="?attr/actionBarSize"
-                    android:theme="@style/ToolbarTheme"
-                    app:layout_scrollFlags="scroll|enterAlways" >
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="?paper_color">
 
-                    <TextView
-                        android:id="@+id/toolbarTitle"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/talkRecyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:lineSpacingExtra="8sp"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:singleLine="true"
-                        android:ellipsize="end"/>
+                        android:scrollbars="vertical"/>
 
-                </androidx.appcompat.widget.Toolbar>
+                    <include android:id="@+id/talkFooter"
+                        layout="@layout/view_talk_topic_footer"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/talkRecyclerView"
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <FrameLayout
+                android:id="@+id/talkConditionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?paper_color">
+
+                <TextView
+                    android:id="@+id/talkSearchNoResult"
+                    style="@style/MaterialMediumSecondaryCaption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="?attr/actionBarSize"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/search_results_count_zero"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/talkEmptyContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="vertical"/>
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
-                <include android:id="@+id/talkFooter"
-                    layout="@layout/view_talk_topic_footer"/>
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:contentDescription="@null"
+                        app:srcCompat="@drawable/ic_user_talk"
+                        app:tint="?attr/material_theme_de_emphasised_color"/>
 
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+                    <TextView
+                        style="@style/MaterialMediumSecondaryCaption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/talk_page_empty" />
 
-        <FrameLayout
-            android:id="@+id/talkConditionContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="?paper_color">
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/talkSearchNoResult"
-                style="@style/MaterialMediumSecondaryCaption"
+                <org.wikipedia.views.WikiErrorView
+                    android:id="@+id/talkErrorView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical" />
+
+                <ProgressBar
+                    android:id="@+id/talkProgressBar"
+                    style="@style/Widget.AppCompat.ProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminate="true" />
+
+            </FrameLayout>
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/talkNewTopicButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/search_results_count_zero"
-                android:visibility="gone" />
-
-            <LinearLayout
-                android:id="@+id/talkEmptyContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="gone"
-                tools:visibility="visible">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_user_talk"
-                    app:tint="?attr/material_theme_de_emphasised_color"/>
-
-                <TextView
-                    style="@style/MaterialMediumSecondaryCaption"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/talk_page_empty" />
-
-            </LinearLayout>
-
-            <org.wikipedia.views.WikiErrorView
-                android:id="@+id/talkErrorView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical" />
-
-            <ProgressBar
-                android:id="@+id/talkProgressBar"
-                style="@style/Widget.AppCompat.ProgressBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:indeterminate="true" />
+                android:layout_gravity="bottom|end"
+                app:backgroundTint="?attr/colorAccent"
+                app:icon="@drawable/ic_add_gray_white_24dp"
+                app:iconTint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:text="@string/talk_new_topic" />
 
         </FrameLayout>
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/talkNewTopicButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_gravity="bottom|end"
-            app:backgroundTint="?attr/colorAccent"
-            app:icon="@drawable/ic_add_gray_white_24dp"
-            app:iconTint="@android:color/white"
-            android:textColor="@android:color/white"
-            android:text="@string/talk_new_topic" />
-
-    </FrameLayout>
+    </LinearLayout>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

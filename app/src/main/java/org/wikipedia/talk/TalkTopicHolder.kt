@@ -2,7 +2,6 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.graphics.Color
-import android.graphics.Typeface
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -27,7 +26,6 @@ class TalkTopicHolder internal constructor(
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
 
     private lateinit var threadItem: ThreadItem
-    private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private var itemPosition = -1
 
     fun bindItem(item: ThreadItem, position: Int) {
@@ -36,7 +34,6 @@ class TalkTopicHolder internal constructor(
         itemPosition = position
         binding.topicTitleText.text = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
         binding.topicTitleText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
-
         StringUtil.highlightAndBoldenText(binding.topicTitleText, viewModel.currentSearchQuery, true, Color.YELLOW)
         itemView.setOnClickListener(this)
 
@@ -59,11 +56,13 @@ class TalkTopicHolder internal constructor(
         // Last comment
         binding.topicContentText.text = RichTextUtil.stripHtml(allReplies.last().html).trim()
         binding.topicContentText.setTextColor(ResourceUtil.getThemedColor(context, if (threadItem.seen) android.R.attr.textColorTertiary else R.attr.primary_text_color))
+        StringUtil.highlightAndBoldenText(binding.topicContentText, viewModel.currentSearchQuery, true, Color.YELLOW)
 
         // Username with involved user number exclude the author
         val usersInvolved = allReplies.map { it.author }.distinct().size - 1
         val usernameText = allReplies.first().author + (if (usersInvolved > 1) " +$usersInvolved" else "")
         binding.topicUsername.text = usernameText
+        StringUtil.highlightAndBoldenText(binding.topicUsername, viewModel.currentSearchQuery, true, Color.YELLOW)
 
         // Amount of replies, exclude the topic in replies[].
         binding.topicReplyNumber.text = (allReplies.size - 1).toString()

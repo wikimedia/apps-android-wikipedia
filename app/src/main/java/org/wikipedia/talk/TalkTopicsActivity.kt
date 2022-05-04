@@ -322,20 +322,17 @@ class TalkTopicsActivity : BaseActivity() {
                 binding.talkNewTopicButton.alpha = 1.0f
                 binding.talkFooter.root.isVisible = true
             }
-            binding.talkRecyclerView.isVisible = true
+            binding.talkNestedScrollView.isVisible = true
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
         funnel?.logOpenTalk()
 
         invalidateOptionsMenu()
-        binding.toolbarTitle.isVisible = !goToTopic
-        binding.talkProgressBar.isVisible = goToTopic
-        binding.talkConditionContainer.isVisible = goToTopic
     }
 
     private fun updateOnError(t: Throwable) {
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-        binding.talkRecyclerView.isVisible = false
+        binding.talkNestedScrollView.isVisible = false
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code == 404) {
@@ -343,7 +340,6 @@ class TalkTopicsActivity : BaseActivity() {
             invalidateOptionsMenu()
         } else {
             binding.talkNewTopicButton.hide()
-            binding.talkFooter.root.isVisible = false
             binding.talkConditionContainer.isVisible = true
             binding.talkErrorView.isVisible = true
             binding.talkErrorView.setError(t)
@@ -351,10 +347,9 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun updateOnEmpty() {
-        binding.talkRecyclerView.isVisible = false
+        binding.talkNestedScrollView.isVisible = false
         binding.talkEmptyContainer.isVisible = true
         binding.talkConditionContainer.isVisible = true
-        binding.talkFooter.root.isVisible = false
         // Allow them to create a new topic anyway
         binding.talkNewTopicButton.show()
     }
