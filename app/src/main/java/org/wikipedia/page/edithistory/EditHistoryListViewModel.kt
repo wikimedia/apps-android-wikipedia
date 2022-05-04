@@ -195,7 +195,7 @@ class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return EditHistoryListViewModel(bundle) as T
         }
     }

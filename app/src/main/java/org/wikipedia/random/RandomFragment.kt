@@ -269,7 +269,7 @@ class RandomFragment : Fragment() {
     }
 
     private inner class EventBusConsumer : Consumer<Any> {
-        override fun accept(event: Any?) {
+        override fun accept(event: Any) {
             if (event is ArticleSavedOrDeletedEvent) {
                 if (!isAdded || topTitle == null) {
                     return
