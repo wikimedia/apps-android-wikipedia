@@ -111,10 +111,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
                 threadItems.sortBy { RichTextUtil.stripHtml(it.html) }
             }
             TalkTopicsSortOverflowView.SORT_BY_DATE_UPDATED_DESCENDING -> {
-                threadItems.sortByDescending { it.replies.lastOrNull()?.timestamp }
+                threadItems.sortByDescending { it.replies.lastOrNull()?.date }
             }
             TalkTopicsSortOverflowView.SORT_BY_DATE_UPDATED_ASCENDING -> {
-                threadItems.sortBy { it.replies.lastOrNull()?.timestamp }
+                threadItems.sortBy { it.replies.lastOrNull()?.date }
             }
         }
         return threadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true) ||
