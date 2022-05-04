@@ -6,7 +6,6 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import org.wikipedia.util.DateUtil
-import java.util.*
 
 @Serializable
 @Parcelize
@@ -24,6 +23,7 @@ class ThreadItem(
 ) : Parcelable {
     @IgnoredOnParcel @Transient var isExpanded = false
     @IgnoredOnParcel @Transient var isLastSibling = false
+    @IgnoredOnParcel @Transient var seen: Boolean = false
 
     @IgnoredOnParcel val allReplies: List<ThreadItem>
         get() {

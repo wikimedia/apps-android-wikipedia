@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
@@ -57,10 +58,10 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 binding.imageViewCentered.setImageDrawable(centeredImage)
                 if (imageSize > 0 && centeredImage != null && centeredImage.intrinsicHeight > 0) {
                     val aspect = centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
-                    val params = binding.imageViewCentered.layoutParams
-                    params.width = imageSize.toInt()
-                    params.height = (imageSize / aspect).toInt()
-                    binding.imageViewCentered.layoutParams = params
+                    binding.imageViewCentered.updateLayoutParams {
+                        width = imageSize.toInt()
+                        height = (imageSize / aspect).toInt()
+                    }
                 }
                 binding.primaryTextView.visibility = if (primaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.primaryTextView.text = primaryText

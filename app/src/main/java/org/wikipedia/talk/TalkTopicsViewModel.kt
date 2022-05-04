@@ -52,7 +52,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
         if (pageTitle == null) {
             return
         }
-        val pageTitle = pageTitle!!
+        val pageTitle = pageTitle?.copy()!!
 
         // Determine whether we need to resolve the PageTitle, since the calling activity might
         // have given us a non-Talk page, and we need to prepend the correct namespace.
@@ -110,8 +110,16 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
             TalkTopicsSortOverflowView.SORT_BY_TOPIC_NAME_ASCENDING -> {
                 threadItems.sortBy { RichTextUtil.stripHtml(it.html) }
             }
+            TalkTopicsSortOverflowView.SORT_BY_DATE_UPDATED_DESCENDING -> {
+                threadItems.sortByDescending { it.replies.lastOrNull()?.timestamp }
+            }
+            TalkTopicsSortOverflowView.SORT_BY_DATE_UPDATED_ASCENDING -> {
+                threadItems.sortBy { it.replies.lastOrNull()?.timestamp }
+            }
         }
-        return threadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true) }
+        return threadItems.filter { it.html.contains(currentSearchQuery.orEmpty(), true) ||
+                it.allReplies.any { reply -> reply.html.contains(currentSearchQuery.orEmpty(), true) ||
+                        reply.author.contains(currentSearchQuery.orEmpty(), true) } }
     }
 
     fun undoSave(newRevisionId: Long, topicId: String, undoneSubject: String, undoneBody: String) {
@@ -163,7 +171,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle?) : ViewModel() {
     fun markAsSeen(topicId: String?) {
         topicId?.let {
             viewModelScope.launch(editHandler) {
-                withContext(Dispatchers.IO) {
+                withContext(Dispatchers.Main) {
                     if (topicSeen(topicId)) {
                         talkPageDao.deleteTalkPageSeen(it)
                     } else {

@@ -31,6 +31,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityEditHistoryBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
@@ -68,6 +69,7 @@ class EditHistoryListActivity : BaseActivity() {
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
+    private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,6 +90,7 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareButton.setOnClickListener {
             viewModel.toggleCompareState()
             updateCompareState()
+            editHistoryInteractionEvent?.logCompare1()
         }
 
         binding.compareConfirmButton.setOnClickListener {
@@ -96,6 +99,7 @@ class EditHistoryListActivity : BaseActivity() {
                         viewModel.pageTitle, viewModel.selectedRevisionFrom!!.revId,
                         viewModel.selectedRevisionTo!!.revId))
             }
+            editHistoryInteractionEvent?.logCompare2()
         }
 
         binding.editHistoryRefreshContainer.setOnRefreshListener {
@@ -138,15 +142,18 @@ class EditHistoryListActivity : BaseActivity() {
 
         lifecycleScope.launchWhenCreated {
             viewModel.editHistoryStatsFlow.collectLatest {
+                if (editHistoryInteractionEvent == null) {
+                    editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
+                    editHistoryInteractionEvent?.logShowHistory()
+                }
                 editHistoryStatsAdapter.notifyItemChanged(0)
                 editHistorySearchBarAdapter.notifyItemChanged(0)
+            }
+        }
 
-                // Submit data after showing the stats and search bar.
-                lifecycleScope.launch {
-                    viewModel.editHistoryFlow.collectLatest {
-                        editHistoryListAdapter.submitData(it)
-                    }
-                }
+        lifecycleScope.launch {
+            viewModel.editHistoryFlow.collectLatest {
+                editHistoryListAdapter.submitData(it)
             }
         }
 
@@ -432,6 +439,7 @@ class EditHistoryListActivity : BaseActivity() {
             if (!viewModel.comparing) {
                 viewModel.toggleCompareState()
                 updateCompareState()
+                editHistoryInteractionEvent?.logCompare1()
             }
             toggleSelectState()
         }
@@ -539,7 +547,8 @@ class EditHistoryListActivity : BaseActivity() {
         const val INTENT_EXTRA_PAGE_TITLE = "pageTitle"
 
         fun newIntent(context: Context, pageTitle: PageTitle): Intent {
-            return Intent(context, EditHistoryListActivity::class.java).putExtra(FilePageActivity.INTENT_EXTRA_PAGE_TITLE, pageTitle)
+            return Intent(context, EditHistoryListActivity::class.java)
+                .putExtra(FilePageActivity.INTENT_EXTRA_PAGE_TITLE, pageTitle)
         }
     }
 }

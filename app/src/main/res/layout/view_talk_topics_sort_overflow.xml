@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/paper_color"
-        android:minWidth="200dp"
+        android:minWidth="220dp"
         android:orientation="vertical">
 
         <TextView
@@ -55,6 +55,46 @@
 
             <ImageView
                 android:id="@+id/sortByDatePublishedOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_right_alt_24px"
+                android:rotation="90"
+                android:contentDescription="@null"
+                android:visibility="gone"
+                app:tint="?android:attr/textColorSecondary"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/sortByDateUpdatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="13dp"
+            android:background="?android:selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/sortByDateUpdatedSelected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_black_24dp"
+                android:contentDescription="@null"
+                android:visibility="invisible"
+                android:layout_marginEnd="16dp"
+                app:tint="?attr/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/sortByDateUpdated"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:text="@string/talk_overflow_sort_date_updated"
+                android:textColor="?attr/material_theme_primary_color" />
+
+            <ImageView
+                android:id="@+id/sortByDateUpdatedOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_arrow_right_alt_24px"

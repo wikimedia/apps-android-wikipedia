@@ -30,17 +30,18 @@ import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edithistory.EditHistoryListActivity
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -58,7 +59,6 @@ class TalkTopicsActivity : BaseActivity() {
     private var funnel: TalkFunnel? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
-    private var revisionForLastEdit: MwQueryPage.Revision? = null
     private var goToTopic = false
 
     private val requestLanguageChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -104,7 +104,8 @@ class TalkTopicsActivity : BaseActivity() {
                     .setAction(R.string.talk_snackbar_undo) {
                         binding.talkNewTopicButton.isEnabled = false
                         binding.talkNewTopicButton.alpha = 0.5f
-                        binding.talkProgressBar.visibility = View.VISIBLE
+                        binding.talkProgressBar.isVisible = true
+                        binding.talkConditionContainer.isVisible = true
                         viewModel.undoSave(newRevisionId, topic, undoneSubject, undoneText)
                     }
                     .show()
@@ -126,7 +127,6 @@ class TalkTopicsActivity : BaseActivity() {
         goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
         binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true))
         binding.talkRecyclerView.adapter = TalkTopicItemAdapter()
 
@@ -152,6 +152,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         binding.talkRefreshView.setOnRefreshListener {
+            binding.talkRefreshView.isRefreshing = false
             funnel?.logRefresh()
             resetViews()
             viewModel.loadTopics()
@@ -160,14 +161,10 @@ class TalkTopicsActivity : BaseActivity() {
 
         invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
 
-        binding.talkNewTopicButton.visibility = View.GONE
+        binding.talkNewTopicButton.isVisible = false
 
-        binding.talkLastModified.visibility = View.GONE
-        binding.talkLastModified.setOnClickListener {
-            revisionForLastEdit?.let {
-                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle, it.revId))
-            }
-        }
+        binding.talkFooter.root.isVisible = false
+
         notificationButtonView = NotificationButtonView(this)
         Prefs.hasAnonymousNotification = false
 
@@ -232,8 +229,7 @@ class TalkTopicsActivity : BaseActivity() {
                 return true
             }
             R.id.menu_view_user_page -> {
-                val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
-                startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
+                goToPage()
                 return true
             }
             R.id.menu_view_edit_history -> {
@@ -255,29 +251,44 @@ class TalkTopicsActivity : BaseActivity() {
     private fun resetViews() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode)
-        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
-        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
-        binding.toolbarTitle.isVisible = !goToTopic
-        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
+        setToolbarTitle(pageTitle)
 
         binding.talkProgressBar.isVisible = true
-        binding.talkErrorView.visibility = View.GONE
-        binding.talkEmptyContainer.visibility = View.GONE
+        binding.talkErrorView.isVisible = false
+        binding.talkEmptyContainer.isVisible = false
+        binding.talkConditionContainer.isVisible = true
     }
 
     private fun updateOnSuccess(pageTitle: PageTitle, threadItems: List<ThreadItem>, lastModifiedResponse: MwQueryResponse) {
         // Update page title and start the funnel
         this.pageTitle = pageTitle
         funnel = TalkFunnel(pageTitle, invokeSource)
-        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+        setToolbarTitle(pageTitle)
 
         // Update last modified date
         lastModifiedResponse.query?.firstPage()?.revisions?.firstOrNull()?.let { revision ->
-            revisionForLastEdit = revision
-            binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
+            binding.talkFooter.lastModifiedText.text = StringUtil.fromHtml(getString(R.string.talk_footer_last_modified,
                 DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp).time,
                     System.currentTimeMillis(), 0L), revision.user))
+
+            binding.talkFooter.viewEditHistoryContainer.setOnClickListener {
+                startActivity(ArticleEditDetailsActivity.newIntent(this, pageTitle, revision.revId))
+            }
         }
+
+        binding.talkFooter.viewPageContainer.setOnClickListener {
+            goToPage()
+        }
+
+        // Setup footer content
+        if (pageTitle.namespace() == Namespace.USER_TALK) {
+            binding.talkFooter.viewPageIcon.setImageResource(R.drawable.ic_user_avatar)
+            binding.talkFooter.viewPageTitle.text = getString(R.string.talk_footer_view_user_profile)
+        } else {
+            binding.talkFooter.viewPageIcon.setImageResource(R.drawable.ic_article_ltr_ooui)
+            binding.talkFooter.viewPageTitle.text = getString(R.string.talk_footer_view_article)
+        }
+        binding.talkFooter.viewPageContent.text = StringUtil.removeNamespace(pageTitle.displayText)
 
         if (intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)) {
             intent.putExtra(EXTRA_GO_TO_TOPIC, false)
@@ -298,32 +309,28 @@ class TalkTopicsActivity : BaseActivity() {
         if (threadItems.isEmpty()) {
             updateOnEmpty()
         } else {
-            binding.talkErrorView.visibility = View.GONE
+            binding.talkErrorView.isVisible = false
+            binding.talkConditionContainer.isVisible = false
             if (actionMode != null) {
                 binding.talkNewTopicButton.hide()
-                binding.talkLastModified.visibility = View.GONE
+                binding.talkFooter.root.isVisible = false
             } else {
                 binding.talkNewTopicButton.show()
                 binding.talkNewTopicButton.isEnabled = true
                 binding.talkNewTopicButton.alpha = 1.0f
-                binding.talkLastModified.visibility = View.VISIBLE
+                binding.talkFooter.root.isVisible = true
             }
-            binding.tabLayout.visibility = if (actionMode != null) View.GONE else View.VISIBLE
-            binding.talkRecyclerView.visibility = View.VISIBLE
+            binding.talkNestedScrollView.isVisible = true
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
         funnel?.logOpenTalk()
 
         invalidateOptionsMenu()
-        binding.toolbarTitle.isVisible = !goToTopic
-        binding.talkProgressBar.isVisible = !goToTopic
-        binding.talkProgressBar.visibility = View.GONE
-        binding.talkRefreshView.isRefreshing = false
     }
 
     private fun updateOnError(t: Throwable) {
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
-        binding.talkRecyclerView.visibility = View.GONE
+        binding.talkNestedScrollView.isVisible = false
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code == 404) {
@@ -331,16 +338,16 @@ class TalkTopicsActivity : BaseActivity() {
             invalidateOptionsMenu()
         } else {
             binding.talkNewTopicButton.hide()
-            binding.talkLastModified.visibility = View.GONE
-            binding.talkErrorView.visibility = View.VISIBLE
+            binding.talkConditionContainer.isVisible = true
+            binding.talkErrorView.isVisible = true
             binding.talkErrorView.setError(t)
         }
     }
 
     private fun updateOnEmpty() {
-        binding.talkRecyclerView.visibility = View.GONE
-        binding.talkEmptyContainer.visibility = View.VISIBLE
-        binding.talkLastModified.visibility = View.GONE
+        binding.talkNestedScrollView.isVisible = false
+        binding.talkEmptyContainer.isVisible = true
+        binding.talkConditionContainer.isVisible = true
         // Allow them to create a new topic anyway
         binding.talkNewTopicButton.show()
     }
@@ -348,6 +355,17 @@ class TalkTopicsActivity : BaseActivity() {
     private fun updateOnUndoSave(topicId: String, undoneSubject: String, undoneBody: String) {
         // TODO: discuss this
         startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource))
+    }
+
+    private fun setToolbarTitle(pageTitle: PageTitle) {
+        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
+        binding.toolbarTitle.isVisible = !goToTopic
+        binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
+            goToPage()
+        }
+        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
+        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
     }
 
     fun updateNotificationDot(animate: Boolean) {
@@ -359,6 +377,15 @@ class TalkTopicsActivity : BaseActivity() {
         } else {
             notificationButtonView.setUnreadCount(0)
         }
+    }
+
+    private fun goToPage() {
+        val entry = if (pageTitle.namespace() == Namespace.USER_TALK) {
+            HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
+        } else {
+            HistoryEntry(PageTitle(pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
+        }
+        startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
     }
 
     internal inner class TalkTopicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -428,7 +455,7 @@ class TalkTopicsActivity : BaseActivity() {
             MenuItemCompat.setActionProvider(menuItem, searchActionProvider)
 
             actionMode = mode
-            binding.talkLastModified.isVisible = false
+            binding.talkFooter.root.isVisible = false
             binding.talkNewTopicButton.hide()
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             return super.onCreateActionMode(mode, menu)
@@ -438,6 +465,7 @@ class TalkTopicsActivity : BaseActivity() {
             viewModel.currentSearchQuery = s
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             binding.talkSearchNoResult.isVisible = binding.talkRecyclerView.adapter?.itemCount == 0
+            binding.talkConditionContainer.isVisible = binding.talkSearchNoResult.isVisible
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
@@ -446,7 +474,8 @@ class TalkTopicsActivity : BaseActivity() {
             viewModel.currentSearchQuery = null
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
             binding.talkNewTopicButton.show()
-            binding.talkLastModified.isVisible = true
+            binding.talkFooter.root.isVisible = true
+            binding.talkConditionContainer.isVisible = false
             binding.talkSearchNoResult.isVisible = false
         }
 

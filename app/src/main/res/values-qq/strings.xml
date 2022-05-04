@@ -1108,6 +1108,7 @@
   <string name="talk_search_hint">Hint for the talk page search bar.</string>
   <string name="talk_overflow_sort_by">Header text of the sort menu.</string>
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
+  <string name="talk_overflow_sort_date_updated">Menu item label for sorting the list by the updated date.</string>
   <string name="talk_overflow_sort_topic_name">Menu item label for sorting the list by the topic name.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Button label for showing one reply to the current thread.</item>
@@ -1131,6 +1132,11 @@
   <string name="talk_list_item_user_icon_content_description">Content description of the user icon.</string>
   <string name="talk_list_item_swipe_mark_as_read">Label text for the swipe gesture that markes the item as read.</string>
   <string name="talk_list_item_swipe_mark_as_unread">Label text for the swipe gesture that markes the item as unread.</string>
+  <string name="talk_footer_about_this_talk_page">Title text for the footer section in the talk page.</string>
+  <string name="talk_footer_view_edit_history">Label text for view edit history option.</string>
+  <string name="talk_footer_view_user_profile">Label text for view user profile option.</string>
+  <string name="talk_footer_view_article">Label text for view article option.</string>
+  <string name="talk_footer_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.\n\nShould be similar to this MediaWiki messages such as this: {{msg-mw|Mobile-frontend-last-modified-with-user-hours}}</string>
   <string name="menu_option_share_talk_discussion">Label text for menu option to share a talk topic discussion.</string>
   <string name="menu_option_share_talk_page">Label text for menu option to share the talk page.</string>
   <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
