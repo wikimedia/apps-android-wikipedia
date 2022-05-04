@@ -11,16 +11,11 @@ import android.util.AttributeSet
 import android.view.*
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
-import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageActivity
-import org.wikipedia.page.PageTitle
-import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.*
 
 @SuppressLint("RestrictedApi")

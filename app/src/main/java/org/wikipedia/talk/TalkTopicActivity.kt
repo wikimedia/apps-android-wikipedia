@@ -248,7 +248,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         override fun onShareClick(item: ThreadItem) {
             val title = viewModel.pageTitle.copy()
-            title.fragment = item.name
+            title.fragment = item.id
             ShareUtil.shareText(this@TalkTopicActivity, title)
         }
     }
