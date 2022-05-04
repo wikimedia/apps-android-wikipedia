@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit
 object NotificationDirectReplyHelper {
     const val DIRECT_REPLY_EDIT_COMMENT = "#directreply-1.0"
 
+    // TODO: update this to use DiscussionTools API, and enable.
     fun handleReply(context: Context, wiki: WikiSite, title: PageTitle, replyText: String,
                     replyTo: String, notificationId: Int) {
         Toast.makeText(context, context.getString(R.string.notifications_direct_reply_progress, replyTo), Toast.LENGTH_SHORT).show()
@@ -41,11 +42,9 @@ object NotificationDirectReplyHelper {
                 if (topic == null || title.fragment.isNullOrEmpty()) {
                     Observable.just(Edit())
                 } else {
-                    val topicDepth = topic.replies?.lastOrNull()?.depth ?: 0
-                    val body = TalkTopicActivity.addDefaultFormatting(replyText, topicDepth)
                     ServiceFactory.get(wiki).postEditSubmit(
                         title.prefixedText, topic.id.toString(), null,
-                        DIRECT_REPLY_EDIT_COMMENT, if (AccountUtil.isLoggedIn) "user" else null, null, body,
+                        DIRECT_REPLY_EDIT_COMMENT, if (AccountUtil.isLoggedIn) "user" else null, null, replyText,
                         pair.second.revision, pair.first, null, null
                     )
                 }

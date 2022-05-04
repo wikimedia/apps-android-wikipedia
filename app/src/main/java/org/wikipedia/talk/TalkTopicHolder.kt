@@ -11,25 +11,24 @@ import org.wikipedia.databinding.ItemTalkTopicBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.TalkTopicsActionsOverflowView
 
 class TalkTopicHolder internal constructor(
-    private val binding: ItemTalkTopicBinding,
-    private val context: Context,
-    private val pageTitle: PageTitle,
-    private val viewModel: TalkTopicsViewModel,
-    private val invokeSource: Constants.InvokeSource
+        private val binding: ItemTalkTopicBinding,
+        private val context: Context,
+        private val pageTitle: PageTitle,
+        private val viewModel: TalkTopicsViewModel,
+        private val invokeSource: Constants.InvokeSource
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
 
     private lateinit var threadItem: ThreadItem
     private var itemPosition = -1
 
     fun bindItem(item: ThreadItem, position: Int) {
-        item.seen = viewModel.topicSeen(item.id)
+        item.seen = viewModel.topicSeen(item.name)
         threadItem = item
         itemPosition = position
         binding.topicTitleText.text = RichTextUtil.stripHtml(threadItem.html).trim().ifEmpty { context.getString(R.string.talk_no_subject) }
@@ -68,9 +67,9 @@ class TalkTopicHolder internal constructor(
         binding.topicReplyNumber.text = (allReplies.size - 1).toString()
 
         // Last comment date
-        val lastCommentDate = allReplies.maxByOrNull { it.timestamp }?.timestamp?.run { DateUtil.getDateAndTime(DateUtil.iso8601DateParse(this)) }
+        val lastCommentDate = allReplies.mapNotNull { it.date }.maxByOrNull { it }
         binding.topicLastCommentDate.text = context.getString(R.string.talk_list_item_last_comment_date, lastCommentDate)
-        binding.topicLastCommentDate.isVisible = !lastCommentDate.isNullOrEmpty()
+        binding.topicLastCommentDate.isVisible = lastCommentDate != null
 
         // Overflow menu
         binding.topicOverflowMenu.setOnClickListener {
@@ -80,7 +79,7 @@ class TalkTopicHolder internal constructor(
 
     override fun onClick(v: View?) {
         markAsSeen()
-        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, threadItem.id, invokeSource))
+        context.startActivity(TalkTopicActivity.newIntent(context, pageTitle, threadItem.name, invokeSource))
     }
 
     override fun onSwipe() {
@@ -88,7 +87,7 @@ class TalkTopicHolder internal constructor(
     }
 
     private fun markAsSeen() {
-        viewModel.markAsSeen(threadItem.id)
+        viewModel.markAsSeen(threadItem.name)
         bindingAdapter?.notifyItemChanged(itemPosition)
     }
 

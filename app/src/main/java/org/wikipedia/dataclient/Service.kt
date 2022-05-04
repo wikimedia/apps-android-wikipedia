@@ -278,14 +278,6 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
-    fun postUndoEdit(
-        @Field("title") title: String,
-        @Field("undo") revision: Long,
-        @Field("token") token: String
-    ): Observable<Edit>
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=edit")
     suspend fun postUndoEdit(
             @Field("title") title: String,
             @Field("summary") summary: String? = null,
@@ -483,12 +475,13 @@ interface Service {
             @Query("page") page: String
     ): DiscussionToolsInfoResponse
 
-    @GET(MW_API_PREFIX + "action=discussiontoolssubscribe")
+    @POST(MW_API_PREFIX + "action=discussiontoolssubscribe")
+    @FormUrlEncoded
     suspend fun subscribeTalkPageTopic(
-            @Query("page") page: String,
-            @Query("commentname") topicName: String,
-            @Query("token") token: String,
-            @Query("subscribe") subscribe: Boolean,
+            @Field("page") page: String,
+            @Field("commentname") topicName: String,
+            @Field("token") token: String,
+            @Field("subscribe") subscribe: Boolean?,
     ): DiscussionToolsSubscribeResponse
 
     @GET(MW_API_PREFIX + "action=discussiontoolsgetsubscriptions")

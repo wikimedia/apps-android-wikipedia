@@ -9,11 +9,20 @@
         android:title="@string/nav_item_more"
         app:showAsAction="always">
         <menu>
-
+            <item
+                android:id="@+id/menu_talk_topic_expand"
+                android:icon="@drawable/ic_expand_24"
+                android:title="@string/talk_menu_expand_threads"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/menu_talk_topic_collapse"
+                android:icon="@drawable/ic_collapse_24"
+                android:title="@string/talk_menu_collapse_threads"
+                app:showAsAction="never" />
             <item
                 android:id="@+id/menu_talk_topic_share"
                 android:icon="@drawable/ic_share_material_secondary_themed"
-                android:title="@string/menu_option_share_talk_discussion"
+                android:title="@string/talk_list_item_overflow_share"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_edit_source"

@@ -92,12 +92,12 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private val requestNewTopic = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == TalkTopicActivity.RESULT_EDIT_SUCCESS) {
+        if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
             val newRevisionId = it.data?.getLongExtra(TalkTopicActivity.RESULT_NEW_REVISION_ID, 0) ?: 0
             // TODO: fix this
             val topic = it.data?.getStringExtra(TalkTopicActivity.EXTRA_TOPIC) ?: ""
-            val undoneSubject = it.data?.getStringExtra(TalkTopicActivity.EXTRA_SUBJECT) ?: ""
-            val undoneText = it.data?.getStringExtra(TalkTopicActivity.EXTRA_BODY) ?: ""
+            val undoneSubject = it.data?.getStringExtra(TalkReplyActivity.EXTRA_SUBJECT) ?: ""
+            val undoneText = it.data?.getStringExtra(TalkReplyActivity.EXTRA_BODY) ?: ""
             if (newRevisionId > 0) {
                 FeedbackUtil.makeSnackbar(this, getString(R.string.talk_new_topic_submitted), FeedbackUtil.LENGTH_DEFAULT)
                     .setAnchorView(binding.talkNewTopicButton)
@@ -114,9 +114,7 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private val requestGoToTopic = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == TalkTopicActivity.RESULT_BACK_FROM_TOPIC) {
-            finish()
-        }
+        finish()
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -150,7 +148,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel?.logNewTopicClick()
-            requestNewTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource))
+            requestNewTopic.launch(TalkReplyActivity.newIntent(this@TalkTopicsActivity, pageTitle, null, invokeSource))
         }
 
         binding.talkRefreshView.setOnRefreshListener {
@@ -302,7 +300,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }
             }
             if (threadItem != null) {
-                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadItem.id, invokeSource))
+                requestGoToTopic.launch(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, threadItem.name, invokeSource))
                 overridePendingTransition(0, 0)
                 return
             }
@@ -357,7 +355,7 @@ class TalkTopicsActivity : BaseActivity() {
 
     private fun updateOnUndoSave(topicId: String, undoneSubject: String, undoneBody: String) {
         // TODO: discuss this
-        startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource, undoneSubject, undoneBody))
+        startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, topicId, invokeSource))
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
@@ -496,8 +494,6 @@ class TalkTopicsActivity : BaseActivity() {
         private const val ITEM_TOPIC = 1
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
-        // TODO: fix this
-        const val NEW_TOPIC_ID = ""
 
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)

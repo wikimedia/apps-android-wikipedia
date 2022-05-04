@@ -1110,6 +1110,18 @@
   <string name="talk_overflow_sort_date_published">Menu item label for sorting the list by the published date.</string>
   <string name="talk_overflow_sort_date_updated">Menu item label for sorting the list by the updated date.</string>
   <string name="talk_overflow_sort_topic_name">Menu item label for sorting the list by the topic name.</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Button label for showing one reply to the current thread.</item>
+    <item quantity="other">Button label for showing replies to the current thread. The %d symbol is replaced with the number of replies.</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Button label for hiding one reply to the current thread.</item>
+    <item quantity="other">Button label for hiding replies to the current thread. The %d symbol is replaced with the number of replies.</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Message shown when the user subscribes to a talk thread. The %s symbol is replaced with the thread title.</string>
+  <string name="talk_thread_unsubscribed_from">Message shown when the user unsubscribes from a talk thread. The %s symbol is replaced with the thread title.</string>
+  <string name="talk_tab_discussions">Tab label for the discussions in the talk page.</string>
+  <string name="talk_tab_archived">Tab label for the archived discussions in the talk page.</string>
   <string name="talk_list_item_overflow_subscribe">Menu option label for the talk topic item to subscribe to the topic.</string>
   <string name="talk_list_item_overflow_subscribed">Menu option label for the talk topic item to unsubscribe to the topic.</string>
   <string name="talk_list_item_overflow_mark_as_read">Menu option label for the talk topic item to mark it as read.</string>
@@ -1131,6 +1143,9 @@
   <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
   <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
   <string name="menu_option_edit_source">Menu option label for editing the page.</string>
+  <string name="talk_menu_copy_text">Menu label for copying the text of the current reply.</string>
+  <string name="talk_menu_expand_threads">Menu label for expanding all the threads in the conversation.</string>
+  <string name="talk_menu_collapse_threads">Menu label for collapsing all the threads in the conversation.</string>
   <string name="watchlist_details_watching_label">Label indicating that user is watching the article.</string>
   <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.\n\n{{Identical|Watch}}</string>
   <string name="watchlist_details_next_edit">Content description for the button that goes to the next edit history.</string>
